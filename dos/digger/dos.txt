@@ -1,0 +1,313 @@
+Information about the DOS version
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Q: Help me! It runs too fast (or too slow)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+This version of Digger now uses your computer's internal timing chip
+for all its timing, so it should run at exactly the same speed
+on all machines (for a given speed setting), no matter what how much
+action is happening on the screen. The only exception is that
+if there is more action on screen than your computer can handle,
+it will run too slowly (as happened with the original game on
+a 4.77MHz machine). You won't notice this effect unless you have
+a very slow computer or are running Digger at an extremely high speed.
+Using the CGA graphics rather than the VGA ones will speed things up
+in this case.
+
+You can speed up or slow down the game depending on your personal
+preference. To do this, simply specify the speed on the command line.
+The default is 40, higher numbers give slower speeds, lower numbers
+(1 being the lowest) give faster speeds. You can also adjust the speed
+whilst the game is in progress using the + and - keys.
+
+If you're good at the game you might like to try playing it at a faster speed.
+
+If you use a really slow speed like 500, you may have to hold the keys
+down for longer to get it to do anything.
+
+Note that the music and sound effects are independent of this speed setting.
+
+If you are used to playing Digger on a slower computer, you might
+notice an apparent increase in speed as more monsters appear on screen.
+This is a psychological illusion! If you notice this, it means that
+your subconscious has been counting the number of monsters on
+the screen and adjusting the apparent speed to compensate!
+This effect will disappear after playing the new version for
+a while. However, if there is demand I could put in a feature
+to actually slow down the game more when there is more action on the screen.
+
+Q: How do I specify command line arguments?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Normally, you start the game by typing "DIGGER" at the DOS prompt
+and pressing enter. To specify command line arguments, just type
+them after the word "DIGGER", i.e. "DIGGER /C 20" to play in CGA
+at double speed.
+
+If you're not running the game from DOS, see the platform-specific
+information, below.
+
+Hopefully in the future there will be user friendly menus which
+will mean you never need to use the command line.
+
+Q: Why doesn't the unlimited lives option work?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+It does, it just doesn't do what you think it does. Unlimited lives
+does not mean infinite lives. Unlimited lives means you can collect
+as many extra lives (you get one every 20,000 points by default)
+as you like, not that you can die as much as you like without
+the game being over. If you don't enable the unlimited lives option,
+you can only collect 4 "spare" lives, as you could in the original Digger.
+
+If you want to live forever, try using the option /G:3599, which
+will give you an hour's play with as many lives as you like, after
+which time you will probably be bored anyway.
+
+Command line options
+~~~~~~~~~~~~~~~~~~~~
+The command line options are:
+/S:n		Set speed to n.
+/L:name		Use level file "name".
+/C		Use CGA graphics - these are faster than VGA but this is
+		only really noticeable if you have a slower computer or
+		are playing at high speeds.
+/B		Use CGA graphics with BIOS palette functions (try this
+		if the palette doesn't work properly with the /C option,
+		but be warned: it might cause a crash if you get a high score).
+/Q		Quiet mode (no sound at all) - use this if you're running
+		under Windows.
+/M		Turn background music off.
+/R:name		Record game to file "name".
+/P:name		Playback game file "name" and restart program.
+/E:name		Playback game file "name" and exit program.
+/O		Go back to the beginning of the command line and start again.
+		Handy for playing recorded games as screensavers.
+/K		Redefine keyboard. To redefine all the redefinable keys,
+		use /KA.
+/G:time		Gauntlet mode.
+/2		Put two diggers on screen at once.
+/?		Display this list.
+/A:1,port,irq,dma,rate,length
+		Use SoundBlaster sound, e.g. /A:1,220,7,1,20000,128.
+/V		Synchronize timing to screen refresh.
+/U		Allow unlimited lives.
+/I:level	Start on the specified level instead of level 1. You can't
+		go on the hall of fame if you use this option.
+
+/S and /L are optional (you can just specify a name and/or number) but
+are harmless, and will help to prevent confusion (especially if you
+have a level data file called something like "20.DLF").
+
+/Q and /M don't completely disable sound and music, you can still
+toggle them with the F9 and F7 keys.
+
+/K lets you choose the keys you want to use to play the game with.
+Normally, the program will let you redefine the keys to move Digger
+around and fire, but if you override another key (by making
+the space bar fire, for example) other keys will be redefined.
+If you specify the /K option, the program enters keyboard redefinition
+mode before the title screen appears. In keyboard redefinition mode,
+the name of each action which needs a key comes up on the screen in red,
+and changes to green once you've pressed the key for that action.
+Note that the name of the key does not appear on the screen:
+it would be too complicated to program Digger with knowledge
+of all known keyboard layouts. However, I may program it with
+knowledge of some of the keys in a future version. I do not recommend
+redefining N, Esc or F8 as anything else, as these keys cannot
+currently be redefined so this could cause confusion. To return
+all the keys to their defaults, delete the DIGGER.INI file.
+
+/G starts Gauntlet mode: infinite lives but only finite time. You can
+specify a time on the command line, for example DIGGER /G:60 for one
+minute play. If you don't specify a time it defaults to 2 minutes.
+You can have anything up to 1 hour. Countdown stops when you pause
+and between levels, but not when you die (so you get a time penalty
+of 5 seconds or so (depending on the game speed) each time you die).
+Instead of an extra life at 20,000 points you get 15 extra seconds.
+When playing back a recorded Gauntlet game be sure to play it back
+with the same speed it was recorded, or the timer will be wrong.
+If you play it back at a slower speed it will timeout before it's
+supposed to. High scores in Gauntlet mode are saved in the same file
+as the normal scores, but are separate. This same table is used
+no matter what Gauntlet time is used. Gauntlet mode is currently
+one player only. Thanks to Marek Zgadzaj for this idea - he played
+a hacked version of the original Digger to do the same thing.
+
+/2 starts two player simultaneous mode. The first time you do this
+you will probably want to use the command line DIGGER /2 /K as
+the default player 1 keys use both sides of the keyboard and you
+will probably want them to be only on one side. Two player mode
+can be used with Gauntlet mode. The scores are saved separately
+from the one player modes. The two player simultaneous game has
+not quite been finalised yet - the rules may change slightly.
+Recording works, but games recorded with this version might not
+play back with future versions. When one digger dies the other
+can continue, and after a while the digger that died will be
+reincarnated (if he has any lives left). He will flash for a short
+time after being reincarnated. During this time, he is invincible.
+
+/A may eventually be used to enable many different sound cards.
+However, the only one currently supported is SoundBlaster, but most
+sound cards seem to be able emulate this one. If you do not have
+a genuine SoundBlaster card, ensure that your sound card is set up
+to emulate SoundBlaster before you run the game. How you do this
+will depend on your card. If you've set up games before, you should
+know how to do this. You should also know the port address, IRQ number
+and DMA channel that your card uses. Factory defaults are usually 220,7,1.
+To enable SoundBlaster sound, use the /A option as follows:
+/A:1,220,7,1,20000,128. The first "1", after the colon, means SoundBlaster.
+No other values for the first option have any meaning at the moment.
+The second "1" (the fourth option) is the DMA channel, so if you use
+port 210, IRQ 5 and DMA channel 3, the option is /A:1,210,5,3,20000,128.
+The 20000 is the sample rate (this means 20,000 samples per second).
+You can change this: higher numbers give better sound quality, but if
+this number is too high the sound may break up. The last option is
+the buffer length. If the sound is breaking up you can try increasing
+this instead of decreasing the sample rate. If the sound seems to "lag"
+behind the action, decrease this value.
+
+/U gives you the ability to save up as many lives as you like. See the FAQ
+section for more information about this.
+
+There are two ways to record your game: either give Digger a filename
+when you load it, or press F8 once your game is over. The filename
+used if none is specified on the command line is composed of your
+score and the initials you entered if you got a high score.
+Bear in mind that any previously saved games in this file will be
+overwritten unless you rename or move the file first.
+
+To automatically save your game once it is finished, simply start
+Digger with a command such as DIGGER /R:DIGGER.DRF. Then,
+the last game you play before exiting to DOS will be saved
+to this file (in this case, DIGGER.DRF, although it can be anything
+you like). The recommended extension is .DRF (Digger Recorded File).
+Again, remember that only the last game played before exiting is kept.
+
+To playback the file, use either the /P or the /E option:
+DIGGER /P:DIGGER.DRF or DIGGER /E:DIGGER.DRF. The only difference
+is that when the playback is finished, the /P option restarts
+the program so you can play normally, and the /E option exits
+to the operating system.
+
+If you specify both /P and /R (or /E and /R) on the command line
+(/R first), the playback itself is recorded, so some elementary
+editing of recorded game files can be done. Not enough to make
+it look like you've done better than you have, of course.
+
+To playback a file at a different speed, put the speed on the command
+line first. Command line arguments are processed in order. You can
+even play back multiple files at different speeds with the same command,
+such as DIGGER 20 /P:DATA1.DRF 10 /E:DATA2.DRF (plays DATA1.DRF
+at speed 20, then DATA2.DRF at speed 10, then exits). You can take
+control of a game that is playing by pressing Ctrl-T. However,
+you will not then be able to record that game (that would be cheating).
+
+Running on other platforms
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+Windows 3.1
+~~~~~~~~~~~
+This works fine, expect for the sound, which cases the game to crash
+when you complete the first level. To solve this problem, either use
+the /Q option to turn all the sound off, or the /A option to use
+the SoundBlaster card if you have one. Better still, exit Windows
+(by selecting "Exit Windows" from the program manager's File menu)
+before you play the game - the timing will be more accurate.
+
+To change the command line options, press Alt-Enter whilst the Digger
+icon in Program Manager is highlighted to get a box with the command line.
+
+Windows 95 and 98
+~~~~~~~~~~~~~~~~~
+This works fine apart from the fact that the first time you complete
+a level after loading the game, Windows interrupts and says:
+
+"Digger may not run well unless it is run in MS-DOS mode. Would you
+like to create a shortcut to this program that will run it in MS-DOS mode?"
+
+Press "No", and click on the minimized Digger button on the taskbar.
+
+To stop this from happening, create a shortcut to Digger.exe,
+right-click the shortcut, click "Properties", "Program", "Advanced..."
+and ensure that "Suggest MS-DOS mode as necessary" is unchecked.
+
+If you do run Digger in MS-DOS mode, there is a bug in Windows which
+sometimes causes the computer to only ever boot up to Digger, not
+to Windows. If this happens, make sure that you are exiting Digger
+with F10, not Alt-Ctrl-Del. If the behaviour continues, follow these steps:
+ * When the computer says "Starting Windows 95" or "Starting Windows 98"
+   immediately press F8 (you may have to try a few times to hit it
+   at exactly the right moment).
+ * At the menu, choose "Safe mode command prompt only".
+ * When the "C:\>" prompt appears, type "win /wx" (without the quotes)
+   and press Enter. The computer should then start normally.
+ * If it still doesn't work, restart the computer and do the same thing,
+   except choose "Safe mode" at the menu. When you get into Windows,
+   open Notepad and edit the files C:\Autoexec.bat and C:\Config.sys.
+   Delete any lines from those files that mention Digger and save them.
+   Then shut down and restart.
+
+If that doesn't work, try the instructions here . If you are running
+Windows 95 or 98 and the possibility of this happening scares you,
+don't run the DOS version at all - run the Windows version instead.
+
+To change the command line options, right-click your Digger shortcut
+icon, select "Properties" and there will be a command-line box which
+you can change in the same way as the DOS command line. Instead of
+saying just "DIGGER" it may say something like "C:\Games\Digger\Digger.exe"
+(depending on where you unzipped the Digger files to) but it's
+the same principle.
+
+Windows ME
+~~~~~~~~~~
+This OS is rather odd. It still interrupts when the "level completed"
+sound plays, and will even go so far as to change the shortcut to run
+it in DOS mode, but, since Microsoft removed DOS mode from ME,
+the shortcut won't work. Unfortunately, Microsoft didn't forget
+to take out the "Suggest MS-DOS mode as necessary" option from
+the shortcut properties dialog box, so it seems they've made only
+the mistakes which make it as difficult as possible to run Digger for DOS!
+
+However, it is possible to get Windows ME to avoid suggesting MS-DOS mode
+by using a PIF file created on Windows 95 or 98. here is a PIF file
+from Windows 98SE which should do the job. You should be able to modify
+the path it points to without affecting the "Suggest MS-DOS mode
+as necessary" flag. If not, open up your existing PIF file in
+a binary editor and change byte 0x1b0 from 0 to 4. Or just have
+to press "No" when it interrupts and carry on.
+
+The command line is modified in the same way as for Windows 95 and 98.
+
+Windows NT, 2000 and XP.
+
+There are some timing problems which will be fixed in the next release.
+Until then, I suggest you try one of the following things:
+ * Reboot to DOS with a floppy disk when you want to play DOS Digger.
+ * If you have a DOS/Win9x partition on your hard disk, reboot to that
+   to play DOS Digger.
+ * Play Windig instead.
+
+OS/2
+~~~~
+Digger can be run under OS/2 in a full-screen DOS session, but the music
+may be a little distorted. To fix it, set:
+
+HW_TIMER         ON
+IDLE_SENSITIVITY 100
+INT_DURING_IO    ON
+SESSION_PRIORITY 32
+
+OS/2 displays the Windows icon with no problems.
+
+Thanks to Mariusz Borkowski for this information.
+
+Emulators and virtual machines
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Digger Remastered has been successfully run under virtual machines
+(such as VMWare) and PC emulators (such as MESS) on various platforms.
+If you have problems running under a VM or emulator, I probably won't
+be able to help since these problems are more likely to be the fault
+of the VM or emulator than of Digger.
+
+Last resort
+~~~~~~~~~~~
+If you're using x86 hardware and can't get Digger to work with
+the above tips, you can always make a boot floppy, copy Digger
+to it, and reboot using that whenever you want to play Digger.

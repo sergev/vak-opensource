@@ -1,0 +1,22 @@
+
+Status  = 00500004
+IntCtl  = 00000000
+SRSCtl  = 04000000
+Cause   = b0800020
+PRId    = 00018765
+EBase   = 80000000
+CDMMBase= 00018765
+Config  = a4210582
+Config1 = 80000006
+Config2 = 80000000
+Config3 = 00000160
+Config4 = a4210582
+Config5 = 80000006
+Config7 = 00000160
+WatchHi = 00000001
+WatchHi1= 00000001
+WatchHi2= 00000001
+WatchHi3= 00000001
+Debug   = 02018020
+PerfCtl0= 00000001
+PerfCtl1= 00000001

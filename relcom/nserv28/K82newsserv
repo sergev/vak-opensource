@@ -1,0 +1,19 @@
+# Startup script for Usenet News server daemon
+
+start=/usr/spool/newsserv/bin/startup
+[ -r $start ] || exit             # module not installed
+
+case "$1" in
+'start')
+	if [ -x $start ] # only start if not running
+	then
+		ps -afe | grep "newsserv[/]bin/daemon" > /dev/null || $start > /dev/null 2>& 1 &
+	else
+		echo $0: /etc/${cmd} not found >/dev/console
+	fi
+	;;
+
+'stop')
+	/usr/spool/newsserv/bin/killdaemon
+esac
+

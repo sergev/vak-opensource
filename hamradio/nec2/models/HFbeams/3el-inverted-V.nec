@@ -1,0 +1,50 @@
+CM 3 element inverted V for 40m, one support,
+CM with reflector and director connected to guy-wires
+CE 
+'
+SY hgh=21		' Height tower
+SY len = 10.472		' Length radiator
+SY ang=110		' Angle between wires
+SY z=len*cos(ang/2), x=len*sin(ang/2)
+'
+GW	1	20	-X	0	hgh-Z	-0.1	0	hgh	#12 ' radius for #12 wire
+GW	2	1	-0.1	0	hgh	0.1	0	hgh	#12
+GW	3	20	0.1	0	hgh	X	0	hgh-z	#12
+
+GW	99	1	-0.1	0	1	0.1	0	1	#12
+
+'
+SY refl = 10.527 	' Lenght reflector
+SY refd = 6.8609	' Distance from radiator
+SY refa = 30		' Guy wire angle with XY plane
+'
+SY rzi = refd*sin(refa)	' Intermediate calculation values
+SY ry = refd*cos(refa)
+SY refh = hgh-rzi
+SY rz=refl*cos(ang/2), rx=refl*sin(ang/2)
+'
+GW	11	20	-rx	-ry	refh-rz	-0.1	-ry	refh	#12 ' radius for #12 wire
+GW	12	1	-0.1	-ry	refh	0.1	-ry	refh	#12
+GW	13	20	0.1	-ry	refh	rx	-ry	refh-rz	#12
+'
+SY dirl = 10.12		' Length reflector
+SY dird = 5.4		' Distance from radiator
+SY dira = 30		' Guy wire angle with XY plane
+'
+SY dzi = dird*sin(dira)
+SY dy = dird*cos(dira)
+SY dirh = hgh-dzi
+SY dz=dirl*cos(ang/2), dx=dirl*sin(ang/2)
+'
+GW	21	20	-dx	dy	dirh-dz	-0.1	dy	dirh	#12 ' radius for #12 wire
+GW	22	1	-0.1	dy	dirh	0.1	dy	dirh	#12
+GW	23	20	0.1	dy	dirh	dx	dy	dirh-dz	#12
+'
+GE
+'
+GN	2	0	0	0	14	.006	' Sommerfeld ground
+'TL	99	1	2	1	450
+'EX	0	99	1	0	1	0	' Voltage source
+EX	0	2	1	0	1	0	' Voltage source
+FR	0	1	0	0	7.05		' Design frequency
+EN

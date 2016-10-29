@@ -1,0 +1,182 @@
+Relcom & Usenet News mailserver.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This automatic mail server relays news articles from Relcom and USENET via
+usual E-mail.  If you want to use server you should send e-mail letter
+containing the list of commands to the address $$.
+Subject is ignored.  Command name can be in upper or lower case,
+all other arguments are case sensitive.
+
+Here comes brief description of available commands:
+
+HELP                    Send this file.  All subsequent commands are ignored.
+
+LIST                    Give the list of all news groups with
+			brief description.
+
+LIST hierarchy          Give the list of news groups from the given hierarchy.
+			For example, "list comp.sources".
+
+SUBSCRIBE group         Subscribe to group in notify mode.  Server will
+			periodically send you a list of commands to retrieve
+			new articles in the following format:
+
+			    GROUP news.answers
+			    -ART 100 size author subject
+
+			In order to get the articles you interested in
+			simply uncomment corresponding commands and send it
+			back to server.  Don't remove GROUP commands!
+
+FEED group              Subscribe to group in feed mode.  All new articles
+			from a group will be immediately sent to you.
+
+		    WARNING:
+			Never use feed mode if you're not completely sure
+			that you need *all* articles and your e-mail
+			connection is stable and permanent. This mode can
+			easily cause e-mail traffic jams making impossible
+			to send or receive any electronic mail at your machine.
+			This can result in disconnecting your machine from net
+			by some administrator, so be careful.
+
+RFEED size group        Subscribe to group in restricted feed mode.
+			All articles smaller than given size (in kilobytes)
+			will be sent to you as in feed mode.  Lists of bigger
+			articles will be sent to you as in notify mode.
+
+UNSUBSCRIBE group       Unsubscribe from group.
+
+UNSUBSCRIBE all         Unsubscribe from all groups.
+
+FORGET                  If you were subscribed to some groups, and later
+			unsubscribed, server continues to send you
+			lists of newly created or deleted news groups,
+			hoping that you might get interested in them.
+			To finally unconnect from server give
+			command FORGET.
+
+CHECK                   Show the list of groups you are subscribed to.
+
+GROUP group             Go to the group.  This group becames "current"
+			(for commands ARTICLE, INDEX, LINDEX).
+
+ARTICLE number          Send specified article.
+
+ARTICLE <message-id>    Send an article with specified message-id.
+
+INDEX [number [number]] Show list of articles in current group.
+			The format of the list is the same as in subscribe mode.
+			Arguments specify the range of article numbers.
+			Negative agrument means 'LAST - number'.
+
+			   INDEX          - all articles
+			   INDEX -20      - Last 20 articles
+			   INDEX 700 750  - articles in range 700...750
+
+LINDEX [number [number]] Show detailed list of articles in the following format:
+
+			    Issue: <article number>
+			    Subject: <subject>
+			    From: <author>
+			    Date: <date and time>
+			    Message-ID: <message-id>
+			    Size: <size in bytes>
+
+PACK                    Enable packing mode.  All articles sent to you
+			will be packed, compressed and encoded.
+			This will reduce the volume and the total number
+			of transmitted files.  This mode is highly
+			recommended.
+			You should unpack received batches by one of the
+			special utilities UNBATCH, UUNPACK or use mailer
+			BML, which decodes batches on the fly.
+			You can get the UNBATCH program (with sources)
+			for MSDOS by command
+
+			    SEND uunpack-dos
+
+			or for Unix 386
+
+			    SEND unbatch-386
+
+			or for Xenix 286
+
+			    SEND unbatch-286
+
+			If you need only sources of unpack programs
+			you can get them by
+
+			    SEND unpack-src
+			and
+			    SEND unbatch-src
+
+PACK OFF                Disable packing mode.
+
+SEND                    Show list of files available on request.
+			You can get these files by command SEND with parameters.
+
+SEND file               Get a file.  The following files are available:
+
+			    unbatch-dos  29k  program UNBATCH for MSDOS
+			    unbatch-386  42k  program UNBATCH for Unix 386
+			    unbatch-286  38k  program UNBATCH for Xenix 286
+			    unbatch-src  20k  sources of program UNBATCH
+			    uunpack-dos  23k  program UUNPACK for MSDOS
+			    uunpack-286  29k  program UUNPACK for Xenix 286
+			    uunpack-src  8k   sources of program UUNPACK
+
+GSTAT [hierarchy]       Get information about subscriptions on groups.
+			For each group is listed: name, number of articles
+			(approximately), and number of subscribers in
+			SUBSCRIBE, FEED and RFEED modes.
+
+USTAT [address]         Get information about user subscriptions.
+			User address is a regular expression in SH style.
+			For example, command "ustat alex@*" will print
+			information about users with name alex.
+			For each user is listed: name, total number of groups,
+			and number of subscriptions in SUBSCRIBE, FEED and
+			RFEED modes.
+
+TIME                    Print current date and time.
+
+AGING  OFF              Turn off aging of subscribers. Usially server
+			forget about silent user after 28 days of silence.
+
+AGING                   Turn on aging if it was turned off previously.
+
+QUIT                    Shows server that all commands are over.
+
+
+WARNING: don't use user name "uucp" or "news" to receive news -
+	 server ignores these names.
+
+In order to submit an article you should send the article with the
+header field "Newsgroups:" containing the comma-separated list of
+newsgroups (all newsgroups should be valid) to the address $$.
+
+The default distribution of the message is the whole world, so you should
+think twice before sending your article. Remember it will be read by
+thousands or millions of readers around the world, so your message
+should not be offensive, should not violate copyright laws. Never write
+things already written by somebody. It's better to restrict distribution
+area to be as small as possible. You can do it using
+the header field "Distribution:". Valid distributions are:
+
+	world, eunet, su, russia, moscow
+
+Example:
+	% mailx $$
+	Subject: testing
+	~: headline Newsgroups relcom.test
+	(continue)
+	~: headline Distribution su
+	(continue)
+		Twas brilling...
+	.
+	EOT
+	%
+
+Please send all questions to usenet@kiae.su.
+Bug reports and propositions please send to Serge Vakulenko, vak@kiae.su.

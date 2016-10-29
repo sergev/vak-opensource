@@ -1,0 +1,6 @@
+//~JUDOPROP~//$VERSION=1.1
+//~JUDOPROP~//$TITLE=Hello World
+//~JUDOPROP~//$TYPE=text
+void main() {
+	printLine("Hello, World!");
+}

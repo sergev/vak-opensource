@@ -1,0 +1,14 @@
+CM Example 2 :	Loaded dipole in free space
+CM 		See GetStarted.txt
+CE 					' End of comment
+'
+SY len=.4836				' Symbol: Length for WL/2
+'
+GW 1 9 0 -len/2 0 0 len/2 0 .0001	' Wire 1, 9 segments, halve wavelength long.
+GE 0					' End of geometry
+'
+LD 5 1 0 0 5.8001E7			' Wire conductivity
+'
+EX 0 1 5 0 1 0				' Voltage source (1+j0) at wire 1 segment 5.
+FR 0 1 0 0 300 0			' Set design frequency (300 Mc).
+EN					' End of NEC input

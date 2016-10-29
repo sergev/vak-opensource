@@ -1,0 +1,26 @@
+fun SIEVE(N)
+
+	PRIME := <* yes *> * N
+
+	for K from 2 to sqrt(N) + 0.5 do
+		if PRIME[K] then
+			for J from K+K to N step K do
+				PRIME[J] := no
+			od
+		fi
+	od
+
+	PRIME_NUMBERS := <* *>
+
+	for K from 2 to N do
+		if PRIME[K] then
+			PRIME_NUMBERS := PRIME_NUMBERS + <* K *>
+		fi
+	od
+
+	return PRIME_NUMBERS
+
+end
+
+output: SIEVE(5)
+output: SIEVE(200)

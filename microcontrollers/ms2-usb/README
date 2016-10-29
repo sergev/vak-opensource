@@ -1,0 +1,7 @@
+Example of USB HID application for PIC32MX1/MX2 microcontroller,
+using Microstick II development board.
+
+This example will blink the D6 LED on the Microstick II
+until USB port is connected.
+
+Using GCC compiler and pic32prog programming utility.

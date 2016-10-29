@@ -1,0 +1,75 @@
+	.ENABLE	LC
+	;
+	; ###################
+	; #                 #
+	; #   BASIC - VVU   #
+	; #                 #
+	; ###################
+	;
+	; ispolnitelx: wckp wgu
+	; wilxn`s,1987
+	;
+	; ======================
+	; ****blok nastroiki****
+	; ======================
+	;
+	BK0011	=1
+	BK0010	=2
+	DVK2B	=3	;DVK SU BK0010 KLASE
+	DVK2	=4
+	VUMS	=5	;SILELIS
+	DVK3	=6
+	UK	=7
+	MDS	=10	;MDS RAFOS
+
+;------------------------
+	MASINA	=BK0011	;	.IF EQ,MASINA-XX
+;------------------------
+
+.IF GT,MASINA-DVK2B
+	UKM=MASINA
+.IF EQ,MASINA-UK
+	KLAS=UK
+	MSX=MASINA
+.IFF
+	KLAS=BK0010
+	MSX=0
+.ENDC
+.IFF
+	UKM=0
+	KLAS=BK0010
+	MSX=0
+.ENDC
+;
+.IF GT,MASINA-BK0010
+.IF EQ,MASINA-DISK
+	RAM=160000
+.IFF
+.IF EQ,MASINA-NET
+	RAM=150000
+.IFF
+	RAM=160000
+.ENDC
+.ENDC
+	ROM=0
+.IFF
+.IF EQ,MASINA-BK0011
+	RAM=1
+	ROM=0
+.IFF
+	MVIDEO=40000
+	RAM=MVIDEO
+	ROM=120000
+.ENDC
+.ENDC
+;------------------------
+	MEMTYP	=RAM	;	.IF EQ,MEMTYP-RAM (ROM)
+	VM	=1	;	.IF EQ,VM-1 (2)
+ 	SNG	=0	;	.IF DF,SNG
+;	HOOKS	=0	;	.IF DF,HOOKS
+	DISK	=0	;	.IF EQ,MASINA-DISK
+	NET	=0	;	.IF EQ,MASINA-NET
+	CASET	=MASINA	;	.IF EQ,MASINA-CASET
+	MESSAG	=0	;	.IF EQ,MESSAG
+	STACK	=2000	;	.IF EQ,STACK-1000 (2000)
+;------------------------

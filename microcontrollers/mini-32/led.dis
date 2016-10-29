@@ -1,0 +1,186 @@
+
+led.elf:     file format elf32-littlemips
+
+
+Disassembly of section .text:
+
+9d000000 <_init>:
+9d000000:	3c1d8000 	lui	sp,0x8000
+9d000004:	27bd4000 	addiu	sp,sp,16384
+9d000008:	3c1f9d00 	lui	ra,0x9d00
+9d00000c:	27ff004c 	addiu	ra,ra,76
+9d000010:	3c1c8000 	lui	gp,0x8000
+9d000014:	03e00008 	jr	ra
+9d000018:	279c0000 	addiu	gp,gp,0
+
+9d00001c <udelay>:
+ * which increments at half CPU rate.
+ * We use it to get a precise delay.
+ */
+void udelay (unsigned usec)
+{
+    unsigned now = mfc0 (C0_COUNT, 0);
+9d00001c:	40034800 	mfc0	v1,c0_count
+    unsigned final = now + usec * MHZ / 2;
+9d000020:	00041100 	sll	v0,a0,0x4
+9d000024:	00042180 	sll	a0,a0,0x6
+9d000028:	00442021 	addu	a0,v0,a0
+9d00002c:	00042042 	srl	a0,a0,0x1
+9d000030:	00641821 	addu	v1,v1,a0
+
+    for (;;) {
+        now = mfc0 (C0_COUNT, 0);
+9d000034:	40024800 	mfc0	v0,c0_count
+
+        /* This comparison is valid only when using a signed type. */
+        if ((int) (now - final) >= 0)
+9d000038:	00431023 	subu	v0,v0,v1
+9d00003c:	0440fffd 	bltz	v0,9d000034 <udelay+0x18>
+9d000040:	00000000 	nop
+            break;
+    }
+}
+9d000044:	03e00008 	jr	ra
+9d000048:	00000000 	nop
+
+9d00004c <main>:
+
+int main()
+{
+9d00004c:	27bdffd8 	addiu	sp,sp,-40
+9d000050:	afbf0024 	sw	ra,36(sp)
+9d000054:	afb40020 	sw	s4,32(sp)
+9d000058:	afb3001c 	sw	s3,28(sp)
+9d00005c:	afb20018 	sw	s2,24(sp)
+9d000060:	afb10014 	sw	s1,20(sp)
+9d000064:	afb00010 	sw	s0,16(sp)
+    /* Set memory wait states, for speedup. */
+    CHECON = 2;
+9d000068:	3c02bf88 	lui	v0,0xbf88
+9d00006c:	24030002 	li	v1,2
+9d000070:	ac434000 	sw	v1,16384(v0)
+    BMXCONCLR = 0x40;
+9d000074:	24030040 	li	v1,64
+9d000078:	ac432004 	sw	v1,8196(v0)
+    CHECONSET = 0x30;
+9d00007c:	24030030 	li	v1,48
+9d000080:	ac434008 	sw	v1,16392(v0)
+
+    /* Enable cache for kseg0 segment. */
+    int config = mfc0 (C0_CONFIG, 0);
+9d000084:	40028000 	mfc0	v0,c0_config
+    mtc0 (C0_CONFIG, 0, config | 3);
+9d000088:	34420003 	ori	v0,v0,0x3
+9d00008c:	40828000 	mtc0	v0,c0_config
+
+    /* Initialize coprocessor 0. */
+    mtc0 (C0_COUNT, 0, 0);
+9d000090:	00001021 	move	v0,zero
+9d000094:	40824800 	mtc0	v0,c0_count
+    mtc0 (C0_COMPARE, 0, -1);
+9d000098:	2402ffff 	li	v0,-1
+9d00009c:	40825800 	mtc0	v0,c0_compare
+    mtc0 (C0_EBASE, 1, 0x9d000000);     /* Vector base */
+9d0000a0:	3c029d00 	lui	v0,0x9d00
+9d0000a4:	40827801 	mtc0	v0,c0_ebase
+    mtc0 (C0_INTCTL, 1, 1 << 5);        /* Vector spacing 32 bytes */
+9d0000a8:	24020020 	li	v0,32
+9d0000ac:	40826001 	mtc0	v0,c0_intctl
+    mtc0 (C0_CAUSE, 0, 1 << 23);        /* Set IV */
+9d0000b0:	3c020080 	lui	v0,0x80
+9d0000b4:	40826800 	mtc0	v0,c0_cause
+    mtc0 (C0_STATUS, 0, 0);             /* Clear BEV */
+9d0000b8:	00001021 	move	v0,zero
+9d0000bc:	40826000 	mtc0	v0,c0_status
+
+    /* Use all ports as digital. */
+    AD1PCFG = ~0;
+9d0000c0:	2403ffff 	li	v1,-1
+9d0000c4:	3c02bf80 	lui	v0,0xbf80
+9d0000c8:	34429060 	ori	v0,v0,0x9060
+9d0000cc:	ac430000 	sw	v1,0(v0)
+
+    /* Use pin RG6 as output: LED2 control. */
+    TRISGCLR = 1 << 6;
+9d0000d0:	3c02bf88 	lui	v0,0xbf88
+9d0000d4:	24030040 	li	v1,64
+9d0000d8:	ac436184 	sw	v1,24964(v0)
+    LATG = 0;
+9d0000dc:	ac4061a0 	sw	zero,24992(v0)
+
+    /* Use pin RD6 as output: LED3 control. */
+    TRISDCLR = 1 << 6;
+9d0000e0:	ac4360c4 	sw	v1,24772(v0)
+    LATD = 0;
+9d0000e4:	ac4060e0 	sw	zero,24800(v0)
+#define TIMO 125000             /* Delay 1/8 of second */
+    for (;;) {
+        /* Stop simulation. */
+        asm volatile ("sltiu $zero, $zero, 0xABC2");
+
+        LATGSET = 1 << 6;       /* Blink LED2: pin RG6. */
+9d0000e8:	3c12bf88 	lui	s2,0xbf88
+9d0000ec:	265361a8 	addiu	s3,s2,25000
+9d0000f0:	24110040 	li	s1,64
+9d0000f4:	0220a021 	move	s4,s1
+        udelay (TIMO);
+9d0000f8:	3c100001 	lui	s0,0x1
+    LATD = 0;
+
+#define TIMO 125000             /* Delay 1/8 of second */
+    for (;;) {
+        /* Stop simulation. */
+        asm volatile ("sltiu $zero, $zero, 0xABC2");
+9d0000fc:	2c00abc2 	sltiu	zero,zero,-21566
+
+        LATGSET = 1 << 6;       /* Blink LED2: pin RG6. */
+9d000100:	ae740000 	sw	s4,0(s3)
+        udelay (TIMO);
+9d000104:	0f400007 	jal	9d00001c <udelay>
+9d000108:	3604e848 	ori	a0,s0,0xe848
+        LATGCLR = 1 << 6;
+9d00010c:	ae5161a4 	sw	s1,24996(s2)
+        udelay (TIMO);
+9d000110:	0f400007 	jal	9d00001c <udelay>
+9d000114:	3604e848 	ori	a0,s0,0xe848
+        LATGSET = 1 << 6;
+9d000118:	ae710000 	sw	s1,0(s3)
+        udelay (TIMO);
+9d00011c:	0f400007 	jal	9d00001c <udelay>
+9d000120:	3604e848 	ori	a0,s0,0xe848
+        LATGCLR = 1 << 6;
+9d000124:	ae5161a4 	sw	s1,24996(s2)
+        udelay (TIMO);
+9d000128:	0f400007 	jal	9d00001c <udelay>
+9d00012c:	3604e848 	ori	a0,s0,0xe848
+
+        LATDSET = 1 << 6;       /* Blink LED3: pin RD6. */
+9d000130:	ae5160e8 	sw	s1,24808(s2)
+        udelay (TIMO);
+9d000134:	0f400007 	jal	9d00001c <udelay>
+9d000138:	3604e848 	ori	a0,s0,0xe848
+        LATDCLR = 1 << 6;
+9d00013c:	ae5160e4 	sw	s1,24804(s2)
+        udelay (TIMO);
+9d000140:	0f400007 	jal	9d00001c <udelay>
+9d000144:	3604e848 	ori	a0,s0,0xe848
+        LATDSET = 1 << 6;
+9d000148:	ae5160e8 	sw	s1,24808(s2)
+        udelay (TIMO);
+9d00014c:	0f400007 	jal	9d00001c <udelay>
+9d000150:	3604e848 	ori	a0,s0,0xe848
+        LATDCLR = 1 << 6;
+9d000154:	ae5160e4 	sw	s1,24804(s2)
+        udelay (TIMO);
+9d000158:	0f400007 	jal	9d00001c <udelay>
+9d00015c:	3604e848 	ori	a0,s0,0xe848
+9d000160:	0b40003f 	j	9d0000fc <main+0xb0>
+9d000164:	00000000 	nop
+
+Disassembly of section .init:
+
+9d00bff0 <_start>:
+9d00bff0:	3c1f9d00 	lui	ra,0x9d00
+9d00bff4:	27ff0000 	addiu	ra,ra,0
+9d00bff8:	03e00008 	jr	ra
+9d00bffc:	00000000 	nop

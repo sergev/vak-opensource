@@ -1,0 +1,19 @@
+CM  Vertical 14 -28 MHz, 75 Ohm feed, By UA3SFH
+CE
+
+SY len=6.5
+GW 1 36 0.0 0.0 .05 0.0 0.0  len  .006
+GW 2 1  0.0 0.0 0.0 0.0 0.0  .05  .006
+GE 1
+
+SY Q=200, L=2.8uH
+LD 6 2  1  1 Q L
+
+SY C=28pF
+LD 0 2  1  1 0 0 C
+
+GN 3 0 0 0 13  0.005
+EX 0 2  1  0  1.0 0.0
+FR 0 1 0 0 14.15 1
+
+EN

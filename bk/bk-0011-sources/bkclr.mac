@@ -1,0 +1,91 @@
+.Mcall	.Module
+.Module	BKCLR,Release=X02, Version=01, Comment=<BK0011 Color Routines>
+;
+;			Copyright (c) 1986,1987 by
+;	C-11 Special Interest Group, Leningrad State University.
+;			 All rights reserved.
+;
+; This software is furnished under a license and may be used and  copied
+; only  in  accordance  with  the  terms  of  such  license and with the
+; inclusion of the above copyright notice.  This software or  any  other
+; copies  thereof may not be provided or otherwise made available to any
+; other person.  No title to and ownership of  the  software  is  hereby
+; transfered.
+;
+; The information in this software is subject to change without notice
+; and should not be construed as a commitment by C-11 group.
+;
+; C-11 assumes no responsibility for the use or reliability of its
+; software on equipment which is not submitted by C-11.
+;
+ .Include "BkHead"
+.Globl	SavRg,	RetEmt,	PutUBt,	GetUBt
+ClrCU	==	177762
+.Psect	$CodOvr
+.SbTtl	$BGcolor - Exam Color Map
+$BGCOL::
+	Tst	ClrFlg	;Test Color Control Device
+	Beq	Nocol
+	Jsr	R0,SavRg
+	Mov	R0,R5
+	Mov	#ClrLng,R1
+	Mov	#ClrTab,R4
+10$:	MovB	(R4)+,R0
+	Call	PutUBt
+	Sob	R1,10$
+	Jmp	RetEmt
+Nocol:	SeC
+	Return
+.SbTtl	$BScolor - Set Color Map
+$BSCOL::
+	Tst	ClrFlg
+	Beq	Nocol
+	Jsr	R0,SavRg
+	Mov	R0,R5
+	Mov	#ClrLng,R1
+	Clr	R3
+	Clr	R4
+	Mov	#ClrCU,R2
+10$:	Call	GetUBt
+	MovB	R0,ClrTab(R4)
+	Bis	R3,R0
+	Mov	R0,@R2		
+	Add	#400,R3
+	Sob	R1,10$
+	Jmp	RetEmt
+ .Psect	$Code
+.SbTtl	ClrIni	Color Control Unit Initialization Routine
+ClrIni::
+	Mov	@#Vec4,ClrFlg
+	Mov	#10$,@#Vec4
+	Clr	ClrCU
+	Mov	ClrFlg,@#Vec4
+	Mov	#ClrTb0,R0
+	Mov	#ClrTab,R1
+	Mov	#ClrLng,R2
+	Clr	R3
+	Mov	#ClrCU,R5
+20$:	MovB	(R0)+,R4
+	Bis	R3,R4
+	MovB	R4,(R1)+
+	MovB	R4,@R5	
+	Add	#400,R3
+	Sob	R2,20$
+	Return
+10$:	Mov	ClrFlg,@#Vec4
+	Cmp	(SP)+,(SP)+
+	Clr	ClrFlg
+	Sec
+	Return
+.Psect	$RAM
+ClrFlg::0
+ClrTab::.BlkB	16.	;Color Map
+ClrLng=.-ClrTab
+.Psect	$Const
+ClrTb0::
+	.Byte	0
+.Rept	15.
+	.Byte	-1
+.EndR
+.Even
+.End

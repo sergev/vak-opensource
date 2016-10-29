@@ -1,0 +1,14 @@
+CM Compromise Rhombic for 14-30 MHz from the ARRL antenna book.
+CE 
+GW	1	91	-188.75	0	0	0	92	0	#12/ft
+GW	2	91	-188.75	0	0	0	-92	0	#12/ft
+GW	3	91	0	-92	0	188.75	0	0	#12/ft
+GW	4	91	0	92	0	188.75	0	0	#12/ft
+GS	0	0	ft
+GE	0
+EX	0	1	1	00	1.0	0.0
+LD	1	4	91	0	800	0	0
+'
+GN	-1
+FR	0	1	0	0	 21
+EN

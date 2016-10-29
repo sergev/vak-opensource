@@ -1,0 +1,16 @@
+#!/usr/bin/bc -q
+scale=6
+#f=21.050
+f=3.550
+print "Target frequency = "
+f
+
+print "Resonance frequency? "
+rf = read()
+
+print "Coefficient? "
+coeff = read()
+
+coeff * rf /f
+
+quit

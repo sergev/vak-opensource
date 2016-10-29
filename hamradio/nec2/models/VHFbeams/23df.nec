@@ -1,0 +1,18 @@
+CM 146 MHz Direction Finding Yagi
+CM 26-36 inch boomlength (depends on mounting)
+CM 7.7 dBi gain with greater than 40 dB F/B at 146.565 MHz
+CM 1.7 VSWR without matching - 1.1 VSWR with Beta match
+CE WB0DGF 2-12-06
+
+GW 1 11  0 0 -20.25  0 0  20.25   0.094
+GW 2 11  12 0 -18.75   12 0 18.75   0.188
+GW 3 11  24 0 -17.75   24 0 17.75   0.094
+GS 0 0 0.0254
+GE 0
+
+EX 0 2 6 0 1 0
+FR 0 10 0 0 145.0 0.2
+EN
+
+
+

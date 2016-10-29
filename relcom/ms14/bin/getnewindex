@@ -1,0 +1,31 @@
+:
+# Выдача индекса для каталога.
+
+MARS_PORT=3837
+export MARS_PORT
+
+dir=$1
+min=$2
+max=$3
+
+if [ x$dir = x ]; then dir=/; fi
+if [ x$min = x ]; then min=0; fi
+if [ x$max = x ]; then max=9999999; fi
+
+/usr/local/bin/marsexec << EOQ
+
+logon mailserv mailserv;
+
+put -
+using   "'File name      Kbytes  Date  Description'/"
+	"'----------------------------------------'/"
+	"1(a15, i6, ' ', i6, ' ', a1)"
+	order (
+		select  info
+		where   dir = '$dir'
+		and     type = 'F'
+		and     mod >= $min
+		and     mod <= $max
+		for     file, kbytes, mod, info
+	) by file;
+EOQ

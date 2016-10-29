@@ -1,0 +1,15 @@
+CM GP (50 Ohm feed)
+CE
+SY LEN=5.3 		' To optimise Z-in 
+SY CAP=90pF 		' To optimise for resonance
+GW 1 30 0.0 0.0  .05 0.0 0.0  LEN  .001
+GW 2 1 0.0 0.0 0.0 0.0 0.0  .05  .001
+GW 3 1 0.0 0.0  .05 0.0  .05 0.0  .001
+GS 0 0 1.0
+GE 1
+EX 0 2  1  0  1.0 0.0
+LD 0 3  1  1 0 0 CAP
+GN 3 0 0 0 13  0.005 0.0 0.0
+FR 0 1 0 0 14.05 1
+RP 0  181  1  1000  90 0 -1  1 
+EN

@@ -1,0 +1,211 @@
+.Mcall	.Module
+.Module	BKCTRL,Release=X02,Version=00,Comment=<BK0011 Control Codes Proc.>
+;
+;			Copyright (c) 1986 by
+;	C-11 Special Interest Group, Leningrad State University.
+;			 All rights reserved.
+;
+; This software is furnished under a license and may be used and  copied
+; only  in  accordance  with  the  terms  of  such  license and with the
+; inclusion of the above copyright notice.  This software or  any  other
+; copies  thereof may not be provided or otherwise made available to any
+; other person.  No title to and ownership of  the  software  is  hereby
+; transfered.
+;
+; The information in this software is subject to change without notice
+; and should not be construed as a commitment by C-11 group.
+;
+; C-11 assumes no responsibility for the use or reliability of its
+; software on equipment which is not submitted by C-11.
+;
+ .Include "BKHEAD"
+.Globl	CursX,	CursY,	AWrp$$,	TtoFlg,	StrLen,	ScrBot
+.Globl	ScrlDw,	MaxLin,	CrsAdr,	BkGnd,	NxTVLn,	FfLng
+.Globl	Lat$$,	MixO$$,	ScrlUp,	SetScS,	SetScX
+
+
+.Macro	Control	Code,	Indication,	Function
+.Save
+.Psect	$Const
+.=IsgTab+<Code>
+	.Byte	Indication
+.=CtrTab+<<Code>*2>
+.IF Nb <Function>
+	.Globl	Function
+	.Word	Function
+.IFf
+	.Word	0
+.EndC
+.Restore
+.EndM
+ .Save
+.Psect	$Const
+IsgTab::
+	.Blkb	32.
+CtrTab::
+	.BlkW	32.
+.Restore
+ .SbTtl	Control Code Tables
+Control	0,	'@-40		;
+Control	1,	'A-40,	SetDbl	;Set Double Width
+Control	2,	'B-40,	SetSng	;Set Single Width
+Control	3,	'C-40		;
+Control	4,	'D-40		;
+Control	5,	'E-40		;
+Control	6,	'F-40		;
+Control	7,	'G-40,	Bell	;Ring the Bell
+Control	10,	-33,	Bs	;BackSpace 		<---
+Control	11,	'I-40,	Ht	;Horizontal Tab
+Control	12,	-34,	Lf	;Line Feed		!___
+Control	13,	'K-40,	Vt	;Deleol
+Control	14,	'L-40,	Ff	;Clear Screen
+Control	15,	'M-40,	Cr	;Carriage Return
+Control	16,	'N-40,	So	;Set Cyrillic
+Control	17,	'O-40,	Si	;Set Latin
+Control	20,	'P-40		;
+Control	21,	'Q-40		;
+Control	22,	'R-40,	Dc2	;Home
+Control	23,	'S-40		;
+Control	24,	'T-40,	Dc4	;Set Mixed Char. Set
+Control	25,	'U-40,	Nak	;New Line
+Control	26,	-20		;(In GetLine Only)	<--!
+Control	27,	-21		;			!-->
+Control	30,	-35		;			<-!-
+Control	31,	-32,	Em	;Cursor Right		---->
+Control	32,	-30,	Sub	;Cursor Up		 ^
+Control	33,	-31,	Esc	;Cursor Down		\/
+Control	34,	'\-40		;
+Control	35,	']-40,	ClrGet	;Color Setting	Seq.
+Control	36,	'^-40,	Dc3	;Reverse LF
+Control	37,	'_-40		;
+ .SbTtl	Bell and Sound Routines - Ring the Bell and Sound
+.Psect	$Code
+Bell::
+	Mov	#300.,R0	;Sound length
+	Mov	#100.,R1	;Sound tone
+Sound::				;Sound Routine (R1 pulses of R0 width)
+	Mov	@#$$SysS,R2
+	Mov	#Keflg,R4
+	Xor	R2,R4
+
+10$:	Mov	R4,@#Sel1
+	Mov	R1,R3
+	Sob	R3,.
+	Mov	R2,@#Sel1
+	Mov	R1,R3
+	Sob	R3,.
+	Sob	R0,10$
+	Tst	@#Sel1		; Clear Write Flag
+	Return
+
+.SbTtl	BS - BackSpace Routine
+.Psect	$CodOvr
+BS::
+	DecB	CursX		; Move character left
+	Bpl	3$		; BS at middle of the line
+	Bit	#AWrp$$,TtoFlg	; BS across the line boundary
+	Bne	10$		; Jump if not allowed
+	DecB	CursY		; To the end of the previous line
+	Bpl	SetCr1		;
+	ClrB	CursY		; Clear "CursX" and "CursY"
+10$:	ClrB	CursX		; Otherwice nope
+3$:	Return			;
+SetCr1:	MovB	StrLen,CursX	; 
+	DecB	CursX		;
+	Return
+.SbTtl	HT - Move the Cursor to the Next Tab Stop
+
+HT::	MovB	StrLen,R1
+	Sub	#8.,R1
+	CmpB	CursX,R1
+	Blo	10$		; <= 72 ==> Modulo 8
+	IncB	CursX		; else one position right
+	Br	20$		;
+10$:	BicB	#7,CursX	;
+	Add	#8.,CursX	;
+20$:	CmpB	CursX,StrLen	; Line overflow
+	Bhis	SetCr1		;
+	Return
+ .SbTtl	LF	Line/Feed Operation
+LF:
+	IncB	CursY
+	CmpB	CursY,MaxLin
+	Blo	10$
+	DecB	CursY
+	Call	ScrlDw
+10$:	Return
+.Psect	$Code
+.SbTtl	VT	delete the end of line
+VT:	Mov	CrsAdr,R0
+	Mov	R0,-(SP)	;Old CrsAdr
+	Mov	#9.,R5		; TV-Line counter
+	Call	SetScS		;Map Screen
+10$:	Mov	CrsAdr,R1	;Deleted Byte Address
+20$:	MovB	Bkgnd,(R1)+
+	Bit	#77,R1		;End Of Line ?
+	Bne	20$		;No, Delete byte
+	Call	NxTVLn		;Yes, Goto next Line
+	Sob	R5,10$
+	Call	SetScX		;Unmap Screen
+	Mov	(SP)+,CrsAdr	;Restore Cursor Address
+	Return
+ .SbTtl	FF	Clear Screen 
+
+FF:	Mov	ScrBot,R0	;Clear All Screen
+	Mov	FfLng,R1
+	Mov	Bkgnd,R2
+	Call	SetScS		;Map Screen
+10$:	Mov	R2,(R0)+
+	Bis	#100000,R0
+	Bic	#40000,R0
+20$:	Sob	R1,10$
+	Call	SetScX		;UnMap Screen
+	Jmp	DC2
+
+.SbTtl	DC2	Home Routine
+.Psect	$CodOvr
+DC2:	Clr	CursX
+
+.SbTtl	CR	Carriage Return
+CR:	ClrB	CursX
+	Return
+
+.SbTtl	SO	Set Latin
+SO:
+	Bis	#Lat$$,TtoFlg
+	Bic	#MixO$$,TtoFlg
+	Return
+.SbTtl	SI	Set Cyrillic
+SI:
+	Bic	#MixO$$!Lat$$,TtoFlg
+	Return
+.SbTtl	DC4	Set the Mixed Character Set
+DC4:
+	Bis	#MixO$$,TtoFlg
+	Bic	#Lat$$,TtoFlg
+	Return
+ .SbTtl	SUB	Cursor up
+SUB:	DecB	CursY
+	Bgt	10$
+	ClrB	CursY
+10$:	Return
+
+.SbTtl	DC3	Reverse "LF"
+DC3:
+	DecB	CursY
+	Bpl	10$
+	ClrB	CursY
+	Call	ScrlUp
+10$:	Return
+.SbTtl	ESC	Cursor down
+ESC:	IncB	CursY
+	CmpB	CursY,MaxLin
+	Blo	10$
+	DecB	CursY
+10$:	Return
+
+.SbTtl	NAK	New Line
+CLFRtn::
+NAK:	ClrB	CursX
+	Br	LF
+.End

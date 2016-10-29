@@ -1,0 +1,20 @@
+#! /bin/csh
+setenv MSG l
+set d=`date`
+set d="$d[3] $d[2] $d[6]"
+setenv MSG r
+set D=`date`
+set D="$D[3] $D[2] $D[6]"
+
+if ( ! -r version ) then
+echo 0 > version
+endif
+touch version
+set v=`cat version`
+@ v++
+echo '#include "r.defs.h"' > Vers.c
+echo '#define VERS DIAG("Red '"4.2($v $d)"'","Red '"4.2 ($v  $D)"'")'>> Vers.c
+echo 'char *getvers() { return(VERS);} ' >> Vers.c
+
+
+echo $v > version

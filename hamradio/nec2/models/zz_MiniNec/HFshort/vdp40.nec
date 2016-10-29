@@ -1,0 +1,16 @@
+CM VDP 40m with Top LOAD
+CE
+
+SY hgh = 14.8
+SY Len=10.4
+GW 1 20 0.0 0.0  hgh 0.0 0.0  hgh+len  .001
+GE 1
+
+SY L=50.4uH
+LD 6 1  2  2 100 L 
+LD 6 1  18  18 100 L
+
+GN 2 0 0 0 13  0.005 0.0 0.0
+FR 0 1 0 0 7.01 1
+EX 0 1  10  0  1.0 0.0
+EN

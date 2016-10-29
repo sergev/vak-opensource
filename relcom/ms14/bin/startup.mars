@@ -1,0 +1,12 @@
+:
+#
+# Start marsd only.
+#
+
+dir=/usr/spool/mailserv
+
+echo
+
+cd $dir && /usr/local/bin/marsd $dir/db
+
+echo 'Mars daemon started'

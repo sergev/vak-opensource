@@ -1,0 +1,18 @@
+CM Dipole .324 m from corner reflector
+CM Basic Corner Reflector: 299.7925 MHz; 1 m = 1 wl
+CM SM panels
+CM Density = 0.1 m x 0.1 m
+CM Size = 1.0 m x 2.0 m
+CE
+GW 1 11 .324 0 -.2119 .324 0 .2119 .004
+SM 10 10 0 0 -.5 .7071068 .7071068 -.5
+SC 0 0 .7071068 .7071068 .5
+SM 10 10 .7071068 -.7071068 -.5 0 0 -.5
+SC 0 0 0 0 .5
+GE 0 -1 0
+FR 0 1 0 0 299.7925 1
+GN -1
+EX 0 1 6 0 1 0
+RP 0 361 1 1000 -90 0 1.00000 1.00000
+RP 0 1 361 1000 90 0 1.00000 1.00000
+EN

@@ -1,0 +1,13 @@
+file hello.elf
+set heuristic-fence-post 4
+set remote hardware-breakpoint-limit 2
+set remote hardware-watchpoint-limit 2
+
+target extended-remote localhost:1234
+
+define as
+set $old = $pc
+si
+x/i $old
+i reg
+end

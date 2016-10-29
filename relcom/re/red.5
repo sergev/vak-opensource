@@ -1,0 +1,91 @@
+.TH RED 5 ДEMOC/PV
+.SH ИМЯ
+red \- таблица определения команд редактора red.
+.SH ОПИСАНИЕ
+Ниже приведено описание клавиатуры в редакторе red.
+Это описание определяет кодировку команд редактора на клавиатуре
+терминала и является просто фрагментом текста редактора.
+.in 0
+ * Кодирование кодов в строке определений:
+ * ^C - Контрол-символ C&037
+ * =C - Символ С
+ * xx - функциональная возможность из termcap с кодом xx
+ * ?xx - то же, но если xx нет, то и не надо;
+ * :yyyyy:zzzzz:... - одна из строк yyyyy, zzzzzz
+ * (выбирается та, которая определена в termcap)
+
+  Таблица кодов клавиш терминала и их комбинаций */
+  Сюда же записываются коды при переопределении  */
+  Состоит из трех частей:
+  1. Движение курсора. Всегда можно ввести с клавиатуры.
+  2. Функциональная клавитура и ее замена;
+  3. Ввод через контрол-символы.
+
+ CC+RN,    "^M",
+ CC+LT,    ":kl:^L",
+ CC+RT,    ":kr:^R",
+ CC+UP,    ":ku:^U",
+ CC+DN,    ":kd:^D",
+ CC+HO,    ":kh:^H",
+ CC+BT,    "^B",
+ CC+TB,    "^I",
+ CCBACKSPACE    ,"^?",
+ CCCTRLQUOTE    ,"^A",
+ CCQUIT         ,"^J^?",
+ CCENTER        ,"^J= ",
+
+  Ввод команд через цифровую клавиатуру
+  а заодно и замена если ее нет
+
+ CCCHPORT         ,":f0:^J=0",
+ CCDOCMD         ,":f2f0:^J^J=0",
+ CCENTER          ,":f1:^J=1",
+ CCENTER         ,":f2f1:^J^J=1",
+ CCPLSRCH         ,":f3:^J=3",
+ CCMISRCH        ,":f2f3:^J^J=3",
+ CCGOTO           ,":f4:^J=4",
+ CCMAKEPORT      ,":f2f4:^J^J=4",
+ CCINSMODE        ,":f5:^J=5",
+ CCTABS          ,":f2f5:^J^J=5",
+ CCDELCH          ,":f6:^J=6",
+ CCDELCH         ,":f2f6:^J^J=6",
+ CCPLPAGE         ,":f7:^J=7",
+ CCMIPAGE        ,":f2f7:^J^J=7",
+ CCOPEN           ,":f8:^J=8",
+ CCCLOSE         ,":f2f8:^J^J=8",
+ CCPICK           ,":f9:^J=9",
+ CCPUT           ,":f2f9:^J^J=9",
+ CCCTRLQUOTE      ,":f.:^J=.",
+ CCENTER         ,":f2f.:^J^J=.",
+ CCSETFILE        ,":f-:^J=-",
+ CCSAVEFILE      ,":f2f-:^J^J=-",
+ CCLPORT          ,":f2kl:^Jkl"
+ CCRPORT         ,":f2kr:^Jkr",
+
+  Ввод отдельных команд через упр. клавиши
+
+ CC+BT           ,":kB:.f.",
+ CCPLPAGE        ,":kN:^Z",
+ CCMIPAGE        ,":kP:^X",
+ CCOPEN          ,":kA:k2",
+ CCCLOSE         ,":kL:k3",
+ CCENTER         ,":kE:k1",
+ CCDELCH         ,":kD:k5",
+ CCINSMODE       ,":kI:k4",
+ CCPLLINE        ,":kF:k6",
+ CCMILINE        ,":kR:k7",
+
+  Ввод команд через  ^С:
+
+  CCPLLINE       ,"^T", /* Для совместимости */
+  CCMILINE       ,"^W", /* Для совместимости */
+  CCDELCH        ,"^U", /* Для совместимости */
+  CCSETFILE      ,"^D", /* Для совместимости */
+  CCPICK         ,"^F", /* Для совместимости */
+  CCPUT          ,"^G", /* Для совместимости */
+  CCDOCMD        ,"^P", /* Для совместимости */
+  CCRESCREEN     ,"^L",
+  CCPLSRCH     ,"^R",
+  CCMISRCH     ,"^E",
+  CCSAVEFILE   ,"^V",
+  CCBACKSPACE  ,"^H",

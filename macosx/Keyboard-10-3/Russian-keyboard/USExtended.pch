@@ -1,0 +1,458 @@
+--- USExtended.keylayout	2005-03-21 02:09:26.000000000 +0300
++++ USExtended-new.keylayout	2006-02-07 23:58:36.000000000 +0300
+@@ -1,5 +1,6 @@
+ <?xml version="1.1" encoding="UTF-8"?>
+ <!DOCTYPE keyboard SYSTEM "file://localhost/System/Library/DTDs/KeyboardLayout.dtd">
++<!-- Keypad codes added by Serge Vakulenko, <vak@cronyx.ru> -->
+ <keyboard group="126" id="-2" name="US Extended" maxout="3">
+ 	<layouts>
+ 		<layout first="0" last="17" modifiers="commonModifiers" mapSet="ANSI" />
+@@ -94,10 +95,10 @@
+ 			<key code="49" action=" " />
+ 			<key code="50" output="`" />
+ 			<key code="51" output="&#x0008;" />
+-			<key code="52" output="&#x0003;" />
++			<key code="52" output="&#x000a;" /> <!-- LineFeed -->
+ 			<key code="53" output="&#x001b;" />
+ 			<!-- gap, 54 through 64 -->
+-			<key code="65" output="." />
++			<key code="65" output="&#xf728;" /> <!-- ./Del -->
+ 			<key code="66" output="&#x001d;" />
+ 			<key code="67" action="*" />
+ 			<!-- gap, 68 -->
+@@ -112,17 +113,17 @@
+ 			<key code="78" output="-" />
+ 			<!-- gap, 79-80 -->
+ 			<key code="81" output="=" />
+-			<key code="82" output="0" />
+-			<key code="83" output="1" />
+-			<key code="84" output="2" />
+-			<key code="85" output="3" />
+-			<key code="86" output="4" />
+-			<key code="87" output="5" />
+-			<key code="88" output="6" />
+-			<key code="89" output="7" />
++			<key code="82" output="&#xf727;" /> <!-- 0/Ins -->
++			<key code="83" output="&#xf72b;" /> <!-- 1/End -->
++			<key code="84" output="&#xf701;" /> <!-- 2/Down -->
++			<key code="85" output="&#xf72d;" /> <!-- 3/PgDn -->
++			<key code="86" output="&#xf702;" /> <!-- 4/Left -->
++			<key code="87" output="&#xf741;" /> <!-- 5/Select -->
++			<key code="88" output="&#xf703;" /> <!-- 6/Right -->
++			<key code="89" output="&#xf729;" /> <!-- 7/Home -->
+ 			<!-- gap, 90 -->
+-			<key code="91" output="8" />
+-			<key code="92" output="9" />
++			<key code="91" output="&#xf700;" /> <!-- 8/Up -->
++			<key code="92" output="&#xf72c;" /> <!-- 9/PgUp -->
+ 			<!-- gap, 93-95 -->
+ 			<key code="96" output="&#x0010;" />
+ 			<key code="97" output="&#x0010;" />
+@@ -138,11 +139,11 @@
+ 			<key code="107" output="&#x0010;" />
+ 			<key code="108" output="&#x0010;" />
+ 			<key code="109" output="&#x0010;" />
+-			<key code="110" output="&#x0010;" />
++			<key code="110" output="&#xf738;" /> <!-- Print -->
+ 			<key code="111" output="&#x0010;" />
+ 			<key code="112" output="&#x0010;" />
+ 			<key code="113" output="&#x0010;" />
+-			<key code="114" output="&#x0005;" />
++			<key code="114" output="&#xf727;" /> <!-- Insert -->
+ 			<key code="115" output="&#x0001;" />
+ 			<key code="116" output="&#x000b;" />
+ 			<key code="117" output="&#x007f;" />
+@@ -210,10 +211,10 @@
+ 			<key code="49" action=" " />
+ 			<key code="50" output="~" />
+ 			<key code="51" output="&#x0008;" />
+-			<key code="52" output="&#x0003;" />
++			<key code="52" output="&#x000a;" /> <!-- LineFeed -->
+ 			<key code="53" output="&#x001b;" />
+ 			<!-- gap, 54 through 64 -->
+-			<key code="65" output="." />
++			<key code="65" output="&#xf728;" /> <!-- ./Del -->
+ 			<key code="66" output="*" />
+ 			<key code="67" output="*" />
+ 			<!-- gap, 68 -->
+@@ -228,17 +229,17 @@
+ 			<key code="78" output="-" />
+ 			<!-- gap, 79-80 -->
+ 			<key code="81" output="=" />
+-			<key code="82" output="0" />
+-			<key code="83" output="1" />
+-			<key code="84" output="2" />
+-			<key code="85" output="3" />
+-			<key code="86" output="4" />
+-			<key code="87" output="5" />
+-			<key code="88" output="6" />
+-			<key code="89" output="7" />
++			<key code="82" output="&#xf727;" /> <!-- 0/Ins -->
++			<key code="83" output="&#xf72b;" /> <!-- 1/End -->
++			<key code="84" output="&#xf701;" /> <!-- 2/Down -->
++			<key code="85" output="&#xf72d;" /> <!-- 3/PgDn -->
++			<key code="86" output="&#xf702;" /> <!-- 4/Left -->
++			<key code="87" output="&#xf741;" /> <!-- 5/Select -->
++			<key code="88" output="&#xf703;" /> <!-- 6/Right -->
++			<key code="89" output="&#xf729;" /> <!-- 7/Home -->
+ 			<!-- gap, 90 -->
+-			<key code="91" output="8" />
+-			<key code="92" output="9" />
++			<key code="91" output="&#xf700;" /> <!-- 8/Up -->
++			<key code="92" output="&#xf72c;" /> <!-- 9/PgUp -->
+ 			<!-- gap, 93-95 -->
+ 			<key code="96" output="&#x0010;" />
+ 			<key code="97" output="&#x0010;" />
+@@ -254,11 +255,11 @@
+ 			<key code="107" output="&#x0010;" />
+ 			<key code="108" output="&#x0010;" />
+ 			<key code="109" output="&#x0010;" />
+-			<key code="110" output="&#x0010;" />
++			<key code="110" output="&#xf738;" /> <!-- Print -->
+ 			<key code="111" output="&#x0010;" />
+ 			<key code="112" output="&#x0010;" />
+ 			<key code="113" output="&#x0010;" />
+-			<key code="114" output="&#x0005;" />
++			<key code="114" output="&#xf727;" /> <!-- Insert -->
+ 			<key code="115" output="&#x0001;" />
+ 			<key code="116" output="&#x000b;" />
+ 			<key code="117" output="&#x007f;" />
+@@ -326,10 +327,10 @@
+ 			<key code="49" action=" " />
+ 			<key code="50" output="`" />
+ 			<key code="51" output="&#x0008;" />
+-			<key code="52" output="&#x0003;" />
++			<key code="52" output="&#x000a;" /> <!-- LineFeed -->
+ 			<key code="53" output="&#x001b;" />
+ 			<!-- gap, 54 through 64 -->
+-			<key code="65" output="." />
++			<key code="65" output="&#xf728;" /> <!-- ./Del -->
+ 			<key code="66" output="&#x001d;" />
+ 			<key code="67" output="*" />
+ 			<!-- gap, 68 -->
+@@ -344,17 +345,17 @@
+ 			<key code="78" output="-" />
+ 			<!-- gap, 79-80 -->
+ 			<key code="81" output="=" />
+-			<key code="82" output="0" />
+-			<key code="83" output="1" />
+-			<key code="84" output="2" />
+-			<key code="85" output="3" />
+-			<key code="86" output="4" />
+-			<key code="87" output="5" />
+-			<key code="88" output="6" />
+-			<key code="89" output="7" />
++			<key code="82" output="&#xf727;" /> <!-- 0/Ins -->
++			<key code="83" output="&#xf72b;" /> <!-- 1/End -->
++			<key code="84" output="&#xf701;" /> <!-- 2/Down -->
++			<key code="85" output="&#xf72d;" /> <!-- 3/PgDn -->
++			<key code="86" output="&#xf702;" /> <!-- 4/Left -->
++			<key code="87" output="&#xf741;" /> <!-- 5/Select -->
++			<key code="88" output="&#xf703;" /> <!-- 6/Right -->
++			<key code="89" output="&#xf729;" /> <!-- 7/Home -->
+ 			<!-- gap, 90 -->
+-			<key code="91" output="8" />
+-			<key code="92" output="9" />
++			<key code="91" output="&#xf700;" /> <!-- 8/Up -->
++			<key code="92" output="&#xf72c;" /> <!-- 9/PgUp -->
+ 			<!-- gap, 93-95 -->
+ 			<key code="96" output="&#x0010;" />
+ 			<key code="97" output="&#x0010;" />
+@@ -370,11 +371,11 @@
+ 			<key code="107" output="&#x0010;" />
+ 			<key code="108" output="&#x0010;" />
+ 			<key code="109" output="&#x0010;" />
+-			<key code="110" output="&#x0010;" />
++			<key code="110" output="&#xf738;" /> <!-- Print -->
+ 			<key code="111" output="&#x0010;" />
+ 			<key code="112" output="&#x0010;" />
+ 			<key code="113" output="&#x0010;" />
+-			<key code="114" output="&#x0005;" />
++			<key code="114" output="&#xf727;" /> <!-- Insert -->
+ 			<key code="115" output="&#x0001;" />
+ 			<key code="116" output="&#x000b;" />
+ 			<key code="117" output="&#x007f;" />
+@@ -442,10 +443,10 @@
+ 			<key code="49" output=" " />
+ 			<key code="50" action="grave" />
+ 			<key code="51" output="&#x0008;" />
+-			<key code="52" output="&#x0003;" />
++			<key code="52" output="&#x000a;" /> <!-- LineFeed -->
+ 			<key code="53" output="&#x001b;" />
+ 			<!-- gap, 54 through 64 -->
+-			<key code="65" output="." />
++			<key code="65" output="&#xf728;" /> <!-- ./Del -->
+ 			<key code="66" output="&#x001d;" />
+ 			<key code="67" output="*" />
+ 			<!-- gap, 68 -->
+@@ -460,17 +461,17 @@
+ 			<key code="78" output="-" />
+ 			<!-- gap, 79-80 -->
+ 			<key code="81" output="=" />
+-			<key code="82" output="0" />
+-			<key code="83" output="1" />
+-			<key code="84" output="2" />
+-			<key code="85" output="3" />
+-			<key code="86" output="4" />
+-			<key code="87" output="5" />
+-			<key code="88" output="6" />
+-			<key code="89" output="7" />
++			<key code="82" output="&#xf727;" /> <!-- 0/Ins -->
++			<key code="83" output="&#xf72b;" /> <!-- 1/End -->
++			<key code="84" output="&#xf701;" /> <!-- 2/Down -->
++			<key code="85" output="&#xf72d;" /> <!-- 3/PgDn -->
++			<key code="86" output="&#xf702;" /> <!-- 4/Left -->
++			<key code="87" output="&#xf741;" /> <!-- 5/Select -->
++			<key code="88" output="&#xf703;" /> <!-- 6/Right -->
++			<key code="89" output="&#xf729;" /> <!-- 7/Home -->
+ 			<!-- gap, 90 -->
+-			<key code="91" output="8" />
+-			<key code="92" output="9" />
++			<key code="91" output="&#xf700;" /> <!-- 8/Up -->
++			<key code="92" output="&#xf72c;" /> <!-- 9/PgUp -->
+ 			<!-- gap, 93-95 -->
+ 			<key code="96" output="&#x0010;" />
+ 			<key code="97" output="&#x0010;" />
+@@ -486,11 +487,11 @@
+ 			<key code="107" output="&#x0010;" />
+ 			<key code="108" output="&#x0010;" />
+ 			<key code="109" output="&#x0010;" />
+-			<key code="110" output="&#x0010;" />
++			<key code="110" output="&#xf738;" /> <!-- Print -->
+ 			<key code="111" output="&#x0010;" />
+ 			<key code="112" output="&#x0010;" />
+ 			<key code="113" output="&#x0010;" />
+-			<key code="114" output="&#x0005;" />
++			<key code="114" output="&#xf727;" /> <!-- Insert -->
+ 			<key code="115" output="&#x0001;" />
+ 			<key code="116" output="&#x000b;" />
+ 			<key code="117" output="&#x007f;" />
+@@ -558,10 +559,10 @@
+ 			<key code="49" output=" " />
+ 			<key code="50" output="&#x0300;" />
+ 			<key code="51" output="&#x0008;" />
+-			<key code="52" output="&#x0003;" />
++			<key code="52" output="&#x000a;" /> <!-- LineFeed -->
+ 			<key code="53" output="&#x001b;" />
+ 			<!-- gap, 54 through 64 -->
+-			<key code="65" output="." />
++			<key code="65" output="&#xf728;" /> <!-- ./Del -->
+ 			<key code="66" output="*" />
+ 			<key code="67" output="*" />
+ 			<!-- gap, 68 -->
+@@ -576,17 +577,17 @@
+ 			<key code="78" output="-" />
+ 			<!-- gap, 79-80 -->
+ 			<key code="81" output="=" />
+-			<key code="82" output="0" />
+-			<key code="83" output="1" />
+-			<key code="84" output="2" />
+-			<key code="85" output="3" />
+-			<key code="86" output="4" />
+-			<key code="87" output="5" />
+-			<key code="88" output="6" />
+-			<key code="89" output="7" />
++			<key code="82" output="&#xf727;" /> <!-- 0/Ins -->
++			<key code="83" output="&#xf72b;" /> <!-- 1/End -->
++			<key code="84" output="&#xf701;" /> <!-- 2/Down -->
++			<key code="85" output="&#xf72d;" /> <!-- 3/PgDn -->
++			<key code="86" output="&#xf702;" /> <!-- 4/Left -->
++			<key code="87" output="&#xf741;" /> <!-- 5/Select -->
++			<key code="88" output="&#xf703;" /> <!-- 6/Right -->
++			<key code="89" output="&#xf729;" /> <!-- 7/Home -->
+ 			<!-- gap, 90 -->
+-			<key code="91" output="8" />
+-			<key code="92" output="9" />
++			<key code="91" output="&#xf700;" /> <!-- 8/Up -->
++			<key code="92" output="&#xf72c;" /> <!-- 9/PgUp -->
+ 			<!-- gap, 93-95 -->
+ 			<key code="96" output="&#x0010;" />
+ 			<key code="97" output="&#x0010;" />
+@@ -602,11 +603,11 @@
+ 			<key code="107" output="&#x0010;" />
+ 			<key code="108" output="&#x0010;" />
+ 			<key code="109" output="&#x0010;" />
+-			<key code="110" output="&#x0010;" />
++			<key code="110" output="&#xf738;" /> <!-- Print -->
+ 			<key code="111" output="&#x0010;" />
+ 			<key code="112" output="&#x0010;" />
+ 			<key code="113" output="&#x0010;" />
+-			<key code="114" output="&#x0005;" />
++			<key code="114" output="&#xf727;" /> <!-- Insert -->
+ 			<key code="115" output="&#x0001;" />
+ 			<key code="116" output="&#x000b;" />
+ 			<key code="117" output="&#x007f;" />
+@@ -674,10 +675,10 @@
+ 			<key code="49" output=" " />
+ 			<key code="50" action="grave" /> <!-- corrected -->
+ 			<key code="51" output="&#x0008;" />
+-			<key code="52" output="&#x0003;" />
++			<key code="52" output="&#x000a;" /> <!-- LineFeed -->
+ 			<key code="53" output="&#x001b;" />
+ 			<!-- gap, 54 through 64 -->
+-			<key code="65" output="." />
++			<key code="65" output="&#xf728;" /> <!-- ./Del -->
+ 			<key code="66" output="&#x001d;" />
+ 			<key code="67" output="*" />
+ 			<!-- gap, 68 -->
+@@ -692,17 +693,17 @@
+ 			<key code="78" output="-" />
+ 			<!-- gap, 79-80 -->
+ 			<key code="81" output="=" />
+-			<key code="82" output="0" />
+-			<key code="83" output="1" />
+-			<key code="84" output="2" />
+-			<key code="85" output="3" />
+-			<key code="86" output="4" />
+-			<key code="87" output="5" />
+-			<key code="88" output="6" />
+-			<key code="89" output="7" />
++			<key code="82" output="&#xf727;" /> <!-- 0/Ins -->
++			<key code="83" output="&#xf72b;" /> <!-- 1/End -->
++			<key code="84" output="&#xf701;" /> <!-- 2/Down -->
++			<key code="85" output="&#xf72d;" /> <!-- 3/PgDn -->
++			<key code="86" output="&#xf702;" /> <!-- 4/Left -->
++			<key code="87" output="&#xf741;" /> <!-- 5/Select -->
++			<key code="88" output="&#xf703;" /> <!-- 6/Right -->
++			<key code="89" output="&#xf729;" /> <!-- 7/Home -->
+ 			<!-- gap, 90 -->
+-			<key code="91" output="8" />
+-			<key code="92" output="9" />
++			<key code="91" output="&#xf700;" /> <!-- 8/Up -->
++			<key code="92" output="&#xf72c;" /> <!-- 9/PgUp -->
+ 			<!-- gap, 93-95 -->
+ 			<key code="96" output="&#x0010;" />
+ 			<key code="97" output="&#x0010;" />
+@@ -718,11 +719,11 @@
+ 			<key code="107" output="&#x0010;" />
+ 			<key code="108" output="&#x0010;" />
+ 			<key code="109" output="&#x0010;" />
+-			<key code="110" output="&#x0010;" />
++			<key code="110" output="&#xf738;" /> <!-- Print -->
+ 			<key code="111" output="&#x0010;" />
+ 			<key code="112" output="&#x0010;" />
+ 			<key code="113" output="&#x0010;" />
+-			<key code="114" output="&#x0005;" />
++			<key code="114" output="&#xf727;" /> <!-- Insert -->
+ 			<key code="115" output="&#x0001;" />
+ 			<key code="116" output="&#x000b;" />
+ 			<key code="117" output="&#x007f;" />
+@@ -790,10 +791,10 @@
+ 			<key code="49" output=" " />
+ 			<key code="50" output="`" />
+ 			<key code="51" output="&#x0008;" />
+-			<key code="52" output="&#x0003;" />
++			<key code="52" output="&#x000a;" /> <!-- LineFeed -->
+ 			<key code="53" output="&#x001b;" />
+ 			<!-- gap, 54 through 64 -->
+-			<key code="65" output="." />
++			<key code="65" output="&#xf728;" /> <!-- ./Del -->
+ 			<key code="66" output="&#x001d;" />
+ 			<key code="67" output="*" />
+ 			<!-- gap, 68 -->
+@@ -808,17 +809,17 @@
+ 			<key code="78" output="-" />
+ 			<!-- gap, 79-80 -->
+ 			<key code="81" output="=" />
+-			<key code="82" output="0" />
+-			<key code="83" output="1" />
+-			<key code="84" output="2" />
+-			<key code="85" output="3" />
+-			<key code="86" output="4" />
+-			<key code="87" output="5" />
+-			<key code="88" output="6" />
+-			<key code="89" output="7" />
++			<key code="82" output="&#xf727;" /> <!-- 0/Ins -->
++			<key code="83" output="&#xf72b;" /> <!-- 1/End -->
++			<key code="84" output="&#xf701;" /> <!-- 2/Down -->
++			<key code="85" output="&#xf72d;" /> <!-- 3/PgDn -->
++			<key code="86" output="&#xf702;" /> <!-- 4/Left -->
++			<key code="87" output="&#xf741;" /> <!-- 5/Select -->
++			<key code="88" output="&#xf703;" /> <!-- 6/Right -->
++			<key code="89" output="&#xf729;" /> <!-- 7/Home -->
+ 			<!-- gap, 90 -->
+-			<key code="91" output="8" />
+-			<key code="92" output="9" />
++			<key code="91" output="&#xf700;" /> <!-- 8/Up -->
++			<key code="92" output="&#xf72c;" /> <!-- 9/PgUp -->
+ 			<!-- gap, 93-95 -->
+ 			<key code="96" output="&#x0010;" />
+ 			<key code="97" output="&#x0010;" />
+@@ -834,11 +835,11 @@
+ 			<key code="107" output="&#x0010;" />
+ 			<key code="108" output="&#x0010;" />
+ 			<key code="109" output="&#x0010;" />
+-			<key code="110" output="&#x0010;" />
++			<key code="110" output="&#xf738;" /> <!-- Print -->
+ 			<key code="111" output="&#x0010;" />
+ 			<key code="112" output="&#x0010;" />
+ 			<key code="113" output="&#x0010;" />
+-			<key code="114" output="&#x0005;" />
++			<key code="114" output="&#xf727;" /> <!-- Insert -->
+ 			<key code="115" output="&#x0001;" />
+ 			<key code="116" output="&#x000b;" />
+ 			<key code="117" output="&#x007f;" />
+@@ -890,7 +891,7 @@
+ 			<key code="33" output="&#x001b;" />
+ 			<key code="34" output="&#x0009;" />
+ 			<key code="35" output="&#x0010;" />
+-			<key code="36" output="&#x000d;" />
++			<key code="36" output="&#x000a;" /> <!-- Enter -->
+ 			<key code="37" output="&#x000c;" />
+ 			<key code="38" output="&#x000a;" />
+ 			<key code="39" output="'" />
+@@ -906,10 +907,10 @@
+ 			<key code="49" action=" " />
+ 			<key code="50" output="`" />
+ 			<key code="51" output="&#x0008;" />
+-			<key code="52" output="&#x0003;" />
++			<key code="52" output="&#x000a;" /> <!-- LineFeed -->
+ 			<key code="53" output="&#x001b;" />
+ 			<!-- gap, 54 through 64 -->
+-			<key code="65" output="." />
++			<key code="65" output="&#xf728;" /> <!-- ./Del -->
+ 			<key code="66" output="&#x001d;" />
+ 			<key code="67" output="*" />
+ 			<!-- gap, 68 -->
+@@ -924,17 +925,17 @@
+ 			<key code="78" output="-" />
+ 			<!-- gap, 79-80 -->
+ 			<key code="81" output="=" />
+-			<key code="82" output="0" />
+-			<key code="83" output="1" />
+-			<key code="84" output="2" />
+-			<key code="85" output="3" />
+-			<key code="86" output="4" />
+-			<key code="87" output="5" />
+-			<key code="88" output="6" />
+-			<key code="89" output="7" />
++			<key code="82" output="&#xf727;" /> <!-- 0/Ins -->
++			<key code="83" output="&#xf72b;" /> <!-- 1/End -->
++			<key code="84" output="&#xf701;" /> <!-- 2/Down -->
++			<key code="85" output="&#xf72d;" /> <!-- 3/PgDn -->
++			<key code="86" output="&#xf702;" /> <!-- 4/Left -->
++			<key code="87" output="&#xf741;" /> <!-- 5/Select -->
++			<key code="88" output="&#xf703;" /> <!-- 6/Right -->
++			<key code="89" output="&#xf729;" /> <!-- 7/Home -->
+ 			<!-- gap, 90 -->
+-			<key code="91" output="8" />
+-			<key code="92" output="9" />
++			<key code="91" output="&#xf700;" /> <!-- 8/Up -->
++			<key code="92" output="&#xf72c;" /> <!-- 9/PgUp -->
+ 			<!-- gap, 93-95 -->
+ 			<key code="96" output="&#x0010;" />
+ 			<key code="97" output="&#x0010;" />
+@@ -950,11 +951,11 @@
+ 			<key code="107" output="&#x0010;" />
+ 			<key code="108" output="&#x0010;" />
+ 			<key code="109" output="&#x0010;" />
+-			<key code="110" output="&#x0010;" />
++			<key code="110" output="&#xf738;" /> <!-- Print -->
+ 			<key code="111" output="&#x0010;" />
+ 			<key code="112" output="&#x0010;" />
+ 			<key code="113" output="&#x0010;" />
+-			<key code="114" output="&#x0005;" />
++			<key code="114" output="&#xf727;" /> <!-- Insert -->
+ 			<key code="115" output="&#x0001;" />
+ 			<key code="116" output="&#x000b;" />
+ 			<key code="117" output="&#x007f;" />

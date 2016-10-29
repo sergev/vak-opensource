@@ -1,0 +1,21 @@
+"Home
+Memories"	"Receive
+Frequency"	"Op
+Mode"	"RPT
+Shift"	"RPT
+Offset"	"Transmit
+Frequency"	"Encoding
+Method"	"CTCSS
+Tone"	"DCS
+Code"	"Show
+Name"	"Memory
+Name"	"Transmit
+Power"	"Scan
+Skip"	"Tuning
+Step"	"Clk
+Shift"
+144	146.5200	FM	Simplex	0.60		OFF	100.0	023	Freq		HIGH	N/A	5.0 K	OFF
+250	250.0000	FM	Simplex	1.60		OFF	100.0	023	Freq		HIGH	N/A	20.0 K	OFF
+350	350.0000	FM	Simplex	0.00		OFF	100.0	023	Freq		HIGH	N/A	12.5 K	OFF
+430	446.0000	FM	Simplex	5.00		OFF	100.0	023	Freq		HIGH	N/A	25.0 K	OFF
+850	850.0000	FM	Simplex	0.00		OFF	100.0	023	Freq		HIGH	N/A	12.5 K	OFF

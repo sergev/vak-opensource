@@ -1,0 +1,23 @@
+== Cmos Inverter involving Rise and Fall Time ==
+
+.model P1 PMOS
+.model N1 NMOS
+
+M1 1 2 3 3 P1
+M2 1 2 0 0 N1
+
+VDD 3 0 DC 5V
+Vin 2 0 PULSE(0 5 0 0.1ns 0.1ns 20ns 40ns)
+
+.tran 0.01ns 100ns
+
+.control
+    run
+    set color0=white
+    set color1=black
+    set xbrushwidth=2
+    plot v(2) v(1)
+    plot v(2) v(1) xlimit 20ns 20.3ns
+.endc
+
+.end

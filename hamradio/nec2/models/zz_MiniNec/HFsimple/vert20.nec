@@ -1,0 +1,9 @@
+CM Simple vertical
+CE
+GW 1 10 0.0 0.0 0.0 0.0 0.0  5.177 .001
+GS 0 0 1.0
+GE 1
+EX 0 1  1  0  1.0 0.0
+GN 3 0 0 0 13  0.005 0.0 0.0	' Mininec Gnd
+FR 0 1 0 0 14.05 1
+EN

@@ -1,0 +1,22 @@
+CM Cardioid, converted with 4nec2 on 29-mrt-06 14:37
+CM 	Cardioid
+CM A popular phased array, the 90-degree phased,
+CM quarter-wavelength spaced, two-element array is effective
+CM and forgiving, and gives an honest 3 dB gain over a single
+CM element. It's modeled here over perfect ground to point out
+CM the small reverse lobe which doesn't usually show up in the
+CM textbooks. This is due to the change in current
+CM distribution on the elements from mutual coupling effects.
+CM See July 1990 QST, page 39, for more information on this
+CM phenomenon and its consequences. The current sources
+CE
+'sy len=0.242	'Original
+sy len=0.2494	'Resonance
+GW 1 6 0 0 0 0 0 len 1.21e-4
+GW 2 6 0.25 0 0 0.25 0 len 1.21e-4
+GE 1
+EX 6 1 1 0 1 0
+EX 6 2 1 0 6.123e-17 -1
+GN 1
+FR 0 1 0 0 299.7925 0
+EN

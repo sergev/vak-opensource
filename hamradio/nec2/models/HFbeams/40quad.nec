@@ -1,0 +1,38 @@
+CM N6BV - 40QUAD.ANT, two WA2WVL-style loops
+CE
+SY APEX = 100 ft
+SY R = 8.75 ft			'  half of boom spacing
+SY L1 = 30.5 ft			'  length of top leg of diamond
+SY H3 = APEX - 32.5 ft		'  height on tower of tuning box
+SY ANG = 45			'  included angle of diamond loop
+SY W1 = L1 * SIN(ANG)		'  w1 = 40.31', width at loop corners
+SY W2 = 5 ft			'  1/2 length of rope separator at bottom
+SY W3 = .25 ft			'  1/2 separation of wires at tuning box
+SY H1 = APEX - L1 * COS(ANG)	'  h1 = 74.69', height at corners
+SY H2 = H1 - L1 * SIN(ANG)	'  h2 = 34.39', height at bottom
+'
+GW	1	5	R	0	APEX	R	W1	H1	#16	'  one loop
+GW	2	5	R	W1	H1	R	W2	H2	#16
+GW	3	10	R	W2	H2	.5ft	W3	H3	#16
+GW	4	5	R	0	APEX	R	-W1	H1	#16
+GW	5	5	R	-W1	H1	R	-W2	H2	#16
+GW	6	10	R	-W2	H2	.5ft	-W3	H3	#16
+GW	7	1	.5ft	-W3	H3	.5ft	W3	H3	#16
+'
+GW	8	5	-R	0	APEX	-R	W1	H1	#16	'  second loop
+GW	9	5	-R	W1	H1	-R	W2	H2	#16
+GW	10	10	-R	W2	H2	-.5ft	W3	H3	#16
+GW	11	5	-R	0	APEX	-R	-W1	H1	#16
+GW	12	5	-R	-W1	H1	-R	-W2	H2	#16
+GW	13	10	-R	-W2	H2	-.5ft	-W3	H3	#16
+GW	14	1	-.5ft	-W3	H3	-.5ft	W3	H3	#16
+GE	1
+'
+EX	0	7	1	00	1.0	0.0
+SY RCOIL = 2uH			'  refl loading coil for SSB
+LD	0	14	1	1	0	RCOIL	0
+'
+GN	0	0	0	0	13	.005
+FR	0	1	0	0	 7.1
+EN
+'

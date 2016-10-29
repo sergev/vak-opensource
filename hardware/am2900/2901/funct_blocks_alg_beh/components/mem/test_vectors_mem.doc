@@ -1,0 +1,164 @@
+--------------------------------------------------------------------------------
+--
+--   AM2901 Benchmark
+--
+-- Source: AMD data book
+--
+-- VHDL Benchmark author Indraneel Ghosh
+--                       University Of California, Irvine, CA 92717
+--
+-- Developed on Nov 1, 1991
+--
+--------------------------------------------------------------------------------
+
+
+The "mem" block (RAM) operation is controlled by three most significant bits 
+( I8, I7, I6) in the instruction. Thus there are eight possible cases.
+
+The test vectors in "tv_mem.vhdl" test the "mem" component in 
+all modes of operation for each of the eight cases.
+
+NOTE : The Aadd is just there for reading from memory locations.
+
+----------------------------------------------------------
+
+(1) Load F into RAM(Badd). Badd = 0
+
+F <= "0111";        
+I <= "010000000";
+RAM0 <= 'Z';
+RAM3 <= 'Z';
+Aadd <= 0;   
+Badd <= 0;
+
+----------------------------------------------------------
+
+(2) Load F into RAM(Badd) where Badd = 1
+
+F <= "1001";        
+I <= "011000000";
+RAM0 <= 'Z';
+RAM3 <= 'Z';
+Aadd <= 0;           
+Badd <= 1;
+
+----------------------------------------------------------
+
+(3) Do nothing
+
+F <= "0000";         
+I <= "000000000";
+RAM0 <= 'Z';
+RAM3 <= 'Z';
+Aadd <= 1;             
+Badd <= 0;
+
+----------------------------------------------------------
+
+(4) Do nothing
+
+F <= "1111";  
+I <= "001000000";    
+RAM0 <= 'Z';
+RAM3 <= 'Z';   
+Aadd <= 0;
+Badd <= 1;
+
+----------------------------------------------------------
+
+(5)  Down shift F and load that into RAM(Badd)
+     with input 0.  Badd = 2.
+
+F <= "1001";         
+I <= "100000000";
+RAM0 <= 'Z';
+RAM3 <= '0';
+Aadd <= 1;           
+Badd <= 2;          
+
+----------------------------------------------------------
+
+(6) Down shift F and load that into RAM(Badd)
+    with input 1.  Badd = 3
+
+F <= "0111";        
+I <= "100000000";
+RAM0 <= 'Z';
+RAM3 <= '1';
+Aadd <= 0;          
+Badd <= 3;          
+
+----------------------------------------------------------
+
+(7) Down shift F and load that into RAM(Badd)
+    with input 0.  Badd = 4
+
+F <= "1101";         
+I <= "101000000";
+RAM0 <= 'Z';
+RAM3 <= '0';
+Aadd <= 2;      
+Badd <= 4;      
+
+----------------------------------------------------------
+
+(8) Down shift F and load that into RAM(Badd)
+    with input 1.  Badd = 5
+
+F <= "1101";         
+I <= "101000000";
+RAM0 <= 'Z';
+RAM3 <= '1';      
+Aadd <= 3;        
+Badd <= 5;
+
+----------------------------------------------------------
+
+(9) Up shift F and load that into RAM(Badd)
+    with input 0.  Badd = 2
+
+F <= "0110";        
+I <= "110000000";
+RAM0 <= '0';
+RAM3 <= 'Z';        
+Aadd <= 4;          
+Badd <= 2;
+
+----------------------------------------------------------
+
+(10) Up shift F and load that into RAM(Badd)
+     with input 1.  Badd = 6
+
+F <= "0000";        
+I <= "110000000";
+RAM0 <= '1';
+RAM3 <= 'Z';    
+Aadd <= 2;      
+Badd <= 6;
+
+----------------------------------------------------------
+
+(11) Up shift F and load that into RAM(Badd)
+     with input 0.  Badd = 7
+
+F <= "1101";        
+I <= "111000000";
+RAM0 <= '0';
+RAM3 <= 'Z';
+Aadd <= 5;    
+Badd <= 7;    
+
+----------------------------------------------------------
+
+(12) Up shift F and load that into RAM(Badd)
+     with input 1.  Badd = 8
+
+F <= "0010";         
+I <= "111000000";
+RAM0 <= '1';
+RAM3 <= 'Z';
+Aadd <= 6;      
+Badd <= 8;       
+
+----------------------------------------------------------
+

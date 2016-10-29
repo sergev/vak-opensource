@@ -1,0 +1,19 @@
+CM T2FD Resistively Loaded Dipole, by K6STI
+CM Converted with 4nec2 on 22-apr-02
+CE
+GW	1	21	0.0	-23.5	0.0	0.0	23.5	0.0	#12
+GW	2	21	0.0	-23.5	1.5	0.0	23.5	1.5	#12
+GW	3	1	0.0	-23.5	0.0	0.0	-23.5	1.5	#12
+GW	4	1	0.0	23.5	0.0	0.0	23.5	1.5	#12
+GS	0	0	0.3048
+GE	0
+LD	1	2	11	11	400	0
+EX	0	1	11	0	1	0
+GN	-1
+FR	0	1	0	0	21	0
+EN
+'This antique design is attracting renewed attention in today's age of
+'broadband, solid-state, power amplifiers which don't tolerate high SWR.
+'However, after you examine the SWR and efficiency of this antenna on the
+'various bands, a dipole fed with open-wire line through an antenna tuner will
+'seem very appealing.

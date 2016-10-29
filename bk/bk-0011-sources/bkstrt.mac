@@ -1,0 +1,80 @@
+.Mcall	.Module
+.Module	BKSTRT, Release=X02, Version=03, Comment=<BK0011 Starting Routine>
+;
+;			Copyright (c) 1986,1987 by
+;	C-11 Special Interest Group, Leningrad State University.
+;			 All rights reserved.
+;
+; This software is furnished under a license and may be used and  copied
+; only  in  accordance  with  the  terms  of  such  license and with the
+; inclusion of the above copyright notice.  This software or  any  other
+; copies  thereof may not be provided or otherwise made available to any
+; other person.  No title to and ownership of  the  software  is  hereby
+; transfered.
+;
+; The information in this software is subject to change without notice
+; and should not be construed as a commitment by C-11 group.
+;
+; C-11 assumes no responsibility for the use or reliability of its
+; software on equipment which is not submitted by C-11.
+;
+ .Include "BKHEAD"
+.Globl	Debug,	IniBK,	BootRX,	GetUwd
+
+
+MYcsr	==	177130		;MY: Control state register
+.SbTtl	General Initialization Routine
+
+Start::	MtPS	#340
+	Mov	#UStack,SP	;Set initiial Stack pointer
+	Tst	-(SP)		;
+	Call	IniBK		;Call Initialization Routine
+	Mov	#UStack,SP	;Set initiial Stack pointer
+	Mov	@#Vec4,SvaXX	;
+	Mov	#1$,@#Vec4	;
+	Clr	@#MYcsr		;Test for MY: Disk controller
+	Mov	@#SvaXX,@#Vec4	;Restore vector
+.Rem *
+	Clr	-(SP)		;
+2$:	Mov	@SP,R0		;Get Unit No
+	Call	BootRX		;Attempt to Boot the System
+	Bcs	1$		;No Device
+	Inc	@SP		;Go next unit
+	Cmp	@SP,#3		;
+	Blos	2$		;
+*
+1$:	Mov	#UStack,SP	;Initialize Stack
+	Mov	@#$$SysS,@#Sel1
+	Mov	@#SvaXX,@#Vec4	;Restore vector
+	Mov	#13,SvaX1	;The last ROM page number
+5$:	.BsetPg	SvaX1,#1		;Connect ROM
+	Bcs	3$		;This ROM is illegal
+	Mov	@#100000,R0	;Read Word
+	Cmp	#NOP,R0		;Test for program
+	Bne	3$		;Illegal ROM
+	Call	@#100000	;Call ROM program
+3$:	Mov	@#$$SysS,@#Sel1
+	Mov	@#$$SysS,@#$$UsrS
+	Tst	@#Sel1
+	Dec	SvaX1		;Illegal ROM, check the next
+	Cmp	SvaX1,#10		;
+	Bhis	5$		;
+	Mov	#Mot$$$!WrEnS!<1*400>!<20*400>,@#$$UsrS
+	Mov	#UStack,SP	;
+	Mov	@#$$UsrS,@#Sel1
+	Tst	@#Sel1
+	.Bprint	#IniTxt
+	Clr	-(SP)		;Original PC, PS = 0
+	Clr	-(SP)		;
+	Jmp	Debug	
+
+.Psect	$Stack
+	.Blkw	200.
+SStack::
+.Psect	$RAM
+SvaXX:	.Blkw
+SvaX1:	.Blkw
+.Psect	$Const
+IniTxt:	.AsciZ	/BK0011 Keyboard Monitor/
+.Even
+.End	Start

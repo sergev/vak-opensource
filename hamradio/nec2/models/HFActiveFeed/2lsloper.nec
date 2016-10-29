@@ -1,0 +1,21 @@
+CM K6NA - 2 Element 80m Sloper
+CE
+SY X=135 ft
+SY Y=64 ft
+SY Z=26 ft
+
+GW	1	11	0	-68 ft 	X	Y	-68 ft	Z	#12
+GW	2	11	0	68 ft	X	Y	68 ft	Z	#12
+GE	1
+EX	0	1	6	00	1.0	0.0
+EX	0	2	6	00	1.0	0.0
+'
+GN	2	0	0	0	13	.005
+FR	0	1	0	0	 3.8
+EN
+
+'Adding one element to a sloper increases gain in the useful range by about
+'4 db.  There is still an insignificant F/B pattern, but improved side null.
+'If two high supports exist for this antenna, it is more effective to erect
+'a horizontal dipole at the same height, especially considering the reduction
+'in received noise that would occur.

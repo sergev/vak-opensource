@@ -1,0 +1,45 @@
+--------------------------------------------------------------------------------
+--
+--   AMD2910 Benchmark  -- control component
+--
+-- Source:  AMD data book
+--
+-- author: Indraneel Ghosh
+--         University Of California, Irvine, CA 92717
+--
+-- Written on Feb19, 1992
+--
+--------------------------------------------------------------------------------
+
+THIS DIRECTORY CONTAINS THE FOLLOWING FILES :
+
+control.vhdl    :  File containing the funct_block_alg_beh "ctrl" in 
+                    "funct_block_alg_beh2910.vhdl".
+
+test_vectors_control.vhdl :  Simulation test vector file for "ctrl"
+
+test_vectors_control.doc  :  Documentation on test vectors in "test_vectors_control.vhdl"
+
+cmd_control.inc :  Simulation command file for "ctrl"
+
+
+NOTE : 
+
+     To run simulation on Zycad ( Version 1.0) Simulator :
+
+     Run the following commands in the order given below.
+
+         zvan types.vhd
+
+         zvan MVL7_functions.vhd
+
+         zvan control.vhdl 
+
+         zvan test_vectors_control.vhd
+
+         zvsim -t ns -i cmd_control.inc E
+
+     As in other cases, the simulation results will be stored in file
+
+        "run.out"
+  

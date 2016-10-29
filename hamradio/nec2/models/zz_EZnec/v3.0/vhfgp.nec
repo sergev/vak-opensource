@@ -1,0 +1,31 @@
+CM VHF Ground Plane, converted with 4nec2 on 29-mrt-06 14:37
+CM 	VHFGP
+CM This is a pretty ordinary VHF ground plane. For an
+CM interesting exercise, add a wire extending downward from
+CM the junction of the radials to simulate the outside of a
+CM coax feedline. With the wire a half wavelength long, you'll
+CM notice significant pattern distortion caused by current
+CM induced on the new wire. Various lengths, open or connected
+CM to ground, will cause different results. You can simulate
+CM addition of "current" (or "choke") baluns by adding loads
+CM of about 500-1000 ohms to the new wire.
+CE
+SY freq=146			' Design frequency.
+sy len=0.233	'0.24
+sy ang=48.6	'45
+SY dl=0.25*sin(ang), dz=0.25*cos(ang)
+GW 1 6 0 0 5 0   dl  5-dz  5e-4
+GW 2 6 0 0 5 dl  0   5-dz  5e-4
+GW 3 6 0 0 5 0   -dl 5-dz  5e-4
+GW 4 6 0 0 5 -dl 0   5-dz  5e-4
+GW 5 5 0 0 5 0   0   5+len 5e-4
+
+'GW 6 50 0 0 0 0   0   5     5e-4	'Coax
+
+GS 0 0 299.8/freq		' All in WL.
+GE 1
+EX 6 5 1 0 1 0
+'GN -1
+GN 3 0 0 0 13 .005
+FR 0 1 0 0 146 0
+EN

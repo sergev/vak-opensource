@@ -1,0 +1,1182 @@
+
+
+
+
+
+;  ************************************************
+;  *                                              *
+;  *    Д Р А Й В Е Р    T V - М О Н И Т О Р А    *
+;  *                                              *
+;  ************************************************
+
+
+
+;   =======================
+;   *** КОНСТАНТЫ DTVMN ***
+;   =======================
+
+	ARRUL	= 177664	;- АДРЕС РЕГИСТРА РУЛОНА
+	NZRUL0	= 1330		;- НАЧ. ЗНАЧЕНИЕ RRUL В ОСН.РЕЖ.
+	NZRUL1	= 230		;- НАЧ. ЗНАЧЕНИЕ RRUL В РЕЖ. РП
+
+	KSSTR	= 100		;- КОЛИЧ. СИМВОЛОВ В СТРОКЕ
+	KTVSS	= 12		;- КОЛИЧ. TV СТРОК В СИМВ. СТРОКЕ
+	KTVSSS	= 20		;- КОЛИЧ. TV СТРОК В СЛУЖ. СТРОКЕ
+
+	DTVSTB	= 100		;- ДЛИНА TV СТРОКИ
+	DTVSTS	= 40
+	DSSTRB	= 1200		;- ДЛИНА СИМВОЛЬНОЙ СТРОКИ
+	DSSTRS	= 500
+	DSLSTB	= 2000		;- ДЛИНА СЛУЖЕБНОЙ СТРОКИ
+	DSLSTS	= 1000
+
+
+
+
+
+; ========================================
+; ***** МОДУЛЬ ФОРМИРОВАНИЯ СИМВОЛОВ *****
+; ========================================
+
+
+MFSIM:	;ВХОД:	R0 - КОД В МЛ. БАЙТЕ
+
+
+
+;   =================================
+;   *** 1. БЛОК УПРАВЛЕНИЯ MFSTVM ***
+;   =================================
+
+
+BUMFS:	JSR	R4,PSREG	;  СОХРАНЕНИЕ РЕГИСТРОВ
+	INC	SCKOD		;- СЧЕТ КОДОВ
+
+	TSTB	PRGRAF		;  ТЕКСТОВАЯ ГРАФИКА
+	BEQ	1$
+	JSR	PC,BTG
+	BR	KBUMFS
+
+1$:	BIC	#177400,R0	;  ГРАФИЧЕСКИЕ СИМВОЛЫ
+	CMPB	R0,#177
+	BHI	2$
+	CMPB	R0,#37
+	BLOS	3$
+	SUB	#20,R0
+5$:	JSR	PC,BGS
+	BR	KBUMFS
+2$:	CMPB	R0,#237
+	BLOS	4$
+	SUB	#60,R0
+	BR	5$
+
+3$:	CMPB	R0,#21		;  РЕДАКТИРУЮЩИЕ СИМВОЛЫ
+	BLOS	6$
+7$:	JSR	PC,BRS
+	BR	KBUMFS
+
+6$:	CMPB	R0,#10		;  УПРАВЛЯЮЩИЕ СИМВОЛЫ
+	BEQ	7$
+	JSR	PC,BUS
+	BR	KBUMFS
+
+4$:	JSR	PC,BFS		;  ФУНКЦИОНАЛЬНЫЕ СИМВОЛЫ
+
+KBUMFS:	JSR	R4,PWREG
+	RTS	PC
+
+
+
+;   ====================================
+;   *** 2. БЛОК ГРАФИЧЕСКИХ СИМВОЛОВ ***
+;   ====================================
+
+
+BGS:	JSR	PC,PFSIM	;  ФОРМИРОВАНИЕ СИМВОЛА
+
+	ADD	DSIMB,NOMSIM	;  ИЗМЕНЕНИЕ АДРЕСА СИМВОЛА
+	JSR	PC,PFASIM
+
+	JSR	PC,PFSK		;  ФОРМИРОВАНИЕ КУРСОРА
+
+	RTS	PC
+
+
+;    --------------------------------------
+;    ** 2.1. ФОРМИРОВАНИЕ АДРЕСА СИМВОЛА **
+;    --------------------------------------
+
+PFASIM:	TSTB	R5		;  ПРИЗНАК ПРОИЗВ. АДРЕСА
+	BEQ	1$
+
+	BIT	#77,NOMSIM	;  ПРОВЕРКА НАЧАЛА СТРОКИ
+	BNE	2$
+
+1$:	TSTB	PRNRUL		;  ВОССТ. СЛУЖ. СТРОКИ
+	BEQ	8$
+	JSR	PC,PFSSTR
+	CLRB	PRNRUL
+
+8$:	CLR	R3		;  ОПРЕД. НАПРАВЛ. ДВИЖ. КУРС.
+	MOV	NOMSIM,R5
+	BPL	3$
+	TST	(R3)+		;- ВВЕРХ
+6$:	ADD	#KSSTR,R5
+	BMI	6$
+	BR	4$
+3$:	CMP	R5,KSVP		;- ВНИЗ
+	BLO	5$
+7$:	SUB	#KSSTR,R5
+	CMP	R5,KSVP
+	BHIS	7$
+
+4$:	JSR	PC,PRUL		;  ОТРАБОТКА РУЛОНА
+
+5$:	MOV	R5,NOMSIM	;  ВЫЧИСЛЕНИЕ AS
+	MOV	R5,R4
+	BIC	#177700,R4
+	BIC	#77,R5
+	ASL	R5
+	ADD	R5,R4
+	ASL	R5
+	ASL	R5
+	ADD	R5,R4
+	ADD	BAZVP,R4
+	BIC	#140000,R4
+	ADD	ANVP,R4
+	MOV	R4,AS
+	BR	KFASIM
+
+2$:	ADD	DSIMB,AS	;  ВЫЧИСЛЕНИЕ AS В СТРОКЕ
+
+KFASIM:	RTS	PC
+
+
+;    -----------------------------
+;    ** 2.1.1. ОТРАБОТКА РУЛОНА **
+;    -----------------------------
+
+PRUL:	TSTB	PRRP		;  ПРИЗНАК РАСШИРЕННОЙ ПАМЯТИ
+	BNE	1$
+
+	MOV	KRUL1(R3),R4	;  СДВИГ СЛУЖ. СТРОКИ
+	MOV	BAZVP,R1
+	MOV	#KTVSSS,R2
+	MOV	#DSSTRB,-(SP)
+	TST	R3
+	BEQ	2$
+	SUB	#DSLSTB,R1	;- СДВИГ ВВЕРХ
+	NEG	(SP)
+2$:	BIC	#140000,R1
+	ADD	ANVP,R1
+	INCB	PRNRUL
+	JSR	PC,(R4)
+
+	MOV	#KTVSS,R4	;  СДВИГ ЭКРАНА
+	MOV	(SP)+,R1
+	BPL	3$
+	NEGB	R4		;- СДВИГ ВНИЗ
+3$:	ADD	BAZVP,R1
+	BIC	#140000,R1
+	MOV	R1,BAZVP
+	ADD	R4,@#ARRUL
+	DECB	PRNRUL
+	BR	KRUL
+
+1$:	MOV	#36,R2		;  РЕЖИМ РАСШИР. ПАМЯТИ
+	MOV	#73200,R1	;- СДВИГ ЭКРАНА ВВЕРХ
+	NEG	R3
+	BEQ	4$
+	MOV	#75600,R1	;- СДВИГ ЭКРАНА ВНИЗ
+4$:	MOV	KRUL2(R3),R4
+	JSR	PC,(R4)
+
+KRUL:	RTS	PC
+KRUL1:	.WORD	PSDWN
+KRUL2:	.WORD	PSDWW
+
+
+;    -------------------------------
+;    ** 2.2. ФОРМИРОВАНИЕ СИМВОЛА **
+;    -------------------------------
+
+PFSIM:	ASL	R0		;  ВЫЧИСЛЕНИЕ АДР. ИЗОБР.
+	MOV	R0,R1
+	ASL	R0
+	ASL	R0
+	ADD	R0,R1
+	ADD	#IZSIM,R1
+
+	MOV	AS,R3		;  ПОДГ. АДР. И СЧЕТЧИКА
+	MOV	#11,R2
+
+	TSTB	PRCW		;  ЧБ/ЦВ
+	BNE	PFCWS
+
+;	ФОРМИРОВАНИЕ ЧЕРНО-БЕЛОГО СИМВОЛА
+;	---------------------------------
+
+	CLR	R0		;  УСТ. ПРИЗН. ИНВЕРСИИ
+	TSTB	PRINWS
+	BEQ	1$
+	COM	R0
+1$:	TST	FON
+	BEQ	2$
+	COM	R0
+
+2$:	MOVB	(R1)+,(R3)	;  ФОРМИРОВАНИЕ СИМВОЛА
+	TST	R0
+	BEQ	3$
+	COMB	(R3)
+3$:	JSR	PC,PFTAN
+	SOB	R2,2$
+	MOVB	(R1)+,(R3)
+	TST	R0
+	BEQ	4$
+	COMB	(R3)
+
+4$:	TSTB	PRPODC		;  ПОДЧЕРКИВАНИЕ
+	BEQ	KFSIM
+	MOVB	MASCW,(R3)
+	BR	KFSIM
+
+;	ФОРМИРОВАНИЕ ЦВЕТНОГО СИМВОЛА
+;	-----------------------------
+
+PFCWS:	CLR	-(SP)
+
+6$:	MOVB	(R1)+,R5	;  ПОДГ. ИСХ. ДАНН. СТРОКИ
+	BIC	#177400,R5
+	MOV	#20,R4
+	CLR	R0
+
+	TSTB	PRINWS		;  ИНВЕРСИЯ
+	BEQ	1$
+	COMB	R5
+
+1$:	TSTB	R5		;  РАСШИРЕНИЕ СТРОКИ
+	BEQ	2$
+5$:	ASR	R5
+	BCC	3$
+	BEQ	4$
+	BIS	MASPOZ(R4),R0
+3$:	SUB	#2,R4
+	BNE	5$
+4$:	BIS	MASPOZ(R4),R0
+
+2$:	MOV	FON,R5		;  ФОРМИРОВАНИЕ ЦВЕТА
+	BIC	R0,R5
+	MOV	MASCW,R4
+	COM	R0
+	BIC	R0,R4
+	BIS	R5,R4
+
+	MOV	R4,(R3)		;  ЗАПИСЬ СТРОКИ СИМВОЛА
+
+	JSR	PC,PFTAN	;  КОНЕЦ ЦИКЛА
+	SOB	R2,6$
+
+	TST	(SP)		;  ВЫХОД
+	BNE	7$
+	INC	(SP)
+	INC	R2
+
+	TSTB	PRPODC		;  ПОДЧЕРКИВАНИЕ
+	BEQ	6$
+	MOV	MASCW,(R3)
+
+7$:	MOV	(SP)+,R0
+
+KFSIM:	RTS	PC
+
+
+;    -------------------------------------------
+;    ** 2.3. ФОРМИРОВАНИЕ СИМВОЛЬНОГО КУРСОРА **
+;    -------------------------------------------
+
+PFSK:				;  ФОРМИРОВАНИЕ И СТИРАНИЕ СИМВ. КУРС.
+PSTSK:	TSTB	PRGAHK		;  ПРИЗНАК ГАШ. КУРС.
+	BNE	KFSK
+
+	MOV	AS,R3		;  ПОДГ. ПАРАМ.
+	MOV	#KTVSS,R2
+
+	TSTB	PRCW		;  ЧБ/ЦВ
+	BNE	1$
+
+	MOV	#377,R5		;  ЧЕРНО-БЕЛЫЙ
+	ASR	R3
+	BCC	2$
+	SWAB	R5
+2$:	ASL	R3
+	BR	3$
+
+1$:	MOV	MASCW,R5	;  ЦВЕТНОЙ
+	MOV	FON,R4
+	XOR	R4,R5
+
+3$:	XOR	R5,(R3)		;  ИЗМЕНЕНИЕ МАРКЕРА
+	JSR	PC,PFTAN
+	SOB	R2,3$
+
+KFSK:	RTS	PC
+
+
+
+;   ======================================
+;   *** 3. БЛОК РЕДАКТИРУЮЩИХ СИМВОЛОВ ***
+;   ======================================
+
+
+BRS:	TSTB	PRBLR		;  РЕЖИМ БЛОК.РЕД.
+	BEQ	1$
+	JSR	PC,PFUS1
+	BR	KBRS
+
+1$:	MOV	NOMSIM,R1	;  ПОДГ.ПАРАМ.
+	MOV	DSIMB,R2
+	MOV	#KSSTR,R3
+
+	CMPB	R0,#10		;  КЛ
+	BNE	2$
+	SUB	R2,R1
+	BR	3$
+
+2$:	SUB	#22,R0		;  ВЫБОР КОДА
+	ASL	R0
+	MOV	4$(R0),R5
+	JSR	PC,(R5)
+	RTS	PC
+4$:	.WORD	22$
+	.WORD	PSTRW
+	.WORD	PSTRN
+	.WORD	25$
+	.WORD	PSIML
+	.WORD	PSIMP
+	.WORD	PANSIM
+	.WORD	31$
+	.WORD	32$
+	.WORD	33$
+	.WORD	34$
+	.WORD	35$
+	.WORD	36$
+	.WORD	37$
+
+22$:	CLR	R1		;  КНЭ
+	BR	3$
+
+25$:	ADD	R3,R1		;  КНСС
+	BIC	#77,R1
+	BR	3$
+
+31$:	ADD	R2,R1		;  КП
+	BR	3$
+
+32$:	SUB	R3,R1		;  КВ
+	BR	3$
+
+33$:	ADD	R3,R1		;  КН
+	BR	3$
+
+34$:	SUB	R3,R1		;  КЛВ
+	SUB	R2,R1
+	BR	3$
+
+35$:	SUB	R3,R1		;  КПВ
+	ADD	R2,R1
+	BR	3$
+
+36$:	ADD	R3,R1		;  КПН
+	ADD	R2,R1
+	BR	3$
+
+37$:	ADD	R3,R1		;  КЛН
+	SUB	R2,R1
+
+3$:	MOV	R1,NOMSIM	;  РЕДАКТИРОВАНИЕ КУРСОРА
+	JSR	PC,PREDSK
+
+KBRS:	RTS	PC
+
+
+;    -------------------------------
+;    ** 3.1. АНУЛИРОВАНИЕ СИМВОЛА **
+;    -------------------------------
+
+PANSIM:	JSR	PC,PSTSK
+	SUB	DSIMB,NOMSIM
+	CLR	R5
+	JSR	PC,PFASIM
+	JSR	PC,PSBRS
+	JSR	PC,PFSK
+
+	RTS	PC
+
+
+;    ----------------------------------
+;    ** 3.2. СМЕЩЕНИЕ СИМВОЛОВ ВЛЕВО **
+;    ----------------------------------
+
+PSIML:	MOV	AS,R3		;  ПОДГОТОВКА АДРЕСОВ
+	MOV	R3,R4
+	BIS	#76,R4
+	BIS	DSIMB,R4
+	MOV	#12,R2
+
+3$:	MOV	R3,R1		;  ПОДГОТОВКА ЦИКЛА
+	MOV	R1,R5
+	ADD	DSIMB,R5
+
+2$:	BIT	#77,R5		;  СДВИГ СТРОКИ
+	BEQ	1$
+	MOVB	(R5)+,(R1)+
+	BR	2$
+
+1$:	JSR	PC,PFTAN	;  ИЗМЕНЕНИЕ АДР.СТРОКИ
+	SOB	R2,3$
+
+	MOV	AS,-(SP)	;  СБРОС ПОСЛЕДНЕГО СИМВ.
+	MOV	R4,AS
+	JSR	PC,PSBRS
+	MOV	(SP)+,AS
+
+	JSR	PC,PFSK
+
+	RTS	PC
+
+
+;    -----------------------------------
+;    ** 3.4. СМЕЩЕНИЕ СИМВОЛОВ ВПРАВО **
+;    -----------------------------------
+
+PSIMP:	JSR	PC,PSTSK
+
+	MOV	AS,R3		;  ПОДГ.АДРЕСОВ
+	MOV	#12,R2
+
+2$:	MOV	R3,R5		;  ПОДГ.ЦИКЛА
+	BIS	#77,R5
+	INC	R5
+	MOV	R5,R1
+	SUB	DSIMB,R1
+
+1$:	MOVB	-(R1),-(R5)	;  СДВИГ СТРОКИ
+	CMP	R5,R3
+	BNE	1$
+
+	JSR	PC,PFTAN	;  ИЗМЕНЕНИЕ АДР. СТРОКИ
+	SOB	R2,2$
+
+	JSR	PC,PSBRS	;  СБРОС ТЕКУЩЕГО СИМВ.
+
+	JSR	PC,PFSK		;  ФОРМИРОВАНИЕ КУРСОРА
+
+	RTS	PC
+
+
+;    -------------------------------
+;    ** 3.4. СМЕЩЕНИЕ СТРОК ВВЕРХ **
+;    -------------------------------
+
+PSTRW:	MOV	AS,R1		;  АДРЕС ИСТОЧНИКА
+	BIC	#77,R1
+	ADD	#DSSTRB,R1
+	BPL	1$
+	SUB	DVPB,R1
+
+1$:	JSR	PC,PSCTVS	;  ОПРЕД.СЧ.ТВ.СТРОК
+
+	JSR	PC,PSDWW	;  СДВИГ ВВЕРХ
+	JSR	PC,PFSK
+
+	RTS	PC
+
+
+;    ------------------------------
+;    ** 3.5. СМЕЩЕНИЕ СТРОК ВНИЗ **
+;    ------------------------------
+
+PSTRN:	JSR	PC,PSTSK
+
+	MOV	BAZVP,R1	;  АДРЕС ИСТОЧНИКА + 1
+	ADD	DGPB,R1
+	SUB	#DSSTRB,R1
+	BIC	#140000,R1
+	ADD	ANVP,R1
+
+	JSR	PC,PSCTVS	;  ОПРЕД. СЧ. ТВ. СТРОК
+
+	JSR	PC,PSDWN	;  СДВИГ ВНИЗ
+	JSR	PC,PFSK
+
+	RTS	PC
+
+
+;    ---------------------------------------
+;    ** 3.6. ВЫЧИСЛЕНИЕ СЧЕТЧИКА TV СТРОК **
+;    ---------------------------------------
+
+PSCTVS:	MOV	KSVP,R3		;  ДЛИНА ПОЛЯ
+	MOV	NOMSIM,R2
+	BIS	#77,R2
+	INC	R2
+	SUB	R2,R3
+
+	MOV	#5,R2		;  ДЕЛЕНИЕ НА 32
+1$:	ASR	R3
+	SOB	R2,1$
+
+	MOV	R3,R2		;  УМНОЖЕНИЕ НА 5
+	ASL	R3
+	ASL	R3
+	ADD	R3,R2
+
+	RTS	PC
+
+
+
+;   ====================================
+;   *** 4. БЛОК УПРАВЛЯЮЩИХ СИМВОЛОВ ***
+;   ====================================
+
+
+BUS:	CMPB	R0,#12		;  ПС
+	BNE	1$
+	JSR	PC,PFUS
+	BIT	#77,NOMSIM
+	BNE	3$
+	TSTB	PRISU
+	BNE	KBUS
+3$:	BIS	#77,NOMSIM
+	INC	NOMSIM
+	JSR	PC,PREDSK
+	BR	KBUS
+
+1$:	TSTB	PRBLR
+	BNE	PFUS
+
+	CMPB	R0,#14		;  СБР
+	BNE	2$
+	JSR	PC,PSBR
+	BR	KBUS
+
+2$:	CMPB	R0,#7		;  ЗВ
+	BNE	PFUS
+	JSR	PC,PSIGN
+	BR	KBUS
+
+
+;    --------------------------------------------
+;    ** 4.1. ФОРМИРОВАНИЕ УПРАВЛЯЮЩЕГО СИМВОЛА **
+;    --------------------------------------------
+
+PFUS:	TSTB	PRISU		;  РЕЖИМ ИНД.СУ.
+	BEQ	KFUS
+
+PFUS1:	SUB	#20,R0		;  РЕД. СИМВОЛЫ
+	BMI	2$
+4$:	JSR	PC,BGS
+	BR	KFUS
+
+2$:	CMPB	R0,#-10		;  ВШ
+	BNE	3$
+	MOV	#1,R0
+	BR	4$
+
+3$:	ADD	#100,R0		;  СУ
+	COMB	PRINWS
+	JSR	PC,BGS
+	COMB	PRINWS
+	BR	KFUS
+
+KFUS:
+KBUS:	RTS	PC
+
+
+
+;   =======================================
+;   *** 5. БЛОК ФУНКЦИОНАЛЬНЫХ СИМВОЛОВ ***
+;   =======================================
+
+
+BFS:	CMPB	R0,#202		;  ИСУ
+	BNE	1$
+	COMB	PRISU
+	MOV	#3,R0
+	BR	11$
+
+1$:	CMPB	R0,#204		;  БЛР
+	BNE	2$
+	COMB	PRBLR
+	MOV	#4,R0
+11$:	BR	BFS1
+
+2$:	CMPB	R0,#214		;  РП
+	BNE	3$
+	JSR	PC,PPRP
+	BR	KBFS
+
+3$:	MOVB	PRGRAF,R5
+	BNE	BFS0
+	TSTB	PRBLR
+	BNE	BFS2
+
+BFS0:	SUB	#221,R0		;  ВЫБОР КОДА
+	BMI	KBFS
+	ASL	R0
+	ADD	R0,PC
+	BR	21$
+	BR	21$
+	BR	21$
+	BR	21$
+	BR	25$
+	BR	26$
+	BR	27$
+	BR	KBFS
+	BR	31$
+	BR	32$
+	BR	33$
+	BR	34$
+	BR	35$
+	BR	36$
+	BR	37$
+
+21$:	TSTB	PRCW
+	BEQ	KBFS
+	MOV	KMASCW(R0),R0	;  К/З/С/Ч
+	CLRB	PRINWF
+	JSR	PC,PSTK
+	MOV	R0,MASCW
+	JSR	PC,PFK
+	BR	KBFS
+
+25$:	JSR	PC,PPGRAF	;  ГРАФ
+1$:	MOV	#5,R0
+	BR	BFS1
+
+26$:	TST	R5		;  ЗАП
+	BEQ	KBFS
+	CLRB	PRSTIR
+	COMB	PRZAP
+	BR	1$
+
+27$:	TST	R5		;  СТИР
+	BEQ	KBFS
+	CLRB	PRZAP
+	COMB	PRSTIR
+	BR	1$
+
+31$:	TST	R5		;  СБР. К. СТР.
+	BNE	KBFS
+	JSR	PC,PSBKST
+	BR	KBFS
+
+32$:	JSR	PC,PSTK		;  ГАШ. КУРС.
+	COMB	PRGAHK
+	JSR	PC,PFK
+	BR	KBFS
+
+33$:	JSR	PC,PPCW		;  ЦВ
+	BR	KBFS
+
+34$:	COMB	PRINWS		;  ИНВ.С.
+	MOV	#2,R0
+	BR	BFS1
+
+35$:	JSR	PC,PINWF	;  ИНВ. Э.
+	BR	KBFS
+
+36$:	MOV	FON,FONSS	;  УСТ.ИНД.
+	MOV	MASCW,MCWSS
+	MOV	PRPODC,PRPSSS
+	MOVB	PRCW,PRCWSS
+	JSR	PC,PSTK
+	JSR	PC,PFSSTR
+	JSR	PC,PFK
+	BR	KBFS
+
+37$:	COMB	PRPODC		;  ПОДЧ.
+	MOV	#1,R0
+
+BFS1:	JSR	PC,PFINDR	;  ФОРМ. ИНД. РЕЖИМА
+	BR	KBFS
+
+BFS2:	JSR	PC,PFFS		;  ФОРМ. ФУНКЦ. СИМВ.
+
+KBFS:	RTS	PC
+
+
+;    ------------------------------------------
+;    ** 5.1. ПЕРЕКЛЮЧЕНИЕ РАСШИРЕННОЙ ПАМЯТИ **
+;    ------------------------------------------
+
+PPRP:	COMB	PRRP
+	BNE	PPRP2
+
+PPRP1:	MOV	#40000,ANVP	;  НЕ РАСШИРЕННАЯ ПАМЯТЬ
+	MOV	#40000,DVPB
+	MOV	#36000,DGPB
+	MOV	#3000,KSVP
+	MOV	#NZRUL0,@#ARRUL
+	BR	KPRP
+
+PPRP2:	MOV	#70000,ANVP	;  РАСШИРЕННАЯ ПАМЯТЬ
+	MOV	#10000,DVPB
+	MOV	#5000,DGPB
+	MOV	#400,KSVP
+	MOV	#NZRUL1,@#ARRUL
+	MOV	#77000,R3	;- УСТ. ИНД. РП.
+	MOV	#340,R4
+1$:	MOV	FONSS,(R3)+
+	SOB	R4,1$
+	MOV	MCWSS,R1
+	JSR	PC,PZTVSN
+
+KPRP:	MOV	#DSLSTB,BAZVP	;  УСТ. БАЗЫ
+	JSR	PC,PSBR		;  СБРОС ЭКРАНА
+	JSR	PC,PFSSTR	;  ФОРМ. СЛ. СТР.
+
+	RTS	PC
+
+
+;    -------------------------------------------
+;    ** 5.2. ПЕРЕКЛЮЧЕНИЕ ГРАФИЧЕСКОГО РЕЖИМА **
+;    -------------------------------------------
+
+PPGRAF:	JSR	PC,PSTK
+	COMB	PRGRAF
+	BEQ	1$
+
+	MOVB	NMPGT,MASPGT	;  УСТ. ГРАФ. РЕЖИМА
+	CLR	DGW
+	CLR	SCTVS
+	MOV	AS,R0
+	MOV	R0,AGT
+	SUB	ANVP,R0
+	SUB	BAZVP,R0
+	BPL	2$
+	ADD	DVPB,R0
+2$:	MOV	R0,AGTVP
+	BR	KPGRAF
+
+1$:	CLRB	PRZAP		;  СБРОС ГРАФ. РЕЖИМА
+	CLRB	PRSTIR
+	TSTB	PRCW		;- ВЫЧИСЛЕНИЕ AS
+	BEQ	3$
+	BIC	#1,NOMSIM
+3$:	CLR	R5
+	JSR	PC,PFASIM
+
+KPGRAF:	MOV	#5,R0
+	JSR	PC,PFINDR
+	JSR	PC,PFK
+
+	RTS	PC
+
+
+;    -----------------------------
+;    ** 5.3. СБРОС КОНЦА СТРОКИ **
+;    -----------------------------
+
+PSBKST:	MOV	AS,-(SP)
+
+1$:	JSR	PC,PSBRS	;  СБРОС
+	ADD	DSIMB,AS
+	BIT	#77,AS
+	BNE	1$
+
+	MOV	(SP)+,AS	;  ФОРМИРОВАНИЕ КУРСОРА
+	JSR	PC,PFSK
+
+	RTS	PC
+
+
+;    ---------------------------------------
+;    ** 5.4. ПЕРЕКЛЮЧЕНИЕ ЦВЕТНОГО РЕЖИМА **
+;    ---------------------------------------
+
+PPCW:	JSR	PC,PSTK
+
+	COMB	PRCW
+	BNE	1$
+
+	DEC	DSIMB		;  ЧЕРНО-БЕЛЫЙ
+	CLR	R5
+	TSTB	PRINWF
+	BEQ	2$
+	COM	R5
+2$:	MOV	R5,FON
+	COM	R5
+	MOV	R5,MASCW
+	MOVB	#1,NMPGT	;- ГРАФ.
+	BICB	#252,MASPGT
+	BR	3$
+
+1$:	INC	DSIMB		;  ЦВЕТНОЙ
+	TSTB	PRGRAF
+	BNE	6$
+	INC	NOMSIM
+	BIC	#1,NOMSIM
+	CLR	R5
+	JSR	PC,PFASIM
+6$:	MOVB	#3,NMPGT	;- ГРАФ.
+	MOVB	MASPGT,R5
+	BITB	#252,R5
+	BEQ	4$
+	ASRB	R5
+	BR	5$
+4$:	ASLB	R5
+5$:	BISB	R5,MASPGT
+
+3$:	JSR	PC,PFINDT
+	JSR	PC,PFK
+
+	RTS	PC
+
+
+;    ------------------------
+;    ** 5.5. ИНВЕРСИЯ ФОНА **
+;    ------------------------
+
+PINWF:	COMB	PRINWF
+
+	MOV	MASCW,R0	;  СМЕНА МАСОК
+	MOV	FON,MASCW
+	MOV	R0,FON
+
+	MOV	MASCW,R5	;  ПОДГОТ. ПАРАМ
+	XOR	R5,R0
+	MOV	BAZVP,R1
+	ADD	ANVP,R1
+	MOV	DGPB,R2
+	ASR	R2
+
+2$:	XOR	R0,(R1)+	;  ИНВЕРСИЯ ФОНА
+	TST	R1
+	BPL	1$
+	SUB	DVPB,R1
+1$:	SOB	R2,2$
+
+	RTS	PC
+
+
+;    -----------------------------------------------
+;    ** 5.6. ФОРМИРОВАНИЕ ФУНКЦИОНАЛЬНЫХ СИМВОЛОВ **
+;    -----------------------------------------------
+
+PFFS:	CMPB	R0,#225		;- Г
+	BNE	1$
+	MOV	#267,R0
+	BR	2$
+1$:	CMPB	R0,#226		;- З
+	BNE	3$
+	MOV	#312,R0
+	BR	2$
+3$:	CMPB	R0,#227		;- C
+	BNE	4$
+	MOV	#303,R0
+	BR	2$
+
+4$:	ADD	#20,R0
+
+2$:	COMB	PRINWS		;  ФОРМ. СИМВ.
+	JSR	PC,PFSIM
+	COMB	PRINWS
+
+	ADD	DSIMB,NOMSIM	;  ИЗМ. АДРЕСА
+	JSR	PC,PFASIM
+	JSR	PC,PFSK
+
+	RTS	PC
+
+
+
+;   =================================
+;   *** 6. БЛОК ТЕКСТОВОЙ ГРАФИКИ ***
+;   =================================
+
+
+BTG:	CMPB	R0,#37		;  УКАЗАТЕЛИ НАПРАВЛЕНИЯ
+	BHI	1$
+	JSR	PC,PFNGW
+	BR	KBTG1
+
+1$:	BIC	#177400,R0
+	CMPB	R0,#71		;  ЦИФРЫ
+	BHI	2$
+	JSR	PC,PFDGW
+	BR	KBTG
+
+2$:	CMPB	R0,#237		;  ФУНКЦИОНАЛЬНЫЕ КОДЫ
+	BHI	KBTG1
+	JSR	PC,BFS
+
+KBTG1:	CLR	DGW
+KBTG:	RTS	PC
+
+
+;    --------------------------------------
+;    ** 6.1. ФОРМИРОВАНИЕ НАПРАВЛЕНИЯ GW **
+;    --------------------------------------
+
+PFNGW:	JSR	PC,PSTGK
+
+	CLR	R1		;  ПОДГ. ПАРАМ.
+	CLR	R2
+	MOV	#DTVSTB,R4
+
+	MOVB	R0,R3		;  ВЫБОР КОДА
+	SUB	#31,R3
+	BMI	1$
+	ASL	R3
+	ADD	R3,PC
+	BR	31$
+	BR	32$
+	BR	33$
+	BR	34$
+	BR	35$
+	BR	36$
+	BR	37$
+
+31$:	INC	R1		;  КП
+	BR	PFNGW2
+
+32$:	SUB	R4,R2		;  КВ
+	BR	PFNGW2
+
+33$:	ADD	R4,R2		;  КН
+	BR	PFNGW2
+
+34$:	SUB	R4,R2		;  КЛВ
+	DEC	R1
+	BR	PFNGW2
+
+35$:	SUB	R4,R2		;  КПВ
+	INC	R1
+	BR	PFNGW2
+
+36$:	ADD	R4,R2		;  КПН
+	INC	R1
+	BR	PFNGW2
+
+37$:	ADD	R4,R2		;  КЛН
+	DEC	R1
+	BR	PFNGW2
+
+1$:	CMPB	R0,#10		;  КЛ
+	BNE	2$
+	DEC	R1
+	BR	PFNGW2
+
+2$:	CMPB	R0,#22		;  КНЭ
+	BNE	3$
+	CLR	NOMSIM
+	JMP	PSBR1
+
+3$:	CMPB	R0,#14		;  СБРОС
+	BNE	KFNGW
+	JSR	PC,PSBR
+	RTS	PC
+
+PFNGW2:	MOV	DGW,R4		;  ЗАГРУЗКА DGW
+	BNE	PFGW
+	CLRB	R0
+	SWAB	R0
+	INC	R0
+	MOV	R0,R4
+
+
+;    ----------------------------------------------
+;    ** 6.1.1. ФОРМИРОВАНИЕ ГРАФИЧЕСКОГО ВЕКТОРА **
+;    ----------------------------------------------
+
+PFGW:	TSTB	PRZAP		;  ЗАП
+	BEQ	1$
+	MOV	MASCW,R0
+	BR	2$
+
+1$:	TSTB	PRSTIR		;  СТИР
+	BEQ	3$
+	MOV	FON,R0
+
+2$:	MOVB	MASPGT,R5	;  ФОРМИР. ТОЧКИ
+	BICB	R5,@AGT
+	MOV	R0,R3
+	COM	R5
+	BIC	R5,R3
+	BISB	R3,@AGT
+	JSR	PC,PFAGT
+	SOB	R4,2$
+	BR	KFGW
+
+3$:	JSR	PC,PFAGT	;  ПЕРЕМЕЩЕНИЕ
+	SOB	R4,3$
+
+KFGW:
+KFNGW:	JSR	PC,PFGK
+	RTS	PC
+
+
+;    -------------------------------
+;    ** 6.1.1.1. ФОРМИРОВАНИЕ AGT **
+;    -------------------------------
+
+PFAGT:	MOV	AGTVP,R5
+	ADD	R2,R5
+	ADD	R2,SCTVS
+	MOV	MASPGT,-(SP)
+	MOV	#100,R3
+
+	TST	R1		;  ПРЯМО/ВЛЕВО/ВПРАВО
+	BEQ	1$
+	BMI	2$
+
+	ASLB	(SP)		;  СДВИГ ВПРАВО
+	BCC	3$
+	ADCB	(SP)
+	INC	R5
+	INC	NOMSIM
+	BIT	#77,R5
+	BNE	3$
+	SUB	R3,R5
+	SUB	R3,NOMSIM
+3$:	TSTB	PRCW
+	BEQ	1$
+	ASLB	(SP)
+	ADCB	(SP)
+	BR	1$
+
+2$:	CLC
+	RORB	(SP)		;  СДВИГ ВЛЕВО
+	BCC	4$
+	BISB	#200,(SP)
+	BIT	#77,R5
+	BNE	21$
+	ADD	R3,R5
+	ADD	R3,NOMSIM
+21$:	DEC	NOMSIM
+	DEC	R5
+4$:	TSTB	PRCW
+	BEQ	1$
+	CLC
+	RORB	(SP)
+	BCC	1$
+	BISB	#200,(SP)
+
+1$:	MOV	(SP)+,MASPGT
+	MOV	#DSSTRB,-(SP)
+	TST	SCTVS
+	BPL	11$
+	NEG	R3
+	NEG	(SP)
+	BR	12$
+11$:	CMP	SCTVS,(SP)
+	BLO	13$
+12$:	SUB	(SP),SCTVS
+	ADD	R3,NOMSIM
+	BMI	14$
+	CMP	NOMSIM,KSVP
+	BLO	13$
+14$:	SUB	(SP),R5
+	MOV	R5,-(SP)	;- РУЛОН
+	JSR	R4,PSREG
+	CLR	R5
+	JSR	PC,PFASIM
+	JSR	R4,PWREG
+	MOV	(SP)+,R5
+13$:	MOV	(SP)+,R3
+
+PFAGT1:	MOV	R5,AGTVP	;- AGTVP
+	ADD	BAZVP,R5	;- AGT
+	BIC	#140000,R5
+	ADD	ANVP,R5
+	MOV	R5,AGT
+
+	RTS	PC
+
+
+;    ----------------------------------------------
+;    ** 6.1.2. ФОРМИРОВАНИЕ ГРАФИЧЕСКОГО КУРСОРА **
+;    ---------------------------------------------
+
+PFGK:				;  ФОРМИРОВАНИЕ И СТИРАНИЕ КУРСОРА
+PSTGK:	TSTB	PRGAHK		;  ПРОВ. ПРИЗНАКА
+	BNE	KFGK
+
+	MOV	MASCW,R4	;  ФОРМИРОВАНИЕ МАСКИ ТОЧКИ
+	MOV	FON,R5
+	XOR	R5,R4
+	CLR	R5
+	BISB	MASPGT,R5
+	COM	R5
+	BIC	R5,R4
+
+	MOV	AGT,R3		;  ПОДГ. АДРЕСОВ
+	ASR	R3
+	BCC	1$
+	SWAB	R4
+1$:	ASL	R3
+	MOV	R3,R1
+	SUB	#300,R3
+	CMP	R3,ANVP
+	BHIS	11$
+	ADD	DVPB,R3
+
+11$:	MOV	#7,R2		;  ФОРМИРОВАНИЕ ВЕРТ. ЧЕРТЫ
+2$:	XOR	R4,(R3)
+	JSR	PC,PFTAN
+	SOB	R2,2$
+
+	MOV	#3,R2		;  СДВИГ МАСКИ ВЛЕВО
+	CLC
+	MOVB	PRCW,R5
+	BEQ	3$
+	ASL	R2
+3$:	ROR	R4		;- СДВИГ
+	BCC	4$
+	DEC	R1
+	ROR	R4
+4$:	SOB	R2,3$
+	BIC	#1,R1
+	CMP	R1,ANVP
+	BHI	41$
+	ADD	DVPB,R1
+
+41$:	MOV	#7,R2		;  ФОРМИРОВАНИЕ ГОРИЗ.ЧЕРТЫ
+7$:	XOR	R4,(R1)
+	ROL	R4
+	BCC	5$
+	JSR	PC,PFGK1
+5$:	MOV	R5,R5
+	BEQ	6$
+	ROL	R4
+	BCC	6$
+	JSR	PC,PFGK1
+6$:	SOB	R2,7$
+KFGK:	RTS	PC
+
+PFGK1:	ADD	#2,R1		;  ПРИРАЩЕНИЕ АДРЕСА
+	BPL	1$
+	SUB	DVPB,R1
+1$:	SEC
+	ROL	R4
+	RTS	PC
+
+
+;    --------------------------------
+;    ** 6.2. ФОРМИРОВАНИЕ ДЛИНЫ GW **
+;    --------------------------------
+
+PFDGW:	SUB	#60,R0
+	BPL	1$
+	CLR	R0
+	BR	2$
+
+1$:	MOV	DGW,R1		;  УМНОЖЕНИЕ НА 10
+	ASL	R1
+	ADD	R1,R0
+	ASL	R1
+	ASL	R1
+	ADD	R1,R0
+2$:	MOV	R0,DGW
+
+KFDGW:	RTS	PC

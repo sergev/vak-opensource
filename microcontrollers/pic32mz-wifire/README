@@ -1,0 +1,6 @@
+Example of simple program for chipKIT Wi-Fire board.
+Using GCC compiler and arduino-compatible bootloader.
+
+TODO:
+    0xbd0000a0  _TLB_TABLE = (ORIGIN (kseg1_vector_mem) + _TLB_TABLE_OFFSET)
+    0x9d0000f8  _IMAGE_PTR_TABLE = (_ebase_address + _IMAGE_PTR_TABLE_OFFSET)

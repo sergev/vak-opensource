@@ -1,0 +1,12 @@
+//~JUDOPROP~//$VERSION=1.2.2
+//~JUDOPROP~//$TITLE=read key draw colorful
+//~JUDOPROP~//$TYPE=graphics
+void main() {
+	setBackgroundColor(black);
+
+	while(true) {
+		String key = readKey();  // pauses until you hit a key
+		setColor(randomColor());
+		drawString(key, true, true, 25, randomInt(getDrawingWidth()), randomInt(getDrawingHeight()));
+	}
+}

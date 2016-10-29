@@ -1,0 +1,8 @@
+NOT USED
+
+:
+if [ -f $1 ]; then
+	echo
+	echo $1 | sed 's;/[^/]*$;:;' | sed 's;^\./*;;'
+	(read ignore; read ignore; read ignore; cat) < $1
+fi

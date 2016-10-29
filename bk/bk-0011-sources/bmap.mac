@@ -1,0 +1,18 @@
+.IF EQ 0
+.Psect	$Code	I,RO
+.Psect	$Const	D,RO
+.Psect	$CodOvr	I,RO
+.Psect	$CnsOvr	D,RO
+.Psect	$AdrTab	D,RO
+.Psect	$RAM	D,RW
+.Psect	$Stack	D,RW
+.IFF
+.Psect	$Stack	D,RW
+.Psect	$RAM	D,RW
+.Psect	$CodOvr	I,RO
+.Psect	$CnsOvr	D,RO
+.Psect	$Code	I,RO
+.Psect	$Const	D,RO
+.Psect	$AdrTab	D,RO
+.ENDC
+.End

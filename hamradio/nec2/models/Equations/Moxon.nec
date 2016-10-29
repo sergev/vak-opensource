@@ -1,0 +1,44 @@
+CM Moxon rectangle by equation as descibed by
+CM L.B. Cebik in www.cebik.com/moxon/moxgen.html
+CM Comparison with model created using MoxGen
+CM (www.qsl.net/ac6la/) yields equal results.
+CE
+SY Fr=7.1			' Specify frequency
+SY WD=1			' Specify wire diameter in mm/inch/WL
+SY hgh=20			' Specify height above ground in meters (feet)
+
+SY Inp=mm			' Enable this line for diameter in mm
+'SY Inp=in			' Enable this line for diameter in inch
+'SY Inp=299.7925/Fr	' Enable this line for diameter in wavelengths
+
+SY DW=(WD*Inp*FR)/299.7925	' Get wire diameter in wavelengths
+SY D1=.4342945*LOG(DW)
+
+SY AA=-.0008571428571, AB=-.009571428571, AC=.3398571429
+SY A=(AA*(D1^2))+(AB*D1)+AC
+SY BA=-.002142857143, BB=-.02035714286, BC=.008285714286
+SY B=(BA*(D1^2))+(BB*D1)+BC
+SY CA=.001809523381, CB=.01780952381, CC=.05164285714
+SY C=(CA*(D1^2))+(CB*D1)+CC
+SY DA=.001, DB=.07178571429
+SY D=(DA*D1)+DB
+
+SY Scal=1				' Use this line if output dimensions in meters.
+'SY Scal=ft				' Use this line if output dimensions in feet.
+SY WL=299.7925/(Scal*Fr) 	' Wavelength in Meters/Feet
+
+SY A=A*WL, B=B*WL, C=C*WL, D=D*WL	' Output: Dimensions in  meters/feet
+SY rad=DW*WL/2				' Output: Wire radius in mtr/ft
+
+GW 1 35 C/2+B  -A/2 hgh C/2+B  A/2  hgh rad
+GW 2 5  C/2    -A/2 hgh C/2+B  -A/2 hgh rad	
+GW 3 5  C/2+B  A/2  hgh C/2    A/2  hgh rad	
+GW 4 35 -C/2-D -A/2 hgh -C/2-D A/2  hgh rad
+GW 5 7  -C/2   -A/2 hgh -C/2-D -A/2 hgh rad	
+GW 6 7  -C/2-D A/2  hgh -C/2   A/2  hgh rad	
+GE
+
+FR 0 1 0 0 Fr 0
+GN 2 0 0 0 13 .005	' Average ground
+EX 0 1 18 1 0
+EN

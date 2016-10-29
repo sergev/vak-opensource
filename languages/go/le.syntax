@@ -1,0 +1,15 @@
+# Go language mode, by Serge Vakulenko <vak@cronyx.ru>
+/*.go
+c2,1="([^"\n\\]|\\\\(.|\n))*"|'([^'\n\\]|\\\\.)*'
+c2,4=([^[:alnum:]_]|^)([-]*[[:digit:]]+|[-]*0[xXbB][[:xdigit:].]+)
+#c3,1=^[ \t]*#([^\\\n]|\\\\(.|\n))*$
+c3,2=^[ \t]*(#[ \t]*(include[ \t]*<[^>\n]*>|[[:alpha:]]*))
+c3,1=/\\*([^*]|\\*[^/])*\\*/
+c3,1=//.*$|/\\*([^*]|\\*[^/])*\\*/
+c1,4=([^[:alnum:]_]|^)(break|default|func|interface|select\
+|case|defer|go|map|struct\
+|chan|else|goto|package|switch\
+|const|fallthrough|if|range|type\
+|continue|for|import|return|var\
+)([^[:alnum:]_]|$)
+c1,1=\\[|\\]|\\(|\\)|{|}|,

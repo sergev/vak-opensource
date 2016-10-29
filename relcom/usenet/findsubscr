@@ -1,0 +1,2 @@
+
+find /usr/spool/news/. -type f -name 'SUBSCRIBERS' -exec egrep -l "$1" {} \;

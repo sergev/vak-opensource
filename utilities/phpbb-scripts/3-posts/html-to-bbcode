@@ -1,0 +1,14 @@
+#!/usr/bin/perl
+
+use HTML::BBReverse;
+
+my $bbr = HTML::BBReverse->new();
+
+# Read all user input
+undef $/;
+$input = <STDIN>;
+chomp ($input);
+
+# Convert html to bbcode
+my $output = $bbr->reverse($input);
+print $output;

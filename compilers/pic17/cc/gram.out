@@ -1,0 +1,312 @@
+clrwdt
+
+	xta     fsr
+	a+c     2
+	atx     fsr
+
+declare() char
+    ,   NAME char c @ 16
+    ,   NAME char far *cp
+        FUNC
+            NAME char far *cf()
+            (null)
+declare() short
+    ,   NAME short *s
+        FUNC
+            NAME short *sf()
+            (null)
+declare() long
+    ,   NAME long l [10]
+        FUNC
+            NAME long lf()
+            (null)
+declare() void
+    NAME void *vp
+compile() long
+    FUNC
+        NAME long f() [1] @ 32
+        NAME local short a
+    NAME local char b
+    ;   LABEL again
+    ;   IF
+            NAME char c @ 16
+            RETURN
+    ;   IF
+            !
+                NAME char c @ 16
+            ELSE
+                GOTO
+                    NAME local again
+                RETVAL
+                    NAME local short a
+    ;   WHILE
+            NAME local char b
+            CONTINUE
+    ;   DOWHILE
+            BREAK
+            NAME local char b
+    ;   =
+            NAME local short a
+            CONST 1
+    ;   FOR
+            <
+                NAME local short a
+                CONST 5
+            ;   +=
+                    NAME local short a
+                    CONST 1
+                +=
+                    NAME local char b
+                    CONST 1
+    ;   SWITCH
+            NAME local char b
+            ;   CASE 1
+            ;   BREAK
+            ;   DEFAULT
+                BREAK
+        ASM clrwdt
+compile() char
+    FUNC
+        NAME char *g() [1]
+        ,   NAME local char a
+            NAME local char b
+    ;   =
+            NAME local char a
+            <
+                NAME local char a
+                CONST 10
+    ;   =
+            NAME local char a
+            >
+                NAME local char a
+                CONST 10
+    ;   =
+            NAME local char a
+            <=
+                NAME local char a
+                CONST 10
+    ;   =
+            NAME local char a
+            >=
+                NAME local char a
+                CONST 10
+    ;   ,   =
+                NAME local char a
+                NAME local char a
+        ,   NAME local char a
+            NAME local char a
+    ;   =
+            NAME local char a
+            /
+                NAME local char a
+                CONST 10
+    ;   =
+            NAME local char a
+            %
+                NAME local char a
+                CONST 10
+    ;   =
+            NAME local char a
+            +
+                NAME local char a
+                CONST 10
+    ;   =
+            NAME local char a
+            -
+                NAME local char a
+                CONST 10
+    ;   =
+            NAME local char a
+            <<
+                NAME local char a
+                CONST 10
+    ;   =
+            NAME local char a
+            >>
+                NAME local char a
+                CONST 10
+    ;   =
+            NAME local char a
+            *
+                NAME local char a
+                CONST 10
+    ;   =
+            NAME local char a
+            ==
+                NAME local char a
+                CONST 10
+    ;   =
+            NAME local char a
+            !=
+                NAME local char a
+                CONST 10
+    ;   =
+            NAME local char a
+            &
+                NAME local char a
+                CONST 10
+    ;   =
+            NAME local char a
+            |
+                NAME local char a
+                CONST 10
+    ;   =
+            NAME local char a
+            ^
+                NAME local char a
+                CONST 10
+    ;   =
+            NAME local char a
+            &&
+                NAME local char a
+                CONST 10
+    ;   =
+            NAME local char a
+            ||
+                NAME local char a
+                CONST 10
+    ;   *=
+            NAME local char a
+            CONST 10
+    ;   /=
+            NAME local char a
+            CONST 10
+    ;   %=
+            NAME local char a
+            CONST 10
+    ;   +=
+            NAME local char a
+            CONST 10
+    ;   <<=
+            NAME local char a
+            CONST 10
+    ;   >>=
+            NAME local char a
+            CONST 10
+    ;   &=
+            NAME local char a
+            CONST 10
+    ;   |=
+            NAME local char a
+            CONST 10
+    ;   ^=
+            NAME local char a
+            CONST 10
+    ;   =
+            NAME local char a
+            CONST 10
+    ;   =
+            NAME local char a
+            ?
+                NAME local char a
+                :
+                    CONST 5
+                    CONST 10
+    ;   ++
+            NAME local char a
+    ;   --
+            NAME local char a
+    ;   +=
+            NAME local char a
+            CONST 1
+    ;   -=
+            NAME local char a
+            CONST 1
+    ;   =
+            NAME local char a
+            *REF
+                NAME local char a
+    ;   =
+            NAME local char a
+            &ADDR
+                NAME local char a
+    ;   =
+            NAME local char a
+            -NEG
+                NAME local char a
+    ;   =
+            NAME local char a
+            !
+                NAME local char a
+    ;   =
+            NAME local char a
+            ~
+                NAME local char a
+    ;   =
+            NAME local char a
+            CONST 1
+    ;   =
+            NAME local char a
+            (char)
+                NAME local char a
+    ;   =
+            NAME local char a
+            (char*)
+                NAME local char a
+    ;   =
+            NAME local char a
+            (char far*)
+                NAME local char a
+    ;   =
+            NAME local char a
+            (short)
+                NAME local char a
+    ;   =
+            NAME local char a
+            (short*)
+                NAME local char a
+    ;   =
+            NAME local char a
+            (long)
+                NAME local char a
+    ;   =
+            NAME local char a
+            (long*)
+                NAME local char a
+    ;   =
+            NAME local char a
+            (void*)
+                NAME local char a
+    ;   =
+            NAME local char a
+            CONST 1
+    ;   =
+            NAME local char a
+            CONST 1
+    ;   =
+            NAME local char a
+            CONST 2
+    ;   =
+            NAME local char a
+            CONST 2
+    ;   =
+            NAME local char a
+            CONST 1
+    ;   =
+            NAME local char a
+            CONST 4
+    ;   =
+            NAME local char a
+            CONST 1
+    ;   =
+            NAME local char a
+            CONST 1
+    ;   =
+            NAME local char a
+            *REF
+                +
+                    NAME local char a
+                    CONST 10
+    ;   =
+            NAME local char a
+            CALL
+                NAME long f() [1] @ 32
+                NAME local char a
+    ;   =
+            .
+                NAME local char a
+                CONST 5
+            CONST 1
+        =
+            NAME local char a
+            STRING "string"

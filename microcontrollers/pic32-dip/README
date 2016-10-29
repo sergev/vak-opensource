@@ -1,0 +1,2 @@
+Example of simple program for eflightworks.net PIC32-on-DIP board.
+Using GCC compiler and pic32prog programming utility with PICkit2 adapter.

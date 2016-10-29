@@ -1,0 +1,4 @@
+system os2v2
+file fatal, getlin, getobj, iactio, icave, iclass, ievent, imessa, initadv
+file iobjec, ivocab, putcnd, putmes, screen, stat, vocab, savecm
+name initadv.exe

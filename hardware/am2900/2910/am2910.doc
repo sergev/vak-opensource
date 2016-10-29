@@ -1,0 +1,268 @@
+--------------------------------------------------------------------------------
+--
+--   AMD2910 Benchmark
+--
+-- Source:  AMD data book
+--
+-- author: Indraneel Ghosh
+--         University Of California, Irvine, CA 92717
+--
+-- Written on Feb19, 1992
+--
+--------------------------------------------------------------------------------
+
+ OVERVIEW
+
+ The Am2910 is a microprogram address sequencer intended for use in high-speed 
+ microprocessor applications.
+
+ Please see the block diagram of the Am2910 chip in the postscript file 
+ "am2910.ps" while reading this description.
+
+ The Am2910 has a four-input multiplexer that is used to select either the 
+ register/counter (R), direct data input (D), microprogram counter (uPC) or
+ the top of stack (TOS) as the source of the next microinstruction address.
+
+ The register/counter consists of 12 D-type flip-flops with a common clock.
+ When its load control, RLD_BAR is LOW, new data is loaded on a positive
+ clock edge. A few instructions include load or decrement. The output of the 
+ register/counter, (R), is available to the multiplexer as a source for the
+ next microinstruction address. The direct input (D) furnishes a source of 
+ data for loading the register/counter. 
+
+ The microprogram counter, (uPC), is composed of a 12-bit incrementer followed
+ by a 12-bit register. The uPC can be used in either of two ways : When the
+ carry-in, CI, to the incrementer is HIGH, the microprogram register is loaded
+ on the next clock cycle with the current Y output word plus one 
+ (Y + 1 --> uPC). Sequential microinstructions are thus executed. When CI is
+ LOW, the incrementer passes the Y output word unmodified so that uPC is
+ reloaded with the same Y word on the next clock cycle (Y --> uPC). The same
+ microinstruction is thus executed any number of times.
+
+ The third source for the multiplexer is the direct (D) input. This source is
+ used for branching.
+
+ The fourth source available at the multiplexer input is the top of the stack
+ (TOS). The stack is a 5-word by 12-bit register file. The stack is used to 
+ provide return address linkage when executing microsubroutines or loops. The
+ stack contains a built-in stack pointer (SP) which always points to the last 
+ file word written. This allows stack reference operations (looping) to be
+ performed without a pop.
+
+ The stack pointer operates as an up/down counter. During some micro-
+ -instructions, the PUSH operation may occur. This causes the stack pointer to 
+ increment and the file to be written with the required return linkage. On 
+ the cycle following the PUSH, the return data is at the new location pointed
+ to by the stack pointer.
+
+ During some microinstructions, a POP operation may occur. The stack pointer
+ decrements at the next rising clock edge following a POP, effectively
+ removing old information from the top of the stack.
+
+ The stack pointer linkage is such that any sequence of pushes, pops or stack 
+ references can be achieved. At RESET (instruction 0), the depth of nesting 
+ becomes zero. For each PUSH, the nesting depth increases by one; for each POP,
+ the depth decreases by one. The depth can grow to five. After a depth of five
+ is reached, FULL_BAR goes LOW. Any further PUSHes onto a full stack overwrite
+ information at the top of the stack, but leave the stack pointer unchanged. 
+ This operation will usually destroy useful information and is normally 
+ avoided. A POP from an empty stack may place non-meaningful data on the Y 
+ outputs, but is otherwise safe. The stack pointer remains at zero whenever a
+ POP is attempted from a stack already empty. 
+
+ The register/counter is operated during some microinstructions as a 
+ 12-bit down counter, with "R = 0" available as a microinstruction branch
+ test criterion. This provides efficient iteration of microinstructions. The
+ register/counter is arranged such that if it is preloaded with a number N 
+ and then used as a loop termination counter, the sequence will be executed
+ exactly N + 1 times.
+
+ The device provides three-state Y outputs. These can be particularly useful
+ in designs requiring automatic checkout of the processor. The microprogram
+ sequencer outputs can be forced into high-impedance state, and pre-programmed
+ sequences of microinstructions can be executed via external access to the
+ address lines.
+
+_______________________________________________________________________________
+
+ PORTS
+
+ It has the following ports :-
+_______________________________________________________________________________
+|  PORT    | TYPE | BIT   |                DESCRIPTION                        |
+|	   |      | WIDTH |						      |
+|==========|======|=======|===================================================|
+| I	   |  in  |  4    | Four-bit instruction			      |
+|__________|______|_______|___________________________________________________|
+| CCEN_BAR |  in  |  1    | Conditional Code Enable bit			      |
+|__________|______|_______|___________________________________________________|
+| CC_BAR   |  in  |  1    | Conditional Code Bit			      |
+|__________|______|_______|___________________________________________________|
+| RLD_BAR  |  in  |  1    | Unconditional load bit for register/counter	      |
+|__________|______|_______|___________________________________________________|
+| CI       |  in  |  1    | Carry-in bit for microprogram counter	      |
+|__________|______|_______|___________________________________________________|
+| OEbar    |  in  |  1    | Tri-state driver control bit	              |
+|__________|______|_______|___________________________________________________|
+| clk      |  in  |  1    | Clock					      |
+|__________|______|_______|___________________________________________________|
+| D        |  in  | 12    | 12-bit data input to chip	                      |
+|__________|______|_______|___________________________________________________|
+| Y        | out  | 12    | 12-bit data output from chip		      |
+|__________|______|_______|___________________________________________________|
+| PL_BAR   | out  |  1    | Pipeline register output enable		      |
+|__________|______|_______|___________________________________________________|
+| VECT_BAR | out  |  1    | Vector output enable			      |
+|__________|______|_______|___________________________________________________|
+| MAP_BAR  | out  |  1    | Mapping PROM output enable 			      |
+|__________|______|_______|___________________________________________________|
+| FULL_BAR | out  |  1    | Stack full flag				      |
+|__________|______|_______|___________________________________________________|
+
+_______________________________________________________________________________
+
+ TABLE OF INSTRUCTIONS
+
+  The Am2910 has a 4-bit instruction. The actions performed in various modules
+  are controlled by the instruction as well as by the two condition code bits 
+  (CCEN_BAR and CC_BAR) and by the contents of the register/counter.
+
+  The following table lists the actions performed by each module (e.g. stack,
+  register/counter etc.) according to the conditions listed above.
+_______________________________________________________________________________
+|       |                           |       ||         ||         |    |      |
+| I3-I0 | NAME OF INSTRUCTION       |  REG. ||   FAIL  ||  PASS   |REG.|ENABLE|
+|	|			    | CONT- ||_________||_________|CNTR|SIGNAL|
+|	|			    | -ENTS ||   |     ||   |     |    |      |
+|       |                           |       || Y |STACK|| Y |STACK|    |      |
+===============================================================================
+|       |			    |	    ||   |     ||   |     |    |      |
+|    0  | JUMP TO ZERO (RESET)      |	X   || 0 |CLEAR|| 0 |CLEAR|HOLD|  PL  |
+|_______|___________________________|_______||___|_____||___|_____|____|______|
+|       | CONDITIONAL JUMP TO SUB-  |	    ||   |     ||   |     |    |      |
+|    1  | -ROUTINE VIA PL (PIPELINE |	X   ||uPC| HOLD|| D | PUSH|HOLD|  PL  |
+|       | REGISTER ADDRESS)         |	    ||   |     ||   |     |    |      |
+|_______|___________________________|_______||___|_____||___|_____|____|______|
+|       | JUMP VIA MAP ( ADDRESS    |	    ||   |     ||   |     |    |      |
+|    2  | SUPPLIED BY MAPPING PROMS)|	X   || D | HOLD|| D | HOLD|HOLD|  MAP |
+|_______|___________________________|_______||___|_____||___|_____|____|______|
+|       | CONDITIONAL JUMP VIA PL   |       ||   |     ||   |     |    |      |
+|    3  | (PIPELINE REGISTER ADDR.) |   X   ||uPC| HOLD|| D | HOLD|HOLD|  PL  |
+|_______|___________________________|_______||___|_____||___|_____|____|______|
+|       | PUSH STACK /CONDITIONAL   |       ||   |     ||   |     |    |      |
+|    4  | LOAD REGISTER-COUNTER     |   X   ||uPC| PUSH||uPC| PUSH| ** |  PL  |
+|_______|___________________________|_______||___|_____||___|_____|____|______|
+|       | CONDITIONAL JUMP TO SUB-  |       ||   |     ||   |     |    |      |
+|    5  | -ROUTINE VIA REG-CNTR. OR |   X   || R | PUSH|| D | PUSH|HOLD|  PL  |
+|       | PL ADDRESS.               |       ||   |     ||   |     |    |      |
+|_______|___________________________|_______||___|_____||___|_____|____|______|
+|       | CONDITIONAL JUMP VIA      |       ||   |     ||   |     |    |      |
+|    6  | VECT. (VECTOR ADDRESS)    |   X   ||uPC| HOLD|| D | HOLD|HOLD| VECT |
+|_______|___________________________|_______||___|_____||___|_____|____|______|
+|       | CONDITIONAL JUMP VIA      |       ||   |     ||   |     |    |      |
+|    7  | REG-CNTR. OR PL ADDRESS   |   X   || R | HOLD|| D | HOLD|HOLD|  PL  |
+|_______|___________________________|_______||___|_____||___|_____|____|______|
+|       |                           |       ||   |     ||   |     |    |      |
+|       | REPEAT LOOP IF            |  != 0 ||TOS| HOLD||TOS| HOLD| DEC|  PL  |
+|    8  | REG-CNTR != 0             |_______||___|_____||___|_____|____|______|
+|       | (ADDRESS FROM TOP OF      |       ||   |     ||   |     |    |      |
+|       |  STACK)                   |  = 0  ||uPC| POP ||uPC| POP |HOLD|  PL  |
+|_______|___________________________|_______||___|_____||___|_____|____|______|
+|       |                           |       ||   |     ||   |     |    |      |
+|       | REPEAT LOOP IF            |  != 0 || D | HOLD|| D | HOLD| DEC|  PL  |
+|    9  | REG-CNTR != 0             |_______||___|_____||___|_____|____|______|
+|       | (ADDRESS FROM PL )        |       ||   |     ||   |     |    |      |
+|       |                           |  = 0  ||uPC| HOLD||uPC| HOLD|HOLD|  PL  |
+|_______|___________________________|_______||___|_____||___|_____|____|______|
+|       | CONDITIONAL RETURN FROM   |       ||   |     ||   |     |    |      |
+|   10  | SUBROUTINE                |   X   ||uPC| HOLD||TOS| POP |HOLD|  PL  |
+|_______|___________________________|_______||___|_____||___|_____|____|______|
+|       | CONDITIONAL JUMP VIA PL   |       ||   |     ||   |     |    |      |
+|   11  | ADDRESS AND POP           |   X   ||uPC| HOLD|| D | POP |HOLD|  PL  |
+|_______|___________________________|_______||___|_____||___|_____|____|______|
+|       | LOAD REG-CNTR AND         |       ||   |     ||   |     |    |      |
+|   12  | CONTINUE                  |   X   ||uPC| HOLD||uPC| HOLD|LOAD|  PL  |
+|_______|___________________________|_______||___|_____||___|_____|____|______|
+|       |                           |       ||   |     ||   |     |    |      |
+|   13  | TEST END OF LOOP          |   X   ||TOS| HOLD||uPC| POP |HOLD|  PL  |
+|_______|___________________________|_______||___|_____||___|_____|____|______|
+|       |                           |       ||   |     ||   |     |    |      |
+|   14  | CONTINUE                  |   X   ||uPC| HOLD||uPC| HOLD|HOLD|  PL  |
+|_______|___________________________|_______||___|_____||___|_____|____|______|
+|       |                           |       ||   |     ||   |     |    |      |
+|       |                           |  != 0 ||TOS| HOLD||uPC| POP | DEC|  PL  |
+|   15  | THREE WAY BRANCH          |_______||___|_____||___|_____|____|______|
+|       |                           |       ||   |     ||   |     |    |      |
+|       |                           |  = 0  || D | POP ||uPC| POP |HOLD|  PL  |
+|_______|___________________________|_______||___|_____||___|_____|____|______|
+
+ NOTE :-
+
+ ** If FAIL then HOLD REG_CNTR else LOAD it.
+
+ "TOS" = Top Of Stack   	 	"Fail" = CCEN_BAR is 0 and CC_BAR is 1
+ "R" = Register-Counter		 	"Pass" = CCEN_BAR is 1 or CC_BAR is 0
+ "uPC" = Microprogram Counter	 	"!=" = Not Equal To
+"I3-I0" = 4-bit Instruction  		"X" = Dont Care
+
+_______________________________________________________________________________
+
+ OPERATION 
+
+ The Table of Instructions shows the result of each instruction in controlling
+ the multiplexer which determines the Y outputs, and in controlling the three 
+ enable signals PL_BAR, MAP_BAR and VECT_BAR. 
+
+ The effect on the register/counter and the stack after the next positive
+ going edge is shown. The multiplexer determines which internal source drives
+ the Y outputs. The value loaded into the uPC is either identical to the Y
+ output, or else one greater, as determined by CI. 
+
+ For each instruction, one and only one of the three outputs PL_BAR, MAP_BAR
+ and VECT_BAR is LOW. 
+
+ Several inputs can modify instruction execution. In the ten conditional 
+ instructions, the result is applied to CC_BAR. If the CC_BAR input is LOW, 
+ the test is considered to have been passed, and the action specified in the 
+ name occurs; otherwise, the test has failed and an alternate (often simply
+ the execution of the next sequential microinstruction) occurs. Testing of 
+ CC_BAR may be disabled for a specific microinstruction by setting CCEN_BAR
+ HIGH, which unconditionally forces the action specified in the name; that is,
+ it forces a pass. Other ways of using CCEN_BAR include :
+
+   (1) tying it HIGH, which is useful if no microinstruction is data-dependent,
+   (2) tying it LOW if data-dependent instructions are never forced 
+        unconditionally.
+
+ The effect of three instructions depends on the contents of the 
+ register/counter. Unless the counter holds a value of zero, it is decremented;
+ if it does hold zero, it is held and a different microprogram next address is
+ selected. These instructions are useful for executing a microinstruction loop
+ a known number of times. Instruction is affected both by the external 
+ condition code and the internal register/counter. 
+
+ RLD_BAR, when LOW, causes the D input to be loaded into the register/counter,
+ overriding any HOLD or DEC operation specified in the instruction. 
+
+ OE_BAR, normally LOW, may be forced HIGH to remove the Am2910A Y outputs from 
+ a three-state bus.
+
+ The stack, a five-word last-in, first-out 12-bit memory, has a pointer which
+ addresses the last value presently on the top of the stack. Explicit control 
+ of the stack pointer occurs during instruction 0 (RESET), which makes the 
+ stack empty by resetting the SP to zero. After a RESET, and whenever else 
+ the stack is empty, the contents of the top of stack are undefined until a
+ PUSH occurs. Any POPs performed while the stack is empty put undefined data 
+ on the F outputs and leave the stack pointer at zero.
+
+ Any time the stack is full (five more PUSHes than POPs have occurred since the
+ stack was last empty), the FULL_BAR warning output occurs. This signal first
+ appears on the microcycle after a fifth PUSH. No additional PUSH should be 
+ attempted onto a full stack; if tried, information within the stack will be
+ overwritten and lost.
+
+ 
+
+
+
+

@@ -1,0 +1,31 @@
+CM 	ElevRad2
+CM ElevRad2 is ElevRad1 modified in such a way that without
+CM violating NEC modeling guidelines the excitation source is
+CM placed as close as possible to the radial-wires connection.
+CM If you compare ElevRad1 and ElevRad2 you'll see that the
+CM results are quite different.
+CM As compared to the EZnec ElevRad2 file this file will show
+CM no segmentation errors or warnings. However results are
+CM slightly different. Let me know if you have an opinion
+CM about what results could agree best with actual measurements.
+CE
+
+SY freq=1.832
+sy WL=299.8/freq, M=WL/1000	' Minimal NEC segment length
+
+sy len=35.56			' Length
+sy radh=0.01778, radl=39.624	' Radial height, length
+
+GW 1 3  0.0 0.0 radh	 0.0   0.0   radh+3*M 0.0012941
+GW 2 70 0.0 0.0 radh+3*M 0.0   0.0   len      0.0012941
+
+GW 0 55 0.0 0.0 radh     radl  0.0   radh     0.0012941
+GW 0 55 0.0 0.0 radh     0.0   radl  radh     0.0012941
+GW 0 55 0.0 0.0 radh     -radl 0.0   radh     0.0012941
+GW 0 55 0.0 0.0 radh     0.0   -radl radh     0.0012941
+GE 0
+
+EX 0	1	2	0	1	0
+GN 2	0	0	0	13	5.e-3
+FR 0	1	0	0	freq
+EN

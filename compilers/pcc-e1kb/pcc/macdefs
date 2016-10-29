@@ -1,0 +1,124 @@
+/*
+ *      Сделано в МФТИ.
+ *
+ *      Чет Фев 18 17:41:48 MSK 1988    Вакуленко С. В.
+ */
+
+# undef pdp11
+# undef vax
+
+	/* размеры таблиц */
+# define BCSZ 100       /* table size to save break, continue labels */
+# define SYMTSZ 1300    /* size of the symbol table */
+# define DIMTABSZ 3000  /* size of the dimension/size table */
+# define BNEST 30       /* Block Nesting Depth */
+# define PARAMSZ 150    /* size of the parameter stack */
+# define SWITSZ 250     /* size of switch table */
+
+	/* смещение (в битах) первого параметра относительно ARGREG */
+# define ARGINIT 0
+
+	/* смещение (в битах) первой auto переменной относительно STKREG */
+# define AUTOINIT 0
+
+	/* длины типов */
+# define SZCHAR         8
+# define SZINT          64
+# define SZFLOAT        64
+# define SZDOUBLE       64
+# define SZLONG         64
+# define SZSHORT        64
+# define SZPOINT        64
+
+	/* выравнивание типов */
+# define ALCHAR         64
+# define ALINT          64
+# define ALFLOAT        64
+# define ALDOUBLE       64
+# define ALLONG         64
+# define ALSHORT        64
+# define ALPOINT        64
+# define ALSTRUCT       64
+# define ALSTACK        64
+
+	/* size in which constants are converted */
+	/* should be long if feasable */
+# define CONSZ long
+# define CONFMT "%ld"
+
+	/* size in which offsets are kept */
+	/* should be large enough to cover address space in bits */
+# define OFFSZ long
+
+	/* character set macro */
+# define CCTRANS(x) x
+
+	/* register cookie for stack poINTer */
+# define STKREG 13
+# define ARGREG 12
+
+	/* maximum and minimum register variables */
+# define MAXRVAR 10
+# define MINRVAR 9
+
+	/* используется стандартная процедура записи дерева */
+# define STDPRTREE
+
+	/* байты нумеруются справа налево */
+# define RTOLBYTES
+
+	/* не преобразовывать умножение в сдвиг */
+# define NOMULTOSHIFT
+
+	/* константы занимают 2 слова */
+# ifndef svsb
+#    define BIGCONSTS
+# endif
+
+# ifdef TWOPASS
+#    define EXIT exit
+#    define LABFMT "L%d\n"
+# else
+#    ifndef FORT
+#       define ONEPASS
+#       define EXIT exit
+#    endif
+#    define LABFMT "L%d"
+# endif
+
+	/* фактический тип объекта типа enum */
+# define ENUMSIZE(high,low) INT
+
+	/* формирование символьной константы */
+# define makecc(val,i)  lastcon = lastcon<<8 | val
+
+# define ADDRMASK 0777777777            /* 27 bits */
+
+# ifdef BIGCONSTS
+#    define ZEROVAL(p)          ((p)->tn.lval = (p)->tn.l2val = 0)
+#    define HIGHVAL(p)          (p)->tn.l2val
+#    define CONPLUS(p, v, v2)   conop (PLUS, p, v, v2)
+#    define CONMINUS(p, v, v2)  conop (MINUS, p, v, v2)
+#    define CONMUL(p, v, v2)    conop (MUL, p, v, v2)
+#    define CONDIV(p, v, v2)    conop (DIV, p, v, v2)
+#    define CONMOD(p, v, v2)    conop (MOD, p, v, v2)
+#    define CONAND(p, v, v2)    conop (AND, p, v, v2)
+#    define CONOR(p, v, v2)     conop (OR, p, v, v2)
+#    define CONER(p, v, v2)     conop (ER, p, v, v2)
+#    define CONLS(p, v, v2)     conop (LS, p, v, v2)
+#    define CONRS(p, v, v2)     conop (RS, p, v, v2)
+#    define CONUNMINUS(p)       conop (UNARY MINUS, p, (CONSZ) 0, (CONSZ) 0)
+#    define CONCOMPL(p)         conop (COMPL, p, (CONSZ) 0, (CONSZ) 0)
+#    define CONNOT(p)           conop (NOT, p, (CONSZ) 0, (CONSZ) 0)
+#    define CONLT(p, v, v2)     conop (LT, p, v, v2)
+#    define CONLE(p, v, v2)     conop (LE, p, v, v2)
+#    define CONGT(p, v, v2)     conop (GT, p, v, v2)
+#    define CONGE(p, v, v2)     conop (GE, p, v, v2)
+#    define CONULT(p, v, v2)    conop (ULT, p, v, v2)
+#    define CONULE(p, v, v2)    conop (ULE, p, v, v2)
+#    define CONUGE(p, v, v2)    conop (UGE, p, v, v2)
+#    define CONUGT(p, v, v2)    conop (UGT, p, v, v2)
+#    define CONEQ(p, v, v2)     conop (EQ, p, v, v2)
+#    define CONNE(p, v, v2)     conop (NE, p, v, v2)
+# endif
+

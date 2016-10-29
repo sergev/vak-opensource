@@ -1,0 +1,71 @@
+/***************************************************************************
+ * JUDO - A Java IDE for Children and Beginning Programmers
+ * Copyright (C) 2001  Thomas J. Dunn
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ ***************************************************************************/
+
+import org.judo.*;
+import java.awt.*;
+import java.awt.event.*;
+
+/**
+ * The code that wraps a JUDO program, making it a complete Java program
+ * that will pop up in a window
+ *
+ * @author Thomas Dunn
+ * @version 1.0
+ */
+public class JUDOApp extends JUDOBase {
+
+  static int jud0_height = [[appHeight]];
+  static int jud0_width = [[appWidth]];
+  int jud0_textRows = [[appRows]];
+  static String jud0_programTitle = "[[programName]]";
+
+  public JUDOApp() {
+    super("[[appType]]", [[appWidth]], [[appHeight]], [[appRows]], [[headerLines]]);
+  }
+
+  public static void main(String args[]) {
+    JUDOApp ja = new JUDOApp();
+    ja.pack();
+    Insets insets = ja.getInsets();
+    ja.setSize(jud0_width + insets.left + insets.right,
+               jud0_height + insets.top + insets.bottom);
+    ja.setTitle(" " + jud0_programTitle);
+    ja.setLocation(40, 85);
+    ja.setVisible(true);
+
+    jud0_graphics = jud0_drawingCanvas.getGraphics();
+    delay(1);
+    jud0_drawingCanvas.requestFocus();
+
+    try {
+      ja.main();
+    }
+    catch (Exception e) {
+      ja.setTitle(" " + jud0_programTitle + " - " + jud0_lz.APP_EXCEPTION_OCCURED + " (Ctrl-e)");
+      ja.exceptionOccurred(e);
+    }
+
+    if (ja.getTitle().equals(" " + jud0_programTitle)) {
+      ja.setTitle(" " + jud0_programTitle + " - " + jud0_lz.APP_PROG_COMPLETE);
+    }
+  }
+  //<judomain>
+  [[bodyCode]]
+  //</judomain>
+}

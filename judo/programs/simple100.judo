@@ -1,0 +1,26 @@
+//~JUDOPROP~//$VERSION=1.3.0
+//~JUDOPROP~//$TYPE=text
+//~JUDOPROP~//$TITLE=SIMPLE100
+//Алгоритм вычисления простых чисел "Решето Эратосфена"
+void main() {
+    int[] tab;
+    tab = new int[100];
+    //заполняем массив натуральными числами
+    for (int x = 0; x < 100; x++) {
+        tab[x] = x + 1;
+    }
+    for (int n = 2; n <= 50; n++) {
+        if (tab[n - 1] != 0) {
+            //обнуляем элементы 2n, 3n, 4n... и т. д.
+            for (int x = 2 * n; x <= 100; x = x + n) {
+                tab[x - 1] = 0;
+            }
+        }
+    }
+    //Печатаем ненулевые элементы массива
+    for (int x = 99; x >= 0; x--) {
+        if (tab[x] != 0) {
+            printLine(tab[x]);
+        }
+    }
+}

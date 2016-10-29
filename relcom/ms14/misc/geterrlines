@@ -1,0 +1,16 @@
+:
+for i
+do
+	awk '
+	BEGIN {
+		prevline =
+	}
+	$1=="*:" {
+		print prevline
+		print $0
+	}
+	{prevline = $0}
+	END {
+	}
+	' $i
+done

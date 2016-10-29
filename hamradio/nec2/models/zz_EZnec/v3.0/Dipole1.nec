@@ -1,0 +1,19 @@
+CM Dipole in free space, converted with 4nec2 on 29-Mar-06 22:08
+CM 	Dipole1
+CM This is a plain dipole in free space, about the simplest
+CM antenna you're likely to model. 
+CM The frequency is 299.7+ MHz, at which a wavelength is one
+CM meter. The antenna dimensions, in meters, are therefore 
+CM also the dimensions in wavelengths. Note that this antenna,
+CM exactly a half wavelength long, is greater than a resonant
+CM length, as indicated by the positive feedpoint reactance.
+CM A resonant "half-wave" antenna is somewhat shorter than 0.5
+CM wavelength, the amount depending on its diameter.
+CE
+sy len=0.5
+GW 1 11 0 -len/2 0 0 len/2 0 5.e-4
+GE 0
+EX 6 1 6 0 1 0
+GN -1
+FR 0 1 0 0 299.7925 0
+EN

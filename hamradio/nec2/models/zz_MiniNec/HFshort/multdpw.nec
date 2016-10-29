@@ -1,0 +1,37 @@
+CM Multi-Band TRAP-DP WARC (30m,17m,12m; 75 ohms)
+CE Lengths optimized above average ground.
+
+SY H=10		' height=10m
+SY t=.1		' length for trap-segments 
+
+SY L24=2.9, L24a=L24-t, L24b=L24+t
+GW 1 43 0  L24a H 0 -L24a H .0015
+GW 11 1 0 -L24a H 0 -L24b H .0015
+GW 12 1 0  L24a H 0  L24b H .0015
+
+SY L18=3.7, L18a=L18-t, L18b=L18+t
+GW 2  6 0  L24b  H 0  L18a H .0015
+GW 3  6 0 -L24b  H 0 -L18a H .0015
+GW 21 1 0 -L18a  H 0 -L18b H .0015
+GW 31 1 0  L18a  H 0  L18b H .0015
+
+SY L10=5.9, L10a=L10-t
+GW 4 16 0  L18b  H 0  L10a  H .0015
+GW 5 16 0 -L18b  H 0 -L10a  H .0015
+
+GE 0
+
+GN 2 0 0 0 13 .005
+
+EX 0 1  22  0  1.0 0.0
+
+LD 6 11  1  1 100 1.36uH 30pF
+LD 6 12  1  1 100 1.36uH 30pF
+LD 6 21  1  1 100 2.58uH 30pF
+LD 6 31  1  1 100 2.58uH 30pF
+
+'FR 0 1 0 0 24.91 1
+'FR 0 1 0 0 18.08 1
+FR 0 1 0 0 10.11 1
+
+EN

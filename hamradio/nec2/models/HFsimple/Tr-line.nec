@@ -1,0 +1,21 @@
+CM Inverted V for 80 Mtr with transmission line
+CE 
+SY hgh=20				' Height
+SY len=20				' Wire length
+SY ang=110 				' Angle between wires
+SY Z=len*cos(ang/2), X=len*sin(ang/2)	' Get Z and X distances
+'
+SY tlen = 20				' transmission line length
+'
+GW	1	20	-X	0	hgh-Z	-0.1	0	hgh	#12 ' Left wire
+GW	2	1	-0.1	0	hgh	0.1	0	hgh	#12 ' Right wire
+GW	3	20	0.1	0	hgh	X	0	hgh-z	#12 ' TL connection
+GW	4	1	-0.1	0	1	0.1	0	1	#12 ' Volt-source
+GE
+'
+TL	2	1	4	1	460	tlen	' 460 ohm trans-line
+'
+GN	2	0	0	0	14	.006	' Sommerfeld ground
+EX	0	4	1	0	1	0	' Default voltage source
+FR	0	1	0	0	3.680		' Design frequency
+EN							' End of file

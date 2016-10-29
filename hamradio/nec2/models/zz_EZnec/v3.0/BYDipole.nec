@@ -1,0 +1,14 @@
+CM Back yard dipole, converted with 4nec2 on 29-Mar-06 22:08
+CE
+
+'sy len=33.43	'original length
+sy len=34.443	'length for resonance
+
+GW 1 11 0 0 30 0 len 30 3.367e-3
+
+GS 0 0 ft		' All in ft.
+GE 0
+EX 6 1 6 0 1 0
+GN 2 0 0 0 20 0.0303
+FR 0 1 0 0 14 0
+EN

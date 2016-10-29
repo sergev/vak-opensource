@@ -1,0 +1,30 @@
+Programmer for Microchip PIC32 microcontrollers, Version 1.126
+    Copyright: (C) 2011-2014 Serge Vakulenko
+      Adapter: PICkit2 Version 2.32.0
+    Processor: MZ2048ECG064 (id 55104053)
+ Flash memory: 2048 kbytes
+  Boot memory: 80 kbytes
+Configuration:
+    DEVCFG0 = fffffff7
+                     3 Debugger disabled
+                     4 JTAG enabled
+                     8 Use PGC2/PGD2
+                   3   Flash ECC disabled, unlocked
+    DEVCFG1 = 03743cb9
+                     1 System PLL
+                    8  Internal-external switch over enabled
+                   0   Primary oscillator: External
+                   4   CLKO output disabled
+    DEVCFG2 = fff9b11a
+                     2 PLL divider: 1/3
+                    1  PLL input frequency range: 5-10 MHz
+                  31   PLL feedback divider: x50
+                 1     PLL postscaler: 1/2
+              4        USB PLL input clock: 24 MHz
+              8        Enable USB PLL
+    DEVCFG3 = beffffff
+               2       Default Ethernet pins
+               8       Permission Group Lock - only 1 reconfig
+              1        Peripheral Module Disable - only 1 reconfig
+              2        Peripheral Pin Select - only 1 reconfig
+                       USBID pin: controlled by port

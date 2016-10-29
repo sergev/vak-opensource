@@ -1,0 +1,67 @@
+CM The K9AY Receiving Loop (optimized for 160 m)
+CM by Gary Breed, K9AY
+CM first published in QST (ARRL), Newington, Sep 1997
+CM The matching transformer is a 9:1 impedance, 
+CM 3:1 turns ratio type that should be familiar to many readers. 
+CM Five trifilar turns of ordinary hookup wire are wound 
+CM on a 3/4-inch diameter (0.825 inch) 43 material toroid. 
+CM The terminating resistor (Rterm) value will be between 
+CM 390 to 560 ohms depending on your band preference. 
+CM With average ground conductivity, a value of 390 ohms provides 
+CM the optimum F/B at 160 meters, while 560 it optimizes the loops 
+CM for 80 meters. A value of 470 W splits the difference for 
+CM "pretty good" performance on both bands. I chose to optimize 
+CM the antenna for 160 meter operation, so used a 390 ohms resistor. 
+CM Use an Rterm power rating of at least 1 W in case some transmitter 
+CM power ends up being coupled to the loops. I use a 2-W carbon  
+CM resistor, but two parallel 1/2 W or four 1/4 W units of  
+CM appropriate ohmic value can also be substituted.
+CM Addition of another K9AY loop may significantly improve
+CM the performance.
+CM Converted with 4nec2 on 11-jan-03 by OK1RR
+CE
+SY rt=300
+GW 	1 	11	-11.5	0	4.0	-8.5	0	0.01	#12
+GW 	2 	11	-8.5	0	0.01	-5.5	0	4.0     #12
+GW 	3 	11	-5.5	0	4.0	-8.5	0	6.0     #12
+GW 	4 	11	-8.5	0	6.0	-11.5	0	4.0     #12
+GW 	5 	11	15.0	0	0.01	18.0	0	4.0     #12
+GW 	6 	11	15.0	0	0.01	12.0	0	4.0     #12
+GW 	7 	11	15.0	0	6.0	12.0	0	4.0     #12
+GW 	8 	11	15.0	0	6.0	18.0	0	4.0     #12
+GW 	9 	11	-8.5	0	0.01	-3.0	0	0.01       #12
+GW 	10	11	-8.5	0	0.01	-14.0	0	0.01       #12
+GW 	11	11	15.0	0	0.01	21.0	0	0.01       #12
+GW 	12	11	15.0	0	0.01	15.0	-5.0	0.01       #12
+GW 	13	11	15.0	5.0	0.01	15.0	0	0.01       #12
+GW 	14	11	-8.5	0	0.01	-12.0	4.0	0.01       #12
+GW 	15	11	-8.5	0	0.01	-5.0	-4.0	0.01       #12
+GW 	16	11	15.0	0	0.01	19.0	4.0	0.01       #12
+GW 	17	11	15.0	0	0.01	19.0	-4.0	0.01       #12
+GW 	18	11	15.0	0	0.01	11.0	-4.0	0.01       #12
+GW 	19	11	15.0	0	0.01	11.0	4.0	0.01       #12
+GW 	20	11	-8.5	0	0.01	-12.0	-4.0	0.01       #12
+GW 	21	11	-8.5	0	0.01	-5.0	4.0	0.01       #12
+GW 	22	11	-8.5	0	0.01	-8.5	-5.0	0.01       #12
+GW 	23	11	-8.5	0	0.01	-8.5	5.0	0.01       #12
+GW 	24	11	15.0	0	0.01	9.5	0	0.01       #12
+GE	1                                                        
+EX	0	6	1	00	1.0	0.0              
+EX	0	1	11	00	-0.866	-0.5	'phase angle 210 degrees
+LD	1	5	1	0	rt	0	0'terminating resistor 300 ohm
+LD	2	2	1	0	rt	0	0        
+GN	2	0	0	0	13	.005             
+FR	0	1	0	0	1.825                    
+EN                                                               
+                                                                 
+                                                                 
+                                                                 
+                                                                 
+                                                                 
+                                                                 
+                                                                 
+                                                                 
+                                                                 
+                                                                 
+                                                                 
+                                                                 

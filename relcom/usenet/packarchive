@@ -1,0 +1,183 @@
+:
+# Backup archived Usenet articles.
+# Usage:
+#       packarchive [archive-dir backup-dir]
+#
+# Archive-dir must contain Usnet archive tree,
+# as built by doexpire.
+# All articles from archive-dir will be packed
+# by zoo, and stored in backup-dir.  Directory
+# tree will be created, similar to archive-dir.
+# Also index lists will be built.
+#
+# Uses zoo 2.10, gawk and mkdirhier commands.
+#
+# If parameters are not specified, file /usr/lib/news/backupparms should
+# contain names of archive and backup directories.
+# For example:
+#     ARCHIVEDIR=/usr/lib/news/archive
+#     BACKUPDIR=/usr/lib/news/backup
+
+#
+# Load CNEWS configuration parameters.
+#
+
+if [ ! -f /usr/lib/newsbin/config ]
+then
+	echo "Cannot open /usr/lib/newsbin/config"
+	exit 1
+fi
+
+. /usr/lib/newsbin/config
+
+PATH=$PATH:/usr/local/bin:$NEWSBIN/maint
+
+if [ $# = 2 ]
+then
+	adir=$1
+	bdir=$2
+elif [ -f $NEWSCTL/backupparms ]
+then
+	. $NEWSCTL/backupparms
+	adir=$ARCHIVEDIR
+	bdir=$BACKUPDIR
+else
+	echo "Usage: $0 archive-dir backup-dir"
+	exit 1
+fi
+
+#
+# Check if parameters are valid.
+#
+
+if [ ! -d $adir ]
+then
+	echo "Directory $adir does not exist"
+	exit 1
+fi
+
+if [ ! -d $bdir ]
+then
+	echo "Directory $bdir does not exist"
+	exit 1
+fi
+
+#
+# Compute backup file name.  It must depend from current date.
+# One of possible variants is YY-MM
+#
+
+bu=`date '+%y-%m'`
+
+#
+# Global index file contains indexes of all articles
+# in all groups.
+#
+
+indx=$bdir/$bu.idx
+
+#
+# Build list of archive directories.
+#
+
+tmpf=/tmp/pa$$
+
+find $adir/. -type d -print > $tmpf
+
+cd $bdir
+exec < $tmpf
+
+#
+# Remove opened file; actually removed when closed.
+#
+
+rm -f $tmpf
+
+#
+# Loop through archive directories and backup all articles.
+#
+
+while read dir
+do
+	dir=`echo $dir | sed 's;/\./;/;'`
+
+	#
+	# Compute list of article indexes.
+	#
+
+	list=`cd $dir; find . -type f -name '[0-9]*' -print | sed 's;^\./;;' | grep '^[0-9][0-9]*$'`
+	list=`echo $list`
+
+	if [ x"$list" = x ]
+	then
+		continue
+	fi
+
+	#
+	# Compute first and last article indexes.
+	#
+
+	first=`echo $list | awk '{ print $1 }'`
+	last=`echo $list | awk '{ print $NF }'`
+
+	#
+	# Compute group name.
+	#
+
+	groupdir=`echo $dir | sed "s;^$adir/;;"`
+	group=`echo $groupdir | sed 's;/;.;g'`
+
+	if [ ! -d $bdir/$groupdir ]
+	then
+		mkdirhier $bdir/$groupdir
+		if [ $? != 0 ]
+		then
+			echo "Cannot make directory $bdir/$groupdir"
+			continue
+		fi
+	fi
+
+	#
+	# Add record to index file: group name, backup file name and
+	# range of articles.
+	#
+
+	echo `date '+%d-%h-%y'` $bu $group '#'$first-'#'$last >> $indx
+
+	#
+	# Update group index file.
+	#
+
+	for a in $list
+	do
+		#
+		# Compute length of article in bytes.
+		#
+		len=`ls -l $dir/$a | gawk '{ print $5 ~ "^[0-9]+$" ? $5 : $4 }'`
+
+		#
+		# Add record to group index file.
+		#
+		(
+			echo
+			echo '!' $group '#'$a $len'b'
+			awk '
+			/^Subject:/ { if (! subject) subject = $0 }
+			/^From:/ { if (! from) from = $0 }
+			/^Date:/ { if (! date) date = $0 }
+			/^$/ { exit }
+			END {
+				if (subject) print subject
+				if (from) print from
+				if (date) print date
+			}
+			' $dir/$a
+		) >> $bdir/$groupdir/$bu.lst
+	done
+
+	#
+	# Move articles to backup file.
+	#
+
+	(cd $dir; zoo aqMh $bdir/$groupdir/$bu $list)
+done

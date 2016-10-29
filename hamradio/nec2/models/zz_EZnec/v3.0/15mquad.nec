@@ -1,0 +1,23 @@
+CM 	15mQuad
+CM The dimensions for this 15 meter quad, modeled in free
+CM space, come from the ARRL ANTENNA BOOK, 15th ed., p. 12-2.
+CM The design is attributed to W7ZQ. NEC reports an accurate
+CM forward gain and front/back ratio. If you've been using
+CM ELNEC or other MININEC-based program, you've seen that they
+CM give an inaccurate front/back ratio for this antenna.
+CE
+sy len=1.8541
+GW	0	7	0.0	-len	-len	0.0	len	-len	0.00115
+GW	0	7	0.0	len	-len	0.0	len	len	0.00115
+GW	0	7	0.0	len	len	0.0	-len	len	0.00115
+GW	0	7	0.0	-len	len	0.0	-len	-len	0.00115
+sy ref=1.8035
+GW	1	7	3.048	-ref	-ref	3.048	ref	-ref	0.00115
+GW	0	7	3.048	ref	-ref	3.048	ref	ref	0.00115
+GW	0	7	3.048	ref	ref	3.048	-ref	ref	0.00115
+GW	0	7	3.048	-ref	ref	3.048	-ref	-ref	0.00115
+GE	0
+EX	6	1	4	0	1	0
+GN	-1
+FR	0	1	0	0	21.2
+EN

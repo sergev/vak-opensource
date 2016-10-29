@@ -1,0 +1,19 @@
+CM Bobtail Curtain by K6STI
+CE Converted with 4nec2 on 22-apr-02
+GW	1	5	0	0	0	0	0	31.915	#12/ft
+GW	2	5	0	-67.092	.1	0	-67.092	31.915	#12/ft
+GW	3	5	0	67.092	.1	0	67.092	31.915	#12/ft
+GW	4	11	0	0	31.915	0	-67.092	31.915	#12/ft
+GW	5	11	0	67.092	31.915	0	0	31.915	#12/ft
+GS	0	0	ft
+GE	1
+EX	0	1	1	00	1.0	0.0
+'
+GN	0	0	0	0	13	.005
+FR	0	1	0	0	 7.685
+EN
+
+'This antenna provides good bidirectional gain at low angles over high-quality
+'earth.  The feed impedance is relatively high.  This reduces ground-return
+'losses at the feedpoint.  The high-current portions of the antenna are at the
+'top, away from lossy ground and nearby structures.

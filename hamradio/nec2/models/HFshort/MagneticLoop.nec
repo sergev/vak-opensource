@@ -1,0 +1,25 @@
+CM MagLoop Antenna
+CM Tuned for 14.05 MHz and 50 Ohm
+CM Based on example Magnetic2.nec
+CM Enhanced by G. Klenner, 2012-04-09 (www.kk-prime.com)
+CE
+SY C=36.6pF	'tunig capacitor
+SY feed=0.0655	'half size of feeding square
+SY res=0.5	'half size of resonance square
+SY space=0.05	'distance between feed and resonance square
+GW	1	15	-res	-res	0	-res	res	0	.01
+GW	2	15	-res	-res	0	res	-res	0	.01
+GW	3	15	res	-res	0	res	res	0	.01
+GW	4	15	res	res	0	-res	res	0	.01
+GW	5	3	-res+space	-feed	0	-res+space	feed	0	.005
+GW	6	3	-res+space	-feed	0	-res+space+2*feed	-feed	0	.005
+GW	7	3	-res+space+2*feed	-feed	0	-res+space+2*feed	feed	0	.005
+GW	8	3	-res+space+2*feed	feed	0	-res+space	feed	0	.005
+GE	0
+LD	0	3	8	8	0	0	C
+LD	5	0	0	0	58000000
+GN	-1
+EK
+EX	0	5	2	0	1.0	0	0
+FR	0	0	0	0	14.05	0
+EN

@@ -1,0 +1,29 @@
+
+PDP-11 simulator V3.6-1
+origin 10, count 4
+origin 200, count 8
+origin 500, count 10
+Disabling XQ
+f2: pc 000500 (00000500->012706) MOV #500,SP
+f1: pc=500, sp=0, psw=340 ipl7 n0 z0 v0 c0 (0 0 0 0 0 0 0 500)
+f2: pc 000504 (00000504->170000) CFCC
+f1: pc=504, sp=500, psw=340 ipl7 n0 z0 v0 c0 (0 0 0 0 0 0 500 504)
+throwing TRAP_ILL, IR 170000 (fp17)
+int/trap: 10
+old IR 170000
+push: 476 <- 340
+push: 474 <- 506
+int/trap: 37777777777
+f2: pc 000200 (00000200->012705) MOV #200,R5
+f1: pc=200, sp=474, psw=7 ipl0 n0 z1 v1 c1 (0 0 0 0 0 0 474 200)
+f2: pc 000204 (00000204->000240) NOP
+f1: pc=204, sp=474, psw=1 ipl0 n0 z0 v0 c1 (0 0 0 0 0 200 474 204)
+f2: pc 000206 (00000206->000002) RTI
+f1: pc=206, sp=474, psw=1 ipl0 n0 z0 v0 c1 (0 0 0 0 0 200 474 206)
+f2: pc 000506 (00000506->000240) NOP
+f1: pc=506, sp=500, psw=340 ipl7 n0 z0 v0 c0 (0 0 0 0 0 200 500 506)
+f2: pc 000510 (00000510->000000) HALT
+f1: pc=510, sp=500, psw=340 ipl7 n0 z0 v0 c0 (0 0 0 0 0 200 500 510)
+
+HALT instruction, PC: 000512 (HALT)
+Goodbye

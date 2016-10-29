@@ -1,0 +1,22 @@
+file
+	filename = "Palmos5";
+	attrib = backup;
+	typeid = 'Font';
+	creatorid = 'Font';
+begin
+	record begin
+		includebin a-22x22.pft
+	end;
+
+	record begin
+		includebin b-34x22.pft
+	end;
+
+	record begin
+		includebin c-26x28.pft
+	end;
+
+	record begin
+		includebin f-24x30.pft
+	end;
+end;

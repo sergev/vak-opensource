@@ -1,0 +1,25 @@
+:
+for i
+do
+	awk '
+	BEGIN {
+		vol = nfiles = npackages = 0
+		price = 0.01
+	}
+	$3=="send" && $4=="file" {
+		vol += $8
+		++nfiles
+		if (! date)
+			date = $1
+	}
+	$3=="send" && $4=="package" {
+		vol += $10
+		++npackages
+		if (! date)
+			date = $1
+	}
+	END {
+		print substr(date,0,8) ": " nfiles " files, " npackages " packages, " vol " bytes, " vol*price/1000 " $"
+	}
+	' $i
+done

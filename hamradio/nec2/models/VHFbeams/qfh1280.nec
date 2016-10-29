@@ -1,0 +1,43 @@
+CM QFH optimized for LCP gain and circularity
+CM By Peter Renner
+CM 
+CE
+SY WR=0.424364	'Wire Radius im mm
+SY rb_bot=23.44332	'short heli bottom radius
+SY rb_top=18.74511	'shorter helix top radius
+SY ra_bot=21.69538	'longer helix bottom radius
+SY ra_top=18.40774	'longer helix top radius
+SY len=48.22451	'length of shorter helix
+SY hgap=6.397906	'clearance between bottom crossing wires' surfaces
+SY qturns=2.050114	'no of quarther turns, std=2
+SY agnd=0	'height above ground
+SY topgap=wr*2	'distance at feedside, to avoid intersection wire volumes
+SY hdiff=hgap+topgap	'height difference of bottom crossing wires' centers
+SY za_bot=agnd	'bottom z coord of longer helix
+SY za_top=za_bot+hdiff+len+topgap	'top z coord of longer helix
+SY zb_top=za_bot+hdiff+len	'top z coord of shorter helix
+SY zb_bot=za_bot+hdiff	'bottom z coord of short helix
+SY aspc=(za_top-za_bot)/qturns*4	'spacing longer helix
+SY bspc=(zb_top-zb_bot)/qturns*4	'spacing shorter helix
+GH	10	qturns*5	aspc	za_top-za_bot	ra_bot	ra_bot	ra_top	ra_top	wr
+GW	11	5	ra_bot	0	0	-ra_bot	0	0	wr
+GM	0	0	0	0	0	0	0	agnd	10
+GH	15	qturns*5	aspc	za_top-za_bot	ra_bot	ra_bot	ra_top	ra_top	wr
+GM	0	0	0	0	180	0	0	agnd	15
+GW	800	5	-ra_top	0	za_top	ra_top	0	za_top	wr
+GW	801	5	0	-rb_top	zb_top	0	rb_top	zb_top	wr
+GM	0	0	0	0	qturns*90	0	0	0	800
+GH	20	qturns*5	bspc	zb_top-zb_bot	rb_bot	rb_bot	rb_top	rb_top	wr
+GM	0	0	0	0	90	0	0	hdiff+agnd	20
+GH	21	qturns*5	bspc	zb_top-zb_bot	rb_bot	rb_bot	rb_top	rb_top	wr
+GM	0	0	0	0	270	0	0	hdiff+agnd	21
+GW	22	5	0	rb_bot	hdiff+agnd	0	-rb_bot	hdiff+agnd	wr
+GS	0	0	0.001
+GE	0
+LD	5	0	0	0	58000000
+GN	-1
+EK
+EX	6	800	3	0	1	0	0
+EX	6	801	3	0	6.12e-17	1	0
+FR	0	0	0	0	1280	0
+EN

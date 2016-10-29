@@ -1,0 +1,10 @@
+
+major=40
+func='ptinit ptopen ptclose ptread ptwrite ptioctl'
+
+echo "Deleting Elbrus-B pult driver:"
+echo "Major number: $major"
+echo "Functions: $func"
+
+configure -m $major -c -d $func
+nc

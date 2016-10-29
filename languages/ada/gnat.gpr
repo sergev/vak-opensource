@@ -1,0 +1,27 @@
+project Gnat is
+   for Languages use ("ada");
+   for Object_Dir use "";
+   for Exec_Dir use "";
+
+   package Builder is
+      for Default_Switches ("Ada") use
+        ("-g",					--  generate debug symbols
+         "-O");					--  optimize
+   end Builder;
+
+   package Compiler is
+   end Compiler;
+
+   package Binder is
+      for Default_Switches ("Ada") use
+        ("-g",					-- keep binder file
+         "-C");					-- generate binder file in C
+   end Binder;
+
+   package Linker is
+      for Default_Switches ("Ada") use
+        ("-C",					--  binder file in C
+         "--GCC=gcc-3.3 -O");
+   end Linker;
+
+end Gnat;

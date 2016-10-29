@@ -1,0 +1,107 @@
+#!/usr/bin/perl
+
+#
+# Usage: batchstat [-d spooldir] [-c config] sysname togo
+#
+
+$spool = "/usr/spool/news";
+$conf = "/usr/lib/news/statconf";
+
+#
+# Print usage string
+#
+
+sub usage {
+	print "Usage: batchstat [-d spooldir] [-c config] sysname togo\n";
+	exit;
+}
+
+#
+# Find group in class table
+#
+
+sub findclass {
+	local ($group) = @_;
+	while ($group ne "") {
+		if ($classname{$group}) {
+			return $classname{$group};
+		}
+		if ($group =~ /\./) {
+			$group =~ s/\.[^.]*$//;
+		} else {
+			$group = "";
+		}
+	}
+	return "default";
+}
+
+#
+# Parse options
+#
+
+while ($ARGV[0] =~ /^-/) {
+	local ($flag) = shift @ARGV;
+	if ($flag eq "-d") {
+		$spool = shift @ARGV;
+	} elsif ($flag eq "-c") {
+		$conf = shift @ARGV;
+	} else {
+		&usage;
+	}
+}
+
+if ($ARGV[0] eq "-d") {
+	shift @ARGV;
+	$spool = shift @ARGV;
+}
+
+if ($#ARGV < 1) {
+	&usage;
+}
+
+$sysname = shift @ARGV;
+
+#
+# Load configuration file
+#
+
+open (STAT, $conf) || die "Can't open $conf: $!\n";
+while (<STAT>) {
+	next if /^#/;
+	chop;
+	($group, $class) = split;
+	next if $group eq "";
+	push (@statgroups, $group);
+	$classname{$group} = $class;
+}
+close (STAT);
+
+#
+# Parse togo
+#
+
+foreach $togo (@ARGV) {
+	open (TOGO, $togo) || die "Can't open $togo: $!\n";
+	while (<TOGO>) {
+		chop;
+		($file, $size) = split;
+		$file =~ s:^$spool/(.*)/\d*$:\1:;
+		$file =~ s:/:.:g;
+
+		$class = &findclass ($file);
+		$volume{$class} += $size;
+	}
+	close (TOGO);
+}
+
+#
+# Print rezult
+#
+
+($sec, $min, $hour, $mday, $mon, $year) = localtime (time ());
+
+foreach $class (keys (%volume)) {
+	printf "%02d/%02d/%02d %02d:%02d:%02d %s %s %d\n",
+		$year, $mon + 1, $mday, $hour, $min, $sec,
+		$sysname, $class, $volume{$class};
+}

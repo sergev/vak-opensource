@@ -1,0 +1,31 @@
+<head><title>Setting text encoding</title></head>
+<!--#include /style.inc-->
+<center>
+
+<!--#include /rule.inc-->
+
+<form method="post" action="/exec/encoding">
+Select your preferred language and text encoding:
+
+<table><td>
+<p>
+<input type=radio name=encoding value=english
+	<!--#if ENG--> checked<!--#endif--> > English               <br>
+<input type=radio name=encoding value=unix
+	<!--#if KOI8-->checked<!--#endif--> > Russian: KOI-8 (Unix) <br>
+<input type=radio name=encoding value=windows
+	<!--#if WIN--> checked<!--#endif--> > Russian: MS Windows   <br>
+<input type=radio name=encoding value=dos
+	<!--#if DOS--> checked<!--#endif--> > Russian: MS DOS       <br>
+<input type=radio name=encoding value=macintosh
+	<!--#if MAC--> checked<!--#endif--> > Russian: Macintosh    <br>
+<p>
+</td></table>
+
+<input type=submit value=Submit>
+</form>
+
+</center>
+<!--#include /copyright.inc-->
+</body>
+</html>

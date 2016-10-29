@@ -1,0 +1,67 @@
+CM K4ERO - Single-band broadcast version using screen reflector
+CE
+SY H=45
+SY W=45
+SY L=26
+SY R=20
+SY R-2=18
+SY S=1
+SY F=-100
+SY T=47.5
+GW	1	11	R	-W	-H	R	-S	-L	#0/ft
+GW	2	7	R	-S	-L	R-2	0	0	#0/ft
+GW	3	7	R-2	0	0	R	S	L	#0/ft
+GW	4	11	R	-S	L	R	-W	H	#0/ft
+GW	5	11	R	W	-H	R	S	-L	#0/ft
+GW	6	11	R	S	-L	R	-S	L	#0/ft
+GW	7	11	R	S	L	R	W	H	#0/ft
+GW	8	15	R	-S	-L	R	-S	F	#0/ft
+GW	9	15	R	S	-L	R	S	F	#0/ft
+GW	10	1	R	-S	F	R	S	F	#0/ft
+GW	11	19	0	T	0	0	-T	0	#8/ft
+GW	12	19	0	T	10	0	-T	10	#8/ft
+GW	13	19	0	T	20	0	-T	20	#8/ft
+GW	14	19	0	T	30	0	-T	30	#8/ft
+GW	15	19	0	T	40	0	-T	40	#8/ft
+GW	16	19	0	T	50	0	-T	50	#8/ft
+GW	17	19	0	T	60	0	-T	60	#8/ft
+GW	18	19	0	T	70	0	-T	70	#8/ft
+GW	19	19	0	T	80	0	-T	80	#8/ft
+GW	20	19	0	T	90	0	-T	90	#8/ft
+GW	21	19	0	T	100	0	-T	100	#8/ft
+GW	22	19	0	T	110	0	-T	110	#8/ft
+GW	23	3	0	T	0	0	T	10	#8/ft
+GW	24	3	0	T	10	0	T	20	#8/ft
+GW	25	3	0	T	20	0	T	30	#8/ft
+GW	26	3	0	T	30	0	T	40	#8/ft
+GW	27	3	0	T	40	0	T	50	#8/ft
+GW	28	3	0	T	50	0	T	60	#8/ft
+GW	29	3	0	T	60	0	T	70	#8/ft
+GW	30	3	0	T	70	0	T	80	#8/ft
+GW	31	3	0	T	80	0	T	90	#8/ft
+GW	32	3	0	T	90	0	T	100	#8/ft
+GW	33	3	0	T	100	0	T	110	#8/ft
+GW	34	3	0	-T	0	0	-T	10	#8/ft
+GW	35	3	0	-T	10	0	-T	20	#8/ft
+GW	36	3	0	-T	20	0	-T	30	#8/ft
+GW	37	3	0	-T	30	0	-T	40	#8/ft
+GW	38	3	0	-T	40	0	-T	50	#8/ft
+GW	39	3	0	-T	50	0	-T	60	#8/ft
+GW	40	3	0	-T	60	0	-T	70	#8/ft
+GW	41	3	0	-T	70	0	-T	80	#8/ft
+GW	42	3	0	-T	80	0	-T	90	#8/ft
+GW	43	3	0	-T	90	0	-T	100	#8/ft
+GW	44	3	0	-T	100	0	-T	110	#8/ft
+GM	0	0	0	0	0	0	0	-55	11
+GS	0	0	ft
+GE	0
+EX	0	10	1	00	1.0	0.0
+'
+GN	-1
+FR	0	1	0	0	 9.73
+EN
+
+'Palau 9 mhz antenna standing before reflector
+'screen, fed by deleting wire 10 and attatching 600
+'ohm line.
+

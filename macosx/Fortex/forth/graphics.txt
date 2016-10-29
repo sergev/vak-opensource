@@ -1,0 +1,22 @@
+Portable Forth interpreter - graphics commands.
+
+Copyright (C) 1990-2006 Serge Vakulenko, <vak@cronyx.ru>.
+
+grinit ( -- maxx maxy maxc )
+    Initialize graphics mode.
+    Resolution is maxx*maxy, maxc+1 colors available.
+grclear ( -- )
+    Clear graphics screen.
+grline ( xto yto xfrom yfrom c -- xto yto rc )
+    Draw line from (xfrom,yfrom) to (xto,yto), color c.
+    Leave in stack coordinates of the end point and
+    resulting color.  This allows drawing multilines:
+    1 1 2 5 3 2 4 4 1 grline grline grline drop 2drop
+grend ( -- )
+    Restore text mode.
+getch ( -- ch )
+    Get character from the console.
+    Keypad and function keys have 0400 bit set.
+kbhit ( -- hit )
+    Check if the key was hit.  If keystroke is available,
+    return 1 else 0.

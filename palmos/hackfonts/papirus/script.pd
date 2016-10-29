@@ -1,0 +1,18 @@
+file
+	filename = "Papirus";
+	attrib = backup;
+	typeid = 'Font';
+	creatorid = 'Font';
+begin
+	record begin
+		includebin e-22x22.pft
+	end;
+
+	record begin
+		includebin f-34x22.pft
+	end;
+
+	record begin
+		includebin g-26x28.pft
+	end;
+end;

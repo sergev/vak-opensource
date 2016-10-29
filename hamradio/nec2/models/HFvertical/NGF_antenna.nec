@@ -1,0 +1,37 @@
+CM NGF file example.
+CM First generate NGF file(S) using NGF_RADIAL4.NEC or NGF_RADIAL8.NEC
+CM Then run this file to use one of both *.NGF files and complete the structure 
+CM
+CM Note that you manually will have to set the number of segments when using
+CE more complex NGF files. See 4nec2.hlp (F1) or read 4nec2.rtf
+'
+SY XC = 316
+'
+SY H1=26.7
+SY W=28	
+SY A1=2	
+SY A2=3.54
+SY A3=18
+'
+SY H2 = (H1-5)/28 * (28-A1) + 5
+SY H3 = (H1-5)/28 * (28-A3) + 5
+SY SEG2 = 2.2 * (A3-A2)
+SY SEG3 = 2 * (H3 - 5)
+SY SEG4 = 2 * (A3 - A2)
+'
+'GF	0	RADIAL4.NGF		' Use 4 wire NGF file
+GF	0	RADIAL8.NGF		' Use 8 wire NGF file
+'
+GW	1	28	0	0	0.1	0	0	26.7	0
+GC	0	0	1	0.004	0.001
+GW	2	SEG2	A1	0	H2	A3	0	H3	1.e-3
+GW	3	SEG3	A3	0	H3	A3	0	5	1.e-3
+GW	4	SEG4	A3	0	5	A2	0	5	1.e-3
+GM	3	1	0	0	180	0	0	0	2
+GE	1
+'
+LD	4	1	1	1	0	-210
+LD	4	4	1	1	0	-XC
+EX	0	1	1	0	1	0
+'
+EN

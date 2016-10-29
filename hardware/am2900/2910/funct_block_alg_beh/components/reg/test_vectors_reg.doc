@@ -1,0 +1,17 @@
+--------------------------------------------------------------------------------
+--
+--   AMD2910 Benchmark -- reg
+--
+-- Source:  AMD data book
+--
+-- author: Indraneel Ghosh
+--         University Of California, Irvine, CA 92717
+--
+-- Written on Feb19, 1992
+--
+--------------------------------------------------------------------------------
+
+ The "reg_ctr" block models the microprogram counter. 
+
+ To test it, we load all 0's and all 1's in it. To test the decrement 
+ function, we test the borrow ripple through each of the 12 bits.

@@ -1,0 +1,49 @@
+Modify Nec2dpar.inc to create new executable types.
+Modify G77port.inc to reflect compiler version.
+
+For the windows-95/98/ME/NT/2000/XP compilation the 
+DGJPP- and the MinGW port for the GNU G77 (v 3.2)
+were used.
+
+Latest insights (feb-2006) learn that the DJGPP port
+does not always run on latest Windows-XP systems.
+
+For DJGPP see http://www.delorie.com/djgpp
+For MinGW see http://www.mingfw.org
+
+If required, create custom include files or edit the
+NEC2DPAR.INC file to create executables with your own
+array sizes.
+
+Compile and link command (for both ports):
+
+Copy nec2dXXX.inc nec2dpar.inc
+g77 -O -fno-automatic -Wall nec2dxs.f -o nec2dxsXXX.exe
+
+Ignore the warnings produced, they are a result op the
+optimization flag -O.
+
+						Arie.
+
+Warnings to be ingnored:
+
+nec2dxs.f: In program `MAIN__':
+nec2dxs.f:322: warning: `ifrq' might be used uninitialized in this function
+nec2dxs.f:330: warning: `delfrq' might be used uninitialized in this function
+nec2dxs.f:464: warning: `nthi' might be used uninitialized in this function
+nec2dxs.f:465: warning: `nphi' might be used uninitialized in this function
+nec2dxs.f:474: warning: `thetis' might be used uninitialized in this function
+nec2dxs.f:475: warning: `phiss' might be used uninitialized in this function
+nec2dxs.f:522: warning: `iptag' might be used uninitialized in this function
+nec2dxs.f:523: warning: `iptagf' might be used uninitialized in this function
+nec2dxs.f:524: warning: `iptagt' might be used uninitialized in this function
+nec2dxs.f:532: warning: `iptaq' might be used uninitialized in this function
+nec2dxs.f:533: warning: `iptaqf' might be used uninitialized in this function
+nec2dxs.f:534: warning: `iptaqt' might be used uninitialized in this function
+nec2dxs.f:638: warning: `mhz' might be used uninitialized in this function
+nec2dxs.f:661: warning: `fmhz1' might be used uninitialized in this function
+nec2dxs.f:805: warning: `nthic' might be used uninitialized in this function
+nec2dxs.f:806: warning: `nphic' might be used uninitialized in this function
+nec2dxs.f:807: warning: `inc' might be used uninitialized in this function
+
+***

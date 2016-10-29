@@ -1,0 +1,383 @@
+Mail Server Help v.1.3.17 for mailserv@relcom.ru
+
+----- Help text in Russian ----- (Help text in English follows) -----
+
+Вы работаете с мэйлсервером версии 1.3. Для получения информации
+следует послать письмо с командами по адресу mailserv@relcom.ru .
+Поле Subject игнорируется. Команды можно набирать как прописными,
+так и строчными буквами. Команды распознаются по первым 3 символам.
+В АРГУМЕНТАХ команд прописные и строчные буквы РАЗЛИЧАЮТСЯ.
+Команда воспринимается при наличии перед ней в начале строки до 8 пробелов
+или одного символа табуляции; в противном случае строка игнорируется
+(так можно вводить комментарии в Ваши запросы мэйлсерверу).
+
+ПРИМЕР ПИСЬМА МЭЙЛСЕРВЕРУ
+
+dir
+			-- выдать комментированный список файлов и
+			   подкаталогов в текущем каталоге (корневом
+			   каталоге Киархива)
+get /msdos/convert/char/d1489e*.zip
+			-- выслать заданный шаблоном файл из каталога
+			   "msdos/convert/char" (содержит программу
+			   для преобразования текста из кодировки koi8-r
+			   в досовскую альтернативную кодировку)(см. прим. 1)
+read /THISARCHIVE-rus
+			-- включить в протокол работы мэйлсервера (Mail
+			   Server Reply, который Вы получите после
+			   завершения сеанса работы с ним), содержимое
+			   заданного файла (краткое описание Киархива,
+			   на русском)
+get /relcom/mailserv/Kiarchive-by-email.txt
+			-- выслать указанный файл (Почтовый файловый
+			   сервер Киархива (mailserv@relcom.ru). Руководство
+			   пользователя, на русском)(см. примечания 1 и 2)
+quit
+			-- завершение последовательности команд
+
+ПРИМЕЧАНИЯ К ДАННОМУ ПРИМЕРУ
+
+(1) Мэйлсервер вышлет указанные файлы, преобразовав их утилитой
+uuencode. Для преобразования файлов в исходное состояние воспользуйтесь
+утилитой uudecode (если Вы работаете в программе mailx, воспользуйтесь
+командой uu; в программе bml воспользуйтесь командой F9 M D (Меню, Письмо,
+Извлечь данные)).
+
+(2) Этот файл содержит текст в кодировке koi8-r. Пользователи ДОС могут
+преобразовать его в досовскую альтернативную кодировку при помощи про-
+граммы todos, включенной в упомянутый выше файл d1489.zip (данный пример
+носит академический характер, в данном случае проще было воспользоваться
+командой read).
+
+Этот пример показывает, как получить информацию, полезную начинающему
+пользователю мэйлсервера.
+
+
+СПИСОК КОМАНД
+
+  help                  -- Выдать краткое описание мэйлсервера (данный
+			   текст), все последующие строки будут проигнорированы.
+  quit                  -- Завершить ввод команд,
+			   все последующие строки будут проигнорированы.
+  -                     -- Синоним команды quit (любая команда, начинающаяся с
+			   символа "-").
+  exit                  -- Синоним команды quit.
+  bye                   -- Синоним команды quit.
+  pwd                   -- Выдать имя текущего каталога.
+  dir                   -- Выдать список файлов и подкаталогов текущего каталога
+			   с краткими описаниями.
+  dir directory [comment]
+			-- Выдать список файлов и подкаталогов заданного
+			   аргументом directory каталога с краткими описаниями.
+			   Любые слова после имени каталога считаются
+			   комментарием и игнорируются.
+  dir -5                -- Выдать список новых файлов за последние 5 дней.
+  dir -r                -- Выдать список файлов и подкаталогов текущего и всех
+			   дочерних каталогов.
+  index                 -- Синоним команды dir.
+  ls                    -- Выдать краткий список (без комментариев) файлов и
+			   подкаталогов текущего каталога (после имени под-
+			   каталога Вы увидите символ "/").
+  cd directory [comment]
+			-- Перейти в заданный каталог. Любые слова после
+			   имени каталога считаются комментарием и игнорируются.
+  cd                    -- Перейти в начальный каталог (эквивалентно "cd /").
+  read file             -- Включить в протокол работы мэйлсервера (Mail
+			   Server Reply, который Вы получите после
+			   завершения сеанса работы с сервером) текст,
+			   содержащийся в указанном файле. Попытка чтения
+			   нетекстового файла приведет к сообщению об
+			   ошибке. Максимальный размер файла - 9999 строк.
+  read -100 file        -- Выдать только начальные 100 строк указанного
+			   файла.
+  get file [comment]    -- Выслать файл (не каталог!). Любые слова после
+			   имени файла считаются комментарием и игнорируются.
+  get -5 file [comment] -- Выслать часть номер 5 заданного файла. Список частей
+			   может иметь вид "-5,6,9-11".
+  mget                  -- Синоним команды get.
+  find pattern...       -- Выдать информацию о файлах, в названиях которых,
+			   или в комментариях к которым встречается заданный
+			   образец (или образцы). Поиск ведется без различия
+			   строчных и прописных букв (включая русские).
+			   Символ "пробел" в образцах не допускается.
+			   В образцах используются следующие метасимволы:
+			     !       - в начале образца - любая строка, не
+				       содержащая последующей части образца;
+			     ^       - в начале образца - начало строки;
+			     $       - в конце образца - конец строки;
+			     *       - ноль и более любых символов;
+			     ?       - один любой символ;
+			     [a-z]   - символ из диапазона;
+			     [^a-z]  - символ вне диапазона;
+			     [!a-z]  - символ вне диапазона.
+			   Выдается информация не более чем о 500 файлах.
+			   Если текущим является каталог первого уровня
+			   (/msdos, /unix и т.д.), поиск проводится только
+			   среди файлов дерева данного каталога.
+  list archive...       -- Выдать список содержимого архивного файла (файлов).
+			   Допустимы следующие типы архивных файлов:
+			   tar.Z, tar.F, tar, cpio.Z, cpio.F, cpio, ar.Z, ar.F,
+			   ar, zoo, zip, lzh.
+  extract archive file...
+			-- Извлечь и выслать файл(ы) из архивного файла.
+			   Допустимые типы архивных файлов указаны в описании
+			   команды list.
+  extract -5 archive file
+			-- Извлечь файл из архивного файла и выслать его часть
+			   номер 5.
+			   Допустимые типы архивных файлов указаны в описании
+			   команды list.
+  extract archive       -- Перепаковать архивный файл упаковщиком, заданным
+			   командой archiver.
+			   Допустимые типы архивных файлов указаны в описании
+			   команды list.
+  info file...          -- Выдать справочную информацию о файле (файлах).
+  archiver name         -- Выбрать упаковщик. Допустимы следуюшие названия:
+			   gzip         - tgz,
+			   compress     - tar.Z,
+			   freeze       - tar.F,
+			   lharc        - lzh,
+			   zoo          - zoo,
+			   zip          - zip,
+			   none         - высылать файлы в том виде, в каком
+					  они хранятся (принято по умолчанию).
+  encoder name          -- Выбрать кодировщик. Допустимы следующие названия:
+			   uuencode (по умолчанию), btoa and ship.
+  split mode            -- Выбрать режим кодирования. Допустимы следующие
+			   режимы:
+			   text         - разбиение на части после кодирования
+					  (принято по умолчанию),
+			   binary       - разбиение на части двоичного файла
+					  с последующим кодированием каждой
+					  части отдельно.
+  size 15               -- Установить макс. размер части равным 15 килобайт
+			   (от 5 до 100 килобайт; по умолчанию - 30 килобайт).
+  size                  -- Выдать текущее значение макс. размера части.
+  limit 3072            -- Установить ограничение общего объема пересылки
+			   по командам get за данный сеанс (в килобайтах).
+			   Передача файла, на котором происходит нарушение
+			   данного ограничения, будет доведена до конца.
+  limit                 -- Выдать текущее значение ограничения общего объема
+			   пересылки (в килобайтах).
+  debug on              -- Включить трассировку выполнения команд get.
+
+ПРИМЕЧАНИЯ
+
+Допускается использование абсолютных (начинающихся с '/') названий
+каталогов и файлов.
+
+Допускается использование обозначения родительского каталога ('..').
+
+Допустимо использование метасимволов юниксовского шелла ('*', '?', '['
+и т.д.) в именах файлов. Например, по команде "get *" Вам будут высланы
+все файлы из текущего каталога.
+
+Сервер преобразует символ '\' в названиях каталогов и файлов в символ '/'.
+
+ПРЕДУПРЕЖДЕНИЯ
+
+* Не следует посылать Ваши запросы по адресу mail-server@relcom.ru
+(или отвечать на письма "Mail Server Reply", которые Вы получаете от сервера).
+Для приема команд от Вас сервер использует только адрес mailserv@relcom.ru
+(это сделано для предотвращения зацикливания почты).
+
+* Будьте осторожны c командой "dir -r". В корне Киархива эта команда
+"принесет" Вам 2.5 МБ информации. Рекомендуется вместо этого пользоваться
+командой "get 0index-r.zip", по которой Вы получите ту же самую информацию,
+но собранную прошедшей ночью, в виде упакованного zip-архива (около 600 КБ).
+
+КОНТАКТНЫЕ АДРЕСА
+
+Сообщения о проблемах и Ваших предложениях, связанных с мэйлсервером
+просьба направлять по адресу:
+
+       mailserv-adm@relcom.ru ,
+
+cообщения о проблемах и Ваших предложениях, связанных с Киархивом
+(архивом, из которого Вы можете получать файлы), просьба
+направлять по адресу:
+
+       kiarchive-adm@relcom.ru .
+
+Mail Server, Copyright (C) 1990-94 Serge Vakulenko
+
+
+
+----- Help text in English --------------------------------------------
+
+This is Mail Server, Version 1.3.  To get some information from it,
+send letter to mailserv@relcom.ru with commands in it.
+Subject is ignored. Command name can be in upper or lower case,
+all OTHER arguments are CASE SENSITIVE. Command is recognized by first
+3 characters. Any command in the command line may be preceeded by one
+to eight spaces or one tab character; otherwise the line will be treated
+as comment line and will be ignored.
+
+SAMPLE LETTER TO THE MAIL SERVER
+
+dir
+			-- List files and subdirectories (with descriptions)
+			   in current (Kiarchive root) directory
+get /msdos/convert/char/d1489e*.zip
+			-- get one of files using wildcard character (program
+			   to convert text from koi8-r into DOS Alternating
+			   Coding) (1)
+read /THISARCHIVE-rus
+			-- include text from the file specified (brief
+			   description of the Kiarchive, in Russian) into
+			   Mail Server Reply letter (will be sent to you
+			   at the end of current session)
+get /relcom/mailserv/Kiarchive-by-email.txt
+			-- get another file (Email file server for
+			   the Kiarchive (mailserv@relcom.ru). User manual,
+			   in Russian (1,2))
+quit
+			-- end of commands
+
+
+NOTES TO THE EXAMPLE ABOVE
+
+(1) Mailserv will send the files requested in the uuencoded form.
+Uudecode them to obtain file in its original form (in mailx use
+the 'uu' command; in bml use F9 M D (enter menu, Mail, uuDecode)).
+
+(2) These files contain koi8-r coded text. DOS users can convert them
+into DOS Alternating Coding form by the "todos" program included in
+the file d1489.zip mentioned above (this example is for tutorial
+purpose, using the read command would be simpler in this case).
+
+This example shows how to get some information helpful
+for beginner mailserv user.
+
+
+COMMANDS SUMMARY
+
+  help                  -- Get brief description of mail server (this text).
+			   All commands after this line will be ignored.
+  quit                  -- End of command file.
+			   All commands after this line will be ignored.
+  -                     -- The alias for the quit command (any command begin-
+			   ning with "-").
+  exit                  -- The alias for the quit command.
+  bye                   -- The alias for the quit command.
+  pwd                   -- Print current directory name.
+  dir                   -- List files and subdirectories (with brief descripti-
+			   ons) in current directory.
+  dir directory [comment]
+			-- List files and subdirectories in specified directory.
+			   Any words after directory name will be ignored.
+  dir -5                -- List new files for last 5 days.
+  dir -r                -- List files and subdirectories recursively.
+  index                 -- The alias for the dir command.
+  ls                    -- Brief list (no descriptions) of files and subdirecto-
+			   ries (subdirectory name followed by /).
+  cd directory [comment]
+			-- Enter directory. Any words after directory name will
+			   be ignored.
+  cd                    -- Return to home directory (is equal to "cd /").
+  read file             -- Include text from the file specified into Mail Server
+			   reply letter (will be sent to you at the end of
+			   current session). An attempt to read binary file
+			   will cause an error message. Max file length assumed
+			   to be 9999 lines.
+  read -100 file        -- Include only 100 lines of text from the beginning of
+			   the file specified.
+  get file [comment]    -- Get file (not directory!). Any words after file name
+			   will be ignored.
+  get -5 file [comment] -- Get part #5 of specified file.  List of parts
+			   can be specified as "-5,6,9-11".
+  mget                  -- The alias for the get command.
+  find pattern...       -- Get info on all files with filenames or file
+			   descriptions matching pattern (or patterns) given.
+			   Find is case-insensitive. Pattern may not contain
+			   space characters.
+			   Pattern may contain wild symbols:
+			     !       - at beginning of pattern - any string
+				       not matched
+			     ^       - at beginning of pattern - the string
+				       beginning
+			     $       - at end of pattern - the string end
+			     *       - any string
+			     ?       - any symbol
+			     [a-z]   - symbol in range
+			     [^a-z]  - symbol out of range
+			     [!a-z]  - symbol out of range
+			   The output is limited to 500 matches.
+			   If current directory is level one directory
+			   (/msdos, /unix etc.) then the tree of this
+			   directory only will be searched.
+  list archive...       -- Get listing of archive file.
+			   Legal types of archives are tar.Z, tar.F,
+			   tar, cpio.Z, cpio.F, cpio, ar.Z, ar.F, ar,
+			   zoo, zip, lzh.
+  extract archive file...
+			-- Extract file from archive.
+			   See "list" command for legal types of archives.
+  extract -5 archive file
+			-- Extract part #5 of file from archive.
+			   See "list" command for legal types of archives.
+  extract archive       -- Repack archive by selected archiver.
+			   See "list" command for legal types of archives.
+  info file...          -- Get information about files.
+  archiver name         -- Select archiver.  Possible values are:
+			   gzip         - tgz,
+			   compress     - tar.Z,
+			   freeze       - tar.F,
+			   lharc        - lzh,
+			   zoo          - zoo,
+			   zip          - zip,
+			   none         - send file as it is, default.
+  encoder name          -- Select encoder.  Possible values are
+			   uuencode (default), btoa and ship.
+  split mode            -- Set split mode.  Possible values are:
+			   text         - split after encoding, default,
+			   binary       - split binary file, then encode
+					  each piece separately.
+  size 15               -- Set maximum piece size in kbytes to 15.
+			   (From 5 to 100 kbytes; 30 kbytes by default.)
+  size                  -- Print max piece size in kbytes.
+  limit 3072            -- Set max total volume in kbytes for get commands
+			   within current session. The transmittion of the file
+			   that cause violation of the limit will be completed.
+  limit                 -- Print max total volume in kbytes.
+  debug on              -- Print internal commands as they are executed (for
+			   get commands only).
+
+NOTES
+
+You may use absolute directory and file names (beginning with '/').
+
+You may use parent directory reference ('..').
+
+Shell wild cards ('*', '?', '[' etc.) in file names are allowed.
+For example by the "get *" command you'll get all files from current
+directory.
+
+The '\' characters in pathnames will be converted to '/'.
+
+WARNINGS
+
+* DON'T send your requests to the address mail-server@relcom.ru (or reply
+to the "Mail Server Reply" letters from the Mail Server). Only the address
+mailserv@relcom.ru be used to request something from the Mail Server (this is
+done to prevent mail looping.)
+
+* Be careful with the "dir -r" command. Execution of this command in the
+Kiarchive root directory will result in 2.5 MB message to you. It is
+recommended to use "get 0index-r.zip" command instead: you will get the
+same data prepared in past night in compressed zip archive (about 600 KB).
+
+CONTACT WITH US
+
+If you have any problems or suggestions about the mail server
+please e-mail to:
+
+       mailserv-adm@relcom.ru ,
+
+if you have any problems or suggestions about the Kiarchive
+(the archive you can download files from) please e-mail to:
+
+       kiarchive-adm@relcom.ru .
+
+Mail Server, Copyright (C) 1990-94 Serge Vakulenko
+

@@ -1,0 +1,37 @@
+CM Dipole with coaxial feedline.
+CM
+CM This file shows how you how you can model a coaxial feed
+CM To do so, use the default Nec TL card to model the feed
+CM and in parallel with this feed, model a wire with the
+CM same physical length as the feedline. The length specified
+CM in the TL card equals the physical lenght / the velocity 
+CM factor for the coax. Use 'Currents->Magnitude' on the
+CM 'Geometry (F3)' window and use Page-up/down to magnify the
+CM current on the 'outer' of the coax. Click on the wire 
+CM resembling the Coax to see how large the current is for
+CM the specified power input. Although the coax is fully
+CM symmetrical with respect to the antenna the current on
+CM the outer wire can cause trouble with RFI if the feedline
+CM is very close to a TV/telephone-line or electrical house 
+CE wiring.
+
+SY hgh=10			' Antenne height
+sy len=5.11			' Half wire length
+
+GW	1	20	0	-len	hgh	0	-0.03	hgh	1.026e-3	' Left wire
+GW	2	1	0	-0.03	hgh	0	0.03	hgh	1.026e-3	' Mid TL segment
+GW	3	20	0	0.03	hgh	0	len	hgh	1.026e-3	' Right wire
+GW	4	1	0	-0.03	1	0	0.03	1	1.026e-3	' V-src segment
+GW	5	40	0	0.03	hgh	0	0.03	1	1.026e-3	' Outer coax wire
+GE	0
+
+SY Z0=50, Vf=0.66		' Coax Z0 and Vf
+SY Tlen=hgh-1		' Physical length
+SY Elen=Tlen/Vf		' Electrical length
+
+TL	2	1	4	1	Z0	Elen
+
+EX	6	4	1	0	1	0
+GN	2	0	0	0	20	0.0303
+FR	0	1	0	0	14	0
+EN

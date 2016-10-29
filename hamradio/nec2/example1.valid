@@ -1,0 +1,247 @@
+1
+
+
+
+                                 ************************************
+
+                                    NUMERICAL ELECTROMAGNETICS CODE
+
+                                 ************************************
+
+
+
+
+                                     - - - - COMMENTS - - - -
+
+
+                         EXAMPLE 1.  CENTER FED LINEAR ANTENNA
+
+
+
+
+                                 - - - STRUCTURE SPECIFICATION - - -
+
+                                     COORDINATES MUST BE INPUT IN
+                                     METERS OR BE SCALED TO METERS
+                                     BEFORE STRUCTURE INPUT IS ENDED
+
+
+  WIRE                                                                               NO. OF    FIRST  LAST     TAG
+  NO.        X1         Y1         Z1          X2         Y2         Z2      RADIUS   SEG.     SEG.   SEG.     NO.
+     1     .00000     .00000    -.25000      .00000     .00000     .25000     .00100      7        1     7       0
+
+   TOTAL SEGMENTS USED=    7     NO. SEG. IN A SYMMETRIC CELL=    7     SYMMETRY FLAG=  0
+
+
+         - MULTIPLE WIRE JUNCTIONS -
+ JUNCTION    SEGMENTS  (- FOR END 1, + FOR END 2)
+  NONE
+
+
+
+
+                                 - - - - SEGMENTATION DATA - - - -
+
+                                        COORDINATES IN METERS
+
+                         I+ AND I- INDICATE THE SEGMENTS BEFORE AND AFTER I
+
+
+  SEG.   COORDINATES OF SEG. CENTER     SEG.     ORIENTATION ANGLES    WIRE    CONNECTION DATA   TAG
+  NO.       X         Y         Z       LENGTH     ALPHA     BETA      RADIUS    I-   I    I+    NO.
+     1    .00000    .00000   -.21429    .07143   90.00000    .00000    .00100     0    1    2      0
+     2    .00000    .00000   -.14286    .07143   90.00000    .00000    .00100     1    2    3      0
+     3    .00000    .00000   -.07143    .07143   90.00000    .00000    .00100     2    3    4      0
+     4    .00000    .00000    .00000    .07143   90.00000    .00000    .00100     3    4    5      0
+     5    .00000    .00000    .07143    .07143   90.00000    .00000    .00100     4    5    6      0
+     6    .00000    .00000    .14286    .07143   90.00000    .00000    .00100     5    6    7      0
+     7    .00000    .00000    .21429    .07143   90.00000    .00000    .00100     6    7    0      0
+
+
+
+
+
+
+ ***** DATA CARD NO.  1   EX   0     0     4     0  1.00000E+00  0.00000E+00  0.00000E+00  0.00000E+00  0.00000E+00  0.00000E+00
+ ***** DATA CARD NO.  2   XQ   0     0     0     0  0.00000E+00  0.00000E+00  0.00000E+00  0.00000E+00  0.00000E+00  0.00000E+00
+
+
+
+
+                                 - - - - - - FREQUENCY - - - - - -
+
+                                    FREQUENCY= 2.9980E+02 MHZ
+                                    WAVELENGTH= 1.0000E+00 METERS
+
+
+
+
+                    APPROXIMATE INTEGRATION EMPLOYED FOR SEGMENTS MORE THAN   1.000 WAVELENGTHS APART
+
+
+
+                               - - - STRUCTURE IMPEDANCE LOADING - - -
+
+                                   THIS STRUCTURE IS NOT LOADED
+
+
+
+                                  - - - ANTENNA ENVIRONMENT - - -
+
+                                            FREE SPACE
+
+
+
+                                - - - MATRIX TIMING - - -
+
+                        FILL=     .067 SEC.,  FACTOR=     .000 SEC.
+
+
+
+                                          - - - ANTENNA INPUT PARAMETERS - - -
+
+   TAG   SEG.    VOLTAGE (VOLTS)         CURRENT (AMPS)         IMPEDANCE (OHMS)        ADMITTANCE (MHOS)      POWER
+   NO.   NO.    REAL        IMAG.       REAL        IMAG.       REAL        IMAG.       REAL        IMAG.     (WATTS)
+     0     4 1.00000E+00 0.00000E+00 9.20585E-03-5.15474E-03 8.26979E+01 4.63060E+01 9.20585E-03-5.15474E-03 4.60292E-03
+
+
+
+                             - - - CURRENTS AND LOCATION - - -
+
+                                 DISTANCES IN WAVELENGTHS
+
+
+  SEG.  TAG    COORD. OF SEG. CENTER     SEG.            - - - CURRENT (AMPS) - - -
+  NO.   NO.     X        Y        Z      LENGTH     REAL        IMAG.       MAG.        PHASE
+     1    0    .0000    .0000   -.2143   .07143   2.3592E-03 -1.6881E-03  2.9010E-03  -35.584
+     2    0    .0000    .0000   -.1429   .07143   5.9998E-03 -4.0463E-03  7.2367E-03  -33.996
+     3    0    .0000    .0000   -.0714   .07143   8.3711E-03 -5.1857E-03  9.8472E-03  -31.777
+     4    0    .0000    .0000    .0000   .07143   9.2058E-03 -5.1547E-03  1.0551E-02  -29.246
+     5    0    .0000    .0000    .0714   .07143   8.3711E-03 -5.1857E-03  9.8472E-03  -31.777
+     6    0    .0000    .0000    .1429   .07143   5.9998E-03 -4.0463E-03  7.2367E-03  -33.996
+     7    0    .0000    .0000    .2143   .07143   2.3592E-03 -1.6881E-03  2.9010E-03  -35.584
+
+
+
+                                        - - - POWER BUDGET - - -
+
+                                           INPUT POWER   = 4.6029E-03 WATTS
+                                           RADIATED POWER= 4.6029E-03 WATTS
+                                           STRUCTURE LOSS= 0.0000E+00 WATTS
+                                           NETWORK LOSS  = 0.0000E+00 WATTS
+                                           EFFICIENCY    = 100.00 PERCENT
+
+
+
+
+
+
+ ***** DATA CARD NO.  3   LD   0     0     4     4  1.00000E+01  3.00000E-09  5.30000E-11  0.00000E+00  0.00000E+00  0.00000E+00
+ ***** DATA CARD NO.  4   PQ   0     0     0     0  0.00000E+00  0.00000E+00  0.00000E+00  0.00000E+00  0.00000E+00  0.00000E+00
+ ***** DATA CARD NO.  5   NE   0     1     1    15  1.00000E-03  0.00000E+00  0.00000E+00  0.00000E+00  0.00000E+00  1.78600E-02
+
+
+
+                               - - - STRUCTURE IMPEDANCE LOADING - - -
+
+
+       LOCATION          RESISTANCE   INDUCTANCE  CAPACITANCE       IMPEDANCE (OHMS)     CONDUCTIVITY    TYPE
+    ITAG FROM THRU          OHMS        HENRYS       FARADS        REAL      IMAGINARY    MHOS/METER
+
+            4    4       .1000E+02    .3000E-08    .5300E-10                                           SERIES
+
+
+
+                                  - - - ANTENNA ENVIRONMENT - - -
+
+                                            FREE SPACE
+
+
+
+                                - - - MATRIX TIMING - - -
+
+                        FILL=     .067 SEC.,  FACTOR=     .000 SEC.
+
+
+
+                                          - - - ANTENNA INPUT PARAMETERS - - -
+
+   TAG   SEG.    VOLTAGE (VOLTS)         CURRENT (AMPS)         IMPEDANCE (OHMS)        ADMITTANCE (MHOS)      POWER
+   NO.   NO.    REAL        IMAG.       REAL        IMAG.       REAL        IMAG.       REAL        IMAG.     (WATTS)
+     0     4 1.00000E+00 0.00000E+00 8.95465E-03-4.05149E-03 9.26979E+01 4.19407E+01 8.95465E-03-4.05149E-03 4.47733E-03
+
+
+
+                             - - - CURRENTS AND LOCATION - - -
+
+                                 DISTANCES IN WAVELENGTHS
+
+
+  SEG.  TAG    COORD. OF SEG. CENTER     SEG.            - - - CURRENT (AMPS) - - -
+  NO.   NO.     X        Y        Z      LENGTH     REAL        IMAG.       MAG.        PHASE
+     1    0    .0000    .0000   -.2143   .07143   2.3241E-03 -1.3790E-03  2.7024E-03  -30.682
+     2    0    .0000    .0000   -.1429   .07143   5.8908E-03 -3.2779E-03  6.7413E-03  -29.093
+     3    0    .0000    .0000   -.0714   .07143   8.1824E-03 -4.1467E-03  9.1731E-03  -26.875
+     4    0    .0000    .0000    .0000   .07143   8.9547E-03 -4.0515E-03  9.8285E-03  -24.344
+     5    0    .0000    .0000    .0714   .07143   8.1824E-03 -4.1467E-03  9.1731E-03  -26.875
+     6    0    .0000    .0000    .1429   .07143   5.8908E-03 -3.2779E-03  6.7413E-03  -29.093
+     7    0    .0000    .0000    .2143   .07143   2.3241E-03 -1.3790E-03  2.7024E-03  -30.682
+
+
+
+                                  - - - CHARGE DENSITIES - - -
+
+                                    DISTANCES IN WAVELENGTHS
+
+
+  SEG.  TAG    COORD. OF SEG. CENTER     SEG.          CHARGE DENSITY (COULOMBS/METER)
+  NO.   NO.     X        Y        Z      LENGTH     REAL        IMAG.       MAG.        PHASE
+     1    0    .0000    .0000   -.2143   .07143   1.8292E-11  3.1761E-11  3.6652E-11   60.061
+     2    0    .0000    .0000   -.1429   .07143   1.0429E-11  2.2040E-11  2.4383E-11   64.676
+     3    0    .0000    .0000   -.0714   .07143   2.1140E-12  1.1638E-11  1.1829E-11   79.705
+     4    0    .0000    .0000    .0000   .07143   5.1684E-19  2.3814E-19  5.6906E-19   24.738
+     5    0    .0000    .0000    .0714   .07143  -2.1140E-12 -1.1638E-11  1.1829E-11 -100.295
+     6    0    .0000    .0000    .1429   .07143  -1.0429E-11 -2.2040E-11  2.4383E-11 -115.324
+     7    0    .0000    .0000    .2143   .07143  -1.8292E-11 -3.1761E-11  3.6652E-11 -119.939
+
+
+
+                                        - - - POWER BUDGET - - -
+
+                                           INPUT POWER   = 4.4773E-03 WATTS
+                                           RADIATED POWER= 3.9943E-03 WATTS
+                                           STRUCTURE LOSS= 4.8300E-04 WATTS
+                                           NETWORK LOSS  = 0.0000E+00 WATTS
+                                           EFFICIENCY    =  89.21 PERCENT
+
+
+
+                                   - - - NEAR ELECTRIC FIELDS - - -
+
+            -  LOCATION  -                     -  EX  -               -  EY  -               -  EZ  -
+        X          Y          Z          MAGNITUDE   PHASE      MAGNITUDE   PHASE      MAGNITUDE   PHASE
+      METERS     METERS     METERS        VOLTS/M   DEGREES      VOLTS/M   DEGREES      VOLTS/M   DEGREES
+        .0010      .0000      .0000     1.0228E-05    24.74    0.0000E+00      .00    1.3042E+01  -175.10
+        .0010      .0000      .0179     5.5442E+01   -66.31    0.0000E+00      .00    1.2537E+01  -175.08
+        .0010      .0000      .0357     1.0968E+02   -67.15    0.0000E+00      .00    6.7271E+00  -175.46
+        .0010      .0000      .0536     1.5608E+02   -88.85    0.0000E+00      .00    8.4339E-01  -179.75
+        .0010      .0000      .0714     2.1267E+02  -100.30    0.0000E+00      .00    4.2135E-04    -6.13
+        .0010      .0000      .0893     2.7147E+02  -106.86    0.0000E+00      .00    3.4497E-01    -8.87
+        .0010      .0000      .1072     3.2920E+02  -111.08    0.0000E+00      .00    2.8000E-01    22.83
+        .0010      .0000      .1250     3.8592E+02  -113.51    0.0000E+00      .00    2.2076E-01    74.41
+        .0010      .0000      .1429     4.3835E+02  -115.33    0.0000E+00      .00    3.0905E-04   -94.14
+        .0010      .0000      .1607     4.8563E+02  -116.77    0.0000E+00      .00    2.1937E-01  -106.41
+        .0010      .0000      .1786     5.2800E+02  -117.97    0.0000E+00      .00    1.9750E+00    57.57
+        .0010      .0000      .1965     5.9664E+02  -119.06    0.0000E+00      .00    3.3113E+00    58.63
+        .0010      .0000      .2143     6.5880E+02  -119.94    0.0000E+00      .00    9.9556E-03  -121.24
+        .0010      .0000      .2322     7.1246E+02  -120.67    0.0000E+00      .00    1.0680E+01  -121.66
+        .0010      .0000      .2500     5.5195E+02  -121.29    0.0000E+00      .00    3.8032E+02  -121.43
+
+
+
+
+
+
+ ***** DATA CARD NO.  6   EN   0     0     0     0  0.00000E+00  0.00000E+00  0.00000E+00  0.00000E+00  0.00000E+00  0.00000E+00
+
+ RUN TIME =      .650

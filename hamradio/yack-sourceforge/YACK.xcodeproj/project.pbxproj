@@ -1,0 +1,178 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXFileReference section */
+		82542D791286AE490000D477 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		82542D7A1286B0FB0000D477 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		827447CB128B11AD00D3A346 /* userman.dox */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = userman.dox; sourceTree = "<group>"; };
+		829143B4129A9C2F00CB519F /* Doxyfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Doxyfile; path = Documentation/Doxyfile; sourceTree = "<group>"; };
+		82CF3A9F1286BCCD001C5DAC /* yack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = yack.h; sourceTree = "<group>"; };
+		82CF3AA01286BCCD001C5DAC /* yack.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = yack.c; sourceTree = "<group>"; };
+		82E805901286F32000AB132B /* changelog.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = changelog.txt; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		82542D6E1286AE060000D477 = {
+			isa = PBXGroup;
+			children = (
+				829143B4129A9C2F00CB519F /* Doxyfile */,
+				82542D7A1286B0FB0000D477 /* Makefile */,
+				82542D791286AE490000D477 /* main.c */,
+				82CF3A9F1286BCCD001C5DAC /* yack.h */,
+				82CF3AA01286BCCD001C5DAC /* yack.c */,
+				82E805901286F32000AB132B /* changelog.txt */,
+				827447CB128B11AD00D3A346 /* userman.dox */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXLegacyTarget section */
+		82542D841286B27C0000D477 /* Executable */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "";
+			buildConfigurationList = 82542D8B1286B2A30000D477 /* Build configuration list for PBXLegacyTarget "Executable" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/make;
+			buildWorkingDirectory = "";
+			dependencies = (
+			);
+			name = Executable;
+			passBuildSettingsInEnvironment = 1;
+			productName = Executable;
+		};
+		82CF3A831286BB4D001C5DAC /* Clean */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = clean;
+			buildConfigurationList = 82CF3A841286BB4D001C5DAC /* Build configuration list for PBXLegacyTarget "Clean" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/make;
+			buildWorkingDirectory = "";
+			dependencies = (
+			);
+			name = Clean;
+			passBuildSettingsInEnvironment = 1;
+			productName = Executable;
+		};
+/* End PBXLegacyTarget section */
+
+/* Begin PBXProject section */
+		82542D701286AE060000D477 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = DK3LJ;
+			};
+			buildConfigurationList = 82542D731286AE060000D477 /* Build configuration list for PBXProject "YACK" */;
+			compatibilityVersion = "Xcode 2.4";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 82542D6E1286AE060000D477;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				82542D841286B27C0000D477 /* Executable */,
+				82CF3A831286BB4D001C5DAC /* Clean */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin XCBuildConfiguration section */
+		82542D711286AE060000D477 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Debug;
+		};
+		82542D721286AE060000D477 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+			};
+			name = Release;
+		};
+		82542D851286B27C0000D477 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PATH = "/usr/local/CrossPack-AVR/bin:$PATH";
+				PRODUCT_NAME = Make;
+			};
+			name = Debug;
+		};
+		82542D861286B27C0000D477 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = Executable;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		82CF3A851286BB4D001C5DAC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PATH = "/usr/local/CrossPack-AVR/bin:$PATH";
+				PRODUCT_NAME = Make;
+			};
+			name = Debug;
+		};
+		82CF3A861286BB4D001C5DAC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = Executable;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		82542D731286AE060000D477 /* Build configuration list for PBXProject "YACK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				82542D711286AE060000D477 /* Debug */,
+				82542D721286AE060000D477 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		82542D8B1286B2A30000D477 /* Build configuration list for PBXLegacyTarget "Executable" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				82542D851286B27C0000D477 /* Debug */,
+				82542D861286B27C0000D477 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		82CF3A841286BB4D001C5DAC /* Build configuration list for PBXLegacyTarget "Clean" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				82CF3A851286BB4D001C5DAC /* Debug */,
+				82CF3A861286BB4D001C5DAC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 82542D701286AE060000D477 /* Project object */;
+}

@@ -1,0 +1,13 @@
+== Simple Resistor Divider ==
+
+R1 1 0 2K
+R2 2 1 3K
+V1 2 0 DC 5
+
+.control
+    dc V1 0 5 .1
+
+    plot v(1) v(2)
+.endc
+
+.end

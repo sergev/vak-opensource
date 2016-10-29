@@ -1,0 +1,18 @@
+CM Axel Bünning <vicom@web.de>
+CM LPDA with Refl. + 3 Elements 29.690 MHz for DF0HHH
+CM Tau=0.9/Sigma 0.081 Boomlength 2.5m
+CE 25.July 2002 de  DF1XB
+GW	0	21	-0.889	0	2.722	-0.889	0	-2.722	.01
+GW	1	21	0.	0	2.45	0.	0	-2.45	.01
+GW	2	21	0.8	0	2.205	0.8	0	-2.205	.01
+GW	3	21	1.52	0	1.985	1.52	0	-1.985	.01
+GE
+'
+TL	0	11	1	11	80	0	1000	0.	0.	0.
+TL	1	11	2	11	-80	0.	0.	0.	0.	0.
+TL	2	11	3	11	-80	0.	0.	0.	0.	0.
+'
+EX	0	3	11	0	1.	0.
+'
+FR	0	1	0	0	29.7	0.1
+EN

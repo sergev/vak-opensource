@@ -1,0 +1,110 @@
+proc GAME()
+
+	extern: GAME_START, YOUR_TURN, MY_TURN, WRONG
+	intern: RIDDLE, MIN, MAX, YOU_GUESSED, I_GUESSED
+
+	output: "Who'll guess first?"
+	GAME_START()
+
+	do
+
+		output: "Your turn:"; YOUR_TURN()
+		output: "My turn."; MY_TURN()
+
+		case
+
+			when YOU_GUESSED and I_GUESSED:
+				output: "Nobody won!"
+			when YOU_GUESSED:
+				output: "You won!"
+			when I_GUESSED:
+				output: "I won!"
+
+		esac
+
+		if YOU_GUESSED or I_GUESSED then
+			return
+		fi
+
+	until WRONG()
+
+	output: "You've missed somewhere!"
+	output: "I don't want to play anymore."
+
+end
+
+proc GAME_START()
+
+	extern: RIDDLE, MIN, MAX, YOU_GUESSED, I_GUESSED
+
+	output: "Think of a number from 1 to 1000"
+	output: "and try to guess mine"
+
+	RIDDLE := int_rand(1000)
+	MIN := 0
+	MAX := 1001
+	YOU_GUESSED := no
+	I_GUESSED := no
+
+end
+
+proc YOUR_TURN()
+
+	extern: RIDDLE, YOU_GUESSED
+	intern: ATTEMPT
+
+	input: ATTEMPT
+	
+	case
+
+		when ATTEMPT > RIDDLE:
+			output: "My number is less!"
+		when ATTEMPT < RIDDLE:
+			output: "My number is greater!"
+
+	esac
+
+	YOU_GUESSED := (ATTEMPT = RIDDLE)
+
+end
+
+proc MY_TURN()
+
+	extern: MIN, MAX, I_GUESSED
+	intern: ATTEMPT, ANSWER, ANSWER_CORRECT
+
+	ATTEMPT := (MIN + MAX) // 2
+	output: "Is it ", ATTEMPT, "?"
+
+	do
+
+		output: "Answers: =, > (riddle>", ATTEMPT, "), < (riddle<", ATTEMPT, ")"
+		input text: ANSWER
+		ANSWER_CORRECT := yes
+
+		case ANSWER
+
+			when ">":
+				MIN := ATTEMPT
+			when "<":
+				MAX := ATTEMPT
+			when "=":
+				I_GUESSED := yes
+			else
+				ANSWER_CORRECT := no
+				output: "You did a mistake"
+
+		esac
+
+	until ANSWER_CORRECT
+
+end
+
+fun WRONG()
+
+	extern: MAX, MIN
+	return MIN+1 = MAX
+
+end
+
+GAME()

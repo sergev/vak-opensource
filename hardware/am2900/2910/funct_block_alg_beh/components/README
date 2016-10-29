@@ -1,0 +1,30 @@
+--------------------------------------------------------------------------------
+--
+--   AMD2910 Benchmark
+--
+-- Source:  AMD data book
+--
+-- author: Indraneel Ghosh
+--         University Of California, Irvine, CA 92717
+--
+-- Written on Feb19, 1992
+--
+--------------------------------------------------------------------------------
+
+
+THIS DIRECTORY CONTAINS THE FOLLOWING SUBDIRECTORIES :
+
+mux                :  Contains model and test vectors of component "muxr"  in 
+                      "funct_block_alg_beh2910.vhdl"
+
+reg	           :  Contains model and test vectors of component
+                      "reg_ctr" in "funct_block_alg_beh2910.vhdl"
+
+upc                :  Contains model and test vectors of component "PC"  in 
+                      "funct_block_alg_beh2910.vhdl"
+
+stack              :  Contains model and test vectors of component 
+		      "stack_and_sp" in "funct_block_alg_beh2910.vhdl"
+
+control		   :  Contains model and test vectors of component 
+                      "ctrl" in "funct_block_alg_beh2910.vhdl"

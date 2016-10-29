@@ -1,0 +1,877 @@
+
+
+
+
+
+
+
+
+
+			   The M4 Macro Processor
+
+
+			     Brian W. Kernighan
+
+			     Dennis M. Ritchie
+
+			     Bell Laboratories
+		       Murray Hill, New Jersey 07974
+
+
+				  ABSTRACT
+
+
+		  M4 is a macro processor  available  on  UNIX*
+	     and GCOS.  Its primary use has been as a front end
+	     for Ratfor for  those  cases  where  parameterless
+	     macros  are  not adequately powerful.  It has also
+	     been used for languages  as  disparate  as  C  and
+	     Cobol.   M4  is particularly suited for functional
+	     languages like Fortran, PL/I and  C  since  macros
+	     are specified in a functional notation.
+
+		  M4 provides features  seldom  found  even  in
+	     much larger macro processors, including
+
+		  arguments
+
+		  condition testing
+
+		  arithmetic capabilities
+
+		  string and substring functions
+
+		  file manipulation
+
+
+		  This paper is a user's manual for M4.
+
+
+
+	Introduction
+
+	     A macro processor is a useful way to enhance a program-
+	ming  language,  to make it more palatable or more readable,
+	or to tailor it to a particular  application.   The  #define
+	statement  in C and the analogous define in Ratfor are exam-
+	ples of the basic facility provided by any  macro  processor
+	----------------------------------------------------
+	*UNIX is a Trademark of Bell Laboratories.
+
+
+
+
+
+
+
+
+
+
+				   - 2 -
+
+
+	-- replacement of text by other text.
+
+	     The M4 macro processor is an extension of a macro  pro-
+	cessor  called M3 which was written by D. M. Ritchie for the
+	AP-3 minicomputer; M3 was in turn based on a macro processor
+	implemented  for  [1].   Readers  unfamiliar  with the basic
+	ideas of macro processing may wish to read some of the  dis-
+	cussion there.
+
+	     M4 is a suitable front end for Ratfor and  C,  and  has
+	also   been  used  successfully  with  Cobol.   Besides  the
+	straightforward  replacement  of  one  string  of  text   by
+	another,  it  provides  macros  with  arguments, conditional
+	macro expansion, arithmetic,  file  manipulation,  and  some
+	specialized string processing functions.
+
+	     The basic operation of M4 is to copy its input  to  its
+	output.   As  the  input is read, however, each alphanumeric
+	``token''  (that  is,  string  of  letters  and  digits)  is
+	checked.  If it is the name of a macro, then the name of the
+	macro is replaced by its defining text,  and  the  resulting
+	string  is pushed back onto the input to be rescanned.  Mac-
+	ros may be called with arguments, in which  case  the  argu-
+	ments are collected and substituted into the right places in
+	the defining text before it is rescanned.
+
+	     M4 provides a collection of about twenty built-in  mac-
+	ros  which  perform  various useful operations; in addition,
+	the user can define new macros.  Built-ins and  user-defined
+	macros  work  exactly  the same way, except that some of the
+	built-in macros have side effects on the state of  the  pro-
+	cess.
+
+	Usage
+
+	     On UNIX, use
+
+	   m4 [files]
+
+
+	Each argument file is processed in order; if  there  are  no
+	arguments,  or  if an argument is `-', the standard input is
+	read at that point.  The processed text is  written  on  the
+	standard  output,  which may be captured for subsequent pro-
+	cessing with
+
+	   m4 [files] >outputfile
+
+
+	On GCOS, usage is identical, but the program is called ./m4.
+
+
+
+
+
+
+
+
+
+
+
+
+
+				   - 3 -
+
+
+	Defining Macros
+
+	     The primary built-in function of M4 is define, which is
+	used to define new macros.  The input
+
+	   define(name, stuff)
+
+
+	causes the string name to be defined as stuff.   All  subse-
+	quent  occurrences  of name will be replaced by stuff.  name
+	must be alphanumeric and  must  begin  with  a  letter  (the
+	underscore  _  counts  as a letter).  stuff is any text that
+	contains balanced parentheses; it may stretch over  multiple
+	lines.
+
+	     Thus, as a typical example,
+
+	   define(N, 100)
+
+	    ...
+
+	   if (i > N)
+
+
+	defines N to be 100, and uses this ``symbolic constant''  in
+	a later if statement.
+
+	     The left parenthesis must immediately follow  the  word
+	define,  to signal that define has arguments.  If a macro or
+	built-in name is not followed  immediately  by  `(',  it  is
+	assumed  to  have no arguments.  This is the situation for N
+	above; it is actually a macro with no  arguments,  and  thus
+	when it is used there need be no (...) following it.
+
+	     You should also notice that a macro name is only recog-
+	nized as such if it appears surrounded by non-alphanumerics.
+	For example, in
+
+	   define(N, 100)
+
+	    ...
+
+	   if (NNN > 100)
+
+
+	the variable NNN is  absolutely  unrelated  to  the  defined
+	macro N, even though it contains a lot of N's.
+
+	     Things may be defined in terms of  other  things.   For
+	example,
+
+
+
+
+
+
+
+
+
+
+
+
+
+				   - 4 -
+
+
+	   define(N, 100)
+
+	   define(M, N)
+
+
+	defines both M and N to be 100.
+
+	     What happens if N is redefined?  Or, to say it  another
+	way, is M defined as N or as 100?  In M4, the latter is true
+	-- M is 100, so even if N subsequently changes, M does not.
+
+	     This behavior arises because  M4  expands  macro  names
+	into  their defining text as soon as it possibly can.  Here,
+	that means that when the string N is seen as  the  arguments
+	of define are being collected, it is immediately replaced by
+	100; it's just as if you had said
+
+	   define(M, 100)
+
+
+	in the first place.
+
+	     If this isn't what you really want, there are two  ways
+	out  of it.  The first, which is specific to this situation,
+	is to interchange the order of the definitions:
+
+	   define(M, N)
+
+	   define(N, 100)
+
+
+	Now M is defined to be the string N, so when you ask  for  M
+	later,  you'll  always  get  the  value  of  N  at that time
+	(because the M will be replaced by N which will be  replaced
+	by 100).
+
+	Quoting
+
+	     The more general solution is to delay the expansion  of
+	the  arguments  of  define  by  quoting them.  Any text sur-
+	rounded by the single quotes ` and ' is not expanded immedi-
+	ately, but has the quotes stripped off.  If you say
+
+	   define(N, 100)
+
+	   define(M, `N')
+
+
+	the quotes around the N are stripped off as the argument  is
+	being  collected,  but they have served their purpose, and M
+	is defined as the string N, not 100.  The  general  rule  is
+	that  M4  always strips off one level of single quotes when-
+	ever it evaluates something.  This is true even  outside  of
+	macros.   If  you  want  the  word  define  to appear in the
+
+
+
+
+
+
+
+
+
+				   - 5 -
+
+
+	output, you have to quote it in the input, as in
+
+		`define' = 1;
+
+
+
+	     As another instance of the same thing, which is  a  bit
+	more surprising, consider redefining N:
+
+	   define(N, 100)
+
+	    ...
+
+	   define(N, 200)
+
+
+	Perhaps regrettably, the  N  in  the  second  definition  is
+	evaluated  as  soon as it's seen; that is, it is replaced by
+	100, so it's as if you had written
+
+	   define(100, 200)
+
+
+	This statement is ignored by M4, since you can  only  define
+	things  that  look like names, but it obviously doesn't have
+	the effect you wanted.  To really redefine N, you must delay
+	the evaluation by quoting:
+
+	   define(N, 100)
+
+	    ...
+
+	   define(`N', 200)
+
+
+	In M4, it is often wise to quote the  first  argument  of  a
+	macro.
+
+	     If ` and ' are not  convenient  for  some  reason,  the
+	quote  characters  can  be changed with the built-in change-
+	quote:
+
+	   changequote([, ])
+
+
+	makes the new quote characters the left and right  brackets.
+	You can restore the original characters with just
+
+	   changequote
+
+
+
+	     There are two additional built-ins related  to  define.
+	undefine removes the definition of some macro or built-in:
+
+
+
+
+
+
+
+
+
+				   - 6 -
+
+
+	   undefine(`N')
+
+
+	removes the definition of N.  (Why are the quotes absolutely
+	necessary?) Built-ins can be removed with undefine, as in
+
+	   undefine(`define')
+
+
+	but once you remove one, you can never get it back.
+
+	     The built-in ifdef provides a way  to  determine  if  a
+	macro  is  currently  defined.   In  particular, M4 has pre-
+	defined the names unix and gcos on  the  corresponding  sys-
+	tems, so you can tell which one you're using:
+
+	   ifdef(`unix', `define(wordsize,16)' )
+
+	   ifdef(`gcos', `define(wordsize,36)' )
+
+
+	makes a definition appropriate for the  particular  machine.
+	Don't forget the quotes!
+
+	     ifdef actually permits three arguments; if the name  is
+	undefined, the value of ifdef is then the third argument, as
+	in
+
+	   ifdef(`unix', on UNIX, not on UNIX)
+
+
+
+	Arguments
+
+	     So far we have discussed the  simplest  form  of  macro
+	processing  --  replacing  one  string  by  another  (fixed)
+	string.  User-defined macros may  also  have  arguments,  so
+	different  invocations  can  have different results.  Within
+	the replacement text for a macro (the second argument of its
+	define)  any  occurrence  of  $n will be replaced by the nth
+	argument when the macro is actually used.  Thus,  the  macro
+	bump, defined as
+
+	   define(bump, $1 = $1 + 1)
+
+
+	generates code to increment its argument by 1:
+
+	   bump(x)
+
+
+	is
+
+
+
+
+
+
+
+
+
+
+
+				   - 7 -
+
+
+	   x = x + 1
+
+
+
+	     A macro can have as many arguments  as  you  want,  but
+	only  the first nine are accessible, through $1 to $9.  (The
+	macro name itself is $0,  although  that  is  less  commonly
+	used.)  Arguments that are not supplied are replaced by null
+	strings, so we can define a macro cat which simply concaten-
+	ates its arguments, like this:
+
+	   define(cat, $1$2$3$4$5$6$7$8$9)
+
+
+	Thus
+
+	   cat(x, y, z)
+
+
+	is equivalent to
+
+	   xyz
+
+
+	$4 through $9 are null,  since  no  corresponding  arguments
+	were provided.
+
+
+	     Leading unquoted blanks, tabs, or newlines  that  occur
+	during  argument  collection are discarded.  All other white
+	space is retained.  Thus
+
+	   define(a,   b   c)
+
+
+	defines a to be b   c.
+
+	     Arguments are separated by commas, but parentheses  are
+	counted  properly,  so  a comma ``protected'' by parentheses
+	does not terminate an argument.  That is, in
+
+	   define(a, (b,c))
+
+
+	there are only two arguments; the second is literally (b,c).
+	And of course a bare comma or parenthesis can be inserted by
+	quoting it.
+
+	Arithmetic Built-ins
+
+	     M4 provides two built-in functions for doing arithmetic
+	on  integers (only).  The simplest is incr, which increments
+	its numeric argument by 1.  Thus to handle the  common  pro-
+	gramming  situation  where you want a variable to be defined
+
+
+
+
+
+
+
+
+
+				   - 8 -
+
+
+	as ``one more than N'', write
+
+	   define(N, 100)
+
+	   define(N1, `incr(N)')
+
+
+	Then N1 is defined as one more than the current value of N.
+
+	     The more general mechanism for arithmetic is a built-in
+	called  eval,  which  is  capable of arbitrary arithmetic on
+	integers.  It provides the operators (in decreasing order of
+	precedence)
+
+		unary + and -
+
+		** or ^   (exponentiation)
+
+		*  /  % (modulus)
+
+		+  -
+
+		==  !=  <  <=  >  >=
+
+		!         (not)
+
+		& or &&   (logical and)
+
+		| or ||        (logical or)
+
+
+	Parentheses may be used to group  operations  where  needed.
+	All  the  operands of an expression given to eval must ulti-
+	mately be numeric.  The numeric value  of  a  true  relation
+	(like  1>0)  is 1, and false is 0.  The precision in eval is
+	32 bits on UNIX and 36 bits on GCOS.
+
+	     As a simple example, suppose we want M  to  be  2**N+1.
+	Then
+
+	   define(N, 3)
+
+	   define(M, `eval(2**N+1)')
+
+
+	As a matter of principle,  it  is  advisable  to  quote  the
+	defining  text  for  a macro unless it is very simple indeed
+	(say just a number); it usually gives the result  you  want,
+	and is a good habit to get into.
+
+	File Manipulation
+
+	     You can include a new file in the input at any time  by
+	the built-in function include:
+
+
+
+
+
+
+
+
+
+				   - 9 -
+
+
+	   include(filename)
+
+
+	inserts the contents of filename in  place  of  the  include
+	command.  The contents of the file is often a set of defini-
+	tions.  The value of include (that is, its replacement text)
+	is the contents of the file; this can be captured in defini-
+	tions, etc.
+
+	     It is a fatal error if the file named in include cannot
+	be  accessed.   To get some control over this situation, the
+	alternate form sinclude  can  be  used;  sinclude  (``silent
+	include'') says nothing and continues if it can't access the
+	file.
+
+	     It is also possible to divert the output of M4 to  tem-
+	porary  files  during  processing,  and output the collected
+	material upon command.  M4 maintains nine  of  these  diver-
+	sions, numbered 1 through 9.  If you say
+
+	   divert(n)
+
+
+	all subsequent output is put onto the  end  of  a  temporary
+	file referred to as n.  Diverting to this file is stopped by
+	another divert command; in particular, divert  or  divert(0)
+	resumes the normal output process.
+
+	     Diverted text is normally output all at once at the end
+	of  processing, with the diversions output in numeric order.
+	It is possible, however, to bring  back  diversions  at  any
+	time, that is, to append them to the current diversion.
+
+	   undivert
+
+
+	brings back all diversions in numeric  order,  and  undivert
+	with  arguments  brings  back the selected diversions in the
+	order given.  The act of undiverting discards  the  diverted
+	stuff,  as  does  diverting into a diversion whose number is
+	not between 0 and 9 inclusive.
+
+	     The value  of  undivert  is  not  the  diverted  stuff.
+	Furthermore, the diverted material is not rescanned for mac-
+	ros.
+
+	     The built-in divnum returns the number of the currently
+	active diversion.  This is zero during normal processing.
+
+	System Command
+
+	     You can run any program in the local  operating  system
+	with the syscmd built-in.  For example,
+
+
+
+
+
+
+
+
+
+
+				   - 10 -
+
+
+	   syscmd(date)
+
+
+	on UNIX runs the date command.   Normally  syscmd  would  be
+	used to create a file for a subsequent include.
+
+	     To facilitate making unique file  names,  the  built-in
+	maketemp  is  provided, with specifications identical to the
+	system function mktemp: a string of XXXXX in the argument is
+	replaced by the process id of the current process.
+
+	Conditionals
+
+	     There is a built-in called ifelse which enables you  to
+	perform  arbitrary  conditional  testing.   In  the simplest
+	form,
+
+	   ifelse(a, b, c, d)
+
+
+	compares the two strings a and b.  If these  are  identical,
+	ifelse  returns  the string c; otherwise it returns d.  Thus
+	we might define a macro called compare  which  compares  two
+	strings  and  returns ``yes'' or ``no'' if they are the same
+	or different.
+
+	   define(compare, `ifelse($1, $2, yes, no)')
+
+
+	Note the  quotes,  which  prevent  too-early  evaluation  of
+	ifelse.
+
+	     If the fourth argument is missing,  it  is  treated  as
+	empty.
+
+	     ifelse can actually have any number of  arguments,  and
+	thus  provides a limited form of multi-way decision capabil-
+	ity.  In the input
+
+	   ifelse(a, b, c, d, e, f, g)
+
+
+	if the string a matches the string b, the result is c.  Oth-
+	erwise,  if  d is the same as e, the result is f.  Otherwise
+	the result is g.  If the  final  argument  is  omitted,  the
+	result is null, so
+
+	   ifelse(a, b, c)
+
+
+	is c if a matches b, and null otherwise.
+
+
+
+
+
+
+
+
+
+
+
+
+				   - 11 -
+
+
+	String Manipulation
+
+	     The built-in len returns the length of the string  that
+	makes up its argument.  Thus
+
+	   len(abcdef)
+
+
+	is 6, and len((a,b)) is 5.
+
+	     The built-in substr can be used to  produce  substrings
+	of strings.  substr(s, i, n) returns the substring of s that
+	starts at the ith position (origin zero), and is  n  charac-
+	ters  long.   If  n  is  omitted,  the rest of the string is
+	returned, so
+
+	   substr(`now is the time', 1)
+
+
+	is
+
+	   ow is the time
+
+
+	If i or n are out of range, various sensible things happen.
+
+	     index(s1, s2) returns the index (position) in s1  where
+	the  string  s2  occurs, or -1 if it doesn't occur.  As with
+	substr, the origin for strings is 0.
+
+	     The built-in translit performs  character  translitera-
+	tion.
+
+	   translit(s, f, t)
+
+
+	modifies s by replacing any character  found  in  f  by  the
+	corresponding character of t.  That is,
+
+	   translit(s, aeiou, 12345)
+
+
+	replaces the vowels by the corresponding digits.   If  t  is
+	shorter  than  f,  characters which don't have an entry in t
+	are deleted; as a limiting case, if t is not present at all,
+	characters from f are deleted from s.  So
+
+	   translit(s, aeiou)
+
+
+	deletes vowels from s.
+
+	     There is also a built-in called dnl which  deletes  all
+	characters  that  follow  it  up  to  and including the next
+
+
+
+
+
+
+
+
+
+				   - 12 -
+
+
+	newline; it is useful mainly for throwing away  empty  lines
+	that  otherwise  tend to clutter up M4 output.  For example,
+	if you say
+
+	   define(N, 100)
+
+	   define(M, 200)
+
+	   define(L, 300)
+
+
+	the newline at the end of each  line  is  not  part  of  the
+	definition,  so  it  is copied into the output, where it may
+	not be wanted.  If you add dnl to each of these  lines,  the
+	newlines will disappear.
+
+	     Another way to achieve this, due to J. E. Weythman, is
+
+	   divert(-1)
+
+		define(...)
+
+		...
+
+	   divert
+
+
+
+	Printing
+
+	     The built-in errprint writes its arguments out  on  the
+	standard error file.  Thus you can say
+
+	   errprint(`fatal error')
+
+
+
+	     dumpdef is a debugging  aid  which  dumps  the  current
+	definitions  of  defined  terms.  If there are no arguments,
+	you get everything; otherwise you get the ones you  name  as
+	arguments.  Don't forget to quote the names!
+
+	Summary of Built-ins
+
+	     Each entry is preceded by the page number where  it  is
+	described.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				   - 13 -
+
+
+		3 changequote(L, R)
+
+		1 define(name, replacement)
+
+		4 divert(number)
+
+		4 divnum
+
+		5 dnl
+
+		5 dumpdef(`name', `name', ...)
+
+		5 errprint(s, s, ...)
+
+		4 eval(numeric expression)
+
+		3 ifdef(`name', this if true, this if false)
+
+		5 ifelse(a, b, c, d)
+
+		4 include(file)
+
+		3 incr(number)
+
+		5 index(s1, s2)
+
+		5 len(string)
+
+		4 maketemp(...XXXXX...)
+
+		4 sinclude(file)
+
+		5 substr(string, position, number)
+
+		4 syscmd(s)
+
+		5 translit(str, from, to)
+
+		3 undefine(`name')
+
+		4 undivert(number,number,...)
+
+
+
+	Acknowledgements
+
+	     We are indebted to Rick  Becker,  John  Chambers,  Doug
+	McIlroy,  and  especially Jim Weythman, whose pioneering use
+	of M4 has led to several valuable improvements.  We are also
+	deeply  grateful to Weythman for several substantial contri-
+	butions to the code.
+
+
+
+
+
+
+
+
+
+
+
+
+				   - 14 -
+
+
+
+
+						Brian W. Kernighan
+
+
+
+						Dennis M. Ritchie
+
+	References
+
+
+	[1]  B. W. Kernighan and  P.  J.  Plauger,  Software  Tools,
+	     Addison-Wesley, Inc., 1976.

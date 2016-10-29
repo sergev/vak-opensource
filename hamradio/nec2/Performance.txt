@@ -1,0 +1,16 @@
+	   Some performance data using the nec2d960 and nec2dXS1k5.exe:
+
+	   test A) Single-run test: Using 4x20ra.nec and requesting a far-field pattern 
+		   with 5 degree resolution
+	   test B) Optimization test: Using 36dip.nec and performing a (traditional/hill-
+		   climbing)
+	
+	   Optimization is performed on "X-a" to resonate the antenna by selecting the 
+	   wire length "len" as variable to change, starting with 18.4 m (optimized in 
+	   27 steps, resulting in a length of 19.65 m)
+
+	   OS:	      W-95 (600 Mhz)		W-Me (1.0 Ghz)		W-XP (1.7 Ghz)
+	   engine: nec2d 	nec2dXS		nec2d 	nec2dXS		nec2d 	nec2dXS	
+		   ------	-------		------ 	-------		------	-------
+	   test A: 30.98	11.37		?	13.1		-	5.82
+	   test B: 23.9		28.02		8.7	8.6		-	19.5

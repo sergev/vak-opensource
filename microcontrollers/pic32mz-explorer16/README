@@ -1,0 +1,3 @@
+Example of simple program for Microchip Explorer 16 board
+with PIC32MZ plug-in module.  Using GCC compiler and
+pic32prog programming utility with PICkit2 adapter.

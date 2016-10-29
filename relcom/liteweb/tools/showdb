@@ -1,0 +1,40 @@
+#!/usr/local/bin/python
+
+import string, time, dbm, struct
+
+DBNAME = "/var/db/liteweb/user"
+
+#
+# Client operating system
+#
+osTab = [ "", "Unkn", "X11", "Mac", "WinNT", "Win95", "Win" ]
+
+#
+# Language choices
+#
+langTab = [ "", "Eng", "Koi8", "Win", "Dos", "Mac" ]
+
+def IPtostr(a):
+	return "%d.%d.%d.%d" % (a>>24 & 0xff, a>>16 & 0xff,
+		a>>8 & 0xff, a & 0xff)
+
+db = dbm.open (DBNAME, "r", 0644)
+print "Server\t\tUser\t\tOS  Encod  Date\t\t\t Agent"
+print "-" * 73
+
+for key in db.keys():
+	myIP, userIP, userOS = struct.unpack ("llb", key[0:9])
+	userAgent = key[9:-1]
+	val = db[key]
+	try:
+		stamp, encoding = struct.unpack ("lb", val)
+		stamp = time.ctime (stamp) [4:]
+	except:
+		stamp, encoding = `val`, -1
+	print string.ljust (IPtostr (myIP), 15),
+	print string.ljust (IPtostr (userIP), 15),
+	print "%-5s %-4s" % (osTab[userOS], langTab[encoding]),
+	print string.ljust (stamp, 20),
+	print userAgent
+
+print "-" * 73

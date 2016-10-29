@@ -1,0 +1,8 @@
+	.TITLE test1
+	.ASECT
+	.=500
+	mov	r1, r1
+	mov	r1, r1
+	halt
+
+

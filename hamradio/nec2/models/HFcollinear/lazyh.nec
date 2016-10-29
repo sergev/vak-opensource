@@ -1,0 +1,24 @@
+CM Lazy H, bu K6STI
+CE
+SY half = 207 in
+GW	1	11	0	-half	0	0	0	0	#12
+GW	2	11	6in	0	0	6in	half	0	#12
+GW	3	11	6in	-half	half	6in	0	half	#12
+GW	4	11	0	0	half	0	half	half	#12
+GW	5	11	0	0	0	0	0	half	#12
+GW	6	11	6in	0	0	6in	0	half	#12
+GW	7	1	0	0	0	6in	0	0	#12
+GE	0
+EX	0	7	1	00	1.0	0.0
+'
+GN	-1
+FR	0	1	0	0	 28.5
+EN
+
+'This antenna provides bidirectional gain.  part of the gain is provided by
+'broadside elements sharpening the pattern in the vertical plane.  The rest
+'comes from collinear elements narrowing the pattern in azimuth.  For 1 dB more
+'gain, increase the spacing between the top and bottom sets of elements to about
+'0.65 wavelength and feed the elements in-phase with individual feedlines.
+'Half-wave spacing is necessary for the transposed phasing-line arrangement used
+'in this model.

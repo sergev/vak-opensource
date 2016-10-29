@@ -1,0 +1,26 @@
+CM 3el Yagi for 20 meters @ 50 feet.
+CE
+SY freq = 14.2		' Frequency
+SY hgh = 50ft		' Height (50 feet)
+'
+SY len = 2.5601*2 	' Driven element half-length
+SY rlen = 2.762*2	' Reflector half-length
+SY rdis = 0.9114*2	' Reflector distance
+SY dlen = 2.416*2	' Director half-length
+SY ddis = 1.3716*2	' Director distance
+SY rad = .005		' Radius (diameter 1 cm)
+'
+GW	1	19	-dlen	ddis	hgh	dlen	ddis	hgh	rad
+GW	2	19	-len	0	hgh	len	0	hgh	rad
+GW	3	19	-rlen	-rdis	hgh	rlen	-rdis	hgh	rad
+GE 0
+'
+LD	5	1	0	0	2.5E+07		' Alum. 6061-T6
+LD	5	2	0	0	2.5E+07	
+LD	5	3	0	0	2.5E+07	
+'
+FR	0	1	0	0	freq
+'
+GN	0	0	0	0	14	.006	' Average ground
+EX	0	2	10	0	1	0
+EN

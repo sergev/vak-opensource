@@ -1,0 +1,3 @@
+# %MAILSERV START%
+33       4      * * *   mailserv        /usr/spool/mailserv/bin/backup
+# %MAILSERV END%

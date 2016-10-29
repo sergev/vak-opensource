@@ -1,0 +1,48 @@
+CM Field Day Special (Jun 84 QST), converted with 4nec2 on 29-Mar-06 22:08
+CM
+CM A personal favorite, the "Field Day Special" has been built
+CM on several bands and accounts well for itself from the home
+CM QTH as well as on Field Day. It was described in June, 1984
+CM QST. The elements are folded dipoles made from twinlead,
+CM connected by a half-twisted twinlead "phasing line". The
+CM elements are modeled as ordinary dipoles with a diameter
+CM equivalent to the effective diameter of the two-conductor
+CM twinlead. This is valid since the radiation properties of
+CM ordinary and folded dipoles are identical -- only the
+CM feedpoint impedance is affected by the "folding" process,
+CM and only the pattern is being modeled here. The program
+CM used to design the original antenna wasn't entirely
+CM accurate so the element currents reported in QST weren't
+CM quite correct. The source currents in the model are the
+CM currents actually measured on the elements of a Field Day
+CM Special built to the dimensions shown in the QST article.
+CM This antenna has a respectable gain at low angles, a good
+CM f/b ratio, and a broad forward lobe. It's also quite
+CM forgiving. Constructed from twinlead, the input SWR is near
+CM unity. You can download the program used to design the
+CM "Field Day Special" from http://eznec.com.
+CM It would be difficult to model this using transmission
+CM lines because the elements are both transmission lines and
+CM radiators. Another problem is that the insulation makes the
+CM radiating portion appear about 3% longer while making the
+CM transmission line about 20% longer to the differential
+CM transmission line currents.
+CE
+
+sy len=16.041
+sy dst=8.479
+
+GW 1 11 0 len 40 0 -len 40 6.03675e-3
+GW 2 11 -dst len 40 -dst -len 40 6.03675e-3
+
+GS 0 0 0.3048		' All in ft.
+GE 0
+
+EX 6 1 6 0 1 0
+sy cur=1.017, pha=145	'130.6
+EX 6 2 6 0 cur*cos(pha) cur*sin(pha)
+
+GN 2 0 0 0 13 5.e-3
+FR 0 1 0 0 14.1 0
+
+EN

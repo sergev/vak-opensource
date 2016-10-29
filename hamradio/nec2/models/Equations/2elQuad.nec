@@ -1,0 +1,70 @@
+CM Equational model to calculate the dimensions of a resonant square 2-element quad beam.
+CM All equations calibrated to NEC antenna modeling software for wire diameters
+CM     from 3.16E-5 to 1E-2 wavelengths within about 0.5% from 3.5 - 250 MHz.
+CM
+CE By L. B. Cebik, W4RNL (http://www.cebik.com/quad/q2l2.html)
+
+SY Fr=28.5		' Enter Desired Frequency in MHz.
+SY WD=1.0519	' Enter Wire Diameter in mm/inch/WL.
+SY HGH=0		' Average Quad height above ground in Meters (feet)
+
+SY Inp=mm			' Enable this line for diameter in mm
+'SY Inp=in			' Enable this line for diameter in inch
+'SY Inp=299.7925/Fr	' Enable this line for diameter in wavelengths
+
+SY D=(WD*Inp*FR)/299.7925	' Get wire diameter in wavelengths
+SY D1=.4342945*LOG(D)
+
+SY AD=.00336, BD=.04966518519, CD=.2731955556, DD=.6716364021, ED=1.644147937
+SY DE=(AD*(D1^4))+(BD*(D1^3))+(CD*(D1^2))+(DD*D1)+ED
+SY AR=.003173333333, BR=.0508237037, CR=.3081977778, DR=.8663851852, ER=2.040064444
+SY RE=(AR*(D1^4))+(BR*(D1^3))+(CR*(D1^2))+(DR*D1)+ER
+SY AS=-.003, BS=-.03551851852, CS=-.1553055556, DS=-.2902116402, ES=-.02540079365
+SY SP=(AS*(D1^4))+(BS*(D1^3))+(CS*(D1^2))+(DS*D1)+ES
+
+SY Scal=1				' Use this line if output dimensions in meters.
+'SY Scal=ft				' Use this line if output dimensions in feet.
+SY WL=299.7925/(Scal*Fr) 	' Wavelength in Meters/Feet
+
+SY Ds=DE/8 * WL		' Driver half side.
+SY Rs=RE/8 * WL		' Reflector half side.
+SY Rd=SP * WL		' Reflector-Driver Space.
+SY Wr=D/2 * WL		' Wire radius.
+
+GW	1	11	0	-Ds	HGH-Ds	0	Ds	HGH-Ds	Wr
+GW	2	11	0	Ds	HGH-Ds	0	Ds	HGH+Ds	Wr	
+GW	3	11	0	Ds	HGH+Ds	0	-Ds	HGH+Ds	Wr
+GW	4	11	0	-Ds	HGH+Ds	0	-Ds	HGH-Ds	Wr
+
+GW	11	11	-Rd	-Rs	HGH-Rs	-Rd	Rs	HGH-Rs	Wr
+GW	12	11	-Rd	Rs	HGH-Rs	-Rd	Rs	HGH+Rs	Wr	
+GW	13	11	-Rd	Rs	HGH+Rs	-Rd	-Rs	HGH+Rs	Wr
+GW	14	11	-Rd	-Rs	HGH+Rs	-Rd	-Rs	HGH-Rs	Wr
+
+GS	0	0	Scal	
+GE
+
+LD	5	0	0	0	58000000	' Copper wire
+EX	0	1	6	0	1	0
+'GN	2	0	0	0	13	0.005
+
+FR	0	1	0	0	Fr	0
+
+'CM Enable below SY lines to see some performance predictions. Use
+'CM 'View->Symbol conversion (SHFT+Y)' on 'Geometry (F3)' window to
+'CM see intermediate and resulting values
+'
+'SY AZ=1.976333333, BZ=30.84751852, CZ=172.4909722, DZ=419.5162831, EZ=519.8747579
+'SY ZR=(AZ*(D1^4))+(BZ*(D1^3))+(CZ*(D1^2))+(DZ*D1)+EZ	' Impedance
+'SY AG=-.06333333333, BG=-.7203703704, CG=-3.010277778, DG=-5.381375661, EG=3.738769841
+'SY GN=(AG*(D1^4))+(BG*(D1^3))+(CG*(D1^2))+(DG*D1)+EG	'Gain
+'SY AW=1.688666667, BW=23.76837037, CW=124.9339444, DW=295.8872328, EW=281.2755159
+'SY SW=(AW*(D1^4))+(BW*(D1^3))+(CW*(D1^2))+(DW*D1)+EW	' Bandwidth
+'SY AF=-.00266666667, BF=.388, CF=4.790666667, DF=19.55485714, EF=28.76628571
+'SY FB=(AF*(D1^4))+(BF*(D1^3))+(CF*(D1^2))+(DF*D1)+EF	' FB ratio
+'SY AN=-.08333333333, BN=-.9462962963, CN=-3.943055556, DN=-7.582671958, EN=-5.23234127
+'SY DG=(AN*(D1^4))+(BN*(D1^3))+(CN*(D1^2))+(DN*D1)+EN	' Gain change percent Fr
+
+EN	
+	
+

@@ -1,0 +1,706 @@
+.Mcall	.Module
+.Module	MON11,Release=X02, Version=03, Comment=<BK0011 Debugger>
+;
+;			Copyright (c) 1986,1987 by
+;	C-11 Special Interest Group, Leningrad State University.
+;			 All rights reserved.
+;
+; This software is furnished under a license and may be used and  copied
+; only  in  accordance  with  the  terms  of  such  license and with the
+; inclusion of the above copyright notice.  This software or  any  other
+; copies  thereof may not be provided or otherwise made available to any
+; other person.  No title to and ownership of  the  software  is  hereby
+; transfered.
+;
+; The information in this software is subject to change without notice
+; and should not be construed as a commitment by C-11 group.
+;
+; C-11 assumes no responsibility for the use or reliability of its
+; software on equipment which is not submitted by C-11.
+;
+ .Include "BKHEAD"
+.Globl	BootRX,	LinTap,	TtoFlg,	Block$,	SetWid
+.Globl	$MixAs,	$Ascii,	KbMode,	MixO$$,	AscO$$,	KbdCsr
+.Globl	KbdDbr,	Screen
+
+.Macro	Command	Code,Addr
+.Psect	$CnsOvr
+.If NB <Code>
+	.Byte	Code
+.Psect	$Adrtab
+	.Even
+	.Word	Addr
+.IfF
+	.Byte	0
+.EndC
+.EndM
+
+TBit	=	20		;T-Bit MASK - STATUS REGISTER
+BptVec	=	14		;BPT interrupt vector
+BLKR	=	204
+ .Radix	2
+Opnf$$	=	1		; "Open" flag
+Byte$$	=	10		; Byte mode Mask
+Semi$$	=	100		; Semicolon found flag
+SemN$$	=	1000		; nnn; flag
+Mins$$	=	10000		; nnn+-mmm Minus flag
+Rgn$$	=	100000		; nnn+-mmm Flag
+RsOf$$	=	1000000		; "RS" Open flag
+Num$$	=	^O200		; Number was found (Must be 200!!)
+RSFl$$	=	100000000	; "RS" found flag
+RnnF$$	=	1000000000	; Number after "Rn" Flag
+RnFl$$	=	10000000000	; "Rn" was found
+Rfl$$	=	100000000000	; "R" was found
+SyFl$$	=	1000000000000	; System address space flag
+.Radix	8.
+
+ .Psect	$Code
+.SbTtl	User's Trap to 4 Handler
+O.Tr4U::
+	Mov	@#$$UsrS,-(SP)
+	Bic	#^C<ScrMsk!TapMsk>,@SP
+	Bis	#SysSel,@SP
+	Mov	@SP,@#$$SysS	;Set System Allocation
+	Mov	(SP)+,@#Sel1
+	Tst	$UsrTrp		;User Trap To 4 Processing ?
+	Beq	Debug		;No
+	Mov	R0,@#$Svare	;Yes, Save R0
+	Mov	$UsrTrp,R0	;and clear Routine address
+	Clr	$UsrTrp		;
+	Mov	@#$$UsrS,Sel1	;Set User Allocation
+	Tst	Sel1
+	Clr	-(SP)		;Set PS and PC and
+	Mov	R0,-(SP)	; 
+	Mov	@#$Svare,R0	;
+	Rtt			;Process user routine
+
+.SbTtl	BPT  Breakpoint Handler
+.SbTtl	Entry Point
+Debug::
+O.BpT::
+	Mov	#O.Tr4S,@#Vec4	;Set system interrupt
+	Mov	#340,@#Vec4+2
+	Mov	(SP)+,@#$SavPC	;Save status and PC from stack
+	Mov	(SP)+,@#$SavPS
+	Jsr	0,SavReg	;And Save Registers (Mainly SP)
+	.BTtyou	#25		;New line
+	Mov	O.UPC,R0
+	ClC
+	Call	OctTyp		;Print user's PC
+	MovB	Screen,R0
+	Swab	R0
+	ComB	R0
+	.Bbufset		;Set Screen for indication
+	Bic	#Byte$$!Opnf$$!Semi$$!Num$$!Rgn$$,R4	;Clear flags
+	Clr	R3
+	Jmp	O.Dcd
+.Dsabl	Lsb
+
+.SbTtl	System Trap To 4
+O.Tr4S::
+	Cmp	(SP)+,(SP)+
+	Mov	@#$$SysS,@#Sel1
+;;;	Mov	@#$$UsrS,@#UsrSav
+	Mov	@#$$SysS,@#$$UsrS
+	Tst	@#Sel1
+	Mov	CurAdr,R5	;Restore CurAdr
+	Mov	DebFlg,R4	; and DebFlg
+	Tst	@#KbdDbr
+	Clr	@#KbdCsr
+	Jmp	O.Err		
+.SbTtl Command Decoder entry point
+.Psect	$CodOvr
+O.DCD:	Call	ClsCRL		;Type <CR><LF>@
+O.Scan:	Call	GetC		;Get a char, return in R0
+	CmpB	#'0,R0		;Compare with Ascii 0
+	Bhi	30$		;Check legality if non-numeric
+	CmpB	#'7,R0		;Compare with Ascii 7
+	Blo	30$		;Check legality if not octal
+	Bit	#Rfl$$,R4	;"R" in progress ?
+	Beq	20$		; No
+	Bit	#RnFl$$,R4	;"Rn" in progress ?
+	Bne	10$		; Yes, "Rnn"
+	Bis	#RnFl$$,R4	; No, set "Rn" flag
+	Br	20$
+10$:	Bis	#RnnF$$,R4	;Set Rnn flag
+20$:	Bic	#^C7,R0		;Convert to binary
+	Asl	R3		; Make room
+	Asl	R3		;  in
+	Asl	R3		;    R3
+	Bis	R0,R3		;Pack three bits in Number
+	Bis	#Num$$,R4	;Set numeric flag
+	Br	O.Scan		;   and try again
+
+.SbTtl	Table Search
+30$:	Bit	#RSFl$$,R4	;"RS" in progress ?
+	Bne	40$		;Yes
+	Bit	#Rfl$$,R4	;"R" in progress ?
+	Beq	40$		;No
+	CmpB	R0,#'S
+	Beq	O.RS		;"RS" Operation
+40$:	Mov	#CodTab,R1	;Set table pointer
+50$:	TstB	@R1		;Is the search done?
+	Beq	O.Err		;Yes, not match
+	CmpB	R0,(R1)+	;Do the codes match?
+	Bne	50$		;Re-Loop if no
+	Sub	#CodTab+1,R1	;Get table offset
+	Asl	R1		;Multiply by two
+	Jmp	@GoTab(R1)	;Go to proper routine
+
+.SbTtl	Error Processing
+
+O.Err:	Mov	#DStack,SP	;Set up stack
+	Mov	@#$$UsrS,@#Sel1
+	Tst	@#Sel1
+	Bic	#Block$,TtoFlg
+	.BTtyou	#'?		;  ? to be typed
+	Br	O.DCD
+
+.SbTtl	Reset the Monitor
+ClsCRL:	.BPrint	#LFAT		;Type <LF>@
+	Clr	R3		;Clear argument buffer
+	Bic	#Opnf$$!Rgn$$!Num$$!Semi$$!Semn$$,R4
+	Return
+ .Psect	$Const
+LFAT:	.Byte	25,'@,200
+
+.SbTtl	Command Table
+.Psect	$CnsOvr
+CodTab:
+.Psect	$AdrTab
+GoTab:
+
+Command	220,O.Step	; <Step>  Execute one command
+Command	12,O.Cret	; <Enter> Close location
+Command	1,O.Ctrl	; Double Width
+Command	2,O.Ctrl	; Single Width
+Command	14,O.Ctrl	; Control Code, Type it
+Command	10,O.Orrb	;  <Left Arrow> Open related, rel. branch
+Command	31,O.Orpc	;  <Right Arrow>Open related, index - PC.
+Command	32,O.Back	;  <Up Arrow>	Open Previous
+Command	33,O.Next	;  <Down Arrow> Modify, Close, Open next
+Command	'$,O.Reg	;  $	Register Ops
+Command	'-,O.Mins	;  -	Set Save/Load Region
+Command	'+,O.Plus	;  +	Set Save/Load Region
+Command	'/,O.Wrd	;  /    Open word
+Command	73,O.Semi	;  ;	Semicolon
+Command	'@,O.Oind	;  @	Open Indirect
+Command	'B,O.Boot	;  B	Boot from disk
+Command	'G,O.Go		;  G	Go to address nnnnn
+Command	'C,O.Conn	;  C	Connect memory page
+Command	'L,O.Load	;  L	Load Binary File
+Command	'M,O.Motor	;  M	On/Off Taperecorder Motor
+Command	'P,O.Proc	;  P	Proceed
+Command	'R,O.Reg	;  R	Register Ops
+Command 'U,O.Unlo	;  U	Unload Binary File
+Command	'_,O.Orpc	; <Underline> Open related, index - PC.
+Command	'\,O.Byt	;  \	Open byte -back slash
+Command	233,O.Wdth	; Lw/";" Width Setting (One byte More)
+Command	']-100,O.Clr	; Ctrl/"\" Color Setting Sequence
+Command			;END OF Command TABLE
+
+ 	.Psect	$Const
+WdtCd:	.Byte	10,40,10,200
+
+	.Psect	$CodOvr
+O.Clr:	.Bttyou
+	Mtps	#0
+10$:	.BinKey
+	Bcs	10$
+	.Bttyou
+20$:	.BinKey
+	Bcs	20$
+	Mtps	#340
+	.Bttyou
+	.Bttyou	#25
+	Br	O.Scan
+O.Wdth:	.Bprint	#WdtCd	;BackSpace
+	Mtps	#0
+10$:	.BinKey
+	Bcs	10$
+	Mtps	#340
+	Bic	#^C3,R0
+	Mov	R1,-(SP)
+	Mov	R2,-(SP)
+	Mov	R3,-(SP)
+	Mov	R4,-(SP)
+	Mov	R5,-(SP)
+	Call	SetWid	;Width Setting
+	Mov	(SP)+,R5
+	Mov	(SP)+,R4
+	Mov	(SP)+,R3
+	Mov	(SP)+,R2
+	Mov	(SP)+,R1
+	Br	O.Scan
+O.Ctrl:	.Bttyou
+	Br	O.Scan
+.SbTtl	<+><-> Set Save/Load Region
+.Enabl	LSB
+O.Plus:	Bic	#Mins$$,R4	;Reset "Minus" Flag
+	Br	10$
+O.Mins:	Bis	#Mins$$,R4	;Set Flag
+10$:	TstB	R4		;Check for number
+	Bpl	O.Err
+	Mov	R3,Begadr	;Save Start Address Of Save/Load
+	Bic	#Num$$,R4	;Reset Number
+	Clr	R3		;
+	Bis	#Rgn$$,R4	;Set Region flag
+O.Scn2:	Br	O.Scan		;and go 
+.Dsabl	LSB
+.SbTtl	RS  State Register Ops
+
+O.Rs:	Bit	#RnFl$$,R4	;"Rn" operation ?
+	Bne	O.Err		;Yes, Error
+Bic #Byte$$!Semi$$!Opnf$$!Rgn$$!Rfl$$!RnFl$$!Num$$!RnnF$$!RsOf$$,R4
+	Bis	#RSfl$$!SyFl$$,R4	;Set "RS" flag and System space
+	Clr	R3		;	
+	Br	O.Scn2
+
+.SbTtl	<B> - Boot from disk
+O.Boot:	Clr	R0		;Default unit No = 0
+	TstB	R4		;Test number flag
+	Bpl	10$		;No Number
+	Mov	R3,R0		;Present ==> set unit No.
+10$:	Call	BootRX
+	Br	O.Err		;Error booting operating system
+ .SbTtl	<R>,<$>	- Register Ops
+O.Reg:	
+Bic #Semi$$!Byte$$!Opnf$$!Rgn$$!RSFl$$!Num$$!RnFl$$!RnnF$$!RsOf$$,R4
+	Clr	R3		;
+	Bis	#SyFl$$!Rfl$$,R4	;Set Register Flags
+	Br	O.Scn2		;
+.Psect	$Code
+.SbTtl	 <G>  Go to address nnnnn; <P> - Proceed
+O.Go::	Clr	@#O.UPS		;
+	TstB	R4		;
+	Bmi	10$		;No Number flag
+	Mov	@#UserPC,R3	;Default
+	Beq	O.ERR9		;
+10$:	Bit	#1,R3		;Check for odd address ?
+	Bne	O.ERR9		;
+	Mov	R3,O.UPC	;Set up new PC
+O.Proc:	Bic	#TBit,@#O.UPS	;Clear T-bit
+O.Prc2:	Mov	O.UPC,@#$SavPC	;
+	Mov	O.UPS,@#$SavPS	;
+	Mov	#O.Tr4U,@#Vec4	;Set User's vector
+	Mov	#2340,@#Vec4+2	;And status
+	Jsr	R0,ResReg	;Restore registers, Set User Allocation
+	Mov	@#$SavPS,-(SP)	;    status
+	Mov	@#$SavPC,-(SP)	;    and PC
+	Rtt			; Then GOTO...
+
+.SbTtl	Process <Step>  - Execute One Command
+
+O.Step:	Bis	#TBit,@#O.UPS
+	Mov	#O.BPT,@#BptVec
+	Mov	#2340,@#Bptvec+2
+	Br	O.Prc2
+ .SbTtl	Process C  Connect memory page
+
+O.Conn::Bit	#Semi$$,R4	;Test semicolon found flag
+	Beq	O.ERR9		;Clear ==> Error 
+	TstB	R4
+	Bpl	O.ERR9		;No Number
+	Mov	@#UsrSav,@#$$UsrS
+	Mov	SP,SPTMP
+	Mov	O.USP,SP
+	Mov	@#$$UsrS,@#Sel1
+	.BSETPG	R2,R3	
+	Mov	@#$$SysS,@#Sel1	;Connect memory page
+	Mov	SPTMP,SP
+	Bcs	10$		;Error
+	Mov	@#$$UsrS,UsrSav	;
+	Mov	@#$$SysS,@#$$UsrS
+	Tst	@#Sel1
+	Jmp	O.Dcd		;Normal return
+10$:	Mov	@#$$SysS,@#$$UsrS
+	Tst	@#Sel1
+O.ERR9:	Jmp	O.Err		;Error Return
+
+.SbTtl	Semicolon processing
+.Psect	$CodOvr
+
+O.Semi:	TstB	R4		;A semi-colon has been received
+	Bpl	O.Err1
+	Bis	#Semi$$,R4	;Numeric flag to Semi$$,
+	Mov	R3,R2		;Number to SemNum
+	Bit	#Rgn$$,R4	;Is "Region" flag found
+	Beq	10$		;No
+	Mov	R3,Lngth	;Second Region bound ?
+	Beq	O.Err1		;Not found, Error
+	Bit	#Mins$$,R4	;
+	Beq	10$		;"+"
+	Sub	BegAdr,Lngth	;"-"
+10$:	Clr	R3
+	Bic	#Num$$,R4
+	Br	O.Scn1		;Go back for more
+O.Err1:	Jmp	O.Err
+ .SbTtl	Process / and \ - Open Word or Byte
+.Enabl	LSB
+;Input - If Num$$ is ON a new rexp has been typed in
+;Input - -address of word to be opened is in R3
+
+O.Wrd:	Bic	#Byte$$,R4	;Open word
+	Br	20$
+O.Byt:	Bit	#RnnF$$,R4
+	Bne	10$
+	Bit	#Rfl$$!RnFl$$!RSFl$$,R4	;
+	Bne	O.Err1		;Illegal byte operation
+10$:	Bis	#Byte$$,R4	;Open byte
+20$:	Bit	#RsFl$$,R4	;
+	Bne	50$		;Open RS
+	TstB	R4		;Set Address if Num$$ is non-zero
+	Bpl	70$		;skip otherwise - reopen previous location
+	Bit	#RnFl$$,R4	;"Rn" operation ?
+	Bne	30$		;Yes
+	Bic	#SyFl$$,R4	;Clear System State Address flag
+30$:	Bic	#RsOf$$,R4	;
+	Bit	#RnnF$$,R4	;"Rnn/" ?
+	Beq	40$		;No
+	Bic	#Rfl$$!RnFl$$!RnnF$$!Syfl$$!RsOf$$,R4
+				;Clear R, Rn, Rnn, Syst.Addr
+40$:	Bit	#Rfl$$,R4	;"Rn/" ?
+	Beq	60$		;No
+	Asl	R3		;Generate Register Address
+	Add	#O.UR0,R3	;
+	Br	60$		;
+50$:	Mov	#O.UPS,R3	;Yes, set appropriate address
+	Bis	#SyFL$$!RsOf$$,R4	;Set "RS Open flag"
+	Bic	#RSFl$$,R4	;Clear "RS" flag
+60$:	Mov	R3,R5		;Save new current address
+Open:
+70$:	Call	TypWB		;Get Word or Byte and type it
+O.Scn1:	Jmp	O.Scan		; Wait for another char
+.Dsabl	LSB
+.SbTtl	Process <Enter> - Close Location
+
+O.Cret:	Call	Close		;Close Location
+	Br	O.DcD1		;Return to decoder
+
+.SbTtl	<Down Arrow> Modify, Close, Open next
+O.Next:	Call	Close		;Close location
+	Bit	#RsOf$$,R4	;Was it PS?
+	Bne	O.DcD1		;Yes, exit
+	Bit	#Byte$$,R4	;Byte operation ?
+	Bne	10$		;Yes
+	Inc	R5		;Modify Address
+10$:	Inc	R5		;
+O.Nxt1:	.BTtyou	#25		;New Line
+	.BTtyou	#40
+	Bit	#Rfl$$,R4	;"R" operation ?
+	Beq	10$		;No
+	.BTtyou	#'R		;
+	Sub	#O.UR0,R5	;Correct Register Address
+	Bic	#^C16,R5	;
+	Mov	R5,R0		;
+	Add	#O.UR0,R5	;
+	Asr	R0		;Get register number
+	Add	#'0,R0
+	.BTtyou
+	.BTtyou	#40
+	Br	20$
+10$:	Mov	R5,R0
+	Clc
+	Call	OctTyp		;Print Address
+20$:	Mov	#"/\,R0
+	Bit	#Byte$$,R4
+	Beq	30$
+	Swab	R0
+30$:	.BTtyou
+	Br	Open		;And open location
+
+.SbTtl	<Up Arrow>   Open Previous Location
+O.Back:	Call	Close		;Close location
+	Bit	#RsOf$$,R4	;Was it PS ?
+	Bne	O.DcD1		;Yes, exit
+	Bit	#Byte$$,R4	;Byte operation ?
+	Bne	10$		;Yes
+	Dec	R5		;Modify Address
+10$:	Dec	R5		;
+	Br	O.Nxt1		;Go do the rest
+ .SbTtl	Process	@  -	Open Indirect
+.Enabl	LSB
+
+O.Oind:	Call	Close		;Close current location
+	Bit	#Byte$$,R4	;Test for byte mode
+	Bne	O.Dcd1		;Byte is illegal
+	Call	GetWB		;Get the word
+	Bic	#RsOf$$!SyFl$$!Rfl$$!Rnfl$$!RnnF$$,R4 ;Clear flags
+	Br	10$		;
+O.Dcd1:	Jmp	O.DcD
+
+.SbTtl	Underline Handler - Open Indexed on the PC
+
+O.Orpc:	Call	O.TCls		;Test mode and close
+	Bcs	O.DcD1		;Illegal
+	Add	R5,R0		;Compute
+	Add	#2,R0		;   new address
+10$:	Mov	R0,R5		;Update current address
+	Br	O.Nxt1		;Go finish up
+
+.SbTtl	Process >   -  Open Related, Rel. Branch
+
+O.Orrb:	Call	O.TCls		;Test mode and close
+	Bcs	O.DcD1		;Illegal
+	MovB	R0,R0		;Extend the sign
+	Asl	R0		;R0=2(@CurAdr)
+	Inc	R0		;   +2
+	Inc	R0
+	Add	R5,R0		;   +PC
+	Br	10$
+.Dsabl	LSB
+O.TCls:	Call	Close		;Close current location
+	Bit	#SyFl$$!Byte$$,R4	;System Register or Byte
+	Beq	10$		;No
+	SeC			;Yes, Error
+	Return
+10$:	Call	GetWB
+	ClC
+	Return
+.DSABL	LSB
+ .SbTtl	GetWB	- General Word or Byte Get Routine
+.Psect	$Code
+GetWB:	Mov	R5,CurAdr
+	Mov	R4,DebFlg
+	Bit	#SyFl$$,R4	;User's memory ?
+	Bne	10$		;No
+	Bit	#SyFl$$,R4	;User's memory ?
+	Bne	10$		;No
+	Cmp	R5,#160000
+	Bhis	10$		;No
+	Mov	@#UsrSav,@#$$UsrS
+	Mov	@#UsrSav,@#Sel1
+10$:	Bit	#Byte$$,R4	;Byte mode ?
+	Bne	20$
+	Bic	#1,R5
+	Mov	@R5,R0		;No, get the word
+	Br	30$
+20$:	MovB	@R5,R0		;Yes, get the byte
+30$:	Mov	@#$$SysS,@#$$UsrS
+	Mov	@#$$UsrS,@#Sel1
+	Tst	@#Sel1
+	Return
+.SbTtl	TypWB	- General Word or Byte Typing
+.Psect	$CodOvr
+TypWB:	Call	GetWB		;Get Word or Byte
+	Mov	R0,-(SP)
+	Bit	#Byte$$,R4	;Byte mode?
+	Beq	10$		;No
+	SeC
+10$:	Call	OctTyp		;and type it
+	Clr	R3		;Reset numeric arg
+	Bic	#Semi$$!Rgn$$!Num$$,R4
+	Bis 	#Opnf$$,R4	;Set "Open" mode
+	Mov	(SP)+,R0
+	Return			;and exit
+
+.SbTtl	PutWB	- General Word or Byte Put Routine
+.Psect	$Code
+PutWB:	Mov	R5,CurAdr
+	Mov	R4,DebFlg
+	Mov	R3,R1		;Number to we written
+	Mov	@#UsrSav,@#$$UsrS
+	Bit	#SyFl$$,R4	;User's memory ?
+	Bne	10$		;No
+	Cmp	R5,#160000
+	Bhis	10$		;No
+	Cmp	R5,#100000
+	Blo	15$
+	Bit	#RomMsk,@#$$UsrS
+	Beq	15$
+	Clr	@#140000	;Trap to 4 Simulation
+15$:	Mov	@#UsrSav,@#Sel1
+	Tst	@#Sel1
+10$:	Bit	#Byte$$,R4	;Byte mode ?
+	Bne	20$
+	Mov	R1,@R5		;No, write the word
+	Br	30$
+20$:	MovB	R1,@R5		;Yes, write the byte
+30$:	Mov	@#$$SysS,@#Sel1
+	Mov	@#$$UsrS,UsrSav
+	Mov	@#$$SysS,@#$$UsrS
+	Tst	@#Sel1
+	Return
+
+.SbTtl	Location Close Routine
+.Psect	$CodOvr
+Close:	TstB	R4		;Was the number ?
+	Bpl	20$		;No
+	Bit	#Opnf$$,R4	;Was location open ?
+	Beq	20$		;No
+	Bit	#RsOf$$,R4	;Was it PS ?
+	Beq	10$		;No
+	Bic	#^C357,R3	;Yes, Clear T-bit etc.
+10$:	Call	PutWB		;Put word or byte
+20$:	Bic	#Opnf$$,R4	;Clear "Open" flag
+	Return			;And exit
+ .SbTtl	Type Out Contents of Word or Byte
+.Psect	$Code
+OctTyp::Mov	R3,-(SP)
+	Mov	R4,DebFlg	; and DebFlg
+	Mov	#6,R3		;# of digits
+	Mov	#-2,R4		;# of bits first-3
+	Bcc	10$		;See if word mode
+				;Branch if so
+	Asr	R3		;Only do 3 digits
+	Inc	R4		;do 2 bits first
+	Swab	R0		;And turn R0 around
+10$:	Mov	R0,-(SP)	;Save R0
+20$:	Add	#3,R4		;Compute the number of bits to do
+	Clr	R0
+30$:	Rol	(SP)		;Get a bit
+	Rol	R0		;Store it away
+	Sob	R4,30$		;Loop if more bits needed
+	Add	#'0,R0		;Convert to Ascii
+	.BTtyou			;Type it
+	SoB	R3,20$		;Loop if more digits to do
+	Tst	(SP)+		;Get rid of junk 
+	Mov	DebFlg,R4
+	Mov	(SP)+,R3
+	.BTtyou	#40		;Type trailing space
+	Return
+ .SbTtl	L  - Load Binary File
+O.Load:	Clr	R1
+	Clr	R0
+	TstB	R4		;Load Address ?
+	Bpl	O.Ld1		;No
+	Mov	R3,R0		;Yes, Move to R0
+O.Ld1:	Mov	R5,-(SP)
+	Call	LINTAP
+	Mov	$$SysS,@#Sel1
+	Tst	@#Sel1
+	Mov	(SP)+,R5
+	Clr	R4
+	Jmp	O.DcD
+.Psect	$CodOvr
+.SbTtl	U  - Unload From Memory to Binary File
+O.Unlo:	Call	TstRgn
+	Mov	#1,R1
+	Jmp	O.Ld1
+O.Err2:	Jmp	O.Err
+TstRgn:	Bit	#Semi$$,R4	;nnn+-mmm;xxxLU
+	Beq	O.Err2		;No ";", Error
+	Clr	R0
+	TstB	R4		;Start Address ?
+	Bpl	10$		;No
+	Mov	R3,R0
+	Beq	O.Err2		;Illegal address
+	Cmp	R0,Begadr
+	Blo	O.Err2
+	Mov	BegAdr,R3
+	Add	Lngth,R3
+	Cmp	R0,R3
+	Bhis	O.Err2
+10$:	Return
+
+.SbTtl	M  - On/Off Taperecorder Motor
+
+O.Motor:Clr	R0
+	TstB	R4		;Numeric Argument Found?
+	Bpl	10$		;No
+	Mov	R3,R0		;Yes, get it
+	Bis	#MOT$$$,@#$$SysS
+	Bis	#MOT$$$,@#$$UsrS
+	Bis	#MOT$$$,@#UsrSav
+10$:	Tst	R0		;Motor ON ?
+	Beq	20$		;No, OFF
+	Bic	#MOT$$$,@#$$SysS;Set motor on
+	Bic	#MOT$$$,@#$$UsrS;Set motor on
+	Bic	#MOT$$$,@#UsrSav;Set motor on
+20$:	Mov	@#$$UsrS,@#Sel1
+	Tst	@#Sel1
+	Jmp	O.DcD1		;And exit	
+ .SbTtl	General Character Input Routine
+;
+; Character input goes to R0
+;
+Getc:	Mov	R5,CurAdr	;Save CurAdr
+	Mov	R4,DebFlg	; and DebFlg
+	Mtps	#0
+10$:	.BinKey			;Get character
+	Bcs	10$
+	Mtps	#340
+	Bis	#Block$,TtoFlg
+	.BTtyou
+	Bic	#Block$,TtoFlg
+	Return
+
+.SbTtl	Set System State, Save Registers R0-R6
+.Psect	$Code
+SavReg:	Mov	R0,@#$Svare	;Save Return Address
+	Mov	@#$$UsrS,R0
+	Bic	#^C<ScrMsk!TapMsk>,R0
+	Bis	#SysSel,R0
+	Mov	R0,@#$$SysS
+	Mov	(SP)+,R0	;Restore R0
+	Mov	@#$$SysS,@#Sel1
+	Mov	SP,O.USP	;Save User Stack Address
+	Mov	#DStack,SP	;Set Debugger Stack
+	Mov	R0,O.UR0
+	Tst	@#Sel1
+	Mov	@#$$UsrS,UsrSav	;
+	Mov	@#$$SysS,@#$$UsrS	;
+	Mov	@#$SavPS,O.UPS	;Save User's PS
+	Mov	@#$SavPC,O.UPC	;Save User's PC
+	Mov	#O.UR0+2,R0	;Set to Internal Save Area
+	Mov	R1,(R0)+	;Save
+	Mov	R2,(R0)+	; registers
+	Mov	R3,(R0)+	;1
+	Mov	R4,(R0)+	; thru
+	Mov	R5,(R0)+	;     5
+	Mov	CurAdr,R5	;Restore CurAdr
+	Mov	DebFlg,R4	; and DebFlg
+;	Mov	KbMode,KbmSav	;Save mode
+;	Bis	#$MixAs!$Ascii,KbMode
+;	Bis	#MixO$$!AscO$$,TtoFlg
+	Jmp	@$Svare		;Exit
+
+.SbTtl	Restore Registers R0-R6
+
+ResReg:	Mov	R0,@#$Svare	;Return Address
+	Mov	@#UsrSav,@#$$UsrS	;
+	Mov	R5,CurAdr	;Save CurAdr
+	Mov	R4,DebFlg	; and DebFlg
+;	Mov	KbmSav,R0	;
+;	Bic	#^C$MixAs!$Ascii,R0
+;	Bic	#^C$MixAs!$Ascii,KbMode
+;	Bis	R0,KbMode	;Restore keyboard status
+	Mov	#O.UR0+2,R0	;Set Savearea Pointer
+	Mov	(R0)+,R1	;  
+	Mov	(R0)+,R2	;
+	Mov	(R0)+,R3	;Restore
+	Mov	(R0)+,R4	;registers
+	Mov	(R0)+,R5	;0
+	Mov	(R0)+,SP	;thru 6
+	Mov	O.UR0,R0	;
+	Mov	@#$$UsrS,@#Sel1	;
+	Tst	@#Sel1
+	Jmp	@$Svare		;and EXIT
+
+.SbTtl	Working Cells
+.Psect	$RAM
+KbmSav:		.BlkW		;KbMode Save Area
+$UsrTrp::	.BlkW		;User's Trap to 4 Routine
+BegAdr::	.BlkW		;nnnn+-mmmmm Address
+Lngth::		.BlkW		;nnnn+-mmmmm Address
+DebFlg:		.BlkW		;Internal flags
+CurAdr:		.BlkW		;Current location address Save Area
+UsrSav::	.BlkW		;
+O.UPS:		.BlkW		;     PS
+O.UR0:		.BlkW		;User R0
+O.UR1:		.BlkW		;     R1
+O.UR2:		.BlkW		;     R2
+O.UR3:		.BlkW		;     R3
+O.UR4:		.BlkW		;     R4
+O.UR5:		.BlkW		;     R5
+O.USP:		.BlkW		;     SP
+O.UPC:		.BlkW		;     PC
+SPTMP::		.BlkW
+.Psect	$Stack
+.BlkW	300
+Dstack::
+.Psect	$Const
+.Even
+.Psect	$CnsOvr
+.Even
+.End

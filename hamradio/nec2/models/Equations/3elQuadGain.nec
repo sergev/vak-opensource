@@ -1,0 +1,82 @@
+CM Equational model to calculate the dimensions of a resonant square 3-element 
+CM quad beam optimized for high gain.
+CM All equations calibrated to NEC antenna modeling software for wire diameters
+CM     from 3.16E-5 to 1E-2 wavelengths within about 0.5% from 3.5 - 250 MHz.
+CM
+CE By L. B. Cebik, W4RNL (http://www.cebik.com/quad/q3le2.html)
+
+SY Fr=14.175	' Enter Desired Frequency in MHz.
+SY WD=1.62814	' Enter Wire Diameter in mm/inch/WL.
+SY Hgh=0		' Average Quad height above ground mtr (ft)
+
+SY Inp=mm			' Enable this line for diameter in mm
+'SY Inp=in			' Enable this line for diameter in inch
+'SY Inp=299.7925/Fr	' Enable this line for diameter in wavelengths
+
+SY D=(WD*Inp*FR)/299.7925	' Get wire diameter in wavelengths
+SY L=.4342945*LOG(D*10^5)
+SY LL=L^2, LM=LL*.0128, LN=LM+1.0413, D1=.4342945*LOG(D)
+
+SY AD=.000266666667, BD=.00506666667, CD=.03633333333, DD=.1221904762, ED=1.183285714
+SY DE=(AD*(D1^4))+(BD*(D1^3))+(CD*(D1^2))+(DD*D1)+ED
+SY AR=.0037333333333, BR=.05362962963, CR=.29275555556, DR=.7424529101, ER=1.814412698
+SY RE=(AR*(D1^4))+(BR*(D1^3))+(CR*(D1^2))+(DR*D1)+ER
+SY AI=-.00266666667, BI=-.033244444444, CI=-.1550666667, DI=-.3222793651, EI=.7283809524
+SY IR=(AI*(D1^4))+(BI*(D1^3))+(CI*(D1^2))+(DI*D1)+EI
+SY AS=.00033333333, BS=.004837037037, CS=.02552777778, DS=.05643756614, ES=.2191230159
+SY SP=(AS*(D1^4))+(BS*(D1^3))+(CS*(D1^2))+(DS*D1)+ES
+SY AP=-.002333333333, BP=-.03128148148, CP=-.15586111111, DP=-.3417669312, EP=-.05499206349
+SY IP=(AP*(D1^4))+(BP*(D1^3))+(CP*(D1^2))+(DP*D1)+EP
+
+SY Scal=1				' Use this line if output dimensions in meters.
+'SY Scal=ft				' Use this line if output dimensions in feet.
+SY WL=299.7925/(Scal*Fr) 	' Wavelength in Meters/Feet
+
+SY Ds=DE/8 * WL		' Driver half side.
+SY Rs=RE/8 * WL		' Reflector half side.
+SY Rd=SP * WL		' Reflector-Driver Space.
+SY Is=IR/8 * WL		' Director half side.
+SY Id=IP * WL		' Director-Driver Space.
+SY Wr=D/2 * WL		' Wire radius.
+
+GW	1	11	0	-Ds	HGH-Ds	0	Ds	HGH-Ds	Wr
+GW	2	11	0	Ds	HGH-Ds	0	Ds	HGH+Ds	Wr	
+GW	3	11	0	Ds	HGH+Ds	0	-Ds	HGH+Ds	Wr
+GW	4	11	0	-Ds	HGH+Ds	0	-Ds	HGH-Ds	Wr
+
+GW	11	11	-Rd	-Rs	HGH-Rs	-Rd	Rs	HGH-Rs	Wr
+GW	12	11	-Rd	Rs	HGH-Rs	-Rd	Rs	HGH+Rs	Wr	
+GW	13	11	-Rd	Rs	HGH+Rs	-Rd	-Rs	HGH+Rs	Wr
+GW	14	11	-Rd	-Rs	HGH+Rs	-Rd	-Rs	HGH-Rs	Wr
+
+GW	21	11	Id	-Is	HGH-Is	Id	Is	HGH-Is	Wr
+GW	22	11	Id	Is	HGH-Is	Id	Is	HGH+Is	Wr	
+GW	23	11	Id	Is	HGH+Is	Id	-Is	HGH+Is	Wr
+GW	24	11	Id	-Is	HGH+Is	Id	-Is	HGH-Is	Wr
+
+GS	0	0	Scal
+GE
+EK				' To allow more thick wires
+
+LD	5	0	0	0	58000000		' Copper wire
+
+EX	0	1	6	0	1	0	
+'GN	2	0	0	0	13	0.005		' Use this line if ground used
+
+FR	0	1	0	0	Fr	0
+
+'CM Enable below SY lines to see some performance predictions. Use
+'CM 'View->Symbol conversion (SHFT+Y)' on 'Geometry (F3)' window to
+'CM see intermediate and resulting values
+'
+'SY AZ=4.4029, BZ=53.43954444, CZ=239.2408583, DZ=462.3614437, EZ=373.3035655
+'SY ZR=(AZ*(D1^4))+(BZ*(D1^3))+(CZ*(D1^2))+(DZ*D1)+EZ	' Feedpoint imp.
+'SY AG=-.15, BG=-1.768518519, CG=-7.763055556, DG=-14.78592593, EG=-.609722222
+'SY GN=(AG*(D1^4))+(BG*(D1^3))+(CG*(D1^2))+(DG*D1)+EG	' Free space gain
+'SY AW=.16666666667, BW=2.265925926, CW=11.706111111, DW=27.93058201, EW=28.88753968
+'SY SW=(AW*(D1^4))+(BW*(D1^3))+(CW*(D1^2))+(DW*D1)+EW	' SWR 2:1 bandwidth
+'SY AF=.11933333333, BF=1.671777778, CF=8.9885, DF=22.45931746, EF=23.68797619
+'SY FB=(AF*(D1^4))+(BF*(D1^3))+(CF*(D1^2))+(DF*D1)+EF	' %BW for FB > 20 dB
+
+EN	
+	

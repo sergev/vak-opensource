@@ -1,0 +1,43 @@
+:
+# Usage: mvinf dirname...
+
+wd=`pwd`
+
+for dir
+do
+	if cd $wd/$dir
+	then
+		inf=`echo *.inf`
+		if [ "$inf" = "*.inf" ]; then
+			echo $dir: no .inf files
+			continue
+		fi
+		echo $dir:
+		if [ ! -d .info ]; then
+			if mkdir .info; then
+				echo mkdir $dir/.info
+			else
+				echo $dir/.info: cannot create directory
+				continue
+			fi
+		fi
+	else
+		echo $dir: directory does not exist
+		continue
+	fi
+	for i in $inf
+	do
+		base=`basename $i .inf`
+		if [ -d $base ]; then
+			cp $i .info/$base
+			echo $i "->" .info/$base
+		fi
+		for f in $base.*; do
+			if [ $f != $i ]; then
+				cp $i .info/$f
+				echo $i "->" .info/$f
+			fi
+		done
+		rm $i
+	done
+done

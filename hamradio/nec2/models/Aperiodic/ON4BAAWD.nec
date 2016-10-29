@@ -1,0 +1,11 @@
+CM ON4BAA's Balun-Fed Windom.
+CE
+GW 1 82 0 -8 13.5 0 33 13.5 1.13e-3
+GE 0
+EK
+LD 5 1 0 0 57471265.5 0
+EX 6 1 16 0 1 0
+EX 6 1 17 0 1 0
+GN 2 0 0 0 13 0.017
+FR 0 1 0 0 29 0
+EN

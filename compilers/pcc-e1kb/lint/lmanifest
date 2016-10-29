@@ -1,0 +1,58 @@
+/*	@(#)lmanifest	1.4	*/
+/*	3.0 SID #	1.2	*/
+/*	the key:
+	LDI	defined and initialized: storage set aside
+	LIB	defined on a library
+	LDC	defined as a common region on UNIX
+	LDX	defined by an extern: if ! pflag, same as LDI
+	LRV	function returns a value
+	LUV	function used in a value context
+	LUE	function used in effects context
+	LUM	mentioned somewhere other than at the declaration
+	LDS	defined static object (like LDI)
+	*/
+# define LDI 01
+# define LIB 02
+# define LDC 04
+# define LDX 010
+# define LRV 020
+# define LUV 040
+# define LUE 0100
+# define LUM 0200
+# define LDS 0400
+
+# define LFN 01000  /* filename record */
+
+typedef struct ty {
+	TWORD aty;
+	short extra;
+	} ATYPE;
+
+typedef struct line {
+	short decflag;
+#ifdef FLEXNAMES
+	char *name;
+#else
+	char name[LCHNM];
+#endif
+	short nargs;
+	short fline;
+	ATYPE type;
+	} LINE;
+
+union rec {
+	struct line l;
+	struct {
+		short decflag;
+#ifdef FLEXNAMES
+		char *fn;
+#else
+		char fn[LFNM];
+#endif
+		int mno;
+		} f;
+	};
+
+#ifdef CXREF
+extern FILE *outfp;
+#endif

@@ -1,0 +1,3 @@
+Example of simple program for Microchip PICkit2 demo board,
+with pic16f690 microcontroller. Using SDCC compiler and
+Microchip pk2cmd programming utility.

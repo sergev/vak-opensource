@@ -1,0 +1,28 @@
+CM 3-el Yagi with beta match by L.B. Cebik
+CM TL 600 ohm stub / NT + shunt admittance
+CE
+
+GW 1 101 -5.292 0 0 5.292 0 0 0.0125
+GW 2 50 -4.947 3.024 0 -0.049 3.024 0 0.0125
+GW 3 1 -0.049 3.024 0 0.049 3.024 0 0.0125
+GW 4 50 0.049 3.024 0 4.947 3.024 0 0.0125
+GW 5 101 -4.786 6.049 0 4.786 6.049 0 0.0125
+
+' Use below for match using TL-card
+GW 6 1 1.001 1.001 1.001 1 1 1 0.000322
+
+' Use below for match using NT-card
+' GW 9800 1 2000 2000 2000 2000.001 2000.001 2000.001 0.000814
+
+GE
+
+' Use below for match using TL-card
+TL 3 1 6 1 600 0.262584 0 0 1e10 1e10
+
+' Use below for match using NT-card
+'  NT 3 1 9800 1 0.0001066 -0.02131214 0 0 1e10 1e10
+
+LD 5 0 0 0 2.5e7
+EX 0 3 1 0 1 0
+FR 0 1 0 0 14.175 1
+EN

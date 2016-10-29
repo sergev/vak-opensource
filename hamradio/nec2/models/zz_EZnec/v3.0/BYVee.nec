@@ -1,0 +1,13 @@
+CM Back yard inverted vee, converted with 4nec2 on 29-Mar-06 22:08
+CE
+'sy wdt=11.8193	'Original width
+sy wdt=12.891	'Width for resonance
+GW 1 5 0 0 33.94 0  wdt 22.1207 3.367e-3
+GW 2 5 0 0 33.94 0 -wdt 22.1207 3.367e-3
+GS 0 0 ft		' All in ft.
+GE 0
+EX 6 1 1 0 1 0
+EX 6 2 1 0 -1 0
+GN 2 0 0 0 20 0.0303
+FR 0 1 0 0 14 0
+EN

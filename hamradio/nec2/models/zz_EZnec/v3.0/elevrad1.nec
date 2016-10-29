@@ -1,0 +1,27 @@
+CM Elevated radial system, converted with 4nec2 on 29-mrt-06 14:37
+CM 	ElevRad1
+CM This illustrates a vertical antenna with elevated radial
+CM system. At 0.000109 wavelength, the height is about as low
+CM as NEC can model accurately. This file however won't give
+CM accurate results. This pecause performance depends heavily 
+CM on the position of the excitation source related to the 
+CM radiator lenght and the distance from the radial wires 
+CM connection and their lengths.
+CE
+
+SY freq=1.832
+
+sy len=35.56			' Length
+sy radh=0.01778, radl=39.624	' Radial height, length
+
+GW 1 5 0.0 0.0 radh 0.0   0.0   len      0.0012941
+GW 0 5 0.0 0.0 radh radl  0.0   radh     0.0012941
+GW 0 5 0.0 0.0 radh 0.0   radl  radh     0.0012941
+GW 0 5 0.0 0.0 radh -radl 0.0   radh     0.0012941
+GW 0 5 0.0 0.0 radh 0.0   -radl radh     0.0012941
+GE 0
+
+EX 0	1	1	0	1	0
+GN 2	0	0	0	13	5.e-3
+FR 0	1	0	0	freq
+EN

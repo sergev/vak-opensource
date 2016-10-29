@@ -1,0 +1,26 @@
+CM Quarter-Wave Sloper + Tower + Beam, by K6STI
+CM Converted with 4nec2 on 22-apr-02
+CM Don't mind the strange height notation (ft/in), this
+CM is to compensate for the overall scaling factor 'inch'
+CE
+GW	1	5	-135	0	60ft/in	-9		0	60ft/in	2
+'GW	2	5	-9	0	60ft/in	0		0	60ft/in	2
+GW	2	1	-9	0	60ft/in	0		0	60ft/in	2
+GW	3	5	0	0	60ft/in	135		0	60ft/in	2
+GW	4	3	-135	-207	60ft/in	-135		0	60ft/in	1
+GW	5	3	-135	0	60ft/in	-135		207	60ft/in	1
+GW	6	6	-9	-199	60ft/in	-9		0	60ft/in	1
+GW	7	6	-9	0	60ft/in	-9		199	60ft/in	1
+GW	8	3	135	-186	60ft/in	135		0	60ft/in	1
+GW	9	3	135	0	60ft/in	135		186	60ft/in	1
+GW	10	1	0	0	60ft/in	0		0	56ft/in	6
+GW	11	5	0	0	56ft/in	0		0	0	12
+GW	12	7	0	0	56ft/in	46.5ft/in	0	3ft/in	#12/in
+GS	0	0	in
+GE	1
+EX	0	12	1	00	1.0	0.0
+'
+GN	2	0	0	0	13	.005
+FR	0	1	0	0	 3.8
+EN
+

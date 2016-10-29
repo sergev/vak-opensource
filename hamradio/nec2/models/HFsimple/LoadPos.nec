@@ -1,0 +1,20 @@
+CM 7.15 MHz Dipole, 1/4 WL Long
+CM Example of accurate load placement.
+CE
+sy Ld=99.5, Le=Ld+13.6
+sy Len=206.34
+GW 1 20 0 -Len 0 0 -Le 0 0.064252
+GW 2 3  0 -Le  0 0 -Ld 0 0.064252	' 3 segment load wire
+GW 3 45 0 -Ld  0 0 Ld  0 0.064252
+GW 4 3  0 Ld   0 0 Le  0 0.064252	' 3 segment load wire
+GW 5 20 0 Le   0 0 Len 0 0.064252
+GS 0 0 .02540
+GE 0
+EX 0 3 23 0 1 0
+
+SY jX=+833		
+LD 4 2 2 2 0 jX
+LD 4 4 2 2 0 jX
+
+FR 0 1 0 0 7.15 1
+EN

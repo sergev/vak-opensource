@@ -1,0 +1,33 @@
+CM NEC Input File Panel_2x2 for 2442 MHz, Pow 20020706 |
+CM Frequency range 2412..2472 MHz                      |
+CM   + 14 dBi gain, f/b ratio 18 dB                    |
+CM   + 40 deg horiz, 30 deg vertical 3 dB beamwidth    |
+CM   + SWR < 1.3                                       |
+CM All data in wavelengths. Scaled to meters with GS   |
+CM ----------------------------[ http://pow.za.net/ ]--'
+CE
+SY  W=.006          ' Wire radius
+SY Rx=1.5/2, Rnx=5  ' Reflector width / 2
+SY Ry=1.5/2, Rny=5  ' Reflector height / 2
+SY Dl=.25           ' Dipole arm length
+SY Dh=.22           ' Dipole height over reflector
+SY Dx=.38           ' Distance between left and right dipole / 2
+SY Dy=.38           ' Distance between top and bottom dipole centers / 2
+GW 1 1 Dh 0. W Dh 0. -W W
+GW 2 31 Dh Dx -Dl-Dy Dh Dx Dl-Dy W
+GW 3 31 Dh -Dx -Dl-Dy Dh -Dx Dl-Dy W
+GW 4 31 Dh Dx -Dl+Dy Dh Dx Dl+Dy W
+GW 5 31 Dh -Dx -Dl+Dy Dh -Dx Dl+Dy W
+SM Rnx*2 Rny*2 0. -Rx -Ry 0. Rx -Ry
+SC 0 0 0. Rx Ry
+GS 0 0 300.0/2442.0
+GE 0
+TL 1 1 2 16 50. 0. 0. 0. 0. 0.
+TL 1 1 3 16 50. 0. 0. 0. 0. 0.
+TL 1 1 4 16 50. 0. 0. 0. 0. 0.
+TL 1 1 5 16 50. 0. 0. 0. 0. 0.
+EX 0 1 1 0 1. 0
+FR 0 1 0 0 2442. 0
+RP 0 73 73 1001 -90. 90. 5. 5. 10000.
+EN
+

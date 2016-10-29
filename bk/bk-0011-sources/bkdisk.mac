@@ -1,0 +1,776 @@
+.Mcall	.Module
+.Module	BKDSK,Release=X02, Version=07, Comment=<BK0011 Floppy-Disk Handler>
+;
+;			Copyright (c) 1986,1987 by
+;	C-11 Special Interest Group, Leningrad State University.
+;			 All rights reserved.
+;
+; This software is furnished under a license and may be used and  copied
+; only  in  accordance  with  the  terms  of  such  license and with the
+; inclusion of the above copyright notice.  This software or  any  other
+; copies  thereof may not be provided or otherwise made available to any
+; other person.  No title to and ownership of  the  software  is  hereby
+; transfered.
+;
+; The information in this software is subject to change without notice
+; and should not be construed as a commitment by C-11 group.
+;
+; C-11 assumes no responsibility for the use or reliability of its
+; software on equipment which is not submitted by C-11.
+;
+ .Include "BKHEAD"
+.Globl	SavRg,	RetEmt,	GetUWD,	PutUWD,	UsrSav,PrePare,SelTbl,AdrSel
+.Globl	Window
+.Iif NDF MY6021, MY6021=1
+.SbTtl	MY-Compatible Mini floppy disk Handler Request Block
+;
+;	  for Read/Write
+;	+-------+-------+
+;	!Sid,Un.!   0	! 0	Operation Code=0
+;	+-------+-------+
+;	! Track ! Sector! 2
+;	+-------+-------+
+;	! Memory Address! 4	User Buffer Address
+;	+-------+-------+
+;	! Pag1  ! Pag0  ! 6	Page No ( Upper wind, Lower wind. 
+;	+-------+-------+		   < 0==>Current)
+;	! Length (Bytes)! 10	Buffer Length (WORDS!!)
+;	+---------------+
+;
+;
+;	 for Parameter Setting
+;	+-------+-------+
+;	!Par No	!  1	! 0
+;	+-------+-------+
+;	!   Par Value	! 2
+;	+---------------+
+;
+;
+;	 for Formatting
+;	+-------+-------+
+;	!Sid,Un.!  123	! 0
+;	+-------+-------+
+;	! Track	!  	! 2
+;	+---------------+
+;
+;
+ArgLng	=	12/2	;Word Counter of Arg Block
+;
+; CODE is the operation code:
+;
+ReWrit	=	0	;Read or Write
+PrmSet	=	1	;Parameter Setting
+Format	=	123	;Format Track
+MYInit	=	377	;Initialize Handler
+;
+;Error Codes returns in ErrByt as:
+;
+$.WlCC	=	1		;Write lock or data CRC Error
+$.CcId	=	2		;Id CrC Error
+$.Nhom	=	3		;Home Error
+$.Seek	=	4		;Seek Error
+$.Snfn	=	5		;Sector not found
+$.Stop	=	6		;No Disk Motion
+$.Tr4	=	7		;NonExistent RAM error
+$.NfAM	=	10		;Address Mark not found
+$.NfDM	=	11		;Data Mark not found
+$.Nstd	=	12		;Non-Standard disk format 
+
+ .SbTtl	Minifloppy Controller (1801WP1-097) Registers
+Csr097	=	177130		;State Register
+Dat097	=	177132		;Data Register
+;
+;Read  ==> Write Off
+;Write ==> Write ON
+;
+;
+;Csr Bit Masks
+;
+;Write only
+;
+DS0	=	1		;Device Select Bits
+DS1	=	2		;
+DS2	=	4		;
+DS3	=	10		;
+Msw	=	20		;Motor On switch
+USide	=	40		;Upper Disk Side
+Dir	=	100		;Step Direction (0 ==> Inside)
+Step	=	200		;Step
+GoR	=	400		;Go Reading Process (Clear Sh. Reg and
+				;wait for index mark
+WM	=	1000		;Write Index Mark
+Rez	=	2000		;Compensation switching
+;
+;Read Only
+;
+Tr0	=	1		;Track 0 (Home)
+Rdy	=	2		;Ready (Not Used)
+Wrp	=	4		;Write Protect
+Drdy	=	200		;Data Ready
+CRC	=	40000		;Crc Error
+Ind	=	100000		;Indeks Mark
+;
+.SbTtl	Disk Format Constants
+$4E4E	=	047116		;Gap Code
+$A1A1	=	120641		;Mark Data
+$A1FB	=	120773		;Normal data mark
+$FBA1	=	175641
+$A1F8	=	120770		;Deleted data mark
+$F8A1	=	174241
+$FEA1	=	177241		;Sector id mark
+$A1FE	=	120776
+SecLen	=	400
+Gap3	=	18.		;Gap3 Length
+Gap4	=	84.		;Gap4 Length
+MaxSec	=	10.		;Max Sector No
+ .SbTtl	Floppy-Handler initialization
+.Psect	$Code
+.Enabl	LSB
+RXini::
+	Clr	GmdFlg
+	Mov	@#Vec4,Ini4S
+	Mov	#Ini4V,@#Vec4
+	Clr	@#Csr097	;
+	Call	StpAll		;Stop all units
+	Br	10$
+Ini4V:	Mov	#-1,GmdFlg
+	Cmp	(SP)+,(SP)+
+10$:	Mov	Ini4S,@#Vec4	;Restore vector
+	Mov	#TrkTab,R0	;Forget all Track Numbers
+	Mov	#-1,(R0)+
+	Mov	#-1,(R0)+
+.If EQ MY6021
+	Mov	#6240.,TimUp		;Head Up Time for 6121
+	Mov	#700.,TimTrk		;Track to track = 
+	MovB	#80.,TrkCor		;No Correction Switching
+.IfF
+	Mov	#10000.,TimUp		;Head Up = 
+	Mov	#5000.,TimTrk		;Track to Track = 
+	MovB	#24.,TrkCor		;Correction at track 24.
+.EndC
+	Ror	GmdFlg		;No disk ==> C=1
+	Return
+.Dsabl	LSB
+.Save
+.Psect	$RAM
+GmdFlg:	.BlkW
+Ini4S:	.BlkW
+.Restor
+
+.SbTtl	Routine to Dismount All Units, Stop Motor
+StpAll:	Tst	GmdFlg
+	Bne	10$
+	Clr	CsrW			;Clear All Units
+	Mov	CsrW,@#Csr097		;
+	Tst	@#Dat097		;Disable Writing
+10$:	Return
+  .Psect	$CodOvr
+BootRX::
+	Mov	#Btab,R1
+	Bic	#^C3,R0			;Unit No
+	Swab	R0
+	Mov	R0,(R1)+		;Unit No, Side
+	Mov	#1,(R1)+
+	Mov	#1000,(R1)+		;Address
+	Mov	#-1,(R1)+		;Pages
+	Mov	#400,(R1)+		;400 Words
+	.Bdisk	#Btab
+	Bcs	10$
+	Cmp	@#1000,#240
+	Bne	10$
+	Call	@#1000
+	Sec
+10$:	Return
+Btab	==	2000
+.SbTtl	$BDisk (EMT 70) Routine (Floppy-Disk Request)
+.Psect	$CodOvr
+$Bdisk::
+	Jsr	R0,SavRg	;Save Registers
+	ClrB	ErrFlg		;Error flag
+	ClrB	@#ErrByt	;Clear Error code
+	Mov	@#Vec4,Sav4	;Save Vector 4
+	Mov	#DskV4,@#Vec4	;And Set Temporary Vector
+	Mov	SP,SPSave	;Save stack pointer value
+	Tst	GmdFlg
+	Bne	IllCmd		;No disk controller
+	Mov	#ArgLng,R1	;Byte Counter of Arg Block
+	Mov	#Code,R2	;System Working Area for handler
+	Mov	R0,R5		;Argument Block Address
+10$:	Call	GetUWd
+	Mov	R0,(R2)+	;Move Arg Block to System Area
+	Sob	R1,10$
+	MovB	Code,R0		;Command Code
+	Mov	#TabFnc,R1
+20$:	Mov	(R1)+,R2
+	Tst	@R1
+	Beq	IllCmd
+	CmpB	R0,R2
+	Beq	30$
+	Tst	(R1)+
+	Br	20$
+30$:	Call	@(R1)+
+	Jmp	Exit
+
+.Save
+.Psect	$CnsOvr
+TabFnc:	.Word	ReWrit,	$Rewr,	PrmSet,	$Prmt,	Format,	$Frmt
+	.Word	MYInit,	RXIni,	0,	0
+.Restore
+
+IllCmd:	Clr	R0		;Error 0
+	Jmp	ErrExt		;Illegal Command
+.SbTtl	Parameter Setting Command
+$Prmt:	MovB	Code+1,R0
+	Asl	R0
+	Cmp	R0,#MaxPrm
+	Bhi	IllCmd
+	Tst	Code+2
+	Beq	IllCmd
+	Mov	Code+2,@PrmTab(R0)	;Set Parameter
+	Return
+ .Psect	$Code
+DskV4:	MovB	#$.Tr4,R0	;Set Error Code
+ErrExt:	MovB	#-1,ErrFlg
+	Mov	@#$$SysS,@#Sel1	;
+	Mov	SPSave,SP	;Restore Stack Pointer
+	MovB	R0,@#ErrByt
+Exit:	Call	StpAll		;Stop all Units
+	Mov	Sav4,@#Vec4	;Restore Vestor 4
+	RorB	ErrFlg
+	Jmp	RetEmt
+ .SbTtl	Track Formatting
+.Psect	$CodOvr
+$Frmt:	Call	SelUni			;Select Unit Desired
+	Call	Seek			;Seek track
+	Call	SetDev			;Set Correction
+	Bit	#Wrp,@R4		;Write protection ?
+	Beq	20$			;No
+	Mov	#$.WlCC,R0		;Yes, Set Error Code
+10$:	Jmp	ErrExt
+20$:	Swab	SidTrk		;Side*400+Track;Prepare Code for Write
+30$:	MovB	#MaxSec,R3			;Sector Counter No
+	Mov	#2*400+1,R2		;Sect No, Length code
+	Clr	R0
+40$:	Tst	@R4			;Index ?
+	Bpl	60$			;No
+	Sob	R0,40$			;Sometime wait
+;Index hole too large or no index -- No disk Motion
+50$:	Tst	@R5			;Reset Writing
+	Mov	#$.Stop,R0
+	Br	10$			;And exit
+;Write not Index Zone By 4E4E (Hex)
+60$:	Clr	R0			;Write track by 4E4E
+	Mov	#$4E4E,@R5
+70$:	Tst	@R4			;Index ?
+	Bmi	90$			;Yes
+80$:	TstB	@R4			;Wait for Ready
+	Bpl	80$
+	Mov	#$4E4E,@R5		;And write data
+	Sob	R0,70$			;Check for finitivity
+	Br	50$			;Track too long
+90$:	Mov	#16.,R0			;Index Founded, Write 32* "4E"
+	Mov	#$FEA1,DatTyp		;Marker  = Address mark
+FrmSec:	Call	WrtId			;Write 4E4E and Mark
+10$:	TstB	@R4			;Wait for Ready
+	Bpl	10$
+	Mov	SidTrk,@R5		;Write Track No, Side
+	Mov	CsrW,@R4		;Clear WM bit
+20$:	TstB	@R4			;Wait for Ready
+	Bpl	20$
+	Mov	R2,@R5			;Sector No, Length code
+	Mov	#11.,R0			;Gap Length
+	Mov	#$FBA1,DatTyp		;
+30$:	Bit	#CRC,@R4		;Wait for CRC writing
+	Beq	30$
+	Call	WrtId			;Write gap and data mark
+	Mov	#SecLen-1,R0		;Sector Length
+40$:	TstB	@R4
+	Bpl	40$
+	Mov	#"@@,@R5		;Write sector with filler
+	Mov	CsrW,@R4
+50$:	TstB	@R4
+	Bpl	50$
+	Mov	#"@@,@R5
+	Sob	R0,50$
+	Inc	R2			;Next sec
+	Mov	#Gap3,R0		;Gap Length
+	Mov	#$FEA1,DatTyp		;Data code
+60$:	Bit	#CRC,@R4		;Write CRC
+	Beq	60$
+	Sob	R3,FrmSec		;Count Sectors
+Efrmt:	TstB	@R4			;End of Track Writing
+	Bpl	Efrmt
+	Mov	#$4E4E,@R5		;Write 4E4E
+	Tst	@R4			;Index ?
+	Bpl	Efrmt			;No, write Again
+	Mov	#5,R0			;Write 5*4E4E
+10$:	TstB	@R4
+	Bpl	10$
+	Mov	#$4E4E,@R5
+	Sob	R0,10$
+	Tst	@R5			;Set writing OFF
+Retu:	Return				;and exit
+ .SbTtl	Read/write Processing
+$ReWr:	Mov	#20.,Retry		;Retry Counter
+	ClrB	WrtFlg		;Write flag
+	TstB	Sectr		;Sector Number
+	Beq	Nstd
+	CmpB	Sectr,#MaxSec
+	Bhi	Nstd
+	Tst	Wcnt
+	Beq	Retu		;Nothing to read/write
+	Bpl	10$		;Read
+	Neg	Wcnt
+	IncB	WrtFlg		;Set Write Flag
+	Mov	#$FBA1,DatTyp	;Normal Data mark
+10$:	Mov	Address,R1		;User Bus Address
+	Mov	Wcnt,R2			;Word to Byte Counter
+	Asl	R2
+	Mov	SelS,R5		;Sel Address
+	Call	Prepare
+	Bcc	20$
+	Mov	#13,R0		;$.Tr4,R0
+	Br	Err2
+20$:	Mov	Address,R2
+	Bic	#140000,R2
+	Mov	#SelTbl+2,AdrSel
+	Call	SelUni		;Select Unit
+	TstB	WrtFlg
+	Beq	30$
+	Bit	#Wrp,@R4	;Write Protected ?
+	Beq	30$		;No
+	Mov	#$.WlCC,R0	;Write Lock Error
+	Br	Err2
+30$:	Call	Seek			;Seek Track
+	Call	SetDev			;Set Unit Parameters
+ .SbTtl	Sector Id Get Routine
+	MovB	#$.NfAM,Flags		;Prepare Diag
+40$:	Call	SearAm			;Search for Address Mark
+	Bcc	50$			;OK
+	MovB	Flags,R0		;AM Not Found (Turns...)
+	Br	Err2
+50$:	Call	TwoWrd			;Read two words of header
+	Call	CrcChk			;Check Crc
+	Bne	60$
+	MovB	#$.CcId,Flags
+	Br	40$			;CRC Error
+60$:	Bic	#^C3,R1			;Sector Length Code
+	CmpB	R1,#2			;Normal
+	Bne	Nstd
+	Jmp	ReaCom			;No, Error
+Nstd:	Mov	#$.Nstd,R0		;Non Standard Format
+Err2:	Jmp	ErrExt
+
+ .SbTtl	Track Seting done, Format Checked
+.Psect	$Code
+ReaCom:
+10$:
+;
+;;;;	Mov	#20.,Retry
+;
+	Cmp	Wcnt,#SecLen		;Sector Length
+	Blo	20$			;Single-Sector operation
+	Clr	SkpCnt			;More then one Sector
+	Br	30$
+20$:	Mov	#SecLen,SkpCnt		;Set Counter for
+	Sub	Wcnt,SkpCnt		;Data words to skip
+30$:	Call	SearAM			;Address Mark Search
+	Bcc	40$
+35$:	Dec	Retry
+	Bpl	30$			;Retry once more
+	Mov	#$.SnFn,R0
+	Br	ErrExt
+40$:	TstB	@R4			;Wait for Data Ready
+	Bpl	40$
+	Cmp	SidTrk,@R5		;It's needed track/Side ?
+	Beq	50$			;Side+<Track*400>
+	MovB	#-1,@CurTrk
+	Br	35$			;No, Again
+50$:	TstB	@R4			;Wait for data ready
+	Bpl	50$
+	Mov	@R5,R1			;Get Sector Number, Length
+	Swab	R1
+	CmpB	Sectr,R1		;Compare sector No
+	Bne	30$			;Not Equal, Once more
+	Mov	#SecLen,R1		;Length word to skip
+	Sub	SkpCnt,R1		;Words to read
+	Call	CrcChk			;Check for legal CRC
+	Bne	SecPrc			;OK, Process sector
+	Mov	#$.CcId,R0		;Id CRC Error
+	Br	ErrExt
+ .SbTtl	Sector Procesing Routine
+SecPRC:	Mov	@AdrSel,@#Sel1
+	TstB	WrtFlg			;Write ?
+	Bne	WRICom			;Yes
+.SbTtl	Read Sector Routine
+	Call	RdZero			;No, Search for Zero
+	TstB	ErrCnt			;Founded
+	Beq	20$			;No, Error - No data mark
+	Call	StrtRd			;Set Go Reading
+	Mov	#200.,R0
+10$:	TstB	@R4			;Wait for data Ready
+	Bmi	30$
+	Sob	R0,10$
+20$:	Mov	#$.NfDM,R0		;Data mark not found
+	Br	ErrExt
+30$:	Tst	@R5			;Skip A1A1 data
+40$:	TstB	@R4			;Wait for data ready
+	Bpl	40$
+	Mov	@R5,R0			;Data mark
+	Cmp	#$A1FB,R0		;Normal ?
+	Beq	50$			;Yes
+	Cmp	#$A1F8,R0		;Deleted data ?
+	Bne	20$			;No, Error
+50$:	Call	ReaWrd			;Read Word to User Buffer
+	Call	CrcChk			;Check CRC
+	Bne	ChkAll			;OK
+	Mov	#$.WlCC,R0		;Data CRC Error
+	Br	ErrExt			;
+
+.SbTtl	Multi-Sector Operations
+ChkAll:	Mov	@#$$SysS,@#Sel1
+	Sub	#SecLen,Wcnt		;All data processed ?
+	Bhi	NxtSec			;No, Process next Sector
+	ClrB	ErrByt
+	Return				;Yes, Exit
+NxtSec:	IncB	Sectr			;Next Sect No
+	CmpB	Sectr,#MaxSec		;Next Track ?
+	Blos	30$			;no
+	Bit	#USide,CsrW		;Upper side ?
+	Bne	10$			;Yes
+	IncB	SidTrk			;No, Skip to upper side 
+	Bis	#USide,CsrW		;Reset Side Flag
+	MovB	#20.,Turns		;Max Turn Number
+	Br	20$			;Side+<Track*400>
+10$:	Bic	#USide,CsrW		;Reset Side Flag
+	IncB	Track			;Go next Track
+	Call	Seek			;Seek Track
+	MovB	Track,SidTrk+1		;
+	ClrB	SidTrk			;Clear Side flag
+20$:	MovB	#1,Sectr		;Sector = 1
+	Call	SetDev			;Set Correction
+30$:	Jmp	ReaCom
+ .SbTtl	Write Commands processing
+WRICom:	Mov	#11.,R0			;"4E4E" Counter
+	Call	WrtId			;Write Data Id Mark
+	Call	WriUwd			;Write User Word
+	Mov	CsrW,@R4		;Command code
+	Dec	R1			;Loop Counter for Sector
+	Beq	20$			;
+10$:	Call	WriUwd
+	Sob	R1,10$			;and Loop
+
+.SbTtl	Sector end Zero filling
+20$:	Mov	SkpCnt,R1		;Filling Space Counter
+	Beq	40$			;No Filling
+30$:	TstB	@R4			;Write a word of Zero
+	Bpl	30$			;
+	Mov	#0,@R5			;
+	Sob	R1,30$			;
+
+40$:	Bit	#CRC,@R4		;Wait for CRC Writing
+	Beq	40$
+	Mov	#$4E4E,@R5		;Write GAP
+50$:	TstB	@R4
+	Bpl	50$
+	Tst	@R5			;And Set Writing OFF
+	Br	ChkAll			;Check for operation Complete
+ .SbTtl	Read until Not Zero
+.Psect	$Code
+RdZero:	Tst	@R5			;Skip Data
+	MovB	#100.,ErrCnt		;Time counter
+10$:	TstB	@R4
+	Bpl	10$
+	Mov	@R5,R0			;Get Data
+	Beq	20$			;Zero, Exit
+	Inc	R0
+	Beq	20$			;Complement Zero
+	DecB	ErrCnt
+	Bne	10$			;time count
+20$:	Return
+ .SbTtl	Routine to read two disk words
+.Psect	$CodOvr
+TwoWrd:
+10$:	TstB	@R4			;Wait for Data Ready
+	Bpl	10$
+	Mov	@R5,R0			;Read data Word
+20$:	TstB	@R4
+	Bpl	20$
+	Mov	@R5,R1			;Read another word
+	Return
+ .SbTtl	Address Mark Search Routine
+.Psect	$Code
+SearAm:	Mov	#15.,R0			;Time counter
+10$:	Tst	@R5			;Clear Data
+	Sob	R0,10$			;timeout
+.SbTtl	Initial Zero skiping (not index)
+	Clr	R1			;Index Flag
+	Clr	IndTim			;Time of Index
+	Clr	Index
+.SbTtl	Check for Data
+20$:	Call	ChkInd
+	Bcs	100$
+	Beq	20$			;Zero, skip it
+	Com	R0
+	Beq	20$			;---"----"-----
+30$:	Call	ChkInd
+	Bcs	100$
+	Beq	40$
+	Com	R0
+	Bne	30$
+.SbTtl	Real Adress mark Checking
+40$:	MovB	#3,ErrCnt		;Retry Counter
+50$:	Mov	@R5,R0			;Data = Zero ?
+	Beq	60$			;Yes, 
+	Com	R0			;Inverted Zero ?
+	Bne	20$			;No
+60$:	DecB	ErrCnt			;Yes, Wait once more
+	Bne	50$
+	Call	StrtRd			;Set GoR
+	Mov	#20.,R0
+70$:	TstB	@R4			;Wait for Data ready
+	Bmi	80$			;Ready
+	Sob	R0,70$			;Not Ready, Timeout
+	Br	20$
+80$:	Tst	@R5			;Skip Data
+90$:	TstB	@R4			;Wait for data ready
+	Bpl	90$
+	Cmp	#$A1FE,@R5		;Is it Address mark ?
+	Bne	20$			;No, Repeat once more all program
+	ClC
+100$:	Return
+
+.SbTtl	Check for Index
+ChkInd:	Mov	Index,R1
+	Mov	@R4,R0			;Index ?
+	Bpl	Ind0		;It's No Index
+;It's Index
+	Tst	Index
+	Bne	Ind11
+Ind01:
+	Clr	IndTim		;Time of Index
+	Mov	@PC,Index
+	DecB	Turns
+	Bne	ExChk
+	Sec
+	Return
+
+ExChk:	ClC
+	Mov	@R5,R0
+	Return
+
+Ind0:	Tst	Index
+	Beq	Ind00
+Ind10:	Clr	IndTim
+	Clr	Index
+	Br	ExChk
+;Old Index
+Ind00:
+Ind11:	Inc	IndTim
+	Cmp	IndTim,#65500.
+	Blos	ExChk
+	Mov	#$.Stop,R0
+	Jmp	ErrExt
+
+ .SbTtl	INTERNAL PROCEDURES
+.SbTtl	Check CRC-Bit
+CrcChk:	MovB	#15.,ErrCnt
+10$:	Bit	#CRC,@R4		;CRC OK ?
+	Bne	20$			;Yes
+	DecB	ErrCnt			;No, Wait
+	Bne	10$			;Exit on time-Out
+20$:	Return
+
+.SbTtl	(R0)* "4E4E", 6*"0000","A1A1",Dattyp Writing Routine
+WrtId:	Mov	#$4E4E,@R5	;Write 4E4E
+10$:	TstB	@R4
+	Bpl	10$
+	Mov	#$4E4E,@R5	;.....
+	Sob	R0,10$		;Write R0 Times
+	Mov	#6.,R0
+20$:	TstB	@R4
+	Bpl	20$
+	Mov	#0000,@R5	;Write Zeroes
+	Sob	R0,20$
+	Bis	#WM,CsrW	;Write Mark
+30$:	TstB	@R4
+	Bpl	30$
+	Mov	#$A1A1,@R5
+	Mov	CsrW,@R4
+	Bic	#WM,CsrW	;Prepare for MW clearing
+40$:	TstB	@R4
+	Bpl	40$
+	Mov	DatTyp,@R5	;Write mark
+	Return
+ .SbTtl	Start of Read Sequence
+StrtRd:	Bis	#GoR,CsrW		;Set and Clear GoR
+	Mov	CsrW,@R4		;Set..
+	Bic	#GoR,CsrW
+	Mov	#8.,R0
+	Sob	R0,.
+	Mov	CsrW,@R4		;Clear..
+	Return
+ .SbTtl	Read Disk Word, Write to User
+ReaWrd:
+10$:	TstB	@R4			;Wait for data
+	Bpl	10$
+	Mov	@R5,R0			;Get Disk Word
+	Swab	R0
+	Mov	R0,Window(R2)
+	Tst	(R2)+			;and store it
+	Bit	#140000,R2		;Check Window Address
+	Beq	20$
+	Add	#2,AdrSel
+	Bic	#140000,R2
+	Mov	@AdrSel,@#Sel1
+20$:	Sob	R1,10$			;Loop until all done
+	Mov	SkpCnt,R1
+	Beq	40$
+30$:	TstB	@R4			;Skip sector Rest
+	Bpl	30$
+	Tst	@R5
+	Sob	R1,30$
+40$:	Return
+.SbTtl	Read User Word, Write to Disk
+WriUwd:	
+10$:	TstB	@R4			;Wait for data
+	Bpl	10$
+	Mov	Window(R2),@R5		;Get User Word
+	Tst	(R2)+
+	Bit	#140000,R2		;Check Window Address
+	Beq	20$
+	Add	#2,AdrSel
+	Bic	#140000,R2
+	Mov	@AdrSel,@#Sel1
+20$:	Return
+ .SbTtl	Track Seek Routine
+.Psect	$CodOvr
+Seek:	
+.Enabl	LSB
+	TstB	Track		;Home ?
+	Beq	Home
+	TstB	@CurTrk		;Known Track ?
+	Bpl	10$		;Yes
+	Call	Home		;No, Home
+10$:	CmpB	@CurTrk,Track	;Where are we ?
+	Beq	30$		;It's OK
+	Bhi	20$		;We are at the center
+	Call	PlStep		;
+	Br	10$
+20$:	Call	MiStep		;Issue step
+	Br	10$
+30$:	Mov	#10000.,R0	;Time-Out
+	Sob	R0,.
+Seek1:	MovB	#20.,Turns	;Max Turn Number
+	Return
+
+.SbTtl	Step Routines
+PlStep:	IncB	@CurTrk		;Forward step
+	Bmi	40$
+	Bit	#Dir,CsrW
+	Bne	KwkStp
+	Bis	#Dir,CsrW
+	Br	Lstp
+40$:	Mov	#$.Seek,R0
+	Jmp	ErrExt
+
+MiStep:	DecB	@CurTrk
+	Bit	#Tr0,@R4
+	Beq	50$
+	ClrB	@CurTrk
+	Return
+50$:	Bit	#Dir,CsrW
+	Beq	KwkStp
+	Bic	#Dir,CsrW
+LStp:	Mov	#200.,R0
+	Br	60$
+KwkStp:	Mov	#1,R0
+60$:	Mov	CsrW,@R4
+	Sob	R0,.
+	Bis	#Step,CsrW
+	Mov	CsrW,@R4
+	Mov	TimTrk,R0
+	Bic	#Step,CsrW
+	Sob	R0,.
+	Return
+.Dsabl	LSB
+
+.SbTtl	Home Routine
+Home:	MovB	#128.,@CurTrk
+10$:	Call	MiStep		;Backward step
+	Bit	#Tr0,@R4	;We are home ?
+	Bne	20$		;Yes, OK
+	TstB	@CurTrk		;No, Step
+	Bne	10$
+	Mov	#$.NHom,R0	;No Home
+	Jmp	ErrExt
+20$:	ClrB	@CurTrk
+	Br	Seek1
+ .SbTtl	Unit Setting and Head Moving Routine
+SetDev:	CmpB	TrkCor,@CurTrk		;Correction switching needed ?
+	Bhi	10$
+	Bis	#Rez,CsrW		;Yes
+	Br	20$
+10$:	Bic	#Rez,CsrW
+20$:	Mov	CsrW,@R4
+	Return
+ .SbTtl	Unit and Side Select Routine
+SelUni:	Mov	#Csr097,R4
+	Clr	SidTrk			;Side+<Track*400>
+	Mov	R4,R5
+	Tst	(R5)+			;Pointer to Dat097
+	Bic	#<Uside+Ds0+Ds1+Ds2+Ds3>,CsrW	;Clear unit, side bits
+	MovB	Code+1,R1		;Unit,Side
+	Bit	#4,R1			;Upper Side ?
+	Beq	10$			;No
+	Bis	#USide,CsrW		;Yes, Upper Side
+	Mov	#1,SidTrk		;Set Side at SidTrk
+10$:	Bic	#^C3,R1			;Unit No
+20$:	Bis	#Msw,CsrW		;Set Motor On
+	Mov	CsrW,@R4		;
+	Clr	R0
+	Sob	R0,.
+	Sob	R0,.			;Wait for Motor On
+	BisB	SelTAB(R1),CsrW		;Setup New Unit bits
+	Mov	CsrW,@R4		;And set Unit On
+	Add	#TrkTab,R1		;Track Table Offset ??
+	Mov	R1,CurTrk		;And store in CurTrk
+30$:	Mov	TimUp,R0		;Wait for Head Down
+	Sob	R0,.
+	MovB	Track,SidTrk+1
+	Return
+ .Psect	$CnsOvr
+SelTab:	.Byte	Ds0,Ds1,Ds2,Ds3
+PrmTab:	.Word	TimTrk,TimUp,TrkCor
+	Maxprm=.-PrmTab-2
+
+.Psect	$RAM
+Sav4:	.BlkW
+SPSave:	.BlkW
+CsrW:	.BlkW			;Csr097 Write only Copy
+TimUp:	.BlkW			;;Head Up Time
+TimTrk:	.BlkW			;Track ot track Time
+TrkCor:	.BlkB			;Correction switching track
+ErrFlg:	.BlkB			;Error Flag (For C-bit)
+CurTrk:	.BlkW			;Current Track Pointer
+TrkTab:	.BlkB	4		;Current Tracks for Units
+DatTyp:	.BlkW			;Id Data
+SidTrk:	.BlkW			;Side+<Track*400>
+TrnNum:	.BlkW
+ErrCnt:	.BlkB			;Temporary Error Counter
+WrtFlg:	.BlkB			;Write Commands flag
+IndTim:	.BlkW
+SkpCnt:	.BlkW			;Words to skip Counter
+Turns:	.BlkB
+Flags:	.BlkB
+Index:	.BlkW
+Retry:	.BlkW
+
+Code:	.BlkB
+	.BlkB
+Sectr:	.BlkB
+Track:	.BlkB
+AddRess:.BlkW
+SelS:	.BlkW
+Wcnt:	.BlkW
+.End

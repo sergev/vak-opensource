@@ -1,0 +1,26 @@
+[*]
+[*] GTKWave Analyzer v3.3.58 (w)1999-2014 BSI
+[*] Tue Oct 21 01:55:57 2014
+[*]
+[timestart] 0
+[size] 1280 713
+[pos] -785 -300
+*-7.776611 150 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_width] 235
+[signals_width] 94
+[sst_expanded] 1
+[sst_vpaned_height] 198
+@90028
+SystemC_AMS.force
+@20000
+-
+@90028
+SystemC_AMS.position
+@20000
+-
+@90028
+SystemC_AMS.velocity
+@20000
+-
+[pattern_trace] 1
+[pattern_trace] 0

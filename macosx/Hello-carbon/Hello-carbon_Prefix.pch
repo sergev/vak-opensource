@@ -1,0 +1,5 @@
+//
+// Prefix header for all source files of the 'Hello-carbon' target in the 'Hello-carbon' project.
+//
+
+#include <Carbon/Carbon.h>

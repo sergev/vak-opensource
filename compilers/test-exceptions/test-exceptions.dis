@@ -1,0 +1,313 @@
+
+test-exceptions.out:     file format elf32-littlemips
+
+
+Disassembly of section .text:
+
+bfc00000 <__bss_start+0x7c00000>:
+
+#---------------------------------------
+# Начало по адресу 0xBFC00000
+#
+		.org	0
+		la	$v0, CA_IV		# используется спец.вектор 0x200
+bfc00000:	3c020080 	lui	v0,0x80
+		mtc0	$v0, C0_CAUSE
+bfc00004:	40826800 	mtc0	v0,c0_cause
+
+		la	$v0, ST_BEV | ST_CU0 | ST_CU1
+bfc00008:	3c023040 	lui	v0,0x3040
+		mtc0	$v0, C0_STATUS		# векторы в ПЗУ, разрешение FPU
+bfc0000c:	40826000 	mtc0	v0,c0_status
+
+		li	$v0, 2			# запрещаем кэширование сегмента kseg0
+bfc00010:	24020002 	li	v0,2
+		mtc0	$v0, C0_CONFIG
+bfc00014:	40828000 	mtc0	v0,c0_config
+
+		li	$v0, 0			# обнуляем FCSR
+bfc00018:	24020000 	li	v0,0
+		ctc1    $v0, C1_FCSR
+bfc0001c:	44c2f800 	ctc1	v0,$31
+
+		la	$v1, MC_CSR		# регистр CSR, умножаем частоту на 6
+bfc00020:	3c03b82f 	lui	v1,0xb82f
+bfc00024:	34634008 	ori	v1,v1,0x4008
+		la	$v0, 0x00010061
+bfc00028:	3c020001 	lui	v0,0x1
+bfc0002c:	34420061 	ori	v0,v0,0x61
+		sw	$v0, ($v1)
+bfc00030:	ac620000 	sw	v0,0(v1)
+
+		la	$v1, MC_CSCON0		# регистр CSCON0
+bfc00034:	3c03b82f 	lui	v1,0xb82f
+bfc00038:	34631000 	ori	v1,v1,0x1000
+		la	$v0, MC_CSCON_E | \
+bfc0003c:	3c0200b0 	lui	v0,0xb0
+bfc00040:	344200f8 	ori	v0,v0,0xf8
+				MC_CSCON_WS (0) | \
+				MC_CSCON_T | \
+				MC_CSCON_W64 | \
+				MC_CSCON_CSBA (0x00000000) | \
+				MC_CSCON_CSMASK (0xF8000000)
+		sw	$v0, ($v1)
+bfc00044:	ac620000 	sw	v0,0(v1)
+
+		la	$v1, MC_CSCON1		# регистр CSCON1
+bfc00048:	3c03b82f 	lui	v1,0xb82f
+bfc0004c:	34631004 	ori	v1,v1,0x1004
+		la	$v0, 0
+bfc00050:	24020000 	li	v0,0
+		sw	$v0, ($v1)
+bfc00054:	ac620000 	sw	v0,0(v1)
+
+		la	$v1, MC_CSCON2		# регистр CSCON2
+bfc00058:	3c03b82f 	lui	v1,0xb82f
+bfc0005c:	34631008 	ori	v1,v1,0x1008
+		la	$v0, 0
+bfc00060:	24020000 	li	v0,0
+		sw	$v0, ($v1)
+bfc00064:	ac620000 	sw	v0,0(v1)
+
+		la	$v1, MC_CSCON3		# регистр CSCON3, 5 wait states
+bfc00068:	3c03b82f 	lui	v1,0xb82f
+bfc0006c:	3463100c 	ori	v1,v1,0x100c
+		la	$v0, MC_CSCON_WS (3)
+bfc00070:	3c020003 	lui	v0,0x3
+		sw	$v0, ($v1)
+bfc00074:	ac620000 	sw	v0,0(v1)
+
+		la	$v1, MC_CSCON4		# регистр CSCON4
+bfc00078:	3c03b82f 	lui	v1,0xb82f
+bfc0007c:	34631010 	ori	v1,v1,0x1010
+		la	$v0, 0
+bfc00080:	24020000 	li	v0,0
+		sw	$v0, ($v1)
+bfc00084:	ac620000 	sw	v0,0(v1)
+
+		la	$v1, MC_SDRCON		# регистр SDRCON
+bfc00088:	3c03b82f 	lui	v1,0xb82f
+bfc0008c:	34631014 	ori	v1,v1,0x1014
+		la	$v0, MC_SDRCON_INIT | \
+bfc00090:	3c028007 	lui	v0,0x8007
+bfc00094:	34421d50 	ori	v0,v0,0x1d50
+				MC_SDRCON_BL_PAGE | \
+				MC_SDRCON_RFR (64000000/8192, 60000) | \
+				MC_SDRCON_PS_512
+		sw	$v0, ($v1)
+bfc00098:	ac620000 	sw	v0,0(v1)
+
+		li	$2, 0			# обнуляем регистры
+bfc0009c:	24020000 	li	v0,0
+		li	$3, 0
+bfc000a0:	24030000 	li	v1,0
+		li	$4, 0
+bfc000a4:	24040000 	li	a0,0
+		li	$5, 0
+bfc000a8:	24050000 	li	a1,0
+		li	$6, 0
+bfc000ac:	24060000 	li	a2,0
+		li	$7, 0
+bfc000b0:	24070000 	li	a3,0
+		li	$8, 0
+bfc000b4:	24080000 	li	t0,0
+		li	$9, 0
+bfc000b8:	24090000 	li	t1,0
+		li	$10, 0
+bfc000bc:	240a0000 	li	t2,0
+		li	$11, 0
+bfc000c0:	240b0000 	li	t3,0
+		li	$12, 0
+bfc000c4:	240c0000 	li	t4,0
+		li	$13, 0
+bfc000c8:	240d0000 	li	t5,0
+		li	$14, 0
+bfc000cc:	240e0000 	li	t6,0
+		li	$15, 0
+bfc000d0:	240f0000 	li	t7,0
+		li	$16, 0
+bfc000d4:	24100000 	li	s0,0
+		li	$17, 0
+bfc000d8:	24110000 	li	s1,0
+		li	$18, 0
+bfc000dc:	24120000 	li	s2,0
+		li	$19, 0
+bfc000e0:	24130000 	li	s3,0
+		li	$20, 0
+bfc000e4:	24140000 	li	s4,0
+		li	$21, 0
+bfc000e8:	24150000 	li	s5,0
+		li	$22, 0
+bfc000ec:	24160000 	li	s6,0
+		li	$23, 0
+bfc000f0:	24170000 	li	s7,0
+		li	$24, 0
+bfc000f4:	24180000 	li	t8,0
+		li	$25, 0
+bfc000f8:	24190000 	li	t9,0
+		li	$26, 0
+bfc000fc:	241a0000 	li	k0,0
+		li	$27, 0
+bfc00100:	241b0000 	li	k1,0
+		li	$28, 0
+bfc00104:	241c0000 	li	gp,0
+		li	$29, 0
+bfc00108:	241d0000 	li	sp,0
+		li	$30, 0
+bfc0010c:	241e0000 	li	s8,0
+		li	$31, 0
+bfc00110:	241f0000 	li	ra,0
+
+		la	$ra, start		# Чтобы gdb не ругался
+bfc00114:	3c1fbfc0 	lui	ra,0xbfc0
+bfc00118:	27ff0500 	addiu	ra,ra,1280
+
+		j	start			# Переходим к тесту
+bfc0011c:	0bf00140 	j	bfc00500 <start>
+		nop				# (слот задержки)
+bfc00120:	00000000 	nop
+	...
+
+bfc00200 <tlb_refill>:
+
+#---------------------------------------
+# Исключение TLB по адресу 0xBFC00200
+#
+		.org	0x0200
+tlb_refill:	j 	.			# не используется
+bfc00200:	0bf00080 	j	bfc00200 <tlb_refill>
+		nop				# (слот задержки)
+bfc00204:	00000000 	nop
+	...
+
+bfc00380 <exception>:
+#---------------------------------------
+# Вход в исключение по адресу 0xBFC00380
+#
+		.org	0x0380
+exception:
+		mfc0	$k0, C0_EPC
+bfc00380:	401a7000 	mfc0	k0,c0_epc
+		mfc0	$k1, C0_CAUSE
+bfc00384:	401b6800 	mfc0	k1,c0_cause
+		addi	$k0, $k0, 4		# возвращаемся на следующую команду
+bfc00388:	235a0004 	addi	k0,k0,4
+		slti	$k1, $k1, 0		# k1=1 если установлен бит BD
+bfc0038c:	2b7b0000 	slti	k1,k1,0
+		addi	$s8, $k0, 4		# пропускаем слот задержки
+bfc00390:	235e0004 	addi	s8,k0,4
+		movn	$k0, $s8, $k1		# если установлен бит BD
+bfc00394:	03dbd00b 	movn	k0,s8,k1
+		mtc0	$k0, C0_EPC
+bfc00398:	409a7000 	mtc0	k0,c0_epc
+	...
+		nop
+		nop
+		nop
+		eret				# выход из исключения
+bfc003a8:	42000018 	eret
+	...
+
+bfc00400 <interrupt>:
+
+#---------------------------------------
+# Вход в прерывание по адресу 0xBFC00400
+#
+		.org	0x0400
+interrupt:	j 	.			# не используется
+bfc00400:	0bf00100 	j	bfc00400 <interrupt>
+		nop				# (слот задержки)
+bfc00404:	00000000 	nop
+	...
+
+bfc00500 <start>:
+#---------------------------------------
+# Начало теста по адресу 0xBFC00500
+#
+		.org	0x0500
+start:
+		break	0, 1			# останавливаемся в отладчике
+bfc00500:	0000004d 	break	0x0,0x1
+		nop
+bfc00504:	00000000 	nop
+
+#
+# Тест 1: невыровненный адрес программы.
+#
+		li	$v0, 1
+bfc00508:	24020001 	li	v0,1
+		jr	$v0
+bfc0050c:	00400008 	jr	v0
+		nop				# (слот задержки)
+bfc00510:	00000000 	nop
+		nop
+bfc00514:	00000000 	nop
+bfc00518:	60000000 	0x60000000
+
+#
+# Тест 2: неверный код инструкции.
+#
+		.word	0x60000000
+		nop
+bfc0051c:	00000000 	nop
+
+#
+# Тест 3: переполнение.
+#
+		lui	$v0, 0x7777
+bfc00520:	3c027777 	lui	v0,0x7777
+		add	$v1, $v0, $v0
+bfc00524:	00421820 	add	v1,v0,v0
+		nop
+bfc00528:	00000000 	nop
+
+#
+# Тест 4: невыровненный адрес данных.
+#
+		li	$v0, 1
+bfc0052c:	24020001 	li	v0,1
+		lw	$v1, ($v0)
+bfc00530:	8c430000 	lw	v1,0(v0)
+		nop
+bfc00534:	00000000 	nop
+
+#
+# Тест 5: неверный код инструкции в слоте перехода.
+#
+		j	.+8
+bfc00538:	0bf00150 	j	bfc00540 <start+0x40>
+bfc0053c:	60000000 	0x60000000
+		.word	0x60000000
+		nop
+bfc00540:	00000000 	nop
+
+#
+# Тест 6: переполнение в слоте перехода.
+#
+		lui	$v0, 0x7777
+bfc00544:	3c027777 	lui	v0,0x7777
+		j	.+8
+bfc00548:	0bf00154 	j	bfc00550 <start+0x50>
+		add	$v1, $v0, $v0
+bfc0054c:	00421820 	add	v1,v0,v0
+		nop
+bfc00550:	00000000 	nop
+
+#
+# Тест 7: невыровненный адрес данных в слоте перехода.
+#
+		li	$v0, 1
+bfc00554:	24020001 	li	v0,1
+		j	.+8
+bfc00558:	0bf00158 	j	bfc00560 <start+0x60>
+		lw	$v1, ($v0)
+bfc0055c:	8c430000 	lw	v1,0(v0)
+		nop
+bfc00560:	00000000 	nop
+
+bfc00564 <end>:
+end:
+		j	start
+bfc00564:	0bf00140 	j	bfc00500 <start>
+		nop
+bfc00568:	00000000 	nop

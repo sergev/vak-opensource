@@ -1,0 +1,45 @@
+CM W8JK with 0.1 - wavelength sp., converted with 4nec2 on 29-mrt-06 14:37
+CM 	W8JK
+CM Originally designed by John Kraus, W8JK in about 1940, this
+CM antenna has some interesting properties. It's characterized
+CM by two closely spaced elements driven out of phase.
+CM Although the fields from the elements don't fully reinforce
+CM in any direction, gain is nonetheless achieved because of
+CM lowering of the radiation resistance due to mutual
+CM coupling. And lower it is -- note the feedpoint impedance
+CM of only 4.74 - j19 ohms. Compare this to a single
+CM element. The lower resistance results in heavier current,
+CM hence greater field strength, for a given power input. The
+CM difficulty is that system losses can quickly eat up the
+CM gain. Making this antenna from #12 copper wire (try it --
+CM and include wire loss) drops the gain about 0.65 dB, not
+CM too bad. But great attention must be paid to losses in
+CM matching networks. And losses rapidly increase in
+CM significance as the spacing is made closer than the 0.1
+CM wavelength of the example. When mounted low (0.25
+CM wavelength for the example), W8JK-type antennas have a
+CM lower radiation angle than many other horizontal antennas
+CM due to the inherent lack of high-angle radiation. As an
+CM interesting exercise, save the pattern for later
+CM comparison. Then delete the second source, making the
+CM antenna into a Yagi. Note the increased gain. Even though
+CM the "takeoff angle" is higher, the Yagi gain is as good or
+CM better even at lower angles. In addition, the feedpoint
+CM impedance has increased to a much more manageable value. On
+CM the other hand, the W8JK will retain its performance over a
+CM much greater frequency range than the Yagi.
+CE
+
+SY freq=21.2	' Design frequency.
+GW 1 11 0   0 0.25 0   0.466 0.25 9e-4
+GW 2 11 0.1 0 0.25 0.1 0.466 0.25 9e-4
+GS 0 0 299.8/freq		' All in WL.
+GE 0
+
+'LD 5 0 0 0 58000000	' Copper wires
+
+EX 6 1 6 0 1 0
+EX 6 2 6 0 -1 0
+GN 0 0 0 0 13 5.e-3
+FR 0 1 0 0 21.2 0
+EN

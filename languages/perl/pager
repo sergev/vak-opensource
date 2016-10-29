@@ -1,0 +1,32 @@
+#!/usr/local/bin/perl
+# pager - implement a simple pager using the win.pl library
+
+require "win.pl";
+local($i,$tmp);
+local(@text)=();
+@win1=(10,20,70,1,0,7,"This is the header","This is the footer");
+print "\e"."["."2"."J";
+&win'clear(@win1);
+&win'title(@win1);
+&win'footer(@win1);
+&win'border(@win1);
+while(<>){
+ if($i==18){     # buffer full, refresh screen
+   &win'refresh(scalar(@text),@text,scalar(@win1),@win1);
+   $i=0;
+   $tmp=&win'getdata(10,21,"<CR> to continue, q to quit",7);
+   chop $tmp;
+   if($tmp eq "q"){ print "\e"."["."0"."m"; 
+                    print "\e"."["."2"."J";
+                    exit(0);}}     
+ else{
+   $text[$i]=$_;
+   chop $text[$i];
+   $i++;
+   }
+}
+@text[$i..18]=();
+&win'refresh(scalar(@text),@text,scalar(@win1),@win1);
+$tmp=&win'getdata(10,21,"<CR> to continue, q to quit",7);
+print "\e"."["."2"."J";    # clean up
+print "\e"."["."0"."m";    # restore good mode

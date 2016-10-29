@@ -1,0 +1,87 @@
+#
+# Testing alu syntesis.
+# Pins for Spartan-3E xc3s500e-fg320.
+#
+NET "ps[0]"		LOC = "A4"  ;
+NET "ps[1]"		LOC = "A5"  ;
+NET "ps[2]"		LOC = "A6"  ;
+NET "ps[3]"		LOC = "A7"  ;
+NET "ps[4]"		LOC = "A8"  ;
+NET "ps[5]"		LOC = "A15"  ;
+NET "ps[6]"		LOC = "A10"  ;
+NET "ps[7]"		LOC = "A3"  ;
+
+NET "d[0]"		LOC = "A11"  ;
+NET "d[1]"		LOC = "A13"  ;
+NET "d[2]"		LOC = "A14"  ;
+NET "d[3]"		LOC = "H2"  ;
+NET "d[4]"		LOC = "A16"  ;
+NET "d[5]"		LOC = "H1"  ;
+NET "d[6]"		LOC = "B4"  ;
+NET "d[7]"		LOC = "B6"  ;
+NET "d[8]"		LOC = "B14"  ;
+NET "d[9]"		LOC = "B16"  ;
+NET "d[10]"		LOC = "C1"  ;
+NET "d[11]"		LOC = "C2"  ;
+NET "d[12]"		LOC = "C3"  ;
+NET "d[13]"		LOC = "C4"  ;
+NET "d[14]"		LOC = "C5"  ;
+NET "d[15]"		LOC = "C7"  ;
+
+NET "psr[0]"		LOC = "C11"  ;
+NET "psr[1]"		LOC = "D1"  ;
+NET "psr[2]"		LOC = "D11"  ;
+NET "psr[3]"		LOC = "D14"  ;
+NET "psr[4]"		LOC = "E1"  ;
+NET "psr[5]"		LOC = "E2"  ;
+NET "psr[6]"		LOC = "E8"  ;
+NET "psr[7]"		LOC = "E9"  ;
+
+NET "opcode[0]"		LOC = "E11"  ;
+NET "opcode[1]"		LOC = "E12"  ;
+NET "opcode[2]"		LOC = "E13"  ;
+NET "opcode[3]"		LOC = "E17"  ;
+NET "opcode[4]"		LOC = "F1"  ;
+NET "opcode[5]"		LOC = "F2"  ;
+NET "opcode[6]"		LOC = "F4"  ;
+NET "opcode[7]"		LOC = "F7"  ;
+NET "opcode[8]"		LOC = "G18"  ;
+NET "opcode[9]"		LOC = "H3"  ;
+#NET "opcode[12]"	LOC = "H4"  ;
+#NET "opcode[13]"	LOC = "H5"  ;
+#NET "opcode[14]"	LOC = "H6"  ;
+#NET "opcode[15]"	LOC = "H13"  ;
+
+NET "a[0]"		LOC = "F8"  ;
+NET "a[1]"		LOC = "F9"  ;
+NET "a[2]"		LOC = "F11"  ;
+NET "a[3]"		LOC = "F12"  ;
+NET "a[4]"		LOC = "F14"  ;
+NET "a[5]"		LOC = "F15"  ;
+NET "a[6]"		LOC = "F17"  ;
+NET "a[7]"		LOC = "F18"  ;
+NET "a[8]"		LOC = "G3"  ;
+NET "a[9]"		LOC = "G5"  ;
+NET "a[10]"		LOC = "G6"  ;
+NET "a[11]"		LOC = "G9"  ;
+NET "a[12]"		LOC = "G13"  ;
+NET "a[13]"		LOC = "G14"  ;
+NET "a[14]"		LOC = "G15"  ;
+NET "a[15]"		LOC = "G16"  ;
+
+NET "b[0]"		LOC = "J7"  ;
+NET "b[1]"		LOC = "H14"  ;
+NET "b[2]"		LOC = "H15"  ;
+NET "b[3]"		LOC = "H16"  ;
+NET "b[4]"		LOC = "H17"  ;
+NET "b[5]"		LOC = "H18"  ;
+NET "b[6]"		LOC = "J1"  ;
+NET "b[7]"		LOC = "J2"  ;
+NET "b[8]"		LOC = "J4"  ;
+NET "b[9]"		LOC = "J5"  ;
+NET "b[10]"		LOC = "J6"  ;
+NET "b[11]"		LOC = "J12"  ;
+NET "b[12]"		LOC = "J13"  ;
+NET "b[13]"		LOC = "J14"  ;
+NET "b[14]"		LOC = "J15"  ;
+NET "b[15]"		LOC = "J16"  ;

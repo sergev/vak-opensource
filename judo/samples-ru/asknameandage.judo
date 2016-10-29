@@ -1,0 +1,15 @@
+//~JUDOPROP~//$VERSION=1.3.0
+//~JUDOPROP~//$TITLE=Запрос имени и возраста
+//~JUDOPROP~//$TYPE=text
+void main() {
+   String name;
+   int age;
+
+   printLine("Введите Ваше имя и нажмите Enter:");
+   name = readString();
+
+   printLine("Привет, " + name + "!  Теперь введите Ваш возраст:");
+   age = readInt();
+
+   printLine(name + ", Вам " + age + " лет.");
+}

@@ -1,0 +1,18 @@
+CM 3.6 MHz 1/4 WL monopole
+CE
+sy len=75.5, dist=68.304
+GW 1 25 -dist 0 0 -dist 0 len 0.083335
+GW 2 25 0 0 0 0 0 len 0.083335
+GW 3 25 dist 0 0 dist 0 len 0.083335
+GS 0 0 ft
+GE 1
+GN 1
+SY I=1, Pha=90
+EX 6 1 1 0 I*sin(Pha) I*cos(Pha)
+SY I=2, Pha=0
+EX 6 2 1 0 I*sin(Pha) I*cos(Pha)
+SY I=1, Pha=-90
+EX 6 3 1 0 I*sin(Pha) I*cos(Pha)
+LD 5 0 0 0 3.0769E7
+FR 0 1 0 0 3.6 1
+EN

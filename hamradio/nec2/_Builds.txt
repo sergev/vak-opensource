@@ -1,0 +1,22 @@
+C	av00	01-mar-02	First compile with Gnu77 compiler for windows
+C				(Thanks to Raymond Anderson for letting me know
+C				about this compiler and doing initial compilations)
+C	av01	14-mar-02	Var PI not used in routine GWAVE
+C	av02	14-mar-02	Sub SECOND already intrinsic function
+C	av03	15-mar-02	SOMNEC routines integrated into Nec2D.exe
+C	av04	16-mar-02	Status='NEW', does not seem to replace existing file.
+C	av05	21-okt-02	Max number of loads (LOADMX) made equal to max-nr segments.
+C	av06	21-okt-02	Max number of NT cards (NETMX) increased from 3O to (param)
+C	av07	21-okt-02	Max number of EX cards (NSMAX) increased from 30 to (param)
+C	av08	22-oct-02	Use of VSRC is uncertain, in some sources equal 10 and some
+C				equal 30 (=nr EX?).  
+C	av010	30-jan-03	Used DJGPP port of G77 compiler which delivers speed increase
+C				from 30 to 60% for small segment counts
+C	av011	04-sep-03	Logging of NetMX, NSMAX changed.
+C	av012	29-sep-03	Enable user-specified NGF file-name.
+C	av013	29-sep-03	MinGW port used for both 11K segs and virtual memory usage.
+C	av014	09-oct-03	Max-nr of segs at junction/single-seg (JMAX) from 30 to 60.
+C	av015	05-nov-04	BugFix: Use default NGF name when nothing specified.
+C	av016	09-nov-06	Official Nec2 bugfix by J.Burke, see nec-list at robomod.net
+C	av017	30-jan-08	VSRC (30) var also increase to netmx, see also av08
+C	av018	10-oct-08	av015 did not work properly in all cases.

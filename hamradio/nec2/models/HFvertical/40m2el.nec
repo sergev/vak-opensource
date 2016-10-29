@@ -1,0 +1,28 @@
+CE Vertikal-Array 40m
+SY STRLEN=10.12
+SY RADLEN=9.95
+SY HOEHE=2.8
+SY SEG=13
+SY TILT1 = -15	
+SY TILT2 = -25 
+SY FREQ = 7.05
+SY RADSLOP=8
+
+GW	1	SEG	0.0	0.0	0	0.0	0.0	STRLEN	0.0007
+GW	2	SEG	0	0	0	RADLEN	0	0	0.0007
+GM	0	0	0	RADSLOP	0	0	0	0	2
+GM	1	3	0	0	90	0	0	0	2
+GM	0	0	0	0	TILT1	0	0	HOEHE	0
+GM	5	1	0	0	TILT2	6	0	-0.6	0
+GE	-1
+
+LD	5	0	0	0	5.8e7		' Copper wire used
+
+LD	7	0	0	0	5	0.0015	' Insulated wire used
+
+SY Phase=-130
+EX	6	1	1	00	cos(phase)	sin(phase)
+EX	6	6	1	0	1	0
+GN	2	0	0	0	13.0	.005
+FR	0	1	0	0	FREQ	0.0
+EN

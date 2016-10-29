@@ -1,0 +1,96 @@
+--------------------------------------------------------------------------------
+--
+--   AMD 2910 Benchmark
+--
+-- Source:  AMD data book
+--
+-- VHDL Benchmark author Indraneel Ghosh
+--                       University Of California, Irvine, CA 92717
+--
+-- Developed on Feb 19, 1992
+--
+--------------------------------------------------------------------------------
+
+THE Functional Block MODEL
+
+ The chip has been partitioned into functional blocks which are 
+ modeled by VHDL concurrent blocks.
+
+ The blocks are :
+
+ ** muxr : Multiplexer that selects data output and tri-state-driver.
+
+ ** reg_ctr : Register/Counter
+
+ ** PC : Microprogram Counter
+
+ ** stack_and_sp : Stack and stack pointer
+
+ ** ctrl : Control Logic
+
+Guarded concurrent blocks "reg_ctr", "PC" and "stack_and_sp" are used to
+represent the sequential elements in the chip. These blocks are trigerred
+by the rising edge of clock.
+
+-----------------------------------------------------------------
+
+VARIABLES AND SIGNALS :
+
+File "am2910.doc" contains a general description of the chip and its ports.
+
+This model uses the following global and local signals and variables:
+
+   *******************************************************
+
+  GLOBAL SIGNALS :
+
+         sp : stack pointer
+
+   reg_file : register file for stack
+
+       push : push signal for stack
+
+        pop : pop signal for stack
+
+      clear : clear signal for stack pointer and microprogram counter
+
+        uPC : microprogram counter
+
+         RE : register/counter
+
+       decr : decrement signal for register/counter
+
+       load : load signal for register/counter
+
+  Rzero_bar : zero detector output (corresponding to register/counter)
+
+      R_sel : Register/counter select signal to multiplexer
+
+      D_sel : Direct data input select signal to multiplexer  
+
+    uPC_sel : Microprogram counter select signal to multiplexer
+
+  stack_sel : Top-of-stack select signal to multiplexer
+
+     Y_temp : Selected output from multiplexer and input to 
+	      tri-state-driver.
+
+   *******************************************************
+
+ LOCAL SIGNALS (in VHDL concurrent blocks) :
+
+   ## IN BLOCK "ctrl" :
+
+   fail :  Temporary signal used in the evaluation of condition code.
+
+-----------------------------------------------------------------
+
+ The model in file "funct_block_alg_beh2910.vhdl" contains detailed comments describing the
+ operation of each block. For further details, please refer to file
+ "am2910.doc".
+ 
+
+
+
+
+

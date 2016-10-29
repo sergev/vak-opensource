@@ -1,0 +1,42 @@
+#!/usr/local/bin/python
+
+import sys, traceback, regsub
+from os import environ
+
+def escape(s):
+	s = regsub.gsub('&', '&amp;', s) # Must be done first
+	s = regsub.gsub('<', '&lt;', s)
+	s = regsub.gsub('>', '&gt;', s)
+	return s
+
+try:
+	print "Content-type: text/html"
+	print
+
+	print "<head><title>Python CGI script example</title></head><body>"
+	print "<h1>Python CGI script example</h1>"
+
+	skeys = environ.keys()
+	skeys.sort()
+	print '<h3> The following environment variables ' \
+	      'were set by the CGI script: </h3>'
+
+	print '<table border=1>'
+	for key in skeys:
+		print '<tr><td>', escape(key), '</td><td>', \
+			escape(environ[key]), '</td></tr>'
+	print '</table>'
+	print "</body>"
+
+except:
+	print "Status: 503 Internal error"
+	print "Content-type: text/html"
+	print "Cache-Control: must-revalidate"
+	print "Pragma: no-cache"
+	print
+	print '<h1> Internal CGI script error </h1>'
+	print '<pre>'
+	traceback.print_exc (None, sys.stdout)
+	print '</pre>'
+
+sys.exit (0)

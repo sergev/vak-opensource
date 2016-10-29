@@ -1,0 +1,426 @@
+/*	@(#)mfile1	1.8	*/
+/*
+ */
+
+# include "macdefs"
+# include "manifest"
+
+/*	storage classes  */
+# define SNULL 0
+# define AUTO 1
+# define EXTERN 2
+# define STATIC 3
+# define REGISTER 4
+# define EXTDEF 5
+# define LABEL 6
+# define ULABEL 7
+# define MOS 8
+# define PARAM 9
+# define STNAME 10
+# define MOU 11
+# define UNAME 12
+# define TYPEDEF 13
+# define FORTRAN 14
+# define ENAME 15
+# define MOE 16
+# define UFORTRAN 17
+# define USTATIC 18
+	/* field size is ORed in */
+# define FIELD 0100
+# define FLDSIZ 077
+# ifndef BUG1
+extern char *scnames();
+# endif
+
+/*	location counters */
+# define PROG 0
+# define DATA 1
+# define ADATA 2
+# define STRNG 3
+# define ISTRNG 4
+# define STAB 5
+
+
+/* symbol table flags */
+# define SMOS 01
+# define SHIDDEN 02
+# define SHIDES 04
+# define SSET 010
+# define SREF 020
+# define SNONUNIQ 040
+# define STAG 0100
+
+# ifndef FIXDEF
+# define FIXDEF(p)
+#endif
+# ifndef FIXARG
+# define FIXARG(p)
+# endif
+# ifndef FIXSTRUCT
+# define FIXSTRUCT(a,b)
+# endif
+
+# ifdef ONEPASS
+# ifndef SETDCON
+# define SETDCON(p) 0
+# endif
+# else
+# define SETDCON(p) 0
+# endif
+
+	/* alignment of initialized quantities */
+# ifndef AL_INIT
+#	define	AL_INIT ALINT
+# endif
+
+struct symtab {
+#ifdef FLEXNAMES
+	char *sname;
+#else
+	char sname[NCHNAM];
+#endif
+	TWORD stype;  /* type word */
+
+	char sclass;  /* storage class */
+	char slevel;  /* scope level */
+	char sflags;  /* flags for set, use, hidden, mos, etc. */
+	int offset;  /* offset or value */
+	short dimoff; /* offset into the dimension table */
+	short sizoff; /* offset into the size table */
+	short suse;  /* line number of last use of the variable */
+	};
+
+
+# ifdef ONEPASS
+/* NOPREF must be defined for use in first pass tree machine */
+# define NOPREF 020000  /* no preference for register assignment */
+# else
+
+union ndu {
+	struct {
+		int op;
+		TWORD type;
+		int cdim, csiz;
+		}fn; /* front node */
+	struct {
+		int op;
+		TWORD type;
+		int cdim, csiz;
+		NODE *left;
+		NODE * right;
+		}in; /* interior node */
+	
+	struct {
+		/* this structure is the same as above,
+		   but is used when a value, rather than
+		   address, is kept in +left */
+		int op;
+		TWORD type;
+		int cdim, csiz;
+		CONSZ lval;
+# ifdef BIGCONSTS
+		CONSZ l2val;
+# endif
+		int rval;
+		}tn; /* terminal node */
+	
+	struct {
+		/* this structure is used when a floating point constant
+		   is being computed */
+		int op;
+		TWORD type;
+		int cdim, csiz;
+		double dval;
+		}fpn; /* floating point node */
+
+	};
+# endif
+
+struct sw {
+	CONSZ sval;
+	int slab;
+	};
+
+extern struct sw swtab[];
+extern struct sw *swp;
+extern int swx;
+
+extern int ftnno;
+extern int blevel;
+extern int instruct, stwart;
+
+extern int lineno, nerrors;
+typedef union {
+	int intval;
+	NODE * nodep;
+	} YYSTYPE;
+extern YYSTYPE yylval;
+
+extern CONSZ lastcon;
+# ifdef BIGCONSTS
+extern CONSZ last2con;
+# endif
+extern double dcon;
+
+extern char ftitle[];
+extern char ititle[];
+extern struct symtab stab[];
+extern int curftn;
+extern int curclass;
+extern int curdim;
+extern int dimtab[];
+struct dnode {
+	int index;
+	short cextern;
+	};
+extern struct dnode *dimptr, dimrec[];
+extern int paramstk[];
+extern int paramno;
+extern int autooff, argoff, strucoff;
+extern int regvar;
+extern int minrvar;
+extern int brkflag;
+extern char yytext[];
+
+extern int strflg;
+
+extern OFFSZ inoff;
+
+extern int reached;
+extern int reachflg;
+
+/*	tunnel to buildtree for name id's */
+
+extern int idname;
+
+extern NODE node[];
+extern NODE *lastfree;
+
+extern int cflag, hflag, pflag;
+
+/* various labels */
+extern int brklab;
+extern int contlab;
+extern int flostat;
+extern int retlab;
+extern int retstat;
+extern int asavbc[], *psavbc;
+
+/*	flags used in structures/unions */
+
+# define SEENAME 01
+# define INSTRUCT 02
+# define INUNION 04
+# define FUNNYNAME 010
+# define TAGNAME 020
+
+/*	flags used in the (elementary) flow analysis ... */
+
+# define FBRK 02
+# define FCONT 04
+# define FDEF 010
+# define FLOOP 020
+
+/*	flags used for return status */
+
+# define RETVAL 1
+# define NRETVAL 2
+
+/*	used to mark a constant with no name field */
+
+# define NONAME 040000
+
+	/* mark an offset which is undefined */
+
+# define NOOFFSET (-10201)
+
+/*	declarations of various functions */
+
+extern NODE
+	*buildtree(),
+	*bdty(),
+	*mkty(),
+	*rstruct(),
+	*dclstruct(),
+	*getstr(),
+	*tymerge(),
+	*stref(),
+	*offcon(),
+	*bcon(),
+	*bpsize(),
+	*convert(),
+	*pconvert(),
+	*oconvert(),
+	*ptmatch(),
+	*tymatch(),
+	*makety(),
+	*block(),
+	*doszof(),
+	*talloc(),
+	*optim(),
+	*strargs(),
+	*clocal();
+
+OFFSZ	tsize(),
+	psize();
+
+TWORD	types();
+
+
+double atof();
+
+char *exname(), *exdcon();
+
+# define checkst(x)
+
+# ifndef CHARCAST
+/* to make character constants into character connstants */
+/* this is a macro to defend against cross-compilers, etc. */
+# define CHARCAST(x) (char)(x)
+# endif
+
+# if pdp11
+#	define BCSZ 100		/* table size to save break, continue labels */
+#	define SYMTSZ 700	/* size of the symbol table */
+#	define DIMTABSZ 1000	/* size of the dimension/size table */
+#	define BNEST 30		/* Block Nesting Depth */
+#	define PARAMSZ 150	/* size of the parameter stack */
+#	define SWITSZ 250	/* size of switch table */
+# else
+# if vax
+#	define BCSZ 100		/* table size to save break, continue labels */
+#	define SYMTSZ 1300	/* size of the symbol table */
+#	define DIMTABSZ 3000	/* size of the dimension/size table */
+#	define BNEST 30		/* Block Nesting Depth */
+#	define PARAMSZ 150	/* size of the parameter stack */
+#	define SWITSZ 500	/* size of switch table */
+# else
+#    ifndef BCSZ
+#       define BCSZ 100         /* table size to save break, continue labels */
+#    endif
+#    ifndef SYMTSZ
+#       define SYMTSZ 500       /* size of the symbol table */
+#    endif
+#    ifndef DIMTABSZ
+#       define DIMTABSZ 1000    /* size of the dimension/size table */
+#    endif
+#    ifndef BNEST
+#       define BNEST 30         /* Block Nesting Depth */
+#    endif
+#    ifndef PARAMSZ
+#       define PARAMSZ 150      /* size of the parameter stack */
+#    endif
+#    ifndef SWITSZ
+#       define SWITSZ 250       /* size of switch table */
+#    endif
+# endif
+# endif
+/*	special interfaces for yacc alone */
+/*	These serve as abbreviations of 2 or more ops:
+	ASOP	=, = ops
+	RELOP	LE,LT,GE,GT
+	EQUOP	EQ,NE
+	DIVOP	DIV,MOD
+	SHIFTOP	LS,RS
+	ICOP	ICR,DECR
+	UNOP	NOT,COMPL
+	STROP	DOT,STREF
+
+	*/
+# define ASOP 25
+# define RELOP 26
+# define EQUOP 27
+# define DIVOP 28
+# define SHIFTOP 29
+# define INCOP 30
+# define UNOP 31
+# define STROP 32
+
+# define LP 50
+# define RP 51
+# define LC 52
+# define RC 53
+
+/*
+* These defines control "while" and "for" loop code generation.
+* wloop_level and floop_level each must be set to one of these values.
+*/
+#define LL_TOP	0	/* test at loop top */
+#define LL_BOT	1	/* test at loop bottom */
+#define LL_DUP	2	/* duplicate loop test at top and bottom */
+
+# ifndef ZEROVAL
+#    define ZEROVAL(p)          ((p)->tn.lval = 0)
+# endif
+# ifndef HIGHVAL
+#    define HIGHVAL(p)          0
+# endif
+# ifndef CONPLUS
+#    define CONPLUS(p, v, v2)   ((p)->tn.lval += v)
+# endif
+# ifndef CONMINUS
+#    define CONMINUS(p, v, v2)  ((p)->tn.lval -= v)
+# endif
+# ifndef CONMUL
+#    define CONMUL(p, v, v2)    ((p)->tn.lval *= v)
+# endif
+# ifndef CONDIV
+#    define CONDIV(p, v, v2)    ((p)->tn.lval /= v)
+# endif
+# ifndef CONMOD
+#    define CONMOD(p, v, v2)    ((p)->tn.lval %= v)
+# endif
+# ifndef CONAND
+#    define CONAND(p, v, v2)    ((p)->tn.lval &= v)
+# endif
+# ifndef CONOR
+#    define CONOR(p, v, v2)     ((p)->tn.lval |= v)
+# endif
+# ifndef CONER
+#    define CONER(p, v, v2)     ((p)->tn.lval ^= v)
+# endif
+# ifndef CONLS
+#    define CONLS(p, v, v2)     ((p)->tn.lval <<= v)
+# endif
+# ifndef CONRS
+#    define CONRS(p, v, v2)     ((p)->tn.lval >>= v)
+# endif
+# ifndef CONUNMINUS
+#    define CONUNMINUS(p)       ((p)->tn.lval = -(p)->tn.lval)
+# endif
+# ifndef CONCOMPL
+#    define CONCOMPL(p)         ((p)->tn.lval = ~(p)->tn.lval)
+# endif
+# ifndef CONNOT
+#    define CONNOT(p)           ((p)->tn.lval = !(p)->tn.lval)
+# endif
+# ifndef CONLT
+#    define CONLT(p, v, v2)     ((p)->tn.lval = (p)->tn.lval < v)
+# endif
+# ifndef CONLE
+#    define CONLE(p, v, v2)     ((p)->tn.lval = (p)->tn.lval <= v)
+# endif
+# ifndef CONGT
+#    define CONGT(p, v, v2)     ((p)->tn.lval = (p)->tn.lval > v)
+# endif
+# ifndef CONGE
+#    define CONGE(p, v, v2)     ((p)->tn.lval = (p)->tn.lval >= v)
+# endif
+# ifndef CONULT
+#    define CONULT(p, v, v2)    ((p)->tn.lval = ((p)->tn.lval-v) < 0)
+# endif
+# ifndef CONULE
+#    define CONULE(p, v, v2)    ((p)->tn.lval = ((p)->tn.lval-v) <= 0)
+# endif
+# ifndef CONUGE
+#    define CONUGE(p, v, v2)    ((p)->tn.lval = ((p)->tn.lval-v) >= 0)
+# endif
+# ifndef CONUGT
+#    define CONUGT(p, v, v2)    ((p)->tn.lval = ((p)->tn.lval-v) > 0)
+# endif
+# ifndef CONEQ
+#    define CONEQ(p, v, v2)     ((p)->tn.lval = (p)->tn.lval == v)
+# endif
+# ifndef CONNE
+#    define CONNE(p, v, v2)     ((p)->tn.lval = (p)->tn.lval != v)
+# endif

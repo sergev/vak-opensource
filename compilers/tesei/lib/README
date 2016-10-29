@@ -1,0 +1,68 @@
+Библиотека математических функций
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Составлена Сергеем Вакуленко по материалам сайта Ангстрем
+(http://www.angstrem.ru/product/risc.htm).
+
+Copyright (C) 2002 Serge Vakulenko <vak@cronyx.ru>
+
+This file is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+FITNESS FOR A PARTICULAR PURPOSE.
+
+You can redistribute this file and/or modify it under the terms of the GNU
+General Public License (GPL) as published by the Free Software Foundation;
+either version 2 of the License, or (at your discretion) any later version.
+See the accompanying file "COPYING.txt" for more details.
+
+
+Умножение
+~~~~~~~~~
+Беззнаковое умножение 8x8
+
+	movl	%a0,0Fh		; Исходные...
+	movl	%a1,0Fh		; ...данные
+	jsr	mul8u		; Вызов рабочей подпрограммы
+
+Знаковое умножение 8x8
+
+	movl	%a0,0Fh		; Исходные...
+	movl	%a1,0Fh		; ...данные
+	jsr	mul8s		; Вызов рабочей подпрограммы
+
+Беззнаковое умножение 16x16
+
+	movl	%a0,0Fh		; Исходные...
+	movl	%a1,0Fh		; ...данные
+	movl	%a2,0Fh		; Исходные...
+	movl	%a3,0Fh		; ...данные
+	jsr	mul16u		; Вызов рабочей подпрограммы
+
+Знаковое умножение 16x16
+
+	movl	%a0,0Fh		; Исходные...
+	movl	%a1,0Fh		; ...данные
+	movl	%a2,0Fh		; Исходные...
+	movl	%a3,0Fh		; ...данные
+	jsr	mul16s		; Вызов рабочей подпрограммы
+
+Деление
+~~~~~~~
+Беззнаковое деление 8x8
+
+	movl	%a0,0Fh		; Исходные...
+	movl	%a1,02h		; ...данные
+	jsr	div8u		; Вызов рабочей подпрограммы
+
+Знаковое деление 8x8
+
+	movl	%a0,0Fh		; Исходные...
+	movl	%a1,02h		; ...данные
+	jsr	div8s		; Вызов рабочей подпрограммы
+
+Беззнаковое деление 16x16
+
+	movl	%a0,0Fh		; Исходные...
+	movl	%a1,03h		; ...данные
+	movl	%a2,03h		; Исходные...
+	movl	%a3,00h		; ...данные
+	jsr	div16u		; Вызов рабочей подпрограммы

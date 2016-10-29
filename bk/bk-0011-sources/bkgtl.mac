@@ -1,0 +1,368 @@
+.Mcall	.Module
+.Module	BKGTL,Release=X02, Version=01, Comment=<BK0011 Line Edit Routines>
+;
+;			Copyright (c) 1986,1987 by
+;	C-11 Special Interest Group, Leningrad State University.
+;			 All rights reserved.
+;
+; This software is furnished under a license and may be used and  copied
+; only  in  accordance  with  the  terms  of  such  license and with the
+; inclusion of the above copyright notice.  This software or  any  other
+; copies  thereof may not be provided or otherwise made available to any
+; other person.  No title to and ownership of  the  software  is  hereby
+; transfered.
+;
+; The information in this software is subject to change without notice
+; and should not be construed as a commitment by C-11 group.
+;
+; C-11 assumes no responsibility for the use or reliability of its
+; software on equipment which is not submitted by C-11.
+;
+ .Include "BKHEAD"
+.Globl	GetArg,	RetEmt,	TtoFlg,KbdCsr
+.Globl	Block$$,GetUbt,	TStCrs,	StrLen,$Bttyou,$Bprint
+.Globl	PutUBt,	GetUbt,	Crsr$$,	ChrGo,$Binkey
+.Globl	TtyPrg,	Curadr,	SavRg
+
+BufLng	=	256.
+Bell	=	7
+.Macro	Command	Code	Routine
+.Byte	<Routine-CdT>/2,Code
+.EndM
+ .Psect	$CodOvr
+.SbTtl	$Bgtlin (EMT 10) Routine (Get String from Keyboard)
+.Enabl	LSB
+$Bgtlin::
+	Jsr	R0,GetArg	;Get Arguments to R0,R1
+	Mov	R0,AdrLine	;User Buffer Address
+	Cmp	R1,#BufLng
+	Blos	10$
+	Mov	#BufLng,R1
+10$:	Dec	R1
+	Mov	R1,Length	;User Buffer Length
+Newline:Mov	#StrBuf,R4	;System  Buffer Address
+	Mov	#StrBuf,NewEnd	;End of Buffer (The Byte of 200)
+	Clr	BytCnt		;Byte Counter
+
+GetCH:	Bit	#Crsr$$,TtoFlg
+	Beq	99$
+	Bic	#Crsr$$,TtoFlg
+	Call	TstCrs
+
+99$:	Call	InByte
+	Call	TstCrs
+	Bis	#Crsr$$,TtoFlg
+	Bit	#140,R0		;Control Code ?
+	Beq	50$		;Yes
+
+PutCH:	Clr	OldEnd		;Flag for <WS>
+	TstB	Insrt$$		;Insert mode ?
+	Bne	InsMd		;Yes
+	Cmp	R4,NewEnd	;We are at the end of line ?
+	Bne	30$		;No
+	Cmp	BytCnt,Length	;Buffer or String owverflow ?
+	Beq	40$		;String overflow
+20$:	Inc	NewEnd		;1-st Unused Byte
+	Inc	BytCnt
+	Br	30$
+;
+;Replace or Insert Character at The End of Line
+;
+30$:	MovB	R0,(R4)+	;Write Byte
+	Call	Ttuo		;Output Character
+	Br	GetCh		;
+;
+;Insert Character
+;
+InsMd:	Cmp	BytCnt,Length
+	Beq	40$		;Line Overflow
+	Cmp	R4,NewEnd	;We are at the end of line?
+	Beq	20$		;Yes
+	Mov	#1,R3		;
+	Call	Ins
+	Br	GetCH
+
+40$:	MovB	#Bell,R0
+	Call	Sttyo
+	Br	GetCH
+ ;
+;0-37,  200-237 Codes
+;
+50$:
+	Bit	#Block$$,@#TtoFlg
+	Bne	PutCh
+
+60$:	Jsr	R0,ChrGo
+Cdt=.
+Command		10	Left	;<--
+Command		12	Enter	;Enter
+Command		13	Dleol	;DelEol
+Command		14	ClrScr	;Clear Screen
+Command		23	WS	;WS
+Command		26	DelChr	;<--!
+Command		27	InsChr	;!-->
+Command		30	Delete	;<-!-
+Command		210	DelLine	;Lower/<-!-
+Command		31	Right	;-->
+Command		32	Up	;/\
+Command		33	Down	;\/
+Command		230	Insrt	;Insert
+Command		0	Ctrl	;Other Control Characters
+
+Insrt:	ComB	Insrt$$
+GetCh2:	Br	GetCh
+Ctrl:	Br	Putch
+
+Left:	Cmp	R4,#StrBuf+1	;Check for legality
+	Blo	GetCh		;Illegal
+	Dec	R4
+GetCH1:	Call	Sttyo
+	Br	Getch2
+
+Right:	Cmp	R4,NewEnd
+	Beq	Getch
+	Inc	R4
+	Br	GetCH1
+
+Up:	MovB	StrLen,R1
+	Sub	R1,R4
+	Cmp	R4,#StrBuf
+	Bhis	Getch1
+	Add	R1,R4
+	Br	GetCH2
+
+Down:	MovB	StrLen,R1
+	Add	R1,R4
+	Cmp	R4,NewEnd
+	Blos	GetCh1
+	Sub	R1,R4
+	Br	GetCH2
+
+InsChr:	Mov	#40,R0
+	Mov	#1,R3
+	Clr	OldEnd		;Flag for <WS>
+	Call	Ins
+	Mov	#10,R0
+	Br	Left
+
+Delete:	Cmp	R4,#StrBuf
+	Beq	Getch2
+	Mov	#10,R0		;Backspace
+	Call	Sttyo
+	Dec	R4
+Del1:	Dec	BytCnt
+	Mov	R4,R1
+70$:	MovB	1(R1),(R1)+
+	CmpB	R1,NewEnd
+	Blo	70$
+	Dec	NewEnd
+	Mov	#1,R3
+	Call	PriEOL
+	Clr	OldEnd		;Flag for <WS>
+	Br	GetCh2
+DelChr:	Cmp	R4,NewEnd
+	Beq	Getch2
+	Br	Del1
+Dleol:
+	Mov	NewEnd,R1
+	Sub	R4,R1
+	Beq	Getch2
+	Tst	BytCnt
+	Beq	GetCh2
+	Mov	NewEnd,OldEnd
+	Mov	BytCnt,OldCnt
+	Mov	R1,R2
+80$:	Mov	#40,R0
+	Call	$Bttyou
+	Sob	R1,80$	
+	Sub	R2,BytCnt
+	Mov	R4,NewEnd
+	Mov	#10,R0
+90$:	Call	Sttyo
+	Sob	R2,90$
+	Br	Getch2
+
+DelLine:
+	Mov	R4,R3	;Old Addr
+	Call	Bline
+	Bcs	Getch2
+	Mov	R3,R1	;Old Addr
+	Sub	R4,R3	;-New Addr=Delete Length !!!
+	Sub	R3,BytCnt	;BCNT=BCNT-R3+R4
+	Sub	R3,NewEnd	;Line Length
+	Mov	BytCnt,R2
+	Beq	999$
+100$:	MovB	(R1)+,(R4)+
+	Sob	R2,100$
+	Mov	#StrBuf,R4
+999$:	Call	PriEOL
+	Clr	OldEnd		;Flag for <WS>
+	Br	GetCH2
+
+ClrScr:	Call	Sttyo
+ClrSc1:	Mov	NewEnd,R4		;
+	MovB	#200,@NewEnd
+	Mov	TtoFlg,-(SP)
+	Bis	#Block$$,TtoFlg
+	Mov	#StrBuf,R0
+	Call	PrinPr
+	Mov	(SP)+,@#TToflg
+GetCh3:	Jmp	GetCh2
+WS:
+	Tst	BytCnt
+	Beq	110$
+	Call	Bline
+	Bcc	Getch3
+	Br	ClrSc1
+110$:	Tst	OldEnd
+	Beq	ClrSc1
+	Mov	OldEnd,NewEnd
+	Mov	OldCnt,BytCnt
+ClrSc2:	Br	ClrSc1
+.Dsabl	LSB
+ Enter:
+	Mov	NewEnd,R1
+	Mov	R1,OldEnd
+	Mov	BytCnt,OldCnt
+	Sub	R4,R1
+	Beq	20$
+	Mov	#31,R0
+10$:	Call	Sttyo
+	Sob	R1,10$
+20$:	Mov	#25,R0
+	Call	Sttyo
+	Mov	#StrBuf,R4	;System Buffer Address
+	Mov	AdrLine,R5	;User Buffer Address
+	Mov	BytCnt,R3	;Number of Bytes to Send
+	Beq	40$
+30$:	MovB	(R4)+,R0
+	Call	PutUBt		;Put Byte to User Memory (R5)+
+	Sob	R3,30$
+40$:	Clr	R0
+	Call	PutUBt
+	Bic	#Crsr$$,TtoFlg
+	Call	TstCrs
+	Jmp	RetEmt
+ .SbTtl	$Bedit (EMT 66) Routine (Edit the String)
+$Bedit::
+	Jsr	R0,GetArg
+	Mov	R0,AdrLine	;User Buffer Address
+	Mov	R0,R5
+	Cmp	R1,#BufLng
+	Blos	9$
+	Mov	#BufLng,R1
+9$:	Dec	R1
+	Mov	R1,Length	;User Buffer Length
+	Mov	#StrBuf,R2
+	Clr	R3
+10$:	Call	GetUbt		;Get User Byte
+	Inc	R3
+	Cmp	R3,Length
+	Bhi	20$		;Line too Long
+	MovB	R0,(R2)+
+	Bne	10$
+	Dec	R2
+20$:	Dec	R3
+	Mov	R3,BytCnt
+	Mov	R2,NewEnd
+	Br	ClrSc2
+ Sttyo:	Mov	TtoFlg,-(SP)
+	Bic	#Block$$,TtoFlg
+	Br	Ttt1
+
+Ttuo:	Mov	TtoFlg,-(SP)
+	Bis	#Block$$,TtoFlg
+Ttt1:	Mov	R0,-(SP)
+	Call	$Bttyou
+	Mov	(SP)+,R0
+	Mov	(SP)+,TToflg
+	Return
+
+Ins:	Inc	NewEnd
+	Inc	BytCnt
+	Mov	NewEnd,R1
+	Mov	R1,R2
+	Dec	R1
+10$:	MovB	-(R1),-(R2)
+	Cmp	R1,R4
+	Bhi	10$
+	MovB	R0,(R4)+
+	Call	Ttuo
+
+PriEOL::Mov	NewEnd,R1
+	Sub	R4,R1		;Number of bytes for print
+	MovB	#200,@NewEnd
+	Mov	TtoFlg,-(SP)
+	Bis	#Block$$,TtoFlg
+	Mov	R4,R0
+	Call	PrinPr
+	Bic	#Block$$,TtoFlg
+	Add	R3,R1
+5$:	MovB	#40,R0
+	Call	$Bttyou
+	Sob	R3,5$
+10$:	Mov	#10,R0		;Backspace
+	Call	$Bttyou	;Return Cursor Place
+	Sob	R1,10$
+	Mov	(SP)+,TToflg
+	Return
+
+Bline:	Mov	R4,R1
+	Sub	#StrBuf,R1
+	Beq	10$
+	Sub	R1,R4
+	Mov	#10,R0
+100$:	Call	Sttyo
+	Sob	R1,100$	
+	Tst	(PC)+
+10$:	SeC
+	Return
+.Psect	$Code
+
+PrinPr:	Jsr	R0,SavRg	;Save R0..R4
+	Mov	R0,R5
+	Call	TStCrs		;Set Cursor Off
+2$:	MovB	(R5)+,R0
+	Beq	11$		;It's 0
+	CmpB	R0,#200
+	Beq	Retpri		;Code is 200
+	Mov	R5,-(SP)
+	Call	TtyPrg		;Type character
+	Mov	(SP)+,R5
+	Br	2$
+11$:	Mov	#25,R0
+	Call	TtyPrg		;issue <CR><LF> Routine
+Retpri:	Call	Curadr
+	Call	TStCrs		;Set Cursor ON 
+	Jmp	RetEmt
+
+InByte:
+199$:	Call	$BinKey
+	Bcc	99$			;Get one Character into R0
+	Mov	@#$$UsrS,BUsrS
+	Mov	Vec4,BVec4
+	Mov	#Btrp,Vec4
+	Mov	$$SysS,$$UsrS
+	Mtps	#0
+	Nop
+	Mtps	#340
+	Mov	BUsrS,@#$$UsrS
+	Mov	BVec4,Vec4
+	Br	199$
+99$:	Return
+Btrp:	Mov	BUsrS,@#$$UsrS
+	Mov	BVec4,Vec4
+	Jmp	@Vec4
+ .Psect	$RAM
+BVec4:	.BlkW
+BUsrS:	.BlkW
+NewEnd:	.BlkW
+OldEnd::.Word	0
+OldCnt::.Word	0
+BytCnt:	.Word	0
+AdrLine:.Word	0
+Length:	.Word	0
+StrBuf:	.BlkB	BufLng		;Input buffer Length
+Insrt$$::.Byte	0		;Insertion Flag
+	.Even
+.End

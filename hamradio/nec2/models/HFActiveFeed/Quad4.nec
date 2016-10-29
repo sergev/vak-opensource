@@ -1,0 +1,38 @@
+CM 4 el quad 14 MHz
+CE
+
+SY r = 2.8028 
+SY dr = 2.7301
+SY d1 = 2.6073
+SY d2 = 2.592
+SY sdr = 3.963
+SY sd1 = 6.554
+SY sd2 = 10.212
+SY tlen = 7.9457
+SY rz = 0.001
+
+GW	1	22	0	-r	-r	0	r	-r	rz
+GW	2	22	0	-r	-r	0	-r	r	rz
+GW	3	22	0	-r	r	0	r	r	rz
+GW	4	22	0	r	r	0	r	-r	rz
+GW	5	21	sdr	-dr	-dr	sdr	dr	-dr	rz
+GW	6	21	sdr	-dr	-dr	sdr	-dr	dr	rz
+GW	7	21	sdr	-dr	dr	sdr	dr	dr	rz
+GW	8	21	sdr	dr	dr	sdr	dr	-dr	rz
+GW	9	21	sd1	-d1	-d1	sd1	d1	-d1	rz
+GW	10	21	sd1	-d1	-d1	sd1	-d1	d1	rz
+GW	11	21	sd1	-d1	d1	sd1	d1	d1	rz
+GW	12	21	sd1	d1	d1	sd1	d1	-d1	rz
+GW	13	19	sd2	-d2	-d2	sd2	d2	-d2	rz
+GW	14	19	sd2	-d2	-d2	sd2	-d2	d2	rz
+GW	15	19	sd2	-d2	d2	sd2	d2	d2	rz
+GW	16	19	sd2	d2	d2	sd2	d2	-d2	rz
+GE	0
+
+LD	5	0	0	0	2.49e7
+TL	5	11	9	11	50	tlen
+EX	0	5	11	01	1	0
+
+FR	0	1	0	0	14.150	0
+EN
+

@@ -1,0 +1,187 @@
+.Mcall	.Module
+.Module	BKCOMM,Release=X02,Version=02,Comment=<BK0011 Common Routines>
+;
+;			Copyright (c) 1986 by
+;	C-11 Special Interest Group, Leningrad State University.
+;			 All rights reserved.
+;
+; This software is furnished under a license and may be used and  copied
+; only  in  accordance  with  the  terms  of  such  license and with the
+; inclusion of the above copyright notice.  This software or  any  other
+; copies  thereof may not be provided or otherwise made available to any
+; other person.  No title to and ownership of  the  software  is  hereby
+; transfered.
+;
+; The information in this software is subject to change without notice
+; and should not be construed as a commitment by C-11 group.
+;
+; C-11 assumes no responsibility for the use or reliability of its
+; software on equipment which is not submitted by C-11.
+;
+ .Include "BKHEAD"
+.Globl	USPSav,ScrSel
+.SbTtl	General Register Save/Restore Routines
+;
+;Routine Saves R0..R4
+;Calling sequence:
+;	Jsr	R0,SavRg
+; Resault Stack:
+;
+; +---------------+
+; !    Old R5     !
+; +---------------+
+; ! $B... RetAdr  !
+; +---------------+
+; !    Old R0     !
+; +---------------+
+; !    Old R1     !
+; +---------------+
+; !    Old R2     !
+; +---------------+
+; !    Old R3     !
+; +---------------+
+; !    Old R4     !
+; +---------------+
+;
+SavRg::	Mov	R1,-(SP)
+	Mov	R2,-(SP)
+	Mov	R3,-(SP)
+	Mov	R4,-(SP)
+	Mov	10(SP),-(SP)	;Old R0
+	Rts	R0		;Exit to User Program
+;
+;Routine Restores R0..R4 and issues RTS PC Command
+;Calling Sequence:
+;	Jmp	RetEmt
+;
+RetEmt::Mov	(SP)+,R4
+	Mov	(SP)+,R3
+	Mov	(SP)+,R2
+	Mov	(SP)+,R1
+	Mov	(SP)+,R0
+	Return
+ .SbTtl	Emt Get ARGumet Routine
+;
+;This Routine Extracts Args from User Stack
+;
+;Calling Sequence:
+;	Jsr	R0,GetArg
+;
+;Old Stack:
+;
+; +---------------+
+; !   Arg 1       !
+; !   Arg 2       !
+; +---------------+  <----UspSav
+;
+; +---------------+
+; !   Old R5      !     4
+; !$B.... RetAdr  !     2
+; !   Old R0      !     0
+; +---------------+
+;
+; Output Stack:
+; +---------------+
+; !    Old R5     ! 14
+; ! $B.... RetAdr ! 12
+; !    Old R0     ! 10
+; !    Old R1     ! 6
+; !    Old R2     ! 4
+; !    Old R3     ! 2
+; !    Old R4     ! 0
+; +---------------+
+;
+; R0 = Arg 1
+; R1 = Arg 2
+;
+$OffR0	== 10	;Offset to R0
+
+
+GetArg::
+	Mov	R1,-(SP)	;Save R0..R4
+	Mov	R2,-(SP)
+	Mov	R3,-(SP)
+	Mov 	R4,-(SP)
+	Mov	R0,TmpR0	;Save Return Address
+	Mov	@#UspSav,R0
+	Mov	@#$$UsrS,@#Sel1
+	Mov	(R0)+,R1	;Second Arg
+	Mov	(R0)+,R0	;First Arg
+	Mov	@#$$SysS,@#Sel1
+	Tst	@#Sel1
+	Add	#4,@#UspSav
+	Jmp	@TmpR0
+.Save
+.Psect	$RAM
+TmpR0:	.BlkW
+.Restore
+ 
+.SbTtl	Put R0 Word to (R5)+ in User Space 
+PutUWd::Mov	@#$$UsrS,@#Sel1
+	Tst	@#Sel1
+	Mov	R0,(R5)+
+	Mov	@#$$SysS,@#Sel1
+	Tst	@#Sel1
+	Return
+
+.SbTtl	Put R0 Byte to (R5)+ in User Space
+PutUBt::Mov	@#$$UsrS,@#Sel1
+	Tst	@#Sel1
+	MovB	R0,(R5)+
+	Mov	@#$$SysS,@#Sel1
+	Tst	@#Sel1
+	Return
+
+.SbTtl	Get (R5)+ Byte from User Space
+GetUBt::Mov	@#$$UsrS,@#Sel1
+	Tst	@#Sel1
+	MovB	(R5)+,R0
+	Mov	@#$$SysS,@#Sel1
+	Tst	@#Sel1
+	Bic	#^C377,R0
+	Return
+
+.SbTtl	Get (R5)+ Word from User Space
+GetUWd::Mov	@#$$UsrS,@#Sel1
+	Tst	@#Sel1
+	Mov	(R5)+,R0
+	Mov	@#$$SysS,@#Sel1
+	Tst	@#Sel1
+	Tst	R0
+	Return
+ .SbTtl	Character Check and GO routine
+;
+;Calling Sequence:
+;
+; Mov Switch,R0
+; Jsr R0,ChrGo
+;A:
+; .Byte	<Addr-A>/2,Code
+;................
+; .Byte <Exit-A>/2,0
+;
+; This routine uses R1,R2.
+; R0 Contents is unchanged.
+;
+ChrGo::	Mov	R0,R1		;Table Address
+10$:	Clr	R2
+	BisB	(R1)+,R2	;Routine Address Offset
+	TstB	@R1
+	Beq	20$		;End of List
+	CmpB	(R1)+,@SP	;Check Character
+	Bne	10$
+20$:	Asl	R2
+	Add	R2,R0
+	Rts	R0
+ .SbTtl	Screen Mapping/Unmaping Routines
+SeTScS::Mov	@#$$UsrS,-(SP)
+	Bic	#^C<TapMsk!ScrMsk>,@SP
+	Bis	ScrSel,(SP)
+	Mov	(SP)+,@#Sel1
+	Tst	@#Sel1
+	Return
+SeTScX::Mov	@#$$SysS,@#Sel1
+	Tst	@#Sel1
+	Return
+
+.End

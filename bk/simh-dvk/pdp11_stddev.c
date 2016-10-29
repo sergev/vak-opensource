@@ -1,0 +1,563 @@
+/* pdp11_stddev.c: PDP-11 standard I/O devices simulator
+
+   Copyright (c) 1993-2008, Robert M Supnik
+
+   Permission is hereby granted, free of charge, to any person obtaining a
+   copy of this software and associated documentation files (the "Software"),
+   to deal in the Software without restriction, including without limitation
+   the rights to use, copy, modify, merge, publish, distribute, sublicense,
+   and/or sell copies of the Software, and to permit persons to whom the
+   Software is furnished to do so, subject to the following conditions:
+
+   The above copyright notice and this permission notice shall be included in
+   all copies or substantial portions of the Software.
+
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL
+   ROBERT M SUPNIK BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+   IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+   CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+   Except as contained in this notice, the name of Robert M Supnik shall not be
+   used in advertising or otherwise to promote the sale, use or other dealings
+   in this Software without prior written authorization from Robert M Supnik.
+
+   tti,tto      DL11 terminal input/output
+   clk          KW11L (and other) line frequency clock
+
+   20-May-08    RMS     Standardized clock delay at 1mips
+   18-Jun-07    RMS     Added UNIT_IDLE flag to console input, clock
+   29-Oct-06	RMS     Synced keyboard and clock
+                        Added clock coscheduling support
+   05-Jul-06    RMS     Added UC only support for early DOS/RSTS
+   22-Nov-05    RMS     Revised for new terminal processing routines
+   22-Sep-05    RMS     Fixed declarations (from Sterling Garwood)
+   07-Jul-05    RMS     Removed extraneous externs
+   11-Oct-04    RMS     Added clock model dependencies
+   28-May-04    RMS     Removed SET TTI CTRL-C
+   29-Dec-03    RMS     Added console backpressure support
+   25-Apr-03    RMS     Revised for extended file support
+   01-Mar-03    RMS     Added SET/SHOW CLOCK FREQ, SET TTI CTRL-C
+   22-Nov-02    RMS     Changed terminal default to 7B for UNIX
+   01-Nov-02    RMS     Added 7B/8B support to terminal
+   29-Sep-02    RMS     Added vector display support
+                        Split out paper tape
+                        Split DL11 dibs
+   30-May-02    RMS     Widened POS to 32b
+   26-Jan-02    RMS     Revised for multiple timers
+   09-Jan-02    RMS     Fixed bugs in KW11L (found by John Dundas)
+   06-Jan-02    RMS     Split I/O address routines, revised enable/disable support
+   29-Nov-01    RMS     Added read only unit support
+   09-Nov-01    RMS     Added RQDX3 support
+   07-Oct-01    RMS     Upgraded clock to full KW11L for RSTS/E autoconfigure
+   07-Sep-01    RMS     Moved function prototypes, revised interrupt mechanism
+   17-Jul-01    RMS     Moved function prototype
+   04-Jul-01    RMS     Added DZ11 support
+   05-Mar-01    RMS     Added clock calibration support
+   30-Oct-00    RMS     Standardized register order
+   25-Jun-98    RMS     Fixed bugs in paper tape error handling
+*/
+
+#include "pdp11_defs.h"
+
+#define TTICSR_IMP      (CSR_DONE + CSR_IE)             /* terminal input */
+#define TTICSR_RW       (CSR_IE)
+#define TTOCSR_IMP      (CSR_DONE + CSR_IE)             /* terminal output */
+#define TTOCSR_RW       (CSR_IE)
+#define CLKCSR_IMP      (CSR_DONE + CSR_IE)             /* real-time clock */
+#define CLKCSR_RW       (CSR_IE)
+#define CLK_DELAY       16667
+
+extern int32 int_req[IPL_HLVL];
+extern uint32 cpu_type;
+
+int32 tti_csr = 0;                                      /* control/status */
+int32 tto_csr = 0;                                      /* control/status */
+int32 clk_csr = 0;                                      /* control/status */
+int32 clk_tps = 60;                                     /* ticks/second */
+int32 clk_default = 60;                                 /* default ticks/second */
+int32 clk_fie = 0;                                      /* force IE = 1 */
+int32 clk_fnxm = 0;                                     /* force NXM on reg */
+int32 tmxr_poll = CLK_DELAY;                            /* term mux poll */
+int32 tmr_poll = CLK_DELAY;                             /* timer poll */
+int32 tto_charconv = 0;
+
+t_stat tti_rd (int32 *data, int32 PA, int32 access);
+t_stat tti_wr (int32 data, int32 PA, int32 access);
+t_stat tti_svc (UNIT *uptr);
+t_stat tti_reset (DEVICE *dptr);
+t_stat tto_rd (int32 *data, int32 PA, int32 access);
+t_stat tto_wr (int32 data, int32 PA, int32 access);
+t_stat tto_svc (UNIT *uptr);
+t_stat tto_reset (DEVICE *dptr);
+t_stat tty_set_mode (UNIT *uptr, int32 val, char *cptr, void *desc);
+t_stat clk_rd (int32 *data, int32 PA, int32 access);
+t_stat clk_wr (int32 data, int32 PA, int32 access);
+t_stat clk_svc (UNIT *uptr);
+int32 clk_inta (void);
+t_stat clk_reset (DEVICE *dptr);
+t_stat clk_set_freq (UNIT *uptr, int32 val, char *cptr, void *desc);
+t_stat clk_show_freq (FILE *st, UNIT *uptr, int32 val, void *desc);
+
+/* TTI data structures
+
+   tti_dev      TTI device descriptor
+   tti_unit     TTI unit descriptor
+   tti_reg      TTI register list
+*/
+
+DIB tti_dib = {
+    IOBA_TTI, IOLN_TTI, &tti_rd, &tti_wr,
+    1, IVCL (TTI), VEC_TTI, { NULL }
+    };
+
+UNIT tti_unit = { UDATA (&tti_svc, UNIT_IDLE, 0), 0 };
+
+REG tti_reg[] = {
+    { ORDATA (BUF, tti_unit.buf, 8) },
+    { ORDATA (CSR, tti_csr, 16) },
+    { FLDATA (INT, IREQ (TTI), INT_V_TTI) },
+    { FLDATA (ERR, tti_csr, CSR_V_ERR) },
+    { FLDATA (DONE, tti_csr, CSR_V_DONE) },
+    { FLDATA (IE, tti_csr, CSR_V_IE) },
+    { DRDATA (POS, tti_unit.pos, T_ADDR_W), PV_LEFT },
+    { DRDATA (TIME, tti_unit.wait, 24), PV_LEFT },
+    { NULL }
+    };
+
+MTAB tti_mod[] = {
+    { TT_MODE, TT_MODE_UC, "UC", "UC", &tty_set_mode },
+    { TT_MODE, TT_MODE_7B, "7b", "7B", &tty_set_mode },
+    { TT_MODE, TT_MODE_8B, "8b", "8B", &tty_set_mode },
+    { TT_MODE, TT_MODE_7P, "7b", NULL, NULL },
+    { MTAB_XTD|MTAB_VDV, 0, "ADDRESS", NULL,
+      NULL, &show_addr, NULL },
+    { MTAB_XTD|MTAB_VDV, 0, "VECTOR", NULL,
+      NULL, &show_vec, NULL },
+    { 0 }
+    };
+
+DEVICE tti_dev = {
+    "TTI", &tti_unit, tti_reg, tti_mod,
+    1, 10, 31, 1, 8, 8,
+    NULL, NULL, &tti_reset,
+    NULL, NULL, NULL,
+    &tti_dib, DEV_UBUS | DEV_QBUS
+    };
+
+/* TTO data structures
+
+   tto_dev      TTO device descriptor
+   tto_unit     TTO unit descriptor
+   tto_reg      TTO register list
+*/
+
+DIB tto_dib = {
+    IOBA_TTO, IOLN_TTO, &tto_rd, &tto_wr,
+    1, IVCL (TTO), VEC_TTO, { NULL }
+    };
+
+UNIT tto_unit = { UDATA (&tto_svc, TT_MODE_7P, 0), SERIAL_OUT_WAIT };
+
+REG tto_reg[] = {
+    { ORDATA (BUF, tto_unit.buf, 8) },
+    { ORDATA (CSR, tto_csr, 16) },
+    { FLDATA (INT, IREQ (TTO), INT_V_TTO) },
+    { FLDATA (ERR, tto_csr, CSR_V_ERR) },
+    { FLDATA (DONE, tto_csr, CSR_V_DONE) },
+    { FLDATA (IE, tto_csr, CSR_V_IE) },
+    { DRDATA (POS, tto_unit.pos, T_ADDR_W), PV_LEFT },
+    { DRDATA (TIME, tto_unit.wait, 24), PV_LEFT },
+    { NULL }
+    };
+
+MTAB tto_mod[] = {
+    { TT_MODE, TT_MODE_UC, "UC", "UC", &tty_set_mode },
+    { TT_MODE, TT_MODE_7B, "7b", "7B", &tty_set_mode },
+    { TT_MODE, TT_MODE_8B, "8b", "8B", &tty_set_mode },
+    { TT_MODE, TT_MODE_7P, "7p", "7P", &tty_set_mode },
+    { MTAB_XTD|MTAB_VDV, 0, "ADDRESS", NULL,
+      NULL, &show_addr, NULL },
+    { MTAB_XTD|MTAB_VDV, 0, "VECTOR", NULL,
+      NULL, &show_vec, NULL },
+    { 0 }
+    };
+
+DEVICE tto_dev = {
+    "TTO", &tto_unit, tto_reg, tto_mod,
+    1, 10, 31, 1, 8, 8,
+    NULL, NULL, &tto_reset,
+    NULL, NULL, NULL,
+    &tto_dib, DEV_UBUS | DEV_QBUS
+    };
+
+/* CLK data structures
+
+   clk_dev      CLK device descriptor
+   clk_unit     CLK unit descriptor
+   clk_reg      CLK register list
+*/
+
+DIB clk_dib = {
+    IOBA_CLK, IOLN_CLK, &clk_rd, &clk_wr,
+    1, IVCL (CLK), VEC_CLK, { &clk_inta }
+    };
+
+UNIT clk_unit = { UDATA (&clk_svc, UNIT_IDLE, 0), CLK_DELAY };
+
+REG clk_reg[] = {
+    { ORDATA (CSR, clk_csr, 16) },
+    { FLDATA (INT, IREQ (CLK), INT_V_CLK) },
+    { FLDATA (DONE, clk_csr, CSR_V_DONE) },
+    { FLDATA (IE, clk_csr, CSR_V_IE) },
+    { DRDATA (TIME, clk_unit.wait, 24), REG_NZ + PV_LEFT },
+    { DRDATA (TPS, clk_tps, 16), PV_LEFT + REG_HRO },
+    { DRDATA (DEFTPS, clk_default, 16), PV_LEFT + REG_HRO },
+    { FLDATA (FIE, clk_fie, 0), REG_HIDDEN },
+    { FLDATA (FNXM, clk_fnxm, 0), REG_HIDDEN },
+    { NULL }
+    };
+
+MTAB clk_mod[] = {
+    { MTAB_XTD|MTAB_VDV, 50, NULL, "50HZ",
+      &clk_set_freq, NULL, NULL },
+    { MTAB_XTD|MTAB_VDV, 60, NULL, "60HZ",
+      &clk_set_freq, NULL, NULL },
+    { MTAB_XTD|MTAB_VDV, 0, "FREQUENCY", NULL,
+      NULL, &clk_show_freq, NULL },
+    { MTAB_XTD|MTAB_VDV, 0, "ADDRESS", NULL,
+      NULL, &show_addr, NULL },
+    { MTAB_XTD|MTAB_VDV, 0, "VECTOR", NULL,
+      NULL, &show_vec, NULL },
+    { 0 }
+    };
+
+DEVICE clk_dev = {
+    "CLK", &clk_unit, clk_reg, clk_mod,
+    1, 0, 0, 0, 0, 0,
+    NULL, NULL, &clk_reset,
+    NULL, NULL, NULL,
+    &clk_dib, DEV_UBUS | DEV_QBUS
+    };
+
+/* Terminal input address routines */
+
+t_stat tti_rd (int32 *data, int32 PA, int32 access)
+{
+switch ((PA >> 1) & 01) {                               /* decode PA<1> */
+
+    case 00:                                            /* tti csr */
+        *data = tti_csr & TTICSR_IMP;
+        return SCPE_OK;
+
+    case 01:                                            /* tti buf */
+        tti_csr = tti_csr & ~CSR_DONE;
+        CLR_INT (TTI);
+        *data = tti_unit.buf & 0377;
+        return SCPE_OK;
+        }                                               /* end switch PA */
+
+return SCPE_NXM;
+}
+
+t_stat tti_wr (int32 data, int32 PA, int32 access)
+{
+switch ((PA >> 1) & 01) {                               /* decode PA<1> */
+
+    case 00:                                            /* tti csr */
+        if (PA & 1)
+            return SCPE_OK;
+        if ((data & CSR_IE) == 0)
+            CLR_INT (TTI);
+        else if ((tti_csr & (CSR_DONE + CSR_IE)) == CSR_DONE)
+            SET_INT (TTI);
+        tti_csr = (tti_csr & ~TTICSR_RW) | (data & TTICSR_RW);
+        return SCPE_OK;
+
+    case 01:                                            /* tti buf */
+        return SCPE_OK;
+        }                                               /* end switch PA */
+
+return SCPE_NXM;
+}
+
+/* Terminal input service */
+
+t_stat tti_svc (UNIT *uptr)
+{
+int32 c;
+
+sim_activate (uptr, KBD_WAIT (uptr->wait, tmr_poll));   /* continue poll */
+if ((c = sim_poll_kbd ()) < SCPE_KFLAG)                 /* no char or error? */
+    return c;
+if (c & SCPE_BREAK)                                     /* break? */
+    uptr->buf = 0;
+else uptr->buf = sim_tt_inpcvt (c, TT_GET_MODE (uptr->flags));
+uptr->pos = uptr->pos + 1;
+tti_csr = tti_csr | CSR_DONE;
+if (tti_csr & CSR_IE)
+    SET_INT (TTI);
+return SCPE_OK;
+}
+
+/* Terminal input reset */
+
+t_stat tti_reset (DEVICE *dptr)
+{
+tti_unit.buf = 0;
+tti_csr = 0;
+CLR_INT (TTI);
+sim_activate_abs (&tti_unit, KBD_WAIT (tti_unit.wait, tmr_poll));
+return SCPE_OK;
+}
+
+/* Terminal output address routines */
+
+t_stat tto_rd (int32 *data, int32 PA, int32 access)
+{
+switch ((PA >> 1) & 01) {                               /* decode PA<1> */
+
+    case 00:                                            /* tto csr */
+        *data = tto_csr & TTOCSR_IMP;
+        return SCPE_OK;
+
+    case 01:                                            /* tto buf */
+        *data = tto_unit.buf;
+        return SCPE_OK;
+        }                                               /* end switch PA */
+
+return SCPE_NXM;
+}
+
+t_stat tto_wr (int32 data, int32 PA, int32 access)
+{
+switch ((PA >> 1) & 01) {                               /* decode PA<1> */
+
+    case 00:                                            /* tto csr */
+        if (PA & 1)
+            return SCPE_OK;
+        if ((data & CSR_IE) == 0)
+            CLR_INT (TTO);
+        else if ((tto_csr & (CSR_DONE + CSR_IE)) == CSR_DONE)
+            SET_INT (TTO);
+        tto_csr = (tto_csr & ~TTOCSR_RW) | (data & TTOCSR_RW);
+        return SCPE_OK;
+
+    case 01:                                            /* tto buf */
+        if ((PA & 1) == 0)
+            tto_unit.buf = data & 0377;
+        tto_csr = tto_csr & ~CSR_DONE;
+        CLR_INT (TTO);
+        sim_activate (&tto_unit, tto_unit.wait);
+        return SCPE_OK;
+        }                                               /* end switch PA */
+
+return SCPE_NXM;
+}
+
+/* Terminal output service */
+
+t_stat tto_svc (UNIT *uptr)
+{
+int32 c = uptr->buf;
+
+#ifdef CYR_CTLN_CTLO
+c &= 0177;
+if (c == ('N' & 037)) {
+    tto_charconv = 1;
+    c = -1;
+} else if (c == ('O' & 037)) {
+    tto_charconv = 0;
+    c = -1;
+} else if (tto_charconv && c >= '@') {
+#ifdef _WIN32
+    static uint8 tab[0100] = {
+#if 0
+        /* Codepage 1251 */
+        0376, 0340, 0341, 0366, 0344, 0345, 0364, 0343, /* @ABCDEFG */
+        0365, 0350, 0351, 0352, 0353, 0354, 0355, 0356, /* HIJKLMNO */
+        0357, 0377, 0360, 0361, 0362, 0363, 0346, 0342, /* PQRSTUVW */
+        0374, 0373, 0347, 0370, 0375, 0371, 0367, 0372, /* XYZ[\]^_ */
+        0336, 0300, 0301, 0326, 0304, 0305, 0324, 0303, /* `abcdefg */
+        0325, 0310, 0311, 0312, 0313, 0314, 0315, 0316, /* hijklmno */
+        0317, 0337, 0320, 0321, 0322, 0323, 0306, 0302, /* pqrstuvw */
+        0334, 0333, 0307, 0330, 0335, 0331, 0327, 0332, /* xyz{|}~  */
+#else
+        /* Codepage 866 */
+        0356, 0240, 0241, 0346, 0244, 0245, 0344, 0243, /* @ABCDEFG */
+        0345, 0250, 0251, 0252, 0253, 0254, 0255, 0256, /* HIJKLMNO */
+        0257, 0357, 0340, 0341, 0342, 0343, 0246, 0242, /* PQRSTUVW */
+        0354, 0353, 0247, 0350, 0355, 0351, 0347, 0352, /* XYZ[\]^_ */
+        0236, 0200, 0201, 0226, 0204, 0205, 0224, 0203, /* `abcdefg */
+        0225, 0210, 0211, 0212, 0213, 0214, 0215, 0216, /* hijklmno */
+        0217, 0237, 0220, 0221, 0222, 0223, 0206, 0202, /* pqrstuvw */
+        0234, 0233, 0207, 0230, 0235, 0231, 0227, 0232, /* xyz{|}~  */
+#endif
+        };
+    c = tab [c - '@'];
+#else /* _WIN32 */
+    /* UTF-8 */
+    static const char *tab[0100] = {
+        "ю", "а", "б", "ц", "д", "е", "ф", "г",         /* @ABCDEFG */
+        "х", "и", "й", "к", "л", "м", "н", "о",         /* HIJKLMNO */
+        "п", "я", "р", "с", "т", "у", "ж", "в",         /* PQRSTUVW */
+        "ь", "ы", "з", "ш", "э", "щ", "ч", "ъ",         /* XYZ[\]^_ */
+        "Ю", "А", "Б", "Ц", "Д", "Е", "Ф", "Г",         /* `abcdefg */
+        "Х", "И", "Й", "К", "Л", "М", "Н", "О",         /* hijklmno */
+        "П", "Я", "Р", "С", "Т", "У", "Ж", "В",         /* pqrstuvw */
+        "Ь", "Ы", "З", "Ш", "Э", "Щ", "Ч", "Ъ",         /* xyz{|}~  */
+        };
+    const char *str = tab[c-'@'];
+    t_stat r = sim_putchar_s (str[0]);
+    if (r != SCPE_OK) {                             /* output; error? */
+        sim_activate (uptr, uptr->wait);            /* try again */
+        return ((r == SCPE_STALL)? SCPE_OK: r);     /* !stall? report */
+        }
+    for (c=1; str[c]; c++)
+        sim_putchar (str[c]);
+    c = -1;
+#endif /* _WIN32 */
+    }
+#else /* CYR_CTLN_CTLO */
+c = sim_tt_outcvt (c, TT_GET_MODE (uptr->flags));
+#endif /* CYR_CTLN_CTLO */
+
+if (c >= 0) {
+    t_stat r = sim_putchar_s (c);
+    if (r != SCPE_OK) {                             /* output; error? */
+        sim_activate (uptr, uptr->wait);            /* try again */
+        return ((r == SCPE_STALL)? SCPE_OK: r);     /* !stall? report */
+        }
+    }
+tto_csr = tto_csr | CSR_DONE;
+if (tto_csr & CSR_IE)
+    SET_INT (TTO);
+uptr->pos = uptr->pos + 1;
+return SCPE_OK;
+}
+
+/* Terminal output reset */
+
+t_stat tto_reset (DEVICE *dptr)
+{
+tto_unit.buf = 0;
+tto_csr = CSR_DONE;
+CLR_INT (TTO);
+sim_cancel (&tto_unit);                                 /* deactivate unit */
+return SCPE_OK;
+}
+
+t_stat tty_set_mode (UNIT *uptr, int32 val, char *cptr, void *desc)
+{
+tti_unit.flags = (tti_unit.flags & ~TT_MODE) | val;
+tto_unit.flags = (tto_unit.flags & ~TT_MODE) | val;
+return SCPE_OK;
+}
+
+/* The line time clock has a few twists and turns through the history of 11's
+
+   LSI-11               no CSR
+   LSI-11/23 (KDF11A)   no CSR
+   PDP-11/23+ (KDF11B)  no monitor bit
+   PDP-11/24 (KDF11U)   monitor bit clears on IAK
+*/
+
+/* Clock I/O address routines */
+
+t_stat clk_rd (int32 *data, int32 PA, int32 access)
+{
+if (clk_fnxm)                                           /* not there??? */
+    return SCPE_NXM;
+if (CPUT (HAS_LTCM))                                    /* monitor bit? */
+    *data = clk_csr & CLKCSR_IMP;
+else *data = clk_csr & (CLKCSR_IMP & ~CSR_DONE);        /* no, just IE */
+return SCPE_OK;
+}
+
+t_stat clk_wr (int32 data, int32 PA, int32 access)
+{
+if (clk_fnxm)                                           /* not there??? */
+    return SCPE_NXM;
+if (PA & 1)
+    return SCPE_OK;
+clk_csr = (clk_csr & ~CLKCSR_RW) | (data & CLKCSR_RW);
+if (CPUT (HAS_LTCM) && ((data & CSR_DONE) == 0))        /* monitor bit? */
+    clk_csr = clk_csr & ~CSR_DONE;                      /* clr if zero */
+if ((((clk_csr & CSR_IE) == 0) && !clk_fie) ||          /* unless IE+DONE */
+    ((clk_csr & CSR_DONE) == 0))                        /* clr intr */
+    CLR_INT (CLK);
+return SCPE_OK;
+}
+
+/* Clock service */
+
+t_stat clk_svc (UNIT *uptr)
+{
+int32 t;
+
+clk_csr = clk_csr | CSR_DONE;                           /* set done */
+if ((clk_csr & CSR_IE) || clk_fie)
+    SET_INT (CLK);
+t = sim_rtcn_calb (clk_tps, TMR_CLK);                   /* calibrate clock */
+sim_activate (&clk_unit, t);                            /* reactivate unit */
+tmr_poll = t;                                           /* set timer poll */
+tmxr_poll = t;                                          /* set mux poll */
+return SCPE_OK;
+}
+
+/* Clock interrupt acknowledge */
+
+int32 clk_inta (void)
+{
+if (CPUT (CPUT_24))
+    clk_csr = clk_csr & ~CSR_DONE;
+return clk_dib.vec;
+}
+
+/* Clock coscheduling routine */
+
+int32 clk_cosched (int32 wait)
+{
+int32 t;
+
+t = sim_is_active (&clk_unit);
+return (t? t - 1: wait);
+}
+
+/* Clock reset */
+
+t_stat clk_reset (DEVICE *dptr)
+{
+if (CPUT (HAS_LTCR))                                    /* reg there? */
+    clk_fie = clk_fnxm = 0;
+else clk_fie = clk_fnxm = 1;                            /* no, BEVENT */
+clk_tps = clk_default;                                  /* set default tps */
+clk_csr = CSR_DONE;                                     /* set done */
+CLR_INT (CLK);
+sim_rtcn_init (clk_unit.wait, TMR_CLK);                 /* init line clock */
+sim_activate_abs (&clk_unit, clk_unit.wait);            /* activate unit */
+tmr_poll = clk_unit.wait;                               /* set timer poll */
+tmxr_poll = clk_unit.wait;                              /* set mux poll */
+return SCPE_OK;
+}
+
+/* Set frequency */
+
+t_stat clk_set_freq (UNIT *uptr, int32 val, char *cptr, void *desc)
+{
+if (cptr)
+    return SCPE_ARG;
+if ((val != 50) && (val != 60))
+    return SCPE_IERR;
+clk_tps = clk_default = val;
+return SCPE_OK;
+}
+
+/* Show frequency */
+
+t_stat clk_show_freq (FILE *st, UNIT *uptr, int32 val, void *desc)
+{
+fprintf (st, "%dHz", clk_tps);
+return SCPE_OK;
+}

@@ -1,0 +1,38 @@
+Palm Font Extractor - A font decompiler for PalmOS
+Copyright (C) 2002 Serge Vakulenko
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA
+
+Send bug reports to: vak@cronyx.ru
+
+
+PURPOSE
+~~~~~~~
+This program is designed to extract PalmOS font resources (NFNT) from
+binary files. The extracted fonts are saved in two formats.
+The first format is text, compatible with PilRC resource compiler.
+The second format is binary, compatible with Pilot Font Editor.
+Binary fonts could also be converted into PDB modules for Font Hack 123.
+
+
+BASICS
+~~~~~~
+usage:  pilfont infile
+
+infile  - the file containing the binary font data
+
+The extracted fonts are saved under names:
+fontWxH.txt - text format, compatible with PilRC
+fontWxH.pft - binary format, compatible with Pilot Font Editor

@@ -1,0 +1,1 @@
+@forth base.fth squares.fth

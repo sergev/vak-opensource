@@ -1,0 +1,321 @@
+.Mcall	.Module
+.Module	MEMEMT, Release=X02, Version=09, Comment=<BK0011 Memory Management>
+;
+;			Copyright (c) 1986,1987 by
+;	C-11 Special Interest Group, Leningrad State University.
+;			 All rights reserved.
+;
+; This software is furnished under a license and may be used and  copied
+; only  in  accordance  with  the  terms  of  such  license and with the
+; inclusion of the above copyright notice.  This software or  any  other
+; copies  thereof may not be provided or otherwise made available to any
+; other person.  No title to and ownership of  the  software  is  hereby
+; transfered.
+;
+; The information in this software is subject to change without notice
+; and should not be construed as a commitment by C-11 group.
+;
+; C-11 assumes no responsibility for the use or reliability of its
+; software on equipment which is not submitted by C-11.
+;
+ .Include "BKHEAD"
+.Globl	O.Tr4U,	TTOini,	KBDini,	RXini,	MTini,	ClrIni
+.Globl	GetArg,	Debug,	RetEmt,	$OffR0,	EmtInt,	FlInit
+.Globl	EmtPri,	IllBrk,	PutUwd,	USPSav,	UPSSav,	UPCSav
+.Globl	SysErr,	$UsrTrp,SavV4
+
+U.Vec	=	100
+U.Vec2	=	270
+EmtVec	=	30
+ .Psect	$Code
+IniBK::
+	MtPS	#340
+	Clr	R1		;Vector Area Pointer
+	Mov	(PC)+,(R1)+	;Write "Exit" Sequence
+		Clr	R0
+	Mov	(PC)+,(R1)+	;
+		EMT 0
+	Mov	#<400-4>/4,R2
+10$:	Mov	#O.Tr4U,(R1)+	;Set vectors 4-374
+	Mov	#2341,(R1)+
+	Sob	R2,10$
+	Mov	#4340,@#Vec4+2	;"HALT" Vector
+	Mov	#EmtInt,@#EmtVec;"EMT" Vector
+	Mov	#4340,@#EmtVec+2;"EMT" Vector
+	Mov	#U.Vec+2,@#U.Vec;Disable User Interrupts
+	Mov	#Rti,@#U.Vec+2	;
+	Mov	#U.Vec2+2,@#U.Vec2
+	Mov	#Rti,@#U.Vec2+2
+.SbTtl	Check for ROMs Available
+	Clr	R0		;All Pages Unavailable
+	Mov	#ROMTab,R1	;
+	Mov	#40$,@#Vec4
+20$:	MovB	(R1)+,R2
+	Beq	50$			
+	Bis	#SysRam!WrEnS!Mot$$$,R2 ;Set Write Enable flag
+	Mov	R2,@#SEL1	;Connect ROM
+	Tst	@#100000	;Check ROM module
+	BisB	R2,R0		;Set ROM Available Flag
+30$:	Br	20$
+40$:	Cmp	(SP)+,(SP)+	;Clear Stack
+	Br	20$		;And test the next ROM
+50$:	MovB	R0,MemFlg	;Save to Memory Pages Flag
+	Mov	#SysSel!Mot$$$,@#$$SysS
+	Mov	#SysSel!Mot$$$,@#$$UsrS
+
+;
+;Attention !!!
+; $Binit routine must be at this point
+;
+.SbTtl	$Binit (EMT 14)	Routine (Computer Initialization)
+$Binit::Mov	#SysSel!Mot$$$,R0	;Set System Sel1
+	Mov	R0,@#$$SysS
+	Mov	R0,@#Sel1
+	Clr	$UsrTrp		;Reset User's Trap to 4
+	Clr	SysErr		;Reset Illegal EMT Processing
+	Call	ClrIni		;Color Control Unit Initialization
+	Clr	FlInit		;Set Flag for disabling special line
+	Call	KBDini		;Keyboard initialization
+	Call	TTOini		;TV-Set
+	Call	RXini		;Disk
+	Call	MTini		;Tape
+	Clr	@#SEL2		;Port
+	Return
+ .SbTtl	$Bsetpg (EMT 52) Routine (Connect Memory Page)
+$BsetPg::
+	Mov	R0,-(SP)	;Save R0 
+	MovB	R0,R5		;Get Lsb, Extend sign !!
+	ClrB	R0
+	SwaB	R0		;Determine the Address Window
+	Cmp	R5,#77		;System ROM Page ?
+	Beq	50$		;Yes, Connect System Rom
+	Cmp	R5,#177		;System RAS Page ?
+	Bne	5$		;No
+	Mov	#7,R5
+	Br	6$
+5$:	Cmp	R5,#13		;Check Page Number
+	Bhi	Err0		;Jump if illegal
+	Cmp	R5,#7		;Is it RAM ?
+	Bhi	30$		;Jump if ROM
+	Beq	Err2		;System Page, Error
+6$:	TstB	R0		;Determine Address Region
+	Beq	10$		;Lower Region
+	MovB	RAM1Tb(R5),R5	; Upper (100000-140000)
+  	Mov	#7,R0		;Bit Mask
+	Bic	#ROMMSK,@#$$UsrS;Reset ROM
+	Br	20$
+10$:	MovB	RAM0Tb(R5),R5	;40000-100000
+	Mov	#7*20,R0
+20$:	BicB	R0,@#$$UsrS+1	;Modify User SEL1
+	BisB	R5,@#$$UsrS+1
+	Br	Nerr
+.SbTtl	Rom Page Connecting
+30$:	BitB	RomTab-10(R5),MEMFLG
+	Beq	Err0
+40$:	TstB	R0
+	Beq	Err1
+	MovB	ROMTab-10(R5),R5
+	Bic	#^C<ROMMSK>,R5
+	Bic	#ROMMSK,@#$$UsrS
+	Bis	R5,@#$$UsrS
+	Br	Nerr
+50$:	Mov	#11,R5		;System ROM Page No
+	Br	40$
+Err0:	ClrB	@#ErrByt	;Illegal Page Number or Nonexisting
+	Br	Err
+Err1:	MovB	#1,@#ErrByt
+	Br	Err
+Err2:	MovB	#2,@#ErrByt
+	Br	Err
+Nerr:	Tst	(PC)+
+Err:	SeC
+	Mov	(SP)+,R0
+	Return
+ .SbTtl	$Btest (EMT 72) Routine (Get Memory page status)
+$Btest::	
+	Mov	R1,-(SP)
+	Mov	R0,R5
+	Clr	R0
+	Cmp	R5,#7
+	Bhi	60$		;It's ROM
+	Beq	50$		;System RAM Page ==> 1
+10$:	MovB	@#$$UsrS+1,R1	;User SEL1
+	Bic	#^C<7*20>,R1
+	CmpB	RAM0Tb(R5),R1
+	Bne	20$		;Not Conected
+	Bis	#1,R0		;Connected to 40000
+20$:	Bit	#ROMMSK,@#$$UsrS	;ROM Connected ?
+	Bne	40$		;Yes, Exit
+	MovB	@#$$UsrS+1,R1	;Test for 100000-140000
+	Bic	#^C7,R1
+	CmpB	RAM1Tb(R5),R1
+	Bne	40$		;Not Connected
+30$:	Bis	#2,R0		;Connected to 100000
+40$:	Mov	(SP)+,R1
+	Return
+50$:	Bis	#4,R0
+	Br	40$
+.SbTtl	Rom Connecting Checking
+60$:
+	Cmp	R5,#13		;Check Page Number
+	Bhi	50$		;Illegal Page Number
+	BitB	RomTab-10(R5),MEMFLG
+	Beq	50$		;Non-existing
+	BitB	ROMTab-10(R5),@#$$UsrS
+	Bne	40$
+	Br	30$
+ .SbTtl	$Bjmp (EMT 56) Routine (Jmp to Memory Page)
+$BJmp::
+	Jsr	R0,GetArg	;Reorganize Stack
+	Tst	R1		;Address
+	Bpl	10$
+	Add	#400,R0		;Inc MSB Of R0
+10$:	Call	$BSetPg		;Connect Memory Page
+	Bcs	ErrJmp		;Unable to Connect, Error
+	Mov	R1,UPCSav	;New PC=Address
+	Jmp	RetEmt
+
+.SbTtl	$Bjsr (EMT 54) Routine (Jsr PC to Memory Page)
+$BJsr::
+	Mov	@#$$UsrS,@#UsrBuf	;Save UsrS
+	Jsr	R0,GetArg	;Reorganize Stack
+	Tst	R1		;Address
+	Bpl	10$
+	Add	#400,R0
+10$:	Call	$BSetPg		;Test Memory Page
+	Bcs	ErrJmp		;Unable to Connect
+	Mov	(SP)+,R4	;Restore
+	Mov	(SP)+,R3	; R2 to
+	Mov	(SP)+,R2	;       R4
+;	Mov	@#UsrBuf,@#$$UsrS	;Old USER SEL1 ???
+	Sub	#5*2,@#USPSav
+	Mov	@#USPSav,R5		;User Stack Pointer
+	Mov	R1,      R0		;User Addr
+	Call	PutUwd
+	Mov	@#UPSSav,R0		;User PS
+	Call	PutUwd
+	Mov	#JsrRet, R0		;RetAddr
+	Call	PutUwd
+	Mov	@#UPCSav,R0		;Old PC
+	Call	PutUwd
+	Mov	@#UsrBuf,R0		;Old $$USRS
+	Call	PutUwd
+;+
+; At This Point User's Stack is:
+;
+;	Old Sel1
+;	Old PC
+;	JsrRet
+;	Users PS
+;	Routine Address
+;-
+	Mov	(SP)+,R1	;From System Stack
+	Mov	(SP)+,R0
+	Tst	(SP)+		;Emt Return
+	Mov	(SP)+,R5	;
+	Mov	@#USPSav,SP	;Restore User SP
+	Mov	@#SavV4,@#Vec4	;Vector 4
+	Mov	@#$$UsrS,@#Sel1	;Set User's SEL
+	Rti			;Go...
+;+
+; .BJsr Return Routine
+;Stack is:
+;
+;	Old User Sel1	2
+;	Old PC		0
+;
+JsrRet::
+	MFPS	-(SP)	;Save Status (User Stack)
+	Bic	#^C<ScrMsk!TapMsk>,@#$$UsrS
+	Bic	#TapMsk!ScrMsk,4(SP)
+	Bis	4(SP),@#$$UsrS	;Restore User Sel1
+	Mov	@SP,4(SP)	;And Modify Stack (PS)
+	Tst	(SP)+		;Stack is clean Now
+	Mov	@#$$UsrS,@#Sel1
+	Rtt			;And Return to User
+
+.SbTtl	Error in .Bjsr/.Bjmp
+
+ErrJmp:	Mov	(SP)+,R4
+	Mov	(SP)+,R3
+	Mov	(SP)+,R2
+	Mov	(SP)+,R1
+	Mov	(SP)+,R0
+	Tst	(SP)+
+	Mov	#ErJmp,EmtPri
+	Jmp	IllBrk
+
+.SbTtl	$Bpeek (EMT 60) Routine (Get the Word from Memory Page)
+$Bpeek::
+	Jsr	R0,GetArg	;Reorganize Stack
+	Bic	#^C17,R0
+	Bic	#^C37777,R1	;Address in Page
+	CmpB	R0,#SysPag
+	Bne	10$
+	Mov	40000(R1),R0	;Read from system page
+	Br	30$
+10$:	Call	PgSet		;Connect Page
+	Bcs	40$
+	Mov	@#$$UsrS,@#Sel1
+20$:	Mov	100000(R1),R0	;Get from window
+	Mov	@#$$SysS,@#Sel1
+	Mov	@#UsRBuf,@#$$UsrS
+30$:	Mov	R0,$OffR0(SP)
+40$:	Jmp	RetEmt
+
+.SbTtl	Internal Page Setting Routine
+PgSet::	Mov	@#$$UsrS,@#UsRBuf
+	Bis	#400,R0
+	Call	$BSetPg
+	Return
+
+.SbTtl	$BpokB (EMT 62) Routine (Put the Byte to Memory Page)
+$BpokB::
+	Jsr	R0,GetArg	;Reorganize Stack
+	Bic	#^C17,R0	;Page No
+	Bic	#^C37777,R1	;Address in Page
+	CmpB	R0,#SysPag	;System Page ?
+	Bne	10$		;No
+	MovB	$OffR0(SP),40000(R1);Yes, Write it into System Page
+	Br	PokE1
+10$:	Call	PgSet		;Connect Page
+	Bcs	PokE1
+	Mov	$OffR0(SP),R0
+	Mov	@#$$UsrS,@#Sel1
+	MovB	R0,100000(R1)	;Write Byte
+PokExi:	Mov	@#$$SysS,@#Sel1
+	Mov	@#UsRBuf,@#$$UsrS
+PokE1:	Jmp	RetEmt
+
+.SbTtl	$Bpoke (EMT 120) Routine (Put the Word to Memory Page)
+$Bpoke::
+	Jsr	R0,GetArg	;Reorganize Stack
+	Bic	#^C17,R0
+	Bic	#^C37777,R1	;Address in Page
+	CmpB	R0,#SysPag
+	Bne	10$
+	Mov	$OffR0(SP),40000(R1)
+	Br	PokE1
+10$:	Call	PgSet		;Connect Page
+	Bcs	PokE1
+	Mov	$OffR0(SP),R0
+	Mov	@#$$UsrS,Sel1
+	Mov	R0,100000(R1)	
+	Br	PokExi
+ .Psect	$RAM
+MEMFLG::	.Byte	0	;System Memory Available Flags
+	.Even
+UsRBuf::.Word	0
+
+.Psect	$Const
+ROMTab::.Byte	1,2,10,20,0 ;ROM Connecting Table
+;
+;	Pages	0	1	2	3	4	5	6	7
+;
+RAM0Tb::.Byte	6*20,	0,	2*20,	3*20,	4*20,	1*20,	7*20,	5*20
+RAM1Tb::.Byte	6,	0,	2,	3,	4,	1,	7,	5
+
+ERJMP:	.Byte	25
+	.Ascii	/ILLEGAL .BJMP OR .BJSR FROM PC = /<200>
+	.Even
+.End

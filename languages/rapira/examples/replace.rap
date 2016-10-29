@@ -1,0 +1,25 @@
+proc REPLACE(<=WHERE, =>WHAT, =>BY_WHAT)
+
+	N := 1
+
+	do
+
+		K := index(WHAT, WHERE[N:])
+
+		if K = 0 then
+			exit
+		fi
+
+		K := N + K - 1
+
+		WHERE[K:K+#WHAT-1] := BY_WHAT
+
+		N := K + #BY_WHAT
+
+	od
+
+end
+
+FAIRYTAIL := "Somebody said," + lf + "''Bother!''" + lf + "And then he said," + lf + "''Oh, deary me!''" + lf + "Somebody sobbed, ''Oh, deary me!''" + lf + "And went back to bed."
+REPLACE(<=FAIRYTAIL, =>"Somebody", =>"The King")
+output: FAIRYTAIL

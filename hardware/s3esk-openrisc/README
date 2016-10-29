@@ -1,0 +1,104 @@
+OpenRISC Minimal Configuration for Spartan-3E Starter Kit board
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Introduction
+~~~~~~~~~~~~
+This is a minimal configuration of OpenRISC system for Xilinx Spartan-3E
+Starter Kit board. It contains OpenRISC 1200 and a set of
+OpenCores peripherals: UART16550, debug interface, and 16 kbytes of
+internal FPGA block RAM.
+
+Data/instruction caches, MMU and are disabled (lack of BlockRAMs).
+Multiply-Accumulate instruction is also disabled (it takes 6% of slices).
+The clock is decreased to 5MHz. Probably I was too pessimistic here...
+
+
+Directory Structure
+~~~~~~~~~~~~~~~~~~~
+dbg_interface/		- Verilog sources of JTAG debug interface (jp1)
+mem_if/			- Verilog sources of RAM interface
+or1200/			- Verilog sources of OpenRisc1200 CPU
+uart16550/		- Verilog sources of UART (16550-compatible)
+hello-uart/		- "Hello World" test program
+
+
+Files
+~~~~~
+download.bat		- batch file for starting downloader (IMPACT) under Windows
+impact.run		- IMPACT downloader script
+Makefile		- make script for recompiling the system
+or1k-mini.bit		- final FPGA bit image
+README			- this file
+s3esk_mini_top.ucf	- pin list for XC3S500E FPGA on S3ESK board
+s3esk_mini_top.v	- top level unit sources
+s3esk_defines.v		- system defines: irq numbers and memory address map
+tc_top.v		- traffic cop sources
+
+
+Synthesis
+~~~~~~~~~
+To recompile the system from sources, you need Xilinx ISE Webpack
+Linux version to be installed. Just run:
+
+	make
+
+and all the synthesis passes will be executed in order (xst, ngdbuild,
+map, par, trce, bitgen) resulting in "or1k-mini.bit" file.
+
+You can find log files and all other intermediate Xilinx data files in
+build/ subdirectory.
+
+
+Board Programming Procedure
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Under windows, run:
+
+	download.bat
+
+This script will start IMPACT utility and program the S3ESK board,
+connected to the computer.
+
+
+Running "Hello World"
+~~~~~~~~~~~~~~~~~~~~~
+Attach Xilinx parallel cable III to J4 connector on the board,
+and connect it to parralel port on Linux computer.
+Connect your computer COM port to J9(dce) port by direct cable.
+Use any terminal program with baud rate 9600 (no parity, 1 stop bit).
+
+Start JTAG port server:
+
+	jp1 -xpc3 9999
+
+and leave it running. From another console, start debugger:
+
+	or32-elf-gdb hello.or32
+	(gdb) target jtag jtag://localhost:9999
+	(gdb) load
+	(gdb) set $PC=0x100
+	(gdb) c
+
+This will load the test program via JTAG interface to RAM,
+and start it. In terminal program, attached to COM-port,
+you will see:
+
+	Hello World!!!
+
+
+Device utilization summary
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+Selected Device : 3s500efg320-4
+
+ Number of Slices:                    2734  out of   4656    58%
+ Number of Slice Flip Flops:          1725  out of   9312    18%
+ Number of 4 input LUTs:              5113  out of   9312    54%
+    Number used as logic:             5081
+    Number used as RAMs:                32
+ Number of IOs:                          9
+ Number of bonded IOBs:                  9  out of    232     3%
+ Number of BRAMs:                       14  out of     20    70%
+ Number of MULT18X18SIOs:                3  out of     20    15%
+ Number of GCLKs:                        3  out of     24    12%
+
+___
+Serge Vakulenko, December 2006

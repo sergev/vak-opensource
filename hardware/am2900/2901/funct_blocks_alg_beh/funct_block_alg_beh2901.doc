@@ -1,0 +1,100 @@
+--------------------------------------------------------------------------------
+--
+--   AM2901 Benchmark
+--
+-- Source: AMD data book
+--
+-- VHDL Benchmark author Indraneel Ghosh
+--                       University Of California, Irvine, CA 92717
+--
+-- Developed on Nov 1, 1991
+--
+--------------------------------------------------------------------------------
+
+THE Functional Block MODEL
+
+ The chip has been partitioned into functional blocks which are 
+ modeled by VHDL alogorithmic Behaviour
+
+ The blocks are :
+
+** alu_inputs : ALU source selector
+
+** alu : ALU
+
+** mem : RAM 
+
+** Q_reg : Q register 
+
+** output_and_shifter : output selector and the shifter outputs from RAM and
+                          Q-register.
+
+Guarded concurrent blocks "Q_reg" and "mem" are used to represent the 
+sequential elements in the chip. These blocks are trigerred by the clock.
+Both the guarded blocks have a master-slave configuration.
+
+-----------------------------------------------------------------
+
+VARIABLES, SIGNALS AND TYPES :
+
+File "am2901.doc" contains a general description of the chip and its ports.
+
+This model uses the following global and local signals and variables:
+
+   *******************************************************
+
+  GLOBAL SIGNALS :
+
+  RAM ==> The 16-word by 4-bit RAM.
+
+  RE ==> Input data for ALU, selected by ALU data selector. ( 4 bits)
+
+  S ==> Input data for ALU, selected by ALU data selector. ( 4 bits)
+
+  A ==> The RAM word addressed by Aadd is read into this variable. ( 4 bits)
+
+  B ==> The RAM word addressed by Badd is read into this variable. ( 4 bits)
+
+  Q ==> Used to represent the slave in the Q register. ( 4 bits)
+
+  F ==> ALU output . ( 4 bits)
+
+   *******************************************************
+
+ LOCAL SIGNALS (in VHDL concurrent blocks) :
+
+   ## IN BLOCK "alu" :
+
+  R_ext ==> Extended input data for ALU. This consists of "RE" 
+             concatenated with a '0' bit at the MSB position.
+             This extended ALU input is used to facilitate 
+             computation of carry bit "C4". ( 5 bits)
+             ( R_ext := '0' & RE; )
+
+  S_ext ==> Extended input data for ALU. This consists of "S" 
+             concatenated with a '0' bit at the MSB position.
+             This extended ALU input is used to facilitate
+             computation of carry bit "C4". ( 5 bits)
+             ( R_ext := '0' & S; )
+              
+  result ==> Extended output from ALU. ( 5 bits)
+              ( "F" is obtained from "result".
+                 F <= result(3 downto 0); )
+             
+  temp_p ==> An intermediate variable, calculated from "result" and used in the
+         computation of propagate term "Pbar". ( 5 bits)
+
+  temp_g ==> An intermediate variable, calculated from "result" and used in the
+         computation of generate term "Gbar". ( 5 bits)
+
+-----------------------------------------------------------------
+
+ The model in file "funct_block_alg_beh2901.vhdl" contains detailed comments describing the
+ operation of each block. For further details, please refer to file
+ "am2901.doc".
+ 
+
+
+
+
+

@@ -1,0 +1,14 @@
+//~JUDOPROP~//$VERSION=1.2.2
+//~JUDOPROP~//$TITLE=draw circle when mouse button pressed
+//~JUDOPROP~//$TYPE=graphics
+void main() {
+	setColor(green);
+
+	while (true) {
+		if (getMouseEvent()) {
+			if (getMouseButton(1)) {
+				fillCircle(getMouseX(), getMouseY(), 20);
+			}
+		}
+	}
+}

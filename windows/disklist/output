@@ -1,0 +1,72 @@
+
+(0)
+\\?\ide#disktoshiba_mk3265gsx_______________________gj003m__#4&25d920ff&0&0.1.0#{53f56307-b6bf-11d0-94f2-00a0c91efb8b}
+value InfPath = disk.inf
+value InfSection = disk_install
+value InfSectionExt = .NT
+value ProviderName = Microsoft
+value DriverDateData = 
+value DriverDate = 6-21-2006
+value DriverVersion = 6.1.7600.16385
+value MatchingDeviceId = gendisk
+value DriverDesc = Дисковый накопитель
+
+(1)
+\\?\usbstor#disk&ven_generic-&prod_compact_flash&rev_1.01#8&bc7c096&0&058f63646476&1#{53f56307-b6bf-11d0-94f2-00a0c91efb8b}
+value InfPath = disk.inf
+value InfSection = disk_install
+value InfSectionExt = .NT
+value ProviderName = Microsoft
+value DriverDateData = 
+value DriverDate = 6-21-2006
+value DriverVersion = 6.1.7600.16385
+value MatchingDeviceId = gendisk
+value DriverDesc = Дисковый накопитель
+
+(2)
+\\?\usbstor#disk&ven_generic-&prod_ms#ms-pro&rev_1.03#8&bc7c096&0&058f63646476&3#{53f56307-b6bf-11d0-94f2-00a0c91efb8b}
+value InfPath = disk.inf
+value InfSection = disk_install
+value InfSectionExt = .NT
+value ProviderName = Microsoft
+value DriverDateData = 
+value DriverDate = 6-21-2006
+value DriverVersion = 6.1.7600.16385
+value MatchingDeviceId = gendisk
+value DriverDesc = Дисковый накопитель
+
+(3)
+\\?\usbstor#disk&ven_generic-&prod_sd#mmc&rev_1.00#8&bc7c096&0&058f63646476&0#{53f56307-b6bf-11d0-94f2-00a0c91efb8b}
+value InfPath = disk.inf
+value InfSection = disk_install
+value InfSectionExt = .NT
+value ProviderName = Microsoft
+value DriverDateData = 
+value DriverDate = 6-21-2006
+value DriverVersion = 6.1.7600.16385
+value MatchingDeviceId = gendisk
+value DriverDesc = Дисковый накопитель
+
+(4)
+\\?\usbstor#disk&ven_generic-&prod_sm#xd-picture&rev_1.02#8&bc7c096&0&058f63646476&2#{53f56307-b6bf-11d0-94f2-00a0c91efb8b}
+value InfPath = disk.inf
+value InfSection = disk_install
+value InfSectionExt = .NT
+value ProviderName = Microsoft
+value DriverDateData = 
+value DriverDate = 6-21-2006
+value DriverVersion = 6.1.7600.16385
+value MatchingDeviceId = gendisk
+value DriverDesc = Дисковый накопитель
+
+(5)
+\\?\usbstor#disk&ven_jetflash&prod_transcend_16gb&rev_1100#05bda0flxrvtts4o&0#{53f56307-b6bf-11d0-94f2-00a0c91efb8b}
+value InfPath = disk.inf
+value InfSection = disk_install
+value InfSectionExt = .NT
+value ProviderName = Microsoft
+value DriverDateData = 
+value DriverDate = 6-21-2006
+value DriverVersion = 6.1.7600.16385
+value MatchingDeviceId = gendisk
+value DriverDesc = Дисковый накопитель

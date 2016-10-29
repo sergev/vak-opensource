@@ -1,0 +1,103 @@
+*ngspice
+
+* SPICE Models for the 4007 CMOS chip
+* Created by Greg Flewelling  2/1/07
+* http://web.eece.maine.edu/~hummels/classes/ece342/docs/umaine.lib
+
+* Adapted for ngspice by Serge Vakulenko 7-3-2016
+
+* Properties:  L=10u  W=30u
+.model cd4007n NMOS (Level=1
++   Cbd    = 2.0p
++   Cbs    = 2.0p
++   Cgdo   = 0.1p
++   Cgso   = 0.1p
++   Gamma  = 2.7
++   Is     = 16.64p
++   Kp     = 111u
++   Lambda = 0.01
++   Pb     = .8
++   Phi    = .6
++   Rd     = 0
++   Rs     = 0
++   Tox    = 1200n
++   Vto    = 2.0
++ )
+
+* Properties:  L=10u  W=60u
+.model cd4007p PMOS (Level=1
++   Cbd    = 4.0p
++   Cbs    = 4.0p
++   Cgdo   = 0.2p
++   Cgso   = 0.2p
++   Gamma  = 2.7
++   Is     = 16.64p
++   Kp     = 55u
++   Lambda = 0.04
++   Pb     = .8
++   Phi    = .6
++   Rd     = 0
++   Rs     = 0
++   Tox    = 1200n
++   Vto    = -1.5
++ )
+
+* Macro for 4007 IC:
+*
+* Pinout:
+*
+*             S4/psub G1,4 D5   S5   G5,2 S2   D2      * 1,2,3 - PMOS
+*               _||___||___||___||___||___||___||_     * 4,5,6 - NMOS
+*               | 7   6    5    4    3    2    1 |     * All PMOS susbstrates
+*               |                                |       connected to pin 14
+*               |                              * |     * All NMOS susbstrates
+*               |                                |       connected to pin 7
+*               | 8   9    10   11   12   13   14|
+*               _  ___  ___  ___  ___  ___  ___  _
+*                ||   ||   ||   ||   ||   ||   ||
+*                D4   S6   G3,6 S3   D3,6 D1   S1/nsub
+*
+* General Form of subcircuit call:
+*  X1 n1 n2 ... n14 cd4007
+*
+* Group A: nmos/pmos pair with common gate, source grounded
+* Group B: nmos/pmos pair with common gate
+* Group C: nmos/pmos pair with common gate and drain
+*
+.subckt cd4007  dpB ; pin 1  - Drain  Pmos group B
++               spB ; pin 2  - Source Pmos group B
++               gB  ; pin 3  - Gate        group B
++               snB ; pin 4  - Source Nmos group B
++               dnB ; pin 5  - Drain  Nmos group B
++               gA  ; pin 6  - Gate        group A
++               bn  ; pin 7  - Bulk   Nmos substrate
++               dnA ; pin 8  - Drain  Nmos group A
++               snC ; pin 9  - Source Nmos group C
++               gC  ; pin 10 - Gate        group C
++               spC ; pin 11 - Source Pmos group C
++               dC  ; pin 12 - Drain       group C
++               dpA ; pin 13 - Drain  Pmos group A
++               bp  ; pin 14 - Bulk   Pmos substrate
+
+*MOSFET Dr  Gt  Src Subs Model   L     W
+M1      dpA gA  bp  bp   cd4007p L=10u W=60u
+M2      dpB gB  spB bp   cd4007p L=10u W=60u
+M3      dC  gC  spC bp   cd4007p L=10u W=60u
+M4      dnA gA  bn  bn   cd4007n L=10u W=30u
+M5      dnB gB  snB bn   cd4007n L=10u W=30u
+M6      dC  gC  snC bn   cd4007n L=10u W=30u
+
+* Pin capacitance of DIP package
+C1      dpB 0  4pF
+C2      spB 0  4pF
+C3      gB  0  4pF
+C4      snB 0  4pF
+C5      dnB 0  4pF
+C6      gA  0  4pF
+C8      dnA 0  4pF
+C9      snC 0  4pF
+C10     gC  0  4pF
+C11     spC 0  4pF
+C12     dC  0  4pF
+C13     dpA 0  4pF
+.ends

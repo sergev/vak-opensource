@@ -1,0 +1,36 @@
+//~JUDOPROP~//$VERSION=1.1
+//~JUDOPROP~//$TITLE=Graphics Demo
+//~JUDOPROP~//$TYPE=graphics
+// this program draws a bunch
+// of colored shapes on the screen
+
+void main () {
+	int width;
+	int height;
+	width = 70;
+	height = 150;
+
+	// draw a couple rectanges, one next to the other
+	setColor(red);
+	fillRectangle(10, 20, width, height);
+	setColor(lightBlue);
+	drawRectangle(20 + width, 20, width, height);
+
+	// draw a couple ovals, one next to the other
+	setColor(purple);
+	drawOval(10, 40 + height, width, height);
+	setColor(darkGoldenrod);
+	fillOval(20 + width, 40 + height, width, height);
+
+	// draw criss-crossing lines
+	setColor(black);
+	drawLine(200, 20, 300, 350);
+	drawLine(300, 20, 200, 350);
+
+	// draw two circles, the second one
+   // covering up a lot of the first
+	setColor(blue);
+	fillCircle(300, 110, 150);
+	setColor(white);
+	fillCircle(320, 110, 130);
+}

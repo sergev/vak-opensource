@@ -1,0 +1,19 @@
+CM Short Mid-Element Loaded 2-element Yagi
+CM With 1/4-WL Matching Section to Source Wire
+CM by L.B. Cebik
+CE
+GW 1 25 0    -6   35 0    6   35 0.041665
+GW 2 25 4.25 -5.4 35 4.25 5.4 35 0.041665
+GW 3 1  2    -0.1 25 2    0.1 25 0.0010565
+GS 0 0 .30479
+GE 1
+GN 2 0 0 0 13.0 0.005
+EX 0 3 1 0 1 0
+LD 4 1 7 7 0 210
+LD 4 1 19 19 0 210
+LD 4 2 7 7 0 242
+LD 4 2 19 19 0 242
+LD 5 0 0 0 3.0769e7
+TL 2 13 3 1 35 2.62729 0 0 0 0
+FR 0 1 0 0 28.5 1
+EN

@@ -1,0 +1,37 @@
+/**********************************************************************
+ * One line
+ *
+ * Multi-line explanation
+ *
+ * Author: Chris Spear
+ * Revision: 1.00
+ * Last modified: 11/20/2007
+ *
+ * (c) Copyright 2007, Chris Spear. *** ALL RIGHTS RESERVED ***
+ * chris.spear.net
+ *
+ *  This source file may be used and distributed without restriction
+ *  provided that this copyright statement is not removed from the file
+ *  and that any derivative work contains this copyright notice.
+ *
+ * Used with permission in the book, "SystemVerilog for Verification"
+ *  By Chris Spear
+ *  Book copyright: 2007, Springer LLC, Norwell, MA, USA, Springer.com
+ *
+ *********************************************************************
+ * Based on Utopia testbench
+ * Author: Stuart Sutherland
+ * Revision: 1.00
+ * Last modified: 11/20/2003
+ *
+ * (c) Copyright 2003, Sutherland HDL, Inc. *** ALL RIGHTS RESERVED ***
+ * www.sutherland-hdl.com
+ *
+ *  This source file may be used and distributed without restriction
+ *  provided that this copyright statement is not removed from the file
+ *  and that any derivative work contains this copyright notice.
+ *
+ * Used with permission in the book, "SystemVerilog for Design"
+ *  By Simon Davidmann, Peter Flake and Stuart Sutherland
+ *  Book copyright: 2006, Springer LLC, Norwell, MA, USA, Springer.com
+ *********************************************************************/

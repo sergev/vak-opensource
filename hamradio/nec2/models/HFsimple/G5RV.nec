@@ -1,0 +1,18 @@
+CM G5RV Multiband Antenna
+CM Converted from AO to 4nec2 format on 22-apr-02
+CE
+GW	1	31	0	-51 ft	0	0	51 ft	0	#12
+GE	0
+EX	0	1	16	00	1.0	0.0
+'
+GN	-1
+FR	0	1	0	0	 14.2
+EN
+
+'Even using the recommended 34-foot open-wire matching section, the designer
+'states that an antenna tuner is necessary for all-band operation.  AO confirms
+'some pretty wild input impedances.  The radiation pattern on each band is just
+'what you would expect for a center-fed wire of this length:  Dipole-like on the
+'lower bands, cloverleaf-shaped on the higher.  All in all, this popular antenna
+'does not seem to possess any special properties, operating like any ordinary,
+'random-length center-fed wire.

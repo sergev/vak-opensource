@@ -1,0 +1,25 @@
+From rdrel!kiae!demos!fuug!mcsun!uunet!spool.mu.edu!yale.edu!qt.cs.utexas.edu!cs.utexas.edu!news.uta.edu!cse.uta.edu!middle Tue Dec  1 21:56:41 1992
+Xref: rdrel comp.lang.perl:2261 alt.sources:895
+Newsgroups: comp.lang.perl,alt.sources
+Path: rdrel!kiae!demos!fuug!mcsun!uunet!spool.mu.edu!yale.edu!qt.cs.utexas.edu!cs.utexas.edu!news.uta.edu!cse.uta.edu!middle
+From: middle@cse.uta.edu (William J Middleton)
+Subject: win.pl - a simple perl window library
+Message-ID: <1992Nov28.023120.4031@utagraph.uta.edu>
+Summary: we don' need no steenkin' curses
+Sender: news@utagraph.uta.edu (USENET News System)
+Nntp-Posting-Host: cse.uta.edu
+Organization: Computer Science Engineering at the University of Texas at Arlington
+Date: Sat, 28 Nov 1992 02:31:20 GMT
+Lines: 168
+
+
+
+Submitted-by: middle@cse.uta.edu
+Archive-name: win.pl (version 0.1 beta)
+
+Here is a little window lib for perl.  This thing should work ok with DOS.
+First, a little test script, to see how to use the lib.  The lib uses a few
+little tricks i saw in brn.
+
+
+# bILL  -  wjm@decster.uta.edu

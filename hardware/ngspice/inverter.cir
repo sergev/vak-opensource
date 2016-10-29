@@ -1,0 +1,19 @@
+== CMOS Inverter ==
+
+.model P1 PMOS kp=200 VTO=-1 NSUB= 1.0E15 UO=550
+.model N1 NMOS kp=200 VTO=1  NSUB= 1.0E15 UO=550
+
+M1 1 2 3 3 P1 L=1U W=1U AD=10P AS=10P
+M2 1 2 0 0 N1 L=2U W=6U AD=10P AS=10P
+
+VDD 3 0 DC 5V
+Vin 2 0 PULSE(0 5 0 0 0 20u 40u)
+
+.tran 20n 100u
+
+.control
+    run
+    plot V(1) V(2)
+.endc
+
+.end

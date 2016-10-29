@@ -1,0 +1,33 @@
+CM N4PC Loop (CQ, Dec. 1990), converted with 4nec2 on 29-mrt-06 14:37
+CM 	N4PCLoop
+CM This multiband horizontal loop antenna was created by Paul
+CM Carr, N4PC, and described in December, 1990 CQ Magazine. A
+CM unique feature is that it's driven at opposite corners by
+CM out-of-phase signals as in the W8JK antenna. This results
+CM in an overhead null on all bands. If you look at the input
+CM file description, you'll see two (split)sources shown IN phase.
+CM This is necessary due to the direction current is assumed
+CM to flow in the wires. When multiple sources are placed in
+CM connected wires as done here, you have to check the
+CM resulting currents to make sure they're flowing in the
+CM directions you thought. If not, you must reverse one or
+CM more sources. Note also the relatively large number of
+CM segments for each wire. On 20 meters, the 51-foot sides are
+CM approaching a full wavelength long, so it's necessary to
+CM use an appropriately large number of segments.
+CM This is also an illustration of the use of split sources to
+CM allow source placement at wire junctions.
+CE
+GW 1 16 0  0  50 0  51 50 3.367e-3
+GW 2 16 0  51 50 51 51 50 3.367e-3
+GW 3 16 51 51 50 51 0  50 3.367e-3
+GW 4 16 51 0  50 0  0  50 3.367e-3
+GS 0 0 ft		' All in feet.
+GE 0
+EX 6 1 1 0 1 0		' Split I-src 1
+EX 6 4 16 0 1 0
+EX 6 3 1 0 1 0		' Split I-src 2
+EX 6 2 16 0 1 0
+GN 2 0 0 0 13 5.e-3
+FR 0 1 0 0 14.1 0
+EN

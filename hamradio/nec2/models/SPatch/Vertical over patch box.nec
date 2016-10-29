@@ -1,0 +1,26 @@
+CM Vertical 40M over metallic box (surface patch)
+CM standing on perfect ground simulation (in free space)
+CE
+CM Example file by Dimitry Fedorov, UA3AVR
+CE
+SM 11 11 10 10 1 -10 10 1
+SC 0 0 -10 -10 1
+SM 11 1 10 10 1 10 -10 1
+SC 0 0 10 -10 0
+SM 11 1 -10 -10 1 -10 10 1
+SC 0 0 -10 10 0
+SM 11 1 -10 10 1 10 10 1
+SC 0 0 10 10 0 
+SM 11 1 10 -10 1 -10 -10 1
+SC 0 0 -10 -10 0
+GM 1 1 180 0 0 0 0 0 0
+GW 1 10 0 0 1 0 0 12.2 0.01
+GW 2 10 0 0 -12.2 0 0 -1 0.01
+GS 0 0 1.0
+GE 0
+FR 0 1 0 0 7.01
+EX 0 1 1 0 1.0 0
+EX 0 2 10 0 1.0 0
+'RP 0 1 360 1000 90 0 0 1
+'RP 0 181 1 1000 90 34 -1 0
+EN

@@ -1,0 +1,15 @@
+//~JUDOPROP~//$VERSION=1.3.0
+//~JUDOPROP~//$TYPE=graphics
+//~JUDOPROP~//$TITLE=doska8x8
+void main() {
+    int x;
+    int y;
+    setBackgroundColor(teal);
+    setColor(white);
+    for (y = 50; y <= 400; y = y + 50) {
+        drawRectangle(50, y, 400, 50);
+    }
+    for (x = 50; x <= 400; x = x + 50) {
+        drawRectangle(x, 50, 50, 400);
+    }
+}

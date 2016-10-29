@@ -1,0 +1,20 @@
+CM Right-Circular Dipole Pair, by K6STI
+CE Cpnverted with 4nec2 on 22-apr-02
+SY H = .27
+SY V = .2225
+SY GAP = .01
+GW	1	7	0	-H	0	0	-GAP	0	#12
+GW	2	1	0	-GAP	0	0	GAP	0	#12
+GW	3	7	0	GAP	0	0	H	0	#12
+GW	4	5	0	-GAP	V	0	-GAP	0	#12
+GW	5	5	0	GAP	0	0	GAP	-V	#12
+GE	0
+EX	0	2	1	00	1.0	0.0
+'
+GN	-1
+FR	0	1	0	0	 299.8
+EN
+
+'This is a clever way to generate circular polarization without phasing lines or
+'offset elements.  Current phase in the longer element lags behind that in the
+'shorter.

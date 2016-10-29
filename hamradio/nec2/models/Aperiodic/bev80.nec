@@ -1,0 +1,15 @@
+CE BEV80-1.ANT, Rt. Angle 1/4 Wave Terminated Beverage
+'
+GW	1	1	0	0	0	0	0	6	#18/ft
+GW	2	40	0	0	6	600	0	6	#18/ft
+GW	3	10	600	0	6	600	65	6	#18/ft
+GW	4	10	600	0	6	600	-65	6	#18/ft
+GS	0	0	ft
+GE	1
+EX	0	1	1	00	1.0	0.0
+LD	1	2	40	0	450	0	0
+'
+GN	2	0	0	0	13	.005
+FR	0	1	0	0	 3.8
+EN
+'

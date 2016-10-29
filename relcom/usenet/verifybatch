@@ -1,0 +1,25 @@
+#!/usr/bin/perl
+
+while (<>) {
+	#
+	# Skip all until '#! rnews'
+	#
+	next if (! /^#! rnews /);
+	chop;
+	$size = 0 + substr ($_, 9);
+	printf "#! rnews %d\n", $size;
+
+	#
+	# Copy $size bytes from input to output
+	#
+
+	$readcnt = 512;
+	while ($size > 0) {
+		if ($size < $readcnt) {
+			$readcnt = $size;
+		}
+		read (ARGV, $buf, $readcnt);
+		print $buf;
+		$size -= $readcnt;
+	}
+}

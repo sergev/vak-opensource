@@ -1,0 +1,78 @@
+:
+/usr/local/bin/gawk '
+BEGIN {
+	ORS = ""
+	filelength = 13
+	sizedatelength = 14
+	fileindent = 0
+	sizedateindent = fileindent + filelength
+	commentindent = sizedateindent + sizedatelength + 2
+	print ".ad l\n"
+	print ".ll 78\n"
+	print ".in " commentindent "\n"
+	print ".ta " sizedateindent "\n"
+}
+END {
+}
+/^The archive home/ {
+	print ".ti 0\n"
+	print "-doublespace\n"
+	print ".ti 0\n"
+	print "<dir> " $0 "\n"
+	print ".ti 0\n"
+	print "-space\n"
+	next
+}
+/^[^:][^ ]*:/ {
+	print ".ti 0\n"
+	print "-doublespace\n"
+	print ".ti 0\n"
+	print "<dir> " $0 "\n"
+	print ".ti 0\n"
+	print "-space\n"
+	next
+}
+$2 != "<dir>" && $3 ~ /^[6789][0-9][01][0-9][0123][0-9]$/ {
+	print ".ti " fileindent "\n"
+	sizedate=sprintf(" %5d  %6d", $2, $3)
+	print $1
+	if (length($1)+fileindent > sizedateindent)
+	       print "\n.ti " fileindent "\n"
+	print "\t" sizedate "  "
+	for (i=4; i<=NF; ++i)
+		print $i " "
+	print "\n"
+	next
+}
+$2 == "<dir>" {
+	print ".ti " fileindent "\n"
+	print $1 "\t <dir>          "
+	for (i=3; i<=NF; ++i)
+		print $i " "
+	print "\n"
+	next
+}
+{
+       print ".ti 0\n"
+       print $0 "\n"
+}
+' | /usr/local/bin/nroff -me | /usr/local/bin/gawk '
+BEGIN {
+	ORS = ""
+}
+END {
+}
+/^-space/ {
+	print "\n"
+	next
+}
+/^-doublespace/ {
+	print "\n\n"
+	next
+}
+length > 0 {
+	print $0 "\n"
+}
+'
+
+

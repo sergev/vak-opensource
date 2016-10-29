@@ -1,0 +1,35 @@
+CM Multi-Band TRAP-DP (160m,80m,40m)
+CE Lengths optimzed for a heigth of 10m
+
+SY H=10		' height=10m
+SY t=.1		' length for trap-segments 
+
+SY L7=10.34743, L7a=L7-t, L7b=L7+t
+GW 1 43 0  L7a H 0 -L7a H .0015
+GW 11 1 0 -L7a H 0 -L7b H .0015
+GW 12 1 0  L7a H 0  L7b H .0015
+
+SY L3=16.17956, L3a=L3-t, L3b=L3+t
+GW 2  12 0  L7b  H 0  L3a H .0015
+GW 3  12 0 -L7b  H 0 -L3a H .0015
+GW 21 1 0 -L3a  H 0 -L3b H .0015
+GW 31 1 0  L3a  H 0  L3b H .0015
+
+SY L2=22.15179, L2a=L2-t
+GW 4 12 0  L3b  H 0  L2a  H .0015
+GW 5 12 0 -L3b  H 0 -L2a  H .0015
+
+GE 0
+
+GN 2 0 0 0 13 .005
+EX 0 1  22  0  1.0 0.0
+
+LD 6 11  1  1 100 17uH 30pF
+LD 6 12  1  1 100 17uH 30pF
+LD 6 21  1  1 100 68uH 30pF
+LD 6 31  1  1 100 68uH 30pF
+
+FR 0 1 0 0 7.01 1
+'FR 0 1 0 0 3.51 1
+'FR 0 1 0 0 1.91 1
+EN

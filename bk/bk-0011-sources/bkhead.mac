@@ -1,0 +1,67 @@
+.NList
+;
+;			Copyright (c) 1986 by
+;	C-11 Special Interes Group, Leningrad State University.
+;			 All rights reserved.
+;
+; This software is furnished under a license and may be used and  copied
+; only  in  accordance  with  the  terms  of  such  license and with the
+; inclusion of the above copyright notice.  This software or  any  other
+; copies  thereof may not be provided or otherwise made available to any
+; other person.  No title to and ownership of  the  software  is  hereby
+; transfered.
+;
+; The information in this software is subject to change without notice
+; and should not be construed as a commitment by C-11 group.
+;
+; C-11 assumes no responsibility for the use or reliability of its
+; software on equipment which is not submitted by C-11.
+;
+.Dsabl	GBL
+.Enabl	MCL
+;
+;System Page (At 40000)
+;
+.Psect	$RAM	D,RW
+.Psect	$Stack	D,RW
+;
+;Switched ROM Page (At 120000)
+;
+.Psect	$CodOvr	I,RO
+.Psect	$CnsOvr	D,RO
+;
+;Resident ROM Page (At 140000)
+;
+.Psect	$Code	I,RO
+.Psect	$Const	D,RO
+.Psect	$AdrTab	D,RO
+
+SEL1	==	177716	;System Register
+SEL2	==	177714	;System Port
+UStack	==	1000	;Initial User Stack Pointer
+.Globl	SStack
+;
+;SEL1 Bit masks
+;
+WrEnS	==	4000		;Write Enable Mask
+ROMMSK	==	1!2!10!20	;ROM Connection
+SysROM	==	2		;System ROM Mask
+SysRam	==	50000		;System Rom Page Constant
+SysPag	==	7		;System Page Number
+Mot$$$	==	200		;Taperecorder motor OFF
+ScrMsk	==	4		;Selected Screen mask
+TapMsk	==	Mot$$$!100!40	;Taperecorder bits mask
+SysSel	==	SysRAM!SysROM!Mot$$$!WrEnS	;System Sel1
+KeFlg	==	100		;keyklick, key not pressed flag
+
+.Library "BKLIB.MLB"
+UserPC	==	40
+ErrByt	==	52
+$$SysS	==	64	;System allocation SEL1
+$$UsrS	==	66	;User allocation SEL1
+$SavPC	==	250	;System save area for PC
+$SavPS	==	252	;System save area for PS
+$SavSP	==	114	;System save area for SP
+$Svare	==	116	;System save area
+.Psect	$Code
+.List

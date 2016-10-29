@@ -1,0 +1,34 @@
+//
+// Font collection for PalmOS.
+// Use with FontHack 123.
+// This font pack contains high resolution fonts for Sony Clie,
+// designed by Sergey Romanov.
+// Converted to FontHack format by Serge Vakulenko.
+//
+file
+	filename = "4read";
+	attrib = backup;
+	typeid = 'Font';
+	creatorid = 'Font';
+begin
+	sortinfo begin
+		"Russian fonts for Sony Clie by Sergey Romanov, extracted from CyrHack."
+		"Converted to FontHack format by Serge Vakulenko"
+	end;
+
+	record begin
+		includebin g-22x22.pft
+	end;
+
+	record begin
+		includebin h-34x22.pft
+	end;
+
+	record begin
+		includebin i-26x28.pft
+	end;
+
+	record begin
+		includebin j-24x30.pft
+	end;
+end;

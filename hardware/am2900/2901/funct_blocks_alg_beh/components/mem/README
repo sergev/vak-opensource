@@ -1,0 +1,46 @@
+--------------------------------------------------------------------------------
+--
+--   AM2901 Benchmark -- mem component
+--
+-- Source: AMD data book
+--
+-- VHDL Benchmark author Indraneel Ghosh
+--                       University Of California, Irvine, CA 92717
+--
+-- Developed on Nov 1, 1991
+--
+--------------------------------------------------------------------------------
+
+THIS DIRECTORY CONTAINS THE FOLLOWING FILES :
+
+mem.vhdl    :  File containing the funct_block_alg_beh "mem" in "funct_block_alg_beh2901.vhdl".
+
+test_vectors.vhdl :  Simulation test vector file for "mem"
+
+test_vectors_mem.doc  :  Documentation on test vectors in "test_vectors_mem.vhdl"
+
+cmd_mem.inc :  Simulation command file for "mem"
+
+
+NOTE : 
+
+     To run simulation on Zycad ( Version 1.0) Simulator :
+
+     Run the following commands in the order given below.
+
+         zvan types.vhd
+
+         zvan MVL7_functions.vhd
+
+         zvan synthesis_types.vhd
+
+         zvan mem.vhdl 
+
+         zvan test_vectors.vhd
+
+         zvsim -t ns -i cmd_mem.inc E
+
+      As in other cases, the simulation results will be stored in file
+
+        "run.out"
+  

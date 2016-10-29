@@ -1,0 +1,144 @@
+
+(*) Linux tools for UFS:
+        ufsutils: badsect.ufs, dumpfs.ufs, ffsinfo, fsck.ufs, fsdb.ufs, growfs.ufs, mkfs.ufs, tunefs.ufs
+        makefs
+        testdisk
+
+
+(*) Partition table, as created by Mac OS X:
+
+    Disk /dev/sdb: 2030 MB, 2030043136 bytes
+    255 heads, 63 sectors/track, 246 cylinders, total 3964928 sectors
+    Units = sectors of 1 * 512 = 512 bytes
+    Sector size (logical/physical): 512 bytes / 512 bytes
+    I/O size (minimum/optimal): 512 bytes / 512 bytes
+    Disk identifier: 0x00000000
+
+       Device Boot      Start         End      Blocks   Id  System
+    /dev/sdb1               2     3964927     1982463    b  W95 FAT32
+
+
+(*) How to create a partition table from the script:
+
+        SWAPSZ=8
+        ROOTSZ=32
+        ROOTSTART=`expr 2 + $SWAPSZ`
+        USERSTART=`expr $ROOTSTART + $ROOTSZ`
+        sudo sfdisk -H128 -S32 -uM /dev/sdb << EOF
+        $ROOTSTART,$ROOTSZ,b7
+        2,$SWAPSZ,b8
+        $USERSTART,+,b7
+        EOF
+
+    Result:
+        Units = mebibytes of 1048576 bytes, blocks of 1024 bytes, counting from 0
+
+           Device Boot Start   End    MiB    #blocks   Id  System
+        /dev/sdb1        10     41     32      32768   b7  BSDI fs
+        /dev/sdb2         2      9      8       8192   b8  BSDI swap
+        /dev/sdb3        42   1935   1894    1939456   b7  BSDI fs
+        /dev/sdb4         0      -      0          0    0  Empty
+        Warning: no primary partition is marked bootable (active)
+
+
+(*) Partition table, as created by Linux pfdisk utility:
+
+    Disk /dev/sdb: 2030 MB, 2030043136 bytes
+    128 heads, 32 sectors/track, 968 cylinders, total 3964928 sectors
+    Units = sectors of 1 * 512 = 512 bytes
+    Sector size (logical/physical): 512 bytes / 512 bytes
+    I/O size (minimum/optimal): 512 bytes / 512 bytes
+    Disk identifier: 0x00000000
+
+       Device Boot      Start         End      Blocks   Id  System
+    /dev/sdb1           20480       86015       32768   b7  BSDI fs
+    /dev/sdb2            4096       20479        8192   b8  BSDI swap
+    /dev/sdb3           86016     3964927     1939456   b7  BSDI fs
+
+    Partition table entries are not in disk order
+
+
+(*) Hex dump of sector #0:
+
+    0000000    0000    0000    0000    0000    0000    0000    0000    0000
+    ...        ...     ...     ...     ...     ...     ...     ...     ...
+    00001c0    0501    7fb7    1420    5000    0000    0000    0001    0000
+    00001d0    0101    7fb8    0420    1000    0000    4000    0000    0000
+    00001e0    1501    7fb7    c7e0    5000    0001    3000    003b    0000
+    00001f0    0000    0000    0000    0000    0000    0000    0000    aa55
+
+
+(*) sudo mkfs.ufs -b4096 -f4096 -i8000 /dev/sdb1
+    -- works as expected.
+
+    /dev/sdb1: 32.0MB (65536 sectors) block size 4096, fragment size 4096
+        using 4 cylinder groups of 8.00MB, 2049 blks, 2064 inodes.
+    Erasing sectors [128...65535]
+    Erasing sectors [64512...65535]
+    super-block backups (for fsck -b #) at:
+     144, 16536, 32928, 49320
+
+
+(*) sudo mkfs.ufs -b4096 -f4096 -i8000 /dev/sdb3
+    -- works as expected.
+
+    /dev/sdb3: 1894.0MB (3878912 sectors) block size 4096, fragment size 4096
+        using 48 cylinder groups of 40.13MB, 10273 blks, 10288 inodes.
+    Erasing sectors [128...3878911]
+    Erasing sectors [3877888...3878911]
+    super-block backups (for fsck -b #) at:
+     144, 82328, 164512, 246696, 328880, 411064, 493248, 575432, 657616, 739800, 821984, 904168, 986352, 1068536,
+     1150720, 1232904, 1315088, 1397272, 1479456, 1561640, 1643824, 1726008, 1808192, 1890376, 1972560, 2054744,
+     2136928, 2219112, 2301296, 2383480, 2465664, 2547848, 2630032, 2712216, 2794400, 2876584, 2958768, 3040952,
+     3123136, 3205320, 3287504, 3369688, 3451872, 3534056, 3616240, 3698424, 3780608, 3862792
+
+
+(*) ffsinfo
+    -- prints a detailed information about the filesystem.
+    Nice tool for debugging issues.
+
+
+(*) sudo mount -t ufs -o ufstype=ufs2 -r /dev/sdb1 /mnt
+    -- mounts the partition in read-only mode.
+    By default, ufs is compiled with read-only support, can't be mounted as read-write.
+
+
+(*) sudo fsck.ufs /dev/sdb1
+    -- works as expected.
+
+    ** /dev/sdb1
+    ** Last Mounted on
+    ** Phase 1 - Check Blocks and Sizes
+    ** Phase 2 - Check Pathnames
+    ** Phase 3 - Check Connectivity
+    ** Phase 4 - Check Reference Counts
+    ** Phase 5 - Check Cyl groups
+    2 files, 2 used, 954021 free (21 frags, 119250 blocks, 0.0% fragmentation)
+
+    ***** FILE SYSTEM IS CLEAN *****
+
+
+(*) makefs -s16m -obsize=4k,fsize=4k,density=6000 filesys.img root
+    -- creates a filesystem image from the contents of root/ directory.
+
+    Calculated size of `filesys.img': 16777216 bytes, 3 inodes
+    Extent size set to 4096
+    Reduced frags per cylinder group from 4095 to 3965 to enlarge last cyl group
+    filesys.img: 16.0MB (32768 sectors) block size 4096, fragment size 4096
+        using 2 cylinder groups of 15.49MB, 3965 blks, 3968 inodes.
+    super-block backups (for fsck -b #) at:
+        32, 31752,
+    Populating `filesys.img'
+    Image `filesys.img' complete
+
+
+(*) Installation of FUSE for UFS:
+
+    $ git clone git://git.code.sf.net/p/fuse-ufs2/code fuse-ufs2-code
+    $ sudo aptitude install libfuse-dev libbsd-dev e2fslibs-dev
+    $ cd fuse-ufs2-code
+    $ ./configure
+    $ make
+    $ make install
+
+    Mount succeeded, but any access to the filesystem results in I/O error.

@@ -1,0 +1,143 @@
+{ /* Linux mode, by Serge Vakulenko, <vak@cronyx.ru> */
+
+    "StartupFile" = "";					/* term file to load at startup */
+    "StandardCommandWindow" = "YES";	/* use a normal window for Run Command */
+
+    /* shell options */
+    "Shell" = "";						/* shell to run (empty entry means use /usr/bin/login) */
+    "ShellExitAction" = "0";			/* ??? */
+    "WorkingDirectory" = "~"; 			/* cd to this path before running shell */
+    "ExecutionString" = "";				/* "type" this string in the shell after it starts */
+    "TermCapString" = "linux";	/* the termcap variable we declare to the shell */
+
+    /* process management */
+    "WindowCloseAction" = "1";			/* ??? */
+    "CleanCommands" = "rlogin;telnet;ssh;slogin"; 	/* semi-colon delimited list of process names to ignore */
+
+    /* emulation options */
+    "StrictEmulation" = "NO";			/* strict VT-10x keypad behavior */
+    "Translate" = "YES"; 				/* translate CR->LF when pasting */
+    "OptionClickToMoveCursor" = "NO"; 	/* mouse control of cursor */
+	"Backwrap" = "YES";					/* cursor wraps around when backspacing */
+    "ScrollRegionCompat" = "NO";		/* scroll region compatibility for apps which can't deal with large terminals */
+    "Bell" = "YES";						/* audible bell */
+	"VisualBell" = "NO";				/* visible bell */
+	"UseCtrlVEscapes" = "YES";			/* send ctrl-v before sending any 8-bit char */
+
+    /* scrollback buffer options */
+    "Scrollback" = "YES";				/* scrollback enabled? */
+    "Scrollbar" = "YES";				/* scrollbar enabled? */
+    "SaveLines" = "10000";				/* size of scrollback buffer in lines */
+    "AutoFocus" = "YES"; 				/* jump to end of scrollback on keyboard input */
+    "Autowrap" = "YES";					/* wrap lines that are too long */
+    "RewrapOnResize" = "YES";			/* rewrap lines that are too long when resizing the window */
+
+    /* display options */
+    "BlinkCursor" = "YES";				/* blinking cursor */
+    "BlinkText" = "YES";				/* blinking text */
+    "EnableDragCopy" = "YES";				/* enable drag copy support text */
+    "DoubleBold" = "YES";				/* synthesize bold by double-painting char with an offset */
+    "CursorShape" = "0";				/* 0 = block cursor */
+    "StringEncoding" = "4";				/* CFStringEncoding for tty data stream */
+    "FontAntialiasing" = "NO";			/* use anti-aliased font rendering */
+    "DoubleWideChars" = "NO";			/* display CJK glyphs twice as wide as other glyphs */
+  	"DoubleColumnsForDoubleWide" = "NO";/* double width characters count as 2 columns in emulation */
+    "FontWidthSpacing" = "1.0";			/* extra-spacing between columnss */
+    "FontHeightSpacing" = "0.9";		/* extra-spacing between rows */
+
+    /* colors */
+    "TextColors" = "0.9 0.9 0.9 0 0 0 1 1 1 1 1 1 0 0 0 0.9 0.9 0.9 0.67 0.67 0.67 0.86 0.72 0.42 ";
+    "TerminalOpaqueness" = 1.0;			/* 1.0 = completely opaque, 0.0 = maximum transparency */
+
+    /* window options */
+    "Rows" = "25";						/* number of rows */
+    "Columns" = "80";					/* number of columns */
+    "ScrollRows" = "0";					/* number of rows in scrollback splitview */
+    "TitleBits" = "64";					/* bitfield flags of title components to display */
+    "CustomTitle" = ""; 		/* custom string portion of terminal title */
+
+    "PadTop" = "3";
+    "PadBottom" = "3";
+    "PadRight" = "3";
+    "PadLeft" = "5";
+
+    /* keyboard mappings */
+    "Meta" = "-1";						/* -1 = no meta, 27 = option key acts as meta */
+    "DeleteKeySendsBackspace" = "NO";
+    "KeyBindings" =						/* key bindings dictionary */
+    {
+
+        /* insert key */
+        "F727" = "\033[2~";				/* vt escape sequence */
+
+        /* forward delete key */
+        "F728" = "\033[3~";				/* vt escape sequence */
+
+        /* shift home/end/page-up/page-down move scrollback scrollbar */
+        "$F729" = "scrollToBeginningOfDocument:"; /* shift home */
+        "$F72B" = "scrollToEndOfDocument:"; 		/* shift end */
+        "$F72C" = "scrollPageUp:"; 		/* shift page-up */
+        "$F72D" = "scrollPageDown:"; 	/* shift page-down */
+
+        /* unmodified home/end/page-up/page-down send ctrl seqeuences to shell */
+        "F729" = "\033[1~"; /* home */
+        "F72B" = "\033[4~"; /* end */
+        "F72C" = "\033[5~"; /* page-up */
+        "F72D" = "\033[6~"; /* page-down */
+
+        /* ctrl cursor left, ctrl cursor right */
+        "^F702" = "\033[5D"; /* ctrl cursor left */
+        "^F703" = "\033[5C"; /* ctrl cursor right */
+
+        /* unmodified function keys (similar to Xterm) */
+        "F704" = "\033[[A"; 	/* F1 = linux F1 */
+        "F705" = "\033[[B"; 	/* F2 = linux F2 */
+        "F706" = "\033[[C"; 	/* F3 = linux F3 */
+        "F707" = "\033[[D"; 	/* F4 = linux F4 */
+        "F708" = "\033[[E";     /* F5 = linux F6 */
+        "F709" = "\033[17~"; /* F6 = VT220 F6 */
+        "F70A" = "\033[18~"; /* F7 = VT220 F7 */
+        "F70B" = "\033[19~"; /* F8 = VT220 F8 */
+        "F70C" = "\033[20~"; /* F9 = VT220 F9 */
+        "F70D" = "\033[21~"; /* F10 = VT220 F10 */
+        "F70E" = "\033[23~"; /* F11 = VT220 F11 */
+        "F70F" = "\033[24~"; /* F12 = VT220 F12 */
+        "F710" = "\033[25~"; /* F13 = VT220 F13 */
+        "F711" = "\033[26~"; /* F14 = VT220 F14 */
+        "F712" = "\033[28~"; /* F15 = VT220 F15 */
+        "F713" = "\033[29~"; /* F16 = VT220 F16 */
+        "F714" = "\033[31~"; /* F17 = VT220 F17 */
+        "F715" = "\033[32~"; /* F18 = VT220 F18 */
+        "F716" = "\033[33~"; /* F19 = VT220 F19 */
+        "F717" = "\033[34~"; /* F20 = VT220 F20 */
+
+        /* shifted function keys (F5->F12 mapped to F13->F20 for users with only 12 fkeys) */
+        "$F708" = "\033[25~"; /* shift F5 = VT220 F13 */
+        "$F709" = "\033[26~"; /* shift F6 = VT220 F14 */
+        "$F70A" = "\033[28~"; /* shift F7 = VT220 F15 */
+        "$F70B" = "\033[29~"; /* shift F8 = VT220 F16 */
+        "$F70C" = "\033[31~"; /* shift F9 = VT220 F17 */
+        "$F70D" = "\033[22~"; /* shift F10 = VT220 F18 */
+        "$F70E" = "\033[33~"; /* shift F11 = VT220 F19 */
+        "$F70F" = "\033[34~"; /* shift F12 = VT220 F20 */
+
+        /* option F1-F15 sends what macterm sends for F1-F15 */
+        "~F704" = "\033[17~"; /* ctrl F1 = VT220 F6 */
+        "~F705" = "\033[18~"; /* ctrl F2 = VT220 F7 */
+        "~F706" = "\033[19~"; /* ctrl F3 = VT220 F8 */
+        "~F707" = "\033[20~"; /* ctrl F4 = VT220 F9 */
+        "~F708" = "\033[21~"; /* ctrl F5 = VT220 F10 */
+        "~F709" = "\033[23~"; /* ctrl F6 = VT220 F11 */
+        "~F70A" = "\033[24~"; /* ctrl F7 = VT220 F12 */
+        "~F70B" = "\033[25~"; /* ctrl F8 = VT220 F13 */
+        "~F70C" = "\033[26~"; /* ctrl F9 = VT220 F14 */
+        "~F70D" = "\033[28~"; /* ctrl F10 = VT220 F15 */
+        "~F70E" = "\033[29~"; /* ctrl F11 = VT220 F16 */
+        "~F70F" = "\033[31~"; /* ctrl F12 = VT220 F17 */
+        "~F710" = "\033[32~"; /* ctrl F13 = VT220 F18 */
+        "~F711" = "\033[33~"; /* ctrl F14 = VT220 F19 */
+        "~F712" = "\033[34~"; /* ctrl F15 = VT220 F20 */
+
+    };
+
+}

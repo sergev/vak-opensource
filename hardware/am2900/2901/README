@@ -1,0 +1,108 @@
+
+--------------------------------------------------------------------------
+
+  BENCHMARK : AM 2901 Microprocessor Slice
+
+  Developed on Nov 1, 1991 by :
+                                Indraneel Ghosh,
+                                CADLAB,
+                                Univ. of Calif. , Irvine, CA 92717
+
+  Modified on Sept 15, 1992 by : Champaka Ramachandran
+                                 Univ. of Calif. , Irvine, CA 92717         
+                                 champaka@balboa.eng.uci.edu
+
+--------------------------------------------------------------------------
+
+THIS DIRECTORY HAS THE FOLLOWING FILES :
+
+( NOTE: These files, especially the test vectors, pertain to all three 
+        sub-directories mentioned below. )
+
+am2901.doc          :  This file contains a brief description of the Am2901
+                       chip.
+
+am2901.ps           :  This is a postscript file containing the block diagram 
+                       of Am2901
+
+types.vhd           :  This file contains some VHDL types and functions 
+                       used in the models. These are the public domain MVL7
+                       functions.
+
+MVL7_functions.vhd  :  This file contains some VHDL functions used in the
+		       models. 
+
+synthesis_types.vhd :  This file contains some VHDL data types used in the
+		       models, to facilitate synthesis.
+
+test_vectors.bits   :  This file contains "bit_format" test vectors for the
+                       models of Am2901. 
+
+trans.c             :  This is a C program that will translate test vectors
+                       from "bit_format" to VHDL.
+
+test_vectors.vhdl   :  This file contains the VHDL (translated) test vectors
+		       for the models of Am2901. In order to simulate it on
+		       the Zycad ( Version 1.0a) simulator, the model is
+		       instantiated in this file as a component. The test
+		       vectors are statements inside a VHDL process.
+
+test_vectors.doc    :  This is a documentation files on the test vectors,
+
+cmd.inc             :  This is a command file used by the ZYCAD simulator 
+                       ( Version 1.0a) while running the test vectors on any of
+                       the models.
+             
+THIS DIRECTORY HAS THE FOLLOWING SUB-DIRECTORIES :
+
+alg_beh             :  This directory contains the Am2901 modeled as
+                       a single VHDL process. It contains the algorithmic behaviour
+                       of the model.
+
+funct_block_alg_beh :  This directory contains the Am2901 model that is partitioned
+                       into functional blocks and the blocks are modeled as 
+                       VHDL concurrent blocks. The blocks themselves are modeled
+                       in their algorithmic behaviour.
+           				
+--------------------------------------------------------------------------
+
+
+******************************************************************************
+
+ RUNNING THE TEST VECTORS ON THE MODELS USING THE ZYCAD SIMULATOR:
+
+******************************************************************************
+
+ **** Running test_vectors on the whole chip ****
+
+ For example, let us try to run the test vectors on the model contained in
+ file "funct_block_alg_beh/funct_block_alg_beh2901.vhdl". This is a model of the whole chip.
+ I will refer to the directory "funct_block_alg_beh".
+
+     (i) Compile the MVL7 VHDL types functions file by typing 
+          " zvan types.vhd"
+
+    (ii) Compile the MVL7 functions developed at UCI file by typing 
+          " zvan MVL7_functions.vhd"
+
+   (iii) Compile the VHDL types file by typing 
+          " zvan synthesis_types.vhd"
+
+    (iv) Compile the VHDL model file by typing 
+          " zvan funct_block_alg_beh2901.vhdl"
+
+     (v) Compile the VHDL test-vectors file by typing 
+          " zvan test_vectors_2901.vhdl"
+
+    (vi) Compile the VHDL test-vectors file by typing 
+           " zvsim -t ns -i cmd.inc E".
+         
+         The simulation output will appear in a file called "run.out".
+         If there are any errors in simulation, "Assert" ststements 
+	 will appear in this file, mentioning the port at which the 
+	 error occurred and the expected value.
+
+
+
+
+

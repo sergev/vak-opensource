@@ -1,0 +1,13 @@
+CM 30/17-M dipoles:  open sleeve coupling
+CM with unequal segmentation; notice the
+CM differences with alligned sleeve.nec model
+CE
+GW 1 25 0 -7.2 15 0 7.2 15 0.00625
+GW 2 17 0.1 -4 15 0.1 4 15 0.00625
+GE 1
+GN 2 0 0 0 13.0 0.005
+EX 0 1 13 0 1 0
+LD 5 1 1 25 3.0769E7
+LD 5 2 1 17 3.0769E7
+FR 0 1 0 0 10.125 1
+EN

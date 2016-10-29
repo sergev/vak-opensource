@@ -1,0 +1,44 @@
+--------------------------------------------------------------------------------
+--
+--   AMD2910 Benchmark -- upc component
+--
+-- Source:  AMD data book
+--
+-- author: Indraneel Ghosh
+--         University Of California, Irvine, CA 92717
+--
+-- Written on Feb19, 1992
+--
+--------------------------------------------------------------------------------
+
+THIS DIRECTORY CONTAINS THE FOLLOWING FILES :
+
+upc.vhdl    :  File containing the funct_block_alg_beh "PC" in "funct_block_alg_beh2910.vhdl".
+
+test_vectors_upc.vhdl :  Simulation test vector file for "PC"
+
+test_vectors_upc.doc  :  Documentation on test vectors in "test_vectors_upc.vhdl"
+
+cmd_upc.inc :  Simulation command file for "PC"
+
+
+NOTE : 
+
+     To run simulation on Zycad ( Version 1.0) Simulator :
+
+     Run the following commands in the order given below.
+
+         zvan types.vhd
+
+         zvan MVL7_functions.vhd
+
+         zvan upc.vhdl 
+
+         zvan test_vectors_upc.vhdl
+
+         zvsim -t ns -i cmd_upc.inc E
+
+     As in other cases, the simulation results will be stored in file
+
+        "run.out"
+  

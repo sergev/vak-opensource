@@ -1,0 +1,461 @@
+
+
+
+
+
+;  **********************************************
+;  *                                            *
+;  *    Д Р А Й В Е Р    К Л А В И А Т У Р Ы    *
+;  *                                            *
+;  **********************************************
+
+
+
+;   =======================
+;   *** КОНСТАНТЫ DKLAW ***
+;   =======================
+
+
+	AWPKL1	= 60		;- АДРЕС ВЕКТОРА ПР. КЛАВ.1
+	AWPKL2	= 274		;- АДРЕС ВЕКТОРА ПР. КЛАВ.2
+	ARSKL	= 177660	;- АДРЕС РЕГ.СОСТОЯНИЯ КЛАВ.
+	ARDKL	= 177662	;- АДРЕС РЕГ.ДАННЫХ КЛАВ.
+
+	ASPORT	= 177716	;- АДРЕС СИСТЕМНОГО ПОРТА
+	APRWK	= 262		;- АДРЕС ПРИЗНАКА ВК
+	KPOWTS	= 20000		;- КОНСТАНТА ПОВТОРА СИМВОЛА
+	KPOWTG	= 4000		;- КОНСТАНТА ПОВТОРА ГТ
+
+
+
+
+
+; ======================================
+; ***** МОДУЛЬ ИНИЦИАЛИЗАЦИИ DKLAW *****
+; ======================================
+
+
+
+
+MIDKLW:	MOV	#BCTKW1,@#AWPKL1	;- УСТ. ВКЛ1
+	MOV	#200,@#AWPKL1+2
+
+	MOV	#BCTKW2,@#AWPKL2	;- УСТ. ВКЛ2
+	MOV	#200,@#AWPKL2+2
+
+	CLR	APOPKL		;- СБРОС РЕЖИМА ПРЕРЫВАНИЯ
+	CLR	PRWK		;- СБРОС ПРИЗНАКА КОДА ВК
+	CLR	@#ARSKL		;- СБРОС МАСКИ ПРЕРЫВАНИЯ
+
+	RTS	PC
+
+
+
+
+
+; ==============================
+; ***** МОДУЛЬ ЧТЕНИЯ КОДА *****
+; ==============================
+
+
+MCTKOD:	;ВЫХОД:	R0 - КОД В МЛ.БАЙТЕ
+
+
+
+;   =================================
+;   *** 1. БЛОК УПРАВЛЕНИЯ MCTKOD ***
+;   =================================
+
+
+BUMCTK:	MOV	@#ARDKL,R0	;- ФИКТИВНОЕ ЧТЕНИЕ КЛАВ.
+
+1$:	TSTB	PRZKB		;  ЧТЕНИЕ КОДА С КЛАВИАТУРЫ
+	BEQ	2$
+	CLR	R0
+	BISB	BUFKL,R0
+	CLRB	PRZKB		;- РАЗРЕШЕНИЕ ЗАПИСИ КОДА В БУФЕР
+	RTS	PC
+
+2$:	TSTB	SCKLC		;  КЛЮЧ
+	BEQ	3$
+	JSR	PC,PZKKLC
+	BR	1$
+
+3$:	TSTB	SCTAB		;  ТАБУЛЯЦИЯ
+	BEQ	4$
+	JSR	PC,PZKTAB
+	BR	1$
+
+4$:	TSTB	PRPOWT		;  ПОВТОР
+	BEQ	5$
+	JSR	PC,PPOWT
+	BR	1$
+
+5$:	MTPS	#0		;- РАЗРЕШЕНИЕ ПРЕРЫВАНИЯ
+	BR	1$
+
+
+
+;   ========================================
+;   *** 2. БЛОК ЧТЕНИЯ КОДА ПО ВЕКТОРУ 1 ***
+;   ========================================
+
+
+BCTKW1:	JSR	R4,PSREG0
+	MOV	R5,-(SP)
+
+	JSR	PC,PCTK		;  ЧТЕНИЕ КОДА
+
+	CMPB	R0,#20		;  КОДЫ РЕЖИМОВ КЛАВ.
+	BHI	1$
+
+	MOV	R0,R1		;  ВЫБОР КОДА
+	SUB	#12,R1
+	BMI	2$
+	ASL	R1
+	ADD	R1,PC
+	BR	3$
+	BR	2$
+	BR	2$
+	BR	4$
+	BR	5$
+	BR	6$
+	BR	7$
+
+3$:	TST	@#APRWK		;  ПС
+	BEQ	2$
+	MOV	#15,R0
+	BR	2$
+
+5$:	MOVB	#200,PRRUS	;  РУС
+	BR	9$
+
+6$:	CLRB	PRRUS		;  ЛАТ
+9$:	CLR	R0
+	CLR	SCKOD
+	JSR	PC,PFINDR
+	BR	KCTKW1
+
+7$:	CLR	R3		;- СБР. ТАБ.
+4$:	JSR	PC,PUTAB	;- УСТ. ТАБ.  
+	BR	KCTKW1
+
+1$:	CMPB	R0,#77		;  МОДИФ. КОДА
+	BLOS	2$
+	BISB	PRRUS,R0
+
+2$:	JSR	PC,PZKBUF	;  ЗАПИСЬ КОДА В БУФЕР
+
+KCTKW1:	MOV	(SP)+,R5
+	JSR	R4,PWREG
+
+	RTI
+
+
+;    ------------------------------
+;    ** 2.1. УСТАНОВКА ТАБУЛЯЦИИ **
+;    ------------------------------
+
+PUTAB:	JSR	PC,POPSIM	;  ОПРЕД. ПОЗ. СИМВОЛА
+
+	TST	R3		;  УСТ. ТАБ.
+	BEQ	1$
+	BIS	R0,MTAB(R1)
+	BR	2$
+
+1$:	BIC	R0,MTAB(R1)	;  СБР. ТАБ.
+
+2$:	JSR	PC,PFINDT	;  УСТАНОВКА ИНДИК.ТАБ.
+
+	RTS	PC
+
+
+
+;   ========================================
+;   *** 3. БЛОК ЧТЕНИЯ КОДА ПО ВЕКТОРУ 2 ***
+;   ========================================
+
+
+BCTKW2:	JSR	R4,PSREG0
+	MOV	R5,-(SP)
+
+	JSR	PC,PCTK		;  ЧТЕНИЕ И МОДИФ. КОДА
+	BISB	#200,R0
+
+	CMPB	R0,#277		;  КОДЫ ПОЛУГРАФИКИ
+	BLOS	1$
+	BICB	#100,R0
+	BISB	#40,R0
+	BR	2$
+
+1$:	CMPB	R0,#271		;  КЛЮЧИ
+	BHI	3$
+	MOV	R0,R1
+	SUB	#260,R1
+	BMI	3$
+	TSTB	SCKLC
+	BNE	KCTKW2
+	ASL	R1
+	MOV	AKLC(R1),TAKLC	;- ЗАПУСК КЛЮЧА
+	BEQ	KCTKW2
+	MOVB	@TAKLC,SCKLC
+	INC	TAKLC
+	JSR	PC,PZKLC1
+	BR	KCTKW2
+
+3$:	CMPB	R0,#237		;  КОДЫ РЕЖИМОВ ДИСПЛЕЯ
+	BLOS	4$
+	BICB	#40,R0
+	BISB	#20,R0
+	CMPB	R0,#232		;- ГАШ. К.
+	BEQ	8$
+	CMPB	R0,#235		;- ИНВ. Э.
+	BEQ	8$
+	CMPB	R0,#236		;- УСТ.ИНД.
+	BNE	2$
+
+8$:	EMT	FSIM		;- ИСУ,БЛР,ГАШ.К,ИНВ.Э,УСТ.ИНД
+	BR	KCTKW2
+
+4$:	CMPB	R0,#211		;  ТАБ
+	BLO	5$
+	BNE	6$
+	JSR	PC,PTAB
+	BR	KCTKW2
+
+5$:	CMPB	R0,#204		;  БЛР,ИСУ
+	BHI	7$
+
+	CMPB	R0,#201		;  ПОВТОР
+	BHI	8$
+	BNE	7$
+	INCB	PRPOWT
+	JSR	PC,PPOWT1
+	BR	KCTKW2
+
+7$:	BIS	#20,R0		;  ГРАФ. КОДЫ И ШАГ
+	BR	2$
+
+6$:	CMPB	R0,#212		;  ОСТАНОВ
+	BNE	9$
+10$:	TSTB	@#ARSKL
+	BPL	10$
+	JSR	PC,PCTK
+	BR	KCTKW2
+
+9$:	CMPB	R0,#213		;  СБР.К.СТР.
+	BNE	2$
+	MOV	#231,R0
+
+2$:	JSR	PC,PZKBUF	;  ЗАПИСЬ КОДА В БУФЕР
+
+
+KCTKW2:	MOV	(SP)+,R5
+	JSR	R4,PWREG
+
+	RTI
+
+
+;    ----------------------------
+;    ** 3.1. ЗАПИСЬ КОДА КЛЮЧА **
+;    ----------------------------
+
+PZKKLC:	MOVB	@TAKLC,R0
+	JSR	PC,PZKBUF
+	INC	TAKLC
+	DECB	SCKLC
+	BEQ	KZKKLC
+PZKLC1:	TST	@#APOPKL	;- РЕЖИМ ПРЕР.
+	BNE	PZKKLC
+
+KZKKLC:	RTS	PC
+
+
+;    --------------------
+;    ** 3.2. ТАБУЛЯЦИЯ **
+;    --------------------
+
+PTAB:	JSR	PC,POPSIM	;  ОПРЕД. ПОЗ. СИМВ.
+
+	MOVB	#1,SCTAB	;  ПОИСК ПОЗИЦИИ
+	ASL	R0
+	BCS	1$
+2$:	BIT	R0,MTAB(R1)
+	BNE	PZKT1
+	INCB	SCTAB
+	ASL	R0
+	BCC	2$
+
+1$:	ADC	R0		;  ИЗМЕНЕНИЕ АДР. СЛОВА
+	ADD	#2,R1
+	CMP	R1,#4
+	BLO	2$
+	TSTB	PRCW
+	BNE	PZKT1
+	CMP	R1,#10
+	BNE	2$
+
+PZKT1:	TST	@#APOPKL	;  ЗАПИСЬ КОДА ТАБУЛЯЦИИ
+	BEQ	KTAB
+PZKTAB:	MOV	#40,R0
+	JSR	PC,PZKBUF
+	DECB	SCTAB
+	BNE	PZKT1
+
+KTAB:	RTS	PC
+
+
+;    -----------------
+;    ** 3.3. ПОВТОР **
+;    -----------------
+
+PPOWT:	JSR	PC,PZKB1
+	MOV	BKPOWT,R0	;- ЗАДЕРЖКА
+1$:	SOB	R0,1$
+	BIT	#100,@#ASPORT	;- ПРОВЕРКА РЕЖ. ПОВТ.
+	BEQ	PPOWT1
+	CLRB	PRPOWT
+	BR	KPOWT
+PPOWT1:	TST	@#APOPKL	;- РЕЖИМ ПРЕР.
+	BNE	PPOWT
+
+KPOWT:	RTS	PC
+
+
+
+
+
+; ================================
+; ***** МОДУЛЬ ЧТЕНИЯ СТРОКИ *****
+; ================================
+
+
+;	ВХОД:	R1 - АДРЕС СТРОКИ
+;		R2 - ДЛИНА СТРОКИ (МЛ.Б.),СИМВ.ОГРАНИЧ.(СТ.Б.)
+
+
+MCTSTR:	MOV	R0,-(SP)
+
+	MOV	R2,R5		;  ПОДГОТОВКА ОГРАНИЧ.
+	SWAB	R5
+	BIC	#177400,R2
+	MOV	R2,-(SP)
+
+1$:	EMT	CTKOD		;  ЧТЕНИЕ СИМВОЛА
+	CMPB	R0,#30		;- АНС
+	BNE	2$
+	CMP	R2,(SP)
+	BEQ	1$
+	DEC	R1
+	ADD	#2,R2
+	BR	3$
+2$:	MOVB	R0,(R1)+
+3$:	EMT	FSIM
+
+	CMPB	R0,R5		;  ПРОВЕРКА ОГРАНИЧ.
+	BEQ	KCTSTR
+	SOB	R2,1$
+
+KCTSTR:	MOV	(SP)+,R0
+	MOV	(SP)+,R0
+	RTS	PC
+
+
+
+
+
+; ===================================
+; ***** МОДУЛЬ УСТАНОВКИ КЛЮЧЕЙ *****
+; ===================================
+
+
+;	ВХОД:	R0 - НОМЕР КЛЮЧА
+;		R1 - АДРЕС ТЕКСТА КЛЮЧА
+
+
+MUKLC:	TST	R0		;  ПРОВЕРКА НОМЕРА КЛЮЧА
+	BLE	KUKLC
+	CMP	R0,#12
+	BHI	KUKLC
+	BNE	1$
+	CLR	R0
+
+1$:	ASL	R0
+	MOV	R1,AKLC(R0)	;  УСТАНОВКА КЛЮЧА
+
+KUKLC:	RTS	PC
+
+
+
+
+;  ======================================
+;  **** БИБЛИОТЕКА ПОДПРОГРАММ DKLAW ****
+;  ======================================
+
+
+
+;    ----------------------
+;    ** 0.1. ЧТЕНИЕ КОДА **
+;    ----------------------
+
+PCTK:	TST	SCUIND		;  УСТ. ИНДИКАТОРОВ
+	BEQ	4$
+	JSR	PC,PUINDR
+4$:	MOV	#177777,SCKOD
+
+PSIGN:	MOV	#50,R2		;  СИГНАЛ
+	MOV	#100,R3
+3$:	MOV	#320,@#ASPORT	;- 1
+	MOV	R3,R0
+1$:	SOB	R0,1$
+	MOV	#220,@#ASPORT	;- 0
+	MOV	R3,R0
+2$:	SOB	R0,2$
+	DEC	R3
+	SOB	R2,3$
+	MOV	@#ASPORT,R0	;- СБРОС ПРИЗН. СТОП
+
+	MOVB	@#ARDKL,R0	;- ЧТЕНИЕ КОДА
+	RTS	PC
+
+
+;    ------------------------------
+;    ** 0.2. ЗАПИСЬ КОДА В БУФЕР **
+;    ------------------------------
+
+PZKBUF:	TSTB	PRZKB		;  ЗАПИСЬ КОДА В БУФ.
+	BNE	PZKB2
+	MOVB	R0,BUFKL
+PZKB1:	INCB	PRZKB
+
+PZKB2:	MOV	@#APOPKL,R5	;  ПЕРЕДАЧА УПР. ПО ПРЕРЫВАНИЮ
+	BEQ	KZKBUF
+	JSR	PC,(R5)
+
+KZKBUF:	RTS	PC
+
+
+;    -----------------------------------------------
+;    ** 0.3. ОПРЕДЕЛЕНИЕ ПОЗИЦИИ СИМВОЛА В СТРОКЕ **
+;    -----------------------------------------------
+
+POPSIM:	MOV	NOMSIM,R1	;  ПОДГ. СЧ. ПОЗ.
+	BIC	#177700,R1
+	TSTB	PRCW
+	BEQ	1$
+	ASR	R1
+
+1$:	MOV	R1,R2		;  ОПРЕД. ПОЗ. В СЛОВЕ
+	BIC	#177760,R2
+	INC	R2
+	CLR	R0
+	SEC
+2$:	ROL	R0
+	SOB	R2,2$
+
+	BIC	#177717,R1	;  ОПРЕД. СЛОВА
+	ASR	R1
+	ASR	R1
+	ASR	R1
+
+	RTS	PC

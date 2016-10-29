@@ -1,0 +1,18 @@
+CE Broadside Array (Stacked Dipoles)
+GW	1	11	0	-100.5	-136	0	100.5	-136	.04	'#12
+GW	2	11	0	-100.5	136	0	100.5	136	.04	'#12
+GS	0	0	in
+GE	0
+EX	0	1	6	00	1.0	0.0
+EX	0	2	6	00	1.0	0.0
+'
+GN	-1
+FR	0	1	0	0	 28.5
+EN
+'this simple antenna provides good bidirectional gain over a dipole without
+'narrowing the azimuth pattern.  This is a big advantage when a fixed array is
+'used to provide coverage over a wide azimuth angle.  However, at the lower
+'frequencies the upper dipole must be very high if the lower dipole is to be
+'much above ground level.  Note the nice match to 50 ohms at each feedpoint.
+'This permits a simple feed system using 3/4-wave 75-ohm coax sections.  When
+'the sections are fed in parallel, a 50-ohm feedpoint results.

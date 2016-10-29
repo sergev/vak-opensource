@@ -1,0 +1,9 @@
+while killall milter-regex
+do
+	echo Kill old daemon...
+	sleep 1
+done
+echo Start new daemon.
+rm -f /var/run/regex.sock
+/usr/local/sbin/milter-regex \
+	-c /etc/mail/milter-regex.conf -u daemon -p /var/run/regex.sock

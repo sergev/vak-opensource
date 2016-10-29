@@ -1,0 +1,56 @@
+v 20130925 2
+C 40000 40000 0 0 0 title-B.sym
+C 47000 44500 1 0 0 nmos-3.sym
+{
+T 47600 45000 5 10 1 1 0 0 1
+refdes=Qn
+T 47600 44700 5 10 1 1 0 0 1
+value=2N7002
+T 47000 44500 5 10 0 0 0 0 1
+device=SUBCKT_NMOS
+}
+C 47000 46500 1 180 1 pmos-3.sym
+{
+T 47600 46300 5 10 1 1 180 6 1
+refdes=Qp
+T 47600 45900 5 10 1 1 0 0 1
+value=BSS84
+T 47000 46500 5 10 0 0 0 0 1
+device=SUBCKT_PMOS
+}
+N 47500 45700 47500 45300 4
+N 47500 45500 48000 45500 4
+N 47000 46300 47000 44700 4
+N 47000 45500 46500 45500 4
+C 47400 44200 1 0 0 gnd-1.sym
+C 45500 46900 1 0 0 spice-subcircuit-LL-1.sym
+{
+T 45600 47200 5 10 0 1 0 0 1
+device=spice-subcircuit-LL
+T 45600 47300 5 10 1 1 0 0 1
+refdes=A1
+T 45600 47000 5 10 1 1 0 0 1
+model-name=invertor
+}
+C 47800 45200 1 0 0 spice-subcircuit-IO-1.sym
+{
+T 48700 45600 5 10 0 1 0 0 1
+device=spice-IO
+T 48650 45450 5 10 1 1 0 0 1
+refdes=P2
+}
+C 46700 45200 1 0 1 spice-subcircuit-IO-1.sym
+{
+T 45800 45600 5 10 0 1 0 6 1
+device=spice-IO
+T 45850 45450 5 10 1 1 0 6 1
+refdes=P1
+}
+C 47300 46500 1 0 0 spice-subcircuit-IO-1.sym
+{
+T 48200 46900 5 10 0 1 0 0 1
+device=spice-IO
+T 48150 46750 5 10 1 1 0 0 1
+refdes=P3
+}
+N 47500 46800 47500 46500 4

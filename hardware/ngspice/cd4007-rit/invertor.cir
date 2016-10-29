@@ -1,0 +1,5 @@
+*
+.subckt invertor 1 2 3
+Mp 2 1 3 3  cd4007p  L=10u W=360u Ad=18000p As=18000p Pd=820u Ps=820u Nrd=0.54 Nrs=0.54
+Mn 2 1 0 0  cd4007n  L=10u W=170u Ad=8500p  As=8500p  Pd=440u Ps=440u Nrd=0.1  Nrs=0.1
+.ends

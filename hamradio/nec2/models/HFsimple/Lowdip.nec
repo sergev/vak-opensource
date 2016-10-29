@@ -1,0 +1,72 @@
+CM Extended inverted-vee/dipole at low height
+CE
+'
+SY wlen=40			' Wire length
+SY hgh=20.6			' Tower height
+'
+SY wa=160			' Angle between sloping wires
+SY xylen = wlen*sin(wa/2)	' Lengt in XY plane
+SY Z = wlen*cos(wa/2)
+SY hleft=hgh-Z, hrght=hgh-Z	' Height
+'
+SY aa=90+55			' antenna angle=90+deg-north
+SY X=xylen*cos(aa), Y=xylen*sin(aa)
+'
+SY ra=360/16, radl=20		' Nr radials, radial length
+SY radh = 0.05			' radial height sabove ground
+'
+SY cu=5.8e7, fe=1.39e6		' Wire loading for Copper, Steel
+'				
+'	tag	segs	X1	Y1	Z1	X2	Y2	Z2	diam
+'
+GW	31	41	X	Y	hleft	-.015	0	hgh	0  	' Left ant-wire
+GC	0	0	1	.00045	.0006
+GW	32	41	-X	-Y	hrght	.015	0	hgh	0	' Right ant-wire
+GC	0	0	1	.00045	.0006
+'
+GW 	41 	20 	-2.015 	0 	1	-.015 	0 	hgh 	.00066	' Left feedline
+GW 	42 	20 	-1.985 	0	1 	.015 	0 	hgh 	.00066	' Right feedline
+GW	43	7	-2.1	1.4	1	-2.015	0	1	.00066	' Left hor
+GW	44	7	-1.9	1.4	1	-1.985	0	1	.00066	' Right hor
+'
+GW	50	1	-1.9	1.4	1	-2.1	1.4	1	.00066	' V-src segm
+'		
+GW	61	15	0	.1	radh+.1	0	.1	hgh-0.1	.001	' Single wire tower 
+'GW	62	3	0	.1	radh+.1	-2	1.4	radh+.2	.0006	' Tower connection
+'
+'GW	91	20	-2.0	1.4	.4	27	-29.4	.4	.0005	' Test wire 1
+'GW	92	20	-2.0	1.4	.4	-27	29.4	.4	.0005	' Test wire 2
+'
+'GW,   1, 20, 0 0,   radh, radl*cos(1*ra), radl*sin(1*ra), radh,    0.0006	' Ground screen
+'GW,   2, 20, 0 0,   radh, radl*cos(2*ra), radl*sin(2*ra), radh,    0.0006
+'GW,   3, 20, 0 0,   radh, radl*cos(3*ra), radl*sin(3*ra), radh,    0.0006
+'GW,   4, 20, 0 0,   radh, radl*cos(4*ra), radl*sin(4*ra), radh,    0.0006
+'GW,   5, 20, 0 0,   radh, radl*cos(5*ra), radl*sin(5*ra), radh,    0.0006
+'GW,   6, 20, 0 0,   radh, radl*cos(6*ra), radl*sin(6*ra), radh,    0.0006
+'GW,   7, 20, 0 0,   radh, radl*cos(7*ra), radl*sin(7*ra), radh,    0.0006
+'GW,   8, 20, 0 0,   radh, radl*cos(8*ra), radl*sin(8*ra), radh,    0.0006
+'GW,   9, 20, 0 0,   radh, radl*cos(9*ra), radl*sin(9*ra), radh,    0.0006
+'GW,  10, 20, 0 0,   radh, radl*cos(10*ra), radl*sin(10*ra), radh,    0.0006
+'GW,  11, 20, 0 0,   radh, radl*cos(11*ra), radl*sin(11*ra), radh,    0.0006
+'GW,  12, 20, 0 0,   radh, radl*cos(12*ra), radl*sin(12*ra), radh,    0.0006
+'GW,  13, 20, 0 0,   radh, radl*cos(13*ra), radl*sin(13*ra), radh,    0.0006
+'GW,  14, 20, 0 0,   radh, radl*cos(14*ra), radl*sin(14*ra), radh,    0.0006
+'GW,  15, 20, 0 0,   radh, radl*cos(15*ra), radl*sin(15*ra), radh,    0.0006
+'GW,  16, 20, 0 0,   radh, radl*cos(16*ra), radl*sin(16*ra), radh,    0.0006
+'
+GE 1
+'
+LD	5	31	1	41	cu	' Left wire
+LD	5	32	1	41	cu	' Right wire
+'
+LD	5	41	0	0	cu	' Left feeder
+LD	5	42	0	0	cu	' Right feeder
+'
+LD	5	61	0	0	fe	' Mast
+'LD	5	62	0	0	cu	' Mast conn.
+'
+GN 2 0 0 0 14 .005 0 0 0 0			' Sommerfeld ground
+EX 0 50 1 0 1 0
+FR 0 1 0 0 1.8 0				' 1.8 Mc
+'
+EN

@@ -1,0 +1,20 @@
+//~JUDOPROP~//$VERSION=1.2.2
+//~JUDOPROP~//$TITLE=Draw Letters
+//~JUDOPROP~//$TYPE=graphics
+void main() {
+	int x;
+	int y;
+
+	setBackgroundColor(black);
+
+	while(true) {  // do forever
+		String key = readKey();  // pauses until you hit a key
+		setColor(randomColor());
+
+		x = randomInt(getDrawingWidth());
+		y = randomInt(getDrawingHeight());
+
+		// this next line draws the key that was typed at a random position
+		drawString(key, true, true, 25, x, y);
+	}
+}

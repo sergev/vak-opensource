@@ -1,0 +1,60 @@
+
+DIP40 pinout
+~~~~~~~~~~~~
+    28 inputs
+    2 outputs
+    8 bidirectional pins
+
+            ------\__/------
+    I7    --| 1  i    i 40 |--  I8
+    /CEu  --| 2  i    i 39 |--  I9
+    I6    --| 3  i    i 38 |--  I10
+    I5    --| 4  i    i 37 |--  /SE
+    I4    --| 5  i    b 36 |--  SIOo
+    I3    --| 6  i    b 35 |--  SIOn
+    /CEm  --| 7  i    b 34 |--  QIOo
+    /Ez   --| 8  i    b 33 |--  QIOn
+    Iz    --| 9  i    b 32 |--  Yz
+    Vcc   --| 10      b 31 |--  Yc
+    /Ec   --| 11 i      30 |--  GND
+    Ic    --| 12 i    b 29 |--  Yn
+    /En   --| 13 i    b 28 |--  Yovr
+    In    --| 14 i    o 27 |--  CT
+    /Eovr --| 15 i    i 26 |--  /OEct
+    Iovr  --| 16 i    o 25 |--  Co
+    CP    --| 17 i    i 24 |--  Cx
+    I0    --| 18 i    i 23 |--  I12
+    I1    --| 19 i    i 22 |--  I11
+    /OEy  --| 20 i    i 21 |--  I2
+            -----Am2904-----
+
+
+Logic symbol
+~~~~~~~~~~~~
+
+            -----Am2904-----
+       17 --| CP       /Ez |o- 8
+            |          /Ec |o- 11
+        9 --| Iz       /En |o- 13
+       12 --| Ic     /Eovr |o- 15
+       14 --| In           |
+       16 --| Iovr    /CEm |o- 7
+            |         /CEu |o- 2
+            |              |
+       18 --| I0        Yz |-- 32
+       19 --| I1        Yc |-- 31
+       21 --| I2        Yn |-- 29
+        6 --| I3      Yovr |-- 28
+        5 --| I4      /OEy |o- 20
+        4 --| I5           |
+        3 --| I6        CT |-- 27
+        1 --| I7     /OEct |o- 26
+       40 --| I8           |
+       39 --| I9      SIOo |-- 36
+       38 --| I10     SIOn |-- 35
+       22 --| I11     QIOo |-- 34
+       23 --| I12     QIOn |-- 33
+            |          /SE |o- 37
+            |              |
+       24 --| Cx        Co |-- 25
+            ----------------

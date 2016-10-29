@@ -1,0 +1,15 @@
+Morse-echo - simple morse text player
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Version 1.0, 2005-12-05
+
+Morse-echo is a simple morse text player.
+It has a command line oriented interface.
+Supported operating systems are:
+- Windows
+- Mac OS X
+- Linux (SDL)
+
+Output to WAV file is also available.
+
+Author: Serge Vakulenko <vak@cronyx.ru>
+Home page: http://vak.ru/proj/morse-echo

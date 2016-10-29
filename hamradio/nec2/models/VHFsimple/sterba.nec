@@ -1,0 +1,26 @@
+CM Sterba Curtain, by K6STI
+CE Converted with 4nec2 on 22-apr-02
+SY D = .001
+SY S = .02
+GW	1	5	0	0	-.75	0	0	-.5	D
+GW	2	11	0	0	-.5	0	.5	-.5	D
+GW	3	11	0	.5	-.5	0	.5	0	D
+GW	4	11	0	0	0	0	.5	0	D
+GW	5	11	0	0	0	0	0	.5	D
+GW	6	11	0	0	.5	0	.5	.5	D
+GW	7	5	0	.5	.5	0	.5	.75	D
+GW	8	11	0	0	-.75	S	.5	-.75	D
+GW	9	5	S	.5	-.75	S	.5	-.5	D
+GW	10	11	S	0	-.5	S	.5	-.5	D
+GW	11	11	S	0	-.5	S	0	0	D
+GW	12	11	S	0	0	S	.5	0	D
+GW	13	11	S	.5	0	S	.5	.5	D
+GW	14	11	S	0	.5	S	.5	.5	D
+GW	15	5	S	0	.5	S	0	.75	D
+GW	16	11	S	0	.75	0	.5	.75	D
+GE	0
+EX	0	1	1	00	1.0	0.0
+'
+GN	-1
+FR	0	1	0	0	 299.8
+EN

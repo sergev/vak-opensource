@@ -1,0 +1,20 @@
+--------------------------------------------------------------------------------
+--
+--   AMD2910 Benchmark
+--
+-- Source:  AMD data book
+--
+-- author: Indraneel Ghosh
+--         University Of California, Irvine, CA 92717
+--
+-- Written on Feb19, 1992
+--
+--------------------------------------------------------------------------------
+
+
+  The "ctrl" block generates all the control signals that control all the 
+  other blocks. It also generates the enable signals.
+
+  To test the "ctrl" block, we test all the control and enable signals
+  under all possible set of conditions ( instruction, condition codes,
+  contents of register/counter).

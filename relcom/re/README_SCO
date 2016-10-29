@@ -1,0 +1,9 @@
+This version vas compiled under SCO Open Desktop 1.1
+using Microsoft C compiler.
+Names of malloc() and free() used instead of standart ones
+were changed.
+Now they are called salloc() and zFree().
+
+Tokens following #else and #endif are placed in /* */
+
+Limits for NLINESM and LINELM increased

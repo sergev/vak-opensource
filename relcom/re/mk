@@ -1,0 +1,19 @@
+:
+if [ -f /vmunix ]
+then
+RED=dred
+fi
+if [ -f /xenix ]
+then
+RED=lred
+fi
+if [ -f /utix ]
+then
+RED=ared
+fi
+if [ -f /demos ]
+then
+RED=nred
+fi
+echo RED = "$RED"
+make RED="$RED" $*

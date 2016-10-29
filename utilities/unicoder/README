@@ -1,0 +1,68 @@
+Character Sets
+-----------------------------------------------------------------------
+ISO/IEC-8859-1 (Latin 1)
+ISO/IEC-8859-2 (Latin 2)
+ISO/IEC-8859-3 (Latin 3)
+ISO/IEC-8859-4 (Latin 4)
+ISO/IEC-8859-5 (Cyrillic)
+ISO/IEC-8859-6 (Arabic)
+ISO/IEC-8859-7 (Greek)
+ISO/IEC-8859-8 (Hebrew)
+ISO/IEC-8859-9 (Latin 5)
+ISO/IEC-8859-14 (???)
+ISO/IEC-8859-15 (???)
+
+Windows CP-1250 (Central European)
+Windows CP-1251 (Cyrillic)
+Windows CP-1252 (West European)
+Windows CP-1253 (Greek)
+Windows CP-1254 (Turkish)
+Windows CP-1255 (Hebrew)
+Windows CP-1256 (Arabic)
+Windows CP-1257 (Baltic)
+Windows CP-1258 (Vietnamese)
+
+DOS CP-437 (Latin US)
+DOS CP-737 (Greek)
+DOS CP-775 (Baltic)
+DOS CP-850 (Latin 1)
+DOS CP-852 (Latin 2)
+DOS CP-855 (Cyrillic)
+DOS CP-857 (Turkish)
+DOS CP-860 (Portuguese)
+DOS CP-861 (Icelandic)
+DOS CP-862 (Hebrew)
+DOS CP-863 (Canadian French)
+DOS CP-864 (Arabic)
+DOS CP-865 (Nordic)
+DOS CP-866 (Cyrillic Russian)
+DOS CP-869 (Greek 2)
+DOS CP-874 (Thai)
+DOS CP-875 (???)
+
+Macintosh Central European
+Macintosh Cyrillic
+Macintosh Greek
+Macintosh Icelandic
+Macintosh Roman
+Macintosh Turkish
+Macintosh Ukrainian
+Macintosh Arabic
+Macintosh Croatian
+Macintosh Farsi
+
+cp037.txt
+cp10000.txt
+cp10006.txt
+cp10007.txt
+cp10029.txt
+cp10079.txt
+cp10081.txt
+cp1026.txt
+cp500.txt
+
+koi8-r
+koi8-u
+
+NextStep
+-----------------------------------------------------------------------

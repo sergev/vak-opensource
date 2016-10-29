@@ -1,0 +1,271 @@
+.Mcall	.Module
+.Module	LINTAP,Release=X02, Version=07, Comment=<BK0011 Line/Tape Handler>
+;
+;			Copyright (c) 1986,1987 by
+;	C-11 Special Interest Group, Leningrad State University.
+;			 All rights reserved.
+;
+; This software is furnished under a license and may be used and  copied
+; only  in  accordance  with  the  terms  of  such  license and with the
+; inclusion of the above copyright notice.  This software or  any  other
+; copies  thereof may not be provided or otherwise made available to any
+; other person.  No title to and ownership of  the  software  is  hereby
+; transfered.
+;
+; The information in this software is subject to change without notice
+; and should not be construed as a commitment by C-11 group.
+;
+; C-11 assumes no responsibility for the use or reliability of its
+; software on equipment which is not submitted by C-11.
+;
+ .Include "BKHEAD"
+DlvCsr	==	176560
+Namlng	=	16.+2.
+.Globl	UsrSav,	BegAdr,	Lngth,	SavRg,	RetEmt,	OctTyp
+.Globl	TtoFlg,	Block$,	SysFlg,	$BPrint,$Bttyou,$BgtLin
+.Globl	$BMtb10,ROMTab,	RAM0Tb,	RAM1Tb
+
+ .SbTtl	Main Routine
+;
+; At this point R1 consists the type of operation:
+;	=0 ==> Load;
+;	=1 ==> Unload.
+;
+;BegAdr and Lngth words consist Start and End address of array
+;to be written. R0 Consists file Load Address (For Read) Or file Start 
+;Address (For Write)
+;
+.Psect	$CodOvr
+LinTap::Jsr	R0,SavRg
+	Mov	R0,StAddr	;Start Or load Address
+	.Bprint	#Prmpt
+	.BGtlin	#Buffer,#NamLng	;Read file name
+	TstB	Buffer		;Tape or line
+	Bne	10$
+	Jmp	Line		;Line Input
+10$:	Mov	#Buffer,R0
+	MovB	(R0)+,R2
+	BicB	#240,R2		;Device Name
+	CmpB	(R0)+,#':
+	Bne	ErrNam		;Illegal Filename
+	CmpB	R2,#'B		;BK0010 Format ?
+	Bne	MsxTap		;No, MSX
+.SbTtl	BK0010-Tape processing
+	Tst	R1		;Read Or write ?
+	Beq	BkRead		;Read
+BkWrit:	Mov	#2,R5		;Operation Code=Write (From Debug)
+	Call	Set10B		;Set Argument Block
+	Call	BkReq
+	Bcc	Ret		;OK
+	Mov	#UnlErr,R0
+ErRet:	.BPrint	
+Ret:	Mov	@#$$SysS,@#Sel1
+	Tst	@#Sel1
+	Jmp	RetEmt
+ErrNam:	Mov	#TypTxt,R0
+	Br	ErRet
+ .SbTtl	BK0010-Format Read or Dir Command
+BkRead:	Mov	#3,R5		;Operation Code=Read
+	Mov	StAddr,BegAdr	;Start Or load Address
+	CmpB	@R0,#'?	
+	Beq	DirBK		;Directory Operation
+	TstB	@R0		;Next File ?
+	Bne	5$		;No, FileName Specified 
+	Mov	#5,R5		;Next File Read Operation
+5$:	Call	Set10B
+10$:	Call	BkReq
+	Call	PRiBK
+	CmpB	@#ErrByt,#1
+	Beq	10$		;Another FIle Name
+	Br	Ret
+DirBK:	Mov	#6,SysCom	;Dir Operation
+	Call	BkReq		;Read File
+	Call	PriBK
+	CmpB	@#ErrByt,#4	;Manual Interrupt ?
+	Bne	DirBK
+	Br	Ret		;Yes, Exit
+
+PriBK:	Bcc	10$		;Print File Params
+	MovB	@#ErrByt,R1	;Error Code
+	Asl	R1
+	.BPrint	ErrBK-2(R1)	;Print Error Message
+	CmpB	@#ErrByt,#4
+	Beq	30$
+	Br	11$
+10$:	CmpB	SysCom,#6	;Dir Function ?
+	Beq	11$		;Yes
+	Mov	ResSta,@#UserPC
+11$:	.BPrint	#Fname		;Filename:
+	Mov	#ResNam,R1
+	Mov	#16.,R2
+	Mov	TtoFlg,-(SP)
+	Bis	#Block$,TtoFlg
+20$:	MovB	(R1)+,R0
+	.Bttyou			;Print File Name
+	Sob	R2,20$
+	Mov	(SP)+,TtoFlg
+	.BPrint	#MemTxt
+	Mov	ResStA,R0	;Start Address
+	ClC
+	Call	OctTyp
+	.BPrint	#TLngth
+	Mov	ResSta,R0
+	Add	ResLng,R0
+	ClC
+	Call	OctTyp
+30$:	.Bttyou	#25
+	Return	
+ MsxTap:	
+;;;
+;;;
+;;;
+;;;Call	@50
+;;;
+	Jmp	RET
+ BkReq:	Mov	UsrSav,R5	;User Sel1
+	Bic	#^C070000,R5	;Only Page 40000-100000
+	SwaB	R5		;Page ...
+	Mov	#RAM0Tb,R0
+10$:	CmpB	R5,(R0)+
+	Bne	10$
+	Sub	#Ram0Tb+1,R0
+	MovB	R0,UsSel	;Lower Page
+	Mov	UsrSav,R5
+	Bit	#RomMsk,R5	;It's ROM ?
+	Bne	30$
+	Bic	#^C7*400,R5
+	SwaB	R5
+	Mov	#Ram1Tb,R0
+20$:	CmpB	R5,(R0)+
+	Bne	20$
+	Sub	#Ram1Tb+1,R0
+	MovB	R0,UsSel+1
+	Br	50$
+30$:	Bic	#^CRomMsk,R5
+	Mov	#RomTab,R0
+40$:	CmpB	R5,(R0)+
+	Bne	40$
+	Sub	#RomTab+1-10,R0
+	MovB	R0,UsSel+1
+50$:	Mov	#SysCom,R0
+	Call	$BMtb10		;Read File
+	Return
+ Line:	Call	TstLine
+	Jmp	RET
+
+.SbTtl	Special Routines
+
+Set10B:	Mov	#SysCom,R1
+	Mov	R5,(R1)+	;Command Code
+	Mov	BegAdr,(R1)+
+	Mov	Lngth,(R1)+
+	Mov	#16.,R2
+5$:	MovB	(R0)+,R4
+	Beq	10$
+	MovB	R4,(R1)+
+	Sob	R2,5$
+	Return
+10$:	MovB	#40,(R1)+
+	Sob	R2,10$
+	Return
+
+.SbTtl	Line Type Detrmination
+
+TstLine:Mov	@#Vec4,-(SP)
+	Mov	#20$,@#Vec4
+	Tst	@#DlvCsr
+	Mov	(SP)+,@#Vec4
+	Mov	#DlvGet,@#GetAdr	;DLV is present
+	Mov	#DlvPut,@#PutAdr
+	Mov	#DlvClr,@#ClrAdr
+	Br	10$
+20$:	Cmp	(SP)+,(SP)+	;Trap to 4
+	Mov	(SP)+,@#Vec4	;Restore vector
+	Mov	#PrtGet,@#GetAdr	;DLV is absent
+	Mov	#PrtPut,@#PutAdr
+	Mov	#PrtClr,@#ClrAdr
+10$:	Return
+
+.SbTtl	DLV-11 Byte Get/Put and Clear Routines
+DlvGet:	Tstb	@#DlvCsr
+	Bpl	DlvGet
+	MovB	@#DlvCsr+2,R0
+	Return
+DlvPut:	Tstb	@#DlvCsr+4
+	Bpl	DlvPut
+	MovB	R0,@#DlvCsr+6
+	Return
+DlvClr:	TstB	@#DlvCsr+2
+	Clr	DlvCsr+6
+	Return
+.SbTtl	Port Byte Get/Put and Clear Routines
+PrtGet:
+10$:	Tst	@#Sel2		;Wait for Ready
+	Bmi	10$
+	Movb	@#Sel2,R0
+	Comb	R0
+	Bic	#^C377,R0
+	Bis	#40000,BufS2
+	Mov	BufS2,@#Sel2
+20$:	Tst	@#Sel2
+	Bpl	20$
+	Bic	#40000,BufS2
+	Mov	BufS2,@#Sel2	;Set Request
+	Return
+
+PrtPut:	Comb	R0
+	MovB	R0,BufS2
+10$:	Bit	#40000,@#Sel2	;Wait for Request
+	Bne	10$
+	Bic	#100000,BufS2
+	Mov	BufS2,@#Sel2
+20$:	Bit	#40000,BufS2
+	Beq	20$
+	Bis	#100377,BufS2
+	Mov	BufS2,@#Sel2
+	Comb	R0		;Restore original R0
+	Return	
+
+PrtClr:	Mov	#137777,BufS2
+	Mov	BufS2,@#Sel2
+	Return
+
+
+.Psect	$CnsOvr
+ErrBK:	.Word	BKER1,BKER2,BKER3,BKER4
+BKER1:	.Byte	0
+BKER2:	.BYTE	25
+	.AsciZ	/CHECKSUM ERROR/
+BKER3:	.BYTE	25
+	.AsciZ	/ILLEGAL PARAMETER VALUE/
+BKER4:	.BYTE	25
+	.AsciZ	/MANUAL INTERRUPT OR TRAP TO 4/
+Prmpt:	.Byte	25
+	.Ascii	/  FILE NAME ? /<200>
+Fname:	.Byte	25
+	.Ascii	/FILE: /<200>
+MemTxt:	.Byte	25,40,200
+TLngth:	.Ascii	/- /<200>
+
+
+TYPTXT:	.BYTE	25
+	.AsciZ	/ILLEGAL DEVICE NAME/
+UnlErr:	.Byte	25
+	.Ascii	/WRITE ERROR/
+ .Psect	$RAM
+BufS2:	.Word	0
+Buffer:	.BlkB	Namlng+1
+	.Even
+GetAdr:	.BlkW
+PutAdr:	.BlkW
+ClrAdr:	.BlkW
+StAddr:	.BlkW
+SysCom:	.BlkW	;Code
+	.BlkW	;Address
+	.BlkW	;Length
+	.BlkB	16.	;Name
+UsSel::	.BlkW
+ResStA:	.BlkW
+ResLng:	.BlkW
+ResNAm:	.BlkB	16.	;Resault Name
+.End

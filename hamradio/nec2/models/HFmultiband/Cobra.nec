@@ -1,0 +1,30 @@
+CM Centre Fed Linear Loaded Dipole (Cobra Junior) by VK1OD
+CM
+CM The Cobra antenna is a linear loaded dipole described by Ray Cook (W4JOH)
+CM in 73 magazine (June 1997), and gets its name from the "S" configuration
+CM of the radiator conductors. Two versions were described, this article looks
+CM at the Cobra Junior which is  22.25m (72') overall, and promoted as an all
+CM band antenna from 3.5MHz to 30 MHz.
+CM
+CM Doubled the number of segments because of length/radius violation (arie).
+CE
+
+SY freq=3.5
+
+GW 1 61 0 -11.125 10 0 11.125 10 0.001
+GW 2  1 0 -11.125 10 0 -11.125 10.1 0.001
+GW 3 29 0 -11.125 10.1 0 -0.05 10.1 0.001
+GW 4  1 0 -0.05 10.1 0 -0.05 10.2 0.001
+GW 5 29 0 -0.05 10.2 0 -11.125 10.2 0.001
+GW 6  1 0 11.125 10 0 11.125 10.1 0.001
+GW 7 29 0 11.125 10.1 0 0.05 10.1 0.001
+GW 8  1 0 0.05 10.1 0 0.05 10.2 0.001
+GW 9 29 0 0.05 10.2 0 11.125 10.2 0.001
+GE 0
+EK
+LD 5 0 0 0 5.8E+07
+FR 0 1 0 0 freq 1
+GN 2 0 0 0 13. 50.000E-03
+EX 0 1 31 0 1.
+XQ
+EN

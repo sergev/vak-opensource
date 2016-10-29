@@ -1,0 +1,25 @@
+//~JUDOPROP~//$VERSION=1.3.0
+//~JUDOPROP~//$TYPE=graphics
+//~JUDOPROP~//$TITLE=doska8x8 BW
+void main() {
+    int x;
+    int y;
+    setBackgroundColor(teal);
+   
+    setColor(white);
+    for (x = 50; x <= 350; x = x + 100) {
+        for (y = 50; y <= 350; y = y + 100) {
+        
+            fillRectangle(x + 50, y, 50, 50);
+            fillRectangle(x, y + 50, 50, 50);
+        }
+    }
+    setColor(black);
+       for (y = 50; y <= 350; y = y + 100) {
+           for (x = 50; x <= 350; x = x + 100) {
+           
+               fillRectangle(x, y, 50, 50);
+               fillRectangle(x + 50, y + 50, 50, 50);
+        }
+    }
+}

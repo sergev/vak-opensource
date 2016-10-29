@@ -1,0 +1,11 @@
+Path: .
+URL: https://yack.svn.sourceforge.net/svnroot/yack/trunk/YACK
+Repository Root: https://yack.svn.sourceforge.net/svnroot/yack
+Repository UUID: 3d8d8199-7729-4aaf-a586-1a3e4cc64825
+Revision: 28
+Node Kind: directory
+Schedule: normal
+Last Changed Author: DK3LJ
+Last Changed Rev: 28
+Last Changed Date: 2011-11-16 07:35:44 -0800 (Wed, 16 Nov 2011)
+

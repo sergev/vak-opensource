@@ -1,0 +1,847 @@
+/*
+ *      Сделано в МФТИ.
+ *
+ *      Чет Фев 11 11:39:15 MSK 1988    Вакуленко С. В.
+ */
+
+/* a lot of the machine dependent parts of the second pass */
+
+# include "mfile2"
+
+# define BITMASK(n) ((1L<<n)-1)
+
+#ifdef ITM
+int     firstinit;
+#endif
+
+int firstpar;           /* признак первого параметра */
+
+lineid (l, fn)
+char *fn;
+{
+	/* identify line l and file fn */
+
+#ifndef ITM
+	printf (";\tline %d, file %s\n", l, fn);
+#else
+	printf (", LINE %d, FILE %s\n", l, fn);
+#endif
+}
+
+eobl2 ()
+{
+	OFFSZ spoff;	/* offset from stack pointer */
+
+	spoff = maxoff;
+	if (spoff >= AUTOINIT) spoff -= AUTOINIT;
+	spoff /= SZINT;
+#ifndef ITM
+	printf ("\tF%d=%ld\n", ftnno, spoff);
+#else
+	printf ("EQU F0%d=%o;\n", ftnno, spoff);
+#endif
+}
+
+isptrchar (t)
+register TWORD t;
+{
+	/* является ли указателем на char */
+
+	if (ISPTR (t)) t = DECREF (t);
+	return (ischar (t));
+}
+
+ischar (t)
+register TWORD t;
+{
+	/* является ли объектом типа char */
+
+	while (ISARY (t)) t=DECREF (t);
+	return (t==CHAR || t==UCHAR);
+}
+
+hopcode (f, o)
+{
+	/* засылка аргументов в стек */
+	/* для первого аргумента продергивать стек не нужно */
+
+#ifndef ITM
+	switch (f) {
+	case 'A':
+		if (firstpar) break;
+		printf ("\tatx\t,15\n");
+		return;
+	case 'B':
+		if (firstpar) printf ("ita");
+		else printf ("its");
+		break;
+	case 'X':
+		if (firstpar) printf ("xta");
+		else printf ("xts");
+		break;
+	}
+#else
+	switch (f) {
+	case 'A':
+		if (firstpar) break;
+		printf ("=>0.RF");
+		return;
+	case 'B':
+		if (firstpar) break;
+		else printf ("#");
+		break;
+	}
+#endif
+	firstpar = 0;
+}
+
+char *rnames [] = {
+#ifndef ITM
+	"Acc", "1",  "2",  "3",  "4",  "5",  "6",  "7",
+	  "8", "9", "10", "11", "12", "13", "14", "15",
+#else
+	"R0", "R1", "R2", "R3", "R4", "R5", "R6", "R7",
+	"R8", "R9", "RA", "RB", "RC", "RD", "RE", "RF",
+#endif
+};
+
+
+int rstatus[] = {
+/*    сумматор    */    SAREG|STAREG,
+/*  1,  2,  3,  4 */    SBREG,  SBREG,  SBREG,  SBREG,
+/*  5,  6,  7,  8 */    SBREG,  SBREG,  SBREG,  SBREG,
+/*  9, 10, 11, 12 */    SBREG,  SBREG|STBREG,   SBREG|STBREG,   SBREG,
+/* 13, 14, 15     */    SBREG,  SBREG,  SBREG,
+};
+
+pushstack ()
+{
+#ifndef ITM
+	if (! firstpar)
+	    printf ("\tits\n");
+#else
+	if (! firstpar)
+	    printf ("@#=0;\n");
+#endif
+	firstpar = 0;
+}
+
+norm (c)
+register c;
+{
+	static regime = -1;
+
+	switch (c) {
+	case 'x':                       /* неизвестно */
+		regime = -1;
+		return;
+	case 'n':
+#ifndef ITM
+		if (regime != 0) printf ("\tntr\t40\n");
+#else
+		if (regime != 0) printf ("DR 40;\n");
+#endif
+		regime = 0;
+		return;
+	case 'u':
+#ifndef ITM
+		if (regime != 1) printf ("\tntr\t60\n");
+#else
+		if (regime != 1) printf ("DR 60;\n");
+#endif
+		regime = 1;
+		return;
+	}
+}
+
+zzzcode( p, c )
+register NODE *p;
+register c;
+{
+	/* ?, 1, 2, 3, &, +, *,
+	/* N, I, F, M, S,
+	/* n, u, x, C, T, P, Q, H, X
+	*/
+
+	register m;
+
+	switch (c) {
+
+	case 'x':
+	case 'n':
+	case 'u':
+		norm (c);
+		return;
+
+	case 'N':                       /* logical ops, turned into 0-1 */
+					/* работаем на сумматоре */
+		cbgen (0, m = getlab(), 'I');
+		deflab (p->bn.label);
+#ifndef ITM
+		printf ("\txta\n");
+#else
+		printf ("@=0;");
+#endif
+		deflab (m);
+		return;
+
+	case 'I':
+	case 'F':
+		cbgen (p->in.op, p->bn.label, c);
+		return;
+
+	case 'T':                       /* field mask */
+		{
+			register n;
+
+			n = fldsz % 3;
+			if (n==1) printf ("1");
+			else if (n==2) printf ("3");
+			for (n=fldsz; n>=3; n-=3) printf ("7");
+			break;
+		}
+
+	case 'C':                       /* complemented field mask */
+		{
+			register a, b, c;
+
+			a = SZINT - fldshf - fldsz;
+			b = fldsz;
+			c = fldshf;
+			for (; a>=3; a-=3) printf ("7");
+			if (a==1 && fldsz==1) {
+				printf ("5");
+				c--;
+			} else {
+				if (a==1) {
+					printf ("4");
+					b -= 2;
+				} else if (a==2) {
+					printf ("6");
+					b--;
+				}
+				for (; b>=3; b-=3) printf ("0");
+				if (b==1) {
+					printf ("3");
+					c -= 2;
+				} else if (b==2) {
+					printf ("1");
+					c--;
+				}
+			}
+			for (; c>=3; c-=3) printf ("7");
+			break;
+		}
+
+	case 'M':                       /* negated CR */
+		p->in.right->tn.lval = -p->in.right->tn.lval;
+		conput( getlr( p, 'R' ) );
+		p->in.right->tn.lval = -p->in.right->tn.lval;
+		return;
+
+	case 'S':       /* structure assignment; left is SNAME|SOREG|STARNM */
+		{
+			register i, size, reg;
+
+			if ((reg = p->in.right->tn.rval) == ACC) {
+#ifndef ITM
+				printf ("\tati\t14\n");
+#else
+				printf ("@=>RE;");
+#endif
+				reg = 14;
+			}
+			size = p->stn.stsize / (SZINT/SZCHAR);
+			for (i=0; i<size; i++) {
+#ifndef ITM
+				printf ("\txta\t%d,%d\n", i, reg);
+				expand (p, FOREFF, " atx <AL>");
+				printf ("%d\n", i);
+#else
+				printf ("@=%d,R%c;", i,"0123456789ABCDEF"[reg]);
+				expand (p, FOREFF, "ZLre=&AL;=>");
+				printf ("%o.RE;", i);
+#endif
+			}
+		}
+		break;
+
+	case 'P':
+		p = getlr (p, 'L');
+		if (p->in.op != UNARY MUL) cerror ("illegal zzzcode 'P'");
+		adrput (p->in.left);
+		break;
+#ifdef ITM
+	case 'Q':
+		p = getlr (p, 'L');
+		if (p->in.op != UNARY MUL) cerror ("illegal zzzcode 'Q'");
+		zzzadr (p->in.left);
+		break;
+	case '1':
+	case '2':
+	case '3':
+	case 'L':
+	case 'R':
+		zzzadr( getlr( p, c ) );
+		break;
+	case 'H':
+		p = getlr( p,'R' );
+		if (p->in.op == ICON ) {
+		    switch (p->in.type) {
+		    case INT:
+		    case SHORT:
+		    case LONG:
+		    case UNSIGNED:
+		    case USHORT:
+		    case ULONG:
+			    printf(firstpar?"=":"<<");
+			    break;
+		    case CHAR:
+		    case UCHAR:
+		    default:
+			    printf(firstpar?"=":"<");
+			    break;
+		    }
+		} else
+		    printf(firstpar?"=":"<<");
+		break;
+	case 'X':
+		if( ! firstinit ) {
+		    printf(";\n ");
+		}
+		firstinit = 0;
+		break;
+#endif
+
+	default:
+		cerror ("illegal zzzcode: %c", c);
+		}
+	}
+
+rmove (rt, rs, t)
+TWORD t;
+{
+	/* пересылка из регистра rs в регистр rt */
+
+#ifndef ITM
+	if (rs == ACC) printf ("\tati\t%s\n", rnames [rt]);
+	else if (rt == ACC) printf ("\tita\t%s\n", rnames [rs]);
+	else printf ("\tmtj\t%s,%s\n", rnames [rt], rnames [rs]);
+#else
+	if (rs == ACC) printf ("@=>%s;\n", rnames [rt]);
+	else if (rt == ACC) printf ("@=%s;\n", rnames [rs]);
+	else printf ("%s=>%s;\n", rnames [rt], rnames [rs]);
+#endif
+}
+
+struct respref respref [] = {
+	/* cookie */            /* shape of rezult */
+	INTAREG,                INTAREG,
+	INBREG,                 INBREG,
+	INTEMP,                 INTEMP|SOREG,   /* SOREG - для char */
+	FORARG,                 FORARG,
+	FORCC,                  INTAREG,
+	0,                      0,
+};
+
+setregs ()
+{
+	/* установка количества временных регистров на входе в блок */
+
+	fregs = 1;      /* сумматор */
+	norm ('x');
+}
+
+szty(t)
+TWORD t;
+{
+	/* количество регистров (сумматоров),
+	/* необходимых под переменную типа t */
+
+	return (1);
+}
+
+rewfld (p)
+NODE *p;
+{
+	return (1);
+}
+
+callreg (p)
+NODE *p;
+{
+	return (ACC);
+}
+
+flshape (p)
+register NODE *p;
+{
+	/* Определить, подходит ли p под SFLD (смотри tshape). */
+
+	return (shltype (p->in.op, p));
+}
+
+shtemp (p)
+register NODE *p;
+{
+	/* Определить, подходит ли p
+	/* под INTEMP (смотри tshape). */
+
+	if (p->in.type==CHAR || p->in.type==UCHAR) return (0);
+	if (p->in.op==OREG) return (!istreg (p->tn.rval));
+	return (p->in.op==NAME || p->in.op==ICON);
+}
+
+shltype (o, p)
+register o;
+register NODE *p;
+{
+	/* Определить, подходит ли p
+	/* под OPLTYPE (смотри match).
+	/* Фактически - можно ли из p сделать
+	/* wtc - последовательность.
+	/* o == p->in.op */
+
+	if (o==NAME || o==ICON || o==OREG) return (1);
+	if (o == UNARY MUL) return (shumul (p->in.left) == STARNM);
+	return (0);
+}
+
+shumul (p)
+register NODE *p;
+{
+	/* Определить, подходит ли p под STARNM.
+	/* Да, если это NAME или OREG, или ICON,
+	/* или wtc - последовательность.
+	/* Используется в tshape.
+	*/
+	register o;
+
+	o = p->in.op;
+	if (isptrchar (p->in.type))
+		if (o==NAME || o==OREG) return (STARREG);
+		else return (0);
+	if (o==NAME || o==ICON || o==OREG) return (STARNM);
+	if (o == UNARY MUL && shumul (p->in.left) == STARNM) return (STARNM);
+	if (o != PLUS) return (0);
+	if (shltype (p->in.left->in.op, p->in.left) &&
+		p->in.right->in.op == ICON) return (STARNM);
+	return (0);
+}
+
+adrcon (val)
+CONSZ val;
+{
+	printf ("%lo.", val);
+}
+
+cptrput (val)
+register CONSZ val;
+{
+	printf ("%lo.", (val&07) << 28 | val>>3 & 0777777777);
+}
+
+cput (p)
+register NODE *p;
+{
+	if (p->tn.lval) {
+		switch (p->in.type) {
+		case INT:
+		case SHORT:
+		case LONG:
+#ifndef ITM
+			if (p->tn.lval < 0) printf ("{%ld}", p->tn.lval);
+#else
+			if (p->tn.lval < 0) printf ("%ld", p->tn.lval);
+#endif
+			else printf ("%ld", p->tn.lval);
+			break;
+#ifndef ITM
+		case UNSIGNED:
+		case USHORT:
+		case ULONG:
+			printf ("%ld", p->tn.lval);
+			break;
+		case CHAR:
+		case UCHAR:
+			printf ("%ld", p->tn.lval & 0377);
+			break;
+#else
+		case UNSIGNED:
+		case USHORT:
+		case ULONG:
+			printf ("%lo", p->tn.lval);
+			break;
+		case CHAR:
+			printf ("%ld", (char)(p->tn.lval & 0377));
+			break;
+		case UCHAR:
+			printf ("%ld", p->tn.lval & 0377);
+			break;
+#endif
+		default:
+			if (isptrchar (p->in.type)) cptrput (p->tn.lval);
+			else printf ("%ld", p->tn.lval & 0777777777);
+			break;
+		}
+		if (! p->in.name[0]) return;
+		printf ("+");
+	}
+#ifndef ITM
+# ifdef FLEXNAMES
+	printf (p->in.name);
+# else
+	printf ("%.8s", p->in.name);
+# endif
+#else
+	{ char s, c;
+# ifdef FLEXNAMES
+	    for( s = 0 ; p->in.name[s] ; s++ ) {
+		c = p->in.name[s];
+		PUTCHAR( c );
+	    }
+# else
+	    for( s = 0 ; p->in.name[s] && s < 8 ; s++ ) {
+		c = p->in.name[s];
+		PUTCHAR( c );
+	    }
+# endif
+	}
+#endif
+}
+
+conput (p)
+register NODE *p;
+{
+	switch (p->in.op) {
+	case ICON:
+		cput (p);
+		return;
+	case REG:
+		printf (rnames [p->tn.rval]);
+		return;
+	default:
+		cerror ("illegal conput");
+	}
+}
+
+insput (p)
+NODE *p;
+{
+	cerror ("insput");
+}
+
+upput (p)
+NODE *p;
+{
+	cerror ("upput");
+}
+
+#ifdef ITM
+zzzadr (p)
+register NODE *p;
+{
+	/* сделать команду косвенной адресации если она нужна */
+	switch (p->in.op) {
+	case UNARY MUL:
+		switch (p->in.left->in.op) {
+		case PLUS:
+			zzzadr (p->in.left->in.left);
+			printf("@*+");
+			conput (p->in.left->in.right);
+			printf(";");
+			return;
+		case UNARY MUL:
+		case NAME:
+		case OREG:
+			zzzadr (p->in.left);
+			printf("@*+");
+			adrput (p->in.left);
+			printf(";");
+			return;
+		default:
+			cerror ("zzzadr: illegal address");
+		}
+		return;
+	default:
+		break;
+	}
+}
+#endif
+
+adrput (p)
+register NODE *p;
+{
+	/* output an address, with offsets, from p */
+
+	switch (p->in.op) {
+	case FLD:
+		adrput (p->in.left);
+		return;
+	case UNARY MUL:
+		switch (p->in.left->in.op) {
+		case PLUS:
+#ifndef ITM
+			printf ("[");
+			adrput (p->in.left->in.left);
+			printf ("]");
+#endif
+			conput (p->in.left->in.right);
+			return;
+		case UNARY MUL:
+		case NAME:
+		case OREG:
+#ifndef ITM
+			printf ("[");
+			adrput (p->in.left);
+			printf ("]");
+#endif
+			return;
+		}
+	case ICON:              /* addressable value of the constant */
+#ifndef ITM
+		printf ("#");
+# else
+		switch (p->in.type) {
+		case INT:
+		case SHORT:
+		case LONG:
+		case UNSIGNED:
+		case USHORT:
+		case ULONG:
+			printf ("D'");
+			break;
+		case CHAR:
+		case UCHAR:
+		default:
+			printf ("&");
+		}
+#endif
+		cput (p);
+		return;
+	case NAME:
+		if (p->tn.lval) {
+			if (ischar (p->in.type)) cptrput (p->tn.lval);
+#ifndef ITM
+			else printf ("%ld", p->tn.lval & 0777777777);
+# else
+			else printf ("%lo", p->tn.lval & 0777777777);
+#endif
+			if (! p->in.name[0]) return;
+			printf ("+");
+		}
+# ifdef FLEXNAMES
+		printf (p->in.name);
+# else
+		printf ("%.8s", p->in.name);
+# endif
+		return;
+	case REG:
+		printf ("%s", rnames[p->tn.rval]);
+		return;
+	case OREG:
+#ifndef ITM
+		printf ("%ld", p->tn.lval);
+#else
+		printf ("%lo", p->tn.lval);
+#endif
+		if (p->tn.rval)
+#ifndef ITM
+			printf (",%s", rnames [p->tn.rval]);
+#else
+			printf (".%s", rnames [p->tn.rval]);
+#endif
+		return;
+	default:
+		cerror ("adrput: illegal address");
+	}
+}
+
+genscall (p, cookie)
+register NODE *p;
+{
+	/* structure valued call */
+
+	return (gencall (p, cookie));
+}
+
+gencall (p, cookie)
+register NODE *p;
+{
+	/* generate the call given by p */
+
+	register temp;
+	register m;
+
+	if (p->in.right) temp = argsize (p->in.right);
+	else temp = 0;
+
+	if (p->in.right) { /* generate args */
+		firstpar = 1;
+		genargs (p->in.right);
+	}
+
+	if ((p->in.left->in.op != UNARY AND ||
+		!shltype (p->in.left->in.left->in.op, p->in.left->in.left)) &&
+		!shltype (p->in.left->in.op, p->in.left) ) {
+		order (p->in.left, INTEMP);
+	}
+
+	sbegar (temp);
+	p->in.op = UNARY CALL;
+	m = match (p, INTAREG);
+	return (m != MDONE);
+}
+
+sbegar (size)
+register size;
+{
+	/* заслать в стек последний параметр - минус количество аргументов */
+#ifndef ITM
+	if (size) printf ("\txts\t#-%d\n", size/8);
+	else printf ("\txts\n");
+#else
+	printf ("@<&%o;\n", size/8);      /* 6->8  Рыжков С.И 29.06.88 */
+#endif
+}
+
+char *ccbranches [] = {
+#ifndef ITM
+	"\tuz\tL%d\n",                         /* EQ  */
+	"\tui\tL%d\n",                         /* NE  */
+	"\tunz\tL%d\n",                         /* LE  */
+	"\tun\tL%d\n",                         /* LT  */
+	"\tupz\tL%d\n",                         /* GE  */
+	"\tup\tL%d\n",                         /* GT  */
+	"\tuz\tL%d\n\tarx\n\tuz\tL%d\n",      /* ULE */
+	"\tuz\tL%d\n",                         /* ULT */
+	"\tui\tL%d\n",                         /* UGE */
+	"\tuz\t.+2\n:\taox\n\tui\tL%d\n:\n",  /* UGT */
+#else
+	"BE L%d;\n",                         /* EQ  */
+	"BN L%d;\n",                         /* NE  */
+	"BL L%d;\n",                         /* LE  */
+	"B1 L%d;\n",                         /* LT  */
+	"B0 L%d;\n",                         /* GE  */
+	"BH L%d;\n",                         /* GT  */
+	"BN L%d @+|0 BE L%d;\n",             /* ULE */
+	"BE L%d;\n",                         /* ULT */
+	"BN L%d;\n",                         /* UGE */
+	"()^= @|0 BN L%d;\n",             /* UGT */
+#endif
+};
+
+/* logical relations when compared in reverse order (cmp R,L) */
+
+# ifdef ONEPASS
+extern short revrel[];
+# else
+		/*  EQ, NE, LE, LT, GE, GT, ULE, ULT, UGE, UGT */
+short revrel [] = { EQ, NE, GE, GT, LE, LT, UGE, UGT, ULE, ULT };
+# endif
+
+cbgen (o, lab, mode)
+register o;
+{
+	/* условные и безусловные переходы
+	/* o - номер операции :
+	/* 0 = безусл. переход на метку lab
+	/*      EQ + 0 = EQ
+	/*      EQ + 1 = NE
+	/*      EQ + 2 = LE
+	/*      EQ + 3 = LT
+	/*      EQ + 4 = GE
+	/*      EQ + 5 = GT
+	/*      EQ + 6 = ULE (UNSIGNED LE)
+	/*      EQ + 7 = ULT
+	/*      EQ + 8 = UGE
+	/*      EQ + 9 = UGT
+
+	/* mode=='F' - признак перехода по
+	/* инвертированному условию (revrel -
+	/* таблица инвертированных операций).
+	*/
+
+	if (o == 0)
+#ifndef ITM
+		printf ("\tuj\tL%d\n", lab);
+#else
+		printf ("U L%d;\n", lab);
+#endif
+	else if (o > UGT)
+		cerror ("bad conditional branch: %s", opst[o]);
+	else {
+		if (mode == 'F') o = revrel [o - EQ];
+		printf (ccbranches [o - EQ], lab, lab);
+	}
+}
+
+nextcook (p, cookie)
+NODE *p;
+{
+	/* we have failed to match p with cookie; try another */
+
+	if (cookie == FORREW) return (0);       /* безнадежно ! */
+	if (! (cookie & INTAREG)) return (INTAREG);
+	if (! (cookie & INTEMP)) return (INTAREG|INTEMP);
+	return (FORREW);
+}
+
+lastchance (p, cook)
+NODE *p;
+{
+	return(0);      /* forget it! */
+}
+
+myreader (p)
+register NODE *p;
+{
+}
+
+special (p, shape)
+register NODE *p;
+{
+	/* special shape matching routine */
+
+	switch (shape) {
+	case SCCON:     /* для сдвигов: -64..63 */
+		if (p->in.op == ICON && p->in.name[0] == '\0' &&
+			p->tn.lval >= -64 && p->tn.lval <= 63)
+			return (1);
+		break;
+	default:
+		cerror ("bad special shape");
+	}
+	return (0);
+}
+
+# ifndef ONEPASS
+
+main (argc, argv)
+register char *argv[];
+{
+	register char **p, **save, *outfile;
+
+	/* нужно найти последний параметр - имя файла,
+	/* открыть его в качестве стандартного вывода и затереть */
+
+	argv[argc] = 0;
+	outfile = 0;
+	for (p=argv+1; *p; p++)
+		if (**p != '-') {
+			outfile = *p;
+			save = p;
+		}
+	if (outfile) {
+		if (freopen (outfile, "w", stdout) == NULL)
+			cerror ("can't open %s", outfile);
+		*save = "-";
+	}
+	return (mainp2 (argc, argv));
+}
+
+where (c)
+{
+}
+
+# endif

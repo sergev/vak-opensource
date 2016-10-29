@@ -1,0 +1,28 @@
+====== ELF MIPS Relocation Types ======
+
+=== R_MIPS_32 - 32-bit byte address ===
+
+    result := input + symbol
+
+=== R_MIPS_26 - Word address at lower 26 bits ===
+
+    symbol += (input & 0x3ffffff) << 2;
+    result := (input & ~0x3ffffff) | ((symbol >> 2) & 0x3ffffff);
+
+=== R_MIPS_PC16 - PC-relative word address at lower 16 bits ===
+
+    symbol += ((input & 0xffff) << 2) - p;
+    result := (input & ~0xffff) | ((s >> 2) & 0xffff);
+
+=== R_MIPS_GPREL16 - GP-relative byte address at lower 16 bits ===
+
+    symbol += sign_extend(input & 0xffff) - gp;
+    result := (input & ~0xffff) | (symbol & 0xffff);
+
+=== R_MIPS_HI16 ===
+
+TODO
+
+=== R_MIPS_LO16 ===
+
+TODO

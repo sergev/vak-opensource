@@ -1,0 +1,121 @@
+PIC Mnemonic    Op code         VASM Mnemonic   Operation
+---------------------------------------------------------------------
+Transfers
+~~~~~~~~~
+movwf f         0000 0001            atx        f = w
+movfp f,wreg    0110 1010            xta        w = f
+movlw k         1011 0000            cta        w = c
+clrf wreg       0010 1001 0000 1010  az         w = 0
+setf wreg       0010 1011 0000 1010  as         w = 0xff
+
+movfp f,p       011                  xtr        p = f
+movpf p,f       010                  rtx        f = p
+clrf f          0010 1001            xz         f = 0
+setf f          0010 1011            xs         f = 0xff
+clrf f,w        0010 1000            xza        f = w = 0
+setf f,w        0010 1010            xsa        f = w = 0xff
+
+Conditional ops
+~~~~~~~~~~~~~~~
+tstfsz wreg     0011 0011 0000 1010  a?         if (w != 0)
+decfsz wreg     0001 0111 0000 1010  a--?       w = w-1; if (w != 0)
+dcfsnz wreg     0010 0111 0000 1010  a--z?      w = w-1; if (w == 0)
+incfsz wreg     0001 1111 0000 1010  a++?       w = w+1; if (w != 0)
+infsnz wreg     0010 0101 0000 1010  a++z?      w = w+1; if (w == 0)
+
+tstfsz f        0011 0011            x?         if (f != 0)
+btfsc f,b       1001 1               bs?        if (f.b != 0)
+btfss f,b       1001 0               bz?        if (f.b == 0)
+cpfseq f        0011 0001            a!=x?      if (a != x)
+cpfsgt f        0011 0010            a<=x?      if (a <= x)
+cpfslt f        0011 0000            a>=x?      if (a >= x)
+decfsz f,w      0001 0110            x--a?      w = f-1; if (w != 0)
+decfsz f        0001 0111            x--?       f = f-1; if (f != 0)
+dcfsnz f,w      0010 0110            x--az?     w = f-1; if (w == 0)
+dcfsnz f        0010 0111            x--z?      f = f-1; if (f == 0)
+incfsz f,w      0001 1110            x++a?      w = f+1; if (w != 0)
+incfsz f        0001 1111            x++?       f = f+1; if (f != 0)
+infsnz f,w      0010 0100            x++az?     w = f+1; if (w == 0)
+infsnz f        0010 0101            x++z?      f = f+1; if (f == 0)
+
+Arithmetic ops
+~~~~~~~~~~~~~~
+addwf f,w       0000 1110            a+x        w += f
+addwf f         0000 1111            x+a        f += w
+addwfc f,w      0001 0000            a+cx       w += f + carry
+addwfc f        0001 0001            x+ca       f += w + carry
+mulwf f         0011 0100            a*x        prod = w*f
+mullw k         1011 1100            a*c        prod = w * c
+subwf f,w       0000 0100            a-x        w = f - w
+subwf f         0000 0101            x-a        f -= w
+subwfb f,w      0000 0010            a-bx       w = f - (w + ~carry)
+subwfb f        0000 0011            x-ba       f -= w + ~carry
+decf f,w        0000 0110            x--a       w = f-1
+decf f          0000 0111            x--        f = f-1
+incf f,w        0001 0100            x++a       w = f+1
+incf f          0001 0101            x++        f = f+1
+negw f,w        0010 1100            anax       f = w = ~w+1
+negw f          0010 1101            anx        f = ~w+1
+addlw k         1011 0001            a+c        w += c
+sublw k         1011 0010            c-a        w = c - w
+daw f,w         0010 1110            adax       f = w = adjust(w)
+daw f           0010 1111            adx        f = adjust(w)
+
+Logical ops
+~~~~~~~~~~~
+andwf f,w       0000 1010            a&x        w &= f
+andlw k         1011 0101            a&c        w &= c
+andwf f         0000 1011            x&a        f &= w
+iorwf f,w       0000 1000            a|x        w |= f
+iorlw k         1011 0011            a|c        w |= c
+iorwf f         0000 1001            x|a        f |= w
+xorwf f,w       0000 1100            a^x        w ^= f
+xorlw k         1011 0100            a^c        w ^= c
+xorwf f         0000 1101            x^a        f ^= w
+comf f,w        0001 0010            xca        w = ~f
+comf f          0001 0011            xc         f = ~f
+rlncf f,w       0010 0010            x<<a       w = f << 1
+rlncf f         0010 0011            x<<x       f = f << 1
+rrncf f,w       0010 0000            x>>a       w = f >> 1
+rrncf f         0010 0001            x>>x       f = f >> 1
+rlcf f,w        0001 1010            xc<<a      w = carry:f << 1
+rlcf f          0001 1011            xc<<x      f = carry:f << 1
+rrcf f,w        0001 1000            xc>>a      w = carry:f >> 1
+rrcf f          0001 1001            xc>>x      f = carry:f >> 1
+swapf wreg      0001 1101 0000 1010  aw         w = swap(w)
+swapf f         0001 1101            xw         f = swap(f)
+swapf f,w       0001 1100            xwa        w = swap(f)
+
+Bit ops
+~~~~~~~
+bcf f,b         1000 1               bz         f.b = 0
+bsf f,b         1000 0               bs         f.b = 1
+btg f,b         0011 1               bt         f.b ^= 1
+
+Control flow
+~~~~~~~~~~~~
+goto k          110                  goto       goto c()
+call k          111                  call       call c()
+lcall k         1011 0111            lcall      lcall c()
+return          0000 0000 0000 0010  ret        return
+retfie          0000 0000 0000 0101  reti       return; enable interrupts
+retlw k         1011 0110            retc       w = c; return
+nop             0000 0000            nop        --
+
+Special ops
+~~~~~~~~~~~
+movlb k         1011 1000            reg        low(bsr) = c
+movlr k         1011 1010            dat        high(bsr) = c
+clrwdt          0000 0000 0000 0100  awake      clear watchdog timer
+sleep           0000 0000 0000 0011  sleep      enter sleep mode
+
+Program memory access
+~~~~~~~~~~~~~~~~~~~~~
+tablrd 0,0,f    1010 1000            plx        f = low(latch); latch = *tptr
+tablrd 0,1,f    1010 1001            pl++x      f = low(latch); latch = *tptr++
+tlrd 0,f        1010 0000            llx        f = low(latch)
+tlrd 1,f        1010 0010            lhx        f = high(latch)
+tablwt 1,0,f    1010 1110            xhp        high(latch) = f; *tptr = latch
+tablwt 1,1,f    1010 1111            xhp++      high(latch) = f; *tptr++ = latch
+tlwt 0,f        1010 0100            xll        low(latch)  = f
+tlwt 1,f        1010 0110            xhl        high(latch) = f

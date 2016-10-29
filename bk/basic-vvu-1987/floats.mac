@@ -1,0 +1,1858 @@
+	.ENABLE	LC
+.IF DF,SNG
+	.GLOBL	SAVJMP,BUFOUT
+	.GLOBL	SCMP,RNDSAV,III
+
+PACK::	MOV	4(SP),R3
+	MOV	(SP)+,2(SP)
+	ADD	R3,@SP
+	MOV	R5,-(SP)
+	MOV	R4,-(SP)
+	MOV	R2,-(SP)
+	MOV	R1,-(SP)
+	MOV	R0,-(SP)
+
+	CLR	-(SP)
+
+	MOV	#-11,R5
+	MOV	#41,R2
+
+	CLR	R0
+	CLR	R1
+	CMPB	@R3,#53
+	BEQ	PLUS
+	CMPB	@R3,#55
+	BNE	SEK1
+	INC	(SP)
+PLUS:	INC	R3
+SEK1:	CLR	-(SP)
+SEK:	MOVB	(R3)+,R4
+	CMP	R3,16(SP)
+	BHI	EIL
+	SUB	#60,R4
+	BLT	TASKAS
+	BNE	SKAIT
+	CMP	R5,#-11
+	BEQ	SEK
+SKAIT:	CMP	R4,#11
+	BGT	EIL
+	INC	R5
+	BGT	SEK
+	CALL	DAUG5
+	ASL	R1
+	ROL	R0
+	ADD	R4,R1
+	ADC	R0
+	BR	SEK
+;
+TASKAS:	CMP	R4,#-2
+	BNE	EIL
+	TST	@SP
+	BNE	EI2
+	MOV	R3,@SP
+	INC	@SP
+	BR	SEK
+;
+PEPERP:	TRAP	6
+;
+PKEISN:	CLR	R1
+	CLR	R0
+	BR	GALAS
+;
+EIL:	TST	@SP
+	BEQ	NERTSK
+EI2:	SUB	R3,@SP
+NERTSK:	MOV	R5,-(SP)
+	BGE	GERAS
+	CLR	@SP
+GERAS:	CLR	R5
+	CMP	R3,20(SP)
+	BHI	ENDSK
+	BICB	#40,R4
+	CMPB	R4,#25
+	BNE	ENDSK
+	CMPB	@R3,#100
+	BGT	ENDSK
+	BICB	#40,-1(R3)
+	CMPB	(R3)+,#53
+	BEQ	PLIUS
+	CMPB	-(R3),#55
+	BNE	PLIUS
+	INCB	5(SP)
+	INC	R3
+PLIUS:	MOVB	(R3)+,R4
+	CMP	R3,20(SP)
+	BHI	ENDE
+	SUB	#60,R4
+	BLT	ENDE
+	CMPB	R4,#11
+	BGT	ENDE
+	ASL	R5
+	ADD	R5,R4
+	ASL	R5
+	ASL	R5
+	ADD	R4,R5
+	CMP	R5,#100
+	BLOS	PLIUS
+	TST	(SP)+
+	TSTB	3(SP)
+	BEQ	PEPERP
+	BR	PKEISN
+;
+ENDE:	TSTB	5(SP)
+	BEQ	ENDSK
+	NEG	R5
+ENDSK:	ADD	(SP)+,R5
+	TST	R0
+	BNE	YRA
+	TST	R1
+	BEQ	GALAS
+YRA:	ADD	(SP),R5
+	BLT	NEIG
+	BEQ	PNULIS
+;
+TEIG:	CMP	R0,#31462
+	BHI	DID
+	CALL	DAUG5
+	INC	R2
+ATGAL:	DEC	R5
+	BGT	TEIG
+	BR	PNULIS
+DID:	CALL	DG5DL8
+	ADD	#3,R2
+	BR	ATGAL
+;
+NEIG:	TST	R0
+	BLT	DICKIS
+MAZGIS:	DEC	R2
+	ASL	R1
+	ROL	R0
+	BPL	MAZGIS
+DICKIS:	CALL	DG4DL5
+	SUB	#3,R2
+	INC	R5
+	BLT	NEIG
+;
+PNULIS:	DEC	R2
+	ASL	R1
+	ROL	R0
+	BCC	PNULIS
+	ADD	#200,R2
+	BLE	PKEISN
+	CMP	R2,#377
+	BGT	PEPERP
+	CLRB	R1
+	BISB	R0,R1
+	SWAB	R1
+	CLRB	R0
+	BISB	R2,R0
+	SWAB	R0
+	ROR	2(SP)
+	ROR	R0
+	ROR	R1
+	ADC	R1
+	ADC	R0
+	BVS	PEPERP
+	BCS	PEPERP
+GALAS:	DEC	R3
+	CMP	(SP)+,(SP)+
+	MOV	14(SP),R5
+	MOV	R1,14(SP)
+	MOV	R0,12(SP)
+	MOV	(SP)+,R0
+	MOV	(SP)+,R1
+	MOV	(SP)+,R2
+	MOV	(SP)+,R4
+	RTS	R5
+;
+DG5DL8:	CMP	R0,#146314
+	BLO	DAL4
+	CALL	DALYT2
+	INC	R2
+DAL4:	MOV	R0,-(SP)
+	MOV	R1,-(SP)
+	CALL	DL4
+	BR	PRIDET
+;
+DAUG5:	MOV	R0,-(SP)
+	MOV	R1,-(SP)
+	ASL	R1
+	ROL	R0
+	ASL	R1
+	ROL	R0
+PRIDET:	ADD	(SP)+,R1
+	ADC	R0
+	ADD	(SP)+,R0
+	RETURN
+DG4DL5:	MOV	#10,R4
+	CALL	DALYT2
+	MOV	R1,-(SP)
+	MOV	R0,-(SP)
+IRDAR:	CALL	DL4
+DARSYK:	CALL	DALYT2
+	ADD	2(SP),R1
+	ADC	R0
+	ADD	@SP,R0
+	NEG	R4
+	BLT	DARSYK
+	DEC	R4
+	BGT	IRDAR
+	CMP	(SP)+,(SP)+
+	RTS	PC
+;
+DL4:	CALL	DALYT2
+DALYT2:	CLC
+	ROR	R0
+	ROR	R1
+	RETURN
+;
+EGO::	MOV	(SP)+,R3
+	MOV	(SP)+,R0
+	MOV	@SP,R1
+	MOV	#BUFOUT,@SP
+	MOV	#20,-(SP)
+	MOV	#7,-(SP)
+	MOV	R3,-(SP)
+;
+UNPCK::	MOV	#7,R3
+	MOV	R4,SAVJMP
+	MOV	R5,-(SP)
+	MOV	R3,-(SP)
+	CLR	R2
+	CLR	R5
+	MOV	12(SP),R4
+	ADD	R4,10(SP)
+;
+	ROL	R0
+	ROR	@SP
+	SWAB	R0
+	BISB	R0,R2
+	BNE	NE0
+	CLR	R4
+	INC	R5	;JEI TIK G FORMATAS
+	BR	ISLIND
+NE0:	SEC
+	ROR	R0
+	CLRB	R0
+	SWAB	R1
+	BISB	R1,R0
+	CLRB	R1
+	SUB	#200,R2
+	BLT	NEGAT
+	BEQ	ZERO
+;
+POSIT:	TST	R0
+	BLT	MAZINT
+	ASL	R1
+	ROL	R0
+	DEC	R2
+	BGT	POSIT
+	BR	ZERO
+MAZINT:	CALL	DG4DL5
+	INC	R5
+	SUB	#3,R2
+	BGT	POSIT
+	BEQ	ZERO
+;
+NEGAT:	CMP	R0,#146314
+	BHIS	PDALYT
+	CMP	R2,#-3
+	BGT	PDALYT
+	CALL	DG5DL4
+	DEC	R5
+	ADD	#2,R2
+	BR	TOLIAU
+PDALYT:	CALL	DALYT2
+TOLIAU:	INC	R2
+	BNE	NEGAT
+;
+ZERO:	CLR	R4
+DAUG10:	CALL	DG5DL4
+	CALL	DAUG8
+	TST	R4
+	BNE	ISLIND
+	DEC	R5
+	BR	DAUG10
+ISLIND:	MOV	6(SP),R3	;JEI =0 IR TIK G(!), TAI R5=1
+	SUB	R3,R2
+	DEC	R2
+;	TSTB	@SP
+;	BNE	KLIOP
+;	SUB	R5,R3
+;	BR	E
+KLIOP:	CALL	APVAL	;
+;	SUB	#4,10(SP)
+;	RORB	@SP
+;	BEQ	E	;
+;	BCC	1$	;E
+	CMP	R5,#-1	;TST	R5
+	BLT	1$	;E
+	CMP	R5,6(SP)
+	BGT	1$	;E
+	CLRB	@SP
+	ADD	R5,R2
+1$:	SUB	#4,10(SP)	;
+E:;	CALL	APVAL
+	ADD	10(SP),R2
+	MOV	R2,R3
+	TSTB	@SP
+	BNE	1$	;TRUP
+	TST	R5
+	BLE	TRUP
+	SUB	R5,R3
+	DEC	R3
+	CALL	ZENKL
+	BR	OPA
+1$:	DEC	R5	;
+	INC	R2	;
+;
+TRUP:	DEC	R3	;TST	-(R3)
+	CALL	ZENKL
+;	MOVB	#60,(R3)+
+	MOVB	#56,(R3)+
+PNUL:	CMP	R3,10(SP)
+	BHIS	SKAITM
+	MOVB	#60,(R3)+
+	BR	PNUL
+SKAITM:	MOV	R2,R3
+;
+;	INC	R3
+	TSTB	@SP
+	BEQ	1$	;BNE	OPA
+	DEC	R3	;
+	BR	OPA	;
+1$:	INC	R3	;
+	SUB	R5,R3
+OPA:	CALL	FORMSK
+	TST	(SP)+
+	BEQ	VISKA1
+;
+	MOVB	#105,(R3)+
+	MOVB	#'+,@R3
+	TST	R5
+	BGE	VIRS0
+	NEG	R5
+	MOVB	#55,(R3)
+VIRS0:	INC	R3
+EILE:	MOVB	#60,@R3
+DESIMT:	SUB	#12,R5
+	BLT	VIENZ
+	INCB	@R3
+	BR	DESIMT
+VIENZ:	ADD	#72,R5
+	INC	R3
+	MOVB	R5,(R3)+
+VISKA1:	MOV	R3,R2
+VISKAS:	MOVB	#40,(2)+
+	MOV	(SP)+,R5
+	MOV	(SP)+,@SP
+	SUB	4(SP),R2
+	MOV	R2,2(SP)
+	MOV	SAVJMP,R4
+	CLR	SAVJMP
+	RETURN
+;
+DG5DL4:	MOV	R0,-(SP)
+	MOV	R1,-(SP)
+	CALL	DL4
+	ADC	R1
+	ADC	R0
+	ADD	(SP)+,R1
+	ADC	R0
+	ADC	R4
+	ADD	(SP)+,R0
+	ADC	R4
+	RETURN
+;
+DAUG8:	MOV	#3,-(SP)
+DG2:	ASL	R1
+	ROL	R0
+	ROL	R4
+	DEC	@SP
+	BGT	DG2
+	TST	(SP)+
+	RETURN
+;
+APVAL:	CMP	R3,#12
+	BGT	NEREIK
+	TST	R3
+	BEQ	SVEIKS
+	BLT	NEREIK
+	MOV	R4,-(SP)
+	MOV	R0,-(SP)
+	MOV	R1,-(SP)
+	MOV	#100000,R0
+	CLR	R1
+DALINT:	DEC	R3
+	BEQ	UZTEKS
+	CALL	DG4DL5
+	CALL	DL4
+	CALL	DALYT2
+	BR	DALINT
+UZTEKS:	CLR	R4
+	ADD	(SP)+,R1
+	ADC	R0
+	ADD	(SP)+,R0
+	ADC	R4
+	ADD	(SP)+,R4
+PATIKR:	CMP	#12,R4
+	BGT	NEREIK
+	INC	R5
+NEREIK:	RETURN
+SVEIKS:	ADD	#5,R4
+	BR	PATIKR
+;
+ZENKL:	MOV	R3,14(SP)
+	MOVB	#40,(R3)+
+	ASL	2(SP)
+	BCC	1$
+	MOVB	#55,-1(3)
+1$:	RETURN
+;
+FORMSK:	MOV	R2,-(SP)
+	DEC	@SP
+	CMP	#12,R4
+	BGT	NEDVIZ
+	MOV	R3,@SP
+	MOVB	#61,(R3)+
+	SUB	#12,R4
+NEDVIZ:	CMP	R2,R3
+	BNE	NETASK
+	MOVB	#56,(R3)+
+NETASK:	CMP	14(SP),R3
+	BLOS	GRIZT
+	TST	R4
+	BEQ	1$
+	MOV	R3,@SP
+1$:	ADD	#60,R4
+	MOVB	R4,(R3)+
+	CLR	R4
+	CALL	DG5DL4
+	CALL	DAUG8
+	BR	NEDVIZ
+GRIZT:	MOV	(SP)+,R3
+	INC	R3
+	CMP	R3,R2
+ 	BHIS	2$
+	MOV	R2,R3
+2$:	RETURN
+;
+	.IF	EQ	VM-1
+;
+;**********************************************************
+;
+;**********ПОДПРОГРАМА СЛОЖЕНИЯ И ВЫЧИТАНИЯ****************
+;**************ЧИСЕЛ С ПЛАВАЮЩЕЙ ЗАПЯТОЙ*******************
+;
+;**********************************************************
+;
+;    ПАРАМЕТРЫ: 2 СЛОВА В ПОДВЕРШИНЕ СТЕКА - ЧИСЛО X
+;               2 СЛОВА В ВЕРШИНЕ СТЕКА - ЧИСЛО Y
+;               В R4 - УКАЗАТЕЛЬ АДРЕСА ПЕРЕДАЧИ УПРАВЛЕНИЯ
+;
+;**********************************************************
+;
+;    РЕЗУЛЬТАТ: 2 СЛОВА В ВЕРШИНЕ СТЕКА
+;                     (X И Y ИЗ СТЕКА УДАЛЯЮТЯ)
+;
+;**********************************************************
+;
+;    ОШИБКИ: - ИСЧЕЗНОВЕНИЕ ПОРЯДКА
+;	         (РЕЗУЛЬТАТ - 0)
+;	     - ПЕРЕПОЛНЕНИЕ ПОРЯДКА
+;		 (РЕЗУЛЬТАТ НЕОПРЕДЕЛЕННЫЙ)
+;	(ОБРАБАТЫВАЮТСЯ ПОДПРОГРАМОЙ TRAP)
+;
+;**********************************************************
+;
+;.................ВЫЧИТАНИЕ................................
+;
+SUB::	ADD	#100000,@SP	; ИЗМЕНИТЬ ЗНАК ОПЕРАНДА B
+;
+;.................СЛОЖЕНИЕ.................................
+;
+ADR::	MOV	R4,-(SP)	;СОХРАНЕНИТЬ УКАЗАТЕЛЬ
+	TST	SAVJMP
+	BNE	1$
+	MOV	R4,SAVJMP
+	CLR	@SP
+1$:	CLR	-(SP)	;МЕСТО ДЛЯ ЗНАКОВ СЛАГАЕМЫХ
+	CLR	R2		;МЕСТО ДЛЯ ПОРЯДКОВ
+	CLR	R3
+;
+;..............АНАЛИЗ ОПЕРАНДОВ.......................
+;
+	ASL	6(SP)
+	ROL	4(SP)
+	BISB	5(SP),R3 	;R3 <- ПОРЯДОК Y
+	BEQ	REZ		;Y=0 => X - РЕЗУЛЬТАТ
+	ROLB	@SP		;ЗАПОМНИТЬ ЗНАК Y
+;......................................................
+	ASL	12(SP)
+	ROL	10(SP)
+	BISB	11(SP),R2	;ПОРЯДОК ОПЕРАНДА X->R2
+	BNE	A1
+	;
+	RORB	@SP		;ВОССТАНОВИТЬ Y
+	ROR	4(SP)
+	ROR	6(SP)
+	MOV	4(SP),10(SP)
+	MOV	6(SP),12(SP)
+	BR	REZ		;X=0 => РЕЗУЛЬТАТ - Y
+	;
+A1:	ROLB	1(SP)		;ЗАПОМНИТЬ ЗНАК X
+	MOVB	#1,11(SP)
+	MOVB	#1,5(SP)
+	SUB	R3,R2		;РАЗНОСТЬ ПОРЯДКОВ ЧИСЕЛ А И B => R2
+	BGT	A2
+	;
+	MOV	10(SP),R0	; В R0,R1 - МАНТИССА ЧИСЛА
+	MOV	12(SP),R1	; С МЕНЬШИМ ПОРЯДКОМ
+	BR	CMZ
+	;
+A2:	ADD	R2,R3
+	MOV	4(SP),R0
+	MOV	6(SP),R1
+	MOV	10(SP),4(SP)
+	MOV	12(SP),6(SP)
+	SWAB	@SP
+	NEG	R2
+	;
+CMZ:	CMPB	1(SP),@SP	; ЕСЛИ ЗНАКИ ЧИСЕЛ НЕ=
+	BEQ	Z1		; ИЗМЕНИТЬ ЗНАК МЕНЬШЕГО ЧИСЛА
+	NEG	R1
+	ADC	R0
+	NEG	R0
+	;
+Z1:	TST	R2		; ЕСЛИ R2=0 - ВЫПОЛНИТЬ ССЛОЖЕНИЕ
+	BEQ	SUM
+	CMP	#-31,R2		; ЕСЛИ R2>31 => REZ=ЧИСЛО С БОЛЬШИМ ПОРЯДКОМ
+	BLE	Z2
+	MOV	4(SP),R0
+	MOV	6(SP),R1
+	BR	A7
+	;
+Z2:	CMP	#-10,R2		; ПРИВЕСТИ СЛАГАЕМЫЕ К ОДИНАКОВОМУ
+	BLE	A6		;     ПОРЯДКУ
+	CLR	R4
+	TST	R0
+	BPL	A3
+	COM	R4
+	;
+A3:	CMP	#-20,R2
+	BLT	A4
+	MOV	R0,R1
+	MOV	R4,R0
+	ADD	#20,R2
+	BEQ	SUM
+A4:	CMP	#-10,R2
+	BLE	A6
+	ADD	#20,R2
+A5:	ASL	R1
+	ROL	R0
+	ROL	R4
+	DEC	R2
+	BGT	A5
+	MOV	R0,R1
+	MOV	R4,R0
+	BR	SUM
+	;
+A6:	ASR	R0
+	ROR	R1
+	INC	R2
+	BLT	A6
+	;
+SUM:	ADD	4(SP),R0	;  СЛОЖИТЬ ЧИСЛА	
+	ADD	6(SP),R1
+	ADC	R0
+	;
+	CMPB	1(SP),@SP	; ЗНАКИ СЛАГАЕМЫХ РАЗЛИЧНЫ ?
+	BNE	A8
+	BIT	R0,#1000	;РЕЗУЛЬТАТ НОРМАЛИЗОВАН?
+	BEQ	A7
+	ASR	R0
+	ROR	R1
+	INC	R3
+A7:	SWAB	R3
+	BNE	OVFL		;  ПЕРЕПОЛНЕНИЕ ПОРЯДКА
+	;
+	BISB	R0,R3
+	ROR	@SP		;СФОРМИРОВАТЬ РЕЗ-Т В ВИДЕ ЧИСЛА
+	ROR	R3		; С ПЛАВАЮЩЕЙ ЗАПЯТОЙ
+	ROR	R1
+	ADC	R1
+	ADC	R3
+	BVS	OVFL
+	BCS	OVFL
+A13:	MOV	R3,10(SP)
+	MOV	R1,12(SP)
+REZ:	TST	(SP)+
+	JMP	ENDA
+	;
+OVFL:	TRAP	6
+	;
+A8:	TST	R0
+	BGT	A9
+	BEQ	A10
+	NEG	R0		; ИЗМЕНИТЬ ЗНАК РЕЗУЛЬТАТА
+	NEG	R1
+	SBC	R0
+	SWAB	@SP
+	;
+A9:	BIT	R0,#400		; НОРМАЛИЗОВАТЬ МАНТИССУ РЕЗУЛЬТАТА
+	BNE	A11
+	DEC	R3
+	ASL	R1
+	ROL	R0
+	BR	A9
+	;
+A10:	TST	R1
+	BEQ	A12
+	SWAB	R1		; НОРМАЛИЗОВАТЬ МАНТИССУ РЕЗУЛЬТАТА
+	BISB	R1,R0
+	CLRB	R1
+	SUB	#10,R3
+	BR	A9
+	;
+A11:	TST	R3
+	BGT	A7
+A14:	CLR	R1
+A12:	CLR	R3
+	BR	A13
+;
+;**********************************************************
+;
+;************ПОДПРОГРАМА УМНОЖЕНИЯ ЧИСЕЛ*******************
+;****************С ПЛАВАЮЩЕЙ ЗАПЯТОЙ***********************
+;
+;**********************************************************
+;
+;    ПАРАМЕТРЫ: 2 СЛОВА В ПОДВЕРШИНЕ СТЕКА - ЧИСЛО X
+;               2 СЛОВА В ВЕРШИНЕ СТЕКА - ЧИСЛО Y
+;               В R4 - УКАЗАТЕЛЬ АДРЕСА ПЕРЕДАЧИ УПРАВЛЕНИЯ
+;
+;**********************************************************
+;
+;    РЕЗУЛЬТАТ: 2 СЛОВА В ВЕРШИНЕ СТЕКА
+;                     (X И Y ИЗ СТЕКА УДАЛЯЮТЯ)
+;
+;**********************************************************
+;
+;    ОШИБКИ: - ИСЧЕЗНОВЕНИЕ ПОРЯДКА
+;	     - ПЕРЕПОЛНЕНИЕ ПОРЯДКА
+;	(ОБРАБАТЫВАЮТСЯ ПОДПРОГРАМОЙ TRAP)
+;	(РЕЗУЛЬТАТ - 0)
+;
+;**********************************************************
+;
+MLR::	MOV	R4,-(SP)	;СОХРАНЕНИЕ РЕГИСТРОВ
+	TST	SAVJMP
+	BNE	1$
+	MOV	R4,SAVJMP
+	CLR	@SP
+1$:	MOV	R5,-(SP)
+;
+;.........ПОДГОТОВИТЕЛЬНЫЕ ДЕЙСТВИЯ....................
+;
+	MOV	4(SP),R2	;R2 <- ПОРЯДОК ЧИСЛА Y
+	ASL	R2
+	ROL	-(SP)	;ЗАПОМНИТЬ ЗНАК ЧИСЛА Y
+	CLR	-(SP)
+	SWAB	R2
+	MOVB	R2,@SP	;ЗАПОМНИТЬ ПОРЯДОК ЧИСЛА Y
+	BEQ	MREZ0	;Y=0 => РЕЗУЛЬТАТ - 0
+;
+;......................................................
+;
+	SEC
+	ROR	R2		;ФОРМИРОВАНИЕ МАНТИССЫ
+	CLRB	R2		;ЧИСЛА Y В РЕГИСТРАХ R2/R3
+	BISB	13(SP),R2
+	CLR	R3
+	BISB	12(SP),R3
+	SWAB	R3
+;
+;......................................................
+;
+	ASL	14(SP)	;ФОРМИРОВАНИЕ В НУЛЕВОМ БИТЕ
+	ADC	2(SP)	;ЗНАКА МАНТИСЫ РЕЗУЛЬТАТА
+;
+;......................................................
+;
+	TSTB	15(SP)
+	BEQ	MREZ0	;X=0 => РЕЗУЛЬТАТ - 0
+;
+	ROR	14(SP)	;ВОССТАНОВЛЕНИЕ МАНТИССЫ X
+;
+;.............УМНОЖЕНИЕ МАНТИСС........................
+;
+	CLR	R0	;ПОДГОТОВКА R0/R1
+	CLR	R1	;ДЛЯ РЕЗУЛТАТА УМНОЖЕНИЯ
+;
+	MOV	16(SP),R4	;ВЫДЕЛИТЬ МЛАДШУЮ
+;				;ЧАСТЬ МАНТИССЫ X
+	BEQ	M1	;ЕСЛИ 0 - УМНОЖАТЬ НЕ НАДО
+;
+	MOV	#17,R5		;УМНОЖЕНИЕ Y НА
+	JSR	PC,DAUGP	;МЛАДШЫЮ ЧАСТЬ
+	JSR	PC,DAUGYB	;МАНТИССЫ X
+;
+M1:	MOV	14(SP),R4
+	MOV	#7,R5		;УМНОЖЕНИЕ НА
+	JSR	PC,DAUGYB	;СТАРШУЮ ЧАСТЬ
+	JSR	PC,DAUG1	;МАНТИССЫ X
+;
+;..............СЛОЖЕНИЕ ПОРЯДКОВ.......................
+;
+	ADD	(SP)+,R4
+;
+;.............НОРМАЛИЗАЦИЯ МАНТИССЫ....................
+;
+	ROL	R1
+	ROL	R0
+	BCS	M2
+	ROL	R1
+	ROL	R0
+	DEC	R4
+;
+;.........ФОРМИРОВАНИЕ И КОНТРОЛЬ ПОРЯДКА...............
+;
+M2:	SUB	#200,R4
+	BLE	MEISN	;ИСЧЕЗНОВЕНИЕ ПОРЯДКА
+	CMP	#377,R4
+	BLT	MEPERP	;ПЕРЕПОЛНЕНИЕ ПОРЯДКА
+;
+;..........ФОРМИРОВАНИЕ РЕЗУЛЬТАТА......................
+;
+	CLRB	R1		;ФОРМИРОВАНИЕ МАНТИССЫ
+	BISB	R0,R1
+	SWAB	R1
+	CLRB	R0
+;
+	BISB	R4,R0		;ПРИСОЕДИНЕНИЕ ПОРЯДКА
+	SWAB	R0
+;
+	ROR	(SP)+		;ПРИСОЕДИНЕНИЕ ЗНАКА
+	ROR	R0
+	ROR	R1
+;
+	ADC	R1		;ОКРУГЛЕНИЕ
+	ADC	R0
+;
+	BCS	EPERPM		;КОНТРОЛЬ ПЕРЕПОЛНЕНИЯ
+	BVS	EPERPM		;ПОРЯДКА
+;
+MEND:	MOV	R0,10(SP)	;ПЕРЕСЫЛКА В СТЕК
+	MOV	R1,12(SP)	;НА МЕСТО ЧИСЛА X
+;
+;............КОНЕЦ ПРОГРАММЫ............................
+;
+ENDM:	MOV	(SP)+,R5	;ВОССТАНОВЛЕНИЕ РЕГИСТРОВ
+ENDA:	MOV	(SP)+,R4
+	BNE	1$
+	MOV	SAVJMP,R4
+	CLR	SAVJMP
+1$:	CMP	(SP)+,(SP)+	;УДАЛЕНИЕ ЧИСЛА Y ИЗ СТЕКА
+	JMP	@(R4)+		;ПЕРЕДАЧА УПРАВЛЕНИЯ
+;
+;.........ФОРМИРОВАНИЕ НУЛЕВОГО РЕЗУЛЬТАТА..............
+;
+MREZ0:	CMP	(SP)+,(SP)+	;ОЧИСТКА СТЕКА
+	BR	NULM
+;
+;...........ОБРАБОТКА ПЕРЕПОЛНЕНИЯ ПОРЯДКА..............
+;
+MEPERP:
+EPERPM:	TRAP	6
+;............ОБРАБОТКА ИСЧЕЗНОВЕНИЯ ПОРЯДКА.............
+;
+MEISN:	TST	(SP)+
+NULM:	CLR	R0		;ФОРМИРОВАНИЕ РЕЗУЛЬТАТА 0
+	CLR	R1
+	BR	MEND
+;
+;............ПОДПРОГРАММА УМНОЖЕНИЯ.....................
+;
+DAUGYB:	ASR	R4
+	BCC	SLINK1	;ЕСЛИ 0 - СДВИНУТЬ
+DAUG1:	ADD	R3,R1	;ЕСЛИ 1 - СЛОЖИТЬ
+	ADC	R0
+	BCS	PERNES	;ПЕРЕНОС!!!
+	ADD	R2,R0
+SLINK1:	ROR	R0	;СДВИГ
+	ROR	R1
+	DEC	R5	;НА ВСЕ ЛИ БИТЫ
+	BGT	DAUGYB	;ПЕРЕМНОЖЕНО?
+	RTS	PC
+;
+PERNES:	ADD	R2,R0	;СЛОЖЕНИЕ ПРИ ПЕРЕНОСЕ
+	SEC
+	BR	SLINK1
+;
+;.........ПОДПРОГРАММА УМНОЖЕНИЯ СТАРШИХ БАЙТОВ..........
+;
+DAUGP:	ASR	R4
+	BCC	SLINK2	;ЕСЛИ 0 - СДВИНУТЬ
+	ADD	R2,R0	;ЕСЛИ 1 - СЛОЖИТЬ
+SLINK2:	ROR	R0	;СДВИГ
+	ROR	R1
+	DEC	R5	;НА ВСЕ ЛИ БИТЫ
+	BGT	DAUGP	;ПЕРЕМНОЖЕНО?
+	RTS	PC
+;
+;**********************************************************
+;
+;**************ПОДПРОГРАМА ДЕЛЕНИЯ ЧИСЕЛ*******************
+;****************С ПЛАВАЮЩЕЙ ЗАПЯТОЙ***********************
+;
+;**********************************************************
+;
+;    ПАРАМЕТРЫ: 2 СЛОВА В ПОДВЕРШИНЕ СТЕКА - ДЕЛИМОЕ X
+;               2 СЛОВА В ВЕРШИНЕ СТЕКА - ДЕЛИТЕЛЬ Y
+;               В R4 - УКАЗАТЕЛЬ АДРЕСА ПЕРЕДАЧИ УПРАВЛЕНИЯ
+;
+;**********************************************************
+;
+;    РЕЗУЛЬТАТ: 2 СЛОВА В ВЕРШИНЕ СТЕКА
+;                     (X И Y ИЗ СТЕКА УДАЛЯЮТЯ)
+;
+;**********************************************************
+;
+;    ОШИБКИ: - ИСЧЕЗНОВЕНИЕ ПОРЯДКА
+;	     - ПЕРЕПОЛНЕНИЕ ПОРЯДКА
+;	     - ДЕЛЕНИЕ НА 0
+;	(ОБРАБАТЫВАЮТСЯ ПОДПРОГРАМОЙ TRAP)
+;	(РЕЗУЛЬТАТ - 0)
+;
+;**********************************************************
+;
+DVR::	MOV	R4,-(SP)	;СОХРАНЕНИЕ РЕГИСТРОВ
+	TST	SAVJMP
+	BNE	1$
+	MOV	R4,SAVJMP
+	CLR	@SP
+1$:	MOV	R5,-(SP)
+;
+;.............ПОДГОТОВИТЕЛЬНЫЕ ДЕЙСТВИЯ....................
+;
+	CLR	R0		;ПОДГОТОВИТЬ МЕСТО
+	CLR	R1		;ДЛЯ МАНТИССЫ
+	CLR	-(SP)		;И ЗНАКА РЕЗУЛЬТАТА
+;..........................................................
+	ASL	12(SP)		;ЗАПОМНИТЬ В СТЕКЕ
+	ROL	@SP		;ЗНАК X
+;..........................................................
+	CLR	-(SP)		;ВЫДЕЛИТЬ МЕСТО ДЛЯ
+				;ПОРЯДКА РЕЗУЛЬТАТА
+;..........................................................
+	TST	10(SP)		;ДЕЛИТЕЛЬ 0 - ОШИБКА
+	BNE	2$
+	TRAP	11.
+;..........................................................
+2$:	BISB	15(SP),@SP	;ЗАПОМНИТЬ ЗНАК X
+	BEQ	REZ0		;X=0 => РЕЗУЛЬТАТ 0
+;..........................................................
+	BISB	14(SP),R0
+	SWAB	R0		;ЗАСЛАТЬ В R0-R1
+	SEC			;МАНТИССУ X,
+	ROR	R0		;ПРИСОЕДИНИВ СПЕРЕДИ
+	BISB	17(SP),R0	;ЗНАЧАЩИЙ РАЗРЯД
+	BISB	16(SP),R1
+	SWAB	R1
+;..........................................................
+	CLR	R2		;ПОДГОТОВИТЬ МЕСТО
+	CLR	R3		;ДЛЯ МАНТИССЫ ДЕЛИТЕЛЯ
+;..........................................................
+	ASL	10(SP)		;СФОРМИРОВАТЬ ЗНАК
+	ADC	2(SP)		;РЕЗУЛЬТАТА
+;..........................................................
+	BISB	11(SP),R2	;ПОДСЧИТАТЬ ПОРЯДОК
+	SUB	R2,@SP		;РЕЗУЛЬТАТА
+;..........................................................
+	CLR	R2
+	BISB	10(SP),R2
+	SWAB	R2		;ЗАСЛАТЬ В R2-R3
+	SEC			;МАНТИССУ Y
+	ROR	R2
+	BISB	13(SP),R2
+	BISB	12(SP),R3
+	SWAB	R3
+;
+;.........ПЕРЕХОД НА ДЕЛЕНИЕ МАНТИСС.......................
+;
+	CMP	R0,R2		;ЕСЛИ X>Y,
+	BCS	MAZIAU		;НАЧИНАТЬ ВЫЧИТЫВАТЬ Y
+	BHI	DAUG		;С ПЕРВОГО РАЗРЯДА X
+	CMP	R1,R3		;ЕСЛИ X<Y,
+	BHI	DAUG		;НАЧИНАТЬ ВЫЧИТЫВАТЬ
+	BNE	MAZIAU		;CО ВТОРОГО РАЗРЯДА X
+;..........................................................
+	CLR	14(SP)		;ЕСЛИ X=Y,
+	INC	@SP		;ПОДГОТОВИТЬ
+	CLR	R5		;ФОРМИРОВАНИЕ РЕЗУЛЬТАТА
+	BR	END		;C МАНТИССОЙ 1
+;
+;........ПОДГОТОВКА ФОРМИРОВАНИЯ РЕЗУЛЬТАТА 0..............
+;
+REZ0:	CMP	(SP)+,(SP)+
+	BR	NUL
+;
+;............ОБРАБОТКА ПЕРЕПОЛНЕНИЯ........................
+;
+EPERP:	TRAP	6
+;
+;.............ОБРАБОТКА ИСЧЕЗНОВЕНИЯ ПОРЯДКА...............
+;
+EISNYK:
+ERROR:	TST	(SP)+
+;.............ФОРМИРОВАНИЕ РЕЗУЛЬТАТА 0....................
+;
+NUL:	CLR	10(SP)
+	CLR	12(SP)
+	BR	ENDD
+;
+;.................ДЕЛЕНИЕ МАНТИСС..........................
+;
+DAUG:	ROR	R0		;ПОГАШЕНИЕ
+	ROR	R1		;НАЧАЛЬНОГО СДВИГА
+	INC	@SP		;ПОДПРОГРАММЫ DALYT
+;..........................................................
+MAZIAU:	MOV	#11,R4		;СФОРМИРОВАНИЕ
+	JSR	PC,DALYT	;СТАРШЕЙ ЧАСТИ
+	MOVB	R5,14(SP)	;МАНТИССЫ РЕЗУЛЬТАТА
+;..........................................................
+	TST	R4	;ЕСЛИ МАНТИССЫ НЕ СРАВНЯЛИСЬ,
+	BEQ	TESTDL	;ПРОДОЛЖАТЬ ДЕЛЕНИЕ
+;..........................................................
+	CLR	R5		;МЛАДШАЯ ЧАСТЬ МАНТИССЫ
+	BR	END		;РЕЗУЛЬТАТА = 0
+;..........................................................
+TESTDL:	MOV	#20,R4		;ПРОДОЛЖЕНИЕ ДЕЛЕНИЯ
+	JSR	PC,DALYT
+;
+;................ФОРМИРОВАНИЕ РЕЗУЛЬТАТА...................
+;
+END:	MOV	(SP)+,R4	;ФОРМИРОВАНИЕ ПОРЯДКА
+	ADD	#200,R4
+	BLE	EISNYK		;ИСЧЕЗНОВЕНИЕ ПОРЯДКА?
+	CMP	#377,R4
+	BLT	EPERP		;ПЕРЕПОЛНЕНИЕ?
+	MOVB	R4,13(SP)	;ПРИСОЕДИНЕНИЕ ПОРЯДКА
+				;К МАНТИССЕ РЕЗУЛЬТАТА
+;..........................................................
+	ROR	(SP)+		;ПРИСОЕДИНЕНИЕ ЗНАКА
+	ROR	10(SP)
+	ROR	R5
+;..........................................................
+	ADC	R5		;ОКРУГЛЕНИЕ
+	MOV	R5,12(SP)
+	ADC	10(SP)
+	BCS	EPERP		;ПЕРЕПОЛНЕНИЕ?
+	BVS	EPERP
+;..........................................................
+ENDD:	JMP	ENDM		;ПЕРЕДАЧА УПРАВЛЕНИЯ
+;
+;.........ПОДПРОГРАММА ДЕЛЕНИЯ МАНТИСС.....................
+;
+DALYT:	ASL	R5		;СДВИГ РЕЗУЛЬТАТА
+	ASL	R1		;И МАНТИССЫ X
+	ROL	R0
+;..........................................................
+	BCS	ATIMT	;C=1 => X>Y => ВЫЧИТАТЬ
+	CMP	R2,R0		;СРАВНИТЬ X И Y
+	BHI	SLINKT		;Y>X => СДВИНУТЬ X
+	BCS	ATIMT		;Y<X => ВЫЧИТАТЬ Y
+	CMP	R3,R1		;СРАВНИТЬ МЛАДШИЕ
+	BHI	SLINKT		;ЧАСТИ
+	BEQ	LYGU		;X=Y => ОКОНЧИТЬ
+;..........................................................
+ATIMT:	SUB	R3,R1	;ВЫЧИТАНИЕ X-Y
+	SBC	R0	;СРАВНИТЬ X И Y
+	SUB	R2,R0
+	INC	R5		;ФОРМИРОВАНИЕ ЕДИНИЦЫ
+				;В РЕЗУЛЬТАТЕ
+;..........................................................
+SLINKT:	DEC	R4	;РЕЗУЛЬТАТ СФОРМИРОВАН?
+	BGT	DALYT		;НЕТ - ПРОДОЛЖИТЬ
+	RTS	PC		;НЕТ - ОКОНЧИТЬ
+;..........................................................
+LYGU:	INC	R5	;ДЕЛИМОЕ И ДЕЛИТЕЛЬ
+	BR	NULIAI	;СРАВНИЛИСЬ
+NULIS:	ASL	R5	;ЗАПОЛНИТЬ
+NULIAI:	DEC	R4	;КОНЕЦ РЕЗУЛЬТАТА
+	BGT	NULIS	;НОЛЯМИ
+;..........................................................
+	INC	R4	;ПРИЗНАК ОКОНЧАНИЯ ДЕЛЕНИЯ
+	RTS	PC
+;
+	.IFF
+ADR::	FADD	SP
+	JMP	@(4)+
+;
+SUB::	FSUB	SP
+	JMP	@(4)+
+;
+MLR::	FMUL	SP
+	JMP	@(4)+
+;
+DVR::	FDIV	SP
+	JMP	@(4)+
+;
+FERRI::
+	TST	(SP)+
+	MTPS	(SP)+
+	BCS	1$
+	BPL	2$
+	CLR	@SP
+	CLR	2(SP)
+	JMP	@(4)+
+2$:	TRAP	6
+1$:	TRAP	11.
+	.ENDC
+;
+ABS::	BIC	#100000,@SP
+	JMP	@(R4)+
+;
+SGN::	TST	@SP
+	BEQ	1$
+	ASL	@SP
+	MOV	#100400,@SP
+	ROR	@SP
+	CLR	2(SP)
+1$:	JMP	@(R4)+
+;
+ EXPG::	MOV	R4,-(SP)
+	TST	SAVJMP
+	BNE	1$
+	MOV	R4,SAVJMP
+	CLR	@SP
+1$:	MOV	SP,R4
+	TST	(R4)+
+	MOV	@R4,R0
+	BGT	EX1
+	CMP	R0,#141662
+	BLOS	EX2
+ EX0:	CLR	R0
+	CLR	R1
+	BR	EXI
+ EX1:	CMP	R0,#41660
+	BHI	EXK		;ПЕРЕПОЛНЕНИЕ 
+ EX2:	ASL	R0
+	CMP	R0,#63000
+	BCS	EX3
+	TST	-(SP)
+	CLR	-(SP)
+	MOV	#40200,-(SP)
+	MOV	2(R4),-(SP)
+	MOV	@R4,-(SP)
+	MOV	2(R4),-(SP)
+	MOV	@R4,-(SP)
+	JSR	R4,STAND
+	.WORD	EX4
+	.WORD	MLR
+	.WORD	RI
+	.WORD	EX5
+	.WORD	IR
+	.WORD	EX4
+	.WORD	DVR
+	.WORD	SUB
+	.WORD	EX6
+	.WORD	MLR
+	.WORD	ADR
+	.WORD	DVR
+	.WORD	ADR
+	.WORD	ADR
+	.WORD	DVR
+	.WORD	EX7
+	.WORD	ADR
+	.WORD	EX8
+	.WORD	MLR
+	.WORD	EX9
+ EX7:	ADD	#100200,@SP
+	JMP @(R4)+
+ ;
+ EX8:	MOV	2(SP),-(SP)
+	MOV	2(SP),-(SP)
+	JMP	@(R4)+
+ ;
+ EX4:	MOV	#125073,-(SP)
+	MOV	#40270,-(SP)
+	JMP	@(R4)+
+ ;
+EX5:	MOV	@SP,12(SP)
+	JMP	@(R4)+
+ ;
+ EX6:	ROL	@SP
+	ROL	R0
+	SUB	#400,@SP
+	BLOS	EX10
+	ROR	R0
+	ROR	@SP
+	MOV	@SP,R0
+	MOV	2(SP),R1
+	MOV	#36602,-(SP)
+	MOV	#141100,-(SP)
+	MOV	R1,-(SP)
+	MOV	R0,-(SP)
+	MOV	#71571,-(SP)
+	MOV	#42426,-(SP)
+	MOV	#56133,-(SP)
+	MOV	#41560,-(SP)
+	MOV	R1,-(SP)
+	MOV	R0,-(SP)
+	MOV	R1,-(SP)
+	MOV	R0,-(SP)
+	JMP	@(R4)+
+ ;
+EX10:	CMP	(SP)+,(SP)+
+ EX9:	MOV	(SP)+,R0
+	MOV	(SP)+,R1
+	MOV	(SP)+,R4
+	SWAB	R4
+	CLRB	R4
+	ASR	R4
+	ADD	R4,R0
+	BMI	EXK
+EXI:	MOV	(SP)+,R4
+	BNE	1$
+	MOV	SAVJMP,R4
+	CLR	SAVJMP
+1$:	MOV	R0,@SP
+	MOV	R1,2(SP)
+	JMP	@(R4)+
+ ;
+ EX3:	MOV	#40200,R0
+	CLR	R1
+	BR	EXI
+ ;
+ EXK:	TRAP	6
+ ;
+ ALNG::	MOV	R4,-(SP)
+	TST	SAVJMP
+	BNE	1$
+	MOV	R4,SAVJMP
+	CLR	@SP
+1$:	MOV	SP,R4
+	TST	(R4)+
+	CLR	-(SP)
+	MOV	#71030,-(SP)
+	MOV	#137661,-(SP)
+	CMP	-(SP),-(SP)
+	MOV	2(R4),-(SP)
+	MOV	@R4,-(SP)
+	BGT	2$
+	TRAP	5
+2$:	ASL	@SP
+	MOVB	1(SP),14(SP)
+	MOVB	#200,1(SP)
+	ROR	@SP
+	MOV	#2363,-(SP)
+	MOV	#40065,-(SP)
+	MOV	6(SP),-(SP)
+	MOV	6(SP),-(SP)
+	MOV	#2363,-(SP)
+	MOV	#40065,-(SP)
+	JSR	R4,STAND
+	.WORD	SUB
+	.WORD	ALO1
+	.WORD	ADR
+	.WORD	DVR
+	.WORD	ALO2
+	.WORD	ALO2
+	.WORD	MLR
+	.WORD	ALO3
+	.WORD	ALO4
+	.WORD	ALO4
+	.WORD	ALO4
+	.WORD	MLR
+	.WORD	ADR
+	.WORD	MLR
+	.WORD	ADR
+	.WORD	MLR
+	.WORD	ADR
+	.WORD	MLR
+	.WORD	ADR
+	.WORD	ALO5
+	.WORD	IR
+	.WORD	ALO6
+	.WORD	MLR
+	.WORD	ADR
+	.WORD	ALO7
+	.WORD	MLR
+	.WORD	ALO7
+;
+ ALO3:	MOV	(SP)+,R0
+	MOV	(SP)+,R1
+	MOV	#IR,R2
+	BR	ALO9
+;
+ ALO4:	MOV	R1,-(SP)
+	MOV	R0,-(SP)
+ ALO9:	MOV	-(R2),-(SP)
+	MOV	-(R2),-(SP)
+	JMP	@(R4)+
+;
+ALO1:	MOV	(SP)+,12(SP)
+	MOV	(SP)+,12(SP)
+	JMP	@(R4)+
+;
+ALO5:	CLR	-(SP)
+
+	BISB	6(SP),@SP
+	SUB	#200,@SP
+	JMP	@(R4)+
+;
+ ALO2:	MOV	2(SP),-(SP)
+	MOV	2(SP),-(SP)
+	JMP	@(R4)+
+;
+ ALO6:	MOV	#71030,-(SP)
+	MOV	#40061,-(SP)
+	JMP	@(R4)+
+;
+ ALO7:	DECB	5(SP)
+	BLT	ALO8
+	MOV	#55731,-(SP)
+	MOV	#37736,-(SP)
+	JMP	@(R4)+
+;
+ ALO8:	MOV	(SP)+,R0
+	MOV	(SP)+,R1
+	TST	(SP)+
+	JMP	EXI
+;
+	.WORD	37632
+	.WORD	14525
+	.WORD	37714
+	.WORD	120036
+	.WORD	40052
+	.WORD	125332
+	.WORD	40400
+	.WORD	0
+;
+ IR::	CLR	-(SP)
+	MOV	2(SP),R1
+	BGT	IR1
+	BEQ	IR4
+	NEG	R1
+ IR1:	ROL	-(SP)
+	MOV	#220,R2
+	CLRB	4(SP)
+ IR2:	ROL	R1
+	BCS	IR3
+	DEC	R2
+	BR	IR2
+ ;
+ IR3:	MOVB	R1,5(SP)
+	CLRB	R1
+	BISB	R2,R1
+	SWAB	R1
+	ROR	(SP)+
+	ROR	R1
+	RORB	3(SP)
+	MOV	R1,@SP
+ IR4:	JMP	@(R4)+
+ ;
+ RI::	CLR	R2
+	INC	R2
+	MOV	(SP)+,R1
+	ROL	@SP
+	ROL	R1
+	ROL	-(SP)
+	MOVB	R1,R0
+	CLRB	R1
+	SWAB	R1
+	SUB	#201,R1
+	BLT	RI1
+	BEQ	RI2
+	CMP	#17,R1
+	BLT	RI3
+	SWAB	R0
+	CLRB	R0
+	BISB	3(SP),R0
+ RI4:	ROL	R0
+	ROL	R2
+	DEC	R1
+	BGT	RI4
+ RI2:	NEG	R2
+	BVS	RI5
+	BGT	RI3
+ RI7:	ROR	(SP)+
+	BCS	RI6
+	NEG	R2
+ RI6:	MOV	R2,@SP
+	JMP	@(R4)+
+ ;
+ RI5:	ROR	(SP)+
+	BCS	RI6
+ RI3:	TRAP	6
+ RI1:	CLR	R2
+	BR	RI7
+;
+SQRG::	CLR	-(SP)
+	MOV	R4,SAVJMP
+	MOV	SP,R4
+	TST	(R4)+
+	MOV	@R4,R1
+	BMI	SQRK
+	BEQ	SQR0
+	MOV	#3,-(SP)
+	ASR	R1
+	ADD	#20100,R1
+	CLR	-(SP)
+	MOV	R1,-(SP)
+	CLR	-(SP)
+	MOV	@R4,-(SP)
+	CLR	-(SP)
+	MOV	R1,-(SP)
+ SQR3:	JSR	R4,STAND
+;
+	.WORD	DVR
+	.WORD	ADR
+	.WORD	SQR4
+ SQR4:	SUB	#200,@SP
+	DEC	4(SP)
+	BEQ	SQR2
+	MOV	12(SP),-(SP)
+	MOV	12(SP),-(SP)
+	MOV	6(SP),-(SP)
+	MOV	6(SP),-(SP)
+	BR	SQR3
+;
+ SQR2:	MOV	(SP)+,R0
+	MOV	(SP)+,R1
+	TST	(SP)+
+ SQR1:	JMP	EXI
+;
+ SQRK:	TRAP	5
+;
+ SQR0:	CLR R0
+	CLR R1
+	BR	SQR1
+;
+ KOS::	MOV	R4,-(SP)
+	TST	SAVJMP
+	BNE	1$
+	MOV	R4,SAVJMP
+	CLR	@SP
+1$:	CLR	-(SP)
+	MOV	6(SP),-(SP)
+	MOV	6(SP),-(SP)
+	MOV	#7733,-(SP)
+	MOV	#40311,-(SP)
+	JSR	R4,STAND
+	.WORD	ADR
+	.WORD	SING1
+ SING::	MOV	R4,-(SP)
+	TST	SAVJMP
+	BNE	1$
+	MOV	R4,SAVJMP
+	CLR	@SP
+1$:	CLR	-(SP)
+	MOV	6(SP),-(SP)
+	MOV	6(SP),-(SP)
+SING1:	ASL	@SP
+	ROR	4(SP)
+	ROR	@SP
+	MOV	#7733,-(SP)
+	MOV	#40711,-(SP)
+	JSR	R4,STAND
+	.WORD	DVR
+	.WORD	TAR1
+	.WORD	SVD1
+	.WORD	SUB
+	.WORD	TAR2
+	.WORD	TAR1
+	.WORD	SVD1
+	.WORD	TAR3
+	.WORD	SUB
+	.WORD	TAR4
+ TAR8:	.WORD	TAR1
+	.WORD	TAR1
+	.WORD	MLR
+	.WORD	TAR5
+	.WORD	MLR
+	.WORD	ADR
+	.WORD	MLR
+	.WORD	ADR
+	.WORD	MLR
+	.WORD	ADR
+	.WORD	MLR
+	.WORD	ADR
+	.WORD	MLR
+	.WORD	SING2
+;
+ SING2:	TST	4(SP)
+	BGE	SINGI
+	ADD	#100000,@SP
+ SINGI:	MOV	(SP)+,6(SP)
+	MOV	(SP)+,6(SP)
+	TST	(SP)+
+BYE:	MOV	(SP)+,R4
+	BNE	1$
+	MOV	SAVJMP,R4
+	CLR	SAVJMP
+1$:	JMP	@(R4)+
+ ;
+ TAR1:	MOV	2(SP),-(SP)
+	MOV	2(SP),-(SP)
+	JMP	@(R4)+
+ TAR2:	TST	@SP
+	BEQ	SING2
+	INCB	1(SP)
+	JMP	@(R4)+
+ ;
+ TAR3:	BIS	@SP,10(SP)
+	JMP	@(R4)+
+ ;
+ TAR4:	TSTB	4(SP)
+	BEQ	SING3
+	ADD	#100000,@SP
+	CLR	-(SP)
+	MOV	#40200,-(SP)
+	JSR	R4,STAND
+ ;
+	.WORD	ADR
+	.WORD	SING4
+ SING4:	MOV	#TAR8,R4
+ SING3:	ASRB	5(SP)
+	BCC	4$
+	ADD	#100000,@SP
+ 4$:	JMP	@(R4)+
+ ;
+ TAR5:	MOV	(SP)+,R0
+	MOV	(SP)+,R1
+	MOV	#ATANG,R2
+	MOV	#5,R3
+	BR	TAR6
+ ;
+  TAR7:	MOV	R1,-(SP)
+	MOV	R0,-(SP)
+ TAR6:	MOV	-(R2),-(SP)
+	MOV	-(R2),-(SP)
+	DEC	R3
+	BGT	TAR7
+	JMP	@(R4)+
+ ;
+	.WORD	35036
+	.WORD	153672
+	.WORD	136231
+	.WORD	23143
+	.WORD	37243
+	.WORD	32130
+	.WORD	140045
+	.WORD	56741
+	.WORD	40311
+	.WORD	7733
+ATANG::	CLR	-(SP)
+	MOV	R4,SAVJMP
+	CLR	-(SP)
+	CLR	-(SP)
+	CLR	-(SP)
+	CLR	-(SP)
+	CLR	-(SP)
+	MOV	16(SP),-(SP)
+	MOV	16(SP),-(SP)
+	BGE	AT1
+	ADD	#100000,@SP
+	INC	14(SP)
+ AT1:	CMP	@SP,#40200
+	BCS	AT3
+	BGT	AT2
+	TST	2(SP)
+	BEQ	AT3
+ AT2:	MOV	#140311,4(SP)
+	MOV	#7733,6(SP)
+	DEC	14(SP)
+	MOV	2(SP),-(SP)
+	MOV	2(SP),-(SP)
+	MOV	#40200,4(SP)
+	CLR	6(SP)
+	JSR	R4,STAND
+ ;
+	.WORD	DVR
+	.WORD	AT3
+ AT3:	MOV	2(SP),-(SP)
+	MOV	2(SP),-(SP)
+	CLR	4(SP)
+	CLR	6(SP)
+	CMP	@SP,#37611
+	BCS	AT5
+	BHI	AT4
+	CMP	2(SP),#30243
+	BLOS	AT5
+ AT4:	MOV	#40006,4(SP)
+	MOV	#5222,6(SP)
+	MOV	@SP,R0
+	MOV	2(SP),R1
+	MOV	#131727,-(SP)
+	MOV	#140335,-(SP)
+	MOV	R1,-(SP)
+	MOV	R0,-(SP)
+	CLR	-(SP)
+	MOV	#40200,-(SP)
+	MOV	#131727,-(SP)
+	MOV	#40335,-(SP)
+	MOV	R1,-(SP)
+	MOV	R0,-(SP)
+	JSR	R4,STAND
+ ;
+	.WORD	MLR
+	.WORD	SUB
+	.WORD	AT6
+	.WORD	SUB
+	.WORD	DVR
+	.WORD	AT5
+ AT5:	MOV	@SP,R0
+	MOV	2(SP),R1
+	MOV	R1,-(SP)
+	MOV	R0,-(SP)
+	MOV	R1,-(SP)
+	MOV	R0,-(SP)
+	JSR	R4,STAND
+ ;
+	.WORD	MLR
+	.WORD	AT7
+	.WORD	MLR
+	.WORD	ADR
+	.WORD	MLR
+	.WORD	ADR
+	.WORD	MLR
+	.WORD	ADR
+	.WORD	MLR
+	.WORD	ADR
+	.WORD	MLR
+	.WORD	ADR
+	.WORD	ADR
+	.WORD	AT8
+	.WORD	ADR
+	.WORD	SINGI
+  ;
+ AT6:	MOV	(SP)+,12(SP)
+	MOV	(SP)+,12(SP)
+	JMP	@(R4)+
+ ;
+ AT7:	MOV	(SP)+,R0
+	MOV	(SP)+,R1
+	MOV	#STAND,R2
+	MOV	#5,R3
+	BR	AT9
+ ;
+ AT10:	MOV	R1,-(SP)
+	MOV	R0,-(SP)
+ AT9:	MOV	-(R2),-(SP)
+	MOV	-(R2),-(SP)
+	DEC	R3
+	BGT	AT10
+	JMP	@(R4)+
+ ;
+ AT8:	TST	10(SP)
+	BEQ	5$
+	ADD	#100000,@SP
+ 5$:	JMP	@(R4)+
+ ;
+	.WORD	37305
+	.WORD	35302
+	.WORD	137421
+	.WORD	56514
+	.WORD	37514
+	.WORD	143333
+	.WORD	137652
+	.WORD	125244
+	.WORD	40200
+	.WORD	0
+ ;
+STAND::	TST	(SP)+
+	JMP	@(R4)+
+ TANG::	CLR	-(SP)
+	MOV	R4,SAVJMP
+      	MOV	4(SP),-(SP)
+	MOV	4(SP),-(SP)
+	JSR	R4,STAND
+	.WORD	SING
+	.WORD	TAN1
+	.WORD	KOS
+	.WORD	TAN3
+	.WORD	DVR
+	.WORD	TAN2
+ TAN2:	MOV	(SP)+,4(SP)
+	MOV	(SP)+,4(SP)
+	JMP	BYE
+;
+ TAN1:	MOV	10(SP),-(SP)
+	MOV	10(SP),-(SP)
+TAN4:	JMP	@(R4)+
+;
+TAN3:	TST	@SP
+	BNE	TAN4
+	TRAP	6
+;
+RAN::	TST	@SP
+	BEQ	RAN6
+	BPL	1$
+	CLR	RNDSAV
+	MOV	#40311,III
+	MOV	#7733,III+2
+1$:	MOV	#III,R2
+	MOV	#III+2,R3
+	MOV	@R2,R0
+	MOV	@R3,R1
+	BEQ	RAN1
+	ASL	R1
+	ROL	R0
+	ADD	@R2,R0
+	ADD	@R3,R1
+	ADC	R0
+	ADD	@R3,R0
+	BPL	RAN2
+	ADD	#100000,R0
+ RAN2:	MOV	R0,@R2
+	MOV	R1,@R3
+	MOV	#201,R2
+ RAN4:	ASL	R1
+	ROL	R0
+	BCS	RAN3
+	DEC	R2
+	BR	RAN4
+ RAN3:	CLRB	R1
+	BISB	R0,R1
+	SWAB	R1
+	CLRB	R0
+	BISB	R2,R0
+	SWAB	R0
+	ROR	R0
+	ROR	R1
+	BR	RAN5
+ RAN1:	MOV	#3,R1
+	INC	R0
+	BR	RAN2
+RAN5:	TST	RNDSAV
+	BNE	RAN7
+	MOV	R4,SAVJMP
+	MOV	R1,-(SP)
+	MOV	R0,-(SP)
+	CLR	R5
+	MOV	6(SP),-(SP)
+	MOV	6(SP),-(SP)
+	BIC	#100000,@SP
+13$:	CMP	#40200,@SP
+	BGT	11$
+	DEC	R5
+	BGE	15$
+	JSR	R4,STAND
+	.WORD	12$
+	.WORD	DVR
+	.WORD	13$
+11$:	MOV	SP,R2
+	MOV	(2)+,6(2)
+	MOV	(2)+,6(2)
+	INC	R5
+	BLE	15$
+	JSR	R4,STAND
+	.WORD	12$
+	.WORD	MLR
+	.WORD	13$
+12$:	CLR	-(SP)
+	MOV	#41040,-(SP)
+	JMP	@(4)+
+15$:	ADD	#4,SP
+ 	JSR	R4,STAND
+	.WORD	12$
+	.WORD	DVR
+	.WORD	16$
+	.WORD	ADR
+	.WORD	SUB
+	.WORD	17$
+16$:	CLR	-(SP)
+	MOV	#40200,-(SP)
+	JMP	@(4)+
+17$:	BIC	#100000,@SP
+	MOV	SP,R2
+	MOV	(2)+,III
+	MOV	(2)+,III+2
+	MOV	-(2),R1
+	MOV	-(2),R0
+	MOV	SAVJMP,R4
+	CLR	SAVJMP
+RAN7:	MOV	R1,RNDSAV+2
+	MOV	R0,RNDSAV
+RAN6:	MOV	RNDSAV+2,2(SP)
+	MOV	RNDSAV,@SP
+	JMP	@(R4)+
+;
+ ROTG::	MOV	R4,-(SP)
+	MOV	R4,SAVJMP
+	MOV	4(SP),-(SP)
+	MOV	4(SP),-(SP)
+	MOV	2(SP),-(SP)
+	MOV	2(SP),-(SP)
+	JSR	R4,STAND
+	.WORD	SVD1
+	.WORD	ROT3
+ ROT3:	CMP	(SP)+,2(SP)
+	BNE	ROT4
+	CMP	(SP)+,2(SP)
+	BNE	ROT5
+	BR	ROTS
+ ROT4:	TST	(SP)+
+ ROT5:	MOV	14(SP),-(SP)
+	MOV	14(SP),-(SP)
+	BEQ	ROT0
+	BMI	ROTK
+	JSR	R4,STAND
+	.WORD	ALNG
+	.WORD	MLR
+	.WORD	ROT1
+ ROT1:	MOV	(SP)+,10(SP)
+	MOV	(SP)+,10(SP)
+	MOV	(SP)+,R4
+	CLR	SAVJMP
+	CMP	(SP)+,(SP)+
+	JMP	EXPG
+;
+ ROT0:	CMP	(SP)+,(SP)+
+	TST	(SP)+
+	BMI	1$
+	TST	(SP)+
+	MOV	(SP)+,R4
+	CMP	(SP)+,(SP)+
+	CLR	2(SP)
+	CLR	@SP
+	CLR	SAVJMP
+	JMP	@(R4)+
+1$:	TRAP	11.
+;
+ROTK:	TRAP	5
+;
+ROTI::	MOV	@SP,-(SP)	
+	BGE	1$
+	NEG	@SP
+1$:	MOV	R4,-(SP)
+	MOV	R4,SAVJMP
+	BR	ROTIJ	
+;
+ROTS:	MOV	@SP,-(SP)
+	BIC	#100000,@SP
+	CMP	(SP)+,#43777
+	BGE	ROT5
+	JSR	R4,STAND
+	.WORD	RI
+	.WORD	ROT11
+ROT11:	MOV	@SP,6(SP)
+	BGE	ROT12
+	NEG	@SP
+ROT12:	MOV	(SP)+,2(SP)
+ROTIJ:	ASR	2(SP)
+	BCC	ROT13
+	MOV	10(SP),-(SP)
+	MOV	10(SP),-(SP)
+	TST	6(SP)
+	BEQ	ROT18
+	BR	ROT14
+ROT13:	CLR	-(SP)
+	MOV	#40200,-(SP)
+	TST	6(SP)
+	BEQ	ROT18
+ROT14:	MOV	14(SP),-(SP)
+	MOV	14(SP),-(SP)
+ROT16:	MOV	2(SP),-(SP)
+	MOV	2(SP),-(SP)
+	JSR	R4,STAND
+	.WORD	MLR
+	.WORD	ROT15
+ROT15:	ASR	12(SP)
+	BCC	ROT16
+	MOV	6(SP),-(SP)
+	MOV	6(SP),-(SP)
+	MOV	6(SP),-(SP)
+	MOV	6(SP),-(SP)
+	JSR	R4,STAND
+	.WORD	MLR
+	.WORD	ROT17
+ROT17:	MOV	(SP)+,6(SP)
+	MOV	(SP)+,6(SP)
+	TST	12(SP)
+	BNE	ROT16
+	CMP	(SP)+,(SP)+
+ROT18:	MOV	(SP)+,10(SP)
+	MOV	(SP)+,10(SP)
+	MOV	(SP)+,R4
+	CLR	SAVJMP
+	CMP	(SP)+,(SP)+
+	BLE	PI1
+	MOV	2(SP),-(SP)
+	MOV	2(SP),-(SP)
+	CLR	6(SP)
+	MOV	#40200,4(SP)
+	JMP	DVR
+;
+PI::	MOV	#7733,-(SP)
+	MOV	#40511,-(SP)
+PI1:	JMP	@(R4)+
+;
+ SVD1::	MOV	(SP)+,R0
+	MOV	(SP)+,R1
+	MOV	R0,R3
+	ROL	R3
+	CLRB	R3
+	SWAB	R3
+	SUB	#230,R3
+	BGE	2$
+	CMP	#177750,R3
+	BLT	1$
+	CLR	R0
+	CLR	R1
+	BR	2$
+ ;
+ 1$:	MOV	R3,-(SP)
+ 3$:	ROR	R0
+	ROR	R1
+	INC	R3
+	BLT	3$
+	MOV	(SP)+,R3
+ 4$:	ASL	R1
+	ROL	R0
+	INC	R3
+	BLT	4$
+ 2$:	MOV	R1,-(SP)
+	MOV	R0,-(SP)
+	JMP	@(R4)+
+;
+INT::	TST	@SP
+	BPL	SVD1
+	MOV	R4,-(SP)
+	MOV	R4,SAVJMP
+	MOV	4(SP),-(SP)
+	MOV	4(SP),-(SP)
+	JSR	R4,STAND
+	.WORD	SVD1
+	.WORD	INT1
+	.WORD	SCMP
+	.WORD	INT2
+	.WORD	SUB
+	.WORD	INT0
+INT0:	MOV	(SP)+,4(SP)
+	MOV	(SP)+,4(SP)
+	MOV	(SP)+,R4
+	CLR	SAVJMP
+	JMP	@(R4)+
+INT1:	MOV	10(SP),-(SP)
+	MOV	10(SP),-(SP)
+	JMP	@(R4)+
+INT2:	BEQ	1$
+	CMP	-(SP),-(SP)
+	CLR	-(SP)
+	MOV	#40200,-(SP)
+	BR	2$
+1$:	CMP	-(SP),-(SP)
+	CLR	-(SP)
+	CLR	-(SP)
+2$:	JMP	@(R4)+
+;
+.ENDC
+.IF NE,MASINA-BK0011
+.IF EQ,MEMTYP-RAM
+TEXT::
+.ENDC
+.ENDC
+	.END

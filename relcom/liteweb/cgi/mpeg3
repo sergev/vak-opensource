@@ -1,0 +1,136 @@
+#!/usr/local/bin/python
+#
+# CGI script for playing Mpeg-3 files over Internet.
+# Usage:
+#	mpeg3 [/path] ? arg1 & arg2 & ... [ & -random ]
+# The arguments are the file and directory names, relative
+# to the base directory name BASEDIR. The optional path parameter
+# is prepended to all file and direcory names.
+# The scripts builds the list of the Mpeg-3 files,
+# then possibly randomizes it, and sends to the client
+# as the audio/mpeg3 data stream.
+# The files can be:
+# - Mpeg-3 sound files - appended to the play list.
+# - directories - all Mpeg-3 files in the directory
+#   appended to the play list (sorted by name).
+# - m3u playlists - appended to the play list.
+#
+
+import sys, os, traceback, regsub, string, whrandom, stat
+
+BASEDIR = "/cronyx/vak"
+
+if not os.environ.has_key("REQUEST_METHOD"):
+	# Test mode
+	os.environ["QUERY_STRING"] = "elton&patricia%26-random"
+
+# Scan directory, and return two lists:
+# the list of all files with the given extension (4 characters),
+# and the list of all directories.
+def scan_directory (dirname, extension):
+	try:
+		files = []
+		dirs = []
+		for name in os.listdir (BASEDIR+"/"+dirname):
+			name = dirname + "/" + name
+			if name[-4:] == extension:
+				files.append (name)
+			elif is_directory (name):
+				dirs.append (name)
+		return (files, dirs)
+	except:
+		return ([], [])
+
+def randomize(seq):
+	n = len (seq)
+	for i in range (n):
+		k = int (n * whrandom.random())
+		x = seq[i]
+		seq[i] = seq[k]
+		seq[k] = x
+	return seq
+
+def exists(filename):
+	try:
+		os.stat (BASEDIR+"/"+filename)
+		return 1
+	except:
+		return 0
+
+def is_directory(filename):
+	try:
+		st = os.stat (BASEDIR+"/"+filename)
+		return stat.S_ISDIR (st [0])
+	except:
+		return 0
+
+# Get the arguments
+try:	arg_list = string.splitfields (regsub.gsub ("%26", "&",
+		os.environ["QUERY_STRING"]), '&')
+except:	arg_list = ['/']
+try:	path_arg = os.environ["PATH_INFO"]
+except:	path_arg = ""
+random_flag = 0
+
+# Parse the flags
+for arg in arg_list:
+	if arg[0] == '-':
+		# Analyze the flag
+		if arg == "-random":
+			random_flag = 1
+		arg_list.remove(arg)
+
+# Randomize the arguments
+whrandom.seed()
+if random_flag:
+	randomize (arg_list)
+
+# Parse the argument list
+play_list = []
+while arg_list != []:
+	arg = arg_list[0]
+	del arg_list[0]
+	if exists (arg):		# If the file does exist:
+		if arg[-4:] == ".mp3":	# File mp3 - add to play list
+			play_list.append (arg)
+		elif arg[-4:] == ".m3u":	# File m3u - append to play list
+			play_list = play_list + open(BASEDIR+"/"+arg).readlines()
+		else:
+			# Directory - scan,
+			# all mp3 files - sort and append to play list
+			# all directories - randomize and prepend to arg list
+			(files, dirs) = scan_directory (arg, ".mp3")
+			files.sort ()
+			play_list = play_list + files
+			arg_list = randomize (dirs) + arg_list
+	elif exists (arg + ".mp3"):	# Try with mp3 suffix
+		play_list.append (arg)
+	elif exists (arg + ".m3u"):	# Try with m3u suffix
+		play_list = play_list + open(BASEDIR+"/"+arg+".m3u").readlines()
+
+if random_flag:
+	randomize (play_list)
+
+print "Status: 200 Document follows"
+print "Content-type: audio/mpeg3"
+print "Cache-Control: must-revalidate"
+print "Pragma: no-cache"
+print
+
+for line in play_list:
+	# Remove trailing '\r' and replace '\' by '/'
+	if line[-1:] == '\r':
+		line = line[:-1]
+	line = string.join (string.splitfields (line, '\\'), '/')
+	filename = BASEDIR + "/" + string.lower(line)
+	try:
+		sys.stdin = open (filename)
+		while 1:
+			block = sys.stdin.read(4096)
+			if block == '':
+				break
+			sys.stdout.write (block)
+	except:
+		sys.stdin.close()
+
+sys.exit (0)

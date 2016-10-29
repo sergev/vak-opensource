@@ -1,0 +1,17 @@
+CM Nec-file for producing NGF file RADIAL8.NGF
+CM to be used together with NGF_Antenna.nec
+CE
+'
+SY FREQ = 3.525
+'
+GW	10	80	0	0	0.1	40	0	0.1	0.0005
+GR	45	8
+GE	-1
+'
+GN	2	0	0	0	13	5.e-3
+'
+FR	0	1	0	0	FREQ	0
+'
+WG RADIAL8.NGF				' Write 8 wire Green's file called RADIAL8.NGF
+'
+EN

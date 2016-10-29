@@ -1,0 +1,92 @@
+CM Model to calculate the dimensions of a resonant square 4-element quad beam.
+CM All equations calibrated to NEC antenna modeling software for wire diameters
+CM      from 3.16E-5 to 1E-2 wavelengths within about 0.5% from 3.5 - 250 MHz.
+CM
+CM By L. B. Cebik, W4RNL (http://www.cebik.com/quad/q4l.html)
+CM
+CM Use 'View->Symbol conversion (SHFT+Y)' on 'Geometry (F3)' window to see 
+CM intermediate/resulting calculations/values
+CE
+
+SY Fr=14.175	' Enter Desired Frequency in MHz.
+SY WD=1.62814	' Enter Wire Diameter in mm/inch/WL.
+SY Hgh=0		' Average Quad height above ground mtr (ft)
+
+SY Inp=mm			' Enable this line for diameter in mm
+'SY Inp=in			' Enable this line for diameter in inch
+'SY Inp=299.7925/Fr	' Enable this line for diameter in wavelengths
+
+SY D=(WD*Inp*FR)/299.7925	' Get wire diameter in wavelengths
+SY L=.4342945*LOG(D*10^5)
+SY LL=L^2, LM=LL*.0128, LN=LM+1.0413, D1=.4342945*LOG(D)
+
+SY AD=-.00018, BD=-.002359259259, CD=-.01090277778, DD=-.01971296296, ED=.1174938889
+SY DE=(AD*(D1^4))+(BD*(D1^3))+(CD*(D1^2))+(DD*D1)+ED, DE=DE*8			' Driver side
+SY AR=.0002666666667, BR=.004237037037, CR=.02554444444, DR=.07158756614, ER=.2119230159
+SY RE=(AR*(D1^4))+(BR*(D1^3))+(CR*(D1^2))+(DR*D1)+ER, RE=RE*8			' Reflector side
+SY AI=-.0002, BI=-.002525925926, CI=-.01182777778, DI=-.02473915344, EI=.1008246032
+SY IR=(AI*(D1^4))+(BI*(D1^3))+(CI*(D1^2))+(DI*D1)+EI, IR=IR*8			' Director1 side
+SY AT=-.0006, BT=-.009059259259, CT=-.04912777778, DT=-.1152343915, ET=.01678174603
+SY TT=(AT*(D1^4))+(BT*(D1^3))+(CT*(D1^2))+(DT*D1)+ET, TT=TT*8			' Director2 side
+SY SP=.1635								' Reflector - Driver space
+SY IP=.481								' Director1 - Reflector space
+SY ATT=.0026666666667, BTT=.036888888889, CTT=.177, DTT=.3386587302, ETT=1.046738095
+SY TTP=(ATT*(D1^4))+(BTT*(D1^3))+(CTT*(D1^2))+(DTT*D1)+ETT		' Director2 - Reflector space
+
+SY Scal=1				' Use this line if output dimensions in meters.
+'SY Scal=ft				' Use this line if output dimensions in feet.
+SY WL=299.7925/(Scal*Fr) 	' Wavelength in Meters/Feet
+
+SY Ds=DE/8 * WL		' Driver half side.
+SY Rs=RE/8 * WL		' Reflector half side.
+SY Rd=SP * WL		' Reflector-Driver Space.
+SY I1s=IR/8 * WL		' Director1 half side.
+SY I1d=(IP-SP) * WL	' Director1-Driver Space.
+SY I2s=TT/8 * WL		' Director2 half side.
+SY I2d=(TTP-SP) * WL	' Director2-Driver Space.
+SY Wr=D/2 * WL		' Wire radius.
+
+GW	1	11	0	-Ds	HGH-Ds	0	Ds	HGH-Ds	Wr	'Reflector
+GW	2	11	0	Ds	HGH-Ds	0	Ds	HGH+Ds	Wr	
+GW	3	11	0	Ds	HGH+Ds	0	-Ds	HGH+Ds	Wr
+GW	4	11	0	-Ds	HGH+Ds	0	-Ds	HGH-Ds	Wr
+
+GW	11	11	-Rd	-Rs	HGH-Rs	-Rd	Rs	HGH-Rs	Wr	'Driver
+GW	12	11	-Rd	Rs	HGH-Rs	-Rd	Rs	HGH+Rs	Wr	
+GW	13	11	-Rd	Rs	HGH+Rs	-Rd	-Rs	HGH+Rs	Wr
+GW	14	11	-Rd	-Rs	HGH+Rs	-Rd	-Rs	HGH-Rs	Wr
+
+GW	21	11	I1d	-I1s	HGH-I1s	I1d	I1s	HGH-I1s	Wr	'Director 1
+GW	22	11	I1d	I1s	HGH-I1s	I1d	I1s	HGH+I1s	Wr	
+GW	23	11	I1d	I1s	HGH+I1s	I1d	-I1s	HGH+I1s	Wr
+GW	24	11	I1d	-I1s	HGH+I1s	I1d	-I1s	HGH-I1s	Wr
+
+GW	31	11	I2d	-I2s	HGH-I2s	I2d	I2s	HGH-I2s	Wr	'Director 2
+GW	32	11	I2d	I2s	HGH-I2s	I2d	I2s	HGH+I2s	Wr	
+GW	33	11	I2d	I2s	HGH+I2s	I2d	-I2s	HGH+I2s	Wr
+GW	34	11	I2d	-I2s	HGH+I2s	I2d	-I2s	HGH-I2s	Wr
+
+GS	0	0	Scal
+GE
+
+LD	5	0	0	0	58000000		' Copper wire
+EX	0	1	6	0	1	0	
+'GN	2	0	0	0	13	0.005		' Use this line if ground used
+
+FR	0	1	0	0	Fr	0
+
+'CM Enable below SY lines to see some performance predictions. Use
+'CM 'View->Symbol conversion (SHFT+Y)' on 'Geometry (F3)' window to
+'CM see intermediate and resulting values
+'
+'SY AZ=1.2, BZ=13.92592593, CZ=60.777777778, DZ=113.9177249, EZ=132.618254
+'SY ZR=(AZ*(D1^4))+(BZ*(D1^3))+(CZ*(D1^2))+(DZ*D1)+EZ	' Approx. feedpoint imp.
+'SY AG=-.1, BG=-1.184444444, CG=-5.228333333, DG=-9.831507937, EG=4.045238095
+'SY GN=(AG*(D1^4))+(BG*(D1^3))+(CG*(D1^2))+(DG*D1)+EG	' Approx. Free space Gain
+'SY AW=.07, BW=1.048518519, CW=6.173055556, DW=17.12092593, EW=21.34722222
+'SY SW=(AW*(D1^4))+(BW*(D1^3))+(CW*(D1^2))+(DW*D1)+EW	' Approx. 2:1 SWR bandwidth 
+'SY AF=-.03, BF=-.27666667, CF=-.4475, DF=2.348809524, EF=7.853214286
+'SY FB=(AF*(D1^4))+(BF*(D1^3))+(CF*(D1^2))+(DF*D1)+EF	' Approx. >20dB FB bandwidth
+
+EN	
+	

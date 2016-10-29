@@ -1,0 +1,16 @@
+# Boundary-scan configuration mode.
+setMode -bscan
+
+# Detect the first available cable port automatically.
+setCable -p auto
+
+# Identify the devices in the boundary-scan chain.
+identify
+
+# Specify the configuration file.
+assignFile -p 1 -file "./or1k-mini.bit"
+
+# Program a device.
+program -p 1
+
+quit

@@ -1,0 +1,101 @@
+--------------------------------------------------------------------------------
+--
+--   AM2901 Benchmark
+--
+-- Source: AMD data book
+--
+-- VHDL Benchmark author Indraneel Ghosh
+--                       University Of California, Irvine, CA 92717
+--
+-- Developed on Nov 1, 1991
+--
+--------------------------------------------------------------------------------
+
+
+ This is a behavioral or algorithmic model of the Am2901, in which it is 
+modeled as a single VHDL process, without any partitioning into smaller 
+blocks.
+
+-----------------------------------------------------------------
+
+VARIABLES, TYPES AND CONSTANTS :
+
+File "am2901.doc" contains a general description of the chip and its ports.
+
+This model uses the following types and variables:
+
+   *******************************************************
+
+  TYPES :
+
+  Memory ==> An array of MVL4-vectors ( analogous to bit-vectors).
+              Each MVL4-vector is of length 4.
+
+   *******************************************************
+
+  VARIABLES :
+
+  RAM ==> Used to represent the 4-bit by 16-word RAM. ( data type "Memory")
+
+  A ==> The RAM word addressed by Aadd is read into this variable. ( 4 bits)
+
+  B ==> The RAM word addressed by Badd is read into this variable. ( 4 bits)
+
+  Q ==> Used to represent the Q register. ( 4 bits)
+
+  RE ==> Input data for ALU, selected by ALU data selector. ( 4 bits)
+
+  S ==> Input data for ALU, selected by ALU data selector. ( 4 bits)
+
+  R_ext ==> Extended input data for ALU. This consists of "RE" 
+             concatenated with a '0' bit at the MSB position.
+             This extended ALU input is used to facilitate 
+             computation of carry bit "C4". ( 5 bits)
+             ( R_ext := '0' & RE; )
+
+  S_ext ==> Extended input data for ALU. This consists of "S" 
+             concatenated with a '0' bit at the MSB position.
+             This extended ALU input is used to facilitate
+             computation of carry bit "C4". ( 5 bits)
+             ( R_ext := '0' & S; )
+              
+  result ==> Extended output from ALU. ( 5 bits)
+
+  F ==> Normal ALU output, obtained from the "result" by leaving out its
+         MSB. ( 4 bits)
+            ( F := result(3 downto 0);  )
+             
+  temp_p ==> An intermediate variable, calculated from "result" and used
+             in the computation of propagate term "Pbar". ( 5 bits)
+
+  temp_g ==> An intermediate variable, calculated from "result" and used 
+	     in the computation of generate term "Gbar". ( 5 bits)
+
+  dout ==> An intermediate term used in the computation of data output "Y".
+            If OEbar is asserted, "dout" is fed to "Y". Else "Y" is 
+            assigned HIGH-Z. ( 4 bits)
+
+-----------------------------------------------------------------
+
+GENERAL DESCRIPTION OF MODEL :
+
+ The VHDL process is trigerred by a falling clock edge.
+
+ The VHDL process has three case statements corresponding to :
+  
+  ## ALU operand selection
+  ## ALU function selection
+  ## ALU destination and data-output selection.
+
+ In the model, data is first read into "A" and "B" from the RAM words 
+addressed by Aadd and Badd. Then the ALU operands are selected. The ALU 
+does computation on these operands. After that, the destination selector
+decides whether and how to write the ALU results to the RAM and Q register.
+For further details, its best to look at the model which has detailed comments
+and also the file "am2901.doc".
+
+
+
+
+
+

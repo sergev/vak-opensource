@@ -1,0 +1,17 @@
+fun PRIME(N)
+
+	if N < 2 then
+		return no
+	fi
+
+	for M from 2 to sqrt(N) + 0.5 do
+		if N /% M = 0 then
+			return no
+		fi
+	od
+
+	return yes
+
+end
+
+output: PRIME(2003)

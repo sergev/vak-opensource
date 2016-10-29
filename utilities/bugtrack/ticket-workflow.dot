@@ -1,0 +1,75 @@
+digraph Workflow {
+    size = "7, 8";
+    margin = 0.01;
+    #layout = circo;
+    node [
+        shape = ellipse,
+        style = filled,
+        fontsize = 12
+    ];
+    edge [
+        fontsize = 12
+    ];
+
+    New [ label = "" ];
+
+    #
+    # Team leader
+    #
+    node [ fillcolor = "#99ffff" ];
+    Reported         [ label = "Reported\n(Team Leader)" ];
+    Sign_Off         [ label = "Sign Off\n(Team Leader)" ];
+    Deferred         [ label = "Deferred\n(Team Leader)" ];
+
+    #
+    # Engineer
+    #
+    node [ fillcolor = "#ffff99" ];
+    In_Development   [ label = "In Development\n(Engineer)" ];
+
+    #
+    # Submitter
+    #
+    node [ fillcolor = "#ff99ff" ];
+    Fixed            [ label = "In Test / Fixed\n(Submitter)" ];
+    Cannot_Reproduce [ label = "Cannot Reproduce\n(Submitter)" ];
+    Not_a_Bug        [ label = "Not a Bug\n(Submitter)" ];
+
+    #
+    # No owner
+    #
+    node [ fillcolor = "#ffffff" ];
+    Duplicate        [ label = "Duplicate\n(no owner)" ];
+    NIF              [ label = "No Intention of Fixing\n(no owner)" ];
+    Closed           [ label = "Closed\n(no owner)" ];
+
+    New -> Reported [ label = "Submit" ];
+
+    Reported -> Cannot_Reproduce [ label = "Cannot reproduce" ];
+    Reported -> Not_a_Bug        [ label = "Not a bug" ];
+    Reported -> Duplicate        [ label = "Duplicate bug" ];
+    Reported -> In_Development   [ label = "Send to development" ];
+
+    Cannot_Reproduce -> Reported [ label = "Re-submit" ];
+
+    Not_a_Bug -> Reported [ label = "Re-open" ];
+
+    In_Development -> In_Development [ label = "Re-assign" ];
+    In_Development -> Sign_Off       [ label = "Not a bug" ];
+    In_Development -> Deferred       [ label = "Defer" ];
+    In_Development -> Fixed          [ label = "Fixed / Resolved" ];
+
+    Deferred -> In_Development [ label = "Schedule for fixing" ];
+    Deferred -> NIF            [ label = "Low priority, no intention to fix" ];
+
+    Fixed -> Fixed          [ label = "Re-assign" ];
+    Fixed -> In_Development [ label = "Test failed" ];
+    Fixed -> Sign_Off       [ label = "Test passed" ];
+
+    Sign_Off -> In_Development [ label = "Rejected" ];
+    Sign_Off -> Deferred       [ label = "Defer" ];
+    Sign_Off -> Not_a_Bug      [ label = "Not a bug" ];
+    Sign_Off -> Closed         [ label = "Close" ];
+
+    Closed -> Reported [ label = "Re-submit" ];
+}

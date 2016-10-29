@@ -1,0 +1,74 @@
+<HTML>
+<BODY>
+<TABLE cellSpacing=0 cellPadding=3 width="100%" border=1>
+<TBODY>
+<TR class=TableHeadingColor bgColor=#ccccff>
+<TD><FONT size=+2><B>Input / Output</B></FONT></TD></TR>
+</TBODY>
+</TABLE>
+<p>
+
+<strong>All computer programs have some way to give and/or receive information from the user.</strong>  When you type a paper in a word processor or enter numbers in a spreadsheet, you are giving the program information.
+<p>
+When you go to a website using a program called a web browser, the data and information is the text and images of the webpage.
+<p>
+<strong>Output</strong> is when a program gives the user data or information.<br>
+<strong>Input</strong> is when a program receives data or information from the user.
+<p>
+In JUDO, you give the user output by using the following functions:<br>
+<code>print()<br>
+printLine()</code>
+<p>
+To receive input from the user, use these functions:<br>
+<code>
+readString()<br>
+readInt()<br>
+readDouble()<br>
+readBoolean()<br>
+readColor()
+</code>
+<p>
+Here is an example programs using some of the above functions:
+<code>
+<pre>
+void main() {
+   String name;
+   int age;
+   
+   printLine("Type your name and press enter");
+   name = readString();
+   
+   printLine("Hello " + name + ".  Now enter your age");
+   age = readInt();
+   
+   printLine(name + " you are " + age + " years old");
+}
+</pre>
+</code>
+<br>
+<code>readString()</code> is used to assign a String value to a String variable.<br>
+<code>readInt()</code> is used to assign an int value to an int variable.
+<p>
+<code>printLine()</code> prints the value or variable you put between the parenthesis and goes onto a new line<br>
+<code>print()</code> prints the value or variable you put between the parenthesis and does not go onto a new line.
+
+<p>
+In the program above, you can see that Strings can be joined with String variables or
+other types of variables to
+make a longer string by using a plus sign (+).  This is useful when you want to print
+something out to the user that includes the value of a variable.
+
+<p>Making a graphics program like you have already seen how to do is another example
+of a program that does output.  The output is the shapes and colors that you display 
+to the user.
+
+<p>
+You can view the <a href="JUDOAppAPI.html#io">Input/Output functions in the JUDO
+Functions Reference</a>.
+
+<p>
+<center>
+<a href="Graphics.html"><img src="Back24.gif" border="0"> Back to Graphics</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Conditionals.html">Forward to Conditionals <img src="Forward24.gif" border="0" align="middle"></a>
+</center>
+</BODY>
+</HTML>

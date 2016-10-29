@@ -1,0 +1,23 @@
+CM Cardioid with feed system, converted with 4nec2 on 29-Mar-06 22:08
+CM 	CardTL
+CM This is the same array as Cardioid.NEC but with a
+CM transmission line feed system. The feed system was designed
+CM using the same method as for the 4SqTL model, and the same
+CM comments apply. Notice the good agreement between this
+CM model and the Cardioid model, and the unusual transmission
+CM line lengths. See the comments in the 4SqTL Antenna Notes
+CM file about the line lengths.
+CE
+sy len=0.242
+GW 1 6 0 0 0 0 0 len 1.21e-4
+GW 2 6 0.25 0 0 0.25 0 len 1.21e-4
+GW 3 1 0.125 0 0.01 0.125 0.01 0.01 1.21e-4
+GE 1
+sy tlen1=0.22377774
+TL 3 1 1 1 50 tlen1
+sy tlen2=0.42924994
+TL 3 1 2 1 50 tlen2
+EX 6 3 1 0 1 0
+GN 1
+FR 0 1 0 0 299.7925 0
+EN

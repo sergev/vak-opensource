@@ -1,0 +1,137 @@
+CM HRS 4/4/1.0 curtain array used by Nozema at Zeewolde
+CM for broadcasting of Radio Netherlands (RNW).
+CM TL lengths set for 30 degree slew angle.
+CM GX card used to improve calculation time.
+CM Arie.
+CE
+'
+'SY Freq=15, WL=299.8/Freq
+SY Freq=7.1, WL=299.8/Freq
+
+SY Rows=4, Cols=4				' HRS 4/4/1.0
+SY Dlen=WL/2					' Dipole length
+SY Hdlt=WL/2					' Vertical distance between dipoles
+SY Dofs=0.5					' Horizontal space between nearby dipole ends
+SY Hmin=WL					' Lower dipole height
+'
+'GW	101	11	0		0	0	Dlen	0	0	0.2	' Single wire Dipole
+
+SY a=dlen/40, b=dlen/2
+GW	101	1	b-a/2	0	0	b+a/2	0	0	1e-3		' Cage dipole, EX segm
+'
+GW	102	5	0	0	a	b-2*a	0	a	1e-3		' left half
+GW	103	1	b-2*a	0	a	b-a/2	0	0	1e-3		' down segm to EX
+GW	104	1	b+a/2	0	0	b+2*a	0	a	1e-3		' up segm from EX
+GW	105	5	b+2*a	0	a	2*b	0	a	1e-3		' right half
+
+GM	104	5	60	0	0	0	0	0	102		' Create 6 wire cage
+'
+GM	0	0	0	0	0	dofs	0	Hmin	0		' Move 'dofs' to the right
+
+GM	50	Rows-1	0	0	0	0	0	Hdlt	0					' Create 4 rows
+GM	200	Cols/2-1	0	0	0	Dlen+3*Dofs	0	0	0	' Cols/2	' Create half the cols
+'
+SY Rcnt = 40						' Nr of Reflector wires
+SY Rdst = -WL/4						' Distance from dipoles
+sy Rwdx=0.137*WL, Rhgx=WL/5				' eXtra width and height for reflector
+
+SY Rwdt=Cols/2*Dlen+(Cols-1)*Dofs+Rwdx			' Get total reflector width
+SY Rmin=Hmin-Rhgx, Rmax=Hmin+(Rows-1)*Hdlt+Rhgx		' Get reflector min and max height
+SY Rdlt=(Rmax-Rmin)/(Rcnt-1)				' Distance between reflector wires
+
+GW	1000	15	0	Rdst	Rmin	Rwdt	Rdst	Rmin	.005		' One Reflector wire
+GM	1	Rcnt-1	0	0	0	0	0	Rdlt	1000		' Create 'Rcnt' wires
+
+GW	3	1	b+dofs-a/2 	0.0	5+a/2	b+dofs+a/2	0.0	5-a/2	0.001	' first TL segments
+GW	4	1	3*(b+dofs)+a/2	0.0	5+a/2	3*(b+dofs+a/2)	0.0	5-a/2	0.001	' second TL segment
+GW	5	1	0.0		0.0	5+a/2	2*a/2		0.0	5-a/2	0.001	' EX segment
+
+CM Length L in mtr. = 52				' Towers, just for fun.
+CM Radius R1 in cm. = 200, R2 in cm. = 100		' Created with build.exe
+CM Start angle A1 = 0, Stop angle A2 = 360
+CM Straight sections = 3, Circular sections = 4, Radial sections = 1
+
+SY rt = 0.1		' Radius towerlegs
+SY S = 15/freq		' Tower Scaling (original was created for 15 Mhz HRS441)
+CE
+GW	2500	9	2*S	0*S	3*S	1.66*S	0*S	20.33*S	rt
+GW	2501	9	1.66*S	0*S	20.33*S	1.33*S	0*S	37.66*S	rt
+GW	2502	9	1.33*S	0*S	37.66*S	1*S	0*S	55*S	rt
+GW	2503	9	0*S	2*S	3*S	0*S	1.66*S	20.33*S	rt
+GW	2504	9	0*S	1.66*S	20.33*S	0*S	1.33*S	37.66*S	rt
+GW	2505	9	0*S	1.33*S	37.66*S	0*S	1*S	55*S	rt
+GW	2506	9	-2*S	0*S	3*S	-1.66*S	0*S	20.33*S	rt
+GW	2507	9	-1.66*S	0*S	20.33*S	-1.33*S	0*S	37.66*S	rt
+GW	2508	9	-1.33*S	0*S	37.66*S	-1*S	0*S	55*S	rt
+GW	2509	9	0*S	-2*S	3*S	0*S	-1.66*S	20.33*S	rt
+GW	2510	9	0*S	-1.66*S	20.33*S	0*S	-1.33*S	37.66*S	rt
+GW	2511	9	0*S	-1.33*S	37.66*S	0*S	-1*S	55*S	rt
+GW	2512	3	2*S	0*S	3*S	0*S	2*S	3*S	rt
+GW	2513	3	0*S	2*S	3*S	-2*S	0*S	3*S	rt
+GW	2514	3	-2*S	0*S	3*S	0*S	-2*S	3*S	rt
+GW	2515	3	0*S	-2*S	3*S	2*S	0*S	3*S	rt
+GW	2516	3	1.66*S	0*S	20.33*S	0*S	1.66*S	20.33*S	rt
+GW	2517	3	0*S	1.66*S	20.33*S	-1.66*S	0*S	20.33*S	rt
+GW	2518	3	-1.66*S	0*S	20.33*S	0*S	-1.66*S	20.33*S	rt
+GW	2519	3	0*S	-1.66*S	20.33*S	1.66*S	0*S	20.33*S	rt
+GW	2520	3	1.33*S	0*S	37.66*S	0*S	1.33*S	37.66*S	rt
+GW	2521	3	0*S	1.33*S	37.66*S	-1.33*S	0*S	37.66*S	rt
+GW	2522	3	-1.33*S	0*S	37.66*S	0*S	-1.33*S	37.66*S	rt
+GW	2523	3	0*S	-1.33*S	37.66*S	1.33*S	0*S	37.66*S	rt
+GW	2524	1	1*S	0*S	55*S	0*S	1*S	55*S	rt
+GW	2525	1	0*S	1*S	55*S	-1*S	0*S	55*S	rt
+GW	2526	1	-1*S	0*S	55*S	0*S	-1*S	55*S	rt
+GW	2527	1	0*S	-1*S	55*S	1*S	0*S	55*S	rt
+GW	2528	2	2*S	0*S	3*S	2*S	0*S	0*S	rt
+GW	2539	2	0*S	2*S	3*S	0*S	2*S	0*S	rt
+GW	2530	2	-2*S	0*S	3*S	-2*S	0*S	0*S	rt
+GW	2531	2	0*S	-2*S	3*S	0*S	-2*S	0*S	rt
+
+GM 0 0 0 0 0 1.15*Rwdt Rdst/2 0 2500	' Shift tower to the left
+
+GX	500	100					' Mirror the whole in YZ plane.
+'GS	0	0	2
+GE	1
+LD	5	0	0	0	5.8e7		' All copper.
+
+EK
+
+'SY sg=6	' For single wire dipoles
+SY sg=1		' For cage dipoles
+TL	451	sg	401	sg	-50	WL/2
+TL	351	sg	301	sg	-50	WL/2
+TL	251	sg	201	sg	-50	WL/2
+TL	151	sg	101	sg	-50	WL/2
+TL	401	sg	351	sg	-50	WL/2
+TL	201	sg	151	sg	-50	WL/2
+
+TL	951	sg	901	sg	-50	WL/2
+TL	851	sg	801	sg	-50	WL/2
+TL	751	sg	701	sg	-50	WL/2
+TL	651	sg	601	sg	-50	WL/2
+TL	901	sg	851	sg	-50	WL/2
+TL	701	sg	651	sg	-50	WL/2
+
+TL	801	sg	504	1	50	WL/2
+TL	601	sg	503	1	50	WL/2
+TL	301	sg	4	1	50	WL/2
+TL	101	sg	3	1	50	WL/2
+
+
+SY dl1 = 295.7	'252.9 		' Length in degrees
+TL	4	1	3	1	-50	dl1*WL/360
+SY dl2 = 231.4	'184.7 
+TL	3	1	5	1	50	dl2*WL/360
+SY dl3 = 106.1	'141.8 
+TL	504	1	503	1	-50	dl3*WL/360
+SY dl4 = 151.7	'157.2 
+TL	503	1	505	1	50	dl4*WL/360
+
+EX	0	5	1	00	1	0
+EX	0	505	1	00	-1	0
+
+GN	2	0	0	0	13	0.005
+FR	0	1	0	0	Freq
+
+EN
+

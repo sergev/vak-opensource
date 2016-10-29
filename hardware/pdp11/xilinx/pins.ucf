@@ -1,0 +1,64 @@
+#
+# Pins for Spartan-3E xc3s500e-fg320
+#
+NET "clk"		LOC = "A10"  ;
+NET "reg_wr"		LOC = "A3"  ;
+
+NET "reg_a[0]"		LOC = "A4"  ;
+NET "reg_a[1]"		LOC = "A5"  ;
+NET "reg_a[2]"		LOC = "A6"  ;
+
+NET "reg_b[0]"		LOC = "A7"  ;
+NET "reg_b[1]"		LOC = "A8"  ;
+NET "reg_b[2]"		LOC = "A15"  ;
+
+NET "bus_a[0]"		LOC = "A11"  ;
+NET "bus_a[1]"		LOC = "A13"  ;
+NET "bus_a[2]"		LOC = "A14"  ;
+NET "bus_a[3]"		LOC = "H2"  ;
+NET "bus_a[4]"		LOC = "A16"  ;
+NET "bus_a[5]"		LOC = "H1"  ;
+NET "bus_a[6]"		LOC = "B4"  ;
+NET "bus_a[7]"		LOC = "B6"  ;
+NET "bus_a[8]"		LOC = "B14"  ;
+NET "bus_a[9]"		LOC = "B16"  ;
+NET "bus_a[10]"		LOC = "C1"  ;
+NET "bus_a[11]"		LOC = "C2"  ;
+NET "bus_a[12]"		LOC = "C3"  ;
+NET "bus_a[13]"		LOC = "C4"  ;
+NET "bus_a[14]"		LOC = "C5"  ;
+NET "bus_a[15]"		LOC = "C7"  ;
+
+NET "bus_b[0]"		LOC = "C11"  ;
+NET "bus_b[1]"		LOC = "D1"  ;
+NET "bus_b[2]"		LOC = "D11"  ;
+NET "bus_b[3]"		LOC = "D14"  ;
+NET "bus_b[4]"		LOC = "E1"  ;
+NET "bus_b[5]"		LOC = "E2"  ;
+NET "bus_b[6]"		LOC = "E8"  ;
+NET "bus_b[7]"		LOC = "E9"  ;
+NET "bus_b[8]"		LOC = "E11"  ;
+NET "bus_b[9]"		LOC = "E12"  ;
+NET "bus_b[10]"		LOC = "E13"  ;
+NET "bus_b[11]"		LOC = "E17"  ;
+NET "bus_b[12]"		LOC = "F1"  ;
+NET "bus_b[13]"		LOC = "F2"  ;
+NET "bus_b[14]"		LOC = "F4"  ;
+NET "bus_b[15]"		LOC = "F7"  ;
+
+NET "bus_w[0]"		LOC = "F8"  ;
+NET "bus_w[1]"		LOC = "F9"  ;
+NET "bus_w[2]"		LOC = "F11"  ;
+NET "bus_w[3]"		LOC = "F12"  ;
+NET "bus_w[4]"		LOC = "F14"  ;
+NET "bus_w[5]"		LOC = "F15"  ;
+NET "bus_w[6]"		LOC = "F17"  ;
+NET "bus_w[7]"		LOC = "F18"  ;
+NET "bus_w[8]"		LOC = "G3"  ;
+NET "bus_w[9]"		LOC = "G5"  ;
+NET "bus_w[10]"		LOC = "G6"  ;
+NET "bus_w[11]"		LOC = "G9"  ;
+NET "bus_w[12]"		LOC = "G13"  ;
+NET "bus_w[13]"		LOC = "G14"  ;
+NET "bus_w[14]"		LOC = "G15"  ;
+NET "bus_w[15]"		LOC = "G16"  ;

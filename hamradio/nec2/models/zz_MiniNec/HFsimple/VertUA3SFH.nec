@@ -1,0 +1,11 @@
+CM 14-28 MHz vertical. Fedding R=75 Ohm, by UA3SFH 
+CE
+GW 1 32 0.0 0.0  .05 0.0 0.0  6.35  .006
+GW 2 1 0.0 0.0 0.0 0.0 0.0  .05  .006
+GE 1
+EX 0 2  1  0  1.0 0.0
+SY R=1.2, L=3.0uH, C=28pF
+LD 0 2  1  1 R L C
+GN 3 0 0 0 13  0.005 0.0 0.0
+FR 0 1 0 0 14.15 1
+EN

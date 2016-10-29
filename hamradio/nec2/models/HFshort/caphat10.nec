@@ -1,0 +1,22 @@
+CM Capacity-Hat Loaded Dipole, 10 meters
+CM L. B. Cebik, W4RNL
+CE 
+SY R=3.368e-03
+
+GW 1 11 -6 0 20 6  0    20    R
+GW 2 3  -6 0 20 -6 0    20.76 R
+GW 3 3  -6 0 20 -6 0    19.24 R
+GW 4 3  -6 0 20 -6 .76  20    R
+GW 5 3  -6 0 20 -6 -.76 20    R
+GW 6 3  6  0 20 6  0    20.76 R
+GW 7 3  6  0 20 6  0    19.24 R
+GW 8 3  6  0 20 6  .76  20    R
+GW 9 3  6  0 20 6  -.76 20    R
+GS 0 0 .3048
+GE 0
+
+EX 0 1 6 0 1 0
+LD 5 0 0 0 5.8001E7
+FR 0 1 0 0 28.5 1
+EN
+

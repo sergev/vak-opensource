@@ -1,0 +1,21 @@
+CM 40-meter Groundplane with Sloping Radials, by K6STI
+CE 
+SY len = 63.65		' Optimized for resonance 
+GW	1	2	0	0	30	0	0	40	.2in/ft
+GW	2	2	0	0	40	0	0	49.5	.15in/ft
+GW	3	2	0	0	49.5	0	0	58	.12in/ft
+GW	4	1	0	0	58	0	0	len	.1in/ft
+GW	5	8	0	0	30	-23	0	7	#12/ft
+GW	6	8	0	0	30	23	0	7	#12/ft
+GW	7	8	0	0	30	0	-23	7	#12/ft
+GW	8	8	0	0	30	0	23	7	#12/ft
+GS	0	0	ft
+GE	0
+EX	0	1	1	00	1.0	0.0
+'
+GN	-1
+FR	0	1	0	0	 7.15
+EN
+'This file shows how to model radiators employing telescoping tubing.
+'The segmentation above gives good input-impedance accuracy for this
+'model with bent-wire junctions.

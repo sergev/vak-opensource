@@ -1,0 +1,33 @@
+== Test for CMOS Inverter ==
+
+.include 2n7002.lib
+.include bss84.lib
+.include invertor.cir
+
+*
+* Device under test
+*
+X1  1 2 4   invertor
+Vcc 4 0     +5V
+
+*
+* Input pulse via resistor
+*
+Vin 3 0     DC 0 PULSE(0 +5V 10ns 5ns 5ns 50ns 100ns)
+Rin 3 1     10
+
+*
+* Output load
+*
+Ro1 2 0     1000
+Ro2 2 4     1000
+
+.tran 1ns 100ns
+
+.control
+    run
+    plot V(1) V(2)
+    plot Vcc#branch Vin#branch
+.endc
+
+.end

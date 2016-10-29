@@ -1,0 +1,9 @@
+#!/usr/local/bin/python
+
+import dbm
+
+DBNAME = "/var/db/liteweb/user"
+
+db = dbm.open (DBNAME, "n", 0644)
+db['x'] = 'z'
+del db['x']

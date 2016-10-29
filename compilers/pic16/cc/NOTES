@@ -1,0 +1,33 @@
+1) Functions may have not more that two arguments.
+   The total size of arguments cannot exceed 4 bytes.
+
+2) Size of long is 4 bytes, short - 2 bytes,
+   char and int - 1 byte.  The simple pointer has the size of 1 byte,
+   far pointer - 2 bytes.
+
+3) The type of pointer to pointer is equivalent to (char*) for simple
+   pointers, and (short*) for far pointers.
+
+4) All functions must be declared before use. The argument lists
+   in function declarations are not supported.
+
+5) Bit operations are supported, for example:
+
+	if (a.1)
+		b.4 = 1;
+
+   The only operations for bits are:
+   - assignment of zero (a.N = 0);
+   - assignment of one (a.N = 1);
+   - xor with one (a.N ^= 1);
+   - conditional check (if (a.N) or if (! a.N)).
+
+6) Direct placement of data and functions is supported,
+   for example:
+
+	short PROD @ 0x18;
+	void startup () @ 0
+	{ ... }
+
+   The startup() function will be placed in command memory at address 0,
+   the variable PROD references the data memory at address 18h.

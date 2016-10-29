@@ -1,0 +1,17 @@
+s/k0/f0/g
+s/k1/f1/g
+s/k2/f2/g
+s/k3/f3/g
+s/k4/f4/g
+s/k5/f5/g
+s/k6/f6/g
+s/k7/f7/g
+s/k8/f8/g
+s/k9/f9/g
+s/k\./f./g
+s/k-/f-/g
+s/ER/k1/g
+s/IL/k2/g
+s/DL/k3/g
+s/IC/k4/g
+s/DC/k5/g

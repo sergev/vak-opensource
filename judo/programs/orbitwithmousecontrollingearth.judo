@@ -1,0 +1,195 @@
+//~JUDOPROP~//$VERSION=1.2.1
+//~JUDOPROP~//$TITLE=orbit with mouse controlling earth
+//~JUDOPROP~//$TYPE=graphics
+void main() {
+	double shipX = 50;
+	double shipY = 100;
+	double shipMass = 100;
+	int shipSize = 20;
+	double shipDirection = PI * 1.5;
+	double shipSpeed = 1.8;
+
+	double earthX = 210;
+	double earthY = 140;
+	double earthMass = 2000;
+	int earthSize = 50;
+
+	double gravityMagnitude;
+	double gravityDirection;
+
+	setBackgroundColor(gray);
+
+	while (true) {
+		// calculate gravity
+		gravityMagnitude = computeGravityMagnitude(earthX, earthY, earthMass, 
+shipX, shipY, shipMass);
+		gravityDirection = computeGravityDirection(earthX, earthY, shipX, 
+shipY);
+
+		// add gravity to ships current velocity
+		shipSpeed = vectorAddMagnitude(gravityDirection, gravityMagnitude, 
+shipDirection, shipSpeed);
+		shipDirection = vectorAddTheta(gravityDirection, gravityMagnitude, 
+shipDirection, shipSpeed);
+
+		// move the ship
+		shipX += getXComponent(shipSpeed, shipDirection);
+		shipY -= getYComponent(shipSpeed, shipDirection);
+
+		// draw the next frame in the animation
+		clearDrawing();
+		setColor(black);
+		fillCircle(doubleToInt(earthX) - (earthSize / 2), doubleToInt(earthY) 
+- (earthSize / 2), earthSize);
+		setColor(yellow);
+		fillCircle(doubleToInt(shipX) - (shipSize / 2), doubleToInt(shipY) - 
+(shipSize / 2), shipSize);
+		delay(.03);
+
+		if (getMouseEvent() && getMouseButton(1)) {
+			earthX = getMouseX();
+			earthY = getMouseY();
+		}
+
+		if (shipX > getDrawingWidth()) {
+			shipX = getDrawingWidth() - 1;
+			shipDirection = flipHorizontally(shipDirection);
+		}
+		if (shipX < 0) {
+			shipX = 1;
+			shipDirection = flipHorizontally(shipDirection);
+		}
+		if (shipY > getDrawingHeight()) {
+			shipY = getDrawingHeight() - 1;
+			shipDirection = flipVertically(shipDirection);
+		}
+		if (shipY < 0) {
+			shipY = 1;
+			shipDirection = flipVertically(shipDirection);
+		}
+	}
+}
+
+// gravitational constant
+double G = 0.01;
+
+// computes the magnitude of the gravitational force of
+// one object (stationaryObject) on another (movingObject)
+double computeGravityMagnitude(double stationaryObjectX, double 
+stationaryObjectY,
+                               double stationaryObjectMass, double 
+movingObjectX,
+                               double movingObjectY, double 
+movingObjectMass) {
+
+	double distance = distance(stationaryObjectX, stationaryObjectY,
+                              movingObjectX, movingObjectY);
+
+	return (G * stationaryObjectMass * movingObjectMass) / (distance * 
+distance);
+}
+
+// computes the direction of the gravitational force of
+// one object (stationaryObject) on another (movingObject)
+double computeGravityDirection(double stationaryObjectX, double 
+stationaryObjectY,
+                               double movingObjectX, double 
+movingObjectY) {
+
+	double xComponent = stationaryObjectX - movingObjectX;
+	double yComponent = -(stationaryObjectY - movingObjectY);
+	double direction = arctan(yComponent / xComponent);
+
+	return correctTheta(direction, xComponent, yComponent);
+}
+
+// computes the distance between two points (x1, y1) and (x2, y2)
+double distance(double x1, double y1, double x2, double y2) {
+	return squareRoot(((x2 - x1) * (x2 - x1)) + ((y2 - y1) * (y2 - y1)));
+}
+
+// add two vectors and return resultant vector's magnitude
+double vectorAddMagnitude(double v1Theta, double v1Magnitude, double 
+v2Theta, double v2Magnitude) {
+	double v1MagnitudeX = getXComponent(v1Magnitude, v1Theta);
+	double v1MagnitudeY = getYComponent(v1Magnitude, v1Theta);
+	double v2MagnitudeX = getXComponent(v2Magnitude, v2Theta);
+	double v2MagnitudeY = getYComponent(v2Magnitude, v2Theta);
+	double newXComponent = v1MagnitudeX + v2MagnitudeX;
+	double newYComponent = v1MagnitudeY + v2MagnitudeY;
+	double newMagnitude = squareRoot(
+		(newXComponent * newXComponent) +
+		(newYComponent * newYComponent));
+	return newMagnitude;
+}
+
+// add two vectors return resultant vector's theta
+double vectorAddTheta(double v1Theta, double v1Magnitude, double 
+v2Theta, double v2Magnitude) {
+	double v1MagnitudeX = getXComponent(v1Magnitude, v1Theta);
+	double v1MagnitudeY = getYComponent(v1Magnitude, v1Theta);
+	double v2MagnitudeX = getXComponent(v2Magnitude, v2Theta);
+	double v2MagnitudeY = getYComponent(v2Magnitude, v2Theta);
+	double newXComponent = v1MagnitudeX + v2MagnitudeX;
+	double newYComponent = v1MagnitudeY + v2MagnitudeY;
+	double newTheta = arctan(newYComponent / newXComponent);
+	return correctTheta(newTheta, newXComponent, newYComponent);
+}
+
+// returns the X-component of the vector given by magnitude and theta
+double getXComponent(double magnitude, double theta) {
+	return magnitude * cos(theta);
+}
+
+// returns the Y-component of the vector given by magnitude and theta
+double getYComponent(double magnitude, double theta) {
+	return magnitude * sin(theta);
+}
+
+// Since there are two thetas for any given tangent (180 degrees off of one
+// another), make sure we are using the correct one when doing vector addition
+double correctTheta(double theta, double xComponent, double yComponent) 
+{
+	// keep theta in the 0 .. 2 PI range
+	theta = theta % (2 * PI);
+
+	// first quadrant
+	if (xComponent > 0 && yComponent > 0) {
+		if (theta < (PI / 2) && theta > 0) {
+			return theta;
+		}
+		else {
+			return theta + PI;
+		}
+	}
+	// second quadrant
+	else if (xComponent < 0 && yComponent > 0) {
+		if (theta < PI && theta > (PI / 2)) {
+			return theta;
+		}
+		else {
+			return theta + PI;
+		}
+	}
+	// third quadrant
+	else if (xComponent < 0 && yComponent < 0) {
+		if (theta < (3 * PI / 2) && theta > PI) {
+			return theta;
+		}
+		else {
+			return theta + PI;
+		}
+	}
+
+	return theta;
+}
+
+// flips theta over the horizontal axis
+double flipVertically(double theta) {
+	return theta + 2 * (PI - theta);
+}
+
+// flips theta over the vertical axis
+double flipHorizontally(double theta) {
+	return (theta + PI) - (2 * theta);
+}

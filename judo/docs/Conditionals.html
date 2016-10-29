@@ -1,0 +1,93 @@
+<HTML>
+<BODY>
+<TABLE cellSpacing=0 cellPadding=3 width="100%" border=1>
+<TBODY>
+<TR class=TableHeadingColor bgColor=#ccccff>
+<TD><FONT size=+2><B>Conditionals</B></FONT></TD></TR>
+</TBODY>
+</TABLE>
+<p>
+
+
+<strong>A conditional is something that is either true or false, like a boolean value.</strong>
+<p>
+Often, you want your program to make decisions.  You want something to happen if a condition is true, or something else to happen if the condition is false.
+<p>
+Consider a program that takes four different test grades and averages them.  Then it uses printLine()  to show the user what the average grade is.  Suppose instead, we want to print "Pass" or "Fail" depending on if the grade is a passing or failing grade.  Think of what you want to do in English before you convert it to Java:<br>
+If average grade is less than 60, print "Fail", otherwise, print "Pass".<br>
+Java accomplishes this with an if/else statement:
+<code>
+<pre>
+if (average &lt; 60) {
+   printLine("Fail");
+}
+else {
+   printLine("Pass");
+}
+</pre>
+</code>
+<br>
+
+With the if/else statement, you first put the word "if" followed by the condition you are testing for between parentheses.  In this example, the condition is "average &lt; 60".  In Java, you can use "&lt;" and "&gt;" to mean "less than" and "greater than" just like in math.  To say "less than or equal to", you use a less than sign followed immediately by an equal sign "&lt;=".  Greater than or equal to works the same way.  For testing if two things are equal, use the equal() function, like so:
+<code>
+<pre>
+if ( equal(name1, name2) ) {
+   printLine("The two names are equal.");
+}
+else {
+   printLine("Those names are different.");
+}
+</pre>
+</code>
+<br>
+Conditionals can by used to react to input.  You can have your program use a read function, like readDouble(), and then do something based on what the user typed in.  Here is an example program that quizzes the user on multiplication, with a condition based on what they input to the program:
+<code>
+<pre>
+void main() {
+   double operand1;
+   double operand2;
+   double product;
+   double usersAnswer;
+
+   printLine("Please enter a number");
+   operand1 = readDouble();
+
+   printLine("Please enter another number");
+   operand2 = readDouble();
+
+   product = operand1 * operand2;
+
+   printLine("What is " + operand1 + " times " + operand2 + "?");
+   usersAnswer = readDouble();
+
+   // check to see if users answer to multiplication
+   // problem is correct or incorrect and let him/her know
+   if ( equal(product, usersAnswer) ) {
+      printLine("That is correct!");
+   }
+   else {
+      printLine("Sorry, " + operand1 + " * " + operand2 + " = " + product);
+   }
+}
+</pre>
+</code>
+
+<p>
+Now is a good time to tell you about <strong>comments</strong>.  Comments are notes
+to yourself that you write while writing your program.  You use them so that later
+on when you go back and look at your program, you or someone else can easily tell what you were trying
+to do in your code.<br>
+To make a comment, put two slashes right next to each other (like this //) on a line, and after that write whatever you
+want.  In the above program, there is a comment before the line with the <code>if</code>
+statement.
+
+<p>
+You can view the <a href="JUDOAppAPI.html#equal">equal() functions in the JUDO
+Functions Reference</a>.
+
+<p>
+<center>
+<a href="InputOutput.html"><img src="Back24.gif" border="0"> Back to Input / Output</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Loops.html">Forward to Loops <img src="Forward24.gif" border="0" align="middle"></a>
+</center>
+</BODY>
+</HTML>

@@ -1,0 +1,45 @@
+--------------------------------------------------------------------------------
+--
+--   AMD2910 Benchmark -- mux component
+--
+-- Source:  AMD data book
+--
+-- author: Indraneel Ghosh
+--         University Of California, Irvine, CA 92717
+--
+-- Written on Feb19, 1992
+--
+--------------------------------------------------------------------------------
+
+
+THIS DIRECTORY CONTAINS THE FOLLOWING FILES :
+
+mux.vhdl    :  File containing the funct_block_alg_beh "muxr" in "funct_block_alg_beh2910.vhdl".
+
+test_vectors_mux.vhdl :  Simulation test vector file for "muxr"
+
+test_vectors_mux.doc  :  Documentation on test vectors in "test_vectors_mux.vhdl"
+
+cmd_mux.inc :  Simulation command file for "muxr"
+
+
+NOTE : 
+
+     To run simulation on Zycad ( Version 1.0) Simulator :
+
+     Run the following commands in the order given below.
+
+         zvan types.vhd
+
+         zvan MVL7_functions.vhd
+
+         zvan mux.vhdl 
+
+         zvan test_vectors_mux.vhdl
+
+         zvsim -t ns -i cmd_mux.inc E
+
+     As in other cases, the simulation results will be stored in file
+
+        "run.out"
+  

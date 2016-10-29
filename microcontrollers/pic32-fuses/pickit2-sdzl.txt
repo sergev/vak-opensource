@@ -1,0 +1,149 @@
+Programmer for Microchip PIC32 microcontrollers, Version 1.118M
+    Copyright: (C) 2011-2014 Serge Vakulenko
+---Send a9 76
+--->>>> 02 20 00 ff ff 04 00 d4 cb 74 89 17 40 1b 30 23
+        63 15 eb c0 8f 01 56 81 68 00 0a 41 8a b1 0a 80
+        f2 03 84 66 a0 08 20 8d f1 09 a0 40 85 0c a9 30
+        45 20 0c 3c 32 0d 12 04 03 60 dd 12 05 b2 66 04
+      Adapter: PICkit2 Version 2.32.0
+---Send a6 02 fe fd
+---Send a0 00 1d 8f
+---Send a1 40 3d 2a
+---Send a6 02 ea 0a
+---Send a6 01 f7
+---Send a9 a2
+--->>>> 05 00 00 ff ff 04 00 d4 cb 74 89 17 40 1b 30 23
+        63 15 eb c0 8f 01 56 81 68 00 0a 41 8a b1 0a 80
+        f2 03 84 66 a0 08 20 8d f1 09 a0 40 85 0c a9 30
+        45 20 0c 3c 32 0d 12 04 03 60 dd 12 05 b2 66 04
+PICkit2: status 0005
+PICkit2: enable power
+---Send a6 02 fc ff
+---Send a9 a2
+--->>>> 06 00 00 ff ff 04 00 d4 cb 74 89 17 40 1b 30 23
+        63 15 eb c0 8f 01 56 81 68 00 0a 41 8a b1 0a 80
+        f2 03 84 66 a0 08 20 8d f1 09 a0 40 85 0c a9 30
+        45 20 0c 3c 32 0d 12 04 03 60 dd 12 05 b2 66 04
+PICkit2: status 0006
+---Send a9 a6 27 fa f7 f9 f5 f3 00 e8 14 f6 fb e7 17 fa
+        f7 e7 2f f2 b2 f2 c2 f2 12 f2 0a f6 fb e8 02 f3
+        02 bc 06 1f bb 04 bb 07 ba 00
+---Send aa
+--->>>> 01 89 00 ff ff 04 00 d4 cb 74 89 17 40 1b 30 23
+        63 15 eb c0 8f 01 56 81 68 00 0a 41 8a b1 0a 80
+        f2 03 84 66 a0 08 20 8d f1 09 a0 40 85 0c a9 30
+        45 20 0c 3c 32 0d 12 04 03 60 dd 12 05 b2 66 04
+PICkit2: got 01-89
+---Send a9 a6 09 bb 04 bb 01 b9 00 00 00 00
+---Send aa
+--->>>> 04 53 40 10 55 04 00 d4 cb 74 89 17 40 1b 30 23
+        63 15 eb c0 8f 01 56 81 68 00 0a 41 8a b1 0a 80
+        f2 03 84 66 a0 08 20 8d f1 09 a0 40 85 0c a9 30
+        45 20 0c 3c 32 0d 12 04 03 60 dd 12 05 b2 66 04
+    Processor: MZ2048ECG064 (id 55104053)
+ Flash memory: 2048 kbytes
+  Boot memory: 80 kbytes
+PICkit2: enter serial execution
+---Send a6 1b bb 04 bb 07 ba 00 bb 04 bb 07 ba d1 bb 05
+        bc 06 1f bb 0c bb 04 bb 07 ba d0 ba fe
+---Send a7 a9 a8 18 20 ff 13 3c c0 1f 08 3c c0 ff 08 35
+        00 00 09 8d 00 00 69 ae 00 00 00 00 a6 12 bb 05
+        bc 06 1f b6 b6 b6 b6 b6 b6 bb 0e b9 00 00 00 00
+        aa
+--->>>> 04 ff ff ff 7d 04 00 d4 cb 74 89 17 40 1b 30 23
+        63 15 eb c0 8f 01 56 81 68 00 0a 41 8a b1 0a 80
+        f2 03 84 66 a0 08 20 8d f1 09 a0 40 85 0c a9 30
+        45 20 0c 3c 32 0d 12 04 03 60 dd 12 05 b2 66 04
+---Send a7 a9 a8 1c 20 ff 13 3c c0 1f 08 3c c0 ff 08 35
+        00 00 09 8d 42 48 09 00 04 00 69 ae 00 00 00 00
+        a6 13 bb 05 bc 06 1f b6 b6 b6 b6 b6 b6 b6 bb 0e
+        b9 00 00 00 00 aa
+--->>>> 04 ff ff ff be 04 00 d4 cb 74 89 17 40 1b 30 23
+        63 15 eb c0 8f 01 56 81 68 00 0a 41 8a b1 0a 80
+        f2 03 84 66 a0 08 20 8d f1 09 a0 40 85 0c a9 30
+        45 20 0c 3c 32 0d 12 04 03 60 dd 12 05 b2 66 04
+pickit_read_word: 1fc0ffc0 -> beffffff
+---Send a7 a9 a8 18 20 ff 13 3c c0 1f 08 3c c4 ff 08 35
+        00 00 09 8d 00 00 69 ae 00 00 00 00 a6 12 bb 05
+        bc 06 1f b6 b6 b6 b6 b6 b6 bb 0e b9 00 00 00 00
+        aa
+--->>>> 04 35 62 f3 ff 04 00 d4 cb 74 89 17 40 1b 30 23
+        63 15 eb c0 8f 01 56 81 68 00 0a 41 8a b1 0a 80
+        f2 03 84 66 a0 08 20 8d f1 09 a0 40 85 0c a9 30
+        45 20 0c 3c 32 0d 12 04 03 60 dd 12 05 b2 66 04
+---Send a7 a9 a8 1c 20 ff 13 3c c0 1f 08 3c c4 ff 08 35
+        00 00 09 8d 42 48 09 00 04 00 69 ae 00 00 00 00
+        a6 13 bb 05 bc 06 1f b6 b6 b6 b6 b6 b6 b6 bb 0e
+        b9 00 00 00 00 aa
+--->>>> 04 1b b1 f9 ff 04 00 d4 cb 74 89 17 40 1b 30 23
+        63 15 eb c0 8f 01 56 81 68 00 0a 41 8a b1 0a 80
+        f2 03 84 66 a0 08 20 8d f1 09 a0 40 85 0c a9 30
+        45 20 0c 3c 32 0d 12 04 03 60 dd 12 05 b2 66 04
+pickit_read_word: 1fc0ffc4 -> fff9b11a
+---Send a7 a9 a8 18 20 ff 13 3c c0 1f 08 3c c8 ff 08 35
+        00 00 09 8d 00 00 69 ae 00 00 00 00 a6 12 bb 05
+        bc 06 1f b6 b6 b6 b6 b6 b6 bb 0e b9 00 00 00 00
+        aa
+--->>>> 04 73 79 e8 06 04 00 d4 cb 74 89 17 40 1b 30 23
+        63 15 eb c0 8f 01 56 81 68 00 0a 41 8a b1 0a 80
+        f2 03 84 66 a0 08 20 8d f1 09 a0 40 85 0c a9 30
+        45 20 0c 3c 32 0d 12 04 03 60 dd 12 05 b2 66 04
+---Send a7 a9 a8 1c 20 ff 13 3c c0 1f 08 3c c8 ff 08 35
+        00 00 09 8d 42 48 09 00 04 00 69 ae 00 00 00 00
+        a6 13 bb 05 bc 06 1f b6 b6 b6 b6 b6 b6 b6 bb 0e
+        b9 00 00 00 00 aa
+--->>>> 04 b9 3c 74 03 04 00 d4 cb 74 89 17 40 1b 30 23
+        63 15 eb c0 8f 01 56 81 68 00 0a 41 8a b1 0a 80
+        f2 03 84 66 a0 08 20 8d f1 09 a0 40 85 0c a9 30
+        45 20 0c 3c 32 0d 12 04 03 60 dd 12 05 b2 66 04
+pickit_read_word: 1fc0ffc8 -> 03743cb9
+---Send a7 a9 a8 18 20 ff 13 3c c0 1f 08 3c cc ff 08 35
+        00 00 09 8d 00 00 69 ae 00 00 00 00 a6 12 bb 05
+        bc 06 1f b6 b6 b6 b6 b6 b6 bb 0e b9 00 00 00 00
+        aa
+--->>>> 04 ef ff ff ff 04 00 d4 cb 74 89 17 40 1b 30 23
+        63 15 eb c0 8f 01 56 81 68 00 0a 41 8a b1 0a 80
+        f2 03 84 66 a0 08 20 8d f1 09 a0 40 85 0c a9 30
+        45 20 0c 3c 32 0d 12 04 03 60 dd 12 05 b2 66 04
+---Send a7 a9 a8 1c 20 ff 13 3c c0 1f 08 3c cc ff 08 35
+        00 00 09 8d 42 48 09 00 04 00 69 ae 00 00 00 00
+        a6 13 bb 05 bc 06 1f b6 b6 b6 b6 b6 b6 b6 bb 0e
+        b9 00 00 00 00 aa
+--->>>> 04 f7 ff ff ff 04 00 d4 cb 74 89 17 40 1b 30 23
+        63 15 eb c0 8f 01 56 81 68 00 0a 41 8a b1 0a 80
+        f2 03 84 66 a0 08 20 8d f1 09 a0 40 85 0c a9 30
+        45 20 0c 3c 32 0d 12 04 03 60 dd 12 05 b2 66 04
+pickit_read_word: 1fc0ffcc -> fffffff7
+Configuration:
+    DEVCFG0 = fffffff7
+                     3 Debugger disabled
+                     4 JTAG enabled
+                     8 Use PGC2/PGD2
+                   3   Flash ECC disabled, unlocked
+    DEVCFG1 = 03743cb9
+                     1 System PLL
+                    8  Internal-external switch over enabled
+                   0   Primary oscillator: External
+                   4   CLKO output disabled
+    DEVCFG2 = fff9b11a
+                     2 PLL divider: 1/3
+                    1  PLL input frequency range: 5-10 MHz
+                  31   PLL feedback divider: x50
+                 1     PLL postscaler: 1/2
+              4        USB PLL input clock: 24 MHz
+              8        Enable USB PLL
+    DEVCFG3 = beffffff
+               2       Default Ethernet pins
+               8       Permission Group Lock - only 1 reconfig
+              1        Peripheral Module Disable - only 1 reconfig
+              2        Peripheral Pin Select - only 1 reconfig
+                       USBID pin: controlled by port
+---Send a9 a6 0f bc 05 1f fa f7 f8 f3 06 f3 02 f3 03 e8
+        0a f4
+---Send a6 02 fe fd
+---Send a6 01 f6
+---Send a2
+--->>>> 01 00 ff ff ff 04 00 d4 cb 74 89 17 40 1b 30 23
+        63 15 eb c0 8f 01 56 81 68 00 0a 41 8a b1 0a 80
+        f2 03 84 66 a0 08 20 8d f1 09 a0 40 85 0c a9 30
+        45 20 0c 3c 32 0d 12 04 03 60 dd 12 05 b2 66 04

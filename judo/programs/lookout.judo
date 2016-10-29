@@ -1,0 +1,187 @@
+//~JUDOPROP~//$VERSION=1.3.0
+//~JUDOPROP~//$TITLE=Look Out
+//~JUDOPROP~//$TYPE=graphics
+// Look Out
+// Thomas Dunn / 2003-09-19
+// catch the bombs with the paddle (I called it ship in code)
+// every ballsPerLevel bombs, you go to a new level, if you
+// have caught more than 50% of the bombs to that point
+// See how far you can get!
+
+int screenHeight;
+int screenWidth;
+Color shipColor = blue;
+Color bombColor = red;
+int numBallDrops = 0;
+int hitCount;
+Color scoreColor;
+int scoreX;
+int scoreY;
+int level;
+int ballsPerLevel = 30;
+String oldScore = "";
+Color backgroundColor = black;
+int bombSpeed;
+boolean firstGame = true;
+String score;
+
+void main() {
+	int shipWidth = 60;
+	int shipHeight = 15;
+	screenHeight = getDrawingHeight();
+	screenWidth = getDrawingWidth();
+	int shipX = (int) ((screenWidth / 2.0) - (shipWidth / 2.0));
+	int shipY = screenHeight - shipHeight - 1;
+	int shipSpeed = 8;
+	int numBombs = 5;
+	int bombSize = 10;
+	int bombDelay = 400;
+
+	numBallDrops = 0;
+	hitCount = 0;
+	level = 1;
+	bombSpeed = 1;
+
+	scoreX = screenWidth - 225;
+	scoreY = 20;
+	scoreColor = shipColor;
+
+	int bombX[] = new int[numBombs];
+	int bombY[] = new int[numBombs];
+
+	// init ball locations
+	for (int i = 0; i < numBombs; i++) {
+		bombY[i] = ((int) (screenHeight / numBombs) * i) - bombDelay;
+		bombX[i] = randomInt(screenWidth - bombSize);
+	}
+
+	setBackgroundColor(backgroundColor);
+
+	if (firstGame) {
+		showDirections();
+		firstGame = false;
+	}
+
+	setColor(shipColor);
+	drawString("Level " + level, true, false, 18, scoreX, scoreY);
+
+	while (true) {  // main graphics loop
+		delay(.01);
+
+		setColor(backgroundColor);
+		fillRectangle(shipX, shipY, shipWidth, shipHeight);
+
+		// move the ship
+		if (getKeyState("left") && shipX > 0) {
+			shipX -= shipSpeed;
+		}
+		else if (getKeyState("right") && shipX + shipWidth < screenWidth) {
+			shipX += shipSpeed;
+		}
+
+		setColor(shipColor);
+		fillRectangle(shipX, shipY, shipWidth, shipHeight);
+
+		// update bomb positions
+		for (int i = 0; i < numBombs; i++) {
+			setColor(backgroundColor);
+			fillRectangle(bombX[i], bombY[i], bombSize, bombSize);
+
+			bombY[i] += bombSpeed;
+
+			setColor(bombColor);
+			fillRectangle(bombX[i], bombY[i], bombSize, bombSize);
+
+			// bomb is at bottom of screen
+			if (bombY[i] + bombSize >= screenHeight - shipHeight) {
+
+				// blank out the bomb since hit bottom
+				setColor(backgroundColor);
+				fillRectangle(bombX[i], bombY[i], bombSize, bombSize);
+
+				// check if ship caught the bomb
+				if (bombX[i] <= shipX + shipWidth &&
+					 bombX[i] + bombSize >= shipX) {
+
+					// score it as a hit
+					hitCount++;
+				}
+
+				if (updateScore()) {
+					String endMessage = "You made it to Level " + level;
+					setColor(bombColor);
+					if (level > 8) {
+						endMessage += "!";
+						setColor(shipColor);
+					}
+					clearDrawing();
+					drawString(endMessage, true, false, 40, 18, screenHeight / 2);
+					drawString(score, true, false, 18, scoreX, scoreY);
+
+					drawString("Press any key to play again", false, false, 20, 110, screenHeight - 40);					
+					delay(1);
+					readKey();
+					main();
+				}
+
+				// send bomb to top of screen
+				bombY[i] = -bombSize;
+				bombX[i] = randomInt(screenWidth - bombSize);
+			}
+		}
+	}
+}
+
+// returns true if game is over
+boolean updateScore() {
+	double scorePercent = 1;
+	numBallDrops++;
+
+	scorePercent = hitCount * 1.0 / numBallDrops;
+
+	if (scorePercent <= 0.5) {
+		scoreColor = bombColor;
+	}
+	else {
+		scoreColor = shipColor;
+	}
+
+	if (numBallDrops % ballsPerLevel == 0) {
+		bombSpeed++;
+		if (scorePercent <= 0.5) {
+			return true;
+		}
+		level++;
+	}
+
+	score = "Level " + level + "  " + (int) (scorePercent * 100) + "%  (" +
+           hitCount + " / " + numBallDrops + ")";
+
+	setColor(backgroundColor);
+	drawString(oldScore, true, false, 18, scoreX, scoreY);
+
+	setColor(scoreColor);
+	drawString(score, true, false, 18, scoreX, scoreY);
+
+	oldScore = score;
+
+	return false;
+}
+
+void showDirections() {
+	setColor(shipColor);
+	drawString("Look Out!", true, false, 40, 140, 50);
+	drawString("by Thomas Dunn", false, true, 16, 170, 70);
+
+	setColor(bombColor);
+
+	drawString("Catch the falling balls!  Move the paddle with", false, false, 16, 70, 170);
+	drawString("the left and right arrow keys.  You will only", false, false, 16, 80, 195);
+	drawString("advance to the next level if you've caught", false, false, 16, 81, 220);
+	drawString("50% or more.  See how far you can get!", false, false, 16, 84, 245);
+
+	setColor(shipColor);
+	drawString("Press any key to play", false, false, 20, 130, screenHeight - 40);					
+	readKey();
+	clearDrawing();	
+}

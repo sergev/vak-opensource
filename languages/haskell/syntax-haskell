@@ -1,0 +1,9 @@
+# Haskell mode for LE editor, by Serge Vakulenko <vak@cronyx.ru>
+/*.hs
+c3,1=--[^\n]*\n
+c3,1="([^"\\]|\\\\(.|\n))*"
+c1,4=([^[:alnum:]_]|^)(as|case|class|data|default|deriving|do|else|if\
+|import|in|infix|infixl|infixr|instance|let|module|newtype|of|qualified|return|then\
+|type|where\
+)([^[:alnum:]_]|$)
+c2,1=\(|\)|\[|\]|:|->|<-|=>|_|\.\.

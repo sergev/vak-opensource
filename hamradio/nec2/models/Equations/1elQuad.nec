@@ -1,0 +1,43 @@
+CM Equational model to calculate the perimeter length of a resonant quad loop.
+CM By L. B. Cebik, W4RNL (http://www.cebik.com/quad/quadloop.html)
+CE
+
+SY Fr=14.1 		' Enter Desired Frequency in MHz
+
+SY WD=2.05232	' Enter Wire Diameter in mm/inch/WL
+SY Hgh=0   '20	' Enter Average Quad height above ground in meters (feet)
+SY Rat=1		' Enter Length/height ratio for quad (square=1)
+
+SY Inp=mm			' Enable this line for diameter in mm
+'SY Inp=in			' Enable this line for diameter in inch
+'SY Inp=299.7925/Fr	' Enable this line for diameter in wavelengths
+
+SY D=(WD*Inp*FR)/299.7925	' Get wire diameter in wavelengths
+SY L=.4343*LOG(D*10^5)
+SY LL=L^2, LM=LL*.0128
+SY LN=LM+1.0413			' Perimeter Length in Wavelengths
+
+SY Scal=1				' Use this line if output dimensions in meters.
+'SY Scal=ft				' Use this line if output dimensions in feet.
+SY WL=299.7925/(Scal*Fr) 	' Wavelength in Meters/Feet
+
+SY PM=LN * WL			' Perimeter Length.
+SY Wr=D/2 * WL			' Wire radius.
+
+SY Lh= 1/2 * PM/(2+2*Rat)	' Horizontal half wire lenght
+SY Lv= Rat/2 * (PM/(2+2*Rat))	' Vertical half wire length
+
+GW	1	11	0	-Lh	HGH-Lv	0	Lh	HGH-Lv	Wr
+GW	2	11	0	Lh	HGH-Lv	0	Lh	HGH+Lv	Wr	
+GW	2	11	0	Lh	HGH+Lv	0	-Lh	HGH+Lv	Wr
+GW	3	11	0	-Lh	HGH+Lv	0	-Lh	HGH-Lv	Wr
+
+GS	0	0	Scal	
+GE
+LD	5	0	0	0	58000000	' Copper wire
+EX	0	1	6	0	1	0
+'GN	2	0	0	0	13	0.005
+
+FR	0	1	0	0	Fr	0
+EN	
+	

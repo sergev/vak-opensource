@@ -1,0 +1,17 @@
+--------------------------------------------------------------------------------
+--
+--   AMD2910 Benchmark
+--
+-- Source:  AMD data book
+--
+-- author: Indraneel Ghosh
+--         University Of California, Irvine, CA 92717
+--
+-- Written on Feb19, 1992
+--
+--------------------------------------------------------------------------------
+
+ The "PC" block models the microprogram counter. 
+
+ To test it, we load all 0's and all 1's in it. To test the increment 
+ function, we test the carry ripple through each of the 12 bits.

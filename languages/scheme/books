@@ -1,0 +1,60 @@
+IEEE Std 1178-1990,
+IEEE Standard for the Scheme Programming Language,
+Institute of Electrical and Electronic Engineers, Inc.,
+New York, NY, 1991
+
+R. Kent Dybvig, The Scheme Programming Language,
+Prentice-Hall Inc, Englewood Cliffs, New Jersey 07632, USA
+
+H. Abelson, G. J. Sussman, and J. Sussman,
+Structure and Interpretation of Computer Programs,
+The MIT Press, Cambridge, Massachusetts, USA, 1985
+
+Michael Eisenberg. Harold Abelson, editor.
+Programming in Scheme.
+Scientific Press, Redwood City, California, 1988.
+
+Daniel P Friedman and Matthias Felleisen.
+The Little LISPer.
+Science Research Associates, second edition 1986.
+
+George Springer and Daniel P. Friedman.
+Scheme and the Art of Programming.
+MIT Press and McGraw-Hill, 1989.
+
+Guy Lewis Steele Jr.
+Common Lisp: The Language.
+Digital Press, Burlington MA, 1984.
+
+Gerald Jay Sussman.
+Lisp, programming and implementation.
+In Functional Programming and its Applications.
+Darlington, Henderson, Turner, editor.
+Cambridge University Press, 1982.
+
+Joseph E. Stoy.
+Denotational Semantics: The Scott-Strachey Approach
+to Programming Language Theory.
+MIT Press, Cambridge, 1977.
+
+Backus J. Can programming be liberated from the von Neumann style?
+A functional style and its algebra of programs.
+CACM 21,8, Aug. 1978.
+
+McCarthy J. Recursive functions of Symbolic Expressions 
+and Their Computation by Machine.
+CACM, 3(4), 1960.
+
+McCarthy J. et al. LISP 1.5 programmer's manual.
+MIT Press, Cambridge, 1963.
+
+Mads Tofte. Four Lectures on Standard ML.
+ECS-LFCS-89-73.
+ 
+Chris Reade. Elements of Functional Programming.
+Addison Wesley, 1989.
+    
+Lawrence C. Paulson. ML for the Working Programmer.
+Cambridge University Press, 1991.
+
+The Definition of Standard ML, Version 3.

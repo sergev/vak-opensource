@@ -1,0 +1,254 @@
+<html>
+<head>
+
+
+<style type="text/css">
+b.test  {
+  color : #ffffff ;
+  background:#ff9900;
+}
+pre {
+  font-family:courier, courier new, monospaced, sans-serif ;
+  color:#cc0000;
+}
+
+
+</style>
+</head>
+
+<body>
+
+
+
+<p><b>Start Now !</b>
+</p>
+<p>
+Start by writing in the top text box
+<pre>
+
+ 	void main() {
+
+	}
+
+</pre>
+This is the core inside which we start to program. Every program must go inside a
+void main() function which is followed by curly brackets {   }
+</p>
+
+<p> <b>Statements</b> are :
+<ul>
+<li>Single executable actions.</li>
+<li>	They usually end with a semi-colon ( ; )</li>
+</ul>
+
+<p><b>Functions </b>are calls to action , they do something. 	<br>
+eg printLine("this"); 		// prints out "this"			<br>
+main() 					// makes the whole program execute	<br>
+readInt()				// reads in an integer typed in by a user
+</p>
+
+<p class="head">Variables</p><br>
+Variables are divided into different sections.
+They stand for a value and can be changed by the program.
+They must be declared what type they are at the start of a program.
+Notice after each line or statement is finished with a semi-colon ( ; ) .
+</p>
+
+Rules for variables:
+<ul>
+<li>	The first character must be a letter, not a number. </li>
+<li>	Remaining positions can be filled with numbers or letters and "_" </li><li>
+		Don't have any spaces
+</li><li>	Variables are case-sensitive. They must be written the same way every time. e.g. Price is not the same as price
+</li><li>	It is usual for variables to start with a lower-case letter and any subsequent words be capitalized. e.g. costPrice, sellingPrice, myAge , theNumber.
+</li><li>	Make variables names understandable.
+		Use real words that describe what it does.
+		e.g. rectangleWidth, boxLength, carSpeed, cricketScore .
+</li></ul>
+
+These variable names are illegal : 2formula,   24_Cost,   egg Cost .
+
+<p>
+<b>Exercises </b><br>
+1. which of these variable names are legal ?<br>
+ a.  result  b. Product1  c.  a  d.  textbox  e. text1  f.  field_2  g. stackDepth  h. ball Speed
+ </p>
+
+<p><b class="cutout">Declaration</b><br>
+All variables must be declared. That is, they must tell the compiler what type of data they are
+(datatype). Datatypes can be a number such as int or double. Or text such as a String.
+Or a true/false datatype called a boolean.<br>
+These are declarations: <br>
+	<pre>
+	int myAge;
+	double price;
+	String myName;
+	boolean likesJava;
+	</pre>
+	</p>
+<p>
+<b class="test">Initialization</b><br>
+Initialization must be done after the declaration. Its purpose is to give a value to the variable.
+If given no value, Java assumes that the value is <code>0</code>, or false for a boolean.<br>
+Here are examples of initialization:<br>
+<pre>
+	myAge     = 14;
+	price     = 12.95;
+	myName    = "Fred Durst";
+	likesJava = false;
+</pre>
+	</p>
+<p>
+Variables can be declared and initialized in the one line:</p>
+<pre>
+	int myAge         = 14;
+	double price      = 12.95;
+	String myName     = "Fred Durst";
+	boolean likesJava = false;
+</pre>
+
+<p>
+Declaration and initialization should be done at the top of the program before
+the variables are used.
+</p>
+<p>
+<b>Number Variables</b><br>
+<span class="cutout">  int </span>- integer or whole numbers such as 3, 9, 32, 456<br>
+<pre>
+	int age = 9;
+	int year = 2003;
+</pre>
+</p>
+<p>
+ <span class="cutout"> double </span>-
+ numbers with a decimal point in them such as   1.00 ,   34.54,    234.07<br>
+ <pre>
+	double price = 12.45;
+	double pi = 3.412;
+</pre>
+
+<p>
+<b>Text Variables</b><br>
+<span class="cutout"> String
+<br></span>- a sequence of characters or letters such as "a&nbsp;string&nbsp;of&nbsp;text", "Steve&nbsp;Happ", "GameBoy&nbsp;3.34". <br>
+- Strings are always enclosed inside Quotation marks  -  " ". <br>
+<pre>
+
+	String myName = "Steve Happ";
+	String gameType = "Shoot 'em up";
+
+</pre>
+</p>
+
+<p>
+<b>Truth Variables</b><br>
+<span class="cutout"> boolean </span>
+ - is either "true" or "false" <br>
+
+ <pre>
+	boolean isLearningJava = true;
+	boolean likesIceCreams = false;
+</pre>
+(Just joking ! )<br>
+</p>
+
+<p>
+<b>Color Variables</b><br>
+<span class="cutout"> Color </span>
+<br>
+
+ <pre>
+	Color shirtColor = red;
+	Color myCatColor = yellow;
+</pre>
+
+</p>
+
+<h3>Comments</h3>
+
+Comments start a line with "//" . They are not executed. They are inserted by the programmer to
+explain what she is doing. And when coming back later, you or another programmer can quickly
+follow what has been done.
+Now lets write a program that uses these ideas.<br>
+<pre>
+	void main() {
+		// declaration and initialization of variables
+		int sum = 4 + 3;
+		double price =  12.34;
+		String book = "Learning Java";
+		String name = "Steve Happ";
+
+		// do the programming work
+		printLine("Attention Computer Book Shop");
+		printLine("I want to buy " + sum + book +
+		" at the price of $" + price);
+		printLine("Yours Sincerely");
+		printLine(name);
+	}
+
+</pre><br>
+
+Type in the above code (in red) into the code window and press the "Run" button.
+What did you get ?
+
+<p>
+<b>Notes on program above</b><br>
+</p>
+<ol><li>See that I have used   ( // ) in some lines at the start. These are comments
+and are not read when the code runs. They are meant to be notes to oneself to help remember
+what you are doing throughout the code and for others to be able to follow what you have written.
+They also break up the program into structural chunks .<br>
+<pre>
+	// this is a line of comment
+	// and will not be processed
+	// it is used for reminders to oneself
+	// and for structural purposes
+</pre></li>
+<li> printLine is a command which does what ?
+Good guess ! It prints a line out .
+The usage is as follows: <br>
+<pre>
+	printLine("Whatever is between the quotes will be printed") ;
+</pre></li>
+<li> When you want to print a section of text and follow it with a variable you use the "+" character.
+As in :<br>
+<pre>
+	printLine("My name is " + name);
+</pre><br>
+This will print out :<br>
+
+	My name is Steve Happ
+<br>
+Sorry, I left out a period. So I must add a "." with a "+" after name.
+Here is what it will look like:<br>
+<pre>
+	printLine("My name is " + name + ".") ;
+</pre><br>
+Try this :<br>
+<pre>
+	printLine("My name is " + name + ", and my age is " + age) ;
+</pre><br>
+Whoops! I forgot the period again. You fix up my mistake.
+</li></ol>
+
+<h3>Key words</h3>
+<p>These words are reserved--you cannot use any of these words as names of variables in your programs.
+</p>
+
+<table>
+<tr><td>abstract	</td><td>double	</td><td>	int		</td><td>	strictfp</td></tr>
+<tr><td>boolean		</td><td>else	</td><td>	interface</td><td>	super</td></tr>
+<tr><td>break		</td><td>extends</td><td>	long</td><td>		switch</td></tr>
+<tr><td>byte		</td><td>final	</td><td>	native	</td><td>	synchronized</td></tr>
+<tr><td>case		</td><td>finally</td><td>	new		</td><td>	this</td></tr>
+<tr><td>catch		</td><td>float	</td><td>	package	</td><td>	throw</td></tr>
+<tr><td>char		</td><td>for	</td><td>	private	</td><td>	throws</td></tr>
+<tr><td>class		</td><td>goto 	</td><td>	protected</td><td>	transient</td></tr>
+<tr><td>const 		</td><td>if		</td><td>	public	</td><td>	try</td></tr>
+<tr><td>continue	</td><td>implements</td><td>return	</td><td>	void</td></tr>
+<tr><td>default		</td><td>import	</td><td>	short	</td><td>	volatile</td></tr>
+<tr><td>do			</td><td>instanceof</td><td>static	</td><td>	while</td></tr>
+</table>
+
+</body>
+</html>

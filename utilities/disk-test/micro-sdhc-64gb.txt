@@ -1,0 +1,91 @@
+1) Изначально карточка монтировалась как:
+
+    $ df
+    Filesystem                     1K-blocks       Used  Available Use% Mounted on
+    /dev/sdc1                       65503264         32   65503232   1% /media/sergev/F0E9-334E
+
+
+2) Создаём файловую систему ext2:
+
+    # mkfs.ext2 /dev/sdc1
+    mke2fs 1.42.9 (4-Feb-2014)
+    Filesystem label=
+    OS type: Linux
+    Block size=4096 (log=2)
+    Fragment size=4096 (log=2)
+    Stride=0 blocks, Stripe width=0 blocks
+    4096000 inodes, 16379818 blocks
+    818990 blocks (5.00%) reserved for the super user
+    First data block=0
+    Maximum filesystem blocks=4294967296
+    500 block groups
+    32768 blocks per group, 32768 fragments per group
+    8192 inodes per group
+    Superblock backups stored on blocks:
+        32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632, 2654208,
+        4096000, 7962624, 11239424
+
+    Allocating group tables: done
+    Writing inode tables: done
+    Writing superblocks and filesystem accounting information: done
+
+Проверяем файловую систему:
+
+    # fsck -f /dev/sdc1
+    fsck from util-linux 2.20.1
+    e2fsck 1.42.9 (4-Feb-2014)
+    Pass 1: Checking inodes, blocks, and sizes
+    Inode 516097 has EXTENTS_FL flag set on filesystem without extents support.
+    Clear<y>?
+
+И дальше много таких ошибок.
+
+
+3) Создаём файловую систему ext4:
+
+    # mkfs.ext4 /dev/sdc1
+    mke2fs 1.42.9 (4-Feb-2014)
+    Filesystem label=
+    OS type: Linux
+    Block size=4096 (log=2)
+    Fragment size=4096 (log=2)
+    Stride=0 blocks, Stripe width=0 blocks
+    4096000 inodes, 16379818 blocks
+    818990 blocks (5.00%) reserved for the super user
+    First data block=0
+    Maximum filesystem blocks=4294967296
+    500 block groups
+    32768 blocks per group, 32768 fragments per group
+    8192 inodes per group
+    Superblock backups stored on blocks:
+        32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632, 2654208,
+        4096000, 7962624, 11239424
+
+    Allocating group tables: done
+    Writing inode tables: done
+    Creating journal (32768 blocks): done
+    Writing superblocks and filesystem accounting information: done
+
+Проверяем файловую систему:
+
+    # fsck -f /dev/sdc1
+    fsck from util-linux 2.20.1
+    e2fsck 1.42.9 (4-Feb-2014)
+    Superblock has an invalid journal (inode 8).
+    Clear<y>?
+    *** ext3 journal has been deleted - filesystem is now ext2 only ***
+
+    Superblock has_journal flag is clear, but a journal inode is present.
+    Clear<y>? yes
+    Pass 1: Checking inodes, blocks, and sizes
+    Journal inode is not in use, but contains data.  Clear<y>? yes
+    Pass 2: Checking directory structure
+    Pass 3: Checking directory connectivity
+    Pass 4: Checking reference counts
+    Pass 5: Checking group summary information
+    Block bitmap differences:  -(2105376--2129919) -(2629664--2654207) -(3153952--3178495) -(3678240--3702783) -(4202528--4227071) -(4726816--4751359) -(5251104--5275647) -(5775392--5799935) -(6299680--6324223) -(6823968--6848511) -(7348256--7372799) -(7872544--7929855) -(8396832--8421375) -(8921120--8945663) -(9445408--9469951) -(9969696--9994239) -(10493984--10518527) -(11018272--11042815) -(11542560--11567103) -(12066848--12091391) -(12591136--12615679) -(13115424--13139967) -(13639712--13664255) -(14164000--14188543) -(14688288--14712831) -(15212576--15237119) -(15736864--15761407) -(16252932--16252943) -(16252948--16252959) -(16255008--16285695) -(16351232--16379817)
+    Fix<y>? yes
+    Free blocks count wrong for group #241 (0, counted=32768).
+    Fix<y>?
+
+И так далее.

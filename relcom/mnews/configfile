@@ -1,0 +1,10 @@
+#
+# Конфигурационный файл почтового сервера Usenet.
+#
+
+mailbox         = /usr/spool/mail/news
+servdir         = /usr/spool/mailnews
+logfile         = /usr/spool/mailnews/logfile
+
+# Почтовый ящик опрашивается один раз в минуту.
+daemondelay     = 60

@@ -1,0 +1,24 @@
+CM K6NA - 4-Element W1CF Phased-Vertical Array
+CE converted with 4nec2 from AO to 4nec2 format on 22-apr-02
+SY S = 45.78 ft
+GW	1	5	-S	0	0	-S	0	61ft	1in
+GW	2	5	0	-S	0	0	-S	61ft	1in
+GW	3	5	0	S	0	0	S	61ft	1in
+GW	4	5	S	0	0	S	0	61ft	1in
+GE	1
+SY I1 = 1
+SY I23 = 1
+SY I4 = 1
+SY P1 = 0
+SY P23 = -90
+SY P4 = -180
+EX	6	1	1	00	1.0	0.0
+EX	6	2	1	00	.0	-1.0
+EX	6	3	1	00	.0	-1.0
+EX	6	4	1	00	-1.0	-.0
+'
+GN	0	0	0	0	13	.005
+FR	0	1	0	0	 3.8
+EN
+
+'From the arrl antenna anthology, vol. 1.

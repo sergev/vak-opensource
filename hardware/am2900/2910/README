@@ -1,0 +1,100 @@
+--------------------------------------------------------------------------------
+--
+--   AMD 2910 Benchmark
+--
+-- Source:  AMD data book
+--
+-- VHDL Benchmark author Indraneel Ghosh
+--                       University Of California, Irvine, CA 92717
+--
+-- Developed on Feb 19, 1992
+--
+--------------------------------------------------------------------------
+
+THIS DIRECTORY HAS THE FOLLOWING FILES :
+
+( NOTE: These files, especially the test vectors, pertain to both
+        sub-directories mentioned below. )
+
+am2910.doc          :  This file contains a brief description of the Am2910
+                       chip.
+
+am2910.ps           :  This is a postscript file containing the block diagram 
+                       of Am2910
+
+MVL7_functions.vhd  :  This file contains some VHDL functions used in the
+		       models.
+
+types.vhd           :  This file contains the public domain MVL7 functions
+
+synthesis_types.vhd :  This file contains some VHDL data types used in the
+		       models, to facilitate synthesis.
+
+test_vectors.bits   :  This file contains "bit_format" test vectors for the
+                       models of Am2901. 
+
+trans.c             :  This is a C program that will translate test vectors
+                       from "bit_format" to VHDL.
+
+test_vectors_2910.vhdl : This file contains the VHDL (translated) test vectors
+  		       for the models of Am2910. In order to simulate it on
+		       the Zycad ( Version 1.0a) simulator, the model is
+		       instantiated in this file as a component. The test
+		       vectors are statements inside a VHDL process.
+
+test_vectors.doc    :  This is a documentation files on the test vectors,
+
+cmd.inc             :  This is a command file used by the ZYCAD simulator 
+                       ( Version 1.0a) while running the test vectors on any of
+                       the models.
+             
+THIS DIRECTORY HAS THE FOLLOWING SUB-DIRECTORIES :
+
+alg_beh             :  This contains the file in which the Am2910 is modeled as
+                       a single VHDL process.
+
+funct_block_alg_beh :  This contains the file in which the Am2910 is partitioned
+                       into functional blocks and the blocks are modeled using 
+                       their algorithmic behaviour.
+           				
+--------------------------------------------------------------------------
+
+******************************************************************************
+
+ RUNNING THE TEST VECTORS ON THE MODELS USING THE ZYCAD SIMULATOR:
+
+******************************************************************************
+
+ **** Running test_vectors on the whole chip ****
+
+ For example, let us try to run the test vectors on the model contained in
+ file "funct_block_alg_beh/funct_block_alg_beh2910.vhdl". This is a model of the whole chip.
+							
+     (i) Compile the MVL7 public domain VHDL functions file by typing 
+          " zvan types.vhd"
+
+    (ii) Compile the VHDL functions file by typing 
+          " zvan MVL4_functions.vhd"
+
+   (iii) Compile the VHDL types file by typing 
+          " zvan synthesis_types.vhd"
+
+    (iv) Compile the VHDL model file by typing 
+          " zvan funct_block_alg_beh2910.vhdl"
+
+     (v) Compile the VHDL test-vectors file by typing 
+          " zvan test_vectors.vhdl"
+
+    (vi) Compile the VHDL test-vectors file by typing 
+           " zvsim -t ns -i cmd.inc E".
+         
+         The simulation output will appear in a file called "run.out".
+         If there are any errors in simulation, "Assert" statements 
+	 will appear in this file, mentioning the port at which the 
+	 error occurred and the expected value.
+
+
+
+
+
+

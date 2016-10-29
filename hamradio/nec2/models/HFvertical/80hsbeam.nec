@@ -1,0 +1,36 @@
+CM 80hsbeam.nec, Half-Square Parasitic beam by L.B. Cebik
+CM Fixed values replaced by variables for optimization.
+CE
+'
+SY dY = 12.678
+sy hgh = 31.0444, rad=.00103
+'sy hgh = 22.0444, rad=.00103
+sy len = 42.22, sln=21.607
+'
+GW	1	11	-len/2	0.	hgh-sln	-len/2	0.	hgh	rad
+GW	2	22	-len/2	0.	hgh	len/2	0.	hgh	rad
+GW	3	11	len/2	0.	hgh	len/2	0.	hgh-sln	rad
+GW	4	11	-len/2	-dy	hgh-sln	-len/2	-dy	hgh	rad
+GW	5	22	-len/2	-dy	hgh	len/2	-dy	hgh	rad
+GW	6	11	len/2	-dy	hgh	len/2	-dy	hgh-sln	rad
+GE	1
+'
+SY Xc=50
+LD	4	4	11	11	0.	Xc
+'
+SY Cu=5.747e7
+'LD	5	1	0	0	Cu
+'LD	5	2	0	0	Cu
+'LD	5	3	0	0	Cu
+'LD	5	4	0	0	Cu
+'LD	5	5	0	0	Cu
+'LD	5	6	0	0	Cu
+LD	5	0	0	0	Cu	' To replace all above LD
+'
+FR	0	1	0	0	3.51	
+'
+GN	2	0	0	0	13.	.005
+'
+EX	0	1	11	0	1	0
+EX	0	2	1	0	1	0
+EN

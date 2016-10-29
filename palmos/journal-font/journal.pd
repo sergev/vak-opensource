@@ -1,0 +1,27 @@
+file
+	filename = "Journal Fonts for PiLoc";
+	attrib = resource;
+	typeid = 'russ';
+	creatorid = 'PFNT';
+begin
+	resource
+		typeid = 'cprt';
+		id = 2004;
+	begin
+		"Copyright (C) 2004 Serge Vakulenko, <vak@cronyx.ru>"
+	end;
+
+	resource
+		typeid = 'afnx';
+		id = 9000;
+	begin
+		includebin normal.bin
+	end;
+
+	resource
+		typeid = 'afnx';
+		id = 9001;
+	begin
+		includebin bold.bin
+	end;
+end;

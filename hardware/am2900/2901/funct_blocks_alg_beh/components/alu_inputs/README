@@ -1,0 +1,46 @@
+--------------------------------------------------------------------------------
+--
+--   AM2901 Benchmark  -- Alu inputs component
+--
+-- Source: AMD data book
+--
+-- VHDL Benchmark author Indraneel Ghosh
+--                       University Of California, Irvine, CA 92717
+--
+-- Developed on Nov 1, 1991
+--
+--------------------------------------------------------------------------------
+
+THIS DIRECTORY CONTAINS THE FOLLOWING FILES :
+
+alu_inputs.vhdl    :  File containing the funct_block_alg_beh "alu_inputs" in 
+                      "funct_block_alg_beh2901.vhdl".
+
+test_vectors.vhdl :  Simulation test vector file for "alu_inputs"
+
+test_vectors_alu_inputs.doc  :  Documentation on test vectors in "test_vectors_alu_inputs.vhdl"
+
+cmd_alu_inputs.inc :  Simulation command file for "alu_inputs"
+
+
+NOTE : 
+
+     To run simulation on Zycad ( Version 1.0) Simulator :
+
+     Run the following commands in the order given below.
+
+         zvan types.vhd
+
+         zvan MVL7_functions.vhd
+
+         zvan alu_inputs.vhdl 
+
+         zvan test_vectors.vhd
+
+         zvsim -t ns -i cmd_alu_inputs.inc E
+
+      As in other cases, the simulation results will be stored in file
+
+        "run.out"
+  
+

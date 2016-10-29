@@ -1,0 +1,10 @@
+CM 80m Vertical Polarized 2 Element by HB9SL
+CE
+sy len=39.4
+GW 1 21 -len 0  2.706877 0 0 15.2  .00125
+GW 2 21 0 0 15.2 len 0  2.706877  .00125
+GE 1
+EX 0 2  11  0  1.0 0.0
+GN 2 0 0 0 13  0.005 0.0 0.0
+FR 0 1 0 0 3.55 1
+EN

@@ -1,0 +1,71 @@
+<HTML>
+<BODY>
+<TABLE cellSpacing=0 cellPadding=3 width="100%" border=1>
+<TBODY>
+<TR class=TableHeadingColor bgColor=#ccccff>
+<TD><FONT size=+2><B>Graphics</B></FONT></TD></TR>
+</TBODY>
+</TABLE>
+<p>
+<strong>Graphical programs are Fun!</strong>
+<p>
+Writing a program with graphics means that it puts shapes and colors on the screen.
+You could write a program that draws a clown face, or a pattern of colorful rectangles.
+Or you could write a program that bounces a ball around the screen.
+<p>
+If you put the command <code>fillCircle(50, 70, 40);</code> in a program, it will draw
+a circle 50 points (or pixels) away from the left edge of the screen, 70 pixels down from
+the top of the screen, and the circle will have a radius of 40 pixels.
+<p>
+If you set the color before you call <code>drawCircle</code> using the command
+<code>setColor(purple);</code> it will draw a purple circle.
+<p>
+As you can see from the example, you specify where a shape should go by specifying how far over from
+the left edge of the screen and how far down from the top edge of the screen it is.
+<p>
+You can also have your program set what the color of its background should be by using the command
+<code>setBackgroundColor</code>.  If you want to set the background to yellow, put the call 
+<code>setBackgroundColor(yellow);</code> in your program.
+<p>
+The difference between <code>drawCircle</code> and <code>fillCircle</code>, and between any of the <code>draw</code> and <code>fill</code> 
+functions, is that <code>draw</code> just paints an outline of the shape while <code>fill</code> fills the whole shape in.
+<p>
+Below is a sample program using what we have learned.  Type it into JUDO and compare what pops up
+on the screen with what your code says.
+<code>
+<pre>
+void main() {
+   setBackgroundColor(yellow);
+
+   setColor(purple);
+   fillCircle(50, 70, 40);
+
+   setColor(red);
+   drawRectangle(60, 90, 70, 290);
+
+   setColor(pink);
+   fillRectangle(70, 250, 250, 100);
+}
+</pre>
+</code>
+
+<p>
+The above program produces this output:<br>
+<img src="graphicsProgram.gif">
+
+<p>
+Something you may want to do is add delays to your program.  Say in between drawing a couple
+of lines or rectangles you want your program to wait for half a second, you can call
+the <code>delay(0.5)</code>.  When you call <code>delay</code> you should use a <code>double</code> value representing
+how many seconds you want the program to wait before going on.
+<p>
+You can view the <a href="JUDOAppAPI.html#graphics">Graphics functions in the JUDO
+Functions Reference</a>.<br>
+If you need a list of the colors you can use in JUDO, see the <a href="JUDOColorValues.html">JUDO Color Values Reference</a>.
+
+<p>
+<center>
+<a href="Declarations.html"><img src="Back24.gif" border="0"> Back to Declarations</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="InputOutput.html">Forward to Input/Output <img src="Forward24.gif" border="0" align="middle"></a>
+</center>
+</BODY>
+</HTML>

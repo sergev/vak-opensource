@@ -1,0 +1,16 @@
+CM VDP 40m with Bottom LOAD
+CE
+sy hgh=14.8
+sy len=10.4
+GW 1 20 0.0 0.0  hgh 0.0 0.0  hgh+Len  .001
+GE 1
+
+sy L=11.88uH
+LD 6 1 11 11 100 L
+LD 6 1  9  9 100 L
+
+GN 2 0 0 0 13  0.005 0.0 0.0
+FR 0 1 0 0 7.01 1
+EX 0 1  10  0  1.0 0.0
+
+EN

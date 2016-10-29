@@ -1,0 +1,22 @@
+file
+	filename = "Sony";
+	attrib = backup;
+	typeid = 'Font';
+	creatorid = 'Font';
+begin
+	record begin
+		includebin g-22x22.pft
+	end;
+
+	record begin
+		includebin h-34x22.pft
+	end;
+
+	record begin
+		includebin i-26x28.pft
+	end;
+
+	record begin
+		includebin l-24x30.pft
+	end;
+end;

@@ -1,0 +1,3 @@
+30 1,13      * * * /usr/spool/newsserv/bin/backup
+7  *         * * * /usr/spool/newsserv/bin/newnews
+3  6,12,18,0 * * * /usr/spool/newsserv/bin/notify

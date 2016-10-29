@@ -1,0 +1,22 @@
+CM G5RV 80m,40m,20m,15m,10m
+CM (use auto-segmentation for higher bands)
+CE
+GW 1 29 0.0 -15.5  15.2 0.0 -.075  15.2  .0015
+GW 2 29 0.0  15.5  15.2 0.0  .075  15.2  .0015
+GW 3 1 0.0 -.075  5.0 0.0  .075  5.0  .0015
+
+GW 4 40 0.0 -.075  15.2 0.0 -.075  5.0  .0015	' Use wire 4 and 5
+GW 5 40 0.0  .075  15.2 0.0  .075  5.0  .0015	' for feedline...
+
+'GW 6 1 0.0 -.075 15.2 0.0 .075 15.2 .0015	' Or use wire 6
+GE 0						' with below TL
+
+'SY Z0=450, Vf=0.98	' Set Z0, Vf
+'SY RFlen=(15.2-5)/Vf	' Get electrical length.
+'TL 3 1 6 1 Z0 RFlen	' Create TL
+
+GN 2 0 0 0 13 .005
+EX 0 3  1  0  1.0 0.0
+FR 0 1 0 0 14.05 1
+
+EN

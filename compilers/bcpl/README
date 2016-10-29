@@ -1,0 +1,53 @@
+README: bcpl
+
+
+This is a port to V7/x86 of an old BCPL compiler from the Tripos
+Research Group at Cambridge University.  The compiler available
+here is very close to that featured in the book: BCPL -- the language
+and its compiler by Martin Richards and Colin Whitby-Stevens
+(Cambridge: Cambridge University Press, 1979).
+
+The port includes both an INTCODE interpreter and an INTCODE to
+x86 native code generator.
+
+The compiler driver accepts a -O option, and will attempt to invoke
+copt, the general purpose peephole optimizer by Chris Fraser, if
+this is given.  You should note, however, that the supplied copt
+rules file is out of date, and will need to be revised for the
+syntax used by the V7 assembler (no '%'s before register names).
+So, unless you particularly want to experiment with optimization,
+probably the easiest approach is simply not to specify -O when
+invoking the BCPL compiler.
+
+The compiler is installed to /usr/lib/bcpl on V7/x86.  Untar the
+distribution file to a temporary directory, change to bcpl-*/src,
+and enter
+
+    % make
+
+followed by (as root)
+
+    % make cp
+
+You can then change to bcpl-*/util and compile and run the cmpltest
+utility, to verify that all is in order:
+
+    % bcpl cmpltest.b
+
+    BCPL 12062
+
+    TREE SIZE 4772
+
+    PHASE 1 COMPLETE
+
+    PROGRAM LENGTH = 1840
+    % ./cmpltest
+
+    [...]
+
+    119 TESTS COMPLETED, 0 FAILURE(S)
+    % _
+
+
+Robert Nordier
+www.nordier.com

@@ -1,0 +1,21 @@
+--------------------------------------------------------------------------------
+--
+--   AMD2910 Benchmark
+--
+-- Source:  AMD data book
+--
+-- author: Indraneel Ghosh
+--         University Of California, Irvine, CA 92717
+--
+-- Written on Feb19, 1992
+--
+--------------------------------------------------------------------------------
+
+ The "stack_and_sp" block includes the stack register file and the stack
+ pointer.
+
+ In testing this block, we do five successive PUSHes and then, five 
+ successive POPs, to test all locations of the register file. We use
+ two sets of such vectors to test for stuck-at-0 and stuck-at-1 faults.
+
+ The signal FULL_BAR is also tested to see if the stack is full.

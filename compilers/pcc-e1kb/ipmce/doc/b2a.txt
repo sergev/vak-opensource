@@ -1,0 +1,168 @@
+                            - 14 -
+
+                       T A â ì é ã A    1 .    APéæMETéþECKéE é ìOçéþECKéE KOMAHäù  OCHOBHOçO æOPMATA.
+
+
+¥          ¶                      ¶                                               ¶        ¶          ¶          ¶          ¨
+¡ KOMAHäA       HAéMEHOBAHéE                     æ õ H K ã é ñ                  ðPéúHAKé ìéô.ìïç.  ìéô.ãåì. KOMðOHEHT.¡
+¡                                                                                        KOMAHäA   KOMAHäA   KOMAHäA  ¡
+±    1     ¼          2           ¼                      3                        ¼   4    ¼    5     ¼    6     ¼    7     µ
+¡                                                                                                                     ¡
+¡ 00 úð     úAðéCø                ð [AéCð]:= CM                                     ú                        60 úð+   ¡
+¡ 01 úðM    úAðéCø é þTEH.éú MAç. ð [AéCð]:= CM; S:= S - 1; CM:= ð [S]           &C                          61 úðM+  ¡
+¡ 02 CþH    CþéT.HEêTPAìøHOE      CM:= ð [AéCð]                                   C þ              42 CþHã   62 CþH+  ¡
+¡ 03 CþM    CþéTùBAHéE MAçAúéHHOE ð [S]:= CM; S:= S + 1; CM:= ð [AéCð]           &C      43 CþìM   41 CþãM   63 CþM+  ¡
+°€€€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€Š€€€€€€€€€€Š€€€€€€€€€€Š€€€€€€€€€€´
+¡ 04 Cì     CìOöEHéE              CMä:= CM + ð [AéCð]                            *äOþ              44 Cìã    64 Cì+   ¡
+¡ 05 Bþ     BùþéTAHéE             CMä:= CM - ð [AéCð]                            *äOþ              45 Bþã    65 Bþ+   ¡
+¡ 06 BþOâ   BùþéTAHéE OâPATHOE    CMä:= ð [AéCð] - CM                            *äOþ              46 BþOâã  66 BþOâ+ ¡
+¡ 07 BþAâ   BùþéTAHéE AâC.BEìéþéH CMä:= ABS (CM) - ABS (ð [AéCð])                *äOþ              47 BþAâã  67 BþAâ+ ¡
+°€€€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€Š€€€€€€€€€€Š€€€€€€€€€€Š€€€€€€€€€€´
+¡ 08 Cþ     CþéTùBAHéE            CM:= ð [AéCð]                                  &C þ    48 Cþì    40 Cþã    68 Cþ+   ¡
+¡ 09 é      ìOçéþECKOE "é"        CM:= CM & ð [AéCð]                             &C þ    49 éì               69 é+    ¡
+¡ 0A HTö    HETOöäECTBEHHOCTø     PMP:= CM; CM:= CM # ð [AéCð]                   &ä þ    4A HTöì             6A HTö+  ¡
+¡           (CìOöEHéE ðO MOä. 2)                                                                                      ¡
+¡ 0B CìK    CìOöEHéE KOHTPOìøHOE  Pö<6>=0 => CM:=CM+ð[AéCð] (64 PP.C OâPEúAHéEM) &ä þ    4B CìKì             6B CìK+  ¡
+¡                                 Pö<6>=1 => CM:= CM ++ ð [AéCð]                                                      ¡
+¡                                 PMP:= 0; Pö<4>:= 'BOúHéKAì ðEPEHOC éú 64 P.'                                        ¡
+°€€€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€Š€€€€€€€€€€Š€€€€€€€€€€Š€€€€€€€€€€¡
+¡ 0C éú     éúMEHEHéE úHAKA       CMä:= CM * SIGN (ð [AéCð])                     *äOþ              4C éúã    6C éú+   ¡
+¡ 0D éìé    ìOçéþECKOE "éìé"      CM:= CM  ð [AéCð]                             &C þ    4D éìéì             6D éìé+  ¡
+¡ 0E äEì    äEìEHéE               CM:= CM / ð [AéCð]                             *äHþ                        6E äEì+  ¡
+¡ 0F õMH    õMHOöEHéE             CM:= CM * ð [AéCð]                             *äOþ              4F õMHã   6F õMH+  ¡
+°€€€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€Š€€€€€€€€€€Š€€€€€€€€€€Š€€€€€€€€€€¡
+¡ 10 CâP    CâOPKA                PAúPñäù CM, COOTBETCTBõàýéE "1" B ð [AéCð],    &C þ    50 CâPì             70 CâP+  ¡
+¡                                 ðEPEHOCñTCñ B CTAPûéE PAúPñäù CM.                                                   ¡
+¡                                 MìAäûéE PAúPñäù CM çACñTCñ.                                                         ¡
+¡ 11 Púâ    PAúâOPKA              OðEPAãéñ, OâPATHAñ K OðEPAãéé 10 (CâP)         &C þ    51 Púâì             71 Púâ+  ¡
+¡ 12 þEä    BùþéCì.þéCìA EäéHéã   X    þéCìO EäéHéã HA CM; CM:= X ++ ð [AéCð]    &C þ    52 þEäì             72 þEä+  ¡
+¡ 13 HEä    BùþéCìEHéE HOMEPA     X    HOMEP ìEBOê EäéHéãù (64P=>1,1P=>64,0=>0)  &ä þ    53 HEäì             73 HEä+  ¡
+¡           CTAPûEê EäéHéãù       CM:= X ++ ð [AéCð]; PMP:= "OCTATOK" CM                                              ¡
+°€€€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€Š€€€€€€€€€€Š€€€€€€€€€€Š€€€€€€€€€€¡
+¡ 14 Cìðð   CìOöEHéE ðOPñäKA C    CM<64:54>:= CM<64:54>+ð[AéCð]<64:54>-400H;     *äHþ                        74 Cìðð+ ¡
+¡           ðOPñäKOM              PMP:= 0                                                                             ¡
+¡ 15 Bþðð   BùþéTAHéE ðOPñäKA éú  CM<64:54>:= CM<64:54>-ð[AéCð]<64:54>+400H;     *äHþ                        75 Bþðð+ ¡
+¡           ðOPñäKA               PMP:= 0                                                                             ¡
+¡ 16 Cäðð   CäBéç ðPAB.ðO ðOPñäKõ CMä:= CM >> ð [AéCð]<64:54>                    &ä þ                        76 Cäðð+ ¡
+°€€€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€Š€€€€€€€€€€Š€€€€€€€€€€Š€€€€€€€€€€¡
+¡ 1E Cäìð   CäBéç ìEB. ðO ðOPñäKõ CMä:= CM << ð [AéCð]<64:54>                    &ä þ                        7E Cäìð+ ¡
+°€€€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€Š€€€€€€€€€€Š€€€€€€€€€€Š€€€€€€€€€€¡
+¡ 34 úðH    úAðéCø Hõìñ           ð [AéCð]:= 0                                      ú                        7C úðH+  ¡
+¡                                                                                                                     ¡
+«          ¹                      ¹                                               ¹        ¹          ¹          ¹          ®
+
+KOMAHäù C æéKCéPOBAHHOê TOþKOê B  RETRO-86 :  54=Cìæ,55=Bþæ,56=BþOâæ,57=BþAâæ,5C=éúæ,5F=õMHæ  -  üKBéBAìEHTHù COOTBETCTBõàýéM
+OCHOBHùM KOMAHäAM (04=Cì,05=Bþ,06=BþOâ,07=BþAâ,0C=éú,0F=õMH).
+                            - 15 -
+
+          T A â ì é ã A   2.   âEúõCìOBHùE ðEPEXOäù é ãéKìù.               T A â ì é ã A   3 .  KOMAHäù õCìOBHOçO ðEPEXOäA.
+
+¥          ¶                            ¶                            ¨   ¥          ¶                            ¶          ¨
+¡ KOMAHäA          HAéMEHOBAHéE             æ  õ  H  K  ã  é  ñ    ¡   ¡ ðEPEXOä          HAéMEHOBAHéE         ðEPEXOä  ¡
+¡                                                                  ¡   ¡  ðO óí                                 ðO éò   ¡
+±    1     ¼             2              ¼              3             µ   ±    1     ¼             2              ¼    3     µ
+¡                                                                  ¡   ¡                                                ¡
+¡ 18 ðâ     ðEPEXOä âEúõCìOBHùê         HK:= AéCð                  ¡   ¡ 28 ðPB    ðEPEXOä ðO PABHO            20 ðéPB  ¡
+¡                                                                  ¡   ¡ 29 ðHP    ðEPEXOä ðO HEPABHO          21 ðéHP  ¡
+¡ 19 ðB     ðEPEXOä C BOúBPATOM    (/)  éP [M]:= HK; HK:= A        ¡   ¡ 2A ðâP    ðEPEXOä ðO âOìøûE éìé PABHO 22 ðéâP  ¡
+¡    ðBì                           (<)                             ¡   ¡    ðHM    (HE MEHøûE)                    ðéHM  ¡
+¡                                                                  ¡   ¡                                                ¡
+¡ 1A ãéKìõ  ãéKì õHéBEPCAìøHùê          ç    éP[M+1]; û    éP[M+2] ¡   ¡ 2B ðMH    ðEPEXOä ðO MEHøûE           23 ðéMH  ¡
+¡                                       éP [M]:= éP [M] + û        ¡   ¡ 2C ðMP    ðEPEXOä ðO MEHøûE éìé PABHO 24 ðéMP  ¡
+¡                                       (û>0)&(éP[M]<=ç)          ¡   ¡    ðHâ    (HE âOìøûE)                    ðéHâ  ¡
+¡                                           (û<0)&(éP[M]>=ç) =>   ¡   ¡ 2D ðâì    ðEPEXOä ðO âOìøûE           25 ðéâì  ¡
+¡                                                => HK:= A         ¡   ¡                                                ¡
+¡ 1B ãéKì   ãéKì                        éP[M]#0 => éP[M]:= éP[M]+1 ¡   ¡ 2E ðOC    ðEPEXOä ðPé OCOâOM CìõþAE            ¡
+¡                                                  HK:= A          ¡   ¡ 2F ðHO    ðEPEXOä ðPé OTCõTCTBéé               ¡
+¡                                                                  ¡   ¡           OCOâOçO CìõþAñ                       ¡
+¡                                                                  ¡   ¡                                                ¡
+«          ¹                            ¹                            ®   «          ¹                            ¹          ®
+
+
+                       T A â ì é ã A    4 .     ðPOþéE HEðPéBéìEçéPOBAHHùE KOMAHäù  OCHOBHOçO æOPMATA.
+
+¥          ¶                      ¶                                                                     ¶        ¶          ¨
+¡ KOMAHäA       HAéMEHOBAHéE                                æ õ H K ã é ñ                             ðPéúHAKéKOMðOHEHT.¡
+¡                                                                                                              KOMAHäA  ¡
+±    1     ¼          2           ¼                                 3                                   ¼   4    ¼    5     µ
+¡                                                                                                                       ¡
+¡ 17 õPöð   õCTAHOBKA PEöéMA      ð[AéCð]<64> = 0  => Pö:= ð[AéCð]<63:58>                              õ  þ             ¡
+¡    õPTð   (TEçA) ðO ðOPñäKõ     ð[AéCð]<64> = 1  => PT:= ð[AéCð]<63:58>                                 þ             ¡
+°€€€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€Š€€€€€€€€€€´
+¡ 30 CþT    CþéTùBAHéE C TEçAMé   (CM,PT):= ð [AéCð]                                                   &C þ !  78 CþT+  ¡
+¡ 31 CEM    CéHXPOCþéTùBAHéE      CM:= ð [AéCð]; ð [AéCð]:= 1 (BCEçäA C TEçOM 14H)                     &C þ    79 CEM+  ¡
+°€€€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€Š€€€€€€€€€€´
+¡ 37 úðT    úAðéCø C TEçAMé       ð [AéCð]:= (CM,PT)                                                      ú !  7F úðT+  ¡
+°€€€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€Š€€€€€€€€€€´
+¡ 38 çäE    "çäE ñ"               éP [M]:= A + HK                                                                       ¡
+¡ 39 ðæC    ðPEæéKCAãéñ ðO CõMM.  éC[0]:= A*1000H + éP[M] + CM                                                          ¡
+¡                                 (COäEPöéMOE éC[0] éCðOìøúõETCñ äìñ éúMEHEHéñ  A  B CìEä.KOMAHäE)                      ¡
+¡ 3A ðæA    ðPEæéKCAãéñ AäPECOM   éC[0]:= A*1000H + éP[M]                                                               ¡
+¡ 3B ðæ     ðPEæéKCAãéñ           éC[0]:= ð [AéCð]                                                       þ              ¡
+°€€€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€Š€€€€€€€€€€´
+¡ 3C õéA    õCTAHOBKA éP AäPECOM  éP [M]:= A                                                                            ¡
+¡ 3D CìéA   CìOöEHéE éP C AäPECOM éP [M]:= éP [M] + A                                                                   ¡
+¡ 3E çPõì   õCTAHOBKA çPõððOBOçO  éC[8]:= AéCð. CìEäõàýéE OäHA ("çPõì") éìé äBE ("çPõð")                    <           ¡
+¡    çPõð   PEöéMA                KOMAHäù âõäõT éCðOìHñTøCñ  AéCð+1  PAú.                                   >           ¡
+¡ 3F        ðPéúHAK äOðOìHéTEìø-                                                                                        ¡
+¡           HOçO æOPMATA                                                                                                ¡
+¡                                                                                                                       ¡
+«          ¹                      ¹                                                                     ¹        ¹          ®
+                            - 16 -
+
+                    T A â ì é ã A    5 .    APéæMETéþECKéE é ìOçéþECKéE KOMAHäù  äOðOìHéTEìøHOçO æOPMATA.
+
+¥            ¶                      ¶                                                                 ¶        ¶            ¨
+¡  KOMAHäA        HAéMEHOBAHéE                              æ õ H K ã é ñ                           ðPéúHAKé MAçAúéHHùê ¡
+¡                                                                                                              PEöéM    ¡
+±     1      ¼          2           ¼                               3                                 ¼   4    ¼     5      µ
+¡                                                                                                                       ¡
+¡ - 11 Bäð    BùäAþA PMP            CM<52:1>:= PMP<52:1>; CM<53>:= 0;                                *CH ð   - 51 BäðM  ¡
+¡             C úAHECEHéEM ðOPñäKA  CM<64:54>:= CM<64:54> + AéCð<11:1> - 400H                                           ¡
+¡ - 14 KOP    KOPPEKãéñ ðOPñäKA     CM<64:54>:= CM[64:54] + AéCð<11:1>                               *CH     - 54 KOPM  ¡
+¡ - 16 Cäð    CäBéç ðPABùê          CMä:= CM >> AéCð<11:1>                                           &ä  ð   - 56 CäðM  ¡
+¡ - 19 Bä     BùäAþA PMP            AéCð<5>=0 => CM:= PMP;                                           &C  -   - 59 BäM   ¡
+¡      HTöä   HETOöäECTBEHH.C PMP   AéCð<5>=1 => CM:= CM#PMP                                         &C  -        HTöäM ¡
+¡ - 1A HTöð   HETOöäECTBEHHOCTø     CM<64:54>:= CM<64:54> # AéCð<11:1>                               &C      - 5A HTöðM ¡
+¡             C ðOPñäKOM                                                                                                ¡
+¡ - 1C Cìð    CìOöEHéE C ðOPñäKOM   CM<64:54>:= CM<64:54> + AéCð<11:1> - 400H; PMP:= 0               *äH ð   - 5C CìðM  ¡
+¡ - 1D Bþð    BùþéTAHéE éú ðOPñäKA  CM<64:54>:= CM<64:54> - AéCð<11:1> + 400H; PMP:= 0               *äH ð   - 5D BþðM  ¡
+¡ - 1E Cäì    CäBéç ìEBùê           CMä:= CM << AéCð<11:1>                                           &ä  ð   - 5E CäìM  ¡
+¡ - 34 ãEìA   ãEìAñ þACTø AìçOìøHAñ (CM,PMP[52:1]):= CM[52:1] >> (AéCð[11:1]-CM[64:54])              *ä  ð   - 74 ãEìAM ¡
+¡ - 35 ãEìæ   ãEìAñ þACTø æOPTPAHH. (CM,PMP[52:1]):= CM[52:1] >> (AéCð[11:1]-CM[64:54])              *ä  ð   - 75 ãEìæM ¡
+¡                                   (CM<0) & (PMP#0) => CM:= CM + 1                                                     ¡
+¡ - 36 Cäðä   CäBéç ðPABùê ðO PMP   CMä:= CM >> (AéCð<11:1>+PMP<64:59>)                              &ä  ð   - 76 CäðäM ¡
+¡ - 3C éHB    ðPEOâPAúOBAHéE B      CM<0 => CM[52:1]:= - CM [52:1]                                   *äH -   - 7C éHBM  ¡
+¡             ðPñMOê KOä                                                                                                ¡
+¡ - 3E Cäìä   CäBéç ìEBùê ðO PMP    CMä:= CM << (AéCð<11:1>+PMP<64:59>)                              &ä  ð   - 7E CäìäM ¡
+¡ - 3F ìOç    ðPEOâPAúOBAHéE B      ECìé BùðOìHEHO õCìOBéE, úAäAHHOE 3-1P AéCð, TO CM:= 1, éHAþE     &C      - 7F ìOçM  ¡
+¡             ìOçéþECKéê KOä        CM:= 0.   CM.TAâì.6                                                                 ¡
+«            ¹                      ¹                                                                 ¹        ¹            ®
+
+ TAâìéãA 6.  äOðOìHéTEìøHùE MHEMOHéKé               T A â ì é ã A   7 .   ðPOþéE KOMAHäù  äOðOìHéTEìøHOçO æOPMATA.
+     äìñ KOMAHäù  "ìOç"  ("ìOçM")
+                                         ¥            ¶                  ¶                            ¶        ¶            ¨
+¥                                    ¨   ¡  KOMAHäA      HAéMEHOBAHéE          æ õ H K ã é ñ        ðPéúHAKé MAçAúéHHùê ¡
+¡3-1P MHEMOHéKA   õ C ì O B é E    ¡   ¡                                                                     PEöéM    ¡
+¡AéCð KOMAHäù                      ¡   ±     1      ¼        2         ¼             3              ¼   4    ¼     5      ¡
+± 1  ¼    2     ¼         3          µ   ¡                                                                              ¡
+¡  0  PB (PBM)  PABHO              ¡   ¡ - 00 üK     üKCTPAKOä         OâPAýEHéE K OC                                 ¡
+¡  1  HP (HPM)  HEPABHO            ¡   ¡ - 18 çAû    çAûEHéE /         CM:= 0;AéCð<11:1>=0=>PMP:=0 &ä  -   - 58 çAûM  ¡
+¡  2  âP (âPM)  âOìøûE éìé PABHO   ¡   ¡      BPö    BùäAþA PEöéMA /   AéCð<11>=0 => CM<63:58>:=Pö &C           BPöM  ¡
+¡     HM (HMM)  HE MEHøûE          ¡   ¡      BPT    BùäAþA TEçA       AéCð<11>=1 => CM<63:58>:=PT &C  ð        BPTM  ¡
+¡  3  MH (MHM)  MEHøûE             ¡   ¡                              CM<63:58>:=CM<63:58>&AéCð<10:5>                  ¡
+¡  4  MP (MPM)  MEHøûE éìé PABHO   ¡   ¡ - 1F õPö    õCTAHOBKA PEöéMA/ AéCð<11>=0 =>Pö:=AéCð<10:5> õ       - 5F õPöM  ¡
+¡     Hâ (HâM)  HE âOìøûE          ¡   ¡      õPT    õCTAHOBKA TEçA    AéCð<11>=1 =>PT:=AéCð<10:5>     ð        õPTM  ¡
+¡  5  âì (âìM)  âOìøûE             ¡   ¡ - 20 õé     õCTAHOBKA éP      éP [AéCð]:= CM                                 ¡
+¡  6  OC (OCM)  ECTø OCOâùê CìõþAê ¡   ¡ - 21 õéM    õCTAHOBKA éP é    éP [AéCð]:= CM; S:= S - 1;  &C                 ¡
+¡  7  HO (HOM)  HET OCOâOçO CìõþAñ ¡   ¡             þTEHéE éú MAçAú.  CM:= ð [S]                                     ¡
+«    ¹          ¹                    ®   ¡ - 22 Bé     BùäAþA éP         CM:= éP [AéCð]              &C      - 62 BéM   ¡
+                                         ¡ - 23 Béã    BùäAþA éP KAK     CM:= éP [AéCð];             &C      - 63 BéãM  ¡
+                                         ¡             ãEìOçO            CM<53:28>:= CM<27>                             ¡
+                                         ¡ - 24 õéé    õCT. éP ðO éP     éP [A]:= éP [M]                                ¡
+                                         ¡ - 25 Cìé    CìOöEHéE éP       éP [A]:= éP [A] + éP [M]                       ¡
+                                         ¡ - 26 BþéOâ  BùþéTAHéE éP OâP. éP [M]:= éP [A] - éP [M]                       ¡
+                                         ¡ - 27 Bþé    BùþéTAHéE éP      éP [A]:= éP [A] - éP [M]                       ¡
+                                         ¡ - 38 õéCþ   õCTAHOBKA éP é    éP [AéCð]:= CM;             &C      - 78 õéCþM ¡
+                                         ¡             KOCB.CþéTùBAHéE   CM:= ð [CM]                                    ¡
+                                         «            ¹                  ¹                            ¹        ¹            ®

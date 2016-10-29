@@ -1,0 +1,144 @@
+CM Author: Huan-Huan, Xie Date: Jul 22, 2011
+CE							
+
+SY h1=295						
+SY h2=270						
+SY h3=230						
+SY r_out=935.74						
+SY r_in=556.56						
+SY s_ins1=4						
+SY s_ins2=4						
+SY r_tower=2						
+SY r_towline=0.2/2						
+SY angle_center=10						
+SY angle_in=-35
+SY angle_out=0
+
+SY r_towerwire=0.15/2
+SY s_center=65.84
+SY s_in=38.45
+SY s_out=38.45
+SY sv_center=0
+SY sv_in=0
+SY sv_out=0
+SY d1=20.46
+SY d2=72.98
+SY d3=96.16
+SY tao=0.05
+SY s_tao=448*tao
+
+SY r_downwire=0.3								
+SY radius_downwire=78								
+SY h_downwire=56								
+SY radius_downwire1=20								
+SY h_downwire1=20								
+
+GW	1	5	0	0	0	0	0	h1	r_tower
+GW	2	6	s_ins1/0.707	0	h1-s_ins1/0.707	h1-s_ins2/0.707	0	s_ins2/0.707	r_towerwire
+GW	3	5	s_ins1/0.707	0	h1*4/5-s_ins1/0.707	h1*4/5-s_ins2/0.707	0	s_ins2/0.707	r_towerwire
+GW	4	4	s_ins1/0.707	0	h1*3/5-s_ins1/0.707	h1*3/5-s_ins2/0.707	0	s_ins2/0.707	r_towerwire
+GW	5	3	s_ins1/0.707	0	h1*2/5-s_ins1/0.707	h1*2/5-s_ins2/0.707	0	s_ins2/0.707	r_towerwire
+GW	6	2	s_ins1/0.707	0	h1*1/5-s_ins1/0.707	h1*1/5-s_ins2/0.707	0	s_ins2/0.707	r_towerwire
+GM	0	0	0	0	angle_center	0	0	0	2
+GM	5	2	0	0	120	0	0	0	2
+
+GW	101	5	0	0	0	0	0	h2	r_tower
+GW	102	6	s_ins1/0.707	0	h2-s_ins1/0.707	h2-s_ins2/0.707	0	s_ins2/0.707	r_towerwire
+GW	103	5	s_ins1/0.707	0	h2*4/5-s_ins1/0.707	h2*4/5-s_ins2/0.707	0	s_ins2/0.707	r_towerwire
+GW	104	4	s_ins1/0.707	0	h2*3/5-s_ins1/0.707	h2*3/5-s_ins2/0.707	0	s_ins2/0.707	r_towerwire
+GW	105	3	s_ins1/0.707	0	h2*2/5-s_ins1/0.707	h2*2/5-s_ins2/0.707	0	s_ins2/0.707	r_towerwire
+GW	106	2	s_ins1/0.707	0	h2*1/5-s_ins1/0.707	h2*1/5-s_ins2/0.707	0	s_ins2/0.707	r_towerwire
+GM	0	0	0	0	angle_in	0	0	0	102
+GM	5	2	0	0	120	0	0	0	102
+GM	0	0	0	0	0	r_in*cos(30)	r_in*sin(30)	0	101
+GM	16	5	0	0	60	0	0	0	101
+
+GW	1001	5	0	0	0	0	0	h3	r_tower
+GW	1002	6	s_ins1/0.707	0	h3-s_ins1/0.707	h3-s_ins2/0.707	0	s_ins2/0.707	r_towerwire
+GW	1003	5	s_ins1/0.707	0	h3*4/5-s_ins1/0.707	h3*4/5-s_ins2/0.707	0	s_ins2/0.707	r_towerwire
+GW	1004	4	s_ins1/0.707	0	h3*3/5-s_ins1/0.707	h3*3/5-s_ins2/0.707	0	s_ins2/0.707	r_towerwire
+GW	1005	3	s_ins1/0.707	0	h3*2/5-s_ins1/0.707	h3*2/5-s_ins2/0.707	0	s_ins2/0.707	r_towerwire
+GW	1006	2	s_ins1/0.707	0	h3*1/5-s_ins1/0.707	h3*1/5-s_ins2/0.707	0	s_ins2/0.707	r_towerwire
+GM	0	0	0	0	angle_out	0	0	0	1002
+GM	5	2	0	0	120	0	0	0	1002
+GM	0	0	0	0	0	r_out	0	0	1001
+GM	16	5	0	0	60	0	0	0	1001
+
+GW	3001	6	s_center	0	h1-sv_center	(s_center+r_in*cos(30))/2	(-r_in*sin(30)+s_in)/2	(h1-sv_center+h2-sv_in)/2-s_tao	r_towerwire
+GW	3002	6	r_in*cos(30)	-r_in*SIN(30)+s_in	h2-sv_in	(s_center+r_in*cos(30))/2	(-r_in*sin(30)+s_in)/2	(h1-sv_center+h2-sv_in)/2-s_tao	r_towerwire
+
+GW	3003	6	s_center	0	h1-sv_center	(s_center+r_in*cos(30))/2	(r_in*sin(30)-s_in)/2	(h1-sv_center+h2-sv_in)/2-s_tao	r_towerwire
+GW	3004	6	r_in*cos(30)	r_in*sin(30)-s_in	h2-sv_in	(s_center+r_in*cos(30))/2	(r_in*sin(30)-s_in)/2	(h1-sv_center+h2-sv_in)/2-s_tao	r_towerwire
+
+GW	3005	6	s_center	0	h1-sv_center	(s_center+r_in*cos(30))/2	(-r_in*sin(30)+s_in+d1)/2	(h1-sv_center+h2-sv_in)/2-s_tao	r_towerwire
+GW	3006	6	r_in*cos(30)	-r_in*SIN(30)+s_in+D1	h2-sv_in	(s_center+r_in*cos(30))/2	(-r_in*sin(30)+s_in+d1)/2	(h1-sv_center+h2-sv_in)/2-s_tao	r_towerwire
+
+GW	3007	6	s_center	0	h1-sv_center	(s_center+r_in*cos(30))/2	(r_in*sin(30)-s_in-d1)/2	(h1-sv_center+h2-sv_in)/2-s_tao	r_towerwire
+GW	3008	6	r_in*cos(30)	r_in*sin(30)-s_in-d1	h2-sv_in	(s_center+r_in*cos(30))/2	(r_in*sin(30)-s_in-d1)/2	(h1-sv_center+h2-sv_in)/2-s_tao	r_towerwire
+
+GW	3009	6	s_center	0	h1-sv_center	(s_center+r_in*cos(30))/2	(-r_in*sin(30)+s_in+d1+d2)/2	(h1-sv_center+h2-sv_in)/2-s_tao	r_towerwire
+GW	3010	6	r_in*cos(30)	-r_in*SIN(30)+s_in+D1+D2	h2-sv_in	(s_center+r_in*cos(30))/2	(-r_in*sin(30)+s_in+d1+d2)/2	(h1-sv_center+h2-sv_in)/2-s_tao	r_towerwire
+
+GW	3011	6	s_center	0	h1-sv_center	(s_center+r_in*cos(30))/2	(r_in*sin(30)-s_in-d1-d2)/2	(h1-sv_center+h2-sv_in)/2-s_tao	r_towerwire
+GW	3012	6	r_in*cos(30)	r_in*sin(30)-s_in-d1-d2	h2-sv_in	(s_center+r_in*cos(30))/2	(r_in*sin(30)-s_in-d1-d2)/2	(h1-sv_center+h2-sv_in)/2-s_tao	r_towerwire
+
+GW	3013	6	s_center	0	h1-sv_center	(s_center+r_in*cos(30))/2	(-r_in*sin(30)+s_in+d1+d2+d3)/2	(h1-sv_center+h2-sv_in)/2-s_tao	r_towerwire
+GW	3014	6	r_in*cos(30)	-r_in*SIN(30)+s_in+D1+D2+D3	h2-sv_in	(s_center+r_in*cos(30))/2	(-r_in*sin(30)+s_in+d1+d2+d3)/2	(h1-sv_center+h2-sv_in)/2-s_tao	r_towerwire
+
+GW	3015	6	s_center	0	h1-sv_center	(s_center+r_in*cos(30))/2	(r_in*sin(30)-s_in-d1-d2-d3)/2	(h1-sv_center+h2-sv_in)/2-s_tao	r_towerwire
+GW	3016	6	r_in*cos(30)	r_in*sin(30)-s_in-d1-d2-d3	h2-sv_in	(s_center+r_in*cos(30))/2	(r_in*sin(30)-s_in-d1-d2-d3)/2	(h1-sv_center+h2-sv_in)/2-s_tao	r_towerwire
+
+GW	3017	6	r_out-s_out	0	h3-sv_out	(r_out-s_out+r_in*cos(30))/2	(-r_in*sin(30)+s_in)/2	(h3-sv_out+h2-sv_in)/2-s_tao	r_towerwire
+GW	3018	6	r_in*cos(30)	-r_in*SIN(30)+s_in	h2-sv_in	(r_out-s_out+r_in*cos(30))/2	(-r_in*sin(30)+s_in)/2	(h3-sv_out+h2-sv_in)/2-s_tao	r_towerwire
+
+GW	3019	6	r_out-s_out	0	h3-sv_out	(r_out-s_out+r_in*cos(30))/2	(r_in*sin(30)-s_in)/2	(h3-sv_out+h2-sv_in)/2-s_tao	r_towerwire
+GW	3020	6	r_in*cos(30)	r_in*sin(30)-s_in	h2-sv_in	(r_out-s_out+r_in*cos(30))/2	(r_in*sin(30)-s_in)/2	(h3-sv_out+h2-sv_in)/2-s_tao	r_towerwire
+
+GW	3021	6	r_out-s_out	0	h3-sv_out	(r_out-s_out+r_in*cos(30))/2	(-r_in*sin(30)+s_in+d1)/2	(h3-sv_out+h2-sv_in)/2-s_tao	r_towerwire
+GW	3022	6	r_in*cos(30)	-r_in*SIN(30)+s_in+D1	h2-sv_in	(r_out-s_out+r_in*cos(30))/2	(-r_in*sin(30)+s_in+d1)/2	(h3-sv_out+h2-sv_in)/2-s_tao	r_towerwire
+
+GW	3023	6	r_out-s_out	0	h3-sv_out	(r_out-s_out+r_in*cos(30))/2	(r_in*sin(30)-s_in-d1)/2	(h3-sv_out+h2-sv_in)/2-s_tao	r_towerwire
+GW	3024	6	r_in*cos(30)	r_in*sin(30)-s_in-d1	h2-sv_in	(r_out-s_out+r_in*cos(30))/2	(r_in*sin(30)-s_in-d1)/2	(h3-sv_out+h2-sv_in)/2-s_tao	r_towerwire
+
+GW	3025	6	r_out-s_out	0	h3-sv_out	(r_out-s_out+r_in*cos(30))/2	(-r_in*sin(30)+s_in+d1+d2)/2	(h3-sv_out+h2-sv_in)/2-s_tao	r_towerwire
+GW	3026	6	r_in*cos(30)	-r_in*SIN(30)+s_in+D1+D2	h2-sv_in	(r_out-s_out+r_in*cos(30))/2	(-r_in*sin(30)+s_in+d1+d2)/2	(h3-sv_out+h2-sv_in)/2-s_tao	r_towerwire
+
+GW	3027	6	r_out-s_out	0	h3-sv_out	(r_out-s_out+r_in*cos(30))/2	(r_in*sin(30)-s_in-d1-d2)/2	(h3-sv_out+h2-sv_in)/2-s_tao	r_towerwire
+GW	3028	6	r_in*cos(30)	r_in*sin(30)-s_in-d1-d2	h2-sv_in	(r_out-s_out+r_in*cos(30))/2	(r_in*sin(30)-s_in-d1-d2)/2	(h3-sv_out+h2-sv_in)/2-s_tao	r_towerwire
+
+GW	3029	6	r_out-s_out	0	h3-sv_out	(r_out-s_out+r_in*cos(30))/2	(-r_in*sin(30)+s_in+d1+d2+d3)/2	(h3-sv_out+h2-sv_in)/2-s_tao	r_towerwire
+GW	3030	6	r_in*cos(30)	-r_in*SIN(30)+s_in+D1+D2+D3	h2-sv_in	(r_out-s_out+r_in*cos(30))/2	(-r_in*sin(30)+s_in+d1+d2+d3)/2	(h3-sv_out+h2-sv_in)/2-s_tao	r_towerwire
+
+GW	3031	6	r_out-s_out	0	h3-sv_out	(r_out-s_out+r_in*cos(30))/2	(r_in*sin(30)-s_in-d1-d2-d3)/2	(h3-sv_out+h2-sv_in)/2-s_tao	r_towerwire
+GW	3032	6	r_in*cos(30)	r_in*sin(30)-s_in-d1-d2-d3	h2-sv_in	(r_out-s_out+r_in*cos(30))/2	(r_in*sin(30)-s_in-d1-d2-d3)/2	(h3-sv_out+h2-sv_in)/2-s_tao	r_towerwire
+
+GW	3033	1	r_in*cos(30)	-r_in*SIN(30)+s_in	h2-sv_in	r_in*cos(30)	-r_in*SIN(30)+s_in+D1	h2-sv_in	r_towerwire
+GW	3034	1	r_in*cos(30)	r_in*sin(30)-s_in	h2-sv_in	r_in*cos(30)	r_in*sin(30)-s_in-d1	h2-sv_in	r_towerwire
+GW	3035	3	r_in*cos(30)	-r_in*SIN(30)+s_in+D1	h2-sv_in	r_in*cos(30)	-r_in*SIN(30)+s_in+D1+D2	h2-sv_in	r_towerwire
+GW	3036	3	r_in*cos(30)	r_in*sin(30)-s_in-d1	h2-sv_in	r_in*cos(30)	r_in*sin(30)-s_in-d1-d2	h2-sv_in	r_towerwire
+GW	3037	3	r_in*cos(30)	-r_in*SIN(30)+s_in+D1+D2	h2-sv_in	r_in*cos(30)	-r_in*SIN(30)+s_in+D1+D2+D3	h2-sv_in	r_towerwire
+GW	3038	3	r_in*cos(30)	r_in*sin(30)-s_in-d1-d2	h2-sv_in	r_in*cos(30)	r_in*sin(30)-s_in-d1-d2-d3	h2-sv_in	r_towerwire
+GW	3039	3	r_in*cos(30)	-r_in*SIN(30)+s_in+D1+D2+D3	h2-sv_in	r_in*cos(30)	r_in*sin(30)-s_in-d1-d2-d3	h2-sv_in	r_towerwire
+
+GM	39	5	0	0	60	0	0	0	3001
+
+
+GW	8001	4	s_center	0	h1-sv_center	radius_downwire	0	h_downwire	r_downwire
+GW	8002	2	radius_downwire1	0	h_downwire1	radius_downwire	0	h_downwire	r_downwire
+GW	8003	1	radius_downwire1	0	h_downwire1	radius_downwire1*cos(60)	radius_downwire1*sin(60)	h_downwire1	r_downwire
+GM	3	5	0	0	60	0	0	0	8001
+
+GW	9001	1	radius_downwire1	0	0	radius_downwire1	0	h_downwire1	r_downwire
+
+GE	1								
+
+'GN	1
+GN	3	1	0	0	13	0.005
+
+EK						
+EX	6	9001	1	0	1	0
+
+'FR	0	21	0	0	0.015	0.00175
+FR	0	1	0	0	0.04	0.00175
+
+EN						

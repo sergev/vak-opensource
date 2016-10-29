@@ -1,0 +1,156 @@
+#!/usr/local/bin/python
+
+import sys, traceback, posix, time, string, regsub, dbm, struct, cgi
+from os import environ
+
+#
+# Client operating system
+#
+OS_UNKNOWN = 1
+OS_X11     = 2
+OS_MAC     = 3
+OS_MSWINNT = 4
+OS_MSWIN95 = 5
+OS_MSWIN   = 6
+
+#
+# Language choices
+#
+L_ENG  = 1
+L_KOI8 = 2
+L_WIN  = 3
+L_DOS  = 4
+L_MAC  = 5
+
+DBNAME = "/var/db/liteweb/user"
+
+def strtoIP(s):
+	a = string.split (s, '.')
+	return string.atoi (a[0]) << 24 | string.atoi (a[1]) << 16 |\
+		string.atoi (a[2]) << 8 | string.atoi (a[3])
+
+def IPtostr(a):
+	return "%d.%d.%d.%d" % (a>>24 & 0xff, a>>16 & 0xff,
+		a>>8 & 0xff, a & 0xff)
+
+try:
+	#
+	# Get user language choice
+	#
+	form = cgi.SvFormContentDict ()
+	encoding = L_ENG
+	lang = "english"
+	if form.has_key ("encoding"):
+		lang = form ["encoding"]
+		if   lang == "unix":      encoding = L_KOI8
+		elif lang == "windows":   encoding = L_WIN
+		elif lang == "dos":       encoding = L_DOS
+		elif lang == "macintosh": encoding = L_MAC
+
+	#
+	# Server and client IP adresses
+	#
+	myIP = strtoIP (environ ["SERVER_ADDR"])
+	userIP = strtoIP (environ ["REMOTE_ADDR"])
+
+	#
+	# User agent name
+	#
+	try:
+		userAgent = environ ["HTTP_USER_AGENT"]
+		userOS = string.lower (userAgent)
+	except:
+		userOS = userAgent = ""
+
+	if string.find (userAgent, "MSIE") > 0:
+		userAgent = "Microsoft"
+	else:
+		i = string.find (userAgent, ' ')
+		if i > 0:
+			userAgent = userAgent [:i]
+		i = string.find (userAgent, '/')
+		if i > 0:
+			userAgent = userAgent [:i]
+
+	#
+	# User operating system
+	#
+	if (string.find (userOS, "x11") >= 0) or \
+	   (string.find (userOS, "x window") >= 0):
+		userOS = OS_X11
+	elif string.find (userOS, "macintosh") >= 0:
+		userOS = OS_MAC
+	elif string.find (userOS, "winnt") >= 0:
+		userOS = OS_MSWINNT
+	elif (string.find (userOS, "windows 95") >= 0) or \
+	     (string.find (userOS, "win95") >= 0):
+		userOS = OS_MSWIN95
+	elif (string.find (userOS, "windows") >= 0) or \
+	     (string.find (userOS, "win16") >= 0) or \
+	     (string.find (userOS, "win32") >= 0):
+		userOS = OS_MSWIN
+	else:
+		userOS = OS_UNKNOWN
+
+	#
+	# Search user database, create, if it does not exist
+	#
+	db = dbm.open (DBNAME, "c", 0644)
+	key = struct.pack ("llb", myIP, userIP, userOS) + userAgent + "\0"
+	val = struct.pack ("lb", int (time.time()), encoding)
+
+	db[key] = val
+	db.close()
+
+	if environ.has_key ("HTTP_HOST"):
+		server = environ["HTTP_HOST"]
+	else:
+		server = environ["SERVER_NAME"]
+
+	print "Status: 301 Document moved"
+	print "Content-type: text/html"
+	print "Cache-Control: must-revalidate"
+	print "Pragma: no-cache"
+	print "Location:",
+	if string.atoi (environ["SERVER_PORT"]) != 80:
+		print "http://" + server + ":" + environ["SERVER_PORT"] + environ["PATH_INFO"]
+	else:
+		print "http://" + server + environ["PATH_INFO"]
+	print
+	print '<p>This document is available from <a href="showencoding">here</a>'
+
+	#if lang == "english":
+	#        print "<head><title>Setting character set encoding</title></head><body>"
+	#        print "<h1>Setting character set encoding</h1>"
+	#else:
+	#        print "<head><title>Установка кодировки символов</title></head><body>"
+	#        print "<h1>Установка кодировки символов</h1>"
+	#
+	#print "<h3>query =", form.query_string, "</h3>"
+	#print "<h3>myIP =", IPtostr (myIP), "</h3>"
+	#print "<h3>userIP =", IPtostr (userIP), "</h3>"
+	#print "<h3>userOS =", userOS, "</h3>"
+	#print "<h3>userAgent =", cgi.escape (userAgent), "</h3>"
+	#print "<h3>key = ", `key`, "</h3>"
+	#print "<h3>lang = ", `lang`, "</h3>"
+	#print "<h3>val = ", `val`, "</h3>"
+	#
+	#if lang == "english":
+	#        print "Set encoding =", lang
+	#else:
+	#        print "Установлена кодировка", lang
+	#
+	#print "</body>"
+
+except:
+	print "Status: 503 Internal error"
+	print "Content-type: text/html"
+	print "Cache-Control: must-revalidate"
+	print "Pragma: no-cache"
+	print
+	print '<h1> Internal CGI script error </h1>'
+	print '<pre>'
+	traceback.print_exc (None, sys.stdout)
+	print '</pre>'
+
+sys.exit (0)

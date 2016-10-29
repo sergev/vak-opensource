@@ -1,0 +1,13 @@
+CM 3.6 MHz vertical array.
+CE
+GW 1 25 -40.98 0 0 -40.98 0 68.6 0.083335
+GW 2 25 0 0 0 0 0 65.5 0.083335
+GW 3 25 47.58 0 0 47.58 0 61.6 0.083335
+GS 0 0 .30479
+GE 1
+'GN 1
+GN 3 0 0 0 13 0.005	' Mininec ground
+EX 6 2 1 0 1 0		' Current source
+LD 5 0 0 0 3.0769E7
+FR 0 1 0 0 3.6 1
+EN

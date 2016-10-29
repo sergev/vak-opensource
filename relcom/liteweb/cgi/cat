@@ -1,0 +1,28 @@
+#!/usr/local/bin/python
+
+import sys, traceback, regsub
+from os import environ
+
+def escape(s):
+	s = regsub.gsub('&', '&amp;', s) # Must be done first
+	s = regsub.gsub('<', '&lt;', s)
+	s = regsub.gsub('>', '&gt;', s)
+	return s
+
+try:
+	filename = "/home/vak/tmp/" + environ["PATH_INFO"]
+	sys.stdin = open (filename)
+	print sys.stdin.read()
+
+except:
+	print "Status: 503 Internal error"
+	print "Content-type: text/html"
+	print "Cache-Control: must-revalidate"
+	print "Pragma: no-cache"
+	print
+	print '<h1> Internal CGI script error </h1>'
+	print '<pre>'
+	traceback.print_exc (None, sys.stdout)
+	print '</pre>'
+
+sys.exit (0)

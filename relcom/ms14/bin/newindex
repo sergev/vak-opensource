@@ -1,0 +1,17 @@
+:
+#Sections:
+sections="vms os2 x11"
+
+#Archive name:
+ARCNAME=Kiarchive
+#--------------------------
+cd /usr/PUB
+sections=
+. .arcindex
+for sec in $sections
+do
+	( cd $sec ; echo -n $sec" " ; du -s . ) 
+done |
+awk '
+{ printf "/%s/s/ <dir>       /<dir> %6dk/\n" , $1, ($2+1)/2 }
+END { print "w\nq\n"}' | ed newdata > /dev/null

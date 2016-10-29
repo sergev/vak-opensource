@@ -1,0 +1,441 @@
+.Mcall	.Module
+.Module	BKKBD,Release=X02, Version=04, Comment=<Keyboard Handler>
+;
+;			Copyright (c) 1986,1987 by
+;	C-11 Special Interest Group, Leningrad State University.
+;			 All rights reserved.
+;
+; This software is furnished under a license and may be used and  copied
+; only  in  accordance  with  the  terms  of  such  license and with the
+; inclusion of the above copyright notice.  This software or  any  other
+; copies  thereof may not be provided or otherwise made available to any
+; other person.  No title to and ownership of  the  software  is  hereby
+; transfered.
+;
+; The information in this software is subject to change without notice
+; and should not be construed as a commitment by C-11 group.
+;
+; C-11 assumes no responsibility for the use or reliability of its
+; software on equipment which is not submitted by C-11.
+;
+ .Include "BKHEAD"
+.Globl	GetArg,	RetEmt,	SavRg,	PutUWd,	TtoFlg,	Sound
+.Globl	Block$$,$Setss,	LatSS,	GetUbt,	FncOut,	PutUBt,	FlInit
+.Globl	OldEnd,	OldCnt,	ChrGo,	Insrt$$,BlrSS,	KbdSS
+.Globl	$Bsetpg,GetUwd
+
+
+KbUvc	=	60
+KbLvc	=	274
+KbdCsr	==	177660
+KbdDbr	==	177662
+BfrLen	=	200
+;
+; Keyboard Mode Word (KbMode) format:
+;
+;  +---^---+---+---^---+---+---^---+---+---^---+---+---^---+---+---^
+;  !   !   !   !   !   !   !   !   !   !   !   !   !   !   !   !   !
+;  +---^---+---+---^---+---+---^---+---+---^---+---+---^---+---+---^
+;    !   !                           !   !               !       !
+;    !   !                           !   !               !       !
+;    !   +---------------------+     !   !               !       !
+;    !                         !     !   !               !       !
+;    +---------------------+   !     !   !               !       !
+;                          !   !     !   !               !       !
+$Cyril	==	100000 ;<--+   !     !   !               !       !
+		;1 ==> RUS     !     !   !               !       !
+		;0 ==> "LAT"   !     !   !               !       !
+RptFg	=	040000 ;<------+     !   !               !       !
+		;1==> "Repeat        !   !               !       !
+		;processing          !   !               !       !
+		;                    !   !               !       !
+		;Width Sequence      !   !               !       !
+$Keykl	==	200 ;<---------------+   !               !       !
+		;1 ==> Disable KeyKlick  !               !       !
+$KklCm	==	100 ;<-------------------+               !       !
+		;1 ==> Disable KeyKlick before           !       !
+		; Completion Routine                     !       !
+$MixAs	==	4 ;<-------------------------------------+       !
+		;In Ascii Mode 1 ==> Mixed mode                  !
+		; (Big Cyrillic and Big Latin)                   !
+$Ascii	==	1 ;<---------------------------------------------+
+		;0 ==> UAscii, 1 ==> Ascii
+
+.Macro	Command	Code	Routine
+.Byte	<Routine-CdT>/2,Code
+.EndM
+ .SbTtl	$Bkset (EMT 100) Routine (Set Keyboard Handler Mode)
+$Bkset::
+	Jsr	R0,SavRg
+	Mov	R0,R5		;Get User Address
+	Call	GetUwd		;Get Word
+	MovB	R0,@#KBMode	;And Set New KeyBoard Mode
+	Call	GetUwd
+	Mov	R0,@#KbAddr	;Address
+	Beq	10$
+	Call	GetUwd
+	Bic	#ScrMsk!TapMsk,R0
+	Bis	#WrEnS,R0
+	Mov	R0,@#KbSel	;Sel Value
+	Call	GetUwd
+	Mov	R0,@#KbStC	;Stack Pointer
+10$:	Jmp	RetEmt
+
+.SbTtl	$Bkbini (EMT 4) Routine (Initialize Keyboard)
+KbdIni::
+	Clr	KbMode
+$Bkbini::
+	Jsr	R0,SavRg	;Save User'S Registers
+	Mov	#UKbInt,@#KbUvc	;Set Upper Case Vector
+	Mov	#340,@#KbUvc+2
+	Mov	#LKbInt,@#KbLvc	;Set Lower Case Vector
+	Mov	#340,@#KbLvc+2
+	Clr	KbSel		;Reset Completion Routine
+	Clr	KbAddr
+	Mov	#Ustack,KbStC
+	Bic	#^C<$Cyril>,KbMode	;Reset Mode Word
+	Call	ClrFnc		;Clear Function Keys
+	Clr	@#KbdCsr	;Set Interrupt Enable
+	Mov	#TtiBuf-2,R5	;Input Buffer Initialization
+	Mov	#Ibufr,R4
+	Mov	R4,(R5)+	;Write Address
+	Clr	(R5)+		;Byte Counter
+	Mov	R4,(R5)+	;Read Address
+	Mov	#-1,REptfl
+	Clr	OldEnd
+	Clr	OldCnt
+	ClrB	Insrt$$		;Gtlin Insertion Mode
+	Tst	FlInit
+	Beq	10$		;Uninitialized TTO handler...
+	Call	KbdSS
+10$:	Jmp	RetEmt		;And Return
+
+.SbTtl	$Bkget (EMT 116) Routine (Read Keyboard Handler Mode)
+$BkGet::
+	Mov	R0,R5
+	Mov	KbMode,R0
+	Call	PutUWd
+	Mov	KbAddr,R0
+	Call	PutUWd
+	Mov	KbSel,R0
+	Call	PutUWd
+	Mov	KbStC,R0	;Stack Pointer
+	Call	PutUwd
+	Return
+ .SbTtl	Upper-Case Keyboard Interrupt Entry Point
+.Enabl	LSB
+UKbInt::
+	Jsr	R5,$Inten
+	Call	Klick		;Issue KeyKlick
+	MovB	@#KbdDbr,R0
+	CmpB	R0,#100		;Is it Letter ?
+	Blo	20$		;No, Not Modify
+	Bit	#$Ascii,KbMode
+	Bne	CmnC1		;Ascii
+;Uascii
+10$:	Bit	#$Cyril,KbMode
+	Beq	CmnC1
+	Bis	#200,R0		;Set Cyrillic Bit for Uascii Letter
+CmnC1:	Jmp	CmnCod
+;
+;0..40 codes
+;
+20$:
+	Jsr	R0,ChrGo	;Check for special char's
+Cdt=.
+	Command	16	Rus	;Rus
+	Command	17	Lat	;Lat
+	Command	0	CmnCod	;Other Chars ==> Write
+Lat:	Bic	#$Cyril,KbMode
+	Br	RusLat
+Rus:	Bis	#$Cyril,KbMode
+RusLat:	
+	Mov	R0,-(SP)
+	Call	LatSS		;Special Line Indication
+	Mov	(SP)+,R0
+	Bit	#$Ascii,KbMode	;Is code Ascii
+	Beq	Ign1		;No, Uascii, Ignore Char.
+	Bit	#$MixAs,KbMode	;Mixed ???
+	Beq	CmnCod		;No, write
+Ign1:	Br	CmnIgn		;Yes, ignore
+ .SbTtl	Lower-Case Keyboard Interrupt Entry Point
+.Enabl	LSB
+LKbInt::
+	Jsr	R5,$Inten
+	Call	Klick		;Issue KeyKlick
+	MovB	@#KbdDbr,R0	;Get Character From Keyboard
+	CmpB	R0,#100		;
+	Blo	10$
+;
+;Semi-Graphics Symbols (100-177)
+;
+	Bis	#240,R0
+	Bic	#100,R0		;Convert to 240-277
+	Br	CmnCod		;And Store
+10$:			;Check codes 0..77
+	Bit	#40,R0
+	Bne	30$
+;
+;000..037 Code Processing
+;
+	Cmp	R0,#20
+	Blo	20$		;0..17
+;
+;020..037 ==> 200..217
+;
+	Add	#200-20,R0
+	Br	CmnCod		;Store Code
+20$:
+;
+;000..017 ==> 220..237
+;
+	
+	TstB	R0
+	Beq	Rstep
+	Jsr	R0,ChrGo
+Cdt=.
+Command		1	Repeat
+Command		2	Isu
+Command 	4	Blr
+Command		11	CmnCod	;HT
+Command		13	CmnCod	;DelEol
+Command		0	RNop
+
+Repeat:
+	Tst	REptfl		;Was Character Typed ?
+	Bmi	CmnExi		;No, Ignore "Repeat"
+	Bis	#Rptfg,KbMode	;Set "Repeat flag"
+	Br	CmnExi
+Rstep:	Mov	#220,R0
+	Br	CmnCod
+Isu:	Call	$SetSS		;Set/Clear Screen Special String Area
+	Br	CmnIgn
+Blr:	Mov	#Block$$,R0
+	xOr	R0,@#TToFlg	;Set/Clear BlockRed Flag
+	Call	BlrSS
+	Br	CmnIgn
+30$:
+;
+; 40..77 Processing
+;
+	Jsr	R0,ChrGo
+Cdt=.
+.Irp	XX,<60,61,62,63,64,65,66,67,70,71>
+	Command	 XX	FunKey
+.EndR
+	Command	 0	Rnop
+Rnop:	Bic	#40,R0
+	Bis	#220,R0
+	Br	CmnCod		;Store Code
+
+;
+;Function Key Processing
+;
+FunKey:	Bic	#Rptfg,KbMode	;Clear Repeat Flag
+	Bic	#^C17,R0	;Function Number
+	Bne	40$
+	Add	#10.,R0
+40$:	Asl	R0
+	Mov	FncTb-2(R0),FncO;Get Function string Address
+	Call	Klick
+	Tst	FncO
+	Beq	CmnExi		;No String, Ignore
+50$:	MovB	@FncO,R0
+	Beq	60$
+	Inc	FncO		;End of String
+	Call	ChrWri		;Write Code to Buffer
+	Br	50$
+60$:	Clr	FncO
+	Br	CmnExi
+.Dsabl	Lsb
+ CmnCod:	Call	ChrWri		;Write Code to Buffer
+CmnIgn:	Bic	#Rptfg,KbMode	;Clear Repeat Flag
+CmnExi:	Jmp	RetEmt		;Exit To Retint
+ .SbTtl	Klick Routine
+Klick:	Bit	#$Keykl,KbMode
+	Bne	30$		;KeyKlick is disabled
+	Mov	#60,R0		;Sound Length
+	Mov	#60,R1	 	;Tone
+	Call	Sound
+30$:	Mov	#7000,R0
+	Sob	R0,.
+	Return
+ .SbTtl	Common Character Buffering/Completion Routine Call Program
+ChrWri:	Bic	#^C377,R0
+	Mov	R0,REptfl	;Set Flag
+	Mov	KbAddr,R2	;Completion Routine Found ?
+	Beq	30$		;No
+
+.SbTtl	Completion Routine Procesing
+
+	Bic	#^C<WrEnS!ScrMsk!TapMsk>,$$UsrS
+	Bis	KbSel,$$UsrS	;New Sel1
+	Mov	SP,SpCmpl		;Internal
+	Mov	KbStC,SP	;And User Stack
+	Mov	@#$$UsrS,@#Sel1	;Set Allocation
+	Call	@R2		;And Issue Call
+	Rol	R0		;Save Carry in R0[00]
+;Character Accepted
+	Mtps	#340		;Disable Interrupt
+	Mov	@#$$SysS,@#Sel1
+	Mov	#$$UsrS,@#$$SysS
+	Mov	SpCmpl,SP	;Restore Original Stack Ptr
+	Mov	@#$$UsrS,-(SP)
+	Bic	#^C<ScrMsk!TapMsk>,@SP
+	Bic	#ScrMsk!TapMsk,KbdUSS	;Saved UsrS
+	Bis	(SP)+,KbdUSS	;
+	Ror	R0		;Restore C And R0
+	Bcc	50$		;Not Write
+.SbTtl	Character BUfferization
+30$:	Mov	#TTiBuf,R5	;Input Buffer Header Address
+	Cmp	@R5,#Bfrlen-1	;Number of Bytes accepted
+	Bhis	50$		;Buffer Overflow
+	Inc	@R5		;Byte Counter
+	Inc	-(R5)		;Write Address
+	Cmp	@R5,#Bfrend	;End of Buffer ?
+	Blo	40$		;No
+	Sub	#Bfrlen,@R5	;Skip around Buffer bound
+40$:	MovB	R0,@(R5)	;Put Byte
+	Tst	(PC)+
+50$:	SeC			;O.K.
+	Return
+ .SbTtl	Common Interrupt Entry Point Routine
+$Inten::
+;
+;At this point Stack is:
+;
+;Old PS
+;Old SP
+;Old R5 <----SP
+;
+;State is Unknown !!!
+;
+	Mov	@#$$SysS,@#Sel1
+	Mov	SP,KbdSP	;Save User Stack
+	Mov	#KbStk,SP	;Set Keybord Stack Pointer
+	Mov	@#$$UsrS,@#KbdUSS	;Save UsrS
+	Mov	@#$$SysS,@#$$UsrS	;And Set System
+	Mov	#Retint,-(SP)	;Return Address (For Return)
+	Jsr	R0,SavRg	;Save Registers R0..R4
+	Tst	@#KbdDbr
+	Jmp	@R5		;and Exit
+.SbTtl	Common Interrupt Exit Routine
+Retint:
+	Mov	@#KbdUSS,@#$$UsrS	;UsrS
+	Mov	KbdSP,SP	;Restore Stack
+	Mov	@#$$UsrS,@#Sel1		;Restore Sel1
+	Mov	(SP)+,R5	;Restore R5
+	Rti			;And Exit
+ .SbTtl	$Binkey (EMT 102) Routine (Get character Without Waiting)
+.Enabl	LSB
+$Binkey::
+	Mov	#Ttibuf,R5	;Buffer Byte Counter Ptr
+	Tst	(R5)+		;Check Buffer
+	Beq	Noinpt		;Is empty...
+	Inc	@R5		;Increment Read Address
+	Cmp	@R5,#Bfrend
+	Blo	10$
+	Sub	#Bfrlen,@R5	;Ring Buffer Bound
+10$:	MovB	@(R5),R0	;Get The byte
+	Dec	-(R5)		;Decrease Byte Counter
+20$:	Bic	#^C377,R0	;Clear Upper Byte and Exit
+	Tst	(PC)+
+30$:	Sec
+	Return
+
+Noinpt:	Bit	#Rptfg,KbMode	;Test "Repeat flag"
+	Beq	30$		;Is reset, Exit
+	Bit	#Keflg,@#SEL1	;Pressed ?
+	Bne	30$		;No
+	Mov	@#KbdDbr,R5	;Pressed, Clear Interrupt Request
+	Mov	#40$,-(SP)
+	Jsr	R0,SavRg	;Save Registers
+	Call	Klick		;Klick
+	Jmp	RetEmt		;-------+
+40$:	Mov	REptfl,R0	;<------+
+	Bpl	20$		;Put Character
+	Clr	R0		;Else Clear Buffer
+	Br	30$
+.Dsabl	LSB
+ .SbTtl	$Bttyin (EMT 6) Routine (Get One Character from Keyboard)
+$Bttyin::
+	Mov	@#$$UsrS,@#UsTTy	;Save Usrs for
+	Mov	@#Vec4,@#TTYV4		;Normal Completion Routine
+	Mov	#12$,@#Vec4		;Initialization
+	Mov	@#$$SysS,@#$$UsrS	;(At Lower priority Must be
+5$:	Call	$BinKey			;"User" State !!!)
+	Bcc	10$			;OK
+	MtPS	#0			;No Character
+	Nop				;Wait for Ready...
+	Mtps	#340
+	Br	5$
+
+10$:	Mov	@#UsTty,@#$$UsrS
+	Mov	@#TTYV4,@#Vec4
+	TstB	R0
+	Return
+
+12$:	Mov	@#UsTTY,@#$$UsrS
+	Mov	@#TTYV4,@#Vec4
+	Jmp	@Vec4
+ .SbTtl	$Bfunct (EMT 12) Routine (Set Function Switch)
+$Bfunct::
+	Jsr	R0,GetArg
+	Tst	R0		;Key Number
+	Beq	40$		;Reset All Keys
+	CmpB	R0,#10.
+	Bhi	20$		;Illegal Key Number
+	Dec	R0		;0..9
+	Mov	R0,R2
+	Swab	R2		;
+	Asr	R2		;
+	Asr	R2		;R2=Key Number Mod 100
+	Asl	R0		;Key Number * 2
+	Add	#FncMem,R2	;
+	Mov	R2,FncTb(R0)	;Save Internal String Address
+	Mov	#100-1,R3	;Byte Counter
+	Mov	R1,R5		;User String Address
+	Mov	R0,R4		;
+10$:	Call	GetUbt		;Get User's Byte (R5)+
+	MovB	R0,(R2)+	;And store it
+	Beq	20$		;End Of String
+	Sob	R3,10$		;Go next Byte
+	ClrB	(R2)+		;Last Byte
+20$:	Cmp	R3,#100-1	;String size
+	Bne	30$		;
+	Clr	FncTb(R4)	;Null String ==> Reset
+30$:	Call	FncOut		;Output Special string
+	ClC
+	Jmp	RetEmt
+40$:	Call	ClrFnc
+	Br	30$
+
+ClrFnc:	Mov	#FncTb,R0
+	Mov	#10.,R5
+10$:	Clr	(R0)+	 ;Clear All Function Keys
+	Sob	R5,10$
+	Return
+ .Psect	$Stack
+	.BlkW	100
+KbStk::		;Keybord Initial Stack Pointer
+.Psect	$RAM
+KbdSP::	.BlkW	;Save Area for User SP
+KbdUSS::.BlkW	;$$UsrS Interrupt Buffer
+UsTty:	.BlkW
+SpCmpl:	.BlkW
+FncO:	.BlkW
+TTYV4:	.BlkW
+KbMode::.BlkW			;Mode Flags
+KbAddr:	.BlkW			;		Address
+KbSel:	.BlkW			;Completion Routine Sel1
+KbStC:	.BlkW			;Stack Pointer
+REptfl:	.BlkW			;Repeat Buffer
+	.BlkW			;Write Address
+TtiBuf:	.BlkW			;Byte Counter
+	.BlkW			;Read Address
+FncTb::	.BlkW	10.		;Function Key String Address
+FncMem::.BlkB	10.*100		;Function Key String Buffer
+Ibufr::	.BlkB	BfrLen
+Bfrend:
+	.Even
+.End

@@ -1,0 +1,6 @@
+*ngspice
+
+.subckt invertor 1 2 3
+Mp 2 1 3 3  cd4007p  L=10u  W=60u
+Mn 2 1 0 0  cd4007n  L=10u  W=30u
+.ends

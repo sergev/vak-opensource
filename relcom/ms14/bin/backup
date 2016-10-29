@@ -1,0 +1,45 @@
+:
+# Backup for the mailserver; to be performed nightly
+
+PATH=$PATH:/usr/local/bin:/m/v1/work/mailserv/bin:.
+export PATH
+
+#Change logs flag:
+changelogs=NotnothingForTRUE
+#changelogs=
+
+MARS_PORT=3837
+export MARS_PORT
+dir=/usr/spool/mailserv
+cd $dir || exit 1
+exec >backuplog 2>&1
+echo -n "** Backup started "; date '+%y%m%d %H:%M'
+
+if [ $? != 0 ]; then
+	echo "Cannot chdir to $dir"
+	exit 1
+fi
+if [ $changelogs ]; then
+
+	echo -n "** Changing logs "; date +%H:%M
+	mv -f log.6 log.7
+
+	mv -f log.5 log.6
+	mv -f log.4 log.5
+	mv -f log.3 log.4
+	mv -f log.2 log.3
+	mv -f log.1 log.2
+	mv -f log log.1
+	echo "** Add mailserver logs to database **"
+	msprep log.1 | InsDB -s
+
+	echo "** Add ftp-server logs to database **"
+	fsprep ftplog | ( PrepFtpDB && InsDB -s )
+	echo -n "** Update done "; date +%H:%M
+fi
+
+echo "Indexing the archive (executing arcindex)"
+cd public || exit 1
+$dir/bin/arcindex
+
+echo -n "** Backup ended "; date +%H:%M

@@ -1,0 +1,39 @@
+CM Dipole with coaxial feedline.
+CM
+CM This illustrates modeling of a coaxial cable by using a
+CM combination of a transmission line model (for the inside of
+CM the coax) and a wire (for the outside). 
+CM The transmission line is about 1/2 physical wavelength long.
+CM After you run the program, use 'Currents->Magnitude' on the
+CM 'Geometry (F3)' window and use Page-up/down to magnify the
+CM current. Note the current on the feedline. 
+CM If you change the power setting using 'Settings' on the 
+CM 'Main (F2)' window, then click on the wire resembling the
+CM Coax, you can see how large the current is for a given power
+CM input. At 100 watts, the current is greater than 100 mA
+CM at the center of the feedline. This may or may not cause 
+CM trouble with RFI if the feedline is close to a TV 
+CM transmission line, phone line, etc. Note that the coax is
+CM fully symmetrical with respect to the antenna. For
+CM an explanation of what causes the current, see "Some
+CM Aspects of the Balun Problem", by Walter Maxwell, W2DU,
+CM QST, March 1983, or "Baluns: What They Do and How They Do
+CM It" in the ARRL Antenna Compendium, Vol. 1.
+CE
+
+sy len=16.77
+sy hgh=30
+GW 1 20 0 -len hgh  0 -0.1 hgh  3.367e-3
+GW 2 1  0 -0.1 hgh  0 0.1  hgh  3.367e-3
+GW 3 20 0 0.1  hgh  0 len  hgh  3.367e-3
+GW 4 1  0 -0.1 0.01 0 0.1  0.01 3.367e-3
+GW 5 40 0 0.1  hgh  0 0.1  0.01 6.25e-3
+GS 0 0 ft		' All in ft.
+GE 0
+
+sy Tlen=13.85
+TL 2 1 4 1 50 Tlen
+EX 6 4 1 0 1 0
+GN 2 0 0 0 20 0.0303
+FR 0 1 0 0 14 0
+EN

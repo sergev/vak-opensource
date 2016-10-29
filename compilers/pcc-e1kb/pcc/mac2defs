@@ -1,0 +1,31 @@
+/*
+ *      Сделано в МФТИ.
+ *
+ *      Чет Фев 11 11:39:15 MSK 1988    Вакуленко С. В.
+ */
+
+# define REGSZ 16       /* количество регистров */
+# define ACC 0          /* сумматор */
+# define TMPREG 13      /* регистр базирования врем. переменных */
+
+# define BYTEOFF(x) ((x)%(SZINT/SZCHAR))
+# define wdal(x) (BYTEOFF(x)==0)
+# define BITOOR(x) ((x)/SZINT)  /* bit offset to oreg offset */
+
+# define STOARG(p)
+# define STOFARG(p)
+# define STOSTARG(p)
+# define genfcall(a,b) gencall(a,b)
+# define MYREADER(p) myreader(p)
+
+# define NESTCALLS
+# define FIELDOPS
+# define NEWZZZ
+
+# define SCCON          (SPECIAL+100)    /* shape for constants between -64 and 63 */
+# define STRRG          (SPECIAL+101)    /* shape for indirect char * */
+# define SINLINE        (SPECIAL+102)    /* shape for inline functions */
+
+# define PUTCHAR(c)     if (c==' ') putchar ('\t'); else\
+			if (c==';') putchar ('\n'); else\
+			putchar (c)

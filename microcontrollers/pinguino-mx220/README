@@ -1,0 +1,3 @@
+Example of simple program for Olimex Pinguino-MX220 board
+with PIC32MX220F032D microcontroller.
+Using GCC compiler and pic32prog programming utility.

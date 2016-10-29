@@ -1,0 +1,12 @@
+CM Vertical over real ground, converted with 4nec2 on 29-mrt-06 14:37
+CM 	Vert1
+CM A "plain-vanilla" resonant vertical over average ground. It
+CM provides an example of how to connect a source to ground.
+CE
+sy len=10.242	'10.3
+GW 1 10 0 0 0 0 0 len 0.02
+GE 1
+EX 6 1 1 0 1 0
+GN 3 0 0 0 13 5.e-3
+FR 0 1 0 0 7 0
+EN

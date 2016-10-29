@@ -1,0 +1,19 @@
+CM 2-wire Element 28.5 MHz
+CM Alternate method for 'cage' dipole.
+CM From ARRL course page 9.9
+CE
+sy len=95.1
+sy d=5
+GW 1 21 -d -len 0 -d len 0 0.0320472
+GW 2 1  -d len  0 d  len 0 0.0320472
+GW 3 21 d  -len 0 d  len 0 0.0320472
+GW 4 1  -d -len 0 d -len 0 0.0320472
+GS 0 0 in
+GE 0
+EX 0 1 11 0 1 0
+LD 5 0 0 0 5.8001E7
+sy Z0=140			' Twice source imp.
+TL 1 11 3 11 Z0 0.001	' Very short TL
+FR 0 1 0 0 28.5 1
+RP 0 1 361 1000 89 0 1 1
+EN

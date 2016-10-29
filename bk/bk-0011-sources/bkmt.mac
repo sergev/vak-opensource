@@ -1,0 +1,564 @@
+.Mcall	.Module
+.Module	BKMTBK, Release=X02, Version=06, Comment=<BK0010-Compatible Tape>
+
+;			Copyright (c) 1986,1987 by
+;	C-11 Special Interest Group, Leningrad State University.
+;			 All rights reserved.
+;
+; This software is furnished under a license and may be used and  copied
+; only  in  accordance  with  the  terms  of  such  license and with the
+; inclusion of the above copyright notice.  This software or  any  other
+; copies  thereof may not be provided or otherwise made available to any
+; other person.  No title to and ownership of  the  software  is  hereby
+; transfered.
+;
+; The information in this software is subject to change without notice
+; and should not be construed as a commitment by C-11 group.
+;
+; C-11 assumes no responsibility for the use or reliability of its
+; software on equipment which is not submitted by C-11.
+
+ .Include "BKHEAD"
+.Globl	SavRg,	RetEmt,	GetUbt,	PutUbt,UsrSav,PrePare,SelTbl,AdrSel
+.Globl	Window
+;
+;Bk0010-Compatible Handler Request Table format:
+;
+;	+-------+-------+
+;	!  	!  CODE	! 
+;	+-------+-------+
+;	! Memory Address! 
+;	+-------+-------+
+;	! Length (Bytes)! 
+;	+---------------+
+;	!    Filename   !\
+;	    .  .  .  .    ] 16 Bytes
+;	!		!/
+;	+---------------+
+;	! Page1 ! Page0	! 
+;	+-------+-------+
+;	! Memory Address! 2 Real
+;	+---------------+
+;	! Length (Bytes)! 4 Real
+;	+---------------+
+;	! 	Name	! 16B Realfilename
+;	+---------------+
+;
+; CODE is the operation code:
+;
+TapeOF	=	0 	;Set Tape-Recorder Off
+TapeOn	=	1	;Set Tape-Recorder On
+Writape	=	2	;Write File
+Reatap	=	3	;Read File
+Fictp	=	4	;Fictious Reading
+ReaNxt	=	5	;Read NExt File
+DirFil	=	6	;Directory Operation
+
+;
+;Error Code Returns in Errbyt as:
+;
+NoErr	=	0	;Illegal Command
+FilNfd	=	1	;Another file Name
+ChkErr	=	2	;CheckSum Error
+MemErr	=	3	;Memory Error
+StpErr	=	4	;Manual interrupt
+
+;
+;Sel1 Tape Output Data Bit Mask
+;
+	Dat00	=0	;-0
+	Dat11	=140	;+0
+	BitDat	=140
+;
+;Timing Constants
+;
+	LNG0	=	37.
+	LNG1	=	74.
+	Snc0	=	35.
+	Snc1	=	34.
+	Snc2	=	161.
+	Snc3	=	153.
+	LNGM	=	147.
+;
+TapBit	=	40	;Sel1 Tape Data input bit
+DspRd	=	2	;Maximum pulse dispersion during read
+ .SbTtl	MtIni Routine Cassette-Tape Initialization
+MtIni::	Bis	#Mot$$$,@#$$UsrS
+	Bis	#Mot$$$,@#$$UsrS
+	Bic	#BitDat,@#$$UsrS
+	Bic	#BitDat,@#$$SysS
+	Mov	@#$$SysS,@#Sel1
+	Tst	@#Sel1
+	Return
+
+.SbTtl	$BMtb10 (EMT 36) Routine (BK0010-compatible tape handler)
+;
+;BK0010-Compatible cassette-Tape handler Entry Point
+;
+.Psect	$CodOvr
+$BMtb10::
+	Jsr	R0,SavRg	;Save Registers
+	Mov	R0,R5
+	Mov	R0,ArgAdr	;Save Arg Block Address
+	Mov	#ArgLng,R1	;Byte Counter of Arg Block
+	Mov	#Bk10Scm,R2	;System Working Area for tape handler
+10$:	Call	GetUbt
+	MovB	R0,(R2)+	;Move Arg Block to System Area
+	Sob	R1,10$
+	ClrB	@#ErrByt	;Clear Error Flag
+	ClrB	ErrFlg
+	ClrB	Phase		;Clear Tape Phase Flag
+	ClrB	NxtFlg
+	ClrB	DirFlg
+	Clr	Noread		;Clear "Not real Read" Flag
+	Mov	@#Vec4,Sav4	;Save Vector 4
+	Mov	#TapV4,@#Vec4	;And Set Temporary Vector
+	Mov	SP,SPSave	;Save stack pointer value
+	MovB	Code,R0		;Command Code
+	Cmp	R0,#MaxCmd
+	Bhis	20$
+	Asl	R0
+	Jmp	@CmdTab(R0)
+20$:	Jmp	IllCmd		;Illegal Command
+CmdTab:	.Word	CmdOff	;Set Tape-Recorder Off	;0
+	.Word	CmdOn	;Set Tape-Recorder On	;1
+	.Word	CmdWri	;Write Block		;2
+	.Word	CmdRd	;Read Block		;3
+	.Word	CmdFct	;Fictious Reading	;4
+	.Word	CmdRnx	;Read NExt File		;5
+	.Word	CmdDir	;Directory Operation	;6
+MaxCmd = <.-CmdTab>/2
+ 
+.Psect	$Code
+Err3:	MovB	#3,@#ErrByt
+IllCmd:	IncB	ErrFlg
+	Jmp	Exit		;Error 0
+TapV4:	Mov	SPSave,SP	;Restore Stack Pointer
+	Mov	@#$$SysS,@#Sel1	;
+	MovB	#StpErr,@#ErrByt;And Set Error Code
+	MovB	#1,ErrFlg
+	Jmp	CmdOff
+CmdOff:	Call	Mtini		;Stop Taperecorder
+	Br	Exit		;And Exit
+CmdOn:	Bic	#BitDat!Mot$$$,$$UsrS
+	Bic	#BitDat!Mot$$$,$$SysS
+.SbTtl	Exit Routine
+Exit:	Mov	@#$$SysS,@#Sel1
+	Mov	Sav4,@#Vec4	;Restore Vestor 4
+	Mov	ArgAdr,R5
+	Mov	#ResLng,R2
+	Mov	#Bk10Scm,R3
+10$:	MovB	(R3)+,R0
+	Call	PutUbt
+	Sob	R2,10$
+	RorB	ErrFlg
+	Jmp	RetEmt
+ .SbTtl	Checksum computing Routine
+ChkSum:	Mov	AdrSel,R4
+	Mov	(R4)+,@#Sel1	;Initial User Sel1 Value
+	Clr	R0		;Accumulator
+	Br	20$
+10$:	Bit	#140000,R1	;Check Region No
+	Beq	30$
+	Mov	(R4)+,@#Sel1	;Set New Value
+20$:	Bic	#140000,R1
+30$:	Clr	R3		;R1=addr., R2=Length (Bytes)
+	BisB	Window(R1),R3
+	Add	R3,R0
+	Adc	R0
+	Inc	R1
+	Sob	R2,10$		;R0 = Computed CheckSum
+	Mov	SelTbl,@#Sel1
+	Return
+
+.SbTtl	SetTpe - Taperecorder preparing
+SetTpe:	Mov	#SelTbl,AdrSel	;Initial Sel1 Value
+	Mov	@AdrSel,R3
+	Mov	R3,@#Sel1
+	Tst	@#Sel1
+	Mov	#0,R0
+	Sob	R0,.		;Pause after taperecorder ON
+	Return
+ .SbTtl	Write Command
+CmdWri:
+;
+;This ROutine Writes Tape file from User's memory.
+;File Name is from CmdNam Buffer,
+;Start Address is "StAddr", File length is "Lngth" bytes
+;
+	Mov	StAddr,R1	;Initial Read/Write Address
+	Mov	Lngth,R2	;File Length
+	Mov	UsSel,R5
+	Call	Prepare		;Set Tape On, Prepare Buffer
+	Bcc	10$
+	Jmp	Err3		;Illegal Region specification
+10$:	Mov	#SelTbl+2,AdrSel;Initial Sel Address
+	Mov	StAddr,R1
+	Mov	Lngth,R2
+	Call	ChkSum		;Compute CheckSum
+	Mov	R0,SumBuf	;And store it
+	Call	SetTpe		;Prepare Arguments and Taperecorder
+	Mov	#4096.,R0	;Write Initial synchronization
+	Clr	R4
+	Mov	#256.,R5
+	Call	OutSnc
+	Mov	#StAddr,R1	;Header Address
+	Mov	#2.+2.+16.,R2	;Header Length
+	Mov	SelTbl,R3	;System Sel1
+	Call	OutDat		;Write Data
+	Add	#2,AdrSel	;to 1-st User Sel1
+	Mov	@AdrSel,R3	;New Sel1 Value
+	Mov	StAddr,R1	;Data Array Address
+	Mov	Lngth,R2	;Data Array Length
+	Call	OutDat
+	Mov	#SumBuf,R1	;Write 2 Bytes of Checksum
+	Mov	SelTbl,R3
+	Mov	R3,@#Sel1	;System Sel1
+	Mov	#2,R2		;Data Length (2 Bytes)
+	Call	OutDt1		;Write without Buffer Seq.
+	Mov	#256.,R0	;Write Final Synchronization
+	Mov	R0,R4
+	Mov	R0,R5
+	Call	OutSnc
+	Jmp	CmdOFF		;Stop Tape and Exit
+ .SbTtl	Initial and final Synchronization Writing
+;
+;Input:
+;
+;R0= Pulse Counter
+;R3= Sel1 Value without Data bits
+;Uses R0, R5
+;Output Carry=0
+;
+OutSnc:
+10$:	Bis	#Dat11,R3	;Write "0"		!       *
+	Mov	R3,@#Sel1	;			!	*
+	Add	#Snc0,R5	;U=UMAX 		!	*
+	Sob	R5,.		;			!	*
+	Bic	#Dat11,R3	;U=0 			!*
+	Mov	R3,@#Sel1	;			!*
+	Add	#LNG0-2,R4	;			!*
+	Sob	R4,.		;			!*
+	Sob	R0,10$		;Count Pulses
+OutSn1:
+	Bis	#Dat11,R3	;Write Marker		!     *
+	Mov	R3,@#Sel1	;			!     *
+	Mov	#Snc2,R5	;U=0.75 		!     *
+	Sob	R5,.		;			!     *
+	Bic	#Dat11,R3	;			;     *
+	Mov	R3,@#Sel1	;			!  *
+	Mov	#Snc3,R5	;			!  *
+	Sob	R5,.		;			!  *
+	Inc	R4		;R4=1
+	Mov	R2,R0		;Temporary Storage of R2
+	Mov	R4,R2		;R2=1 (1 byte, 1 bit)
+	Call	OutBt1		;Output bit of One
+	Mov	R0,R2		;And Restore R2
+	Return
+ .SbTtl	Data Array Output
+;
+;Input:
+;R1=Initial Buffer Address
+;R2=Buffer length
+;
+OutDat:	Mov	#8.,R0		;Write Buffer Sequence.
+	Call	OutSnc
+OutDt1:	Br	OutDt3
+OutDt2:	Inc	R1
+	Bit	#140000,R1
+	Beq	10$
+	Add	#2,AdrSel
+	Mov	@AdrSel,R3
+	Mov	R3,@#Sel1	
+10$:
+OutDt3:	Bic	#140000,R1	
+	MovB	Window(R1),R0	;Data Byte
+	Mov	#8.,R4		;Bit per Byte counter
+Outbit:	Asr	R0		;Shift out the next bit
+	Bcs	OutBt1
+OutBt0:	Bis	#Dat11,R3
+	Mov	R3,@#Sel1	
+	Mov	#LNG0,R5	;Write 0; U=1 		!	*
+	Sob	R5,.		;			!	*
+	Bic	#Dat11,R3	;U=0 			!*
+	Mov	R3,@#Sel1	;			!*
+	Mov	#LNG0-1,R5	;			!*
+	Sob	R5,.		;			!*
+	Br	OutSsi		;			!*
+OutBt1:	Bis	#Dat11,R3
+	Mov	R3,@#Sel1	
+	Mov	#LNG1+3,R5	;U=0.75 		!     *
+	Sob	R5,.		;			!     *
+	Bic	#Dat11,R3	;			!  *
+	Mov	R3,@#Sel1	;U=0.25			!  *
+	Mov	#LNG1+3,R5	;			!  *
+	Sob	R5,.		;			!  *
+			;Synchro-Pulse writing
+OutSsi:	Bis	#Dat11,R3	;U=MAX 			!	*
+	Mov	R3,@#Sel1	;			!	*
+	Mov	#LNG0,R5	;			!	*
+	Sob	R5,.		;			!	*
+	Bic	#Dat11,R3	;U=0 			!*
+	Mov	R3,@#Sel1	;			!*
+	Mov	#LNG0-2,R5	;			!*
+	Sob	R5,.		;			!*
+	Sob	R4,Outbit	;Bit per Byte Loop
+	Dec	R2
+	Bne	OutDt2		;Byte per Block Loop
+	Return
+ .SbTtl	Tape Reading Routines
+CmdDir:	MovB	#1,DirFlg	;Dir Operation
+CmdRnX:	MovB	#1,NxtFlg
+	Br	CmdRd
+CmdFct:	Inc	Noread		;Set "Disable Reading Flag"
+CmdRd:	Clr	R1		;Initial Buffer Address
+	Mov	#140000,R2	;Buffer Length
+	Mov	UsSel,R5
+	Call	Prepare
+	Mov	#TapBit,R5	;Input Data bit mask
+	Mov	#1,IncADR	;Address Increment
+	Mov	#Sel1,R3	;Sel1 Address
+.SbTtl	Synchronization Search Loop
+Again:	Mov	#SelTbl,AdrSel	;Set System Sel1 Value
+ 	Mov	SelTbl,@R3	;Map System Page Twice, Set Tape On
+	Call	GetSnc		;Initial Read Syncronization
+ 	Mov	SelTbl,@R3	;Map System Page Twice, Set Tape On
+	Call	GetLbl		;Read file Label (Header)
+	Bcs	20$		;Header Error - Illegal file name
+	TstB	DirFLg
+	Bne	20$
+10$:	Call	GetFil		;Read Data
+	Mov	@#$$SysS,@#Sel1	;Set Normal System Sel1
+	Call	MtIni
+	Jmp	Exit		;And Exit
+20$:	BisB	#1,ErrFlg	;Set "Illegal File Name" Flag
+	Jmp	Exit		;and Exit
+ .SbTtl	Initial Synchronization Search Routine
+GetSnc:	ClrB	Phase		;Inverted Phase Flag
+10$:	Mov	#4000,R2	;Loop Counter
+	Clr	R0		;Initial pulse width value
+20$:	Clr	R4		;Counter for one pulse time
+30$:	Bit	R5,@R3		;Wait for bit of "1"
+	Beq	30$		;
+40$:	Inc	R4		;Count time of "1"
+	Bit	R5,@R3		;R4 = "1" Time
+	Bne	40$
+	Sub	R4,R0		;Compute Pulse Dispersion
+	Bmi	50$		;
+	Cmp	R0,#DspRd	;Dispersion greater ==>
+	Bhi	10$		;new search
+50$:	Mov	R4,R0		;Wait another time (2048 Times)
+	Sob	R2,20$
+
+.SbTtl	Phase and speed determination
+	Clr	R0		;Speed value
+	Mov	#128.,R2	;Pulse Counter
+60$:	Call	GetBit		;R4= one Pulse width
+	Add	R4,R0
+	Sob	R2,60$		;R0= T(128 pulses)
+	Mov	#7,R2		;
+70$:	Asr	R0
+	Sob	R2,70$		;R0=Average pulse width
+	Mov	R0,R4		;
+	Asr	R4
+	Add	R4,R0
+	Mov	R0,BitLng	; 1.5*Pulse width
+.SbTtl	Phase detection
+;First Long pulse state=1 ==> Direct, =0 ==> Invert phase
+80$:	Clr	R4		;Initialize time counter
+90$:	Inc	R4		;Count time
+	Bit	R5,@R3		;What's this
+	Bne	90$		;It's One, Count time
+	Cmp	R4,R0		;Time of One is Long (>1.5t) ?
+	Bhi	110$		;Yes, direct phase
+	Clr	R4		;No, Wait another one
+100$:	Inc	R4		;Count Time of zero
+	Bit	R5,@R3
+	Beq	100$
+	Cmp	R4,R0		;Time of 0 is long ?
+	Blo	80$		;No, Wait once more
+	IncB	Phase		;Long Zero ==> set Inverse flag
+110$:	Asl	R0
+;End of tuning operations
+;
+	Cmp	R4,R0		;pulse too long (Direct Current) ?
+	Bhi	GetSnc		;Yes, Ignore tuning operations, Go Again
+	Call	GetBit		;Else Skip one bit and Return
+	Return
+UNSYN1:	Cmp	(SP)+,(SP)+	;Repeat search Once more
+	Br	AGAIN
+ .SbTtl	File Header Read Routine
+GetLbl:	Mov	SelTbl,@R3	;Set System Sel1
+	Mov	#<ResBlk&<^C140000>>,R1	;Real Header Buffer
+	Mov	#16.+2.+2.,R2	;Byte Counter
+	Call	GetBlk		;Read Tape block
+	TstB	NxtFlg
+	Bne	30$		;Ill. File Name ==> Read Data
+	Mov	#8.,R2		;Compare Names
+	Mov	#ResNam,R1
+10$:	Cmp	CmdNam-ResNam(R1),(R1)+
+	Bne	20$		;Different Filenames
+	Sob	R2,10$
+	Br	30$
+20$:	MovB	#1,@#ErrByt	;Another file Found
+	Br	40$
+30$:	Tst	(PC)+
+40$:	Sec
+	Return
+ .SbTtl	Data Block Read Routine
+GetFil:	Mov	Rlngth,R2	;File Length = Byte Counter
+	Mov	#SumBuf,R1	;Fictive Read Buffer Address
+	Mov	#SelTbl,AdrSel	;And Sel1 Value
+	Sub	Noread,IncAdr	;Fictive Read Operation ?
+	Beq	10$		;Yes
+	Call	ReAdr		;Get Read Address
+10$:	Bic	#140000,R1	;Get WIndow Address
+	Mov	@AdrSel,@R3	;Map Window
+	Call	GetBlk		;Read Data Block
+	Mov	#SelTbl,AdrSel	;
+	Mov	@AdrSel,@R3	;Set System Sel1
+	Mov	#SumBuf&<^C140000>,R1	;Checksum Address
+	Mov	#2,R2		;Block Size
+	Call	GetDat		;Get CheckSum
+	Tst	Noread		;Fictive Read ?
+	Bne	20$		;Yes, Skip Computing
+	Call	ReAdr		;Read Addr to R1, Prepare Sel1
+	Mov	RLNGTH,R2	;File Length
+	Call	ChkSum		;Compute CheckSum
+	Cmp	R0,SumBuf
+	Beq	20$		;Checksum OK
+	MovB	#CHKERR,@#ErrByt;
+	IncB	ErrFlg
+	Sec
+	Return
+20$:	Clc
+	Return
+
+ReAdr:	Mov	StAddr,R1	;User Read Address
+	Bne	10$
+	Mov	Raddr,R1	;Not Found, Get from Label
+10$:	Mov	R1,R0
+	Rol	R0		;
+	Rol	R0		;1
+	Rol	R0		;11
+	Rol	R0		;111
+	Bic	#^C6,R0		;Region No	
+	Add	#SelTbl+2,R0
+	Mov	R0,AdrSel	;Correct No
+	Return
+ .SbTtl	Block Get Routine
+;
+;Input Data:
+;R1=Read Address (inside Memory window)
+;R2=Byte Counter
+;R3=Sel1 Adress
+;R5=Input Data bit mask
+;
+GetBlk:	Mov	BitLng,R0	;Speed-Depended value
+	TstB	Phase		;What phase ?
+	Bne	30$		;Inverted
+;
+;Direct Phase Read Operation
+;
+10$:	Clr	R4		;Time Counter
+20$:	Inc	R4
+	Bit	R5,@R3
+	Bne	20$
+	Cmp	R4,R0		;What's about width?
+	Blo	10$		;Too small, skip Sync-bit
+	Br	50$		;It's Data, Compouse
+;
+;Inverted phase read
+;
+30$:	Clr	R4
+40$:	Inc	R4
+	Bit	R5,@R3
+	Beq	40$
+	Cmp	R4,R0		;Sync-Bit?
+	Blo	30$		;Yes, Skip it
+
+50$:	Asl	R0		;R0 = Max time 
+	Cmp	R4,R0		;Pulse too long ?
+	Bhi	UNSYN1		;Yes, Error (No Data)
+	Call	GetBit		;Read One bit of data to sinchronize
+	Br	GetDat
+ .SbTtl	Bit to byte assembling, Read Data
+GetDaX:	Add	IncADR,R1	;Go next Address
+	Bit	#140000,R1
+	Beq	10$
+	Add	#2,AdrSel
+	Mov	@AdrSel,@R3	;Set New Sel1 Value
+10$:
+GetDat:	Bic	#140000,R1
+	Mov	#8.,R0		;Bit per Byte Counter
+10$:	Call	GetBit		;Get Data bit
+	Cmp	R4,BitLng	;Check bit Value
+	Bhi	20$
+	Tst	(PC)+		;Zero, Clear Carry
+20$:	SeC			;One, Set Carry
+30$:	RorB	Window(R1)	;Shift Data bit in
+	Sob	R0,10$		;Byte loop
+	Sob	R2,GetDaX	;Data Block Loop
+	Return
+ .SbTtl	Bit Reading Routine
+GetBit:	Clr	R4		;
+	TstB	Phase		;Inverted phase?
+	Bne	50$		;Yes
+;
+;Direct Phase Read Routine
+;
+10$:	Bit	R5,@R3		;Wait for 1 to 0 edge
+	Bne	10$
+20$:	Bit	R5,@R3		;Rising edge wait loop
+	Beq	20$
+30$:	Inc	R4
+	Bit	R5,@R3
+	Bne	30$
+40$:	Inc	R4
+	Bit	R5,@R3
+	Beq	40$
+	Return			;R4 = Pulse width
+;
+;Invert phase read routine
+;
+50$:	Bit	R5,@R3
+	Beq	50$
+60$:	Bit	R5,@R3
+	Bne	60$
+70$:	Inc	R4
+	Bit	R5,@R3
+	Beq	70$
+80$:	Inc	R4
+	Bit	R5,@R3
+	Bne	80$
+	Return			;R4= Pulse width
+ .Psect	$Ram
+ArgAdr:	.BlkW		;User Arg Block address
+
+Bk10Scm:		;Handler Working Buffer of Arg Block
+Code:	.BlkB		;Op Code
+	.Even
+StAddr:	.BlkW		;Memory Address
+Lngth:	.BlkW		;File Length
+CmdNam:	.BlkB	16.	;File Name
+UsSel:	.BlkW		;Pages...
+ArgLng=.-Bk10Scm
+ResBlk:
+Raddr:	.BlkW
+Rlngth:	.BlkW
+ResNam:	.BlkB	16.	;Real Filename
+ResLng=.-Bk10Scm
+
+.SbTtl	Internal Working Cells
+Phase:	.BlkB		;Tape Phase flag
+ErrFlg:	.BlkB
+NxtFlg:	.BlkB
+DirFlg:	.BlkB
+.Even
+Noread:	.BlkW		;Fictious Reading Flag
+SPSave:	.BlkW		;Stack Pointer Save Area
+Sav4:	.BlkW		;Vector 4 Save Area
+SumBuf:	.BlkW		;CheckSum Buffer
+IncADR:	.BlkW
+BitLng:	.BlkW		;Bit pulse width
+.End

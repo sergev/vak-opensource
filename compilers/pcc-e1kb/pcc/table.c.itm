@@ -1,0 +1,976 @@
+/*
+ *      Сделано в МФТИ.
+ *
+ *      Чет Фев 18 17:22:37 MSK 1988    Вакуленко С. В.
+ */
+
+# include "mfile2"
+
+# define A      INTAREG         /* STAREG */
+# define B      INBREG          /* SBREG */
+# define C      FORCC
+# define AWD    SNAME|SOREG|SCON|STARNM
+# define TI     TINT|TLONG|TSHORT
+# define TU     TUNSIGNED|TULONG|TUSHORT
+# define TC     TCHAR|TUCHAR
+# define TF     TFLOAT|TDOUBLE
+# define TFIXED TI|TU|TPOINT
+# define TWORD  TI|TU|TF|TPOINT
+# define TP     TPTRTO|TWORD|TSTRUCT
+
+struct optab table[] = {
+
+ASSIGN,         B|FOREFF,
+	B,              TANY,
+	SZERO,          TANY,
+		0,              RLEFT|RRIGHT,
+#ifndef ITM
+		" vtm 0,AL;",
+#else
+		"ZLAL=&0;\n",
+#endif
+
+ASSIGN,         B|FOREFF,
+	B,              TANY,
+	SCON,           TANY,
+		0,              RLEFT|RRIGHT,
+#ifndef ITM
+		" vtm CR,AL;",
+#else
+		"ZLAL=&CR\n;",
+#endif
+
+ASSIGN,         FOREFF,
+	B,              TANY,
+	B,              TANY,
+		0,              RLEFT|RRIGHT,
+#ifndef ITM
+		" mtj AL,AR;",
+#else
+		"AL=>AR;\n",
+#endif
+
+ASSIGN,         A|C|FOREFF,
+	B,              TANY,
+	A,              TANY,
+		0,              RLEFT|RRIGHT|RESCC,
+#ifndef ITM
+		" ati AL;",
+#else
+		"ZL@=>AL;\n",
+#endif
+
+ASSIGN,         A|C|FOREFF,               /* unsign -> int */
+	AWD,            TI,
+	A,              TU,
+		0,             RLEFT|RRIGHT|RESCC,
+#ifndef ITM
+		" aax #.00004-1; atx AL;",
+#else
+		"ZL@&x'0007FFFFFFFFFFFF =>AL;\n",
+#endif
+
+ASSIGN,         A|C|FOREFF,               /* int,unsign -> point */
+	AWD,            TPOINT,
+	A,              TI|TU,
+		0,              RLEFT|RRIGHT|RESCC,
+#ifndef ITM
+		" aax #777777777.; atx AL;",
+#else
+		"ZL@&o'777777777 =>AL;\n",
+#endif
+
+ASSIGN,         A|C|FOREFF,               /* int -> float */
+	AWD,            TF,
+	A,              TI,
+		0,              RLEFT|RRIGHT|RESCC,
+#ifndef ITM
+		" aox #.1032; aadx; atx AL;",
+#else
+		"ZLe=<64 =>AL;\n",
+#endif
+
+ASSIGN,         A|C|FOREFF,               /* float -> int */
+	AWD,            TI,
+	A,              TF,
+		0,              RLEFT|RRIGHT|RESCC,
+#ifndef ITM
+		" int; atx AL;",
+#else
+		"ZLsc d'0 =>AL;\n",
+#endif
+
+ASSIGN,         A|C|FOREFF,             /* TANY -> char */
+	SNAME,          TC,
+	A,              TANY,
+		0,              RRIGHT,
+#ifndef ITM
+		" xts #AL; vjm c_store,14;",
+#else
+		"ZL@<<&AL; u c_store,rd;\n",
+#endif
+
+ASSIGN,         A|C|FOREFF,             /* TANY -> char */
+	STARREG,        TC,
+	A,              TANY,
+		0,              RRIGHT,
+#ifndef ITM
+		" xts ZP; vjm c_store,14;",
+#else
+		"ZQ@<<ZP u c_store,rd;\n",
+#endif
+
+ASSIGN,         A|C|FOREFF,
+	AWD,            TANY,
+	A,              TANY,
+		0,              RLEFT|RRIGHT|RESCC,
+#ifndef ITM
+		" atx AL;",
+#else
+		"ZL@=>AL;\n",
+#endif
+
+ASSIGN,         A|C|FOREFF,
+	SFLD,           TANY,
+	A,              TANY,
+		0,              RLEFT|RRIGHT|RESCC,
+#ifndef ITM
+		" aax #ZT.; asn 1024-H; xts AL; aax #ZC.; aox ,15; atx AL;",
+#else
+		"@&o'ZT ->&d'1024-H ZL<<AL &o'ZC \\0.rf ZL=>AL;\n",
+#endif
+
+UNARY AND,      A|C,
+	AWD,            TANY,
+	SANY,           TANY,
+		NAREG,          RESC1,
+#ifndef ITM
+		" vtm AL,14; ita 14;",
+#else
+		"ZLre=AL =re;\n",
+#endif
+
+REG,            A|C,
+	SANY,           TANY,
+	B,              TANY,
+		NAREG,          RESCC|RESC1,
+#ifndef ITM
+		" ita AR;",
+#else
+		"ZR@=AR;\n",
+#endif
+
+REG,            FORCC,
+	SANY,           TANY,
+	A,              TANY,
+		0,              RESCC,
+		"",
+
+REG,            INTEMP,
+	SANY,           TWORD,
+	A,              TWORD,
+		NTEMP,          RESC1,
+#ifndef ITM
+		" atx A1;",
+#else
+		"Z1@=>A1;\n",
+#endif
+
+REG,            FORARG,
+	SANY,           TANY,
+	B,              TANY,
+		0,              RNULL,
+#ifndef ITM
+		" OB AR;",
+#else
+		"ZR@OR=AR;\n",
+#endif
+
+REG,            FORARG,
+	SANY,           TANY,
+	A,              TANY,
+		0,              RNULL,
+#ifndef ITM
+		"OA",
+#else
+		"@OA;\n",
+#endif
+
+UNARY MUL,      A|C,
+	A,              TWORD,
+	SANY,           TWORD,
+		NAREG|NASL,     RESC1|RESCC,
+#ifndef ITM
+		" atc; xta;",
+#else
+		"@&+0 =;\n",
+#endif
+
+UNARY MUL,      A|C,
+	AWD,            TWORD,
+	SANY,           TWORD,
+		NAREG,          RESC1|RESCC,
+#ifndef ITM
+		" xta AR;",
+#else
+		"ZR@=AR;\n",
+#endif
+
+UNARY MUL,      A|C,
+	A,              TANY,
+	SANY,           TC,
+		NAREG|NASL,     RLEFT|RESCC,
+#ifndef ITM
+		" vjm c_load,14;",
+#else
+		"u c_load,rd;\n",
+#endif
+
+OPLTYPE,	FOREFF,
+	SANY,           TANY,
+	SANY,           TANY,
+		0,              RNULL,
+		"",             /* this entry throws away computations
+				which don't do anything */
+
+OPLTYPE,        A|C,
+	SANY,           TANY,
+	SZERO,          TANY,
+		NAREG,          RESC1|RESCC,
+#ifndef ITM
+		" xta;",
+#else
+		"@=0;\n",
+#endif
+
+OPLTYPE,        A|C,
+	SANY,           TANY,
+	AWD,            TWORD,
+		NAREG,          RESC1|RESCC,
+#ifndef ITM
+		" xta AR;",
+#else
+		"@=AR;\n",
+#endif
+
+OPLTYPE,        A|C,
+	SANY,           TANY,
+	SOREG,          TC,
+		NAREG,          RESC1|RESCC,
+#ifndef ITM
+		" xta AR; aax #377.;",
+#else
+		"ZR@=AR &o'377;\n",
+#endif
+
+OPLTYPE,        A|C,
+	SANY,           TANY,
+	SCON,           TC,
+		NAREG,          RESC1|RESCC,
+#ifndef ITM
+		" xta AR;",
+#else
+		"@=AR;\n",
+#endif
+
+OPLTYPE,        A|C,
+	SANY,           TANY,
+	SNAME|SWADD,    TC,
+		NAREG,          RESC1|RESCC,
+#ifndef ITM
+		" xta AR; aax #377.;",
+#else
+		"ZR@=AR &o'377;\n",
+#endif
+
+OPLTYPE,        A|C,
+	SANY,           TANY,
+	SNAME,          TC,
+		NAREG,          RESC1|RESCC,
+#ifndef ITM
+		" xta #AR; vjm c_load,14;",
+#else
+		"@=&AR u c_load,rd;\n",
+#endif
+
+OPLTYPE,	INTEMP,
+	SANY,           TANY,
+	A,              TWORD,
+		NTEMP,          RESC1,
+#ifndef ITM
+		" atx A1;",
+#else
+		"Z1@=>A1;\n",
+#endif
+
+OPLTYPE,        FORARG,
+	SANY,           TANY,
+	AWD,            TWORD,
+		0,              RNULL,
+#ifndef ITM
+		" OX AR;",
+#else
+		"ZR@ZHOXAR;\n",
+#endif
+
+INCR,           A|C,
+	B,              TANY,
+	SCON,           TINT,
+		NAREG,          RESC1|RESCC,
+#ifndef ITM
+		" ita AL; utm CR,AL;",
+#else
+		"ZL@=AL ZLAL+&CR;\n",
+#endif
+
+INCR,           FOREFF|INBREG,
+	B,              TANY,
+	SCON,           TINT,
+		0,              RLEFT,
+#ifndef ITM
+		" utm CR,AL;",
+#else
+		"ZLAL+&CR;\n",
+#endif
+
+INCR,           FOREFF|A|C,
+	AWD,            TI,
+	SCON,           TINT,
+		NAREG,          RESC1|RESCC,
+#ifndef ITM
+		" xta AL; atx ,15; aadx #1; stx AL;",
+#else
+		"ZL@=AL =>0.rf e+&1 ZL>>AL;\n",
+#endif
+
+INCR,           FOREFF|A|C,
+	AWD,            TP,
+	SCON,           TINT,
+		NAREG,          RESC1|RESCC,
+#ifndef ITM
+		" xta AL; atx ,15; aadx #1; aax #777777777.; stx AL;",
+#else
+		"ZL@=AL =>0.rf e+&1 &o'777777777 ZL>>AL;\n",
+#endif
+
+INCR,           FOREFF|A|C,
+	AWD,            TU,
+	SCON,           TINT,
+		NAREG,          RESC1|RESCC,
+#ifndef ITM
+		" xta AL; atx ,15; xts AR; vjm u_add_u,14; stx AL;Zx",
+#else
+	    /*  "ZL@=AL =>0.rf ZR<<AR u u_add_u,rd ZL>>AL;Zx\n", */
+		"ZL@=AL =>0.rf ZR+\\AR ZL=>AL;Zx\n",
+#endif
+
+INCR,           FOREFF|A|C,
+	AWD,            TPTRTO|TC,
+	SCON,           TINT,
+		NAREG,          RESC1|RESCC,
+#ifndef ITM
+		" xta AL; atx ,15; xts AR; vjm cp_add_i,14; stx AL;Zx",
+#else
+		"ZL@=AL =>0.rf ZR<<AR u cp_add_i,rd ZL>>AL;Zx\n",
+#endif
+
+DECR,           A|C,
+	B,              TANY,
+	SCON,           TINT,
+		NAREG,          RESC1|RESCC,
+#ifndef ITM
+		" ita AL; utm CR,AL;",
+#else
+		"ZL@=AL ZLAL-&CR;\n",
+#endif
+
+DECR,           FOREFF|INBREG,
+	B,              TANY,
+	SCON,           TINT,
+		0,              RLEFT,
+#ifndef ITM
+		" utm -CR,AL;",
+#else
+		"ZLAL-&CR;\n",
+#endif
+
+DECR,           FOREFF|A|C,
+	AWD,            TI,
+	SCON,           TINT,
+		NAREG,          RESC1|RESCC,
+#ifndef ITM
+		" xta AL; atx ,15; asux #1; stx AL;",
+#else
+		"ZL@=AL =>0.rf e-&1 ZL>>AL;\n",
+#endif
+
+DECR,           FOREFF|A|C,
+	AWD,            TP,
+	SCON,           TINT,
+		NAREG,          RESC1|RESCC,
+#ifndef ITM
+		" xta AL; atx ,15; asux #1; aax #777777777.; stx AL;",
+#else
+		"ZL@=AL =>0.rf e-&1 &o'777777777 ZL>>AL;\n",
+#endif
+
+DECR,           FOREFF|A|C,
+	AWD,            TU,
+	SCON,           TINT,                   /* nonzero ! */
+		NAREG,          RESC1|RESCC,
+		" xta AL; atx ,15; xts AR; aex #-1; arx #1; vjm u_add_u,14; stx AL;Zx",
+
+DECR,           FOREFF|A|C,
+	AWD,            TPTRTO|TC,
+	SCON,           TINT,
+		NAREG,          RESC1|RESCC,
+#ifndef ITM
+		" xta AL; atx ,15; xts AR; xsua; vjm cp_add_i,14; stx AL;Zx",
+#else
+		"ZL@=AL =>0.rf ZR<<AR -^&0 u cp_add_i,rd ZL>>AL;Zx\n",
+#endif
+
+EQ,             FORCC,
+	A,              TANY,
+	AWD,            TWORD,
+		0,              RESCC,
+#ifndef ITM
+		" aex AR;ZI",
+#else
+		"ZR@^\\AR;ZI",
+#endif
+
+NE,             FORCC,
+	A,              TANY,
+	AWD,            TWORD,
+		0,              RESCC,
+#ifndef ITM
+		" aex AR;ZI",
+#else
+		"ZR@^\\AR;ZI",
+#endif
+
+LE,             FORCC,
+	A,              TWORD,
+	AWD,            TWORD,
+		0,              RESCC,
+#ifndef ITM
+		" asux AR;ZI",
+#else
+		"ZRe0-AR;ZI",
+#endif
+
+LT,             FORCC,
+	A,              TWORD,
+	AWD,            TWORD,
+		0,              RESCC,
+#ifndef ITM
+		" asux AR;ZI",
+#else
+		"ZRe0-AR;ZI",
+#endif
+
+GE,             FORCC,
+	A,              TWORD,
+	AWD,            TWORD,
+		0,              RESCC,
+#ifndef ITM
+		" asux AR;ZI",
+#else
+		"ZRe0-AR;ZI",
+#endif
+
+GT,             FORCC,
+	A,              TWORD,
+	AWD,            TWORD,
+		0,              RESCC,
+#ifndef ITM
+		" asux AR;ZI",
+#else
+		"ZRe0-AR;ZI",
+#endif
+
+ULE,            FORCC,
+	A,              TANY,
+	AWD,            TWORD,
+		0,              RESCC,
+#ifndef ITM
+		" aex AR; xts AR; apx ,15;ZI",
+#else
+		"ZR@^\\AR ZR<<AR =*0.rf;ZI",
+#endif
+
+ULT,            FORCC,
+	A,              TANY,
+	AWD,            TWORD,
+		0,              RESCC,
+#ifndef ITM
+		" aex AR; xts AR; apx ,15;ZI",
+#else
+		"ZR@^\\AR ZR<<AR =*0.rf;ZI",
+#endif
+
+UGE,            FORCC,
+	A,              TANY,
+	AWD,            TWORD,
+		0,              RESCC,
+#ifndef ITM
+		" aex AR; xts AR; apx ,15;ZI",
+#else
+		"ZR@^\\AR ZR<<AR =*0.rf;ZI",
+#endif
+
+UGT,            FORCC,
+	A,              TANY,
+	AWD,            TWORD,
+		0,              RESCC,
+#ifndef ITM
+		" aex AR; xts AR; apx ,15;ZI",
+#else
+		"ZR@^\\AR ZR<<AR =*0.rf;ZI",
+#endif
+
+CCODES,         A|C,
+	SANY,           TANY,
+	SANY,           TANY,
+		NAREG,          RESC1,
+#ifndef ITM
+		" xta #1;ZN",
+#else
+		"@=&1;ZN\n",
+#endif
+
+UNARY MINUS,    A|C,
+	A,              TU,
+	SANY,           TU,
+		0,              RLEFT|RESCC,
+#ifndef ITM
+		" uza .+2;: aex #-1; arx #1;",
+#else
+		"()^= @^\\x'ffffffffffffffff +\\&1;\n",
+#endif
+
+UNARY MINUS,    A|C,
+	A,              TWORD,
+	SANY,           TANY,
+		0,              RLEFT|RESCC,
+#ifndef ITM
+		" xsua;",
+#else
+		"e0-^0;\n",
+#endif
+
+COMPL,          A|C,
+	A,              TI|TU,
+	SANY,           TANY,
+		0,              RLEFT|RESCC,
+#ifndef ITM
+		" aex #-1;",
+#else
+		"@^\\x'ffffffffffffffff;\n",
+#endif
+
+ASG MUL,        A|C,
+	A,              TI|TF,
+	AWD,            TI|TF,
+		0,              RLEFT|RESCC,
+#ifndef ITM
+		" amux AR;",
+#else
+		"ZRe0*AR;\n",
+#endif
+
+ASG MUL,        A|C,
+	A,              TI|TU,
+	AWD,            TI|TU,
+		0,              RLEFT|RESCC,
+#ifndef ITM
+		" xts AR; vjm u_mul_u,14;Zx",
+#else
+		"ZR@<<AR u u_mul_u,dr;Zx\n",
+#endif
+
+ASG DIV,        A|C,
+	A,              TI,
+	AWD,            TI,
+		0,              RLEFT|RESCC,
+#ifndef ITM
+		" xts AR; vjm i_div_i,14;Zx",
+#else
+		"ZR@<<AR u i_div_i,rd;Zx\n",
+#endif
+
+ASG DIV,        A|C,
+	A,              TI|TU,
+	AWD,            TI|TU,
+		0,              RLEFT|RESCC,
+#ifndef ITM
+		" xts AR; vjm u_div_u,14;Zx",
+#else
+		"ZR@<<AR u u_div_u,rd;Zx\n",
+#endif
+
+ASG DIV,        A|C,
+	A,              TF,
+	AWD,            TF,
+		0,              RLEFT|RESCC,
+#ifndef ITM
+		" adx AR;",
+#else
+		"ZRe0/AR;\n",
+#endif
+
+ASG MOD,        A|C,
+	A,              TI,
+	AWD,            TI,
+		0,              RLEFT|RESCC,
+#ifndef ITM
+		" xts AR; vjm i_mod_i,14;Zx",
+#else
+		"ZR@<<AR u i_mod_i,rd;Zx\n",
+#endif
+
+ASG MOD,        A|C,
+	A,              TI|TU,
+	AWD,            TI|TU,
+		0,              RLEFT|RESCC,
+#ifndef ITM
+		" xts AR; vjm u_mod_u,14;Zx",
+#else
+		"ZR@<<AR u u_mod_u,rd;Zx\n",
+#endif
+
+ASG LS,         A|C,
+	A,              TANY,
+	SCCON,          TANY,
+		0,              RLEFT|RESCC,
+		" aln CR+1024;",
+
+ASG LS,         A|C,
+	A,              TANY,
+	AWD,            TANY,
+		0,              RLEFT|RESCC,
+		" aln [AR]1024;",
+
+ASG RS,         A|C,
+	A,              TANY,
+	SCCON,          TANY,
+		0,              RLEFT|RESCC,
+		" asn CR+1024;",
+
+ASG RS,         A|C,
+	A,              TANY,
+	AWD,            TANY,
+		0,              RLEFT|RESCC,
+		" asn [AR]1024;",
+
+ASG PLUS,       A|C,
+	A,              TPTRTO|TC,
+	AWD,            TI,
+		0,              RLEFT|RESCC,
+#ifndef ITM
+		" xts AR; vjm cp_add_i,14;Zx",
+#else
+		"ZR@<<AR u cp_add_i,rd;Zx\n",
+#endif
+
+ASG PLUS,       A|C,
+	A,              TI,
+	AWD,            TPTRTO|TC,
+		NAREG|NASL,     RESC1|RESCC,
+#ifndef ITM
+		" atx 1,15; xta AR; xts ,15; vjm cp_add_i,14;Zx",
+#else
+		"@=>1.rf ZR=AR <<0.rf u cp_add_i,rd;Zx\n",
+#endif
+
+ASG PLUS,       A|C,
+	A,              TI|TF,
+	AWD,            TI|TF,
+		0,              RLEFT|RESCC,
+#ifndef ITM
+		" aadx AR;",
+#else
+		"ZRe+AR;\n",
+#endif
+
+ASG PLUS,       A|C,
+	A,              TI|TU,
+	AWD,            TI|TU,
+		0,              RLEFT|RESCC,
+		" xts AR; vjm u_add_u,14;Zx",
+
+ASG PLUS,       A|C,
+	A,              TPOINT|TI|TU,
+	AWD,            TPOINT|TI|TU,
+		0,              RLEFT|RESCC,
+#ifndef ITM
+		" aadx AR; aax #777777777.;",
+#else
+		"ZR@+AR;\n",
+#endif
+
+ASG PLUS,       INBREG|FOREFF,
+	B,              TANY,
+	SCON,           TANY,
+		0,              RLEFT,
+#ifndef ITM
+		" utm CR,AL;",
+#else
+		"ZLAL+&CR;\n",
+#endif
+
+ASG PLUS,       INBREG|FOREFF,
+	B,              TANY,
+	AWD,            TANY,
+		0,              RLEFT,
+		" utm [AR],AL;",
+
+ASG MINUS,      A|C,
+	A,              TPTRTO|TC,
+	AWD,            TPTRTO|TC,
+		0,              RLEFT|RESCC,
+		" xts AR; vjm cp_sub_cp,14;Zx",
+
+ASG MINUS,      A|C,
+	A,              TPTRTO|TC,
+	AWD,            TI,
+		0,              RLEFT|RESCC,
+#ifndef ITM
+		" xts AR; xsua; vjm cp_add_i,14;Zx",
+#else
+		"ZR@<<AR -^&0 u cp_add_i,rd;Zx\n",
+#endif
+
+ASG MINUS,      A|C,
+	A,              TP,
+	AWD,            TP,
+		0,              RLEFT|RESCC,
+#ifndef ITM
+		" asux AR; aax #777777777.;",
+#else
+		"ZRe0-AR &o'777777777;\n",
+#endif
+
+ASG MINUS,      A|C,
+	A,              TI|TF,
+	AWD,            TI|TF,
+		0,              RLEFT|RESCC,
+#ifndef ITM
+		" asux AR;",
+#else
+		"ZRe0-AR;\n",
+#endif
+
+ASG MINUS,      A|C,
+	A,              TP,
+	AWD,            TI,
+		0,              RLEFT|RESCC,
+#ifndef ITM
+		" asux AR; aax #777777777.;",
+#else
+		"ZRe0-AR &o'777777777;\n",
+#endif
+
+ASG MINUS,      A|C,
+	A,              TI|TU,
+	AWD,            TI|TU,                  /* nonzero ! */
+		0,              RLEFT|RESCC,
+		" xts AR; aex #-1; arx #1; vjm u_add_u,14;Zx",
+
+ASG MINUS,      INBREG|FOREFF,
+	SBREG,          TANY,
+	SCON,           TANY,
+		0,              RLEFT,
+#ifndef ITM
+		" utm ZM,AL;",
+#else
+		"ZLAL+&ZM;\n",
+#endif
+
+ASG AND,        A|C,
+	A,              TANY,
+	AWD,            TANY,
+		0,              RLEFT|RESCC,
+#ifndef ITM
+		" aax AR;",
+#else
+		"ZR@&AR;\n",
+#endif
+
+ASG OR,         A|C,
+	A,              TANY,
+	AWD,            TANY,
+		0,              RLEFT|RESCC,
+#ifndef ITM
+		" aox AR;",
+#else
+		"ZR@\\AR;\n",
+#endif
+
+ASG ER,         A|C,
+	A,              TANY,
+	AWD,            TANY,
+		0,              RLEFT|RESCC,
+#ifndef ITM
+		" aex AR;",
+#else
+		"ZR@^\\AR;\n",
+#endif
+
+UNARY CALL,     A|C,
+	SCON,           TANY,
+	SANY,           TANY,
+		NAREG,          RESC1|RESCC,    /* обязательно сумматор */
+#ifndef ITM
+		" vjm CL,14;Zx",
+#else
+		"u CL,rd;Zx\n",
+#endif
+
+UNARY CALL,     A|C,
+	AWD,            TANY,
+	SANY,           TANY,
+		NAREG,          RESC1|RESCC,    /* обязательно сумматор */
+#ifndef ITM
+		" vjm [AL],14;Zx",
+#else
+		"ZL@*+AL u 0,rd;Zx\n",
+#endif
+
+SCONV,          A|C,            /* int -> int */
+	A,              TI,
+	SANY,           TI,
+		0,              RLEFT|RESCC,
+		"",
+
+SCONV,          A|C,    /* int,unsign -> char */
+	A,              TI|TU,
+	SANY,           TC,
+		0,              RLEFT|RESCC,
+		" aax #377.;",
+
+SCONV,          A|C,    /* unsign -> int */
+	A,              TU,
+	SANY,           TI,
+		0,              RLEFT|RESCC,
+		" aax #.00004-1;",
+
+SCONV,          A|C,        /* float -> int  */
+	A,              TF,
+	SANY,           TI,
+		0,              RLEFT|RESCC,
+#ifndef ITM
+		" int;",
+#else
+		"@#/<;\n",
+#endif
+
+SCONV,          A|C,        /* int -> float */
+	A,              TI,
+	SANY,           TF,
+		0,              RLEFT|RESCC,
+#ifndef ITM
+		" aox #.1032; aadx;",
+#else
+		"ZLe0=<64;\n",
+#endif
+
+PCONV,          A|C,                    /* any -> *int */
+	A,              TANY,
+	SANY,           TP,
+		0,              RLEFT|RESCC,
+#ifndef ITM
+		" aax #777777777.;",
+#else
+		"@&o'777777777;\n",
+#endif
+
+PCONV,          A|C,                    /* any -> *char */
+	A,              TANY,
+	SANY,           TPTRTO|TC,
+		0,              RLEFT|RESCC,
+#ifndef ITM
+		" aax #16777777777.;",
+#else
+/*              "@&o'16777777777;\n",  */  "",
+#endif
+
+STASG,          FOREFF,
+	SNAME|SOREG|STARNM, TANY,
+	A|B,            TANY,
+		0,              RNULL,
+		"ZS",
+
+INIT,	FOREFF,
+	SCON,           TANY,
+	SANY,           TANY,
+		0,              RNOP,
+#ifndef ITM
+		" .word CL;",
+#else
+		"ZXCL",
+#endif
+
+INIT,	FOREFF,
+	SNAME,          TANY,
+	SANY,           TPOINT,
+		0,              RNOP,
+		" .word AL;",
+
+	/* for the use of fortran only */
+
+GOTO,	FOREFF,
+	SCON,           TANY,
+	SANY,           TANY,
+		0,              RNOP,
+		" uj CL;",
+
+GOTO,	FOREFF,
+	SNAME,          TANY,
+	SANY,           TANY,
+		0,              RNOP,
+		" uj [CL];",
+
+GOTO,	FOREFF,
+	SNAME,          TI|TU|TC|TPOINT,
+	SANY,           TANY,
+		0,              RNOP,
+		" uj CL;",
+
+	/* Default actions for hard trees ... */
+
+# define DF(x) FORREW,SANY,TANY,SANY,TANY,REWRITE,x,""
+
+UNARY MUL, DF( UNARY MUL ),
+
+INCR, DF(INCR),
+
+DECR, DF(INCR),
+
+ASSIGN, DF(ASSIGN),
+
+STASG, DF(STASG),
+
+OPLEAF, DF(NAME),
+
+OPLOG,	FORCC,
+	SANY,	TANY,
+	SANY,	TANY,
+		REWRITE,	BITYPE,
+		"",
+
+OPLOG,	DF(NOT),
+
+COMOP, DF(COMOP),
+
+INIT, DF(INIT),
+
+OPUNARY, DF(UNARY MINUS),
+
+ASG OPANY, DF(ASG PLUS),
+
+OPANY, DF(BITYPE),
+
+FREE, FREE, FREE, FREE, FREE, FREE, FREE, FREE,
+	"Help: I'm in trouble!\n" };

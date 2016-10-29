@@ -1,0 +1,48 @@
+This directory contains the source files for the DLX model suite.
+
+The following copyright holds:
+
+--  Copyright (C) 1993, Peter J. Ashenden
+--  Mail:	Dept. Computer Science
+--		University of Adelaide, SA 5005, Australia
+--  e-mail:	petera@cs.adelaide.edu.au
+--
+--  This program is free software; you can redistribute it and/or modify
+--  it under the terms of the GNU General Public License as published by
+--  the Free Software Foundation; either version 1, or (at your option)
+--  any later version.
+--
+--  This program is distributed in the hope that it will be useful,
+--  but WITHOUT ANY WARRANTY; without even the implied warranty of
+--  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+--  GNU General Public License for more details.
+--
+--  You should have received a copy of the GNU General Public License
+--  along with this program; if not, write to the Free Software
+--  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+
+
+This suite is distributed as is, with no documentation or support.  If
+I get time, I may provide documentation at a later date.
+
+Included in the directory is a file called module-directory, that
+lists the source files with a brief description of each.  You should
+be able to compile them in the order listed.
+
+To run a simulation that includes the memory entity, you will need to
+have a file called dlx.out in the current working directory.  This is
+the memory image file loaded by the memory entity, containing DLX
+instructions and data.  The distribution directory contains two sample
+DLX programs, simple.s and test_loop.s, along with assembled versions
+in simple.out and test_loop.out.  You can copy one of the .out files
+to dlx.out to run the simulation.
+
+I would be pleased to hear comments or bug reports (ie, bugs in the
+model, not bugs in your VHDL tools!).  You can mail them to me at the
+above e-mail address.
+
+Have fun!
+
+Peter A.
+
+2 November 1993.

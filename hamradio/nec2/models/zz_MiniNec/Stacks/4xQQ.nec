@@ -1,0 +1,31 @@
+CM 2 on 2 stack, 2ele CQ 20m
+CE
+SY hgh=20
+
+SY len=2.657	' Tune for resonance
+GW 1 11 0.0 -len  hgh-len 0.0  len  hgh-len  .0008
+GW 2 11 0.0  len  hgh-len 0.0  len  hgh+len  .0008
+GW 3 11 0.0  len  hgh+len 0.0 -len  hgh+len  .0008
+GW 4 11 0.0 -len  hgh+len 0.0 -len  hgh-len  .0008
+
+SY ref=2.816	' Tune for F/B
+GW 5 11 -2.59 -ref  hgh-ref -2.59  ref  hgh-ref  .0008
+GW 6 11 -2.59  ref  hgh-ref -2.59  ref  hgh+ref  .0008
+GW 7 11 -2.59  ref  hgh+ref -2.59 -ref  hgh+ref  .0008
+GW 8 11 -2.59 -ref  hgh+ref -2.59 -ref  hgh-ref  .0008
+
+SY freq=14.05, wl=299.8/freq
+GM 0 0 0 0 0 0 wl/4 0	' Shift along Y for wl/4
+GM 10 1 0 0 0 0 0 wl/2	' Create second wl/2 above first
+GX 20 010		' Mirror in XZ plane for 3 and 4
+GE 1
+
+GN 2 0 0 0 13  0.005
+FR 0 1 0 0 14.05 1
+
+EX 0  1 6  0  1.0 0.0
+EX 0 11 6  0  1.0 0.0
+EX 0 21 6  0  -1.0 0.0
+EX 0 31 6  0  -1.0 0.0
+
+EN

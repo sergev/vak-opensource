@@ -1,0 +1,158 @@
+images.vhdl
+	Package specification for images.
+images-body.vhdl
+	Package body for images.
+images_test.vhdl
+	Entity declaration for test bench for images package.
+images_test-bench.vhdl
+	Architecture body for test bench for images package.
+
+bv_arithmetic.vhdl
+	Package specification for bit vector conversions and arithmetic
+bv_arithmetic-body.vhdl
+	Package body for bit vector conversions and arithmetic
+bv_test.vhdl
+	Entity declaration for test bench for bit vector arithmetic package
+bv_test-bench.vhdl
+	Architecture for test bench for bit vector arithmetic package
+
+----------------------------------------------------------------
+
+clock_gen.vhdl
+	Entity declaration for clock generator
+clock_gen-behaviour.vhdl
+	Behavioural architecture body for clock generator
+clock_gen_test.vhdl
+	Entity declaration for test bench for clock generator
+clock_gen_test-bench.vhdl
+	Architecture for test bench for clock generator
+
+dlx_types.vhdl
+	Package specification for types used in dlx model
+dlx_types-body.vhdl
+	Package body for types used in dlx model
+
+mem_types.vhdl
+	Types package for memory model
+
+memory.vhdl
+	Entity declaration for memory model
+memory-behaviour.vhdl
+	Behavioural architecture for memory model
+memory_test.vhdl
+	Entity declaration for test bench for memory
+memory_test-bench.vhdl
+	Architecture for test bench for behavioural architecture of memory
+
+dlx_instr.vhdl
+	Package specification for DLX instructions
+dlx_instr-body.vhdl
+	Package body for DLX instructions
+
+dlx_bus_monitor.vhdl
+	Entity declaration of DLX bus monitor
+dlx_bus_monitor-behaviour.vhdl
+	Behavioural architecture of DLX bus monitor
+
+dlx_test.vhdl
+	Entity declaration for test bench for DLX
+dlx_test-bench.vhdl
+	Architecture for test bench for DLX,
+	consisting of clock generator, memory and bus_monitor
+
+dlx.vhdl
+	Entity specification for DLX processor
+
+dlx-behaviour.vhdl
+	Behavioural architecture for DLX processor
+dlx_test_behaviour.vhdl
+	Configuration of test bench for DLX, using architecture behaviour
+
+dlx-instrumented.vhdl
+	Instrumented behavioural architecture for DLX, that generates
+	a files of instruction execution frequencies for a program.
+dlx_test_instrumented.vhdl
+	Configuration of test bench for DLX, using instrumented
+	architecture of CPU and empty architecture of bus monitor.
+
+----------------------------------------------------------------
+
+alu_types.vhdl
+	Package defining types for ALU.
+alu.vhdl
+	Entity declaration for ALU.
+alu-behaviour.vhdl
+	Behavioural architecture of ALU.
+
+ir.vhdl
+	Entity declaration for instruction register.
+ir-behaviour.vhdl
+	Behavioural architecture of instruction register.
+
+latch.vhdl
+	Entity declaration for transparent latch.
+latch-behaviour.vhdl
+	Behavioural architecture of transparent latch.
+
+mux2.vhdl
+	Entity declaration for two-input multiplexor.
+mux2-behaviour.vhdl
+	Behavioural architecture of two-input multiplexor.
+
+reg_1_out.vhdl
+	Entity declaration for register with one tri-state output.
+reg_1_out-behaviour.vhdl
+	Behavioural architecture of register with one tri-state output.
+
+reg_2_1_out.vhdl
+	Entity declaration for register with two tri-state outputs and
+	one ordinary output.
+reg_2_1_out-behaviour.vhdl
+	Behavioural architecture of register with two tri-state
+	outputs and one ordinary output.
+
+reg_2_out.vhdl
+	Entity declaration for register with two tri-state outputs.
+reg_2_out-behaviour.vhdl
+	Behavioural architecture of register with two tri-state outputs.
+
+reg_3_out.vhdl
+	Entity declaration for register with three tri-state outputs.
+reg_3_out-behaviour.vhdl
+	Behavioural architecture of register with three tri-state outputs.
+
+reg_file.vhdl
+	Entity declaration for register file.
+reg_file-behaviour.vhdl
+	Behavioural architecture of register file.
+
+controller.vhdl
+	Entity declaration for DLX control section.
+controller-behaviour.vhdl
+	Behavioural architecture of DLX control section.
+
+dlx-rtl.vhdl
+	Register transfer level architecture of DLX processor.
+
+dlx_test_rtl.vhdl
+	Configuration of DLX test bench using register transfer level
+	architecture of DLX processor.
+
+----------------------------------------------------------------
+
+cache_types.vhdl
+	Package spec defining types for cache.
+cache.vhdl
+	Entity declaration for cache.
+cache-behaviour.vhdl
+	Behavioural architecture for cache.
+
+dlx_test-bench_cache.vhdl
+	Architecture for test bench for DLX and cache,
+	including clock generator, memory and bus monitors for
+	both CPU/cache and cache/memory buses.
+
+dlx_test_cache.vhdl
+	Configuration of test bench for DLX and cache,
+	using behavioural architectures.
+

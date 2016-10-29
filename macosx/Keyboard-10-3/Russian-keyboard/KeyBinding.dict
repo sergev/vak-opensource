@@ -1,0 +1,46 @@
+{
+	/*--------
+	 * normal
+	 */
+	"\Uf729" = "moveToBeginningOfLine:";	/* Home */
+	"\Uf72b" = "moveToEndOfLine:";		/* End */
+
+	/*--------
+	 * shift
+	 */
+	"$\Uf700" = "moveUpAndModifySelection:";
+	"$\Uf701" = "moveDownAndModifySelection:";
+	"$\Uf702" = "moveLeftAndModifySelection:";
+	"$\Uf703" = "moveRightAndModifySelection:";
+
+	"$\Uf729" = "moveToBeginningOfLineAndModifySelection:";	/* shift + Home */
+	"$\Uf72b" = "moveToEndOfLineAndModifySelection:";	/* shift + End */
+
+	"$\Uf72c" = "pageUpAndModifySelection:";	/* shift + PageUp */
+	"$\Uf72d" = "pageDownAndModifySelection:";	/* shift + PageDown */
+
+	/*--------
+	 * numeric
+	 */
+	"#\Uf700" = "moveUp:";
+	"#\Uf701" = "moveDown:";
+	"#\Uf702" = "moveLeft:";
+	"#\Uf703" = "moveRight:";
+
+	"#\Uf729" = "moveToBeginningOfLine:";
+	"#\Uf72b" = "moveToEndOfLine:";
+
+	/*--------
+	 * numeric shift
+	 */
+	"#$\Uf700" = "moveUpAndModifySelection:";
+	"#$\Uf701" = "moveDownAndModifySelection:";
+	"#$\Uf702" = "moveLeftAndModifySelection:";
+	"#$\Uf703" = "moveRightAndModifySelection:";
+
+	"#$\Uf729" = "moveToBeginningOfLineAndModifySelection:"; /* shift + Home */
+	"#$\Uf72b" = "moveToEndOfLineAndModifySelection:";	/* shift + End */
+
+	"#$\Uf72c" = "pageUpAndModifySelection:";	/* shift + PageUp */
+	"#$\Uf72d" = "pageDownAndModifySelection:";	/* shift + PageDown */
+}

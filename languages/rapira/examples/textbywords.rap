@@ -1,0 +1,19 @@
+proc TEXT_BY_WORDS(PHRASE)
+
+	PHRASE := PHRASE + " "
+
+	while PHRASE /= "" do
+
+		K := index(" ", PHRASE)
+
+		if K /= 1 then
+			output: PHRASE[:K-1]
+		fi
+
+		PHRASE := PHRASE[K+1:]
+
+	od
+
+end
+
+TEXT_BY_WORDS("...I'll go and tell the cow Now Before she goes to bed.")

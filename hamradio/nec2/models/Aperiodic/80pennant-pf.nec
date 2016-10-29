@@ -1,0 +1,19 @@
+CM 80 m Receiving Pennant - point fed
+CM see the article 'Flags, pennants and other  
+CM ground-independent low-band receiving antennas' 
+CM by Earl W Cunningham, K6SE k6se@juno.com
+CM published in QST (ARRL), Newington, July 2000
+CE
+SY rt=903
+GW	1	21	0	0	3.7	8.84	0	1.83	#12
+GW	2	3	0	0	3.7	0	0	4.2	#12
+GW	3	21	0	0	4.2	8.84	0	6.1	#12
+GW	4	21	8.84	0	1.83	8.84	0	6.1	#12
+GE	1
+EX	0	2	2	00	1.0	0.0
+LD	1	4	11	0	rt	0	0'terminating resistor 903 ohm 
+GN	2	0	0	0	13	.005
+FR	0	1	0	0	3.525
+EN
+'Use a transformer wound on the FT140-43 toroid with 8 turns on the secondary, 
+'and 34 or 35 turns on the primary (for 900 or 950 ohms respectively). 

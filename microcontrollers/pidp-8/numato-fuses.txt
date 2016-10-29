@@ -1,0 +1,29 @@
+Programmer for Microchip PIC32 microcontrollers, Version 2.0.194
+    Copyright: (C) 2011-2015 Serge Vakulenko
+      Adapter: PICkit2 Version 2.32.0
+    Processor: MX795F512H (id 4430E053)
+ Flash memory: 512 kbytes
+  Boot memory: 12 kbytes
+Configuration:
+    DEVCFG0 = 7fffffff
+                     3 Debugger disabled
+                    18 Use PGC1/PGD1
+    DEVCFG1 = ff6019db
+                     3 Primary oscillator with PLL
+                    8  Internal-external switch over enabled
+                   1   Primary oscillator: XT
+                  1    Peripheral bus clock: SYSCLK / 2
+                 0     Watchdog postscale: 1/1
+    DEVCFG2 = fff979d9
+                     1 PLL divider: 1/2
+                    5  PLL multiplier: 20x
+                   1   USB PLL divider: 1/2
+                       Enable USB PLL
+                 1     PLL postscaler: 1/2
+    DEVCFG3 = ffffffff
+                 7     Assign irq priority 7 to shadow set
+               1       Ethernet MII enabled
+               2       Default Ethernet i/o pins
+               4       Default CAN i/o pins
+              4        USBID pin: controlled by USB
+              8        VBuson pin: controlled by USB

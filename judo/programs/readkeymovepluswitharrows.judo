@@ -1,0 +1,32 @@
+//~JUDOPROP~//$VERSION=1.2.2
+//~JUDOPROP~//$TITLE=read key move plus with arrows
+//~JUDOPROP~//$TYPE=graphics
+// move a plus sign around the screen
+void main() {
+	int x = 200;
+	int y = 200;
+	int inc = 3;
+
+	while (true) {
+		delay(.01);
+
+		setColor(white);
+		drawString("+", true, false, 70, x, y);
+
+		if (getKeyState("left")) {
+			x = x - inc;
+		}
+		if (getKeyState("right")) {
+			x = x + inc;
+		}
+		if (getKeyState("down")) {
+			y = y + inc;
+		}
+		if (getKeyState("up")) {
+			y = y - inc;
+		}
+
+		setColor(red);
+		drawString("+", true, false, 70, x, y);
+	}
+}

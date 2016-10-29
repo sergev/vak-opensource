@@ -1,0 +1,22 @@
+file
+	filename = "Interpilot";
+	attrib = backup;
+	typeid = 'Font';
+	creatorid = 'Font';
+begin
+	record begin
+		includebin f-22x22.pft
+	end;
+
+	record begin
+		includebin g-34x22.pft
+	end;
+
+	record begin
+		includebin h-26x30.pft
+	end;
+
+	record begin
+		includebin j-24x30.pft
+	end;
+end;

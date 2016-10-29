@@ -1,0 +1,30 @@
+--------------------------------------------------------------------------------
+--
+--   AM2901 Benchmark
+--
+-- Source: AMD data book
+--
+-- VHDL Benchmark author Indraneel Ghosh
+--                       University Of California, Irvine, CA 92717
+--
+-- Developed on Nov 1, 1991
+--
+--------------------------------------------------------------------------------
+
+
+THIS DIRECTORY CONTAINS THE FOLLOWING SUBDIRECTORIES :
+
+alu                :  Contains model and test vectors of component "alu"  in 
+                      "funct_block_alg_beh2901.vhdl"
+
+alu_inputs         :  Contains model and test vectors of component
+                      "alu_inputs" in "funct_block_alg_beh2901.vhdl"
+
+mem                :  Contains model and test vectors of component "mem"  in 
+                      "funct_block_alg_beh2901.vhdl"
+
+Q_reg              :  Contains model and test vectors of component "Q_reg"  in 
+                      "funct_block_alg_beh2901.vhdl"
+
+output_and_shifter :  Contains model and test vectors of component 
+                      "output_and_shifter" in "funct_block_alg_beh2901.vhdl"

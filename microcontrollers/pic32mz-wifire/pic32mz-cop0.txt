@@ -1,0 +1,27 @@
+Initial state of coprocessor 0 registers on WiFire board,
+as seen by user application.
+
+Bootloader has been already modified some registers at startup:
+Status, IntCtl, SRSCtl, Cause, EBase, Config.
+
+    Status   = 01000000
+    IntCtl   = 00000020
+    SRSCtl   = 1c000000
+    Cause    = 0080005c
+    PRId     = 00019e28
+    EBase    = 9d000000
+    CDMMBase = 01fc1002
+    Config   = 80240483
+    Config1  = 9e9b0d9a
+    Config2  = 80000000
+    Config3  = 8022bd68
+    Config4  = 80000000
+    Config5  = 00000001
+    Config7  = 80000000
+    WatchHi  = 80aa03d2
+    WatchHi1 = c044077f
+    WatchHi2 = c02f0def
+    WatchHi3 = 00b40df7
+    Debug    = 0e02f437
+    PerfCtl0 = 80000000
+    PerfCtl1 = 00000000

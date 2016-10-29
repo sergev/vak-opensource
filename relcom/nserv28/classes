@@ -1,0 +1,17 @@
+# Usenet news
+L-usenet        alt bit comp eunet gnu misc news rec sci soc talk nordunet
+
+# Admin group - free
+L-postmasters   relcom.postmasters
+
+# Commercial Relcom groups
+L-commerce      relcom.commerce
+
+# Other Relcom groups
+L-relcom        relcom suug
+
+# Ukrainian groups
+L-ukrain        ukr uuug
+
+# Other groups
+L-default       all

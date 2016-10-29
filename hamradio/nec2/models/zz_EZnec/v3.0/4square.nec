@@ -1,0 +1,43 @@
+CM 40-meter four-square array, converted with 4nec2 on 29-Mar-06 22:08
+CM 	4Square
+CM This popular phased array was invented by Dana Atchley,
+CM W1CF. It has several desirable properties. Because of its
+CM symmetry, it's easy to switch in four directions. The
+CM forward lobe is broad enough that four-direction switching
+CM gives good coverage to all directions. Good rejection of
+CM signals occurs over a broad region to the rear. The small
+CM rear nulls can be eliminated and the forward gain increased
+CM slightly by increasing the element spacing. However, this
+CM may make the physical spacing too far to conveniently use
+CM some feed methods. Feeding of the four-square array is
+CM covered in detail in Chapter 8 of the ARRL ANTENNA BOOK,
+CM 15th and later editions. One interesting feature of this
+CM array is that one element has a negative feedpoint
+CM resistance if loss is low enough. This is a valid result;
+CM the element is absorbing power from the others by mutual
+CM coupling and feeding power back INTO the feed system. There
+CM is still some lingering belief that the fields from the
+CM elements of an array are proportional to the powers
+CM delivered to them. Element 1 of this array has a field
+CM equal to that from the other elements, and it's FURNISHING
+CM power, showing the error in this belief. Observing the
+CM currents in the elements reveals the truth: The element
+CM CURRENTS determine the field strength, and they're equal in
+CM all four elements.
+CM This model is fed simply with current sources, to simulate
+CM a correctly-fed array.
+CE
+sy len=32.75
+GW 1 6 0     0     0 0     0     len 0.0625
+GW 2 6 0     34.42 0 0     34.42 len 0.0625
+GW 3 6 34.42 0     0 34.42 0     len 0.0625
+GW 4 6 34.42 34.42 0 34.42 34.42 len 0.0625
+GS 0 0 ft
+GE 1
+EX 6 4 1 0 cos(180) sin(180)	'Phase 180
+EX 6 2 1 0 cos(-90) sin(-90)	'Phase -90
+EX 6 3 1 0 cos(-90) sin(-90)
+EX 6 1 1 0 1 0
+GN 3 0 0 0 13 5.e-3
+FR 0 1 0 0 7.15 0
+EN

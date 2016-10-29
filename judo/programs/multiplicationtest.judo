@@ -1,0 +1,29 @@
+//~JUDOPROP~//$VERSION=1.2
+//~JUDOPROP~//$TITLE=Multiplication Test
+//~JUDOPROP~//$TYPE=text
+void main() {
+   double operand1;
+   double operand2;
+   double product;
+   double usersAnswer;
+
+   printLine("Please enter a number");
+   operand1 = readDouble();
+
+   printLine("Please enter another number");
+   operand2 = readDouble();
+
+   product = operand1 * operand2;
+
+   printLine("What is " + operand1 + " times " + operand2 + "?");
+   usersAnswer = readDouble();
+
+   // check to see if users answer to multiplication
+   // problem is correct or incorrect and let him/her know
+   if ( equal(product, usersAnswer) ) {
+      printLine("That is correct!");
+   }
+   else {
+      printLine("Sorry, " + operand1 + " * " + operand2 + " = " + product);
+   }
+}

@@ -1,0 +1,33 @@
+##(
+## Compile a library of useful functions.
+## Save as "lib.t".
+##)
+
+#( define, ls,
+	(##( list, (    ) ) (
+)
+	)
+)
+
+#( define, fact,
+	(#( eq, A, 0, 1,
+		(##( mul, A, #( fact, ##( sub, A, 1 ) ) ))
+	))
+)
+#( scan, fact, A )
+
+#( define, mod,
+	(##( sub, A, ##( mul, B, ##( div, A, B ) )
+	))
+)
+#( scan, mod, A, B )
+
+#( define, repeat,
+	(#( gt, A, 0,
+		( (B) #( repeat, ##( sub, A, 1 ), (B) ))
+	))
+)
+#( scan, repeat, A, B )
+
+#( write, lib, #( list ) )
+'

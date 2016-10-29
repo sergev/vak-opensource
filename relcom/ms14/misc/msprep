@@ -1,0 +1,22 @@
+:
+gawk '
+$3=="send" {
+	if      ($4 == "file")    bytes = $8
+	else if ($4 != "package") next
+	else if ($10 == "of")     bytes = int ($12 * $8 / $11)
+	else                      bytes = $10
+	split ($1, a, "/")
+	date = a[1]
+	gsub ("\\.", "", date)
+	date = date % 100 * 10000 + int (date/100) % 100 * 100 + int(date/10000)
+	time = a[2]
+	gsub (":", "", time)
+	user = substr ($7, 1, length ($7) - 1)
+	file = $5
+	sub ("^/usr/PUB/\.[0-9]/", "/", file) || sub ("^/usr/PUB/", "/", file)
+	host = user
+	if (host ~ /@/)      sub (".*@", "", host)
+	else if (host ~ /%/) sub (".*%", "", host)
+	else if (host ~ /!/) sub ("!.*", "", host)
+	print "msv", date, time, bytes, "o", host, user, file
+}' $1

@@ -1,0 +1,379 @@
+.\" $Id: milter-regex.8,v 1.1.1.1 2004-10-12 08:19:19 vak Exp $ */
+.\"
+.\" Copyright (c) 2003-2004 Daniel Hartmeier
+.\" All rights reserved.
+.\"
+.\" Redistribution and use in source and binary forms, with or without
+.\" modification, are permitted provided that the following conditions
+.\" are met:
+.\"
+.\"    - Redistributions of source code must retain the above copyright
+.\"      notice, this list of conditions and the following disclaimer. 
+.\"    - Redistributions in binary form must reproduce the above
+.\"      copyright notice, this list of conditions and the following
+.\"      disclaimer in the documentation and/or other materials provided
+.\"      with the distribution. 
+.\"
+.\" THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+.\" "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+.\" LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+.\" FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+.\" COPYRIGHT HOLDERS OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+.\" INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+.\" BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+.\" LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+.\" CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+.\" LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+.\" ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+.\" POSSIBILITY OF SUCH DAMAGE.
+.\"
+.Dd September 24, 2003
+.Dt MILTER-REGEX 8
+.Os
+.Sh NAME
+.Nm milter-regex
+.Nd sendmail milter plugin for regular expression filtering
+.Sh SYNOPSIS
+.Nm
+.Op Fl d
+.Op Fl c Ar config
+.Op Fl p Ar pipe
+.Op Fl u Ar user
+.Sh DESCRIPTION
+The
+.Nm
+plugin can be used with the milter API of
+.Xr sendmail 8
+to filter mails using regular expressions matching SMTP envelope
+parameters and mail headers and body.
+.Pp
+The options are as follows:
+.Bl -tag -width "-c config"
+.It Fl d
+Don't detach from controlling terminal and produce verbose debug
+output on stdout.
+.It Fl c Ar config
+Use the specified configuration file instead of the default,
+/etc/milter-regex.conf.
+.It Fl p Ar pipe 
+Use the specified pipe to interface
+.Xr sendmail 8 .
+Default is unix:/var/spool/milter-regex/sock.
+.It Fl u Ar user
+Run as the specified user instead of the default, _milter-regex.
+When
+.Nm
+is started as root, it calls
+.Xr setuid 2
+to drop privileges.
+The non-privileged user should have read access to the configuration
+file and read-write access to the pipe.
+.El
+.Pp
+.Sh SENDMAIL CONFIGURATION
+.Xr sendmail 8
+needs to be compiled with milter support.
+This can be done with:
+.Bd -literal -offset indent
+# cd /usr/src/gnu/usr.sbin/sendmail
+# make clean cleandir
+# setenv WANT_LIBMILTER 1
+# make obj && make && make install
+.Ed
+.Pp
+Then, the plugin needs to be registered in the
+.Xr sendmail 8
+configuration, by adding the following lines to the .mc file
+.Bd -literal -offset indent
+INPUT_MAIL_FILTER(`milter-regex',
+	`S=unix:/var/spool/milter-regex/sock, T=S:30s;R:2m')
+.Ed
+.Pp
+rebuilding /etc/mail/sendmail.cf from the .mc file using
+.Xr m4 1 ,
+and restarting
+.Xr sendmail 8 .
+.Pp
+.Sh PLUGIN CONFIGURATION
+The configuration file consists of rules that, when matched, cause
+.Xr sendmail 8
+to reject mails.
+Emtpy lines and lines starting with # are ignored, as well as
+leading whitespace (blanks, tabs).
+Trailing backslashes can be used to wrap long rules into multiple
+lines.
+Each rule starts with one of the following commands:
+.Bl -tag -width "xxxx"
+.It reject <message>
+Subsequent rules cause the mail to be rejected with a permanent
+error consisting of the specified text part.
+The SMTP reply consists of the three-digit code 550 (RFC 2821
+"command rejected for policy reasons"), the extended reply code
+5.7.1 (RFC 1893 "Permanent Failure", "Security or Policy Status",
+"Delivery not authorized, message refused") and the text part
+(which defaults to "Command rejected", if not specified).
+This is a permanent failure, which causes the sender to remove the
+message from its queue without trying to retransmit, commonly
+generating a bounce message to the sender.
+.It tempfail <message>
+Subsequent matching rules cause the mail to be rejected with
+a temporary error consisting of the specified text part.
+The SMTP reply consists of the three-digit code 451 (RFC 2821
+"Requested action aborted: local error in processing"), the extended
+reply code 4.7.1 (RFC 1893 "Persistent Transient Failure",
+"Security or Policy Status", "Delivery not authorized, message refused")
+and the text part (which defaults to "Please try again later",
+if not specified).
+This is a temporary failure, which causes the sender to keep the
+message in its queue and try to retransmit it, commonly for several
+days.
+.It discard
+Subsequent matching rules cause the mail to be accepted but then
+discarded silently.
+Note that
+.Em connect
+and
+.Em helo
+rules should not use
+.Em discard .
+.It accept
+Subsequent matching rules cause the mail to be accepted without
+further rule evaluation.
+Can be used for whitelist criteria.
+.El
+.Pp
+A command is followed by one or more expressions, each causing
+the previous command to be executed when matched.
+The following expressions can be used:
+.Bl -tag -width "xxxx"
+.It connect <hostname> <address>
+Reject the connection if both the sender's hostname and address
+match the specified regular expressions.
+The numerical address is either dotted-quad (IPv4) or coloned-hex (IPv6).
+The hostname is the result of a DNS reverse resolution of the numerical
+address (which
+.Xr sendmail 8
+performs independantly of the milter plugin).
+When resolution fails, the hostname contains the numerical
+address in square brackets.
+.It helo <name>
+Reject the connection if the sender supplied HELO name matches
+the specified regular expression.
+Commonly, the sender supplies his fully-qualified hostname as
+HELO name.
+.It envfrom <address>
+Reject the mail if the sender supplied envelope MAIL FROM
+address matches the specified regular expression.
+Addresses commonly have the form <user@host.doma.in>.
+.It envrcpt <address>
+Reject the mail if the sender supplied envelope RCPT TO
+address matches the specified regular expression.
+.It header <name> <value>
+Reject the mail if a header matches the specified name and value.
+For instance, the header "Subject: Test" matches name Subject
+and value Test.
+.It body <line>
+Reject the mail if a body line matches the specified regular
+expression.
+.El
+.Pp
+The plugin regularly checks the configuration file for modification
+and reloads it automatically.
+Signals like SIGHUP will terminate the plugin, according
+to the milter signal handler.
+The plugin reacts to any kind of error, like syntax errors in the
+configuration file, by failing open, accepting all messages.
+When the plugin is not running,
+.Xr sendmail 8
+will accept all messages.
+.Pp
+.Sh REGULAR EXPRESSIONS
+The regular expressions used in the configuration rules are
+enclosed in arbitrary delimiters, no further escaping is needed.
+.Pp
+The first character of an argument is taken as the delimiter,
+and all subsequent characters up to the next occurance of the
+same delimiter are taken literally as the regular expression.
+Since the delimiter itself cannot be part of the regular
+expression (no escaping is supported), a delimiter must be
+chosen that doesn't occur in the regular expression itself.
+Each argument can use a different delimiter, all characters
+except spaces and tabs are valid.
+.Pp
+Two immediately adjacent delimiters form an empty regular
+expression, which always matches and requires no
+.Xr regexec 3
+call.
+This can be used in rules requiring multiple arguments, to
+match only some arguments.
+.Pp
+See
+.Xr re_format 7
+for a detailed description of basic and extended regular expressions.
+.Pp
+Optionally, the following flags can be used after the closing
+delimiter:
+.Bl -tag -width "xxx" -compact
+.It e
+Extended regular expression.
+This sets REG_EXTENDED for
+.Xr regcomp 3 .
+.It i
+Ignore upper/lower case.
+This sets REG_ICASE.
+.It n
+Not matching.
+Reverses the matching result, i.e. the mail is rejected if the
+regular expression does not match.
+.El
+.Sh BOOLEAN EXPRESSIONS
+A rule can consist of either a simple term or more complex
+expressions.
+A term has the form
+.Bd -literal
+header /From/ /domain/i
+.Ed
+.Pp
+and expressions can be built combining terms with operators
+"and", "or", "not" and parentheses, as in
+.Bd -literal
+header /From/ /domain/i and body /money/
+( not header /From/ /domain/ ) and ( body /sex/ or body /fast/ )
+.Ed
+.Pp
+Operator precedence should not be relied on, instead parentheses
+should be used to resolve any ambiguities (they usually produce
+syntax errors from the parser).
+.Sh MACROS
+Macros allow to store terms or expressions as a name, and $name
+can be used as term within other rules, expressions or macro
+definitions.
+Example:
+.Bd -literal
+friends         = header /^Received$/ /^from [^ ]*(ork\.net|home\.com)/e
+attachments     = header ,^Content-Type$, ,multipart/mixed, and \\
+                    body ,^Content-Type: application/,
+executables     = $attachments and body ,name=".*\.(pif|exe|scr)"$,e
+
+reject "executable attachment from non-friends"
+$executables and not $friends
+.Ed
+.Pp
+Macro names must begin with a letter and may contain alphanumeric
+characters and punctuation characters.
+Reserved keywords (like "reject" or "header") cannot be used as
+macro names.
+Macros must be defined before use, the definition must precede the
+use in the configuration file, read from top to bottom.
+.Sh EVALUATION
+Rules are evaluated in the order specified in the configuration
+file, from top to bottom.
+When a rule matches, the correpsonding action is taken, that is
+the last action specified before the matching rule.
+.Pp
+The plugin evaluates the rules every time a line of mail (or
+envelope) is received.
+As soon as a rule matches, the action is taken immediately,
+possibly before the entire mail is received, even if further
+lines might possibly make other rules match, too.
+This means the first rule matching chronologically has precendence.
+.Pp
+If evaluation for a line of mail makes two (or more) rules match,
+the rule that comes first in the configuration file has precendence.
+.Pp
+Boolean expressions are short-circuit evaluated, that means
+"a or b" becomes true as soon as one of the terms is true and
+"a and b" becomes false as soon as one of the terms is false,
+even if the other term is not known, possibly because the relevant
+mail line has not been received yet.
+.Sh EXAMPLES
+.Bd -literal
+# /etc/milter-regex.conf example
+
+tempfail "Sender IP address not resolving"
+connect /\\[.*\\]/ //
+
+reject "Malformed HELO (not a domain, no dot)"
+helo /\\./n
+
+reject "Malformed RCPT TO (not an email address, not <.*@.*>)"
+envrcpt /<(.*@.*|Postmaster)>/ein
+
+reject "HTML mail not accepted"
+# use comma as delimiter here, as / occurs within RE
+header /^Content-type$/i ,^text/html,i
+body ,^Content-type: text/html,i
+
+# Swen worm
+discard
+header /^(TO|FROM|SUBJECT)$/e //
+header /^Content-type$/i /boundary="Boundary_(ID_/i
+header /^Content-type$/i /boundary="[a-z]*"/
+body ,^Content-type: audio/x-wav; name="[a-z]*\\.[a-z]*",i
+
+# Some nasty spammer
+reject "Business Corp spam, get lost"
+body /^Business Corp\. for W\.& L\. AG/i and \\
+        ( body /043.*317.*0285/ or body /0041.43.317.02.85/ )
+
+.Ed
+.Sh LOGGING
+.Nm
+sends log messages to
+.Xr syslogd 8
+using
+.Em facility
+daemon and, with increasing verbosity,
+.Em level
+err, notice, info and debug.
+The following
+.Xr syslog.conf 5
+section can be used to log messages to a dedicated file:
+.Bd -literal
+!milter-regex
+daemon.err;daemon.notice	/var/log/milter-regex
+.Ed
+.Sh GRAMMAR
+Syntax for
+.Nm
+in BNF:
+.Bd -literal
+file		= ( rule | macro ) file
+rule		= action expr-list
+action		= "reject" msg | "tempfail" msg | "discard" | "accept"
+msg		= ( '"' | "'" ) string ( '"' | "'" )
+expr-list	= expr [ expr-list ]
+expr		= term | term "and" expr | term "or" expr | "not" term
+term		= '(' expr ')' | "connect" arg arg | "helo" arg |
+		  "envfrom" arg | "envrcpt" arg | "header" arg arg |
+		  "body" arg | '$' name
+arg		= del regex del flags
+del		= '/' | ',' | '-' | ...
+flags		= [ 'e' ] [ 'i' ] [ 'n' ]
+macro		= name '=' expr
+.Ed
+.Sh FILES
+/etc/milter-regex.conf
+.Sh SEE ALSO
+.Xr mailstats 1 ,
+.Xr regex 3 ,
+.Xr syslog.conf 5 ,
+.Xr re_format 7 ,
+.Xr sendmail 8 ,
+.Xr syslogd 8
+.Rs
+.%T Simple Mail Transfer Protocol
+.%O RFC 2821
+.Re
+.Rs
+.%T Enhanced Mail System Status Codes
+.%O RFC 1893
+.Re
+.Sh HISTORY
+The first version of
+.Nm
+was written in 2003.
+Boolean expression evaluation was added in 2004.
+.Sh AUTHORS
+Daniel Hartmeier
+.Aq daniel@benzedrine.cx

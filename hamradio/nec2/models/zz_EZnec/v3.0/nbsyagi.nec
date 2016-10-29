@@ -1,0 +1,24 @@
+CM NBS Yagi (ANT. BOOK p. 18-7), converted with 4nec2 on 29-mrt-06 14:37
+CM 	NBSYagi
+CM This is a good test of program operation. The National
+CM Bureau of Standards carefully built and measured several
+CM Yagi antennas. This is a 50 MHz one, with dimensions from
+CM the ARRL Antenna Book.
+CE
+
+sy ref=57.5	'Reflector length
+sy dis=47.15	'Reflector/director distance
+GW 1 11 -dis -ref  0 -dis ref 0 0.25
+
+sy len=54.875	'Radiator lenght
+GW 2 11 0 -len 0 0 len 0 0.25
+
+sy dir=54.313	'Director length
+GW 3 11 dis -dir 0 dis dir 0 0.25
+
+GS 0 0 0.0254		' All in in.
+GE 0
+EX 6 2 6 0 1 0
+GN -1
+FR 0 1 0 0 50.1 0
+EN

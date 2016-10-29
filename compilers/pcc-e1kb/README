@@ -1,0 +1,21 @@
+Cross-C compiler for Elbrous-1-KB computer
+(http://www.computer-museum.ru/histussr/elbrus1.htm).
+
+Based on Portable C Compiler from Unix V7.
+
+Authors: Serge Vakulenko, Serge Ryzhkov
+Version: 02-02-1990
+
+cfe	- C front end utility
+cpp	- C preprocessor
+cxref	- C cross reference utility
+h	- include files
+libc	- standard C library
+lint	- C verifier
+m4	- M4 macro processor
+mip	- machine independend part of PCC
+mix	- assembler, linker, archiver etc
+mk	- build directory for cross-compiler
+mkitm	- build directory for "ITM" version of compiler
+mktarg	- build directory for target compiler
+pcc	- CPU-dependent part of PCC

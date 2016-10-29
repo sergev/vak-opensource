@@ -1,0 +1,19 @@
+{
+    IBClasses = (
+        {
+            ACTIONS = {"action_continue" = id; "action_input" = id; }; 
+            CLASS = Controller; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                "graph_panel" = Graphics; 
+                "input_panel" = NSTextField; 
+                "output_panel" = NSTextView; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {CLASS = Graphics; LANGUAGE = ObjC; SUPERCLASS = NSScrollView; }, 
+        {CLASS = Segment; LANGUAGE = ObjC; SUPERCLASS = NSObject; }
+    ); 
+    IBVersion = 1; 
+}

@@ -1,0 +1,19 @@
+CM 2-Element Phased Array by K6STI
+CE
+SY L1 = 397
+SY L2 = 386
+SY SP = 169
+GW	1	11	0	-L1	0	0	L1	0	1
+GW	2	11	SP	-L2	0	SP	L2	0	1
+GS	0	0	in
+GE	0
+EX	6	1	6	00	-.86	.508
+EX	6	2	6	00	1.0	0.0
+'
+GN	-1
+FR	0	1	0	0	 7.1
+EN
+
+'This array performs better than a 2-element yagi with the same boomlength.  the
+'backlobes of this antenna are all better than 21 dB down.  When adjusted for
+'the same forward gain, the rear lobe of the Yagi is down only 14 dB.

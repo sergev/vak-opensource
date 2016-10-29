@@ -1,0 +1,10 @@
+#!/usr/bin/expect -f
+#
+# Запрос баланса для модема ZTE MF262 - Билайн "Интернет Дома".
+#
+spawn sudo cu -l /dev/tty.ZTEUSBModem_ -s 19200 --nostop
+
+expect -timeout 10 "+ZUSIMR"
+send	"AT+CUSD=1,#102#,15\r"
+expect 	"OK"
+expect 	"+CUSD"

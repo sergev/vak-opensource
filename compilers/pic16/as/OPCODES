@@ -1,0 +1,69 @@
+PIC Mnemonic    Op code         VASM Mnemonic   Operation
+---------------------------------------------------------------------
+Transfers
+~~~~~~~~~
+movf w          0010 0000            xta        w = f
+tst f           0010 0010            tst        f = f, set Z
+movwf f         0000 0010            atx        f = w
+movlw k         1100                 cta        w = c
+clrw            0000 0100            az         w = 0
+clrf f          0000 0110            xz         f = 0
+
+Conditional ops
+~~~~~~~~~~~~~~~
+btfsc f,b       0110                 bs?        if (f.b != 0)
+btfss f,b       0111                 bz?        if (f.b == 0)
+decfsz f,w      0010 1100            x--a?      w = f-1; if (w != 0)
+decfsz f        0010 1110            x--?       f = f-1; if (f != 0)
+incfsz f,w      0011 1100            x++a?      w = f+1; if (w != 0)
+incfsz f        0011 1110            x++?       f = f+1; if (f != 0)
+
+Arithmetic ops
+~~~~~~~~~~~~~~
+addwf f,w       0001 1110            a+x        w += f
+addwf f         0001 1111            x+a        f += w
+subwf f,w       0000 1000            a-x        w = f - w
+subwf f         0000 1010            x-a        f -= w
+decf f,w        0000 1100            x--a       w = f-1
+decf f          0000 1110            x--        f = f-1
+incf f,w        0010 1000            x++a       w = f+1
+incf f          0010 1010            x++        f = f+1
+
+Logical ops
+~~~~~~~~~~~
+andwf f,w       0001 0100            a&x        w &= f
+andwf f         0001 0110            x&a        f &= w
+andlw k         1110                 a&c        w &= c
+iorwf f,w       0001 0000            a|x        w |= f
+iorwf f         0001 0010            x|a        f |= w
+iorlw k         1101                 a|c        w |= c
+xorwf f,w       0001 1000            a^x        w ^= f
+xorwf f         0001 1010            x^a        f ^= w
+xorlw k         1111                 a^c        w ^= c
+comf f,w        0010 0100            xca        w = ~f
+comf f          0010 0110            xc         f = ~f
+rlf f,w         0011 0100            xc<<a      w = carry:f << 1
+rlf f           0011 0110            xc<<x      f = carry:f << 1
+rrcf f,w        0011 0000            xc>>a      w = carry:f >> 1
+rrcf f          0011 0010            xc>>x      f = carry:f >> 1
+swapf f         0011 1010            xw         f = swap(f)
+swapf f,w       0011 1000            xwa        w = swap(f)
+
+Bit ops
+~~~~~~~
+bcf f,b         0100                 bz         f.b = 0
+bsf f,b         0101                 bs         f.b = 1
+
+Control flow
+~~~~~~~~~~~~
+goto k          101                  goto       goto c()
+call k          1001                 call       call c()
+retlw k         1000                 ret        w = c; return
+nop             0000 0000 0000       nop        --
+
+Special ops
+~~~~~~~~~~~
+clrwdt          0000 0000 0100       awake      clear watchdog timer
+sleep           0000 0000 0011       sleep      enter sleep mode
+option          0000 0000 0010       option     option := w
+tris            0000 0000 0110       tris       tris := w

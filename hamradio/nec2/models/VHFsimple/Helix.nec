@@ -1,0 +1,12 @@
+CM Helix over perfect ground
+CM Illustrates use of GH (helix) input
+CM Illustrates use of GM (move wires) input
+CE
+GH 1 48 4.8 9.6 1.7 1.7 1.7 1.7 .1
+GM 0 0 0. 0. 0. 0. 0. .4 0
+GS 0 0 .0107
+GE 1
+GN 1
+FR 0 1 0 0 1600. 0.
+EX 0 1 1 00 1. 0
+EN

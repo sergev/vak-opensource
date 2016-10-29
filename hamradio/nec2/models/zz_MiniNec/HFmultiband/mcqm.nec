@@ -1,0 +1,15 @@
+CM MultBand Loop With Load  20m,15m,10m
+Cm Does produce completely different Zin (95-962j)
+CM as compared to MMana (81+j6) whereas AGT and
+CM convergence test both predict a reliable model.
+CM Do not (yet) have an explanation for this...
+CE
+GW 1 41 0.0 -1.9175  18.0825 0.0  1.9175  18.0825  .005
+GW 2 41 0.0  1.9175  18.0825 0.0  1.9175  21.9175  .005
+GW 3 41 0.0  1.9175  21.9175 0.0 -1.9175  21.9175  .005
+GW 4 41 0.0 -1.9175  21.9175 0.0 -1.9175  18.0825  .005
+GE 0
+'GN 2 0 0 0 13 .005
+EX 0 1 21  0  1.0 0.0
+FR 0 1 0 0 14.05 1
+EN

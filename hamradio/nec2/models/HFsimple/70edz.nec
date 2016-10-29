@@ -1,0 +1,23 @@
+CM Exteded double zepp for 40 Mtr.
+CE 
+SY hgh=21				' Height
+
+sy ang=180				' To explore effect of single support mast.
+sy len=26.2				' Length for max EDZ gain
+
+'SY ang=110				' Reference inverted-V
+'SY len=10.45
+
+SY Z=len*cos(ang/2),X=len*sin(ang/2)	' Get delta-Z and -X distances
+'
+GW	1	50	-X	0	hgh-Z	-0.3	0	hgh	1mm
+GW	2	3	-0.3	0	hgh	0.3	0	hgh	1mm
+GW	3	50	0.3	0	hgh	X	0	hgh-Z	1mm
+GE
+'
+GN	2	0	0	0	14	.006	' Sommerfeld ground
+LD	5	0	0	0	58000000	' All Copper wires
+EX	0	2	2	0	1	0	' Default voltage source
+FR	0	1	0	0	7.05		' Design frequency
+'
+EN							' End of file

@@ -1,0 +1,60 @@
+
+Released: V. 0.3 16.12.2010
+
+ + Allow speed change anytime
+ + Add a paddle swap function
+ + Fix slight difference between keying and playback
+ + Callsign training sometimes creates funny callsigns
+ + Callsign training sometimes does not want my V!
+ + TX INV mode needs to be initialized properly after reset
+ + Add a function that inhibits keying in command mode
+ + Add a callsign training function
+ + Decoder does not understand /?<SK> Might need that for macros
+ + Find a better way to handle command mode.
+ + LFSR should not be called from yack code
+ + Add a MACRO function.. Entry through command mode, Left and right paddle
+ + Save all settings in EEPROM
+ + Integrate dk3lj.h macro into this file
+ + Exit even during a char
+ + Add a Beacon function
+ + Change DIT and DAH for speed up and down
+ + Change default timeout to 5 seconds
+ + Should streamline constant naming "DIT" & "DAH"
+ + Cleanded up and rearranged code
+ + Added functions to toggle INV, TX and sidetone bits
+ + Moved the latches into volatile flag register
+ + Callsigns are repeating :-)
+ 
+ 
+Released: V. 0.4 05.06.2011
+ 
+  + Let the chip go to power off mode after 30 seconds of inactivity (can be revived
+    with Dit, Dah or Command key) Power consumption is so low that no power switch is needed
+  + Default TXINV mode is now clear after reset. This caters for keyers driven through a NPN transistor.
+ 
+
+Released: V. 0.5
+  + Added Ultimatic and DAHPRIO modes
+  + Modified the keying logic as timing appeared wrong
+  + Added a Lockdown mode to prevent unwanted changes
+  + Added functionality to prevent chip power down when beacon function is active
+  + Extended tune mode keydown to 20 seconds
+  + Extended pause after R in callsign practise mode
+  + Added Farnsworth function
+  + Pause after command keypress??
+  + Speed not identical in keyer and playback
+  
+  
+Released: V. 0.6
+  + Small bug in V-Command, sounds error after Version number
+  + Changed entire timing logic to be based on timer 1
+  + Doubled system heartbeat to 5ms and removed all corrections now
+    playback and iambic keying sound exactly the same
+  + Farnsworth pause was not stored
+  + Reintroduced inactivity timeout from command mode
+  
+Released: V. 0.7
+  + Bug in the Macro playback routine. After playing back, the routine
+    immediately sends an OK and exits to key mode. Now it does not send the OK but returns to 
+    key mode after 15 seconds so the user gets the chance to repeat the macro in this time.
+     

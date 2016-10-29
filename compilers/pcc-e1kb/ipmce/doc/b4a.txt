@@ -1,0 +1,92 @@
+                             - 7 -
+
+               C ð E ã é A ì ø H ù E   P E ç é C T P ù    ( A ä P E C A   K O M A H ä    B P ç    é    õ P ç )
+
+¥       ¶      ¶                                               ¶        ¶                         ¶                         ¨
+¡ AäPEC OâOúH.  H A é M E H O B A H é E     P E ç é C T P A  PAúPñäH.  æ õ H K ã é ñ   B P ç    æ õ H K ã é ñ   õ P ç  ¡
+¡BPç/õPç P-PA                                                PEçéCTPA                                                  ¡
+±       ¼      ¼                                               ¼        ¼                         ¼                         µ
+¡                                                                                                                      ¡
+¡ 00-07  âPú   âõæEPHùE PEçéCTPù úAðéCé                       64+TEç  (CM,PT):= âPú                                    ¡
+°€€€€€€€Š€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€´
+¡ 10-13  ðKì   ðPéúHAKé âìOK.æOPMéPOBAHéñ KOHTP.PAúPñäOB äìñ     1                             ðKì:= AéCð <2>;         ¡
+¡        ðKð   ìEBOçO é ðPABOçO ðOìõCìOBA (70P é 0P)             1                             ðKð:= AéCð <1>          ¡
+°€€€€€€€Š€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€´
+¡    14  CKð   CéçHAì KOHTPOìñ ðPOãECCOPA                        1                             CKð:= 0                 ¡
+°€€€€€€€Š€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€´
+¡    1A  ðð    PEçéCTP ðPEPùBAHéñ ðPOãECCOPOB                 8(7-0)  CM<32>:= Mç<7>;          Mç<7>:= CM<32>;         ¡
+¡        Oðð   PEçéCTP OTBETHùX ðPEPùBAHéê                    8(7-0)  CM<31>:= Mð<7>;          Mð<7>:= CM<31>;         ¡
+¡        Mð    PEçéCTP MACKé ðPEPùBAHéê                       8(7-0)  CM<30>:= Oðð<7>;         Oðð<7>:= CM<30>;        ¡
+¡        Mç    PEçéCTP MACKé çOTOBHOCTé                       8(7-0)  CM<29>:= ðð<7>;          ðð<7>:= CM<29>;         ¡
+¡                                                                     CM<28>:= Mç<6>; ...      Mç<6>:= CM<28>; ...     ¡
+¡                                                                     ... CM<1>:= ðð<0>        ... ðð<0>:= CM<1>       ¡
+°€€€€€€€Š€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€´
+¡    1B  ðOð   PEçéCTP ðPEPùBAHéê OT ðPOãECCOPOB              8(7-0)  CM<32>:= çOð<7>;         (* çOð HE éúMEHñETCñ *) ¡
+¡        OðOð  PEçéCTP OTBETHùX ðPEPùBAHéê OT ðPOãECCOPOB     8(7-0)  CM<31>:= CKOð<7>;        CKOð<7>:= CM<31>&CKOð<7>¡
+¡        CKOð  PEçéCTP CéçHAìOB KOHTPOìñ OT ðPOãECCOPOB       8(7-0)  CM<30>:= OðOð<7>;        OðOð<7>:= CM<30>&OðOð<7>¡
+¡        çOð   PEçéCTP CéçHAìOB çOTOBHOCTé OT ðPOãECCOPOB     8(7-0)  CM<29>:= ðOð<7>;         ðOð<7>:=CM<29>&ðOð<7>;  ¡
+¡                                                                     CM<28>:= çOð<6>; ...     CKOð<6>:=CM<27>&CKOð<6>;¡
+¡                                                                     ... CM<1>:= ðOð<0>      ...ðOð<0>:= CM<1>&ðOð<0> ¡
+°€€€€€€€Š€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€´
+¡    1C  ðOð   PEçéCTP ðPEPùBAHéê OT ðPOãECCOPOB              8(7-0)  CM<32>:= âOð<7>;                                 ¡
+¡        OðOð  PEçéCTP OTBETHùX ðPEPùBAHéê OT ðPOãECCOPOB     8(7-0)  CM<31>:= AOð<7>;                                 ¡
+¡        AOð   PEçéCTP CéçHAìOB COCTOñHéñ  A  OT ðPOãECCOPOB  8(7-0)  CM<30>:= OðOð<7>;                                ¡
+¡        âOð   PEçéCTP CéçHAìOB COCTOñHéñ  â  OT ðPOãECCOPOB  8(7-0)  CM<29>:= ðOð<7>;                                 ¡
+¡                                                                     CM<28>:= âOð<6>; ...                             ¡
+¡                                                                     ... CM<1>:= ðOð<0>                               ¡
+°€€€€€€€Š€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€´
+¡    1D  þC    þACù                                             48    CM:= þC                  þC:= CM                 ¡
+°€€€€€€€Š€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€´
+¡    1E  TM    TAêMEP                                           32    CM:= TM                  TM:= CM                 ¡
+°€€€€€€€Š€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€´
+¡    1F  PðP   PEçéCTP BHõTPEHHéX ðPEPùBAHéê                    32    CM:= PðP                 PðP:= 0                 ¡
+°€€€€€€€Š€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€´
+¡    21  ðOC0  PEçéCTP ðPEPùBAHéê OT CìOBHOçO KAHAìA HAðP.0      5    CM<42:38>:= ðOC0         ðOC0:= 0                ¡
+¡        ðOC2  PEçéCTP ðPEPùBAHéê OT CìOBHOçO KAHAìA HAðP.2      5    CM<37:33>:= ðOC2         ðOC2:= 0                ¡
+°€€€€€€€Š€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€´
+¡    22  PMC   PEçéCTP MACKé CTPAHéãù                            4    CM <36:33>:= PMC;        PMC:= CM <36:33>        ¡
+¡        Hð    HOMEP ðPOãECCOPA (ðOúéãéOHHùê)                 8(0-7)  CM <64:57>:= Hð                                  ¡
+°€€€€€€€Š€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€´
+¡    23  ðOâ   PEçéCTP ðPEPùBAHéñ OT âAêTOBùX KAHAìOB        16(0-15) CM<48:33>:= ðOâ                                  ¡
+°€€€€€€€Š€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€´
+¡    24  õ0EC  PEçéCTP OâHõìEHéñ EC-KAHAìOB                   4(0-3)  CM<44:41>:= õ0EC;        õ0EC:= CM<44:41>        ¡
+¡        KOEC  PEçéCTP ðPEPùBAHéê ðO KOHãõ OâMEHA EC-KAHAìOB  4(0-3)  CM<40:37>:= KOEC;                                ¡
+¡        éCEC  PEçéCTP ðPEPùBAHéê ðO éúM.COCTOñHéñ EC-KAHAìOB 4(0-3)  CM<36:33>:= éCEC                                 ¡
+¡                                                                                                                      ¡
+«       ¹      ¹                                               ¹        ¹                         ¹                         ®
+                             - 8 -
+
+¥       ¶      ¶                                               ¶        ¶                         ¶                         ¨
+¡ AäPEC OâOúH.  H A é M E H O B A H é E     P E ç é C T P A  PAúPñäH.  æ õ H K ã é ñ   B P ç    æ õ H K ã é ñ   õ P ç  ¡
+¡BPç/õPç P-PA                                                PEçéCTPA                                                  ¡
+±       ¼      ¼                                               ¼        ¼                         ¼                         µ
+¡                                                                                                                      ¡
+¡    26  çPM   çìABHùê PEçéCTP MACKé äìñ çPBð                   16    CM<48:33>:= çPM          çPM:= CM<48:33>         ¡
+°€€€€€€€Š€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€´
+¡    27  çPBð  çìABHùê PEçéCTP BHEûHéX ðPEPùBAHéê               16    CM<48:33>:= çPBð         çPBð<2:1>:=             ¡
+¡                                                                                                çPBð<2:1> & CM <34:33>¡
+°€€€€€€€Š€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€´
+¡    29  PCðO  PEçéCTP PAúPEûEHéñ COBðAäEHéñ ðO OâPAýEHéà    64(0-63) CM:= PCðO                PCðO:= CM               ¡
+°€€€€€€€Š€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€´
+¡    2A  Púú   PEçéCTP úAýéTù ðO úAðéCé                      64(0-63) CM:= Púú                 Púú:= CM                ¡
+°€€€€€€€Š€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€´
+¡    2B  PæO   PEçéCTP æéKCAãéé OâPAýEHéñ                    64(0-63) CM:= PæO                 PæO:= 0                 ¡
+°€€€€€€€Š€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€´
+¡ 38-3B  ûéHA  PEçéCTPù ðPéEMA éú õHéBEPCAìøHùX KAHAìOB         18    CM:= ûéHA                                        ¡
+¡        ûéHK  PEçéCTPù BùäAþé B õHéBEPCAìøHùE KAHAìù           18                             ûéHK:= CM               ¡
+°€€€€€€€Š€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€´
+¡ 3C-3F  ûéHK  PEçéCTPù BùäAþé B õHéBEPCAìøHùE KAHAìù           18    CM:= NOT ûéHK                                    ¡
+¡        ûéHA  PEçéCTPù ðPéEMA éú õHéBEPCAìøHùX KAHAìOB         18                             ûéHA:= 0 (äìñ ûéHA-2,3) ¡
+°€€€€€€€Š€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€´
+¡ 40-7F  PAM   PEçéCTPù MATEMATéþECKOçO AäPECA                  18    CM<18:1>:= PAM           PAM:= CM<18:1>          ¡
+¡        PAæ   PEçéCTPù æéúéþECKOçO AäPECA                      16    CM<48:33>:= PAæ          PAæ:= CM<48:33>         ¡
+°€€€€€€€Š€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€Š€€€€€€€€€€€€€€€€€€€€€€€€€´
+¡ 80-BF  MðK   PEçéCTPù MECTHOê ðAMñTé KAHAìOB                64+TEç  (CM,PT):= MðK            MðK:= (CM,PT)           ¡
+¡280-2BF                                                              10P AéCð - âìOK.ABOCTOB                          ¡
+¡480-4BF                                                                 Aõ éú-úA ðìOXéX TEçOB                         ¡
+¡680-6BF                                                              11P AéCð - OâHõì.KAHAìA  11P AéCð - ðõCK OâMEHA  ¡
+¡                                                                        (1P - COXP.âìK-K äìñ                          ¡
+¡                                                                        CEìEKT.KAHAìOB)                               ¡
+¡                                                                                                                      ¡
+«       ¹      ¹                                               ¹        ¹                         ¹                         ®
+

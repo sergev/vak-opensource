@@ -1,0 +1,30 @@
+//~JUDOPROP~//$VERSION=1.3.0
+//~JUDOPROP~//$TITLE=Draw with Plus Sign
+//~JUDOPROP~//$TYPE=graphics
+void main() {
+	int x = 100;
+	int y = 200;
+	int moveAmount = 2;
+
+	setColor(red);
+	drawString("use the arrow keys to move the plus around", 10, 20);
+	setColor(purple);
+
+	while(true) {  // do forever
+		if (getKeyState("up")) {
+			y = y - moveAmount;  // move the plus up
+		}
+		if (getKeyState("down")) {
+			y = y + moveAmount;  // move the plus down
+		}
+		if (getKeyState("left")) {
+			x = x - moveAmount;  // move the plus left
+		}
+		if (getKeyState("right")) {
+			x = x + moveAmount;  // move the plus right
+		}
+
+		drawString("+", x, y);     // draw the plus sign
+		delay(.02);
+	}
+}

@@ -1,0 +1,25 @@
+;
+; Проверка ассемблирования команд LIA, MDA и подобных.
+;
+y = 0a5h
+	ldr	#6, y
+	ldah	#6, y
+	ldal	#7, y
+	liah	#6, y
+	lial	#7, y
+	ldr	#6, x
+x:	ldah	#6, x
+	ldal	#7, x
+	liah	#6, x
+	lial	#7, x
+
+	movl	a0, y
+	mdah	a0, y
+	mdal	a0, y
+	miah	a0, y
+	mial	a0, y
+	movl	a0, x
+	mdah	a0, x
+	mdal	a0, x
+	miah	a0, x
+	mial	a0, x

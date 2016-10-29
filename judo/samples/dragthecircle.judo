@@ -1,0 +1,41 @@
+//~JUDOPROP~//$VERSION=1.3.0
+//~JUDOPROP~//$TITLE=Drag the Circle
+//~JUDOPROP~//$TYPE=graphics
+// if button 1 is down, draws red circle
+// if right mouse is down, draws blue circle
+// if both are down, draws purple circle
+// stretches a line on button 3 drag
+// (button 3 can be different places on the
+// mouse for different operating systems)
+
+void main() {
+	int lastX = 0;
+	int lastY = 0;
+
+	while(true) {
+		if (getMouseEvent()) {
+			setColor(white);
+			fillCircle(lastX - 20, lastY - 20, 20);
+
+			if (getMouseButton(1)) {
+				setColor(red);
+			}
+			if (getMouseButton(3)) {
+				setColor(blue);
+			}
+			if (getMouseButton(1) && getMouseButton(3)) {
+				setColor(purple);
+			}			
+			fillCircle(getMouseX() - 20, getMouseY() - 20, 20);
+			if (getMouseButton(3)) {
+				setColor(white);
+				drawLine(getDragStartX(3), getDragStartY(3), lastX, lastY);
+				setColor(black);
+				drawLine(getDragStartX(3), getDragStartY(3), getDragEndX(3), getDragEndY(3));
+			}
+
+			lastX = getMouseX();
+			lastY = getMouseY();			
+		}
+	}
+}

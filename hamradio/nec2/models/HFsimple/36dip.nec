@@ -1,0 +1,14 @@
+CM Dipole antenna for 80 mtr
+CE
+SY len = 19.64646 ,hgh=20	'Wire length and height in meters
+SY freq=3.68
+GW	1	19	-len	0.0	hgh	-0.5	0.0	hgh	0.001
+GW	2	1	-0.5	0.0	hgh	0.5	0.0	hgh	0.001
+GW	3	19	0.5	0.0	hgh	len	0.0	hgh	0.001
+GE	-1
+LD	5	0	0	0	58000000	'All Copper wires
+GN	2	0	0	0	14	.006
+EK
+EX	0	2	1	0	1	0			'Voltage source 1+j0 volts on wire 2
+FR	0	0	0	0	freq	0
+EN

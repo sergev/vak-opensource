@@ -1,0 +1,3 @@
+#!/Applications/Octave.app/Contents/Resources/bin/octave-cli -qf
+
+printf ("Hello, Octave!\n");

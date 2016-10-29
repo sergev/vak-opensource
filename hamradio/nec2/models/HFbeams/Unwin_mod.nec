@@ -1,0 +1,33 @@
+CM Modified Unwin beam.
+CM This is the Unwin beam of Unwin1.nec, but modified by
+CM removing one reflector and readjusting the remaining
+CM reflector. It exhibits very high front/back ratio, but only
+CM over a fairly narrow frequency range. The feedpoint
+CM resistance is also much smaller than that of the original
+CM two-refelector design Unwin1.nec. Only a few minutes were
+CM spent adjusting the reflector; better optimization in one
+CM respect or another could probably be made.
+CM In practice, small imperfections in the antenna and
+CM environment are likely to reduce the front/back ratio
+CM somewhat from the value reported by the program.
+CM See antenna notes for Unwin1 for more information.
+CE
+GW 1 10 -21.5 199.8 820 -21.5 -199.8 820 0.025
+GW 2 10 62.1524 195.401 820 62.1524016 -195.401 820 0.015
+GW 3 11 -80.4444 205.966 820 -80.44437 -205.966 820 0.025
+GW 4 9 626.15 182.195 820 626.15 -182.195 820 0.015
+GW 5 9 192.39 182.742 820 192.39 -182.742 820 0.015
+GW 6 9 236.23 181.633 820 236.23 -181.633 820 0.015
+GW 7 9 122.82 182.329 820 122.82 -182.329 820 0.01
+GW 8 10 353.2 185.816 820 353.2 -185.816 820 0.01
+GW 9 10 383 187.242 820 383 -187.242 820 0.01
+GW 10 10 89.5709 185.954 820 89.5709 -185.954 820 0.01
+GW 11 11 -174.392 207.133 820 -174.392 -207.133 820 0.025
+GW 12 10 -18.7345 197.701 820 -18.7345 -197.701 820 0.01
+GS 0 0 0.0254		' All in in.
+GE 0
+EK
+EX 6 3 6 0 1 0
+GN -1
+FR 0 1 0 0 14.2 0
+EN

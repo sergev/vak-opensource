@@ -1,0 +1,11 @@
+CM Test Limit Triangle without warnings
+CM to test 4nec2 geometry checks
+CM From ARRL course page 3.27 
+CE
+GW 1 81 0 -2 0 0 2 0 0.0005	' Thin wire
+GW 2 41 0 -2 0 0 0 0.1 0.0005
+GW 3 41 0 2 0 0 0 0.1 0.0005
+GE 0
+EX 0 1 41 0 1 0
+FR 0 1 0 0 299.8 1
+EN

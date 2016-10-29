@@ -1,0 +1,1890 @@
+;*******************************************************
+;*                                                     *
+;*      ПАКЕТ ГРАФИЧЕСКИХ ПРОГРАММ БЕЙСИК-ВИЛЬНЮС      *
+;*   РАЗРАБОТАН СОТРУДНИКАМИ ИПИ АН СССР И ВЦКП ВГУ    *
+;*                                                     *
+;*******************************************************
+.SBTTL	$BSCGRP	BASIC GRAPHIC
+
+.IF EQ,<MASINA-BK0011>*<MASINA-BK0010>*<MASINA-DVK3>*<MASINA-VUMS>
+
+.IF EQ,MASINA-BK0010
+	$DRWX=176	;КООРДИНАТА X
+	$DRWY=200	;КООРДИНАТА Y
+	ANVP=202	;НАЧАЛО ВП
+	BAZVP=204	;БАЗА ВП
+	DVPB=206	;ДЛИНА ВП
+	MASCW==214	;МАСКА ЦВЕТА
+	FON==212	; --//-- ФОНА
+
+	SC=0
+.IFF
+	SC=-2
+.GLOBL	PARAM,CHAR0,CHAR,PAPER,$DRWX,$DRWY
+.GLOBL	$PSET,$LINE,$COLOR,MAXCOL,SETCRT
+
+.IFTF
+.GLOBL	STAND,SAND,IDIV,DAUG,ISV,NOSTOP,STOPEN
+.GLOBL	SAVJMP,TYPE,$SCRT,PI
+
+.IIF GT,MASINA-BK0010	.GLOBL	CLSCR
+
+.IF DF,SNG
+.GLOBL	RI,IR,SING,KOS,MLR,DVR
+.IFF
+.GLOBL	SI,DI,ID,$B95,$DMUL$,$B93,$DDIV$
+.ENDC
+
+.MACRO	PUSH	ARGS
+.IRP	ARG,<ARGS>
+	MOV	ARG,-(SP)
+.ENDR
+.ENDM
+
+.MACRO	POP	ARGS
+.IRP	ARG,<ARGS>
+	MOV	(SP)+,ARG
+.ENDR
+.ENDM
+
+.MACRO	.PSET
+.IF NE,MASINA-BK0010
+	CALL	$PSET
+.IFF
+	EMT	30
+.ENDC
+.ENDM	.PSET
+
+.MACRO	.LINE
+.IF NE,MASINA-BK0010
+	CALL	$LINE
+.IFF
+	EMT	32
+.ENDC
+.ENDM	.LINE
+
+.IFT
+GRINIT::MOV	#4,@#$SCRT	;SENAS DRAW
+;	MOV	#2000,@#$SCRT
+SETCRT::
+	RETURN
+SMODE::
+
+.IFTF
+COLERR:	TRAP	5
+
+.IFT
+COLF::	MOV	@#MASCW,R3
+	MOV	(SP)+,R0
+	BNE	1$
+	CMP	(R0)+,(R0)+
+1$:	CALL	TSTCOL
+	CALL	ISV
+	MOV	#235,R0
+	CALL	ISV
+
+COLRET::MOV	R3,@#MASCW
+	JMP	@(R4)+
+
+TSTCOL::CMP	R0,#4
+	BHI	COLERR
+	ADD	#220,R0
+	RETURN
+
+COLR::	MOV	@#MASCW,R3
+	MOV	(SP)+,R0
+	BEQ	1$
+	CALL	TSTCOL
+	CALL	ISV
+	JMP	@(R4)+
+1$:	MOV	@#FON,@#MASCW
+	JMP	@(R4)+
+
+.IFF
+TSTCOL::CMP	R3,#MAXCOL
+	BHI	COLERR
+	DEC	R3
+	BPL	1$
+	MOV	@#PAPER,R3
+1$:	RETURN
+
+RSP::
+	MOV	@#CHAR0,-(SP)
+	JMP	@(R4)+
+
+SPFORM::
+	MOV	@SP,R3
+	CALL	TSTCOL
+	MOV	R3,@SP
+	JMP	@(R4)+
+
+.IFTF
+RETCRT::CALL	SETCRT
+	JMP	@(R4)+
+
+.IF GT,MASINA-BK0010
+GRPCLS::CALL	CLSCR
+	JMP	@(R4)+
+.ENDC
+
+VIDSP::	MOV	@SP,-(SP)
+	JMP	@(R4)+
+
+CURCOR::MOV	@#$DRWX,-(SP)
+	MOV	@#$DRWY,-(SP)
+	JMP	@(R4)+
+
+STP::	ADD	@#$DRWX,2(SP)
+	ADD	@#$DRWY,@SP
+	JMP	@(R4)+
+
+LSTP::	ADD	6(SP),2(SP)
+	ADD	4(SP),@SP
+	JMP	@(R4)+
+
+.IFT
+SPFORM::MOV	@SP,R0
+	BEQ	1$
+
+;	CALL	TSTCOL
+
+	CMP	R0,#4
+	BHI	COLERR
+	ADD	#220,R0
+
+	MOV	R0,@SP
+	JMP	@(R4)+
+1$:	MOV	@#FON,@SP
+SPTOL:	BIC	#177774,@SP
+	SUB	#224,@SP
+	NEG	@SP
+	JMP	@(R4)+
+
+RSP::	MOV	@#MASCW,-(SP)
+	BR	SPTOL
+
+.IFTF
+.PAGE
+.SBTTL	SET/RESET	SPECIFIED COLOR POINT SETTING/ERASING
+
+;-----------------------------------------
+; ПРОЦЕДУРА УСТАНОВКИ И ГАШЕНИЯ ТОЧКИ.
+; СТЕК НА ВХОДЕ:
+; БК0010	БК0011
+; 2(SP)		4(SP)	X-КООРДИНАТА;
+; (SP)		2(SP)	Y;
+;		 (SP)	ЦВЕТ.
+;-----------------------------------------
+.IFT
+RESET::	CLR	R0
+	BR	PNT
+
+SET::	MOV	#1,R0
+
+.IFF
+RESET::
+	MOV	@#PAPER,@#CHAR
+	TST	(SP)+
+	BR	PNT
+
+SET::	MOV	(SP)+,@#CHAR
+
+.IFTF
+PNT:	MOV	(SP)+,R2
+	MOV	(SP)+,R1
+	.PSET
+	JMP	@(R4)+
+.IFTF
+.PAGE
+.SBTTL	LSET	LINE'S SEGMENT DRAWING
+
+;-----------------------------------------
+; ПРОЦЕДУРА ВЫЧЕРЧИВАНИЯ ОТРЕЗКА ПРЯМОЙ
+; МЕЖДУ ДВУМЯ ТОЧКАМИ (X1,Y1)-(X2,Y2).
+; СТЕК НА ВХОДЕ:
+; БК0010	БК0011
+;  6(SP)	10(SP)	X1;
+;  4(SP)	 6(SP)	Y1;
+;  2(SP)	 4(SP)	X2;
+;   (SP)	 2(SP)	Y2;
+;		  (SP)	ЦВЕТ.
+;-----------------------------------------
+
+LSET::
+.IFT
+	MOV	#1,R0
+.IFF
+	MOV	(SP)+,@#CHAR
+.IFTF
+	MOV	6(SP),R1
+	MOV	4(SP),R2
+	.PSET
+	MOV	(SP)+,R2
+	MOV	(SP)+,R1
+	CMP	(SP)+,(SP)+
+	.LINE
+	.PSET
+	JMP	@(R4)+
+.PAGE
+.SBTTL	RECSET	RECTANGLE DRAWING
+
+;--------------------------------------------
+; ПРОЦЕДУРА ОТРИСОВКИ ПРЯМОУГОЛЬНИКА СО
+; СТОРОНАМИ ,ПАРАЛЛЕЛЬНЫМИ СТОРОНАМ ЭКРАНА,
+; И ДИАГОНАЛЬЮ НА ТОЧКАХ (X1,Y1), (X2,Y2)
+; СТЕК НА ВХОДЕ:
+; БК0010	БК0011
+;  6(SP)	10(SP)	X1;
+;  4(SP)	 6(SP)	Y1;
+;  2(SP)	 4(SP)	X2;
+;   (SP)	 2(SP)	Y2;
+;		  (SP)	ЦВЕТ.
+;--------------------------------------------
+
+RECSET::
+.IFT
+	MOV	#1,R0
+.IFF
+	MOV	(SP)+,@#CHAR
+.IFTF
+	MOV	@SP,R2
+	MOV	2(SP),R1
+	.PSET
+	MOV	6(SP),R1
+	.LINE
+	.PSET
+	MOV	4(SP),R2
+	.LINE
+	MOV	2(SP),R1
+	.LINE
+	MOV	(SP)+,R2
+	.LINE
+	TST	(SP)+
+	CMP	(SP)+,(SP)+
+	JMP	@(R4)+
+;
+
+.PAGE
+.SBTTL	BOXSET FILLING RECTANGLE DRAWING
+
+;---------------------------------------------------------
+; ПРОЦЕДУРА ВЫЧЕРЧИВАНИЯ ЗАКРАШЕННОГО ПРЯМОУГОЛЬНИКА СО
+; СТОРОНАМИ, ПАРАЛЛЕЛЬНЫМИ СТОРОНАМ ЭКРАНА И ДИАГОНАЛЬЮ
+; НА ТОЧКАХ (X1,Y1), (X2,Y2).
+; СТЕК НА ВХОДЕ:
+; БК0010	БК0011
+;  6(SP)	10(SP)	X1;
+;  4(SP)	 6(SP)	Y1;
+;  2(SP)	 4(SP)	X2;
+;   (SP)	 2(SP)	Y2;
+;		  (SP)	ЦВЕТ.
+;---------------------------------------------------------
+
+BOXSET::
+.IFF
+	MOV	(SP)+,@#CHAR
+.IFTF
+	MOV	@SP,R2
+	MOV	4(SP),R1
+	MOV	R1,R0
+	CMP	R1,R2
+	BHIS	1$
+	MOV	R2,R0
+	MOV	R1,R2
+1$:	SUB	R2,R0
+	INC	R0
+2$:	MOV	2(SP),R1
+	.PSET
+	MOV	6(SP),R1
+	.LINE
+	INC	R2
+	SOB	R0,2$
+	MOV	(SP)+,R2
+	MOV	(SP)+,R1
+.IFT
+	INC	R0
+.ENDC
+	.PSET
+	CMP	(SP)+,(SP)+
+	JMP	@(R4)+
+
+.PAGE
+.SBTTL	POINT	GETTING OF POINT COLOR
+
+;---------------------------------------------------------
+; ПРОЦЕДУРА ПОЛУЧЕНИЯ ЦВЕТА ТОЧКИ, ЗАДАННОЙ КООРДИНАТЫ.
+; СТЕК НА ВХОДЕ:
+; 2(SP)		X-КООРДИНАТА;
+;  (SP)		Y;
+; СТЕК НА ВЫХОДЕ:
+;  (SP)		КОД ЦВЕТА ТОЧКИ.
+;----------------------------------------------------------
+
+POINT::
+	MOV	(SP)+,R2	; Y
+	MOV	(SP)+,R1	; X
+.IF EQ,MASINA-BK0010
+	MOV	#-1,R0
+	CMP	R1,#377
+	BHI	1$
+	CMP	R2,#239.
+	BHI	1$
+.IFTF
+	CALL	$COLOR
+.IFT
+	SUB	#220,R0
+1$:
+.IFTF
+	MOV	R0,-(SP)	; ВОЗВРАЩАЕМЫЙ ЦВЕТ ТОЧКИ
+.IFF
+	BMI	1$
+	INC	@SP
+1$:
+.ENDC
+	JMP	@(R4)+
+
+.PAGE
+.SBTTL	$PAINT	REGION FILLING
+
+;------------------------------------------------
+; ПРОЦЕДУРА ЗАКРАСКИ УКАЗАННЫМ ЦВЕТОМ ОБЛАСТИ
+; С ГРАНИЦЕЙ ОПРЕДЕЛЕННОГО ЦВЕТА.
+; СТЕК НА ВХОДЕ:
+;  6(SP)	X-КООРДИНАТА ТОЧКИ;
+;  4(SP)	Y;
+;  2(SP)	КОД ЦВЕТА ОКРАСКИ;
+;   (SP)	КОД ЦВЕТА ГРАНИЦЫ;
+; РЕГИСТРЫ R4,R5 СОХРАНЯЮТСЯ.
+;------------------------------------------------
+
+$PAINT::
+.IF NE,MASINA-BK0010
+.IFF
+	PUSH	<@#MASCW>
+.IFTF
+	PUSH	<R4,R5>
+	MOV	R4,SAVJMP
+	MOV	14+SC(SP),R1	; X-КООРДИНАТА
+	MOV	12+SC(SP),R2	; Y
+.IFT
+	MOV	10+SC(SP),R4	; ЦВЕТ ОКРАСКИ
+	MOV	R4,@#CHAR
+.IFF
+	MOV	10+SC(SP),R0
+	CALL	ISV		; ПЕРЕДАЕМ ДРАЙВЕРУ
+	MOV	R0,R4
+.ENDC
+	MOV	6+SC(SP),R5	; ЦВЕТ ГРАНИЦЫ
+	CALL	$BORDR		; ТОЧКА (X,Y) ПРИНАДЛЕЖИТ ГРАНИЦЕ ?
+	BCS	$END		; ДА 
+				; ПРОИЗВОДИМ НАЧАЛЬНОЕ СКАНИРОВАНИЕ ВПРАВО И
+				; ВЛЕВО  ОТ ТОЧКИ С ЦЕЛЬЮ ОПРЕДЕЛЕНИЯ ГРАНИЦ
+	MOV	R1,R3		; СОХРАНЯЕМ X-КООРДИНАТУ
+10$:
+	INC	R1
+	CALL	$BORDR
+	BCC	10$
+	MOV	R1,R0		; ОТНЫНЕ ЭТО ПРАВАЯ ГРАНИЦА
+	MOV	R3,R1		; ВОССТАНОВИЛИ X-КООРДИНАТУ
+20$:
+	DEC	R1
+	CALL	$BORDR
+	BCC	20$
+				; ОТНЫНЕ В R1 ЛЕВАЯ ГРАНИЦА
+	CLR	R3		; НУЛЕВОЙ ШАГ ПО Y - ПРИЗНАК ОКОНЧАНИЯ
+				; ЗАПОЛНЕНИЯ КОНТУРА
+	PUSH	<R3>
+	DEC	R3
+	PUSH	<R0,R1,R2,R3>	; ПАРАМЕТРЫ ЗАКРАСКИ КОНТУРА СНИЗУ ОТ ТОЧКИ
+	NEG	R3		; А ПОКА БУДЕМ ЗАКРАШИВАТЬ ВВЕРХ
+	CALL	$LINHR		; НО ВНАЧАЛЕ ПРОВЕДЕМ ПРЯМУЮ ЧЕРЕЗ ТОЧКУ
+$SCANN:				; ОСНОВНОЙ ЦИКЛ ПО ЗАКРАСКЕ ОБЛАСТИ
+	CMP	SP,#440
+	BHI	1$
+	TRAP	7
+1$:	ADD	R3,R2		; НОВОЕ ЗНАЧЕНИЕ Y
+	INC	R1		; НОВАЯ ЛЕВАЯ ГРАНИЦА
+	CALL	$BORDR		; УХОДИТ ВПРАВО ?
+	BCS	30$		; ДА
+	PUSH	<R1,R1>		; X
+10$:
+	DEC	R1
+	CALL	$BORDR
+	BCC	10$		; НОВАЯ ЛЕВАЯ ГРАНИЦА УХОДИТ ВЛЕВО
+	SUB	R1,(SP)		; СТАРАЯ ЛЕВАЯ ГРАНИЦА БОЛЬШЕ НОВОЙ 
+	CMP	#2,(SP)+	; НА 2 ?
+	BGE	20$		; НЕТ
+	SUB	#6,SP		; РЕЗЕРВИРУЕМ В СТЕКЕ СЛОТ В 4 СЛОВА
+	PUSH	<6(SP)>		; ПЕРЕПИСЫВАЕМ X В 5-ОЕ СЛОВО
+	DEC	10(SP)		; ЗАПИСЫВАЕМ ПАРАМЕТРЫ ПРОХОДА ОТ НОВОЙ
+	MOV	R1,6(SP)
+	MOV	R2,4(SP)
+	MOV	R3,2(SP)	; ЛЕВОЙ ГРАНИЦЫ ДО СТАРОЙ СО СМЕНОЙ
+	NEG	2(SP)		; НАПРАВЛЕНИЯ ПО ОСИ Y В СТЕК
+20$:
+	PUSH	<(SP)>
+	MOV	R1,2(SP)	; НОВАЯ ЛЕВАЯ ГРАНИЦА
+	POP	<R1>		; X
+	BR	40$
+30$:				; ИССЛЕДУЕМ ЛЕВУЮ ГРАНИЦУ, УШЕДШУЮ ВПРАВО
+	INC	R1
+	CMP	R1,R0		; КОНТУР ЗАМКНУЛСЯ ?
+	BGE	$ENDSC		; ДА
+	CALL	$BORDR		; ЛЕВАЯ БЕЖИТ ДАЛЬШЕ ВПРАВО ?
+	BCS	30$
+	PUSH	<R1>
+	DEC	(SP)		; НОВАЯ ЛЕВАЯ ГРАНИЦА
+40$:
+	INC	R1		; ПОШЛИ К ПРАВОЙ ГРАНИЦЕ
+	CALL	$BORDR		; ДОСТИГНУТА ?
+	BCC	40$		; НЕТ
+	INC	R0		; СТАРАЯ ПРАВАЯ ГРАНИЦА + 1
+	CMP	R1,R0		; НОВАЯ ПРАВАЯ ГРАНИЦА ПРЕВЫШАЕТ
+				; СТАРУЮ БОЛЬШЕ ЧЕМ НА 1 ?
+	BLE	50$		; НЕТ
+        SUB	#6,SP		; РЕЗЕРВИРУЕМ В СТЕКЕ СЛОТ ДЛИНОЙ
+				; В 4 СЛОВА
+	PUSH	<6(SP)>		; ПЕРЕПИСЫВАЕМ ЛЕВУЮ ГРАНИЦУ
+	DEC	R0		; ЛЕВАЯ ГРАНИЦА ДЛЯ ПОСЛЕДУЮЩЕГО АНАЛИЗА
+	MOV	R1,10(SP)
+	MOV	R0,6(SP)
+	MOV	R2,4(SP)
+	MOV	R3,2(SP)
+	NEG	2(SP)		; МЕНЯЕМ ЗНАК ШАГА
+	BR	70$
+50$:
+	DEC	R0		; СТАРАЯ ПРАВАЯ ГРАНИЦА
+	DEC	R0		; СТАРАЯ ПРАВАЯ ГРАНИЦА - 1
+	CMP	R0,R1		; СТАРАЯ ПРАВАЯ ГРАНИЦА ПРЕВЫШАЕТ
+				; НОВУЮ БОЛЬШЕ ЧЕМ НА 1
+	BLE	70$		; НЕТ
+	SUB	#6,SP
+	PUSH	<6(SP)>
+	INC	R0		; ПРАВАЯ ГРАНИЦА ОСТАЛАСЬ ПРЕЖНЕЙ,
+				; А НОВАЯ ПРАВАЯ ОБ'ЯВЛЯЕТСЯ ЛЕВОЙ
+				; И АНАЛИЗИРУЕТСЯ В ДАЛЬНЕЙШЕМ
+	MOV	R0,10(SP)
+	MOV	R1,6(SP)
+	MOV	R2,4(SP)
+	MOV	R3,2(SP)
+	SUB	2(SP),4(SP)	; ОСТАТОК СТРОКИ ДОЛЖЕН БЫТЬ ПРОАНАЛИЗИ-
+				; РОВАН ПРИ ТЕКУЩЕМ ЗНАЧЕНИИ Y, А
+				; В НАЧАЛЕ ЦИКЛА БУДЕТ "ДОБАВЛЕН" ШАГ
+70$:
+	MOV	R1,R0		; ПЕРЕПИСЫВАЕМ НОВУЮ ПРАВУЮ ГРАНИЦУ
+				; НА ЕЕ МЕСТО
+	POP	<R1>		; ВОССТАНАВЛИВАЕМ ИЗ СТЕКА
+				; НОВУЮ ЛЕВУЮ
+	CALL	$LINHR
+	BR	$SCANN
+$ENDSC:				; КОНЕЦ СКАНИРОВАНИЯ ЗАМКНУТОЙ ПОДОБЛАСТИ
+	POP	<R3>		; ИМЕЮТСЯ ДРУГИЕ ПОДОБЛАСТИ
+	BEQ	$END		; НЕТ
+	POP	<R2,R1,R0>
+	BR	$SCANN
+$END:				; ЗАВЕРШЕНИЕ ПРОГРАММЫ
+	POP	<R5,R4>
+.IF NE,MASINA-BK0010
+.IFF
+	POP	<R3>
+.IFTF
+	CMP	(SP)+,(SP)+	; ОЧИЩАЕМ СТЕК ОТ УЖЕ
+	POP	<R2,R1>		; НЕНУЖНЫХ ПАРАМЕТРОВ
+.IFF
+	MOV	PC,R0
+.IFTF
+	.PSET
+	CLR	@#SAVJMP
+.IFF
+	JMP	COLRET
+.IFT
+	JMP	@(R4)+
+.ENDC
+;
+.PAGE
+.SBTTL	$LINHR
+
+;-------------------------------------------------
+; ВНУТРЕННЯЯ ПРОЦЕДУРА ПРОВОДИТ ГОРИЗОНТАЛЬНУЮ
+; ПРЯМУЮ МЕЖДУ ГРАНИЦАМИ.
+; РЕГИСТРЫ НА ВХОДЕ:
+; R0	ПРАВАЯ ГРАНИЦА;
+; R1	ЛЕВАЯ ГРАНИЦА;
+; R2	Y.
+; ВСЕ РЕГИСТРЫ СОХРАНЯЮТСЯ.
+;-------------------------------------------------
+
+$LINHR:
+	PUSH	<R1,R0>
+	INC	R1
+	MOV	#1,R0
+	.PSET
+	MOV	@SP,R1
+	DEC	R1
+	.LINE
+	POP	<R0,R1>
+	RETURN
+
+.PAGE
+.SBTTL	$BORDR
+
+;---------------------------------------------------------
+; ВНУТРЕННЯЯ ПРОЦЕДУРА ОПРЕДЕЛЯЕТ ПОЛОЖЕНИЕ ТОЧКИ
+; ОТНОСИТЕЛЬНО ГРАНИЦЫ.
+; РЕГИСТРЫ НА ВХОДЕ:
+; R1	X-КООРДИНАТА ТОЧКИ;
+; R2	Y;
+; R4	ЦВЕТ ОКРАСКИ;
+; R5	ЦВЕТ ГРАНИЦЫ.
+; ВСЕ РЕГИСТРЫ СОХРАНЯЮТСЯ.
+; КОДЫ УСЛОВИЙ:
+; БИТ C УСТАНАВЛИВАЕТСЯ, ЕСЛИ ТОЧКА ПРИНАДЛЕЖИТ ГРАНИЦЕ,
+; В ПРОТИВНОМ СЛУЧАЕ ОЧИЩАЕТСЯ.
+;----------------------------------------------------------
+
+$BORDR:
+.IF EQ,MASINA-BK0010
+	CMP	R1,#377		; X-КООРДИНАТА В ДОПУСТИМЫХ ПРЕДЕЛАХ
+	BHI	20$		; НЕТ
+	CMP	R2,#239.	; Y-КООРДИНАТА В ДОПУСТИМЫХ ПРЕДЕЛАХ
+	BHI	20$		; НЕТ
+.IFTF
+	PUSH	<R0>
+	CALL	$COLOR		; ОПРЕДЕЛЯЕМ ЦВЕТ ТОЧКИ (X,Y)
+.IFF
+	BCS	10$
+.ENDC
+	CMP	R0,R5		; ЦВЕТ ТОЧКИ СОВПАДАЕТ С ЦВЕТОМ ГРАНИЦЫ
+	BEQ	10$		; ДА
+	CMP	R0,R4		; ЦВЕТ ТОЧКИ СОВПАДАЕТ С ЦВЕТОМ ОКРАСКИ
+	BEQ	10$
+	POP	<R0>
+	CLC
+	RETURN
+10$:
+	POP	<R0>
+20$:
+	SEC
+	RETURN
+
+.PAGE
+.SBTTL	$COLOR
+
+;--------------------------------------------------------
+; ВНУТРЕННЯЯ ПРОЦЕДУРА ОПРЕДЕЛЯЕТ ЦВЕТ ЗАДАННОЙ ТОЧКИ.
+; РЕГИСТРЫ НА ВХОДЕ:
+; R1	X-КООРДИНАТА ТОЧКИ;
+; R2	Y.
+; РЕГИСТРЫ НА ВЫХОДЕ:
+; R0	ЦВЕТ ТОЧКИ.
+; ЗА ИСКЛЮЧЕНИЕМ R0 РЕГИСТРЫ СОХРАНЯЮТСЯ.
+;--------------------------------------------------------
+
+.IF EQ,MASINA-BK0010
+$COLOR:
+	PUSH	<R1,R2>		; СОХРАНЯЕМ РЕГИСТРЫ
+	ASL	R2		; УМНОЖАЕМ Y НА 100 ( OCTAL )
+	ASL	R2
+	ASL	R2
+	ASL	R2
+	ASL	R2
+	ASL	R2
+	MOV	R1,R0		; X
+	ASR	R0		; ДЕЛЕНИЕ
+	ASR	R0		; НА 4
+	ADD	R2,R0		; ОТНОСИТЕЛЬНЫЙ АДРЕС БАЙТА С ТОЧКОЙ В ОЗУ
+	ADD	@#BAZVP,R0	; ДОБАВЛЯЕМ АДРЕС ПЕРВОЙ ГРАФИЧЕСКОЙ СТРОКИ
+ 				; ОТНОСИТЕЛЬНО НАЧАЛА ОЗУ-ЭКРАНА
+	BIC	#140000,R0	; УЧИТЫВАЕМ, ЧТО ОЗУ-ЭКРАНА - СВИТОК
+	ADD	@#ANVP,R0	; ДОБАВЛЯЕМ АДРЕС НАЧАЛА ОЗУ-ЭКРАНА
+	MOVB	(R0),R2		; БАЙТ СОБСТВЕННОЙ ПЕРСОНОЙ
+	BIC	#177774,R1	; НОМЕР ТОЧКИ В БАЙТЕ:	0,1,2,3
+	BEQ	20$
+10$:
+	ASR	R2
+	ASR	R2
+	SOB	R1,10$
+20$:
+	BIC	#177774,R2	; ВЫДЕЛЯЕМ ДВА РАЗРЯДА ТОЧКИ
+	MOV	#224,R0
+	SUB	R2,R0
+	POP	<R2,R1>
+	RETURN
+.ENDC
+
+.PAGE
+
+;-------------------------------
+; СЛУЖЕБНЫЕ ПОДПРОГАМЫ ДЛЯ $ARC
+;-------------------------------
+
+.IF EQ,MASINA-BK0011
+ANG1::
+ANG2::
+	MOV	R4,@#SAVJMP
+	MOV	#1$,R4
+	JMP	@(R4)+
+1$:
+.IF DF,SNG
+	.WORD	PI,C2,MLR,DVR,C32767,MLR,RI,2$
+.IFF
+	.WORD	PI,C2,$DMUL$,$DDIV$,C32767,$DMUL$,DI,2$
+.IFTF
+2$:	MOV	@#SAVJMP,R4
+	CLR	@#SAVJMP
+	JMP	@(R4)+
+
+ANG01::	CLR	-(SP)
+	JMP	@(R4)+
+ANG02::	MOV	#77777,-(SP)
+	JMP	@(R4)+
+
+ASP0::	CLR	-(SP)
+	CLR	-(SP)
+	JMP	@(R4)+
+
+ASPINT::MOV	R4,@#SAVJMP
+	MOV	#A1,R4
+	JMP	@(R4)+
+ASPSNG::
+.IFF
+	MOV	2(SP),-(SP)
+	MOV	2(SP),-(SP)
+ASPDBL::
+.IFTF
+	TST	@SP
+	BMI	DRKL
+	MOV	R4,@#SAVJMP
+	CMP	@SP,#40200	;1
+	BHIS	ASPX
+;ASPY
+	MOV	#1$,R4
+	JMP	@(R4)+
+1$:
+.IFT
+	.WORD	C32767,MLR,RI,2$
+.IFF
+	.WORD	C32767,$DMUL$,DI,2$
+.IFTF
+2$:	ASL	@SP
+	MOV	@SP,-(SP)
+	CLR	2(SP)
+	BR	A3
+
+ASPX:	MOV	#A2,R4
+	JMP	@(R4)+
+.IFT
+A1:	.WORD	IR
+A2:	.WORD	C1X,DVR,C32767,MLR,RI,1$
+.IFF
+A1:	.WORD	ID
+A2:	.WORD	C1X,$DDIV$,C32767,$DMUL$,DI,1$
+.IFTF
+1$:	ASL	@SP
+	CLR	-(SP)
+A3:	MOV	@#SAVJMP,R4
+	CLR	@#SAVJMP
+	JMP	@(R4)+
+C2:
+.IFF
+	CLR	-(SP)
+	CLR	-(SP)
+.IFTF
+	CLR	-(SP)
+	MOV	#40400,-(SP)
+	JMP	@(R4)+
+C32767:
+.IFF
+	CLR	-(SP)
+	CLR	-(SP)
+.IFTF
+	MOV	#177000,-(SP)
+	MOV	#43777,-(SP)
+	JMP	@(R4)+
+C1X:
+.IFT
+	MOV	2(SP),-(SP)
+	MOV	2(SP),-(SP)
+	CLR	6(SP)
+	MOV	#40200,4(SP)	;1
+.IFF
+	MOV	6(SP),-(SP)
+	MOV	6(SP),-(SP)
+	MOV	6(SP),-(SP)
+	MOV	6(SP),-(SP)
+	CLR	16(SP)
+	CLR	14(SP)
+	CLR	12(SP)
+	MOV	#40200,10(SP)	;1
+.ENDC
+	JMP	@(R4)+
+
+.IFF
+.IF DF,SNG
+ANG1::	MOV	12(SP),-(SP)
+	MOV	12(SP),-(SP)
+	MOV	12(SP),-(SP)
+	BR	ANG
+ANG2::	MOV	16(SP),-(SP)
+	MOV	16(SP),-(SP)
+	MOV	16(SP),-(SP)
+ANG:	MOV	R4,-(SP)
+	MOV	R4,SAVJMP
+	MOV	12(SP),-(SP)
+	MOV	12(SP),-(SP)
+	JSR	R4,STAND
+	.WORD	KOS, 2$,IR,MLR,RI,3$,4$
+	.WORD	SING,5$,IR,MLR,RI,3$,6$
+2$:	MOV	6(SP),-(SP)
+	JMP	@(R4)+
+3$:	ADD	10(SP),@SP
+	JMP	@(R4)+
+4$:	MOV	14(SP),-(SP)
+	MOV	14(SP),-(SP)
+	BGE	8$
+	NEG	4(SP)
+8$:	BIS	#100000,@SP
+	JMP	@(R4)+
+5$:	MOV	10(SP),-(SP)
+	JMP	@(R4)+
+6$:	MOV	(SP)+,12(SP)
+	MOV	(SP)+,12(SP)
+	MOV	(SP)+,R4
+	CLR	SAVJMP
+	ADD	#6,SP
+	JMP	@(R4)+
+.IFF
+ANG1::	MOV	16(SP),-(SP)
+	MOV	16(SP),-(SP)
+	MOV	16(SP),-(SP)
+	BR	ANG
+ANG2::	MOV	22(SP),-(SP)
+	MOV	22(SP),-(SP)
+	MOV	22(SP),-(SP)
+ANG:	MOV	R4,-(SP)
+	MOV	R4,SAVJMP
+	MOV	SP,R0
+	ADD	#20,R0
+	MOV	-(R0),-(SP)
+	MOV	-(R0),-(SP)
+	MOV	-(R0),-(SP)
+	MOV	-(R0),-(SP)
+	JSR	R4,STAND
+	.WORD	$B95,2$,ID,$DMUL$,DI,3$,4$
+	.WORD	$B93,5$,ID,$DMUL$,DI,3$,6$
+2$:	MOV	12(SP),-(SP)
+	JMP	@(R4)+
+3$:	ADD	10(SP),@SP
+	JMP	@(R4)+
+4$:	MOV	SP,R0
+	ADD	#22,R0
+	MOV	-(R0),-(SP)
+	MOV	-(R0),-(SP)
+	MOV	-(R0),-(SP)
+	MOV	-(R0),-(SP)
+	BGE	8$
+	NEG	10(SP)
+8$:	BIS	#100000,@SP
+	JMP	@(R4)+
+5$:	MOV	14(SP),-(SP)
+	JMP	@(R4)+
+6$:	MOV	(SP)+,16(SP)
+	MOV	(SP)+,16(SP)
+	MOV	(SP)+,R4
+	CMP	(SP)+,(SP)+
+	CMP	(SP)+,(SP)+
+	TST	(SP)+
+	CLR	SAVJMP
+	JMP	@(R4)+
+.IFTF
+ANG01::	MOV	2(SP),-(SP)
+	ADD	10(SP),@SP
+	MOV	6(SP),-(SP)
+	JMP	@(R4)+
+ANG02::	MOV	6(SP),-(SP)
+	ADD	14(SP),@SP
+	MOV	12(SP),-(SP)
+	JMP	@(R4)+
+
+ASPINT::MOV	#1,-(SP)
+	JMP	@(R4)+
+.IFF
+ASPDBL::MOV	(SP)+,@SP
+	MOV	(SP)+,@SP
+.ENDC
+ASPSNG::MOV	#1,R2
+	MOV	(SP)+,R1
+	BLE	7$
+	CLR	R0
+	BISB	R1,R0
+	BIS	#200,R0
+	ASL	R1
+	CLRB	R1
+	SWAB	R1
+	SUB	#211,R1
+	BGE	55$
+	CMP	R1,#-20
+	BLT	6$
+1$:	INC	R1
+	BEQ	3$
+	ASR	R0
+	BCC	1$
+	ROL	R0
+2$:	ASLB	R2
+	BCS	4$
+	INC	R1
+	BNE	2$
+3$:	MOV	R0,@SP
+	MOV	R2,-(SP)
+	JMP	@(R4)+
+4$:	RORB	R2
+	ASL	R2
+5$:	INC	R1
+	BEQ	3$
+	ASR	R0
+	ADC	R0
+	BR	5$
+55$:	MOV	#400,R0
+	BR	3$
+6$:	MOV	R2,R0
+	MOV	#400,R2
+	BR	3$
+7$:	TRAP	5
+ASP0::	MOV	#1,-(SP)
+	MOV	#1,-(SP)
+	JMP	@(R4)+
+.ENDC
+
+;-------------------------------
+; СЛУЖЕБНЫЕ ПОДПРОРАМЫ ДЛЯ DRAW
+;-------------------------------
+
+$CONST:	MOV	R4,-(SP)
+	MOV	R5,-(SP)
+	TRAP	110
+	BR	DRKL
+	MOV	4(SP),R4
+	MOV	R5,4(SP)
+	MOV	(SP)+,R5
+	RTS	R4
+DRKL:	TRAP	5
+;
+$VALUE: MOV	R4,-(SP)
+	MOV	R5,-(SP)
+	CLR	-(SP)
+	TRAP	105
+	BR	9$
+	BR	9$
+	BR	9$
+	TRAP	104
+	TST	R4
+	BEQ	9$
+	MOV	(R4)+,@SP
+.IF DF,SNG
+	TST	TYPE
+	BNE	9$
+.IFF
+	TSTB	TYPE
+	BMI	9$
+.IFTF
+	MOV	R1,R5
+	MOV	@R4,@SP
+	MOV	-(R4),-(SP)
+	JSR	R4,STAND
+.IFT
+	.WORD	RI,1$
+.IFF
+	.WORD	SI,1$
+.ENDC
+1$:	MOV	R5,R1
+9$:	MOV	6(SP),R4
+	MOV	(SP)+,4(SP)
+	MOV	(SP)+,R5
+	RTS	R4
+;
+$STRNG:	CLR	-(SP)
+	MOV	R4,-(SP)
+	MOV	R5,-(SP)
+	TRAP	105
+	BR	DRKL
+	BR	DRKL
+	BR	1$
+	BR	DRKL
+1$:	TRAP	104
+	TST	R4
+	BEQ	5$
+	MOV	6(SP),R5
+	MOV	(R4)+,4(SP)
+	MOV	@R4,6(SP)
+	MOV	R5,R4
+4$:	MOV	(SP)+,R5
+	RTS	R4
+5$:	MOV	6(SP),R4
+	CLR	6(SP)
+	BR	4$
+
+.PAGE
+.SBTTL	$ARC	ARC DRAWING
+
+;-----------------------------------------------------------------
+; ПРОЦЕДУРА ПОСТРОЕНИЯ ДУГИ ОКРУЖНОСТИ ( ПСЕВДОЭЛИПСА ).
+; СТЕК НА ВХОДЕ:
+;
+; БК0010	БК0011
+; ДВК-3
+;
+; 22(SP)	16(SP)	X-КООРДИНАТА ЦЕНТРА ОКРУЖНОСТИ;
+; 20(SP)	14(SP)	Y;
+; 16(SP)	12(SP)	РАДИУС;
+; 14(SP)	10(SP)	ЦВЕТ ОТРИСОВКИ;
+; 12(SP)		X-КООРДИНАТА НАЧАЛЬНОЙ ТОЧКИ;
+; 10(SP)		Y;
+;  6(SP)		X-КООРДИНАТА КОНЕЧНОЙ ТОЧКИ;
+;  4(SP)		Y;
+;		 6(SP)	НАЧАЛЬНЫЙ УГОЛ ([0..77777]);
+;		 4(SP)	КОНЕЧНЫЙ;
+;  2(SP)		ЧИСЛИТЕЛЬ СООТНОШЕНИЯ КООРДИНАТ;
+;   (SP)		ЗНАМЕНАТЕЛЬ;
+;		 2(SP)	КОЭФФИЦИЕНТ СЖАТИЯ ПО ОСИ X ([1..200000]);
+;		  (SP)	Y;
+;
+; ЕСЛИ X-КООРДИНАТЫ ГРАНИЧНЫХ ТОЧЕК (УГЛЫ ДЛЯ БК0011)
+; ОТРИЦАТЕЛЬНЫЕ, ТО ПРОВОДЯТСЯ ПРЯМЫЕ, СОЕДИНЯЮЩИЕ ЭТИ ТОЧКИ
+; С ЦЕНТРОМ ОКРУЖНОСТИ.
+;------------------------------------------------------------------
+.IF EQ,MASINA-BK0011
+$ARC::
+ 	MOV	#PARAM+20,R0
+	MOV	(SP)+,-(R0)
+	MOV	(SP)+,-(R0)
+	MOV	(SP)+,-(R0)
+	MOV	(SP)+,-(R0)
+	MOV	(SP)+,-10(R0)
+	MOV	(SP)+,-(R0)
+	MOV	(SP)+,-(R0)
+	MOV	(SP)+,-(R0)
+	TST	-(R0)
+	EMT	130
+	JMP	@(R4)+
+.IFF
+$ARC::
+.IF NE,MASINA-BK0010
+.IFF
+	PUSH	<@#MASCW>
+.IFTF
+	PUSH	<R4,R5>
+	MOV	R4,SAVJMP
+.IFT
+	MOV	22+SC(SP),@#CHAR	; КОД ЦВЕТА
+.IFF
+	MOV	22+SC(SP),R0
+	BEQ	10$
+	CALL	ISV       		; УСТАНАВЛИВАЕМ ЦВЕТ ОТРИСОВКИ
+10$:
+.ENDC
+	MOV	20+SC(SP),R1		; XS < 0 ?
+	BGE	12$			; НЕТ
+	NEG	R1
+	NEG	20+SC(SP)		; XS = -XS
+	MOV	16+SC(SP),R2		; YS
+	CMP	10+SC(SP),6+SC(SP)	; ЕСТЬ СЖАТИЕ ПО ОДНОЙ ИЗ ОСЕЙ ?
+	BEQ	106$			; НЕТ
+	BLT	103$			; ДА, ПО ОСИ Y
+	SUB	30+SC(SP),R1
+	PUSH	<R2,R1,12+SC(SP)>	; СЖАТИЕ ПО ОСИ X
+	JSR	R4,STAND
+	.WORD	SAND	
+	.WORD	101$
+	.WORD	IDIV
+	.WORD	102$
+101$:
+	PUSH	<14+SC(SP)>
+	JMP	@(R4)+
+102$:
+	POP	<R1,R2>
+	ADD	30+SC(SP),R1
+	BR	106$
+103$:
+	SUB	26+SC(SP),R2		; СЖАТИЕ ПО ОСИ X
+	PUSH	<R1,R2,14+SC(SP)>
+	JSR	R4,STAND
+	.WORD	SAND
+	.WORD	104$
+	.WORD	IDIV
+	.WORD	105$
+104$:
+	PUSH	<12+SC(SP)>
+	JMP	@(R4)+
+105$:
+	POP	<R2,R1>
+	ADD	26+SC(SP),R2
+106$:
+	MOV	#1,R0
+	.PSET
+	MOV	30+SC(SP),R1		; XC
+	MOV	26+SC(SP),R2		; YC
+	.LINE				; ЧЕРТИМ ОТРЕЗОК (XS,YS)-(XC,YC)
+12$:
+	MOV	14+SC(SP),R1		; XT < 0 ?
+	BGE	14$			; НЕТ
+	NEG	R1
+	NEG	14+SC(SP)		; XT = -XT
+	MOV	12+SC(SP),R2		; YT
+	CMP	10+SC(SP),6+SC(SP)
+	BEQ	126$
+	BLT	123$
+	SUB	30+SC(SP),R1
+	PUSH	<R2,R1,12+SC(SP)>
+	JSR	R4,STAND
+	.WORD	SAND
+	.WORD	121$
+	.WORD	IDIV
+	.WORD	122$
+121$:
+	PUSH	<14+SC(SP)>
+	JMP	@(R4)+
+122$:
+	POP	<R1,R2>
+	ADD	30+SC(SP),R1
+	BR	126$
+123$:
+	SUB	26+SC(SP),R2
+	PUSH	<R1,R2,14+SC(SP)>
+	JSR	R4,STAND
+	.WORD	SAND
+	.WORD	124$
+	.WORD	IDIV
+	.WORD	125$
+124$:
+	PUSH	<12+SC(SP)>
+	JMP	@(R4)+
+125$:
+	POP	<R2,R1>
+	ADD	26+SC(SP),R2
+126$:
+	MOV	#1,R0
+	.PSET
+	MOV	30+SC(SP),R1		; XC
+	MOV	26+SC(SP),R2		; YC
+	.LINE				; ЧЕРТИМ ОТРЕЗОК (XT,YT)-(XC,YC)
+14$:
+	CLR	R1			; 0 - НАЧАЛЬНОЕ ЗНАЧЕНИЕ X-КООРДИНАТЫ
+					; В ПЕРВОМ КВАДРАНТЕ
+	MOV	24+SC(SP),R2		; R - НАЧАЛЬНОЕ ЗНАЧЕНИЕ Y-КООРДИНАТЫ
+					; В ПЕРВОМ КВАДРАНТЕ
+	MOV	R2,R3			; ДАЛЕЕ ВЫЧИСЛЯЕМ D[0]
+	DEC	R3
+	NEG	R3
+	ASL	R3			; D[0]
+	CMP	20+SC(SP),14+SC(SP)	; X-КООРДИНАТЫ НАЧАЛЬНОЙ И КОНЕЧНОЙ
+					; ТОЧЕК ДУГИ СОВПАДАЮТ ?
+	BNE	20$			; НЕТ
+	CMP	16+SC(SP),12+SC(SP)	; НАЧАЛЬНАЯ И КОНЕЧНАЯ ТОЧКИ
+					; СОВПАДАЮТ ?
+	BNE	20$			; НЕТ
+	MOV	#125252,R5		; ЗАДАЕМ ОТРИСОВКУ ВСЕЙ ОКРУЖНОСТИ
+	JMP	$ASET
+20$:
+	SUB	30+SC(SP),20+SC(SP)	; ПЕРЕХОДИМ В СИСТЕМУ КООРДИНАТ
+	SUB	26+SC(SP),16+SC(SP)	; С НАЧАЛОМ В ЦЕНТРЕ ОКРУЖНОСТИ
+	SUB	30+SC(SP),14+SC(SP)
+	SUB	26+SC(SP),12+SC(SP)
+	CLR	R0			; R0 - НОМЕР КВАДРАНТА С ( XS, YS )
+	TST	20+SC(SP)
+	BGE	30$
+	INC	R0
+	INC	R0
+	TST	16+SC(SP)
+	BLT	40$
+	BR	35$
+
+30$:
+	TST	16+SC(SP)
+	BGE	40$
+35$:
+	INC	R0
+40$:
+	CLR	R4			; R4 - НОМЕР КВАДРАНТА С ( XT, YT )
+	TST	14+SC(SP)
+	BGE	50$
+	INC	R4
+	INC	R4
+	TST	12+SC(SP)
+	BLT	60$
+	BR	55$
+50$:
+	TST	12+SC(SP)
+	BGE	60$
+55$:
+	INC	R4
+60$:					; "ПЕРЕНОСИМ" НАЧАЛЬНУЮ И КОНЕЧНУЮ
+	ASL	R0			; ТОЧКИ В 1-ЫЙ КВАДРАНТ
+	JMP	@$QS(R0)
+$QS1:
+	PUSH	<20+SC(SP)>
+	MOV	20+SC(SP),22+SC(SP)	; X=-Y
+	NEG	22+SC(SP)
+	POP	<16+SC(SP)>		; Y=X
+	BR	$QS0
+$QS2:
+	NEG	20+SC(SP)		; X=-X
+	NEG	16+SC(SP)		; Y=-Y
+	BR	$QS0
+$QS3:
+	PUSH	<20+SC(SP)>
+	MOV	20+SC(SP),22+SC(SP)	; X=Y
+	POP	<16+SC(SP)>		; Y=-X
+	NEG	16+SC(SP)
+	BR	$QS0
+$QS0:
+	ASR	R0
+	ASL	R4
+	JMP	@$QT(R4)
+$QT1:
+	PUSH	<14+SC(SP)>
+	MOV	14+SC(SP),16+SC(SP)
+	NEG	16+SC(SP)
+	POP	<12+SC(SP)>
+	BR	$QT0
+$QT2:
+	NEG	14+SC(SP)
+	NEG	12+SC(SP)
+	BR	$QT0
+$QT3:
+	PUSH	<14+SC(SP)>
+	MOV	14+SC(SP),16+SC(SP)
+	POP	<12+SC(SP)>
+	NEG	12+SC(SP)
+$QT0:
+	ASR	R4
+	CLR	R5
+	CMP	R0,R4			; НАЧАЛЬНАЯ И КОНЕЧНАЯ ТОЧКИ
+					; В ОДНОМ КВАДРАНТЕ
+	BEQ	40$			; ДА
+	PUSH	<#6>
+	CALL	$SETCD
+10$:
+	INC	R0
+	CMP	#4,R0
+	BNE	20$
+	CLR	R0
+20$:
+	CMP	R0,R4
+	BEQ	30$
+	PUSH	<#12>
+	CALL	$SETCD
+	BR	10$
+30$:
+	PUSH	<#2>
+	CALL	$SETCD
+	BR	$ASET
+40$:
+	CMP	20+SC(SP),14+SC(SP)		; XS-XT>0 ?
+	BGT	50$
+	PUSH	<#10>
+	CALL	$SETCD
+	BR	$ASET
+50$:
+	MOV	#125252,R5
+	PUSH	<#4>
+	CALL	$SETCD
+$ASET:
+	CALL	$P4SET
+	TST	R5			; ПОСТРОЕНА ВСЯ ДУГА ?
+	BEQ	$AEND			; ДА
+	MOV	R3,R0			; D[I]
+	BGT	20$
+;------ D[I] <= 0
+	ADD	R2,R0			; ВЫЧИСЛЯЕМ L[I]
+	ASL	R0
+	DEC	R0
+	BGT	10$
+;...... D[I] <= 0 AND L[I] <= 0   ===> M1
+	INC	R1			; X[I+1]=X[I]+1
+	MOV	R1,R0
+	ASL	R0
+	ADD	R0,R3
+	INC	R3			; D[I+1]=D[I]+2*X[I+1]+1
+	BR	$ASET
+;...... D[I] <= 0 AND L[I] > 0 OR D[I] >= 0 AND L'[I] <= 0 ====> M2
+10$:
+	INC	R1			; X[I+1]=X[I]+1
+	DEC	R2			; Y[I+1]=Y[I]-1
+	MOV	R1,R0
+	SUB	R2,R0
+	INC	R0
+	ASL	R0
+	ADD	R0,R3			; D[I+1]=D[I]+2*X[I+1]-2*Y[I+1]+2
+	BR	$ASET
+;------ D[I] > 0
+20$:
+	SUB	R1,R0			; ВЫЧИСЛЯЕМ L'[I]
+	ASL	R0
+	DEC	R0
+	BLE	10$
+;...... D[I] > 0 AND L'[I] > 0
+	DEC	R2			; Y[I+1]=Y[I]-1
+	MOV	R2,R0
+	ASL	R0
+	SUB	R0,R3
+	INC	R3
+	BR	$ASET
+$AEND:
+	POP	<R5,R4>
+.IF NE,MASINA-BK0010
+.IFF
+	POP	<R3>
+.IFTF
+	ADD	#20,SP
+	POP	<R2,R1>
+	CALL	$COLOR
+.IFT
+	MOV	R0,@#CHAR
+.IFF
+	CALL	ISV
+.IFTF
+	.PSET
+	CLR	@#SAVJMP
+.IFT
+	JMP	@(R4)+
+.IFF
+	JMP	COLRET
+.ENDC
+$QS:
+	.WORD	$QS0
+	.WORD	$QS1
+	.WORD	$QS2
+	.WORD	$QS3
+$QT:
+	.WORD	$QT0
+	.WORD	$QT1
+	.WORD	$QT2
+	.WORD	$QT3
+
+.PAGE
+.SBTTL	$SETCD	QUADRANT CODE SETTING
+
+;----------------------------------------------------
+; ВНУТРЕННЯЯ ПРОЦЕДУРА ОПРЕДЕЛЕНИЯ КОДА КВАДРАНТА.
+; СТЕК НА ВХОДЕ:
+; 2(SP)		УСТАНАВЛИВАЕМЫЙ КОД;
+;  (SP)		АДРЕС ВОЗВРАТА.
+;----------------------------------------------------
+ 
+$SETCD:
+	PUSH	<R0,R1,R2>
+	MOV	10(SP),R1		; УСТАНАВЛИВАЕМЫЙ КОД
+	MOV	#17,R2			; МАСКА
+	TST	R0
+	BEQ	20$
+10$:
+	ASL	R1
+	ASL	R1
+	ASL	R1
+	ASL	R1
+	ASL	R2
+	ASL	R2
+	ASL	R2
+	ASL	R2
+	SOB	R0,10$
+20$:
+	BIC	R2,R5
+	BIS	R1,R5
+	POP	<R2,R1,R0,(SP)>
+	RETURN
+
+.PAGE
+.SBTTL	$P4SET	SYMMETRICAL POINTS CHECKING AND DRAWING
+
+;---------------------------------------------------------------
+; ВНУТРЕННЯЯ ПРОЦЕДУРА ПРОВЕРКИ ДОПУСТИМОСТИ И ОТРИСОВКИ 4-Х
+; СИММЕТРИЧНЫХ ТОЧЕК.
+; ВХОДНЫЕ ПАРАМЕТРЫ:
+; R1	ОТНОСИТЕЛЬНАЯ X-КООРДИНАТА ТОЧКИ ( В 1-ОМ КВАДРАНТЕ );
+; R2	Y;
+; R5	КОД КВАДРАНТА.
+; ВЫХОДНЫЕ ПАРАМЕТРЫ:
+; R5	КОД КВАДРАНТА.
+; НЕ СОХРАНЯЕТСЯ R0.
+; ВНИМАНИЕ!!! СИЯ ПРОЦЕДУРА НАГЛО ИСПОЛЬЗУЕТ ЗНАНИЕ СТЕКА,
+; ПОЭТОМУ ЛЮБЫЕ ИСПРАВЛЕНИЯ В ВЫЗЫВАЮЩЕЙ ПРОЦЕДУРЕ $ARC,
+; ЗАТРАГИВАЮЩИЕ СИЕК, ПРИВЕДУТ К НЕОБХОДИМОСТИ ЕЕ КОРРЕКЦИИ.
+;---------------------------------------------------------------
+
+$P4SET:
+	PUSH	<R5,R5>
+	CLR	R0			; НОМЕР КВАДРАНТА ( 0,1,2,3 )
+$P4CYC:
+	BIC	#177760,R5		; ВЫДЕЛЯЕМ КОД ОЧЕРЕДНОГО КВАДРАНТА
+	JMP	@$CODE(R5)		; ОБРАБАТЫВАЕМ ТОЧКУ В ВЫДЕЛЕННОМ
+					; КВАДРАНТЕ СОГЛАСНО ЕЕ КОДУ
+
+$C0000:					; ДУГА В КВАДРАНТЕ НЕ ВЫЧЕРЧИВАЕТСЯ
+	INC	R0
+	CMP	#4,R0			; ОБРАБОТАНЫ ВСЕ КВАДРАНТЫ ?
+	BNE	10$
+	JMP	$P4END			; ДА
+10$:
+	POP	<R5>
+	ASR	R5
+	ASR	R5
+	ASR	R5
+	ASR	R5
+	PUSH	<R5>
+	BR	$P4CYC
+$C0010:					; ДУГА ВЫЧЕРЧИВАЕТСЯ ОТ НАЧАЛА
+					; КВАДРАНТА ДО КОНЕЧНОЙ ТОЧКИ
+	CMP	R1,22+SC(SP)		; ДОСТИГНУТА КОНЕЧНАЯ ТОЧКА ?
+	BLT	$L2			; НЕТ
+	CMP	R2,20+SC(SP)
+	BGT	$L2
+	CLR	R5			; УСТАНАВЛИВАЕМ, ЧТО В ОСТАВШЕЙСЯ
+					; ЧАСТИ КВАДРАНТА ДУГА НЕ ВЫЧЕРЧИ-
+					; ВАЕТСЯ
+$L0:					; ДАЛЕЕ СЛЕДУЕТ УСТАНОВКА КОДА
+					; ВЫЧЕРЧИВАЕМОСТИ ДУГИ В ДАННОМ
+					; КВАДРАНТЕ
+	MOV	#17,R4			; МАСКА
+	PUSH	<R0>			; СОХРАНЯЕМ НОМЕР КВАДРАНТА
+	BEQ	$L1
+10$:
+	ASL	R5
+	ASL	R5
+	ASL	R5
+	ASL	R5
+	ASL	R4
+	ASL	R4
+	ASL	R4
+	ASL	R4
+	SOB	R0,10$
+$L1:
+	POP	<R0>			; ВОССТАНАВЛИВАЕМ НОМЕР КВАДРАНТА
+	BIC	R4,2(SP)		; ГАСИМ ПРЕДЫДУЩИЙ КОД
+	BIS	R5,2(SP)		; УСТАНАВЛИВАЕМ НОВЫЙ
+$L2:					; ОТРИСОВКА ТОЧКИ
+	PUSH	<R0,R1,R2>
+	ASL	R0
+	JMP	@$QUA(R0)
+$Q0:
+	PUSH	<R3,R4,R5>		; STAND, SAND IDIV ПОРТЯТ РЕГИСТРЫ
+	CMP	32+SC(SP),30+SC(SP)
+	BEQ	$L8
+	BLT	$L5
+	PUSH	<R2,R1,34+SC(SP)>
+	JSR	R4,STAND
+	.WORD	SAND
+	.WORD	$L3
+	.WORD	IDIV
+	.WORD	$L4
+$L3:
+	PUSH	<36+SC(SP)>
+	JMP	@(R4)+
+$L4:
+	POP	<R1,R2>			; ПРЕОБРАЗОВАННАЯ X-КООРДИНАТА
+	BR	$L8
+$L5:
+	PUSH	<R1,R2,36+SC(SP)>
+	JSR	R4,STAND
+	.WORD	SAND
+	.WORD	$L6
+	.WORD	IDIV
+	.WORD	$L7
+$L6:
+	PUSH	<34+SC(SP)>
+	JMP	@(R4)+
+$L7:
+	POP	<R2,R1>			; ПРЕОБРАЗОВАННАЯ Y-КООРДИНАТА
+$L8:
+	POP	<R5,R4,R3>
+	MOV	#1,R0			; УСТАНАВЛИВАЕМ ОТРИСОВКУ
+	ADD	44+SC(SP),R1
+	ADD	42+SC(SP),R2
+	.PSET				; ВЫВОДИМ ТОЧКУ
+	POP	<R2,R1,R0>
+	BR	$C0000
+$Q1:
+	MOV	R2,R1			; X=Y
+	MOV	2(SP),R2		; Y=-X
+	NEG	R2
+	BR	$Q0
+$Q2:
+	NEG	R1			; X=-X
+	NEG	R2			; Y=-Y
+	BR	$Q0
+$Q3:
+	MOV	R2,R1			; X=-Y
+	NEG	R1
+	MOV	2(SP),R2		; Y=X
+	BR	$Q0
+$C0100:					; ДУГА ВЫЧЕРЧИВАЕТСЯ ОТ НАЧАЛА
+					; КВАДРАНТА ДО КОНЕЧНОЙ ТОЧКИ И
+					; ОТ НАЧАЛЬНОЙ ТОЧКИ ДО КОНЦА
+					; КВАДРАНТА
+	CMP	R1,22+SC(SP)		; КОНЕЧНАЯ ТОЧКА ДОСТИГНУТА ?
+	BLT	$L2			; НЕТ
+	CMP	R2,20+SC(SP)
+	BGT	$L2
+	MOV	#6,R5			; УСТАНАВЛИВАЕМ ПРИЗНАК ОТРИСОВКИ
+					; ОТ НАЧАЛЬНОЙ ТОЧКИ ДО КОНЦА
+					; КВАДРАНТА
+	BR	$L0
+$C0110:					; ДУГА ВЫЧЕРЧИВАЕТСЯ ОТ НАЧАЛЬНОЙ
+					; ТОЧКИ ДО КОНЦА КВАДРАНТА
+	CMP	R1,26+SC(SP)		; НАЧАЛЬНАЯ ТОЧКА ДОСТИГНУТА ?
+	BLT	$C0000			; НЕТ
+	CMP	R2,24+SC(SP)
+	BGT	$C0000
+	MOV	#12,R5			; УСТАНАВЛИВАЕМ ПРИЗНАК ОТРИСОВКИ
+					; ВСЕГО ( ОСТАВШЕГОСЯ) КВАДРАНТА
+	BR	$L0
+$C1000:					; ДУГА ВЫЧЕРЧИВАЕТСЯ В ПРЕДЕЛАХ
+					; ОДНОГО КВАДРАНТА ОТ НАЧАЛЬНОЙ
+					; ДО КОНЕЧНОЙ ТОЧКИ
+	CMP	R1,26+SC(SP)		; НАЧАЛЬНАЯ ТОЧКА ДОСТИГНУТА ?
+	BGE	5$
+	JMP	$C0000			; НЕТ
+5$:
+	CMP	R2,24+SC(SP)
+	BLE	10$
+	JMP	$C0000
+10$:
+	MOV	#2,R5			; УСТАНАВЛИВАЕМ ПРИЗНАК ОТРИСОВКИ
+					; ОТ НАЧАЛА КВАДРАНТА ДО КОНЕЧНОЙ
+					; ТОЧКИ
+$L01:	BR	$L0
+$C1010:					; ДУГА ЧЕРТИТСЯ ВО ВСЕМ КВАДРАНТЕ
+	CMP	R1,32+SC(SP)		; ДОСТИГНУТ КОНЕЦ КВАДРАНТА ?
+	BLT	$L2			; НЕТ
+	TST	R2
+	BGT	$L2
+	CLR	R5
+	BR	$L01
+$P4END:
+	POP	<R5,R5>
+	RETURN
+$CODE:
+	.WORD	$C0000
+	.WORD	$C0010
+	.WORD	$C0100
+	.WORD	$C0110
+	.WORD	$C1000
+	.WORD	$C1010
+$QUA:
+	.WORD	$Q0
+	.WORD	$Q1
+	.WORD	$Q2
+	.WORD	$Q3
+.ENDC
+;************************************************
+;		ПРОГРАМА  ОПЕРАТОРА DRAW
+;	НА ВХОДЕ:	В СТЕКЕ 2(SP) -АДРЕС СТРОКИ
+;				 (SP) -ДЛИНА СТРОКИ
+;	НА ВЫХОДЕ:	СТЕК ПУСТ
+;	ВСЕ РЕГИСТРЫ СОХРАНЮТСЯ.
+;	ПРИ ВЫЗОВАХ $CONST,$VALUE,$STRNG R4 СОХР.
+;************************************************
+;
+$DRAW::
+	MOV	R4,SAVJMP
+	MOV	R5,R0		; СОХРАНИТЬ
+	POP	<R5,R3>		; ИЗВЛЕЧЬ ДЛИНУ, АДР.СТР.
+	PUSH	<R0>		; СОХР. R5
+.IF EQ,<MASINA-BK0010>
+	PUSH	<@#MASCW>	; СОХР. ЦВЕТ
+.IFF
+	MOV	@#CHAR0,@#CHAR
+.ENDC
+	MOV	$DRWX,R1	; НАЧАЛЬНОЕ ПОЛОЖЕНИЕ
+	MOV	$DRWY,R2	; НАЧАЛЬНОЕ ПОЛОЖЕНИЕ
+	CLR	-(SP)		; ЗАПИСЬ СЛОВ( 0,0 -ПРИЗНАК ОКОНЧАНИЯ ),
+	CLR	-(SP)
+	MOV	#70000,-(SP)	; И СЛОВА ПЕРЕМЕЩЕНИЙ  ( WM )( 70000 )
+NEWSTR:
+	TST	R3		; НУЛЕВОЙ АДРЕС-ПРИЗНАК КОНЦА ?
+	BEQ	OUT		; ДА--ВЫХОД ИЗ  $DRAW
+	ADD	R3,R5		; КОРРЕКЦИЯ R5<--АДРЕС ПОСЛЕДН. БАЙТА СТРОКИ
+	DEC	R5
+AGAIN:
+;----------------------------------------------------------------------
+;  SKANER ОПРЕДЕЛЯЕТ ПРИНАДЛЕЖНОСТЬ СИМВОЛА (R3) К КЛЮЧАМ.ДЛЯ КЛЮЧЕВОГО
+;	  B R0 СМЕЩЕНИЕ ЕГО В  СТРОКЕ KEY УМНОЖЕННОЕ НА 2
+;	!!!!! R3 НА ВЫХОДЕ УКАЗЫВАЕТ НА СЛЕДУЮЩИЙ  СИМВOЛ  !!!!!!
+;----------------------------------------------------------------------
+;SKANER
+	TRAP	112
+	CMP	R3,R5		; КОНЕЦ ОБРАБОТКИ ПОДСТРОКИ?
+	BHI	NEXT		; ДА
+	CLR	R0		; ПЕРВОНАЧАЛЬНО  НУЛЕВОЕ СМЕЩЕНИЕ
+1$:	CMPB	KEY(R0),(R3)	; СИМВОЛЫ СХОДЯТСЯ
+	BEQ	2$		; ДА-НА ВЫХОД
+	INC	R0		; НЕТ--СЛЕДУЮЩИЙ
+	TSTB	KEY(R0)		; НУЛЕВОЙ ? ДА-НА ВЫХОД
+	BNE	1$		; НЕТ--ОПЯТЬ СРАВНЕНИЕ
+	BR	ERROR		; НЕ КЛЮЧ
+2$:	ASL	R0		;  * 2
+	INC	R3		; ПРОДВИЖЕНИЕ R3
+;----------------------------------------------------------
+;	SELEKTOR ОСУЩЕСТВЛЯЕТ ВЕТВЛЕНИЕ ПО ОБРАБОТКЕ КЛЮЧЕЙ
+;----------------------------------------------------------
+;SELEKTOR
+	CMP	R0,#16		; ПЕРЕМЕЩЕНИЕ  RLDUEFGH
+	BLT	3$		; НЕТ
+	JMP	RDEG$		; ДА--НА RDEG$
+3$:	JMP	@CASE(R0)	; НЕТ---ВЕТВЛЕНИE
+;
+KEY:
+	.ASCIZ	/MNBCSAXRULDRULEHGFEHG/		; КЛЮЧИ
+	.EVEN
+CASE:
+	.WORD	M$,N$,B$,C$,S$,A$,X$		;МЕТКИ ПЕРЕXОДА SELEKTOR
+;
+NEXT:				; ОБРАБОТКА СЛЕД. ПОДСТРОКИ
+	POP	<R0,R5,R3>	; ЧТЕНИЕ WM,АДР.И ДЛ. СТРОКИ
+	PUSH	R0		; ЗАПИСЬ WM
+	BR	NEWSTR
+;------------------------------
+;	X$---ОБРАБОТКА ПОДСТРОК
+;------------------------------
+X$:
+	POP	R0		; СОХРАНИТЬ WM
+	CMP	-(SP),-(SP)	; ЗАРЕЗЕРВИРОВАТЬ 2 СЛОВА
+	CALL	BLNC		; ПРОПУСК ПРОБЕЛОВ
+	CALL	$STRNG		; ПОЛУЧЕНИЕ В СТЕКЕ АДРЕСА НОВОЙ ПОДСТРОКИ
+				;   И ЕЕ ДЛИНЫ. R3 АВТОМАТИЧЕСКИ ПРОДВИНУТ
+	CALL	BLNC		; ПРОПУСК ПРОБЕЛОВ
+	BNE	ERROR		; ОГРАНИЧИТЕЛЬ-";" ? НЕТ-ОШИБКА
+	INC	R3		; ПРОПУСК ";"
+	SUB	R3,R5		; КОРРЕКЦИЯ R5<--ДЛИНА СТРОКИ
+	INC	R5
+	MOV	R3,6(SP)	; ЗАПИСЬ В ОТКЛАДЫВАЕМЫХ
+	MOV	R5,4(SP)	;    АДРЕСА И  ДЛИНЫ
+	POP	<R5,R3> 	; ПОЛУЧЕНИЕ НОВЫХ
+	PUSH	R0		; ВОССТ. WM
+	BR	NEWSTR
+;
+ERROR:				; ОШИБКА
+	TRAP	5
+;
+BLNC:	TRAP	112		;ПРОПУСК ПРОБЕЛОВ
+	CMP	R3,R5
+	BHI	ERROR
+	CMPB	#';,@R3
+	RETURN
+;
+OUT:	TST	(SP)+		; ОЧИСТКА СТЕКА WM
+.IIF EQ,MASINA-BK0010	POP	<@#MASCW>
+	POP	<R5>		; ВОССТ. ЦВЕТ,R5
+RET:	CLR	@#SAVJMP
+	JMP	@(R4)+		; !!!!!!!!! ВЫХОД ИЗ $DRAW
+;
+;-----------------------------------------
+;		ОБРАБОТКА ОТДЕЛЬНЫХ КОМАНД
+;-----------------------------------------
+B$:				; КОМ. B--"ПОДНЯТОЕ ПЕРО"
+	BIS	#4000,(SP)	; УСТАНОВКА БИТА 11 В СЛОВЕ ПЕРЕМЕЩ.
+	BR	AGAIN
+;
+N$:				; КОМ. N--ВОЗВРАТ К НУЛЮ
+	BIS	#100000,(SP)	; УСТАНОВКА БИТА 15-ПРИЗНАК ВОЗВРАТА К ТЧ.(0,0)
+	BR	AGAIN
+;
+S$:				; КОМ. S--УСТАНОВКА МАСШТАБН.КОЕФФ.
+	CALL	$$SENSE		; ЧТЕНИЕ ЗНАЧЕНИЯ
+	TST	R0
+	BNE	1$
+	MOV	#4,R0		; НУЛЕВОЙ МАСШТАБ--УМОЛЧАНИЕ
+1$:	MOVB	R0,$SCRT	; ЗАСЫЛКА В СЛОВО ВРАЩЕНИЯ-МАСШТ.
+	BR	AGAIN
+;
+C$:				; КОМ. C--УСТАНОВКА ЦВЕТА
+	CALL	$$SENSE		; ЧТЕНИЕ
+.IF NE,MASINA-BK0010
+	MOV	R3,-(SP)
+	MOV	R0,R3
+	CALL	TSTCOL
+	MOV	R3,@#CHAR
+	MOV	(SP)+,R3
+.IFF
+	TST	R0
+	BEQ	1$
+	CMP	#4,R0		; R0<=4
+	BLO	ERROR		; НЕТ-ОШИБКА
+	ADD	#220,R0		; R0+220= КОДЫ ЦВЕТОВ:   КРАСНЫЙ  221
+				;			 ЗЕЛЕНЫЙ  222
+				;			 СИНИЙ    223
+				;			 ЧЕРНЫЙ   224
+	CALL	ISV		; ПЕРЕДАЧА КОДА В ДРАЙВЕР
+.IFTF
+	BR	AGAIN
+.IFF
+1$:
+	MOV	@#FON,@#MASCW
+	BR	AGAIN
+.ENDC
+;
+A$:				; КОМ. А--ВРАЩЕНИЕ ОСЕЙ
+	CALL	$$SENSE		; ПОЛУЧЕНИЕ ЗНАЧЕНИЯ
+	CMP	R0,#4		; ПРОВЕРКА ГРАНИЦ
+	BHIS	ERROR
+	MOVB	R0,$SCRT+1	; УСТАНОВКА НОВОГО ЗНАЧЕНИЯ ВРАЩЕНИЯ
+JAG:	BR	AGAIN
+;----------------------------------------
+;		ВХОД ДЛЯ ОБРАБОТКИ КОМ. M
+;----------------------------------------
+M$:
+	PUSH	<R1,R2>		; СОХРАНЕНИЕ КООРДИНАТ
+	CALL	$$SIGN		; ПОЛУЧЕНИЕ ЗНАКА
+	CALL	$$SENSE		; ПОЛУЧЕНИЕ ЗНАЧЕНИЯ
+	BIT	#1000,4(SP)	; ОТНОСИТЕЛЬНОЕ ?
+	BEQ	1$		; НЕТ
+	CALL	$$SCALE		; ДА--МАСШТАБИРОВАНИЕ
+1$:	MOV	R0,R1		; КООРДИНАТА Х
+	CALL	BLNC		; ПРОПУСК ПРОБЕЛОВ
+	CMPB	#',,(R3)	; "," ?
+	BNE	ERROR		; НЕТ--ОШИБКА
+	INC	R3		; ПРОПУСК ","
+	ASLB	4(SP)		; В WM БИТ 1--X,БИТ 0--Y
+	ASRB	5(SP)		; СОХР. ПРИЗНАКА ОТНОСИТ.
+	CALL	$$SIGN		; ПОЛУЧЕНИЕ ЗНАКА Y
+	CALL	$$SENSE		; ПОЛУЧЕНИЕ ЗНАЧЕНИЯ  Y
+	ASLB	5(SP)		; ВОССТАН. ПРИЗН. ОТНОСИТ.
+	BIT	#1000,4(SP)	; ОТНОСИТЕЛЬНОЕ ?
+	BEQ	2$		; НЕТ
+	CALL	$$SCALE		; ДА--МАСШТАБИРОВАНИЕ
+2$:	MOV	R0,R2		; СМЕЩЕНИЕ ПО Y
+	CMP	(SP)+,(SP)+	; УКАЗАТЕЛЬ СТЕКА НА WM
+	BIT	#1000,(SP)	; ОТНОСИТЕЛЬНОЕ ?
+	BEQ	MOVIN		; НЕТ- АБСОЛЮТ.
+;*******	ОТНОСИТЕЛЬНОЕ
+	MOVB	$SCRT+1,R0	; БАЙТ ВРАЩЕНИЯ
+	CMP	#2,R0		; А0 ИЛИ А1
+	BGT	5$		; ДА
+	NEG	R2		; НЕТ--ИЗМЕНЕНИЕ ЗНАКА ДY
+5$:	DEC	R0
+	CMP	#2,R0		; А1 ИЛИ А2
+	BLOS	6$
+	NEG	R1		; ДА-ИЗМЕНЕНИЕ ЗНАКА ДХ
+6$:	ASRB	(SP)		; ЗНАК "-" ПРИ ДY ?
+	BCC	7$		; НЕТ
+	NEG	R2		; ДА-ИЗМЕНЕНИЕ ЗНАКА ДY
+7$:	ASRB	(SP)		; ЗНАК "-" ПРИ ДХ ?
+	BCC	8$		; НЕТ
+	NEG	R1		; ДА--ИЗМЕНЕНИЕ ЗНАКА ДХ
+8$:	ASR	R0		; А0 ИЛИ А2
+	BCS	9$		; ДА
+	MOV	R1,R0		; НЕТ-ПЕРЕСТАНОВКА
+	MOV	R2,R1
+	MOV	R0,R2
+9$:	ADD	-2(SP),R1	; ПРИБАВЛЕНИЕ КООРДИНАТ
+	ADD	-4(SP),R2	; ПРИБАВЛЕНИЕ КООРДИНАТ
+	BR	MOVIN		; ПЕРЕХОД НА ПЕРЕМЕЩЕНИЕ
+;-------------------------------------------------------------
+;			ВХОД  ОБРАБОТКИ КОМ.   R,L,D,U,E,F,G,H
+;-------------------------------------------------------------
+;		R U  L D  R U  L E  H  G  F  E  H  G
+COD:	.BYTE	2,11,3,10,2,11,3,16,13,17,12,16,13,17
+;-------------------------------------------------------------
+RDEG$:
+	SUB	#16,R0		; КОРРЕКЦИЯ СМЕЩЕНИЯ
+	ASR	R0		; -----"----"---
+	PUSH	R0		; ОСВОБОДИТЬ R0 ,СОХРАНИВ В СТЕКЕ
+	MOVB	$SCRT+1,R0	; БАЙТ ВРАЩЕНИЯ ИЗ $SCRT--> В R0
+	ADD	(SP)+,R0	; СЛОЖЕНИЕ СМЕЩЕНИЯ И БАЙТА ВРАЩЕНИЯ В R0
+	MOVB	COD(R0),(SP)	; ЗАСЛАТЬ КОД В СЛОВО ПЕРЕМЕЩЕНИЙ
+	CALL	$$SENSE		; ПОЛУЧИТЬ ЗНАЧЕНИЕ
+	CALL	$$SCALE		; МАСШТАБИРОВАНИЕ
+	ASRB	(SP)		; БИТ 0-- ОТРИЦАТЕЛЬНЫЙ R0 ?
+	BCC	1$		; ДА --ИЗМЕНЕНИЕ ЗНАКА
+	NEG	R0		; -R0
+1$:	ASRB	(SP)		; БИТ 1--СМЕЩЕНИЕ ПО Х
+	BCC	2$		; НЕТ
+	ADD	R0,R1		; СМЕЩЕНИЕ ПО  Х
+2$:	ASRB	(SP)		; БИТ 2-- ИЗМЕНЕНИЕ ЗНАКА R0 ?
+	BCC	3$		; НЕТ
+	NEG	R0		; ИЗМЕНЕНИЕ ЗНАКА
+3$:	ASRB	(SP)		; БИТ 3-- СМЕЩЕНИЕ ПО Y
+	BCC	MOVIN		; НЕТ -ПЕРЕХОД НА ПЕРЕМЕЩЕНИЕ
+	ADD	R0,R2		; СМЕЩЕНИЕ ПО Y
+;----------------------------------
+;			ПЕРЕМЕЩЕНИЯ
+;----------------------------------
+MOVIN:
+	ASRB	@SP		; ДЛЯ АБСОЛЮТНОГО M
+	BCC	5$		; Y СО ЗНАКОМ "-" ?
+	NEG	R2		; ДА
+;
+5$:
+	MOV	$DRWX,-(SP)
+	MOV	$DRWY,-(SP)
+	CLR	R0		; СТИРАНИЕ R0=0
+	BIT	#4000,4(SP)	; 11-БИТ:РИСОВАНИЕ (0)--ПЕРЕМЕЩЕНИЕ (1)
+	BNE	1$		; ПЕРЕМЕЩЕНИЕ
+	INC	R0		; РИСОВАНИЕ--ЗАПИСЬ R0=1
+	.LINE			; ВЕКТОР
+1$:	.PSET			; ПЕРЕМЕЩЕНИЕ--ТОЧКА
+	TST	4(SP)		; ВОЗВРАТ К ПРЕЖНИМ КООРДИНАТАМ?
+	BPL	3$		; НЕТ
+	CLR	R0
+	MOV	(SP)+,R2	; ДА- ВОССТАНОВЛЕНИЕ КООРДИНАТ
+	MOV	(SP)+,R1
+	.PSET
+	BR	4$
+3$:	CMP	(SP)+,(SP)+
+4$:	MOV	#70000,(SP)
+	JMP	AGAIN
+;-----------------------------------------
+;		ПОЛУЧЕНИЕ ЗНАKА ДЛЯ КОМ. М
+;-----------------------------------------
+$$SIGN:
+	CALL	BLNC		; ПРОПУСК ПРОБЕЛОВ
+	CMPB	#'+,(R3)	; ПЛЮС ?
+	BNE	1$		; НЕТ
+	BIS	#1000,6(SP)	; ДА--УСТАНОВКА БИТА 9
+	BIC	#1,6(SP)	; CБРОС БИТА 0
+	INC	R3		; ПРОПУСК "+"
+	BR	2$
+1$:	CMPB	#'-,(R3)	; МИНУС ?
+	BNE	2$		; НЕТ
+	BIS	#1001,6(SP)	; ДА--УСТАНОВКА БИТОВ 0 И 9
+	INC	R3		; ПРОПУСК "-"
+2$:	RETURN
+;------------------------------------------------------------------
+;		ПРОГРАММА $$SCALE  КОРРЕКТИРУЕТ R0 В СООТВЕТСТВИИ С
+;		МАСШТАБОМ, Т.Е. ДЕЛИТ НА 4 И УМНОЖАЕТ НА МАСШТАБНЫЙ
+;		КОЭФФИЦИЕНТ,КОТОРЫЙ ХРАНИТСЯ В МЛАДШЕМ БАЙТЕ $SCRT
+;------------------------------------------------------------------
+$$SCALE:
+	PUSH	<R1,R2,R3>	; ОСВОБОДИТЬ R1,R2,R3 DЛЯ УМНОЖЕНИЯ
+	MOV	#8.,R2		; ЧИСЛО РАЗРЯДОВ-ЧИСЛО СЛОЖЕНИЙ
+	CLR	R1		; НАКОПИТЕЛЬ ПРОИЗВЕДЕНИЯ
+	MOVB	$SCRT,R3	; МНОЖИТЕЛЬ
+1$:	ROR	R3		; РАЗРЯД МНОЖИТЕЛЯ В БИТ С
+	BCC	2$		; НОЛЬ
+	ADD	R0,R1		; ЕДИНИЦА--СЛОЖЕНИЕ
+2$:	CMP	R2,#7		; ДЛЯ РАЗРЯДОВ 0 И 1
+	BLT	3$
+	ASR	R1		; СДВИГ ПРОИЗВЕДЕНИЯ (ДЕЛЕНИЕ НА 4)
+	BR	4$
+3$:	ASL	R0		; ДЛЯ ОСТАЛЬНЫХ-СДВИГ МНОЖИТЕЛЯ
+4$:
+	SOB	R2,1$		; ВСЕ РАЗРЯДЫ ?
+	MOV	R1,R0		; РЕЗУЛЬТАТ -В R0
+	POP	<R3,R2,R1>	; ВОССТАНОВИТЬ R1 И R2
+	RETURN
+;-------------------------------------------------------------------
+;		ПРОГРАММА $$SENSE ВОЗВРАЩАЕТ В R0 ЗНАЧЕНИЕ КОНСТАНТЫ
+;		ИЛИ ПЕРЕМЕННОЙ (КОНСТРУКЦИИ =<ИМЯ> )
+;-------------------------------------------------------------------
+$$SENSE:
+	CLR	R0		; УМОЛЧАНИЕ
+	TRAP	112		; ПРОПУСК ПРОБЕЛОВ
+	CMPB	@R3,#';
+	BNE	1$
+	INC	R3		; ПРОПУСК ";"
+6$:	RETURN
+1$:	CMP	R3,R5
+	BHI	6$
+;
+	CMPB	#'=,(R3)	; КОНСТРУКЦИЯ =<ИМЯ>
+	BNE	2$		; НЕТ-КОНСТАНТА
+	INC	R3		; ПРОПУСК "="
+	CALL	BLNC		; ПРОПУСК ПРОБЕЛОВ
+	CALL	$VALUE		; ЧТЕНИЕ ЗНАЧЕНИЯ В СТЕК
+	CALL	BLNC		; ПРОПУСК ПРОБЕЛОВ
+	BEQ	3$		; ОГРАНИЧИТЕЛЬ- ";" ? ДА
+	JMP	ERROR		; ОШИБКА
+2$:
+	CMPB	#'9,(R3)	; ЦИФРА ?
+	BLO	5$
+	CMPB	#'0,(R3)
+	BHI	5$
+	CALL	$CONST		; ЧТЕНИЕ КОНСТАНТЫ
+	TRAP	112		; ПРОПУСК ПРОБЕЛОВ
+	CMPB	@R3,#';
+	BNE	4$		; НЕТ ";"
+3$:	INC	R3		; ПРОПУСК ";"
+4$:
+	POP	R0
+;
+5$:	RETURN
+;
+.IF EQ,1
+$LCOP::	MOV	@#ANVP,-(SP)	; PRADINIS ADRESAS
+	ADD	@#BAZVP,@SP
+	MOV	@#FON,R2	; EKRANO FONAS
+	MOV	#21000,R1	; EILUCIU SK.(NEISPLESTA ATMINTIS)
+	CMP	@#DVPB,#40000
+	BNE	1$
+	MOV	#3000,R1	; EILUCIU SK.(ISPLESTA ATMINTIS)
+;
+1$:	TST	@SP		; AR ADRESAS NE UZ EKR. ATMINTIES RIBU
+	BPL	2$
+	SUB	@#DVPB,@SP
+;				IS 7 EKR. ATMINTIES ZODZIU FORMUOJAMI
+;				8 STULPELIAI IR ISVEDAMI I PRINTERI
+;
+2$:	MOV	#3,R3		; R3 - IS KURIU BITU FORM. STULPELIS
+3$:	MOV	@SP,R5
+	MOV	#2,R0		; R0 FORMUOJAMAS ISVEDAMAS STULPELIS
+4$:	MOV	@R5,-(SP)
+	COM	@SP
+	XOR	R2,@SP		; 2 FONO SPALVOS BITAI PERVEDAMI I 0,
+	BIT	R3,(SP)+	; 2 KT. SPALVOS BITAI - I 1
+	BNE	6$
+	INC	R0
+;
+5$:	ADD	#100,R5		; SEKANCIO STULPELI FORMUOJANCIO
+	BPL	6$		; ZODZIO ADRESAS
+	SUB	@#DVPB,R5
+;
+6$:	ASLB	R0		; DAR NEBAIGTAS STULPELIS?
+	BCC	4$		; NE-KARTOJAM
+	COM	R0		; BAIGTAS
+	MOVB	R0,@#SIMB	
+	JSR	R5,OUT		; I PRINTERI
+PAR1:	.WORD	6
+	.BYTE	33,131,1,33,117
+SIMB:	.BLKB	1
+	.EVEN
+;
+	DEC	R1
+	ASL	R3
+	ASL	R3		; DABAR BUS TIKRINAMI KITI 2 BITAI
+	BNE	3$
+	ADD	#2,@SP
+	TSTB	R1
+	BNE	1$
+	JSR	R5,OUT		; PRINTERIO GALVUTE PERVEDAMA I KITA EILUTE
+PAR2:	.WORD	12
+	.BYTE	33,132,7,33,130,0,0,33,1,0
+	.EVEN
+	ADD	#600,@SP	; PASIRUOSIMAS KT. EILUTES ISVEDIMUI
+	TST	R1		; DAR REIKIA?
+	CLR	(SP)+
+	JMP	@(R4)+
+;
+OUT:	MOV	R3,-(SP)	; PERDUODAMA I PRINTERI BAITU SEKA
+	MOV	R2,-(SP)
+	MOV	R1,-(SP)
+	MOV	#ARPORT,R1	; UOSTO ADRESAS
+	MOV	#400,R2		; PASIRUOSIMO BITAS
+	MOV	(R5)+,R0	; SKAITLIUKAS
+10$:	BIT	R2,@R1
+	BEQ	10$		; PRINTERIS PASIRUOSES?
+	MOVB	(R5)+,R3
+	BIC	#177400,R3
+	MOV	R3,@R1
+	BIS	R2,R3
+	MOV	R3,@R1
+20$:	BIT	R2,@R1		; PRIEME?
+	BNE	20$
+	CLR	@R1
+	SOB	R0,10$		; JAU VISI?
+	MOV	(SP)+,R1
+	MOV	(SP)+,R2
+	MOV	(SP)+,R3
+	RTS	R5
+;
+	.ENDC
+	.ENDC
+	.END

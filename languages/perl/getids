@@ -1,0 +1,41 @@
+#!/usr/local/bin/perl
+eval "exec /usr/local/bin/perl -S $0 $*"
+	if $running_under_some_shell;
+
+$pat = 'S n C4 x8';
+$inet = 2;
+$echo = 7;
+$smtp = 25;
+$nntp = 119;
+$test = 2345;
+
+$SIG{'INT'} = 'exit 0';
+
+open (DBZ, "| /usr/lib/news/bin/dbz -m /usr/lib/news/history > /tmp/ids") ||
+	die "Cannot run dbz\n";
+
+$this = pack($pat,$inet,0,    192,124,180,2);
+$that = pack($pat,$inet,$nntp,144,206,2,3);
+#$that = pack($pat,$inet,$nntp,144,206,2  ,3);
+
+if (socket(S,2,1,6)) { print "socket ok\n"; } else { die $!; }
+if (bind(S,$this)) { print "bind ok\n"; } else { die $!; }
+if (connect(S,$that)) { print "connect ok\n"; } else { die $!; }
+
+select(S); $| = 1; select(stdout);
+
+#while (<STDIN>) {
+#        print S;
+#}
+$_ = <S>; print;
+print "newnews comp.unix.bsd 921222 000000 GMT\n";
+print S "newnews comp.unix.bsd 921222 000000 GMT\n";
+$_ = <S>; print;
+while (($_ = <S>) && ($_ ne ".\r\n")) {
+	print DBZ;
+}
+print "quit\n";
+print S "quit\n";
+$_ = <S>; print;
+
+close (DBZ);

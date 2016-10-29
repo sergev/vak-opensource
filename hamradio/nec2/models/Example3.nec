@@ -1,0 +1,21 @@
+CM Example 3 :	Inverted-V over ground
+CM 		See GetStarted.txt
+CE 
+SY hgh=20				' Height
+SY len=20				' Wire length
+SY ang=110 				' Angle between sloping wires
+SY Z=len*cos(ang/2), X=len*sin(ang/2)	' Get delta-Z and -X distances
+'
+GW	1	20	-X	0	hgh-Z	-0.1	0	hgh	#12 ' radius for
+GW	2	1	-0.1	0	hgh	0.1	0	hgh	#12 ' #12 wire
+GW	3	20	0.1	0	hgh	X	0	hgh-z	#12
+GE
+'
+'GN	-1						' Perfect ground
+'GN	0	0	0	0	14	.006	' Finite ground
+GN	2	0	0	0	14	.006	' Sommerfeld ground
+'
+EX	0	2	50%	0	1	0	' Default voltage source
+FR	0	1	0	0	3.680		' Design frequency
+'
+EN							' End of file

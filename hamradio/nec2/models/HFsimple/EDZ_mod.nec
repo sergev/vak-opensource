@@ -1,0 +1,22 @@
+CM N6LF Extended Double Zepp, by K6STI
+CE
+SY L1 = 85 ft
+'SY L2 = 25 ft		' original K6STI
+SY L2 = 24.5 ft		' Even better
+SY H = 80 ft
+GW	1	9	0	L1	H	0	L2	H	#14
+GW	2	9	0	L2	H	0	-L2	H	#14
+GW	3	9	0	-L2	H	0	-L1	H	#14
+GE	1
+EX	0	2	5	00	1.0	0.0
+SY C = 9.1 pf
+LD	1	1	9	0	0	0	C
+LD	1	3	1	0	0	0	C
+'
+GN	0	0	0	0	13	.005
+FR	0	1	0	0	 7.15
+EN
+
+'This design has much lower sidelobes than an ordinary extended double zepp and
+'exhibits a purely resistive input impedance.  These improvements cost just a
+'couple tenths of a dB forward gain.

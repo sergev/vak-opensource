@@ -1,0 +1,63 @@
+This is a program, called BOOTEASY, version 1.8.
+It serves as a replacement for the ordinary master boot.
+It is very simple in installation, and quite intelligent
+in handling various types of partitions.
+
+BOOTEASY makes possible coexistence of several different operating
+systems on the same machine.  At the boot time the short menu
+is displayed, and you can choose and load the required OS.
+
+You can also boot from second hard disk.
+
+Some useful features:
+
+1) Very simple installation.  Just call BOOTINST and answer 'yes'
+to several questions.
+
+2) Saves the copy of original boot sector.  You can restore it
+calling BOOTINST with a parameter - the name of the file with
+original boot sector.  By default this is 'BOOTSAVE.BIN'.
+
+3) If no key is pressed during 5-second timeout, the default OS
+will boot.
+
+4) The last booted partition is remembered and used as a default.
+
+5) BOOTEASY marks the booted partition as active, which is required
+by some OS, such as Interactive Unix.
+
+6) If the second hard disk is present, you can boot from it.
+
+Changes in version 1.3:
+- Fixed error with activating loaded partition.  Loaded
+  partition was not marked active in partition table.
+  Now it is activated correctly.
+
+Changes in version 1.4:
+- Fixed error with system timer 0 reset.  Timer 0 was
+  cleared to zero after boot.  Because MSDOS uses it (not RTC!)
+  as the real time value, the time was always 12:00.
+  Now system timer is not cleared.
+
+Changes in version 1.5:
+- Added the possibility to install on the second disk only.
+
+Changes in version 1.6:
+- Added the check of the drive number, got from the BIOS
+  in the DL register. Some BIOSes pass incorect value.
+
+Changes in version 1.7:
+- Partition type names changed from lower case to mixed upper/lower case.
+- Some program size optimizations added.
+
+Changes in version 1.8:
+- Rewritten for NASM assembler.
+- Added partition types for FAT32, some type fixes.
+- Added the possibility to restore the master boot record on
+  the second drive. Usage: "bootinst bootsav.bin boot2sav.bin".
+
+BOOTEASY have been tested on Linux, Interactive Unix SVR3 and SVR4,
+386bsd, FreeBSD, BSD/386 (BSDI), MSDOS 3, 4 and 5, MINIX, Xenix,
+Windows NT, OS/2.
+
+Author: Serge Vakulenko, <vak@cronyx.ru>

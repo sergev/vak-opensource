@@ -1,0 +1,14 @@
+
+SHELL   = /bin/sh
+INSTALL = /usr/SVSB
+AS      = vas
+CC      = vcc
+CFLAGS  =
+ASFLAGS = -x
+
+OBJ     = csv.o
+
+install: $(OBJ)
+
+clean:
+	rm -f *.o *.b a.out core

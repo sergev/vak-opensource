@@ -1,0 +1,46 @@
+##(
+## Compute Pi value = 3.14...
+##)
+
+##( read, lib )
+
+##( define, barctg.loop,
+	(#( eq, B, 0, A,
+		(#( barctg.loop,
+			##( add, A, ##( div, B, D ) ),
+			##( div, B, C ),
+			C,
+			##( add, D, 2 )
+		))
+	))
+)
+##( scan, barctg.loop, A, B, C, D )
+
+##( define, barctg,
+	(#( div,
+		#( barctg.loop,
+			B,
+			##( div, B, ##( sub, , ##( mul, A, A ) ) ),
+			##( sub, , ##( mul, A, A ) ),
+			3
+		),
+		A
+	))
+)
+##( scan, barctg, A, B )
+
+##( define, pi,
+	(##( mul, 4,
+		##( sub,
+			##( mul, 4, #( barctg, 5, A ) ),
+			#( barctg, 239, A )
+		)
+	))
+)
+##( scan, pi, A )
+
+(pi = )'
+#( pi, 1 #( repeat, 10, 0000000000 ) )
+
+(
+)'

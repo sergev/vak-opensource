@@ -1,0 +1,45 @@
+--------------------------------------------------------------------------------
+--
+--   AM2901 Benchmark -- Alu component
+--
+-- Source: AMD data book
+--
+-- VHDL Benchmark author Indraneel Ghosh
+--                       University Of California, Irvine, CA 92717
+--
+-- Developed on Nov 1, 1991
+--
+--------------------------------------------------------------------------------
+
+
+THIS DIRECTORY CONTAINS THE FOLLOWING FILES :
+
+alu.vhdl    :  File containing the block "alu" in "block2901.vhdl".
+
+test_vectors.vhdl :  Simulation test vector file for "alu"
+
+test_vectors_alu.doc  :  Documentation on test vectors in "test_vectors_alu.vhdl"
+
+cmd_alu.inc :  Simulation command file for "alu"
+
+
+NOTE : 
+
+     To run simulation on Zycad ( Version 1.0) Simulator :
+
+     Run the following commands in the order given below.
+
+         zvan types.vhd
+
+         zvan MVL7_functions.vhd
+
+         zvan alu.vhdl 
+
+         zvan test_vectors.vhd
+
+         zvsim -t ns -i cmd_alu.inc E
+
+     As in other cases, the simulation results will be stored in file
+
+        "run.out"
+  

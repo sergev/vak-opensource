@@ -1,0 +1,11 @@
+CM Cardioid, converted with 4nec2 on 31-mei-05 21:01
+CE
+GW	1	6	0	0	0	0	0	0.242	1.21e-4
+GW	2	6	0.25	0	0	0.25	0	0.242	1.21e-4
+GE	1
+EK
+EX	6	1	1	0	1	0
+EX	6	2	1	0	cos(270)	sin(270)
+GN	3 	0	0	0	13	.005
+FR	0	1	0	0	299.792511	0
+EN

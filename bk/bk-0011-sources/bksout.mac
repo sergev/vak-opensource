@@ -1,0 +1,122 @@
+.Mcall	.Module
+.Module	OutSym,Release=X02,Version=00,Comment=<BK0011 Symbol Generation>
+;
+;			Copyright (c) 1986 by
+;	C-11 Special Interest Group, Leningrad State University.
+;			 All rights reserved.
+;
+; This software is furnished under a license and may be used and  copied
+; only  in  accordance  with  the  terms  of  such  license and with the
+; inclusion of the above copyright notice.  This software or  any  other
+; copies  thereof may not be provided or otherwise made available to any
+; other person.  No title to and ownership of  the  software  is  hereby
+; transfered.
+;
+; The information in this software is subject to change without notice
+; and should not be construed as a commitment by C-11 group.
+;
+; C-11 assumes no responsibility for the use or reliability of its
+; software on equipment which is not submitted by C-11.
+;
+ .Include "BKHEAD"
+.Globl	UndLn$,InvCh$$,ShiftM,ScrSel
+.Globl	Color,BkGnd,TtoFlg,NxTvLn,CrsAdr
+
+ .Psect	$Code
+.SbTtl	Symbol Generation
+;
+; R0= Symbol code, R5= SymTab Address
+;
+; Symtab is the table with 9 bytes per symbol
+;
+OutSym::
+	Bic	#^C377,R0
+	Mov	@#$$UsrS,-(SP)		;Save Current User Sel1
+	Mov	@SP,-(SP)		;Save Current User Sel1
+	Bic	#^C<ScrMsk!TapMsk>,@SP
+	Mov	ScrSel,@#$$UsrS		;Sel for Screen
+	Bic	#TapMsk!ScrMsk,$$UsrS	;(Without tape and screen)
+	Bis	(SP)+,@#$$UsrS	;Prepare SEL1 register for screen mapping
+	Mov	R0,-(SP)
+	Asl	R0		; Compute the table offset
+	Asl	R0		; *4
+	Asl	R0		; *8 SymTab Shift
+	Add	(SP)+,R0	; *7
+	Add	2(R5),R0	; Add SymTab Address
+	Mov	CrsAdr,R1	; Current Address
+	Mov	R1,-(SP)	;Not Delete this Command !!!!!
+				;Addr Must be in R1 !!!
+	Mov	@R5,-(SP)	;SymTab Map Constant
+	Bic	#<TapMsk!ScrMsk>,@SP	;Set Current Taperecorder Bits
+	Mov	@#$$SysS,R2	;In Symtab Sel1
+	Bic	#^C<TapMsk!ScrMsk>,R2;
+	Bis	R2,@SP		;New screen and tape bits
+	Mov	#9.,R2		; Raster counter
+
+.SbTtl	Get SymTab Byte to R3
+10$:	Mov	CrsAdr,R1	; Current Address
+20$:	Mov	@SP,@#Sel1	;Set Symtab Map
+	MovB	(R0)+,R3	;Get Character From Symtab
+	Mov	@#$$SysS,@#Sel1	;And Restore System Maping
+	Tst	@#Sel1
+	Cmp	R2,#1
+	Bne	30$
+	Bit	#Undln$,TtoFlg
+	Beq	30$
+	Com	R3
+30$:	Call	PutChr		;And Put Character to Screen
+	Sob	R2,10$		;Loop until 9 Rasters done
+	Tst	(SP)+		;Clear stack
+	Mov	(SP)+,CrsAdr	;Restore Screen Address
+	Mov	@#$$SysS,@#Sel1
+	Tst	@#Sel1
+	Mov	(SP)+,@#$$UsrS	;Restore User Mapping
+	Return
+ .SbTtl	Routine to put character raster line to TV-Screen Buffer
+PutChr:
+	Mov	@#$$UsrS,@#Sel1	;Set Screen Mapping
+	Tst	@#Sel1		;
+	Bit	#InvCh$$,TtoFlg	; Inverted ?
+	Beq	10$		;No, Do Nothing
+	Com	R3		; Yes, Invert code
+10$:	Mov	#8.,-(SP)	;Bit per char counter
+	Mov	R3,-(SP)	;Save symbol Code
+20$:	MovB	Shiftm,R4	;Character width
+	Dec	R4		;
+	Beq	50$		;1 bit/Point, Do nothing
+	Ror	@SP		;Else expand byte to 1 or Two words
+	Ror	R5		;Get new bit
+	Ror	R3		;(Second Word)
+30$:	Asr	R5		;Expand the sign bit
+	Ror	R3		;
+	Sob	R4,30$		;And loop
+	Dec	2(SP)		;Bit per Byte Counter
+	Bne	20$		;
+	Mov	R5,R4		;Set Color for 1-st Word
+	Call	ClSet		;
+	CmpB	Shiftm,#2	;256 Points ?
+	Bne	40$		;No, 128
+	Mov	R4,@R1		;Write Word to Screen
+	Br	60$
+40$:	Mov	R4,2(R1)	;Write First and 
+	Mov	R3,R4		;Second Words
+	Call	ClSet		;For 128 Points
+	Mov	R4,@R1
+	Br	60$
+50$:	Mov	R3,R4		;Process 512 Points/Line Code
+	Call	ClSet
+	MovB	R4,@R1		;Write Byte to screen
+60$:	Cmp	(SP)+,(SP)+	;Clear Stack Space
+	Call	NxTVLn		;And Move TV-Raster line down
+	Return
+.SbTtl	Color Mapping Routine for symbol generation
+ClSet:	Mov	BkGnd,-(SP)
+	Bic	R4,@SP		;Clear Unused
+	Com	R4
+	Mov	Color,-(SP)
+	Bic	R4,@SP
+	Bis	(SP)+,@SP
+	Mov	(SP)+,R4
+	Return
+
+.End

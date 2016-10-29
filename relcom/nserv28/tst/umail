@@ -1,0 +1,17 @@
+:
+if [ $1 = -f -o $1 = -r ]; then
+	from=$2
+	shift
+	shift
+else
+	from=`who am i | awk '{print $1}'`
+fi
+
+(echo From $from `date`; cat; echo) > /tmp/m$$
+
+for to
+do
+	cat /tmp/m$$ >> /usr/spool/mail/$to
+done
+
+rm -f /tmp/m$$ 

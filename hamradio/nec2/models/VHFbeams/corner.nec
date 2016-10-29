@@ -1,0 +1,43 @@
+CM Corner Reflector by K6STI
+CE Converted with 4nec2 on 22-apr-02
+SY S = -10
+SY A = 16
+SY B = 11
+SY D = .375
+GW	1	11	B	-5.85	0	B	5.85	0	D
+GW	2	10	0	-A	0	0	A	0	D
+GW	3	10	2	-A	2	2	A	2	D
+GW	4	10	4	-A	4	4	A	4	D
+GW	5	10	6	-A	6	6	A	6	D
+GW	6	10	8	-A	8	8	A	8	D
+GW	7	10	10	-A	10	10	A	10	D
+GW	8	10	12	-A	12	12	A	12	D
+GW	9	10	14	-A	14	14	A	14	D
+GW	10	10	16	-A	16	16	A	16	D
+GW	11	10	18	-A	18	18	A	18	D
+GW	12	10	20	-A	20	20	A	20	D
+GW	13	10	22	-A	22	22	A	22	D
+GW	14	10	2	-A	-2	2	A	-2	D
+GW	15	10	4	-A	-4	4	A	-4	D
+GW	16	10	6	-A	-6	6	A	-6	D
+GW	17	10	8	-A	-8	8	A	-8	D
+GW	18	10	10	-A	-10	10	A	-10	D
+GW	19	10	12	-A	-12	12	A	-12	D
+GW	20	10	14	-A	-14	14	A	-14	D
+GW	21	10	16	-A	-16	16	A	-16	D
+GW	22	10	18	-A	-18	18	A	-18	D
+GW	23	10	20	-A	-20	20	A	-20	D
+GW	24	10	22	-A	-22	22	A	-22	D
+GM	0	0	0	0	0	-B	0	0	1
+'GX	1	010	' Add when needed.
+GS	0	0	in
+GE	0
+EX	0	1	5	00	1.0	0.0
+'
+GN	-1
+FR	0	1	0	0	 432
+EN
+'compared with a yagi, gain per conductor-wavelength for a corner reflector is
+'very low.  However, when a bowtie dipole is used, good gain over an octave
+'bandwidth can be obtained.  This is not possible with a Yagi.  For more
+'information, see "Antennas" by John Kraus, 2nd ed., pp 549-560.

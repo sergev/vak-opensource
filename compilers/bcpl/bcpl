@@ -1,0 +1,36 @@
+#!/bin/sh
+d=/usr/local/lib/bcpl
+oflag=0
+
+while true
+do
+    case $1 in
+        -O) oflag=1; shift;;
+	-o) oarg="$2"; shift; shift;;
+	*) break
+    esac
+done
+if test $# -ne 1; then
+    echo 'usage: bcpl [-O] [-o output] file'
+    exit 2
+fi
+
+rm -f OCODE INTCODE ASM
+if test -n "$oarg"; then
+    f="$oarg"
+else
+    f=`basename $1 .b`
+fi
+rm -f $f.int $f.s $f.o
+
+$d/st < $1
+$d/cg < OCODE
+cat $d/iclib.i $d/blib.i INTCODE > $f.int
+$d/xg < $f.int
+if test $oflag -ne 0; then
+    copt $d/rules < ASM > ASM.op && mv ASM.op ASM
+fi
+cat ASM > $f.s
+as -o $f.o $f.s
+ld -o $f $d/su.o $f.o $d/rt.o $d/sys.o
+rm -f OCODE INTCODE ASM

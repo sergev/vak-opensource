@@ -1,0 +1,120 @@
+#!/usr/bin/perl
+
+$spool = "/usr/spool/news";
+
+if ($ARGV[0] =~ /^-d/) {
+	$spool = shift (@ARGV);
+	$spool =~ s/^-d//;
+}
+$spool = `cd $spool; pwd`;
+chop ($spool);
+print "Spool = '$spool'\n";
+
+@users = @ARGV;
+
+sub testsubscr {
+	local ($pwd, $u);
+
+	$pwd = `pwd`;
+	chop ($pwd);
+	open (SS, "<SUBSCRIBERS") || die "Can't open $pwd/SUBSCRIBERS";
+	while (<SS>) {
+		chop;
+		foreach $u (@users) {
+			if (/$u/) {
+				$dirlist {$u} .= $pwd . ' ';
+			}
+		}
+	}
+	close (SS);
+}
+
+sub dodir {
+	local ($dir, $nlink) = @_;
+	local ($dev, $ino, $mode, $subcount);
+
+	# Find number of links to ourselves.
+
+	if (! $nlink) {
+		($dev, $ino, $mode, $nlink) = stat ('.');
+	}
+	if (-w "SUBSCRIBERS") {
+		&testsubscr;
+	}
+
+	# Search all subdirectories.
+
+	if ($nlink > 2) {
+		$subcount = $nlink - 2;
+
+		opendir (DIR, '.') || die "Can't open $dir";
+		local (@filenames) = readdir (DIR);
+		closedir (DIR);
+
+		for (@filenames) {
+			last if $subcount == 0;
+			next if $_ eq '.';
+			next if $_ eq '..';
+
+			# Get link count and check for directories.
+
+			($dev, $ino, $mode, $nlink) = lstat ($_);
+			next unless -d _;
+
+			# If it is a directory, so do it recursively.
+
+			chdir $_ || die "Can't cd to $name";
+			&dodir ($name, $nlink);
+			chdir '..';
+			--$subcount;
+		}
+	}
+}
+
+sub deluser {
+	local ($u, $dir) = @_;
+
+	chdir ($dir) || die "Cannot cd to $dir";
+	open (SS, "<SUBSCRIBERS") || die "Can't open $pwd/SUBSCRIBERS";
+	open (SSNEW, ">SUBSCRIBERS~") || die "Can't open $pwd/SUBSCRIBERS~";
+	while (<SS>) {
+		print SSNEW unless /$u/;
+	}
+	close (SS);
+	close (SSNEW);
+	rename ("SUBSCRIBERS~", "SUBSCRIBERS") || warn "Can't rename $pwd/SUBSCRIBERS~ to $pwd/SUBSCRIBERS";
+}
+
+sub unsubscr {
+	local ($u, $dirlist) = @_;
+	local (@dirtab) = split (' ', $dirlist);
+	local ($grouplist);
+
+	$grouplist = $dirlist;
+	$grouplist =~ s:$spool/::g;
+	$grouplist =~ s:$spool :CURRENT :g;
+	$grouplist =~ s:/:.:g;
+
+	print "*** User ", $u, " subscribed to: ", $grouplist, "\n";
+	print "*** Unsubscribe user ", $u, "? ";
+	$reply = <STDIN>;
+	if ($reply =~ /^[yY]/) {
+		foreach (@dirtab) {
+			&deluser ($u, $_);
+		}
+	}
+}
+
+if (! @users) {
+	print "Usage: unsubscr user...\n";
+	exit;
+}
+chdir $spool || die "Can't go to directory '$spool'";
+&dodir ('.');
+
+foreach $u (@users) {
+	if ($dirlist {$u}) {
+		chop ($dirlist {$u});
+		&unsubscr ($u, $dirlist {$u});
+	}
+}

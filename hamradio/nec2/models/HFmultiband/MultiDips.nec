@@ -1,0 +1,32 @@
+' Example multiband antenne: First created with Geometry editor (with SYmbols),
+' then modified using 'Notepad' to get more 'readable' symbols/variables and 
+' after this optimized on SWR for 3.6, 7.1 and 14.1 Mhz. 
+' Generate with 'use original file' to see SWR for different bands. (takes a while)
+CE
+SY w1seg=37,w1x1=.5,w1y1=0,w1z1=20,w1len = 19.66177,w1rad=1.e-3
+GW	2	w1seg	w1x1	w1y1	w1z1	w1len	w1y1	w1z1	w1rad
+GW	3	w1seg	-w1x1	w1y1	w1z1	-w1len	w1y1	w1z1	w1rad
+SY w2seg=19,w2z1=19.5,w2len = 10.26445
+GW	4	w2seg	w1x1	w1y1	w2z1	w2len	w1y1	w2z1	w1rad
+GW	5	w2seg	-w1x1	w1y1	w2z1	-w2len	w1y1	w2z1	w1rad
+SY w3seg=9,w3z1=19,w3len = 5.173325 
+GW	6	w3seg	w1x1	w1y1	w3z1	w3len	w1y1	w3z1	w1rad
+GW	7	w3seg	-w1x1	w1y1	w3z1	-w3len	w1y1	w3z1	w1rad
+SY w7seg=3
+GW	8	w7seg	-w1x1	w1y1	w1z1	w1x1	w1y1	w1z1	w1rad
+GW	9	w7seg	-w1x1	w1y1	w2z1	w1x1	w1y1	w2z1	w1rad
+GW	10	w7seg	-w1x1	w1y1	w3z1	w1x1	w1y1	w3z1	w1rad
+GE	0
+GN	2	0	0	0	14	-.006	' Average ground
+TL	8	2	9	2	450	0
+TL	9	2	10	2	450	0
+EX	0	10	2	0	1	0
+
+SY Freq=3.6						' Design frequency				
+FR	0	1	0	0	Freq
+XQ
+'
+SY start=3.5, stop=14.5, step=.1				' Set Freq-sweep.
+SY nrf=(stop-start)/step+1
+FR 0 nrf 0 0 start step
+EN

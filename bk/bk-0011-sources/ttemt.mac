@@ -1,0 +1,95 @@
+.Mcall	.Module
+.Module	TTEMT,Release=X02, Version=01, Comment=<BK0011 Terminal Emt Routines>
+;
+;			Copyright (c) 1986,1987 by
+;	C-11 Special Interest group, Leningrad State University.
+;			 All rights reserved.
+;
+; This software is furnished under a license and may be used and  copied
+; only  in  accordance  with  the  terms  of  such  license and with the
+; inclusion of the above copyright notice.  This software or  any  other
+; copies  thereof may not be provided or otherwise made available to any
+; other person.  No title to and ownership of  the  software  is  hereby
+; transfered.
+;
+; The information in this software is subject to change without notice
+; and should not be construed as a commitment by C-11 group.
+;
+; C-11 assumes no responsibility for the use or reliability of its
+; software on equipment which is not submitted by C-11.
+;
+ .Include "BKHEAD"
+.Globl	SavRg,RetEmt,TStCrs,GetUBt,StrLen,GetArg
+.Globl	CursX,CursY,MaxLin,TtyPrg,CurAdr,SsOutS
+
+ .Psect	$CodOvr
+.SbTtl	$BTtyou (EMT 16) Routine (Type One Character)
+;
+; This routine outputs one symbol from R0 to TV-monitor screen
+; at the place determined by current cursor coordinates.
+; Cursor moved to the next position.
+;
+$Bttyou::
+	Call	TStCrs		;Reset Cursor If it need
+	Call	TtyPrg		;Call Output Routine
+	Call	TStCrs		;Set Cursor ON (If it need)
+	ClC
+	Return
+.SbTtl	$Bprint (EMT 20) Routine (Type Character String)
+;
+;Input: R0=Character string Address.
+;
+;String must be folowwed by Zero or 200 byte.
+;The code of  Zero causes <CR><LF> sequence to output after the last
+;byte.
+;The code of <200> causes terminating of typing characters without any
+;extra chars.
+;
+$Bprint::
+	Jsr	R0,SavRg	;Save R0..R4
+	Mov	R0,R5
+	Call	TStCrs		;Set Cursor Off
+2$:	Call	GetUBt		;Get Byte from User Space
+	Beq	11$		;It's 0
+	CmpB	R0,#200
+	Beq	Retpri		;Code is 200
+	Mov	R5,-(SP)
+	Call	TtyPrg		;Type character
+	Mov	(SP)+,R5
+	Br	2$
+11$:	Mov	#25,R0
+	Call	TtyPrg		;issue <CR><LF> Routine
+Retpri:	Call	Curadr
+	Call	TStCrs		;Set Cursor ON 
+	ClC			;Clear Carry bit
+	Jmp	RetEmt		;Restore registers and exit
+ .SbTtl	$Bpos (EMT 26) Routine (Get  Cursor Coordinates)
+$Bpos::	Mov	@#CursX,R0	;Get Cursor Coordinates
+	Return			;And Exit
+
+.SbTtl	$Blocat (EMT 24) Routine (Set Cursor Coordinates)
+$Blocat::
+	Jsr	R0,SavRg
+	Call	TStCrs		;Set Cursor Off
+	Mov	R0,R5
+	CmpB	R0,StrLen	;Check Position
+	Bhi	10$
+	MovB	R0,@#CursX	;Right...
+10$:	SwaB	R5
+	CmpB	R5,MaxLin	;Check Line No
+	Bhis	Retpri
+	MovB	R5,@#CursY
+	Br	Retpri
+ .SbTtl	$Bssout (EMT 22) Routine (Type at Special String)
+$Bssout::
+MaxSS	=	<256./9.-24.>		;Max Special Zone Line No
+	Jsr	R0,GetArg
+	Cmp	R1,#MaxSS*400		;Check Y-Coordinate
+	Bhis	10$			;Is Illegal
+	CmpB	R1,StrLen
+	Bhis	10$			;Is Illegal
+	Call	SsOutS
+	Tst	(PC)+
+10$:	Sec
+	Jmp	RetEmt
+.End

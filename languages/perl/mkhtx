@@ -1,0 +1,61 @@
+#!/usr/local/bin/perl
+
+while ($ARGV[0]) {
+	local ($file) = shift @ARGV;
+
+	&process ($file);
+}
+exit (0);
+
+sub process {
+	local ($file) = @_;
+
+	if (! open (INPUT, "<$file")) {
+		warn "$file: $!\n";
+		return;
+	}
+	if (! open (OUTPUT, ">$file.htx")) {
+		warn "$file: $!\n";
+		close (INPUT);
+		return;
+	}
+	$qflag = 0;
+	print OUTPUT "\n";
+	while (<INPUT>) {
+		s/\{/{{/g;
+		if (/^\d+(\.\d+)+/) {
+			($q) = split;
+			$q =~ s/\.//g;
+			$q = "q$q";
+			if ($qflag) {
+				close (Q);
+			}
+			$qflag = 1;
+			if (! open (Q, ">$q.htx")) {
+				warn "$q: $!\n";
+				$Q = 0;
+				$qflag = 0;
+			}
+			if ($qflag) {
+				print Q "\n";
+				print Q "  ", $_;
+			} else {
+				print OUTPUT "\n";
+				print OUTPUT "  ", $_;
+			}
+			s/^(\S*)/{@$q \1}/;
+			print OUTPUT "  ", $_;
+			next;
+		}
+		if ($qflag) {
+			print Q "  ", $_;
+		} else {
+			print OUTPUT "  ", $_;
+		}
+	}
+	if ($qflag) {
+		close (Q);
+	}
+	close (INPUT);
+	close (OUTPUT);
+}

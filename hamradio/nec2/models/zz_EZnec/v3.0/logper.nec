@@ -1,0 +1,74 @@
+CM 17-10m Log Per - ARRL Ant Book, converted with 4nec2 on 29-Mar-06 22:08
+CM 	LogPer (with warnings)
+CM This is an example of a three-band 17m-10m log periodic
+CM antenna from the ARRL ANTENNA BOOK, 16th Edition, p. 10-6.
+CM Look at this antenna with the View Antenna display, using
+CM the zoom and offset features to see the details. This
+CM method of construction, with one transmission line
+CM conductor above the other, frequently is used for VHF and
+CM UHF log periodic antennas. Note the feedpoint. The source
+CM is necessarily on a wire which is much shorter than the
+CM 0.02 wavelength minimum recommended for wires containing a
+CM source. In addition, the source is close to multiple wire
+CM junctions and to connections to wires of different
+CM diameters, both of which are difficult for NEC-2 in the
+CM vicinity of sources. Run a second 3D far-field request,
+CM select the average-gain option and notice the Average Gain
+CM reported on the 'Main (F2)' window. The Average Gain of
+CM -1.7 dB (-0.74 dB when using the NEC-4 engine)
+CM shows that source placement is a problem. Experimentation
+CM shows that lengthening wires 23 and 24, which moves the
+CM source farther from the multiple wire element junction,
+CM improves the average gain. However, the transmission line
+CM formed by these two wires has an impedance of more than 400
+CM ohms, so the impedance match will be degraded as the wires
+CM are lengthened.
+CM This illustrates the difficulty of accurately modeling this
+CM type of antenna, but also the usefulness of the Average
+CM Gain feature. Notice that the maximum antenna gain is 3.05
+CM dBi and Average Gain is -1.69 dB. (With NEC-4, 3.96 dBi and
+CM -0.74 dB respectively.) The corrected gain is then 3.05 
+CM - (-1.7) = 4.75 dBi. This compares very favorably with
+CM LogPerTL's reported gain of 4.69 dBi (with Average Gain of 
+CM -0.01 dB).
+CM The design feedpoint impedance of this antenna is 200 ohms,
+CM so it would normally be fed from a 50 ohm system through a
+CM 4:1 transformer. To see what the SWR would be on the 50 ohm
+CM line when fed this way, select the alternate Z0 of 200
+CM ohms. An SWR sweep shows that the SWR of this antenna is
+CM high at 18 MHz, although the ANTENNA BOOK design indicates
+CM that it should work at this frequency. Not having built and
+CM measured an actual antenna, the cause of the discrepancy
+CM remains unknown.
+CM See the LogPerTL.nec Antenna file for additional information.
+CE
+GW 1 8 0 -163.46 -1.2 0 0 -1.2 0.625
+GW 2 8 0 0 1.2 0 163.46 1.2 0.625
+GW 3 8 39.23 -130.76 1.2 39.23 0 1.2 0.5
+GW 4 8 39.23 0 -1.2 39.23 130.76 -1.2 0.5
+GW 5 8 70.62 -104.62 -1.2 70.62 0 -1.2 0.375
+GW 6 8 70.62 0 1.2 70.62 104.62 1.2 0.375
+GW 7 8 95.72 -83.69 1.2 95.72 0 1.2 0.3125
+GW 8 8 95.72 0 -1.2 95.72 83.69 -1.2 0.3125
+GW 9 8 115.81 -66.95 -1.2 115.81 0 -1.2 0.25
+GW 10 8 115.81 0 1.2 115.81 66.95 1.2 0.25
+GW 11 3 0 0 -1.2 39.23 0 -1.2 0.04040404
+GW 12 3 39.23 0 -1.2 70.62 0 -1.2 0.04040404
+GW 13 3 70.62 0 -1.2 95.72 0 -1.2 0.04040404
+GW 14 3 95.72 0 -1.2 115.81 0 -1.2 0.04040404
+GW 15 3 0 0 1.2 39.23 0 1.2 0.04040404
+GW 16 3 39.23 0 1.2 70.62 0 1.2 0.04040404
+GW 17 3 70.62 0 1.2 95.72 0 1.2 0.04040404
+GW 18 3 95.72 0 1.2 115.81 0 1.2 0.04040404
+GW 19 1 120 0 -1.2 120 0 1.2 0.04040404
+GW 20 1 0 0 -1.2 -6 0 -1.2 0.04040404
+GW 21 1 0 0 1.2 -6 0 1.2 0.04040404
+GW 22 1 -6 0 -1.2 -6 0 1.2 0.04040404
+GW 23 1 115.81 0 -1.2 120 0 -1.2 0.04040404
+GW 24 1 115.81 0 1.2 120 0 1.2 0.04040404
+GS 0 0 in		' All in inch.
+GE 0
+EX 6 19 1 0 1 0
+GN -1			' Free space
+FR 0 1 0 0 21 0
+EN

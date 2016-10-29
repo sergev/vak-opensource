@@ -1,0 +1,99 @@
+--------------------------------------------------------------------------
+
+-- DOCUMENTATION ON THE TEST VECTORS FOR THE BLOCK ( CORRESPONDING TO 
+-- COMPONENT "alu_inputs") IN  THE BLOCK MODEL OF AM2901 MICROPROCESSOR SLICE
+-- THE TEST VECTORS ARE IN FILE "tv_alu_inputs.vhdl"
+
+--  Developed on Nov 1, 1991 by :
+--                                Indraneel Ghosh,
+--                                CADLAB,
+--                                Univ. of Calif. , Irvine.
+
+--------------------------------------------------------------------------
+
+The "alu_inputs" block operation is controlled by three middle bits 
+( I5, I4, I3) in the instruction. Thus there are eight possible cases.
+
+----------------------------------------------------------------------------
+
+(1) Select A for RE and Q for S
+
+Aadd <= 0; ( this means A <= "1000"; )
+Badd <= 1; ( this means B <= "0100"; )
+D <= "0001";  
+Q <= "0010";
+I <= "000000000";
+
+----------------------------------------------------------------------------
+
+(2) Select A for RE and B for S
+
+Aadd <= 0; ( this means A <= "1000"; )       
+Badd <= 1; ( this means B <= "0100"; )
+D <= "0001";
+Q <= "0010";
+I <= "000000001";
+
+----------------------------------------------------------------------------
+
+(3) Select 0 for RE and Q for S
+
+Aadd <= 0; ( this means A <= "1000"; )       
+Badd <= 1; ( this means B <= "0100"; )
+D <= "0001";
+Q <= "0010";
+I <= "000000010";
+
+----------------------------------------------------------------------------
+
+(4)  Select 0 for RE and B for S
+
+Aadd <= 0; ( this means A <= "1000"; ) 
+Badd <= 1; ( this means B <= "0100"; )
+D <= "0001";
+Q <= "0010";
+I <= "000000011";
+
+----------------------------------------------------------------------------
+
+(5)  Select 0 for RE and A for S
+
+Aadd <= 0; ( this means A <= "1000"; ) 
+Badd <= 1; ( this means B <= "0100"; )
+D <= "0001";
+Q <= "0010";
+I <= "000000100";
+
+----------------------------------------------------------------------------
+
+(6)  Select D for RE and A for S
+
+Aadd <= 0; ( this means A <= "1000"; )      
+Badd <= 1; ( this means B <= "0100"; )
+D <= "0001";
+Q <= "0010";
+I <= "000000101";
+
+----------------------------------------------------------------------------
+
+(7)  Select D for RE and Q for S
+
+Aadd <= 0; ( this means A <= "1000"; )  
+Badd <= 1; ( this means B <= "0100"; )
+D <= "0001";
+Q <= "0010";
+I <= "000000110";
+
+----------------------------------------------------------------------------
+
+(8)  Select D for RE and 0 for S
+
+Aadd <= 0; ( this means A <= "1000"; ) 
+Badd <= 1; ( this means B <= "0100"; )
+D <= "0001";
+Q <= "0010";
+I <= "000000111";
+
+----------------------------------------------------------------------------
+
+

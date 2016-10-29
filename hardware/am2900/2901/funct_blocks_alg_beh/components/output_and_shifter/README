@@ -1,0 +1,47 @@
+--------------------------------------------------------------------------------
+--
+--   AM2901 Benchmark -- output_shifter component
+--
+-- Source: AMD data book
+--
+-- VHDL Benchmark author Indraneel Ghosh
+--                       University Of California, Irvine, CA 92717
+--
+-- Developed on Jan 1, 1992
+--
+--------------------------------------------------------------------------------
+
+
+THIS DIRECTORY CONTAINS THE FOLLOWING FILES :
+
+op_sh.vhdl    :  File containing the funct_block_alg_beh "output_and_shifter" in 
+                 "funct_block_alg_beh2901.vhdl".
+
+test_vectors.vhdl :  Simulation test vector file for "output_and_shifter"
+
+test_vectors_op_sh.doc  :  Documentation on test vectors in "test_vectors_op_sh.doc"
+
+cmd_op_sh.inc :  Simulation command file for "output_and_shifter"
+
+
+NOTE : 
+
+     To run simulation on Zycad ( Version 1.0) Simulator :
+
+
+     Run the following commands in the order given below.
+
+         zvan types.vhd
+
+         zvan MVL7_functions.vhd
+
+         zvan op_sh.vhdl 
+
+         zvan test_vectors.vhdl
+
+         zvsim -t ns -i cmd_op_sh.inc E
+
+     As in other cases, the simulation results will be stored in file
+
+        "run.out"
+  

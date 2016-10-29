@@ -1,0 +1,868 @@
+.Mcall	.Module
+.Module	BKTV, Release=X02, Version=05, Comment=<BK0011 TV-Set Handler>
+;
+;			Copyright (c) 1986,1987 by
+;	C-11 Special Interest Group, Leningrad State University.
+;			 All rights reserved.
+;
+; This software is furnished under a license and may be used and  copied
+; only  in  accordance  with  the  terms  of  such  license and with the
+; inclusion of the above copyright notice.  This software or  any  other
+; copies  thereof may not be provided or otherwise made available to any
+; other person.  No title to and ownership of  the  software  is  hereby
+; transfered.
+;
+; The information in this software is subject to change without notice
+; and should not be construed as a commitment by C-11 group.
+;
+; C-11 assumes no responsibility for the use or reliability of its
+; software on equipment which is not submitted by C-11.
+;
+ .Include "BKHEAD"
+.Globl	SavRg,SymTab,SymG00,RetEmt,GetArg,IsgTab,CtrTab
+.Globl	KbMode,$MixAs,$Cyril,FncTb,OutSym,NAK,FF,SetScS,SetScX
+.Globl	GetUbt,GetUwd,PutUwd
+
+.SbTtl	Data Field Definitions and Constants
+MemBeg	=	100000
+MemEnd	=	140000
+Scroll	==	177664
+; Symtab Format:
+;
+;	000 - 037 Space, !"#$%&'()*+,-./0123456789:;<=>?
+;	040 - 077 @, UPPER CASE A-Z [\]^_
+;	100 - 137 "`", lower case a-z{|}~,Rubout
+;	140 - 177 Lower case Cyrillic
+;	200 - 237 Upper case Cyrillic
+;	
+;
+;TtoFlg Word Definition:
+;
+.Radix	2
+SSflg$	==	1000000000000000	;100000	;Special Line Disabled
+Block$	==	100000000000000		;40000	;Control Characters Indication
+Crsr$$	==	10000000000000		;20000	;Cursor indication Disabled
+AWrp$$	==	1000000000000		;10000	;Auto Wrap Mode OFF
+UndLn$$	==	100000000000		;4000	;Character Underlinning
+InvCh$$	==	10000000000		;2000	;Character Inversion
+Lat$$	==	1000000000		;1000	;Ascii ==> Latin Flag
+MixO$$	==	100000000		;400	;Ascii ==> Mixed Mode
+AscO$$	==	10000000		;200	;0==> UAscii, 1==> Ascii
+
+D$Wid$	==	100			;1 ==> Double Width Characters
+WdtMsk	==	11			;Line Width Mask:
+.Radix	8.
+;
+;0 ==> 128 Points per line
+;1 ==> 256
+;2 ==> 512
+;3 ==> 256
+ .SbTtl	TtyPrg - Symbol Output Routine
+;
+;
+;
+; This routine outputs one byte from R0 to TV-Set screen.
+; If "AWrp$$" flag isn't set, automatical "Newline" operation is issued
+; after printing character at the right margin.
+; Otherwise the next symbol will be printed at the same place.
+;
+; Symbols are accepted in code, determined by the TtoFlg word flags
+;
+;
+.If EQ 1
+			Symbol Codes:
+----------------------------------------------------------------------
+! Codes   !Block$!AscO$$!MixO$$!Lat$$!        Indication             !
+----------------------------------------------------------------------
+! 0..37   !  0   !   X  !  X  !  X   !Control Char Processing        !
+!         !  1   !   X  !  X  !  X   !Inverted Latin Or Graphics     !
+! 40..77  !  X   !   X  !  X  !  X   !Numeric and Special Codes      !
+!100..137 !  X   !   0  !  X  !  X   !Big Latin Letters 	     !
+!	  !  X   !   1  !  0  !  0   !Small Cyrillic Letters         !
+!	  !  X   !   1  !  0  !  1   !Big Latin Letters 	     !
+!	  !  X   !   1  !  1  !  X   !Big Latin Letters 	     !
+!140..177 !  X   !   0  !  X  !  X   !Small Latin Letters            !
+!         !  X   !   1  !  0  !  0   !Big   Cyrillic Letters         !
+!         !  X   !   1  !  0  !  1   !Small Latin Letters            !
+!         !  X   !   1  !  1  !  X   !Big   Cyrillic Letters         !
+!200..237 !  0   !   X  !  X  !  X   !Unused			     !
+!         !  1   !   X  !  X  !  X   !Inverted Symbols		     !
+!240..277 !  X   !   X  !  X  !  X   !Semi-Graphics                  !
+!300..337 !  X   !   0  !  X  !  X   !Small Cyrillic Letters         !
+!	  !  X   !   1  !  0  !  0   !Small Cyrillic Letters         !
+!	  !  X   !   1  !  0  !  1   !Big Latin Letters		     !
+!	  !  X   !   1  !  1  !  X   !Big Latin Letters		     !
+!340..377 !  X   !   0  !  X  !  X   !Big Cyrillic Letters           !
+!	  !  X   !   1  !  0  !  0   !Big Cyrillic Letters           !
+!	  !  X   !   1  !  0  !  1   !Big Latin Letters		     !
+!         !  X   !   1  !  1  !  X   !Big Cyrillic Letters           !
+----------------------------------------------------------------------
+.EndC
+ .Psect	$CodOvr
+;
+;Input And Output State == System RAM, System ROM
+;
+TtyPrg::
+	Jsr	R0,SavRg	;
+	Bic	#^C377,R0
+	Tst	Prefix		;Multi-Char Sequence ?
+	Beq	10$		;No
+	Call	@Prefix		;Yes, Process it
+	Br	TtoExi
+10$:	Mov	#AlpTab,R5	;Symtab Address
+	Mov	R0,R1
+	Asl	R1
+	Asl	R1
+	Asl	R1
+	Swab	R1
+	Bic	#^C7,R1
+	Asl	R1
+	Jmp	@SelSym(R1)
+.Save
+.Psect	$CnsOvr
+SelSym:	.Word	S000,S001,S010,S011,S100,S101,S110,S111
+.Restore
+
+S100:	Add	#140-40-200,R0	;Small latin
+	Bit	#Block$,Ttoflg
+	Beq	TtoExi
+
+S000:	Bit	#Block$,TtoFlg	;Control Codes
+	Beq	30$
+	Mov	#InvCh$$,R1
+	Xor	R1,TtoFlg
+	MovB	ISGTab(R0),R0
+	Bpl	20$
+	Mov	#GrpTab,R5
+	Neg	R0		;
+20$:	Call	OutSym
+	Mov	#InvCh$$,R1
+	Xor	R1,TtoFlg
+	Br	StepCr		;Cursor Right
+
+30$:	Asl	R0
+	Mov	CtrTab(R0),R0
+	Beq	TtoExi
+	Call	@R0		;Control Char. Processing
+	Call	CurAdr		;Compute Cursor Address
+	Jmp	RetEmt		;And Exit
+
+S101:	Mov	#GrpTab,R5
+S001:	Bic	#^C37,R0
+	Br	SymOut
+S010:
+S011:
+S110:
+S111:	Bit	#AscO$$,TtoFlg
+	Bne	1$
+	TstB	R0
+	Bpl	2$
+	Sub	#100,R0
+2$:	Sub	#40,R0
+	Br	SymOut
+1$:	Bic	#^C177,R0
+	Bit	#MixO$$,TtoFlg
+	Beq	3$
+	Bit	#40,R0
+	Beq	2$
+5$:	Add	#40,R0
+	Br	SymOut
+3$:	Bit	#Lat$$,TtoFlg
+	Beq	5$
+	Br	2$
+.SbTtl	Common Printing Symbol Output
+EM::	Tst	(SP)+
+	Br	StepCr
+SymOut:	Call	OutSym		;and output symbol
+StepCr:	IncB	CursX		;Step
+	MovB	Shiftm,R0
+	Add	R0,CrsAdr
+	Cmpb	CursX,StrLen
+	Blo	TtoExi
+	Bit	#AWrp$$,TtoFlg
+	Beq	100$
+	DecB	CursX
+	Sub	R0,CrsAdr
+	Br	TtoExi
+100$:	Call	NAK		;New Line
+	Call	CurAdr
+TtoExi:	Jmp	RetEmt
+ .Psect	$Code
+.SbTtl	Common Routines
+.SbTtl	Next TV-Line Routine
+NxTVLn::
+	Add	#100,CrsAdr	; One TV-line down
+	Bic	#40000,CrsAdr
+	Bis	#100000,CrsAdr
+	Return
+ .SbTtl	Alphanumeric Cursor Address Computation 
+;
+CurAdr::
+;
+; Line Addr=Y*100*11+ScrBot
+;
+	MovB	CursY,R1
+	SwaB	R1		; *100*4
+	ClrB	R1
+	Mov	R1,R0
+	Ror	R0		; *2*100
+	Ror	R0		; *1*100
+	Rol	R1		; *10*100
+	Add	R1,R0		; *11*100
+	Add	ScrBot,R0	; R0= TV-Line Address
+	Mov	R0,CrsAdr
+	MovB	CursX,R0
+	Bic	#^C377,R0	; X-Coordinate
+	MovB	Shifts,R1
+	Beq	1$
+2$:	Asl	R0
+	Sob	R1,2$
+1$:	Add	R0,CrsAdr
+	Bic	#40000,CrsAdr
+	Bis	#100000,CrsAdr
+	Return
+ .SbTtl	Symbol Line Down Scroll
+ScrlDw::
+	Mov	ScrBot,R0	;Screen Bottom (Upper Left Corner)
+	Mov	R0,R1
+	Add	#9.*100,R1	;New Bottom
+	Bic	#40000,R1
+	Bis	#100000,R1
+	Mov	R1,ScrBot	;Store it
+	Add	#9.,@SclWri	;Scroll Register Address
+	Call	SetScl
+	Call	SetScS		;Map Screen
+	Cmp	R0,#MemBeg
+	Bne	20$
+	Add	#40000,R0
+20$:	Cmp	R1,#MemBeg
+	Bhi	30$
+	Add	#40000,R1
+;
+;Special Line Scroll
+;
+30$:	Mov	SpcLng,R2	;Special Line Length (TV lines)
+40$:	Mov	#100/2,R3
+50$:	Mov	-(R0),-(R1)
+	Sob	R3,50$
+	Cmp	R0,#MemBeg
+	Bhi	60$
+	Add	#40000,R0
+60$:	Cmp	R1,#MemBeg
+	Bhi	70$
+	Add	#40000,R1
+70$:	Sob	R2,40$
+	Mov	#9.,R2		;String Counter
+	Mov	Bkgnd,R0
+80$:	Mov	#100/2,R3	;Word Counter
+90$:	Mov	R0,-(R1)
+	Sob	R3,90$
+	Cmp	R1,#MemBeg
+	Bhi	100$
+	Add	#40000,R1
+100$:	Sob	R2,80$
+	Call	SetScX		;Unmap Screen
+	Return
+ .SbTtl	Symbol Line Up Scroll
+ScrlUp::
+	Mov	ScrBot,R0
+	Sub	#9.*100,R0
+	Cmp	R0,#MemBeg
+	Bhis	10$
+	Add	#40000,R0
+10$:	Mov	R0,ScrBot
+	Sub	#9.,@SclWri
+	Call	SetScl
+	Add	ScrLng,R0
+	Mov	R0,R1
+	Add	#9.*100,R1		;Read Address
+	Call	SetScs		;Map Screen
+20$:	Mov	SpcLng,R2
+30$:	Bic	#40000,R1
+	Bis	#100000,R1
+	Bic	#40000,R0
+	Bis	#100000,R0
+	Mov	#100/2,R3
+40$:	Mov	(R1)+,(R0)+
+	Sob	R3,40$
+	Sob	R2,30$
+	Mov	#9.,R2
+	Mov	Bkgnd,R1
+50$:	Bic	#40000,R0
+	Bis	#100000,R0
+	Mov	#100/2,R3
+60$:	Mov	R1,(R0)+
+	Sob	R3,60$
+	Sob	R2,50$
+	Call	SetScX		;Unmap Screen
+	Return
+ .SbTtl	$Bscroll (EMT 110) Routine (TV-Line Scrolling)
+$Bscroll::
+	Mov	R0,-(SP)
+	Call	TstCrs
+	Add	R0,@SclWri
+	Call	SetScl
+	Swab	R0
+	ClrB	R0
+	Asr	R0
+	Asr	R0
+	Add	ScrBot,R0
+	Bis	#100000,R0
+	Bic	#40000,R0
+	Mov	R0,Scrbot
+	Call	CurAdr
+	Call	TstCrs
+	Mov	(SP)+,R0
+	Return
+ .Psect	$CodOvr
+.SbTtl	Color Setting Routine
+ClrGet::
+	Mov	#10$,Prefix
+	Return
+10$:	Mov	#20$,Prefix
+	Call	Mult
+	Mov	R0,Color
+	Return
+20$:	Clr	Prefix
+	Call	Mult
+	Mov	R0,BkGnd
+	Return
+Mult:	Bic	#^C17,R0
+	Mov	R0,R1
+	Asl	R0
+	Asl	R0
+	Asl	R0
+	Asl	R0
+	Bis	R1,R0
+	Mov	R0,R1
+	Swab	R0
+	Bis	R1,R0
+	Return
+ .SbTtl	Cursor Set/ Reset routine
+.Psect	$Code
+;
+;Input State: System RAM, System ROM
+;
+TStCrs::
+	Bit	#Crsr$$,TtoFlg	; Cursor Off ?
+	Beq	10$		; No
+	Return			; Yes, Exit
+10$:	Jsr	R0,SavRg	;  Save Registers R0..R4
+	Mov	R5,-(SP)	; And R5
+	Mov	CrsAdr,-(SP)	; Get Cursor Address
+	Call	SetScS		; Map Screen...
+	Mov	Color,R5	;
+	Mov	Bkgnd,R4	;
+	Xor	R5,R4		;Color Change Mask in R4
+	Mov	#9.,R5		;Line Counter
+30$:	MovB	Shiftm,R3
+	Mov	CrsAdr,R2	;Cursor Address
+50$:	MovB	@R2,R1
+	Xor	R4,R1
+	MovB	R1,(R2)+
+	Sob	R3,50$
+	Call	NxTVLn		;Go next TV line
+	Sob	R5,30$
+	Call	SetScX		;UnMap Screen, Map System Rom, Ram
+	Mov	(SP)+,CrsAdr
+	Mov	(SP)+,R5
+	Jmp	RetEmt		;Restore R0..R4 and Exit
+ .SbTtl	Screen Width Setting Routine
+.Psect	$Code
+;
+;R0 Consists Width Code = 0 - 128, 1 - 256, 2 - 512, 3 - 256
+;
+SetWid::
+	Call	TstCrs
+	Call	SetSng
+	Bic	#D$Wid$!WdtMsk,TtoFlg
+	Bic	#^C3,R0
+	CmpB	R0,#3
+	Bne	1$
+	Clr	R0
+1$:	Mov	R0,-(SP)
+	Asl	R0
+	Add	(SP)+,R0
+	Asl	R0
+	Add	#WdtTab,R0
+	MovB	Shifts,R1	;0 - 512 1 - 256 2 - 128
+	MovB	(R0)+,Shifts
+	MovB	(R0)+,Shiftm
+	BisB	(R0)+,TtoFlg
+	MovB	(R0)+,StrLen
+	MovB	(R0)+,LenFnc
+	MovB	(R0)+,SpcFnc
+	MovB	Shifts,R0
+	Sub	R0,R1
+	Beq	10$
+	Bmi	20$
+11$:	AslB	CursX
+	Sob	R1,11$
+	Br	10$
+20$:	Neg	R1
+21$:	IncB	CursX
+	AsrB	CursX
+	Sob	R1,21$
+10$:	Clr	BkGnd
+	Mov	#-1,Color
+	Mov	#SsFlg$,R0
+	Xor	R0,TtoFlg
+	Call	TstCrs
+	Jmp	$SetSS
+ .Psect	$Const
+SveAr:	.Word	SvBuf0,SvBuf1
+SclTb:	.Word	SclAd0,SclAd1
+SelTb:	.Word	1*400,7*400
+;
+;Width Table
+;		Shifts	Shiftm	Ttoflg	StrLen
+WdtTab:	.Byte	2,	4,	0,	16.,	1,	0
+	.Byte	1,	2,	1,	32.,	2,	1
+	.Byte	0,	1,	2,	64.,	5,	1
+	.Byte	1,	2,	1,	32.,	2,	1
+.Even
+.Psect $CodOvr
+ .SbTtl	Single and Double Width Setting
+
+SetDbl::Bit	#WdtMsk,TtoFlg
+	Beq	10$
+	Bit	#D$Wid$,TtoFlg
+	Bne	10$
+	Bis	#D$Wid$,TtoFlg
+	AsrB	StrLen
+	IncB	Shifts
+	AslB	Shiftm
+	IncB	CursX
+	AsrB	CursX
+	Cmpb	CursX,StrLen
+	Blo	10$
+	Bit	#AWrp$$,TtoFlg
+	Beq	100$
+	DecB	CursX
+	Br	10$
+100$:	Jmp	NAK		;New Line
+10$:	Return
+SetSng::Bit	#D$Wid$,TtoFlg
+	Beq	10$
+	Bic	#D$Wid$,TtoFlg
+	AslB	CursX
+	AslB	StrLen
+	DecB	Shifts
+	AsrB	Shiftm
+10$:	Return
+ .SbTtl	Special Line Processing
+.SbTtl	Special Line ON/OFF Routine
+.Psect	$Code
+$SETSS::Mov	#SSFlg$,R0
+	Xor	R0,TtoFlg
+	Bit	R0,TtoFlg
+	Beq	30$		;Special Line ON
+;Special Line OFF
+	Mov	ScrBot,R0
+	Add	#9.*24.*100,R0	;Screen Length
+	Mov	#256.-<9.*24.>,R1	;Number of TV-lines
+	Mov	BkGnd,R2
+10$:	Bis	#100000,R0
+	Bic	#40000,R0	;Begin of Line
+	Mov	#100/2,R3
+	Call	SetScS		;Map Screen
+20$:	Mov	R2,(R0)+
+	Sob	R3,20$
+	Sob	R1,10$
+	Call	SetScX		;Unmap Screen
+	Mov	#256.-<<256./9.>*9.>,SpcLng
+	Mov	#<256./9.>,MaxLin
+	Mov	#<<256./9.>*9.>*100,ScrLng
+	Mov	#40000/2,FfLng
+	Mov	#255.,RstrMx
+	Return
+;Special Line ON
+30$:	MovB	CursY,R0
+	Sub	#24.,R0
+	Bmi	50$		;OK
+;Need to do Scrolling
+	Mov	R0,-(SP)
+40$:	Call	ScrlDw
+	Dec	@SP
+	Bpl	40$
+	Tst	(SP)+
+	MovB	#23.,CursY
+	Call	Curadr
+50$:	Call	SetScS		;Map Screen
+	Mov	ScrBot,R0
+	Add	#9.*24.*100,R0	;First Address
+	Mov	#256.-<9.*24.>,R3
+	Mov	Color,R1
+60$:	Bic	#40000,R0
+	Bis	#100000,R0
+	Mov	#100/2,R2
+70$:	Mov	R1,(R0)+	;Horizontal Line
+	Sob	R2,70$	
+	Mov	BkGnd,R1
+	Sob	R3,60$
+	Mov	#9.*24.*100,ScrLng
+	Mov	#24.,MaxLin
+	Mov	#256.-<9.*24.>,SpcLng
+	Mov	#<9.*24.*100>/2,FfLng
+	Mov	#9.*24.-1,RstrMx
+	Mov	@#$$SysS,@#Sel1
+	Call	SetScX		;Unmap Screen
+	Call	KbdSS
+	Return
+ 
+.SbTtl	Special Line Rus/Lat/Mix Output
+.Psect	$CodOvr
+KbdSS::
+
+	Call	LatSS		;Output Keyboard-oriented Words
+	Call	FncOut		;to Special Line
+BlrSS::
+	Mov	#BlrCns,R4
+	Bit	#Block$,TtoFlg
+	Bne	10$
+	Mov	#Spaces,R4
+10$:	MovB	#-7,R1
+	Br	SSO2
+LATSS::
+	Mov	#RusCns,R4
+	Bit	#$Cyril,KbMode	
+	Bne	10$
+	Mov	#LatCns,R4
+10$:	Mov	#-3,R1		;Coordinate
+SSO2:	Mov	#3,R2		;Byte Counter
+	Jmp	StrSS		;String to SS
+ .SbTtl	Functional Key Special String Output
+FncOut::
+	Mov	#10.,R5		;Key Counter
+	Mov	#FncTb,FncAd	;String Address Table
+	Mov	#400,R1		;Coordinates
+10$:	Mov	@FncAd,R4	;String Address
+	Bne	20$
+	Mov	#Spaces,R4
+20$:	MovB	LenFnc,R2	;Char. Number
+	Call	StrSS		;Output String
+	MovB	SpcFnc,R0
+	Add	R0,R1
+	Add	#2,FncAd
+	Sob	R5,10$
+	Return
+
+.SbTtl	Output Symbol String to Special Line
+StrSS:
+	Mov	R5,-(SP)
+	Mov	TtoFlg,-(SP)
+	Bit	#D$Wid$,@SP
+	Beq	5$
+	AslB	StrLen
+	DecB	Shifts
+	AsrB	Shiftm
+5$:	Tst	R1
+	Bpl	6$
+	MovB	StrLen,R3
+	Add	R3,R1		;Coordinate
+6$:	Bic	#<UndLn$$!InvCh$$!Lat$$!MixO$$!AscO$$!D$Wid$>,TtoFlg
+10$:	MovB	(R4)+,R0
+	Bne	11$
+	Dec	R4
+	MovB	#40,R0
+11$:	Call	SsOutS		;Write Char
+	Inc	R1
+	Sob	R2,10$
+	Bit	#D$Wid$,@SP
+	Beq	15$
+	AsrB	StrLen
+	IncB	Shifts
+	AslB	Shiftm
+15$:	Mov	(SP)+,TtoFlg
+	Mov	(SP)+,R5
+	Return
+.Save
+.Psect	$Const
+LatCns:	.Ascii	/Lat/
+RusCns:	.Byte	'r+200,'U+200,'S+200
+BlrCns:	.Ascii	/Blk/
+Spaces:	.AsciZ	/          /
+.Even
+.Restore
+ .SbTtl	Special Line Symbol Output
+SsOutS::
+;
+;At This Point R0 Contains Symbol Code
+;R1 Contains Coordinates: Y*400+X
+;Preserves Registers R0..R4
+;
+	Bit	#SsFlg$,TtoFlg	;Special Line On ?
+	Bne	10$		;No, Exit
+	Jsr	R0,SavRg	;Save R0..R4
+	Mov	CrsAdr,@#SSCad	;Save Cursor Coordinates
+	Mov	CursX,@#CrsSS	;
+	Mov	TtoFlg,@#SSTtFg
+	Mov	@#Vec4,@#SSVec4	;Save Vec4
+	Mov	#5$,@#Vec4	;and set new
+	Bic	#<Lat$$!MixO$$!AscO$$>,TtoFlg
+	Bis	#Block$,TtoFlg
+	Mov	R0,-(SP)
+	Mov	R1,CursX	;
+	Call	CurAdr		;Compute Address
+	Add	#<9.*24.*100>+100,CrsAdr	;
+	Bis	#100000,CrsAdr
+	Bic	#40000,CrsAdr
+	Clr	CursX		;To disable Wrapping
+	Mov	(SP)+,R0
+	Call	TtyPrg
+
+	Mov	@#SSCad,CrsAdr	;Restore All 
+	Mov	@#CrsSS,CursX	;
+	Mov	@#SSTtFg,TtoFlg	;
+	Mov	@#SSVec4,@#Vec4	;
+	Jmp	RetEmt		;Restore Registers and Exit
+10$:	Return
+5$:	Mov	@#SSCad,CrsAdr	;Trap to 4
+	Mov	@#CrsSS,CursX	;
+	Mov	@#SSTtFg,TtoFlg	;Restore All and Exit
+	Mov	@#SSVec4,@#Vec4	;
+	Jmp	@Vec4		;
+.Save
+.Psect	$RAM
+SSCad:	.BlkW
+CrsSS:	.BlkW
+SSTtFg:	.BlkW
+SSVec4:	.BlkW
+.Restore	
+
+ .SbTtl	$Bbufset (EMT 74) Routine (Switch Screen Buffers)
+$Bbufset::
+	Jsr	R0,SavRg
+	MovB	R0,R3
+	ClrB	R0
+	Swab	R0		;Upper Byte = Video Area
+	MovB	Screen,R4
+	CmpB	R3,R4		;It's Current Screen ?
+	Beq	5$		;Yes, Not Modify
+	CmpB	R3,#1
+	Bhi	5$		;Too Big, Not Modify
+	MovB	R3,Screen
+	Asl	R3
+	Asl	R4
+	Mov	SclTb(R3),SclWri;Scroll Temp Memory Address
+	Mov	ScrSel,R5	;
+	Bic	#7*400,R5	;Clear Screen Page bits
+	Bis	SelTb(R3),R5	;And Set New Value
+	Mov	R5,ScrSel
+	Mov	SveAr(R3),R3	;Read Area Address
+	Mov	SveAr(R4),R4	;Old Screen Save Area
+	Mov	#ScrAre,R1	;Start of Work Area
+	Mov	#ScrCnt,R2	;Area Length
+44$:	Mov	@R1,(R4)+	;Save Old
+	Mov	(R3)+,(R1)+	;Restore New	
+	Sob	R2,44$
+	Mov	R0,-(SP)
+	Call	KbdSS
+	Mov	(SP)+,R0
+5$:	Asl	R0
+	Cmp	R0,#2
+	Bhi	56$
+	Beq	55$
+	Bic	#4,@#$$SysS
+	Bic	#4,@#$$UsrS
+	Bic	#4,ScrSel
+	Br	57$
+55$:	Bis	#4,@#$$UsrS
+	Bis	#4,@#$$SysS
+	Bis	#4,ScrSel
+57$:	Mov	SclTb(R0),SclVid
+56$:	Mov	@#$$SysS,@#Sel1
+	Tst	@#Sel1
+	Mov	@SclVid,@#Scroll	;Set Real Scrolling Address
+	Jmp	RetEmt
+
+SetScl:	Bic	#^C377,@SclWri
+	Bis	#1000,@SclWri
+	Mov	@SclVid,@#Scroll	;Set Real Scrolling Address
+	Return
+ .SbTtl	Terminal Output Initialization Routine
+.Psect	$Code
+TtoIni::
+	Mov	#ScrAre,R0	;Write Address
+	Mov	#3,R3		;Screen Counter
+2$:	Mov	#Scopy,R2	;Read Address
+	Mov	#ScrCnt,R1	;Word Counter
+1$:	Mov	(R2)+,(R0)+
+	Sob	R1,1$
+	Sob	R3,2$
+	Clr	Screen		;Current screen =0
+	Mov	#SclAd0,SclVid
+	Mov	#SclAd0,SclWri
+	Mov	#1330,SclAd0
+	Mov	#1330,SclAd1
+	Mov	#1330,@#Scroll
+	Mov	#<SysRam!400!WrEnS!Mot$$$>,ScrSel
+	Mov	#1,FlInit	;Enable SS Output
+	Mov	#1,R0
+	Call	$Bbufset	;Set Screen 1
+	Call	TtoIn1
+	Clr	R0
+	Call	$Bbufset	;Set Screen 0
+TtoIn1::
+	Mov	#0,TtoFlg
+	ClrB	Shifts
+	Mov	#1,R0
+	Call	SetWid	;Set Width, Special Line
+	Call	FF
+	Jmp	TstCrs
+ .SbTtl	Work Areas
+.Psect	$RAM
+ScrSel::.BlkW
+FlInit::.Blkw
+
+ScrAre::
+CursX::	.BlkB
+CursY::	.BlkB
+CrsAdr::.BlkW
+ScrBot::.BlkW
+Shifts::.BlkB
+Shiftm::.BlkB
+StrLen::.BlkB
+LenFnc::.BlkB
+SpcFnc::.BlkB
+.Even
+PrefiX::.BlkW
+TtoFlg::.BlkW
+ScrLng::.BlkW
+FfLng::	.BlkW
+MaxLin::.BlkW
+SpcLng::.BlkW
+AlpTab::.BlkW	2
+GrpTab::.BlkW	2
+Color::	.BlkW
+BkGnd::	.BlkW
+XCoord::.BlkW
+YCoord::.BlkW
+RstrMx::.BlkW
+ScrCnt==<.-ScrAre>/2
+
+SvBuf0::.BlkW	ScrCnt
+SvBuf1::.BlkW	ScrCnt
+
+FncAd::	.BlkW
+Screen::.BlkW
+SclVid::.BlkW
+SclWri::.BlkW
+SclAd0::.BlkW
+SclAd1::.BlkW
+ .Psect	$Const
+Scopy::
+.Byte	0	;CursX
+.Byte	0	;CursY
+.Word	MemBeg	;CrsAdr
+.Word	MemBeg	;ScrBot
+.Byte	1	;Shifts
+.Byte	2	;Shiftm
+.Byte	32.	;StrLen
+.Byte	2	;LenFnc
+.Byte	1	;StrFnc
+.Even
+.Word	0	;Prefix
+.Word	0	;TtoFlg
+.Word	9.*24.*100	;ScrLng
+.Word	<9.*24.*100>/2	;FfLng
+.Word	24.		;MaxLin
+.Word	256.-<9.*24.>	;SpcLng
+.Word	SysSel,SymTab	;AlpTab
+.Word	SysSel,SymG00	;GrpTab
+.Word	177777		;Color
+.Word	0		;BkGnd
+.Word	0,0		;Xcoord,Ycoord
+.Word	24.*9.-1	;RstrMx
+ .Psect	$CodOvr
+.SbTtl	$BtvSet (EMT 64) Routine (Set TV-set Handler Mode)
+$BtvSet::
+	Jsr	R0,SavRg	;Save User's Registers
+	Mov	R0,R5		;User Table Address
+	Call	GetUWd		;New User TtoFlg 
+	Mov	TtoFlg,R2	;Get old TtoFlg
+	Mov	R5,-(SP)
+	Mov	R0,-(SP)	;Temporary copy of R0
+Bic	#<SSflg$!Crsr$$!D$Wid$!WdtMsk>,R0	;Special bits are ignored
+Bic	#^C<SSflg$!Crsr$$!D$Wid$!WdtMsk>,R2
+	Bis	R0,R2		;Set Appropriate bits
+	Mov	R2,TtoFlg	;And REstore Ttoflg
+	Mov	@SP,R0
+Bic	#^C<SSflg$!Crsr$$!D$Wid$!WdtMsk>,R0	;Only Special Bits
+	Mov	R2,-(SP)	;Copy of TtoFlg
+Bic	#^C<SSflg$!Crsr$$!D$Wid$!WdtMsk>,@SP	;Only Special Bits
+	Xor	R0,@SP		;Only Changed bits Are set
+	Mov	#Crsr$$,R0
+	Bit	R0,@SP		;Cursor state changed ?
+	Beq	10$		;No
+	Call	TstCrs		;Reset Cursor
+	Xor	R0,TtoFlg	;Change State
+	Call	TstCrs		;And set it Again
+10$:	Bit	#SSflg$,@SP
+	Beq	20$
+	Call	$SETSS		;Change Special string State
+20$:	Bit	#WdtMsk,@SP
+	Beq	30$
+	MovB	2(SP),R0
+	Bic	#^C<WdtMsk>,R0
+	Call	Setwid		;Set Appropriate Width
+30$:	Bit	#D$Wid$,@SP
+	Bne	50$
+	Bit	#D$Wid$,2(SP)	;New mode is set ?
+	Bne	40$		;Yes
+	Call	SetSng
+	Br	50$
+40$:	Call	SetDbl
+50$:	Cmp	(SP)+,(SP)+
+	Mov	(SP)+,R5	;Restore User TAble Pointer		
+	Call	GetUwd
+	Beq	60$
+	Mov	R0,AlpTab	;Alp. Table
+	Call	GetUwd
+	Mov	R0,AlpTab+2
+	Br	70$
+60$:	Mov	#SysSel,AlpTab
+	Mov	#SymTab,AlpTab+2
+	Call	GetUwd
+70$:	Call	GetUwd
+	Beq	80$
+	Mov	R0,GrpTab
+	Call	GetUwd
+	Mov	R0,GrpTab+2
+	Br	90$
+80$:	Mov	#SysSel,GrpTab
+	Mov	#SymG00,GrpTab+2
+	Call	GetUwd
+90$:	Call	GetUbt
+	TstB	R0
+	Bmi	100$
+	Call	Mult
+	Mov	R0,Color
+100$:	Call	GetUbt
+	TstB	R0
+	Bmi	110$
+	Call	Mult
+	Mov	R0,BkGnd
+110$:	ClC
+	Jmp	RetEmt
+ .SbTtl	$BtvGet (EMT 34) Routine (Get TV-set Handler Mode)
+$BtvGet::Jsr	R0,SavRg
+	Mov	R0,R5		;User TAble Adress
+	Mov	TtoFlg,R0
+	Call	PutUWd
+	Mov	AlpTab,R0
+	Call	PutUWd
+	Mov	AlpTab+2,R0
+	Call	PutUWd
+	Mov	GrpTab,R0
+	Call	PutUWd
+	Mov	GrpTab+2,R0
+	Call	PutUwd
+	MovB	BkGnd,R0
+	Swab	R0
+	ClrB	R0
+	BisB	Color,R0
+	Call	PutUwd
+	ClC
+	Jmp	RetEmt
+.End

@@ -1,0 +1,19 @@
+CM modified WA1MKP
+CE
+sy hgh=7.0
+sy len=1.272
+GW 1 9 -.5 -.55  hgh  .55 -.55  hgh  .001
+GW 2 9 -.5  .5  hgh -.5 -.55  hgh  .001
+GW 3 9 -.4  .5  hgh  .55  .5  hgh  .001
+GW 4 9  .55  .5  hgh  .55 -.55  hgh  .001
+GW 5 11 -.5  .5  hgh -.5  .5  hgh+len  .001
+GW 6 11 -.4  .5  hgh -.4  .5  hgh+len  .001
+GW 7 9 -.4  .5  hgh+len  .55  .5  hgh+len  .001
+GW 8 9  .55  .5  hgh+len  .55 -.55  hgh+len  .001
+GW 9 9  .55 -.55  hgh+len -.5 -.55  hgh+len  .001
+GW 10 9 -.5 -.55  hgh+len -.5  .5  hgh+len  .001
+GE 1
+GN 2 0 0 0 13  0.005
+FR 0 1 0 0 28.25 1
+EX 0 6  5  0  1.0 0.0
+EN

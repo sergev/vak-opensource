@@ -1,0 +1,1581 @@
+\1cw Version 3.10
+\U1STANDARD
+\U2SMALL
+\U8LINEDRAW
+\U9MATHI
+\U%RUSSIAN
+\pPL  129
+\pPF    1
+\pTF    1
+\pRM   60
+\pLM    8
+\pTM    0
+\pBM    2
+\pPI    0
+\pQU    0
+\pJU    1
+\pHS    1
+\pDS    1
+\pEN    0
+\pSP    0
+\pTA   3  6  9 13 59 60
+\pPS    1
+\pTS    1
+\FD
+\+
+\+
+\+
+\+
+\^\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \@\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \^\,
+\=
+\+
+\^\ \ \ \ \ \ V.\%Bpvtytybt fh[bntrnehs VR< lkz 'vekzwbb <"CV\1-6\ \ \ \ \ \ \^\,
+\-\/
+\+
+\^\ \ \ \ \ \ \ \ \ \%b lheubt ghbvtytybz vbrhjghjuhfvvbhjdfybz\1.\ \ \ \ \ \ \ \ \^\,
+\-
+\+
+\^\ \ \ \ \ \ \ \ \ \ 5.1.\%Jhufybpfwbz vbrhjghjuhfvvyjuj ehjdyz\ \ \ \ \ \ \ \ \ \^\,
+\-\/
+\+
+\^\ \ \ \ \ \ \ lkz bynthghtnfwbb jlyjq bkb ytcrjkmrb[ vfiby\1.\ \ \ \ \ \ \ \^\,
+\-
+\+
+\ \ \[\%D \ \ j,otv \ \ ckexft \ \ 'vekznjh \ \ \1- \ \ \%'nj \ \ fggfhfnyst \ \ bkb 
+\-
+\+
+vbrhjghjuhfvvyst chtlcndf lkz dsgjkytybz ghjuhfvv\1, \%pfgbcfyys[ 
+\-
+\+
+d cbcntvt rjvfyl lheujq "DV\1. \%Njulf 'vekzwbz \ tcnm \ dsgjkytybt 
+\-
+\+
+dsxbckbntkmyjq vfibyjq 'nb[ ghjuhfvv \1/35/.\,
+\-
+\+
+\ \ \[\%"vekzwb. \ \ vj;yj \ \ hfccvfnhbdfnm \ \ \ rfr \ \ \ rjv,bybhjdfyysq 
+\-
+\+
+ghjuhfvvyj\1-\%fggfhfnysq gjl[jl \ r \ vjltkbhjdfyb.\1, \ \%bvbnbhe.otve 
+\-
+\+
+aeyrwbjybhjdfybt ytrjnjhjuj \ j,]trnf \ \1/1/. \ \%Fggfhfnyfz \ xfcnm 
+\-
+\+
+vj;tn \ cjcnjznm \ \ bp \ \ ljgjkybntkmys[ \ \ kjubxtcrb[ \ \ c[tv \ \ d 
+\-
+\+
+'vekbhe.otq vfibyt\1, \%f nfr;t bp vbrhjghjuhfvvyj \ htfkbpjdfyys[ 
+\-
+\+
+lj,fdktybq b hfcibhtybq\1. \%Nfrbv j,hfpjv\1, \%'vekznjh cnhjzn gentv 
+\-
+\+
+nfrjuj \ hfcibhtybz \ fggfhfnehs \ b \ ghjuhfvvyjuj \ \ j,tcgtxtybz 
+\-
+\+
+vjltkbhe.otq vfibys\1, \%rjnjhsv j,tcgtxbdftncz drk.xtybt \ d \ ytt 
+\-
+\+
+ytrjnjhjuj jnj,hf;tybz bc[jlyjq vfibys\1.\,
+\-
+\+
+\ \ \[\%Jhufybpfwbz \ \ vbrhjghjuhfvvyjuj \ \ \ ehjdyz \ \ \ vj;tn \ \ \ ,snm 
+\-
+\+
+jhbtynbhjdfyf yf bynthghtnfwb. jlyjq\1, \%ytcrjkmrb[ bkb ,jkmijuj 
+\-
+\+
+xbckf \ vfiby\1. \ \%Ghb \ bynthghtnfwbb \ ,jktt\1, \ \%xtv \ jlyjq \ vfibys 
+\-
+\+
+vbrhjghjuhfvvysq ehjdtym ljk;ty bvtnm \ cjjndtncnde.ott \ xbckj 
+\-
+\+
+vbrhjghjuhfvv\1. \ \%Vbrhjghjuhfvvs \ lkz \ bynthghtnfwbb \ \ \1"\%xe;juj\1" 
+\-
+\+
+\%nhflbwbjyyjuj vfibyyjuj ehjdyz \ nfr;t \ yfpsdf.ncz \ 'vekznjhjv 
+\-
+\+
+\1/29/. \ \%D \ dsxbckbntkmyjq \ vfibyt\1, \ \%bvt.otq \ \ vbrhjghjuhfvvysq 
+\-
+\+
+ehjdtym\1, \ \%jhbtynbhjdfyysq \ yf \ bynthghtnfwb. \ ,jkmijuj \ xbckf 
+\-
+\+
+vfiby\1, \ \%nfrjt \ gjyznbt \ yt \ bvttn \ \ cvsckf\1, \ \ \%n\1.\%r\1. \ \ "\%cdjtuj\1" 
+\-
+\+
+\%nhflbwbjyyjuj vfibyyjuj ehjdyz yt ceotcndetn\1.\,
+\-
+\+
+\ \ \[\%Bvttncz vyjuj ghbvthjd 'vekzwbb\1: IBM 7090 \ \%'vekbhetncz \ yf 
+\-
+\+
+vjltkb \165 \%Cbcntvs \1360, \%Cbcntvf \11620 \%'vekbhetncz yf vjltkb \ \120 
+\-
+\+
+\%Cbcntvs \1360 /1/. \%Fh[bntrnehf vbrhjghjuhfvvyjuj ehjdyz Cbcntvs 
+\-
+\+
+\1370 \ \%gjpdjkbkf \ ljcnbuyenm \ dscjrjq \ ghjbpdjlbntkmyjcnb \ \ lkz 
+\-
+\+
+nhflbwbjyyjuj vfibyyjuj ehjdyt Cbcntvs \1370, \%f \ nfr;t \ vjltktq 
+\-
+\+
+\11401 \%b \17094 \%abhvs \1IBM.\,
+\-
+\+
+\ \ \[\%Wtynhfkmyst ghjwtccjhs \1IBM \%ybrjulf yt ghtlyfpyfxfkbcm \ lkz 
+\-
+\+
+dsgjkytybz \ \ vbrhjghjuhfvv\1, \ \ \ \%bynthghtnbhe.ob[\1, \ \ \ \%yfghbvth\1, 
+\-
+\+
+\%ghjuhfvvs \1Cyber-70, \%b jyb yt gjl[jlzn lkz 'njq wtkb\1. \%D nj \ ;t 
+\-
+\+
+dhtvz \ lkz \ "DV \ D\11700 \ \ \%abhvs \ \ \1Burroughs \ \ \%,sk \ \ hfphf,jnfy 
+\-
+\+
+vbrhjghjuhfvvysq \ ehjdtym \ j,otuj \ yfpyfxtybz\1. \ \ \%<tp \ \ jcj,s[ 
+\-
+\+
+pfnhelytybq jy vj;tn bynthghtnbhjdfnm \ ghjuhfvvs\1, \ \%yfgbcfyyst 
+\-
+\+
+yf vfibyyjv zpsrt Cbcntvs \1370, PDP-11, \ Cyber-70 \ \%bkb \ lheub[ 
+\-\/
+\+
+vfiby\1. \%Dcktlcndbt cdjtq eybdthcfkmyjcnb 'njn vbrhjghjuhfvvysq 
+\-
+\+
+ehjdtym \ yt \ nfr \ 'aatrnbdty\1, \ \%yfghbvth\1, \ \%ghb \ \ bynthghtnfwbb 
+\-
+\+
+ghjuhfvv \ Cbcntvs \ \1370, \ \%rfr \ wtynhfkmyst \ \ ghjwtccjhs \ \ \1IBM, 
+\-
+\+
+\%cgtwbfkmyj hfphf,jnfyyst lkz 'njq wtkb\1.\,
+\-
+\+
+\ \ \[\%Lkz \ ecgtiyjq \ hfphf,jnrb \ 'vekznjhf \ \ ytj,[jlbvj \ \ htibnm 
+\-
+\+
+cktle.obt pflfxb \1/1/:\,
+\-
+\+
+\ \ \[1)\%j,tcgtxbnm yf 'vekbhe.otq \ vfibyt \ jnj,hf;tybt \ bc[jlyjq 
+\-
+\+
+vfibys\1, \%d xfcnyjcnb\1:\,
+\-
+\+
+\ \ \ \ \ \[- \%jgthfnbdyjq gfvznb\1,\,
+\-
+\+
+\ \ \ \ \ \[- \%cbcntvs ddjlf\1-\%dsdjlf\1,\,
+\-
+\+
+\ \ \ \ \ \[- \%htubcnhjd\1, \ \%nhbuuthjd\1, \ \%cxtnxbrjd \ b \ dct[ \ jcnfkmys[ 
+\-
+\+
+\ \ \[chtlcnd bc[jlyjq vfibys\1, \%rjnjhst flhtce.ncz d ghjuhfvvt\1;\,
+\-
+\+
+\ \ \[2)\%ds,hfnm uhegge vfibyys[ rjvfyl \ lkz \ hfcibhtybz \ cbcntvs 
+\-
+\+
+rjvfyl 'vekbhe.otq vfibys\1;\,
+\-
+\+
+\ \ \[3)\%j,tcgtxbnm \ \ gjkye. \ \ \ ytpfdbcbvjcnm \ \ \ ht;bvf \ \ \ hf,jns 
+\-
+\+
+'vekbhe.otq vfibys b ht;bvf 'vekzwbb c ntv\1, \ \%xnj,s \ cj[hfybnm 
+\-
+\+
+fh[bntrnehye. \ cjdvtcnbvjcnm \ vt;le \ 'vekbhe.otq \ vfibyjq \ \ b 
+\-
+\+
+lheubvb vjltkzvb 'njuj ctvtqcndf\1;\,
+\-
+\+
+\ \ \[4)\%hfphf,jnfnm 'aatrnbdye. jgthfwbjyye. cbcntve\1, \ \%d \ hfvrf[ 
+\-
+\+
+rjnjhjq vjukf ,s hf,jnfnm k.,fz \ vjltkbhe.ofz \ ghjuhfvvf \ bkb 
+\-
+\+
+'vekznjh\1.\,
+\-
+\+
+\,
+\-
+\+
+\^\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 5.2.\%"vekzwbz "DV <"CV\1-6.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \^\,
+\-\/
+\+
+\ \ \[\%R ukfdysv \ jcj,tyyjcnzv \ 'vekznjhf \ <"CV\1-6 \ \%vj;yj \ jnytcnb 
+\-
+\+
+cktle.obt tuj xthns \1/60/:\,
+\-
+\+
+\ \ \[1)\%jlyjnbgysq cgjcj, hfcghtltktybz gfvznb rfr d VR<\1, \%nfr \ b 
+\-
+\+
+d <"CV\1-6, \%c njxyjcnm. lj hfpvthf flhtcyjuj ghjcnhfycndf\1;\,
+\-
+\+
+\ \ \[2)\%htubcnhs b ht;bvs hf,jns\1, \%ljcnegyst ghjuhfvvt \ d \ ht;bvt 
+\-
+\+
+vfntvfnbrf\1, \%d VR< nt ;t\1, \%xnj b d <"CV\1-6;\,
+\-
+\+
+\ \ \[3)\%lj,fdktyj \ \ \146 \ \ \%cgtwbfkmys[ \ \ \ rjvfyl\1, \ \ \ \%htfkbpjdfyys[ 
+\-
+\+
+vbrhjghjuhfvvyj\1, \%lkz ghzvjq 'vekzwbb rjvfyl <"CV\1-6 \ \%d \ ht;bvt 
+\-
+\+
+vfntvfnbrf\1;\,
+\-
+\+
+\ \ \[4)\%bvt.ncz \ \ \ jghtltktyyst \ \ \ hfpkbxbz \ \ \ dj \ \ \ \ dyenhtyytv 
+\-
+\+
+ghtlcnfdktybb \ \ rjvfyl \ \ b \ \ lfyys[\1, \ \ \%cdzpfyyst \ \ c \ \ hfpyjq 
+\-
+\+
+hfphzlyjcnm. vfibyyjuj ckjdf\1.\,
+\-
+\+
+\ \ \[\%Lkz \ ljcnb;tybz \ vfrcbvfkmyjuj \ \ c[jlcndf \ \ ghb \ \ 'vekzwbb 
+\-
+\+
+ytj,[jlbvs cgtwbfkmyst chtlcndf\1, \%bcgjkyz.obt \ nfr \ yfpsdftvsq 
+\-
+\+
+\1"\%bynthghtnbhe.obq wbrk\1" /1/. \%Jy pfrk.xftncz d vfybgekzwbz[ cj 
+\-
+\+
+cxtnxbrjv rjvfyl\1, \ \%d \ dsxbcktybz[ \ bcgjkybntkmyjuj \ flhtcf \ b 
+\-
+\+
+ghtj,hfpjdfybb tuj d abpbxtcrbq flhtc gfvznb\1, \%d bynthghtnfwbb 
+\-\/
+\+
+rjlf \ vjltkbhetvjq \ jgthfwbb \ \ b \ \ gthtlfxt \ \ eghfdktybz \ \ yf 
+\-
+\+
+cjjndtncnde.oe. 'vekzwbjyye. vbrhjghjuhfvve\1.\,
+\-
+\+
+\ \ \[\%Gjcrjkmre VR< cjplfdfkfcm rfr <"CV\1-\%gjlj,yfz "DV \ c \ extnjv 
+\-
+\+
+djpvj;yjcnb \ 'vekzwbb \ <"CV\1-6, \ \%ytj,[jlbvjcnm \ d \ 'njv \ wbrkt 
+\-
+\+
+jngfkf\1, \ \ \%n\1.\%r\1. \ \ \%dct \ \ gthtxbcktyyst \ \ jgthfwbb \ \ dsgjkyz.ncz 
+\-
+\+
+fyfkjubxyj rfr d VR<\1, \%nfr b ghb 'vekzwbb <"CV\1-6.\,
+\-
+\+
+\ \ \[\%Djghjcs \ hfphf,jnrb \ jgthfwbjyyjq \ cbcntvs \ b \ jnj,hf;tybt 
+\-
+\+
+cbcntvs ddjlf\1-\%dsdjlf <"CV\1-6 \%ds[jlbn pf hfvrb \ lfyyjq \ hf,jns\1. 
+\-
+\+
+\%Htitybt 'nb[ ghj,ktv jgbcfyj d \1/69,70/.\,
+\-
+\+
+\,
+\-
+\+
+\^\ \ 5.2.1.\%Vbrhjghjuhfvvysq ehjdtym VR< lkz 'vekzwbb <"CV\1-6.\ \ \^\,
+\-\/
+\+
+\ \ \[\%Rjkbxtcndj fggfhfnehs \ cgtwbfkmyj \ lkz \ htfkbpfwbb \ ht;bvf 
+\-
+\+
+'vekzwbb \ \1(\%H"\1) \ \%<"CV\1-6 \ \%jxtym \ ytpyfxbntkmyj \ b \ cdjlbncz \ \ d 
+\-
+\+
+jcyjdyjv r c[tvt dsltktybz flhtcf\1, \%yjvthf \ byltrc\1-\%htubcnhf \ b 
+\-
+\+
+rjlf jgthfwbb rjvfyls \ d \ cnfylfhnbpfnjht \ rjvfyl\1, \ \%gjcrjkmre 
+\-
+\+
+hfphzlyjcnm ckjdf b ajhvfns rjvfyl hfpkbxys\1. \%Rhjvt 'njuj\1, \%lkz 
+\-
+\+
+H" tcnm jnltkmysq \ gthtrk.xfntkm \ gj \ rjle \ jgthfwbb \ rjvfyls 
+\-
+\+
+\1(\%GYF\1) \%lkz ds,jhf gjcktljdfntkmyjcnb vbrhjrjvfyl \1(\%hbc\1.9). \ \%Dct 
+\-
+\+
+jcnfkmyjt htfkbpetncz vbrhjghjuhfvvyj\1.\,
+\-
+\+
+\ \ \[\%Ds,jh ht;bvf ltrjlbhjdrb rjvfyls d cnfylfhnbpfnjht \ rjvfyl 
+\-
+\+
+b ds,jh cjjndtncnde.otuj GYF jceotcndkztncz c gjvjom. hfphzlf 
+\-
+\+
+htubcnhf \ \ ht;bvjd \ \ VR<\1. \ \ \%Cvtyf \ \ \ ht;bvf \ \ \ jceotcndkztncz 
+\-
+\+
+ghbdbktubhjdfyysvb rjvfylfvb \ gjl \ eghfdktybtv \ JC\1. \ \%Jlby \ bp 
+\-
+\+
+hfphzljd ntuf nfr;t \ cjlth;bn \ ghbpyfr \ ht;bvf\1. \ \%Ghb \ ds,jhrt 
+\-
+\+
+jgthfylf bkb rjvfyls c hfpysvb pyfxtybzvb \ ht;bvf \ ghjbc[jlbn 
+\-
+\+
+dyenhtyytt \ ghthsdfybt\1, \ \%tckb \ jyj \ yt \ pf,kjrbhjdfyj\1.\,
+\-
+\+
+\ \ \[\%Nfrbv j,hfpjv \ jceotcndkztncz \ gjkyfz \ ytpfdbcbvjcnm \ 'nb[ 
+\-
+\+
+lde[ ht;bvjd hf,jns WG b b[ \ 'aatrnbdyjt \ dpfbvjltqcndbt \ gjl 
+\-
+\+
+eghfdktybtv JC\1. \ \%Gjzdkztncz \ djpvj;yjcnm \ hf,jns \ ghjuhfvv \ d 
+\-
+\+
+cvtifyyjv ht;bvt\1, \ \%rjulf \ ghjuhfvvf \ jcyjdyjuj \ ht;bvf \ vj;tn 
+\-
+\+
+dspdfnm ghjuhfvve ht;bvf 'vekzwbb d ghtltkf[ jlyjuj ghjwtccf\1.\,
+\-
+\+
+\,
+\-
+\+
+\^\ \ \ \ \ \ \ \ 5.2.2.\%Nhflbwbjyysq vfibyysq ehjdtym <"CV\1-6.\ \ \ \ \ \ \ \ \^\,
+\-\/
+\+
+\ \ \[\%GHTLCNFDKTYBT XBCTK <"CV\1-6. \%Lkbyf ckjdf d jcyjdyjv \ ht;bvt 
+\-
+\+
+yf \116 \%hfphzljd ,jkmit\1, \%xtv d H"\1. \%Cktljdfntkmyj\1, \%ghb \ 'vekzwbb 
+\-
+\+
+<"CV\2-\16 \%gjzdkztncz \ djpvj;yjcnm \ cxbnfnm \ d \ ht;bvt \ <"CV\1-6 \ \%c 
+\-
+\+
+njxyjcnm. \ jcyjdyjuj \ ht;bvf\1. \ \%Lkz \ 'njuj \ ytj,[jlbvj\1, \ \%xnj,s 
+\-
+\+
+uhfybwf vt;le vfynbccjq b gjhzlrjv d \ jcyjdyjv \ ht;bvt \ b \ H" 
+\-
+\+
+cjdgflfkb\1. 48-\%hfphzlyjt xbckj \ <"CV\1-6 \ \%gjkexftncz \ bp \ j,otuj 
+\-
+\+
+ghtlcnfdktybz ectxtybtv cnfhib[ \14 \%hfphzljd gjhzlrf b \ vkflib[ 
+\-\/
+\+
+\112 \ \%hfphzljd \ \ vfynbccs\1. \ \ \%Gj'njve \ \ \1"\%kbiybt\1" \ \ 16 \ \ \%hfphzljd 
+\-
+\+
+hfcghtltkbkbcm cktle.obv j,hfpjv\1: 4 \%hfphzlf \1- \%yf vtcnt \ \160-63 
+\-
+\+
+\%hfphzljd lkz edtkbxtybz lbfgfpjyf gjhzlrjd\1, \%jcnfkmyst \112 - \%yf 
+\-
+\+
+vtcnt \ vkflib[ \ hfphzljd \ lkz \ edtkbxtybz \ njxyjcnb \ vfynbccs 
+\-
+\+
+\1(\%hbc\1.14\%f\1.).\,
+\-
+\+
+\^\,
+\-
+\-     64 63         54 53 52                               1
+\-
+\-     \8q=====================================================e
+\-     ` p             p p                                   `
+\-     ` p   \%gjhzljr   \8p p         \%v f y n b c c f           \8`
+\-
+\-     z=====================================================c
+\-      p               p
+\-
+\-      <               <
+\-\%f\1).  \%pyfr gjhzlrf    pyfr vfynbccs
+\-      \8I               I
+\-      p               p
+\-     q=====================================================e
+\-     ` p     p       p p                        p          `
+\-     ` p\1xxxxx\8p\%gjhzljr\8p p     \%v f y n b c c f    \8p\1xxxxxxxxxx\8`
+\-
+\-     z=====================================================c
+\-
+\-
+\-     \164 63 60 59   54 53 52                   1  12       1
+\-
+\-
+\-
+\-
+\-     64 63..60 59    ...     37 36    ...     13 12  ...  1
+\-
+\-     \8q==p=====p================p=================p=========e
+\-     `  p     p                p                 p         `
+\-\%,\1).  \8`\%kt\8p\1xxxxx\8p  \%dfz rjvfylf   \8p \%ghfdfz rjvfylf  \8p\1xxxxxxxxx\8`
+\-     `  p     p                p                 p         `
+\-     z=====================================================c
+\-
+\-
+\-
+\-\%Hbc\1.14.\%f\1).\%Ghtlcnfdktybt xbctk c gkfdf.otq pfgznjq d H"\1.
+\-
+\-
+\-       \%,\1).\%Ajhvfn rjvfyl 'vekznjhf <"CV\1-6.
+\-
+\-
+\-
+\+
+\ \ \[\%Nfrjt ghtlcnfdktybt lftn djpvj;ycnm\1:\,
+\-
+\+
+\ \ \[\%f\1)\%ghjbpdjlbnm fhbavtnbxtcrbt jgthfwbb jlbyfrjdsv \ cgjcj,jv 
+\-
+\+
+\1(\%d jcyjdyjv gj jlybv b ntv ;t vbrhjghjuhfvvfv\1) \%rfr d jcyjdyjv 
+\-
+\+
+ht;bvt\1, \%nfr b d ht;bvt 'vekzwbb <"CV\1-6;\,
+\-
+\+
+\ \ \[\%,\1)\%hfcibhznm \ lbfgfpjy \ gjhzlrjd \ b \ edtkbxbdfnm \ \ njxyjcnm 
+\-
+\+
+dsxbcktybq d ht;bvt 'vekzwbb\1.\,
+\-
+\+
+\ \ \[\%Ht;bv edtkbxtybz njxyjcnb d H" pflftncz \ pyfxtybtv \ jlyjuj 
+\-
+\+
+bp hfphzljd htubcnhf ht;bvjd WG\1, \%n\1.\%t\1. \%d ht;bvt \ <"CV\1-6 \ \%vj;yj 
+\-
+\+
+cxbnfnm\1, \%bcgjkmpez \148 \ \%hfphzljd \ bkb \ \164. \ \%Eghfdktybt \ xbckjv 
+\-
+\+
+hfphzljd ytj,[jlbvj\1. \%n\1.\%r\1. \ \%d \ ghjwtcct \ gthtyjcf \ ghjuhfvv \ c 
+\-
+\+
+<"CV\1-6 \%yf VR< dszcybkjcm\1, \%xnj ytrjnjhst bp yb[ ghb gjdsityyjq 
+\-
+\+
+njxyjcnb hf,jnf.n \ ytdthyj\1. \ \%"nj \ rfcftncz \ ghjuhfvv\1, \ \%ytzdyj 
+\-
+\+
+bcgjkmpe.ob[ rjyrhtnye. hfphzlyjcnm vfibyyjuj ckjdf\1.\,
+\-
+\+
+\ \ \[\%AJHVFN RJVFYL "VEKZNJHF <"CV\1-6. \%Lkbyf rf;ljq rjvfyls d \ H" 
+\-
+\+
+\1- 24 \%,bnf \1(\%hbc\1.10\%,\1.). \%Cnhernehf rjvfyls \1- \ \%nfrfz \ ;t\1, \ \%rfr \ e 
+\-
+\+
+<"CV\1-6. \%Hfpvtof.ncz \12 \%rjvfyls d jlyjv \ \164-\%hfphzlyjv \ ckjdt \ d 
+\-
+\+
+nt[ ;t gjpbwbz[\1, \%xnj b xbckf\1. \%"nj htitybt \ ghjlbrnjdfyj \ ntv\1, 
+\-
+\+
+\%xnj \ vyjubt \ ghjuhfvvs \ <"CV\1-6 \ \%pfybvf.ncz \ cfvjvjlbabrfwbtq\1. 
+\-
+\+
+\%<jktt \ njuj\1, \ \%byjulf \ pfgbcm \ rjvfyl \ \ ghjbpdjlbncz \ \ j,sxyjq 
+\-
+\+
+rjvfyljq pfgbcb c ghtldfhbntkmyjq \ ecnfyjdrjq \ ht;bvf \ pfgbcb 
+\-\/
+\+
+rjvfyl\1.\,
+\-
+\+
+\ \ \[\%D \ ht;bvt \ 'vekzwbb \ <"CV\1-6 \ \%bp \ flhtcyjq \ xfcnb \ \ rjvfyls 
+\-
+\+
+bcgjkmpe.ncz njkmrj vkflibt \115 \%hfphzljd\1.\,
+\-
+\+
+\ \ \[\%Cbcntvf \ rjvfyl \ <"CV\1-6 \ \%zdkztncz \ gjlvyj;tcndjv \ \ cbcntvs 
+\-
+\+
+rjvfyl jcyjdyjuj ht;bvf\1. \%Ajhvbhjdfybt \ rjljd \ jgthfwbq \ \1(\%RJG\1) 
+\-
+\+
+\%ghjbc[jlbn \ ghb \ ds,jhrt \ \ rjvfyls\1. \ \ \%Cnfylfhnbpfnjh \ \ rjvfyl 
+\-
+\+
+fyfkbpbhetn \17-\%q hfphzl rjhjnrjflhtcyjuj RJG d ht;bvt 'vekzwbb 
+\-
+\+
+b d pfdbcbvjcnb jn tuj pyfxtybz ljgjkyztn flhtcye. xfcnm \ \1"0" 
+\-
+\+
+\%bkb \1"1" \%d \115\9:\113 \%hfphzlf[\1, \%rfr 'nj ghbyznj d <"CV\1-6.\,
+\-
+\+
+\,
+\-
+\+
+\^\ \ \ \ \ \ \ \ \ 5.2.3.\%Jcj,tyyjcnb bcgjkytybz rjvfyl d H"\1.\ \ \ \ \ \ \ \ \ \^\,
+\-\/
+\+
+\%Kjubxtcrbt rjvfyls\1. \%"vekzwbz fhbavtnbrb c gkfdf.otq pfgznjq\1.\,
+\-\/
+\+
+\ \ \[\%Gjdsitybt njxyjcnb djpvj;yj ghb dsgjkytybb rjvfyl <"CV\1-6 \%d 
+\-
+\+
+H" c \164-\%hfphzlysvb xbckfvb c gkfdf.otq pfgznjq\1. \%C \ gjdsitybtv 
+\-
+\+
+njxyjcnb d H" \ cdzpfys \ jghtltktyyst \ nhelyjcnb \ d \ jgthfwbz[ 
+\-
+\+
+cvtifyyjq fhbavtnbrb\1, \%rjulf htpekmnfn d ajhvfnt \ c \ gkfdf.otq 
+\-
+\+
+pfgznjq egjnht,kztncz d rfxtcndt jgthfylf kjubxtcrb[ \ rjvfyl\1. 
+\-
+\+
+\%Ghb 'njv djpvj;ys gjnthb \1"\%cbkmyj pyfxfob[\1" \%hfphzljd \ gjhzlrf\1. 
+\-
+\+
+\%Xnj, 'njuj \ bp,t;fnm\1, \ \%d \ vbrhjghjuhfvvf[ \ kjubxtcrb[ \ rjvfyl 
+\-
+\+
+ltkftncz ghjdthrf jgthfyljd yf ljgecnbvjcnm bcgjkmpjdfybz \ b[ 
+\-
+\+
+d kjubxtcrb[ rjvfylf[\1. \%Yj ghjdthrf \ \1"\%ghfdbkmyjcnb\1" \ \%jgthfyljd 
+\-
+\+
+yt dctulf j,zpfntkmyf\1. \%Tckb ghj ghjuhfvve bpdtcnyj\1, \ \%xnj \ jyf 
+\-
+\+
+yt gjkmpetncz \ \1"\%pfghtotyysvb \ ghbtvfvb\1", \ \%ghjdthre \ jgthfyljd 
+\-
+\+
+vj;yj ,kjrbhjdfnm\1. \%"nj lftn ecrjhtybt lj \115% \%d pfdbcbvjcnb jn 
+\-
+\+
+xfcnjns bcgjkmpjdfybz kjubxtcrb[ rjvfyl\1.\,
+\-
+\+
+\ \ \[\%Fhbavtnbxtcrbt rjvfyls d H" <"CV\1-6 \%dsgjkyz.ncz nfr ;t\1, \%rfr 
+\-
+\+
+b \ d \ jcyjdyjv \ ht;bvt \ \1(\%ghfrnbxtcrb \ gj \ jlybv \ b \ \ ntv \ \ ;t 
+\-
+\+
+vbrhjghjuhfvvfv\1). \ \%Ghfdbkf \ jrheuktybz \ \ b \ \ yjhvfkbpfwbb \ \ c 
+\-
+\+
+njxyjcnm. lj djpvj;yjcntq htfkbpfwbb nt ;t \ cfvst\1, \ \%xnj \ b \ d 
+\-
+\+
+<"CV\1-6. \%Ghfdbkmyjcnm dsgjkytybz rjvfyl <"CV\1-6, \%d njv xbckt \ b 
+\-
+\+
+jgthfwbq evyj;tybz b ltktybz\1, \%gjlndth;lftn njn afrn\1, \ \%xnj \ yf 
+\-
+\+
+VR< d ht;bvt 'vekzwbb hf,jnftn ntcn ghjdthrb \ fhbavtnbxtcrjuj 
+\-
+\+
+ecnhjqcndf b ecnhjqcndf eghfdktybz\1, \%ceotcndeobq \ lkz \ cbcntvs 
+\-
+\+
+rjvfyl <"CV\1-6 /71/.\,
+\-
+\+
+\,
+\-
+\+
+\^\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 5.3.\%"vekzwbz "DV "km,hec\1-\%<\1.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \^\,
+\-\/
+\+
+\ \ \[\%"km,hec\1-\%< b VR< \ zdkz.ncz \ <"CV\1-\%gjlj,ysvb \ vfibyfvb\1. \ \%{jnz 
+\-
+\+
+nt[ybxtcrjt bcgjkytybt b[ \ cjdthityyj \ hfpkbxyjt\1, \ \%yf \ ehjdyt 
+\-
+\+
+gjkmpjdfntkz \ e \ yb[ \ \ vyjuj \ \ j,otuj\1. \ \ \%Gj'njve \ \ htfkbpfwbz 
+\-
+\+
+fh[bntrnehs "km,hec\1-\%< \ b\1, \ \%d \ xfcnyjcnb\1, \ \%cbcntvs \ rjvfyl \ yt 
+\-\/
+\+
+ghtlcnfdkztn ckj;yjcnb\1.\,
+\-
+\+
+\ \ \[\%D "km,hec\1-\%< \ ddtltyj \ hzl \ yjds[ \ gj \ chfdytyb. \ c \ <"CV\1-6 
+\-
+\+
+\%rjvfyl\1, \%bvt.ob[ rjls \100\%Y \1- 7F\%Y d \ jcyjdyjv \ b \ ljgjkybntkmyjv 
+\-
+\+
+ajhvfnf[\1. \%Nfrbt ;t rjls lkz yb[ pfhtpthdbhjdfys d VR<\1. \ \%Yjdst 
+\-
+\+
+rjvfyls VR<\1-8601 \ \%bvt.n \ cjjndtncndtyyj \ rjls \ \180\%Y \ \1- \ FF\%Y \ d 
+\-
+\+
+jcyjdyjv b ljgjkybntkmyjv ajhvfnf[\1, \%xnj,s yt \ gthtctrfnmcz \ c 
+\-
+\+
+rjlfvb rjvfyl "DV "km,hec\1-\%<\1. \%Jlbyfrjdst rjvfyls \ "km,hec\1-\%< \ b 
+\-
+\+
+VR<\1-8601, \ \%ceotcnde.obt \ njkmrj \ \ d \ \ yjdjv \ \ ht;bvt\1, \ \ \%bvt.n 
+\-
+\+
+jlbyfrjdst rjls\1.\,
+\-
+\+
+\ \ \[\%Ghb hfphf,jnrt 'vekznjhf "km,hec\1-\%< djpybrf.n \ jghtltktyyst 
+\-
+\+
+nhelyjcnb\1, \%cdzpfyyst c hfpkbxbtv d cbcntvt \ rjvfyl \ b \ lheub[ 
+\-
+\+
+fh[bntrnehys[ jcj,tyyjcnz[\1. \ \%Ghbvthjv \ vj;tn \ ,snm \ uheggjdjq 
+\-
+\+
+ht;bv bcgjkytybz rjvfyl "km,hec\1-\%<\1, \%ghb rjnjhjv k.,st \11 \%bkb \ \12 
+\-
+\+
+\%rjvfyls dsgjkyz.ncz \ cnjkmrj \ hfp\1, \ \%rfrjt \ xbckj \ pfytctyj \ d 
+\-
+\+
+cgtwbfkmysq htubcnh ghb ecnfyjdrt uheggjdjuj ht;bvf\1. \%Ghb 'njv 
+\-
+\+
+jncencndetn \ afpf \ ds,jhrb \ rjvfylyjuj \ ckjdf\1. \ \ \%"njn \ \ ht;bv 
+\-
+\+
+gjkyjcnm. \ \ jnkbxftncz \ \ jn ghbyzns[ \ \ \ ghfdbk \ \ \ jhufybpfwbb 
+\-
+\+
+gjcktljdfntkmyjcnb bcgjkytybz rjvfyl d VR<\1, \%b htfkbpfwbz \ tuj 
+\-
+\+
+ljcnfnjxyj \ ckj;yf \ yf \ vbrhjghjuhfvvyjv \ ehjdyt\1. \ \%D \ 'njv \ b 
+\-
+\+
+gjlj,ys[ \ ckexfz[ \ lkz \ bynthghtnfwbb \ vj;yj \ djcgjkmpjdfnmcz 
+\-
+\+
+'rcnhfrjlfvb\1.\,
+\-
+\+
+\,
+\-
+\+
+\^\ \ \ \ \ \ \ \ \ \ 5.4.\%Hf,jnf d htfkmyjv vfcinf,t dhtvtyb\1.\ \ \ \ \ \ \ \ \ \ \^\,
+\-\/
+\+
+\ \ \[\%Vbrhjghjuhfvvbhjdfybt \ \ vj;yj \ \ bcgjkmpjdfnm \ \ lkz \ \ wtktq 
+\-
+\+
+j,cke;bdfybz \ b \ lkz \ wtktq \ eghfdktybz \ d \ \ nfr \ \ yfpsdftvs[ 
+\-
+\+
+\1"\%cbcntvf[ c ytgjchtlcndtyyjq cdzpm.\1" (ON-LINE) \ \%b \ \1"\%cbcntvf[\1, 
+\-
+\+
+\%hf,jnf.ob[ d htfkmyjv vfcinf,t dhtvtyb\1" (REAL-TIME) /72/. \%"nj 
+\-
+\+
+vjuen ,snm vbrhjghjuhfvvyst vbyb\1-\%"DV\1, \ \%ult \ dpfbvjltqcndbt \ c 
+\-
+\+
+cjjndtncnde.obv \ j,jheljdfybtv \ \ jceotcndkztncz \ \ yf \ \ ehjdyt 
+\-
+\+
+rjvfyl\1. \ \ \ \ \%Ghb \ \ \ \ 'njv \ \ \ \ djpvj;yjcnb\1, \ \ \ \ \%ghtljcnfdkztvst 
+\-
+\+
+vbrhjghjuhfvvbhjdfybtv\1, \ \ \%bcgjkmpe.ncz \ \ ytljcnfnjxyj\1, \ \ \ \%xnj 
+\-
+\+
+cdzpfyj c nhelyjcnzvb bpvtytybz vbrhjghjuhfvvyjuj ehjdyz\1.\,
+\-
+\+
+\ \ \[\%Hfcghtltktyyst \ dsxbckbntkmyst \ cbcntvs \ wtynhfkbpjdfyyjuj 
+\-
+\+
+nbgf cjcnjzn bp lde[ bkb ,jktt "DV\1. \%D 'nb[ \ cbcntvf[ \ ukfdyfz 
+\-
+\+
+"DV pfybvftncz njkmrj j,hf,jnrjq htpekmnfnjd\1. \ \%Lheubt\1, \ \%vtytt 
+\-
+\+
+vjoyst \ "DV\1, \ \%jlyf \ bkb \ ,jkmit\1, \ \ \%yf[jlzncz \ \ yf \ \ kbybb \ \ c 
+\-
+\+
+j,jheljdfybtv b \ pfybvf.ncz \ c,jhjv \ b \ gthdbxyjq \ j,hf,jnrjq 
+\-
+\+
+byajhvfwbb\1. \%D rfxtcndt 'nb[ \ gjcktlyb[ \ vjuen \ bcgjkmpjdfnmcz 
+\-
+\+
+vbrhjghjuhfvvyst \ ghjwtccjhs\1, \ \%bkb \ rjynhjkkths\1, \ \ \%cgtwbfkmyj 
+\-
+\+
+hfphf,jnfyyst lkz 'njq wtkb\1.\,
+\-\/
+\+
+\ \ \[\%Nfr\1, \ \ \ \%yfghbvth\1, \ \ \ \%d \ \ \ \1/28/ \ \ \ \ \%ghbdjlbncz \ \ \ \ jgbcfybt 
+\-
+\+
+vbrhjghjuhfvvbhetvjuj Ajhnhfy \1- \%ghjwtccjhf\1, \ \%vfibyysv \ zpsrjv 
+\-
+\+
+rjnjhjuj \ \ zdkztncz \ \ ghjvt;enjxysq \ \ \ rjl\1, \ \ \ \%dshf,fnsdftvsq 
+\-
+\+
+rjvgbkznjhjv \ \ c \ \ Ajhnhfyf\1. \ \ \%Ghjwtccjh \ \ ghtlyfpyfxty \ \ lkz 
+\-
+\+
+bcgjkmpjdfybz d cbcntvf[ c,jhf byajhvfwbb d ecnfyjdrf[ abpbrb 
+\-
+\+
+dscjrb[ 'ythubq\1.\,
+\-
+\+
+\ \ \[\%D \1/64,65,73/ \%jgbcsdftncz vbrhjghjwtccjhysq rjynhjkkth V\1-16 
+\-
+\+
+\%c vbrhjghjuhfvvysv eghfdktybtv\1. \ \%V\1-16 \ \%dsgjkyty \ d \ cnfylfhnt 
+\-
+\+
+RFVFR \ b \ ghtlyfpyfxty \ lkz \ hf,jns \ d \ cbcntvt \ rjynhjkz \ \ b 
+\-
+\+
+eghfdktybz \ \ rfyfkfvb \ \ \ gexrjd \ \ \ pfhz;tyys[ \ \ \ xfcnbw \ \ \ yf 
+\-
+\+
+cby[hjafpjnhjyt JBZB\1. \%Bc[jlysvb lfyysvb \ d \ 'njq \ b \ gjlj,ys[ 
+\-
+\+
+cbcntvf[ zdkztncz fyfkjujdfz byajhvfwbz j pyfxtybz[ \ njrjd \ d 
+\-
+\+
+vfuybnjjgnbxtcrb[ 'ktvtynf[ rfyfkf b lbcrhtnyfz byajhvfwbz \ c 
+\-
+\+
+ltntrnjhjd \ zlthyjuj \ \ bpkextybz\1, \ \ \%cjlth;fofz \ \ rjjhlbyfnyst 
+\-
+\+
+[fhfrnthbcnbrb gexrf xfcnbw\1.\,
+\-
+\+
+\ \ \[\%Vj;yj jnvtnbnm cktle.obt [fhfrnthyst jcj,tyyjcnb \ gjlj,ys[ 
+\-
+\+
+hfphf,jnjr \1/77/.\,
+\-
+\+
+\ \ \[- \%Dsgjkyz.ncz \ jyb \ d \ j,ob[ \ cnfylfhnf[ \ c \ \ fggfhfnehjq\1, 
+\-
+\+
+\%cdzpfyyjq c 'rcgthbvtynfkmysvb ecnfyjdrfvb \1(\%yfghbvth\1, \%RFVFR\1). 
+\-
+\+
+\%<kfujlfhz 'njve\1, \%ceotcndetn ghjcnfz b 'aatrnbdyfz djpvj;yjcnm 
+\-
+\+
+bcgjkmpjdfnm dct hfphf,jnfyyjt d 'njv cnfylfhnt j,jheljdfybt\1: 
+\-
+\+
+\%hfpkbxyst aeyrwbjyfkmyst ,kjrb cdzpb c ecnfyjdrfvb\1, \ \%f \ nfr;t 
+\-
+\+
+bynthatqcs dytiyb[ ecnhjqcnd\1.\,
+\-
+\+
+\ \ \[- \%Vbrhjghjwtccjhysq \ rjynhjkkth\1, \ \%rfr \ ghfdbkj\1, \ \%yt \ bvttn 
+\-
+\+
+cdjb[ dytiyb[ ecnhjqcnd\1, \%n\1.\%r\1. \%jy cdzpfy kb,j c \ ukfdyjq \ "DV\1, 
+\-
+\+
+\%kb,j \ eghfdkztn \ ytrjnjhsv \ \ ecnhjqcndjv \ \ xthtp \ \ bynthatqc\1, 
+\-
+\+
+\%dsgjkytyysq d cnfylfhnt RFVFR\1.\,
+\-
+\+
+\ \ \[- \%Ghb hfphf,jnrt bcgjkmpe.ncz ujnjdst \ vbrhjghjwtccjhs \ cj 
+\-
+\+
+dcnhjtyyjq \ \ \ cbcntvjq \ \ \ rjvfyl\1, \ \ \ \%kb,j \ \ \ \ vbrhjghjwtccjhs 
+\-
+\+
+ctrwbjybhjdfyyjuj \ \ \ \ nbgf \ \ \ \ c \ \ \ \ \ ghbvtytybtv \ \ \ \ \ vtnjlf 
+\-
+\+
+vbrhjghjuhfvvbhjdfybz\1, \%xnj gjpdjkztn rjycnhebhjdfnm c gjvjom. 
+\-
+\+
+vbrhjghjuhfvv ne fh[bntrnehe\1, \%rjnjhfz \ ,jktt \ dctuj \ gjl[jlbn 
+\-
+\+
+lkz rjyrhtnyjq pflfxb\1.\,
+\-
+\+
+\ \ \[\%Jcj,tyyjcnb \ \ \ vbrhjghjuhfvvyjuj \ \ \ ehjdyz \ \ \ \ ghb \ \ \ \ tuj 
+\-
+\+
+bcgjkmpjdfybb d hfphf,jnrf[ vbrhjghjwtccjhys[ rjynhjkkthjd\1:\,
+\-
+\+
+\ \ \[- \%jncencndbt \ dytiyb[ \ ecnhjqcnd \ gjpdjkztn \ \ bcgjkmpjdfnm 
+\-
+\+
+cby[hjyysq ghjnjrjk j,vtyf c JPE\1, \ \%ghb \ rjnjhjv \ wbrk \ j,vtyf 
+\-
+\+
+elftncz dsgjkybnm pf jlby nfrn vbrhjghjuhfvvs\1;\,
+\-
+\+
+\ \ \[- \%lkz \ ,scnhjuj \ c]tvf \ lfyys[ \ eghfdkznm \ \ wbrkjv \ \ RFVFR 
+\-
+\+
+ytgjchtlcndtyyj \ bp \ vbrhjghjuhfvvs\1;\,
+\-\/
+\+
+\ \ \[- \%bvtnm \ chfdybntkmyj \ yt,jkmie. \ \ lkbye \ \ vbrhjrjvfylyjuj 
+\-
+\+
+ckjdf\1;\,
+\-
+\+
+\ \ \[- \%d[jlysvb lfyysvb lkz \ ghtldfhbntkmyjuj \ jn,jhf \ cj,snbq\1, 
+\-
+\+
+\%ghb rjnjhjv yt nht,e.ncz ckj;yst dsxbcktybz\1, \ \%zdkz.ncz \ wtkst 
+\-
+\+
+xbckf \ d \ lbfgfpjyt \ jn \ yekz \ lj \ ytcrjkmrb[ \ nsczx \ \1(\%yjvthf 
+\-
+\+
+ghjdjkjxtr\1, \%dtkbxbys cbuyfkjd c rjlbhjdobrjd b n\1.\%l\1.), \%gj'njve 
+\-
+\+
+htfkbpetncz njkmrj wtkjxbcktyyfz fhbavtnbrf\1.\,
+\-
+\+
+\ \ \[\%Jcyjdyfz ghj,ktvf \1- \%jncencndbt \ ghjuhfvvyjuj \ j,tcgtxtybz\1, 
+\-
+\+
+\%yj \ tt \ vj;yj \ htibnm\1, \ \%ds,hfd \ cbcntve \ rjvfyl\1, \ \%gjpdjkz.oe. 
+\-
+\+
+bcgjkmpjdfnm \ ghjuhfvvs\1, \ \%cjplfdftvst \ yf \ \ lheujq \ \ "DV\1.\,
+\-
+\+
+\ \ \[\%D ytrjnjhs[ ckexfz[ vj;yj bcgjkmpjdfnm \ ghjuhfvve \ d \ dblt 
+\-
+\+
+gjcktljdfntkmyjcnb \ jlyb[ \ njkmrj \ \ vbrhjrjvfyl\1. \ \ \%Ghb \ \ 'njv 
+\-
+\+
+ytye;ysvb cnfyjdzncz ds,jhrf b ltibahjdrf \ rjvfyls\1. \ \%Ghbvthjv 
+\-
+\+
+vj;tn cke;bnm ghjwtccjh \1168/E \%c jxtym \ ghjcnjq \ cnhernehjq \ b 
+\-
+\+
+dscjrbv ,scnhjltqcndbtv\1, \%bcgjkmpetvsq yf \ vyjub[ \ ecrjhbntkz[ 
+\-
+\+
+\1/74/.\,
+\-
+\+
+\ \ \[\%D \ \ lbyfvbxtcrb \ \ ghjuhfvvbhetvs[ \ \ \ vfibyf[ \ \ \ eghfdktybt 
+\-
+\+
+'rcgthbvtynfkmysvb \ b \ nt[yjkjubxtcrbvb \ \ ecnfyjdrfvb \ \ ,jktt 
+\-
+\+
+'aatrnbdyj \ \ \ \ \ \ jceotcndkztncz \ \ \ \ \ \ ghb \ \ \ \ \ \ bcgjkmpjdfybb 
+\-
+\+
+vbrhjghjuhfvvbhjdfybz\1. \%Lkz \ edtkbxtybz \ htfrnbdyjcnb \ cbcntvs 
+\-
+\+
+vj;yj \ \ lj,fdbnm \ \ cgtwbfkmyst \ \ rjvfyls\1, \ \ \ \%f \ \ \ tckb \ \ \ "DV 
+\-
+\+
+dpfbvjltqcndetn c j,jheljdfybtv \ ghb \ gjvjob \ ghthsdfybq\1, \ \%b[ 
+\-
+\+
+vj;yj \ nfr;t \ \ xfcnbxyj \ \ bkb \ \ gjkyjcnm. \ \ j,hf,fnsdfnm \ \ yf 
+\-
+\+
+vbrhjghjuhfvvyjv ehjdyt\1. \%J,f 'nb cgjcj,f vj;yj bcgjkmpjdfnm d 
+\-
+\+
+VR<\1-8601.\,
+\-
+\+
+\ \ \[\%{jhjibt \ dsxbckbntkmyst \ djpvj;yjcnb \ VR< \ b \ \ cgjcj,yjcnm 
+\-
+\+
+hf,jnfnm \ d \ vekmnbghjuhfvvyjv \ ht;bvt \ gjpdjkz.n \ \ cjplfdfnm 
+\-
+\+
+cbcntvs yf tt jcyjdt jlyjdhtvtyyj lkz c]tvf b \ lkz \ j,hf,jnrb 
+\-
+\+
+'rcgthbvtynfkmys[ htpekmnfnjd\1. \%Ghjuhfvvs c]tvf vjuen hf,jnfnm 
+\-
+\+
+jn \ ghthsdfybq\1, \ \ \%cbuyfkbpbhe.ob[ \ \ j \ \ yfkbxbb \ \ byajhvfwbb\1. 
+\-
+\+
+\%Ghjuhfvvs j,hf,jnrb vjuen hf,jnfnm \ d \ jcnfdittcz \ dhtvz \ rfr 
+\-
+\+
+ajyjdst pflfxb\1.\,
+\-
+\+
+\ \ \[\%Djpvj;ys \ ldf \ \ cgjcj,f \ \ gjlrk.xtybz \ \ 'rcgthbvtynfkmyjuj 
+\-
+\+
+j,jheljdfybz r VR<\1.\,
+\-
+\+
+\ \ \[1.\%Gekmnjdjq ghjwtccjh cdzpfy \ c \ \1IBM/PC \ \%gj \ gfhfkktkmyjve 
+\-
+\+
+rfyfke\1. \%D vfrtnyjv j,hfpwt 'nf kbybz cdzpb \ bcgjkmpetncz \ lkz 
+\-
+\+
+pfuheprb ghjuhfvv b vbrhjghjuhfvv d JPE\1. \%"ne ;t \ kbyb. \ cdzpb 
+\-
+\+
+vj;yj bcgjkmpjdfnm lkz ljcnegf rj dctv ecnhjqcndfv\1, \%cdzpfyysv 
+\-
+\+
+c \1IBM/PC, \ \%d \ njv \ xbckt \ b \ r \ abpbxtcrbv \ ecnfyjdrfv \ xthtp 
+\-
+\+
+cnfylfhnysq bynthatqc\1.\,
+\-\/
+\+
+\ \ \[2.\%Lkz gjlrk.xtybz ecnhjqcnd \ ytgjchtlcndtyyj \ r \ ibyt \ VR< 
+\-
+\+
+ye;yf \ \ hfphf,jnrf \ \ kb,j \ \ rjynhjkkthf \ \ ecnhjqcndf\1, \ \ \ \%kb,j 
+\-
+\+
+gtht[jlybrf \ c \ ibys \ VR< \ \ yf \ \ cnfylfhnye. \ \ ibye \ \ c \ \ e;t 
+\-
+\+
+hfphf,jnfyysvb rjynhjkkthfvb\1.\,
+\-
+\+
+\,
+\-
+\+
+\^\ \ \ 5.5.\%Gjl,jh lkbntkmyjcnb nfrnf\1. \%Ghjbpdjlbntkmyjcnm "DV\1.\ \ \^\,
+\-\/
+\+
+\ \ \[\%Nbgs \ \ vbrhjjgthfwbq\1, \ \ \%dsgjkyztvst \ \ d \ \ \ rf;ljv \ \ \ nfrnt 
+\-
+\+
+vbrhjghjuhfvvs\1, \ \%hfpkbxyst \ b \ nht,e.n \ hfpyjuj \ dhtvtyb \ lkz 
+\-
+\+
+cdjtuj \ bcgjkytybz\1: \ \%jn \ vbybvfkmyjuj \ \1(\%dhtvtyb \ \ jghtltktybz 
+\-
+\+
+flhtcf \ eghfdkz.otq \ gfvznb \ b \ \ ds,jhrb \ \ vbrhjrjvfyls\1) \ \ \%lj 
+\-
+\+
+vfrcbvfkmyjuj \ \1(\%dhtvtyb \ pfvtys \ vfntvfnbxtcrjq \ cnhfybws \ yf 
+\-
+\+
+abpbxtcre. \ \ b \ \ hfpkbxys[ \ \ ghjdthjr \ \ \ ghb \ \ \ djpybryjdtybb 
+\-
+\+
+ghthsdfybq\1).\,
+\-
+\+
+\ \ \[\%Ghb gjcnjzyyjq \ lkbntkmyjcnb \ vbrhjghjuhfvvyjuj \ nfrnf \ tt 
+\-
+\+
+ghbybvf.n hfdyjq ytrjnjhjq chtlytq dtkbxbyt\1, \%hfp,bdfz lkbyyst 
+\-
+\+
+jgthfwbb \ \ yf \ \ ytcrjkmrj \ \ vbrhjrjvfyl\1. \ \ \ \%Djpvj;yj \ \ \ nfr;t 
+\-
+\+
+lkbntkmyjcnm \ nfrnf \ \ cltkfnm \ \ vbrhjghjuhfvvyj \ \ eghfdkztvjq 
+\-
+\+
+dtkbxbyjq\1, \%dsltkbd cgtwbfkmyjt gjkt d \ vbrhjrjvfylyjv \ ckjdt\1. 
+\-
+\+
+\%Ghb 'njv elftncz ,jktt njxyj \ gjlj,hfnm \ lkbntkmyjcnm \ nfrnf\1, 
+\-
+\+
+\%ghb,kbpbd tt r jgnbvfkmyjq\1.\,
+\-
+\+
+\ \ \[\%D vbrhjghjuhfvvyjv ckjdt VR< ghtlecvjnhtyj gjkt\1, \ \%pflf.ott 
+\-
+\+
+lkbntkmyjcnm \ \ vbrhjghjuhfvvyjuj \ \ nfrnf\1, \ \ \ \%rjnjhfz \ \ \ vj;tn 
+\-
+\+
+bpvtyznmcz jn \1150 \%lj \ \1500 \ \%yctr\1. \ \%c \ ifujv \ d \ \150 \ \%yctr\1. \ \%Lkz 
+\-
+\+
+eghjotybz ghjwtlehs yfkflrb vfrtnyjuj j,hfpwf \ \1(\%fggfhfnehs \ b 
+\-
+\+
+vbrhjghjuhfvv\1) \%cyfxfkf bcgjkmpjdfkjcm \ vfrcbvfkmyjt \ pyfxtybt 
+\-
+\+
+lkbntkmyjcnb nfrnf\1. \%D lfkmytqitv \ ,skb \ yfgbcfys \ cgtwbfkmyst 
+\-
+\+
+ntcns lkz jghtltktybz \ lkbntkmyjcnb \ nfrnf \ d \ vbrhjrjvfylf[\1, 
+\-
+\+
+\%ghjdthz.obt dct nbgs gthtcskjr b jgthfwbq \ c \ cfvsvb \ hfpysvb 
+\-
+\+
+jgthfylfvb\1. \%Pfntv pyfxtybz lkbntkmyjcnb nfrnf\1, \%jghtltktyyst c 
+\-
+\+
+gjvjom. 'nb[ ntcnjd\1, \%pfyjcbkbcm d \ ujnjdst \ vbrhjghjuhfvvs \ b 
+\-
+\+
+ghjdthzkbcm yf ntcnf[ rjvfylyjuj ehjdyz\1.\,
+\-
+\+
+\ \ \[\%Pyfxtybz 'nb[ dtkbxby pfdbczn jn \ nt[yjkjubb \ bpujnjdktybz 
+\-
+\+
+vfibys\1. \ \%Nt[yjkjubb \ bpujnjdktybz \ \ vfrtnyjuj \ \ j,hfpwf \ \ VR< 
+\-
+\+
+\1(\%lde[cnjhjyybq gtxfnysq vjynf;\1) \ \%b \ pfdjlcrjuj \ \1(\%vyjujckjqyst 
+\-
+\+
+gkfns\1) \%hfpyst\1, \%gj'njve djpvj;ys jnkbxbz lkbntkmyjcnb nfrnf \ d 
+\-
+\+
+jlyb[ b nt[ ;t vbrhjrjvfylf[\1.\,
+\-
+\+
+\ \ \[\%Yf \ vfrcbvfkmyjq \ lkbntkmyjcnb \ nfrnf \ vfrtnyjuj \ \ j,hfpwf 
+\-
+\+
+crjhjcnm bcgjkytybz kjubxtcrb[ rjvfyl jrjkj \1200 \%nsc\1. \%jgthfwbq 
+\-
+\+
+d ctreyle\1. \%Gjckt ghjdtltybz \ ghjwtlehs \ gjl,jhf \ lkbys \ nfrnf 
+\-
+\+
+crjhjcnm \ bcgjkytybz \ edtkbxbdftncz \ jn \ \112% \ \ \%lj \ \ \118% \ \ \%lkz 
+\-\/
+\+
+kjubxtcrb[ \ rjvfyl \ \1(\%d \ kjubxtcrb[ \ rjvfylf[ \ jcyjdyjt \ dhtvz 
+\-
+\+
+pfybvftn \ ds,jhrf \ jgthfylf\1, \ \%rjnjhfz \ jn \ lkbys \ \ nfrnf \ \ yt 
+\-
+\+
+pfdbcbn\1).\,
+\-
+\+
+\ \ \[\%Bpdtcnyj\1, \ \ \ \%xnj \ \ \ crjhjcnm \ \ \ bcgjkytybz \ \ \ rjvfyl \ \ \ \ d 
+\-
+\+
+vbrhjghjuhfvvys[ \ \ \ "DV \ \ \ \ ytdscjrf\1, \ \ \ \ \%f \ \ \ \ 'aatrnbdyjcnm 
+\-
+\+
+vbrhjghjuhfvvbhjdfybz \ d \ jcyjdyjv \ pfrk.xftncz \ d \ yfcnhjqrt 
+\-
+\+
+vbrhjghjuhfvvyjuj ehjdyz gjl rjyrhtnye. pflfxe\1.\,
+\-
+\+
+\ \ \[\%Ghb \ bpextybb \ djghjcf \ \ \1/1/ \ \ \%j \ \ djpvj;yjcnb \ \ gjdsitybz 
+\-
+\+
+ghjbpdjlbntkmyjcnb \ c \ \ gjvjom. \ \ vbrhjghjuhfvvbhjdfybz \ \ lkz 
+\-
+\+
+ytrjnjhs[ vjltktq Cbcntvs \1360 \ \%abhvs \ \1IBM \ \%cltkfys \ cktle.obt 
+\-
+\+
+dsdjls\1.\,
+\-
+\+
+\ \ \[1.\%Bcgjkmpjdfybt \ \ vbrhjghjuhfvvbhjdfybz \ \ ceotcndtyyj \ \ yt 
+\-
+\+
+ekexiftn dyenhtyybt wbrks nfrb[ vfntvfnbxtcrb[ ghjuhfvv\1, \ \%rfr 
+\-
+\+
+dsxbcktybt gjkbyjvjd \ bkb \ crfkzhys[ \ ghjbpdtltybq \ dtrnjhjd\1. 
+\-
+\+
+\%Vtlktyyst d ghbywbgt fhbavtnbxtcrbt jgthfwbb ytkmpz \ ecrjhbnm 
+\-
+\+
+pf cxtn vbrhjghjuhfvvyjq htfkbpfwbb cjcnfdkz.ob[ b[ jgthfwbq\1, 
+\-
+\+
+\%nfr rfr 'rjyjvbz yf dhtvtyb ds,jhrb rjvfyl \ cjcnfdkztn \ vfke. 
+\-
+\+
+ljk. jn j,otuj dhtvtyb b[ bcgjkytybz\1.\,
+\-
+\+
+\ \ \[2.\%Yfb,jktt 'aatrnbdyj bcgjkmpjdfybt \ vbrhjghjuhfvvbhjdfybz 
+\-
+\+
+d ghjuhfvvf[ c ,jkmibv xbckjv \ kjubxtcrb[ \ jgthfwbq\1, \ \%rjnjhst 
+\-
+\+
+ytj,[jlbvs\1, \%yfghbvth\1, \%lkz j,hf,jnrb \ cgbcrjd\1. \ \%Djpvj;yj\1, \ \%xnj 
+\-
+\+
+ghjbpdjlbntkmyjcnm \ \ rjvgbkznjhf \ \ vj;tn \ \ ,snm \ \ pyfxbntkmyj 
+\-
+\+
+gjdsityf pf cxtn vbrhjghjuhfvvyjq htfkbpfwbb \ vyjub[ \ bp \ tuj 
+\-
+\+
+xfcnj bcgjkmpetvs[ gjlghjuhfvv\1.\,
+\-
+\+
+\ \ \[\%"nb \ \ dsdjls \ \ ghbvtybvs \ \ r \ \ ,jkmibycnde \ \ eybdthcfkmys[ 
+\-
+\+
+dsxbckbntkmys[ \ \ vfiby \ \ c \ \ vbrhjghjuhfvvysv \ \ \ eghfdktybtv\1. 
+\-
+\+
+\%Gjkexftvsq dsbuhsi pfdbcbn jn \ xbckf \ gfhfkktkmyj \ hf,jnf.ob[ 
+\-
+\+
+kjubxtcrb[ c[tv\1, \%dsgjkyz.ob[ jgthfwbb d jlyjv vfibyyjv wbrkt\1. 
+\-
+\+
+\%Cktle.obq afrnjh\1, \%dkbz.obq yf \ gjdsitybt \ ghjbpdjlbntkmyjcnb\1, 
+\-
+\+
+\%'nj \ cjrhfotybt \ xbckf \ j,hfotybq \ r \ gfvznb \ pf \ \ rjvfylfvb\1. 
+\-
+\+
+\%Ljgjkybntkmyfz 'rjyjvbz gjkexftncz \ d \ htpekmnfnt \ ecnhfytybz 
+\-
+\+
+j,hfotybq \ r \ gfvznb\1, \ \%cdzpfyys[ \ c \ \ pfgbcm. \ \ ghjvt;enjxys[ 
+\-
+\+
+htpekmnfnjd\1. \ \%Vbrhjghjuhfvvbhjdfybt \ gjpdjkztn \ \ bcgjkmpjdfnm 
+\-
+\+
+dyenhtyy.. \ gfvznm \ ghjwtccjhf \ \1(\%fggfhfnyst \ \ htubcnhs\1) \ \ \%lkz 
+\-
+\+
+[hfytybz ghjvt;enjxys[ htpekmnfnjd\1.\,
+\-
+\+
+\ \ \[\%D nf,k\1.1 \%ghbdtltys ghbvths bcgjkmpjdfybz vbrhjghjuhfvvyjuj 
+\-
+\+
+ehjdyz d VR< lkz ye;l JC b lkz \ gjdsitybz \ tt \ 'aatrnbdyjcnb\1. 
+\-
+\+
+\%Lkz chfdytybz ghbvthyjt xbckj vbrhjrjvfyl d rjvfylt \ \1- \ \%jrjkj 
+\-
+\+
+\110. \%D \ crj,rf[ \ ghbdjlbncz \ xbckj \ vbrhjrjvfyl \ lkz \ gthtgbcb 
+\-
+\+
+cjlth;bvjuj htubcnhf b \ nfqvthf \ cxtnyjuj \ dhtvtyb \ ghjwtccf\1, 
+\-\/
+\+
+\%d[jlzott d j,ott \ xbckj \ vbrhjrjvfyl\1. \ \%Ljcneg \ r \ htubcnhe \ b 
+\-
+\+
+nfqvthe \ pfybvftn \ pyfxbntkmyjt \ \ dhtvz\1, \ \ \%n\1.\%r\1. \ \ \%vbrhjc[tvf\1, 
+\-
+\+
+\%bcgjkmpetvfz d xfcf[ b nfqvthf[\1, \%,jktt vtlktyyfz\1, \%d nj \ dhtvz 
+\-
+\+
+rfr lkz ljcnegf r lheubv \ htubcnhfv \ nht,etncz \ yt \ ,jkmit \ \12 
+\-
+\+
+\%vbrhjrjvfyl\1.\,
+\-
+\+
+\ \ \[\%Nf,kbwf gjrfpsdftn htpekmnfn wtktyfghfdktyys[ ltqcndbq \ gj 
+\-
+\+
+jhufybpfwbb \ vbrhjghjuhfvvyjq \ gjllth;rb \ df;ytqib[ \ \ aeyrwbq 
+\-
+\+
+jgthfwbjyyjq cbcntvs\1. \%Nfr\1, \%cvtyf ghjwtccf d WG\1, \%nht,jdfdifz d 
+\-
+\+
+lbcgtnxtht \ JC \ \1"\%Le,yf\1" \ 116 \ \%rjvfyl\1, \ \ \%d \ \ VR< \ \ bcgjkyztncz 
+\-
+\+
+vbrhjghjuhfvvjq bp \1156 \%vbrhjrjvfyl\1, \%n\1.\%t\1. \%jrjkj \115 "\%rjvfyl\1" \ \%d 
+\-
+\+
+ghbdsxyjv \1"\%rjvfylyjv\1" \ \%bcxbcktybb\1. \ \%Ghb \ ljcnbuyenjv \ chtlytv 
+\-
+\+
+cjjnyjitybb ,scnhjltqcndbz \14:1 \%hzl cbcntvys[ \ aeyrwbq \ d \ VR< 
+\-
+\+
+dsgjkyztncz lf;t ,scnhtt\1, \%xtv d <"CV\1-6.\,
+\-\/
+\+
+\,
+\-\8u----------------------i------i----------------------i------o
+\-p                      p      p                      p\%xbckj \8p
+\-p                      p\%xbckj \8p                      p      p
+\-p    \%jgthfwbz <"CV\1-6   \8p      p   \%jgthfwbz VR<\1-8601  \8p\%vbrhj\1-\8p
+\-p                      p\%rjvfyl\8p                      p      p
+\-p                      p      p                      p\%rjvfyl\8p
+\-p                      p      p                      p      p
+\-u----------------------i------i----------------------i------o
+\-p                      p      p                      p      p
+\-p\1"\%vfkjt eghznsdfybt\1"\%lkz\8p  \113  \8p\%vbrhjghjuhfvvf d[jlf d\8p  \190  \8p
+\-p                      p      p                      p      p
+\-p\%vbybvfkmyjq j,hf,jnrb \8p      p\%ghthsdfybt\1, \%drk.xf.ofz\8p      p
+\-p                      p      p                      p \1(40) \8p
+\-p\%ghthsdfybq            \8p      p\%gjkyjt eghznsdfybt    \8p      p
+\-p                      p      p                      p      p
+\-p                      p      p\%htubcnhjd b pfgbcm    \8p      p
+\-p                      p      p                      p      p
+\-p\%gjkyjt eghznsdfybt    \8p  \125  \8p\%byajhvfwbb j ghthdfyjv\8p      p
+\-p                      p      p                      p      p
+\-p\%htubcnhjd ghb         \8p      p\%ghjwtcct d htubcnhs   \8p      p
+\-p                      p      p                      p      p
+\-p\%ghthsdfybz[           \8p      p\%ghjwtccf j,hf,jnrb    \8p      p
+\-p                      p      p                      p      p
+\-p                      p      p\%ghthsdfybz            \8p      p
+\-p                      p      p                      p      p
+\-p\%enjxytybt vtcnf       \8p\110-15 \8p                      p      p
+\-p                      p      p                      p      p
+\-p\%ghthsdfybz            \8p      p                      p      p
+\-p                      p      p                      p      p
+\-u----------------------i------i----------------------i------o
+\-p                      p      p                      p      p
+\-p\1"\%vfkjt\1" \%djccnfyjdktybt\8p  \113  \8p\%djpdhfn bp ghthsdfybz \8p  \166  \8p
+\-p                      p      p                      p      p
+\-p\%htubcnhjd gjckt       \8p      p\%c gjkysv djccnfyjdkt\1- \8p \1(43) \8p
+\-p                      p      p                      p      p
+\-p\%ghthsdfybz            \8p      p\%ybtv cjlth;bvjuj      \8p      p
+\-p                      p      p                      p      p
+\-p                      p      p\%htubcnhjd             \8p      p
+\-p                      p      p                      p      p
+\-p\%gjkyjt djccnfyjdktybt \8p  \125  \8p                      p      p
+\-p                      p      p                      p      p
+\-p\%htubcnhjd gjckt       \8p      p                      p      p
+\-p                      p      p                      p      p
+\-p\%ghthsdfybz            \8p      p                      p      p
+\-p                      p      p                      p      p
+\-u----------------------i------i----------------------i------o
+\-p                      p      p                      p      p
+\-p\1"\%vfkjt eghznsdfybt\1"\%lkz\8p  \113  \8p\%vbrhjghjuhfvvf d[jlf d\8p  \157  \8p
+\-p                      p      p                      p      p
+\-p\%'rcnhfrjlf            \8p      p\%'rcnhfrjl c gthtlfxtq \8p      p
+\-p                      p      p                      p      p
+\-p                      p      p\%gjkyjq byajhvfwbb j   \8p      p
+\-p                      p      p                      p      p
+\-p                      p      p\%ghjwtcct\1, \%dspdfditv   \8p      p
+\-p                      p      p                      p      p
+\-p                      p      p\%'rcnhfrjl             \8p      p
+\-p                      p      p                      p      p
+\-u----------------------i------i----------------------i------o
+\-p                      p      p                      p      p
+\-p\%djccnfyjdktybt        \8p  \113  \8p\%rjvfylf djpdhfnf bp   \8p  \114  \8p
+\-p                      p      p                      p      p
+\-p\%htubcnhjd gjckt       \8p      p\%'rcnhfrjlf            \8p      p
+\-p                      p      p                      p      p
+\-p\%'rcnhfrjlf            \8p      p                      p      p
+\-p                      p      p                      p      p
+\-u----------------------i------i----------------------i------o
+\-p                      p      p                      p      p
+\-p\%cvtyf ghjwtccjd       \8p \1116  \8p\%cvtyf ghjwtccjd       \8p \1156  \8p
+\-p                      p      p                      p      p
+\-p\%d njv xbckt\1:          \8p      p\%d njv xbckt\1:          \8p      p
+\-p                      p      p                      p      p
+\-p\1-\%eghznsdfybt htubcnhjd\8p  \125  \8p\1-\%vbrhjghjuhfvvf d[jlf \8p  \190  \8p
+\-p                      p      p                      p      p
+\-p \%ghthdfyyjuj ghjwtccf \8p      p \%d ghthsdfybt         \8p      p
+\-p                      p      p                      p      p
+\-p\1-\%djccnfyjdktybt       \8p  \166  \8p\1-\%djpdhfn bp ghthsdfybz\8p  \166  \8p
+\-p                      p      p                      p      p
+\-p \%htubcnhjd ghbgbcrb   \8p      p                      p      p
+\-p                      p      p                      p      p
+\-p\1-\%djccnfyjdktybt htubc\1-\8p  \125  \8p                      p      p
+\-p                      p      p                      p      p
+\-p \%nhjd yjdjuj ghjwtccf \8p      p                      p      p
+\-p                      p      p                      p      p
+\-u----------------------i------i----------------------i------o
+\-p                      p      p                      p      p
+\-p\%extn j,hfotybz r jlyjq\8p \1160  \8p\%extn j,hfotybz r jlyjq\8p  \119  \8p
+\-p                      p      p                      p      p
+\-p\%cnhfybwt gfvznb       \8p      p\%cnhfybwt gfvznb       \8p      p
+\-p                      p      p                      p      p
+\-p\%d njv xbckt\1:          \8p      p                      p      p
+\-p                      p      p                      p      p
+\-p\1-\%eghznsdfybt b djccnf\1-\8p  \160  \8p                      p      p
+\-p                      p      p                      p      p
+\-p \%yjdktybt htubcnhjd   \8p      p                      p      p
+\-p                      p      p                      p      p
+\-p\1-\%rjhhtrwbz cgbcrf\1, \%cyz\8p \1100  \8p                      p      p
+\-p                      p      p                      p      p
+\-p \%nbt pfobns cnhfybws  \8p      p                      p      p
+\-p                      p      p                      p      p
+\-[-----------------------------------------------------------]
+\-
+\-
+\-
+\-   \%Nf,k\1.1. \%Dsgjkytybt ytrjnjhs[ jgthfwbq d <"CV\1-6 \%b VR<\1-8601.
+\-
+\-
+\-
+\+
+\,
+\-
+\+
+\^\ \ \ \ \ \ \ \ \ \ \ \ \ \ \%Pfrk.xtybt\1. \%Jcyjdyst htpekmnfns\1.\ \ \ \ \ \ \ \ \ \ \ \ \ \^\,
+\-
+\+
+\ \ \[1.\%Hfphf,jnfyf \ vtnjlbrf \ cjplfybz \ b \ \ yfcnhjqrb \ \ "DV \ \ c 
+\-
+\+
+bcgjkmpjdfybtv \ \ vbrhjghjuhfvvbhjdfybz\1, \ \ \ \%pfrk.xf.ofzcz \ \ \ d 
+\-
+\+
+ghjdthrt \ fh[bntrnehs \ yf \ \ ghjuhfvvys[ \ \ vjltkz[\1, \ \ \%cjplfybz 
+\-
+\+
+rjvgktrcf vbrhjghjuhfvvys[ chtlcnd lkz \ j,tcgtxtybz \ pflfyyjq 
+\-
+\+
+fh[bntrnehs \ b \ vjlbabrfwbb \ \ vbrhjghjuhfvv \ \ ghb \ \ bpvtytybb 
+\-
+\+
+fh[bntrnehs "DV c wtkm. yfcnhjqrb tt \ yf \ htitybt \ rjyrhtnys[ 
+\-
+\+
+pflfx\1. \%Drkfl fdnjhf d 'nb hf,jns rhjvt cgtwbfkmyj jujdjhtyys[ 
+\-
+\+
+vtcn zdkztncz jghtltkz.obv\1.\,
+\-
+\+
+\ \ \[\%Ghb 'njv\1:\,
+\-
+\+
+\ \ \ \ \ \[- \%lkz bpextybz fh[bntrnehs hfphf,fnsdftvjq "DV \ cjplfyf 
+\-
+\+
+\ \ \[ghjuhfvvf\1-\%bvbnfnjh\1, \ \ \%rjnjhfz \ \ zdkztncz \ \ nfr;t \ \ \ xfcnm. 
+\-
+\+
+\ \ \[rhjcc\1-\%cbcntvs gjlujnjdrb ghjuhfvv\1;\,
+\-
+\+
+\ \ \ \ \[- \%ghjdtltyj \ \ \ \ \ kjubxtcrjt \ \ \ \ \ vjltkbhjdfybt \ \ \ \ \ dct[ 
+\-
+\+
+\ \ \[aeyrwbjyfkmys[ epkjd WG VR<\1-8601 \%c wtkm. tuj bccktljdfybz\1; 
+\-
+\+
+\ \ \[\%vjltkbhjdfybt ghjwtccjhf d wtkjv\1, \%rjulf \ eghfdktybt \ dctvb 
+\-
+\+
+\ \ \[rjvgjytynfvb vjltkb ghjbc[jlbn \ bp \ gfvznb \ vbrhjghjuhfvv\1, 
+\-
+\+
+\ \ \[\%jceotcndkzkjcm lbccthnfynjv\1;\,
+\-
+\+
+\ \ \ \ \ \[- \ \ \%hfphf,jnfy \ \ vbrhjghjuhfvvysq \ \ ehjdtym \ \ VR< \ \ lkz 
+\-
+\+
+\ \ \[htfkbpfwbb cbcntvs rjvfyl\1, \%'rcnhfrjljd b ghthsdfybq\1;\,
+\-
+\+
+\ \ \ \ \ \[- \%cjplfy rjvgktrc vbrhjghjuhfvvys[ ntcnjd\1, \ \%gjpdjkz.obq 
+\-
+\+
+\ \ \[ghjdthbnm dct aeyrwbjyfkmyst ,kjrb cjplfdftvjq "DV\1.\,
+\-
+\+
+\ \ \[2.\%Yf \ jcyjdfybb \ 'njq \ vtnjlbrb \ ,skf \ \ cghjtrnbhjdfyf \ \ b 
+\-
+\+
+gjcnhjtyf "DV VR<\1-8601, \ \%rjnjhfz \ rhjvt \ jcyjdyjuj \ ht;bvf \ c 
+\-
+\+
+hfcibhtyysv cgbcrjv rjvfyl vj;tn hf,jnfnm \ d \ cbcntvt \ rjvfyl 
+\-
+\+
+"DV <"CV\1-6, \%n\1.\%t\1. \%'rcgkefnbhjdfnm \ ghfrnbxtcrb \ dtcm \ rjvgktrc 
+\-
+\+
+ghjuhfvvys[ chtlcnd\1, \ \%ceotcnde.ob[ \ lkz \ 'njq \ "DV\1. \ \%Djpvj;yj 
+\-
+\+
+cjdvtotybt jcyjdyjuj ht;bvf b ht;bvf <"CV\1-6 \%d ghtltkf[ \ jlyjq 
+\-
+\+
+ghjuhfvvs\1.\,
+\-
+\+
+\ \ \[3.\%Hfphf,jnfyyfz \ \ \ "DV \ \ \ \ bvttn \ \ \ \ cnhernehe\1, \ \ \ \ \%[jhjij 
+\-
+\+
+ghbcgjcj,ktyye. lkz htitybz dsxbckbntkmys[ pflfx\1. \%Tt \ cbcntvf 
+\-
+\+
+rjvfyl \ cjdvtcnbvf \ c \ dsxbckbntkmyjq \ \ cbcntvjq \ \ "km,hec\1-\%<\1, 
+\-
+\+
+\%gj'njve VR<\1-8601 \%vj;yj bcgjkmpjdfnm lkz cjplfybz ghjuhfvv lkz 
+\-
+\+
+"DV "km,hec\1-\%<\1.\,
+\-
+\+
+\ \ \[4.\%Fh[bntrnehf VR<\1-8601 \ \%cjplfyf \ c \ bcgjkmpjdfybtv \ vtnjlf 
+\-
+\+
+vbrhjghjuhfvvbhjdfybz\1, \ \ \%ghbxtv \ \ j,tcgtxtys \ \ fggfhfnyst \ \ b 
+\-
+\+
+ghjuhfvvyst chtlcndf \ edtkbxtybz \ yf,jhf \ vbrhjghjuhfvv\1. \ \%"nj 
+\-
+\+
+gjpdjkztn \ hfcibhznm \ djpvj;yjcnb \ "DV \ d \ \ cjjndtncndbb \ \ cj 
+\-
+\+
+cgtwbabrjq jghtltktyyjuj rkfccf pflfx\1. \%Yfghbvth\1, \%dsyjcbnm \ yf 
+\-
+\+
+vbrhjghjuhfvvysq \ \ \ \ \ ehjdtym \ \ \ \ \ \ xfcnj \ \ \ \ \ \ gjdnjhz.obtcz 
+\-\/
+\+
+gjcktljdfntkmyjcnb rjvfyl\1.\,
+\-
+\+
+\ \ \[5.\%J,hf,jnrf \ \ ghthsdfybq \ \ yf \ \ vbrhjghjuhfvvyjv \ \ \ ehjdyt 
+\-
+\+
+gjpdjkztn j,tcgtxbnm ,scnhe. htfrwb. ghb hf,jnt "DV yf \ kbybb 
+\-
+\+
+c \ 'rcgthbvtynfkmysv \ b \ nt[yjkjubxtcrbv \ j,jheljdfybtv\1. \ \%"nj 
+\-
+\+
+ljrfpsdftn \ \ wtktcjj,hfpyjcnm \ \ ghbvtytybz \ \ vbrhjghjuhfvvys[ 
+\-
+\+
+vtnjljd \ \ ghb \ \ cjplfybb \ \ eghfdkz.otq \ \ b \ \ \ lbfuyjcnbxtcrjq 
+\-
+\+
+fggfhfnehs\1.\,
+\-
+\+
+\ \ \[6.\%Vbrhjghjuhfvvyj \ htfkbpjdfyf \ fhbavtnbrf \ \ c \ \ gkfdf.otq 
+\-
+\+
+pfgznjq lkz ht;bvf \ 'vekzwbb \ <"CV\1-6, \ \%gjpdjkz.ofz \ ghjdjlbnm 
+\-
+\+
+dsxbcktybz c ,jkmitq \ njxyjcnm. \ b \ d \ hfcibhtyyjv \ lbfgfpjyt 
+\-
+\+
+gjhzlrjd\1.\,
+\-
+\+
+\ \ \[7.\%Htfkbpjdfyf \ fggfhfnyj \ \1- \ \ \%vbrhjghjuhfvvyfz \ \ gjllth;rf 
+\-
+\+
+vyjujghjwtccjhyjuj ht;bvf hf,jns c gjvjom. ctvfajhys[ \ rjvfyl 
+\-
+\+
+b vekmnbghjuhfvvyjuj \ ht;bvf \ c \ bcgjkmpjdfybtv \ htubcnhjdjuj 
+\-
+\+
+gekf\1, \%j,tcgtxbdf.ofz ,scnhjt gthtrk.xtybt ghjwtccjd\1.\,
+\-
+\+
+\ \ \[8.\%Dgthdst yf vbrhjghjuhfvvyjv ehjdyt htfkbpjdfy \ cjplfyysq 
+\-
+\+
+d JBZB fkujhbnv gthtcxtnf ghbjhbntnjd cnhfybw \ lkz \ gjllth;rb 
+\-
+\+
+eghfdktybz gfvznm.\1.\,
+\-
+\+
+\ \ \[9.\%Lkz \ \ \ pfdjlcrjuj \ \ \ bpujnjdktybz \ \ \ "DV \ \ \ gjlujnjdktyf 
+\-
+\+
+ljrevtynfwbz b gthtlfyf d YGJ \1"\%Hflbjghb,jh\1", \%u\1.\%Vjcrdf\1.\,
+\-
+\+
+\,
+\-
+\+
+\ \ \[\%D pfrk.xtybt fdnjh dshf;ftn uke,jre. \ ,kfujlfhyjcnm \ cdjbv 
+\-
+\+
+yfexysv herjdjlbntkzv B\1.\%Y\1.\%Cbkbye b A\1.\%D\1.\%Ktdxfyjdcrjve\1, \%f nfr;t 
+\-
+\+
+rjkktufv gj hf,jnt pf gjcnjzyyjt dybvfybt b wtyyst cjdtns \ yf 
+\-
+\+
+dct[ 'nfgf[ hf,jns\1.\,
+\-
+\+
+\,
+\-
+\=
+

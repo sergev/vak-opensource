@@ -1,0 +1,14 @@
+System software for Elbrous-1-KB computer
+(http://www.computer-museum.ru/histussr/elbrus1.htm).
+
+Developed at ITMiVT and KIAE in 1988-1992.
+
+doc	- hardware specifications
+drv	- Misc tools and drivers
+dvs	- "Dispatcher of virtual systems" utilities
+elfdrv	- "Elf" high speed adapter software
+htests	- hardware tests
+pult	- system console software
+stand	- standalone tests
+tpult	- alternative console software
+tst	- test development kit

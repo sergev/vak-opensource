@@ -1,0 +1,820 @@
+
+
+
+
+
+; ======================================
+; ***** МОДУЛЬ ФОРМИРОВАНИЯ СТРОКИ *****
+; ======================================
+
+
+;	ВХОД:	R1 - АДРЕС СТРОКИ
+;		R2 - ДЛИНА СТРОКИ (МЛ.Б.)
+;		   - СИМВОЛ - ОГРАНИЧИТЕЛЬ (СТ.Б.)
+
+
+MFSTR:	MOV	R0,-(SP)
+	MOV	R3,-(SP)
+
+	MOV	R2,R3		;  ПОДГОТОВКА ОГРАНИЧИТЕЛЕЙ
+	SWAB	R3
+	BIC	#177400,R2
+
+1$:	MOVB	(R1)+,R0	;  ЗАПИСЬ СТРОКИ
+	JSR	PC,MFSIM
+	CMPB	R0,R3
+	BEQ	KMFSTR
+	SOB	R2,1$
+
+KMFSTR:	MOV	(SP)+,R3
+	MOV	(SP)+,R0
+	RTS	PC
+
+
+
+
+
+; ======================================
+; ***** МОДУЛЬ ЗАПИСИ СИМВОЛА В СС *****
+; ======================================
+
+
+;	ВХОД:	R0 - КОД СИМВОЛА (0 - СБРОС СТРОКИ)
+;		R1 - НОМЕР ПОЗИЦИИ В СС
+
+
+MZSSS:	JSR	R4,PSREG
+
+	TST	R0
+	BNE	1$
+
+	JSR	PC,PFSSTR	;  СБРОС СС
+	BR	KMZSSS
+
+1$:	CMPB	R0,#177		;  ПОДГОТ. АДР. ИЗОБРАЖ.
+	BHI	3$
+	CMPB	R0,#10
+	BNE	4$
+	MOV	#21,R0
+4$:	SUB	#20,R0
+	BMI	KMZSSS
+	BR	5$
+3$:	CMPB	R0,#237
+	BLOS	KMZSSS
+	SUB	#60,R0
+
+5$:	JSR	PC,PFSSS	;  ФОРМИРОВАНИЕ СИМВОЛА
+
+KMZSSS:	JSR	R4,PWREG
+	RTS	PC
+
+
+;    ----------------------------------
+;    ** 1. ФОРМИРОВАНИЕ СИМВОЛА В СС **
+;    ----------------------------------
+
+PFSSS:	MOV	R1,-(SP)	;  R0 - СМЕЩЕНИЕ ИЗОБРАЖЕНИЯ
+	MOV	R2,-(SP)	;  R1 - НОМЕР ПОЗИЦИИ В СТРОКЕ
+
+	TSTB	PRCW		;  ПОДГ. АДР.
+	BEQ	1$
+	ASL	R1
+1$:	BIC	#177700,R1
+	ADD	BAZVP,R1
+	SUB	#1700,R1
+	BIC	#140000,R1
+	ADD	ANVP,R1
+
+	MOV	AS,-(SP)	;  ФОРМИРОВАНИЕ СИМВОЛА
+	MOV	R1,AS
+	BIC	#177400,R0
+	JSR	PC,PFSIM
+	MOV	(SP)+,AS
+
+KFSSS:	MOV	(SP)+,R2
+	MOV	(SP)+,R1
+	RTS	PC
+
+
+
+
+
+; ==============================================
+; ***** МОДУЛЬ УСТАНОВКИ КООРДИНАТ КУРСОРА *****
+; ==============================================
+
+
+;	ВХОД:	R1 - КООРДИНАТА X
+;		R2 - КООРДИНАТА Y
+
+
+MUSTKK:	JSR	R4,PSREG
+	JSR	PC,PSTK
+	MOV	2(SP),R1
+	MOV	4(SP),R2
+
+	TSTB	PRCW		;  ПОДГ. КООРД. X
+	BEQ	1$
+	ASL	R1
+
+1$:	MOV	#6,R0		;  ПОДГ. КООРД. Y
+2$:	ASL	R2
+	SOB	R0,2$
+
+	TSTB	PRGRAF
+	BNE	PUKGK
+
+
+;    ------------------------------------------------
+;    ** 1. УСТАНОВКА КООРДИНАТ СИМВОЛЬНОГО КУРСОРА **
+;    ------------------------------------------------
+
+PUKSK:	BIC	#177700,R1	;  ПОДГ. КООРД. X
+
+1$:	SUB	KSVP,R2		;  ПОДГ. КООРД. Y
+	BPL	1$
+2$:	ADD	KSVP,R2
+	BMI	2$
+
+	ADD	R1,R2		;  ФОРМ. АДР. СИМВОЛА
+	MOV	R2,NOMSIM
+	CLR	R5
+	JSR	PC,PFASIM
+
+	BR	KUSTKK
+
+
+;    -------------------------------------------------
+;    ** 2. УСТАНОВКА КООРДИНАТ ГРАФИЧЕСКОГО КУРСОРА **
+;    -------------------------------------------------
+
+PUKGK:	BIC	#177000,R1	;  ПОДГ. КООРД. X
+1$:	MOV	R1,R3
+	ASR	R1
+	ASR	R1
+	ASR	R1
+
+	MOVB	NMPGT,R0	;  ПОДГ. MASPGT
+	BIC	#177770,R3
+	BEQ	2$
+3$:	ASL	R0
+	SOB	R3,3$
+2$:	MOVB	R0,MASPGT
+
+4$:	SUB	DGPB,R2		;  ПОДГ. КООРД. Y
+	BPL	4$
+5$:	ADD	DGPB,R2
+	BMI	5$
+
+	ADD	R1,R2		;  ВЫЧИСЛЕНИЕ AGTVP
+	MOV	R2,AGTVP
+
+	CLR	R1		;  ВЫЧ. AGT
+	CLR	R2
+	JSR	PC,PFAGT
+
+KUSTKK:	JSR	PC,PFK
+	JSR	R4,PWREG
+	RTS	PC
+
+
+
+
+
+; ==========================================
+; ***** МОДУЛЬ С'ЕМА КООРДИНАТ КУРСОРА *****
+; ==========================================
+
+
+;	ВЫХОД:	R1 - КООРДИНАТА X
+;		R2 - КООРДИНАТА Y
+
+
+MSKK:	MOV	R0,-(SP)
+
+	TSTB	PRGRAF
+	BNE	PSKGK
+
+
+;    -------------------------------------------
+;    ** 1. С'ЕМ КООРДИНАТ СИМВОЛЬНОГО КУРСОРА **
+;    -------------------------------------------
+
+PSKSK:	MOV	NOMSIM,R1	;  КООРД. X
+	MOV	R1,R2
+	BIC	#177700,R1
+
+	BR	PSK1
+
+
+;    --------------------------------------------
+;    ** 2. С'ЕМ КООРДИНАТ ГРАФИЧЕСКОГО КУРСОРА **
+;    --------------------------------------------
+
+PSKGK:	MOV	AGTVP,R1	;  КООРД. X
+	MOV	R1,R2
+	BIC	#177700,R1
+	ASL	R1
+	ASL	R1
+	ASL	R1
+	MOVB	MASPGT,R0
+2$:	ASR	R0
+	BCS	PSK1
+	INC	R1
+	BR	2$
+
+PSK1:	TSTB	PRCW
+	BEQ	3$
+	ASR	R1
+
+3$:	BIC	#77,R2		;  КООРД. Y
+	MOV	#6,R0
+4$:	ASR	R2
+	SOB	R0,4$
+
+	MOV	(SP)+,R0
+	RTS	PC
+
+
+
+
+
+; =====================================
+; ***** МОДУЛЬ ФОРМИРОВАНИЯ ТОЧКИ *****
+; =====================================
+
+
+;	ВХОД:	R0 - 1-ЗАПИСЬ, 0-СТИРАНИЕ
+;		R1 - КООРДИНАТА X
+;		R2 - КООРДИНАТА Y
+
+
+MFTCK:	MOV	R1,BUFX		;  СОХР. КООРД.
+	MOV	R2,BUFY
+	MOVB	R0,PRZTCK
+
+MFTCK1:	JSR	R4,PSREG	;  СОХР. РЕГ.
+
+	TSTB	PRCW		;  ПОДГ. КООРД. X
+	BEQ	1$
+	ASL	R1
+	BCS	KMFTCK
+1$:	CMP	R1,#1000
+	BHIS	KMFTCK
+
+	MOV	#6,R0		;  ПОДГ. КООРД. Y
+2$:	ASL	R2
+	BCS	KMFTCK
+	SOB	R0,2$
+	CMP	R2,DGPB
+	BHIS	KMFTCK
+
+	MOV	R1,R3		;  ФОРМ. АДР. ТОЧКИ
+	ASR	R1
+	ASR	R1
+	ASR	R1
+	ADD	R2,R1
+	ADD	BAZVP,R1
+	BIC	#140000,R1
+	ADD	ANVP,R1
+
+	MOVB	NMPGT,R2	;  ФОРМИРОВАНИЕ МАСКИ ТОЧКИ
+	BIC	#177770,R3
+	BEQ	3$
+4$:	ASL	R2
+	SOB	R3,4$
+
+3$:	MOVB	(R1),R0		;  ФОРМИРОВАНИЕ ТОЧКИ
+	BICB	R2,R0
+	MOV	MASCW,R3
+	TSTB	PRZTCK
+	BNE	5$
+	MOV	FON,R3
+5$:	COM	R2
+	BIC	R2,R3
+	BISB	R3,R0
+	MOVB	R0,(R1)
+
+KMFTCK:	JSR	R4,PWREG	;  ВОССТ. РЕГ.
+	RTS	PC
+
+
+
+
+
+; =======================================
+; ***** МОДУЛЬ ФОРМИРОВАНИЯ ВЕКТОРА *****
+; =======================================
+
+
+;	ВХОД:	R0 - 1-ЗАПИСЬ, 0-СТИРАНИЕ
+;		R1 - КООРДИНАТА X
+;		R2 - КООРДИНАТА Y
+
+
+MFWEKT:	JSR	R4,PSREG
+	MOVB	R0,PRZTCK
+
+	MOV	R1,R3		;  ЗАМЕНА КООРДИНАТ
+	MOV	R2,R4
+	MOV	BUFX,R1
+	MOV	BUFY,R2
+	MOV	R3,BUFX
+	MOV	R4,BUFY
+
+	CLR	R0		;  ОПРЕД. DX И НАПРАВЛЕНИЯ
+	SUB	R1,R3
+	BMI	1$
+	BEQ	2$
+	INC	R0
+	BR	2$
+1$:	DEC	R0		;- НАПРАВЛЕНИЕ
+	NEG	R3		;- DX
+
+2$:	CLR	R5		;  ОПРЕД. DY И НАПРАВЛЕНИЯ
+	SUB	R2,R4
+	BMI	3$
+	BEQ	4$
+	INC	R5
+	BR	4$
+3$:	DEC	R5		;- НАПРАВЛЕНИЕ
+	NEG	R4		;- DY
+
+4$:	CMP	R4,R3		;  ОПРЕД. ДЛИННОЙ КООРД.
+	BHI	5$
+	MOV	R5,-(SP)	;- DX >= DY
+	CLR	-(SP)
+	MOV	R3,R5
+	MOV	R4,R3
+	MOV	R5,R4		;- R4 - ДЛИННАЯ КООРД.
+	CLR	R5
+	BR	6$
+5$:	CLR	-(SP)		;- DX < DY
+	MOV	R0,-(SP)
+	CLR	R0		;- R0,R5 - DСЕГМ. (SP) - DКООРД.
+
+6$:	CLR	-(SP)		;  ОПРЕД. ПАРАМ. ВЕКТОРА
+	TST	R3
+	BNE	7$
+	INC	R3		;- ОСЕВОЙ ВЕКТОР
+	SUB	#12,SP
+	BR	8$
+7$:	SUB	R3,R4		;- ВЫЧИСЛЕНИЕ ДЛИНЫ СЕГМ.
+	BMI	9$
+	INC	(SP)		;- ДЛИНА СЕГМЕНТА
+	BR	7$
+9$:	ADD	R3,R4		;- R3 - СЧ. СЕГМ. R4 - ОСТАТОК
+	MOV	R3,-(SP)	;- КОЛИЧ. СЕГМ.
+	MOV	R3,-(SP)
+	ASR	(SP)		;- КОЛИЧ. СЕГМ./2
+	MOV	R4,-(SP)	;- ОСТАТОК
+	CLR	-(SP)
+	CLR	-(SP)
+	CLR	R4
+
+11$:	ADD	4(SP),2(SP)	;  ОПРЕД. ДЛИНЫ СЕГМ.
+	BEQ	10$
+	CMP	2(SP),6(SP)
+	BLE	10$
+	INC	R4
+	SUB	10(SP),2(SP)
+10$:	ADD	12(SP),R4
+	MOV	R4,(SP)
+	ASR	R4
+	SUB	R4,(SP)		;- ДЛИНА 2-ГО ПОЛУСЕГМ.
+
+	JSR	PC,PFSEGM	;- ФОРМ. 1-ГО ПОЛУСЕГМ.
+	ADD	14(SP),R1
+	ADD	16(SP),R2
+	MOV	(SP),R4
+8$:	JSR	PC,PFSEGM	;- ФОРМ. 2-ГО ПОЛУСЕГМ.
+
+	SOB	R3,11$		;  КОНЕЦ ФОРМ. СЕГМ.
+
+	ADD	#20,SP
+	JSR	R4,PWREG
+	RTS	PC
+
+PFSEGM:	TST	R4		;  ФОРМИРОВАНИЕ СЕГМЕНТА
+	BEQ	KFSEGM
+1$:	ADD	R0,R1
+	ADD	R5,R2
+	JSR	PC,MFTCK1
+	SOB	R4,1$
+KFSEGM:	RTS	PC
+
+
+
+
+
+; =============================
+; ***** МОДУЛЬ ЧТЕНИЯ ССД *****
+; =============================
+
+
+;	ВЫХОД:	R0 - СЛОВО СОСТОЯНИЯ ДИСПЛЕЯ
+
+
+MCTSSD:	MOV	R1,-(SP)
+
+	CLR	R0		;  ПОДГ. ПАРАМ.
+	MOV	#SYSPR,R1
+
+1$:	SEC			;  УСТАНОВКА ФЛАЖКОВ
+2$:	ROR	R0
+	BCS	KCTSSD
+	TSTB	(R1)+
+	BNE	1$
+	BR	2$
+
+KCTSSD:	MOV	(SP)+,R1
+	RTS	PC
+
+
+
+
+;  ======================================
+;  **** БИБЛИОТЕКА ПОДПРОГРАММ DTVMN ****
+;  ======================================
+
+
+
+;    -------------------------------
+;    ** 0.1. СОХРАНЕНИЕ РЕГИСТРОВ **
+;    -------------------------------
+
+
+PSREG0:	MOV	#220,@#ASPORT	;- СБРОС ГТ. ТЛГ.
+
+PSREG:	MOV	R3,-(SP)
+	MOV	R2,-(SP)
+	MOV	R1,-(SP)
+	MOV	R0,-(SP)
+	MOV	R4,-(SP)
+
+	RTS	R4
+
+
+;    -----------------------------------
+;    ** 0.2. ВОССТАНОВЛЕНИЕ РЕГИСТРОВ **
+;    -----------------------------------
+
+PWREG:	MOV	(SP)+,R0
+	MOV	(SP)+,R0
+	MOV	(SP)+,R1
+	MOV	(SP)+,R2
+	MOV	(SP)+,R3
+
+	RTS	R4
+
+
+;    ----------------
+;    ** 0.3. СБРОС **
+;    ----------------
+
+PSBR:	JSR	PC,PFINDT	;  УСТ.ИНД.ТАБ.
+
+	CLR	NOMSIM		;  ФОРМ. AS
+	JSR	PC,PFASIM
+
+	MOV	FON,R0		;  СБРОС VP
+	MOV	AS,R3
+	MOV	DGPB,R2
+	ASR	R2
+1$:	MOV	R0,(R3)+
+	TST	R3
+	BPL	2$
+	SUB	DVPB,R3
+2$:	SOB	R2,1$
+
+PSBR1:	CLR	R5		;  ФОРМ. AGT
+	JSR	PC,PFAGT1
+	CLR	SCTVS
+	MOVB	NMPGT,MASPGT
+
+	JSR	PC,PFK		;  ФОРМ. КУРСОРА
+
+	RTS	PC
+
+
+;    ----------------------------------------
+;    ** 0.4. ФОРМИРОВАНИЕ СЛУЖЕБНОЙ СТРОКИ **
+;    ----------------------------------------
+
+PFSSTR:	JSR	PC,PFINDT	;  ФОРМ. ИНД. ТАБ.
+
+	MOV	MCWSS,R1	;  ФОРМИР. ЧЕРТЫ
+	JSR	PC,PZTVSW
+
+	MOV	FONSS,R1	;  СБРОС ИНДИКАТОРОВ
+	MOV	#KTVSSS-4,R4
+1$:	JSR	PC,PZTVSW
+	SOB	R4,1$
+
+PUINDR:	CLR	R0		;  УСТАНОВКА ИНДИКАТОРОВ
+	CLR	SCKOD
+	MOV	#6,R2
+2$:	MOV	R0,-(SP)
+	MOV	R2,-(SP)
+	JSR	PC,PFINDR
+	MOV	(SP)+,R2
+	MOV	(SP)+,R0
+	INC	R0
+	SOB	R2,2$
+
+	RTS	PC
+
+
+;    -----------------------------------------
+;    ** 0.5. ФОРМИРОВАНИЕ ИНДИКАТОРА РЕЖИМА **
+;    -----------------------------------------
+
+PFINDR:	INC	SCUIND		;  УСТ. ПРИЗН. ФОРМ. ИНД.
+	TST	SCKOD
+	BNE	KFINDR
+	CLR	SCUIND
+
+	MOV	#PRRUS,R1	;  ВХОД:  R0 - НОМЕР ИНД.
+	ADD	R0,R1
+	ASL	R0
+	ADD	R0,PC
+	BR	1$
+	BR	2$
+	BR	3$
+	BR	4$
+	BR	5$
+	BR	6$
+
+1$:	MOV	#LAT,R3		;  РУС/ЛАТ
+	TSTB	(R1)
+	BEQ	7$
+	MOV	#RUS,R3
+	BR	7$
+
+2$:	TSTB	(R1)		;  ПОДЧ.
+	BEQ	8$
+	MOV	#PODC,R3
+	BR	7$
+
+3$:	TSTB	(R1)		;  ИНВ. С.
+	BEQ	8$
+	MOV	#INW,R3
+	BR	7$
+
+4$:	TSTB	(R1)		;  ИНД. СУ
+	BEQ	8$
+	MOV	#ISU,R3
+	BR	7$
+
+5$:	TSTB	(R1)		;  БЛОК. РЕД.
+	BEQ	8$
+	MOV	#BLR,R3
+	BR	7$
+
+6$:	TSTB	(R1)		;  ГРАФ/ЗАП/СТИР
+	BEQ	8$
+	TSTB	PRZAP
+	BEQ	9$
+	MOV	#ZAP,R3
+	BR	7$
+9$:	MOV	#GRAF,R3
+	TSTB	PRSTIR
+	BEQ	7$
+	MOV	#STIR,R3
+	BR	7$
+
+8$:	MOV	#SBRIND,R3	;  СБРОС ИНДИК.
+
+7$:	ASL	R0		;  ПОДГ. ПАРАМ. ИНД.
+	ADD	#4,R0
+	MOV	#100,R1
+	TSTB	PRCWSS
+	BEQ	10$
+	ASR	R1
+10$:	SUB	R0,R1
+	MOV	#4,R2
+
+	MOV	FON,-(SP)	;  СОХРАНЕНИЕ ПРИЗНАКОВ
+	MOV	MASCW,-(SP)
+	MOV	PRCW,-(SP)
+	MOV	PRPODC,-(SP)
+
+	MOV	FONSS,FON	;  УСТАНОВКА ПРИЗНАКОВ СС
+	MOV	MCWSS,MASCW
+	MOVB	PRCWSS,PRCW
+	MOV	PRPSSS,PRPODC
+
+11$:	MOVB	(R3)+,R0	;  ФОРМИРОВАНИЕ ИНДИКАТОРА
+	MOV	R3,-(SP)
+	JSR	PC,PFSSS
+	MOV	(SP)+,R3
+	INC	R1
+	SOB	R2,11$
+
+	MOV	(SP)+,PRPODC	;  ВОССТ. ПРИЗНАКОВ
+	MOV	(SP)+,PRCW
+	MOV	(SP)+,MASCW
+	MOV	(SP)+,FON
+
+KFINDR:	RTS	PC
+
+
+;    --------------------------------------------
+;    ** 0.6. ФОРМИРОВАНИЕ ИНДИКАТОРА ТАБУЛЯЦИИ **
+;    --------------------------------------------
+
+PFINDT:	MOV	FONSS,R1	;  СБРОС ИНДИКАТОРА
+	MOV	BAZVP,R3
+	ADD	ANVP,R3
+	MOV	#3,R4
+10$:	JSR	PC,PZTVSW
+	SOB	R4,10$
+
+	MOV	#20,R4		;  УСТ. ДЛИНЫ СЛОВА
+	TSTB	PRCW
+	BEQ	1$
+	ASL	R4
+
+1$:	CLR	R5		;  ПОИСК ПОЗИЦИИ ТАБУЛЯЦИИ
+7$:	CLR	R2
+	MOV	MTAB(R5),R0
+4$:	ROR	R0
+	BCS	2$
+	BEQ	3$
+6$:	INC	R2
+	BR	4$
+
+2$:	MOV	R2,R1		;  УСТАНОВКА ИНДИКАТОРА
+	TSTB	PRCW
+	BNE	5$
+	ADD	R3,R1
+	MOVB	MCWSS,(R1)
+	BR	6$
+5$:	ASL	R1
+	ADD	R3,R1
+	MOV	MCWSS,(R1)
+	BR	6$
+
+3$:	ADD	#2,R5		;  ИЗМЕНЕНИЕ АДРЕСОВ
+	ADD	R4,R3
+	BIT	#77,R3
+	BNE	7$
+	SUB	#100,R3
+
+	RTS	PC
+
+
+;    -------------------------------
+;    ** 0.7. ФОРМИРОВАНИЕ КУРСОРА **
+;    -------------------------------
+
+PFK:				;  ФОРМИР. И СТИР. КУРСОРА
+PSTK:	TSTB	PRGRAF
+	BNE	1$
+	JSR	PC,PFSK		;  СИМВ. КУРСОР
+	MOV	#KPOWTS,BKPOWT
+	BR	KFK
+1$:	JSR	PC,PFGK		;  ГРАФ. КУРСОР
+	MOV	#KPOWTG,BKPOWT
+
+KFK:	RTS	PC
+
+
+;    ---------------------------------------------
+;    ** 0.8. РЕДАКТИРОВАНИЕ СИМВОЛЬНОГО КУРСОРА **
+;    ---------------------------------------------
+
+PREDSK:	JSR	PC,PSTSK
+	CLR	R5
+	JSR	PC,PFASIM
+	JSR	PC,PFSK
+
+	RTS	PC
+
+
+;    ------------------------
+;    ** 0.9. СБРОС СИМВОЛА **
+;    ------------------------
+
+PSBRS:	MOV	FON,R0		;  ПОДГ. ПАРАМ.
+	MOV	AS,R3
+	MOV	#12,R2
+
+3$:	TSTB	PRCW		;  ЗАПИСЬ ФОНА
+	BNE	1$
+	MOVB	R0,(R3)
+	BR	2$
+1$:	MOV	R0,(R3)
+
+2$:	JSR	PC,PFTAN	;  ИЗМЕНЕНИЕ АДР.
+	SOB	R2,3$
+
+	RTS	PC
+
+
+;    ---------------------------------------------
+;    ** 0.10. ФОРМИРОВАНИЕ ТЕКУЩЕГО АДРЕСА ВНИЗ **
+;    ---------------------------------------------
+
+PFTAN:	ADD	#DTVSTB,R3
+	BPL	KFTAN
+	SUB	DVPB,R3
+
+KFTAN:	RTS	PC
+
+
+;    --------------------------------------
+;    ** 0.11. ЗАПОЛНЕНИЕ TV-СТРОКИ ВВЕРХ **
+;    --------------------------------------
+
+PZTVSW:	MOV	#DTVSTS,R2	;  R1 - ФОН, R3 - АДРЕС
+	CMP	R3,ANVP
+	BHI	1$
+	ADD	DVPB,R3
+1$:	MOV	R1,-(R3)
+	SOB	R2,1$
+
+	RTS	PC
+
+
+;    -------------------------------------
+;    ** 0.12. ЗАПОЛНЕНИЕ TV-СТРОКИ ВНИЗ **
+;    -------------------------------------
+
+PZTVSN:	MOV	#DTVSTS,R2	;  R1 - ФОН, R3 - АДРЕС
+	TST	R3
+	BPL	1$
+	SUB	DVPB,R3
+1$:	MOV	R1,(R3)+
+	SOB	R2,1$
+
+	RTS	PC
+
+
+;    -----------------------
+;    ** 0.13. СДВИГ ВВЕРХ **
+;    -----------------------
+
+PSDWW:	MOV	R1,R3		;  ПОДГОТОВКА АДРЕСОВ
+	SUB	#DSSTRB,R3
+	CMP	R3,ANVP
+	BHIS	1$
+	ADD	DVPB,R3
+
+1$:	TST	R2		;  ПОСЛЕДНЯЯ СТРОКА
+	BEQ	PSBRSN
+
+5$:	MOV	#DTVSTS,R4	;  СДВИГ
+2$:	MOV	(R1)+,(R3)+
+	SOB	R4,2$
+	TST	R1
+	BPL	3$
+	SUB	DVPB,R1
+	BR	4$
+3$:	TST	R3
+	BPL	4$
+	SUB	DVPB,R3
+4$:	SOB	R2,5$
+
+PSBRSN:	MOV	#KTVSS,R4	;  СБРОС СТРОКИ ВНИЗ
+	MOV	FON,R1
+1$:	JSR	PC,PZTVSN
+	SOB	R4,1$
+
+	RTS	PC
+
+
+;    ----------------------
+;    ** 0.14. СДВИГ ВНИЗ **
+;    ----------------------
+
+PSDWN:	MOV	R1,R3		;  ПОДГ. АДРЕСОВ
+	ADD	#DSSTRB,R3
+	CMP	R1,ANVP
+	BHI	11$
+	ADD	DVPB,R1
+11$:	CMP	R3,#100000
+	BLOS	1$
+	SUB	DVPB,R3
+
+1$:	TST	R2		;  ПОСЛЕДНЯЯ СТРОКА
+	BEQ	PSBRSW
+
+5$:	MOV	#DTVSTS,R4	;  СДВИГ
+2$:	MOV	-(R1),-(R3)
+	SOB	R4,2$
+	CMP	R1,ANVP
+	BHI	3$
+	ADD	DVPB,R1
+	BR	4$
+3$:	CMP	R3,ANVP
+	BHI	4$
+	ADD	DVPB,R3
+4$:	SOB	R2,5$
+
+PSBRSW:	MOV	#KTVSS,R4	;  СБРОС СТРОКИ ВВЕРХ
+	MOV	FON,R1
+1$:	JSR	PC,PZTVSW
+	SOB	R4,1$
+
+	RTS	PC

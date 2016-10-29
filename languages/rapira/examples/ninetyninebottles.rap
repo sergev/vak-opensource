@@ -1,0 +1,34 @@
+fun GETBOTTLE(N)
+
+	if N = 0 then
+		return "no more bottles"
+	fi
+
+	if N = 1 then
+		return "1 bottle"
+	fi
+
+	return N + " bottles"
+
+end
+
+proc NINETYNINEBOTTLES()
+
+	extern: GETBOTTLE
+
+	for I from 99 to 0 step -1 do
+
+		output nlf: GETBOTTLE(I), " of beer on the wall, "
+		output: GETBOTTLE(I), " of beer."
+		output nlf: "Take one down and pass it around, "
+
+		output: GETBOTTLE(I - 1), " of beer on the wall.", lf
+
+	od
+
+	output: "No more bottles of beer on the wall, no more bottles of beer."
+	output: "Go to the store and buy some more, 99 bottles of beer on the wall."
+
+end
+
+call NINETYNINEBOTTLES()

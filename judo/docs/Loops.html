@@ -1,0 +1,85 @@
+<HTML>
+<BODY>
+<TABLE cellSpacing=0 cellPadding=3 width="100%" border=1>
+<TBODY>
+<TR class=TableHeadingColor bgColor=#ccccff>
+<TD><FONT size=+2><B>Loops</B></FONT></TD></TR>
+</TBODY>
+</TABLE>
+<p>
+
+
+<strong>Loops are like conditionals, except they run over and over again.</strong>
+<p>
+A loop runs the code that is inside its curly-braces over and over, until its condition
+is no longer true.  The most basic loop is a <strong><code>while</code> loop</strong>.<p>
+
+The basic form of a while loop is this:
+<code>
+<pre>
+while (condition) {
+   // code to run each loop
+}
+</pre>
+</code>
+
+The (condition) above is just like a condition from the if/else conditionals.  Here is 
+and example:
+<code>
+<pre>
+int x;
+x = 0;
+while (x &lt; 10) {
+   printLine("x is still less than ten");
+   x = x + 1;
+}
+printLine("x is now equal to ten");
+</pre>
+</code>
+The above loop will run ten times.  The first time through, x is equal to 0.  Is 0 less than 10?
+Yes.  So the body of the loop (the printLine statement) is run.  We set the new value of x
+to the old value of x plus 1, which is 0 + 1, so after the first loop, x is 1.
+<p>
+The next time through the loop it checks, Is x &lt; 10?  Yes it still is because 1 is less than 10.
+It prints the line, and sets x equal to its old value plus one, or 1 + 1.  So x is now 2.
+It checks again, is 2 less than 10.  Yes.  This keeps happening until x changes from 9 to 10.
+Then next time the condition is checked, it asks, Is 10 &lt; 10.  No 10 is not less than 10 (its 
+equal to 10).  So the loop stops running and it runs the printLine statement that says
+"x is now equal to ten".
+
+<p>
+Here is a while loop example that uses the graphics function <code>drawString</code>.  The
+program first asks the user their name, and then draws a String with their name in it in
+growing letters.
+<code>
+<pre>
+void main() {
+   int size;
+   String name; 
+   setColor(blue);    
+
+   printLine("Please enter your name.");
+   name = readString();
+   size = 5; 
+
+   // while the size of the font is less than 200,
+   // draw the message with bigger and bigger letters
+   while (size &lt; 200) {
+      clearDrawing();
+      drawString("Hello, " + name, size, 10, 200);
+      size = size + 10;
+      delay(.1);
+   }
+   printLine("Done.");
+}
+</pre>
+</code>
+Be sure to set your program properties to "Text and Graphics" before running this
+program, because it uses both text input/output and graphics.
+
+<p>
+<center>
+<a href="Conditionals.html"><img src="Back24.gif" border="0"> Conditionals</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="TenThings.html">Forward to Ten Things to Remember <img src="Forward24.gif" border="0" align="middle"></a>
+</center>
+</BODY>
+</HTML>

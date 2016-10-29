@@ -1,0 +1,26 @@
+2007-06-11 02:23  Serge Vakulenko <vak@vak.ru>
+
+	* kalah.c: Implemented computer-vise-computer mode.
+
+2007-06-11 00:43  Serge Vakulenko <vak@vak.ru>
+
+	* kalah.c: Added printing level number.
+
+2007-06-11 00:20  Serge Vakulenko <vak@vak.ru>
+
+	* Makefile, kalah.c: Added move randomization, level setting,
+	  random text phrases.
+
+2007-06-10 23:37  Serge Vakulenko <vak@vak.ru>
+
+	* kalah.c: Added alpha-beta pruning.
+
+2007-06-10 19:31  Serge Vakulenko <vak@vak.ru>
+
+	* Makefile, kalah.c, readme.txt: Fixed blinking.
+
+2007-06-10 18:22  Serge Vakulenko <vak@vak.ru>
+
+	* Makefile, kalah.c, readme.txt: Version of 1993, slightly
+	  ansified.
+

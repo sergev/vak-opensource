@@ -1,0 +1,218 @@
+.Mcall	.Module
+.Module	BKEMT, Release=X02, Version=07, Comment=<BK0011 Emt Handler>
+;
+;			Copyright (c) 1986,1987 by
+;	C-11 Special Interest Group, Leningrad State University.
+;			 All rights reserved.
+;
+; This software is furnished under a license and may be used and  copied
+; only  in  accordance  with  the  terms  of  such  license and with the
+; inclusion of the above copyright notice.  This software or  any  other
+; copies  thereof may not be provided or otherwise made available to any
+; other person.  No title to and ownership of  the  software  is  hereby
+; transfered.
+;
+; The information in this software is subject to change without notice
+; and should not be construed as a commitment by C-11 group.
+;
+; C-11 assumes no responsibility for the use or reliability of its
+; software on equipment which is not submitted by C-11.
+;
+ .Include "BKHEAD"
+.Globl	ErrByt,Debug,$UsrTrp,SysFlg,PutUwd,UsrBuf
+
+.Macro	Command	Routine,Number,Comment
+.Iif NDF	HigEmt,	HigEmt==0
+.=EmtTbl+Number
+.Globl	Routine
+.Word	Routine
+.Iif GT <Number-HigEmt>	HigEmt==Number
+.=EmtTbl+HigEmt+2
+.EndM
+ .SbTtl	EMT Entry Point
+EmtInt::
+	Mov	(SP)+,$SavPC	;EMT PC And PS
+	Mov	(SP)+,$SavPS	;
+	Mov	SP,$SavSP	;SP Save Area
+	Mov	R5,$SvAre
+	Mov	$SavPC,R5	;Emt Address+2
+	Mov	-(R5),R5	;Get EMT Request code
+	Mov	$$UsrS,-(SP)
+	Bic	#^C<TapMsk!ScrMsk>,@SP	;Unused Bits
+	Bis	#SysSel,@SP
+	Mov	(SP)+,@#$$SysS
+	Mov	@#$$SysS,@#Sel1
+	Mov	#SStack,SP	;Setup new stack
+	Mov	$SavSP,USPSav	;User SP Save Area
+	Mov	$SavPS,UPSSav	;User PS Save Area
+	Mov	$SavPC,UPCSav	;User PC Save Area
+	Mov	$SvAre,-(SP)	;Save Old R5 Register
+	Mov	@#Vec4,SavV4
+	Mov	#EmtV4,@#Vec4	;Emt Vec 4 Routine
+	Bit	#1,R5		;Check for Even Request code
+	Bne	IllEmt		;Illegal
+	Bic	#^C376,R5	;Clear Unused bits
+	Cmp	R5,#HigEmt	;Check Request Legality
+	Bhi	IllEmt		;This Emt is Illegal
+	ClrB	SysFlg		;For Disk/Tape Handlers
+	Call	@EmtTbl(R5)	;Call Appropriate Routine
+	MfPS	R5		;Set User PS N,Z,V and C
+EmExt:	Mov	SavV4,@#Vec4
+	Mov	USPSav,$SavSP	;User SP Save Area
+	Mov	UPSSav,$SavPS	;User PS Save Area
+	Mov	UPCSav,$SavPC	;User PC Save Area
+	Bic	#17,$SavPS	;Set NZVC 
+	Bic	#^C17,R5	;
+	Bis	R5,$SavPS	;
+EmtExi:	Mov	(SP)+,$SvAre	;R5 Save Area
+	Mov	@#$$UsrS,@#Sel1
+	Tst	@#Sel1		;Set User Allocation
+	Mov	$SavSP,SP
+	Mov	$SavPS,-(SP)
+	Mov	$SavPC,-(SP)
+	Mov	$SvAre,R5
+	Rtt			;And return
+.Save
+.Psect	$RAM
+SavV4::	.BlkW
+.Restore
+EmtV4:	Mov	SavV4,@#Vec4
+	Mov	USPSav,$SavSP	;User SP Save Area
+	Mov	UPSSav,$SavPS	;User PS Save Area
+	Mov	UPCSav,$SavPC	;User PC Save Area
+	Mov	@#$$UsrS,@#Sel1
+	Tst	@#Sel1		;Set User Allocation
+	Mov	$SavSP,SP
+	Mov	$SavPS,-(SP)
+	Mov	$SavPC,-(SP)
+	Jmp	@Vec4		;Go User Trap to 4
+
+.SbTtl	Illegal EMT Processing
+$BRsrv:	Tst	(SP)+
+IllEmt:	Mov	#ErrEmt,EmtPri
+.SbTtl	Illegal Command Entry Point
+IllBrk::
+	Mov	SysErr,R5	;User's EMT-Error processing?
+	Beq	Ill1		;No
+	Sub	#2,@#UspSav	;Yes,...
+	Mov	@#USPSav,R5	;Address
+	Mov	R0,-(SP)
+	Mov	UpcSav,R0
+	Call	PutUwd		;Put onto User Stack (for RETURN)
+	Mov	(SP)+,R0
+	Mov	SysErr,UpcSav
+	Clr	SysErr		;Reset Mode
+	Mov	@#UPSSav,R5	;New PS=OLD
+	Br	EmExt
+
+Ill1:	Mov	@#$$UsrS,@#UsrBuf	;Save...
+	Mov	@#$$SysS,@#$$UsrS	
+	Mov	R0,-(SP)
+	Mov	EmtPri,R0
+	Call	$Bprint
+	Mov	(SP)+,R0
+	Mov	@#UsrBuf,@#$$UsrS	;Restore User Sel
+Ill2:	Mov	USPSav,$SavSP	;User SP Save Area
+	Mov	UPSSav,$SavPS	;User PS Save Area
+	Mov	UPCSav,$SavPC	;User PC Save Area
+	Mov	(SP)+,$SvAre	;R5 Save Area
+	Mov	@#$$UsrS,@#Sel1
+	Tst	@#Sel1		;Set User Allocation
+	Mov	$SavSP,SP
+	Mov	$SavPS,-(SP)
+	Mov	$SavPC,-(SP)
+	Mov	$SvAre,R5
+	Jmp	Debug		;And exit to Keyboard Monitor
+ .SbTtl	$BEmtset (EMT 114) Routine (Illegal Emt Processing)
+$BEmtset::
+	Mov	R0,@#SysErr	;Set Illegal Emt Routine Address
+	Return
+
+.SbTtl	$Bexit (EMT 0) Routine (Exit from Users Program)
+$Bexit::
+	Tst	(SP)+
+	Tst	R0
+	Bne	Ill2
+	Call	$Binit		;System initialization
+	Br	Ill2
+
+.SbTtl	$Btrpset (EMT 112) Routine (User's HALT Processing)
+$BtrpSet::
+	Mov	R0,$Usrtrp	;Set User's Routine Address
+	Return
+ 	.Psect	$Const
+
+ErrEmt:	.Byte	25
+	.Ascii	/?BK-ILLEGAL EMT /<200>
+	.Even
+.SbTtl	EMT-Requests Address Table
+
+EmtTbl:
+
+.SbTtl	General Purpose Requests
+Command	$Bexit		0	<Exit from Users Program>
+Command	$Binit		14	<Computer Initialization>
+Command	$Btrpset	112	<User's HALT Processing>
+Command	$BEmtset	114	<Illegal Emt Processing>
+
+.SbTtl	Memory Management Requests
+Command	$Bsetpg		52	<Connect Memory Page>
+Command	$Bjsr		54	<Jsr to Memory Page>
+Command	$Bjmp		56	<Jmp to Memory Page>
+Command	$Bpeek		60	<Get the Word from Memory Page>
+Command	$BpokB		62	<Put the Byte to Memory Page>
+Command	$Bpoke		120	<Put the Word to Memory Page>
+Command	$Btest		72	<Get Memory page status>
+
+.SbTtl	Keyboard Handler Requests
+Command	$Bkbini		4	<Initialize Keyboard>
+Command	$Bttyin		6	<Get One Character from Keyboard>
+Command	$Bgtlin		10	<Get String from Keyboard>
+Command	$Bfunct		12	<Set Function Switch>
+Command	$Bedit		66	<Edit the String>
+Command	$Bkset		100	<Set Keyboard Handler Mode>
+Command	$Bkget		116	<Read Keyboard Handler Mode>
+Command	$Binkey		102	<Get character Without Waiting>
+
+.SbTtl	TV-Set Handler Requests
+Command	$BTtyoy		16	<Type One Character>
+Command	$Bprint		20	<Type Character String>
+Command	$Bssout		22	<Type at Special String>
+Command	$Blocat		24	<Set Cursor Coordinates>
+Command	$Bpos		26	<Get  Cursor Coordinates>
+Command	$Bpoint		30	<Set Graphics Point>
+Command	$Bgetpnt	104	<Get  TV-Point Color>
+Command	$Bvect		32	<Draw Vector or .....>
+Command	$Bbufset	74	<Switch Screen Buffers>
+Command	$BtvSet		64	<Set TV-set Handler Mode>
+Command	$BtvGet		34	<Get TV-set Handler Mode>
+Command	$BGcolor	106	<Exam Color Map>
+Command	$BScolor	76	<Set Color Map>
+Command	$Bscroll	110	<TV-Line Scrolling>
+Command	$Bcircl		130	<Draw the Circle>
+.SbTtl	Sound Requests
+Command	$Bsound		124	<Sound Generation>
+
+.SbTtl	Peripherals Requests
+Command	$BDisk		70	<Floppy-Disk Request>
+Command	$BMtb10		36	<BK0010-compatible tape handler Request>
+
+.SbTtl	Reserved Requests
+Command	$BRsrv		132	<Msx Cassette-Tape Request $BMtMsx>
+Command	$BRsrv		122	<Draw Language $Bdraw>
+Command	$BRsrv		126	<Change color at TV-Screen $Bchclr>
+Command	$BRsrv		40
+Command	$BRsrv		42
+Command	$BRsrv		44
+Command	$BRsrv		46
+Command	$BRsrv		50
+Command	$BRsrv		2
+
+	.Psect	$RAM
+	.Even
+SysErr::	.BlkW	
+UPCSav::	.BlkW
+UPSSav::	.BlkW
+USPSav::	.BlkW
+EmtPri::	.BlkW
+.End

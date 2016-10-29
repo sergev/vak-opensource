@@ -1,0 +1,125 @@
+*ngspice
+
+* Spice model for CD4007 inverter chip
+* by Dr. Lynn Fuller 8-17-2015
+* https://people.rit.edu/lffeee/RIT_Models_For_LTSPICE.txt
+
+* Adapted for ngspice by Serge Vakulenko 7-3-2016
+
+* Properties: L=10u W=170u Ad=8500p As=8500p Pd=440u Ps=440u Nrd=0.1 Nrs=0.1
+.model cd4007n NMOS (level=8 version= 3.3.0
++   capMod = 2
++   Cgbo   = 5.75e-10
++   Cgdo   = 3.4e-10
++   Cgso   = 3.4e-10
++   Cj     = 6.8e-8
++   Cjsw   = 1.26e-10
++   Js     = 3.23e-8
++   Jsw    = 3.23e-8
++   Lint   = 1e-7
++   Mj     = 0.5
++   Mjsw   = 0.5
++   mobMod = 1
++   Nch    = 4e15
++   Ngate  = 5e20
++   Nsub   = 5.33e15
++   Pb     = 0.95
++   Pbsw   = 0.95
++   Pclm   = 5
++   Rsh    = 300
++   Tox    = 4e-8
++   U0     = 1300
++   Vth0   = 1.4
++   Wint   = 2.0e-7
++   Xj     = 2.9e-7
++   Xt     = 8.66e-8
++ )
+
+* Properties: L=10u W=360u Ad=18000p As=18000p Pd=820u Ps=820u NRD=0.54 NRS=0.54
+.model cd4007p PMOS (level=8 version= 3.3.0
++   capMod = 2
++   Cgbo   = 5.75e-10
++   Cgdo   = 4.5e-10
++   Cgso   = 4.5e-10
++   Cj     = 5.28e-8
++   Cjsw   = 1.19e-10
++   Js     = 3.51e-8
++   Jsw    = 3.51e-8
++   Lint   = 1e-6
++   Mj     = 0.5
++   Mjsw   = 0.5
++   mobMod = 1
++   Nch    = 1e15
++   Ngate  = 5e20
++   Nsub   = 8e14
++   Pb     = 0.94
++   Pbsw   = 0.94
++   Pclm   = 5
++   Rsh    = 1347
++   Tox    = 5e-8
++   U0     = 400
++   Vth0   = -1.65
++   Wint   = 1.0e-6
++   Xj     = 2.26e-7
++   Xt     = 8.66e-8
++ )
+
+* Macro for 4007 IC:
+*
+* Pinout:
+*
+*             S4/psub G1,4 D5   S5   G5,2 S2   D2      * 1,2,3 - PMOS
+*               _||___||___||___||___||___||___||_     * 4,5,6 - NMOS
+*               | 7   6    5    4    3    2    1 |     * All PMOS susbstrates
+*               |                                |       connected to pin 14
+*               |                              * |     * All NMOS susbstrates
+*               |                                |       connected to pin 7
+*               | 8   9    10   11   12   13   14|
+*               _  ___  ___  ___  ___  ___  ___  _
+*                ||   ||   ||   ||   ||   ||   ||
+*                D4   S6   G3,6 S3   D3,6 D1   S1/nsub
+*
+* General Form of subcircuit call:
+*  X1 n1 n2 ... n14 cd4007
+*
+* Group A: nmos/pmos pair with common gate, source grounded
+* Group B: nmos/pmos pair with common gate
+* Group C: nmos/pmos pair with common gate and drain
+*
+.subckt cd4007  dpB ; pin 1  - Drain  Pmos group B
++               spB ; pin 2  - Source Pmos group B
++               gB  ; pin 3  - Gate        group B
++               snB ; pin 4  - Source Nmos group B
++               dnB ; pin 5  - Drain  Nmos group B
++               gA  ; pin 6  - Gate        group A
++               bn  ; pin 7  - Bulk   Nmos substrate
++               dnA ; pin 8  - Drain  Nmos group A
++               snC ; pin 9  - Source Nmos group C
++               gC  ; pin 10 - Gate        group C
++               spC ; pin 11 - Source Pmos group C
++               dC  ; pin 12 - Drain       group C
++               dpA ; pin 13 - Drain  Pmos group A
++               bp  ; pin 14 - Bulk   Pmos substrate
+
+*MOSFET Dr  Gt  Src Subs Model   L     W      Ad        As        Pd      Ps      Nrd      Nrs
+M1      dpA gA  bp  bp   cd4007p L=10u W=360u Ad=18000p As=18000p Pd=820u Ps=820u Nrd=0.54 Nrs=0.54
+M2      dpB gB  spB bp   cd4007p L=10u W=360u Ad=18000p As=18000p Pd=820u Ps=820u Nrd=0.54 Nrs=0.54
+M3      dC  gC  spC bp   cd4007p L=10u W=360u Ad=18000p As=18000p Pd=820u Ps=820u Nrd=0.54 Nrs=0.54
+M4      dnA gA  bn  bn   cd4007n L=10u W=170u Ad=8500p  As=8500p  Pd=440u Ps=440u Nrd=0.1  Nrs=0.1
+M5      dnB gB  snB bn   cd4007n L=10u W=170u Ad=8500p  As=8500p  Pd=440u Ps=440u Nrd=0.1  Nrs=0.1
+M6      dC  gC  snC bn   cd4007n L=10u W=170u Ad=8500p  As=8500p  Pd=440u Ps=440u Nrd=0.1  Nrs=0.1
+
+* Pin capacitance of DIP package
+C1      dpB 0  4pF
+C2      spB 0  4pF
+C3      gB  0  4pF
+C4      snB 0  4pF
+C5      dnB 0  4pF
+C6      gA  0  4pF
+C8      dnA 0  4pF
+C9      snC 0  4pF
+C10     gC  0  4pF
+C11     spC 0  4pF
+C12     dC  0  4pF
+C13     dpA 0  4pF
+.ends

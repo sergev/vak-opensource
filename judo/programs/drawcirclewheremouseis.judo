@@ -1,0 +1,12 @@
+//~JUDOPROP~//$VERSION=1.2.2
+//~JUDOPROP~//$TITLE=draw circle where mouse is
+//~JUDOPROP~//$TYPE=graphics
+void main() {
+	setColor(green);
+
+	while (true) {
+		if (getMouseEvent()) {
+			fillCircle(getMouseX(), getMouseY(), 20);
+		}
+	}
+}

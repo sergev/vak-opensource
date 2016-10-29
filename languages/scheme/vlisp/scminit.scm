@@ -1,0 +1,8 @@
+(verbose 0)
+(define (reedit f) (ed f) (load f))
+(define (re) (reedit "work.scm"))
+(set-errno! 0)
+(if (null? (cdr (program-arguments)))
+    (try-load "work.scm")
+    (for-each load (cdr (program-arguments)))
+)

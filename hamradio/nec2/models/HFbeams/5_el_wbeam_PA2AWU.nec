@@ -1,0 +1,71 @@
+CM Comments:					
+CM A 5 element 40 mtr W I R E B E A M  - MMANA-  design  from - P A 2 A W U - 					
+CM					
+CM Use a FOLDED DIPOLE for a feed impedance of 50 Ohm. In abt 3 month time, 
+CM I designed this antenna. We intend to use it in the CQWW SSB 2003 contest.					
+CM 					
+CM Use a 1:1 BALUN for 50 Ohm symmetric to 50 Ohm koaxial cable.					
+CM I found this excellent Balun design in a German book,(THAT'S A MUST!):					
+CM Title:        Kurze Antennen					
+CM Sub title:    Entwurf und Berechnung verkurzter Sende- und Empfangsantennen.					
+CM Author:       Prof. Dr. Gerd Janzen					
+CM Printed:      Stuttgart: Franckh'sche Verlagshandlung 1986 					
+CM 					
+CM Here you find how he (and I) made it:					
+CM On the place, 2.60 meter from the end of the used koaxial cable, 					
+CM scrap off just a small piece of the PVC mantle (.5 cm). Here you solder					
+CM one end of a 2.60 meter long, 2 mm massive(=best), or flexible, copper wire.					
+CM Make 7! clockwise windings in the koaxial cable and 7! anti-clockwise					
+CM windings in the 2 mm wire. (Coil-diameter will be abt 11.5 cm).					
+CM 					
+CM Measured SWR:(antenna analyser: HF 65 from AEA) 1:1 (50 Ohm). 					
+CM 					
+CM pse let me know abt comments and results, or if you need more info!					
+CM 					
+CM Arend, PA2AWU, Member of the - P A 6 Z - contest group;  Zutphen, The Netherlands. 	
+CM 					
+CM 5 el wb 55.8 Ohm jX=1.5 SWR=1.12  Ga=12.42 dBi  F/B=60.96 dB   hi 
+CE
+CM 55.8 Ohm jX=1.5 SWR=1.12  Ga=12.42 dBi F/B=60.9 dB (MMana)  hi 
+CM 55.6 Ohm jX=1.3 SWR=1.11, Ga=13.11 dBi F/B=42.7 dB Eff=83% (4Nec2, len=9.20) 
+CM 55.2 Ohm jX=5.8 SWR=1.16, Ga=13.11 dBi F/B=42.3 dB Eff=83% (4Nec2, len=9.18) 
+CE
+
+'sy len=9.18	' Original PA2AWU lenght
+sy len=9.20	' New length for resonance
+sy dl=0.4	' Distance between folded lines
+
+GW 2 40 0 -len 15.55-dl 0 0   20-dl    .00085
+GW 3 40 0 0    20-dl    0 len 15.55-dl .00085
+
+GW 14 40 0.0 0.0  20.0 0.0 -len  15.55  .00085
+GW 15 40 0.0 0.0  20.0 0.0  len  15.55  .00085
+GW 16 2 0.0 -len  15.55-dl 0.0 -len  15.55  .00085
+GW 17 2 0.0  len  15.55-dl 0.0  len  15.55  .00085
+
+sy ref=9.36
+GW 4 11 -8.78 0.0  20.0 -8.78 -ref  15.0  .00085
+GW 5 11 -8.78 0.0  20.0 -8.78  ref  15.0  .00085
+
+SY D1L=9.24
+GW 6 10  5.59 0.0  20.0  5.59 -D1L  15.5  .00085
+GW 7 10  5.59 0.0  20.0  5.59  D1L  15.5  .00085
+
+SY D2L=8.84
+GW 8 10  20.75 0.0  20.0  20.75 -D2L  15.5  .00085
+GW 9 10  20.75 0.0  20.0  20.75  D2L  15.5  .00085
+
+SY D3L=8.17
+GW 10 10  36.02 0.0  20.0  36.02 -D3L  15.5  .00085
+GW 11 10  36.02 0.0  20.0  36.02  D3L  15.5  .00085
+
+GW 12 10  36.41 0.0 0.0  36.41 0.0  20.0  .065	' Mast 1
+GW 13 10 -9.07 0.0 0.0 -9.07 0.0  20.0  .065	' Mast 2
+
+GE 1
+EX 0 2 40 0 1 0
+EX 0 3 1 0 1 0
+LD 5 0 0 0 57471264
+GN 2 0 0 0 13  0.005 0.0 0.0
+FR 0 1 0 0 7.065 1
+EN

@@ -1,0 +1,21 @@
+##(
+## Compute E value = 2.718...
+##)
+
+##( read, lib )
+
+#( define, e,
+	(#( eq, A, 0, B,
+		(#( e, ##( div, A, ##( add, C, 1 ) ),
+			##( add, A, B ),
+			##( add, C, 1 )
+		))
+	))
+)
+#( scan, e, A, B, C )
+
+(e = )'
+#( e, 1 #( repeat, 10, 0000000000 ) )
+
+(
+)'

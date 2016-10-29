@@ -1,0 +1,12 @@
+CM Example 1 :	Dipole in free space 	' Comment cards
+CM See GetStarted.txt
+CE 							' End of comment
+'
+GW 1 9 0 -.2418 0 0 .2418 0 .0001		' Wire 1, 9 segments, halve wavelength long.
+GE 0							' End of geometry
+'
+EX 0 1 5 0 1 0					' Voltage source (1+j0) at wire 1 segment 5.
+'
+FR 0 1 0 0 300 0					' Set design frequency (300 Mc).
+'
+EN							' End of NEC input

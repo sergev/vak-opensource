@@ -1,0 +1,27 @@
+CM Thick Wire with Traveling Wave, by K6STI
+CE Converted with 4nec2 on 22-apr-02
+SY L = 4
+SY T = .3
+'SY D = .05
+SY D = .01
+GW	1	41	T	0	0	T	0	L	D
+GW	2	41	-T	0	0	-T	0	L	D
+GW	3	41	0	T	0	0	T	L	D
+GW	4	41	0	-T	0	0	-T	L	D
+GE	1
+EX	0	1	1	00	1.0	0.0
+EX	0	2	1	00	1.0	0.0
+EX	0	3	1	00	1.0	0.0
+EX	0	4	1	00	1.0	0.0
+'
+GN	0	0	0	0	13	.005
+FR	0	1	0	0	 299.8
+EN
+'This model simulates a long, thick conductor fed against ground.  current in
+'such a conductor is predominantly a traveling wave.  Compare wire currents here
+'with those when three of the wires are removed.  Circular phasor traces and
+'constant magnitude-only traces indicate traveling waves.  Using a thick
+'conductor is one of the few ways to obtain a traveling wave without a
+'power-wasting resistive load.
+'
+'(Use 'C', 'P' and/or 'B' on pattern view)

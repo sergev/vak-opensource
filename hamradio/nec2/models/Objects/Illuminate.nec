@@ -1,0 +1,75 @@
+CM Nearfield inside box with coarse wire mesh, illuminated by 
+CM short dipole far away. Structure created with build.exe.
+CM Far away Dipole not shown because of tagnr >= 9700.
+CM This to preserve initial scaling of box structure. 
+Cm Select 'use original file' when calculation output-data
+CM Takes about 45 sec's to calulate fields on 1 Ghz pentium-4
+CM select 'use original file' to calculate.    (Arie)
+CM				 			
+CM Length X1 = 2
+CM Length X2 = 2
+CM Length Y = 3
+CM Length Z1 = 1
+CM Length Z2 = 1
+CM X sections = 2
+CM Y sections = 2
+CM Z sections = 2
+CM Rotate X, Y, Z = 0, 0, 0
+CM Move X, Y, Z = 0, 0, 0
+CE
+GW    1  10     -1.0     -1.5       .5     -1.0     -1.5       .0      .005
+GW    2  10     -1.0     -1.5       .0     -1.0     -1.5      -.5      .005
+GW    3  10       .0     -1.5       .5       .0     -1.5       .0      .005
+GW    4  10       .0     -1.5       .0       .0     -1.5      -.5      .005
+GW    5  10      1.0     -1.5       .5      1.0     -1.5       .0      .005
+GW    6  10      1.0     -1.5       .0      1.0     -1.5      -.5      .005
+GW    7  10     -1.0     -1.5       .5       .0     -1.5       .5      .005
+GW    8  10       .0     -1.5       .5      1.0     -1.5       .5      .005
+GW    9  10     -1.0     -1.5       .0       .0     -1.5       .0      .005
+GW   10  10       .0     -1.5       .0      1.0     -1.5       .0      .005
+GW   11  10     -1.0     -1.5      -.5       .0     -1.5      -.5      .005
+GW   12  10       .0     -1.5      -.5      1.0     -1.5      -.5      .005
+GW   13  10     -1.0      1.5       .5     -1.0      1.5       .0      .005
+GW   14  10     -1.0      1.5       .0     -1.0      1.5      -.5      .005
+GW   15  10       .0      1.5       .5       .0      1.5       .0      .005
+GW   16  10       .0      1.5       .0       .0      1.5      -.5      .005
+GW   17  10      1.0      1.5       .5      1.0      1.5       .0      .005
+GW   18  10      1.0      1.5       .0      1.0      1.5      -.5      .005
+GW   19  10     -1.0      1.5       .5       .0      1.5       .5      .005
+GW   20  10       .0      1.5       .5      1.0      1.5       .5      .005
+GW   21  10     -1.0      1.5       .0       .0      1.5       .0      .005
+GW   22  10       .0      1.5       .0      1.0      1.5       .0      .005
+GW   23  10     -1.0      1.5      -.5       .0      1.5      -.5      .005
+GW   24  10       .0      1.5      -.5      1.0      1.5      -.5      .005
+GW   25  10     -1.0     -1.5       .5     -1.0       .0       .5      .005
+GW   26  10     -1.0       .0       .5     -1.0      1.5       .5      .005
+GW   27  10     -1.0     -1.5       .0     -1.0       .0       .0      .005
+GW   28  10     -1.0       .0       .0     -1.0      1.5       .0      .005
+GW   29  10     -1.0     -1.5      -.5     -1.0       .0      -.5      .005
+GW   30  10     -1.0       .0      -.5     -1.0      1.5      -.5      .005
+GW   31  10     -1.0       .0       .5     -1.0       .0       .0      .005
+GW   32  10     -1.0       .0       .0     -1.0       .0      -.5      .005
+GW   33  10      1.0     -1.5       .5      1.0       .0       .5      .005
+GW   34  10      1.0       .0       .5      1.0      1.5       .5      .005
+GW   35  10      1.0     -1.5       .0      1.0       .0       .0      .005
+GW   36  10      1.0       .0       .0      1.0      1.5       .0      .005
+GW   37  10      1.0     -1.5      -.5      1.0       .0      -.5      .005
+GW   38  10      1.0       .0      -.5      1.0      1.5      -.5      .005
+GW   39  10      1.0       .0       .5      1.0       .0       .0      .005
+GW   40  10      1.0       .0       .0      1.0       .0      -.5      .005
+GW   41  10       .0     -1.5       .5       .0       .0       .5      .005
+GW   42  10       .0       .0       .5       .0      1.5       .5      .005
+GW   43  10     -1.0       .0       .5       .0       .0       .5      .005
+GW   44  10       .0       .0       .5      1.0       .0       .5      .005
+GW   45  10       .0     -1.5      -.5       .0       .0      -.5      .005
+GW   46  10       .0       .0      -.5       .0      1.5      -.5      .005
+GW   47  10     -1.0       .0      -.5       .0       .0      -.5      .005
+GW   48  10       .0       .0      -.5      1.0       .0      -.5      .005
+'
+GW	9801	10	300.0	300.0	-.75	300.0	300.0	.75	.005	' (invisible) Dipole
+GE	0									'free space
+EX	0	9801   	6	00	1	0			' vertical polarized dipole field
+FR	0	1	1	0	100	0			' single frequency step at 100MHz
+NE	0	161	161	1	-8	-8	0	.1	.1	0	'near electric fields, middle of box
+XQ											'execute it
+EN

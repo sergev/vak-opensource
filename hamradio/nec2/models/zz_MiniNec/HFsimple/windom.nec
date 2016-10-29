@@ -1,0 +1,11 @@
+CM Windom (600 ohm)
+CE
+SY len=5.26, ofs=1.74, hgh=20.6
+GW 1 26 0.0 -ofs  hgh 0.0  len  hgh  .0008
+GW 2 14 0.0 -ofs  hgh 0.0 -len  hgh  .0008
+GW 3 78 0.0 -ofs 0.0 0.0 -ofs  hgh  .0008
+GE 1
+EX 0 3  1  0  1.0 0.0
+GN 1
+FR 0 1 0 0 14.05 1
+EN

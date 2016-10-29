@@ -1,0 +1,60 @@
+CM 4 ELE QUAD .65 W/L BOOM
+CM
+CM Converted with 4nec on 22-apr-2002
+CE
+SY R = 21.93397
+SY RE = COS(45) * R
+SY D = 20.98567
+SY DE = COS(45) * D
+SY DR1 = 20.57761
+SY D1 = COS(45) * DR1
+SY DR2 = 20.6086
+SY D2 = COS(45) * DR2
+SY DR3 = 19.95761
+SY D3 = COS(45) * DR3
+SY DR4 = 19.82977
+SY D4 = COS(45) * DR4
+SY DR5 = 19.6291
+SY D5 = COS(45) * DR5 
+SY S = 16.29
+SY S1 = 21.37
+SY S2 = 37.42
+SY S3 = 61.48
+SY S4 = 89.57
+SY S5 = 115
+SY B = 0
+GW	1	7	-S	B	-RE	-S	RE	B	#14/in
+GW	2	7	-S	RE	B	-S	B	RE	#14/in
+'
+GW	3	7	B	B	-DE	B	DE	B	#14/in
+GW	4	7	B	DE	B	B	B	DE	#14/in
+'
+GW	5	7	S1	B	-D1	S1	D1	B	#14/in
+GW	6	7	S1	D1	B	S1	B	D1	#14/in
+'
+GW	7	7	S2	B	-D2	S2	D2	B	#14/in
+GW	8	7	S2	D2	B	S2	B	D2	#14/in
+'
+GW	9	5	S3	B	-D3	S3	D3	B	#14/in
+GW	10	5	S3	D3	B	S3	B	D3	#14/in
+'
+GW	11	5	S4	B	-D4	S4	D4	B	#14/in
+GW	12	5	S4	D3	B	S4	B	D3	#14/in
+'
+GW	13	5	S5	B	-D5	S5	D5	B	#14/in
+GW	14	5	S5	D5	B	S5	B	D5	#14/in
+'
+'
+GX	14	010			' Reflect in XZ plane
+
+GS	0	0	in		'  All in inches.
+
+GE	0
+EX	0	3	1	00	1.0	0.0
+EX	0	17	1	00	-1.0	0.0
+'
+'
+GN	-1
+FR	0	1	0	0	 145
+EN
+'

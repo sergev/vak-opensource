@@ -1,0 +1,23 @@
+#
+# Конфигурационный файл почтового сервера Infosoft.
+#
+# Copyright (C) 1991 Сергей Вакуленко, <vak@kiae.su>.
+# All rights reserved.
+#
+
+mailbox         = /usr/spool/mail/trade
+servdir         = /usr/spool/trade
+publicdir       = /usr/spool/trade/ar
+mailtocmd       = /usr/lib/sendmail
+logfile         = /usr/spool/trade/logfile
+myaddress       = trade-server
+archiver        = /usr/spool/trade/zoo aq
+
+# Сервер опрашивает состояние почтового ящика каждые 10 секунд.
+daemondelay     = 10
+
+# Лоты, торг по которым закончен, хранятся не более 24 часов.
+expiretime      = 24
+
+# Устаревшие лоты, имена которых начинаются с точки, хранятся не более 30 дней.
+dotexpiretime   = 720

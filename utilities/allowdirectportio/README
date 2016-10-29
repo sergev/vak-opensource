@@ -1,0 +1,48 @@
+$Id: README,v 1.2 2003/03/01 22:53:40 das Exp $
+README for allowdirectportio.
+
+******************************************************************************
+Copyright (C) 2003 Dwight A. Schauer
+
+ This file is part of the allowdirectportio package.
+
+ allowdirectportio is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or
+ (at your option) any later version.
+
+ allowdirectportio is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with allowdirectporio; if not, write to the Free Software
+ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+******************************************************************************
+
+allowdirectportio is a program used to allow user space programs to access
+I/O directly for Linux programs running on an x86 platform or hardware that
+has a similar I/O model.
+
+This program has a _long_ name because it should _only_ be used as a _last_
+resort, when a proper solution is not feasible or is impractical.
+
+For usage see 'allowdirectportio --help'.
+
+The executable for allowdirectportio is assumed to be setuid root if it is
+to be used by a non root user. Permissions are granted to ports specified in
+the C source file. Once permissions are granted, process priveleges are
+dropped as the effective user id of the program is set back to those of the
+user that invoked it.
+
+To change or add to the specified ports, one must edit the source code. To
+change where the program is installed and what it is named, one must edit
+the Makefile.
+
+Installation instructions: Read the Makefile and C source code first.
+Basically:
+   make           # as a non root user
+   make install   # as root or using something like sudo
+
+Report bugs and feature requests to <bugs-allowdirectportio@teegra.net>

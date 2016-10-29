@@ -1,0 +1,1988 @@
+cpu_mips_handle_mmu_fault pc bfc00000 ad bfc00000 rw 2 mmu_idx 0 smmu 1
+cpu_mips_handle_mmu_fault address=bfc00000 ret 0 physical 000000001fc00000 prot 3
+------------------------------------------------
+pc=0xbfc00000 HI=0x00000000 LO=0x00000000 ds 0010 00000000 0
+GPR00: r0 00000000 at 00000000 v0 00000000 v1 00000000
+GPR04: a0 00000000 a1 00000000 a2 00000000 a3 00000000
+GPR08: t0 00000000 t1 00000000 t2 00000000 t3 00000000
+GPR12: t4 00000000 t5 00000000 t6 00000000 t7 00000000
+GPR16: s0 00000000 s1 00000000 s2 00000000 s3 00000000
+GPR20: s4 00000000 s5 00000000 s6 00000000 s7 00000000
+GPR24: t8 00000000 t9 00000000 k0 00000000 k1 00000000
+GPR28: gp 00000000 sp 00000000 s8 00000000 ra 00000000
+CP0 Status  0x00400004 Cause   0x00000400 EPC    0x00000000
+    Config0 0x80000482 Config1 0x9e190c8b LLAddr 0x00000000
+IN: 
+0xbfc00000:  lui	sp,0x10
+0xbfc00004:  addiu	sp,sp,0
+0xbfc00008:  j	0xbfc00010
+0xbfc0000c:  lui	gp,0x0
+
+---------------- 2 00000010
+OP:
+ ---- 0xbfc00000
+ movi_i32 sp,$0x100000
+
+ ---- 0xbfc00004
+
+ ---- 0xbfc00008
+
+ ---- 0xbfc0000c
+ movi_i32 gp,$0x0
+ goto_tb $0x0
+ movi_i32 PC,$0xbfc00010
+ exit_tb $0x16c06000
+
+OUT: [size=39]
+0x14c06000:  xor    %eax,%eax
+0x14c06002:  mov    %eax,0x70(%ebp)
+0x14c06005:  mov    $0x100000,%eax
+0x14c0600a:  mov    %eax,0x74(%ebp)
+0x14c0600d:  jmp    0x14c06012
+0x14c06012:  mov    $0xbfc00010,%eax
+0x14c06017:  mov    %eax,0x80(%ebp)
+0x14c0601d:  mov    $0x16c06000,%eax
+0x14c06022:  jmp    0x39db28
+
+------------------------------------------------
+pc=0xbfc00010 HI=0x00000000 LO=0x00000000 ds 0010 00000000 0
+GPR00: r0 00000000 at 00000000 v0 00000000 v1 00000000
+GPR04: a0 00000000 a1 00000000 a2 00000000 a3 00000000
+GPR08: t0 00000000 t1 00000000 t2 00000000 t3 00000000
+GPR12: t4 00000000 t5 00000000 t6 00000000 t7 00000000
+GPR16: s0 00000000 s1 00000000 s2 00000000 s3 00000000
+GPR20: s4 00000000 s5 00000000 s6 00000000 s7 00000000
+GPR24: t8 00000000 t9 00000000 k0 00000000 k1 00000000
+GPR28: gp 00000000 sp 00100000 s8 00000000 ra 00000000
+CP0 Status  0x00400004 Cause   0x00000400 EPC    0x00000000
+    Config0 0x80000482 Config1 0x9e190c8b LLAddr 0x00000000
+IN: 
+0xbfc00010:  addiu	sp,sp,-24
+0xbfc00014:  addiu	v0,gp,0
+0xbfc00018:  addiu	v1,gp,0
+0xbfc0001c:  sltu	v0,v1,v0
+0xbfc00020:  beqz	v0,0xbfc00054
+0xbfc00024:  sw	ra,20(sp)
+
+---------------- 2 00000010
+OP:
+ ---- 0xbfc00010
+ movi_i32 tmp0,$0xffffffe8
+ add_i32 sp,sp,tmp0
+
+ ---- 0xbfc00014
+ mov_i32 v0,gp
+
+ ---- 0xbfc00018
+ mov_i32 v1,gp
+
+ ---- 0xbfc0001c
+ mov_i32 tmp0,v1
+ mov_i32 tmp1,v0
+ brcond_i32 tmp0,tmp1,ltu,$0x0
+ movi_i32 v0,$0x0
+ br $0x1
+ set_label $0x0
+ movi_i32 v0,$0x1
+ set_label $0x1
+
+ ---- 0xbfc00020
+ mov_i32 tmp1,v0
+ movi_i32 tmp0,$0x0
+ brcond_i32 tmp1,tmp0,eq,$0x2
+ movi_i32 bcond,$0x0
+ br $0x3
+ set_label $0x2
+ movi_i32 bcond,$0x1
+ set_label $0x3
+
+ ---- 0xbfc00024
+ movi_i32 tmp0,$0x14
+ add_i32 tmp0,sp,tmp0
+ movi_i32 hflags,$0x810
+ movi_i32 btarget,$0xbfc00054
+ mov_i32 tmp1,ra
+ qemu_st32 tmp1,tmp0,$0x0
+ movi_i32 hflags,$0x10
+ movi_i32 tmp1,$0x0
+ brcond_i32 bcond,tmp1,ne,$0x4
+ goto_tb $0x1
+ movi_i32 PC,$0xbfc00028
+ exit_tb $0x16c06049
+ set_label $0x4
+ goto_tb $0x0
+ movi_i32 PC,$0xbfc00054
+ exit_tb $0x16c06048
+
+OUT: [size=246]
+0x14c06030:  mov    0x74(%ebp),%eax
+0x14c06033:  add    $0xffffffe8,%eax
+0x14c06036:  mov    0x70(%ebp),%edx
+0x14c06039:  mov    0x70(%ebp),%ecx
+0x14c0603c:  mov    %ecx,%ebx
+0x14c0603e:  mov    %edx,%esi
+0x14c06040:  mov    %edx,0x8(%ebp)
+0x14c06043:  mov    %ecx,0xc(%ebp)
+0x14c06046:  mov    %eax,0x74(%ebp)
+0x14c06049:  cmp    %esi,%ebx
+0x14c0604b:  jb     0x14c0605b
+0x14c06051:  xor    %eax,%eax
+0x14c06053:  mov    %eax,0x8(%ebp)
+0x14c06056:  jmp    0x14c06063
+0x14c0605b:  mov    $0x1,%eax
+0x14c06060:  mov    %eax,0x8(%ebp)
+0x14c06063:  mov    0x8(%ebp),%eax
+0x14c06066:  test   %eax,%eax
+0x14c06068:  je     0x14c0607b
+0x14c0606e:  xor    %eax,%eax
+0x14c06070:  mov    %eax,0x118c(%ebp)
+0x14c06076:  jmp    0x14c06086
+0x14c0607b:  mov    $0x1,%eax
+0x14c06080:  mov    %eax,0x118c(%ebp)
+0x14c06086:  mov    0x74(%ebp),%eax
+0x14c06089:  mov    %eax,%edx
+0x14c0608b:  add    $0x14,%edx
+0x14c0608e:  mov    0x7c(%ebp),%ecx
+0x14c06091:  mov    %edx,%ebx
+0x14c06093:  mov    $0xbfc00054,%eax
+0x14c06098:  mov    %eax,0x1188(%ebp)
+0x14c0609e:  mov    $0x810,%eax
+0x14c060a3:  mov    %eax,0x1184(%ebp)
+0x14c060a9:  mov    %ebx,%edx
+0x14c060ab:  mov    %ebx,%eax
+0x14c060ad:  shr    $0x7,%edx
+0x14c060b0:  and    $0xfffff003,%eax
+0x14c060b6:  and    $0x1fe0,%edx
+0x14c060bc:  lea    0x11cc(%edx,%ebp,1),%edx
+0x14c060c3:  cmp    (%edx),%eax
+0x14c060c5:  mov    %ebx,%eax
+0x14c060c7:  je     0x14c060d4
+0x14c060c9:  mov    %ecx,%edx
+0x14c060cb:  xor    %ecx,%ecx
+0x14c060cd:  call   0x125bd0
+0x14c060d2:  jmp    0x14c060d9
+0x14c060d4:  add    0xc(%edx),%eax
+0x14c060d7:  mov    %ecx,(%eax)
+0x14c060d9:  mov    0x118c(%ebp),%eax
+0x14c060df:  mov    $0x10,%edx
+0x14c060e4:  mov    %edx,0x1184(%ebp)
+0x14c060ea:  test   %eax,%eax
+0x14c060ec:  jne    0x14c0610c
+0x14c060f2:  jmp    0x14c060f7
+0x14c060f7:  mov    $0xbfc00028,%eax
+0x14c060fc:  mov    %eax,0x80(%ebp)
+0x14c06102:  mov    $0x16c06049,%eax
+0x14c06107:  jmp    0x39db28
+0x14c0610c:  jmp    0x14c06111
+0x14c06111:  mov    $0xbfc00054,%eax
+0x14c06116:  mov    %eax,0x80(%ebp)
+0x14c0611c:  mov    $0x16c06048,%eax
+0x14c06121:  jmp    0x39db28
+
+cpu_mips_handle_mmu_fault pc bfc00010 ad 000ffffc rw 1 mmu_idx 0 smmu 1
+cpu_mips_handle_mmu_fault address=000ffffc ret 0 physical 00000000000ffffc prot 3
+------------------------------------------------
+pc=0xbfc00054 HI=0x00000000 LO=0x00000000 ds 0010 bfc00054 1
+GPR00: r0 00000000 at 00000000 v0 00000000 v1 00000000
+GPR04: a0 00000000 a1 00000000 a2 00000000 a3 00000000
+GPR08: t0 00000000 t1 00000000 t2 00000000 t3 00000000
+GPR12: t4 00000000 t5 00000000 t6 00000000 t7 00000000
+GPR16: s0 00000000 s1 00000000 s2 00000000 s3 00000000
+GPR20: s4 00000000 s5 00000000 s6 00000000 s7 00000000
+GPR24: t8 00000000 t9 00000000 k0 00000000 k1 00000000
+GPR28: gp 00000000 sp 000fffe8 s8 00000000 ra 00000000
+CP0 Status  0x00400004 Cause   0x00000400 EPC    0x00000000
+    Config0 0x80000482 Config1 0x9e190c8b LLAddr 0x00000000
+IN: 
+0xbfc00054:  addiu	v0,gp,0
+0xbfc00058:  addiu	v1,gp,0
+0xbfc0005c:  sltu	v0,v1,v0
+0xbfc00060:  beqz	v0,0xbfc00080
+0xbfc00064:  move	v0,v1
+
+---------------- 2 00000010
+OP:
+ ---- 0xbfc00054
+ mov_i32 v0,gp
+
+ ---- 0xbfc00058
+ mov_i32 v1,gp
+
+ ---- 0xbfc0005c
+ mov_i32 tmp0,v1
+ mov_i32 tmp1,v0
+ brcond_i32 tmp0,tmp1,ltu,$0x0
+ movi_i32 v0,$0x0
+ br $0x1
+ set_label $0x0
+ movi_i32 v0,$0x1
+ set_label $0x1
+
+ ---- 0xbfc00060
+ mov_i32 tmp1,v0
+ movi_i32 tmp0,$0x0
+ brcond_i32 tmp1,tmp0,eq,$0x2
+ movi_i32 bcond,$0x0
+ br $0x3
+ set_label $0x2
+ movi_i32 bcond,$0x1
+ set_label $0x3
+
+ ---- 0xbfc00064
+ mov_i32 v0,v1
+ movi_i32 tmp0,$0x0
+ brcond_i32 bcond,tmp0,ne,$0x4
+ goto_tb $0x1
+ movi_i32 PC,$0xbfc00068
+ exit_tb $0x16c06091
+ set_label $0x4
+ goto_tb $0x0
+ movi_i32 PC,$0xbfc00080
+ exit_tb $0x16c06090
+
+OUT: [size=149]
+0x14c06130:  mov    0x70(%ebp),%eax
+0x14c06133:  mov    0x70(%ebp),%edx
+0x14c06136:  mov    %edx,%ecx
+0x14c06138:  mov    %eax,%ebx
+0x14c0613a:  mov    %eax,0x8(%ebp)
+0x14c0613d:  mov    %edx,0xc(%ebp)
+0x14c06140:  cmp    %ebx,%ecx
+0x14c06142:  jb     0x14c06152
+0x14c06148:  xor    %eax,%eax
+0x14c0614a:  mov    %eax,0x8(%ebp)
+0x14c0614d:  jmp    0x14c0615a
+0x14c06152:  mov    $0x1,%eax
+0x14c06157:  mov    %eax,0x8(%ebp)
+0x14c0615a:  mov    0x8(%ebp),%eax
+0x14c0615d:  test   %eax,%eax
+0x14c0615f:  je     0x14c06172
+0x14c06165:  xor    %eax,%eax
+0x14c06167:  mov    %eax,0x118c(%ebp)
+0x14c0616d:  jmp    0x14c0617d
+0x14c06172:  mov    $0x1,%eax
+0x14c06177:  mov    %eax,0x118c(%ebp)
+0x14c0617d:  mov    0xc(%ebp),%eax
+0x14c06180:  mov    0x118c(%ebp),%edx
+0x14c06186:  mov    %eax,0x8(%ebp)
+0x14c06189:  test   %edx,%edx
+0x14c0618b:  jne    0x14c061ab
+0x14c06191:  jmp    0x14c06196
+0x14c06196:  mov    $0xbfc00068,%eax
+0x14c0619b:  mov    %eax,0x80(%ebp)
+0x14c061a1:  mov    $0x16c06091,%eax
+0x14c061a6:  jmp    0x39db28
+0x14c061ab:  jmp    0x14c061b0
+0x14c061b0:  mov    $0xbfc00080,%eax
+0x14c061b5:  mov    %eax,0x80(%ebp)
+0x14c061bb:  mov    $0x16c06090,%eax
+0x14c061c0:  jmp    0x39db28
+
+------------------------------------------------
+pc=0xbfc00080 HI=0x00000000 LO=0x00000000 ds 0010 bfc00054 1
+GPR00: r0 00000000 at 00000000 v0 00000000 v1 00000000
+GPR04: a0 00000000 a1 00000000 a2 00000000 a3 00000000
+GPR08: t0 00000000 t1 00000000 t2 00000000 t3 00000000
+GPR12: t4 00000000 t5 00000000 t6 00000000 t7 00000000
+GPR16: s0 00000000 s1 00000000 s2 00000000 s3 00000000
+GPR20: s4 00000000 s5 00000000 s6 00000000 s7 00000000
+GPR24: t8 00000000 t9 00000000 k0 00000000 k1 00000000
+GPR28: gp 00000000 sp 000fffe8 s8 00000000 ra 00000000
+CP0 Status  0x00400004 Cause   0x00000400 EPC    0x00000000
+    Config0 0x80000482 Config1 0x9e190c8b LLAddr 0x00000000
+IN: 
+0xbfc00080:  jal	0xbfc001bc
+0xbfc00084:  nop
+
+---------------- 2 00000010
+OP:
+ ---- 0xbfc00080
+ movi_i32 ra,$0xbfc00088
+
+ ---- 0xbfc00084
+ goto_tb $0x0
+ movi_i32 PC,$0xbfc001bc
+ exit_tb $0x16c060d8
+
+OUT: [size=34]
+0x14c061d0:  mov    $0xbfc00088,%eax
+0x14c061d5:  mov    %eax,0x7c(%ebp)
+0x14c061d8:  jmp    0x14c061dd
+0x14c061dd:  mov    $0xbfc001bc,%eax
+0x14c061e2:  mov    %eax,0x80(%ebp)
+0x14c061e8:  mov    $0x16c060d8,%eax
+0x14c061ed:  jmp    0x39db28
+
+------------------------------------------------
+pc=0xbfc001bc HI=0x00000000 LO=0x00000000 ds 0010 bfc00054 1
+GPR00: r0 00000000 at 00000000 v0 00000000 v1 00000000
+GPR04: a0 00000000 a1 00000000 a2 00000000 a3 00000000
+GPR08: t0 00000000 t1 00000000 t2 00000000 t3 00000000
+GPR12: t4 00000000 t5 00000000 t6 00000000 t7 00000000
+GPR16: s0 00000000 s1 00000000 s2 00000000 s3 00000000
+GPR20: s4 00000000 s5 00000000 s6 00000000 s7 00000000
+GPR24: t8 00000000 t9 00000000 k0 00000000 k1 00000000
+GPR28: gp 00000000 sp 000fffe8 s8 00000000 ra bfc00088
+CP0 Status  0x00400004 Cause   0x00000400 EPC    0x00000000
+    Config0 0x80000482 Config1 0x9e190c8b LLAddr 0x00000000
+IN: 
+0xbfc001bc:  addiu	sp,sp,-24
+0xbfc001c0:  sw	ra,20(sp)
+0xbfc001c4:  jal	0xbfc000a8
+0xbfc001c8:  nop
+
+---------------- 2 00000010
+OP:
+ ---- 0xbfc001bc
+ movi_i32 tmp0,$0xffffffe8
+ add_i32 sp,sp,tmp0
+
+ ---- 0xbfc001c0
+ movi_i32 tmp0,$0x14
+ add_i32 tmp0,sp,tmp0
+ mov_i32 tmp1,ra
+ qemu_st32 tmp1,tmp0,$0x0
+
+ ---- 0xbfc001c4
+ movi_i32 ra,$0xbfc001cc
+
+ ---- 0xbfc001c8
+ goto_tb $0x0
+ movi_i32 PC,$0xbfc000a8
+ exit_tb $0x16c06120
+
+OUT: [size=101]
+0x14c06200:  mov    0x74(%ebp),%eax
+0x14c06203:  add    $0xffffffe8,%eax
+0x14c06206:  mov    %eax,%edx
+0x14c06208:  add    $0x14,%edx
+0x14c0620b:  mov    0x7c(%ebp),%ecx
+0x14c0620e:  mov    %edx,%ebx
+0x14c06210:  mov    %eax,0x74(%ebp)
+0x14c06213:  mov    %ebx,%edx
+0x14c06215:  mov    %ebx,%eax
+0x14c06217:  shr    $0x7,%edx
+0x14c0621a:  and    $0xfffff003,%eax
+0x14c06220:  and    $0x1fe0,%edx
+0x14c06226:  lea    0x11cc(%edx,%ebp,1),%edx
+0x14c0622d:  cmp    (%edx),%eax
+0x14c0622f:  mov    %ebx,%eax
+0x14c06231:  je     0x14c0623e
+0x14c06233:  mov    %ecx,%edx
+0x14c06235:  xor    %ecx,%ecx
+0x14c06237:  call   0x125bd0
+0x14c0623c:  jmp    0x14c06243
+0x14c0623e:  add    0xc(%edx),%eax
+0x14c06241:  mov    %ecx,(%eax)
+0x14c06243:  mov    $0xbfc001cc,%eax
+0x14c06248:  mov    %eax,0x7c(%ebp)
+0x14c0624b:  jmp    0x14c06250
+0x14c06250:  mov    $0xbfc000a8,%eax
+0x14c06255:  mov    %eax,0x80(%ebp)
+0x14c0625b:  mov    $0x16c06120,%eax
+0x14c06260:  jmp    0x39db28
+
+------------------------------------------------
+pc=0xbfc000a8 HI=0x00000000 LO=0x00000000 ds 0010 bfc00054 1
+GPR00: r0 00000000 at 00000000 v0 00000000 v1 00000000
+GPR04: a0 00000000 a1 00000000 a2 00000000 a3 00000000
+GPR08: t0 00000000 t1 00000000 t2 00000000 t3 00000000
+GPR12: t4 00000000 t5 00000000 t6 00000000 t7 00000000
+GPR16: s0 00000000 s1 00000000 s2 00000000 s3 00000000
+GPR20: s4 00000000 s5 00000000 s6 00000000 s7 00000000
+GPR24: t8 00000000 t9 00000000 k0 00000000 k1 00000000
+GPR28: gp 00000000 sp 000fffd0 s8 00000000 ra bfc001cc
+CP0 Status  0x00400004 Cause   0x00000400 EPC    0x00000000
+    Config0 0x80000482 Config1 0x9e190c8b LLAddr 0x00000000
+IN: 
+0xbfc000a8:  lui	v0,0x1400
+0xbfc000ac:  ori	a1,v0,0x3fb
+0xbfc000b0:  li	v1,-125
+0xbfc000b4:  sb	v1,0(a1)
+0xbfc000b8:  ori	v1,v0,0x3f9
+0xbfc000bc:  sb	zero,0(v1)
+0xbfc000c0:  ori	a0,v0,0x3f8
+0xbfc000c4:  li	a2,27
+0xbfc000c8:  sb	a2,0(a0)
+0xbfc000cc:  li	a2,3
+0xbfc000d0:  sb	a2,0(a1)
+0xbfc000d4:  ori	a1,v0,0x3ff
+0xbfc000d8:  sb	zero,0(a1)
+0xbfc000dc:  sb	zero,0(v1)
+0xbfc000e0:  ori	a1,v0,0x3fe
+0xbfc000e4:  sb	zero,0(a1)
+0xbfc000e8:  ori	v1,v0,0x3fc
+0xbfc000ec:  li	a2,11
+0xbfc000f0:  sb	a2,0(v1)
+0xbfc000f4:  ori	v1,v0,0x3fa
+0xbfc000f8:  li	a2,7
+0xbfc000fc:  sb	a2,0(v1)
+0xbfc00100:  ori	v0,v0,0x3fd
+0xbfc00104:  lbu	v0,0(v0)
+0xbfc00108:  lbu	v0,0(a1)
+0xbfc0010c:  lbu	v0,0(a0)
+0xbfc00110:  lbu	v0,0(v1)
+0xbfc00114:  jr	ra
+0xbfc00118:  nop
+
+---------------- 2 00000010
+OP:
+ ---- 0xbfc000a8
+ movi_i32 v0,$0x14000000
+
+ ---- 0xbfc000ac
+ movi_i32 tmp0,$0x3fb
+ or_i32 a1,v0,tmp0
+
+ ---- 0xbfc000b0
+ movi_i32 v1,$0xffffff83
+
+ ---- 0xbfc000b4
+ mov_i32 tmp0,a1
+ mov_i32 tmp1,v1
+ qemu_st8 tmp1,tmp0,$0x0
+
+ ---- 0xbfc000b8
+ movi_i32 tmp1,$0x3f9
+ or_i32 v1,v0,tmp1
+
+ ---- 0xbfc000bc
+ mov_i32 tmp1,v1
+ movi_i32 tmp0,$0x0
+ qemu_st8 tmp0,tmp1,$0x0
+
+ ---- 0xbfc000c0
+ movi_i32 tmp0,$0x3f8
+ or_i32 a0,v0,tmp0
+
+ ---- 0xbfc000c4
+ movi_i32 a2,$0x1b
+
+ ---- 0xbfc000c8
+ mov_i32 tmp0,a0
+ mov_i32 tmp1,a2
+ qemu_st8 tmp1,tmp0,$0x0
+
+ ---- 0xbfc000cc
+ movi_i32 a2,$0x3
+
+ ---- 0xbfc000d0
+ mov_i32 tmp1,a1
+ mov_i32 tmp0,a2
+ qemu_st8 tmp0,tmp1,$0x0
+
+ ---- 0xbfc000d4
+ movi_i32 tmp0,$0x3ff
+ or_i32 a1,v0,tmp0
+
+ ---- 0xbfc000d8
+ mov_i32 tmp0,a1
+ movi_i32 tmp1,$0x0
+ qemu_st8 tmp1,tmp0,$0x0
+
+ ---- 0xbfc000dc
+ mov_i32 tmp1,v1
+ movi_i32 tmp0,$0x0
+ qemu_st8 tmp0,tmp1,$0x0
+
+ ---- 0xbfc000e0
+ movi_i32 tmp0,$0x3fe
+ or_i32 a1,v0,tmp0
+
+ ---- 0xbfc000e4
+ mov_i32 tmp0,a1
+ movi_i32 tmp1,$0x0
+ qemu_st8 tmp1,tmp0,$0x0
+
+ ---- 0xbfc000e8
+ movi_i32 tmp1,$0x3fc
+ or_i32 v1,v0,tmp1
+
+ ---- 0xbfc000ec
+ movi_i32 a2,$0xb
+
+ ---- 0xbfc000f0
+ mov_i32 tmp1,v1
+ mov_i32 tmp0,a2
+ qemu_st8 tmp0,tmp1,$0x0
+
+ ---- 0xbfc000f4
+ movi_i32 tmp0,$0x3fa
+ or_i32 v1,v0,tmp0
+
+ ---- 0xbfc000f8
+ movi_i32 a2,$0x7
+
+ ---- 0xbfc000fc
+ mov_i32 tmp0,v1
+ mov_i32 tmp1,a2
+ qemu_st8 tmp1,tmp0,$0x0
+
+ ---- 0xbfc00100
+ movi_i32 tmp1,$0x3fd
+ or_i32 v0,v0,tmp1
+
+ ---- 0xbfc00104
+ mov_i32 tmp1,v0
+ qemu_ld8u tmp1,tmp1,$0x0
+ mov_i32 v0,tmp1
+
+ ---- 0xbfc00108
+ mov_i32 tmp0,a1
+ qemu_ld8u tmp0,tmp0,$0x0
+ mov_i32 v0,tmp0
+
+ ---- 0xbfc0010c
+ mov_i32 tmp1,a0
+ qemu_ld8u tmp1,tmp1,$0x0
+ mov_i32 v0,tmp1
+
+ ---- 0xbfc00110
+ mov_i32 tmp0,v1
+ qemu_ld8u tmp0,tmp0,$0x0
+ mov_i32 v0,tmp0
+
+ ---- 0xbfc00114
+ mov_i32 btarget,ra
+
+ ---- 0xbfc00118
+ mov_i32 PC,btarget
+ exit_tb $0x0
+
+OUT: [size=908]
+0x14c06270:  mov    $0x14000000,%eax
+0x14c06275:  mov    %eax,%edx
+0x14c06277:  or     $0x3fb,%edx
+0x14c0627d:  mov    %edx,%ecx
+0x14c0627f:  mov    $0xffffff83,%ebx
+0x14c06284:  mov    %eax,0x8(%ebp)
+0x14c06287:  mov    %edx,0x14(%ebp)
+0x14c0628a:  mov    $0xffffff83,%eax
+0x14c0628f:  mov    %eax,0xc(%ebp)
+0x14c06292:  mov    %ecx,%edx
+0x14c06294:  mov    %ecx,%eax
+0x14c06296:  shr    $0x7,%edx
+0x14c06299:  and    $0xfffff000,%eax
+0x14c0629f:  and    $0x1fe0,%edx
+0x14c062a5:  lea    0x11cc(%edx,%ebp,1),%edx
+0x14c062ac:  cmp    (%edx),%eax
+0x14c062ae:  mov    %ecx,%eax
+0x14c062b0:  je     0x14c062be
+0x14c062b2:  movzbl %bl,%edx
+0x14c062b5:  xor    %ecx,%ecx
+0x14c062b7:  call   0x1256a0
+0x14c062bc:  jmp    0x14c062c3
+0x14c062be:  add    0xc(%edx),%eax
+0x14c062c1:  mov    %bl,(%eax)
+0x14c062c3:  mov    0x8(%ebp),%eax
+0x14c062c6:  mov    %eax,%edx
+0x14c062c8:  or     $0x3f9,%edx
+0x14c062ce:  mov    %edx,%ecx
+0x14c062d0:  xor    %ebx,%ebx
+0x14c062d2:  mov    %edx,0xc(%ebp)
+0x14c062d5:  mov    %ecx,%edx
+0x14c062d7:  mov    %ecx,%eax
+0x14c062d9:  shr    $0x7,%edx
+0x14c062dc:  and    $0xfffff000,%eax
+0x14c062e2:  and    $0x1fe0,%edx
+0x14c062e8:  lea    0x11cc(%edx,%ebp,1),%edx
+0x14c062ef:  cmp    (%edx),%eax
+0x14c062f1:  mov    %ecx,%eax
+0x14c062f3:  je     0x14c06301
+0x14c062f5:  movzbl %bl,%edx
+0x14c062f8:  xor    %ecx,%ecx
+0x14c062fa:  call   0x1256a0
+0x14c062ff:  jmp    0x14c06306
+0x14c06301:  add    0xc(%edx),%eax
+0x14c06304:  mov    %bl,(%eax)
+0x14c06306:  mov    0x8(%ebp),%eax
+0x14c06309:  mov    %eax,%edx
+0x14c0630b:  or     $0x3f8,%edx
+0x14c06311:  mov    %edx,%ecx
+0x14c06313:  mov    $0x1b,%ebx
+0x14c06318:  mov    %edx,0x10(%ebp)
+0x14c0631b:  mov    $0x1b,%eax
+0x14c06320:  mov    %eax,0x18(%ebp)
+0x14c06323:  mov    %ecx,%edx
+0x14c06325:  mov    %ecx,%eax
+0x14c06327:  shr    $0x7,%edx
+0x14c0632a:  and    $0xfffff000,%eax
+0x14c06330:  and    $0x1fe0,%edx
+0x14c06336:  lea    0x11cc(%edx,%ebp,1),%edx
+0x14c0633d:  cmp    (%edx),%eax
+0x14c0633f:  mov    %ecx,%eax
+0x14c06341:  je     0x14c0634f
+0x14c06343:  movzbl %bl,%edx
+0x14c06346:  xor    %ecx,%ecx
+0x14c06348:  call   0x1256a0
+0x14c0634d:  jmp    0x14c06354
+0x14c0634f:  add    0xc(%edx),%eax
+0x14c06352:  mov    %bl,(%eax)
+0x14c06354:  mov    0x14(%ebp),%eax
+0x14c06357:  mov    $0x3,%ecx
+0x14c0635c:  mov    %eax,%ebx
+0x14c0635e:  mov    $0x3,%eax
+0x14c06363:  mov    %eax,0x18(%ebp)
+0x14c06366:  mov    %ebx,%edx
+0x14c06368:  mov    %ebx,%eax
+0x14c0636a:  shr    $0x7,%edx
+0x14c0636d:  and    $0xfffff000,%eax
+0x14c06373:  and    $0x1fe0,%edx
+0x14c06379:  lea    0x11cc(%edx,%ebp,1),%edx
+0x14c06380:  cmp    (%edx),%eax
+0x14c06382:  mov    %ebx,%eax
+0x14c06384:  je     0x14c06392
+0x14c06386:  movzbl %cl,%edx
+0x14c06389:  xor    %ecx,%ecx
+0x14c0638b:  call   0x1256a0
+0x14c06390:  jmp    0x14c06397
+0x14c06392:  add    0xc(%edx),%eax
+0x14c06395:  mov    %cl,(%eax)
+0x14c06397:  mov    0x8(%ebp),%eax
+0x14c0639a:  mov    %eax,%edx
+0x14c0639c:  or     $0x3ff,%edx
+0x14c063a2:  mov    %edx,%ecx
+0x14c063a4:  xor    %ebx,%ebx
+0x14c063a6:  mov    %edx,0x14(%ebp)
+0x14c063a9:  mov    %ecx,%edx
+0x14c063ab:  mov    %ecx,%eax
+0x14c063ad:  shr    $0x7,%edx
+0x14c063b0:  and    $0xfffff000,%eax
+0x14c063b6:  and    $0x1fe0,%edx
+0x14c063bc:  lea    0x11cc(%edx,%ebp,1),%edx
+0x14c063c3:  cmp    (%edx),%eax
+0x14c063c5:  mov    %ecx,%eax
+0x14c063c7:  je     0x14c063d5
+0x14c063c9:  movzbl %bl,%edx
+0x14c063cc:  xor    %ecx,%ecx
+0x14c063ce:  call   0x1256a0
+0x14c063d3:  jmp    0x14c063da
+0x14c063d5:  add    0xc(%edx),%eax
+0x14c063d8:  mov    %bl,(%eax)
+0x14c063da:  mov    0xc(%ebp),%eax
+0x14c063dd:  xor    %ecx,%ecx
+0x14c063df:  mov    %eax,%ebx
+0x14c063e1:  mov    %ebx,%edx
+0x14c063e3:  mov    %ebx,%eax
+0x14c063e5:  shr    $0x7,%edx
+0x14c063e8:  and    $0xfffff000,%eax
+0x14c063ee:  and    $0x1fe0,%edx
+0x14c063f4:  lea    0x11cc(%edx,%ebp,1),%edx
+0x14c063fb:  cmp    (%edx),%eax
+0x14c063fd:  mov    %ebx,%eax
+0x14c063ff:  je     0x14c0640d
+0x14c06401:  movzbl %cl,%edx
+0x14c06404:  xor    %ecx,%ecx
+0x14c06406:  call   0x1256a0
+0x14c0640b:  jmp    0x14c06412
+0x14c0640d:  add    0xc(%edx),%eax
+0x14c06410:  mov    %cl,(%eax)
+0x14c06412:  mov    0x8(%ebp),%eax
+0x14c06415:  mov    %eax,%edx
+0x14c06417:  or     $0x3fe,%edx
+0x14c0641d:  mov    %edx,%ecx
+0x14c0641f:  xor    %ebx,%ebx
+0x14c06421:  mov    %edx,0x14(%ebp)
+0x14c06424:  mov    %ecx,%edx
+0x14c06426:  mov    %ecx,%eax
+0x14c06428:  shr    $0x7,%edx
+0x14c0642b:  and    $0xfffff000,%eax
+0x14c06431:  and    $0x1fe0,%edx
+0x14c06437:  lea    0x11cc(%edx,%ebp,1),%edx
+0x14c0643e:  cmp    (%edx),%eax
+0x14c06440:  mov    %ecx,%eax
+0x14c06442:  je     0x14c06450
+0x14c06444:  movzbl %bl,%edx
+0x14c06447:  xor    %ecx,%ecx
+0x14c06449:  call   0x1256a0
+0x14c0644e:  jmp    0x14c06455
+0x14c06450:  add    0xc(%edx),%eax
+0x14c06453:  mov    %bl,(%eax)
+0x14c06455:  mov    0x8(%ebp),%eax
+0x14c06458:  mov    %eax,%edx
+0x14c0645a:  or     $0x3fc,%edx
+0x14c06460:  mov    %edx,%ecx
+0x14c06462:  mov    $0xb,%ebx
+0x14c06467:  mov    %edx,0xc(%ebp)
+0x14c0646a:  mov    $0xb,%eax
+0x14c0646f:  mov    %eax,0x18(%ebp)
+0x14c06472:  mov    %ecx,%edx
+0x14c06474:  mov    %ecx,%eax
+0x14c06476:  shr    $0x7,%edx
+0x14c06479:  and    $0xfffff000,%eax
+0x14c0647f:  and    $0x1fe0,%edx
+0x14c06485:  lea    0x11cc(%edx,%ebp,1),%edx
+0x14c0648c:  cmp    (%edx),%eax
+0x14c0648e:  mov    %ecx,%eax
+0x14c06490:  je     0x14c0649e
+0x14c06492:  movzbl %bl,%edx
+0x14c06495:  xor    %ecx,%ecx
+0x14c06497:  call   0x1256a0
+0x14c0649c:  jmp    0x14c064a3
+0x14c0649e:  add    0xc(%edx),%eax
+0x14c064a1:  mov    %bl,(%eax)
+0x14c064a3:  mov    0x8(%ebp),%eax
+0x14c064a6:  mov    %eax,%edx
+0x14c064a8:  or     $0x3fa,%edx
+0x14c064ae:  mov    %edx,%ecx
+0x14c064b0:  mov    $0x7,%ebx
+0x14c064b5:  mov    %edx,0xc(%ebp)
+0x14c064b8:  mov    $0x7,%eax
+0x14c064bd:  mov    %eax,0x18(%ebp)
+0x14c064c0:  mov    %ecx,%edx
+0x14c064c2:  mov    %ecx,%eax
+0x14c064c4:  shr    $0x7,%edx
+0x14c064c7:  and    $0xfffff000,%eax
+0x14c064cd:  and    $0x1fe0,%edx
+0x14c064d3:  lea    0x11cc(%edx,%ebp,1),%edx
+0x14c064da:  cmp    (%edx),%eax
+0x14c064dc:  mov    %ecx,%eax
+0x14c064de:  je     0x14c064ec
+0x14c064e0:  movzbl %bl,%edx
+0x14c064e3:  xor    %ecx,%ecx
+0x14c064e5:  call   0x1256a0
+0x14c064ea:  jmp    0x14c064f1
+0x14c064ec:  add    0xc(%edx),%eax
+0x14c064ef:  mov    %bl,(%eax)
+0x14c064f1:  mov    0x8(%ebp),%eax
+0x14c064f4:  or     $0x3fd,%eax
+0x14c064fa:  mov    %eax,%edx
+0x14c064fc:  mov    %edx,%ecx
+0x14c064fe:  mov    %eax,0x8(%ebp)
+0x14c06501:  mov    %ecx,%edx
+0x14c06503:  mov    %ecx,%eax
+0x14c06505:  shr    $0x7,%edx
+0x14c06508:  and    $0xfffff000,%eax
+0x14c0650e:  and    $0x1fe0,%edx
+0x14c06514:  lea    0x11c8(%edx,%ebp,1),%edx
+0x14c0651b:  cmp    (%edx),%eax
+0x14c0651d:  mov    %ecx,%eax
+0x14c0651f:  je     0x14c0652d
+0x14c06521:  xor    %edx,%edx
+0x14c06523:  call   0x126620
+0x14c06528:  movzbl %al,%eax
+0x14c0652b:  jmp    0x14c06533
+0x14c0652d:  add    0x10(%edx),%eax
+0x14c06530:  movzbl (%eax),%eax
+0x14c06533:  mov    0x14(%ebp),%edx
+0x14c06536:  mov    %edx,%ecx
+0x14c06538:  mov    %eax,0x8(%ebp)
+0x14c0653b:  mov    %ecx,%edx
+0x14c0653d:  mov    %ecx,%eax
+0x14c0653f:  shr    $0x7,%edx
+0x14c06542:  and    $0xfffff000,%eax
+0x14c06548:  and    $0x1fe0,%edx
+0x14c0654e:  lea    0x11c8(%edx,%ebp,1),%edx
+0x14c06555:  cmp    (%edx),%eax
+0x14c06557:  mov    %ecx,%eax
+0x14c06559:  je     0x14c06567
+0x14c0655b:  xor    %edx,%edx
+0x14c0655d:  call   0x126620
+0x14c06562:  movzbl %al,%eax
+0x14c06565:  jmp    0x14c0656d
+0x14c06567:  add    0x10(%edx),%eax
+0x14c0656a:  movzbl (%eax),%eax
+0x14c0656d:  mov    0x10(%ebp),%edx
+0x14c06570:  mov    %edx,%ecx
+0x14c06572:  mov    %eax,0x8(%ebp)
+0x14c06575:  mov    %ecx,%edx
+0x14c06577:  mov    %ecx,%eax
+0x14c06579:  shr    $0x7,%edx
+0x14c0657c:  and    $0xfffff000,%eax
+0x14c06582:  and    $0x1fe0,%edx
+0x14c06588:  lea    0x11c8(%edx,%ebp,1),%edx
+0x14c0658f:  cmp    (%edx),%eax
+0x14c06591:  mov    %ecx,%eax
+0x14c06593:  je     0x14c065a1
+0x14c06595:  xor    %edx,%edx
+0x14c06597:  call   0x126620
+0x14c0659c:  movzbl %al,%eax
+0x14c0659f:  jmp    0x14c065a7
+0x14c065a1:  add    0x10(%edx),%eax
+0x14c065a4:  movzbl (%eax),%eax
+0x14c065a7:  mov    0xc(%ebp),%edx
+0x14c065aa:  mov    %edx,%ecx
+0x14c065ac:  mov    %eax,0x8(%ebp)
+0x14c065af:  mov    %ecx,%edx
+0x14c065b1:  mov    %ecx,%eax
+0x14c065b3:  shr    $0x7,%edx
+0x14c065b6:  and    $0xfffff000,%eax
+0x14c065bc:  and    $0x1fe0,%edx
+0x14c065c2:  lea    0x11c8(%edx,%ebp,1),%edx
+0x14c065c9:  cmp    (%edx),%eax
+0x14c065cb:  mov    %ecx,%eax
+0x14c065cd:  je     0x14c065db
+0x14c065cf:  xor    %edx,%edx
+0x14c065d1:  call   0x126620
+0x14c065d6:  movzbl %al,%eax
+0x14c065d9:  jmp    0x14c065e1
+0x14c065db:  add    0x10(%edx),%eax
+0x14c065de:  movzbl (%eax),%eax
+0x14c065e1:  mov    0x7c(%ebp),%edx
+0x14c065e4:  mov    %edx,%ecx
+0x14c065e6:  mov    %eax,0x8(%ebp)
+0x14c065e9:  mov    %ecx,0x80(%ebp)
+0x14c065ef:  mov    %edx,0x1188(%ebp)
+0x14c065f5:  xor    %eax,%eax
+0x14c065f7:  jmp    0x39db28
+
+cpu_mips_handle_mmu_fault pc bfc000a8 ad 140003fb rw 1 mmu_idx 0 smmu 1
+cpu_mips_handle_mmu_fault address=140003fb ret 0 physical 00000000140003fb prot 3
+cpu_mips_handle_mmu_fault pc bfc001cc ad bfc001cc rw 2 mmu_idx 0 smmu 1
+cpu_mips_handle_mmu_fault address=bfc001cc ret 0 physical 000000001fc001cc prot 3
+------------------------------------------------
+pc=0xbfc001cc HI=0x00000000 LO=0x00000000 ds 0010 bfc001cc 1
+GPR00: r0 00000000 at 00000000 v0 000000c1 v1 140003fa
+GPR04: a0 140003f8 a1 140003fe a2 00000007 a3 00000000
+GPR08: t0 00000000 t1 00000000 t2 00000000 t3 00000000
+GPR12: t4 00000000 t5 00000000 t6 00000000 t7 00000000
+GPR16: s0 00000000 s1 00000000 s2 00000000 s3 00000000
+GPR20: s4 00000000 s5 00000000 s6 00000000 s7 00000000
+GPR24: t8 00000000 t9 00000000 k0 00000000 k1 00000000
+GPR28: gp 00000000 sp 000fffd0 s8 00000000 ra bfc001cc
+CP0 Status  0x00400004 Cause   0x00000400 EPC    0x00000000
+    Config0 0x80000482 Config1 0x9e190c8b LLAddr 0x00000000
+IN: 
+0xbfc001cc:  lui	a0,0xbfc0
+0xbfc001d0:  jal	0xbfc00174
+0xbfc001d4:  addiu	a0,a0,492
+
+---------------- 2 00000010
+OP:
+ ---- 0xbfc001cc
+ movi_i32 a0,$0xbfc00000
+
+ ---- 0xbfc001d0
+ movi_i32 ra,$0xbfc001d8
+
+ ---- 0xbfc001d4
+ movi_i32 tmp1,$0x1ec
+ add_i32 a0,a0,tmp1
+ goto_tb $0x0
+ movi_i32 PC,$0xbfc00174
+ exit_tb $0x16c061b0
+
+OUT: [size=48]
+0x14c06600:  mov    $0xbfc00000,%eax
+0x14c06605:  add    $0x1ec,%eax
+0x14c0660b:  mov    %eax,0x10(%ebp)
+0x14c0660e:  mov    $0xbfc001d8,%eax
+0x14c06613:  mov    %eax,0x7c(%ebp)
+0x14c06616:  jmp    0x14c0661b
+0x14c0661b:  mov    $0xbfc00174,%eax
+0x14c06620:  mov    %eax,0x80(%ebp)
+0x14c06626:  mov    $0x16c061b0,%eax
+0x14c0662b:  jmp    0x39db28
+
+------------------------------------------------
+pc=0xbfc00174 HI=0x00000000 LO=0x00000000 ds 0010 bfc001cc 1
+GPR00: r0 00000000 at 00000000 v0 000000c1 v1 140003fa
+GPR04: a0 bfc001ec a1 140003fe a2 00000007 a3 00000000
+GPR08: t0 00000000 t1 00000000 t2 00000000 t3 00000000
+GPR12: t4 00000000 t5 00000000 t6 00000000 t7 00000000
+GPR16: s0 00000000 s1 00000000 s2 00000000 s3 00000000
+GPR20: s4 00000000 s5 00000000 s6 00000000 s7 00000000
+GPR24: t8 00000000 t9 00000000 k0 00000000 k1 00000000
+GPR28: gp 00000000 sp 000fffd0 s8 00000000 ra bfc001d8
+CP0 Status  0x00400004 Cause   0x00000400 EPC    0x00000000
+    Config0 0x80000482 Config1 0x9e190c8b LLAddr 0x00000000
+IN: 
+0xbfc00174:  addiu	sp,sp,-24
+0xbfc00178:  sw	ra,20(sp)
+0xbfc0017c:  sw	s0,16(sp)
+0xbfc00180:  move	s0,a0
+0xbfc00184:  lb	a0,0(a0)
+0xbfc00188:  nop
+0xbfc0018c:  beqz	a0,0xbfc001ac
+0xbfc00190:  nop
+
+---------------- 2 00000010
+OP:
+ ---- 0xbfc00174
+ movi_i32 tmp0,$0xffffffe8
+ add_i32 sp,sp,tmp0
+
+ ---- 0xbfc00178
+ movi_i32 tmp0,$0x14
+ add_i32 tmp0,sp,tmp0
+ mov_i32 tmp1,ra
+ qemu_st32 tmp1,tmp0,$0x0
+
+ ---- 0xbfc0017c
+ movi_i32 tmp1,$0x10
+ add_i32 tmp1,sp,tmp1
+ mov_i32 tmp0,s0
+ qemu_st32 tmp0,tmp1,$0x0
+
+ ---- 0xbfc00180
+ mov_i32 s0,a0
+
+ ---- 0xbfc00184
+ mov_i32 tmp0,a0
+ qemu_ld8s tmp0,tmp0,$0x0
+ mov_i32 a0,tmp0
+
+ ---- 0xbfc00188
+
+ ---- 0xbfc0018c
+ mov_i32 tmp1,a0
+ movi_i32 tmp0,$0x0
+ brcond_i32 tmp1,tmp0,eq,$0x0
+ movi_i32 bcond,$0x0
+ br $0x1
+ set_label $0x0
+ movi_i32 bcond,$0x1
+ set_label $0x1
+
+ ---- 0xbfc00190
+ movi_i32 tmp0,$0x0
+ brcond_i32 bcond,tmp0,ne,$0x2
+ goto_tb $0x1
+ movi_i32 PC,$0xbfc00194
+ exit_tb $0x16c061f9
+ set_label $0x2
+ goto_tb $0x0
+ movi_i32 PC,$0xbfc001ac
+ exit_tb $0x16c061f8
+
+OUT: [size=292]
+0x14c06630:  mov    0x74(%ebp),%eax
+0x14c06633:  add    $0xffffffe8,%eax
+0x14c06636:  mov    %eax,%edx
+0x14c06638:  add    $0x14,%edx
+0x14c0663b:  mov    0x7c(%ebp),%ecx
+0x14c0663e:  mov    %edx,%ebx
+0x14c06640:  mov    %eax,0x74(%ebp)
+0x14c06643:  mov    %ebx,%edx
+0x14c06645:  mov    %ebx,%eax
+0x14c06647:  shr    $0x7,%edx
+0x14c0664a:  and    $0xfffff003,%eax
+0x14c06650:  and    $0x1fe0,%edx
+0x14c06656:  lea    0x11cc(%edx,%ebp,1),%edx
+0x14c0665d:  cmp    (%edx),%eax
+0x14c0665f:  mov    %ebx,%eax
+0x14c06661:  je     0x14c0666e
+0x14c06663:  mov    %ecx,%edx
+0x14c06665:  xor    %ecx,%ecx
+0x14c06667:  call   0x125bd0
+0x14c0666c:  jmp    0x14c06673
+0x14c0666e:  add    0xc(%edx),%eax
+0x14c06671:  mov    %ecx,(%eax)
+0x14c06673:  mov    0x74(%ebp),%eax
+0x14c06676:  mov    %eax,%edx
+0x14c06678:  add    $0x10,%edx
+0x14c0667b:  mov    0x40(%ebp),%ecx
+0x14c0667e:  mov    %edx,%ebx
+0x14c06680:  mov    %ebx,%edx
+0x14c06682:  mov    %ebx,%eax
+0x14c06684:  shr    $0x7,%edx
+0x14c06687:  and    $0xfffff003,%eax
+0x14c0668d:  and    $0x1fe0,%edx
+0x14c06693:  lea    0x11cc(%edx,%ebp,1),%edx
+0x14c0669a:  cmp    (%edx),%eax
+0x14c0669c:  mov    %ebx,%eax
+0x14c0669e:  je     0x14c066ab
+0x14c066a0:  mov    %ecx,%edx
+0x14c066a2:  xor    %ecx,%ecx
+0x14c066a4:  call   0x125bd0
+0x14c066a9:  jmp    0x14c066b0
+0x14c066ab:  add    0xc(%edx),%eax
+0x14c066ae:  mov    %ecx,(%eax)
+0x14c066b0:  mov    0x10(%ebp),%eax
+0x14c066b3:  mov    0x10(%ebp),%edx
+0x14c066b6:  mov    %edx,%ecx
+0x14c066b8:  mov    %eax,0x40(%ebp)
+0x14c066bb:  mov    %ecx,%edx
+0x14c066bd:  mov    %ecx,%eax
+0x14c066bf:  shr    $0x7,%edx
+0x14c066c2:  and    $0xfffff000,%eax
+0x14c066c8:  and    $0x1fe0,%edx
+0x14c066ce:  lea    0x11c8(%edx,%ebp,1),%edx
+0x14c066d5:  cmp    (%edx),%eax
+0x14c066d7:  mov    %ecx,%eax
+0x14c066d9:  je     0x14c066e7
+0x14c066db:  xor    %edx,%edx
+0x14c066dd:  call   0x126620
+0x14c066e2:  movsbl %al,%eax
+0x14c066e5:  jmp    0x14c066ed
+0x14c066e7:  add    0x10(%edx),%eax
+0x14c066ea:  movsbl (%eax),%eax
+0x14c066ed:  mov    %eax,%edx
+0x14c066ef:  mov    %eax,0x10(%ebp)
+0x14c066f2:  test   %edx,%edx
+0x14c066f4:  je     0x14c06707
+0x14c066fa:  xor    %eax,%eax
+0x14c066fc:  mov    %eax,0x118c(%ebp)
+0x14c06702:  jmp    0x14c06712
+0x14c06707:  mov    $0x1,%eax
+0x14c0670c:  mov    %eax,0x118c(%ebp)
+0x14c06712:  mov    0x118c(%ebp),%eax
+0x14c06718:  test   %eax,%eax
+0x14c0671a:  jne    0x14c0673a
+0x14c06720:  jmp    0x14c06725
+0x14c06725:  mov    $0xbfc00194,%eax
+0x14c0672a:  mov    %eax,0x80(%ebp)
+0x14c06730:  mov    $0x16c061f9,%eax
+0x14c06735:  jmp    0x39db28
+0x14c0673a:  jmp    0x14c0673f
+0x14c0673f:  mov    $0xbfc001ac,%eax
+0x14c06744:  mov    %eax,0x80(%ebp)
+0x14c0674a:  mov    $0x16c061f8,%eax
+0x14c0674f:  jmp    0x39db28
+
+------------------------------------------------
+pc=0xbfc00194 HI=0x00000000 LO=0x00000000 ds 0010 bfc001cc 0
+GPR00: r0 00000000 at 00000000 v0 000000c1 v1 140003fa
+GPR04: a0 00000048 a1 140003fe a2 00000007 a3 00000000
+GPR08: t0 00000000 t1 00000000 t2 00000000 t3 00000000
+GPR12: t4 00000000 t5 00000000 t6 00000000 t7 00000000
+GPR16: s0 bfc001ec s1 00000000 s2 00000000 s3 00000000
+GPR20: s4 00000000 s5 00000000 s6 00000000 s7 00000000
+GPR24: t8 00000000 t9 00000000 k0 00000000 k1 00000000
+GPR28: gp 00000000 sp 000fffb8 s8 00000000 ra bfc001d8
+CP0 Status  0x00400004 Cause   0x00000400 EPC    0x00000000
+    Config0 0x80000482 Config1 0x9e190c8b LLAddr 0x00000000
+IN: 
+0xbfc00194:  jal	0xbfc0011c
+0xbfc00198:  addiu	s0,s0,1
+
+---------------- 2 00000010
+OP:
+ ---- 0xbfc00194
+ movi_i32 ra,$0xbfc0019c
+
+ ---- 0xbfc00198
+ movi_i32 tmp1,$0x1
+ add_i32 s0,s0,tmp1
+ goto_tb $0x0
+ movi_i32 PC,$0xbfc0011c
+ exit_tb $0x16c06240
+
+OUT: [size=41]
+0x14c06760:  mov    0x40(%ebp),%eax
+0x14c06763:  inc    %eax
+0x14c06764:  mov    %eax,0x40(%ebp)
+0x14c06767:  mov    $0xbfc0019c,%eax
+0x14c0676c:  mov    %eax,0x7c(%ebp)
+0x14c0676f:  jmp    0x14c06774
+0x14c06774:  mov    $0xbfc0011c,%eax
+0x14c06779:  mov    %eax,0x80(%ebp)
+0x14c0677f:  mov    $0x16c06240,%eax
+0x14c06784:  jmp    0x39db28
+
+------------------------------------------------
+pc=0xbfc0011c HI=0x00000000 LO=0x00000000 ds 0010 bfc001cc 0
+GPR00: r0 00000000 at 00000000 v0 000000c1 v1 140003fa
+GPR04: a0 00000048 a1 140003fe a2 00000007 a3 00000000
+GPR08: t0 00000000 t1 00000000 t2 00000000 t3 00000000
+GPR12: t4 00000000 t5 00000000 t6 00000000 t7 00000000
+GPR16: s0 bfc001ed s1 00000000 s2 00000000 s3 00000000
+GPR20: s4 00000000 s5 00000000 s6 00000000 s7 00000000
+GPR24: t8 00000000 t9 00000000 k0 00000000 k1 00000000
+GPR28: gp 00000000 sp 000fffb8 s8 00000000 ra bfc0019c
+CP0 Status  0x00400004 Cause   0x00000400 EPC    0x00000000
+    Config0 0x80000482 Config1 0x9e190c8b LLAddr 0x00000000
+IN: 
+0xbfc0011c:  lui	v1,0x1400
+0xbfc00120:  ori	v1,v1,0x3fd
+0xbfc00124:  lbu	v0,0(v1)
+0xbfc00128:  nop
+0xbfc0012c:  andi	v0,v0,0x20
+0xbfc00130:  beqz	v0,0xbfc00124
+0xbfc00134:  li	a1,10
+
+---------------- 2 00000010
+OP:
+ ---- 0xbfc0011c
+ movi_i32 v1,$0x14000000
+
+ ---- 0xbfc00120
+ movi_i32 tmp0,$0x3fd
+ or_i32 v1,v1,tmp0
+
+ ---- 0xbfc00124
+ mov_i32 tmp0,v1
+ qemu_ld8u tmp0,tmp0,$0x0
+ mov_i32 v0,tmp0
+
+ ---- 0xbfc00128
+
+ ---- 0xbfc0012c
+ movi_i32 tmp1,$0x20
+ and_i32 v0,v0,tmp1
+
+ ---- 0xbfc00130
+ mov_i32 tmp1,v0
+ movi_i32 tmp0,$0x0
+ brcond_i32 tmp1,tmp0,eq,$0x0
+ movi_i32 bcond,$0x0
+ br $0x1
+ set_label $0x0
+ movi_i32 bcond,$0x1
+ set_label $0x1
+
+ ---- 0xbfc00134
+ movi_i32 a1,$0xa
+ movi_i32 tmp0,$0x0
+ brcond_i32 bcond,tmp0,ne,$0x2
+ goto_tb $0x1
+ movi_i32 PC,$0xbfc00138
+ exit_tb $0x16c06289
+ set_label $0x2
+ goto_tb $0x0
+ movi_i32 PC,$0xbfc00124
+ exit_tb $0x16c06288
+
+OUT: [size=182]
+0x14c06790:  mov    $0x14000000,%eax
+0x14c06795:  or     $0x3fd,%eax
+0x14c0679b:  mov    %eax,%edx
+0x14c0679d:  mov    %edx,%ecx
+0x14c0679f:  mov    %eax,0xc(%ebp)
+0x14c067a2:  mov    %ecx,%edx
+0x14c067a4:  mov    %ecx,%eax
+0x14c067a6:  shr    $0x7,%edx
+0x14c067a9:  and    $0xfffff000,%eax
+0x14c067af:  and    $0x1fe0,%edx
+0x14c067b5:  lea    0x11c8(%edx,%ebp,1),%edx
+0x14c067bc:  cmp    (%edx),%eax
+0x14c067be:  mov    %ecx,%eax
+0x14c067c0:  je     0x14c067ce
+0x14c067c2:  xor    %edx,%edx
+0x14c067c4:  call   0x126620
+0x14c067c9:  movzbl %al,%eax
+0x14c067cc:  jmp    0x14c067d4
+0x14c067ce:  add    0x10(%edx),%eax
+0x14c067d1:  movzbl (%eax),%eax
+0x14c067d4:  and    $0x20,%eax
+0x14c067d7:  mov    %eax,%edx
+0x14c067d9:  mov    %eax,0x8(%ebp)
+0x14c067dc:  test   %edx,%edx
+0x14c067de:  je     0x14c067f1
+0x14c067e4:  xor    %eax,%eax
+0x14c067e6:  mov    %eax,0x118c(%ebp)
+0x14c067ec:  jmp    0x14c067fc
+0x14c067f1:  mov    $0x1,%eax
+0x14c067f6:  mov    %eax,0x118c(%ebp)
+0x14c067fc:  mov    0x118c(%ebp),%eax
+0x14c06802:  mov    $0xa,%edx
+0x14c06807:  mov    %edx,0x14(%ebp)
+0x14c0680a:  test   %eax,%eax
+0x14c0680c:  jne    0x14c0682c
+0x14c06812:  jmp    0x14c06817
+0x14c06817:  mov    $0xbfc00138,%eax
+0x14c0681c:  mov    %eax,0x80(%ebp)
+0x14c06822:  mov    $0x16c06289,%eax
+0x14c06827:  jmp    0x39db28
+0x14c0682c:  jmp    0x14c06831
+0x14c06831:  mov    $0xbfc00124,%eax
+0x14c06836:  mov    %eax,0x80(%ebp)
+0x14c0683c:  mov    $0x16c06288,%eax
+0x14c06841:  jmp    0x39db28
+
+cpu_mips_handle_mmu_fault pc bfc0011c ad 140003fd rw 0 mmu_idx 0 smmu 1
+cpu_mips_handle_mmu_fault address=140003fd ret 0 physical 00000000140003fd prot 3
+cpu_mips_handle_mmu_fault pc bfc00138 ad bfc00138 rw 2 mmu_idx 0 smmu 1
+cpu_mips_handle_mmu_fault address=bfc00138 ret 0 physical 000000001fc00138 prot 3
+------------------------------------------------
+pc=0xbfc00138 HI=0x00000000 LO=0x00000000 ds 0010 bfc001cc 0
+GPR00: r0 00000000 at 00000000 v0 00000020 v1 140003fd
+GPR04: a0 00000048 a1 0000000a a2 00000007 a3 00000000
+GPR08: t0 00000000 t1 00000000 t2 00000000 t3 00000000
+GPR12: t4 00000000 t5 00000000 t6 00000000 t7 00000000
+GPR16: s0 bfc001ed s1 00000000 s2 00000000 s3 00000000
+GPR20: s4 00000000 s5 00000000 s6 00000000 s7 00000000
+GPR24: t8 00000000 t9 00000000 k0 00000000 k1 00000000
+GPR28: gp 00000000 sp 000fffb8 s8 00000000 ra bfc0019c
+CP0 Status  0x00400004 Cause   0x00000400 EPC    0x00000000
+    Config0 0x80000482 Config1 0x9e190c8b LLAddr 0x00000000
+IN: 
+0xbfc00138:  lui	v1,0x1400
+0xbfc0013c:  ori	a2,v1,0x3f8
+0xbfc00140:  ori	v1,v1,0x3fd
+0xbfc00144:  li	a3,13
+0xbfc00148:  andi	v0,a0,0xff
+0xbfc0014c:  sb	v0,0(a2)
+0xbfc00150:  lbu	v0,0(v1)
+0xbfc00154:  nop
+0xbfc00158:  andi	v0,v0,0x20
+0xbfc0015c:  beqz	v0,0xbfc00150
+0xbfc00160:  nop
+
+---------------- 2 00000010
+OP:
+ ---- 0xbfc00138
+ movi_i32 v1,$0x14000000
+
+ ---- 0xbfc0013c
+ movi_i32 tmp0,$0x3f8
+ or_i32 a2,v1,tmp0
+
+ ---- 0xbfc00140
+ movi_i32 tmp0,$0x3fd
+ or_i32 v1,v1,tmp0
+
+ ---- 0xbfc00144
+ movi_i32 a3,$0xd
+
+ ---- 0xbfc00148
+ movi_i32 tmp0,$0xff
+ and_i32 v0,a0,tmp0
+
+ ---- 0xbfc0014c
+ mov_i32 tmp0,a2
+ mov_i32 tmp1,v0
+ qemu_st8 tmp1,tmp0,$0x0
+
+ ---- 0xbfc00150
+ mov_i32 tmp1,v1
+ qemu_ld8u tmp1,tmp1,$0x0
+ mov_i32 v0,tmp1
+
+ ---- 0xbfc00154
+
+ ---- 0xbfc00158
+ movi_i32 tmp0,$0x20
+ and_i32 v0,v0,tmp0
+
+ ---- 0xbfc0015c
+ mov_i32 tmp0,v0
+ movi_i32 tmp1,$0x0
+ brcond_i32 tmp0,tmp1,eq,$0x0
+ movi_i32 bcond,$0x0
+ br $0x1
+ set_label $0x0
+ movi_i32 bcond,$0x1
+ set_label $0x1
+
+ ---- 0xbfc00160
+ movi_i32 tmp1,$0x0
+ brcond_i32 bcond,tmp1,ne,$0x2
+ goto_tb $0x1
+ movi_i32 PC,$0xbfc00164
+ exit_tb $0x16c062d1
+ set_label $0x2
+ goto_tb $0x0
+ movi_i32 PC,$0xbfc00150
+ exit_tb $0x16c062d0
+
+OUT: [size=260]
+0x14c06850:  mov    $0x14000000,%eax
+0x14c06855:  mov    %eax,%edx
+0x14c06857:  or     $0x3f8,%edx
+0x14c0685d:  or     $0x3fd,%eax
+0x14c06863:  mov    0x10(%ebp),%ecx
+0x14c06866:  mov    %ecx,%ebx
+0x14c06868:  movzbl %bl,%ebx
+0x14c0686b:  mov    %edx,%esi
+0x14c0686d:  mov    %ebx,%edi
+0x14c0686f:  mov    %edi,%ecx
+0x14c06871:  mov    %eax,0xc(%ebp)
+0x14c06874:  mov    %edx,0x18(%ebp)
+0x14c06877:  mov    %ebx,0x8(%ebp)
+0x14c0687a:  mov    $0xd,%eax
+0x14c0687f:  mov    %eax,0x1c(%ebp)
+0x14c06882:  mov    %esi,%edx
+0x14c06884:  mov    %esi,%eax
+0x14c06886:  shr    $0x7,%edx
+0x14c06889:  and    $0xfffff000,%eax
+0x14c0688f:  and    $0x1fe0,%edx
+0x14c06895:  lea    0x11cc(%edx,%ebp,1),%edx
+0x14c0689c:  cmp    (%edx),%eax
+0x14c0689e:  mov    %esi,%eax
+0x14c068a0:  je     0x14c068ae
+0x14c068a2:  movzbl %cl,%edx
+0x14c068a5:  xor    %ecx,%ecx
+0x14c068a7:  call   0x1256a0
+0x14c068ac:  jmp    0x14c068b3
+0x14c068ae:  add    0xc(%edx),%eax
+0x14c068b1:  mov    %cl,(%eax)
+0x14c068b3:  mov    0xc(%ebp),%eax
+0x14c068b6:  mov    %eax,%ecx
+0x14c068b8:  mov    %ecx,%edx
+0x14c068ba:  mov    %ecx,%eax
+0x14c068bc:  shr    $0x7,%edx
+0x14c068bf:  and    $0xfffff000,%eax
+0x14c068c5:  and    $0x1fe0,%edx
+0x14c068cb:  lea    0x11c8(%edx,%ebp,1),%edx
+0x14c068d2:  cmp    (%edx),%eax
+0x14c068d4:  mov    %ecx,%eax
+0x14c068d6:  je     0x14c068e4
+0x14c068d8:  xor    %edx,%edx
+0x14c068da:  call   0x126620
+0x14c068df:  movzbl %al,%eax
+0x14c068e2:  jmp    0x14c068ea
+0x14c068e4:  add    0x10(%edx),%eax
+0x14c068e7:  movzbl (%eax),%eax
+0x14c068ea:  and    $0x20,%eax
+0x14c068ed:  mov    %eax,%edx
+0x14c068ef:  mov    %eax,0x8(%ebp)
+0x14c068f2:  test   %edx,%edx
+0x14c068f4:  je     0x14c06907
+0x14c068fa:  xor    %eax,%eax
+0x14c068fc:  mov    %eax,0x118c(%ebp)
+0x14c06902:  jmp    0x14c06912
+0x14c06907:  mov    $0x1,%eax
+0x14c0690c:  mov    %eax,0x118c(%ebp)
+0x14c06912:  mov    0x118c(%ebp),%eax
+0x14c06918:  test   %eax,%eax
+0x14c0691a:  jne    0x14c0693a
+0x14c06920:  jmp    0x14c06925
+0x14c06925:  mov    $0xbfc00164,%eax
+0x14c0692a:  mov    %eax,0x80(%ebp)
+0x14c06930:  mov    $0x16c062d1,%eax
+0x14c06935:  jmp    0x39db28
+0x14c0693a:  jmp    0x14c0693f
+0x14c0693f:  mov    $0xbfc00150,%eax
+0x14c06944:  mov    %eax,0x80(%ebp)
+0x14c0694a:  mov    $0x16c062d0,%eax
+0x14c0694f:  jmp    0x39db28
+
+cpu_mips_handle_mmu_fault pc bfc00138 ad 140003f8 rw 1 mmu_idx 0 smmu 1
+cpu_mips_handle_mmu_fault address=140003f8 ret 0 physical 00000000140003f8 prot 3
+cpu_mips_handle_mmu_fault pc bfc00164 ad bfc00164 rw 2 mmu_idx 0 smmu 1
+cpu_mips_handle_mmu_fault address=bfc00164 ret 0 physical 000000001fc00164 prot 3
+------------------------------------------------
+pc=0xbfc00164 HI=0x00000000 LO=0x00000000 ds 0010 bfc001cc 0
+GPR00: r0 00000000 at 00000000 v0 00000020 v1 140003fd
+GPR04: a0 00000048 a1 0000000a a2 140003f8 a3 0000000d
+GPR08: t0 00000000 t1 00000000 t2 00000000 t3 00000000
+GPR12: t4 00000000 t5 00000000 t6 00000000 t7 00000000
+GPR16: s0 bfc001ed s1 00000000 s2 00000000 s3 00000000
+GPR20: s4 00000000 s5 00000000 s6 00000000 s7 00000000
+GPR24: t8 00000000 t9 00000000 k0 00000000 k1 00000000
+GPR28: gp 00000000 sp 000fffb8 s8 00000000 ra bfc0019c
+CP0 Status  0x00400004 Cause   0x00000400 EPC    0x00000000
+    Config0 0x80000482 Config1 0x9e190c8b LLAddr 0x00000000
+IN: 
+0xbfc00164:  beq	a0,a1,0xbfc00148
+0xbfc00168:  move	a0,a3
+
+---------------- 2 00000010
+OP:
+ ---- 0xbfc00164
+ mov_i32 tmp0,a0
+ mov_i32 tmp1,a1
+ brcond_i32 tmp0,tmp1,eq,$0x0
+ movi_i32 bcond,$0x0
+ br $0x1
+ set_label $0x0
+ movi_i32 bcond,$0x1
+ set_label $0x1
+
+ ---- 0xbfc00168
+ mov_i32 a0,a3
+ movi_i32 tmp1,$0x0
+ brcond_i32 bcond,tmp1,ne,$0x2
+ goto_tb $0x1
+ movi_i32 PC,$0xbfc0016c
+ exit_tb $0x16c06319
+ set_label $0x2
+ goto_tb $0x0
+ movi_i32 PC,$0xbfc00148
+ exit_tb $0x16c06318
+
+OUT: [size=110]
+0x14c06960:  mov    0x10(%ebp),%eax
+0x14c06963:  mov    0x14(%ebp),%edx
+0x14c06966:  cmp    %edx,%eax
+0x14c06968:  je     0x14c0697b
+0x14c0696e:  xor    %eax,%eax
+0x14c06970:  mov    %eax,0x118c(%ebp)
+0x14c06976:  jmp    0x14c06986
+0x14c0697b:  mov    $0x1,%eax
+0x14c06980:  mov    %eax,0x118c(%ebp)
+0x14c06986:  mov    0x1c(%ebp),%eax
+0x14c06989:  mov    0x118c(%ebp),%edx
+0x14c0698f:  mov    %eax,0x10(%ebp)
+0x14c06992:  test   %edx,%edx
+0x14c06994:  jne    0x14c069b4
+0x14c0699a:  jmp    0x14c0699f
+0x14c0699f:  mov    $0xbfc0016c,%eax
+0x14c069a4:  mov    %eax,0x80(%ebp)
+0x14c069aa:  mov    $0x16c06319,%eax
+0x14c069af:  jmp    0x39db28
+0x14c069b4:  jmp    0x14c069b9
+0x14c069b9:  mov    $0xbfc00148,%eax
+0x14c069be:  mov    %eax,0x80(%ebp)
+0x14c069c4:  mov    $0x16c06318,%eax
+0x14c069c9:  jmp    0x39db28
+
+------------------------------------------------
+pc=0xbfc0016c HI=0x00000000 LO=0x00000000 ds 0010 bfc001cc 0
+GPR00: r0 00000000 at 00000000 v0 00000020 v1 140003fd
+GPR04: a0 0000000d a1 0000000a a2 140003f8 a3 0000000d
+GPR08: t0 00000000 t1 00000000 t2 00000000 t3 00000000
+GPR12: t4 00000000 t5 00000000 t6 00000000 t7 00000000
+GPR16: s0 bfc001ed s1 00000000 s2 00000000 s3 00000000
+GPR20: s4 00000000 s5 00000000 s6 00000000 s7 00000000
+GPR24: t8 00000000 t9 00000000 k0 00000000 k1 00000000
+GPR28: gp 00000000 sp 000fffb8 s8 00000000 ra bfc0019c
+CP0 Status  0x00400004 Cause   0x00000400 EPC    0x00000000
+    Config0 0x80000482 Config1 0x9e190c8b LLAddr 0x00000000
+IN: 
+0xbfc0016c:  jr	ra
+0xbfc00170:  nop
+
+---------------- 2 00000010
+OP:
+ ---- 0xbfc0016c
+ mov_i32 btarget,ra
+
+ ---- 0xbfc00170
+ mov_i32 PC,btarget
+ exit_tb $0x0
+
+OUT: [size=24]
+0x14c069d0:  mov    0x7c(%ebp),%eax
+0x14c069d3:  mov    %eax,%edx
+0x14c069d5:  mov    %edx,0x80(%ebp)
+0x14c069db:  mov    %eax,0x1188(%ebp)
+0x14c069e1:  xor    %eax,%eax
+0x14c069e3:  jmp    0x39db28
+
+------------------------------------------------
+pc=0xbfc0019c HI=0x00000000 LO=0x00000000 ds 0010 bfc0019c 0
+GPR00: r0 00000000 at 00000000 v0 00000020 v1 140003fd
+GPR04: a0 0000000d a1 0000000a a2 140003f8 a3 0000000d
+GPR08: t0 00000000 t1 00000000 t2 00000000 t3 00000000
+GPR12: t4 00000000 t5 00000000 t6 00000000 t7 00000000
+GPR16: s0 bfc001ed s1 00000000 s2 00000000 s3 00000000
+GPR20: s4 00000000 s5 00000000 s6 00000000 s7 00000000
+GPR24: t8 00000000 t9 00000000 k0 00000000 k1 00000000
+GPR28: gp 00000000 sp 000fffb8 s8 00000000 ra bfc0019c
+CP0 Status  0x00400004 Cause   0x00000400 EPC    0x00000000
+    Config0 0x80000482 Config1 0x9e190c8b LLAddr 0x00000000
+IN: 
+0xbfc0019c:  lb	a0,0(s0)
+0xbfc001a0:  nop
+0xbfc001a4:  bnez	a0,0xbfc00194
+0xbfc001a8:  nop
+
+---------------- 2 00000010
+OP:
+ ---- 0xbfc0019c
+ mov_i32 tmp0,s0
+ qemu_ld8s tmp0,tmp0,$0x0
+ mov_i32 a0,tmp0
+
+ ---- 0xbfc001a0
+
+ ---- 0xbfc001a4
+ mov_i32 tmp1,a0
+ movi_i32 tmp0,$0x0
+ brcond_i32 tmp1,tmp0,ne,$0x0
+ movi_i32 bcond,$0x0
+ br $0x1
+ set_label $0x0
+ movi_i32 bcond,$0x1
+ set_label $0x1
+
+ ---- 0xbfc001a8
+ movi_i32 tmp0,$0x0
+ brcond_i32 bcond,tmp0,ne,$0x2
+ goto_tb $0x1
+ movi_i32 PC,$0xbfc001ac
+ exit_tb $0x16c063a9
+ set_label $0x2
+ goto_tb $0x0
+ movi_i32 PC,$0xbfc00194
+ exit_tb $0x16c063a8
+
+OUT: [size=158]
+0x14c069f0:  mov    0x40(%ebp),%eax
+0x14c069f3:  mov    %eax,%ecx
+0x14c069f5:  mov    %ecx,%edx
+0x14c069f7:  mov    %ecx,%eax
+0x14c069f9:  shr    $0x7,%edx
+0x14c069fc:  and    $0xfffff000,%eax
+0x14c06a02:  and    $0x1fe0,%edx
+0x14c06a08:  lea    0x11c8(%edx,%ebp,1),%edx
+0x14c06a0f:  cmp    (%edx),%eax
+0x14c06a11:  mov    %ecx,%eax
+0x14c06a13:  je     0x14c06a21
+0x14c06a15:  xor    %edx,%edx
+0x14c06a17:  call   0x126620
+0x14c06a1c:  movsbl %al,%eax
+0x14c06a1f:  jmp    0x14c06a27
+0x14c06a21:  add    0x10(%edx),%eax
+0x14c06a24:  movsbl (%eax),%eax
+0x14c06a27:  mov    %eax,%edx
+0x14c06a29:  mov    %eax,0x10(%ebp)
+0x14c06a2c:  test   %edx,%edx
+0x14c06a2e:  jne    0x14c06a41
+0x14c06a34:  xor    %eax,%eax
+0x14c06a36:  mov    %eax,0x118c(%ebp)
+0x14c06a3c:  jmp    0x14c06a4c
+0x14c06a41:  mov    $0x1,%eax
+0x14c06a46:  mov    %eax,0x118c(%ebp)
+0x14c06a4c:  mov    0x118c(%ebp),%eax
+0x14c06a52:  test   %eax,%eax
+0x14c06a54:  jne    0x14c06a74
+0x14c06a5a:  jmp    0x14c06a5f
+0x14c06a5f:  mov    $0xbfc001ac,%eax
+0x14c06a64:  mov    %eax,0x80(%ebp)
+0x14c06a6a:  mov    $0x16c063a9,%eax
+0x14c06a6f:  jmp    0x39db28
+0x14c06a74:  jmp    0x14c06a79
+0x14c06a79:  mov    $0xbfc00194,%eax
+0x14c06a7e:  mov    %eax,0x80(%ebp)
+0x14c06a84:  mov    $0x16c063a8,%eax
+0x14c06a89:  jmp    0x39db28
+
+cpu_mips_handle_mmu_fault pc bfc00194 ad 140003fd rw 0 mmu_idx 0 smmu 1
+cpu_mips_handle_mmu_fault address=140003fd ret 0 physical 00000000140003fd prot 3
+cpu_mips_handle_mmu_fault pc bfc0019c ad bfc001ee rw 0 mmu_idx 0 smmu 1
+cpu_mips_handle_mmu_fault address=bfc001ee ret 0 physical 000000001fc001ee prot 3
+cpu_mips_handle_mmu_fault pc bfc0019c ad 140003fd rw 0 mmu_idx 0 smmu 1
+cpu_mips_handle_mmu_fault address=140003fd ret 0 physical 00000000140003fd prot 3
+cpu_mips_handle_mmu_fault pc bfc0019c ad bfc001ef rw 0 mmu_idx 0 smmu 1
+cpu_mips_handle_mmu_fault address=bfc001ef ret 0 physical 000000001fc001ef prot 3
+cpu_mips_handle_mmu_fault pc bfc0019c ad 140003fd rw 0 mmu_idx 0 smmu 1
+cpu_mips_handle_mmu_fault address=140003fd ret 0 physical 00000000140003fd prot 3
+cpu_mips_handle_mmu_fault pc bfc0019c ad bfc001f0 rw 0 mmu_idx 0 smmu 1
+cpu_mips_handle_mmu_fault address=bfc001f0 ret 0 physical 000000001fc001f0 prot 3
+cpu_mips_handle_mmu_fault pc bfc0019c ad 140003fd rw 0 mmu_idx 0 smmu 1
+cpu_mips_handle_mmu_fault address=140003fd ret 0 physical 00000000140003fd prot 3
+cpu_mips_handle_mmu_fault pc bfc0019c ad bfc001f1 rw 0 mmu_idx 0 smmu 1
+cpu_mips_handle_mmu_fault address=bfc001f1 ret 0 physical 000000001fc001f1 prot 3
+cpu_mips_handle_mmu_fault pc bfc0019c ad 140003fd rw 0 mmu_idx 0 smmu 1
+cpu_mips_handle_mmu_fault address=140003fd ret 0 physical 00000000140003fd prot 3
+cpu_mips_handle_mmu_fault pc bfc0019c ad bfc001f2 rw 0 mmu_idx 0 smmu 1
+cpu_mips_handle_mmu_fault address=bfc001f2 ret 0 physical 000000001fc001f2 prot 3
+cpu_mips_handle_mmu_fault pc bfc0019c ad 140003fd rw 0 mmu_idx 0 smmu 1
+cpu_mips_handle_mmu_fault address=140003fd ret 0 physical 00000000140003fd prot 3
+cpu_mips_handle_mmu_fault pc bfc0019c ad bfc001f3 rw 0 mmu_idx 0 smmu 1
+cpu_mips_handle_mmu_fault address=bfc001f3 ret 0 physical 000000001fc001f3 prot 3
+cpu_mips_handle_mmu_fault pc bfc0019c ad 140003fd rw 0 mmu_idx 0 smmu 1
+cpu_mips_handle_mmu_fault address=140003fd ret 0 physical 00000000140003fd prot 3
+cpu_mips_handle_mmu_fault pc bfc0019c ad bfc001f4 rw 0 mmu_idx 0 smmu 1
+cpu_mips_handle_mmu_fault address=bfc001f4 ret 0 physical 000000001fc001f4 prot 3
+cpu_mips_handle_mmu_fault pc bfc0019c ad 140003fd rw 0 mmu_idx 0 smmu 1
+cpu_mips_handle_mmu_fault address=140003fd ret 0 physical 00000000140003fd prot 3
+cpu_mips_handle_mmu_fault pc bfc0019c ad bfc001f5 rw 0 mmu_idx 0 smmu 1
+cpu_mips_handle_mmu_fault address=bfc001f5 ret 0 physical 000000001fc001f5 prot 3
+cpu_mips_handle_mmu_fault pc bfc0019c ad 140003fd rw 0 mmu_idx 0 smmu 1
+cpu_mips_handle_mmu_fault address=140003fd ret 0 physical 00000000140003fd prot 3
+cpu_mips_handle_mmu_fault pc bfc0019c ad bfc001f6 rw 0 mmu_idx 0 smmu 1
+cpu_mips_handle_mmu_fault address=bfc001f6 ret 0 physical 000000001fc001f6 prot 3
+cpu_mips_handle_mmu_fault pc bfc0019c ad 140003fd rw 0 mmu_idx 0 smmu 1
+cpu_mips_handle_mmu_fault address=140003fd ret 0 physical 00000000140003fd prot 3
+cpu_mips_handle_mmu_fault pc bfc0019c ad bfc001f7 rw 0 mmu_idx 0 smmu 1
+cpu_mips_handle_mmu_fault address=bfc001f7 ret 0 physical 000000001fc001f7 prot 3
+cpu_mips_handle_mmu_fault pc bfc0019c ad 140003fd rw 0 mmu_idx 0 smmu 1
+cpu_mips_handle_mmu_fault address=140003fd ret 0 physical 00000000140003fd prot 3
+cpu_mips_handle_mmu_fault pc bfc0019c ad bfc001f8 rw 0 mmu_idx 0 smmu 1
+cpu_mips_handle_mmu_fault address=bfc001f8 ret 0 physical 000000001fc001f8 prot 3
+cpu_mips_handle_mmu_fault pc bfc0019c ad 140003fd rw 0 mmu_idx 0 smmu 1
+cpu_mips_handle_mmu_fault address=140003fd ret 0 physical 00000000140003fd prot 3
+cpu_mips_handle_mmu_fault pc bfc0019c ad bfc001f9 rw 0 mmu_idx 0 smmu 1
+cpu_mips_handle_mmu_fault address=bfc001f9 ret 0 physical 000000001fc001f9 prot 3
+cpu_mips_handle_mmu_fault pc bfc0019c ad 140003fd rw 0 mmu_idx 0 smmu 1
+cpu_mips_handle_mmu_fault address=140003fd ret 0 physical 00000000140003fd prot 3
+cpu_mips_handle_mmu_fault pc bfc00148 ad bfc00148 rw 2 mmu_idx 0 smmu 1
+cpu_mips_handle_mmu_fault address=bfc00148 ret 0 physical 000000001fc00148 prot 3
+------------------------------------------------
+pc=0xbfc00148 HI=0x00000000 LO=0x00000000 ds 0010 bfc0019c 1
+GPR00: r0 00000000 at 00000000 v0 00000020 v1 140003fd
+GPR04: a0 0000000d a1 0000000a a2 140003f8 a3 0000000d
+GPR08: t0 00000000 t1 00000000 t2 00000000 t3 00000000
+GPR12: t4 00000000 t5 00000000 t6 00000000 t7 00000000
+GPR16: s0 bfc001fa s1 00000000 s2 00000000 s3 00000000
+GPR20: s4 00000000 s5 00000000 s6 00000000 s7 00000000
+GPR24: t8 00000000 t9 00000000 k0 00000000 k1 00000000
+GPR28: gp 00000000 sp 000fffb8 s8 00000000 ra bfc0019c
+CP0 Status  0x00400004 Cause   0x00000400 EPC    0x00000000
+    Config0 0x80000482 Config1 0x9e190c8b LLAddr 0x00000000
+IN: 
+0xbfc00148:  andi	v0,a0,0xff
+0xbfc0014c:  sb	v0,0(a2)
+0xbfc00150:  lbu	v0,0(v1)
+0xbfc00154:  nop
+0xbfc00158:  andi	v0,v0,0x20
+0xbfc0015c:  beqz	v0,0xbfc00150
+0xbfc00160:  nop
+
+---------------- 2 00000010
+OP:
+ ---- 0xbfc00148
+ movi_i32 tmp0,$0xff
+ and_i32 v0,a0,tmp0
+
+ ---- 0xbfc0014c
+ mov_i32 tmp0,a2
+ mov_i32 tmp1,v0
+ qemu_st8 tmp1,tmp0,$0x0
+
+ ---- 0xbfc00150
+ mov_i32 tmp1,v1
+ qemu_ld8u tmp1,tmp1,$0x0
+ mov_i32 v0,tmp1
+
+ ---- 0xbfc00154
+
+ ---- 0xbfc00158
+ movi_i32 tmp0,$0x20
+ and_i32 v0,v0,tmp0
+
+ ---- 0xbfc0015c
+ mov_i32 tmp0,v0
+ movi_i32 tmp1,$0x0
+ brcond_i32 tmp0,tmp1,eq,$0x0
+ movi_i32 bcond,$0x0
+ br $0x1
+ set_label $0x0
+ movi_i32 bcond,$0x1
+ set_label $0x1
+
+ ---- 0xbfc00160
+ movi_i32 tmp1,$0x0
+ brcond_i32 bcond,tmp1,ne,$0x2
+ goto_tb $0x1
+ movi_i32 PC,$0xbfc00164
+ exit_tb $0x16c063f1
+ set_label $0x2
+ goto_tb $0x0
+ movi_i32 PC,$0xbfc00150
+ exit_tb $0x16c063f0
+
+OUT: [size=226]
+0x14c06a90:  mov    0x10(%ebp),%eax
+0x14c06a93:  mov    %eax,%edx
+0x14c06a95:  movzbl %dl,%edx
+0x14c06a98:  mov    0x18(%ebp),%ecx
+0x14c06a9b:  mov    %edx,%ebx
+0x14c06a9d:  mov    %edx,0x8(%ebp)
+0x14c06aa0:  mov    %ecx,%edx
+0x14c06aa2:  mov    %ecx,%eax
+0x14c06aa4:  shr    $0x7,%edx
+0x14c06aa7:  and    $0xfffff000,%eax
+0x14c06aad:  and    $0x1fe0,%edx
+0x14c06ab3:  lea    0x11cc(%edx,%ebp,1),%edx
+0x14c06aba:  cmp    (%edx),%eax
+0x14c06abc:  mov    %ecx,%eax
+0x14c06abe:  je     0x14c06acc
+0x14c06ac0:  movzbl %bl,%edx
+0x14c06ac3:  xor    %ecx,%ecx
+0x14c06ac5:  call   0x1256a0
+0x14c06aca:  jmp    0x14c06ad1
+0x14c06acc:  add    0xc(%edx),%eax
+0x14c06acf:  mov    %bl,(%eax)
+0x14c06ad1:  mov    0xc(%ebp),%eax
+0x14c06ad4:  mov    %eax,%ecx
+0x14c06ad6:  mov    %ecx,%edx
+0x14c06ad8:  mov    %ecx,%eax
+0x14c06ada:  shr    $0x7,%edx
+0x14c06add:  and    $0xfffff000,%eax
+0x14c06ae3:  and    $0x1fe0,%edx
+0x14c06ae9:  lea    0x11c8(%edx,%ebp,1),%edx
+0x14c06af0:  cmp    (%edx),%eax
+0x14c06af2:  mov    %ecx,%eax
+0x14c06af4:  je     0x14c06b02
+0x14c06af6:  xor    %edx,%edx
+0x14c06af8:  call   0x126620
+0x14c06afd:  movzbl %al,%eax
+0x14c06b00:  jmp    0x14c06b08
+0x14c06b02:  add    0x10(%edx),%eax
+0x14c06b05:  movzbl (%eax),%eax
+0x14c06b08:  and    $0x20,%eax
+0x14c06b0b:  mov    %eax,%edx
+0x14c06b0d:  mov    %eax,0x8(%ebp)
+0x14c06b10:  test   %edx,%edx
+0x14c06b12:  je     0x14c06b25
+0x14c06b18:  xor    %eax,%eax
+0x14c06b1a:  mov    %eax,0x118c(%ebp)
+0x14c06b20:  jmp    0x14c06b30
+0x14c06b25:  mov    $0x1,%eax
+0x14c06b2a:  mov    %eax,0x118c(%ebp)
+0x14c06b30:  mov    0x118c(%ebp),%eax
+0x14c06b36:  test   %eax,%eax
+0x14c06b38:  jne    0x14c06b58
+0x14c06b3e:  jmp    0x14c06b43
+0x14c06b43:  mov    $0xbfc00164,%eax
+0x14c06b48:  mov    %eax,0x80(%ebp)
+0x14c06b4e:  mov    $0x16c063f1,%eax
+0x14c06b53:  jmp    0x39db28
+0x14c06b58:  jmp    0x14c06b5d
+0x14c06b5d:  mov    $0xbfc00150,%eax
+0x14c06b62:  mov    %eax,0x80(%ebp)
+0x14c06b68:  mov    $0x16c063f0,%eax
+0x14c06b6d:  jmp    0x39db28
+
+cpu_mips_handle_mmu_fault pc bfc00148 ad 140003f8 rw 1 mmu_idx 0 smmu 1
+cpu_mips_handle_mmu_fault address=140003f8 ret 0 physical 00000000140003f8 prot 3
+cpu_mips_handle_mmu_fault pc bfc0019c ad bfc001fa rw 0 mmu_idx 0 smmu 1
+cpu_mips_handle_mmu_fault address=bfc001fa ret 0 physical 000000001fc001fa prot 3
+------------------------------------------------
+pc=0xbfc001ac HI=0x00000000 LO=0x00000000 ds 0010 bfc0019c 0
+GPR00: r0 00000000 at 00000000 v0 00000020 v1 140003fd
+GPR04: a0 00000000 a1 0000000a a2 140003f8 a3 0000000d
+GPR08: t0 00000000 t1 00000000 t2 00000000 t3 00000000
+GPR12: t4 00000000 t5 00000000 t6 00000000 t7 00000000
+GPR16: s0 bfc001fa s1 00000000 s2 00000000 s3 00000000
+GPR20: s4 00000000 s5 00000000 s6 00000000 s7 00000000
+GPR24: t8 00000000 t9 00000000 k0 00000000 k1 00000000
+GPR28: gp 00000000 sp 000fffb8 s8 00000000 ra bfc0019c
+CP0 Status  0x00400004 Cause   0x00000400 EPC    0x00000000
+    Config0 0x80000482 Config1 0x9e190c8b LLAddr 0x00000000
+IN: 
+0xbfc001ac:  lw	ra,20(sp)
+0xbfc001b0:  lw	s0,16(sp)
+0xbfc001b4:  jr	ra
+0xbfc001b8:  addiu	sp,sp,24
+
+---------------- 2 00000010
+OP:
+ ---- 0xbfc001ac
+ movi_i32 tmp0,$0x14
+ add_i32 tmp0,sp,tmp0
+ qemu_ld32u tmp0,tmp0,$0x0
+ mov_i32 ra,tmp0
+
+ ---- 0xbfc001b0
+ movi_i32 tmp1,$0x10
+ add_i32 tmp1,sp,tmp1
+ qemu_ld32u tmp1,tmp1,$0x0
+ mov_i32 s0,tmp1
+
+ ---- 0xbfc001b4
+ mov_i32 btarget,ra
+
+ ---- 0xbfc001b8
+ movi_i32 tmp1,$0x18
+ add_i32 sp,sp,tmp1
+ mov_i32 PC,btarget
+ exit_tb $0x0
+
+OUT: [size=149]
+0x14c06b80:  mov    0x74(%ebp),%eax
+0x14c06b83:  mov    %eax,%edx
+0x14c06b85:  add    $0x14,%edx
+0x14c06b88:  mov    %edx,%ecx
+0x14c06b8a:  mov    %ecx,%edx
+0x14c06b8c:  mov    %ecx,%eax
+0x14c06b8e:  shr    $0x7,%edx
+0x14c06b91:  and    $0xfffff003,%eax
+0x14c06b97:  and    $0x1fe0,%edx
+0x14c06b9d:  lea    0x11c8(%edx,%ebp,1),%edx
+0x14c06ba4:  cmp    (%edx),%eax
+0x14c06ba6:  mov    %ecx,%eax
+0x14c06ba8:  je     0x14c06bb3
+0x14c06baa:  xor    %edx,%edx
+0x14c06bac:  call   0x126190
+0x14c06bb1:  jmp    0x14c06bb8
+0x14c06bb3:  add    0x10(%edx),%eax
+0x14c06bb6:  mov    (%eax),%eax
+0x14c06bb8:  mov    0x74(%ebp),%edx
+0x14c06bbb:  mov    %edx,%ecx
+0x14c06bbd:  add    $0x10,%ecx
+0x14c06bc0:  mov    %eax,0x7c(%ebp)
+0x14c06bc3:  mov    %ecx,%edx
+0x14c06bc5:  mov    %ecx,%eax
+0x14c06bc7:  shr    $0x7,%edx
+0x14c06bca:  and    $0xfffff003,%eax
+0x14c06bd0:  and    $0x1fe0,%edx
+0x14c06bd6:  lea    0x11c8(%edx,%ebp,1),%edx
+0x14c06bdd:  cmp    (%edx),%eax
+0x14c06bdf:  mov    %ecx,%eax
+0x14c06be1:  je     0x14c06bec
+0x14c06be3:  xor    %edx,%edx
+0x14c06be5:  call   0x126190
+0x14c06bea:  jmp    0x14c06bf1
+0x14c06bec:  add    0x10(%edx),%eax
+0x14c06bef:  mov    (%eax),%eax
+0x14c06bf1:  mov    0x7c(%ebp),%edx
+0x14c06bf4:  mov    0x74(%ebp),%ecx
+0x14c06bf7:  add    $0x18,%ecx
+0x14c06bfa:  mov    %edx,%ebx
+0x14c06bfc:  mov    %eax,0x40(%ebp)
+0x14c06bff:  mov    %ecx,0x74(%ebp)
+0x14c06c02:  mov    %ebx,0x80(%ebp)
+0x14c06c08:  mov    %edx,0x1188(%ebp)
+0x14c06c0e:  xor    %eax,%eax
+0x14c06c10:  jmp    0x39db28
+
+------------------------------------------------
+pc=0xbfc001d8 HI=0x00000000 LO=0x00000000 ds 0010 bfc001d8 0
+GPR00: r0 00000000 at 00000000 v0 00000020 v1 140003fd
+GPR04: a0 00000000 a1 0000000a a2 140003f8 a3 0000000d
+GPR08: t0 00000000 t1 00000000 t2 00000000 t3 00000000
+GPR12: t4 00000000 t5 00000000 t6 00000000 t7 00000000
+GPR16: s0 00000000 s1 00000000 s2 00000000 s3 00000000
+GPR20: s4 00000000 s5 00000000 s6 00000000 s7 00000000
+GPR24: t8 00000000 t9 00000000 k0 00000000 k1 00000000
+GPR28: gp 00000000 sp 000fffd0 s8 00000000 ra bfc001d8
+CP0 Status  0x00400004 Cause   0x00000400 EPC    0x00000000
+    Config0 0x80000482 Config1 0x9e190c8b LLAddr 0x00000000
+IN: 
+0xbfc001d8:  move	v0,zero
+0xbfc001dc:  lw	ra,20(sp)
+0xbfc001e0:  nop
+0xbfc001e4:  jr	ra
+0xbfc001e8:  addiu	sp,sp,24
+
+---------------- 2 00000010
+OP:
+ ---- 0xbfc001d8
+ movi_i32 v0,$0x0
+
+ ---- 0xbfc001dc
+ movi_i32 tmp0,$0x14
+ add_i32 tmp0,sp,tmp0
+ qemu_ld32u tmp0,tmp0,$0x0
+ mov_i32 ra,tmp0
+
+ ---- 0xbfc001e0
+
+ ---- 0xbfc001e4
+ mov_i32 btarget,ra
+
+ ---- 0xbfc001e8
+ movi_i32 tmp0,$0x18
+ add_i32 sp,sp,tmp0
+ mov_i32 PC,btarget
+ exit_tb $0x0
+
+OUT: [size=96]
+0x14c06c20:  mov    0x74(%ebp),%eax
+0x14c06c23:  mov    %eax,%edx
+0x14c06c25:  add    $0x14,%edx
+0x14c06c28:  mov    %edx,%ecx
+0x14c06c2a:  xor    %eax,%eax
+0x14c06c2c:  mov    %eax,0x8(%ebp)
+0x14c06c2f:  mov    %ecx,%edx
+0x14c06c31:  mov    %ecx,%eax
+0x14c06c33:  shr    $0x7,%edx
+0x14c06c36:  and    $0xfffff003,%eax
+0x14c06c3c:  and    $0x1fe0,%edx
+0x14c06c42:  lea    0x11c8(%edx,%ebp,1),%edx
+0x14c06c49:  cmp    (%edx),%eax
+0x14c06c4b:  mov    %ecx,%eax
+0x14c06c4d:  je     0x14c06c58
+0x14c06c4f:  xor    %edx,%edx
+0x14c06c51:  call   0x126190
+0x14c06c56:  jmp    0x14c06c5d
+0x14c06c58:  add    0x10(%edx),%eax
+0x14c06c5b:  mov    (%eax),%eax
+0x14c06c5d:  mov    %eax,%edx
+0x14c06c5f:  mov    0x74(%ebp),%ecx
+0x14c06c62:  add    $0x18,%ecx
+0x14c06c65:  mov    %edx,%ebx
+0x14c06c67:  mov    %ecx,0x74(%ebp)
+0x14c06c6a:  mov    %eax,0x7c(%ebp)
+0x14c06c6d:  mov    %ebx,0x80(%ebp)
+0x14c06c73:  mov    %edx,0x1188(%ebp)
+0x14c06c79:  xor    %eax,%eax
+0x14c06c7b:  jmp    0x39db28
+
+------------------------------------------------
+pc=0xbfc00088 HI=0x00000000 LO=0x00000000 ds 0010 bfc00088 0
+GPR00: r0 00000000 at 00000000 v0 00000000 v1 140003fd
+GPR04: a0 00000000 a1 0000000a a2 140003f8 a3 0000000d
+GPR08: t0 00000000 t1 00000000 t2 00000000 t3 00000000
+GPR12: t4 00000000 t5 00000000 t6 00000000 t7 00000000
+GPR16: s0 00000000 s1 00000000 s2 00000000 s3 00000000
+GPR20: s4 00000000 s5 00000000 s6 00000000 s7 00000000
+GPR24: t8 00000000 t9 00000000 k0 00000000 k1 00000000
+GPR28: gp 00000000 sp 000fffe8 s8 00000000 ra bfc00088
+CP0 Status  0x00400004 Cause   0x00000400 EPC    0x00000000
+    Config0 0x80000482 Config1 0x9e190c8b LLAddr 0x00000000
+IN: 
+0xbfc00088:  li	v1,42
+0xbfc0008c:  lui	v0,0x1fbf
+0xbfc00090:  ori	v0,v0,0x4
+0xbfc00094:  sw	v1,0(v0)
+0xbfc00098:  lw	ra,20(sp)
+0xbfc0009c:  nop
+0xbfc000a0:  jr	ra
+0xbfc000a4:  addiu	sp,sp,24
+
+---------------- 2 00000010
+OP:
+ ---- 0xbfc00088
+ movi_i32 v1,$0x2a
+
+ ---- 0xbfc0008c
+ movi_i32 v0,$0x1fbf0000
+
+ ---- 0xbfc00090
+ movi_i32 tmp0,$0x4
+ or_i32 v0,v0,tmp0
+
+ ---- 0xbfc00094
+ mov_i32 tmp0,v0
+ mov_i32 tmp1,v1
+ qemu_st32 tmp1,tmp0,$0x0
+
+ ---- 0xbfc00098
+ movi_i32 tmp1,$0x14
+ add_i32 tmp1,sp,tmp1
+ qemu_ld32u tmp1,tmp1,$0x0
+ mov_i32 ra,tmp1
+
+ ---- 0xbfc0009c
+
+ ---- 0xbfc000a0
+ mov_i32 btarget,ra
+
+ ---- 0xbfc000a4
+ movi_i32 tmp1,$0x18
+ add_i32 sp,sp,tmp1
+ mov_i32 PC,btarget
+ exit_tb $0x0
+
+OUT: [size=167]
+0x14c06c80:  mov    $0x1fbf0000,%eax
+0x14c06c85:  or     $0x4,%eax
+0x14c06c88:  mov    %eax,%edx
+0x14c06c8a:  mov    $0x2a,%ecx
+0x14c06c8f:  mov    %edx,%ebx
+0x14c06c91:  mov    %eax,0x8(%ebp)
+0x14c06c94:  mov    $0x2a,%eax
+0x14c06c99:  mov    %eax,0xc(%ebp)
+0x14c06c9c:  mov    %ebx,%edx
+0x14c06c9e:  mov    %ebx,%eax
+0x14c06ca0:  shr    $0x7,%edx
+0x14c06ca3:  and    $0xfffff003,%eax
+0x14c06ca9:  and    $0x1fe0,%edx
+0x14c06caf:  lea    0x11cc(%edx,%ebp,1),%edx
+0x14c06cb6:  cmp    (%edx),%eax
+0x14c06cb8:  mov    %ebx,%eax
+0x14c06cba:  je     0x14c06cc7
+0x14c06cbc:  mov    %ecx,%edx
+0x14c06cbe:  xor    %ecx,%ecx
+0x14c06cc0:  call   0x125bd0
+0x14c06cc5:  jmp    0x14c06ccc
+0x14c06cc7:  add    0xc(%edx),%eax
+0x14c06cca:  mov    %ecx,(%eax)
+0x14c06ccc:  mov    0x74(%ebp),%eax
+0x14c06ccf:  mov    %eax,%edx
+0x14c06cd1:  add    $0x14,%edx
+0x14c06cd4:  mov    %edx,%ecx
+0x14c06cd6:  mov    %ecx,%edx
+0x14c06cd8:  mov    %ecx,%eax
+0x14c06cda:  shr    $0x7,%edx
+0x14c06cdd:  and    $0xfffff003,%eax
+0x14c06ce3:  and    $0x1fe0,%edx
+0x14c06ce9:  lea    0x11c8(%edx,%ebp,1),%edx
+0x14c06cf0:  cmp    (%edx),%eax
+0x14c06cf2:  mov    %ecx,%eax
+0x14c06cf4:  je     0x14c06cff
+0x14c06cf6:  xor    %edx,%edx
+0x14c06cf8:  call   0x126190
+0x14c06cfd:  jmp    0x14c06d04
+0x14c06cff:  add    0x10(%edx),%eax
+0x14c06d02:  mov    (%eax),%eax
+0x14c06d04:  mov    %eax,%edx
+0x14c06d06:  mov    0x74(%ebp),%ecx
+0x14c06d09:  add    $0x18,%ecx
+0x14c06d0c:  mov    %edx,%ebx
+0x14c06d0e:  mov    %ecx,0x74(%ebp)
+0x14c06d11:  mov    %eax,0x7c(%ebp)
+0x14c06d14:  mov    %ebx,0x80(%ebp)
+0x14c06d1a:  mov    %edx,0x1188(%ebp)
+0x14c06d20:  xor    %eax,%eax
+0x14c06d22:  jmp    0x39db28
+
+cpu_mips_handle_mmu_fault pc bfc00088 ad 1fbf0004 rw 1 mmu_idx 0 smmu 1
+cpu_mips_handle_mmu_fault address=1fbf0004 ret 0 physical 000000001fbf0004 prot 3

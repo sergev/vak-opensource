@@ -1,0 +1,13 @@
+
+Module: JournalRus_OS_5
+
+Модуль для PiLoc. Кодировка Windows-1251.
+
+Этот модуль предназначен для палм-совместимых машинок
+с Palm OS 5.x и русификатором PiLoc (Sony CLIE, Palm Tungsten).
+
+Свежие версии можно найти на странице: 
+	http://www.vak.ru/proj/cliefonts/
+___
+С уважением,
+Сергей Вакуленко <vak@cronyx.ru>

@@ -1,0 +1,30 @@
+CM Transmission line Test
+CM spacing set to minimum seg-length for 40m
+CM feedline radius optimized to get 460 ohms
+CE 
+SY fr = 7.05		' Frequency
+SY wl = 299.8/fr	' wavelength
+SY min = wl/999		' min overall seg-length
+SY max = 4.95*min	' max feedline seg-length at junction
+'
+SY rad = .00097 	' optimized to get 460 ohms
+SY dis = min		' distance between feedlines
+SY len = 20		' length of feeder
+SY nrs = len/max	' required nr of segments
+'
+GW	1	nrs	-dis/2	0	1	-dis/2	0	len+1	rad	' Left feedline
+GW 	2	nrs	dis/2	0	len+1	dis/2	0	1 	rad	' Right feedline
+'
+GW	10	1	-dis/2	0	1	dis/2	0	1	rad	' Upper loading segment
+GW	11	1	-dis/2	0	len+1	dis/2	0	len+1	rad	' Lower excitation segment
+'
+GE 1
+'
+GN 2 0 0 0 14 .006		' Sommerfeld ground
+FR 0 1 0 0 fr 1
+'
+EX 0 10 1 0 1 0			' V source at lower segment.
+'
+SY r = 460
+LD 0 11 1 0 r 0 0		' R ohms load at upper segment.
+'

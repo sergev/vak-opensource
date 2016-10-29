@@ -1,0 +1,77 @@
+CM Multi Band DP (160m,80m,40m,30m,20m,15m,10m)
+CM Lenghts optimized for 20 meter above average ground
+CE
+SY H=20	' height=20m
+SY t=.1	' length for trap-segments 
+
+SY L28=2.629049, L28a=L28-t, L28b=L28+t
+GW 1 11 0 -L28a H 0  L28a H .001
+GW 11 1 0 -L28a H 0 -L28b H .001
+GW 12 1 0  L28a H 0  L28b H .001
+
+SY L21=3.163742, L21a=L21-t, L21b=L21+t
+GW 2 2  0 -L28b  H 0 -L21a H .001
+GW 3 2  0  L28b  H 0  L21a H .001
+GW 21 1 0 -L21a  H 0 -L21b H .001
+GW 31 1 0  L21a  H 0  L21b H .001
+
+SY L14=3.890512, L14a=L14-t, L14b=L14+t
+GW 4  2 0 -L21b H 0 -L14a H  .001
+GW 5  2 0  L21b H 0  L14a H  .001
+GW 41 1 0 -L14a H 0 -L14b H  .001
+GW 51 1 0  L14a H 0  L14b H  .001
+
+SY L10=4.604668, L10a=L10-t, L10b=L10+t
+GW 6  2 0 -L14b H 0 -L10a H  .001
+GW 7  2 0  L14b H 0  L10a H  .001
+GW 61 1 0 -L10a H 0 -L10b H  .001
+GW 71 1 0  L10a H 0  L10b H  .001
+
+SY L7=5.607943, L7a=L7-t, L7b=L7+t
+GW 8  2 0 -L10b H 0 -L7a H  .001
+GW 9  2 0  L10b H 0  L7a H  .001
+GW 81 1 0 -L7a  H 0 -L7b H  .001
+GW 91 1 0  L7a  H 0  L7b H  .001
+
+SY L3=7.421754, L3a=L3-t, L3b=L3+t
+GW 10  4 0 -L7b H 0 -L3a H  .001
+GW 11  4 0  L7b H 0  L3a H  .001
+GW 101 1 0 -L3a H 0 -L3b H  .001
+GW 111 1 0  L3a H 0  L3b H  .001
+
+SY L2=10.03862, L2a=L2-t
+GW 12 6 0 -L3b H 0 -L2a H .001
+GW 13 6 0  L3b H 0  L2a H .001
+
+GE 0
+
+GN 2 0 0 0 13 .005	' Average ground
+EX 0 1  6  0  1.0 0.0
+
+LD 6 11  1  1 100 2.146uH 15pF
+LD 6 12  1  1 100 2.146uH 15pF
+
+LD 6 21  1  1 100 5.497uH 10.4pF
+LD 6 31  1  1 100 5.497uH 10.4pF
+
+LD 6 41  1  1 100 7.945uH 16.15pF
+LD 6 51  1  1 100 7.945uH 16.15pF
+
+LD 6 61  1  1 100 12.391uH 20pF
+LD 6 71  1  1 100 12.391uH 20pF
+
+LD 6 81  1  1 100 73.639uH 7.0pF
+LD 6 91  1  1 100 73.639uH 7.0pF
+
+LD 6 101  1  1 100 147.915uH 13.9pF
+LD 6 111  1  1 100 147.915uH 13.9pF
+
+'FR 0 1 0 0 28.05 1
+'FR 0 1 0 0 21.05 1
+'FR 0 1 0 0 14.05 1
+'FR 0 1 0 0 10.11 1
+'FR 0 1 0 0  7.01 1
+'FR 0 1 0 0  3.51 1
+FR 0 1 0 0  1.91 1
+
+EN

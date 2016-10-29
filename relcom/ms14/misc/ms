@@ -1,0 +1,57 @@
+:
+for i
+do
+	awk '
+	BEGIN {
+		vol = nfiles = npackages = nprotocols = nletters = 0
+		price = 0.01
+	}
+	$3=="send" && $4=="file" {
+		vol += $8
+		++nfiles
+		++nletters
+		if (! date)
+			date = $1
+	}
+	$3=="send" && $4=="package" && $10!="of" {
+		vol += $10
+		++npackages
+		nletters += $8
+		if (! date)
+			date = $1
+	}
+	$3=="send" && $4=="package" && $10=="of" {
+		vol += int ($12 * $8 / substr ($11, 1, length ($11) - 1))
+		++npackages
+		nletters += $8
+		if (! date)
+			date = $1
+	}
+	$3=="send" && $4=="protocol" {
+		vol += $7
+		++nprotocols
+		++nletters
+		if (! date)
+			date = $1
+	}
+	END {
+		print substr(date,0,8) ": " nfiles " files, " npackages " pkgs, " nprotocols " protos, " nletters " ltrs, " vol/1024/1024 " Mbytes, " vol*price/1024 " $"
+	}
+	' $i
+done | awk '
+	BEGIN {
+		vol = nfiles = npackages = nprotocols = nletters = totalprice = 0
+	}
+	{
+		nfiles += $2
+		npackages += $4
+		nprotocols += $6
+		nletters += $8
+		vol += $10
+		totalprice += $12
+		print
+	}
+	END {
+		print "Total   : " nfiles " files, " npackages " pkgs, " nprotocols " protos, " nletters " ltrs, " vol " Mbytes, " totalprice " $"
+	}
+'

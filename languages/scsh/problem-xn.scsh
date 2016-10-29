@@ -1,0 +1,17 @@
+#!/usr/local/bin/scsh -s
+!#
+
+(define (solve n x)
+  (define d (remainder x 10))
+  (if (not (eqv? x 1))
+    (solve n (+ (quotient x 10) (* d n))))
+  (display d))
+
+(display "For 2: ") (solve 2 2) (display "\n")
+(display "For 3: ") (solve 3 3) (display "\n")
+(display "For 4: ") (solve 4 4) (display "\n")
+(display "For 5: ") (solve 5 5) (display "\n")
+(display "For 6: ") (solve 6 6) (display "\n")
+(display "For 7: ") (solve 7 7) (display "\n")
+(display "For 8: ") (solve 8 8) (display "\n")
+(display "For 9: ") (solve 9 9) (display "\n")

@@ -1,0 +1,28 @@
+CM This illustrates a vertical antenna with elevated radial
+CM system. At 0.0001 wavelength, the height is about as low
+CM as NEC can model accurately. 
+CM Calculated performance does largely depend on the position
+CM of the excitation source related to the radiator lenght,
+CM the distance from the radial wires connection and their 
+CM lengths.
+CE
+
+SY freq=1.832
+sy WL=299.8/freq, M=WL/1000	' Minimal NEC segment length
+
+sy len=35.56			' Length
+sy radh=0.01778, radl=39.624	' Radial height, length
+
+GW 1 3  0.0 0.0 radh	 0.0   0.0   radh+3*M 0.0012941	' Short wire for excitation source
+GW 2 70 0.0 0.0 radh+3*M 0.0   0.0   len      0.0012941	' Rest of radiatior.
+
+GW 0 55 0.0 0.0 radh     radl  0.0   radh     0.0012941	' Radial wires
+GW 0 55 0.0 0.0 radh     0.0   radl  radh     0.0012941
+GW 0 55 0.0 0.0 radh     -radl 0.0   radh     0.0012941
+GW 0 55 0.0 0.0 radh     0.0   -radl radh     0.0012941
+GE 0
+
+EX 0	1	2	0	1	0
+GN 2	0	0	0	13	5.e-3
+FR 0	1	0	0	freq
+EN

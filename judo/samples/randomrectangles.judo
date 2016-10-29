@@ -1,0 +1,21 @@
+//~JUDOPROP~//$VERSION=1.3.0
+//~JUDOPROP~//$TITLE=Random Rectangles
+//~JUDOPROP~//$TYPE=graphics
+void main() {
+	int width = getDrawingWidth();  // the width of the drawing area
+	int height = getDrawingHeight();  // the height of the drawing area
+	Color newColor;  // Color variable to store current color
+	int newX;        // the x-coordinate of the new rectangle 
+	int newY;        // the y-coordinate of the new rectangle
+
+	while(true) {  // do forever
+		newColor = randomColor();  // get a new random color
+		setColor(newColor);
+	
+		newX = randomInt(width);   // get new random x and y
+		newY = randomInt(height);
+		fillRectangle(newX, newY, 100, 200);  // fill in the rectangle
+
+		delay(.1);  // delay for a 10th of a second
+	}
+}

@@ -1,0 +1,13 @@
+void selectinput(int x);
+void selectoutput(int x);
+int rdch(void);
+void wrch(int c);
+int findinput(int s);
+int findoutput(int s);
+void endread(void);
+void endwrite(void);
+int getbyte(int s, int i);
+void putbyte(int s, int i, int ch);
+int input(void);
+int output(void);
+void initio(void);

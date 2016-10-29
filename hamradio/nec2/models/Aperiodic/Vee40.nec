@@ -1,0 +1,26 @@
+CM Extended arm Vee (171'), 40 meters, #14 copper
+CM L. B. Cebik, W4RNL
+CM modified to optimize.
+CE  
+'GW 1 40 -98 140 40 -1 0 40 3.20472440944882E-02
+'GW 2 1 -1 0 40 1 0 40 3.20472440944882E-02
+'GW 3 40 1 0 40 98 140 40 3.20472440944882E-02
+'
+sy len = 170.89
+sy ang = 70
+'sy ang = 47
+sy hgh = 40
+sy x = len*sin(ang/2), y = len*cos(ang/2)
+'
+GW 1 40 -x y hgh -1 0 hgh 3.20472440944882E-02
+GW 2 1 -1 0 hgh 1 0 hgh 3.20472440944882E-02
+GW 3 40 1 0 hgh x y hgh 3.20472440944882E-02
+'
+GS 0 0 .3048
+GE 1
+GN 0 0 0 0 13 .005
+EX 0 2 1 0 1 0
+LD 5 0 0 0 5.8001e7  ' Copper
+FR 0 1 0 0 7.15 1
+EN
+

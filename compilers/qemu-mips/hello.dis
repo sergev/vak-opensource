@@ -1,0 +1,267 @@
+
+hello.elf:     file format elf32-littlemips
+
+
+Disassembly of section .text:
+
+bfc00000 <_reset_>:
+bfc00000:	3c1d0010 	lui	sp,0x10
+bfc00004:	27bd0000 	addiu	sp,sp,0
+bfc00008:	0bf00004 	j	bfc00010 <startup>
+bfc0000c:	3c1c0000 	lui	gp,0x0
+
+bfc00010 <startup>:
+
+/*
+ * Initialize memory and call main(), then shutdown.
+ */
+void startup ()
+{
+bfc00010:	27bdffe8 	addiu	sp,sp,-24
+	 * Linker places it at the end of .text segment. */
+	extern void _etext();
+	extern unsigned __data_start, _edata, _end;
+	unsigned *src = (unsigned*) &_etext;
+	unsigned *dest = &__data_start;
+	while (dest < &_edata)
+bfc00014:	27820000 	addiu	v0,gp,0
+bfc00018:	27830000 	addiu	v1,gp,0
+bfc0001c:	0062102b 	sltu	v0,v1,v0
+bfc00020:	1040000c 	beqz	v0,bfc00054 <startup+0x44>
+bfc00024:	afbf0014 	sw	ra,20(sp)
+{
+	/* Copy the .data image from flash to ram.
+	 * Linker places it at the end of .text segment. */
+	extern void _etext();
+	extern unsigned __data_start, _edata, _end;
+	unsigned *src = (unsigned*) &_etext;
+bfc00028:	3c03bfc0 	lui	v1,0xbfc0
+bfc0002c:	246301fc 	addiu	v1,v1,508
+bfc00030:	27820000 	addiu	v0,gp,0
+	unsigned *dest = &__data_start;
+	while (dest < &_edata)
+bfc00034:	27840000 	addiu	a0,gp,0
+		*dest++ = *src++;
+bfc00038:	8c650000 	lw	a1,0(v1)
+bfc0003c:	00000000 	nop
+bfc00040:	ac450000 	sw	a1,0(v0)
+bfc00044:	24420004 	addiu	v0,v0,4
+	 * Linker places it at the end of .text segment. */
+	extern void _etext();
+	extern unsigned __data_start, _edata, _end;
+	unsigned *src = (unsigned*) &_etext;
+	unsigned *dest = &__data_start;
+	while (dest < &_edata)
+bfc00048:	0044282b 	sltu	a1,v0,a0
+bfc0004c:	14a0fffa 	bnez	a1,bfc00038 <startup+0x28>
+bfc00050:	24630004 	addiu	v1,v1,4
+		*dest++ = *src++;
+
+	/* Clear .bss segment. */
+	dest = &_edata;
+	while (dest < &_end)
+bfc00054:	27820000 	addiu	v0,gp,0
+bfc00058:	27830000 	addiu	v1,gp,0
+bfc0005c:	0062102b 	sltu	v0,v1,v0
+bfc00060:	10400007 	beqz	v0,bfc00080 <startup+0x70>
+bfc00064:	00601021 	move	v0,v1
+bfc00068:	27830000 	addiu	v1,gp,0
+		*dest++ = 0;
+bfc0006c:	ac400000 	sw	zero,0(v0)
+bfc00070:	24420004 	addiu	v0,v0,4
+	while (dest < &_edata)
+		*dest++ = *src++;
+
+	/* Clear .bss segment. */
+	dest = &_edata;
+	while (dest < &_end)
+bfc00074:	0043202b 	sltu	a0,v0,v1
+bfc00078:	1480fffc 	bnez	a0,bfc0006c <startup+0x5c>
+bfc0007c:	00000000 	nop
+		*dest++ = 0;
+
+	/* Call user program. */
+	extern int main();
+	main ();
+bfc00080:	0ff0006f 	jal	bfc001bc <main>
+bfc00084:	00000000 	nop
+
+	/* Stop qemu. */
+	HW_SHUTDOWN = 42;
+bfc00088:	2403002a 	li	v1,42
+bfc0008c:	3c021fbf 	lui	v0,0x1fbf
+bfc00090:	34420004 	ori	v0,v0,0x4
+bfc00094:	ac430000 	sw	v1,0(v0)
+}
+bfc00098:	8fbf0014 	lw	ra,20(sp)
+bfc0009c:	00000000 	nop
+bfc000a0:	03e00008 	jr	ra
+bfc000a4:	27bd0018 	addiu	sp,sp,24
+
+bfc000a8 <uart_init>:
+ */
+void uart_init ()
+{
+	/* Setup UART. */
+	unsigned divisor = DL_BAUD (50000000, 115200);
+	UART_LCR = LCR_8BITS | LCR_DLAB;
+bfc000a8:	3c021400 	lui	v0,0x1400
+bfc000ac:	344503fb 	ori	a1,v0,0x3fb
+bfc000b0:	2403ff83 	li	v1,-125
+bfc000b4:	a0a30000 	sb	v1,0(a1)
+	UART_DLM = divisor >> 8;
+bfc000b8:	344303f9 	ori	v1,v0,0x3f9
+bfc000bc:	a0600000 	sb	zero,0(v1)
+	UART_DLL = divisor;
+bfc000c0:	344403f8 	ori	a0,v0,0x3f8
+bfc000c4:	2406001b 	li	a2,27
+bfc000c8:	a0860000 	sb	a2,0(a0)
+	UART_LCR = LCR_8BITS;
+bfc000cc:	24060003 	li	a2,3
+bfc000d0:	a0a60000 	sb	a2,0(a1)
+	UART_SPR = 0;
+bfc000d4:	344503ff 	ori	a1,v0,0x3ff
+bfc000d8:	a0a00000 	sb	zero,0(a1)
+	UART_IER = 0;
+bfc000dc:	a0600000 	sb	zero,0(v1)
+	UART_MSR = 0;
+bfc000e0:	344503fe 	ori	a1,v0,0x3fe
+bfc000e4:	a0a00000 	sb	zero,0(a1)
+	UART_MCR = MCR_DTR | MCR_RTS | MCR_OUT2;
+bfc000e8:	344303fc 	ori	v1,v0,0x3fc
+bfc000ec:	2406000b 	li	a2,11
+bfc000f0:	a0660000 	sb	a2,0(v1)
+	UART_FCR = FCR_RCV_RST | FCR_XMT_RST | FCR_ENABLE;
+bfc000f4:	344303fa 	ori	v1,v0,0x3fa
+bfc000f8:	24060007 	li	a2,7
+bfc000fc:	a0660000 	sb	a2,0(v1)
+
+	/* Clear pending status, data and irq. */
+	(void) UART_LSR;
+bfc00100:	344203fd 	ori	v0,v0,0x3fd
+bfc00104:	90420000 	lbu	v0,0(v0)
+	(void) UART_MSR;
+bfc00108:	90a20000 	lbu	v0,0(a1)
+	(void) UART_RBR;
+bfc0010c:	90820000 	lbu	v0,0(a0)
+	(void) UART_IIR;
+bfc00110:	90620000 	lbu	v0,0(v1)
+}
+bfc00114:	03e00008 	jr	ra
+bfc00118:	00000000 	nop
+
+bfc0011c <uart_putchar>:
+ * Send a byte to UART.
+ */
+void uart_putchar (int c)
+{
+	/* Wait for transmitter holding register empty. */
+	while (! (UART_LSR & LSR_TXRDY))
+bfc0011c:	3c031400 	lui	v1,0x1400
+bfc00120:	346303fd 	ori	v1,v1,0x3fd
+bfc00124:	90620000 	lbu	v0,0(v1)
+bfc00128:	00000000 	nop
+bfc0012c:	30420020 	andi	v0,v0,0x20
+bfc00130:	1040fffc 	beqz	v0,bfc00124 <uart_putchar+0x8>
+bfc00134:	2405000a 	li	a1,10
+		continue;
+again:
+	/* Send byte. */
+	UART_THR = c;
+bfc00138:	3c031400 	lui	v1,0x1400
+bfc0013c:	346603f8 	ori	a2,v1,0x3f8
+
+	/* Wait for transmitter holding register empty. */
+	while (! (UART_LSR & LSR_TXRDY))
+bfc00140:	346303fd 	ori	v1,v1,0x3fd
+		continue;
+
+	if (c == '\n') {
+bfc00144:	2407000d 	li	a3,13
+	/* Wait for transmitter holding register empty. */
+	while (! (UART_LSR & LSR_TXRDY))
+		continue;
+again:
+	/* Send byte. */
+	UART_THR = c;
+bfc00148:	308200ff 	andi	v0,a0,0xff
+bfc0014c:	a0c20000 	sb	v0,0(a2)
+
+	/* Wait for transmitter holding register empty. */
+	while (! (UART_LSR & LSR_TXRDY))
+bfc00150:	90620000 	lbu	v0,0(v1)
+bfc00154:	00000000 	nop
+bfc00158:	30420020 	andi	v0,v0,0x20
+bfc0015c:	1040fffc 	beqz	v0,bfc00150 <uart_putchar+0x34>
+bfc00160:	00000000 	nop
+		continue;
+
+	if (c == '\n') {
+bfc00164:	1085fff8 	beq	a0,a1,bfc00148 <uart_putchar+0x2c>
+bfc00168:	00e02021 	move	a0,a3
+bfc0016c:	03e00008 	jr	ra
+bfc00170:	00000000 	nop
+
+bfc00174 <uart_puts>:
+
+/*
+ * Send a string to UART.
+ */
+void uart_puts (const char *p)
+{
+bfc00174:	27bdffe8 	addiu	sp,sp,-24
+bfc00178:	afbf0014 	sw	ra,20(sp)
+bfc0017c:	afb00010 	sw	s0,16(sp)
+bfc00180:	00808021 	move	s0,a0
+	for (; *p; ++p)
+bfc00184:	80840000 	lb	a0,0(a0)
+bfc00188:	00000000 	nop
+bfc0018c:	10800007 	beqz	a0,bfc001ac <uart_puts+0x38>
+bfc00190:	00000000 	nop
+		uart_putchar (*p);
+bfc00194:	0ff00047 	jal	bfc0011c <uart_putchar>
+bfc00198:	26100001 	addiu	s0,s0,1
+/*
+ * Send a string to UART.
+ */
+void uart_puts (const char *p)
+{
+	for (; *p; ++p)
+bfc0019c:	82040000 	lb	a0,0(s0)
+bfc001a0:	00000000 	nop
+bfc001a4:	1480fffb 	bnez	a0,bfc00194 <uart_puts+0x20>
+bfc001a8:	00000000 	nop
+		uart_putchar (*p);
+}
+bfc001ac:	8fbf0014 	lw	ra,20(sp)
+bfc001b0:	8fb00010 	lw	s0,16(sp)
+bfc001b4:	03e00008 	jr	ra
+bfc001b8:	27bd0018 	addiu	sp,sp,24
+
+bfc001bc <main>:
+#include "uart.h"
+
+int main ()
+{
+bfc001bc:	27bdffe8 	addiu	sp,sp,-24
+bfc001c0:	afbf0014 	sw	ra,20(sp)
+	uart_init ();
+bfc001c4:	0ff0002a 	jal	bfc000a8 <uart_init>
+bfc001c8:	00000000 	nop
+	uart_puts ("Hello, World!\n");
+bfc001cc:	3c04bfc0 	lui	a0,0xbfc0
+bfc001d0:	0ff0005d 	jal	bfc00174 <uart_puts>
+bfc001d4:	248401ec 	addiu	a0,a0,492
+	return 0;
+}
+bfc001d8:	00001021 	move	v0,zero
+bfc001dc:	8fbf0014 	lw	ra,20(sp)
+bfc001e0:	00000000 	nop
+bfc001e4:	03e00008 	jr	ra
+bfc001e8:	27bd0018 	addiu	sp,sp,24
+
+bfc001ec <__rodata_start>:
+bfc001ec:	6c6c6548 	0x6c6c6548
+bfc001f0:	57202c6f 	0x57202c6f
+bfc001f4:	646c726f 	0x646c726f
+bfc001f8:	00000a21 	0xa21

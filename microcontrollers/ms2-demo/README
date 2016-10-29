@@ -1,0 +1,7 @@
+Example of simple program for PIC32MX1/MX2 microcontroller,
+similar to default Microchip demo for Microstick II.
+
+This example will blink the D6 LED on the Microstick II at
+an increasing speed until it appears ON and then repeats.
+
+Using GCC compiler and pic32prog programming utility.

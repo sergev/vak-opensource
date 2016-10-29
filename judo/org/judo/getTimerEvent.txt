@@ -1,0 +1,27 @@
+getTimerEvent(timo)
+~~~~~~~~~~~~~~~~~~
+Возвращает true, если с момента предыдущего вызова
+прошло timo секунд (или больше).
+Если нет событий от мыши или клавиатуры, задерживает
+выполнение программы на timo секунд.
+
+Проверяет события от мыши и клавиатуры.
+Если они есть, возвращает false.
+Такая проверка производится только в случае, если со времени
+предыдущего вызова getTimerEvent() хотя бы раз
+вызывались методы getMouseEvent() или getKeyState().
+
+Флаги:
+- mouseEventReceived
+        устанавливается в mousePressed(), mouseReleased(),
+                mouseMoved(), mouseDragged()
+        снимается в getMouseEvent()
+- mouseEventListen
+        устанавливается в getMouseEvent()
+        снимается в getTimerEvent()
+- keyEventReceived
+        устанавливается в keyPressed(), keyReleased()
+        снимается в getKeyState()
+- keyStateListen
+        устанавливается в getKeyState()
+        снимается в getTimerEvent()

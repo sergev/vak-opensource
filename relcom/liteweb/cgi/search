@@ -1,0 +1,43 @@
+#!/usr/local/bin/python
+
+import sys, urllib, cgi, traceback
+from os import environ
+
+try:
+	form = cgi.parse_qs (urllib.unquote (environ ["QUERY_STRING"]))
+
+	target = form ["target"] [0]
+	query = urllib.quote (form ["query"] [0])
+
+	print "Status: 301 Document moved"
+	print "Content-type: text/html"
+	print "Cache-Control: must-revalidate"
+	print "Pragma: no-cache"
+	print "Location:",
+
+	if target == "altavista":
+		server = "altavista.digital.com/cgi-bin/query"
+		args = "q=" + query + "&pg=q"
+	elif target == "dejanews":
+		server = "search.dejanews.com/dnquery.xp"
+		args = "defaultOp=AND&svcclass=dncurrent&maxhits=100&format=verbose&query=" + query
+	else:
+		server = "search.yahoo.com/bin/search"
+		args = "p=" + query + "&za=and&n=100"
+
+	print "http://" + server + "?" + args
+	print
+	print 'Done'
+
+except:
+	print "Status: 503 Internal error"
+	print "Content-type: text/html"
+	print "Cache-Control: must-revalidate"
+	print "Pragma: no-cache"
+	print
+	print '<h1> Internal CGI script error </h1>'
+	print '<pre>'
+	traceback.print_exc (None, sys.stdout)
+	print '</pre>'
+
+sys.exit (0)

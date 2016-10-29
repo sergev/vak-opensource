@@ -1,0 +1,10 @@
+CM 1/4 wl vertical with ground wave calculation
+CM Select 'use original file' or check gnd-wave box.
+CE
+GW 1 10 0 0 0 0 0 36.6 .001
+GE 1
+GN 0 0 0 0 14 .006
+EX 0 1 1 0 1 0
+FR 0 1 0 0 2.0 0
+RP 1 20 37 1000 0 0 5 10 1e3
+XQ

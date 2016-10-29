@@ -1,0 +1,13 @@
+proc FRAME(N)
+
+	output: "@" * N
+
+	repeat (N - 2) do
+		output: "@" + " " * (N - 2) + "@"
+	od
+
+	output: "@" * N
+
+end
+
+call FRAME(5)

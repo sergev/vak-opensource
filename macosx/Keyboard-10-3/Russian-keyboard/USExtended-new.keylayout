@@ -1,0 +1,1927 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<!DOCTYPE keyboard SYSTEM "file://localhost/System/Library/DTDs/KeyboardLayout.dtd">
+<!-- Keypad codes added by Serge Vakulenko, <vak@cronyx.ru> -->
+<keyboard group="126" id="-2" name="US Extended" maxout="3">
+	<layouts>
+		<layout first="0" last="17" modifiers="commonModifiers" mapSet="ANSI" />
+		<layout first="18" last="18" modifiers="commonModifiers" mapSet="JIS" />
+		<layout first="21" last="23" modifiers="commonModifiers" mapSet="JIS" />
+		<layout first="30" last="30" modifiers="commonModifiers" mapSet="JIS" />
+		<layout first="194" last="194" modifiers="commonModifiers" mapSet="JIS" />
+		<layout first="197" last="197" modifiers="commonModifiers" mapSet="JIS" />
+		<layout first="200" last="201" modifiers="commonModifiers" mapSet="JIS" />
+		<layout first="206" last="207" modifiers="commonModifiers" mapSet="JIS" />
+	</layouts>
+	<modifierMap id="commonModifiers" defaultIndex="0">
+		<keyMapSelect mapIndex="0">
+			<modifier keys="" />
+			<modifier keys="command anyShift? caps?" />
+		</keyMapSelect>
+		<keyMapSelect mapIndex="1">
+			<modifier keys="anyShift caps?" />
+		</keyMapSelect>
+		<keyMapSelect mapIndex="2">
+			<modifier keys="caps" />
+		</keyMapSelect>
+		<keyMapSelect mapIndex="3">
+			<modifier keys="anyOption" />
+		</keyMapSelect>
+		<keyMapSelect mapIndex="4">
+			<modifier keys="anyShift anyOption command? caps?" />
+		</keyMapSelect>
+		<keyMapSelect mapIndex="5">
+			<modifier keys="anyOption caps" />
+		</keyMapSelect>
+		<keyMapSelect mapIndex="6">
+			<modifier keys="command anyOption caps?" />
+		</keyMapSelect>
+		<keyMapSelect mapIndex="7">
+			<modifier keys="control command? shift? caps? option?" />
+			<modifier keys="control command? shift? caps? option? rightShift" />
+			<modifier keys="control command? shift? caps? option? rightOption" />
+		</keyMapSelect>
+	</modifierMap>
+	<keyMapSet id="ANSI">
+		<keyMap index="0">	<!-- No modifiers -->
+			<key code="0" action="a" />
+			<key code="1" action="s" />
+			<key code="2" action="d" />
+			<key code="3" action="f" /> <!-- added -->
+			<key code="4" action="h" />
+			<key code="5" action="g" />
+			<key code="6" action="z" />
+			<key code="7" action="x" />
+			<key code="8" action="c" />
+			<key code="9" action="v" />
+			<key code="10" output="§" />
+			<key code="11" action="b" /> <!-- added -->
+			<key code="12" action="q" />
+			<key code="13" action="w" />
+			<key code="14" action="e" />
+			<key code="15" action="r" />
+			<key code="16" action="y" />
+			<key code="17" action="t" />
+			<key code="18" output="1" />
+			<key code="19" action="2" />
+			<key code="20" action="3" />
+			<key code="21" output="4" />
+			<key code="22" action="6" />
+			<key code="23" action="5" />
+			<key code="24" output="=" />
+			<key code="25" output="9" />
+			<key code="26" action="7" />
+			<key code="27" output="-" />
+			<key code="28" action="8" />
+			<key code="29" output="0" />
+			<key code="30" output="]" />
+			<key code="31" action="o" />
+			<key code="32" action="u" />
+			<key code="33" output="[" />
+			<key code="34" action="i" />
+			<key code="35" action="p" /> <!-- added -->
+			<key code="36" output="&#x000d;" />
+			<key code="37" action="l" />
+			<key code="38" action="j" />
+			<key code="39" action="'" />
+			<key code="40" action="k" />
+			<key code="41" output=";"/>
+			<key code="42" output="\" />
+			<key code="43" output="," />
+			<key code="44" output="/" />
+			<key code="45" action="n" />
+			<key code="46" action="m" /> <!-- added -->
+			<key code="47" output="." />
+			<key code="48" output="&#x0009;" />
+			<key code="49" action=" " />
+			<key code="50" output="`" />
+			<key code="51" output="&#x0008;" />
+			<key code="52" output="&#x000a;" /> <!-- LineFeed -->
+			<key code="53" output="&#x001b;" />
+			<!-- gap, 54 through 64 -->
+			<key code="65" output="&#xf728;" /> <!-- ./Del -->
+			<key code="66" output="&#x001d;" />
+			<key code="67" action="*" />
+			<!-- gap, 68 -->
+			<key code="69" output="+" />
+			<key code="70" output="&#x001c;" />
+			<key code="71" output="&#x001b;" />
+			<key code="72" output="&#x001f;" />
+			<!-- gap, 73-74 -->
+			<key code="75" output="/" />
+			<key code="76" output="&#x0003;" />
+			<key code="77" output="&#x001e;" />
+			<key code="78" output="-" />
+			<!-- gap, 79-80 -->
+			<key code="81" output="=" />
+			<key code="82" output="&#xf727;" /> <!-- 0/Ins -->
+			<key code="83" output="&#xf72b;" /> <!-- 1/End -->
+			<key code="84" output="&#xf701;" /> <!-- 2/Down -->
+			<key code="85" output="&#xf72d;" /> <!-- 3/PgDn -->
+			<key code="86" output="&#xf702;" /> <!-- 4/Left -->
+			<key code="87" output="&#xf741;" /> <!-- 5/Select -->
+			<key code="88" output="&#xf703;" /> <!-- 6/Right -->
+			<key code="89" output="&#xf729;" /> <!-- 7/Home -->
+			<!-- gap, 90 -->
+			<key code="91" output="&#xf700;" /> <!-- 8/Up -->
+			<key code="92" output="&#xf72c;" /> <!-- 9/PgUp -->
+			<!-- gap, 93-95 -->
+			<key code="96" output="&#x0010;" />
+			<key code="97" output="&#x0010;" />
+			<key code="98" output="&#x0010;" />
+			<key code="99" output="&#x0010;" />
+			<key code="100" output="&#x0010;" />
+			<key code="101" output="&#x0010;" />
+			<key code="102" output="&#x0010;" />
+			<key code="103" output="&#x0010;" />
+			<key code="104" output="&#x0010;" />
+			<key code="105" output="&#x0010;" />
+			<key code="106" output="&#x0010;" />
+			<key code="107" output="&#x0010;" />
+			<key code="108" output="&#x0010;" />
+			<key code="109" output="&#x0010;" />
+			<key code="110" output="&#xf738;" /> <!-- Print -->
+			<key code="111" output="&#x0010;" />
+			<key code="112" output="&#x0010;" />
+			<key code="113" output="&#x0010;" />
+			<key code="114" output="&#xf727;" /> <!-- Insert -->
+			<key code="115" output="&#x0001;" />
+			<key code="116" output="&#x000b;" />
+			<key code="117" output="&#x007f;" />
+			<key code="118" output="&#x0010;" />
+			<key code="119" output="&#x0004;" />
+			<key code="120" output="&#x0010;" />
+			<key code="121" output="&#x000c;" />
+			<key code="122" output="&#x0010;" />
+			<key code="123" output="&#x001c;" />
+			<key code="124" output="&#x001d;" />
+			<key code="125" output="&#x001f;" />
+			<key code="126" output="&#x001e;" />
+			<!-- gap, 127 -->
+		</keyMap>
+		<keyMap index="1">	<!-- shift -->
+			<key code="0" action="A" />
+			<key code="1" action="S" />
+			<key code="2" action="D" />
+			<key code="3" action="F" /> <!-- added -->
+			<key code="4" action="H" />
+			<key code="5" action="G" />
+			<key code="6" action="Z" />
+			<key code="7" action="X" />
+			<key code="8" action="C" />
+			<key code="9" action="V" />
+			<key code="10" output="±" />
+			<key code="11" action="B" /> <!-- added -->
+			<key code="12" action="Q" />
+			<key code="13" action="W" />
+			<key code="14" action="E" />
+			<key code="15" action="R" />
+			<key code="16" action="Y" />
+			<key code="17" action="T" />
+			<key code="18" output="!" />
+			<key code="19" action="@" />
+			<key code="20" action="#" />
+			<key code="21" output="$" />
+			<key code="22" action="^" />
+			<key code="23" action="%" />
+			<key code="24" output="+" />
+			<key code="25" output="(" />
+			<key code="26" action="&#x0026;" />
+			<key code="27" output="_" />
+			<key code="28" action="*" />
+			<key code="29" output=")" />
+			<key code="30" output="}" />
+			<key code="31" action="O" />
+			<key code="32" action="U" />
+			<key code="33" output="{" />
+			<key code="34" action="I" />
+			<key code="35" action="P" /> <!-- added -->
+			<key code="36" output="&#x000d;" />
+			<key code="37" action="L" />
+			<key code="38" action="J" />
+			<key code="39" action="&#x0022;" />
+			<key code="40" action="K" />
+			<key code="41" output=":"/>
+			<key code="42" output="|" />
+			<key code="43" output="&#x003c;" />
+			<key code="44" output="?" />
+			<key code="45" action="N" />
+			<key code="46" action="M" /> <!-- added -->
+			<key code="47" output=">" />
+			<key code="48" output="&#x0009;" />
+			<key code="49" action=" " />
+			<key code="50" output="~" />
+			<key code="51" output="&#x0008;" />
+			<key code="52" output="&#x000a;" /> <!-- LineFeed -->
+			<key code="53" output="&#x001b;" />
+			<!-- gap, 54 through 64 -->
+			<key code="65" output="&#xf728;" /> <!-- ./Del -->
+			<key code="66" output="*" />
+			<key code="67" output="*" />
+			<!-- gap, 68 -->
+			<key code="69" output="+" />
+			<key code="70" output="+" />
+			<key code="71" output="&#x001b;" />
+			<key code="72" output="=" />
+			<!-- gap, 73-74 -->
+			<key code="75" output="/" />
+			<key code="76" output="&#x0003;" />
+			<key code="77" output="/" />
+			<key code="78" output="-" />
+			<!-- gap, 79-80 -->
+			<key code="81" output="=" />
+			<key code="82" output="&#xf727;" /> <!-- 0/Ins -->
+			<key code="83" output="&#xf72b;" /> <!-- 1/End -->
+			<key code="84" output="&#xf701;" /> <!-- 2/Down -->
+			<key code="85" output="&#xf72d;" /> <!-- 3/PgDn -->
+			<key code="86" output="&#xf702;" /> <!-- 4/Left -->
+			<key code="87" output="&#xf741;" /> <!-- 5/Select -->
+			<key code="88" output="&#xf703;" /> <!-- 6/Right -->
+			<key code="89" output="&#xf729;" /> <!-- 7/Home -->
+			<!-- gap, 90 -->
+			<key code="91" output="&#xf700;" /> <!-- 8/Up -->
+			<key code="92" output="&#xf72c;" /> <!-- 9/PgUp -->
+			<!-- gap, 93-95 -->
+			<key code="96" output="&#x0010;" />
+			<key code="97" output="&#x0010;" />
+			<key code="98" output="&#x0010;" />
+			<key code="99" output="&#x0010;" />
+			<key code="100" output="&#x0010;" />
+			<key code="101" output="&#x0010;" />
+			<key code="102" output="&#x0010;" />
+			<key code="103" output="&#x0010;" />
+			<key code="104" output="&#x0010;" />
+			<key code="105" output="&#x0010;" />
+			<key code="106" output="&#x0010;" />
+			<key code="107" output="&#x0010;" />
+			<key code="108" output="&#x0010;" />
+			<key code="109" output="&#x0010;" />
+			<key code="110" output="&#xf738;" /> <!-- Print -->
+			<key code="111" output="&#x0010;" />
+			<key code="112" output="&#x0010;" />
+			<key code="113" output="&#x0010;" />
+			<key code="114" output="&#xf727;" /> <!-- Insert -->
+			<key code="115" output="&#x0001;" />
+			<key code="116" output="&#x000b;" />
+			<key code="117" output="&#x007f;" />
+			<key code="118" output="&#x0010;" />
+			<key code="119" output="&#x0004;" />
+			<key code="120" output="&#x0010;" />
+			<key code="121" output="&#x000c;" />
+			<key code="122" output="&#x0010;" />
+			<key code="123" output="&#x001c;" />
+			<key code="124" output="&#x001d;" />
+			<key code="125" output="&#x001f;" />
+			<key code="126" output="&#x001e;" />
+			<!-- gap, 127 -->
+		</keyMap>
+		<keyMap index="2">	<!-- caps lock -->
+			<key code="0" action="A" />
+			<key code="1" action="S" />
+			<key code="2" action="D" />
+			<key code="3" action="F" /> <!-- added -->
+			<key code="4" action="H" />
+			<key code="5" action="G" />
+			<key code="6" action="Z" />
+			<key code="7" action="X" />
+			<key code="8" action="C" />
+			<key code="9" action="V" />
+			<key code="10" output="§" />
+			<key code="11" action="B" /> <!-- added -->
+			<key code="12" action="Q" />
+			<key code="13" action="W" />
+			<key code="14" action="E" />
+			<key code="15" action="R" />
+			<key code="16" action="Y" />
+			<key code="17" action="T" />
+			<key code="18" output="1" />
+			<key code="19" action="2" />
+			<key code="20" action="3" />
+			<key code="21" output="4" />
+			<key code="22" action="6" />
+			<key code="23" action="5" />
+			<key code="24" output="=" />
+			<key code="25" output="9" />
+			<key code="26" action="7" />
+			<key code="27" output="-" />
+			<key code="28" action="8" />
+			<key code="29" output="0" />
+			<key code="30" output="]" />
+			<key code="31" action="O" />
+			<key code="32" action="U" />
+			<key code="33" output="[" />
+			<key code="34" action="I" />
+			<key code="35" action="P" /> <!-- added -->
+			<key code="36" output="&#x000d;" />
+			<key code="37" action="L" />
+			<key code="38" action="J" />
+			<key code="39" action="'" />
+			<key code="40" action="K" />
+			<key code="41" output=";"/>
+			<key code="42" output="\" />
+			<key code="43" output="," />
+			<key code="44" output="/" />
+			<key code="45" action="N" />
+			<key code="46" action="M" /> <!-- added -->
+			<key code="47" output="." />
+			<key code="48" output="&#x0009;" />
+			<key code="49" action=" " />
+			<key code="50" output="`" />
+			<key code="51" output="&#x0008;" />
+			<key code="52" output="&#x000a;" /> <!-- LineFeed -->
+			<key code="53" output="&#x001b;" />
+			<!-- gap, 54 through 64 -->
+			<key code="65" output="&#xf728;" /> <!-- ./Del -->
+			<key code="66" output="&#x001d;" />
+			<key code="67" output="*" />
+			<!-- gap, 68 -->
+			<key code="69" output="+" />
+			<key code="70" output="&#x001c;" />
+			<key code="71" output="&#x001b;" />
+			<key code="72" output="&#x001f;" />
+			<!-- gap, 73-74 -->
+			<key code="75" output="/" />
+			<key code="76" output="&#x0003;" />
+			<key code="77" output="&#x001e;" />
+			<key code="78" output="-" />
+			<!-- gap, 79-80 -->
+			<key code="81" output="=" />
+			<key code="82" output="&#xf727;" /> <!-- 0/Ins -->
+			<key code="83" output="&#xf72b;" /> <!-- 1/End -->
+			<key code="84" output="&#xf701;" /> <!-- 2/Down -->
+			<key code="85" output="&#xf72d;" /> <!-- 3/PgDn -->
+			<key code="86" output="&#xf702;" /> <!-- 4/Left -->
+			<key code="87" output="&#xf741;" /> <!-- 5/Select -->
+			<key code="88" output="&#xf703;" /> <!-- 6/Right -->
+			<key code="89" output="&#xf729;" /> <!-- 7/Home -->
+			<!-- gap, 90 -->
+			<key code="91" output="&#xf700;" /> <!-- 8/Up -->
+			<key code="92" output="&#xf72c;" /> <!-- 9/PgUp -->
+			<!-- gap, 93-95 -->
+			<key code="96" output="&#x0010;" />
+			<key code="97" output="&#x0010;" />
+			<key code="98" output="&#x0010;" />
+			<key code="99" output="&#x0010;" />
+			<key code="100" output="&#x0010;" />
+			<key code="101" output="&#x0010;" />
+			<key code="102" output="&#x0010;" />
+			<key code="103" output="&#x0010;" />
+			<key code="104" output="&#x0010;" />
+			<key code="105" output="&#x0010;" />
+			<key code="106" output="&#x0010;" />
+			<key code="107" output="&#x0010;" />
+			<key code="108" output="&#x0010;" />
+			<key code="109" output="&#x0010;" />
+			<key code="110" output="&#xf738;" /> <!-- Print -->
+			<key code="111" output="&#x0010;" />
+			<key code="112" output="&#x0010;" />
+			<key code="113" output="&#x0010;" />
+			<key code="114" output="&#xf727;" /> <!-- Insert -->
+			<key code="115" output="&#x0001;" />
+			<key code="116" output="&#x000b;" />
+			<key code="117" output="&#x007f;" />
+			<key code="118" output="&#x0010;" />
+			<key code="119" output="&#x0004;" />
+			<key code="120" output="&#x0010;" />
+			<key code="121" output="&#x000c;" />
+			<key code="122" output="&#x0010;" />
+			<key code="123" output="&#x001c;" />
+			<key code="124" output="&#x001d;" />
+			<key code="125" output="&#x001f;" />
+			<key code="126" output="&#x001e;" />
+			<!-- gap, 127 -->
+		</keyMap>
+		<keyMap index="3">	<!-- option -->
+			<key code="0" action="macron" />
+			<key code="1" output="ß" />
+			<key code="2" output="ð" />
+			<key code="3" output="ƒ" />
+			<key code="4" action="macronbelow" />
+			<key code="5" output="©" />
+			<key code="6" action="hook" /> <!-- added -->
+			<key code="7" action="dotbelow" />
+			<key code="8" action="cedilla" />
+			<key code="9" action="caron" />
+			<key code="10" output="§" />
+			<key code="11" action="breve" />
+			<key code="12" output="œ" />
+			<key code="13" action="dotabove" />
+			<key code="14" action="acute" />
+			<key code="15" output="®" />
+			<key code="16" output="¥" />
+			<key code="17" output="þ" />
+			<key code="18" output="¡" />
+			<key code="19" output="™" />
+			<key code="20" output="£" />
+			<key code="21" output="¢" />
+			<key code="22" action="circumflex" />
+			<key code="23" output="§" />
+			<key code="24" output="≠" />
+			<key code="25" output="ª" />
+			<key code="26" output="¶" />
+			<key code="27" output="–" />
+			<key code="28" output="•" />
+			<key code="29" output="º" />
+			<key code="30" action="‘" />
+			<key code="31" action="ø" />
+			<key code="32" action="diaeresis" />
+			<key code="33" action="“" />
+			<key code="34" action="horn" />
+			<key code="35" action="commabelow" />
+			<key code="36" output="&#x000d;" />
+			<key code="37" action="stroke" />
+			<key code="38" action="doubleacute" />
+			<key code="39" action="æ" />
+			<key code="40" action="ringabove" />
+			<key code="41" output="…"/>
+			<key code="42" output="«" />
+			<key code="43" output="≤" />
+			<key code="44" output="÷" />
+			<key code="45" action="tilde" />
+			<key code="46" action="ogonek" />
+			<key code="47" output="≥" />
+			<key code="48" output="&#x0009;" />
+			<key code="49" output=" " />
+			<key code="50" action="grave" />
+			<key code="51" output="&#x0008;" />
+			<key code="52" output="&#x000a;" /> <!-- LineFeed -->
+			<key code="53" output="&#x001b;" />
+			<!-- gap, 54 through 64 -->
+			<key code="65" output="&#xf728;" /> <!-- ./Del -->
+			<key code="66" output="&#x001d;" />
+			<key code="67" output="*" />
+			<!-- gap, 68 -->
+			<key code="69" output="+" />
+			<key code="70" output="&#x001c;" />
+			<key code="71" output="&#x001b;" />
+			<key code="72" output="&#x001f;" />
+			<!-- gap, 73-74 -->
+			<key code="75" output="/" />
+			<key code="76" output="&#x0003;" />
+			<key code="77" output="&#x001e;" />
+			<key code="78" output="-" />
+			<!-- gap, 79-80 -->
+			<key code="81" output="=" />
+			<key code="82" output="&#xf727;" /> <!-- 0/Ins -->
+			<key code="83" output="&#xf72b;" /> <!-- 1/End -->
+			<key code="84" output="&#xf701;" /> <!-- 2/Down -->
+			<key code="85" output="&#xf72d;" /> <!-- 3/PgDn -->
+			<key code="86" output="&#xf702;" /> <!-- 4/Left -->
+			<key code="87" output="&#xf741;" /> <!-- 5/Select -->
+			<key code="88" output="&#xf703;" /> <!-- 6/Right -->
+			<key code="89" output="&#xf729;" /> <!-- 7/Home -->
+			<!-- gap, 90 -->
+			<key code="91" output="&#xf700;" /> <!-- 8/Up -->
+			<key code="92" output="&#xf72c;" /> <!-- 9/PgUp -->
+			<!-- gap, 93-95 -->
+			<key code="96" output="&#x0010;" />
+			<key code="97" output="&#x0010;" />
+			<key code="98" output="&#x0010;" />
+			<key code="99" output="&#x0010;" />
+			<key code="100" output="&#x0010;" />
+			<key code="101" output="&#x0010;" />
+			<key code="102" output="&#x0010;" />
+			<key code="103" output="&#x0010;" />
+			<key code="104" output="&#x0010;" />
+			<key code="105" output="&#x0010;" />
+			<key code="106" output="&#x0010;" />
+			<key code="107" output="&#x0010;" />
+			<key code="108" output="&#x0010;" />
+			<key code="109" output="&#x0010;" />
+			<key code="110" output="&#xf738;" /> <!-- Print -->
+			<key code="111" output="&#x0010;" />
+			<key code="112" output="&#x0010;" />
+			<key code="113" output="&#x0010;" />
+			<key code="114" output="&#xf727;" /> <!-- Insert -->
+			<key code="115" output="&#x0001;" />
+			<key code="116" output="&#x000b;" />
+			<key code="117" output="&#x007f;" />
+			<key code="118" output="&#x0010;" />
+			<key code="119" output="&#x0004;" />
+			<key code="120" output="&#x0010;" />
+			<key code="121" output="&#x000c;" />
+			<key code="122" output="&#x0010;" />
+			<key code="123" output="&#x001c;" />
+			<key code="124" output="&#x001d;" />
+			<key code="125" output="&#x001f;" />
+			<key code="126" output="&#x001e;" />
+			<!-- gap, 127 -->
+		</keyMap>
+		<keyMap index="4">	<!-- option shift -->
+			<key code="0" output="&#x0304;" />
+			<key code="1" action="invertedbreve" /> <!-- added -->
+			<key code="2" output="Ð" />
+			<key code="3" action="tildebelow" /> <!-- added -->
+			<key code="4" output="&#x0331;" />
+			<key code="5" action="circumflexbelow" /> <!-- added -->
+			<key code="6" output="&#x0309;" /> <!-- added -->
+			<key code="7" output="&#x0323;" />
+			<key code="8" output="&#x0327;" />
+			<key code="9" output="&#x030c;" />
+			<key code="10" output="±" />
+			<key code="11" output="&#x0306;" />
+			<key code="12" output="Œ" />
+			<key code="13" output="&#x0307;" />
+			<key code="14" output="&#x0301;" />
+			<key code="15" output="‰" />
+			<key code="16" action="doublegrave" /> <!-- added -->
+			<key code="17" output="Þ" />
+			<key code="18" output="⁄" /> <!-- corrected -->
+			<key code="19" output="€" />
+			<key code="20" output="‹" />
+			<key code="21" output="›" />
+			<key code="22" output="&#x0302;" />
+			<key code="23" output="†" />
+			<key code="24" output="±" />
+			<key code="25" output="·" />
+			<key code="26" output="‡" />
+			<key code="27" output="—" />
+			<key code="28" output="°" />
+			<key code="29" output="‚" />
+			<key code="30" action="’" />
+			<key code="31" action="Ø" />
+			<key code="32" output="&#x0308;" />
+			<key code="33" output="”" />
+			<key code="34" output="&#x031B;" />
+			<key code="35" output="&#x0326;" />
+			<key code="36" output="&#x000d;" />
+			<key code="37" output="&#x0335;" />
+			<key code="38" output="&#x030b;" />
+			<key code="39" action="Æ" />
+			<key code="40" output="&#x030a;" />
+			<key code="41" action="specials" /> <!-- added -->
+			<key code="42" output="»" />
+			<key code="43" output="„" />
+			<key code="44" output="¿" />
+			<key code="45" output="&#x0303;" /> <!-- corrected -->
+			<key code="46" output="&#x0328;" /> <!-- corrected -->
+			<key code="47" action="hooked" /> <!-- added -->
+			<key code="48" output="&#x0009;" />
+			<key code="49" output=" " />
+			<key code="50" output="&#x0300;" />
+			<key code="51" output="&#x0008;" />
+			<key code="52" output="&#x000a;" /> <!-- LineFeed -->
+			<key code="53" output="&#x001b;" />
+			<!-- gap, 54 through 64 -->
+			<key code="65" output="&#xf728;" /> <!-- ./Del -->
+			<key code="66" output="*" />
+			<key code="67" output="*" />
+			<!-- gap, 68 -->
+			<key code="69" output="+" />
+			<key code="70" output="+" />
+			<key code="71" output="&#x001b;" />
+			<key code="72" output="=" />
+			<!-- gap, 73-74 -->
+			<key code="75" output="/" />
+			<key code="76" output="&#x0003;" />
+			<key code="77" output="/" />
+			<key code="78" output="-" />
+			<!-- gap, 79-80 -->
+			<key code="81" output="=" />
+			<key code="82" output="&#xf727;" /> <!-- 0/Ins -->
+			<key code="83" output="&#xf72b;" /> <!-- 1/End -->
+			<key code="84" output="&#xf701;" /> <!-- 2/Down -->
+			<key code="85" output="&#xf72d;" /> <!-- 3/PgDn -->
+			<key code="86" output="&#xf702;" /> <!-- 4/Left -->
+			<key code="87" output="&#xf741;" /> <!-- 5/Select -->
+			<key code="88" output="&#xf703;" /> <!-- 6/Right -->
+			<key code="89" output="&#xf729;" /> <!-- 7/Home -->
+			<!-- gap, 90 -->
+			<key code="91" output="&#xf700;" /> <!-- 8/Up -->
+			<key code="92" output="&#xf72c;" /> <!-- 9/PgUp -->
+			<!-- gap, 93-95 -->
+			<key code="96" output="&#x0010;" />
+			<key code="97" output="&#x0010;" />
+			<key code="98" output="&#x0010;" />
+			<key code="99" output="&#x0010;" />
+			<key code="100" output="&#x0010;" />
+			<key code="101" output="&#x0010;" />
+			<key code="102" output="&#x0010;" />
+			<key code="103" output="&#x0010;" />
+			<key code="104" output="&#x0010;" />
+			<key code="105" output="&#x0010;" />
+			<key code="106" output="&#x0010;" />
+			<key code="107" output="&#x0010;" />
+			<key code="108" output="&#x0010;" />
+			<key code="109" output="&#x0010;" />
+			<key code="110" output="&#xf738;" /> <!-- Print -->
+			<key code="111" output="&#x0010;" />
+			<key code="112" output="&#x0010;" />
+			<key code="113" output="&#x0010;" />
+			<key code="114" output="&#xf727;" /> <!-- Insert -->
+			<key code="115" output="&#x0001;" />
+			<key code="116" output="&#x000b;" />
+			<key code="117" output="&#x007f;" />
+			<key code="118" output="&#x0010;" />
+			<key code="119" output="&#x0004;" />
+			<key code="120" output="&#x0010;" />
+			<key code="121" output="&#x000c;" />
+			<key code="122" output="&#x0010;" />
+			<key code="123" output="&#x001c;" />
+			<key code="124" output="&#x001d;" />
+			<key code="125" output="&#x001f;" />
+			<key code="126" output="&#x001e;" />
+			<!-- gap, 127 -->
+		</keyMap>
+		<keyMap index="5">	<!-- option caps lock -->
+			<key code="0" action="macron" /> <!-- corrected -->
+			<key code="1" output="SS" />
+			<key code="2" output="Ð" />
+			<key code="3" output="ƒ" />
+			<key code="4" action="macronbelow" />
+			<key code="5" output="©" />
+			<key code="6" action="hook" /> <!-- added -->
+			<key code="7" action="dotbelow" /> <!-- added -->
+			<key code="8" action="cedilla" /> <!-- corrected -->
+			<key code="9" action="caron" /> <!-- corrected -->
+			<key code="10" output="§" />
+			<key code="11" action="breve" /> <!-- corrected -->
+			<key code="12" output="Œ" /> <!-- corrected -->
+			<key code="13" action="dotabove" /> <!-- corrected -->
+			<key code="14" action="acute" /> <!-- corrected -->
+			<key code="15" output="®" />
+			<key code="16" output="¥" />
+			<key code="17" output="Þ" />
+			<key code="18" output="¡" />
+			<key code="19" output="™" />
+			<key code="20" output="£" />
+			<key code="21" output="¢" />
+			<key code="22" action="circumflex" /> <!-- corrected -->
+			<key code="23" output="§" />
+			<key code="24" output="≠" />
+			<key code="25" output="ª" />
+			<key code="26" output="¶" />
+			<key code="27" output="–" />
+			<key code="28" output="•" />
+			<key code="29" output="º" />
+			<key code="30" action="‘" />
+			<key code="31" action="Ø" />
+			<key code="32" action="diaeresis" /> <!-- corrected -->
+			<key code="33" action="“" />
+			<key code="34" action="horn" />
+			<key code="35" action="commabelow" /> <!-- corrected -->
+			<key code="36" output="&#x000d;" />
+			<key code="37" action="stroke" /> <!-- added -->
+			<key code="38" action="doubleacute" /> <!-- corrected -->
+			<key code="39" action="Æ" />
+			<key code="40" action="ringabove" /> <!-- corrected -->
+			<key code="41" output="…" />
+			<key code="42" output="«" />
+			<key code="43" output="≤" />
+			<key code="44" output="÷" />
+			<key code="45" action="tilde" /> <!-- corrected -->
+			<key code="46" action="ogonek" /> <!-- corrected -->
+			<key code="47" output="≥" />
+			<key code="48" output="&#x0009;" />
+			<key code="49" output=" " />
+			<key code="50" action="grave" /> <!-- corrected -->
+			<key code="51" output="&#x0008;" />
+			<key code="52" output="&#x000a;" /> <!-- LineFeed -->
+			<key code="53" output="&#x001b;" />
+			<!-- gap, 54 through 64 -->
+			<key code="65" output="&#xf728;" /> <!-- ./Del -->
+			<key code="66" output="&#x001d;" />
+			<key code="67" output="*" />
+			<!-- gap, 68 -->
+			<key code="69" output="+" />
+			<key code="70" output="&#x001c;" />
+			<key code="71" output="&#x001b;" />
+			<key code="72" output="&#x001f;" />
+			<!-- gap, 73-74 -->
+			<key code="75" output="/" />
+			<key code="76" output="&#x0003;" />
+			<key code="77" output="&#x001e;" />
+			<key code="78" output="-" />
+			<!-- gap, 79-80 -->
+			<key code="81" output="=" />
+			<key code="82" output="&#xf727;" /> <!-- 0/Ins -->
+			<key code="83" output="&#xf72b;" /> <!-- 1/End -->
+			<key code="84" output="&#xf701;" /> <!-- 2/Down -->
+			<key code="85" output="&#xf72d;" /> <!-- 3/PgDn -->
+			<key code="86" output="&#xf702;" /> <!-- 4/Left -->
+			<key code="87" output="&#xf741;" /> <!-- 5/Select -->
+			<key code="88" output="&#xf703;" /> <!-- 6/Right -->
+			<key code="89" output="&#xf729;" /> <!-- 7/Home -->
+			<!-- gap, 90 -->
+			<key code="91" output="&#xf700;" /> <!-- 8/Up -->
+			<key code="92" output="&#xf72c;" /> <!-- 9/PgUp -->
+			<!-- gap, 93-95 -->
+			<key code="96" output="&#x0010;" />
+			<key code="97" output="&#x0010;" />
+			<key code="98" output="&#x0010;" />
+			<key code="99" output="&#x0010;" />
+			<key code="100" output="&#x0010;" />
+			<key code="101" output="&#x0010;" />
+			<key code="102" output="&#x0010;" />
+			<key code="103" output="&#x0010;" />
+			<key code="104" output="&#x0010;" />
+			<key code="105" output="&#x0010;" />
+			<key code="106" output="&#x0010;" />
+			<key code="107" output="&#x0010;" />
+			<key code="108" output="&#x0010;" />
+			<key code="109" output="&#x0010;" />
+			<key code="110" output="&#xf738;" /> <!-- Print -->
+			<key code="111" output="&#x0010;" />
+			<key code="112" output="&#x0010;" />
+			<key code="113" output="&#x0010;" />
+			<key code="114" output="&#xf727;" /> <!-- Insert -->
+			<key code="115" output="&#x0001;" />
+			<key code="116" output="&#x000b;" />
+			<key code="117" output="&#x007f;" />
+			<key code="118" output="&#x0010;" />
+			<key code="119" output="&#x0004;" />
+			<key code="120" output="&#x0010;" />
+			<key code="121" output="&#x000c;" />
+			<key code="122" output="&#x0010;" />
+			<key code="123" output="&#x001c;" />
+			<key code="124" output="&#x001d;" />
+			<key code="125" output="&#x001f;" />
+			<key code="126" output="&#x001e;" />
+			<!-- gap, 127 -->
+		</keyMap>
+		<keyMap index="6">	<!-- option command -->
+			<key code="0" output="¯" />
+			<key code="1" output="ß" />
+			<key code="2" output="ð" />
+			<key code="3" output="ƒ" />
+			<key code="4" output="ˍ" />
+			<key code="5" output="©" />
+			<key code="6" action="’" />
+			<key code="7" output="." />
+			<key code="8" output="¸" />
+			<key code="9" output="ˇ" />
+			<key code="10" output="§" />
+			<key code="11" output="˘" />
+			<key code="12" output="œ" />
+			<key code="13" output="˙" />
+			<key code="14" output="´" />
+			<key code="15" output="®" />
+			<key code="16" output="¥" />
+			<key code="17" output="þ" />
+			<key code="18" output="¡" />
+			<key code="19" output="™" />
+			<key code="20" output="£" />
+			<key code="21" output="¢" />
+			<key code="22" output="ˆ" />
+			<key code="23" output="§" />
+			<key code="24" output="≠" />
+			<key code="25" output="ª" />
+			<key code="26" output="¶" />
+			<key code="27" output="–" />
+			<key code="28" output="•" />
+			<key code="29" output="º" />
+			<key code="30" action="‘" />
+			<key code="31" action="ø" />
+			<key code="32" output="¨" />
+			<key code="33" action="“" />
+			<key code="34" action="’" />
+			<key code="35" output="," />
+			<key code="36" output="&#x000d;" />
+			<key code="37" output="-" />
+			<key code="38" output="˝" />
+			<key code="39" action="æ" />
+			<key code="40" output="˚" />
+			<key code="41" output="…" />
+			<key code="42" output="«" />
+			<key code="43" output="≤" />
+			<key code="44" output="÷" />
+			<key code="45" output="˜" />
+			<key code="46" output="˛" />
+			<key code="47" output="≥" />
+			<key code="48" output="&#x0009;" />
+			<key code="49" output=" " />
+			<key code="50" output="`" />
+			<key code="51" output="&#x0008;" />
+			<key code="52" output="&#x000a;" /> <!-- LineFeed -->
+			<key code="53" output="&#x001b;" />
+			<!-- gap, 54 through 64 -->
+			<key code="65" output="&#xf728;" /> <!-- ./Del -->
+			<key code="66" output="&#x001d;" />
+			<key code="67" output="*" />
+			<!-- gap, 68 -->
+			<key code="69" output="+" />
+			<key code="70" output="&#x001c;" />
+			<key code="71" output="&#x001b;" />
+			<key code="72" output="&#x001f;" />
+			<!-- gap, 73-74 -->
+			<key code="75" output="/" />
+			<key code="76" output="&#x0003;" />
+			<key code="77" output="&#x001e;" />
+			<key code="78" output="-" />
+			<!-- gap, 79-80 -->
+			<key code="81" output="=" />
+			<key code="82" output="&#xf727;" /> <!-- 0/Ins -->
+			<key code="83" output="&#xf72b;" /> <!-- 1/End -->
+			<key code="84" output="&#xf701;" /> <!-- 2/Down -->
+			<key code="85" output="&#xf72d;" /> <!-- 3/PgDn -->
+			<key code="86" output="&#xf702;" /> <!-- 4/Left -->
+			<key code="87" output="&#xf741;" /> <!-- 5/Select -->
+			<key code="88" output="&#xf703;" /> <!-- 6/Right -->
+			<key code="89" output="&#xf729;" /> <!-- 7/Home -->
+			<!-- gap, 90 -->
+			<key code="91" output="&#xf700;" /> <!-- 8/Up -->
+			<key code="92" output="&#xf72c;" /> <!-- 9/PgUp -->
+			<!-- gap, 93-95 -->
+			<key code="96" output="&#x0010;" />
+			<key code="97" output="&#x0010;" />
+			<key code="98" output="&#x0010;" />
+			<key code="99" output="&#x0010;" />
+			<key code="100" output="&#x0010;" />
+			<key code="101" output="&#x0010;" />
+			<key code="102" output="&#x0010;" />
+			<key code="103" output="&#x0010;" />
+			<key code="104" output="&#x0010;" />
+			<key code="105" output="&#x0010;" />
+			<key code="106" output="&#x0010;" />
+			<key code="107" output="&#x0010;" />
+			<key code="108" output="&#x0010;" />
+			<key code="109" output="&#x0010;" />
+			<key code="110" output="&#xf738;" /> <!-- Print -->
+			<key code="111" output="&#x0010;" />
+			<key code="112" output="&#x0010;" />
+			<key code="113" output="&#x0010;" />
+			<key code="114" output="&#xf727;" /> <!-- Insert -->
+			<key code="115" output="&#x0001;" />
+			<key code="116" output="&#x000b;" />
+			<key code="117" output="&#x007f;" />
+			<key code="118" output="&#x0010;" />
+			<key code="119" output="&#x0004;" />
+			<key code="120" output="&#x0010;" />
+			<key code="121" output="&#x000c;" />
+			<key code="122" output="&#x0010;" />
+			<key code="123" output="&#x001c;" />
+			<key code="124" output="&#x001d;" />
+			<key code="125" output="&#x001f;" />
+			<key code="126" output="&#x001e;" />
+			<!-- gap, 127 -->
+		</keyMap>
+		<keyMap index="7">	<!-- control -->
+			<key code="0" output="&#x0001;" />
+			<key code="1" output="&#x0013;" />
+			<key code="2" output="&#x0004;" />
+			<key code="3" output="&#x0006;" />
+			<key code="4" output="&#x0008;" />
+			<key code="5" output="&#x0007;" />
+			<key code="6" output="&#x001a;" />
+			<key code="7" output="&#x0018;" />
+			<key code="8" output="&#x0003;" />
+			<key code="9" output="&#x0016;" />
+			<key code="10" output="0" />
+			<key code="11" output="&#x0002;" />
+			<key code="12" output="&#x0011;" />
+			<key code="13" output="&#x0017;" />
+			<key code="14" output="&#x0005;" />
+			<key code="15" output="&#x0012;" />
+			<key code="16" output="&#x0019;" />
+			<key code="17" output="&#x0014;" />
+			<key code="18" output="1" />
+			<key code="19" output="2" />
+			<key code="20" output="3" />
+			<key code="21" output="4" />
+			<key code="22" output="6" />
+			<key code="23" output="5" />
+			<key code="24" output="=" />
+			<key code="25" output="9" />
+			<key code="26" output="7" />
+			<key code="27" output="&#x001f;" />
+			<key code="28" output="8" />
+			<key code="29" output="0" />
+			<key code="30" output="&#x001d;" />
+			<key code="31" output="&#x000f;" />
+			<key code="32" output="&#x0015;" />
+			<key code="33" output="&#x001b;" />
+			<key code="34" output="&#x0009;" />
+			<key code="35" output="&#x0010;" />
+			<key code="36" output="&#x000a;" /> <!-- Enter -->
+			<key code="37" output="&#x000c;" />
+			<key code="38" output="&#x000a;" />
+			<key code="39" output="'" />
+			<key code="40" output="&#x000b;" />
+			<key code="41" output=";" />
+			<key code="42" output="&#x001c;" />
+			<key code="43" output="," />
+			<key code="44" output="/" />
+			<key code="45" output="&#x000e;" />
+			<key code="46" output="&#x000d;" />
+			<key code="47" output="." />
+			<key code="48" output="&#x0009;" />
+			<key code="49" action=" " />
+			<key code="50" output="`" />
+			<key code="51" output="&#x0008;" />
+			<key code="52" output="&#x000a;" /> <!-- LineFeed -->
+			<key code="53" output="&#x001b;" />
+			<!-- gap, 54 through 64 -->
+			<key code="65" output="&#xf728;" /> <!-- ./Del -->
+			<key code="66" output="&#x001d;" />
+			<key code="67" output="*" />
+			<!-- gap, 68 -->
+			<key code="69" output="+" />
+			<key code="70" output="&#x001c;" />
+			<key code="71" output="&#x001b;" />
+			<key code="72" output="&#x001f;" />
+			<!-- gap, 73-74 -->
+			<key code="75" output="/" />
+			<key code="76" output="&#x0003;" />
+			<key code="77" output="&#x001e;" />
+			<key code="78" output="-" />
+			<!-- gap, 79-80 -->
+			<key code="81" output="=" />
+			<key code="82" output="&#xf727;" /> <!-- 0/Ins -->
+			<key code="83" output="&#xf72b;" /> <!-- 1/End -->
+			<key code="84" output="&#xf701;" /> <!-- 2/Down -->
+			<key code="85" output="&#xf72d;" /> <!-- 3/PgDn -->
+			<key code="86" output="&#xf702;" /> <!-- 4/Left -->
+			<key code="87" output="&#xf741;" /> <!-- 5/Select -->
+			<key code="88" output="&#xf703;" /> <!-- 6/Right -->
+			<key code="89" output="&#xf729;" /> <!-- 7/Home -->
+			<!-- gap, 90 -->
+			<key code="91" output="&#xf700;" /> <!-- 8/Up -->
+			<key code="92" output="&#xf72c;" /> <!-- 9/PgUp -->
+			<!-- gap, 93-95 -->
+			<key code="96" output="&#x0010;" />
+			<key code="97" output="&#x0010;" />
+			<key code="98" output="&#x0010;" />
+			<key code="99" output="&#x0010;" />
+			<key code="100" output="&#x0010;" />
+			<key code="101" output="&#x0010;" />
+			<key code="102" output="&#x0010;" />
+			<key code="103" output="&#x0010;" />
+			<key code="104" output="&#x0010;" />
+			<key code="105" output="&#x0010;" />
+			<key code="106" output="&#x0010;" />
+			<key code="107" output="&#x0010;" />
+			<key code="108" output="&#x0010;" />
+			<key code="109" output="&#x0010;" />
+			<key code="110" output="&#xf738;" /> <!-- Print -->
+			<key code="111" output="&#x0010;" />
+			<key code="112" output="&#x0010;" />
+			<key code="113" output="&#x0010;" />
+			<key code="114" output="&#xf727;" /> <!-- Insert -->
+			<key code="115" output="&#x0001;" />
+			<key code="116" output="&#x000b;" />
+			<key code="117" output="&#x007f;" />
+			<key code="118" output="&#x0010;" />
+			<key code="119" output="&#x0004;" />
+			<key code="120" output="&#x0010;" />
+			<key code="121" output="&#x000c;" />
+			<key code="122" output="&#x0010;" />
+			<key code="123" output="&#x001c;" />
+			<key code="124" output="&#x001d;" />
+			<key code="125" output="&#x001f;" />
+			<key code="126" output="&#x001e;" />
+			<!-- gap, 127 -->
+		</keyMap>
+	</keyMapSet>
+	<keyMapSet id="JIS">
+		<keyMap index="0" baseMapSet="ANSI" baseIndex = "0">	<!-- No modifiers -->
+			<key code="24" action="^" />  <!-- changed -->
+			<key code="30" output="[" />  <!-- changed -->
+			<key code="33" action="@" />  <!-- changed -->
+			<key code="39" output=":" />  <!-- changed -->
+			<key code="42" output="]" />  <!-- changed -->
+			<key code="93" output="¥" />  <!-- changed -->
+			<key code="94" output="_" />  <!-- changed -->
+			<key code="95" output="," />  <!-- changed -->
+			<key code="102" action=" " />  <!-- changed -->
+			<key code="104" action=" " />  <!-- changed -->
+		</keyMap>
+		<keyMap index="1" baseMapSet="ANSI" baseIndex = "1">	<!-- shift -->
+			<key code="19" action="&#x0022;" />  <!-- changed -->
+			<key code="22" action="&#x0026;" />  <!-- changed -->
+			<key code="24" output="~" />  <!-- changed -->
+			<key code="25" output=")" />  <!-- changed -->
+			<key code="26" action="'" />  <!-- changed -->
+			<key code="27" output="=" />  <!-- changed -->
+			<key code="28" output="(" />  <!-- changed -->
+			<key code="29" output="0" />  <!-- changed -->
+			<key code="30" output="{" />  <!-- changed -->
+			<key code="33" output="`" />  <!-- changed -->
+			<key code="39" action="*" />  <!-- changed -->
+			<key code="41" output="+" />  <!-- changed -->
+			<key code="42" output="}" />  <!-- changed -->
+			<key code="93" output="|" />  <!-- changed -->
+			<key code="94" output="_" />  <!-- changed -->
+			<key code="95" output="," />  <!-- changed -->
+			<key code="102" action=" " />  <!-- changed -->
+			<key code="104" action=" " />  <!-- changed -->
+		</keyMap>
+		<keyMap index="2" baseMapSet="ANSI" baseIndex="2">	<!-- caps lock -->
+			<key code="24" action="^" />  <!-- changed -->
+			<key code="30" output="[" />  <!-- changed -->
+			<key code="33" action="@" />  <!-- changed -->
+			<key code="39" output=":" />  <!-- changed -->
+			<key code="42" output="]" />  <!-- changed -->
+			<key code="93" output="¥" />  <!-- changed -->
+			<key code="94" output="_" />  <!-- changed -->
+			<key code="95" output="," />  <!-- changed -->
+			<key code="102" action=" " />  <!-- changed -->
+			<key code="104" action=" " />  <!-- changed -->
+		</keyMap>
+		<keyMap index="3" baseMapSet="ANSI" baseIndex="3">	<!-- option -->
+			<key code="93" output="\" />  <!-- changed -->
+			<key code="94" action="grave" />  <!-- changed -->
+			<key code="95" output="," />  <!-- changed -->
+			<key code="102" action=" " />  <!-- changed -->
+			<key code="104" action=" " />  <!-- changed -->
+		</keyMap>
+		<keyMap index="4" baseMapSet="ANSI" baseIndex="4">	<!-- option shift -->
+			<key code="93" output="\" />  <!-- changed -->
+			<key code="94" output="&#x0300;" />  <!-- changed -->
+			<key code="95" output="," />  <!-- changed -->
+			<key code="102" action=" " />  <!-- changed -->
+			<key code="104" action=" " />  <!-- changed -->
+		</keyMap>
+		<keyMap index="5" baseMapSet="ANSI" baseIndex="5">	<!-- option caps lock -->
+			<key code="93" output="\" />  <!-- changed -->
+			<key code="94" output="`" />  <!-- changed -->
+			<key code="95" output="," />  <!-- changed -->
+			<key code="102" action=" " />  <!-- changed -->
+			<key code="104" action=" " />  <!-- changed -->
+		</keyMap>
+		<keyMap index="6" baseMapSet="ANSI" baseIndex="6">	<!-- option command -->
+			<key code="93" output="\" />  <!-- changed -->
+			<key code="94" output="_" />  <!-- changed -->
+			<key code="95" output="," />  <!-- changed -->
+			<key code="102" action=" " />  <!-- changed -->
+			<key code="104" action=" " />  <!-- changed -->
+		</keyMap>
+		<keyMap index="7" baseMapSet="ANSI" baseIndex="7">	<!-- control -->
+			<key code="93" output="|" />  <!-- changed -->
+			<key code="94" output="_" />  <!-- changed -->
+			<key code="95" output="," />  <!-- changed -->
+			<key code="102" action=" " />  <!-- changed -->
+			<key code="104" action=" " />  <!-- changed -->
+		</keyMap>
+	</keyMapSet>
+	<actions>
+		<!-- actions for initiating dead key states -->
+		<action id="acute">
+			<when state="none" next="acute" />
+		</action>
+		<action id="grave">
+			<when state="none" next="grave" />
+		</action>
+		<action id="circumflex">
+			<when state="none" next="circumflex" />
+		</action>
+		<action id="diaeresis">
+			<when state="none" next="diaeresis" />
+		</action>
+		<action id="tilde">
+			<when state="none" next="tilde" />
+		</action>
+		<action id="cedilla">
+			<when state="none" next="cedilla" />
+		</action>
+		<action id="breve">
+			<when state="none" next="breve" />
+		</action>
+		<action id="macron">
+			<when state="none" next="macron" />
+		</action>
+		<action id="ogonek">
+			<when state="none" next="ogonek" />
+		</action>
+		<action id="caron">
+			<when state="none" next="caron" />
+		</action>
+		<action id="dotabove">
+			<when state="none" next="dotabove" />
+		</action>
+		<action id="doubleacute">
+			<when state="none" next="doubleacute" />
+		</action>
+		<action id="ringabove">
+			<when state="none" next="ringabove" />
+		</action>
+		<action id="commabelow">
+			<when state="none" next="commabelow" />
+		</action>
+		<action id="stroke">
+			<when state="none" next="stroke" /> <!-- added -->
+		</action>
+		<action id="dotbelow">
+			<when state="none" next="dotbelow" /> <!-- added -->
+		</action>
+		<action id="specials">
+			<when state="none" next="specials" /> <!-- added -->
+		</action>
+		<action id="hooked">
+			<when state="none" next="hooked" /> <!-- added -->
+		</action>
+		<action id="hook">
+			<when state="none" next="hook" /> <!-- added -->
+		</action>
+		<action id="circumflexbelow">
+			<when state="none" next="circumflexbelow" /> <!-- added -->
+		</action>
+		<action id="macronbelow">
+			<when state="none" next="macronbelow" /> <!-- added -->
+		</action>
+		<action id="horn">
+			<when state="none" next="horn" /> <!-- added -->
+		</action>
+		<action id="tildebelow">
+			<when state="none" next="tildebelow" /> <!-- added -->
+		</action>
+		<action id="doublegrave">
+			<when state="none" next="doublegrave" /> <!-- added -->
+		</action>
+		<action id="invertedbreve">
+			<when state="none" next="invertedbreve" /> <!-- added -->
+		</action>
+
+		<!-- actions for completing dead key states -->
+		<action id=" ">
+			<when state="none" output=" " />
+			<when state="acute" output="´" />
+			<when state="grave" output="`" />
+			<when state="circumflex" output="ˆ" />
+			<when state="diaeresis" output="¨" />
+			<when state="tilde" output="˜" />
+			<when state="cedilla" output="¸" />
+			<when state="breve" output="˘" />
+			<when state="macron" output="¯" />
+			<when state="ogonek" output="˛" />
+			<when state="caron" output="ˇ" />
+			<when state="dotabove" output="˙" />
+			<when state="doubleacute" output="˝" />
+			<when state="ringabove" output="˚" />
+			<when state="commabelow" output="," />
+			<when state="stroke" output="-" /> <!-- added -->
+			<when state="dotbelow" output="." /> <!-- added -->
+			<when state="specials" output="№" /> <!-- added -->
+			<when state="hook" output="ˀ" /> <!-- added -->
+			<when state="hooked" output="ʔ" /> <!-- added -->
+			<when state="circumflexbelow" output="‸" /> <!-- added -->
+			<when state="macronbelow" output="ˍ" /> <!-- added -->
+			<when state="horn" output="ʼ" /> <!-- added -->
+			<when state="tildebelow" output=" ̰" /> <!-- added -->
+			<when state="doublegrave" output=" ̏" /> <!-- added -->
+			<when state="invertedbreve" output=" ̑" /> <!-- added -->
+		</action>
+		<action id="A">
+			<when state="none" output="A" />
+			<when state="acute" output="Á" />
+			<when state="grave" output="À" />
+			<when state="circumflex" output="Â" />
+			<when state="diaeresis" output="Ä" />
+			<when state="tilde" output="Ã" />
+			<when state="breve" output="Ă" />
+			<when state="macron" output="Ā" />
+			<when state="ogonek" output="Ą" />
+			<when state="ringabove" output="Å" />
+			<when state="caron" output="Ǎ" /> <!-- added -->
+			<when state="dotabove" output="Ȧ" /> <!-- added -->
+			<when state="dotbelow" output="Ạ" /> <!-- added -->
+			<when state="specials" output="Ə" /> <!-- added -->
+			<when state="hook" output="Ả" /> <!-- added -->
+			<when state="doublegrave" output="Ȁ" /> <!-- added -->
+			<when state="invertedbreve" output="Ȃ" /> <!-- added -->
+		</action>
+		<action id="a">
+			<when state="none" output="a" />
+			<when state="acute" output="á" />
+			<when state="grave" output="à" />
+			<when state="circumflex" output="â" />
+			<when state="diaeresis" output="ä" />
+			<when state="tilde" output="ã" />
+			<when state="breve" output="ă" />
+			<when state="macron" output="ā" />
+			<when state="ogonek" output="ą" />
+			<when state="ringabove" output="å" />
+			<when state="caron" output="ǎ" /> <!-- added -->
+			<when state="dotabove" output="ȧ" /> <!-- added -->
+			<when state="dotbelow" output="ạ" /> <!-- added -->
+			<when state="specials" output="ə" /> <!-- added -->
+			<when state="hook" output="ả" /> <!-- added -->
+			<when state="doublegrave" output="ȁ" /> <!-- added -->
+			<when state="invertedbreve" output="ȃ" /> <!-- added -->
+		</action>
+		<action id="B">
+			<when state="none" output="B" />
+			<when state="dotabove" output="Ḃ" /> <!-- added -->
+			<when state="dotbelow" output="Ḅ" /> <!-- added -->
+			<when state="hooked" output="Ɓ" /> <!-- added -->
+			<when state="macronbelow" output="Ḇ" /> <!-- added -->
+		</action>
+		<action id="b">
+			<when state="none" output="b" />
+			<when state="dotabove" output="ḃ" /> <!-- added -->
+			<when state="dotbelow" output="ḅ" /> <!-- added -->
+			<when state="stroke" output="ƀ" /> <!-- added -->
+			<when state="hooked" output="ɓ" /> <!-- added -->
+			<when state="macronbelow" output="ḇ" /> <!-- added -->
+		</action>
+		<action id="C">
+			<when state="none" output="C" />
+			<when state="acute" output="Ć" />
+			<when state="circumflex" output="Ĉ" />
+			<when state="cedilla" output="Ç" />
+			<when state="caron" output="Č" />
+			<when state="dotabove" output="Ċ" />
+			<when state="specials" output="Ɔ" /> <!-- added -->
+			<when state="hooked" output="Ƈ" /> <!-- added -->
+		</action>
+		<action id="c">
+			<when state="none" output="c" />
+			<when state="acute" output="ć" />
+			<when state="circumflex" output="ĉ" />
+			<when state="cedilla" output="ç" />
+			<when state="caron" output="č" />
+			<when state="dotabove" output="ċ" />
+			<when state="specials" output="ɔ" /> <!-- added -->
+			<when state="hooked" output="ƈ" /> <!-- added -->
+		</action>
+		<action id="D">
+			<when state="none" output="D" />
+			<when state="caron" output="Ď" />
+			<when state="dotabove" output="Ḋ" /> <!-- added -->
+			<when state="stroke" output="Đ" /> <!-- added -->
+			<when state="cedilla" output="Ḑ" /> <!-- added -->
+			<when state="dotbelow" output="Ḍ" /> <!-- added -->
+			<when state="hooked" output="Ɗ" /> <!-- added -->
+			<when state="circumflexbelow" output="Ḓ" /> <!-- added -->
+			<when state="macronbelow" output="Ḏ" /> <!-- added -->
+		</action>
+		<action id="d">
+			<when state="none" output="d" />
+			<when state="caron" output="ď" />
+			<when state="dotabove" output="ḋ" /> <!-- added -->
+			<when state="stroke" output="đ" /> <!-- added -->
+			<when state="cedilla" output="ḑ" /> <!-- added -->
+			<when state="dotbelow" output="ḍ" /> <!-- added -->
+			<when state="hooked" output="ɗ" /> <!-- added -->
+			<when state="circumflexbelow" output="ḓ" /> <!-- added -->
+			<when state="macronbelow" output="ḏ" /> <!-- added -->
+		</action>
+		<action id="E">
+			<when state="none" output="E" />
+			<when state="acute" output="É" />
+			<when state="grave" output="È" />
+			<when state="circumflex" output="Ê" />
+			<when state="diaeresis" output="Ë" />
+			<when state="breve" output="Ĕ" />
+			<when state="macron" output="Ē" />
+			<when state="ogonek" output="Ę" />
+			<when state="caron" output="Ě" />
+			<when state="dotabove" output="Ė" />
+			<when state="cedilla" output="Ȩ" /> <!-- added -->
+			<when state="dotbelow" output="Ẹ" /> <!-- added -->
+			<when state="tilde" output="Ẽ" /> <!-- added -->
+			<when state="specials" output="Ǝ" /> <!-- added -->
+			<when state="circumflexbelow" output="Ḙ" /> <!-- added -->
+			<when state="hook" output="Ẻ" /> <!-- added -->
+			<when state="ringabove" output="E̊" /> <!-- added -->
+			<when state="tildebelow" output="Ḛ" /> <!-- added -->
+			<when state="doublegrave" output="Ȅ" /> <!-- added -->
+			<when state="invertedbreve" output="Ȇ" /> <!-- added -->
+		</action>
+		<action id="e">
+			<when state="none" output="e" />
+			<when state="acute" output="é" />
+			<when state="grave" output="è" />
+			<when state="circumflex" output="ê" />
+			<when state="diaeresis" output="ë" />
+			<when state="breve" output="ĕ" />
+			<when state="macron" output="ē" />
+			<when state="ogonek" output="ę" />
+			<when state="caron" output="ě" />
+			<when state="dotabove" output="ė" />
+			<when state="cedilla" output="ȩ" /> <!-- added -->
+			<when state="dotbelow" output="ẹ" /> <!-- added -->
+			<when state="tilde" output="ẽ" /> <!-- added -->
+			<when state="specials" output="ǝ" /> <!-- added -->
+			<when state="circumflexbelow" output="ḙ" /> <!-- added -->
+			<when state="hook" output="ẻ" /> <!-- added -->
+			<when state="ringabove" output="e̊" /> <!-- added -->
+			<when state="tildebelow" output="ḛ" /> <!-- added -->
+			<when state="doublegrave" output="ȅ" /> <!-- added -->
+			<when state="invertedbreve" output="ȇ" /> <!-- added -->
+		</action>
+		<action id="F">
+			<when state="none" output="F" />
+			<when state="dotabove" output="Ḟ" /> <!-- added -->
+			<when state="hooked" output="Ƒ" /> <!-- added -->
+		</action>
+		<action id="f">
+			<when state="none" output="f" />
+			<when state="dotabove" output="ḟ" /> <!-- added -->
+			<when state="hooked" output="ƒ" /> <!-- added -->
+		</action>
+		<action id="G">
+			<when state="none" output="G" />
+			<when state="acute" output="Ǵ" />  <!-- added -->
+			<when state="circumflex" output="Ĝ" />
+			<when state="cedilla" output="Ģ" />
+			<when state="breve" output="Ğ" />
+			<when state="dotabove" output="Ġ" />
+			<when state="caron" output="Ǧ" />  <!-- added -->
+			<when state="stroke" output="Ǥ" /> <!-- added -->
+			<when state="macron" output="Ḡ" /> <!-- added -->
+			<when state="hooked" output="Ɠ" /> <!-- added -->
+			<when state="specials" output="Ɣ" /> <!-- added -->
+		</action>
+		<action id="g">
+			<when state="none" output="g" />
+			<when state="acute" output="ǵ" />  <!-- added -->
+			<when state="circumflex" output="ĝ" />
+			<when state="cedilla" output="ģ" />
+			<when state="breve" output="ğ" />
+			<when state="dotabove" output="ġ" />
+			<when state="caron" output="ǧ" />  <!-- added -->
+			<when state="stroke" output="ǥ" /> <!-- added -->
+			<when state="macron" output="ḡ" /> <!-- added -->
+			<when state="hooked" output="ɠ" /> <!-- added -->
+			<when state="specials" output="ɣ" /> <!-- added -->
+		</action>
+		<action id="H">
+			<when state="none" output="H" />
+			<when state="circumflex" output="Ĥ" />
+			<when state="caron" output="Ȟ" /> <!-- added -->
+			<when state="stroke" output="Ħ" /> <!-- added -->
+			<when state="dotbelow" output="Ḥ" /> <!-- added -->
+			<when state="dotabove" output="Ḣ" /> <!-- added -->
+			<when state="cedilla" output="Ḩ" /> <!-- added -->
+			<when state="diaeresis" output="Ḧ" /> <!-- added -->
+			<when state="specials" output="Ƕ" /> <!-- added -->
+			<when state="macronbelow" output="H̱" /> <!-- added -->
+			<when state="breve" output="Ḫ" /> <!-- added -->
+		</action>
+		<action id="h">
+			<when state="none" output="h" />
+			<when state="circumflex" output="ĥ" />
+			<when state="caron" output="ȟ" /> <!-- added -->
+			<when state="stroke" output="ħ" /> <!-- added -->
+			<when state="dotbelow" output="ḥ" /> <!-- added -->
+			<when state="dotabove" output="ḣ" /> <!-- added -->
+			<when state="cedilla" output="ḩ" /> <!-- added -->
+			<when state="diaeresis" output="ḧ" /> <!-- added -->
+			<when state="specials" output="ƕ" /> <!-- added -->
+			<when state="hooked" output="ɦ" /> <!-- added -->
+			<when state="macronbelow" output="ẖ" /> <!-- added -->
+			<when state="breve" output="ḫ" /> <!-- added -->
+		</action>
+		<action id="I">
+			<when state="none" output="I" />
+			<when state="acute" output="Í" />
+			<when state="grave" output="Ì" />
+			<when state="circumflex" output="Î" />
+			<when state="diaeresis" output="Ï" />
+			<when state="breve" output="Ĭ" />
+			<when state="macron" output="Ī" />
+			<when state="ogonek" output="Į" />
+			<when state="dotabove" output="İ" />
+			<when state="caron" output="Ǐ" /> <!-- added -->
+			<when state="tilde" output="Ĩ" /> <!-- added -->
+			<when state="dotbelow" output="Ị" /> <!-- added -->
+			<when state="stroke" output="Ɨ" /> <!-- added -->
+			<when state="hooked" output="Ɩ" /> <!-- added -->
+			<when state="hook" output="Ỉ" /> <!-- added -->
+			<when state="tildebelow" output="Ḭ" /> <!-- added -->
+			<when state="doublegrave" output="Ȉ" /> <!-- added -->
+			<when state="invertedbreve" output="Ȋ" /> <!-- added -->
+		</action>
+		<action id="i">
+			<when state="none" output="i" />
+			<when state="acute" output="í" />
+			<when state="grave" output="ì" />
+			<when state="circumflex" output="î" />
+			<when state="diaeresis" output="ï" />
+			<when state="breve" output="ĭ" />
+			<when state="macron" output="ī" />
+			<when state="ogonek" output="į" />
+			<when state="caron" output="ǐ" /> <!-- added -->
+			<when state="tilde" output="ĩ" /> <!-- added -->
+			<when state="dotbelow" output="ị" /> <!-- added -->
+			<when state="stroke" output="ɨ" /> <!-- added -->
+			<when state="hooked" output="ɩ" /> <!-- added -->
+			<when state="hook" output="ỉ" /> <!-- added -->
+			<when state="tildebelow" output="ḭ" /> <!-- added -->
+			<when state="dotabove" output="ı" /> <!-- added -->
+			<when state="doublegrave" output="ȉ" /> <!-- added -->
+			<when state="invertedbreve" output="ȋ" /> <!-- added -->
+		</action>
+		<action id="J">
+			<when state="none" output="J" />
+			<when state="circumflex" output="Ĵ" />
+			<when state="caron" output="J̌" /> <!-- added -->
+			<when state="specials" output="Ƞ" /> <!-- added -->
+		</action>
+		<action id="j">
+			<when state="none" output="j" />
+			<when state="circumflex" output="ĵ" />
+			<when state="caron" output="ǰ" /> <!-- added -->
+			<when state="specials" output="ƞ" /> <!-- added -->
+		</action>
+		<action id="K">
+			<when state="none" output="K" />
+			<when state="acute" output="Ḱ" />  <!-- added -->
+			<when state="cedilla" output="Ķ" />
+			<when state="caron" output="Ǩ" />  <!-- added -->
+			<when state="dotbelow" output="Ḳ" /> <!-- added -->
+			<when state="specials" output="K’" /> <!-- added -->
+			<when state="hooked" output="Ƙ" /> <!-- added -->
+			<when state="macronbelow" output="Ḵ" /> <!-- added -->
+		</action>
+		<action id="k">
+			<when state="none" output="k" />
+			<when state="acute" output="ḱ" />  <!-- added -->
+			<when state="cedilla" output="ķ" />
+			<when state="caron" output="ǩ" />  <!-- added -->
+			<when state="dotbelow" output="ḳ" /> <!-- added -->
+			<when state="specials" output="ĸ" /> <!-- added -->
+			<when state="hooked" output="ƙ" /> <!-- added -->
+			<when state="macronbelow" output="ḵ" /> <!-- added -->
+		</action>
+		<action id="L">
+			<when state="none" output="L" />
+			<when state="acute" output="Ĺ" />
+			<when state="cedilla" output="Ļ" />
+			<when state="caron" output="Ľ" />
+			<when state="stroke" output="Ł" /> <!-- added -->
+			<when state="dotbelow" output="Ḷ" /> <!-- added -->
+			<when state="circumflexbelow" output="Ḽ" /> <!-- added -->
+			<when state="macronbelow" output="Ḻ" /> <!-- added -->
+			<when state="macron" output="Ḹ" /> <!-- added -->
+		</action>
+		<action id="l">
+			<when state="none" output="l" />
+			<when state="acute" output="ĺ" />
+			<when state="cedilla" output="ļ" />
+			<when state="caron" output="ľ" />
+			<when state="stroke" output="ł" /> <!-- added -->
+			<when state="dotbelow" output="ḷ" /> <!-- added -->
+			<when state="circumflexbelow" output="ḽ" /> <!-- added -->
+			<when state="macronbelow" output="ḻ" /> <!-- added -->
+			<when state="macron" output="ḹ" /> <!-- added -->
+		</action>
+		<action id="M">
+			<when state="none" output="M" />
+			<when state="dotabove" output="Ṁ" /> <!-- added -->
+			<when state="dotbelow" output="Ṃ" /> <!-- added -->
+			<when state="acute" output="Ḿ" /> <!-- added -->
+			<when state="circumflex" output="M̂" /> <!-- added -->
+			<when state="specials" output="Ɯ" /> <!-- added -->
+		</action>
+		<action id="m">
+			<when state="none" output="m" />
+			<when state="dotabove" output="ṁ" /> <!-- added -->
+			<when state="dotbelow" output="ṃ" /> <!-- added -->
+			<when state="acute" output="ḿ" /> <!-- added -->
+			<when state="circumflex" output="m̂" /> <!-- added -->
+			<when state="specials" output="ɯ" /> <!-- added -->
+		</action>
+		<action id="N">
+			<when state="none" output="N" />
+			<when state="acute" output="Ń" />
+			<when state="tilde" output="Ñ" />
+			<when state="cedilla" output="Ņ" />
+			<when state="caron" output="Ň" />
+			<when state="dotabove" output="Ṅ" /> <!-- added -->
+			<when state="dotbelow" output="Ṇ" /> <!-- added -->
+			<when state="grave" output="Ǹ" /> <!-- added -->
+			<when state="specials" output="Ŋ" /> <!-- added -->
+			<when state="hooked" output="Ɲ" /> <!-- added -->
+			<when state="circumflexbelow" output="Ṋ" /> <!-- added -->
+			<when state="macronbelow" output="Ṉ" /> <!-- added -->
+			<when state="circumflex" output="N̂" /> <!-- added -->
+		</action>
+		<action id="n">
+			<when state="none" output="n" />
+			<when state="acute" output="ń" />
+			<when state="tilde" output="ñ" />
+			<when state="cedilla" output="ņ" />
+			<when state="caron" output="ň" />
+			<when state="dotabove" output="ṅ" /> <!-- added -->
+			<when state="dotbelow" output="ṇ" /> <!-- added -->
+			<when state="grave" output="ǹ" /> <!-- added -->
+			<when state="specials" output="ŋ" /> <!-- added -->
+			<when state="hooked" output="ɲ" /> <!-- added -->
+			<when state="circumflexbelow" output="ṋ" /> <!-- added -->
+			<when state="macronbelow" output="ṉ" /> <!-- added -->
+			<when state="circumflex" output="n̂" /> <!-- added -->
+		</action>
+		<action id="O">
+			<when state="none" output="O" />
+			<when state="acute" output="Ó" />
+			<when state="grave" output="Ò" />
+			<when state="circumflex" output="Ô" />
+			<when state="diaeresis" output="Ö" />
+			<when state="tilde" output="Õ" />
+			<when state="breve" output="Ŏ" />
+			<when state="macron" output="Ō" />
+			<when state="ogonek" output="Ǫ" /> <!-- added -->
+			<when state="doubleacute" output="Ő" />
+			<when state="caron" output="Ǒ" /> <!-- added -->
+			<when state="dotabove" output="Ȯ" /> <!-- added -->
+			<when state="dotbelow" output="Ọ" /> <!-- added -->
+			<when state="stroke" output="Ɵ" /> <!-- added -->
+			<when state="hook" output="Ỏ" /> <!-- added -->
+			<when state="ringabove" output="O̊" /> <!-- added -->
+			<when state="horn" output="Ơ" /> <!-- added -->
+			<when state="doublegrave" output="Ȍ" /> <!-- added -->
+			<when state="invertedbreve" output="Ȏ" /> <!-- added -->
+		</action>
+		<action id="o">
+			<when state="none" output="o" />
+			<when state="acute" output="ó" />
+			<when state="grave" output="ò" />
+			<when state="circumflex" output="ô" />
+			<when state="diaeresis" output="ö" />
+			<when state="tilde" output="õ" />
+			<when state="breve" output="ŏ" />
+			<when state="macron" output="ō" />
+			<when state="ogonek" output="ǫ" /> <!-- added -->
+			<when state="doubleacute" output="ő" />
+			<when state="caron" output="ǒ" /> <!-- added -->
+			<when state="dotabove" output="ȯ" /> <!-- added -->
+			<when state="dotbelow" output="ọ" /> <!-- added -->
+			<when state="stroke" output="ɵ" /> <!-- added -->
+			<when state="hook" output="ỏ" /> <!-- added -->
+			<when state="ringabove" output="o̊" /> <!-- added -->
+			<when state="horn" output="ơ" /> <!-- added -->
+			<when state="doublegrave" output="ȍ" /> <!-- added -->
+			<when state="invertedbreve" output="ȏ" /> <!-- added -->
+		</action>
+		<action id="P">
+			<when state="none" output="P" />
+			<when state="dotabove" output="Ṗ" /> <!-- added -->
+			<when state="acute" output="Ṕ" /> <!-- added -->
+			<when state="hooked" output="Ƥ" /> <!-- added -->
+		</action>
+		<action id="p">
+			<when state="none" output="p" />
+			<when state="dotabove" output="ṗ" /> <!-- added -->
+			<when state="acute" output="ṕ" /> <!-- added -->
+			<when state="hooked" output="ƥ" /> <!-- added -->
+		</action>
+		<action id="Q">
+			<when state="none" output="Q" />
+			<when state="specials" output="Ƣ" /> <!-- added -->
+		</action>
+		<action id="q">
+			<when state="none" output="q" />
+			<when state="specials" output="ƣ" /> <!-- added -->
+			<when state="hooked" output="ʠ" /> <!-- added -->
+		</action>
+		<action id="R">
+			<when state="none" output="R" />
+			<when state="acute" output="Ŕ" />
+			<when state="cedilla" output="Ŗ" />
+			<when state="caron" output="Ř" />
+			<when state="dotbelow" output="Ṛ" /> <!-- added -->
+			<when state="dotabove" output="Ṙ" /> <!-- added -->
+			<when state="specials" output="Ʀ" /> <!-- added -->
+			<when state="macronbelow" output="Ṟ" /> <!-- added -->
+			<when state="hooked" output="Ʈ" /> <!-- added -->
+			<when state="doublegrave" output="Ȑ" /> <!-- added -->
+			<when state="invertedbreve" output="Ȓ" /> <!-- added -->
+			<when state="macron" output="Ṝ" /> <!-- added -->
+		</action>
+		<action id="r">
+			<when state="none" output="r" />
+			<when state="acute" output="ŕ" />
+			<when state="cedilla" output="ŗ" />
+			<when state="caron" output="ř" />
+			<when state="dotbelow" output="ṛ" /> <!-- added -->
+			<when state="dotabove" output="ṙ" /> <!-- added -->
+			<when state="specials" output="ʀ" /> <!-- added -->
+			<when state="macronbelow" output="ṟ" /> <!-- added -->
+			<when state="hooked" output="ʈ" /> <!-- added -->
+			<when state="doublegrave" output="ȑ" /> <!-- added -->
+			<when state="invertedbreve" output="ȓ" /> <!-- added -->
+			<when state="macron" output="ṝ" /> <!-- added -->
+		</action>
+		<action id="S">
+			<when state="none" output="S" />
+			<when state="acute" output="Ś" />
+			<when state="circumflex" output="Ŝ" />
+			<when state="cedilla" output="Ş" />
+			<when state="caron" output="Š" />
+			<when state="dotabove" output="Ṡ" /> <!-- added -->
+			<when state="commabelow" output="Ș" />
+			<when state="dotbelow" output="Ṣ" /> <!-- added -->
+			<when state="hooked" output="Ʃ" /> <!-- added -->
+			<when state="macron" output="S̄" /> <!-- added -->
+		</action>
+		<action id="s">
+			<when state="none" output="s" />
+			<when state="acute" output="ś" />
+			<when state="circumflex" output="ŝ" />
+			<when state="cedilla" output="ş" />
+			<when state="caron" output="š" />
+			<when state="dotabove" output="ṡ" /> <!-- added -->
+			<when state="commabelow" output="ș" />
+			<when state="dotbelow" output="ṣ" /> <!-- added -->
+			<when state="specials" output="ſ" /> <!-- added -->
+			<when state="hooked" output="ʃ" /> <!-- added -->
+			<when state="macron" output="s̄" /> <!-- added -->
+		</action>
+		<action id="T">
+			<when state="none" output="T" />
+			<when state="cedilla" output="Ţ" />
+			<when state="caron" output="Ť" />
+			<when state="dotabove" output="Ṫ" /> <!-- added -->
+			<when state="commabelow" output="Ț" />
+			<when state="stroke" output="Ŧ" /> <!-- added -->
+			<when state="dotbelow" output="Ṭ" /> <!-- added -->
+			<when state="diaeresis" output="T̈" /> <!-- added -->
+			<when state="hooked" output="Ƭ" /> <!-- added -->
+			<when state="circumflexbelow" output="Ṱ" /> <!-- added -->
+			<when state="macronbelow" output="Ṯ" /> <!-- added -->
+		</action>
+		<action id="t">
+			<when state="none" output="t" />
+			<when state="cedilla" output="ţ" />
+			<when state="caron" output="ť" />
+			<when state="dotabove" output="ṫ" /> <!-- added -->
+			<when state="commabelow" output="ț" />
+			<when state="stroke" output="ŧ" /> <!-- added -->
+			<when state="dotbelow" output="ṭ" /> <!-- added -->
+			<when state="diaeresis" output="ẗ" /> <!-- added -->
+			<when state="hooked" output="ƭ" /> <!-- added -->
+			<when state="circumflexbelow" output="ṱ" /> <!-- added -->
+			<when state="macronbelow" output="ṯ" /> <!-- added -->
+		</action>
+		<action id="U">
+			<when state="none" output="U" />
+			<when state="acute" output="Ú" />
+			<when state="grave" output="Ù" />
+			<when state="circumflex" output="Û" />
+			<when state="diaeresis" output="Ü" />
+			<when state="breve" output="Ŭ" />
+			<when state="macron" output="Ū" />
+			<when state="ogonek" output="Ų" />
+			<when state="doubleacute" output="Ű" />
+			<when state="ringabove" output="Ů" />
+			<when state="caron" output="Ǔ" /> <!-- added -->
+			<when state="tilde" output="Ũ" /> <!-- added -->
+			<when state="dotbelow" output="Ụ" /> <!-- added -->
+			<when state="specials" output="Ʊ" /> <!-- added -->
+			<when state="circumflexbelow" output="Ṷ" /> <!-- added -->
+			<when state="hook" output="Ủ" /> <!-- added -->
+			<when state="hooked" output="Ʋ" /> <!-- added -->
+			<when state="horn" output="Ư" /> <!-- added -->
+			<when state="tildebelow" output="Ṵ" /> <!-- added -->
+			<when state="doublegrave" output="Ȕ" /> <!-- added -->
+			<when state="invertedbreve" output="Ȗ" /> <!-- added -->
+		</action>
+		<action id="u">
+			<when state="none" output="u" />
+			<when state="acute" output="ú" />
+			<when state="grave" output="ù" />
+			<when state="circumflex" output="û" />
+			<when state="diaeresis" output="ü" />
+			<when state="breve" output="ŭ" />
+			<when state="macron" output="ū" />
+			<when state="ogonek" output="ų" />
+			<when state="doubleacute" output="ű" />
+			<when state="ringabove" output="ů" />
+			<when state="caron" output="ǔ" /> <!-- added -->
+			<when state="tilde" output="ũ" /> <!-- added -->
+			<when state="dotbelow" output="ụ" /> <!-- added -->
+			<when state="specials" output="ʊ" /> <!-- added -->
+			<when state="circumflexbelow" output="ṷ" /> <!-- added -->
+			<when state="hook" output="ủ" /> <!-- added -->
+			<when state="hooked" output="ʋ" /> <!-- added -->
+			<when state="horn" output="ư" /> <!-- added -->
+			<when state="tildebelow" output="ṵ" /> <!-- added -->
+			<when state="doublegrave" output="ȕ" /> <!-- added -->
+			<when state="invertedbreve" output="ȗ" /> <!-- added -->
+			<when state="stroke" output="ʉ" /> <!-- added -->
+		</action>
+		<action id="V">
+			<when state="none" output="V" />
+			<when state="tilde" output="Ṽ" /> <!-- added -->
+			<when state="dotbelow" output="Ṿ" /> <!-- added -->
+			<when state="grave" output="Ǜ" /> <!-- added -->
+			<when state="acute" output="Ǘ" /> <!-- added -->
+			<when state="macron" output="Ǖ" /> <!-- added -->
+			<when state="caron" output="Ǚ" /> <!-- added -->
+		</action>
+		<action id="v">
+			<when state="none" output="v" />
+			<when state="tilde" output="ṽ" /> <!-- added -->
+			<when state="dotbelow" output="ṿ" /> <!-- added -->
+			<when state="specials" output="ʌ" /> <!-- added -->
+			<when state="grave" output="ǜ" /> <!-- added -->
+			<when state="acute" output="ǘ" /> <!-- added -->
+			<when state="macron" output="ǖ" /> <!-- added -->
+			<when state="caron" output="ǚ" /> <!-- added -->
+		</action>
+		<action id="W">
+			<when state="none" output="W" />
+			<when state="acute" output="Ẃ" /> <!-- added -->
+			<when state="grave" output="Ẁ" /> <!-- added -->
+			<when state="circumflex" output="Ŵ" />
+			<when state="diaeresis" output="Ẅ" /> <!-- added -->
+			<when state="dotabove" output="Ẇ" /> <!-- added -->
+			<when state="dotbelow" output="Ẉ" /> <!-- added -->
+			<when state="ringabove" output="W̊" /> <!-- added -->
+			<when state="specials" output="Ƿ" /> <!-- added -->
+		</action>
+		<action id="w">
+			<when state="none" output="w" />
+			<when state="acute" output="ẃ" /> <!-- added -->
+			<when state="grave" output="ẁ" /> <!-- added -->
+			<when state="circumflex" output="ŵ" />
+			<when state="diaeresis" output="ẅ" /> <!-- added -->
+			<when state="dotabove" output="ẇ" /> <!-- added -->
+			<when state="dotbelow" output="ẉ" /> <!-- added -->
+			<when state="ringabove" output="ẘ" /> <!-- added -->
+			<when state="specials" output="ƿ" /> <!-- added -->
+		</action>
+		<action id="X">
+			<when state="none" output="X" />
+			<when state="diaeresis" output="Ẍ" /> <!-- added -->
+			<when state="dotabove" output="Ẋ" /> <!-- added -->
+			<when state="hooked" output="Ɖ" /> <!-- added -->
+			<when state="caron" output="Ǯ" /> <!-- added -->
+		</action>
+		<action id="x">
+			<when state="none" output="x" />
+			<when state="diaeresis" output="ẍ" /> <!-- added -->
+			<when state="dotabove" output="ẋ" /> <!-- added -->
+			<when state="hooked" output="ɖ" /> <!-- added -->
+			<when state="caron" output="ǯ" /> <!-- added -->
+		</action>
+		<action id="Y">
+			<when state="none" output="Y" />
+			<when state="acute" output="Ý" />
+			<when state="grave" output="Ỳ" /> <!-- added -->
+			<when state="circumflex" output="Ŷ" />
+			<when state="diaeresis" output="Ÿ" />
+			<when state="macron" output="Ȳ" /> <!-- added -->
+			<when state="dotabove" output="Ẏ" /> <!-- added -->
+			<when state="dotbelow" output="Ỵ" /> <!-- added -->
+			<when state="tilde" output="Ỹ" /> <!-- added -->
+			<when state="ringabove" output="Y̊" /> <!-- added -->
+			<when state="specials" output="Ȝ" /> <!-- added -->
+			<when state="hooked" output="Ƴ" /> <!-- added -->
+			<when state="hook" output="Ỷ" /> <!-- added -->
+		</action>
+		<action id="y">
+			<when state="none" output="y" />
+			<when state="acute" output="ý" />
+			<when state="grave" output="ỳ" /> <!-- added -->
+			<when state="circumflex" output="ŷ" />
+			<when state="diaeresis" output="ÿ" />
+			<when state="macron" output="ȳ" /> <!-- added -->
+			<when state="dotabove" output="ẏ" /> <!-- added -->
+			<when state="dotbelow" output="ỵ" /> <!-- added -->
+			<when state="tilde" output="ỹ" /> <!-- added -->
+			<when state="ringabove" output="ẙ" /> <!-- added -->
+			<when state="specials" output="ȝ" /> <!-- added -->
+			<when state="hooked" output="ƴ" /> <!-- added -->
+			<when state="hook" output="ỷ" /> <!-- added -->
+		</action>
+		<action id="Z">
+			<when state="none" output="Z" />
+			<when state="acute" output="Ź" />
+			<when state="circumflex" output="Ẑ" /> <!-- added -->
+			<when state="caron" output="Ž" />
+			<when state="dotabove" output="Ż" />
+			<when state="dotbelow" output="Ẓ" /> <!-- added -->
+			<when state="stroke" output="Ƶ" /> <!-- added -->
+			<when state="hooked" output="Ȥ" /> <!-- added -->
+			<when state="macronbelow" output="Ẕ" /> <!-- added -->
+			<when state="specials" output="Ʒ" /> <!-- added -->
+			<when state="macron" output="Z̄" /> <!-- added -->
+			<when state="cedilla" output="Z̧" /> <!-- added -->
+		</action>
+		<action id="z">
+			<when state="none" output="z" />
+			<when state="acute" output="ź" />
+			<when state="circumflex" output="ẑ" /> <!-- added -->
+			<when state="caron" output="ž" />
+			<when state="dotabove" output="ż" />
+			<when state="dotbelow" output="ẓ" /> <!-- added -->
+			<when state="stroke" output="ƶ" /> <!-- added -->
+			<when state="hooked" output="ȥ" /> <!-- added -->
+			<when state="macronbelow" output="ẕ" /> <!-- added -->
+			<when state="specials" output="ʒ" /> <!-- added -->
+			<when state="macron" output="z̄" /> <!-- added -->
+			<when state="cedilla" output="z̧" /> <!-- added -->
+		</action>
+		<action id="@">
+			<when state="none" output="@" />
+			<when state="specials" output="Ƨ" />
+		</action>
+		<action id="2">
+			<when state="none" output="2" />
+			<when state="specials" output="ƨ" />
+		</action>
+		<action id="#">
+			<when state="none" output="#" />
+			<when state="specials" output="Ɛ" />
+		</action>
+		<action id="3">
+			<when state="none" output="3" />
+			<when state="specials" output="ɛ" />
+		</action>
+		<action id="%">
+			<when state="none" output="%" />
+			<when state="specials" output="Ƽ" />
+		</action>
+		<action id="5">
+			<when state="none" output="5" />
+			<when state="specials" output="ƽ" />
+		</action>
+		<action id="^">
+			<when state="none" output="^" />
+			<when state="specials" output="Ƅ" />
+		</action>
+		<action id="6">
+			<when state="none" output="6" />
+			<when state="specials" output="ƅ" />
+		</action>
+		<action id="7">
+			<when state="none" output="7" />
+			<when state="specials" output="⁊" />
+		</action>
+		<action id="*">
+			<when state="none" output="*" />
+			<when state="specials" output="Ȣ" />
+		</action>
+		<action id="8">
+			<when state="none" output="8" />
+			<when state="specials" output="ȣ" />
+		</action>
+		<action id="&#x0022;">
+			<when state="none" output="&#x0022;" />
+			<when state="specials" output="ʺ" />
+		</action>
+		<action id="'">
+			<when state="none" output="'" />
+			<when state="specials" output="ʹ" />
+		</action>
+		<action id="Æ">
+			<when state="none" output="Æ" />
+			<when state="acute" output="Ǽ" />
+			<when state="macron" output="Ǣ" />
+		</action>
+		<action id="æ">
+			<when state="none" output="æ" />
+			<when state="acute" output="ǽ" />
+			<when state="macron" output="ǣ" />
+		</action>
+		<action id="Ø">
+			<when state="none" output="Ø" />
+			<when state="acute" output="Ǿ" />
+		</action>
+		<action id="ø">
+			<when state="none" output="ø" />
+			<when state="acute" output="ǿ" />
+		</action>
+		<action id="Å">
+			<when state="none" output="Å" />
+			<when state="acute" output="Ǻ" />
+		</action>
+		<action id="å">
+			<when state="none" output="å" />
+			<when state="acute" output="ǻ" />
+		</action>
+		<action id="’">
+			<when state="none" output="’" />
+			<when state="specials" output="ʼ" />
+		</action>
+		<action id="‘">
+			<when state="none" output="‘" />
+			<when state="specials" output="ʻ" />
+		</action>
+		<action id="“">
+			<when state="none" output="“" />
+			<when state="specials" output="ʽ" />
+		</action>
+		<action id="&#x0026;">
+			<when state="none" output="&#x0026;" />
+		</action>
+	</actions>
+	<terminators>
+		<when state="acute" output="´" />
+		<when state="grave" output="`" />
+		<when state="circumflex" output="ˆ" />
+		<when state="diaeresis" output="¨" />
+		<when state="tilde" output="˜" />
+		<when state="cedilla" output="¸" />
+		<when state="breve" output="˘" />
+		<when state="macron" output="¯" />
+		<when state="ogonek" output="˛" />
+		<when state="caron" output="ˇ" />
+		<when state="dotabove" output="˙" />
+		<when state="doubleacute" output="˝" />
+		<when state="ringabove" output="˚" />
+		<when state="commabelow" output="," />
+		<when state="stroke" output="-" /> <!-- added -->
+		<when state="dotbelow" output="." /> <!-- added -->
+		<when state="specials" output="№" /> <!-- added -->
+		<when state="hook" output="ˀ" /> <!-- added -->
+		<when state="hooked" output="ʔ" /> <!-- added -->
+		<when state="circumflexbelow" output="‸" /> <!-- added -->
+		<when state="macronbelow" output="ˍ" /> <!-- added -->
+		<when state="horn" output="ʼ" /> <!-- added -->
+		<when state="tildebelow" output=" ̰" /> <!-- added -->
+		<when state="doublegrave" output=" ̏" /> <!-- added -->
+		<when state="invertedbreve" output=" ̑" /> <!-- added -->
+	</terminators>
+</keyboard>

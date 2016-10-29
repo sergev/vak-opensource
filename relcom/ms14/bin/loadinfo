@@ -1,0 +1,66 @@
+:
+# Загрузка информации из файла Contents в базу.
+# Предыдущая информация в базе уничтожается.
+
+MARS_PORT=3837
+export MARS_PORT
+
+/usr/local/bin/marsexec -c '
+	logon mailserv mailserv;
+	drop info;
+	commit;
+'
+
+awk '
+BEGIN {
+	dir = "/"
+	ORS = ""
+}
+/^[^ ]*:$/ {
+	dir = substr ($1, 0, length ($1) - 1)
+	next
+}
+/^[^ ]*: .*$/ {
+	dir = substr ($1, 0, length ($1) - 1)
+	next
+}
+$2 != "<dir>" && $3 ~ /^[789][0-9][01][0-9][0123][0-9]$/ {
+	printf "%-100.100s%-80.80sF %6d %6.6s", dir, $1, $2, $3
+	for (i=4; i<=NF; ++i)
+		print " " $i
+	print "\n"
+}
+$2 == "<dir>" {
+	printf "%-100.100s%-80.80sD      0      0", dir, $1
+	for (i=3; i<=NF; ++i)
+		print " " $i
+	print "\n"
+}' $1 | /usr/local/bin/marsexec -c '
+	logon mailserv mailserv;
+	create info (
+		file    varchar (80),
+		dir     varchar (180),
+		info    varchar (180),
+		type    char (1),
+		kbytes  long,
+		mod     long
+	);
+	grant select info to public;
+	with - using "a100,a80,a1,1x,i6,1x,i6,1x,a180" (
+			dir     char (100),
+			file    char (80),
+			type    char (1),
+			kbytes  long,
+			mod     long,
+			info    char (180)
+		)
+		insert values $file, $dir, $info, $type, $kbytes, $mod
+		into info;
+	commit;
+'
+
+/usr/local/bin/marsexec -c '
+	logon mailserv mailserv;
+	create index info_dir on info (dir);
+	commit;
+'

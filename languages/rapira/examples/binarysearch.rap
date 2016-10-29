@@ -1,0 +1,30 @@
+fun BSEARCH(seq, targ)
+ 
+   if is_seq(seq) = no then
+      return no
+   fi
+ 
+   left := 1
+   right := #seq
+ 
+   while left <= right do
+ 
+      mid := (left + right) // 2
+ 
+      if targ = seq[mid] then
+         return yes
+      fi
+ 
+      if targ < seq[mid] then
+         right := mid - 1
+      else
+         left := mid + 1
+      fi
+ 
+   od
+ 
+   return no
+ 
+end
+ 
+output: BSEARCH( <* 2, 5, 7, 9 *> , 2 )

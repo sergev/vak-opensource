@@ -1,0 +1,32 @@
+                            - 17 -
+
+                                 K   ð   K   -   1   2
+ 
+      ¥    ¶   ¶   ¶    ¶    ¶   ¶   ¶    ¸    ¶   ¶   ¶    ¶    ¶   ¶   ¶    ¨
+      ¡ 12            12 12    12  ¡ 12            12 12    12  ¡
+      ¡    11            11 11 11  ¡    11            11 11 11  ¡
+      ¡        0       0     0  0  ¡        0       0     0  0  ¡
+¥     ¾    ¼   ¼   ¼    ¼    ¼   ¼   ¼    ¾    ¼   ¼   ¼    ¼    ¼   ¼   ¼    ¾       ¨
+¡     ¡                            ¡                            ¡       ¡
+¡     ¡  &   -   0  sp    {   |   }      ¡              `    Ã   Ê   Ñ   Ø  ¡ 1 8   ¡
+¡ 1   ¡  A   J   /   1    a   j   ~   Ù  ¡ SOH DC1 SOS      ÚÐÒ             ¡ 1   9 ¡
+¡ 2   ¡  B   K   S   2    b   k   s   Ú  ¡ STX DC2 FS  SYN                  ¡ 2   9 ¡
+¡ 3   ¡  C   L   T   3    c   l   t   Û  ¡ ETX DC3                          ¡ 3   9 ¡
+°€€€€€½€€€€Š€€€Š€€€Š€€€€Š€€€€Š€€€Š€€€Š€€€€½€€€€Š€€€Š€€€Š€€€€Š€€€€Š€€€Š€€€Š€€€€½€€€€€€€´
+¡ 4   ¡  D   M   U   4    d   m   u   Ü  ¡ PF  RES BYP PN                   ¡ 4   9 ¡
+¡ 5   ¡  E   N   V   5    e   n   v   Ý  ¡ HT  NL  LF  RS                   ¡ 5   9 ¡
+¡ 6   ¡  F   O   W   6    f   o   w   Þ  ¡ LC  BS  ETB UC                À  ¡ 6   9 ¡
+¡ 7   ¡  G   P   X   7    g   p   x   ÿ  ¡ ÚÐÒ IL  ESC EOT               Á  ¡ 7   9 ¡
+°€€€€€½€€€€Š€€€Š€€€Š€€€€Š€€€€Š€€€Š€€€Š€€€€½€€€€Š€€€Š€€€Š€€€€Š€€€€Š€€€Š€€€Š€€€€½€€€€€€€´
+¡ 8   ¡  H   Q   Y   8    h   q   y   à  ¡     CAN                       Â  ¡   8 9 ¡
+¡ 9   ¡  I   R   Z   9    i   r   z   á  ¡     EM           NUL DLE DS      ¡ 1 8 9 ¡
+¡ 2 8 ¡  [   ]   \   :    Ä   Ë   Ò   â  ¡ SMM CC  SM        X   H   T   ú  ¡ 2 8 9 ¡
+¡ 3 8 ¡  .   $   ,   #    Å   Ì   Ó   ã  ¡ VT  CU1 CU2 CU3   é   O   Y   û  ¡ 3 8 9 ¡
+°€€€€€½€€€€Š€€€Š€€€Š€€€€Š€€€€Š€€€Š€€€Š€€€€½€€€€Š€€€Š€€€Š€€€€Š€€€€Š€€€Š€€€Š€€€€½€€€€€€€´
+¡ 4 8 ¡  <   *   %   @    Æ   Í   Ô   ä  ¡ FF  IFS     STP   ê   ð   ö   ü  ¡ 4 8 9 ¡
+¡ 5 8 ¡  (   )   _   '    Ç   Î   Õ   å  ¡ CR  IGS ENQ NAK   ë   ñ   ÷   ý  ¡ 5 8 9 ¡
+¡ 6 8 ¡  +   ;   >   =    È   Ï   Ö   æ  ¡ SO  IRS ACK       ì   ò   ø   þ  ¡ 6 8 9 ¡
+¡ 7 8 ¡  !   ^   ?   "    É   Ð   ×   ç  ¡ SI  IUS BEL SUB   í   ó   ù  DEL ¡ 7 8 9 ¡
+¡     ¡                            ¡                            ¡       ¡
+«     »    ¹   ¹   ¹    ¹    ¹   ¹   ¹    »    ¹   ¹   ¹    ¹    ¹   ¹   ¹    »       ®
+

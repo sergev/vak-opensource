@@ -1,0 +1,366 @@
+.Mcall	.Module
+.Module	BKGSub, Release=X02, Version=02, Comment=<BK0011 Graphics Routines>
+;
+;			Copyright (c) 1986,1987 by
+;	C-11 Special Interest Group, Leningrad State University.
+;			 All rights reserved.
+;
+; This software is furnished under a license and may be used and  copied
+; only  in  accordance  with  the  terms  of  such  license and with the
+; inclusion of the above copyright notice.  This software or  any  other
+; copies  thereof may not be provided or otherwise made available to any
+; other person.  No title to and ownership of  the  software  is  hereby
+; transfered.
+;
+; The information in this software is subject to change without notice
+; and should not be construed as a commitment by C-11 group.
+;
+; C-11 assumes no responsibility for the use or reliability of its
+; software on equipment which is not submitted by C-11.
+;
+ .Include "BKHEAD"
+.Globl	GetUWd,RetEmt,Shifts,ScrBot,$OffR0,Xcoord,Ycoord
+.Globl	RstrMX,Shiftm,Color,SavRg,ScrSel,SetScS,SetScX
+.Globl	Circle,CrcBlk,GetArg,Sound
+ .SbTtl	$Bgetpnt (EMT 104) Routine (Get  TV-Point Color)
+$Bgetpnt::
+	Jsr	R0,SavRG
+	Clr	$OffR0(SP)	;Prepare Zero
+	Mov	R0,R5		;Argument Block Address
+	Tst	(R5)+		;Skip the first word
+	Call	Coord		;Get Coordinates and Compute Address
+	Bcs	30$
+	Call	SetScS		;Map Screen
+	MovB	@R0,R3		;Get Byte
+	Com	R1		;Inverted mask
+	Bic	R1,R3		;Clear Unused Bits
+	Tst	R2		;Shift Counter
+	Beq	20$		;No Shift Needed
+10$:	Asr	R3
+	Sob	R2,10$
+20$:	Mov	R3,$OffR0(SP)	;Mov Result to Stack
+	ClC
+	Call	SetScX
+30$:	Jmp	RetEmt
+ .SbTtl	$Bpoint (EMT 30) Routine (Set Graphics Point)
+$Bpoint::
+	Jsr	R0,SavRg
+	Mov	R0,R5
+	Call	GetUwd		;Color for Drawing
+	Mov	R0,PntBuf	;
+	Call	Coord
+$Bpoi1:	Bcs	40$
+	Call	SetScS
+	MovB	PntBuf,R3
+	Bpl	10$
+	Mov	Color,R3
+10$:	Tst	R2
+	Beq	30$		;No shifting
+20$:	Asl	R3
+	Sob	R2,20$
+30$:	BicB	R1,@R0		;Clear Points in Screen
+	Com	R1
+	BicB	R1,R3		;Clear Unused Point
+	BisB	R3,@R0
+	Call	SetScX
+40$:	Jmp	RetEmt
+ .SbTtl	Coordinate processing Routine
+Coord:	Call	GetUwd		;X
+	Mov	R0,Xcoord
+	Call	GetUwd
+	Mov	R0,R1
+	Mov	R1,Ycoord
+	Mov	Xcoord,R0
+CoordX:	Cmp	R1,RstrMx	;Maximum Raster No
+	Bhi	20$		;Illegal line No
+	Mov	R1,R2		;Get Y coordinate
+	Swab	R2		;*400
+	ClrB	R2
+	Ror	R2		;*200
+	Ror	R2		;Y-Address (*100)
+	Add	ScrBot,R2	;
+	Cmp	R0,#511.		;X Max ?
+	Bhi	20$
+	Mov	R0,R1
+	Clc
+	Bic	#^C7,R1		;Lower Bits of X
+	Asr	R0
+	Asr	R0
+	Asr	R0		;In Bytes
+	Add	R2,R0		;Screen address
+	Bic	#40000,R0
+	Bis	#100000,R0
+	Mov	R1,R2		;Lower 3 Bits
+	Asl	R1
+	Asl	R1		;*4
+	BisB	Shifts,R1
+	MovB	PntTab(R1),R1	;Get Point Mask
+	Bic	#^C377,R1
+	MovB	Shiftm,R3
+	Dec	R3
+	Bic	R3,R2
+	Clr	R3
+	Tst	(PC)+
+20$:	Sec
+	Return
+ .Psect	$Const
+PntTab:
+;
+;	512	256	128 Points
+;
+.Byte	1,	3,	17,
+.Byte	2,	3,	17,
+.Byte	4,	14,	17,
+.Byte	10,	14,	17,
+.Byte	20,	60,	360,
+.Byte	40,	60,	360,
+.Byte	100,	300,	360,
+.Byte	200,	300,	360,
+.Even
+.Psect	$RAM
+PntBuf::.BlkW
+X0::	.BlkW
+Y0::	.BlkW
+XK::	.BlkW
+YK::	.BlkW
+ .Psect	$Code
+.SbTtl	$Bvect (EMT 32) Routine (Draw Vector or .....)
+$Bvect::
+	Jsr	R0,SavRg
+	Mov	R0,R5		;Arg Block Address
+	Mov	#PntBuf,R4
+	Mov	#5,R3
+10$:	Call	GetUwd
+	Mov	R0,(R4)+
+	Sob	R3,10$
+Vect1:	Mov	#1,Flag
+	MovB	PntBuf,R4	;Color
+	Bpl	20$		;Normal
+	Mov	Color,R4
+20$:	MovB	Shiftm,R0
+	Sec
+	Rol	R0
+	MovB	R0,Lmsk1
+	Com	R0
+	Mov	R4,R3
+	Bic	R0,R4
+	MovB	R4,Lmsk0
+	MovB	ShiftM,R0
+	MovB	#200,R1
+30$:	Dec	R0
+	Beq	40$
+	AsrB	R1
+	Br	30$
+40$:	MovB	R1,Rmsk1
+	Com	R1
+	Bic	R1,R3
+	MovB	R3,Rmsk0
+	Mov	X0,X00
+	MovB	Shiftm,R4
+	Mov	R4,StepXX
+	Dec	R4
+	Bic	R4,X00
+	MovB	Shifts,R3
+2$:	Dec	R3
+	Bmi	1$
+	Asr	X0
+	Asr	XK
+	Br	2$
+.Sbttl	Linear Interpolation
+1$:	Mov	XK,R4
+	Mov	YK,R2
+50$:	Mov	#1,DirX
+	Sub	X0,R4		;R4=DX=Xnew-Xold
+	Bge	60$		;DX>=0 ==> Forward
+	Neg	XK		;DX
+	Neg	DirX		;X Direction (+-)
+	Neg	StepXX
+60$:	Mov	#1,DirY
+	Mov	#100,YIncr	;Y-Address Increment
+	Sub	Y0,R2		;R2=DY=Ynew-Yold
+	Bge	70$
+	Neg	R2
+	Neg	DirY		;Y Direction (+-)
+	Neg	YIncr		;Y Direction (+-)
+70$:	Mov	R2,R3
+	Add	R4,R3		;R3=Dstn=DX+DY
+	Clr	R0		;Function=0
+	Cmp	R4,R2		;DX,DY
+	Beq	80$
+	Bge	90$		;DX>DY
+	Mov	#-1,R0		;DX<DY
+	Br	90$
+80$:	Tst	R4		;DX=DY
+	Beq	210$		;DX=DY=0==> Exit
+90$:	Clr	Stp
+	Br	120$
+
+100$:	Clr	Stp
+	Tst	R0		;
+	Bmi	110$		;DX<DY
+;
+;X-Step
+;
+	IncB	Stp
+	Sub	R2,R0		;F=F-DY
+	Add	DirX,X0
+	Add	StepXX,X00
+	Br	120$
+;
+;Y-Step
+;
+110$:	IncB	Stp+1
+	Add	R4,R0		;F=F+DX
+	Add	DirY,Y0		;Y-Step
+
+120$:	Tst	Y0
+	Bpl	121$
+	Tst	DirY
+	Bmi	210$
+	Br	130$
+121$:	Cmp	Y0,RstrMX
+	Ble	122$
+	Tst	DirY
+	Bpl	210$
+	Br	130$
+122$:	Tst	X0
+	Bpl	123$
+	Tst	DirX
+	Bmi	210$
+	Br	130$
+123$:	Cmp	X0,#512.
+	Blt	140$		;Draw...
+	Tst	DirX
+	Bpl	210$
+130$:	Inc	Flag		;Not Draw
+	Br	200$
+
+140$:	Tst	Flag
+	Beq	150$
+	Call	Coor1
+	Br	190$
+
+150$:	TstB	Stp+1
+	Beq	160$
+	Add	YIncr,XYAddr
+160$:	MovB	Shiftm,R1	;Shifts Number
+	Clc
+	TstB	Stp		;X-Step
+	Beq	190$
+	Tst	DirX
+	Bpl	180$
+170$:	RorB	ClrMap
+	Sob	R1,170$
+	Bcc	190$
+	MovB	Lmsk1,ClrMap
+	MovB	Lmsk0,ClrCod
+	Dec	XYAddr
+	Br	190$
+180$:	RolB	ClrMap
+	Sob	R1,180$
+	Bcc	190$
+	MovB	Rmsk1,ClrMap
+	MovB	Rmsk0,ClrCod
+	Inc	XYAddr
+190$:	Mov	XYAddr,R1
+	Bis	#100000,R1
+	Bic	#40000,R1
+	Call	SetScS
+	BicB	ClrMap,@R1
+	BisB	ClrCod,@R1	
+	Call	SetScX
+200$:	Dec	R3
+	Bne	100$
+210$:	Jmp	RetEmt
+ Coor1:	Jsr	R0,SavRg
+	Mov	X00,R0
+	Mov	Y0,R1
+	Call	CoordX
+	Mov	R0,XYAddr	;New Screen Address
+	Mov	PntBuf,R3
+10$:	Tst	R2
+	Beq	30$		;No shifting
+20$:	Asl	R3
+	Sob	R2,20$
+30$:	MovB	R1,ClrMap
+	Com	R1
+	BicB	R1,R3		;Clear Unused Point
+	MovB	R3,ClrCod
+	Jmp	RetEmt
+ .Psect	$RAM
+X00::	.BlkW
+StepXX:	.Blkw
+XYAddr:	.BlkW
+Stp:	.BlkW
+ClrMap:	.BlkB
+ClrCod:	.BlkB
+DirX:	.BlkW
+DirY:	.BlkW
+YIncr:	.BlkW
+Flag:	.BlkW
+Lmsk0:	.BlkB
+Lmsk1:	.BlkB
+Rmsk0:	.BlkB
+Rmsk1:	.BlkB
+.Even
+PntC:	.BlkW
+XC:	.BlkW
+YC:	.BlkW
+ .Psect	$CodOvr
+.SbTtl	$Bcircl	(EMT 130) Routine (write circle or arc)
+$Bcircl::
+	Jsr	R0,SavRg
+	Mov	R0,R5
+	Call	GetUwd	;Color
+	Mov	R0,Pntc	;
+	Mov	#CrcBlk,R1
+	Mov	#7,R2
+20$:	Call	GetUwd
+	Mov	R0,(R1)+
+	Sob	R2,20$
+	Call	Circle
+	ClC
+	Jmp	RetEmt
+.SbTtl	Point Drawing Routine for $BCircle
+;
+;Input:
+;R1	=	X
+;R2	=	Y
+;
+Point::	Jsr	R0,SavRg
+	Mov	R1,XCoord
+	Mov	R1,XC
+	Mov	R2,Ycoord
+	Mov	R2,YC
+	Mov	R1,R0
+	Mov	R2,R1
+	Mov	PntC,PntBuf
+	Call	CoordX		;Compute coordinates
+	Jmp	$Bpoi1
+.SbTtl	Vector Drawing Routine for $BCircle
+; 
+;Input:
+;R1	=	XEnd
+;R2	=	YEnd
+;Xcoord and Ycoord
+Vector::Jsr	R0,SavRg
+	Mov	Xc,XK
+	Mov	Yc,YK
+	Mov	R1,X0
+	Mov	R2,Y0
+	Mov	PntC,PntBuf
+	Jmp	Vect1
+;.SbTtl	$Bchcl	(EMT 126) Routine (Change colors)
+;.Psect	$Code
+;$Bchcl::
+;.SbTtl	$Bdraw	(EMT 122) Routine (Draw interpreter)
+;$Bdraw::
+;	Sec
+;	Return
+.SbTtl	$Bsound	(EMT 124) Sound Generation Routine
+.Psect	$CodOvr
+$Bsound::
+	Jsr	R0,GetArg	;One tone generation
+	Call	Sound
+	Jmp	RetEmt
+.End

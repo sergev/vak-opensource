@@ -1,0 +1,21 @@
+:
+gawk '
+BEGIN {
+	month["Jan"] =  1; month["Feb"] =  2; month["Mar"] =  3
+	month["May"] =  4; month["Apr"] =  5; month["Jun"] =  6
+	month["Jul"] =  7; month["Aug"] =  8; month["Sep"] =  9
+	month["Oct"] = 10; month["Nov"] = 11; month["Dec"] = 12
+}
+$13=="a" && $14 !~ /^\[.*\]$/ {
+	date = $5 % 100 * 10000 + month[$2] * 100 + $3
+	time = $4
+	file = $9
+	bytes = $8
+	user = $14
+	host = $7
+	dir = $12
+	if (user ~ /@$/) user = user host
+	sub ("^/\.[0-9]/", "/", file)
+	gsub (":", "", time)
+	print "ftp", date, time, bytes, dir, host, user, file
+}' $1

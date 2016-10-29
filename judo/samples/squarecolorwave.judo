@@ -1,0 +1,48 @@
+//~JUDOPROP~//$VERSION=1.2.1
+//~JUDOPROP~//$TITLE=square color wave
+//~JUDOPROP~//$TYPE=graphics
+int min(int a, int b) {
+	if (a < b)
+		return a;
+	else
+		return b;
+}
+
+void main() {delay(2);
+	// Clear the display to black
+	setBackgroundColor(black);
+
+	// Figure out how big our circle can be and where to put it
+	int maxSize = min(getDrawingWidth(), getDrawingHeight());
+	
+	int radius = maxSize / 2 * 9 / 10;
+	int centerX = getDrawingWidth() / 2 ;
+	int centerY = getDrawingHeight() / 2 ;
+
+	// This is how many colors we will cycle through
+	int maxColors = radius * 2;
+	Color colors[] = new Color[maxColors];
+
+	// Pick that many random colors
+	for (int i=0; i < maxColors; i++)
+	{
+		double theta = 2.0 * PI * intToDouble(i) / intToDouble(maxColors);
+		int blue = doubleToInt(128 + 127.0 * cos(theta));
+		int green = doubleToInt(128 + 127.0 * cos(theta + 2.0 * PI / 3.0));
+		int red = doubleToInt(128 + 127.0 * cos(theta + 4.0 * PI / 3.0));
+		colors[i] = getColor(red, green, blue) ; //randomColor();
+	}
+
+	// Draw squares of all those chosen colors, and rotate the colors
+	while (true)		// Forever
+	{
+		for (int rotate=0; rotate < maxColors; rotate++)
+		{
+			for (int i=0; i < radius*2; i++)
+			{
+				setColor(colors[(i + maxColors - rotate) % maxColors]);
+				drawRectangle(centerX-i/2, centerY-i/2, i, i);
+			}
+		}
+	}
+}

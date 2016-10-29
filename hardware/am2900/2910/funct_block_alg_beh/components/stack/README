@@ -1,0 +1,45 @@
+--------------------------------------------------------------------------------
+--
+--   AMD2910 Benchmark -- stack component
+--
+-- Source:  AMD data book
+--
+-- author: Indraneel Ghosh
+--         University Of California, Irvine, CA 92717
+--
+-- Written on Feb19, 1992
+--
+--------------------------------------------------------------------------------
+
+THIS DIRECTORY CONTAINS THE FOLLOWING FILES :
+
+stack.vhdl    :  File containing the funct_block_alg_beh "stack_and_sp" in 
+                 "funct_block_alg_beh2910.vhdl".
+
+test_vectors_stack.vhdl :  Simulation test vector file for "stack_and_sp"
+
+test_vectors_stack.doc  :  Documentation on test vectors in "test_vectors_stack.vhdl"
+
+cmd_stack.inc :  Simulation command file for "stack_and_sp"
+
+
+NOTE : 
+
+     To run simulation on Zycad ( Version 1.0) Simulator :
+
+     Run the following commands in the order given below.
+
+         zvan types.vhd
+
+         zvan MVL7_functions.vhd
+
+         zvan stack.vhdl 
+
+         zvan test_vectors_stack.vhdl
+
+         zvsim -t ns -i cmd_stack.inc E
+
+      As in other cases, the simulation results will be stored in file
+
+        "run.out"
+  

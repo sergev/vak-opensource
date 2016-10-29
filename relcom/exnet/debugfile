@@ -1,0 +1,11 @@
+create qwerty 1.1.70 1.1.25 The base test of server
+This is the base test of Infosoft Mail Server
+%
+send qwerty
+Message to lot qwerty
+%
+index
+longindex
+get qwerty
+destroy qwerty
+quit

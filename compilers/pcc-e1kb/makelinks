@@ -1,0 +1,15 @@
+
+INSTALL=/usr/SVSB
+
+set -x
+
+ln      $INSTALL/bin/cc         $HOME/bin/vcc
+ln      $INSTALL/bin/ar         $HOME/bin/var
+ln      $INSTALL/bin/as         $HOME/bin/vas
+ln      $INSTALL/bin/ld         $HOME/bin/vld
+ln      $INSTALL/bin/nm         $HOME/bin/vnm
+ln      $INSTALL/bin/dis        $HOME/bin/vdis
+ln      $INSTALL/bin/size       $HOME/bin/vsize
+ln      $INSTALL/bin/strip      $HOME/bin/vstrip
+ln      $INSTALL/bin/lorder     $HOME/bin/vlorder
+ln      $INSTALL/lib/ccom       $HOME/bin/vccom

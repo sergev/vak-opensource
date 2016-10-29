@@ -1,0 +1,67 @@
+CM 40M Phased Inverted Delta Loops
+CM center-fed for horizontal polarization
+CM PVC wire insulation added to model 5/09
+CM feedline matching sections added 5/09
+CM 
+CM changed spacing from 17 to 18 feet,
+CM added automatic corrections for Vf of line,
+CM and recalculated phasing section - 10/09
+CM 
+CM NOTE: radius of #14 AWG wire is in FEET and
+CM division by 3.28 in transmission line lengths are
+CM work-arounds for NEC unit conversion issues
+CM 
+CM model by Paul Lamattina - N2PL - May 2009
+CM 
+CE
+SY wire_len=138			'overall loop dimension
+SY top_hgt=35			'flat-top height
+SY top_len=61			'flat-top length
+SY leg_len=(wire_len-top_len)/2	'diagonal sides length
+SY dx=(top_len/2)		'1/2 top_len
+SY x=dx^2			'1/2 top_len squared
+SY v=leg_len^2			'leg_len squared
+SY dy=sqr(v-x)			'distance from top down to feed
+SY fp_hgt=top_hgt-dy		'feed point height
+SY spacing=18			'element spacing
+SY match_len=27.5ft		'matching section length (1/4 wave RG-11 Foam)
+SY phase_len=18.2ft		'phasing section length (18.2 ft in RG-8 = 72.2 degrees)
+SY ser_stub=33ft			'series matching stub (33 feet in RG-8)
+SY par_stub=30.15ft		'open final parallel matching stub (30.15 feet in RG-8)
+
+GW	1	40	-dx	0	top_hgt	dx	0	top_hgt	.0027	'flat-top wire 1
+GW	2	20	-dx	0	top_hgt	-0.25	0	fp_hgt	.0027	'- leg 1
+GW	3	20	0.25	0	fp_hgt	dx	0	top_hgt	.0027	'+ leg 1
+GW	4	1	0.25	0	fp_hgt	-0.25	0	fp_hgt	.0027	'feed point 1
+GW	11	40	-dx	spacing	top_hgt	dx	spacing	top_hgt	.0027	'flat-top wire 2
+GW	12	20	-dx	spacing	top_hgt	-0.25	spacing	fp_hgt	.0027	'- leg  2
+GW	13	20	0.25	spacing	fp_hgt	dx	spacing	top_hgt	.0027	'+ leg 2
+GW	14	1	0.25	spacing	fp_hgt	-0.25	spacing	fp_hgt	.0027	'feed point 2
+GW	21	1	0.25	0	5	-0.25	0	5	.0027	'match point 1
+GW	22	1	0.25	spacing	5	-0.25	spacing	5	.0027	'match point 2
+GW	31	1	.25	0	2	-.25	0	2	.0027	'series stub end
+GW	32	1	.25	10	2	-.25	10	2	.0027	'parallel stub end
+GS	0	0	ft	' 0.3048
+GE	-1
+
+LD	7	1	1	40	4.5	0.001422	'PVC insulation (radius in meters)
+LD	7	2	1	20	4.5	0.001422	'PVC insulation
+LD	7	3	1	20	4.5	0.001422	'PVC insulation
+LD	7	11	1	40	4.5	0.001422	'PVC insulation
+LD	7	12	1	20	4.5	0.001422	'PVC insulation
+LD	7	13	1	20	4.5	0.001422	'PVC insulation
+
+GN	2	0	0	0	10	0.001
+EK
+
+EX	0	31	1	0	1	0			'Voltage source
+
+TL	4	1	21	1	75	match_len/0.80	'/3.28	'matching 1
+TL	14	1	22	1	75	match_len/0.80	'/3.28	'matching 2
+TL	21	1	22	1	50	phase_len/0.66	'/3.28	'phasing section
+TL	21	1	31	1	50	ser_stub/0.66	'/3.28	'series matching section
+TL	31	1	32	1	50	par_stub/0.66	'/3.28	'parallel matching stub
+
+FR	0	0	0	0	7.15	0
+
+EN

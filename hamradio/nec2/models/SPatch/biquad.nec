@@ -1,0 +1,30 @@
+CM NEC Input File Biquad for 2439 MHz, Pow 20020608  |
+CM All data in wavelengths. Scaled to meters with GS |
+CM --------------------------[ http://pow.za.net/ ]--'
+CE
+SY  A = .1814     ' Element dimensions
+SY  B = A * 2     '
+SY  R = .006      ' Wire radius
+SY  L = R + .001  ' Gap for soldering to feed
+SY  H = .132      ' Element height over reflector
+SY RX = .500      ' Reflector vertical length / 2
+SY RY = .600      ' Reflector horizontal length / 2
+SY RH = .230      ' Height of reflector sides
+GW 1 10 H .0 L H A A R
+GW 2 10 H A A H B .0 R
+GX 1 011
+GW 9 1 H .0 -L H .0 L R
+SM 12 10 .0 -RY -RX .0 RY -RX
+SC 0 0 .0 RY RX
+SM 12 3 .0 -RY RX .0 RY RX
+SC 0 0 RH RY RX
+SM 3 12 .0 -RY -RX  RH -RY -RX
+SC 0 0 RH RY -RX
+GS 0 0 .123
+GE 0
+FR 0 1 0 0 2439. 0
+EX 0 9 1 0 1. 0
+RP 0 73 73 1001 -90. 90. 5. 5. 10000.
+EN
+
+

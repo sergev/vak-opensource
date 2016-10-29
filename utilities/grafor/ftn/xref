@@ -1,0 +1,1445 @@
+ADDLEV           ADDLEV                   sub      1d
+ABS              ANGLER           R*4     fun      5      16 
+ANGLER           ANGLER           R*4     fun      1d
+ATAN             ANGLER           R*4     fun      7       9      18      20 
+COS              ANGRID           R*4     fun      5 
+FLOAT            ANGRID           R*4     fun      7       8       9      10      14      15      16      17      21      22 
+SIN              ANGRID           R*4     fun      6 
+ANGRID           ANGRID                   sub      1d
+MOVE             ANGRID                   sub     18      19      25      26      35      36      42      43 
+IABS             APPOLY           I*4     fun      5 
+SQRT             APPOLY           R*4     fun     19 
+APPOLY           APPOLY                   sub      1d
+PVAL             APPOLY                   sub     16      24 
+ABS              ARC              R*4     fun     11      16      28 
+ATAN             ARC              R*4     fun     16      32 
+SQRT             ARC              R*4     fun     34 
+ARC              ARC                      sub      1d
+CIRCLE           ARC                      sub     43      44      46 
+MOVE             ARC                      sub     48      49      50 
+SQRT             ARC1             R*4     fun     17 
+ARC1             ARC1                     sub      1d
+ARCIB            ARC1                     sub     47 
+MOVE             ARC1                     sub     43 
+ABS              ARCANG           R*4     fun      4      11      12      29      29      58      60 
+ATAN             ARCANG           R*4     fun     10      30 
+IVEST            ARCANG           I*4     fun      6      11      12      57      59 
+SIGN             ARCANG           R*4     fun     58      60 
+SQRT             ARCANG           R*4     fun      5       9 
+ARCANG           ARCANG                   sub      1d
+ATAN             ARCC1            R*4     fun     15 
+IVEST            ARCC1            I*4     fun      7      11      17      19 
+SQRT             ARCC1            R*4     fun      5       6       8      12      14 
+ARCC1            ARCC1                    sub      1d
+ABS              ARCELA           R*4     fun      6       7 
+IVEST            ARCELA           I*4     fun      8 
+ARCELA           ARCELA                   sub      1d
+ELIPS            ARCELA                   sub     20 
+GFFALS           ARCELA                   sub     22 
+ABS              ARCELB           R*4     fun      4       5      12 
+COS              ARCELB           R*4     fun     10      11 
+SIN              ARCELB           R*4     fun     10      11 
+ARCANG           ARCELB                   sub     13 
+ARCELA           ARCELB                   sub     15 
+ARCELB           ARCELB                   sub      1d
+AREB1            ARCELB                   sub     14 
+ABS              ARCIA            R*4     fun      8       9      29 
+COS              ARCIA            R*4     fun     26      36      39 
+IVEST            ARCIA            I*4     fun     10 
+SIN              ARCIA            R*4     fun     31      37      40 
+ARCIA            ARCIA                    sub      1d
+GFFALS           ARCIA                    sub     43 
+MOVE             ARCIA                    sub     38      41 
+ARCANG           ARCIB                    sub      6 
+ARCIA            ARCIB                    sub      7 
+ARCIB            ARCIB                    sub      1d
+ARCANG           ARCIC                    sub      7 
+ARCC1            ARCIC                    sub      6 
+ARCIA            ARCIC                    sub      8 
+ARCIC            ARCIC                    sub      1d
+ANGLER           ARCID            R*4     fun      7 
+SQRT             ARCID            R*4     fun      6 
+ARCIA            ARCID                    sub     11 
+ARCID            ARCID                    sub      1d
+ABS              ARCOCC           R*4     fun      8       9      12      31      32      43 
+ANGLER           ARCOCC           R*4     fun     10      36 
+ATAN             ARCOCC           R*4     fun     28      30      65      66      86      87 
+COS              ARCOCC           R*4     fun     31      38      40      67      69 
+IABS             ARCOCC           I*4     fun     14      15      16      17      44      45      46      47      48      49 
+ISIGN            ARCOCC           I*4     fun     65      66      86      87 
+IVEST            ARCOCC           I*4     fun     13      24      43      51      56      61      81      82 
+SIN              ARCOCC           R*4     fun     32      39      41      68      70 
+SQRT             ARCOCC           R*4     fun     11      26      53      54      58      59      63      64      84      85 
+ARCOCC           ARCOCC                   sub      1d
+GFFALS           ARCOCC                   sub     98     100 
+ABS              ARCOLC           R*4     fun     12      17     102     107 
+ANGLER           ARCOLC           R*4     fun     23      88 
+ATAN             ARCOLC           R*4     fun     41      50 
+COS              ARCOLC           R*4     fun     42      51      94     104     109 
+FLOAT            ARCOLC           R*4     fun    103     108 
+IABS             ARCOLC           I*4     fun     26      27      60      61      67      72      78 
+ISIGN            ARCOLC           I*4     fun     41      50      65      70      76      81 
+IVEST            ARCOLC           I*4     fun     25      28      31      37      47      62      73      99 
+SIGN             ARCOLC           R*4     fun    103     108 
+SIN              ARCOLC           R*4     fun     43      52      95     105     110 
+SQRT             ARCOLC           R*4     fun     24      35      38 
+ARCOLC           ARCOLC                   sub      1d
+CIRTAC           ARCOLC                   sub     48      56     100 
+GFFALS           ARCOLC                   sub    112     114 
+MOVE             ARCOLC                   sub     44      53      57      96 
+STRMOD           ARCOLC                   sub     45      54      97 
+ABS              ARCOLL           R*4     fun     30      32 
+ANGLER           ARCOLL           R*4     fun     10      11 
+COS              ARCOLL           R*4     fun     31      33      35 
+IVEST            ARCOLL           I*4     fun     13      14      17 
+SIN              ARCOLL           R*4     fun     31      34      36 
+ARCOLL           ARCOLL                   sub      1d
+GFFALS           ARCOLL                   sub     38      40 
+ATAN             AREB1            R*4     fun     10      17      24      30 
+COS              AREB1            R*4     fun      9      16      23      29 
+SIN              AREB1            R*4     fun      9      16      23      29 
+AREB1            AREB1                    sub      1d
+ARRINL           ARRINL                   sub      1d
+ABS              ARROW            R*4     fun      9      34      35      36      37      40      43 
+ANGLER           ARROW            R*4     fun     17 
+COS              ARROW            R*4     fun     34      36 
+IVEST            ARROW            I*4     fun     10      23 
+SIN              ARROW            R*4     fun     35      37 
+ARCIA            ARROW                    sub     42 
+ARROW            ARROW                    sub      1d
+GFFALS           ARROW                    sub     45 
+MOVA             ARROW                    sub     20      21      26      27 
+MOVE             ARROW                    sub     18      22      24      28      39 
+STRMOD           ARROW                    sub      8      46 
+ABS              ASTEP            R*4     fun      5       6      29      29 
+AINT             ASTEP            R*4     fun     32      35      40      43      54      60      62      65      67 
+AMAX1            ASTEP            R*4     fun     29 
+ASTEP            ASTEP                    sub      1d
+ATDX             ATDX             R*4     fun      1d
+ATDX1            ATDX1            R*4     fun      1d
+COS              ATDX1            R*4     fun      2 
+ATDX2            ATDX2            R*4     fun      1d
+COS              ATDX2            R*4     fun      2 
+SIN              ATDX2            R*4     fun      2 
+ATDX3            ATDX3            R*4     fun      1d
+ATDY             ATDY             R*4     fun      1d
+ATDY1            ATDY1            R*4     fun      1d
+SIN              ATDY1            R*4     fun      2 
+ATDY2            ATDY2            R*4     fun      1d
+SIN              ATDY2            R*4     fun      2       2 
+ATDY3            ATDY3            R*4     fun      1d
+ATRAN2           ATRAN2                   sub      1d
+MTMPL            ATRAN2                   sub      5       9 
+ATRST            ATRST                    sub      1d
+ABS              AXES             R*4     fun     38      39      52      53     165     165     167     167     168     169 
+AINT             AXES             R*4     fun     37      51 
+AMIN1            AXES             R*4     fun     63     102     134     134 
+AMOD             AXES             R*4     fun     83      85     120     122 
+IABS             AXES             I*4     fun    132     133 
+MAX0             AXES             I*4     fun     21      24      30     134     134 
+MIN0             AXES             I*4     fun     30 
+ASTEP            AXES                     sub     34      45 
+AXES             AXES                     sub      1d
+BCD              AXES                     sub     87     124 
+IBCD             AXES                     sub    148     160 
+MOVE             AXES                     sub     62      72      73      74      77      78      89      91      92      94 
+SYMBOL           AXES                     sub     88     125     141     149     150     153     161     162 
+AMIN1            AXISC            R*4     fun     32 
+IABS             AXISC            I*4     fun     11      18 
+AXISC            AXISC                    sub      1d
+MOVE             AXISC                    sub     22      24      28      29 
+SYMBOL           AXISC                    sub     49      58 
+AXONOM           AXONOM                   sub      1d
+HCROT1           AXONOM                   sub      4 
+BAR              BAR                      sub      1d
+MOVE             BAR                      sub      7      11      14      18      20      37      39      41      71      73 
+TMF              BAR                      sub      6      10      13      17      19      36      38      40      70      72 
+BAR              BARS                     sub      8 
+BARS             BARS                     sub      1d
+BEGLEV           BEGLEV                   sub      1d
+GRAFER           BEGLEV                   sub     20 
+IABS             BITA             I*4     fun     22      22 
+BITA             BITA                     sub      1d
+ABS              BLAN             R*4     fun     12      47      48      80 
+PEEK             BLAN             R*4     fun     33      34      41      42 
+SIGN             BLAN             R*4     fun     13      47      48 
+BLAN             BLAN                     sub      1d
+IADR             BLANC            I*4     fun     16      17 
+BLANC            BLANC                    sub      1d
+GFFALS           BLANC                    sub     15 
+ABS              BLANCH           R*4     fun     20      55      56      88 
+ATAN2            BLANCH           R*4     fun     10 
+COS              BLANCH           R*4     fun     12 
+PEEK             BLANCH           R*4     fun     41      42      49      50 
+SIGN             BLANCH           R*4     fun     21      55      56 
+SIN              BLANCH           R*4     fun     11 
+BLANCH           BLANCH                   sub      1d
+ATDX             BOUND            R*4     fun     31      44 
+ATDY             BOUND            R*4     fun     34      45 
+BOUND            BOUND                    sub      1d
+BOX              BOX                      sub      1d
+MOVE             BOX                      sub      4       5       6       7       8 
+ABS              BRLINE           R*4     fun     19      19      21      21 
+AMAX1            BRLINE           R*4     fun     19      21      32      33 
+AMIN1            BRLINE           R*4     fun     32      33 
+SQRT             BRLINE           R*4     fun     38 
+BRLINE           BRLINE                   sub      1d
+MOVE             BRLINE                   sub     45      52      54 
+TMF              BRLINE                   sub     18      20      30 
+WHERE            BRLINE                   sub     17 
+BROKEN           BROKEN                   sub      1d
+ABS              BROLIN           R*4     fun     22 
+ATAN             BROLIN           R*4     fun     23 
+COS              BROLIN           R*4     fun     27      29 
+SIGN             BROLIN           R*4     fun     27      28      29      30 
+SIN              BROLIN           R*4     fun     28      30 
+SQRT             BROLIN           R*4     fun     17      38      44      62      68      88      94 
+BROLIN           BROLIN                   sub      1d
+MOVE             BROLIN                   sub     40      41      48      49      64      65      72      73      90      91 
+BUFL             BUFL                     sub      1d
+LININT           BUFL                     sub     13      15 
+BYPASS           BYPASS                   sub      1d
+FLOAT            CABIN            R*4     fun      5 
+CABIN            CABIN                    sub      1d
+SHEAR            CABIN                    sub      5       6 
+ABS              CCNTL            R*4     fun      8 
+SQRT             CCNTL            R*4     fun      5 
+CCNTL            CCNTL                    sub      1d
+SQRT             CCNTRP           R*4     fun      7 
+CCNTRP           CCNTRP                   sub      1d
+MOD              CELL             I*4     fun     43      48 
+CELL             CELL                     sub      1d
+COS              CHENSP           R*4     fun     13      36 
+CHENSP           CHENSP                   sub      1d
+COS              CILIND           R*4     fun     19      23      34 
+SIN              CILIND           R*4     fun     20      24      36 
+CILIND           CILIND                   sub      1d
+ARCIA            CIRC                     sub      7 
+CIRC             CIRC                     sub      1d
+MOVE             CIRC                     sub      6       8 
+ABS              CIRCLE           R*4     fun     10      10      18 
+COS              CIRCLE           R*4     fun     15      28      35 
+SIN              CIRCLE           R*4     fun     20      29      36 
+SQRT             CIRCLE           R*4     fun     10 
+CIRCLE           CIRCLE                   sub      1d
+MOVE             CIRCLE                   sub      8      34      37 
+ABS              CIRTAC           R*4     fun      8      12 
+ANGLER           CIRTAC           R*4     fun     17 
+ATAN             CIRTAC           R*4     fun     35 
+COS              CIRTAC           R*4     fun     36 
+FLOAT            CIRTAC           R*4     fun     35 
+IABS             CIRTAC           I*4     fun     19      26 
+IVEST            CIRTAC           I*4     fun      9      16      18      22      27      32 
+SIGN             CIRTAC           R*4     fun     35 
+SIN              CIRTAC           R*4     fun     37 
+SQRT             CIRTAC           R*4     fun     15      21      29      34 
+CIRTAC           CIRTAC                   sub      1d
+GFFALS           CIRTAC                   sub     39      42 
+STRMOD           CIRTAC                   sub      7      40 
+ABS              CIRTAL           R*4     fun      8       9 
+ANGLER           CIRTAL           R*4     fun     22 
+ATAN             CIRTAL           R*4     fun     20 
+COS              CIRTAL           R*4     fun     24 
+ISIGN            CIRTAL           I*4     fun     23 
+IVEST            CIRTAL           I*4     fun     15      16 
+SIN              CIRTAL           R*4     fun     21      25 
+SQRT             CIRTAL           R*4     fun     14      18 
+CIRTAL           CIRTAL                   sub      1d
+GFFALS           CIRTAL                   sub     30      33 
+STRMOD           CIRTAL                   sub      7      31 
+ATAN2            CMGRID           R*4     fun     33      76 
+COS              CMGRID           R*4     fun     34      35      77      78 
+FLOAT            CMGRID           R*4     fun     22      23      65      66 
+IABS             CMGRID           I*4     fun      6       7      36      38      79      81 
+MOD              CMGRID           I*4     fun     18      36      38      61      79      81 
+SIN              CMGRID           R*4     fun     34      35      77      78 
+XPOL             CMGRID           R*4     fun     15      30      46      58      73      89 
+YPOL             CMGRID           R*4     fun     16      31      47      59      74      90 
+CMGRID           CMGRID                   sub      1d
+MOVE             CMGRID                   sub     40      49      83      92 
+NUMBER           CMGRID                   sub     37      39      80      82 
+TMF              CMGRID                   sub     17      32      48      60      75      91 
+CMLC             CMLC                     sub      1d
+PMLP             CMLC                     sub      5 
+CMS              CMS                      sub      1d
+CNCPP            CNCPP                    sub      1d
+LPERLP           CNCPP                    sub     10 
+LPP              CNCPP                    sub      9 
+PILC             CNCPP                    sub     14 
+CNCTCC           CNCTCC                   sub      1d
+PICC             CNCTCC                   sub      7      13      19      25 
+CNCTCL           CNCTCL                   sub      1d
+LPARLD           CNCTCL                   sub      8       9 
+PILC             CNCTCL                   sub     10      15      21      26 
+CNCTCP           CNCTCP                   sub      1d
+PICC             CNCTCP                   sub      9      15 
+CNCTLL           CNCTLL                   sub      1d
+LPARLD           CNCTLL                   sub      6       7       9      10 
+PILL             CNCTLL                   sub      8      11      12      13 
+CNCTLP           CNCTLP                   sub      1d
+LPARLD           CNCTLP                   sub      8 
+LPERLP           CNCTLP                   sub      4 
+PILC             CNCTLP                   sub     12 
+PILL             CNCTLP                   sub      5 
+ABS              CNTLLL           R*4     fun     65 
+SQRT             CNTLLL           R*4     fun     20      21      22      64 
+CNTLLL           CNTLLL                   sub      1d
+LPARLD           CNTLLL                   sub     69      71 
+LPARLP           CNTLLL                   sub     68 
+PILL             CNTLLL                   sub      6       7       8      70      72 
+MOD              CONDEK           I*4     fun     30 
+CONDEK           CONDEK                   sub      1d
+FNROOT           CONDEK                   sub     38      40      43      92 
+INSDEK           CONDEK                   sub     62      74      88      98 
+TFM              CONDEK                   sub     17      18 
+WHERE            CONDEK                   sub      9 
+ALOG10           COORD            R*4     fun      7       7 
+AMIN1            COORD            R*4     fun      6 
+COORD            COORD            R*4     fun      1d
+ABS              COORDT           R*4     fun     75 
+SQRT             COORDT           R*4     fun     74      85 
+COORDT           COORDT                   sub      1d
+HCINIT           COORDT                   sub     80      97 
+HCNCOR           COORDT                   sub     23     108     110     132     134     158     162 
+MXMULT           COORDT                   sub     90      93 
+SORTY            COORDT                   sub     32 
+STROT3           COORDT                   sub     89      92 
+CORNL            CORNL                    sub      1d
+MAP              CORNL                    sub     56      82     119     155     186 
+MOVE             CORNL                    sub     69     136     160     173     201 
+PATCH            CORNL                    sub     72      74      94     138     177     209 
+TMF              CORNL                    sub     61      86     125     165     198 
+COSIN1           COSIN1           R*4     fun      1d
+ABS              COSIN2           R*4     fun      4 
+COSIN2           COSIN2           R*4     fun      1d
+SQRT             CPPP             R*4     fun     20 
+CPPP             CPPP                     sub      1d
+CPR              CPR                      sub      1d
+ABS              CROSS            R*4     fun     22      56      56      72      73 
+ANGLER           CROSS            R*4     fun     34 
+SQRT             CROSS            R*4     fun     50      63      74      80 
+CROSS            CROSS                    sub      1d
+GFFALS           CROSS                    sub    107     109     111 
+ABS              CROSSP           R*4     fun     10 
+CROSSP           CROSSP                   sub      1d
+ABS              CTCCP            R*4     fun      9       9      28      44 
+SQRT             CTCCP            R*4     fun     31      33      48      49      65      68 
+CTCCP            CTCCP                    sub      1d
+ABS              CTCPP            R*4     fun      7       7 
+SQRT             CTCPP            R*4     fun     30      32      55      57      68      69 
+CTCPP            CTCPP                    sub      1d
+ABS              CTLLL            R*4     fun     65 
+SQRT             CTLLL            R*4     fun     20      21      22      64 
+CTLLL            CTLLL                    sub      1d
+LPARLD           CTLLL                    sub     69      71 
+LPARLP           CTLLL                    sub     68 
+PILL             CTLLL                    sub      6       7       8      70      72 
+ABS              CTLLP            R*4     fun     12      13      25      31      49      71     108     130 
+SQRT             CTLLP            R*4     fun     14      15      52      54      74      76      88      91     113     124 
+CTLLP            CTLLP                    sub      1d
+LPERLP           CTLLP                    sub    119     120     121     132 
+PILC             CTLLP                    sub    114 
+PILL             CTLLP                    sub    110     122     123     133 
+ABS              CTLPP            R*4     fun     10      10      35      51      64 
+SQRT             CTLPP            R*4     fun     33      37      50      53      63      66      73      74 
+CTLPP            CTLPP                    sub      1d
+LPERLP           CTLPP                    sub     16 
+LPP              CTLPP                    sub     13 
+CUBPOL           CUBPOL                   sub      1d
+CXYR             CXYR                     sub      1d
+ABS              DANPPC           R*4     fun      7       9 
+ATAN             DANPPC           R*4     fun     10 
+SQRT             DANPPC           R*4     fun      5       6      10      11 
+DANPPC           DANPPC                   sub      1d
+ABS              DASHP            R*4     fun     10 
+SQRT             DASHP            R*4     fun      8 
+DASHP            DASHP                    sub      1d
+MOVE             DASHP                    sub      4      16      17      21      22      23      24      26 
+DDIST            DDIST                    sub      1d
+DERIV5           DERIV5           R*4     fun      1d
+COS              DIMAN            R*4     fun     15      17      19      21      29      31      37 
+SIN              DIMAN            R*4     fun     16      18      20      22      30      32      38 
+ARCIA            DIMAN                    sub     28 
+DIMAN            DIMAN                    sub      1d
+MOVE             DIMAN                    sub     23      24      25      26      27      33      34      35      36 
+NUMBER           DIMAN                    sub     39 
+ABS              DIMDRO           R*4     fun     12      32      34      35      70      72      76      76 
+IABS             DIMDRO           I*4     fun     13      36      77 
+SIGN             DIMDRO           R*4     fun     26      30      78      84      84      87      88      88 
+ARCIA            DIMDRO                   sub     87 
+ARROW            DIMDRO                   sub     38      46      49      79      85      89 
+DIMDRO           DIMDRO                   sub      1d
+GFFALS           DIMDRO                   sub     92 
+MOVA             DIMDRO                   sub     32      33      34      35      40      42      44      47      70      72 
+MOVE             DIMDRO                   sub     23      39      53      71      80      82      86      90 
+RDACA            DIMDRO                   sub     51 
+RDACB            DIMDRO                   sub     52 
+RDMVA            DIMDRO                   sub     22 
+RDSTR            DIMDRO                   sub     93 
+STRMOD           DIMDRO                   sub     11      20 
+WRACA            DIMDRO                   sub     78      84      88 
+WRMVA            DIMDRO                   sub     37      45      48 
+WRSTR            DIMDRO                   sub      8 
+ABS              DIMEN            R*4     fun     14 
+COS              DIMEN            R*4     fun     15      30      32 
+FLOAT            DIMEN            R*4     fun     30      32 
+SIN              DIMEN            R*4     fun     16      30      32 
+DIMEN            DIMEN                    sub      1d
+NARROW           DIMEN                    sub     17 
+NUMBER           DIMEN                    sub     35 
+DIMET            DIMET                    sub      1d
+TDROT            DIMET                    sub      5       6 
+ABS              DIST             R*4     fun      8      17      19      36      41      67      68 
+ANGLER           DIST             R*4     fun     37      73 
+COS              DIST             R*4     fun     38      48      50      71      72      82      82      82      82      90 
+DIST             DIST             R*4     fun      1d
+IVEST            DIST             I*4     fun     17      19      21      55 
+SIN              DIST             R*4     fun     39      49      51      71      72      82      82      82      83      91 
+SQRT             DIST             R*4     fun     15      30      41      57      61      98 
+AREB1            DIST                     sub     79 
+SECANT           DIST                     sub     14 
+STRMOD           DIST                     sub      7      13      44 
+FUNX             DRACON           R*4     fun      1d      3d     37      39      41      43      86p     99p    114p    124p
+FUNY             DRACON           R*4     fun      1d      3d     38      40      42      44      86p     99p    114p    124p
+MOD              DRACON           I*4     fun     18 
+SQRT             DRACON           R*4     fun     57      57      59      59 
+DRACON           DRACON                   sub      1d
+FNROOT           DRACON                   sub     23      25      30     118 
+INSIDE           DRACON                   sub     86      99     114     124 
+TMF              DRACON                   sub     45      46      47      48 
+WHERE            DRACON                   sub     10 
+FUNX             DRALIM           R*4     fun      1d      4d      6      15 
+FUNY             DRALIM           R*4     fun      1d      4d      8      16 
+DRALIM           DRALIM                   sub      1d
+DRAWEL           DRAWEL                   sub      1d
+MOVE             DRAWEL                   sub     12 
+TMF              DRAWEL                   sub      9 
+ABS              DRAWTE           R*4     fun     11      26 
+DRAWEL           DRAWTE                   sub     13      14      20      21      28      29      34      35 
+DRAWTE           DRAWTE                   sub      1d
+FUNX             DRFRAM           R*4     fun      1d      3d     10      19 
+FUNY             DRFRAM           R*4     fun      1d      3d     10      19 
+DRFRAM           DRFRAM                   sub      1d
+MOVE             DRFRAM                   sub     11      20 
+TMF              DRFRAM                   sub     10      19 
+DRW              DRW                      sub      1d
+HCNCOR           DRW                      sub      7      10 
+MOVE             DRW                      sub      9      12 
+TMF              DRW                      sub      8      11 
+DRWHL            DRWHL                    sub      1d
+HCNCOR           DRWHL                    sub      7      10 
+MOVE             DRWHL                    sub      9      12 
+TMF              DRWHL                    sub      8      11 
+ABS              ELIPS            R*4     fun      4       4      16      16 
+COS              ELIPS            R*4     fun      8       9      26      32 
+SIN              ELIPS            R*4     fun      8      10      24      27      30      33 
+SQRT             ELIPS            R*4     fun      8      25      31 
+ELIPS            ELIPS                    sub      1d
+MOVE             ELIPS                    sub     14      28      34 
+COS              ELPS             R*4     fun      8 
+SIN              ELPS             R*4     fun      9 
+ELIPS            ELPS                     sub     10 
+ELPS             ELPS                     sub      1d
+MOVE             ELPS                     sub     11 
+ENDLEV           ENDLEV                   sub      1d
+GRAFER           ENDLEV                   sub     29 
+MTMPL            ENDLEV                   sub     22 
+ATRST            ENDPG                    sub      8 
+END              ENDPG                    sub     18 
+ENDPG            ENDPG                    sub      1d
+REBLAN           ENDPG                    sub     11 
+RENTCH           ENDPG                    sub     10 
+EXMIMA           EXMIMA                   sub      1d
+ABS              EXTLN            R*4     fun     12      45 
+SQRT             EXTLN            R*4     fun     15 
+EXTLN            EXTLN                    sub      1d
+XPOL             EXTREM           R*4     fun      7      16 
+YPOL             EXTREM           R*4     fun      8      17 
+EXTREM           EXTREM                   sub      1d
+ATDX             EXUDE            R*4     fun     20 
+ATDY             EXUDE            R*4     fun     21 
+EXUDE            EXUDE                    sub      1d
+TOKEN            EXUDE                    sub     22 
+COS              FAN1             R*4     fun     12      14      16      18 
+SIN              FAN1             R*4     fun     13      15      17      19 
+ARC1             FAN1                     sub     21      25 
+FAN1             FAN1                     sub      1d
+MOVE             FAN1                     sub     22      23      26      27 
+ARC1             FAN2                     sub     29      32 
+FAN2             FAN2                     sub      1d
+MOVE             FAN2                     sub     30      31      33      34 
+ABS              FATARC           R*4     fun     11 
+SIGN             FATARC           R*4     fun     11 
+ARCANG           FATARC                   sub      8 
+ARCIA            FATARC                   sub      9      12      14 
+FATARC           FATARC                   sub      1d
+MOVA             FATARC                   sub     10      13 
+MOVE             FATARC                   sub     15 
+SQRT             FATLIN           R*4     fun      6 
+FATLIN           FATLIN                   sub      1d
+MOVE             FATLIN                   sub     12      13      14      15      16      17 
+FNROOT           FNROOT                   sub      1d
+ITPLBV           FNROOT                   sub     21      35      59      73 
+ABS              FORFIT           R*4     fun     23 
+COS              FORFIT           R*4     fun     30 
+IABS             FORFIT           I*4     fun     14 
+SIN              FORFIT           R*4     fun     30 
+FORFIT           FORFIT                   sub      1d
+MOVE             FORFIT                   sub     37 
+TMF              FORFIT                   sub     36 
+COS              FORIF            R*4     fun     19 
+FUN              FORIF            R*4     fun      1d      5d     23      29 
+SIN              FORIF            R*4     fun     18 
+FORIF            FORIF                    sub      1d
+COS              FORIT            R*4     fun     18 
+SIN              FORIT            R*4     fun     17 
+FORIT            FORIT                    sub      1d
+FULL             FULL                     sub      1d
+ENDPG            GFFALS                   sub     10 
+GFFALS           GFFALS                   sub      1d
+GRAFER           GRAFER                   sub      1d
+FLOAT            GRID             R*4     fun      4      16 
+GRID             GRID                     sub      1d
+MOVE             GRID                     sub      6       8       9      19      20 
+COORDT           HALLNE                   sub     12 
+HALLNE           HALLNE                   sub      1d
+HALOED           HALLNE                   sub     16 
+DRAWTE           HALOED                   sub     37      56      82 
+HALOED           HALOED                   sub      1d
+HLDLN            HALOED                   sub     29      52      73      75      77     101     103     105     107     109 
+HCIND            HCIND            R*4     fun      1d
+HCINIT           HCINIT                   sub      1d
+HCINV            HCINV                    sub      1d
+HCLINE           HCLINE                   sub      1d
+LINEO            HCLINE                   sub      3 
+HCMULT           HCMULT                   sub      1d
+HCNCOR           HCNCOR                   sub      1d
+HCNCRD           HCNCRD                   sub      1d
+HCMULT           HCPRSP                   sub      6 
+HCPRSP           HCPRSP                   sub      1d
+HCUNIT           HCPRSP                   sub      4 
+ABS              HCROT1           R*4     fun      5       6       6 
+ATAN2            HCROT1           R*4     fun      5       6 
+SQRT             HCROT1           R*4     fun      4 
+HCROT1           HCROT1                   sub      1d
+TDROT            HCROT1                   sub     24      25 
+IABS             HCSURF           I*4     fun      6       7 
+ISIGN            HCSURF           I*4     fun     38 
+HCSURF           HCSURF                   sub      1d
+TDSECT           HCSURF                   sub     41 
+HCUNIT           HCUNIT                   sub      1d
+ABS              HISTGM           R*4     fun     37 
+AMIN1            HISTGM           R*4     fun     46 
+IABS             HISTGM           I*4     fun     10 
+HISTGM           HISTGM                   sub      1d
+MOVE             HISTGM                   sub      8      17      20      22      29      31      34      36      60      62 
+TMF              HISTGM                   sub      7      16      19      21      28      30      33      35      38      39 
+ABS              HLDLN            R*4     fun    118     223 
+AMAX1            HLDLN            R*4     fun    235 
+AMIN1            HLDLN            R*4     fun    230 
+SQRT             HLDLN            R*4     fun    171 
+CROSSP           HLDLN                    sub    132     139 
+EXTLN            HLDLN                    sub     28      61 
+HLDLN            HLDLN                    sub      1d
+STORIN           HLDLN                    sub    248 
+IABS             ILIMTN           I*4     fun      5 
+ILIMTN           ILIMTN                   sub      1d
+INCHES           INCHES                   sub      1d
+ABS              INCLIN           R*4     fun     31      31      32      32 
+AMAX1            INCLIN           R*4     fun     31      32      45      46      58      59 
+AMIN1            INCLIN           R*4     fun     45      46      58      59 
+IABS             INCLIN           I*4     fun      8 
+INCLIN           INCLIN                   sub      1d
+MARKER           INCLIN                   sub     54      63 
+MOVE             INCLIN                   sub     47      60 
+TMF              INCLIN                   sub     29      30      56 
+WHERE            INCLIN                   sub      9 
+HCUNIT           INIT                     sub      6 
+INIT             INIT                     sub      1d
+ABS              INSDEK           R*4     fun     20      20      49      51 
+INSDEK           INSDEK                   sub      1d
+ITPLBV           INSDEK                   sub     48 
+MOVE             INSDEK                   sub     23      63      68      74 
+NUMBER           INSDEK                   sub     62 
+TMF              INSDEK                   sub     22      61      67      73 
+ABS              INSIDE           R*4     fun     24      25      59      61 
+FUNX             INSIDE           R*4     fun      1d      3d     28      73      79 
+FUNY             INSIDE           R*4     fun      1d      3d     28      73      79 
+INSIDE           INSIDE                   sub      1d
+ITPLBV           INSIDE                   sub     58 
+MOVE             INSIDE                   sub     29      74      80 
+NUMBER           INSIDE                   sub     32 
+TMF              INSIDE                   sub     28      73      79 
+ABS              INTRSC           R*4     fun      9 
+AMAX1            INTRSC           R*4     fun     16      17      17      18      19      19 
+AMIN1            INTRSC           R*4     fun     16      16      17      18      18      19 
+INTRSC           INTRSC                   sub      1d
+IABS             ISOLIN           I*4     fun     10      11      25      26      56      56 
+XPOL             ISOLIN           R*4     fun     22 
+YPOL             ISOLIN           R*4     fun     23 
+ISOLIN           ISOLIN                   sub      1d
+LINEO            ISOLIN                   sub     29      32      34 
+LOOK             ISOLIN                   sub     69      89 
+ISOMET           ISOMET                   sub      1d
+TDROT            ISOMET                   sub      5       6 
+ITALIC           ITALIC                   sub      1d
+ABS              ITPLBV           R*4     fun    246     247     256     257 
+ITPLBV           ITPLBV                   sub      1d
+ABS              IVEST            R*4     fun      4 
+IVEST            IVEST            I*4     fun      1d
+IZFLIN           IZFLIN                   sub      1d
+IZLIN            IZFLIN                   sub      9 
+LOWER            IZFLIN                   sub     12 
+RAISE            IZFLIN                   sub      6 
+ABS              IZLIN            R*4     fun     26      28      42      44      58      60      74      76      85      87 
+XILIY            IZLIN            R*4     fun    110     118     125     132 
+IZLIN            IZLIN                    sub      1d
+LETIZO           IZLIN                    sub    138 
+RECUR            IZLIN                    sub     90 
+IZLIN            IZOLIN                   sub      7 
+IZOLIN           IZOLIN                   sub      1d
+LOWER            IZOLIN                   sub      9 
+RAISE            IZOLIN                   sub      5 
+XPOL             KEYPO            R*4     fun      9 
+YPOL             KEYPO            R*4     fun     10 
+KEYPO            KEYPO                    sub      1d
+MARKER           KEYPO                    sub     13 
+MOVE             KEYPO                    sub     12 
+NUMBER           KEYPO                    sub     14 
+TMF              KEYPO                    sub     11 
+LCROSS           LCROSS                   sub      1d
+IABS             LESQ             I*4     fun      5       6 
+LESQ             LESQ                     sub      1d
+SMINV            LESQ                     sub     24 
+LETIZO           LETIZO                   sub      1d
+LINNUM           LETIZO                   sub     13 
+MARKBE           LETIZO                   sub     12 
+TRANSF           LETIZO                   sub     11 
+LETSPL           LETSPL                   sub      1d
+TDLINE           LETSPL                   sub      5 
+levfun.f:
+LEVFUN           LEVFUN                   sub      1d
+MINMAX           LEVFUN                   sub      5 
+LEVMAP           LEVMAP                   sub      1d
+ABS              LGLINE           R*4     fun     23      23      24      24 
+AMAX1            LGLINE           R*4     fun     23      24 
+IABS             LGLINE           I*4     fun      8 
+LGLINE           LGLINE                   sub      1d
+MARKER           LGLINE                   sub     39      45 
+MOVE             LGLINE                   sub     32      42      46 
+TMLGF            LGLINE                   sub     21      22      41 
+WHERE            LGLINE                   sub      9 
+ABS              LICON            R*4     fun      8       9 
+ANGLER           LICON            R*4     fun     10 
+ATAN             LICON            R*4     fun     22      26      52 
+COS              LICON            R*4     fun     34      36      60      62 
+IVEST            LICON            I*4     fun     12      14      15      16      41 
+SIN              LICON            R*4     fun     35      37      61      63 
+SQRT             LICON            R*4     fun     11      21      25      47      49      50 
+GFFALS           LICON                    sub     65      67 
+LICON            LICON                    sub      1d
+LIMITS           LIMITS                   sub      1d
+AMAX1            LINEMC           R*4     fun     20      21 
+AMIN1            LINEMC           R*4     fun     20      21 
+IABS             LINEMC           I*4     fun     13      16 
+LINEMC           LINEMC                   sub      1d
+MARKER           LINEMC                   sub     28 
+MOVE             LINEMC                   sub     25      31 
+TMF              LINEMC                   sub     18 
+ABS              LINEMO           R*4     fun     19      19      21      21 
+AMAX1            LINEMO           R*4     fun     19      21      31      32 
+AMIN1            LINEMO           R*4     fun     31      32 
+IABS             LINEMO           I*4     fun     12      16 
+LINEMO           LINEMO                   sub      1d
+MARKER           LINEMO                   sub     36      39 
+MOVE             LINEMO                   sub     33 
+TMF              LINEMO                   sub     18      20      28 
+WHERE            LINEMO                   sub     17 
+ABS              LINEO            R*4     fun     15      15      17      17 
+AMAX1            LINEO            R*4     fun     15      17      27      28 
+AMIN1            LINEO            R*4     fun     27      28 
+IABS             LINEO            I*4     fun     12 
+LINEO            LINEO                    sub      1d
+MOVE             LINEO                    sub     29 
+TMF              LINEO                    sub     14      16      24 
+WHERE            LINEO                    sub     13 
+GRAFER           LINFIL                   sub     18 
+LINFIL           LINFIL                   sub      1d
+LININT           LININT                   sub      1d
+ABS              LINNUM           R*4     fun     35      37      38 
+ATAN2            LINNUM           R*4     fun     33      34      54 
+COS              LINNUM           R*4     fun     56      61 
+FLOAT            LINNUM           R*4     fun     14 
+SIN              LINNUM           R*4     fun     55      60 
+SQRT             LINNUM           R*4     fun     22      52 
+BRLINE           LINNUM                   sub     44      68 
+LINNUM           LINNUM                   sub      1d
+NUMBER           LINNUM                   sub     63 
+TMF              LINNUM                   sub     20      21      29      30      31      43      51 
+XPOL             LINT             R*4     fun     15 
+YPOL             LINT             R*4     fun     16 
+LINT             LINT                     sub      1d
+ABS              LITAN            R*4     fun      5 
+ANGLER           LITAN            R*4     fun     11 
+ATAN             LITAN            R*4     fun     13 
+COS              LITAN            R*4     fun     18 
+IVEST            LITAN            I*4     fun      9 
+SIN              LITAN            R*4     fun     19 
+SQRT             LITAN            R*4     fun     10 
+GFFALS           LITAN                    sub     21 
+LITAN            LITAN                    sub      1d
+RDCRC            LITAN                    sub      4 
+LMLL             LMLL                     sub      1d
+LPARLP           LMLL                     sub     18 
+LPP              LMLL                     sub     14 
+PILC             LMLL                     sub     12 
+PILL             LMLL                     sub      7      16 
+PMLP             LMLL                     sub     13      17 
+XPOL             LOCEXT           R*4     fun     31 
+YPOL             LOCEXT           R*4     fun     32 
+LOCEXT           LOCEXT                   sub      1d
+MARKER           LOCEXT                   sub     35 
+MOVE             LOCEXT                   sub     34 
+NUMBER           LOCEXT                   sub     40 
+TMF              LOCEXT                   sub     33 
+MOD              LOOK             I*4     fun     13      14      14      15      16      16      28      29      29      30 
+CELL             LOOK                     sub     22 
+LINNUM           LOOK                     sub     33      35 
+LINT             LOOK                     sub     20      23 
+LOOK             LOOK                     sub      1d
+ZAPIT            LOOK                     sub     18      32      36 
+LOWER            LOWER                    sub      1d
+ATAN2            LPAL             R*4     fun      3 
+LPAL             LPAL                     sub      1d
+LPAX             LPAL                     sub      5 
+ABS              LPARLD           R*4     fun      9      14 
+SQRT             LPARLD           R*4     fun      4 
+LPARLD           LPARLD                   sub      1d
+LPARLP           LPARLP                   sub      1d
+LPARX            LPARX                    sub      1d
+LPARY            LPARY                    sub      1d
+ABS              LPAX             R*4     fun      4       4 
+COS              LPAX             R*4     fun      6 
+SIN              LPAX             R*4     fun      6 
+LPAX             LPAX                     sub      1d
+LPERLP           LPAX                     sub     11 
+LPERLP           LPERLP                   sub      1d
+ABS              LPP              R*4     fun      4       6      12 
+LPP              LPP                      sub      1d
+ATAN2            LSCALE           R*4     fun      5       8 
+ATRAN2           LSCALE                   sub      6      10 
+LSCALE           LSCALE                   sub      1d
+ROTATE           LSCALE                   sub      4       7 
+ABS              LSFIT            R*4     fun      9      11      42 
+ALOG10           LSFIT            R*4     fun      9      11      12      16 
+FLOAT            LSFIT            R*4     fun     12 
+IABS             LSFIT            I*4     fun      7       8      21      33 
+ISIGN            LSFIT            I*4     fun     25 
+GRAFER           LSFIT                    sub     22      24 
+LESQ             LSFIT                    sub     26 
+LSFIT            LSFIT                    sub      1d
+MINMAX           LSFIT                    sub     10      15 
+MOVE             LSFIT                    sub     53 
+PVAL             LSFIT                    sub     29      46 
+TMF              LSFIT                    sub     52 
+SQRT             MAP              R*4     fun      9      13      14 
+MAP              MAP                      sub      1d
+SQRT             MARKBE           R*4     fun      8 
+MARKBE           MARKBE                   sub      1d
+MOVE             MARKBE                   sub     24      25 
+TMF              MARKBE                   sub     14      19 
+MOD              MARKER           I*4     fun     42      51      53 
+MARKER           MARKER                   sub      1d
+MOVE             MARKER                   sub     54      59 
+SQRT             MATEVL           R*4     fun      4       8 
+MATEVL           MATEVL                   sub      1d
+AMAX1            MINMAX           R*4     fun      8 
+AMIN1            MINMAX           R*4     fun      7 
+MINMAX           MINMAX                   sub      1d
+MMS              MMS                      sub      1d
+LIMITS           MNMX                     sub     96 
+MAP              MNMX                     sub     69 
+MNMX             MNMX                     sub      1d
+ABS              MODGF            R*4     fun     18      19 
+IABS             MODGF            I*4     fun      5 
+ISIGN            MODGF            I*4     fun      9 
+MODGF            MODGF            I*4     fun      1d
+COS              MOVA             R*4     fun      4 
+SIN              MOVA             R*4     fun      5 
+MOVA             MOVA                     sub      1d
+MOVE             MOVA                     sub      6 
+MOVB             MOVB                     sub      1d
+MOVE             MOVB                     sub      4 
+SQRT             MOVC             R*4     fun      7 
+MOVC             MOVC                     sub      1d
+MOVE             MOVC                     sub     11 
+AMAX1            MOVE             R*4     fun     23      24 
+AMIN1            MOVE             R*4     fun     23      24 
+INT              MOVE             I*4     fun     28      28 
+MOVE             MOVE                     sub      1d
+PLOT             MOVE                     sub     28 
+AMAX1            MOVE1            R*4     fun     22      23 
+AMIN1            MOVE1            R*4     fun     22      23 
+INT              MOVE1            I*4     fun     39      39 
+BLAN             MOVE1                    sub     47 
+BLANCH           MOVE1                    sub     34 
+MOVE1            MOVE1                    sub      1d
+PLOT             MOVE1                    sub     39 
+AMAX1            MOVE2            R*4     fun     23      24      41      42 
+AMIN1            MOVE2            R*4     fun     23      24 
+INT              MOVE2            I*4     fun     59      59 
+MOVE2            MOVE2                    sub      1d
+NOTCH1           MOVE2                    sub     38      55 
+PLOT             MOVE2                    sub     59 
+AMAX1            MOVE3            R*4     fun     23      24      42      43 
+AMIN1            MOVE3            R*4     fun     23      24 
+INT              MOVE3            I*4     fun     89      89 
+BLAN             MOVE3                    sub    100 
+BLANCH           MOVE3                    sub     68 
+MOVE3            MOVE3                    sub      1d
+NOTCH1           MOVE3                    sub     38      59      80 
+PLOT             MOVE3                    sub     89 
+MTMPL            MTMPL                    sub      1d
+MXMULT           MXMULT                   sub      1d
+ABS              NARROW           R*4     fun     28      39 
+ATAN             NARROW           R*4     fun     17 
+COS              NARROW           R*4     fun     41      45 
+SIN              NARROW           R*4     fun     42      46 
+MOVE             NARROW                   sub     33      34      43      44      47      48      50      51 
+NARROW           NARROW                   sub      1d
+BYPASS           NEWFRM                   sub      4 
+NEWFRM           NEWFRM                   sub      1d
+COSIN1           NEXTRG           R*4     fun     15      16      18      52      54 
+IABS             NEXTRG           I*4     fun      6       8      11      24      33      37      45      70      74      84 
+ILIMTN           NEXTRG                   sub    113     115     123 
+NEXTRG           NEXTRG                   sub      1d
+TRG              NEXTRG                   sub     61      67 
+IADR             NOTCH            I*4     fun      9      10      12 
+GFFALS           NOTCH                    sub     19 
+NOTCH            NOTCH                    sub      1d
+ABS              NOTCH1           R*4     fun     21 
+IPEEK            NOTCH1           I*4     fun     32      39      43 
+SQRT             NOTCH1           R*4     fun     20 
+GFFALS           NOTCH1                   sub     51 
+IPOKE            NOTCH1                   sub     33      40      52 
+NOTCH1           NOTCH1                   sub      1d
+POKE             NOTCH1                   sub     36      37      44      45 
+ABS              NUMBER           R*4     fun      6      11 
+ALOG10           NUMBER           R*4     fun     22 
+FLOAT            NUMBER           R*4     fun     22 
+INT              NUMBER           I*4     fun     19 
+MOD              NUMBER           I*4     fun     26 
+NUMBER           NUMBER                   sub      1d
+SYMBOL           NUMBER                   sub      9      10      27      31      36 
+NUMLIN           NUMLIN                   sub      1d
+OPER             OPER                     sub      1d
+COS              PAC              R*4     fun      5 
+SIN              PAC              R*4     fun      6 
+PAC              PAC                      sub      1d
+AMAX1            PAGE             R*4     fun     10      11 
+AMIN1            PAGE             R*4     fun     10      11 
+INT              PAGE             I*4     fun     16      16 
+BEGIN            PAGE                     sub     16 
+BOX              PAGE                     sub     18 
+PAGE             PAGE                     sub      1d
+SET              PAGE                     sub     17 
+SYMBOL           PAGE                     sub     19 
+INT              PAINT            I*4     fun      3       3 
+PAINT            PAINT                    sub      1d
+PAINTA           PAINT                    sub      3 
+PAC              PATA                     sub     12 
+PATA             PATA                     sub      1d
+PAC              PATC                     sub     14 
+PATC             PATC                     sub      1d
+BUFL             PATCH                    sub     37      97 
+LININT           PATCH                    sub     20 
+MOVE             PATCH                    sub     40      42      43      90     106 
+PATCH            PATCH                    sub      1d
+SEARCH           PATCH                    sub     29      51 
+PATL             PATL                     sub      1d
+COS              PCDP             R*4     fun      7       8       9      10 
+SIN              PCDP             R*4     fun      7       8       9      10 
+SQRT             PCDP             R*4     fun      4 
+PCDP             PCDP                     sub      1d
+COS              PCNAP            R*4     fun      6       7 
+SIN              PCNAP            R*4     fun      6       7 
+PCNAP            PCNAP                    sub      1d
+ABS              PCNITC           R*4     fun     51 
+SQRT             PCNITC           R*4     fun     15      16      17      50 
+LPERLP           PCNITC                   sub     31 
+LPP              PCNITC                   sub     22      23      30      49 
+PCNITC           PCNITC                   sub      1d
+PILL             PCNITC                   sub     24      32 
+ABS              PCNP             R*4     fun      6 
+SQRT             PCNP             R*4     fun      9 
+LPP              PCNP                     sub      4 
+PCNP             PCNP                     sub      1d
+PILC             PCNP                     sub      7 
+SPNP             PCNP                     sub      8 
+PCNTRC           PCNTRC                   sub      1d
+PEN              PEN                      sub      1d
+SETPEN           PEN                      sub      2 
+ABS              PICC             R*4     fun      4       5      13 
+SQRT             PICC             R*4     fun      6      15 
+PICC             PICC                     sub      1d
+ABS              PICTUR           R*4     fun     13      14      21      38     105 
+IABS             PICTUR           I*4     fun     46 
+LCROSS           PICTUR                   sub     58 
+MOVE             PICTUR                   sub     63      64      70      73      98     102 
+PICTUR           PICTUR                   sub      1d
+SCREN1           PICTUR                   sub     28 
+SCREN2           PICTUR                   sub     14      38 
+SEGANG           PICTUR                   sub     13 
+TMF              PICTUR                   sub     59      62      72      97     101 
+PIEPP            PIEPP                    sub      1d
+ABS              PILC             R*4     fun      9      10 
+SQRT             PILC             R*4     fun      4      19 
+PILC             PILC                     sub      1d
+ABS              PILL             R*4     fun      8 
+PILL             PILL                     sub      1d
+LPP              PISS                     sub      4       5 
+PILL             PISS                     sub      6 
+PISS             PISS                     sub      1d
+SQRT             PLDP             R*4     fun     15      17      22      24 
+PLDP             PLDP                     sub      1d
+ABS              PLNP             R*4     fun      5 
+SQRT             PLNP             R*4     fun      4 
+LPERLP           PLNP                     sub      3 
+PLNP             PLNP                     sub      1d
+PMIDPP           PMIDPP                   sub      1d
+PMLP             PMLP                     sub      1d
+PMP              PMP                      sub      1d
+PMPP             PMPP                     sub      1d
+COSIN2           PNORDR           R*4     fun      7       8      12      13 
+IABS             PNORDR           I*4     fun      5       6      11 
+PNORDR           PNORDR                   sub      1d
+ABS              POLG             R*4     fun      8 
+SIN              POLG             R*4     fun      9      13 
+MOVA             POLG                     sub     10      12      17      19 
+MOVE             POLG                     sub     20 
+POLG             POLG                     sub      1d
+ABS              POLINE           R*4     fun     28      28      29      29 
+AMAX1            POLINE           R*4     fun     28      29 
+IABS             POLINE           I*4     fun      8      10 
+ISIGN            POLINE           I*4     fun     13 
+MARKER           POLINE                   sub     44      50 
+MOVE             POLINE                   sub     37      47      51 
+POLINE           POLINE                   sub      1d
+TPF              POLINE                   sub     26      27      46 
+WHERE            POLINE                   sub      9 
+COS              POLREG           R*4     fun     27      36      44      57 
+IABS             POLREG           I*4     fun     20 
+SIN              POLREG           R*4     fun     28      37      45      58 
+CIRCLE           POLREG                   sub     35      40      49      52 
+MOVE             POLREG                   sub     31      34      38 
+POLREG           POLREG                   sub      1d
+SYMBOL           POLREG                   sub     63 
+COS              POLYG            R*4     fun     12      16      23 
+SIN              POLYG            R*4     fun     13      17      24 
+MOVE             POLYG                    sub      6      14      18      25 
+POLYG            POLYG                    sub      1d
+COS              PRAP             R*4     fun      6 
+SIN              PRAP             R*4     fun      7 
+PRAP             PRAP                     sub      1d
+LIMITS           PREP                     sub     28 
+MATEVL           PREP                     sub      7 
+PREP             PREP                     sub      1d
+PROJCT           PREP                     sub     10      14 
+ABS              PRJ              R*4     fun     14 
+SQRT             PRJ              R*4     fun     13      22 
+HCINIT           PRJ                      sub     27      48      59 
+MXMULT           PRJ                      sub     39      52 
+PRJ              PRJ                      sub      1d
+STROT3           PRJ                      sub     33      37 
+ABS              PRJHL            R*4     fun      7 
+SQRT             PRJHL            R*4     fun      6      22 
+HCINIT           PRJHL                    sub      5      37 
+MXMULT           PRJHL                    sub     27      40 
+PRJHL            PRJHL                    sub      1d
+STROT3           PRJHL                    sub     24      26 
+PROJCT           PROJCT                   sub      1d
+CORNL            PRSP                     sub     55      57      59      61      71      73      83      85      96      98 
+PRSP             PRSP                     sub      1d
+ATRAN2           PSCALE                   sub      3 
+PSCALE           PSCALE                   sub      1d
+ABS              PTLCC            R*4     fun      8       9      12 
+ATAN2            PTLCC            R*4     fun     15 
+COS              PTLCC            R*4     fun     16      18 
+SIN              PTLCC            R*4     fun     17      19 
+SQRT             PTLCC            R*4     fun      7      14      32      34 
+PTLCC            PTLCC                    sub      1d
+ABS              PTLPC            R*4     fun      4 
+SQRT             PTLPC            R*4     fun      7      12      14 
+PTLPC            PTLPC                    sub      1d
+PVAL             PVAL                     sub      1d
+SQRT             PVPL             R*4     fun     22      24 
+PVPL             PVPL                     sub      1d
+PXY              PXY                      sub      1d
+QUADRA           QUADRA                   sub      1d
+ABS              RAISE            R*4     fun      7 
+EXMIMA           RAISE                    sub      3 
+RAISE            RAISE                    sub      1d
+ABS              RCCNTC           R*4     fun      6 
+SQRT             RCCNTC           R*4     fun      5 
+RCCNTC           RCCNTC                   sub      1d
+ABS              RDACA            R*4     fun      5       8       9 
+COS              RDACA            R*4     fun      8 
+SIN              RDACA            R*4     fun      9 
+GFFALS           RDACA                    sub     14 
+RDACA            RDACA                    sub      1d
+STRMOD           RDACA                    sub      4      15 
+ABS              RDACB            R*4     fun      5      10      11      12      13 
+COS              RDACB            R*4     fun     10      12 
+SIN              RDACB            R*4     fun     11      13 
+GFFALS           RDACB                    sub     23 
+RDACB            RDACB                    sub      1d
+STRMOD           RDACB                    sub      4      24 
+ABS              RDACC            R*4     fun      5      10 
+COS              RDACC            R*4     fun     11      12      13 
+SIN              RDACC            R*4     fun     14      15      16 
+GFFALS           RDACC                    sub     19 
+RDACC            RDACC                    sub      1d
+STRMOD           RDACC                    sub      4      20 
+ABS              RDACD            R*4     fun      5      10      11 
+COS              RDACD            R*4     fun     10 
+SIN              RDACD            R*4     fun     11 
+GFFALS           RDACD                    sub     14 
+RDACD            RDACD                    sub      1d
+STRMOD           RDACD                    sub      4      15 
+ABS              RDAEA            R*4     fun      5      15 
+COS              RDAEA            R*4     fun     18      19 
+SIN              RDAEA            R*4     fun     18      20 
+SQRT             RDAEA            R*4     fun     18 
+GFFALS           RDAEA                    sub     22 
+RDAEA            RDAEA                    sub      1d
+STRMOD           RDAEA                    sub      4      23 
+ABS              RDAEB            R*4     fun      5      15      16 
+COS              RDAEB            R*4     fun     17      18      19      21 
+SIN              RDAEB            R*4     fun     17      18      20      22 
+SQRT             RDAEB            R*4     fun     17      18 
+GFFALS           RDAEB                    sub     24 
+RDAEB            RDAEB                    sub      1d
+STRMOD           RDAEB                    sub      4      25 
+ABS              RDCRC            R*4     fun      5 
+GFFALS           RDCRC                    sub     13 
+RDCRC            RDCRC                    sub      1d
+STRMOD           RDCRC                    sub      4      14 
+ABS              RDELP            R*4     fun      5 
+GFFALS           RDELP                    sub     13 
+RDELP            RDELP                    sub      1d
+STRMOD           RDELP                    sub      4      14 
+ABS              RDMVA            R*4     fun      5 
+ANGLER           RDMVA            R*4     fun     12 
+SQRT             RDMVA            R*4     fun     11 
+GFFALS           RDMVA                    sub     14 
+RDMVA            RDMVA                    sub      1d
+STRMOD           RDMVA                    sub      4      15 
+ABS              RDMVB            R*4     fun      5 
+GFFALS           RDMVB                    sub     12 
+RDMVB            RDMVB                    sub      1d
+STRMOD           RDMVB                    sub      4      13 
+ABS              RDMVC            R*4     fun      5 
+SQRT             RDMVC            R*4     fun     13 
+GFFALS           RDMVC                    sub     15 
+RDMVC            RDMVC                    sub      1d
+STRMOD           RDMVC                    sub      4      16 
+ABS              RDMVE            R*4     fun      5 
+GFFALS           RDMVE                    sub     12 
+RDMVE            RDMVE                    sub      1d
+STRMOD           RDMVE                    sub      4      13 
+RDSTR            RDSTR                    sub      1d
+MOVE             REBLAN                   sub     14 
+REBLAN           REBLAN                   sub      1d
+COS              RECT             R*4     fun      4 
+SIN              RECT             R*4     fun      3 
+MOVE             RECT                     sub      5       8      11      14      15 
+RECT             RECT                     sub      1d
+ABS              RECUR            R*4     fun      5 
+RECUR            RECUR                    sub      1d
+AMAX1            REGION           R*4     fun      8 
+AMIN1            REGION           R*4     fun      9      12      13 
+FLOAT            REGION           R*4     fun      8 
+BOX              REGION                   sub     20 
+REGION           REGION                   sub      1d
+SYMBOL           REGION                   sub     21 
+RENTCH           RENTCH                   sub      1d
+RENUM            RENUM                    sub      1d
+RESET            RESET                    sub      1d
+COS              ROTATE           R*4     fun      4       4       5       5 
+SIN              ROTATE           R*4     fun      4       4       5       5 
+ATRAN2           ROTATE                   sub      4 
+ROTATE           ROTATE                   sub      1d
+COS              ROTH             R*4     fun     11 
+SIN              ROTH             R*4     fun     11 
+HCNCOR           ROTH                     sub     14 
+ROTH             ROTH                     sub      1d
+STROT3           ROTH                     sub     11 
+SAVETR           SAVETR                   sub      1d
+SCREN1           SCREN1                   sub      1d
+SCREN2           SCREN2                   sub      1d
+SCRMOD           SCRMOD                   sub      1d
+SEGANG           SCRMOD                   sub     25      26      27 
+AMAX1            SDPG             R*4     fun     20      34      36      39      42 
+AMIN1            SDPG             R*4     fun     19      35      37      40      41 
+COS              SDPG             R*4     fun      7 
+SIN              SDPG             R*4     fun      6 
+MOVE             SDPG                     sub     44      45 
+SDPG             SDPG                     sub      1d
+ABS              SECANT           R*4     fun     15 
+COS              SECANT           R*4     fun     11 
+IVEST            SECANT           I*4     fun     10 
+SIN              SECANT           R*4     fun     12 
+GFFALS           SECANT                   sub     23 
+RDMVA            SECANT                   sub      7 
+RDSTR            SECANT                   sub     21 
+SECANT           SECANT                   sub      1d
+WRMVA            SECANT                   sub     16 
+WRSTR            SECANT                   sub     14 
+IABS             SEE              I*4     fun      8 
+SEE              SEE                      sub      1d
+SEE1             SEE                      sub     17 
+COSIN1           SEE1             R*4     fun     18      19      23 
+LCROSS           SEE1                     sub     21      34 
+SEE1             SEE1                     sub      1d
+ABS              SEGANG           R*4     fun      3 
+SEGANG           SEGANG                   sub      1d
+SET              SET                      sub      1d
+IABS             SETBE            I*4     fun      3 
+SETBE            SETBE                    sub      1d
+SETRA            SETRA                    sub      1d
+SETTR            SETTR                    sub      1d
+ABS              SFCFIT           R*4     fun    214     215     224     225 
+SFCFIT           SFCFIT                   sub      1d
+ABS              SHADE            R*4     fun     14      62      86      87     105     116     157     195 
+AINT             SHADE            R*4     fun     45 
+COS              SHADE            R*4     fun     18 
+SIGN             SHADE            R*4     fun     45 
+SIN              SHADE            R*4     fun     17 
+MOVE             SHADE                    sub    173     178 
+SHADE            SHADE                    sub      1d
+TMF              SHADE                    sub    172     177 
+SHDOWN           SHDOWN                   sub      1d
+HCMULT           SHEAR                    sub      6 
+HCUNIT           SHEAR                    sub      4 
+SHEAR            SHEAR                    sub      1d
+ATRAN2           SHIFT                    sub      3 
+SHIFT            SHIFT                    sub      1d
+SHUP             SHUP                     sub      1d
+ABS              SIGNA            R*4     fun     15      20 
+ALOG10           SIGNA            R*4     fun     16 
+AMAX1            SIGNA            R*4     fun     17 
+FLOAT            SIGNA            R*4     fun     39 
+IABS             SIGNA            I*4     fun     11 
+SIGN             SIGNA            R*4     fun     10 
+ASTEP            SIGNA                    sub      8 
+NUMBER           SIGNA                    sub     39 
+SIGNA            SIGNA                    sub      1d
+SYMBOL           SIGNA                    sub     36      38 
+DERIV5           SINCL            R*4     fun     19      24 
+SQRT             SINCL            R*4     fun     30 
+CUBPOL           SINCL                    sub     25 
+MOVE             SINCL                    sub     11      15      36      37 
+PVAL             SINCL                    sub     34 
+SINCL            SINCL                    sub      1d
+TMF              SINCL                    sub     10      14      28      35 
+SIZLIN           SIZLIN                   sub      1d
+SIZNUM           SIZNUM                   sub      1d
+BYPASS           SLINST                   sub      5 
+SLINST           SLINST                   sub      1d
+SMINV            SMINV                    sub      1d
+OPER             SMTBVF                   sub    126     128     155     157 
+SMTBVF           SMTBVF                   sub      1d
+SMTONE           SMTONE                   sub      1d
+SMTSIM           SMTSIM                   sub      1d
+ABS              SORT3            R*4     fun      7 
+SORT3            SORT3                    sub      1d
+SORTC            SORTC                    sub      1d
+SORT3            SORTCN                   sub     14      20 
+SORTCN           SORTCN                   sub      1d
+ABS              SORTL            R*4     fun     29 
+SQRT             SORTL            R*4     fun     28 
+SORT3            SORTL                    sub     14      20 
+SORTL            SORTL                    sub      1d
+SORTP            SORTP                    sub      1d
+SORTPT           SORTPT                   sub      1d
+SORTY            SORTY                    sub      1d
+COS              SPHERG           R*4     fun     18      20      22      24 
+SIN              SPHERG           R*4     fun     18      19      19      22      23      23 
+SPHERG           SPHERG                   sub      1d
+COS              SPHERV           R*4     fun     15      17      19      21 
+SIN              SPHERV           R*4     fun     15      16      16      19      20      20 
+SPHERV           SPHERV                   sub      1d
+CIRCLE           SPIRAL                   sub      6 
+SPIRAL           SPIRAL                   sub      1d
+GRAFER           SPLINE                   sub     10 
+SPLINE           SPLINE                   sub      1d
+TDMP             SPLINE                   sub      7 
+TRIDIG           SPLINE                   sub      8 
+SPLINT           SPLINT                   sub      1d
+SPLITP           SPLITP                   sub      1d
+SQRT             SPNP             R*4     fun      4       5 
+SPNP             SPNP                     sub      1d
+ABS              STAR             R*4     fun     11      30 
+COS              STAR             R*4     fun     12      16      31      35 
+IVEST            STAR             I*4     fun      8 
+SIN              STAR             R*4     fun     12      16      31      35 
+MOVA             STAR                     sub     13      15      18      20      32      34      37      38 
+MOVE             STAR                     sub     42 
+POLG             STAR                     sub     44 
+STAR             STAR                     sub      1d
+SHDOWN           STORIN                   sub     50 
+SHUP             STORIN                   sub     68     101     117 
+STORIN           STORIN                   sub      1d
+SVLSEG           STORIN                   sub     28      51      78     125 
+TESTVS           STORIN                   sub     74      79      91     106     118     126 
+ABS              STRMOD           R*4     fun      5      14 
+FLOAT            STRMOD           R*4     fun      7 
+IABS             STRMOD           I*4     fun      8 
+SIGN             STRMOD           R*4     fun      5      10      12      14 
+STRMOD           STRMOD                   sub      1d
+HCINIT           STROT3                   sub      7 
+STROT3           STROT3                   sub      1d
+MOD              SUPLIN           I*4     fun      7 
+XPOL             SUPLIN           R*4     fun     14 
+YPOL             SUPLIN           R*4     fun     15 
+BRLINE           SUPLIN                   sub     23 
+LINEMC           SUPLIN                   sub     18 
+LINEMO           SUPLIN                   sub     21 
+SUPLIN           SUPLIN                   sub      1d
+SVLSEG           SVLSEG                   sub      1d
+COS              SYMBOL           R*4     fun     14      15 
+MOVE             SYMBOL                   sub     55 
+SYMBOL           SYMBOL                   sub      1d
+SYMTAB           SYMBOL                   sub     44 
+LDBYTE           SYMTAB           I*4     fun    818 
+SYMTAB           SYMTAB                   sub      1d
+SQRT             TCALC            R*4     fun     14 
+TCALC            TCALC                    sub      1d
+HCNCRD           TDAXES                   sub      4      13      15      17 
+LIMITS           TDAXES                   sub     44 
+MOVE             TDAXES                   sub     47      49 
+REGION           TDAXES                   sub     42 
+SET              TDAXES                   sub     43 
+SYMBOL           TDAXES                   sub     51      53      55 
+TDAXES           TDAXES                   sub      1d
+TMF              TDAXES                   sub     46      48 
+AMAX1            TDLIM            R*4     fun     24      26 
+AMIN1            TDLIM            R*4     fun     23      25 
+IABS             TDLIM            I*4     fun      5 
+HCNCRD           TDLIM                    sub      8      15 
+LIMITS           TDLIM                    sub     27 
+TDLIM            TDLIM                    sub      1d
+IABS             TDLIML           I*4     fun      5 
+HCNCRD           TDLIML                   sub      6      12 
+LIMITS           TDLIML                   sub     23 
+TDLIML           TDLIML                   sub      1d
+HCNCRD           TDLINE                   sub      4       8 
+MOVE             TDLINE                   sub      6      10 
+TDLINE           TDLINE                   sub      1d
+TMF              TDLINE                   sub      5       9 
+TDMP             TDMP                     sub      1d
+COS              TDROT            R*4     fun     13      14 
+IABS             TDROT            I*4     fun      7 
+SIN              TDROT            R*4     fun     15      16 
+HCMULT           TDROT                    sub     17 
+HCUNIT           TDROT                    sub     10 
+TDROT            TDROT                    sub      1d
+HCMULT           TDSCAL                   sub     10 
+HCUNIT           TDSCAL                   sub      8 
+TDSCAL           TDSCAL                   sub      1d
+ABS              TDSECT           R*4     fun     65      67 
+IABS             TDSECT           I*4     fun      7      19      20      25     169 
+ZINT             TDSECT           R*4     fun    181     294     328     381     388 
+HCLINE           TDSECT                   sub    214 
+HCNCRD           TDSECT                   sub     28      82 
+TDSECT           TDSECT                   sub      1d
+HCMULT           TDTRAN                   sub      8 
+HCUNIT           TDTRAN                   sub      4 
+TDTRAN           TDTRAN                   sub      1d
+ABS              TESTVS           R*4     fun      6       6 
+TESTVS           TESTVS                   sub      1d
+ABS              TFM              R*4     fun      4       5 
+TFM              TFM                      sub      1d
+HCIND            THREED           R*4     fun     94     111     137 
+IABS             THREED           I*4     fun     10      11 
+ISIGN            THREED           I*4     fun     15      17 
+MAX0             THREED           I*4     fun     12 
+SIN              THREED           R*4     fun     29 
+SQRT             THREED           R*4     fun     50      64 
+HCNCRD           THREED                   sub     47      61 
+HCSURF           THREED                   sub     70     167 
+THREED           THREED                   sub      1d
+TMF              TMF                      sub      1d
+ALOG10           TMLGF            R*4     fun     15      16      17 
+AMAX1            TMLGF            R*4     fun     10      10 
+AMIN1            TMLGF            R*4     fun     10      10      12 
+TMLGF            TMLGF                    sub      1d
+MARKER           TOKEN                    sub      4 
+MOVE             TOKEN                    sub      3 
+NUMBER           TOKEN                    sub      5 
+TMF              TOKEN                    sub      2 
+TOKEN            TOKEN                    sub      1d
+HCINIT           TRANH                    sub      8 
+HCNCOR           TRANH                    sub     14 
+TRANH            TRANH                    sub      1d
+ATDX             TRANSF           R*4     fun      6 
+ATDY             TRANSF           R*4     fun      7 
+TRANSF           TRANSF                   sub      1d
+ATRAN2           TRANSL                   sub      3 
+TRANSL           TRANSL                   sub      1d
+IABS             TRDRAW           I*4     fun      6       8      10 
+PICTUR           TRDRAW                   sub     50 
+PROJCT           TRDRAW                   sub      7       9      11 
+SCRMOD           TRDRAW                   sub     57 
+TRDRAW           TRDRAW                   sub      1d
+COSIN1           TRG              R*4     fun      8      27 
+IABS             TRG              I*4     fun     14      17      26      30      37      40 
+SEE              TRG                      sub     44      47      50 
+TRG              TRG                      sub      1d
+IABS             TRGRID           I*4     fun     37      37      38 
+PNORDR           TRGRID                   sub     50 
+TRGRID           TRGRID                   sub      1d
+TRIDIG           TRIDIG                   sub      1d
+COSIN1           TRIG             R*4     fun     50      86      88 
+COSIN2           TRIG             R*4     fun     63      64 
+IABS             TRIG             I*4     fun      6       7      15      32      39      40      42      43      44      46 
+TRIG             TRIG                     sub      1d
+COS              TRIGL            R*4     fun     12      15 
+SIN              TRIGL            R*4     fun     13      14      16 
+MOVE             TRIGL                    sub     17      18      19      20 
+TRIGL            TRIGL                    sub      1d
+COSIN1           TRINGL           R*4     fun     65      67 
+COSIN2           TRINGL           R*4     fun     40      42 
+IABS             TRINGL           I*4     fun     14      61      64      70      71     125     127     129 
+MOVE             TRINGL                   sub     79      80      83      84      85      88      89     166     169 
+TMF              TRINGL                   sub     73      74      75     165     167 
+TRINGL           TRINGL                   sub      1d
+COSIN1           TRSURF           R*4     fun     19 
+IABS             TRSURF           I*4     fun      8      13      14      18      27      32 
+NEXTRG           TRSURF                   sub     28 
+TRDRAW           TRSURF                   sub     29 
+TRSURF           TRSURF                   sub      1d
+SQRT             VIEW             R*4     fun     12 
+HCINV            VIEW                     sub     10 
+HCPRSP           VIEW                     sub     13 
+HCROT1           VIEW                     sub     11 
+VIEW             VIEW                     sub      1d
+IABS             VPLIM            I*4     fun      6 
+HCNCOR           VPLIM                    sub      7      14 
+LIMITS           VPLIM                    sub     27 
+VPLIM            VPLIM                    sub      1d
+WHERE            WHERE                    sub      1d
+WHERP            WHERP                    sub      1d
+ABS              WRACA            R*4     fun      5       7       8 
+COS              WRACA            R*4     fun     10 
+SIN              WRACA            R*4     fun     11 
+GFFALS           WRACA                    sub     17 
+STRMOD           WRACA                    sub     15 
+WRACA            WRACA                    sub      1d
+ARCANG           WRACB                    sub      6 
+WRACA            WRACB                    sub      7 
+WRACB            WRACB                    sub      1d
+ARCANG           WRACC                    sub      7 
+ARCC1            WRACC                    sub      6 
+WRACA            WRACC                    sub      8 
+WRACC            WRACC                    sub      1d
+ABS              WRACD            R*4     fun     13 
+ANGLER           WRACD            R*4     fun      9 
+SQRT             WRACD            R*4     fun      8 
+STRMOD           WRACD                    sub     20 
+WRACD            WRACD                    sub      1d
+ABS              WRAEA            R*4     fun     10      12 
+COS              WRAEA            R*4     fun     11      14 
+SIN              WRAEA            R*4     fun     11      15 
+SQRT             WRAEA            R*4     fun     11 
+GFFALS           WRAEA                    sub     23 
+STRMOD           WRAEA                    sub     21 
+WRAEA            WRAEA                    sub      1d
+ABS              WRAEB            R*4     fun      4       5      12 
+COS              WRAEB            R*4     fun     10      11 
+SIN              WRAEB            R*4     fun     10      11 
+ARCANG           WRAEB                    sub     13 
+AREB1            WRAEB                    sub     14 
+WRAEA            WRAEB                    sub     15 
+WRAEB            WRAEB                    sub      1d
+ABS              WRCRC            R*4     fun      6 
+STRMOD           WRCRC                    sub     13 
+WRCRC            WRCRC                    sub      1d
+ABS              WRELP            R*4     fun      6 
+STRMOD           WRELP                    sub     15 
+WRELP            WRELP                    sub      1d
+COS              WRMVA            R*4     fun      6 
+SIN              WRMVA            R*4     fun      7 
+WRMVA            WRMVA                    sub      1d
+WRMVE            WRMVA                    sub      8 
+WRMVB            WRMVB                    sub      1d
+WRMVE            WRMVB                    sub      6 
+SQRT             WRMVC            R*4     fun      7 
+WRMVC            WRMVC                    sub      1d
+WRMVE            WRMVC                    sub     11 
+ABS              WRMVE            R*4     fun      7      12      14      20 
+STRMOD           WRMVE                    sub     34 
+WRMVE            WRMVE                    sub      1d
+WRSTR            WRSTR                    sub      1d
+ABS              XAXIS            R*4     fun     31      32 
+AINT             XAXIS            R*4     fun     30      73 
+AMIN1            XAXIS            R*4     fun     40      42     141 
+AMOD             XAXIS            R*4     fun     67      69 
+IABS             XAXIS            I*4     fun      9      16 
+MAX0             XAXIS            I*4     fun     19     141 
+ASTEP            XAXIS                    sub     25 
+BCD              XAXIS                    sub     80 
+IBCD             XAXIS                    sub    175 
+MOVE             XAXIS                    sub     38      56      57      58      61      62     133     137     138     140 
+SYMBOL           XAXIS                    sub    132     168     176     177 
+TMF              XAXIS                    sub     37 
+XAXIS            XAXIS                    sub      1d
+ABS              XILIY            R*4     fun      2       2       3       4       5       6 
+XILIY            XILIY            R*4     fun      1d
+ABS              XILIY1           R*4     fun      4       4       5       6      15      16 
+XILIY1           XILIY1           R*4     fun      1d
+ABS              XLGAX            R*4     fun     37      40      43      65 
+ALOG10           XLGAX            R*4     fun     15      16      49 
+AMIN1            XLGAX            R*4     fun     21      33      40      51 
+AMOD             XLGAX            R*4     fun     34 
+FLOAT            XLGAX            R*4     fun     20 
+IABS             XLGAX            I*4     fun      8 
+SIGN             XLGAX            R*4     fun     20      27 
+MOVE             XLGAX                    sub     47      51      58      59 
+NUMBER           XLGAX                    sub     45      65      68 
+SYMBOL           XLGAX                    sub     42      44      67 
+TMLGF            XLGAX                    sub      9 
+XLGAX            XLGAX                    sub      1d
+COS              XPOL             R*4     fun      2 
+XPOL             XPOL             R*4     fun      1d
+IABS             XYSORT           I*4     fun      5 
+XYSORT           XYSORT                   sub      1d
+ABS              YAXIS            R*4     fun     32      33 
+AINT             YAXIS            R*4     fun     31      74 
+AMIN1            YAXIS            R*4     fun     41      43     142 
+AMOD             YAXIS            R*4     fun     68      70 
+IABS             YAXIS            I*4     fun     10      17 
+MAX0             YAXIS            I*4     fun     20     142 
+ASTEP            YAXIS                    sub     26 
+BCD              YAXIS                    sub     81 
+IBCD             YAXIS                    sub    176 
+MOVE             YAXIS                    sub     39      57      58      59      62      63     134     138     139     141 
+SYMBOL           YAXIS                    sub    133     169     177     178 
+TMF              YAXIS                    sub     38 
+YAXIS            YAXIS                    sub      1d
+ABS              YLGAX            R*4     fun     37      40      43      65 
+ALOG10           YLGAX            R*4     fun     15      16      49 
+AMIN1            YLGAX            R*4     fun     21      33      40      51 
+AMOD             YLGAX            R*4     fun     34 
+FLOAT            YLGAX            R*4     fun     20 
+IABS             YLGAX            I*4     fun      8 
+SIGN             YLGAX            R*4     fun     20      27 
+MOVE             YLGAX                    sub     47      51      58      59 
+NUMBER           YLGAX                    sub     45      65      68 
+SYMBOL           YLGAX                    sub     42      44      67 
+TMLGF            YLGAX                    sub      9 
+YLGAX            YLGAX                    sub      1d
+SIN              YPOL             R*4     fun      2 
+YPOL             YPOL             R*4     fun      1d
+ZAPIT            ZAPIT                    sub      1d
+ZINT             ZINT             R*4     fun      1d

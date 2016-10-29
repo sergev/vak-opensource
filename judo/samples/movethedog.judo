@@ -1,0 +1,59 @@
+//~JUDOPROP~//$VERSION=1.2.2
+//~JUDOPROP~//$TITLE=Move the Dog
+//~JUDOPROP~//$TYPE=graphics
+void main() {
+	int xPos = 100;
+	int yPos = 70;
+	int moveAmount = 40;
+	String direction = "N";
+	
+	// move the dog around until the user enters "exit"
+	while(! equal(direction, "exit")) {
+
+		// draw the dog
+		clearDrawing();
+		setColor(brown);
+		fillOval(xPos, yPos, 70, 40);                    // head
+		fillOval(xPos + 35, yPos, 50, 15);               // ear
+		fillRectangle(xPos + 40, yPos + 30, 100, 45);    // body
+		fillRectangle(xPos + 140, yPos + 30, 30, 20);    // tail
+		fillRectangle(xPos + 40, yPos + 75, 20, 35);     // left leg
+		fillRectangle(xPos + 120, yPos + 75, 20, 35);    // right leg
+		fillOval(xPos + 20, yPos + 95, 40, 15);          // left foot
+		fillOval(xPos + 100, yPos + 95, 40, 15);         // right foot
+
+		setColor(white);
+		fillOval(xPos, yPos + 25, 25, 12);               // mouth
+		fillOval(xPos + 140, yPos + 30, 60, 40);         // take some tail away
+		fillOval(xPos + 15, yPos + 5, 10, 8);            // eye
+
+		setColor(black);
+		fillOval(xPos - 2, yPos + 10, 8, 14);           // nose
+		fillOval(xPos + 50, yPos + 3, 30, 8);           // inside ear
+		fillOval(xPos + 17, yPos + 6, 5, 4);            // eye
+		drawString("ARF!", false, true, 15, xPos - 50, yPos + 35);  // ARF!
+
+		printLine("What direction do you want to move the dog? (enter N, S, E, W, or exit)");
+		direction = readString();
+
+		// move dog up
+		if (equal(direction, "N")) {
+			yPos = yPos - moveAmount;
+		}
+		// move dog up
+		else if (equal(direction, "S")) {
+			yPos = yPos + moveAmount;
+		}
+		// move dog up
+		else if (equal(direction, "W")) {
+			xPos = xPos - moveAmount;
+		}
+		// move dog up
+		else if (equal(direction, "E")) {
+			xPos = xPos + moveAmount;
+		}
+		else if (! equal(direction, "exit")) {
+			printLine("Sorry, I did not understand you.");
+		}
+	}
+}

@@ -1,0 +1,50 @@
+CM Max Front-to-Back 3-Element Yagi Design, Enter Design Frequency and Element
+CM Diameter and set/select current units of measure. Model will calculate
+CM element lengths and spacing for maximum 180-degree front-to-back ratio.
+CM Element diameter range: 3E-4 to 1E-2 WL
+CM
+CE By L. B. Cebik, W4RNL (http://www.cebik.com)
+
+SY Fr=28.75 		' Enter Desired Frequency in MHz.
+SY WD=33			' Enter Wire Diameter in mm/inch/WL.
+SY Hgh=0			' Average Quad height above ground mtr (ft)
+
+SY Inp=mm			' Enable this line for diameter in mm
+'SY Inp=in			' Enable this line for diameter in inch
+'SY Inp=299.7925/Fr	' Enable this line for diameter in wavelengths
+
+SY D=(WD*Inp*FR)/299.7925	' Get wire diameter in wavelengths
+SY D1=LOG(D)/log(10), D4=D1^4, D3=D1^3,D2=D1^2
+
+SY Rel=-0.006330181818*D4-0.07473777778*D3-0.3305042424*D2-0.6517507937*D1-0.235223671
+SY Drl=0.007257212121*D4+0.08419555556*D3+0.3603660606*D2+0.6680392063*D1+0.6865069654
+SY Dil=0.00693430303*D4+0.07956444444*D3+0.3341948485*D2+0.5971698413*D1+0.595447158
+SY Red=0.1003704242*D4+1.17784*D3+5.144348788*D2+9.942252381*D1+7.343132812
+sy Did=0.06885818182*D4+0.8022222222*D3+3.476657576*D2+6.668892063*D1+5.092856861 - Red
+
+SY Scal=1				' Use this line if output dimensions in meters.
+'SY Scal=ft				' Use this line if output dimensions in feet.
+SY WL=299.7925/(Scal*Fr) 	' Wavelength in Meters/Feet
+
+SY Refl=Rel*WL		' Reflector half length.
+SY Dril=Drl*WL		' Driver half length.
+SY Dirl=Dil*WL		' Director half side.
+SY Refd=Red*WL		' Reflector distance
+SY Dird=Did*WL		' Director distance
+SY Wr=D/2 * WL		' Wire radius.
+
+GW	1	11	0	-Dril	Hgh	0	Dril	Hgh	Wr	'Driver
+GW	2	11	-Refd	-Refl	Hgh	-Refd	Refl	Hgh	Wr	'Reflector
+GW	2	11	Dird	-Dirl	Hgh	Dird	Dirl	Hgh	Wr	'Director
+
+GS	0	0	Scal
+GE
+EK
+
+LD	5	0	0	0	58000000		' Copper wire
+EX	0	1	6	0	1	0	
+'GN	2	0	0	0	13	0.005		' Use this line if ground used
+
+FR	0	1	0	0	Fr	0
+EN	
+	

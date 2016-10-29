@@ -1,0 +1,105 @@
+CE WA2WVL.ANT, WA2WVL loop/Yagi to Japan
+
+SY APEX = 100
+SY R = -40			'  was -64
+ 			'  driven element
+SY L1 = 64.5
+SY L2 = 49
+SY H3 = 6
+SY ANG = 46			'  to compensate for droop
+SY ANG2 = 34.03			'  to make 5' length to center of rope
+SY W1 = L1 * SIN(ANG)		'  w1 = 46.397'
+SY W2 = W1 - L2 * COS(ANG2)	'  w2 = 5'
+SY W3 = .1
+SY H1 = APEX - L1 * COS(ANG)	'  h1 = 54.392'
+SY H2 = H1 - L2 * SIN(ANG2)	'  h2 = 26.970'
+			'  reflector
+SY LR1 = 65.82045		'  started lr1 = 66.13'
+SY LR2 = 52.35			'  started lr2 = 50.35'
+SY ANGR = 46			'  started angr = 46
+SY ANGR2 = 34
+SY WR1 = LR1 * SIN(ANGR)	'  wr1 = 49.144'
+SY WR2 = WR1 - LR2 * COS(ANGR2)	'  wr2 = 6.445'
+SY HR1 = APEX - LR1 * COS(ANGR)	'  hr1 = 55.750'
+SY HR2 = HR1 - LR2 * SIN(ANGR2)	'  hr2 = 29.069'
+SY HR3 = 6
+			'  directors, assume included angle = 110 degrees
+SY D1 = 33.3			'  was 33.3
+SY LDIR = 61.49775
+SY ANGDIR = 45			'  43.43679 seems optimum
+SY YDIR = LDIR * SIN(ANGDIR)
+SY ZDIR = APEX - LDIR * COS(ANGDIR)
+			'  director 1
+SY LDIR1 = 61.33264
+SY YDIR1 = LDIR1 * SIN(ANGDIR)
+SY ZDIR1 = APEX - LDIR1 * COS(ANGDIR)
+
+SY D2 = 66.6
+SY D3 = 99.89999
+SY D4 = 133.2
+SY D5 = 166.5
+SY D6 = 199.8
+SY D7 = 233.1
+SY D8 = 297.1
+
+GW	1	5	0	0	APEX	0	W1	H1	#12/ft
+GW	2	5	0	W1	H1	0	W2	H2	#12/ft
+GW	3	3	0	W2	H2	0	0	H3	#12/ft
+GW	4	5	0	0	APEX	0	-W1	H1	#12/ft
+GW	5	5	0	-W1	H1	0	-W2	H2	#12/ft
+GW	6	3	0	-W2	H2	0	0	H3	#12/ft
+
+GW	7	7	R	0	APEX	R	WR1	HR1	#12/ft
+GW	8	5	R	WR1	HR1	R	WR2	HR2	#12/ft
+GW	9	3	R	WR2	HR2	R	0	HR3	#12/ft
+GW	10	7	R	0	APEX	R	-WR1	HR1	#12/ft
+GW	11	5	R	-WR1	HR1	R	-WR2	HR2	#12/ft
+GW	12	3	R	-WR2	HR2	R	0	HR3	#12/ft
+
+GW	13	5	D1	0	APEX	D1	YDIR1	ZDIR1	#12/ft
+GW	14	5	D1	0	APEX	D1	-YDIR1	ZDIR1	#12/ft
+
+GW	15	5	D2	0	APEX	D2	YDIR	ZDIR	#12/ft
+GW	16	5	D2	0	APEX	D2	-YDIR	ZDIR	#12/ft
+
+GW	17	5	D3	0	APEX	D3	YDIR	ZDIR	#12/ft
+GW	18	5	D3	0	APEX	D3	-YDIR	ZDIR	#12/ft
+
+GW	19	5	D4	0	APEX	D4	YDIR	ZDIR	#12/ft
+GW	20	5	D4	0	APEX	D4	-YDIR	ZDIR	#12/ft
+
+GW	21	5	D5	0	APEX	D5	YDIR	ZDIR	#12/ft
+GW	22	5	D5	0	APEX	D5	-YDIR	ZDIR	#12/ft
+
+GW	23	5	D6	0	APEX	D6	YDIR	ZDIR	#12/ft
+GW	24	5	D6	0	APEX	D6	-YDIR	ZDIR	#12/ft
+
+GW	25	5	D7	0	APEX	D7	YDIR	ZDIR	#12/ft
+GW	26	5	D7	0	APEX	D7	-YDIR	ZDIR	#12/ft
+
+GW	27	5	D8	0	APEX	D8	YDIR	ZDIR	#12/ft
+GW	28	5	D8	0	APEX	D8	-YDIR	ZDIR	#12/ft
+
+
+GS	0	0	ft
+GE	1
+EX	0	3	3	00	1.0	0.0
+
+GN	2	0	0	0	13	.005
+FR	0	1	0	0	 3.8
+EN
+
+'nec results for wa2wvl.ant
+'WA2WVL.ANT
+'WA2WVL Opt. 10-ele. 337' boom
+'3.800 MHz
+'Sommerfeld-Norton 3750.GND
+'Diel const 13, cond 5 mS/m
+'20ø elevation
+'123 segments
+'
+'Gain         11.37 dBi
+'F/B          26.44 dB
+'Impedance    46.0 + j 39.9 ê
+'SWR           2.25
+'Losses        0.64 dB

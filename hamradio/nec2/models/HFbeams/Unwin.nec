@@ -1,0 +1,34 @@
+CM Unwin 2 reflector beam.
+CM This is a 2 reflector Yagi design by Art Unwin, KB9MZ. The
+CM second reflector allows simultaneous impedance match and
+CM good front/back ratio. Similar performance might be
+CM achievable with a single reflector and matching network,
+CM but this approach might also have some benefits with regard
+CM to bandwidth of the match and/or front/back ratio.
+CM In practice, small imperfections in the antenna and
+CM environment are likely to reduce the front/back ratio
+CM somewhat from the value reported by the program.
+CM The description of this antenna was posted on the
+CM rec.radio.amateur.antenna newsgroup by Art on about Sept.
+CM 2, 2000.
+CE
+GW 1 11 -208.89   206.226 820 -208.89  -206.226 820 0.015
+GW 2 10 -64.353   200.654 820 -64.353  -200.654 820 0.025
+GW 3 10 62.1524   195.401 820 62.1524  -195.401 820 0.015
+GW 4 11 -80.4444  205.966 820 -80.4446 -205.966 820 0.025
+GW 5 9  626.15    182.195 820 626.15   -182.195 820 0.015
+GW 6 9  192.39    182.742 820 192.39   -182.742 820 0.015
+GW 7 9  236.23    181.633 820 236.23   -181.633 820 0.015
+GW 8 9  122.82    182.329 820 122.82   -182.329 820 0.01
+GW 9 10  353.2    185.816 820 353.2    -185.816 820 0.01
+GW 10 10 383      187.242 820 383      -187.242 820 0.01
+GW 11 10 89.5709  185.954 820 89.5709  -185.954 820 0.01
+GW 12 11 -174.392 207.133 820 -174.392 -207.133 820 0.025
+GW 13 10 -18.7345 197.701 820 -18.7345 -197.701 820 0.01
+GS 0 0 0.0254		' All in inch.
+GE 0
+EK
+EX 6 4 6 0 1 0
+GN -1
+FR 0 1 0 0 14.2 0
+EN

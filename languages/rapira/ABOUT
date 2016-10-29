@@ -1,0 +1,15 @@
+ReRap Version 0.9
+Copyright 2011 Matthew Mikolay. All Rights Reserved.
+Licensed under the GNU GPL V3
+mattmik.com
+
+ReRap is an interpreter for the Rapira programming language.
+
+Usage:
+
+	rapira [filename]
+
+Example program files are found in the "examples" directory. They have the extension .rap
+
+ReRap can be compiled on any platform, but has been tested on Windows 7 using Visual C++.
+The main program file is rapira.cpp

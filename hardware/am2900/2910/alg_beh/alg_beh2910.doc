@@ -1,0 +1,50 @@
+--------------------------------------------------------------------------------
+--
+--   AMD 2910 Benchmark
+--
+-- Source:  AMD data book
+--
+-- VHDL Benchmark author Indraneel Ghosh
+--                       University Of California, Irvine, CA 92717
+--
+-- Developed on Feb 19, 1992
+--
+--------------------------------------------------------------------------------
+
+ This is a behavioral or algorithmic model of the Am2910, in which it is 
+modeled as a single VHDL process, without any partitioning into smaller 
+blocks.
+
+-----------------------------------------------------------------
+
+VARIABLES :
+
+File "am2910.doc" contains a general description of the chip and its ports.
+
+This model uses the following types and variables:
+
+   *******************************************************
+
+  VARIABLES :
+
+  FAIL ==> Temporary variable used in evaluation of condition code.
+  SP ==> Variable to represent stack pointer.
+  STACK ==> Variable to represent stack register file (5-word by 12-bit).
+  RE ==> Variable to represent register/counter
+  uPC ==> Variable to represent microprogram counter
+  Y_temp ==> Temporary variable used to represent mux output and 
+	     tri-state driver input.
+
+-----------------------------------------------------------------
+
+GENERAL DESCRIPTION OF MODEL :
+
+ The VHDL process is trigerred by a falling clock edge.
+
+ 
+
+
+
+
+
+

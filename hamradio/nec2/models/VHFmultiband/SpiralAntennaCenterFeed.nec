@@ -1,0 +1,26 @@
+CM Archimedic spiral antenna for Z=220 Ohm
+CM 2011-12-12, G. Klenner, K&K Prime Engineering GmbH, 
+CM 
+CM 
+CM 
+CM 
+CE
+SY h=.015	'Height over ground
+SY R_wire=0.001/2	'wire thickness (radius)
+SY R_center=0.005	'starting radius, center
+SY R_outside=0.1	'ending radius, outside
+SY turns=12	'number of turns per wing
+SY w_feed=0.006	'width of feedpoint
+GH	1	turns*16	1e-6/turns	1e-6	R_center	R_center	R_outside	R_outside	R_wire	'frist wing of a spiral
+GM	1	1	0	0	180	0	0	0	1	'second wing of spiral
+GM	0	0	0	0	0	0	0	h	1	'moving up to height
+GW	98	1	R_center	0	h	R_center/2	-R_center/4	h	R_wire
+GW	99	1	-R_center	0	h	-R_center/2	R_center/4	h	R_wire
+GW	100	1	R_center/2	-R_center/4	h	-R_center/2	R_center/4	h	R_wire	'feeding wire
+GE	0
+LD	5	1	0	0	58000000
+GN	-1
+EK
+EX	0	100	1	0	1	0	0
+FR	0	300	0	0	800	1
+EN

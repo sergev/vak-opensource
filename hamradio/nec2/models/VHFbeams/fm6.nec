@@ -1,0 +1,92 @@
+CM Finco FM-6, by K6STI
+CE Converted with 4nec2 on 22-apr-02
+SY RP = 0
+SY DE1P = 20.5
+SY DE2P = 37.5
+SY D1P = 49.5
+SY D2P = 70.5
+SY D3P = 91.5
+SY R = 33.25			'  Actual length, 34
+SY DE1 = 30
+SY DE2 = 23
+SY D1 = 24.75			'  Actual length, 25.5
+SY D2 = 24.75			'  Actual length, 25.5
+SY D3 = 22.75			'  Actual length, 23.5
+SY DE1S = 10
+SY DE2S = 12
+SY D = .43				'  Actual diameter, .375
+SY W = .125
+SY X1 = 31.5
+SY XM = 33.5
+SY X2 = 35.5
+SY F = 28.25			'  Mounting holes at 25 & 28.25
+'
+'
+GW	1	13	RP	-R	0	RP	R	0	D
+'
+GW	2	5	DE1P	-DE1	-2	DE1P	-DE1S	-2	.375
+GW	3	3	DE1P	-DE1S	-2	DE1P	-1	-2	.375
+GW	4	3	DE1P	1	-2	DE1P	DE1S	-2	.375
+GW	5	5	DE1P	DE1S	-2	DE1P	DE1	-2	.375
+GW	6	5	DE1P	-DE1	0	DE1P	-DE1S	0	.375
+GW	7	3	DE1P	-DE1S	0	DE1P	-2.3125	0	.375
+GW	8	1	DE1P	-2.3125	0	DE1P	2.3125	0	1.1	'  Equivalent to 0.5" tubing + bracket
+GW	9	3	DE1P	2.3125	0	DE1P	DE1S	0	.375
+GW	10	5	DE1P	DE1S	0	DE1P	DE1	0	.375
+GW	11	1	DE1P	-DE1	-2	DE1P	-DE1	0	.375
+GW	12	1	DE1P	DE1	-2	DE1P	DE1	0	.375
+GW	13	1	DE1P	-DE1S	-2	DE1P	-DE1S	0	.375
+GW	14	1	DE1P	DE1S	-2	DE1P	DE1S	0	.375
+'
+GW	15	3	DE2P	-DE2	-2	DE2P	-DE2S	-2	.375
+GW	16	3	DE2P	-DE2S	-2	DE2P	-1	-2	.375
+GW	17	3	DE2P	1	-2	DE2P	DE2S	-2	.375
+GW	18	3	DE2P	DE2S	-2	DE2P	DE2	-2	.375
+GW	19	3	DE2P	-DE2	0	DE2P	-DE2S	0	.375
+GW	20	3	DE2P	-DE2S	0	DE2P	-2.3125	0	.375
+GW	21	1	DE2P	-2.3125	0	DE2P	2.3125	0	1.1
+GW	22	3	DE2P	2.3125	0	DE2P	DE2S	0	.375
+GW	23	3	DE2P	DE2S	0	DE2P	DE2	0	.375
+GW	24	1	DE2P	-DE2	-2	DE2P	-DE2	0	.375
+GW	25	1	DE2P	DE2	-2	DE2P	DE2	0	.375
+GW	26	1	DE2P	-DE2S	-2	DE2P	-DE2S	0	.375
+GW	27	1	DE2P	DE2S	-2	DE2P	DE2S	0	.375
+'
+GW	28	9	D1P	-D1	0	D1P	D1	0	D
+GW	29	9	D2P	-D2	0	D2P	D2	0	D
+GW	30	9	D3P	-D3	0	D3P	D3	0	D
+'
+GW	31	3	DE1P	-1	-2	F	-1	-2	W	'  Transmission line
+GW	32	1	F	-1	-2	X1	-1	-2	W
+GW	33	1	X1	-1	-2	XM	0	-1.125	W
+GW	34	1	XM	0	-1.125	X2	1	-2	W
+GW	35	1	X2	1	-2	DE2P	1	-2	W
+GW	36	3	DE1P	1	-2	F	1	-2	W
+GW	37	1	F	1	-2	X1	1	-2	W
+GW	38	1	X1	1	-2	XM	0	-2.875	W
+GW	39	1	XM	0	-2.875	X2	-1	-2	W
+GW	40	1	X2	-1	-2	DE2P	-1	-2	W
+GW	41	1	F	1	-2	F	-1	-2	W
+'
+GM	0	0	0	0	0	-45.75	'  For better geometry display	0	0	1
+GS	0	0	in
+GE	0
+EX	0	41	1	00	1.0	0.0
+'
+GN	-1
+FR	0	1	0	0	 98
+EN
+
+'This models the popular finco fm-6 receiving antenna for the fm broadcast band.
+'Each parasitic element half-length was shortened by 0.75" to account for the
+'inner 0.5"-diameter reinforcement tubing section, the rectangular element-
+'mounting bracket, and the 1"-square boom.  The bracket and reinforcement
+'sections increase element effective diameter to 0.43".  The driven elements are
+'modeled using actual lengths and diameters, plus an inner 1.1"-diameter section
+'equivalent to the reinforcement section and mounting bracket.  All corrections
+'and equivalents were computed with the YO Yagi Optimizer program.
+'
+'The FM-6 has two possible mounting holes in the boom for the feed bracket.
+'This model was developed to determine where to place the bracket on a used FM-6
+'which lacked assembly instructions.  The model needs 24-30 segments per
+'halfwave for good SWR convergence.

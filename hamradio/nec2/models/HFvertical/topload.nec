@@ -1,0 +1,26 @@
+CM Top Loaded vertical
+CE
+SY freq=1.8
+sy len=4
+sy hgh=30
+SY ind=62uH, Q=100
+SY earth=20				' Earth loss resistance
+SY res= (ind * 2 * 3.14 * freq*1e6) /Q	' Coil loss resistance
+
+GW	1	int(hgh)	0	0	0	0	0	hgh	1e-3
+GW	11	int(len)	0	0	hgh	len	0	hgh	1e-3
+GW	12	int(len)	0	0	hgh	-len	0	hgh	1e-3
+GW	13	int(len)	0	0	hgh	0	len	hgh	1e-3
+GW	14	int(len)	0	0	hgh	0	-len	hgh	1e-3
+GW	15	8	0	0	hgh	0	0	hgh+8	1e-3
+GE	1
+LD	5	0	0	0	58000000
+LD	0	1	int(hgh)	0	res	ind				
+LD	0	1	1	1	earth				
+
+
+GN	3	0	0	0	13	0.005
+EK
+EX	0	1	1	0	1	0		
+FR	0	0	0	0	freq	0
+EN

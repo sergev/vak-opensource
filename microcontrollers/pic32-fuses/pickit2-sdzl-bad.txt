@@ -1,0 +1,48 @@
+Programmer for Microchip PIC32 microcontrollers, Version 1.126
+    Copyright: (C) 2011-2014 Serge Vakulenko
+---Send a9 76
+--->>>> 02 20 00 08 51 bf 03 c4 02 50 91 5b 74 58 18 1e
+        b9 00 01 81 9a 11 5e 65 21 96 6f 84 e5 d3 0e d1
+        19 46 f8 41 1a 13 03 00 9b a0 95 a9 ec 90 82 04
+        c1 00 48 52 93 4c d8 30 b8 03 1b 20 45 da 05 04
+      Adapter: PICkit2 Version 2.32.0
+---Send a6 02 fe fd
+---Send a0 00 1d 8f
+---Send a1 40 3d 2a
+---Send a6 02 ea 0a
+---Send a6 01 f7
+---Send a9 a2
+--->>>> 05 00 00 08 51 bf 03 c4 02 50 91 5b 74 58 18 1e
+        b9 00 01 81 9a 11 5e 65 21 96 6f 84 e5 d3 0e d1
+        19 46 f8 41 1a 13 03 00 9b a0 95 a9 ec 90 82 04
+        c1 00 48 52 93 4c d8 30 b8 03 1b 20 45 da 05 04
+PICkit2: status 0005
+PICkit2: enable power
+---Send a6 02 fc ff
+---Send a9 a2
+--->>>> 06 00 00 08 51 bf 03 c4 02 50 91 5b 74 58 18 1e
+        b9 00 01 81 9a 11 5e 65 21 96 6f 84 e5 d3 0e d1
+        19 46 f8 41 1a 13 03 00 9b a0 95 a9 ec 90 82 04
+        c1 00 48 52 93 4c d8 30 b8 03 1b 20 45 da 05 04
+PICkit2: status 0006
+---Send a9 a6 27 fa f7 f9 f5 f3 00 e8 14 f6 fb e7 17 fa
+        f7 e7 2f f2 b2 f2 c2 f2 12 f2 0a f6 fb e8 02 f3
+        02 bc 06 1f bb 04 bb 07 ba 00
+---Send aa
+--->>>> 01 00 00 08 51 bf 03 c4 02 50 91 5b 74 58 18 1e
+        b9 00 01 81 9a 11 5e 65 21 96 6f 84 e5 d3 0e d1
+        19 46 f8 41 1a 13 03 00 9b a0 95 a9 ec 90 82 04
+        c1 00 48 52 93 4c d8 30 b8 03 1b 20 45 da 05 04
+PICkit2: got 01-00
+No device attached.
+---Send a9 a6 0f bc 05 1f fa f7 f8 f3 06 f3 02 f3 03 e8
+        0a f4
+---Send a6 02 fe fd
+---Send a6 01 f6
+---Send a2
+--->>>> 01 00 00 08 51 bf 03 c4 02 50 91 5b 74 58 18 1e
+        b9 00 01 81 9a 11 5e 65 21 96 6f 84 e5 d3 0e d1
+        19 46 f8 41 1a 13 03 00 9b a0 95 a9 ec 90 82 04
+        c1 00 48 52 93 4c d8 30 b8 03 1b 20 45 da 05 04
+
+No target found.

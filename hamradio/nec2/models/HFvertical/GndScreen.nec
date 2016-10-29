@@ -1,0 +1,36 @@
+CM 
+CE
+SY len=50	'Total wire length
+SY hgh=20	'Tower heigth
+SY segV=int(hgh)	'Vertical nr of segments
+SY segH=int(len-hgh)	'Horizontal nr of segments
+SY ra=360/16, radl=25	'Nr radials, radial length
+SY radh = 0.0018	'radial height sabove ground
+SY rseg = int(radl)	'(integer) number of segments
+SY cu=5.8e7, fe=1.39e6	'Wire loading for Copper, Steel
+SY wrad = 0.6e-3	'1.5 mm2 house-wiring
+GW	1	segV	0	0	radh	0	0	hgh	0.6e-3
+GW	2	segH	0	0	hgh	0	len-(hgh+radh)	hgh	0.6e-3
+GW	11	rseg	0	0	radh	radl*cos(1*ra)	radl*sin(1*ra)	radh	wrad	'Ground screen
+GW	12	rseg	0	0	radh	radl*cos(2*ra)	radl*sin(2*ra)	radh	wrad
+GW	13	rseg	0	0	radh	radl*cos(3*ra)	radl*sin(3*ra)	radh	wrad
+GW	14	rseg	0	0	radh	radl*cos(4*ra)	radl*sin(4*ra)	radh	wrad
+GW	15	rseg	0	0	radh	radl*cos(5*ra)	radl*sin(5*ra)	radh	wrad
+GW	16	rseg	0	0	radh	radl*cos(6*ra)	radl*sin(6*ra)	radh	wrad
+GW	17	rseg	0	0	radh	radl*cos(7*ra)	radl*sin(7*ra)	radh	wrad
+GW	18	rseg	0	0	radh	radl*cos(8*ra)	radl*sin(8*ra)	radh	wrad
+GW	19	rseg	0	0	radh	radl*cos(9*ra)	radl*sin(9*ra)	radh	wrad
+GW	20	rseg	0	0	radh	radl*cos(10*ra)	radl*sin(10*ra)	radh	wrad
+GW	21	rseg	0	0	radh	radl*cos(11*ra)	radl*sin(11*ra)	radh	wrad
+GW	22	rseg	0	0	radh	radl*cos(12*ra)	radl*sin(12*ra)	radh	wrad
+GW	23	rseg	0	0	radh	radl*cos(13*ra)	radl*sin(13*ra)	radh	wrad
+GW	24	rseg	0	0	radh	radl*cos(14*ra)	radl*sin(14*ra)	radh	wrad
+GW	25	rseg	0	0	radh	radl*cos(15*ra)	radl*sin(15*ra)	radh	wrad
+GW	26	rseg	0	0	radh	radl*cos(16*ra)	radl*sin(16*ra)	radh	wrad
+GE	1
+LD	5	0	0	0	cu	'Left wire
+GN	2	0	0	0	14	.005
+EK
+EX	0	1	1	0	1	0		
+FR	0	0	0	0	1.8	0
+EN

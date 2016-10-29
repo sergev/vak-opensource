@@ -1,0 +1,14 @@
+CM R-X load 10-M dipole, page 2.17 ARRL course
+CE
+GW 1 11 0 -6.02 0 0 6.02 0 0.03125
+GS 0 0 .30479
+GE 0
+EX 0 1 6 0 1 0
+
+SY X=247, Q=300, R=X/Q
+LD 4 1 6 6 R X
+
+LD 5 1 1 11 3.0769E7
+
+FR 0 1 0 0 28.5 1
+EN

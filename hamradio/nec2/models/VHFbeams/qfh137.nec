@@ -1,0 +1,21 @@
+CM QFH ANTENNA by J.Coppens (www.jcoppens.com)
+CM 137.7MHz WXsat APT receive antenna 
+CM located on top of a pole 3meters above ground 
+CE
+GH	1	25	1.4	.700	.154	.154	.154	.154	.012	' First semi helix
+GM	1	1	0	0	180	0	0	0	1	' Create'copy second helix	
+GW	4	9	.154	0	0	-.154	0	0	.012	' Lower connection element
+GW	5	9	.154	0	.700	-.154	0	.700	.012	' Higher connectio element
+GM	0	0	0	0	90	0	0	.015	0	' Rotate over 90 degrees
+GH	6	25	1.460	.730	.162	.162	.162	.162	.012	' Third larger helix
+GM	1	1	0	0	180	0	0	0	6	' Create/copy fourth helix
+GW	8	9	.162	0	0	-.162	0	0	.012	' Lower connection element
+GW	9	9	.162	0	.730	-.162	0	.730	.012	' Higher connection element
+GM	0	0	0	0	0	0	0	3	0	' Move all 3 meters up
+GE	-1
+GN	2	0	0	0	13	0.005				' Ground characteristics
+EK
+EX	0	4	5	0	1.	0	0			' Power source
+EX	0	8	5	0	0	1.	0			' 90 degree phase shift
+FR	0	8	0	0	137.5	.5				' Freq span.
+EN

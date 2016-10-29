@@ -1,0 +1,38 @@
+Programmer for Microchip PIC32 microcontrollers, Version 1.113:114M
+    Copyright: (C) 2011-2014 Serge Vakulenko
+      Adapter: PICkit2 Version 2.32.0
+    Processor: MZ2048ECG100 (id 4510E053)
+ Flash memory: 2048 kbytes
+  Boot memory: 80 kbytes
+Configuration:
+    DEVCFG0 = 7ffffffd
+                     3 Debugger enabled
+                   3   Flash ECC disabled, unlocked
+    DEVCFG1 = ff6afd5b
+                     3 UNKNOWN
+                    18 Deadman timer: 7/8
+                    4  Secondary oscillator enabled
+                   4   CLKO output disabled
+                  4    Clock switching enabled
+                  8    Fail-safe clock monitor enabled
+             1f        Deadman timer count: 2^39
+              8        Deadman timer enable
+    DEVCFG2 = fff879d9
+                     1 PLL divider: 1/2
+                    5  PLL input frequency range: 34-64 MHz
+                    8  Select FRC as input to PLL
+                  39   PLL feedback divider: x58
+                 0     PLL postscaler: 1/2
+              4        USB PLL input clock: 24 MHz
+              8        Enable USB PLL
+    DEVCFG3 = 3affffff
+               2       Default Ethernet pins
+               8       Permission Group Lock - only 1 reconfig
+              1        Peripheral Module Disable - only 1 reconfig
+              2        Peripheral Pin Select - only 1 reconfig
+                       USBID pin: controlled by port
+
+genhex 0x1fc0fffc 0xfffffff7    #DEVCFG0
+genhex 0x1fc0fff8 0x7f743cb9    #DEVCFG1
+genhex 0x1fc0fff4 0xfff9b11a    #DEVCFG2
+genhex 0x1fc0fff0 0xbeffffff    #DEVCFG3

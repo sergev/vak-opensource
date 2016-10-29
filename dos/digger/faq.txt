@@ -1,0 +1,276 @@
+Frequently Asked Questions
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+Q: What are the controls?
+~~~~~~~~~~~~~~~~~~~~~~~~~
+The keys you can use during the game are (by default):
+ * The cursor keys Up, Down, Left and Right (or 2, 4, 6, 8
+   on the numeric keypad if Num-lock is off) to move Digger.
+ * F1 to fire.
+ * Space to pause.
+ * F7 to toggle background music.
+ * F9 to toggle all sound.
+ * F10 to return to the title screen.
+ * + to increase the game speed by 5.
+ * - to decrease the game speed by 5.
+ * Ctrl-T (cheat) to take over whilst playing back a recorded game.
+
+In two player mode the default keys for the second player are:
+ * W, A, S and Z to move Digger around.
+ * Tab to fire.
+
+(Apologies to users of non-QWERTY keyboards - I know this is
+a terrible choice for you - you'll just have to redefine the keys.
+Double apologies for users of WinDig - we haven't implemented
+keyboard redefinition in that version yet.)
+
+On the title screen press:
+ * Esc or N to toggle one or two player mode.
+ * F8 to save the last game if you didn't put a name on the command line.
+ * F10 to exit the program.
+
+Q: How does the scoring system work?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+As follows:
+ * Emerald: 25 points.
+ * Eight consecutive emeralds (octave): Extra 250 points.
+ * Gold: 500 points.
+ * Killing a Nobbin or a Hobbin by shooting or hitting with a bag: 250 points.
+ * Bonus: 1,000 points.
+ * (In bonus mode) Eating a Nobbin or a Hobbin: 200 points
+   for first, 400 for 2nd, etc. (doubling each time) - still 250
+   for other methods of killing, though.
+ * At every multiple of 20,000 points you get an extra life.
+
+Q: What's the most you can score?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The maximum possible score on completion of level 1 is 8,650 plus
+3,900 for every life used. I can repeatably obtain 8,650. The maximum
+possible score you can have by the end of level 2 is 19,925 if you
+don't die, so it is not possible to start level 3 with more than
+2 lives in reserve. I have got maximum score on the first two levels
+a few times.
+
+I haven't bothered to calculate similar statistics for the other levels,
+but I can if anyone's interested...
+
+If you meant "What's the most you've ever scored", the answer is 75,975.
+
+Q: Can you give me some tips to improve my game?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The best I can do is suggest that you play back the recorded games
+in the hall of fame - who better to get tips from than the world's
+best Digger players?!
+
+Q: What's the music that plays in the background?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The background music for the main part of the game is called "Popcorn",
+and was a hit for the group "Hot Butter" in the 70s.
+
+The background music for the bonus is the William Tell Overture by Rossini.
+
+The music which plays when you die is "Funeral March" by F. Chopin.
+
+Q: What other interesting things do you know about Digger?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In my explorations of the code of the game, I have discovered lots
+of things which might be of interest to someone.
+
+On each new level up to level 10:
+ * The monsters arrive more frequently.
+ * There are more monsters in total.
+ * The number of monsters on screen at once increases.
+ * The number of times nobbins have to cross to become hobbins decreases.
+ * The monsters move slightly faster on average (their speed is
+   actually random).
+ * The monsters less frequently stop chasing you (they always chase
+   you on level 6 and above).
+ * Hobbins stay hobbins for longer.
+ * Gold hangs around for less long.
+ * Fire takes longer to recharge.
+ * Bonus mode lasts for less long.
+
+Levels above 10 use the same variables as level 10 but different layouts.
+
+The level plan is 1-2-3-4-5-6-7-8-6-7-8 followed by the sequence 5-6-7-8
+repeated 247 times. If you complete level 8 249 times, all the subsequent
+levels use the layout from level 5.
+
+Gold (as in a broken bag) disappears very quickly if you dig underneath it.
+
+Monsters going up change direction when there is a bag falling on them,
+but they do the same thing even if the bag is below them in the same column.
+
+Player 2 (in two player mode, obviously) doesn't get the extra life
+until after multiples of 20,000. Player 1 (in either mode) gets it
+*at* multiples of 20,000.
+
+The noise made when you complete a level is polyphonic if no background
+music has been played since the game was started.
+
+The program allocates enough resources for 6 monsters, but only 5 are
+on screen at any given time. By changing a single byte in the original
+executable, you could make all 6 appear at the same time.
+
+When you get a game over and no high score, the screen used to flash
+between its two colour schemes for a while, but the original didn't
+do this on my 8086. Apparently it did on some other people's computers,
+though, so it must have been a hardware oddity. It was taking ages
+to get back to the title screen, so I removed it.
+
+In the original, you couldn't collect more than 4 spare lives.
+If you got 60,000 points without dying, you wouldn't get an extra
+life at that point. Some people thought this was unfair, so in
+Digger Remastered I added an option to allow you to collect as many
+lives as you like. However, care should be exercised using this option
+if you intend to record a game for the hall of fame, since your score
+will be calculated as if you played by the original rules. So you
+might not have as many lives as you thought you did, and your game
+might finish sooner. A few people have been caught out by this.
+
+There are no more extra lives to be had at or after the 1 million
+point mark. Although this was a bug in the original Digger (a kludge
+really - Windmill software never counted on anyone getting that far)
+I've kept it on in Digger Remastered to give an extra little bit
+of difficulty to anyone that good.
+
+Q: What language was Digger originally written in?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+According to one of my correspondants who has spoken with
+employees of Windmill, Digger was written in C and compiled
+with the Lattice C v1.x compiler.
+
+Q: I have found a bug in Digger. Can you fix it?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+First download the latest version and see if your bug still happens
+with that. If it doesn't, I already fixed it. If it does, please
+send me details of the bug, the operating and version of Digger
+you are using, the command line parameters you gave to Digger
+and a .DRF file if you can make one which reproduces the bug.
+
+If you're having problems with the Windows version not going
+at constant speed, I'm investigating and hope to have a fix soon.
+
+Q: My computer does not know how to run .ZIP files. What do I do?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+If you're using Windows, download WinZip and learn how to use it.
+If you're using a Mac, see the next question. If you use some
+other sort of computer, you really ought to know how to unzip
+files. I won't send you an unzipped version. Unzipping files
+is a skill you really need to learn if you're going to be
+downloading programs from the internet: it is an industry
+standard format. Give a man a fish and he will eat today,
+teach him to fish and he can eat forever.
+
+Q: I can't download the game.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+For some reason I get an email asking this about once a week,
+but I never have any problems downloading the .ZIP files when
+I check them. I hate getting emails like this, because I can't
+help these poor souls if I don't know what the problem is! I suspect
+most of them don't know how to unzip .ZIP files (see previous question),
+as pointing them at this page seems to make them go away. If you are
+having a real problem with the download, I would like you to tell me
+but please be specific about what the problem is - I need error
+messages, I need you to tell me exactly what you are doing and
+why you think what's happening shouldn't be. As far as I'm concerned,
+you should be able to get all the information you need to install
+and run the game from this website - if you still can't after
+reading everything here, there's a problem. Now, I don't want
+any more emails just saying "I can't download it".
+
+Q: My Apple Mac won't run Digger. What do I do?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Sorry, there is currently no version of Digger designed for Macs.
+You could, if you are so inclined, try to run it on a PC emulator.
+Some people have reported limited success in doing so. You could
+also try the Java version. Hopefully sometime soon a Mac programmer
+will write a native version - it might not be too difficult with
+the SDL library.
+
+Q: Is there a Pocket PC version? Any plans to port to Pocket PC?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+There are a couple of commercial companies offering Pocket PC versions
+(unendorsed by me). You can find them on the links page.
+
+It is also possible to run Digger Remastered on a Pocket PC using
+an emulator, although it may not be the best gaming experience.
+Please let me know if you have any luck doing that.
+
+I would like to port Digger to the Pocket PC when I find some time,
+especially since I work on Pocket PC development tools.
+
+Q: Where can I get the original version of Digger?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+I don't know. It is impossible to download it from the internet because
+it is hardware, not software (a copy protected floppy disk, as opposed
+to the program on it). If you had that disk you'd still need an XT
+with genuine CGA graphics and a 5.25" floppy disk drive to run it.
+
+However, many people played the old Digger without the original disk.
+It is possible to extract the program from its disk, a process known
+as "ripping". If you do this, it still doesn't work because because
+the game is copy protected. It is possible to remove the copy protection
+(a process called "cracking"). After these steps, the game will run
+but it will run too fast unless you have an XT, and you won't be able
+to see it unless you have CGA. Also, if you were to get a high score,
+it would try to save it on the disk in drive A, possibly wiping out
+some of the information on any such disk.
+
+The ripped copies of Digger, Styx, Moonbugs, Conquest, Rollo,
+The Exterminator and Floppy Frenzy which you can download at
+the download page have been cracked and modified not to save
+their scores. Nothing else has been done to them, however, so you
+they run too fast and the graphics are broken in some of them.
+
+A more original (although less useful) downloadable version of one
+of these games would be an "image" of the original disk (not a picture
+but a file containing all the data from the disk: boot sector,
+file allocation tables and all.) I don't have any disk images
+of Windmill games, however (nor do I want any - I have no use
+for them, except to put on this website, and I won't do that
+unless there is sufficient demand for it). However, I intend
+to soon put modified disk images of the Windmill games on the website
+for use with emulators such as MESS.
+
+If you actually want to play Digger, I suggest you download
+Digger Remastered. It plays and sounds exactly the same as
+the original did, looks the same if you use the /C option,
+and works on all the same computers as well as more modern ones.
+In fact, if you play them both on a computer or emulator on which
+the original Digger works properly, you would be hard pushed
+to tell them apart (except for slight timing differences).
+
+Q: Is this legal?
+~~~~~~~~~~~~~~~~~
+Strictly speaking, no. According to intellectual property law,
+a work copyrighted by a company continues to be copyrighted for 75 years.
+
+I have no moral objections to violating Windmill software's copyright
+by re-releasing the game, and I feel you should have no moral objections
+to playing it (unless you're doing it when you should be doing
+something else). Copyright exists to protect intellectual rights,
+not to prevent people from having access to software. I can think of
+two reasons why Windmill software would want to protect their
+intellectual rights:
+ * To ensure that they are recognized as the true authors of Digger.
+ * To ensure that they make as much money as possible.
+
+I have retained the original copyright messages in the game and
+I take pains to ensure that Windmill are credited properly whereever
+possible so the first of these concerns is taken care of. As for
+the second - Windmill hasn't made any money from Digger for
+a long time, and if they insist I will relinquish all rights
+to Digger to them to do with as they wish. Having Digger restored
+and working on modern computers, they would be in a much better
+position to make money from it than they would if I hadn't remastered it.
+
+In conclusion, therefore, I think that Digger Remastered follows
+the spirit of the law, if not the letter. And since laws, being
+so rigid, can never be perfect, the world works much better
+this way (as any Digger fan must concur.)
+
+For more information about abandonwarez and the associated
+legal problems, have a look at this essay. Having said all that,
+I now know that Windmill does know about Digger Remastered,
+and since they have not asked me to stop distributing it,
+I can assume they don't mind.

@@ -1,0 +1,10 @@
+*******************************
+* Begin .SUBCKT model         *
+* spice-sdb ver 4.28.2007     *
+*******************************
+.subckt invertor 1 2 3
+*==============  Begin SPICE netlist of main design ============
+XQp 2 1 3 BSS84
+XQn 2 1 0 2N7002
+.ends invertor
+*******************************

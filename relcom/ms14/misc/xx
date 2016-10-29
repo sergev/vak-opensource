@@ -1,0 +1,10 @@
+for i in oqueue/*
+do
+	fgrep uucp@ $i > /dev/null 2>&1
+
+	if [ $? = 0 ]
+	then
+		rm -f $i
+		echo $i
+	fi
+done

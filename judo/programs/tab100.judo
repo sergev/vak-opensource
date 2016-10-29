@@ -1,0 +1,13 @@
+//~JUDOPROP~//$VERSION=1.3.0
+//~JUDOPROP~//$TYPE=text
+//~JUDOPROP~//$TITLE=TAB100
+void main() {
+    int[] tab;
+    tab = new int[100];
+    for (int x = 0; x < 100; x++) {
+        tab[x] = x + 1;
+    }
+    for (int x = 99; x >= 0; x--) {
+        printLine(x);
+    }
+}

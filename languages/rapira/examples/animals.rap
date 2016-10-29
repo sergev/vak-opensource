@@ -1,0 +1,54 @@
+proc ANIMALS(<=KNOWLEDGE)
+
+	output: KNOWLEDGE[1], "(yes,no)"
+	input: ANSWER
+
+	if ANSWER then
+		N := 2
+	else
+		N := 3
+	fi
+
+	ATTEMPT := KNOWLEDGE[N]
+
+	if is_seq(ATTEMPT) then
+		ANIMALS(<=ATTEMPT)
+	else
+
+		output: "Is it a ", ATTEMPT, "?(yes,no)"
+		input: ANSWER
+
+		if ANSWER then
+
+			output: "I've guessed!"
+
+		else
+
+			output: "I give up. What animal are you thinking of?"
+			input text: BEAST
+
+			output: "Type in a question to distinguish"
+			output: "a ", BEAST, " and a ", ATTEMPT, ":"
+			input text: QUESTION
+
+			output: "What will be an answer for a ", BEAST, "?"
+			input: ANSWER
+
+			if ANSWER then
+				ATTEMPT := <* QUESTION, BEAST, ATTEMPT *>
+			else
+				ATTEMPT := <* QUESTION, ATTEMPT, BEAST *>
+			fi
+
+		fi
+
+	fi
+	
+	KNOWLEDGE[N] := ATTEMPT
+
+end
+
+ALL_ANIMALS := <* "Does it live in water?", "fish", "ostrich" *>
+do
+	ANIMALS(<=ALL_ANIMALS)
+od

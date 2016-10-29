@@ -1,0 +1,21 @@
+
+PDP-11 simulator V3.6-1
+origin 500, count 22
+Disabling XQ
+f2: pc 000500 (00000500->012701) MOV #2,R1
+f1: pc=500, sp=0, psw=340 ipl7 n0 z0 v0 c0 (0 0 0 0 0 0 0 500)
+f2: pc 000504 (00000504->012702) MOV #2,R2
+f1: pc=504, sp=0, psw=340 ipl7 n0 z0 v0 c0 (0 2 0 0 0 0 0 504)
+f2: pc 000510 (00000510->070201) MUL R2,R1
+f1: pc=510, sp=0, psw=340 ipl7 n0 z0 v0 c0 (0 2 2 0 0 0 0 510)
+f2: pc 000512 (00000512->012701) MOV #12,R1
+f1: pc=512, sp=0, psw=340 ipl7 n0 z0 v0 c0 (0 2 0 4 0 0 0 512)
+f2: pc 000516 (00000516->012702) MOV #12,R2
+f1: pc=516, sp=0, psw=340 ipl7 n0 z0 v0 c0 (0 12 0 4 0 0 0 516)
+f2: pc 000522 (00000522->070201) MUL R2,R1
+f1: pc=522, sp=0, psw=340 ipl7 n0 z0 v0 c0 (0 12 12 4 0 0 0 522)
+f2: pc 000524 (00000524->000000) HALT
+f1: pc=524, sp=0, psw=340 ipl7 n0 z0 v0 c0 (0 12 0 144 0 0 0 524)
+
+HALT instruction, PC: 000526 (HALT)
+Goodbye

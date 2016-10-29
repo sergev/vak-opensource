@@ -1,0 +1,2 @@
+#define NBDISK          6
+

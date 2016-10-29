@@ -1,0 +1,26 @@
+                PrinterJob pjob = PrinterJob.getPrinterJob();
+					pjob.setJobName("DemoGfx - Graphics Demo Printout");
+					pjob.setCopies(1);
+					// Tell the print system how to print our pages.
+					pjob.setPrintable(new Printable() {
+						/** called from the printer system to print each page */
+						public int print(Graphics pg, PageFormat pf, int pageNum) {
+							if (pageNum>0)		// we only print one page
+								return Printable.NO_SUCH_PAGE;	// ie., end of job
+
+							// Now (drum roll please), ask "thing" to paint itself
+							// on the printer, by calling its paint() method with
+							// a Printjob Graphics instead of a Window Graphics.
+//							JUDOHelpWindow.this.webPagePane.print(pg);
+//webPagePane.findComponentAt(300, 300).paint(pg);
+Graphics2D g2d = (Graphics2D) pg;
+g2d.translate(pf.getImageableX(), pf.getImageableY());
+webPagePane.findComponentAt(300, 300).paint(g2d);
+							// Tell print system that the page is ready to print
+							return Printable.PAGE_EXISTS;
+						}
+					});
+                                        try {
+                                          pjob.print();
+                                        }
+                                        catch (PrinterException pe) {}

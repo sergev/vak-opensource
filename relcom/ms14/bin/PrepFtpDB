@@ -1,0 +1,8 @@
+:
+#!/usr/local/bin/marsexec
+/usr/local/bin/marsexec -c '
+logon mailserv mailserv;
+
+delete srv_log where srv_prog = "ftp" ;
+commit;
+'

@@ -1,0 +1,18 @@
+# Cube 8x8x8
+
+Manufactured by www.syyyd.com.
+
+Pin | Signal | Function
+----|--------|----------
+ 1  | VCC    |
+ 2  | Y0     | Layer select, bit 0
+ 3  | Y1     | Layer select, bit 1
+ 4  | Y2     | Layer select, bit 2
+ 5  | Y3     | Control LED1...LED4
+ 6  | Y4     | Control LED5...LED8
+ 7  | SDI    | Serial data   \
+ 8  | CLK    | Clock         | to shift registers
+ 9  | /LE    | Latch enable  |
+ 10 | /OE    | Output enable /
+ 11 | EXT    | LED enable
+ 12 | GND    |

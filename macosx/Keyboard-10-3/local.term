@@ -1,0 +1,8 @@
+{
+    WindowSettings = (
+        {
+	    "NSFixedPitchFont" = "Monaco";
+            "NSFixedPitchFontSize" = "18";
+	}
+    );
+}

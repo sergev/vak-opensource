@@ -1,0 +1,77 @@
+CE Vehicle-Mounted Whip, by K6STI
+'
+SY F=16
+SY M=47
+SY T=68
+SY B=6
+SY R=9
+SY S=110
+SY W=120
+SY L=175
+SY Y=66
+SY D=2
+SY C=66
+SY H=100
+'
+GW	1	1	0	0	F	B	0	F	.5
+'
+GW	2	1	0	Y	F	B	Y	F	.5
+GW	3	4	0	0	F	0	Y	F	D
+GW	4	5	0	0	F	0	0	C	.5
+GW	5	2	0	0	C	0	0	H	.11
+GW	6	3	B	0	F	W	0	F	D
+'
+GW	7	3	B	Y	F	W	Y	F	D
+GW	8	1	W	0	F	L	0	F	D
+GW	9	1	W	Y	F	L	Y	F	D
+GW	10	1	B	0	F	B	Y	F	D
+GW	11	1	W	0	F	W	Y	F	D
+'
+GW	12	1	L	0	F	L	Y	F	D
+GW	13	1	B	0	F	B	0	M	D
+GW	14	1	B	Y	F	B	Y	M	D
+GW	15	1	W	0	F	W	0	M	D
+GW	16	1	W	Y	F	W	Y	M	D
+'
+GW	17	1	L	0	F	L	0	M	D
+GW	18	1	L	Y	F	L	Y	M	D
+GW	19	3	B	0	M	W	0	M	D
+GW	20	3	B	Y	M	W	Y	M	D
+GW	21	1	W	0	M	L	0	M	D
+'
+GW	22	1	W	Y	M	L	Y	M	D
+GW	23	1	B	0	M	B	Y	M	D
+GW	24	1	W	0	M	W	Y	M	D
+GW	25	1	L	0	M	L	Y	M	D
+GW	26	1	B	0	M	R	0	T	D
+'
+GW	27	1	B	Y	M	R	Y	T	D
+GW	28	1	W	0	M	S	0	T	D
+GW	29	1	W	Y	M	S	Y	T	D
+GW	30	3	R	0	T	S	0	T	D
+GW	31	3	R	Y	T	S	Y	T	D
+'
+GW	32	1	R	0	T	R	Y	T	D
+GW	33	1	S	0	T	S	Y	T	D
+GW	34	3	B	0	F	W	0	M	D
+GW	35	3	R	0	T	S	Y	T	D
+GW	36	1	B	0	F	B	Y	M	D
+'
+GS	0	0	in
+GE	1
+EX	0	4	1	00	1.0	0.0
+LD	1	4	1	0	0	60.7 uh	0
+'
+GN	2	0	0	0	13	.005
+FR	0	1	0	0	 7.2
+EN
+'This models a loaded whip on a toyota 4-runner.  the car body is modeled with
+'wires along its periphery, below the windows, along the back bumper, and on a
+'few diagonals.  This still may not be enough to adequately model the surfaces
+'involved.  The pattern is quite directional.  Disable x-axis pattern symmetry
+'to view the asymmetric pattern.  Note that surfaces near the whip carry
+'out-of-phase current that effectively cancels whip radiation.  This greatly
+'lowers radiation resistance and efficiency.  It's much better to mount the whip
+'higher up when mechanically feasible.  Ground losses are not modeled.  The
+'capacity to ground of unmodeled vehicle surfaces is ignored.  The geometry for
+'this model was developed by Dave Barton, AF6S.

@@ -1,0 +1,22 @@
+CM Franklin Collinear Array, by K6STI
+CE
+SY D = .125
+SY W = 20
+GW	1	11	0	0	-59	0	0	-21	D
+GW	2	11	0	0	-19	0	0	19	D
+GW	3	11	0	0	21	0	0	59	D
+GW	4	5	0	0	-21	0	W	-21	D
+GW	5	1	0	W	-21	0	W	-19	D
+GW	6	5	0	0	-19	0	W	-19	D
+GW	7	5	0	0	19	0	W	19	D
+GW	8	1	0	W	19	0	W	21	D
+GW	9	5	0	0	21	0	W	21	D
+GS	0	0	in
+GE	0
+EX	0	2	6	00	1.0	0.0
+'
+GN	-1
+FR	0	1	0	0	 147
+EN
+'the short vertical jumpers in the phasing sections, which are at current
+'maxima, cause 0.9 dB ripple in the azimuth pattern.

@@ -1,0 +1,36 @@
+== Test for three CMOS inverters in series ==
+
+.include cd4007-rit.lib
+.include invertor.cir
+
+*
+* Device under test
+*
+X1  1 2 4   invertor
+Vcc 4 0     +5V
+
+*
+* Second invertor in series
+*
+X2  2 5 4   invertor
+
+*
+* Third invertor in series
+*
+X3  5 6 4   invertor
+
+*
+* Input pulse via resistor
+*
+Vin 3 0     DC 0 PULSE(0 +5V 10ns 5ns 5ns 50ns 100ns)
+Rin 3 1     0
+
+.tran 0.1ns 100ns
+
+.control
+    run
+    plot V(1) V(2) V(5) V(6)
+    plot Vcc#branch Vin#branch
+.endc
+
+.end

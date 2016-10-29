@@ -1,0 +1,25 @@
+CM Inverted V for 80 Mtr with coated-wire.
+CM Length for resonance is decreased from 19.72 to 19.15 meters
+CE 
+SY hgh=21				' Height
+SY len=19.15			' Wire length
+SY ang=110				' Angle between wires
+SY Z=len*cos(ang/2), X=len*sin(ang/2)	' Get delta-Z and -X distances
+'
+SY nrseg=25				' To do nr-segs evaluation...
+'
+GW	1	nrseg	-X	0	hgh-Z	-0.3	0	hgh	.5mm
+GW	2	3	-0.3	0	hgh	0.3	0	hgh	.5mm
+GW	3	nrseg	0.3	0	hgh	X	0	hgh-z	.5mm
+GE	0
+'
+GN	2	0	0	0	14	.006	' Sommerfeld ground
+
+LD	5	0	0	0	58000000	' Copper wire
+
+LD	7	0	0	0	4.5	1mm	' 1 mm outer radius PVC coat.
+
+EX	0	2	2	0	1	0	' Default voltage source
+FR	0	1	0	0	3.680		' Design frequency
+'
+EN							' End of file

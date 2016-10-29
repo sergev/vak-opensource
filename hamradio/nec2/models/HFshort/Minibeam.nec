@@ -1,0 +1,55 @@
+CE Minibeam
+
+SY W = 6
+SY H = 3.5
+SY S = 3
+SY R = 2
+SY HD = 1/12
+SY VD = .375/12
+
+GW	1	11	S	-W	0	S	W	0	HD
+
+GW	2	4	S	W	0	S	W	H	VD
+GW	3	1	S	W	H	R	W	H	VD
+GW	4	8	R	W	H	R	W	-H	VD
+GW	5	1	R	W	-H	S	W	-H	VD
+GW	6	4	S	W	-H	S	W	-1/6	VD
+
+GW	7	4	S	-W	0	S	-W	H	VD
+GW	8	1	S	-W	H	R	-W	H	VD
+GW	9	8	R	-W	H	R	-W	-H	VD
+GW	10	1	R	-W	-H	S	-W	-H	VD
+GW	11	4	S	-W	-H	S	-W	-1/6	VD
+
+
+GW	12	11	-S	-W	0	-S	W	0	HD
+
+GW	13	4	-S	W	0	-S	W	H	VD
+GW	14	1	-S	W	H	-R	W	H	VD
+GW	15	8	-R	W	H	-R	W	-H	VD
+GW	16	1	-R	W	-H	-S	W	-H	VD
+GW	17	4	-S	W	-H	-S	W	-1/6	VD
+
+GW	18	4	-S	-W	0	-S	-W	H	VD
+GW	19	1	-S	-W	H	-R	-W	H	VD
+GW	20	8	-R	-W	H	-R	-W	-H	VD
+GW	21	1	-R	-W	-H	-S	-W	-H	VD
+GW	22	4	-S	-W	-H	-S	-W	-1/6	VD
+
+GS	0	0	ft
+GE	0
+EX	6	1	6	00	1.0	0.0
+EX	6	12	6	00	-.85	.53
+'
+GN	-1
+FR	0	1	0	0	 14.05
+EN
+
+'This is an experimental small beam for 20 meters.  it has a wingspan of 12 feet,
+'a height of 7 feet, and a 6-foot boom.  When experimenting, it's much easier to
+'specify element currents and leave phasing-line or parasitic-coupling details
+'for later.  This lets you quickly determine the maximum gain and F/B for various
+'configurations.  The negative impedance at one source just means that power is
+'flowing toward the source rather than away from it.  This power comes from the
+'the other element via mutual coupling.
+

@@ -1,0 +1,48 @@
+This is Relcom Info Server. To get some information from it,
+send letter to listserv@kiae.su with commands in it.
+For example:
+
+	% mail mailserv@kiae.su		-- call mailer
+	Subject: <any subject>		-- skip subject
+	list sites                      -- get list of users
+	quit                            -- end of commands
+	^D				-- exit from mailer
+	%
+
+To get help, send letter with command 'HELP' in it.
+
+	% mail listserv@kiae.su
+	Subject: <any subject>
+	HELP
+	^D
+	%
+
+Command summary:
+
+	HELP                    - get brief description of infoserv.
+	QUIT                    - end of command file.
+
+	STAT
+	STAT PERSONS
+	STAT SITES              - show data base statistics.
+
+	ADD PERSON
+	ADD SITE
+	...                     - add new record into data base.
+
+	FIND PERSON
+	FIND SITE
+	...                     - find record in data base.
+
+	REMOVE PERSON
+	REMOVE SITE
+	...                     - remove record from data base.
+
+	LIST PERSONS
+	LIST SITES              - list all data base records.
+
+
+If you have any problems or suggestions about mail server,
+please e-mail to vak@kiae.su (Serge Vakulenko).
+
+Relcom Info Server, Copyright (C) 1992 Serge Vakulenko

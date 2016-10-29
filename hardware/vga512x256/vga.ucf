@@ -1,0 +1,30 @@
+# Constraints for design 'vga'.
+# Revision D of the Spartan-3E Starter Kit.
+# Serge Vakulenko - December 2006.
+
+#
+# Period constraint for 50MHz operation.
+#
+NET "clk_50mhz" PERIOD = 20.0ns HIGH 50%;
+
+#
+# Soldered 50MHz clock.
+#
+NET "clk_50mhz" LOC = "C9" | IOSTANDARD = LVTTL;
+
+#
+# Push buttons.
+#
+NET "btn_south" LOC = "K17" | IOSTANDARD = LVTTL | PULLDOWN;
+
+# VGA display port.
+#
+NET "vga_red"   LOC = "H14" | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST;
+NET "vga_green" LOC = "H15" | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST;
+NET "vga_blue"  LOC = "G15" | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST;
+NET "vga_hsync" LOC = "F15" | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST;
+NET "vga_vsync" LOC = "F14" | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST;
+
+#
+# End of file.
+#

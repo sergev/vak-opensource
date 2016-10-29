@@ -1,0 +1,63 @@
+//  LIBHDR
+
+MANIFEST $(
+    ENDSTREAMCH     = -1
+    BYTESPERWORD    = 4
+    BITSPERWORD     = 32
+    MAXINT          = #X7FFFFFFF
+    MININT          = #X80000000
+    FIRSTFREEGLOBAL = 150
+$)
+
+GLOBAL $(
+    start : 1
+
+    selectinput  : 11
+    selectoutput : 12
+
+    rdch   : 13
+    wrch   : 14
+    unrdch : 15
+
+    input  : 16
+    output : 17
+
+    stop : 30
+
+    level    : 31
+    longjump : 32
+
+    rewind  : 35
+    aptovec : 40
+
+    findoutput : 41
+    findinput  : 42
+    endread    : 46
+    endwrite   : 47
+
+    stackbase : 54
+    stackend  : 55
+
+    writes  : 60
+    writen  : 62
+    newline : 63
+    newpage : 64
+
+    packstring   : 66
+    unpackstring : 67
+    writed       : 68
+
+    readn      : 70
+    terminator : 71
+
+    writehex : 75
+    writef   : 76
+    writeoct : 77
+
+    mapstore : 78
+
+    getbyte : 85
+    putbyte : 86
+
+    result2 : 91
+$)

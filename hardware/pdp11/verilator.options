@@ -1,0 +1,6 @@
+
++librescan +libext+.v
+ -y .
+ +incdir+.
+ +incdir+/usr/share/verilator/include
+ +incdir+/usr/local/share/verilator/include

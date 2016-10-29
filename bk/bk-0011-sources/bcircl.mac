@@ -1,0 +1,324 @@
+.Mcall	.Module
+.Module	BCIRCL,Release=X02, Version=02, Comment=<BK0011 Circle Drawing>
+;
+;			Copyright (c) 1986,1987 by
+;	C-11 Special Interest Group, Leningrad State University.
+;			 All rights reserved.
+;
+; This software is furnished under a license and may be used and  copied
+; only  in  accordance  with  the  terms  of  such  license and with the
+; inclusion of the above copyright notice.  This software or  any  other
+; copies  thereof may not be provided or otherwise made available to any
+; other person.  No title to and ownership of  the  software  is  hereby
+; transfered.
+;
+; The information in this software is subject to change without notice
+; and should not be construed as a commitment by C-11 group.
+;
+; C-11 assumes no responsibility for the use or reliability of its
+; software on equipment which is not submitted by C-11.
+;
+ .Include "BKHEAD"
+.Globl	Point,Vector
+ .Psect	$CodOvr
+.SbTtl	Circle	Routine (Circle Drawing)
+;
+; This Routine draws the circle or circle arc with parameters specified.
+; Routine Uses All the registers (R0..R5).
+; Input parametres are in static memory area:
+; 
+;	$XC  - X coordinate of arc center 
+;	$YC  - Y coordinate of arc center 
+;	$RAD - circle or arc radius
+;	$BEG - Start angle
+;	$END - End angle
+;	$CX  - X-Coordinate concise coeffitient
+;	$CY  - Y-Coordinate concise coeffitient
+;
+;$BEG and $END - Integer number 0...77777 (Octal)
+;0	-> 0
+;77777	-> 2*pi
+;
+;If number given less than <0, absolute value of parameter
+;is angle, appropriate point of arc concatenated with arc center.
+;
+;$CX, $CY - 0..177777, If equal zero than no concise, else
+; Real Coordinate X = X * $CX / 2 ** 16
+; Real Coordinate Y = Y * $CY / 2 ** 16
+;
+ CIRCLE::
+	Clr	$LB		; Clear LE and LB (Sign Flags)
+	ClrB	$LE
+	Clr	$INV
+	Mov	#BufOut,R0	; Clear "BufOut" Buffer
+	Mov	#4,R1
+10$:	Clr	(R0)+
+	Sob	R1,10$
+	Mov	$BEG,R1		; Test initial angle
+	Bpl	20$
+	Neg	R1		; Get absolute value
+	IncB	$LB		; and set flag
+20$:	Mov	R1,-(SP)	; store initial angle
+	Call	Octet		; Compute octet and coordinate
+	Mov	R1,$$BEG	; Store initial coordinate 
+	Mov	R5,R4		; and octet No
+	Mov	$END,R1		; Process ending point
+	Bpl	30$
+	Neg	R1
+	IncB	$LE
+30$:	Mov	R1,-(SP)	; Store End point
+	Call	Octet
+	Mov	R1,$$END	; Ending coordinate
+	BisB	#2,BufOut(R4)	; Mark begin
+	Cmp	R4,R5		; End sector=Begin sector?
+	Bne	40$		; No...
+	Cmp	(SP)+,(SP)+	; Compare End and Begin Coordinates
+	Bgt	60$		; End > Begin - normal direction
+	Inc	$INV		; Mark Inverse Direction
+	Br	50$
+40$:	Cmp	(SP)+,(SP)+	; Clear Stack
+50$:	Inc	R4		; Increase octet No
+	Bic	#^C7,R4
+	Cmp	R4,R5		; last octet?
+	Beq	60$		; Yes
+	BisB	#200,BufOut(R4)	; Set "Always write" Flag
+	Br	50$
+60$:	BisB	#4,BufOut(R4)	; Set "Test the end" Flag
+ .SbTtl	Second part of Routine - Drawing proper
+;
+;Register are:
+; R1- Relative  X
+; R2- Relative Y
+; R5- Sector's Counter
+; R0- D
+; R3 and R4 are working
+;
+	Clr	R1		; X=0
+	Mov	$RAD,R2		; Y=R
+	Mov	R2,R0
+	Asl	R0
+	Neg	R0
+	Add	#3,R0		; D=3-2*R
+
+.SbTtl	Main Loop of Drawing Algorithm
+
+70$:	Cmp	R1,R2
+	Bgt	100$		; If(X>Y) - Than Exit
+				; Else {
+	Call	DRAW8		; Write eigth points of circle
+	Tst	R0		; If D<0
+	Bge	80$
+	Mov	R1,R3		;   Then D = D+4*X+6
+	Asl	R3
+	Asl	R3
+	Add	#6,R3
+	Add	R3,R0
+	Br	90$
+80$:	Mov	R1,R3		;   Else D = D+4*(X-Y)+10.
+	Sub	R2,R3		;; X - Y
+	Asl	R3
+	Asl	R3
+	Add	#10.,R3
+	Add	R3,R0
+	Dec	R2		; Y--
+90$:				;/* EndIf*/
+	Inc	R1		; X++
+	Br	70$
+
+100$:	Return
+ .SbTtl	DRAW8 - Selective drawing of arc points
+;
+;Input:
+;R1	- Relative X-coordinate of point
+;R2	- Relative Y-coordinate of point
+;
+;This routine also uses $XC, $YC, $BEG, $END, $CX, $CY and Bufout Data
+;
+DRAW8:	Mov	R0,-(SP)	;Save R0 Thru r2
+	Mov	R1,-(SP)
+	Mov	R2,-(SP)
+	Mov	#7,R5		;sektor No
+;
+;Sector's Loop
+;
+10$:	Clr	R4		; Clear "Radius Drawing" flag 
+	Mov	(SP),R2		;Restore original Y
+	Mov	2(SP),R1	;  and X Coordinates
+	MovB	BufOut(R5),R0	;Test Flags for sector processing
+	Beq	90$		; == 0 --> skip this sector
+	Bmi	30$		; < 0  --> Draw All points
+	Call	@TTAB-2(R0)	; > 0  --> Check Cordinates
+	Bcs	90$		; Not draw this point
+30$:	Bit	#2,R5		; swap Coordinates ?
+	Beq	40$		; No...
+	Mov	R1,R3
+	Mov	R2,R1		; Swap(X,Y)
+	Mov	R3,R2
+40$:	Mov	R5,-(SP)	; Store temporary
+	Mov	$CX,R3		; X-Scaling 
+	Beq	50$		; not used...
+	Call	CMul		; Used...
+50$:	Mov	$CY,R3		; Y-Scaling processing
+	Beq	60$
+	Mov	R1,-(SP)
+	Mov	R2,R1
+	Call	CMul
+	Mov	R1,R2
+	Mov	(SP)+,R1
+60$:	Mov	(SP)+,R5	; Restore Octet No
+	MovB	SIGS(R5),R0	; Table of signs
+	Bpl	70$		; X-Sign
+	Neg	R1		; is "-"
+70$:	AslB	R0		; Y-Sign
+	Bpl	80$		; "+"
+	Neg	R2		; "-"
+80$:	Add	$XC,R1		; Get Absolute coordinates
+	Add	$YC,R2		;  ....
+	Call	Point		;Draw the point
+	Tst	R4		;Radius Drawing?
+	Beq	90$		;No
+	Mov	$XC,R1
+	Mov	$YC,R2
+	Call	Vector		;Write Vector
+90$:	Dec	R5		;Goto the Next Octet
+	Bpl	10$
+	Mov	(SP)+,R2	;All done, Restore registers and exit
+	Mov	(SP)+,R1
+	Mov	(SP)+,R0
+	Return
+TTAB:	.Word	TBeg,	TEnd, TAll
+;
+;Octet Signs Table
+;
+SigS:	.BYTE	100, 300, 300, 200; mask 200 - "-X"
+	.BYTE	200, 0, 0, 100	  ; mask 100 - "-Y"
+ .Enabl	LSB
+.SbTtl	Points Testing ROutines
+TBEG:	Mov	$$BEG,R3	; Bound Value
+	Call	TEST
+	Bgt	20$		; Not Draw
+	Bne	10$		; not at bound, Draw
+	TstB	$LB		; Initial Radius Drawing ?
+15$:	Beq	10$		; No
+	Inc	R4		; Yes, Mark...
+10$:	Tst	(PC)+
+20$:	SeC
+	Return
+
+TEND:	Mov	$$END,R3
+	Call	TEST
+	BlT	20$
+	Bne	10$
+	TstB	$LE
+	Br	15$
+
+TALL:	Clr	R0
+	Call	TBEG
+	Adc	R0
+	Call	TEND
+	Adc	R0		;Now R0=0
+	Sub	$INV,R0
+	Bgt	20$
+	Br	10$
+
+TEST:
+	Bit	#1,R5		; Sector Writting Direction
+	Bne	30$
+	Cmp	R1,R3
+	Return
+30$:	Cmp	R3,R1
+	Return
+.Dsabl	LSB
+ .SbTtl	Octet Computing Routine
+;
+; Input:
+;R2	= Positive Angle value.
+; Output:
+;R5	= Octet No
+;R1	= Initial coordinate of Octet @r5
+;R4 Not Changed.
+;Uses MySin Routine
+;
+Octet:	Mov	R1,R5
+	Bic	#^C70000,R5	;Octet No bits
+	Bic	R5,R1		;R1 = internal octet angle
+	Asr	R5		;111 000 000 000 00
+	Asr	R5		;111 000 000 000 0
+	Asr	R5		;111 000 000 000
+	Asr	R5		;111 000 000 00
+	Swab	R5		;111
+	Dec	R5
+	Bic	#^C7,R5		;R5=Octet No
+	Bit	#1,R5		;Internal Coordinate direction must be
+				;changed ?
+	Bne	10$		; No
+	Neg	R1
+	Add	#7777,R1
+10$:	Call	MySin		; R1=$RAD*Sin(R1/10000*Pi/4)
+	Return
+
+.SbTtl	Sine function approcsimation
+;	R1 = $RAD*Sin(R1/10000*Pi/4) where R1=0..7777
+;
+; It's the simpliest realization - linear approcsimation used:
+;R1=R1/10000*Sin(Pi/4)
+;
+;R4 and R5 are unchanged.
+;
+SinPi4 = 132404
+MySin:
+	Mov	R4,-(SP)
+	Mov	R5,R2		;Save R4 and R5
+	Asl	R1
+	Asl	R1
+	Asl	R1
+	Asl	R1		;Fix decimal point at the left of MSB
+	Mov	$Rad,R3		;and Scale R1
+	Call	CMul
+	Mov	#SinPi4,R3	;Sin(Pi/4) 
+	Call	CMul
+	Mov	R2,R5		;Restore R5
+	Mov	(SP)+,R4	;and R4
+	Return
+
+.SbTtl	CMul R1 to R3 Scaling procedure
+;
+;Computes R1=R1*R3/2**16
+;
+;R0, R3, R4 and R5 are changed
+;
+CMul:
+	Mov	R2,-(SP)
+	Mov	R1,R0		;Multiplier
+	Clr	R1
+	Clr	R2
+	Clr	R5
+10$:	Ror	R0		;Shift out the following Bit (C == 0)
+	Bcc	20$
+	Add	R5,R1		;Most significant part
+	Add	R3,R2		;LSP
+	Adc	R1
+20$:	Asl	R3
+	Rol	R5
+	Tst	R0		;All Done?
+	Bne	10$		;No, Continue
+	Mov	(SP)+,R2	;Restore R2
+	Return			;And Exit
+ .Psect	$Ram
+CrcBlk::
+$XC:	.BlkW		; X0
+$YC:	.BlkW		; Y0
+$RAD:	.BlkW		; radius
+$BEG:	.BlkW		; Initial Main Coordinate
+$END:	.BlkW		; Ending Main Coordinate
+$CX:	.BlkW		; X-Scaling factor
+$CY:	.BlkW		; Y-Scaling factor
+
+$$BEG:	.BlkW		;
+$$END:	.BlkW		;
+$INV:	.BlkW		;
+$LB:	.BlkB		;
+$LE:	.BlkB		;Must be folow $LB
+BufOut:	.BlkB	8.	;Circle definition table
+.Even
+	.END

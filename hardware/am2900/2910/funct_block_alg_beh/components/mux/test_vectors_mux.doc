@@ -1,0 +1,29 @@
+--------------------------------------------------------------------------------
+--
+--   AMD2910 Benchmark
+--
+-- Source:  AMD data book
+--
+-- author: Indraneel Ghosh
+--         University Of California, Irvine, CA 92717
+--
+-- Written on Feb19, 1992
+--
+--------------------------------------------------------------------------------
+
+
+ The "muxr" block selects which of the 4 inputs ( D, R, uPC, TOS) are to
+ be fed to the tri-state driver and also includes the tri-state-driver.
+
+ In testing this block, we select all 1's and all 0's for each of the 
+ following inputs :
+
+ (a)	D
+
+ (b)	R
+
+ (c)	uPC
+
+ (d)	top of stack
+
+ We also test the condition when no input is selected and the output is zero.

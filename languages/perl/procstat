@@ -1,0 +1,24 @@
+#!/usr/bin/perl
+
+while (<>) {
+	($time, $sys, $class, $size) = split;
+	$classtab{$class} = 1;
+	$systab{$sys} = 1;
+	$sizetab{$sys."/".$class} += $size;
+}
+
+@classlist = sort keys (%classtab);
+
+print "\t";
+foreach $class (@classlist) {
+	printf "%-.7s\t", $class;
+}
+print "\n";
+
+foreach $sys (sort keys (%systab)) {
+	printf "%-.7s\t", $sys;
+	foreach $class (@classlist) {
+		printf "%d\t", $sizetab{$sys."/".$class}/1024;
+	}
+	print "\n";
+}

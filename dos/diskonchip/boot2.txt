@@ -1,0 +1,4778 @@
+00000000  skipping 0x2F bytes
+0000002F  55                push bp
+00000030  8BEC              mov bp,sp
+00000032  50                push ax
+00000033  53                push bx
+00000034  51                push cx
+00000035  52                push dx
+00000036  56                push si
+00000037  57                push di
+00000038  1E                push ds
+00000039  06                push es
+0000003A  9C                pushf
+0000003B  0E                push cs
+0000003C  1F                pop ds
+0000003D  2EA12900          mov ax,[cs:0x29]
+00000041  3D0000            cmp ax,0x0
+00000044  7503              jnz 0x49
+00000046  8B4604            mov ax,[bp+0x4]
+00000049  A3BC16            mov [0x16bc],ax
+0000004C  2EA12B00          mov ax,[cs:0x2b]
+00000050  A3BE16            mov [0x16be],ax
+00000053  2EA12D00          mov ax,[cs:0x2d]
+00000057  A3C016            mov [0x16c0],ax
+0000005A  8C16C216          mov [0x16c2],ss
+0000005E  8926C416          mov [0x16c4],sp
+00000062  8CC8              mov ax,cs
+00000064  BB2E17            mov bx,0x172e
+00000067  81C30002          add bx,0x200
+0000006B  FA                cli
+0000006C  8ED0              mov ss,ax
+0000006E  8BE3              mov sp,bx
+00000070  FB                sti
+00000071  D1EB              shr bx,1
+00000073  D1EB              shr bx,1
+00000075  D1EB              shr bx,1
+00000077  D1EB              shr bx,1
+00000079  83C301            add bx,byte +0x1
+0000007C  8CC8              mov ax,cs
+0000007E  03C3              add ax,bx
+00000080  A3B816            mov [0x16b8],ax
+00000083  8CD8              mov ax,ds
+00000085  8EC0              mov es,ax
+00000087  33C0              xor ax,ax
+00000089  BF2417            mov di,0x1724
+0000008C  B92E17            mov cx,0x172e
+0000008F  2BCF              sub cx,di
+00000091  FC                cld
+00000092  F3AA              rep stosb
+00000094  E81400            call 0xab
+00000097  FA                cli
+00000098  8E16C216          mov ss,[0x16c2]
+0000009C  8B26C416          mov sp,[0x16c4]
+000000A0  9D                popf
+000000A1  07                pop es
+000000A2  1F                pop ds
+000000A3  5F                pop di
+000000A4  5E                pop si
+000000A5  5A                pop dx
+000000A6  59                pop cx
+000000A7  5B                pop bx
+000000A8  58                pop ax
+000000A9  5D                pop bp
+000000AA  CB                retf
+000000AB  55                push bp
+000000AC  8BEC              mov bp,sp
+000000AE  83EC1C            sub sp,byte +0x1c
+000000B1  A1C016            mov ax,[0x16c0]
+000000B4  8B16BE16          mov dx,[0x16be]
+000000B8  8946F8            mov [bp-0x8],ax
+000000BB  8956F6            mov [bp-0xa],dx
+000000BE  8D46E6            lea ax,[bp-0x1a]
+000000C1  50                push ax
+000000C2  E8DC15            call 0x16a1
+000000C5  59                pop cx
+000000C6  8E46E8            mov es,[bp-0x18]
+000000C9  26A10700          mov ax,[es:0x7]
+000000CD  8946FA            mov [bp-0x6],ax
+000000D0  E8B100            call 0x184
+000000D3  0BC0              or ax,ax
+000000D5  7403              jz 0xda
+000000D7  E9A600            jmp 0x180
+000000DA  B000              mov al,0x0
+000000DC  50                push ax
+000000DD  50                push ax
+000000DE  E80804            call 0x4e9
+000000E1  59                pop cx
+000000E2  59                pop cx
+000000E3  0BC0              or ax,ax
+000000E5  7403              jz 0xea
+000000E7  E99600            jmp 0x180
+000000EA  B80400            mov ax,0x4
+000000ED  50                push ax
+000000EE  1E                push ds
+000000EF  B8C616            mov ax,0x16c6
+000000F2  50                push ax
+000000F3  1E                push ds
+000000F4  B8D616            mov ax,0x16d6
+000000F7  50                push ax
+000000F8  E88203            call 0x47d
+000000FB  83C40D            add sp,byte +0xd
+000000FE  0AE8              or ch,al
+00000100  E302              jcxz 0x104
+00000102  0BC0              or ax,ax
+00000104  757B              jnz 0x181
+00000106  E89202            call 0x39b
+00000109  83FA01            cmp dx,byte +0x1
+0000010C  770B              ja 0x119
+0000010E  7204              jc 0x114
+00000110  0BC0              or ax,ax
+00000112  7305              jnc 0x119
+00000114  E88402            call 0x39b
+00000117  EB05              jmp short 0x11e
+00000119  BA0100            mov dx,0x1
+0000011C  33C0              xor ax,ax
+0000011E  8B5EF8            mov bx,[bp-0x8]
+00000121  8B4EF6            mov cx,[bp-0xa]
+00000124  03C8              add cx,ax
+00000126  13DA              adc bx,dx
+00000128  895EF0            mov [bp-0x10],bx
+0000012B  894EEE            mov [bp-0x12],cx
+0000012E  A1B816            mov ax,[0x16b8]
+00000131  8B16B616          mov dx,[0x16b6]
+00000135  83C203            add dx,byte +0x3
+00000138  8946FE            mov [bp-0x2],ax
+0000013B  8956FC            mov [bp-0x4],dx
+0000013E  8B46F8            mov ax,[bp-0x8]
+00000141  8B56F6            mov dx,[bp-0xa]
+00000144  8946F4            mov [bp-0xc],ax
+00000147  8956F2            mov [bp-0xe],dx
+0000014A  EB23              jmp short 0x16f
+0000014C  8D46F2            lea ax,[bp-0xe]
+0000014F  50                push ax
+00000150  E8A300            call 0x1f6
+00000153  59                pop cx
+00000154  8946E4            mov [bp-0x1c],ax
+00000157  0BC0              or ax,ax
+00000159  7407              jz 0x162
+0000015B  3D1500            cmp ax,0x15
+0000015E  7421              jz 0x181
+00000160  EB0D              jmp short 0x16f
+00000162  A1BC16            mov ax,[0x16bc]
+00000165  8B4EFA            mov cx,[bp-0x6]
+00000168  8B162417          mov dx,[0x1724]
+0000016C  FF5EFC            call far [bp-0x4]
+0000016F  8B46F4            mov ax,[bp-0xc]
+00000172  8B56F2            mov dx,[bp-0xe]
+00000175  3B46F0            cmp ax,[bp-0x10]
+00000178  72D2              jc 0x14c
+0000017A  7505              jnz 0x181
+0000017C  3B56EE            cmp dx,[bp-0x12]
+0000017F  72CB              jc 0x14c
+00000181  8BE5              mov sp,bp
+00000183  5D                pop bp
+00000184  C3                ret
+00000185  55                push bp
+00000186  8BEC              mov bp,sp
+00000188  83EC0C            sub sp,byte +0xc
+0000018B  8D46F4            lea ax,[bp-0xc]
+0000018E  50                push ax
+0000018F  E81015            call 0x16a2
+00000192  59                pop cx
+00000193  8E46F6            mov es,[bp-0xa]
+00000196  26A10500          mov ax,[es:0x5]
+0000019A  A32417            mov [0x1724],ax
+0000019D  33C0              xor ax,ax
+0000019F  8EC0              mov es,ax
+000001A1  268B161304        mov dx,[es:0x413]
+000001A6  B106              mov cl,0x6
+000001A8  D3E2              shl dx,cl
+000001AA  EB3E              jmp short 0x1ea
+000001AC  8956FE            mov [bp-0x2],dx
+000001AF  C746FC0000        mov word [bp-0x4],0x0
+000001B4  C45EFC            les bx,[bp-0x4]
+000001B7  26813F55AA        cmp word [es:bx],0xaa55
+000001BC  752B              jnz 0x1e9
+000001BE  26807F0654        cmp byte [es:bx+0x6],0x54
+000001C3  7524              jnz 0x1e9
+000001C5  26807F0746        cmp byte [es:bx+0x7],0x46
+000001CA  751D              jnz 0x1e9
+000001CC  26807F0846        cmp byte [es:bx+0x8],0x46
+000001D1  7516              jnz 0x1e9
+000001D3  26807F0953        cmp byte [es:bx+0x9],0x53
+000001D8  750F              jnz 0x1e9
+000001DA  268B4710          mov ax,[es:bx+0x10]
+000001DE  3B062417          cmp ax,[0x1724]
+000001E2  7505              jnz 0x1e9
+000001E4  B80100            mov ax,0x1
+000001E7  EB09              jmp short 0x1f2
+000001E9  42                inc dx
+000001EA  81FA00A0          cmp dx,0xa000
+000001EE  72BC              jc 0x1ac
+000001F0  33C0              xor ax,ax
+000001F2  8BE5              mov sp,bp
+000001F4  5D                pop bp
+000001F5  C3                ret
+000001F6  55                push bp
+000001F7  8BEC              mov bp,sp
+000001F9  83EC0C            sub sp,byte +0xc
+000001FC  56                push si
+000001FD  57                push di
+000001FE  8B7604            mov si,[bp+0x4]
+00000201  C646F500          mov byte [bp-0xb],0x0
+00000205  A1B816            mov ax,[0x16b8]
+00000208  8B16B616          mov dx,[0x16b6]
+0000020C  8946FC            mov [bp-0x4],ax
+0000020F  8956FA            mov [bp-0x6],dx
+00000212  33C0              xor ax,ax
+00000214  50                push ax
+00000215  FF36E816          push word [0x16e8]
+00000219  FF7402            push word [si+0x2]
+0000021C  FF34              push word [si]
+0000021E  E89113            call 0x15b2
+00000221  0BC2              or ax,dx
+00000223  7544              jnz 0x269
+00000225  B80400            mov ax,0x4
+00000228  50                push ax
+00000229  16                push ss
+0000022A  8D46F6            lea ax,[bp-0xa]
+0000022D  50                push ax
+0000022E  8B4402            mov ax,[si+0x2]
+00000231  8B14              mov dx,[si]
+00000233  0316D416          add dx,[0x16d4]
+00000237  150000            adc ax,0x0
+0000023A  50                push ax
+0000023B  52                push dx
+0000023C  E8A209            call 0xbe1
+0000023F  83C40D            add sp,byte +0xd
+00000242  0AB80400          or bh,[bx+si+0x4]
+00000246  50                push ax
+00000247  1E                push ds
+00000248  B8D616            mov ax,0x16d6
+0000024B  50                push ax
+0000024C  16                push ss
+0000024D  8D46F6            lea ax,[bp-0xa]
+00000250  50                push ax
+00000251  E84E02            call 0x4a2
+00000254  83C40D            add sp,byte +0xd
+00000257  0A0B              or cl,[bp+di]
+00000259  C0                db 0xC0
+0000025A  740F              jz 0x26b
+0000025C  A1E816            mov ax,[0x16e8]
+0000025F  0104              add [si],ax
+00000261  83540200          adc word [si+0x2],byte +0x0
+00000265  B81B00            mov ax,0x1b
+00000268  E92C01            jmp 0x397
+0000026B  FF36D216          push word [0x16d2]
+0000026F  8D46F5            lea ax,[bp-0xb]
+00000272  50                push ax
+00000273  B80002            mov ax,0x200
+00000276  50                push ax
+00000277  FF76FC            push word [bp-0x4]
+0000027A  FF76FA            push word [bp-0x6]
+0000027D  FF7402            push word [si+0x2]
+00000280  FF34              push word [si]
+00000282  E85807            call 0x9dd
+00000285  83C40E            add sp,byte +0xe
+00000288  8BD0              mov dx,ax
+0000028A  0BD2              or dx,dx
+0000028C  740C              jz 0x29a
+0000028E  A1E816            mov ax,[0x16e8]
+00000291  0104              add [si],ax
+00000293  83540200          adc word [si+0x2],byte +0x0
+00000297  E9BB00            jmp 0x355
+0000029A  81040002          add word [si],0x200
+0000029E  83540200          adc word [si+0x2],byte +0x0
+000002A2  C45EFA            les bx,[bp-0x6]
+000002A5  26803F55          cmp byte [es:bx],0x55
+000002A9  75BA              jnz 0x265
+000002AB  26807F01AA        cmp byte [es:bx+0x1],0xaa
+000002B0  75B3              jnz 0x265
+000002B2  C45EFA            les bx,[bp-0x6]
+000002B5  268A4702          mov al,[es:bx+0x2]
+000002B9  B400              mov ah,0x0
+000002BB  B109              mov cl,0x9
+000002BD  D3E0              shl ax,cl
+000002BF  8BF8              mov di,ax
+000002C1  33C0              xor ax,ax
+000002C3  50                push ax
+000002C4  FF36E816          push word [0x16e8]
+000002C8  FF7402            push word [si+0x2]
+000002CB  FF34              push word [si]
+000002CD  E8D412            call 0x15a4
+000002D0  8946FE            mov [bp-0x2],ax
+000002D3  81EF0002          sub di,0x200
+000002D7  E98F00            jmp 0x369
+000002DA  33C0              xor ax,ax
+000002DC  50                push ax
+000002DD  FF36E816          push word [0x16e8]
+000002E1  FF7402            push word [si+0x2]
+000002E4  FF34              push word [si]
+000002E6  E8CB12            call 0x15b4
+000002E9  0BC2              or ax,dx
+000002EB  7540              jnz 0x32d
+000002ED  B80400            mov ax,0x4
+000002F0  50                push ax
+000002F1  16                push ss
+000002F2  8D46F6            lea ax,[bp-0xa]
+000002F5  50                push ax
+000002F6  8B4402            mov ax,[si+0x2]
+000002F9  8B14              mov dx,[si]
+000002FB  0316D416          add dx,[0x16d4]
+000002FF  150000            adc ax,0x0
+00000302  50                push ax
+00000303  52                push dx
+00000304  E8DC08            call 0xbe3
+00000307  83C40D            add sp,byte +0xd
+0000030A  0AB80400          or bh,[bx+si+0x4]
+0000030E  50                push ax
+0000030F  1E                push ds
+00000310  B8D616            mov ax,0x16d6
+00000313  50                push ax
+00000314  16                push ss
+00000315  8D46F6            lea ax,[bp-0xa]
+00000318  50                push ax
+00000319  E88801            call 0x4a4
+0000031C  83C40D            add sp,byte +0xd
+0000031F  0A0B              or cl,[bp+di]
+00000321  C0                db 0xC0
+00000322  740B              jz 0x32f
+00000324  A1E816            mov ax,[0x16e8]
+00000327  0104              add [si],ax
+00000329  83540200          adc word [si+0x2],byte +0x0
+0000032D  EB39              jmp short 0x368
+0000032F  8146FA0002        add word [bp-0x6],0x200
+00000334  FF36D216          push word [0x16d2]
+00000338  8D46F5            lea ax,[bp-0xb]
+0000033B  50                push ax
+0000033C  B80002            mov ax,0x200
+0000033F  50                push ax
+00000340  FF76FC            push word [bp-0x4]
+00000343  FF76FA            push word [bp-0x6]
+00000346  FF7402            push word [si+0x2]
+00000349  FF34              push word [si]
+0000034B  E89106            call 0x9df
+0000034E  83C40E            add sp,byte +0xe
+00000351  8BD0              mov dx,ax
+00000353  0BD2              or dx,dx
+00000355  7405              jz 0x35c
+00000357  B81500            mov ax,0x15
+0000035A  EB3D              jmp short 0x399
+0000035C  81040002          add word [si],0x200
+00000360  83540200          adc word [si+0x2],byte +0x0
+00000364  81EF0002          sub di,0x200
+00000368  FF46FE            inc word [bp-0x2]
+0000036B  0BFF              or di,di
+0000036D  7619              jna 0x388
+0000036F  8B46FE            mov ax,[bp-0x2]
+00000372  33D2              xor dx,dx
+00000374  3B16FC16          cmp dx,[0x16fc]
+00000378  7303              jnc 0x37d
+0000037A  E95FFF            jmp 0x2dc
+0000037D  7509              jnz 0x388
+0000037F  3B06FA16          cmp ax,[0x16fa]
+00000383  7303              jnc 0x388
+00000385  E954FF            jmp 0x2dc
+00000388  0BFF              or di,di
+0000038A  7706              ja 0x392
+0000038C  807EF500          cmp byte [bp-0xb],0x0
+00000390  7405              jz 0x397
+00000392  B81900            mov ax,0x19
+00000395  EB02              jmp short 0x399
+00000397  33C0              xor ax,ax
+00000399  5F                pop di
+0000039A  5E                pop si
+0000039B  8BE5              mov sp,bp
+0000039D  5D                pop bp
+0000039E  C3                ret
+0000039F  55                push bp
+000003A0  8BEC              mov bp,sp
+000003A2  83EC0C            sub sp,byte +0xc
+000003A5  8D46F4            lea ax,[bp-0xc]
+000003A8  50                push ax
+000003A9  E8FA12            call 0x16a6
+000003AC  59                pop cx
+000003AD  8B46F6            mov ax,[bp-0xa]
+000003B0  8946FE            mov [bp-0x2],ax
+000003B3  C746FC0000        mov word [bp-0x4],0x0
+000003B8  C45EFC            les bx,[bp-0x4]
+000003BB  268A4704          mov al,[es:bx+0x4]
+000003BF  B400              mov ah,0x0
+000003C1  33D2              xor dx,dx
+000003C3  B109              mov cl,0x9
+000003C5  E88512            call 0x164d
+000003C8  8BE5              mov sp,bp
+000003CA  5D                pop bp
+000003CB  C3                ret
+000003CC  55                push bp
+000003CD  8BEC              mov bp,sp
+000003CF  56                push si
+000003D0  50                push ax
+000003D1  53                push bx
+000003D2  56                push si
+000003D3  B40E              mov ah,0xe
+000003D5  8B7604            mov si,[bp+0x4]
+000003D8  AC                lodsb
+000003D9  08C0              or al,al
+000003DB  7406              jz 0x3e3
+000003DD  31DB              xor bx,bx
+000003DF  CD10              int 0x10
+000003E1  EBF5              jmp short 0x3d8
+000003E3  5E                pop si
+000003E4  5B                pop bx
+000003E5  58                pop ax
+000003E6  5E                pop si
+000003E7  5D                pop bp
+000003E8  C3                ret
+000003E9  55                push bp
+000003EA  8BEC              mov bp,sp
+000003EC  83EC04            sub sp,byte +0x4
+000003EF  C706D4160000      mov word [0x16d4],0x0
+000003F5  C706D2160000      mov word [0x16d2],0x0
+000003FB  B80400            mov ax,0x4
+000003FE  50                push ax
+000003FF  16                push ss
+00000400  8D46FC            lea ax,[bp-0x4]
+00000403  50                push ax
+00000404  33C0              xor ax,ax
+00000406  33D2              xor dx,dx
+00000408  50                push ax
+00000409  52                push dx
+0000040A  E8D807            call 0xbe5
+0000040D  83C40D            add sp,byte +0xd
+00000410  0AB80400          or bh,[bx+si+0x4]
+00000414  50                push ax
+00000415  1E                push ds
+00000416  B8D616            mov ax,0x16d6
+00000419  50                push ax
+0000041A  16                push ss
+0000041B  8D46FC            lea ax,[bp-0x4]
+0000041E  50                push ax
+0000041F  E88400            call 0x4a6
+00000422  83C40D            add sp,byte +0xd
+00000425  0A0B              or cl,[bp+di]
+00000427  C0                db 0xC0
+00000428  7504              jnz 0x42e
+0000042A  33C0              xor ax,ax
+0000042C  EB3D              jmp short 0x46b
+0000042E  C706D4160800      mov word [0x16d4],0x8
+00000434  C706D2160200      mov word [0x16d2],0x2
+0000043A  B80400            mov ax,0x4
+0000043D  50                push ax
+0000043E  16                push ss
+0000043F  8D46FC            lea ax,[bp-0x4]
+00000442  50                push ax
+00000443  33C0              xor ax,ax
+00000445  50                push ax
+00000446  FF36D416          push word [0x16d4]
+0000044A  E89A07            call 0xbe7
+0000044D  83C40D            add sp,byte +0xd
+00000450  0AB80400          or bh,[bx+si+0x4]
+00000454  50                push ax
+00000455  1E                push ds
+00000456  B8D616            mov ax,0x16d6
+00000459  50                push ax
+0000045A  16                push ss
+0000045B  8D46FC            lea ax,[bp-0x4]
+0000045E  50                push ax
+0000045F  E84600            call 0x4a8
+00000462  83C40D            add sp,byte +0xd
+00000465  0A0B              or cl,[bp+di]
+00000467  C0                db 0xC0
+00000468  74C2              jz 0x42c
+0000046A  B81F00            mov ax,0x1f
+0000046D  8BE5              mov sp,bp
+0000046F  5D                pop bp
+00000470  C3                ret
+00000471  55                push bp
+00000472  8BEC              mov bp,sp
+00000474  8B5604            mov dx,[bp+0x4]
+00000477  EB04              jmp short 0x47d
+00000479  00162A17          add [0x172a],dl
+0000047D  8BC2              mov ax,dx
+0000047F  4A                dec dx
+00000480  0BC0              or ax,ax
+00000482  77F5              ja 0x479
+00000484  5D                pop bp
+00000485  C3                ret
+00000486  55                push bp
+00000487  8BEC              mov bp,sp
+00000489  8B560C            mov dx,[bp+0xc]
+0000048C  EB12              jmp short 0x4a0
+0000048E  C45E08            les bx,[bp+0x8]
+00000491  268A07            mov al,[es:bx]
+00000494  C45E04            les bx,[bp+0x4]
+00000497  268807            mov [es:bx],al
+0000049A  FF4608            inc word [bp+0x8]
+0000049D  FF4604            inc word [bp+0x4]
+000004A0  8BC2              mov ax,dx
+000004A2  4A                dec dx
+000004A3  0BC0              or ax,ax
+000004A5  75E7              jnz 0x48e
+000004A7  5D                pop bp
+000004A8  C3                ret
+000004A9  55                push bp
+000004AA  8BEC              mov bp,sp
+000004AC  8B560C            mov dx,[bp+0xc]
+000004AF  EB19              jmp short 0x4ca
+000004B1  C45E04            les bx,[bp+0x4]
+000004B4  FF4604            inc word [bp+0x4]
+000004B7  268A07            mov al,[es:bx]
+000004BA  C45E08            les bx,[bp+0x8]
+000004BD  FF4608            inc word [bp+0x8]
+000004C0  263A07            cmp al,[es:bx]
+000004C3  7405              jz 0x4ca
+000004C5  B80100            mov ax,0x1
+000004C8  EB09              jmp short 0x4d3
+000004CA  8BC2              mov ax,dx
+000004CC  4A                dec dx
+000004CD  0BC0              or ax,ax
+000004CF  75E0              jnz 0x4b1
+000004D1  33C0              xor ax,ax
+000004D3  5D                pop bp
+000004D4  C3                ret
+000004D5  55                push bp
+000004D6  8BEC              mov bp,sp
+000004D8  8B560D            mov dx,[bp+0xd]
+000004DB  0AEB              or ch,bl
+000004DD  0CC4              or al,0xc4
+000004DF  5E                pop si
+000004E0  048A              add al,0x8a
+000004E2  46                inc si
+000004E3  08268807          or [0x788],ah
+000004E7  FF4604            inc word [bp+0x4]
+000004EA  8BC2              mov ax,dx
+000004EC  4A                dec dx
+000004ED  0BC0              or ax,ax
+000004EF  75ED              jnz 0x4de
+000004F1  5D                pop bp
+000004F2  C3                ret
+000004F3  55                push bp
+000004F4  8BEC              mov bp,sp
+000004F6  83EC06            sub sp,byte +0x6
+000004F9  B085              mov al,0x85
+000004FB  50                push ax
+000004FC  E8C704            call 0x9c6
+000004FF  59                pop cx
+00000500  C41EBA16          les bx,[0x16ba]
+00000504  2680BF001030      cmp byte [es:bx+0x1000],0x30
+0000050A  7506              jnz 0x512
+0000050C  C706EA160800      mov word [0x16ea],0x8
+00000512  C70600172000      mov word [0x1700],0x20
+00000518  C706FE160000      mov word [0x16fe],0x0
+0000051E  F706EA160800      test word [0x16ea],0x8
+00000524  740E              jz 0x534
+00000526  C70626170008      mov word [0x1726],0x800
+0000052C  C70628170610      mov word [0x1728],0x1006
+00000532  EB0C              jmp short 0x540
+00000534  C70626170018      mov word [0x1726],0x1800
+0000053A  C70628170710      mov word [0x1728],0x1007
+00000540  8A4606            mov al,[bp+0x6]
+00000543  50                push ax
+00000544  E85D04            call 0x9a4
+00000547  59                pop cx
+00000548  B0FF              mov al,0xff
+0000054A  50                push ax
+0000054B  E8A902            call 0x7f7
+0000054E  59                pop cx
+0000054F  E8AD03            call 0x8ff
+00000552  0BC0              or ax,ax
+00000554  7406              jz 0x55c
+00000556  B81500            mov ax,0x15
+00000559  E96302            jmp 0x7bf
+0000055C  B090              mov al,0x90
+0000055E  50                push ax
+0000055F  E89502            call 0x7f7
+00000562  59                pop cx
+00000563  B01D              mov al,0x1d
+00000565  50                push ax
+00000566  E87003            call 0x8d9
+00000569  59                pop cx
+0000056A  C41EBA16          les bx,[0x16ba]
+0000056E  031E2617          add bx,[0x1726]
+00000572  26C60700          mov byte [es:bx],0x0
+00000576  F706EA160800      test word [0x16ea],0x8
+0000057C  740D              jz 0x58b
+0000057E  0A8B1EBA          or cl,[bp+di+0xba1e]
+00000582  16                push ss
+00000583  26C6871E1000      mov byte [es:bx+0x101e],0x0
+00000589  B019              mov al,0x19
+0000058B  50                push ax
+0000058C  E84B03            call 0x8da
+0000058F  59                pop cx
+00000590  B80100            mov ax,0x1
+00000593  50                push ax
+00000594  E8DCFE            call 0x473
+00000597  59                pop cx
+00000598  C41EBA16          les bx,[0x16ba]
+0000059C  268A870D10        mov al,[es:bx+0x100d]
+000005A1  00062A17          add [0x172a],al
+000005A5  33D2              xor dx,dx
+000005A7  C41EBA16          les bx,[0x16ba]
+000005AB  268A872010        mov al,[es:bx+0x1020]
+000005B0  00062A17          add [0x172a],al
+000005B4  42                inc dx
+000005B5  83FA02            cmp dx,byte +0x2
+000005B8  7CED              jl 0x5a7
+000005BA  C41EBA16          les bx,[0x16ba]
+000005BE  031E2617          add bx,[0x1726]
+000005C2  268A07            mov al,[es:bx]
+000005C5  8846FF            mov [bp-0x1],al
+000005C8  B80100            mov ax,0x1
+000005CB  50                push ax
+000005CC  E8A4FE            call 0x473
+000005CF  59                pop cx
+000005D0  C41EBA16          les bx,[0x16ba]
+000005D4  268A870D10        mov al,[es:bx+0x100d]
+000005D9  00062A17          add [0x172a],al
+000005DD  33D2              xor dx,dx
+000005DF  C41EBA16          les bx,[0x16ba]
+000005E3  268A872010        mov al,[es:bx+0x1020]
+000005E8  00062A17          add [0x172a],al
+000005EC  42                inc dx
+000005ED  83FA02            cmp dx,byte +0x2
+000005F0  7CED              jl 0x5df
+000005F2  C41EBA16          les bx,[0x16ba]
+000005F6  031E2617          add bx,[0x1726]
+000005FA  268A07            mov al,[es:bx]
+000005FD  8846FE            mov [bp-0x2],al
+00000600  B018              mov al,0x18
+00000602  50                push ax
+00000603  E8D402            call 0x8da
+00000606  59                pop cx
+00000607  807E0400          cmp byte [bp+0x4],0x0
+0000060B  7403              jz 0x610
+0000060D  E9A001            jmp 0x7b0
+00000610  807E0600          cmp byte [bp+0x6],0x0
+00000614  7403              jz 0x619
+00000616  E99701            jmp 0x7b0
+00000619  C706E6160001      mov word [0x16e6],0x100
+0000061F  C706E8160010      mov word [0x16e8],0x1000
+00000625  C706EC161000      mov word [0x16ec],0x10
+0000062B  C706F8162000      mov word [0x16f8],0x20
+00000631  C706F6160000      mov word [0x16f6],0x0
+00000637  C706FC160000      mov word [0x16fc],0x0
+0000063D  C706FA160002      mov word [0x16fa],0x200
+00000643  8A46FE            mov al,[bp-0x2]
+00000646  A2E516            mov [0x16e5],al
+00000649  8A46FF            mov al,[bp-0x1]
+0000064C  B400              mov ah,0x0
+0000064E  8946FC            mov [bp-0x4],ax
+00000651  B90400            mov cx,0x4
+00000654  BBDD07            mov bx,0x7dd
+00000657  2E8B07            mov ax,[cs:bx]
+0000065A  3B46FC            cmp ax,[bp-0x4]
+0000065D  7408              jz 0x667
+0000065F  83C302            add bx,byte +0x2
+00000662  E2F3              loop 0x657
+00000664  E95201            jmp 0x7b9
+00000667  2EFF6708          jmp near [cs:bx+0x8]
+0000066B  830EEA1602        or word [0x16ea],byte +0x2
+00000670  8A46FE            mov al,[bp-0x2]
+00000673  B400              mov ah,0x0
+00000675  8946FA            mov [bp-0x6],ax
+00000678  B90900            mov cx,0x9
+0000067B  BBB907            mov bx,0x7b9
+0000067E  2E8B07            mov ax,[cs:bx]
+00000681  3B46FA            cmp ax,[bp-0x6]
+00000684  7408              jz 0x68e
+00000686  83C302            add bx,byte +0x2
+00000689  E2F3              loop 0x67e
+0000068B  E92B01            jmp 0x7b9
+0000068E  2EFF6712          jmp near [cs:bx+0x12]
+00000692  C706E6160001      mov word [0x16e6],0x100
+00000698  A1E616            mov ax,[0x16e6]
+0000069B  B104              mov cl,0x4
+0000069D  D3E0              shl ax,cl
+0000069F  A3E816            mov [0x16e8],ax
+000006A2  E91901            jmp 0x7be
+000006A5  33C9              xor cx,cx
+000006A7  BB0200            mov bx,0x2
+000006AA  8B16F816          mov dx,[0x16f8]
+000006AE  A1F616            mov ax,[0x16f6]
+000006B1  E8E10F            call 0x1695
+000006B4  8916F816          mov [0x16f8],dx
+000006B8  A3F616            mov [0x16f6],ax
+000006BB  33C9              xor cx,cx
+000006BD  BB0200            mov bx,0x2
+000006C0  8B16FC16          mov dx,[0x16fc]
+000006C4  A1FA16            mov ax,[0x16fa]
+000006C7  E8CB0F            call 0x1695
+000006CA  8916FC16          mov [0x16fc],dx
+000006CE  A3FA16            mov [0x16fa],ax
+000006D1  C706E6160002      mov word [0x16e6],0x200
+000006D7  A1E616            mov ax,[0x16e6]
+000006DA  B104              mov cl,0x4
+000006DC  D3E0              shl ax,cl
+000006DE  A3E816            mov [0x16e8],ax
+000006E1  830EEA1601        or word [0x16ea],byte +0x1
+000006E6  33C9              xor cx,cx
+000006E8  BB0200            mov bx,0x2
+000006EB  8B16F816          mov dx,[0x16f8]
+000006EF  A1F616            mov ax,[0x16f6]
+000006F2  E8A00F            call 0x1695
+000006F5  8916F816          mov [0x16f8],dx
+000006F9  A3F616            mov [0x16f6],ax
+000006FC  E9BF00            jmp 0x7be
+000006FF  830EEA1610        or word [0x16ea],byte +0x10
+00000704  33C9              xor cx,cx
+00000706  BB0200            mov bx,0x2
+00000709  8B16FC16          mov dx,[0x16fc]
+0000070D  A1FA16            mov ax,[0x16fa]
+00000710  E8820F            call 0x1695
+00000713  8916FC16          mov [0x16fc],dx
+00000717  A3FA16            mov [0x16fa],ax
+0000071A  33C9              xor cx,cx
+0000071C  BB0200            mov bx,0x2
+0000071F  8B16F816          mov dx,[0x16f8]
+00000723  A1F616            mov ax,[0x16f6]
+00000726  E86C0F            call 0x1695
+00000729  8916F816          mov [0x16f8],dx
+0000072D  A3F616            mov [0x16f6],ax
+00000730  33C9              xor cx,cx
+00000732  BB0200            mov bx,0x2
+00000735  8B16F816          mov dx,[0x16f8]
+00000739  A1F616            mov ax,[0x16f6]
+0000073C  E8560F            call 0x1695
+0000073F  8916F816          mov [0x16f8],dx
+00000743  A3F616            mov [0x16f6],ax
+00000746  33C9              xor cx,cx
+00000748  BB0200            mov bx,0x2
+0000074B  8B16FC16          mov dx,[0x16fc]
+0000074F  A1FA16            mov ax,[0x16fa]
+00000752  E8400F            call 0x1695
+00000755  8916FC16          mov [0x16fc],dx
+00000759  A3FA16            mov [0x16fa],ax
+0000075C  C706E6160002      mov word [0x16e6],0x200
+00000762  A1E616            mov ax,[0x16e6]
+00000765  B104              mov cl,0x4
+00000767  D3E0              shl ax,cl
+00000769  D1E0              shl ax,1
+0000076B  A3E816            mov [0x16e8],ax
+0000076E  830EEA1601        or word [0x16ea],byte +0x1
+00000773  33C9              xor cx,cx
+00000775  BB0800            mov bx,0x8
+00000778  8B16F816          mov dx,[0x16f8]
+0000077C  A1F616            mov ax,[0x16f6]
+0000077F  E8130F            call 0x1695
+00000782  8916F816          mov [0x16f8],dx
+00000786  A3F616            mov [0x16f6],ax
+00000789  33C9              xor cx,cx
+0000078B  BB0200            mov bx,0x2
+0000078E  8B16FC16          mov dx,[0x16fc]
+00000792  A1FA16            mov ax,[0x16fa]
+00000795  E8FD0E            call 0x1695
+00000798  8916FC16          mov [0x16fc],dx
+0000079C  A3FA16            mov [0x16fa],ax
+0000079F  BA0200            mov dx,0x2
+000007A2  A1EC16            mov ax,[0x16ec]
+000007A5  F7EA              imul dx
+000007A7  A3EC16            mov [0x16ec],ax
+000007AA  EB12              jmp short 0x7be
+000007AC  EB0B              jmp short 0x7b9
+000007AE  EB09              jmp short 0x7b9
+000007B0  8A46FE            mov al,[bp-0x2]
+000007B3  3A06E516          cmp al,[0x16e5]
+000007B7  7405              jz 0x7be
+000007B9  B81A00            mov ax,0x1a
+000007BC  EB02              jmp short 0x7c0
+000007BE  33C0              xor ax,ax
+000007C0  8BE5              mov sp,bp
+000007C2  5D                pop bp
+000007C3  C3                ret
+000007C4  64006B00          add [fs:bp+di+0x0],ch
+000007C8  7300              jnc 0x7ca
+000007CA  7500              jnz 0x7cc
+000007CC  7600              jna 0x7ce
+000007CE  E300              jcxz 0x7d0
+000007D0  E500              in ax,0x0
+000007D2  E600              out 0x0,al
+000007D4  EA008706C6        jmp 0xc606:0x8700
+000007D9  06                push es
+000007DA  51                push cx
+000007DB  07                pop es
+000007DC  2507F4            and ax,0xf407
+000007DF  06                push es
+000007E0  C606C6069A        mov byte [0x6c6],0x9a
+000007E5  06                push es
+000007E6  87060100          xchg ax,[0x1]
+000007EA  0400              add al,0x0
+000007EC  98                cbw
+000007ED  00EC              add ah,ch
+000007EF  006006            add [bx+si+0x6],ah
+000007F2  60                pusha
+000007F3  06                push es
+000007F4  60                pusha
+000007F5  06                push es
+000007F6  6506              gs push es
+000007F8  55                push bp
+000007F9  8BEC              mov bp,sp
+000007FB  B013              mov al,0x13
+000007FD  50                push ax
+000007FE  E8D900            call 0x8da
+00000801  59                pop cx
+00000802  C41EBA16          les bx,[0x16ba]
+00000806  031E2617          add bx,[0x1726]
+0000080A  8A4604            mov al,[bp+0x4]
+0000080D  268807            mov [es:bx],al
+00000810  F706EA160800      test word [0x16ea],0x8
+00000816  7409              jz 0x821
+00000818  8B1EBA16          mov bx,[0x16ba]
+0000081C  2688871E10        mov [es:bx+0x101e],al
+00000821  B011              mov al,0x11
+00000823  50                push ax
+00000824  E8B300            call 0x8da
+00000827  59                pop cx
+00000828  5D                pop bp
+00000829  C3                ret
+0000082A  55                push bp
+0000082B  8BEC              mov bp,sp
+0000082D  A1F816            mov ax,[0x16f8]
+00000830  8B16F616          mov dx,[0x16f6]
+00000834  83EA01            sub dx,byte +0x1
+00000837  1D0000            sbb ax,0x0
+0000083A  215604            and [bp+0x4],dx
+0000083D  214606            and [bp+0x6],ax
+00000840  F706EA160100      test word [0x16ea],0x1
+00000846  7420              jz 0x868
+00000848  8B5606            mov dx,[bp+0x6]
+0000084B  8B4604            mov ax,[bp+0x4]
+0000084E  B109              mov cl,0x9
+00000850  E8210E            call 0x1674
+00000853  B108              mov cl,0x8
+00000855  E8FB0D            call 0x1653
+00000858  8A5E04            mov bl,[bp+0x4]
+0000085B  B700              mov bh,0x0
+0000085D  0BC3              or ax,bx
+0000085F  83CA00            or dx,byte +0x0
+00000862  895606            mov [bp+0x6],dx
+00000865  894604            mov [bp+0x4],ax
+00000868  B015              mov al,0x15
+0000086A  50                push ax
+0000086B  E86C00            call 0x8da
+0000086E  59                pop cx
+0000086F  C41EBA16          les bx,[0x16ba]
+00000873  031E2617          add bx,[0x1726]
+00000877  8A4604            mov al,[bp+0x4]
+0000087A  268807            mov [es:bx],al
+0000087D  8B5606            mov dx,[bp+0x6]
+00000880  8B4604            mov ax,[bp+0x4]
+00000883  B108              mov cl,0x8
+00000885  E8EC0D            call 0x1674
+00000888  C41EBA16          les bx,[0x16ba]
+0000088C  031E2617          add bx,[0x1726]
+00000890  268807            mov [es:bx],al
+00000893  8B4606            mov ax,[bp+0x6]
+00000896  8B1EBA16          mov bx,[0x16ba]
+0000089A  031E2617          add bx,[0x1726]
+0000089E  268807            mov [es:bx],al
+000008A1  F706EA161000      test word [0x16ea],0x10
+000008A7  7416              jz 0x8bf
+000008A9  8B5606            mov dx,[bp+0x6]
+000008AC  8B4604            mov ax,[bp+0x4]
+000008AF  B118              mov cl,0x18
+000008B1  E8C00D            call 0x1674
+000008B4  C41EBA16          les bx,[0x16ba]
+000008B8  031E2617          add bx,[0x1726]
+000008BC  268807            mov [es:bx],al
+000008BF  F706EA160800      test word [0x16ea],0x8
+000008C5  740D              jz 0x8d4
+000008C7  0AC4              or al,ah
+000008C9  1E                push ds
+000008CA  BA1626            mov dx,0x2616
+000008CD  C6871E1000        mov byte [bx+0x101e],0x0
+000008D2  B031              mov al,0x31
+000008D4  50                push ax
+000008D5  E80300            call 0x8db
+000008D8  59                pop cx
+000008D9  5D                pop bp
+000008DA  C3                ret
+000008DB  55                push bp
+000008DC  8BEC              mov bp,sp
+000008DE  C41EBA16          les bx,[0x16ba]
+000008E2  8A4604            mov al,[bp+0x4]
+000008E5  2688870410        mov [es:bx+0x1004],al
+000008EA  33D2              xor dx,dx
+000008EC  C41EBA16          les bx,[0x16ba]
+000008F0  268A872010        mov al,[es:bx+0x1020]
+000008F5  00062A17          add [0x172a],al
+000008F9  42                inc dx
+000008FA  83FA02            cmp dx,byte +0x2
+000008FD  7CED              jl 0x8ec
+000008FF  5D                pop bp
+00000900  C3                ret
+00000901  56                push si
+00000902  33F6              xor si,si
+00000904  E81400            call 0x91b
+00000907  0D0AC0            or ax,0xc00a
+0000090A  7504              jnz 0x910
+0000090C  33C0              xor ax,ax
+0000090E  EB0D              jmp short 0x91d
+00000910  0A4681            or al,[bp-0x7f]
+00000913  FE                db 0xFE
+00000914  30757C            xor [di+0x7c],dh
+00000917  EE                out dx,al
+00000918  B81500            mov ax,0x15
+0000091B  5E                pop si
+0000091C  C3                ret
+0000091D  55                push bp
+0000091E  8BEC              mov bp,sp
+00000920  83EC02            sub sp,byte +0x2
+00000923  33D2              xor dx,dx
+00000925  C41EBA16          les bx,[0x16ba]
+00000929  268A872010        mov al,[es:bx+0x1020]
+0000092E  00062A17          add [0x172a],al
+00000932  42                inc dx
+00000933  83FA04            cmp dx,byte +0x4
+00000936  7CED              jl 0x925
+00000938  C41EBA16          les bx,[0x16ba]
+0000093C  268A870410        mov al,[es:bx+0x1004]
+00000941  8846FF            mov [bp-0x1],al
+00000944  33D2              xor dx,dx
+00000946  C41EBA16          les bx,[0x16ba]
+0000094A  268A872010        mov al,[es:bx+0x1020]
+0000094F  00062A17          add [0x172a],al
+00000953  42                inc dx
+00000954  83FA02            cmp dx,byte +0x2
+00000957  7CED              jl 0x946
+00000959  8A46FF            mov al,[bp-0x1]
+0000095C  B400              mov ah,0x0
+0000095E  258000            and ax,0x80
+00000961  F7D8              neg ax
+00000963  1BC0              sbb ax,ax
+00000965  40                inc ax
+00000966  8BE5              mov sp,bp
+00000968  5D                pop bp
+00000969  C3                ret
+0000096A  55                push bp
+0000096B  8BEC              mov bp,sp
+0000096D  FF360017          push word [0x1700]
+00000971  FF36FE16          push word [0x16fe]
+00000975  FF7606            push word [bp+0x6]
+00000978  FF7604            push word [bp+0x4]
+0000097B  E8310C            call 0x15af
+0000097E  50                push ax
+0000097F  E83700            call 0x9b9
+00000982  59                pop cx
+00000983  FF36F816          push word [0x16f8]
+00000987  FF36F616          push word [0x16f6]
+0000098B  FF360017          push word [0x1700]
+0000098F  FF36FE16          push word [0x16fe]
+00000993  FF7606            push word [bp+0x6]
+00000996  FF7604            push word [bp+0x4]
+00000999  E8230C            call 0x15bf
+0000099C  52                push dx
+0000099D  50                push ax
+0000099E  E80E0C            call 0x15af
+000009A1  50                push ax
+000009A2  E80300            call 0x9a8
+000009A5  59                pop cx
+000009A6  5D                pop bp
+000009A7  C3                ret
+000009A8  55                push bp
+000009A9  8BEC              mov bp,sp
+000009AB  C41EBA16          les bx,[0x16ba]
+000009AF  8A4604            mov al,[bp+0x4]
+000009B2  2688870510        mov [es:bx+0x1005],al
+000009B7  5D                pop bp
+000009B8  C3                ret
+000009B9  55                push bp
+000009BA  8BEC              mov bp,sp
+000009BC  C41EBA16          les bx,[0x16ba]
+000009C0  8A4604            mov al,[bp+0x4]
+000009C3  2688870310        mov [es:bx+0x1003],al
+000009C8  5D                pop bp
+000009C9  C3                ret
+000009CA  55                push bp
+000009CB  8BEC              mov bp,sp
+000009CD  8A5604            mov dl,[bp+0x4]
+000009D0  C41EBA16          les bx,[0x16ba]
+000009D4  2688970210        mov [es:bx+0x1002],dl
+000009D9  2688970210        mov [es:bx+0x1002],dl
+000009DE  B80100            mov ax,0x1
+000009E1  50                push ax
+000009E2  E891FA            call 0x476
+000009E5  59                pop cx
+000009E6  5D                pop bp
+000009E7  C3                ret
+000009E8  55                push bp
+000009E9  8BEC              mov bp,sp
+000009EB  83EC08            sub sp,byte +0x8
+000009EE  56                push si
+000009EF  57                push di
+000009F0  C746FE0000        mov word [bp-0x2],0x0
+000009F5  E96F01            jmp 0xb67
+000009F8  FF7606            push word [bp+0x6]
+000009FB  FF7604            push word [bp+0x4]
+000009FE  E869FF            call 0x96a
+00000A01  59                pop cx
+00000A02  59                pop cx
+00000A03  B000              mov al,0x0
+00000A05  50                push ax
+00000A06  E8F2FD            call 0x7fb
+00000A09  59                pop cx
+00000A0A  FF7606            push word [bp+0x6]
+00000A0D  FF7604            push word [bp+0x4]
+00000A10  E81AFE            call 0x82d
+00000A13  59                pop cx
+00000A14  59                pop cx
+00000A15  E8EBFE            call 0x903
+00000A18  0BC0              or ax,ax
+00000A1A  7406              jz 0xa22
+00000A1C  B81500            mov ax,0x15
+00000A1F  E95801            jmp 0xb7a
+00000A22  817E0C0002        cmp word [bp+0xc],0x200
+00000A27  7305              jnc 0xa2e
+00000A29  8B460C            mov ax,[bp+0xc]
+00000A2C  EB03              jmp short 0xa31
+00000A2E  B80002            mov ax,0x200
+00000A31  8BF8              mov di,ax
+00000A33  81FF0002          cmp di,0x200
+00000A37  7408              jz 0xa41
+00000A39  8B4610            mov ax,[bp+0x10]
+00000A3C  25FDFF            and ax,0xfffd
+00000A3F  EB03              jmp short 0xa44
+00000A41  8B4610            mov ax,[bp+0x10]
+00000A44  894610            mov [bp+0x10],ax
+00000A47  F746100200        test word [bp+0x10],0x2
+00000A4C  7403              jz 0xa51
+00000A4E  E89202            call 0xce3
+00000A51  F706EA160100      test word [0x16ea],0x1
+00000A57  755B              jnz 0xab4
+00000A59  81FF0001          cmp di,0x100
+00000A5D  7304              jnc 0xa63
+00000A5F  8BC7              mov ax,di
+00000A61  EB03              jmp short 0xa66
+00000A63  B80001            mov ax,0x100
+00000A66  8BF0              mov si,ax
+00000A68  FF760E            push word [bp+0xe]
+00000A6B  50                push ax
+00000A6C  FF760D            push word [bp+0xd]
+00000A6F  0AFF              or bh,bh
+00000A71  7608              jna 0xa7b
+00000A73  E80B01            call 0xb81
+00000A76  83C408            add sp,byte +0x8
+00000A79  81FF0001          cmp di,0x100
+00000A7D  7646              jna 0xac5
+00000A7F  B000              mov al,0x0
+00000A81  50                push ax
+00000A82  E877FD            call 0x7fc
+00000A85  59                pop cx
+00000A86  8B4606            mov ax,[bp+0x6]
+00000A89  8B5604            mov dx,[bp+0x4]
+00000A8C  03D6              add dx,si
+00000A8E  150000            adc ax,0x0
+00000A91  50                push ax
+00000A92  52                push dx
+00000A93  E898FD            call 0x82e
+00000A96  59                pop cx
+00000A97  59                pop cx
+00000A98  E869FE            call 0x904
+00000A9B  0BC0              or ax,ax
+00000A9D  7403              jz 0xaa2
+00000A9F  E97BFF            jmp 0xa1d
+00000AA2  FF760E            push word [bp+0xe]
+00000AA5  8BC7              mov ax,di
+00000AA7  2BC6              sub ax,si
+00000AA9  50                push ax
+00000AAA  8B4608            mov ax,[bp+0x8]
+00000AAD  03C6              add ax,si
+00000AAF  FF760D            push word [bp+0xd]
+00000AB2  0A50EB            or dl,[bx+si-0x15]
+00000AB5  0D0AFF            or ax,0xff0a
+00000AB8  760E              jna 0xac8
+00000ABA  57                push di
+00000ABB  FF760D            push word [bp+0xd]
+00000ABE  0AFF              or bh,bh
+00000AC0  7608              jna 0xaca
+00000AC2  E8BF00            call 0xb84
+00000AC5  83C408            add sp,byte +0x8
+00000AC8  F746100200        test word [bp+0x10],0x2
+00000ACD  7474              jz 0xb43
+00000ACF  B80600            mov ax,0x6
+00000AD2  50                push ax
+00000AD3  1E                push ds
+00000AD4  B8DE16            mov ax,0x16de
+00000AD7  50                push ax
+00000AD8  E8AC01            call 0xc87
+00000ADB  83C406            add sp,byte +0x6
+00000ADE  E82202            call 0xd03
+00000AE1  0D0AC0            or ax,0xc00a
+00000AE4  745E              jz 0xb44
+00000AE6  33F6              xor si,si
+00000AE8  80BCDE16FF        cmp byte [si+0x16de],0xff
+00000AED  7506              jnz 0xaf5
+00000AEF  46                inc si
+00000AF0  83FE06            cmp si,byte +0x6
+00000AF3  72F3              jc 0xae8
+00000AF5  83FE06            cmp si,byte +0x6
+00000AF8  744A              jz 0xb44
+00000AFA  33F6              xor si,si
+00000AFC  C41EBA16          les bx,[0x16ba]
+00000B00  03DE              add bx,si
+00000B02  268A871010        mov al,[es:bx+0x1010]
+00000B07  8842F8            mov [bp+si-0x8],al
+00000B0A  46                inc si
+00000B0B  83FE06            cmp si,byte +0x6
+00000B0E  72EC              jc 0xafc
+00000B10  8A56F8            mov dl,[bp-0x8]
+00000B13  8A46FC            mov al,[bp-0x4]
+00000B16  8846F8            mov [bp-0x8],al
+00000B19  8856FC            mov [bp-0x4],dl
+00000B1C  8A56F9            mov dl,[bp-0x7]
+00000B1F  8A46FD            mov al,[bp-0x3]
+00000B22  8846F9            mov [bp-0x7],al
+00000B25  8856FD            mov [bp-0x3],dl
+00000B28  B001              mov al,0x1
+00000B2A  50                push ax
+00000B2B  8D46F8            lea ax,[bp-0x8]
+00000B2E  50                push ax
+00000B2F  FF760D            push word [bp+0xd]
+00000B32  0AFF              or bh,bh
+00000B34  7608              jna 0xb3e
+00000B36  E8FF09            call 0x1538
+00000B39  83C408            add sp,byte +0x8
+00000B3C  0BC0              or ax,ax
+00000B3E  7405              jz 0xb45
+00000B40  C746FE1900        mov word [bp-0x2],0x19
+00000B45  8B4608            mov ax,[bp+0x8]
+00000B48  33D2              xor dx,dx
+00000B4A  03C7              add ax,di
+00000B4C  83D200            adc dx,byte +0x0
+00000B4F  B10C              mov cl,0xc
+00000B51  D3E2              shl dx,cl
+00000B53  8B460D            mov ax,[bp+0xd]
+00000B56  0A03              or al,[bp+di]
+00000B58  C28B56            ret 0x568b
+00000B5B  0803              or [bp+di],al
+00000B5D  D7                xlatb
+00000B5E  89460D            mov [bp+0xd],ax
+00000B61  0A895608          or cl,[bx+di+0x856]
+00000B65  297E0C            sub [bp+0xc],di
+00000B68  017E04            add [bp+0x4],di
+00000B6B  83560600          adc word [bp+0x6],byte +0x0
+00000B6F  837E0C00          cmp word [bp+0xc],byte +0x0
+00000B73  7603              jna 0xb78
+00000B75  E988FE            jmp 0xa00
+00000B78  B018              mov al,0x18
+00000B7A  50                push ax
+00000B7B  E867FD            call 0x8e5
+00000B7E  59                pop cx
+00000B7F  8B46FE            mov ax,[bp-0x2]
+00000B82  5F                pop di
+00000B83  5E                pop si
+00000B84  8BE5              mov sp,bp
+00000B86  5D                pop bp
+00000B87  C3                ret
+00000B88  55                push bp
+00000B89  8BEC              mov bp,sp
+00000B8B  56                push si
+00000B8C  57                push di
+00000B8D  8B7608            mov si,[bp+0x8]
+00000B90  8B7E0D            mov di,[bp+0xd]
+00000B93  0AF7              or dh,bh
+00000B95  06                push es
+00000B96  EA16080074        jmp 0x7400:0x816
+00000B9B  0E                push cs
+00000B9C  C41EBA16          les bx,[0x16ba]
+00000BA0  268A871D10        mov al,[es:bx+0x101d]
+00000BA5  00062A17          add [0x172a],al
+00000BA9  4E                dec si
+00000BAA  33C9              xor cx,cx
+00000BAC  3BCE              cmp cx,si
+00000BAE  7327              jnc 0xbd7
+00000BB0  8BC1              mov ax,cx
+00000BB2  250100            and ax,0x1
+00000BB5  8B162617          mov dx,[0x1726]
+00000BB9  03D0              add dx,ax
+00000BBB  C41EBA16          les bx,[0x16ba]
+00000BBF  03DA              add bx,dx
+00000BC1  268A07            mov al,[es:bx]
+00000BC4  C45E04            les bx,[bp+0x4]
+00000BC7  268807            mov [es:bx],al
+00000BCA  268A07            mov al,[es:bx]
+00000BCD  0005              add [di],al
+00000BCF  41                inc cx
+00000BD0  FF4604            inc word [bp+0x4]
+00000BD3  3BCE              cmp cx,si
+00000BD5  72D9              jc 0xbb0
+00000BD7  F706EA160800      test word [0x16ea],0x8
+00000BDD  7414              jz 0xbf3
+00000BDF  C41EBA16          les bx,[0x16ba]
+00000BE3  268A871F10        mov al,[es:bx+0x101f]
+00000BE8  C45E04            les bx,[bp+0x4]
+00000BEB  268807            mov [es:bx],al
+00000BEE  268A07            mov al,[es:bx]
+00000BF1  0005              add [di],al
+00000BF3  5F                pop di
+00000BF4  5E                pop si
+00000BF5  5D                pop bp
+00000BF6  C3                ret
+00000BF7  55                push bp
+00000BF8  8BEC              mov bp,sp
+00000BFA  83EC04            sub sp,byte +0x4
+00000BFD  56                push si
+00000BFE  57                push di
+00000BFF  8B7E0C            mov di,[bp+0xc]
+00000C02  8B7604            mov si,[bp+0x4]
+00000C05  83E60F            and si,byte +0xf
+00000C08  F706EA160100      test word [0x16ea],0x1
+00000C0E  7522              jnz 0xc32
+00000C10  83FE08            cmp si,byte +0x8
+00000C13  730B              jnc 0xc20
+00000C15  8146040001        add word [bp+0x4],0x100
+00000C1A  83560600          adc word [bp+0x6],byte +0x0
+00000C1E  EB0B              jmp short 0xc2b
+00000C20  836E0408          sub word [bp+0x4],byte +0x8
+00000C24  835E0600          sbb word [bp+0x6],byte +0x0
+00000C28  83EE08            sub si,byte +0x8
+00000C2B  C746FE0800        mov word [bp-0x2],0x8
+00000C30  EB05              jmp short 0xc37
+00000C32  C746FE1000        mov word [bp-0x2],0x10
+00000C37  FF7606            push word [bp+0x6]
+00000C3A  FF7604            push word [bp+0x4]
+00000C3D  E833FD            call 0x973
+00000C40  59                pop cx
+00000C41  59                pop cx
+00000C42  B050              mov al,0x50
+00000C44  50                push ax
+00000C45  E8BCFB            call 0x804
+00000C48  59                pop cx
+00000C49  FF7606            push word [bp+0x6]
+00000C4C  FF7604            push word [bp+0x4]
+00000C4F  E8E4FB            call 0x836
+00000C52  59                pop cx
+00000C53  59                pop cx
+00000C54  E8B5FC            call 0x90c
+00000C57  0BC0              or ax,ax
+00000C59  7405              jz 0xc60
+00000C5B  B81500            mov ax,0x15
+00000C5E  EB26              jmp short 0xc86
+00000C60  8D46FD            lea ax,[bp-0x3]
+00000C63  50                push ax
+00000C64  57                push di
+00000C65  FF760D            push word [bp+0xd]
+00000C68  0AFF              or bh,bh
+00000C6A  7608              jna 0xc74
+00000C6C  E81BFF            call 0xb8a
+00000C6F  83C408            add sp,byte +0x8
+00000C72  B018              mov al,0x18
+00000C74  50                push ax
+00000C75  E86FFC            call 0x8e7
+00000C78  59                pop cx
+00000C79  8BC6              mov ax,si
+00000C7B  03C7              add ax,di
+00000C7D  3B46FE            cmp ax,[bp-0x2]
+00000C80  7503              jnz 0xc85
+00000C82  E888FC            call 0x90d
+00000C85  33C0              xor ax,ax
+00000C87  5F                pop di
+00000C88  5E                pop si
+00000C89  8BE5              mov sp,bp
+00000C8B  5D                pop bp
+00000C8C  C3                ret
+00000C8D  55                push bp
+00000C8E  8BEC              mov bp,sp
+00000C90  56                push si
+00000C91  8B7608            mov si,[bp+0x8]
+00000C94  F706EA160800      test word [0x16ea],0x8
+00000C9A  740E              jz 0xcaa
+00000C9C  C41EBA16          les bx,[0x16ba]
+00000CA0  268A871D10        mov al,[es:bx+0x101d]
+00000CA5  00062A17          add [0x172a],al
+00000CA9  4E                dec si
+00000CAA  33C9              xor cx,cx
+00000CAC  3BCE              cmp cx,si
+00000CAE  7321              jnc 0xcd1
+00000CB0  8BC1              mov ax,cx
+00000CB2  250100            and ax,0x1
+00000CB5  8B162617          mov dx,[0x1726]
+00000CB9  03D0              add dx,ax
+00000CBB  C41EBA16          les bx,[0x16ba]
+00000CBF  03DA              add bx,dx
+00000CC1  268A07            mov al,[es:bx]
+00000CC4  C45E04            les bx,[bp+0x4]
+00000CC7  03D9              add bx,cx
+00000CC9  268807            mov [es:bx],al
+00000CCC  41                inc cx
+00000CCD  3BCE              cmp cx,si
+00000CCF  72DF              jc 0xcb0
+00000CD1  F706EA160800      test word [0x16ea],0x8
+00000CD7  7411              jz 0xcea
+00000CD9  C41EBA16          les bx,[0x16ba]
+00000CDD  268A871F10        mov al,[es:bx+0x101f]
+00000CE2  C45E04            les bx,[bp+0x4]
+00000CE5  03DE              add bx,si
+00000CE7  268807            mov [es:bx],al
+00000CEA  5E                pop si
+00000CEB  5D                pop bp
+00000CEC  C3                ret
+00000CED  C41EBA16          les bx,[0x16ba]
+00000CF1  26C687061000      mov byte [es:bx+0x1006],0x0
+00000CF7  26C68706100D      mov byte [es:bx+0x1006],0xd
+00000CFD  0AC3              or al,bl
+00000CFF  C41EBA16          les bx,[0x16ba]
+00000D03  26C687061002      mov byte [es:bx+0x1006],0x2
+00000D09  C3                ret
+00000D0A  55                push bp
+00000D0B  8BEC              mov bp,sp
+00000D0D  83EC02            sub sp,byte +0x2
+00000D10  33D2              xor dx,dx
+00000D12  C41EBA16          les bx,[0x16ba]
+00000D16  031E2817          add bx,[0x1728]
+00000D1A  268A07            mov al,[es:bx]
+00000D1D  00062A17          add [0x172a],al
+00000D21  42                inc dx
+00000D22  83FA02            cmp dx,byte +0x2
+00000D25  7CEB              jl 0xd12
+00000D27  C41EBA16          les bx,[0x16ba]
+00000D2B  031E2817          add bx,[0x1728]
+00000D2F  268A07            mov al,[es:bx]
+00000D32  8846FF            mov [bp-0x1],al
+00000D35  2480              and al,0x80
+00000D37  8BE5              mov sp,bp
+00000D39  5D                pop bp
+00000D3A  C3                ret
+00000D3B  55                push bp
+00000D3C  8BEC              mov bp,sp
+00000D3E  56                push si
+00000D3F  57                push di
+00000D40  8B7604            mov si,[bp+0x4]
+00000D43  8B7E06            mov di,[bp+0x6]
+00000D46  8A04              mov al,[si]
+00000D48  98                cbw
+00000D49  25FF00            and ax,0xff
+00000D4C  50                push ax
+00000D4D  8A4401            mov al,[si+0x1]
+00000D50  98                cbw
+00000D51  250300            and ax,0x3
+00000D54  B108              mov cl,0x8
+00000D56  D3E0              shl ax,cl
+00000D58  5A                pop dx
+00000D59  0BD0              or dx,ax
+00000D5B  8915              mov [di],dx
+00000D5D  8A4401            mov al,[si+0x1]
+00000D60  98                cbw
+00000D61  25FC00            and ax,0xfc
+00000D64  B102              mov cl,0x2
+00000D66  D3F8              sar ax,cl
+00000D68  50                push ax
+00000D69  8A4402            mov al,[si+0x2]
+00000D6C  98                cbw
+00000D6D  250F00            and ax,0xf
+00000D70  B106              mov cl,0x6
+00000D72  D3E0              shl ax,cl
+00000D74  5A                pop dx
+00000D75  0BD0              or dx,ax
+00000D77  895502            mov [di+0x2],dx
+00000D7A  8A4402            mov al,[si+0x2]
+00000D7D  98                cbw
+00000D7E  25F000            and ax,0xf0
+00000D81  B104              mov cl,0x4
+00000D83  D3F8              sar ax,cl
+00000D85  50                push ax
+00000D86  8A4403            mov al,[si+0x3]
+00000D89  98                cbw
+00000D8A  253F00            and ax,0x3f
+00000D8D  D3E0              shl ax,cl
+00000D8F  5A                pop dx
+00000D90  0BD0              or dx,ax
+00000D92  895504            mov [di+0x4],dx
+00000D95  8A4403            mov al,[si+0x3]
+00000D98  98                cbw
+00000D99  25C000            and ax,0xc0
+00000D9C  B106              mov cl,0x6
+00000D9E  D3F8              sar ax,cl
+00000DA0  50                push ax
+00000DA1  8A4404            mov al,[si+0x4]
+00000DA4  98                cbw
+00000DA5  25FF00            and ax,0xff
+00000DA8  B102              mov cl,0x2
+00000DAA  D3E0              shl ax,cl
+00000DAC  5A                pop dx
+00000DAD  0BD0              or dx,ax
+00000DAF  895506            mov [di+0x6],dx
+00000DB2  5F                pop di
+00000DB3  5E                pop si
+00000DB4  5D                pop bp
+00000DB5  C3                ret
+00000DB6  55                push bp
+00000DB7  8BEC              mov bp,sp
+00000DB9  56                push si
+00000DBA  57                push di
+00000DBB  8B7E04            mov di,[bp+0x4]
+00000DBE  8B4E06            mov cx,[bp+0x6]
+00000DC1  8BC1              mov ax,cx
+00000DC3  D1E0              shl ax,1
+00000DC5  8B7608            mov si,[bp+0x8]
+00000DC8  03F0              add si,ax
+00000DCA  83C6FE            add si,byte -0x2
+00000DCD  33D2              xor dx,dx
+00000DCF  3BD1              cmp dx,cx
+00000DD1  7D11              jnl 0xde4
+00000DD3  8BC7              mov ax,di
+00000DD5  250100            and ax,0x1
+00000DD8  8904              mov [si],ax
+00000DDA  83EE02            sub si,byte +0x2
+00000DDD  D1FF              sar di,1
+00000DDF  42                inc dx
+00000DE0  3BD1              cmp dx,cx
+00000DE2  7CEF              jl 0xdd3
+00000DE4  5F                pop di
+00000DE5  5E                pop si
+00000DE6  5D                pop bp
+00000DE7  C3                ret
+00000DE8  55                push bp
+00000DE9  8BEC              mov bp,sp
+00000DEB  56                push si
+00000DEC  57                push di
+00000DED  8B5604            mov dx,[bp+0x4]
+00000DF0  8B4E06            mov cx,[bp+0x6]
+00000DF3  8BC1              mov ax,cx
+00000DF5  48                dec ax
+00000DF6  D1E0              shl ax,1
+00000DF8  03D0              add dx,ax
+00000DFA  33F6              xor si,si
+00000DFC  BF0100            mov di,0x1
+00000DFF  EB0E              jmp short 0xe0f
+00000E01  8BDA              mov bx,dx
+00000E03  83EA02            sub dx,byte +0x2
+00000E06  833F00            cmp word [bx],byte +0x0
+00000E09  7402              jz 0xe0d
+00000E0B  0BF7              or si,di
+00000E0D  D1E7              shl di,1
+00000E0F  8BC1              mov ax,cx
+00000E11  49                dec cx
+00000E12  0BC0              or ax,ax
+00000E14  7FEB              jg 0xe01
+00000E16  8BC6              mov ax,si
+00000E18  5F                pop di
+00000E19  5E                pop si
+00000E1A  5D                pop bp
+00000E1B  C3                ret
+00000E1C  55                push bp
+00000E1D  8BEC              mov bp,sp
+00000E1F  FF7604            push word [bp+0x4]
+00000E22  E82801            call 0xf4d
+00000E25  59                pop cx
+00000E26  BAFF03            mov dx,0x3ff
+00000E29  2BD0              sub dx,ax
+00000E2B  52                push dx
+00000E2C  E8EE00            call 0xf1d
+00000E2F  59                pop cx
+00000E30  5D                pop bp
+00000E31  C3                ret
+00000E32  55                push bp
+00000E33  8BEC              mov bp,sp
+00000E35  56                push si
+00000E36  8B4604            mov ax,[bp+0x4]
+00000E39  8B7606            mov si,[bp+0x6]
+00000E3C  0BC0              or ax,ax
+00000E3E  7404              jz 0xe44
+00000E40  0BF6              or si,si
+00000E42  7504              jnz 0xe48
+00000E44  33C0              xor ax,ax
+00000E46  EB1D              jmp short 0xe65
+00000E48  50                push ax
+00000E49  E80101            call 0xf4d
+00000E4C  59                pop cx
+00000E4D  50                push ax
+00000E4E  56                push si
+00000E4F  E8FB00            call 0xf4d
+00000E52  59                pop cx
+00000E53  5A                pop dx
+00000E54  03D0              add dx,ax
+00000E56  8BC2              mov ax,dx
+00000E58  3DFF03            cmp ax,0x3ff
+00000E5B  7E03              jng 0xe60
+00000E5D  2DFF03            sub ax,0x3ff
+00000E60  50                push ax
+00000E61  E8B900            call 0xf1d
+00000E64  59                pop cx
+00000E65  5E                pop si
+00000E66  5D                pop bp
+00000E67  C3                ret
+00000E68  55                push bp
+00000E69  8BEC              mov bp,sp
+00000E6B  FF7606            push word [bp+0x6]
+00000E6E  E8ABFF            call 0xe1c
+00000E71  59                pop cx
+00000E72  50                push ax
+00000E73  FF7604            push word [bp+0x4]
+00000E76  E8B9FF            call 0xe32
+00000E79  59                pop cx
+00000E7A  59                pop cx
+00000E7B  5D                pop bp
+00000E7C  C3                ret
+00000E7D  55                push bp
+00000E7E  8BEC              mov bp,sp
+00000E80  83EC0D            sub sp,byte +0xd
+00000E83  0A5657            or dl,[bp+0x57]
+00000E86  33FF              xor di,di
+00000E88  BEFE01            mov si,0x1fe
+00000E8B  E98200            jmp 0xf10
+00000E8E  8B5E04            mov bx,[bp+0x4]
+00000E91  8B07              mov ax,[bx]
+00000E93  8946F8            mov [bp-0x8],ax
+00000E96  56                push si
+00000E97  E88400            call 0xf1e
+00000E9A  59                pop cx
+00000E9B  8946FA            mov [bp-0x6],ax
+00000E9E  8946FC            mov [bp-0x4],ax
+00000EA1  8BD6              mov dx,si
+00000EA3  03D6              add dx,si
+00000EA5  81FAFF03          cmp dx,0x3ff
+00000EA9  7C04              jl 0xeaf
+00000EAB  81EAFF03          sub dx,0x3ff
+00000EAF  03D2              add dx,dx
+00000EB1  81FAFF03          cmp dx,0x3ff
+00000EB5  7C04              jl 0xebb
+00000EB7  81EAFF03          sub dx,0x3ff
+00000EBB  52                push dx
+00000EBC  E85F00            call 0xf1e
+00000EBF  59                pop cx
+00000EC0  8946F6            mov [bp-0xa],ax
+00000EC3  C746FE0100        mov word [bp-0x2],0x1
+00000EC8  EB28              jmp short 0xef2
+00000ECA  FF76FA            push word [bp-0x6]
+00000ECD  8B46FE            mov ax,[bp-0x2]
+00000ED0  D1E0              shl ax,1
+00000ED2  8B5E04            mov bx,[bp+0x4]
+00000ED5  03D8              add bx,ax
+00000ED7  FF37              push word [bx]
+00000ED9  E857FF            call 0xe33
+00000EDC  59                pop cx
+00000EDD  59                pop cx
+00000EDE  3146F8            xor [bp-0x8],ax
+00000EE1  FF76FA            push word [bp-0x6]
+00000EE4  FF76FC            push word [bp-0x4]
+00000EE7  E849FF            call 0xe33
+00000EEA  59                pop cx
+00000EEB  59                pop cx
+00000EEC  8946FA            mov [bp-0x6],ax
+00000EEF  FF46FE            inc word [bp-0x2]
+00000EF2  837EFE04          cmp word [bp-0x2],byte +0x4
+00000EF6  7CD2              jl 0xeca
+00000EF8  FF76F6            push word [bp-0xa]
+00000EFB  FF76F8            push word [bp-0x8]
+00000EFE  E868FF            call 0xe69
+00000F01  59                pop cx
+00000F02  59                pop cx
+00000F03  8BD7              mov dx,di
+00000F05  D1E2              shl dx,1
+00000F07  8B5E06            mov bx,[bp+0x6]
+00000F0A  03DA              add bx,dx
+00000F0C  8907              mov [bx],ax
+00000F0E  47                inc di
+00000F0F  46                inc si
+00000F10  83FF04            cmp di,byte +0x4
+00000F13  7D03              jnl 0xf18
+00000F15  E976FF            jmp 0xe8e
+00000F18  5F                pop di
+00000F19  5E                pop si
+00000F1A  8BE5              mov sp,bp
+00000F1C  5D                pop bp
+00000F1D  C3                ret
+00000F1E  55                push bp
+00000F1F  8BEC              mov bp,sp
+00000F21  8B4E04            mov cx,[bp+0x4]
+00000F24  33DB              xor bx,bx
+00000F26  BA0100            mov dx,0x1
+00000F29  3BD9              cmp bx,cx
+00000F2B  7D1D              jnl 0xf4a
+00000F2D  D1E2              shl dx,1
+00000F2F  81FAFF03          cmp dx,0x3ff
+00000F33  7E10              jng 0xf45
+00000F35  F7C20800          test dx,0x8
+00000F39  7406              jz 0xf41
+00000F3B  81EA0704          sub dx,0x407
+00000F3F  EB04              jmp short 0xf45
+00000F41  81EAF703          sub dx,0x3f7
+00000F45  43                inc bx
+00000F46  3BD9              cmp bx,cx
+00000F48  7CE3              jl 0xf2d
+00000F4A  8BC2              mov ax,dx
+00000F4C  5D                pop bp
+00000F4D  C3                ret
+00000F4E  55                push bp
+00000F4F  8BEC              mov bp,sp
+00000F51  8B4E04            mov cx,[bp+0x4]
+00000F54  0BC9              or cx,cx
+00000F56  7505              jnz 0xf5d
+00000F58  B8FFFF            mov ax,0xffff
+00000F5B  EB30              jmp short 0xf8d
+00000F5D  33DB              xor bx,bx
+00000F5F  BA0100            mov dx,0x1
+00000F62  EB21              jmp short 0xf85
+00000F64  3BD1              cmp dx,cx
+00000F66  7504              jnz 0xf6c
+00000F68  8BC3              mov ax,bx
+00000F6A  EB21              jmp short 0xf8d
+00000F6C  D1E2              shl dx,1
+00000F6E  81FAFF03          cmp dx,0x3ff
+00000F72  7E10              jng 0xf84
+00000F74  F7C20800          test dx,0x8
+00000F78  7406              jz 0xf80
+00000F7A  81EA0704          sub dx,0x407
+00000F7E  EB04              jmp short 0xf84
+00000F80  81EAF703          sub dx,0x3f7
+00000F84  43                inc bx
+00000F85  81FBFF03          cmp bx,0x3ff
+00000F89  7ED9              jng 0xf64
+00000F8B  33C0              xor ax,ax
+00000F8D  5D                pop bp
+00000F8E  C3                ret
+00000F8F  55                push bp
+00000F90  8BEC              mov bp,sp
+00000F92  83EC0D            sub sp,byte +0xd
+00000F95  0A5657            or dl,[bp+0x57]
+00000F98  33FF              xor di,di
+00000F9A  33F6              xor si,si
+00000F9C  3B7E08            cmp di,[bp+0x8]
+00000F9F  7C03              jl 0xfa4
+00000FA1  E91201            jmp 0x10b6
+00000FA4  8BC7              mov ax,di
+00000FA6  D1E0              shl ax,1
+00000FA8  8B5E04            mov bx,[bp+0x4]
+00000FAB  03D8              add bx,ax
+00000FAD  8B07              mov ax,[bx]
+00000FAF  8946FE            mov [bp-0x2],ax
+00000FB2  8BC7              mov ax,di
+00000FB4  D1E0              shl ax,1
+00000FB6  8B5E06            mov bx,[bp+0x6]
+00000FB9  03D8              add bx,ax
+00000FBB  8B07              mov ax,[bx]
+00000FBD  8946F8            mov [bp-0x8],ax
+00000FC0  8B46FE            mov ax,[bp-0x2]
+00000FC3  BA0D0A            mov dx,0xa0d
+00000FC6  00F7              add bh,dh
+00000FC8  EA05FAFF8B        jmp 0x8bff:0xfa05
+00000FCD  D8B103D3          fdiv dword [bx+di+0xd303]
+00000FD1  F8                clc
+00000FD2  8946F6            mov [bp-0xa],ax
+00000FD5  D3E0              shl ax,cl
+00000FD7  2BD8              sub bx,ax
+00000FD9  FF46F6            inc word [bp-0xa]
+00000FDC  83FB07            cmp bx,byte +0x7
+00000FDF  7562              jnz 0x1043
+00000FE1  8BC6              mov ax,si
+00000FE3  D1E0              shl ax,1
+00000FE5  8B5E0D            mov bx,[bp+0xd]
+00000FE8  0A03              or al,[bp+di]
+00000FEA  D88B46F6          fmul dword [bp+di+0xf646]
+00000FEE  40                inc ax
+00000FEF  8907              mov [bx],ax
+00000FF1  F746F80100        test word [bp-0x8],0x1
+00000FF6  7405              jz 0xffd
+00000FF8  B88000            mov ax,0x80
+00000FFB  EB02              jmp short 0xfff
+00000FFD  33C0              xor ax,ax
+00000FFF  8BD6              mov dx,si
+00001001  D1E2              shl dx,1
+00001003  8B5E0C            mov bx,[bp+0xc]
+00001006  03DA              add bx,dx
+00001008  8907              mov [bx],ax
+0000100A  46                inc si
+0000100B  D17EF8            sar word [bp-0x8],1
+0000100E  8BC6              mov ax,si
+00001010  D1E0              shl ax,1
+00001012  8B5E0D            mov bx,[bp+0xd]
+00001015  0A03              or al,[bp+di]
+00001017  D88B46F6          fmul dword [bp+di+0xf646]
+0000101B  8907              mov [bx],ax
+0000101D  8BC6              mov ax,si
+0000101F  D1E0              shl ax,1
+00001021  8B5E0C            mov bx,[bp+0xc]
+00001024  03D8              add bx,ax
+00001026  8B46F8            mov ax,[bp-0x8]
+00001029  25FF00            and ax,0xff
+0000102C  8907              mov [bx],ax
+0000102E  46                inc si
+0000102F  B108              mov cl,0x8
+00001031  D37EF8            sar word [bp-0x8],cl
+00001034  8BC6              mov ax,si
+00001036  D1E0              shl ax,1
+00001038  8B5E0C            mov bx,[bp+0xc]
+0000103B  03D8              add bx,ax
+0000103D  8B46F8            mov ax,[bp-0x8]
+00001040  25FF00            and ax,0xff
+00001043  EB68              jmp short 0x10ad
+00001045  B80800            mov ax,0x8
+00001048  2BC3              sub ax,bx
+0000104A  8946FC            mov [bp-0x4],ax
+0000104D  B80D0A            mov ax,0xa0d
+00001050  002B              add [bp+di],ch
+00001052  46                inc si
+00001053  FC                cld
+00001054  8946FA            mov [bp-0x6],ax
+00001057  8BC6              mov ax,si
+00001059  D1E0              shl ax,1
+0000105B  8B5E0D            mov bx,[bp+0xd]
+0000105E  0A03              or al,[bp+di]
+00001060  D88B46F6          fmul dword [bp+di+0xf646]
+00001064  8907              mov [bx],ax
+00001066  8B5EFA            mov bx,[bp-0x6]
+00001069  D1E3              shl bx,1
+0000106B  8B46F8            mov ax,[bp-0x8]
+0000106E  23871217          and ax,[bx+0x1712]
+00001072  B108              mov cl,0x8
+00001074  2A4EFA            sub cl,[bp-0x6]
+00001077  D3E0              shl ax,cl
+00001079  8BD6              mov dx,si
+0000107B  D1E2              shl dx,1
+0000107D  8B5E0C            mov bx,[bp+0xc]
+00001080  03DA              add bx,dx
+00001082  8907              mov [bx],ax
+00001084  46                inc si
+00001085  8A4EFA            mov cl,[bp-0x6]
+00001088  D37EF8            sar word [bp-0x8],cl
+0000108B  8BC6              mov ax,si
+0000108D  D1E0              shl ax,1
+0000108F  8B5E0D            mov bx,[bp+0xd]
+00001092  0A03              or al,[bp+di]
+00001094  D88B46F6          fmul dword [bp+di+0xf646]
+00001098  48                dec ax
+00001099  8907              mov [bx],ax
+0000109B  8B5EFC            mov bx,[bp-0x4]
+0000109E  D1E3              shl bx,1
+000010A0  8B46F8            mov ax,[bp-0x8]
+000010A3  23871217          and ax,[bx+0x1712]
+000010A7  8BD6              mov dx,si
+000010A9  D1E2              shl dx,1
+000010AB  8B5E0C            mov bx,[bp+0xc]
+000010AE  03DA              add bx,dx
+000010B0  8907              mov [bx],ax
+000010B2  46                inc si
+000010B3  47                inc di
+000010B4  3B7E08            cmp di,[bp+0x8]
+000010B7  7D03              jnl 0x10bc
+000010B9  E9EEFE            jmp 0xfaa
+000010BC  33FF              xor di,di
+000010BE  B9FFFF            mov cx,0xffff
+000010C1  3BFE              cmp di,si
+000010C3  7D74              jnl 0x1139
+000010C5  8BC7              mov ax,di
+000010C7  D1E0              shl ax,1
+000010C9  8B5E0C            mov bx,[bp+0xc]
+000010CC  03D8              add bx,ax
+000010CE  833F00            cmp word [bx],byte +0x0
+000010D1  7461              jz 0x1134
+000010D3  8BC7              mov ax,di
+000010D5  D1E0              shl ax,1
+000010D7  8B5E0D            mov bx,[bp+0xd]
+000010DA  0A03              or al,[bp+di]
+000010DC  D88B078B          fmul dword [bp+di+0x8b07]
+000010E0  D1D1              rcl cx,1
+000010E2  E28B              loop 0x106f
+000010E4  5E                pop si
+000010E5  0D0A03            or ax,0x30a
+000010E8  DA3B              fidivr dword [bp+di]
+000010EA  07                pop es
+000010EB  751C              jnz 0x1109
+000010ED  0BC9              or cx,cx
+000010EF  7C18              jl 0x1109
+000010F1  8BC7              mov ax,di
+000010F3  D1E0              shl ax,1
+000010F5  8B5E0C            mov bx,[bp+0xc]
+000010F8  03D8              add bx,ax
+000010FA  8B07              mov ax,[bx]
+000010FC  8BD1              mov dx,cx
+000010FE  D1E2              shl dx,1
+00001100  8B5E0C            mov bx,[bp+0xc]
+00001103  03DA              add bx,dx
+00001105  0907              or [bx],ax
+00001107  EB2D              jmp short 0x1136
+00001109  41                inc cx
+0000110A  8BC7              mov ax,di
+0000110C  D1E0              shl ax,1
+0000110E  8B5E0D            mov bx,[bp+0xd]
+00001111  0A03              or al,[bp+di]
+00001113  D88B078B          fmul dword [bp+di+0x8b07]
+00001117  D1D1              rcl cx,1
+00001119  E28B              loop 0x10a6
+0000111B  5E                pop si
+0000111C  0D0A03            or ax,0x30a
+0000111F  DA89078B          fimul dword [bx+di+0x8b07]
+00001123  C7                db 0xC7
+00001124  D1E0              shl ax,1
+00001126  8B5E0C            mov bx,[bp+0xc]
+00001129  03D8              add bx,ax
+0000112B  8B07              mov ax,[bx]
+0000112D  8BD1              mov dx,cx
+0000112F  D1E2              shl dx,1
+00001131  8B5E0C            mov bx,[bp+0xc]
+00001134  03DA              add bx,dx
+00001136  8907              mov [bx],ax
+00001138  47                inc di
+00001139  3BFE              cmp di,si
+0000113B  7C8C              jl 0x10c9
+0000113D  8BC1              mov ax,cx
+0000113F  40                inc ax
+00001140  5F                pop di
+00001141  5E                pop si
+00001142  8BE5              mov sp,bp
+00001144  5D                pop bp
+00001145  C3                ret
+00001146  55                push bp
+00001147  8BEC              mov bp,sp
+00001149  FF7604            push word [bp+0x4]
+0000114C  E80D0A            call 0x1b5c
+0000114F  FE                db 0xFE
+00001150  59                pop cx
+00001151  8BD0              mov dx,ax
+00001153  33DB              xor bx,bx
+00001155  33C9              xor cx,cx
+00001157  F7C20002          test dx,0x200
+0000115B  7403              jz 0x1160
+0000115D  B90100            mov cx,0x1
+00001160  D1E2              shl dx,1
+00001162  81E2FF03          and dx,0x3ff
+00001166  0BD1              or dx,cx
+00001168  43                inc bx
+00001169  83FB09            cmp bx,byte +0x9
+0000116C  7CE7              jl 0x1155
+0000116E  52                push dx
+0000116F  E8B8FD            call 0xf2a
+00001172  59                pop cx
+00001173  5D                pop bp
+00001174  C3                ret
+00001175  55                push bp
+00001176  8BEC              mov bp,sp
+00001178  83EC42            sub sp,byte +0x42
+0000117B  56                push si
+0000117C  57                push di
+0000117D  8B7604            mov si,[bp+0x4]
+00001180  8B7E08            mov di,[bp+0x8]
+00001183  33C9              xor cx,cx
+00001185  33D2              xor dx,dx
+00001187  8BDA              mov bx,dx
+00001189  D1E3              shl bx,1
+0000118B  833800            cmp word [bx+si],byte +0x0
+0000118E  7401              jz 0x1191
+00001190  41                inc cx
+00001191  42                inc dx
+00001192  83FA04            cmp dx,byte +0x4
+00001195  7CF0              jl 0x1187
+00001197  0BC9              or cx,cx
+00001199  7505              jnz 0x11a0
+0000119B  33C0              xor ax,ax
+0000119D  E9DF02            jmp 0x147f
+000011A0  83F904            cmp cx,byte +0x4
+000011A3  7D03              jnl 0x11a8
+000011A5  E98700            jmp 0x122f
+000011A8  FF34              push word [si]
+000011AA  FF7402            push word [si+0x2]
+000011AD  E8C5FC            call 0xe75
+000011B0  59                pop cx
+000011B1  59                pop cx
+000011B2  8946F6            mov [bp-0xa],ax
+000011B5  FF7402            push word [si+0x2]
+000011B8  FF7404            push word [si+0x4]
+000011BB  E8B7FC            call 0xe75
+000011BE  59                pop cx
+000011BF  59                pop cx
+000011C0  8946F4            mov [bp-0xc],ax
+000011C3  FF7404            push word [si+0x4]
+000011C6  FF7406            push word [si+0x6]
+000011C9  E8A9FC            call 0xe75
+000011CC  59                pop cx
+000011CD  59                pop cx
+000011CE  8946F2            mov [bp-0xe],ax
+000011D1  8B46F6            mov ax,[bp-0xa]
+000011D4  3B46F4            cmp ax,[bp-0xc]
+000011D7  7556              jnz 0x122f
+000011D9  8B46F4            mov ax,[bp-0xc]
+000011DC  3B46F2            cmp ax,[bp-0xe]
+000011DF  754E              jnz 0x122f
+000011E1  FF76F6            push word [bp-0xa]
+000011E4  E873FD            call 0xf5a
+000011E7  59                pop cx
+000011E8  8BD0              mov dx,ax
+000011EA  81FA9E01          cmp dx,0x19e
+000011EE  7F3F              jg 0x122f
+000011F0  8B5E06            mov bx,[bp+0x6]
+000011F3  8917              mov [bx],dx
+000011F5  FF76F6            push word [bp-0xa]
+000011F8  E82EFC            call 0xe29
+000011FB  59                pop cx
+000011FC  8BC8              mov cx,ax
+000011FE  C746E60000        mov word [bp-0x1a],0x0
+00001203  51                push cx
+00001204  51                push cx
+00001205  E837FC            call 0xe3f
+00001208  59                pop cx
+00001209  59                pop cx
+0000120A  8BC8              mov cx,ax
+0000120C  FF46E6            inc word [bp-0x1a]
+0000120F  837EE609          cmp word [bp-0x1a],byte +0x9
+00001213  7CEE              jl 0x1203
+00001215  FF7402            push word [si+0x2]
+00001218  FF76F6            push word [bp-0xa]
+0000121B  51                push cx
+0000121C  E820FC            call 0xe3f
+0000121F  59                pop cx
+00001220  59                pop cx
+00001221  50                push ax
+00001222  E81AFC            call 0xe3f
+00001225  59                pop cx
+00001226  59                pop cx
+00001227  8905              mov [di],ax
+00001229  B80100            mov ax,0x1
+0000122C  E95002            jmp 0x147f
+0000122F  FF7404            push word [si+0x4]
+00001232  FF34              push word [si]
+00001234  E808FC            call 0xe3f
+00001237  59                pop cx
+00001238  59                pop cx
+00001239  50                push ax
+0000123A  FF7402            push word [si+0x2]
+0000123D  FF7402            push word [si+0x2]
+00001240  E8FCFB            call 0xe3f
+00001243  59                pop cx
+00001244  59                pop cx
+00001245  5A                pop dx
+00001246  33D0              xor dx,ax
+00001248  8956FC            mov [bp-0x4],dx
+0000124B  837EFC00          cmp word [bp-0x4],byte +0x0
+0000124F  7503              jnz 0x1254
+00001251  E9E701            jmp 0x143b
+00001254  FF7406            push word [si+0x6]
+00001257  FF7402            push word [si+0x2]
+0000125A  E8E2FB            call 0xe3f
+0000125D  59                pop cx
+0000125E  59                pop cx
+0000125F  50                push ax
+00001260  FF7404            push word [si+0x4]
+00001263  FF7404            push word [si+0x4]
+00001266  E8D6FB            call 0xe3f
+00001269  59                pop cx
+0000126A  59                pop cx
+0000126B  5A                pop dx
+0000126C  33D0              xor dx,ax
+0000126E  8BCA              mov cx,dx
+00001270  0BC9              or cx,cx
+00001272  7503              jnz 0x1277
+00001274  E9C401            jmp 0x143b
+00001277  FF76FC            push word [bp-0x4]
+0000127A  51                push cx
+0000127B  E8F7FB            call 0xe75
+0000127E  59                pop cx
+0000127F  59                pop cx
+00001280  8946EA            mov [bp-0x16],ax
+00001283  FF7404            push word [si+0x4]
+00001286  FF7402            push word [si+0x2]
+00001289  E8B3FB            call 0xe3f
+0000128C  59                pop cx
+0000128D  59                pop cx
+0000128E  50                push ax
+0000128F  FF7406            push word [si+0x6]
+00001292  FF34              push word [si]
+00001294  E8A8FB            call 0xe3f
+00001297  59                pop cx
+00001298  59                pop cx
+00001299  5A                pop dx
+0000129A  33D0              xor dx,ax
+0000129C  8BCA              mov cx,dx
+0000129E  0BC9              or cx,cx
+000012A0  7503              jnz 0x12a5
+000012A2  E99601            jmp 0x143b
+000012A5  FF76FC            push word [bp-0x4]
+000012A8  51                push cx
+000012A9  E8C9FB            call 0xe75
+000012AC  59                pop cx
+000012AD  59                pop cx
+000012AE  8946EC            mov [bp-0x14],ax
+000012B1  50                push ax
+000012B2  50                push ax
+000012B3  E889FB            call 0xe3f
+000012B6  59                pop cx
+000012B7  59                pop cx
+000012B8  50                push ax
+000012B9  FF76EA            push word [bp-0x16]
+000012BC  E8B6FB            call 0xe75
+000012BF  59                pop cx
+000012C0  59                pop cx
+000012C1  8946FE            mov [bp-0x2],ax
+000012C4  8D46BE            lea ax,[bp-0x42]
+000012C7  50                push ax
+000012C8  B80D0A            mov ax,0xa0d
+000012CB  0050FF            add [bx+si-0x1],dl
+000012CE  76FE              jna 0x12ce
+000012D0  E8F1FA            call 0xdc4
+000012D3  83C406            add sp,byte +0x6
+000012D6  837EC200          cmp word [bp-0x3e],byte +0x0
+000012DA  7403              jz 0x12df
+000012DC  E95D01            jmp 0x143c
+000012DF  8B46D0            mov ax,[bp-0x30]
+000012E2  8946DA            mov [bp-0x26],ax
+000012E5  8B46BE            mov ax,[bp-0x42]
+000012E8  3346C0            xor ax,[bp-0x40]
+000012EB  8946DC            mov [bp-0x24],ax
+000012EE  8B46CA            mov ax,[bp-0x36]
+000012F1  3346D0            xor ax,[bp-0x30]
+000012F4  8946DE            mov [bp-0x22],ax
+000012F7  8B46C6            mov ax,[bp-0x3a]
+000012FA  3346D0            xor ax,[bp-0x30]
+000012FD  8946D8            mov [bp-0x28],ax
+00001300  8B46C4            mov ax,[bp-0x3c]
+00001303  3346C6            xor ax,[bp-0x3a]
+00001306  3346CA            xor ax,[bp-0x36]
+00001309  8946D4            mov [bp-0x2c],ax
+0000130C  8B46BE            mov ax,[bp-0x42]
+0000130F  3346D4            xor ax,[bp-0x2c]
+00001312  8946D2            mov [bp-0x2e],ax
+00001315  8B46CE            mov ax,[bp-0x32]
+00001318  3346D2            xor ax,[bp-0x2e]
+0000131B  8946E2            mov [bp-0x1e],ax
+0000131E  8B46CC            mov ax,[bp-0x34]
+00001321  3346D8            xor ax,[bp-0x28]
+00001324  3346E2            xor ax,[bp-0x1e]
+00001327  8946E0            mov [bp-0x20],ax
+0000132A  8B46C8            mov ax,[bp-0x38]
+0000132D  3346E0            xor ax,[bp-0x20]
+00001330  3346DC            xor ax,[bp-0x24]
+00001333  3346D2            xor ax,[bp-0x2e]
+00001336  8946D6            mov [bp-0x2a],ax
+00001339  C746E40000        mov word [bp-0x1c],0x0
+0000133E  B80D0A            mov ax,0xa0d
+00001341  00508D            add [bx+si-0x73],dl
+00001344  46                inc si
+00001345  D250E8            rcl byte [bx+si-0x18],cl
+00001348  AD                lodsw
+00001349  FA                cli
+0000134A  59                pop cx
+0000134B  59                pop cx
+0000134C  8946FA            mov [bp-0x6],ax
+0000134F  0D0100            or ax,0x1
+00001352  8946F8            mov [bp-0x8],ax
+00001355  FF76FA            push word [bp-0x6]
+00001358  FF76EC            push word [bp-0x14]
+0000135B  E8E3FA            call 0xe41
+0000135E  59                pop cx
+0000135F  59                pop cx
+00001360  8946FA            mov [bp-0x6],ax
+00001363  FF76F8            push word [bp-0x8]
+00001366  FF76EC            push word [bp-0x14]
+00001369  E8D5FA            call 0xe41
+0000136C  59                pop cx
+0000136D  59                pop cx
+0000136E  8946F8            mov [bp-0x8],ax
+00001371  FF76FA            push word [bp-0x6]
+00001374  E8E5FB            call 0xf5c
+00001377  59                pop cx
+00001378  8946F0            mov [bp-0x10],ax
+0000137B  FF76F8            push word [bp-0x8]
+0000137E  E8DBFB            call 0xf5c
+00001381  59                pop cx
+00001382  8946EE            mov [bp-0x12],ax
+00001385  817EF09E01        cmp word [bp-0x10],0x19e
+0000138A  7E03              jng 0x138f
+0000138C  E9AE00            jmp 0x143d
+0000138F  817EEE9E01        cmp word [bp-0x12],0x19e
+00001394  7E03              jng 0x1399
+00001396  E9A400            jmp 0x143d
+00001399  8B46FA            mov ax,[bp-0x6]
+0000139C  3346F8            xor ax,[bp-0x8]
+0000139F  8946F6            mov [bp-0xa],ax
+000013A2  FF76FA            push word [bp-0x6]
+000013A5  E8A1FD            call 0x1149
+000013A8  59                pop cx
+000013A9  8946F4            mov [bp-0xc],ax
+000013AC  FF76FA            push word [bp-0x6]
+000013AF  FF76FA            push word [bp-0x6]
+000013B2  E88CFA            call 0xe41
+000013B5  59                pop cx
+000013B6  59                pop cx
+000013B7  8BC8              mov cx,ax
+000013B9  50                push ax
+000013BA  FF76F4            push word [bp-0xc]
+000013BD  E8B7FA            call 0xe77
+000013C0  59                pop cx
+000013C1  59                pop cx
+000013C2  8946F4            mov [bp-0xc],ax
+000013C5  FF76F6            push word [bp-0xa]
+000013C8  50                push ax
+000013C9  E875FA            call 0xe41
+000013CC  59                pop cx
+000013CD  59                pop cx
+000013CE  8946E8            mov [bp-0x18],ax
+000013D1  837EE800          cmp word [bp-0x18],byte +0x0
+000013D5  7466              jz 0x143d
+000013D7  FF76F8            push word [bp-0x8]
+000013DA  FF34              push word [si]
+000013DC  E862FA            call 0xe41
+000013DF  59                pop cx
+000013E0  59                pop cx
+000013E1  334402            xor ax,[si+0x2]
+000013E4  8BD0              mov dx,ax
+000013E6  0BD2              or dx,dx
+000013E8  7453              jz 0x143d
+000013EA  FF76E8            push word [bp-0x18]
+000013ED  52                push dx
+000013EE  E886FA            call 0xe77
+000013F1  59                pop cx
+000013F2  59                pop cx
+000013F3  8905              mov [di],ax
+000013F5  FF76F8            push word [bp-0x8]
+000013F8  E84EFD            call 0x1149
+000013FB  59                pop cx
+000013FC  8946F4            mov [bp-0xc],ax
+000013FF  FF76F8            push word [bp-0x8]
+00001402  FF76F8            push word [bp-0x8]
+00001405  E839FA            call 0xe41
+00001408  59                pop cx
+00001409  59                pop cx
+0000140A  8BC8              mov cx,ax
+0000140C  50                push ax
+0000140D  FF76F4            push word [bp-0xc]
+00001410  E864FA            call 0xe77
+00001413  59                pop cx
+00001414  59                pop cx
+00001415  8946F4            mov [bp-0xc],ax
+00001418  FF76F6            push word [bp-0xa]
+0000141B  50                push ax
+0000141C  E822FA            call 0xe41
+0000141F  59                pop cx
+00001420  59                pop cx
+00001421  8946E8            mov [bp-0x18],ax
+00001424  837EE800          cmp word [bp-0x18],byte +0x0
+00001428  7413              jz 0x143d
+0000142A  FF76FA            push word [bp-0x6]
+0000142D  FF34              push word [si]
+0000142F  E80FFA            call 0xe41
+00001432  59                pop cx
+00001433  59                pop cx
+00001434  334402            xor ax,[si+0x2]
+00001437  8BD0              mov dx,ax
+00001439  0BD2              or dx,dx
+0000143B  7505              jnz 0x1442
+0000143D  B8FFFF            mov ax,0xffff
+00001440  EB3F              jmp short 0x1481
+00001442  FF76E8            push word [bp-0x18]
+00001445  52                push dx
+00001446  E82EFA            call 0xe77
+00001449  59                pop cx
+0000144A  59                pop cx
+0000144B  894502            mov [di+0x2],ax
+0000144E  8B46F0            mov ax,[bp-0x10]
+00001451  3B46EE            cmp ax,[bp-0x12]
+00001454  7E1A              jng 0x1470
+00001456  8B5E06            mov bx,[bp+0x6]
+00001459  8B46EE            mov ax,[bp-0x12]
+0000145C  8907              mov [bx],ax
+0000145E  8B46F0            mov ax,[bp-0x10]
+00001461  894702            mov [bx+0x2],ax
+00001464  8B0D              mov cx,[di]
+00001466  8B4502            mov ax,[di+0x2]
+00001469  8905              mov [di],ax
+0000146B  894D02            mov [di+0x2],cx
+0000146E  EB0E              jmp short 0x147e
+00001470  8B5E06            mov bx,[bp+0x6]
+00001473  8B46F0            mov ax,[bp-0x10]
+00001476  8907              mov [bx],ax
+00001478  8B46EE            mov ax,[bp-0x12]
+0000147B  894702            mov [bx+0x2],ax
+0000147E  B80200            mov ax,0x2
+00001481  5F                pop di
+00001482  5E                pop si
+00001483  8BE5              mov sp,bp
+00001485  5D                pop bp
+00001486  C3                ret
+00001487  55                push bp
+00001488  8BEC              mov bp,sp
+0000148A  83EC1A            sub sp,byte +0x1a
+0000148D  56                push si
+0000148E  57                push di
+0000148F  8B7604            mov si,[bp+0x4]
+00001492  8B7E06            mov di,[bp+0x6]
+00001495  8D46E6            lea ax,[bp-0x1a]
+00001498  50                push ax
+00001499  56                push si
+0000149A  E8ADF8            call 0xd4a
+0000149D  59                pop cx
+0000149E  59                pop cx
+0000149F  8A4405            mov al,[si+0x5]
+000014A2  98                cbw
+000014A3  25FF00            and ax,0xff
+000014A6  8946FE            mov [bp-0x2],ax
+000014A9  8D46F6            lea ax,[bp-0xa]
+000014AC  50                push ax
+000014AD  8D46E6            lea ax,[bp-0x1a]
+000014B0  50                push ax
+000014B1  E8D8F9            call 0xe8c
+000014B4  59                pop cx
+000014B5  59                pop cx
+000014B6  8D46EE            lea ax,[bp-0x12]
+000014B9  50                push ax
+000014BA  8D46F2            lea ax,[bp-0xe]
+000014BD  50                push ax
+000014BE  8D46F6            lea ax,[bp-0xa]
+000014C1  50                push ax
+000014C2  E8B2FC            call 0x1177
+000014C5  83C406            add sp,byte +0x6
+000014C8  8BF0              mov si,ax
+000014CA  0BF6              or si,si
+000014CC  7504              jnz 0x14d2
+000014CE  33C0              xor ax,ax
+000014D0  EB74              jmp short 0x1546
+000014D2  0BF6              or si,si
+000014D4  7C68              jl 0x153e
+000014D6  33C9              xor cx,cx
+000014D8  3BCE              cmp cx,si
+000014DA  7D1E              jnl 0x14fa
+000014DC  8BD9              mov bx,cx
+000014DE  D1E3              shl bx,1
+000014E0  8D46F2            lea ax,[bp-0xe]
+000014E3  03D8              add bx,ax
+000014E5  B89E01            mov ax,0x19e
+000014E8  2B07              sub ax,[bx]
+000014EA  8BD9              mov bx,cx
+000014EC  D1E3              shl bx,1
+000014EE  8D56F2            lea dx,[bp-0xe]
+000014F1  03DA              add bx,dx
+000014F3  8907              mov [bx],ax
+000014F5  41                inc cx
+000014F6  3BCE              cmp cx,si
+000014F8  7CE2              jl 0x14dc
+000014FA  FF760D            push word [bp+0xd]
+000014FD  0AFF              or bh,bh
+000014FF  7608              jna 0x1509
+00001501  56                push si
+00001502  8D46EE            lea ax,[bp-0x12]
+00001505  50                push ax
+00001506  8D46F2            lea ax,[bp-0xe]
+00001509  50                push ax
+0000150A  E891FA            call 0xf9e
+0000150D  83C40D            add sp,byte +0xd
+00001510  0A880533          or cl,[bx+si+0x3305]
+00001514  C9                leave
+00001515  8BD1              mov dx,cx
+00001517  EB1B              jmp short 0x1534
+00001519  8BC1              mov ax,cx
+0000151B  D1E0              shl ax,1
+0000151D  8B5E08            mov bx,[bp+0x8]
+00001520  03D8              add bx,ax
+00001522  813F0002          cmp word [bx],0x200
+00001526  7F0B              jg 0x1533
+00001528  8BC1              mov ax,cx
+0000152A  D1E0              shl ax,1
+0000152C  8B5E0D            mov bx,[bp+0xd]
+0000152F  0A03              or al,[bp+di]
+00001531  D833              fdiv dword [bp+di]
+00001533  17                pop ss
+00001534  41                inc cx
+00001535  8A05              mov al,[di]
+00001537  98                cbw
+00001538  3BC1              cmp ax,cx
+0000153A  7FDE              jg 0x151a
+0000153C  3B56FE            cmp dx,[bp-0x2]
+0000153F  7405              jz 0x1546
+00001541  B80200            mov ax,0x2
+00001544  EB03              jmp short 0x1549
+00001546  B80100            mov ax,0x1
+00001549  5F                pop di
+0000154A  5E                pop si
+0000154B  8BE5              mov sp,bp
+0000154D  5D                pop bp
+0000154E  C3                ret
+0000154F  55                push bp
+00001550  8BEC              mov bp,sp
+00001552  83EC1A            sub sp,byte +0x1a
+00001555  56                push si
+00001556  8D46E6            lea ax,[bp-0x1a]
+00001559  50                push ax
+0000155A  8D46F2            lea ax,[bp-0xe]
+0000155D  50                push ax
+0000155E  8D46FF            lea ax,[bp-0x1]
+00001561  50                push ax
+00001562  FF7608            push word [bp+0x8]
+00001565  E822FF            call 0x148a
+00001568  83C408            add sp,byte +0x8
+0000156B  8BD0              mov dx,ax
+0000156D  83FA01            cmp dx,byte +0x1
+00001570  754C              jnz 0x15be
+00001572  33C9              xor cx,cx
+00001574  EB3C              jmp short 0x15b2
+00001576  8A460D            mov al,[bp+0xd]
+00001579  0A988BD9          or bl,[bx+si+0xd98b]
+0000157D  D1E3              shl bx,1
+0000157F  8D56F2            lea dx,[bp-0xe]
+00001582  03DA              add bx,dx
+00001584  8B17              mov dx,[bx]
+00001586  33D0              xor dx,ax
+00001588  81FA0002          cmp dx,0x200
+0000158C  7D24              jnl 0x15b2
+0000158E  8A460D            mov al,[bp+0xd]
+00001591  0A988BD9          or bl,[bx+si+0xd98b]
+00001595  D1E3              shl bx,1
+00001597  8D56F2            lea dx,[bp-0xe]
+0000159A  03DA              add bx,dx
+0000159C  8B17              mov dx,[bx]
+0000159E  33D0              xor dx,ax
+000015A0  C45E04            les bx,[bp+0x4]
+000015A3  03DA              add bx,dx
+000015A5  8BF1              mov si,cx
+000015A7  D1E6              shl si,1
+000015A9  8D46E6            lea ax,[bp-0x1a]
+000015AC  03F0              add si,ax
+000015AE  8A04              mov al,[si]
+000015B0  263007            xor [es:bx],al
+000015B3  41                inc cx
+000015B4  8A46FF            mov al,[bp-0x1]
+000015B7  98                cbw
+000015B8  3BC1              cmp ax,cx
+000015BA  7FBC              jg 0x1578
+000015BC  33C0              xor ax,ax
+000015BE  EB02              jmp short 0x15c2
+000015C0  8BC2              mov ax,dx
+000015C2  5E                pop si
+000015C3  8BE5              mov sp,bp
+000015C5  5D                pop bp
+000015C6  C3                ret
+000015C7  59                pop cx
+000015C8  0E                push cs
+000015C9  51                push cx
+000015CA  33C9              xor cx,cx
+000015CC  EB16              jmp short 0x15e4
+000015CE  59                pop cx
+000015CF  0E                push cs
+000015D0  51                push cx
+000015D1  B90100            mov cx,0x1
+000015D4  EB0E              jmp short 0x15e4
+000015D6  59                pop cx
+000015D7  0E                push cs
+000015D8  51                push cx
+000015D9  B90200            mov cx,0x2
+000015DC  EB06              jmp short 0x15e4
+000015DE  59                pop cx
+000015DF  0E                push cs
+000015E0  51                push cx
+000015E1  B90300            mov cx,0x3
+000015E4  55                push bp
+000015E5  56                push si
+000015E6  57                push di
+000015E7  8BEC              mov bp,sp
+000015E9  8BF9              mov di,cx
+000015EB  8B460D            mov ax,[bp+0xd]
+000015EE  0A8B560C          or cl,[bp+di+0xc56]
+000015F2  8B5E0E            mov bx,[bp+0xe]
+000015F5  8B4E10            mov cx,[bp+0x10]
+000015F8  0BC9              or cx,cx
+000015FA  7508              jnz 0x1604
+000015FC  0BD2              or dx,dx
+000015FE  7469              jz 0x1669
+00001600  0BDB              or bx,bx
+00001602  7465              jz 0x1669
+00001604  F7C70100          test di,0x1
+00001608  751C              jnz 0x1626
+0000160A  0BD2              or dx,dx
+0000160C  790D              jns 0x161b
+0000160E  0AF7              or dh,bh
+00001610  DA                db 0xDA
+00001611  F7D8              neg ax
+00001613  83DA00            sbb dx,byte +0x0
+00001616  83CF0C            or di,byte +0xc
+00001619  0BC9              or cx,cx
+0000161B  790D              jns 0x162a
+0000161D  0AF7              or dh,bh
+0000161F  D9F7              fincstp
+00001621  DB83D900          fild dword [bp+di+0xd9]
+00001625  83F704            xor di,byte +0x4
+00001628  8BE9              mov bp,cx
+0000162A  B92000            mov cx,0x20
+0000162D  57                push di
+0000162E  33FF              xor di,di
+00001630  33F6              xor si,si
+00001632  D1E0              shl ax,1
+00001634  D1D2              rcl dx,1
+00001636  D1D6              rcl si,1
+00001638  D1D7              rcl di,1
+0000163A  3BFD              cmp di,bp
+0000163C  720B              jc 0x1649
+0000163E  7704              ja 0x1644
+00001640  3BF3              cmp si,bx
+00001642  7205              jc 0x1649
+00001644  2BF3              sub si,bx
+00001646  1BFD              sbb di,bp
+00001648  40                inc ax
+00001649  E2E7              loop 0x1632
+0000164B  5B                pop bx
+0000164C  F7C30200          test bx,0x2
+00001650  7406              jz 0x1658
+00001652  8BC6              mov ax,si
+00001654  8BD7              mov dx,di
+00001656  D1EB              shr bx,1
+00001658  F7C30400          test bx,0x4
+0000165C  7407              jz 0x1665
+0000165E  F7DA              neg dx
+00001660  F7D8              neg ax
+00001662  83DA00            sbb dx,byte +0x0
+00001665  5F                pop di
+00001666  5E                pop si
+00001667  5D                pop bp
+00001668  CA0800            retf 0x8
+0000166B  F7F3              div bx
+0000166D  F7C70200          test di,0x2
+00001671  7401              jz 0x1674
+00001673  92                xchg ax,dx
+00001674  33D2              xor dx,dx
+00001676  EBED              jmp short 0x1665
+00001678  5B                pop bx
+00001679  0E                push cs
+0000167A  53                push bx
+0000167B  80F910            cmp cl,0x10
+0000167E  7310              jnc 0x1690
+00001680  8BD8              mov bx,ax
+00001682  D3E0              shl ax,cl
+00001684  D3E2              shl dx,cl
+00001686  F6D9              neg cl
+00001688  80C110            add cl,0x10
+0000168B  D3EB              shr bx,cl
+0000168D  0BD3              or dx,bx
+0000168F  CB                retf
+00001690  80E910            sub cl,0x10
+00001693  92                xchg ax,dx
+00001694  33C0              xor ax,ax
+00001696  D3E2              shl dx,cl
+00001698  CB                retf
+00001699  5B                pop bx
+0000169A  0E                push cs
+0000169B  53                push bx
+0000169C  80F910            cmp cl,0x10
+0000169F  7310              jnc 0x16b1
+000016A1  8BDA              mov bx,dx
+000016A3  D3E8              shr ax,cl
+000016A5  D3EA              shr dx,cl
+000016A7  F6D9              neg cl
+000016A9  80C110            add cl,0x10
+000016AC  D3E3              shl bx,cl
+000016AE  0BC3              or ax,bx
+000016B0  CB                retf
+000016B1  80E910            sub cl,0x10
+000016B4  92                xchg ax,dx
+000016B5  33D2              xor dx,dx
+000016B7  D3E8              shr ax,cl
+000016B9  CB                retf
+000016BA  56                push si
+000016BB  96                xchg ax,si
+000016BC  92                xchg ax,dx
+000016BD  85C0              test ax,ax
+000016BF  7402              jz 0x16c3
+000016C1  F7E3              mul bx
+000016C3  E305              jcxz 0x16ca
+000016C5  91                xchg ax,cx
+000016C6  F7E6              mul si
+000016C8  03C1              add ax,cx
+000016CA  96                xchg ax,si
+000016CB  F7E3              mul bx
+000016CD  03D6              add dx,si
+000016CF  5E                pop si
+000016D0  C3                ret
+000016D1  55                push bp
+000016D2  8BEC              mov bp,sp
+000016D4  56                push si
+000016D5  8B7604            mov si,[bp+0x4]
+000016D8  8C04              mov [si],es
+000016DA  8C4C02            mov [si+0x2],cs
+000016DD  8C5404            mov [si+0x4],ss
+000016E0  8C5C06            mov [si+0x6],ds
+000016E3  5E                pop si
+000016E4  5D                pop bp
+000016E5  C3                ret
+000016E6  0000              add [bx+si],al
+000016E8  0000              add [bx+si],al
+000016EA  0000              add [bx+si],al
+000016EC  0000              add [bx+si],al
+000016EE  0000              add [bx+si],al
+000016F0  0000              add [bx+si],al
+000016F2  0000              add [bx+si],al
+000016F4  0000              add [bx+si],al
+000016F6  84A8ACA0          test [bx+si+0xa0ac],ch
+000016FA  0000              add [bx+si],al
+000016FC  0000              add [bx+si],al
+000016FE  0000              add [bx+si],al
+00001700  0000              add [bx+si],al
+00001702  0200              add al,[bx+si]
+00001704  0800              or [bx+si],al
+00001706  0000              add [bx+si],al
+00001708  0000              add [bx+si],al
+0000170A  0000              add [bx+si],al
+0000170C  0000              add [bx+si],al
+0000170E  0000              add [bx+si],al
+00001710  0000              add [bx+si],al
+00001712  0000              add [bx+si],al
+00001714  0000              add [bx+si],al
+00001716  0000              add [bx+si],al
+00001718  0000              add [bx+si],al
+0000171A  0000              add [bx+si],al
+0000171C  0000              add [bx+si],al
+0000171E  0000              add [bx+si],al
+00001720  0000              add [bx+si],al
+00001722  0000              add [bx+si],al
+00001724  0000              add [bx+si],al
+00001726  0000              add [bx+si],al
+00001728  0000              add [bx+si],al
+0000172A  0000              add [bx+si],al
+0000172C  0000              add [bx+si],al
+0000172E  0000              add [bx+si],al
+00001730  0000              add [bx+si],al
+00001732  0000              add [bx+si],al
+00001734  0000              add [bx+si],al
+00001736  0000              add [bx+si],al
+00001738  0000              add [bx+si],al
+0000173A  0000              add [bx+si],al
+0000173C  0000              add [bx+si],al
+0000173E  0000              add [bx+si],al
+00001740  0000              add [bx+si],al
+00001742  0000              add [bx+si],al
+00001744  0100              add [bx+si],ax
+00001746  0300              add ax,[bx+si]
+00001748  07                pop es
+00001749  000F              add [bx],cl
+0000174B  001F              add [bx],bl
+0000174D  003F              add [bx],bh
+0000174F  007F00            add [bx+0x0],bh
+00001752  FF00              inc word [bx+si]
+00001754  0000              add [bx+si],al
+00001756  0000              add [bx+si],al
+00001758  0000              add [bx+si],al
+0000175A  0000              add [bx+si],al
+0000175C  0000              add [bx+si],al
+0000175E  53                push bx
+0000175F  54                push sp
+00001760  41                inc cx
+00001761  43                inc bx
+00001762  4B                dec bx
+00001763  90                nop
+00001764  90                nop
+00001765  90                nop
+00001766  90                nop
+00001767  90                nop
+00001768  90                nop
+00001769  90                nop
+0000176A  90                nop
+0000176B  90                nop
+0000176C  90                nop
+0000176D  90                nop
+0000176E  90                nop
+0000176F  90                nop
+00001770  90                nop
+00001771  90                nop
+00001772  90                nop
+00001773  90                nop
+00001774  90                nop
+00001775  90                nop
+00001776  90                nop
+00001777  90                nop
+00001778  90                nop
+00001779  90                nop
+0000177A  90                nop
+0000177B  90                nop
+0000177C  90                nop
+0000177D  90                nop
+0000177E  90                nop
+0000177F  90                nop
+00001780  90                nop
+00001781  90                nop
+00001782  90                nop
+00001783  90                nop
+00001784  90                nop
+00001785  90                nop
+00001786  90                nop
+00001787  90                nop
+00001788  90                nop
+00001789  90                nop
+0000178A  90                nop
+0000178B  90                nop
+0000178C  90                nop
+0000178D  90                nop
+0000178E  90                nop
+0000178F  90                nop
+00001790  90                nop
+00001791  90                nop
+00001792  90                nop
+00001793  90                nop
+00001794  90                nop
+00001795  90                nop
+00001796  90                nop
+00001797  90                nop
+00001798  90                nop
+00001799  90                nop
+0000179A  90                nop
+0000179B  90                nop
+0000179C  90                nop
+0000179D  90                nop
+0000179E  90                nop
+0000179F  90                nop
+000017A0  90                nop
+000017A1  90                nop
+000017A2  90                nop
+000017A3  90                nop
+000017A4  90                nop
+000017A5  90                nop
+000017A6  90                nop
+000017A7  90                nop
+000017A8  90                nop
+000017A9  90                nop
+000017AA  90                nop
+000017AB  90                nop
+000017AC  90                nop
+000017AD  90                nop
+000017AE  90                nop
+000017AF  90                nop
+000017B0  90                nop
+000017B1  90                nop
+000017B2  90                nop
+000017B3  90                nop
+000017B4  90                nop
+000017B5  90                nop
+000017B6  90                nop
+000017B7  90                nop
+000017B8  90                nop
+000017B9  90                nop
+000017BA  90                nop
+000017BB  90                nop
+000017BC  90                nop
+000017BD  90                nop
+000017BE  90                nop
+000017BF  90                nop
+000017C0  90                nop
+000017C1  90                nop
+000017C2  90                nop
+000017C3  90                nop
+000017C4  90                nop
+000017C5  90                nop
+000017C6  90                nop
+000017C7  90                nop
+000017C8  90                nop
+000017C9  90                nop
+000017CA  90                nop
+000017CB  90                nop
+000017CC  90                nop
+000017CD  90                nop
+000017CE  90                nop
+000017CF  90                nop
+000017D0  90                nop
+000017D1  90                nop
+000017D2  90                nop
+000017D3  90                nop
+000017D4  90                nop
+000017D5  90                nop
+000017D6  90                nop
+000017D7  90                nop
+000017D8  90                nop
+000017D9  90                nop
+000017DA  90                nop
+000017DB  90                nop
+000017DC  90                nop
+000017DD  90                nop
+000017DE  90                nop
+000017DF  90                nop
+000017E0  90                nop
+000017E1  90                nop
+000017E2  90                nop
+000017E3  90                nop
+000017E4  90                nop
+000017E5  90                nop
+000017E6  90                nop
+000017E7  90                nop
+000017E8  90                nop
+000017E9  90                nop
+000017EA  90                nop
+000017EB  90                nop
+000017EC  90                nop
+000017ED  90                nop
+000017EE  90                nop
+000017EF  90                nop
+000017F0  90                nop
+000017F1  90                nop
+000017F2  90                nop
+000017F3  90                nop
+000017F4  90                nop
+000017F5  90                nop
+000017F6  90                nop
+000017F7  90                nop
+000017F8  90                nop
+000017F9  90                nop
+000017FA  90                nop
+000017FB  90                nop
+000017FC  90                nop
+000017FD  90                nop
+000017FE  90                nop
+000017FF  90                nop
+00001800  90                nop
+00001801  90                nop
+00001802  90                nop
+00001803  90                nop
+00001804  90                nop
+00001805  90                nop
+00001806  90                nop
+00001807  90                nop
+00001808  90                nop
+00001809  90                nop
+0000180A  90                nop
+0000180B  90                nop
+0000180C  90                nop
+0000180D  90                nop
+0000180E  90                nop
+0000180F  90                nop
+00001810  90                nop
+00001811  90                nop
+00001812  90                nop
+00001813  90                nop
+00001814  90                nop
+00001815  90                nop
+00001816  90                nop
+00001817  90                nop
+00001818  90                nop
+00001819  90                nop
+0000181A  90                nop
+0000181B  90                nop
+0000181C  90                nop
+0000181D  90                nop
+0000181E  90                nop
+0000181F  90                nop
+00001820  90                nop
+00001821  90                nop
+00001822  90                nop
+00001823  90                nop
+00001824  90                nop
+00001825  90                nop
+00001826  90                nop
+00001827  90                nop
+00001828  90                nop
+00001829  90                nop
+0000182A  90                nop
+0000182B  90                nop
+0000182C  90                nop
+0000182D  90                nop
+0000182E  90                nop
+0000182F  90                nop
+00001830  90                nop
+00001831  90                nop
+00001832  90                nop
+00001833  90                nop
+00001834  90                nop
+00001835  90                nop
+00001836  90                nop
+00001837  90                nop
+00001838  90                nop
+00001839  90                nop
+0000183A  90                nop
+0000183B  90                nop
+0000183C  90                nop
+0000183D  90                nop
+0000183E  90                nop
+0000183F  90                nop
+00001840  90                nop
+00001841  90                nop
+00001842  90                nop
+00001843  90                nop
+00001844  90                nop
+00001845  90                nop
+00001846  90                nop
+00001847  90                nop
+00001848  90                nop
+00001849  90                nop
+0000184A  90                nop
+0000184B  90                nop
+0000184C  90                nop
+0000184D  90                nop
+0000184E  90                nop
+0000184F  90                nop
+00001850  90                nop
+00001851  90                nop
+00001852  90                nop
+00001853  90                nop
+00001854  90                nop
+00001855  90                nop
+00001856  90                nop
+00001857  90                nop
+00001858  90                nop
+00001859  90                nop
+0000185A  90                nop
+0000185B  90                nop
+0000185C  90                nop
+0000185D  90                nop
+0000185E  90                nop
+0000185F  90                nop
+00001860  90                nop
+00001861  90                nop
+00001862  90                nop
+00001863  90                nop
+00001864  90                nop
+00001865  90                nop
+00001866  90                nop
+00001867  90                nop
+00001868  90                nop
+00001869  90                nop
+0000186A  90                nop
+0000186B  90                nop
+0000186C  90                nop
+0000186D  90                nop
+0000186E  90                nop
+0000186F  90                nop
+00001870  90                nop
+00001871  90                nop
+00001872  90                nop
+00001873  90                nop
+00001874  90                nop
+00001875  90                nop
+00001876  90                nop
+00001877  90                nop
+00001878  90                nop
+00001879  90                nop
+0000187A  90                nop
+0000187B  90                nop
+0000187C  90                nop
+0000187D  90                nop
+0000187E  90                nop
+0000187F  90                nop
+00001880  90                nop
+00001881  90                nop
+00001882  90                nop
+00001883  90                nop
+00001884  90                nop
+00001885  90                nop
+00001886  90                nop
+00001887  90                nop
+00001888  90                nop
+00001889  90                nop
+0000188A  90                nop
+0000188B  90                nop
+0000188C  90                nop
+0000188D  90                nop
+0000188E  90                nop
+0000188F  90                nop
+00001890  90                nop
+00001891  90                nop
+00001892  90                nop
+00001893  90                nop
+00001894  90                nop
+00001895  90                nop
+00001896  90                nop
+00001897  90                nop
+00001898  90                nop
+00001899  90                nop
+0000189A  90                nop
+0000189B  90                nop
+0000189C  90                nop
+0000189D  90                nop
+0000189E  90                nop
+0000189F  90                nop
+000018A0  90                nop
+000018A1  90                nop
+000018A2  90                nop
+000018A3  90                nop
+000018A4  90                nop
+000018A5  90                nop
+000018A6  90                nop
+000018A7  90                nop
+000018A8  90                nop
+000018A9  90                nop
+000018AA  90                nop
+000018AB  90                nop
+000018AC  90                nop
+000018AD  90                nop
+000018AE  90                nop
+000018AF  90                nop
+000018B0  90                nop
+000018B1  90                nop
+000018B2  90                nop
+000018B3  90                nop
+000018B4  90                nop
+000018B5  90                nop
+000018B6  90                nop
+000018B7  90                nop
+000018B8  90                nop
+000018B9  90                nop
+000018BA  90                nop
+000018BB  90                nop
+000018BC  90                nop
+000018BD  90                nop
+000018BE  90                nop
+000018BF  90                nop
+000018C0  90                nop
+000018C1  90                nop
+000018C2  90                nop
+000018C3  90                nop
+000018C4  90                nop
+000018C5  90                nop
+000018C6  90                nop
+000018C7  90                nop
+000018C8  90                nop
+000018C9  90                nop
+000018CA  90                nop
+000018CB  90                nop
+000018CC  90                nop
+000018CD  90                nop
+000018CE  90                nop
+000018CF  90                nop
+000018D0  90                nop
+000018D1  90                nop
+000018D2  90                nop
+000018D3  90                nop
+000018D4  90                nop
+000018D5  90                nop
+000018D6  90                nop
+000018D7  90                nop
+000018D8  90                nop
+000018D9  90                nop
+000018DA  90                nop
+000018DB  90                nop
+000018DC  90                nop
+000018DD  90                nop
+000018DE  90                nop
+000018DF  90                nop
+000018E0  90                nop
+000018E1  90                nop
+000018E2  90                nop
+000018E3  90                nop
+000018E4  90                nop
+000018E5  90                nop
+000018E6  90                nop
+000018E7  90                nop
+000018E8  90                nop
+000018E9  90                nop
+000018EA  90                nop
+000018EB  90                nop
+000018EC  90                nop
+000018ED  90                nop
+000018EE  90                nop
+000018EF  90                nop
+000018F0  90                nop
+000018F1  90                nop
+000018F2  90                nop
+000018F3  90                nop
+000018F4  90                nop
+000018F5  90                nop
+000018F6  90                nop
+000018F7  90                nop
+000018F8  90                nop
+000018F9  90                nop
+000018FA  90                nop
+000018FB  90                nop
+000018FC  90                nop
+000018FD  90                nop
+000018FE  90                nop
+000018FF  90                nop
+00001900  90                nop
+00001901  90                nop
+00001902  90                nop
+00001903  90                nop
+00001904  90                nop
+00001905  90                nop
+00001906  90                nop
+00001907  90                nop
+00001908  90                nop
+00001909  90                nop
+0000190A  90                nop
+0000190B  90                nop
+0000190C  90                nop
+0000190D  90                nop
+0000190E  90                nop
+0000190F  90                nop
+00001910  90                nop
+00001911  90                nop
+00001912  90                nop
+00001913  90                nop
+00001914  90                nop
+00001915  90                nop
+00001916  90                nop
+00001917  90                nop
+00001918  90                nop
+00001919  90                nop
+0000191A  90                nop
+0000191B  90                nop
+0000191C  90                nop
+0000191D  90                nop
+0000191E  90                nop
+0000191F  90                nop
+00001920  90                nop
+00001921  90                nop
+00001922  90                nop
+00001923  90                nop
+00001924  90                nop
+00001925  90                nop
+00001926  90                nop
+00001927  90                nop
+00001928  90                nop
+00001929  90                nop
+0000192A  90                nop
+0000192B  90                nop
+0000192C  90                nop
+0000192D  90                nop
+0000192E  90                nop
+0000192F  90                nop
+00001930  90                nop
+00001931  90                nop
+00001932  90                nop
+00001933  90                nop
+00001934  90                nop
+00001935  90                nop
+00001936  90                nop
+00001937  90                nop
+00001938  90                nop
+00001939  90                nop
+0000193A  90                nop
+0000193B  90                nop
+0000193C  90                nop
+0000193D  90                nop
+0000193E  90                nop
+0000193F  90                nop
+00001940  90                nop
+00001941  90                nop
+00001942  90                nop
+00001943  90                nop
+00001944  90                nop
+00001945  90                nop
+00001946  90                nop
+00001947  90                nop
+00001948  90                nop
+00001949  90                nop
+0000194A  90                nop
+0000194B  90                nop
+0000194C  90                nop
+0000194D  90                nop
+0000194E  90                nop
+0000194F  90                nop
+00001950  90                nop
+00001951  90                nop
+00001952  90                nop
+00001953  90                nop
+00001954  90                nop
+00001955  90                nop
+00001956  90                nop
+00001957  90                nop
+00001958  90                nop
+00001959  90                nop
+0000195A  90                nop
+0000195B  90                nop
+0000195C  90                nop
+0000195D  90                nop
+0000195E  90                nop
+0000195F  90                nop
+00001960  90                nop
+00001961  90                nop
+00001962  90                nop
+00001963  90                nop
+00001964  90                nop
+00001965  90                nop
+00001966  90                nop
+00001967  90                nop
+00001968  90                nop
+00001969  90                nop
+0000196A  90                nop
+0000196B  90                nop
+0000196C  90                nop
+0000196D  90                nop
+0000196E  90                nop
+0000196F  90                nop
+00001970  90                nop
+00001971  90                nop
+00001972  90                nop
+00001973  90                nop
+00001974  90                nop
+00001975  90                nop
+00001976  90                nop
+00001977  90                nop
+00001978  90                nop
+00001979  90                nop
+0000197A  90                nop
+0000197B  90                nop
+0000197C  90                nop
+0000197D  90                nop
+0000197E  90                nop
+0000197F  90                nop
+00001980  90                nop
+00001981  90                nop
+00001982  90                nop
+00001983  90                nop
+00001984  90                nop
+00001985  90                nop
+00001986  90                nop
+00001987  90                nop
+00001988  90                nop
+00001989  90                nop
+0000198A  90                nop
+0000198B  90                nop
+0000198C  90                nop
+0000198D  90                nop
+0000198E  90                nop
+0000198F  90                nop
+00001990  90                nop
+00001991  90                nop
+00001992  90                nop
+00001993  90                nop
+00001994  90                nop
+00001995  90                nop
+00001996  90                nop
+00001997  90                nop
+00001998  90                nop
+00001999  90                nop
+0000199A  90                nop
+0000199B  90                nop
+0000199C  90                nop
+0000199D  90                nop
+0000199E  90                nop
+0000199F  90                nop
+000019A0  90                nop
+000019A1  90                nop
+000019A2  90                nop
+000019A3  90                nop
+000019A4  90                nop
+000019A5  90                nop
+000019A6  90                nop
+000019A7  90                nop
+000019A8  90                nop
+000019A9  90                nop
+000019AA  90                nop
+000019AB  90                nop
+000019AC  90                nop
+000019AD  90                nop
+000019AE  90                nop
+000019AF  90                nop
+000019B0  90                nop
+000019B1  90                nop
+000019B2  90                nop
+000019B3  90                nop
+000019B4  90                nop
+000019B5  90                nop
+000019B6  90                nop
+000019B7  90                nop
+000019B8  90                nop
+000019B9  90                nop
+000019BA  90                nop
+000019BB  90                nop
+000019BC  90                nop
+000019BD  90                nop
+000019BE  90                nop
+000019BF  90                nop
+000019C0  90                nop
+000019C1  90                nop
+000019C2  90                nop
+000019C3  90                nop
+000019C4  90                nop
+000019C5  90                nop
+000019C6  90                nop
+000019C7  90                nop
+000019C8  90                nop
+000019C9  90                nop
+000019CA  90                nop
+000019CB  90                nop
+000019CC  90                nop
+000019CD  90                nop
+000019CE  90                nop
+000019CF  90                nop
+000019D0  90                nop
+000019D1  90                nop
+000019D2  90                nop
+000019D3  90                nop
+000019D4  90                nop
+000019D5  90                nop
+000019D6  90                nop
+000019D7  90                nop
+000019D8  90                nop
+000019D9  90                nop
+000019DA  90                nop
+000019DB  90                nop
+000019DC  90                nop
+000019DD  90                nop
+000019DE  90                nop
+000019DF  90                nop
+000019E0  90                nop
+000019E1  90                nop
+000019E2  90                nop
+000019E3  90                nop
+000019E4  90                nop
+000019E5  90                nop
+000019E6  90                nop
+000019E7  90                nop
+000019E8  90                nop
+000019E9  90                nop
+000019EA  90                nop
+000019EB  90                nop
+000019EC  90                nop
+000019ED  90                nop
+000019EE  90                nop
+000019EF  90                nop
+000019F0  90                nop
+000019F1  90                nop
+000019F2  90                nop
+000019F3  90                nop
+000019F4  90                nop
+000019F5  90                nop
+000019F6  90                nop
+000019F7  90                nop
+000019F8  90                nop
+000019F9  90                nop
+000019FA  90                nop
+000019FB  90                nop
+000019FC  90                nop
+000019FD  90                nop
+000019FE  90                nop
+000019FF  90                nop
+00001A00  90                nop
+00001A01  90                nop
+00001A02  90                nop
+00001A03  90                nop
+00001A04  90                nop
+00001A05  90                nop
+00001A06  90                nop
+00001A07  90                nop
+00001A08  90                nop
+00001A09  90                nop
+00001A0A  90                nop
+00001A0B  90                nop
+00001A0C  90                nop
+00001A0D  90                nop
+00001A0E  90                nop
+00001A0F  90                nop
+00001A10  90                nop
+00001A11  90                nop
+00001A12  90                nop
+00001A13  90                nop
+00001A14  90                nop
+00001A15  90                nop
+00001A16  90                nop
+00001A17  90                nop
+00001A18  90                nop
+00001A19  90                nop
+00001A1A  90                nop
+00001A1B  90                nop
+00001A1C  90                nop
+00001A1D  90                nop
+00001A1E  90                nop
+00001A1F  90                nop
+00001A20  90                nop
+00001A21  90                nop
+00001A22  90                nop
+00001A23  90                nop
+00001A24  90                nop
+00001A25  90                nop
+00001A26  90                nop
+00001A27  90                nop
+00001A28  90                nop
+00001A29  90                nop
+00001A2A  90                nop
+00001A2B  90                nop
+00001A2C  90                nop
+00001A2D  90                nop
+00001A2E  90                nop
+00001A2F  90                nop
+00001A30  90                nop
+00001A31  90                nop
+00001A32  90                nop
+00001A33  90                nop
+00001A34  90                nop
+00001A35  90                nop
+00001A36  90                nop
+00001A37  90                nop
+00001A38  90                nop
+00001A39  90                nop
+00001A3A  90                nop
+00001A3B  90                nop
+00001A3C  90                nop
+00001A3D  90                nop
+00001A3E  90                nop
+00001A3F  90                nop
+00001A40  90                nop
+00001A41  90                nop
+00001A42  90                nop
+00001A43  90                nop
+00001A44  90                nop
+00001A45  90                nop
+00001A46  90                nop
+00001A47  90                nop
+00001A48  90                nop
+00001A49  90                nop
+00001A4A  90                nop
+00001A4B  90                nop
+00001A4C  90                nop
+00001A4D  90                nop
+00001A4E  90                nop
+00001A4F  90                nop
+00001A50  90                nop
+00001A51  90                nop
+00001A52  90                nop
+00001A53  90                nop
+00001A54  90                nop
+00001A55  90                nop
+00001A56  90                nop
+00001A57  90                nop
+00001A58  90                nop
+00001A59  90                nop
+00001A5A  90                nop
+00001A5B  90                nop
+00001A5C  90                nop
+00001A5D  90                nop
+00001A5E  90                nop
+00001A5F  90                nop
+00001A60  90                nop
+00001A61  90                nop
+00001A62  90                nop
+00001A63  90                nop
+00001A64  90                nop
+00001A65  90                nop
+00001A66  90                nop
+00001A67  90                nop
+00001A68  90                nop
+00001A69  90                nop
+00001A6A  90                nop
+00001A6B  90                nop
+00001A6C  90                nop
+00001A6D  90                nop
+00001A6E  90                nop
+00001A6F  90                nop
+00001A70  90                nop
+00001A71  90                nop
+00001A72  90                nop
+00001A73  90                nop
+00001A74  90                nop
+00001A75  90                nop
+00001A76  90                nop
+00001A77  90                nop
+00001A78  90                nop
+00001A79  90                nop
+00001A7A  90                nop
+00001A7B  90                nop
+00001A7C  90                nop
+00001A7D  90                nop
+00001A7E  90                nop
+00001A7F  90                nop
+00001A80  90                nop
+00001A81  90                nop
+00001A82  90                nop
+00001A83  90                nop
+00001A84  90                nop
+00001A85  90                nop
+00001A86  90                nop
+00001A87  90                nop
+00001A88  90                nop
+00001A89  90                nop
+00001A8A  90                nop
+00001A8B  90                nop
+00001A8C  90                nop
+00001A8D  90                nop
+00001A8E  90                nop
+00001A8F  90                nop
+00001A90  90                nop
+00001A91  90                nop
+00001A92  90                nop
+00001A93  90                nop
+00001A94  90                nop
+00001A95  90                nop
+00001A96  90                nop
+00001A97  90                nop
+00001A98  90                nop
+00001A99  90                nop
+00001A9A  90                nop
+00001A9B  90                nop
+00001A9C  90                nop
+00001A9D  90                nop
+00001A9E  90                nop
+00001A9F  90                nop
+00001AA0  90                nop
+00001AA1  90                nop
+00001AA2  90                nop
+00001AA3  90                nop
+00001AA4  90                nop
+00001AA5  90                nop
+00001AA6  90                nop
+00001AA7  90                nop
+00001AA8  90                nop
+00001AA9  90                nop
+00001AAA  90                nop
+00001AAB  90                nop
+00001AAC  90                nop
+00001AAD  90                nop
+00001AAE  90                nop
+00001AAF  90                nop
+00001AB0  90                nop
+00001AB1  90                nop
+00001AB2  90                nop
+00001AB3  90                nop
+00001AB4  90                nop
+00001AB5  90                nop
+00001AB6  90                nop
+00001AB7  90                nop
+00001AB8  90                nop
+00001AB9  90                nop
+00001ABA  90                nop
+00001ABB  90                nop
+00001ABC  90                nop
+00001ABD  90                nop
+00001ABE  90                nop
+00001ABF  90                nop
+00001AC0  90                nop
+00001AC1  90                nop
+00001AC2  90                nop
+00001AC3  90                nop
+00001AC4  90                nop
+00001AC5  90                nop
+00001AC6  90                nop
+00001AC7  90                nop
+00001AC8  90                nop
+00001AC9  90                nop
+00001ACA  90                nop
+00001ACB  90                nop
+00001ACC  90                nop
+00001ACD  90                nop
+00001ACE  90                nop
+00001ACF  90                nop
+00001AD0  90                nop
+00001AD1  90                nop
+00001AD2  90                nop
+00001AD3  90                nop
+00001AD4  90                nop
+00001AD5  90                nop
+00001AD6  90                nop
+00001AD7  90                nop
+00001AD8  90                nop
+00001AD9  90                nop
+00001ADA  90                nop
+00001ADB  90                nop
+00001ADC  90                nop
+00001ADD  90                nop
+00001ADE  90                nop
+00001ADF  90                nop
+00001AE0  90                nop
+00001AE1  90                nop
+00001AE2  90                nop
+00001AE3  90                nop
+00001AE4  90                nop
+00001AE5  90                nop
+00001AE6  90                nop
+00001AE7  90                nop
+00001AE8  90                nop
+00001AE9  90                nop
+00001AEA  90                nop
+00001AEB  90                nop
+00001AEC  90                nop
+00001AED  90                nop
+00001AEE  90                nop
+00001AEF  90                nop
+00001AF0  90                nop
+00001AF1  90                nop
+00001AF2  90                nop
+00001AF3  90                nop
+00001AF4  90                nop
+00001AF5  90                nop
+00001AF6  90                nop
+00001AF7  90                nop
+00001AF8  90                nop
+00001AF9  90                nop
+00001AFA  90                nop
+00001AFB  90                nop
+00001AFC  90                nop
+00001AFD  90                nop
+00001AFE  90                nop
+00001AFF  90                nop
+00001B00  90                nop
+00001B01  90                nop
+00001B02  90                nop
+00001B03  90                nop
+00001B04  90                nop
+00001B05  90                nop
+00001B06  90                nop
+00001B07  90                nop
+00001B08  90                nop
+00001B09  90                nop
+00001B0A  90                nop
+00001B0B  90                nop
+00001B0C  90                nop
+00001B0D  90                nop
+00001B0E  90                nop
+00001B0F  90                nop
+00001B10  90                nop
+00001B11  90                nop
+00001B12  90                nop
+00001B13  90                nop
+00001B14  90                nop
+00001B15  90                nop
+00001B16  90                nop
+00001B17  90                nop
+00001B18  90                nop
+00001B19  90                nop
+00001B1A  90                nop
+00001B1B  90                nop
+00001B1C  90                nop
+00001B1D  90                nop
+00001B1E  90                nop
+00001B1F  90                nop
+00001B20  90                nop
+00001B21  90                nop
+00001B22  90                nop
+00001B23  90                nop
+00001B24  90                nop
+00001B25  90                nop
+00001B26  90                nop
+00001B27  90                nop
+00001B28  90                nop
+00001B29  90                nop
+00001B2A  90                nop
+00001B2B  90                nop
+00001B2C  90                nop
+00001B2D  90                nop
+00001B2E  90                nop
+00001B2F  90                nop
+00001B30  90                nop
+00001B31  90                nop
+00001B32  90                nop
+00001B33  90                nop
+00001B34  90                nop
+00001B35  90                nop
+00001B36  90                nop
+00001B37  90                nop
+00001B38  90                nop
+00001B39  90                nop
+00001B3A  90                nop
+00001B3B  90                nop
+00001B3C  90                nop
+00001B3D  90                nop
+00001B3E  90                nop
+00001B3F  90                nop
+00001B40  90                nop
+00001B41  90                nop
+00001B42  90                nop
+00001B43  90                nop
+00001B44  90                nop
+00001B45  90                nop
+00001B46  90                nop
+00001B47  90                nop
+00001B48  90                nop
+00001B49  90                nop
+00001B4A  90                nop
+00001B4B  90                nop
+00001B4C  90                nop
+00001B4D  90                nop
+00001B4E  90                nop
+00001B4F  90                nop
+00001B50  90                nop
+00001B51  90                nop
+00001B52  90                nop
+00001B53  90                nop
+00001B54  90                nop
+00001B55  90                nop
+00001B56  90                nop
+00001B57  90                nop
+00001B58  90                nop
+00001B59  90                nop
+00001B5A  90                nop
+00001B5B  90                nop
+00001B5C  90                nop
+00001B5D  90                nop
+00001B5E  90                nop
+00001B5F  90                nop
+00001B60  90                nop
+00001B61  90                nop
+00001B62  90                nop
+00001B63  90                nop
+00001B64  90                nop
+00001B65  90                nop
+00001B66  90                nop
+00001B67  90                nop
+00001B68  90                nop
+00001B69  90                nop
+00001B6A  90                nop
+00001B6B  90                nop
+00001B6C  90                nop
+00001B6D  90                nop
+00001B6E  90                nop
+00001B6F  90                nop
+00001B70  90                nop
+00001B71  90                nop
+00001B72  90                nop
+00001B73  90                nop
+00001B74  90                nop
+00001B75  90                nop
+00001B76  90                nop
+00001B77  90                nop
+00001B78  90                nop
+00001B79  90                nop
+00001B7A  90                nop
+00001B7B  90                nop
+00001B7C  90                nop
+00001B7D  90                nop
+00001B7E  90                nop
+00001B7F  90                nop
+00001B80  90                nop
+00001B81  90                nop
+00001B82  90                nop
+00001B83  90                nop
+00001B84  90                nop
+00001B85  90                nop
+00001B86  90                nop
+00001B87  90                nop
+00001B88  90                nop
+00001B89  90                nop
+00001B8A  90                nop
+00001B8B  90                nop
+00001B8C  90                nop
+00001B8D  90                nop
+00001B8E  90                nop
+00001B8F  90                nop
+00001B90  90                nop
+00001B91  90                nop
+00001B92  90                nop
+00001B93  90                nop
+00001B94  90                nop
+00001B95  90                nop
+00001B96  90                nop
+00001B97  90                nop
+00001B98  90                nop
+00001B99  90                nop
+00001B9A  90                nop
+00001B9B  90                nop
+00001B9C  90                nop
+00001B9D  90                nop
+00001B9E  90                nop
+00001B9F  90                nop
+00001BA0  90                nop
+00001BA1  90                nop
+00001BA2  90                nop
+00001BA3  90                nop
+00001BA4  90                nop
+00001BA5  90                nop
+00001BA6  90                nop
+00001BA7  90                nop
+00001BA8  90                nop
+00001BA9  90                nop
+00001BAA  90                nop
+00001BAB  90                nop
+00001BAC  90                nop
+00001BAD  90                nop
+00001BAE  90                nop
+00001BAF  90                nop
+00001BB0  90                nop
+00001BB1  90                nop
+00001BB2  90                nop
+00001BB3  90                nop
+00001BB4  90                nop
+00001BB5  90                nop
+00001BB6  90                nop
+00001BB7  90                nop
+00001BB8  90                nop
+00001BB9  90                nop
+00001BBA  90                nop
+00001BBB  90                nop
+00001BBC  90                nop
+00001BBD  90                nop
+00001BBE  90                nop
+00001BBF  90                nop
+00001BC0  90                nop
+00001BC1  90                nop
+00001BC2  90                nop
+00001BC3  90                nop
+00001BC4  90                nop
+00001BC5  90                nop
+00001BC6  90                nop
+00001BC7  90                nop
+00001BC8  90                nop
+00001BC9  90                nop
+00001BCA  90                nop
+00001BCB  90                nop
+00001BCC  90                nop
+00001BCD  90                nop
+00001BCE  90                nop
+00001BCF  90                nop
+00001BD0  90                nop
+00001BD1  90                nop
+00001BD2  90                nop
+00001BD3  90                nop
+00001BD4  90                nop
+00001BD5  90                nop
+00001BD6  90                nop
+00001BD7  90                nop
+00001BD8  90                nop
+00001BD9  90                nop
+00001BDA  90                nop
+00001BDB  90                nop
+00001BDC  90                nop
+00001BDD  90                nop
+00001BDE  90                nop
+00001BDF  90                nop
+00001BE0  90                nop
+00001BE1  90                nop
+00001BE2  90                nop
+00001BE3  90                nop
+00001BE4  90                nop
+00001BE5  90                nop
+00001BE6  90                nop
+00001BE7  90                nop
+00001BE8  90                nop
+00001BE9  90                nop
+00001BEA  90                nop
+00001BEB  90                nop
+00001BEC  90                nop
+00001BED  90                nop
+00001BEE  90                nop
+00001BEF  90                nop
+00001BF0  90                nop
+00001BF1  90                nop
+00001BF2  90                nop
+00001BF3  90                nop
+00001BF4  90                nop
+00001BF5  90                nop
+00001BF6  90                nop
+00001BF7  90                nop
+00001BF8  90                nop
+00001BF9  90                nop
+00001BFA  90                nop
+00001BFB  90                nop
+00001BFC  90                nop
+00001BFD  90                nop
+00001BFE  90                nop
+00001BFF  90                nop
+00001C00  90                nop
+00001C01  90                nop
+00001C02  90                nop
+00001C03  90                nop
+00001C04  90                nop
+00001C05  90                nop
+00001C06  90                nop
+00001C07  90                nop
+00001C08  90                nop
+00001C09  90                nop
+00001C0A  90                nop
+00001C0B  90                nop
+00001C0C  90                nop
+00001C0D  90                nop
+00001C0E  90                nop
+00001C0F  90                nop
+00001C10  90                nop
+00001C11  90                nop
+00001C12  90                nop
+00001C13  90                nop
+00001C14  90                nop
+00001C15  90                nop
+00001C16  90                nop
+00001C17  90                nop
+00001C18  90                nop
+00001C19  90                nop
+00001C1A  90                nop
+00001C1B  90                nop
+00001C1C  90                nop
+00001C1D  90                nop
+00001C1E  90                nop
+00001C1F  90                nop
+00001C20  90                nop
+00001C21  90                nop
+00001C22  90                nop
+00001C23  90                nop
+00001C24  90                nop
+00001C25  90                nop
+00001C26  90                nop
+00001C27  90                nop
+00001C28  90                nop
+00001C29  90                nop
+00001C2A  90                nop
+00001C2B  90                nop
+00001C2C  90                nop
+00001C2D  90                nop
+00001C2E  90                nop
+00001C2F  16                push ss
+00001C30  FF                db 0xFF
+00001C31  FF                db 0xFF
+00001C32  FF                db 0xFF
+00001C33  FF                db 0xFF
+00001C34  FF                db 0xFF
+00001C35  FF                db 0xFF
+00001C36  FF                db 0xFF
+00001C37  FF                db 0xFF
+00001C38  FF                db 0xFF
+00001C39  FF                db 0xFF
+00001C3A  FF                db 0xFF
+00001C3B  FF                db 0xFF
+00001C3C  FF                db 0xFF
+00001C3D  FF                db 0xFF
+00001C3E  FF                db 0xFF
+00001C3F  FF                db 0xFF
+00001C40  FF                db 0xFF
+00001C41  FF                db 0xFF
+00001C42  FF                db 0xFF
+00001C43  FF                db 0xFF
+00001C44  FF                db 0xFF
+00001C45  FF                db 0xFF
+00001C46  FF                db 0xFF
+00001C47  FF                db 0xFF
+00001C48  FF                db 0xFF
+00001C49  FF                db 0xFF
+00001C4A  FF                db 0xFF
+00001C4B  FF                db 0xFF
+00001C4C  FF                db 0xFF
+00001C4D  FF                db 0xFF
+00001C4E  FF                db 0xFF
+00001C4F  FF                db 0xFF
+00001C50  FF                db 0xFF
+00001C51  FF                db 0xFF
+00001C52  FF                db 0xFF
+00001C53  FF                db 0xFF
+00001C54  FF                db 0xFF
+00001C55  FF                db 0xFF
+00001C56  FF                db 0xFF
+00001C57  FF                db 0xFF
+00001C58  FF                db 0xFF
+00001C59  FF                db 0xFF
+00001C5A  FF                db 0xFF
+00001C5B  FF                db 0xFF
+00001C5C  FF                db 0xFF
+00001C5D  FF                db 0xFF
+00001C5E  FF                db 0xFF
+00001C5F  FF                db 0xFF
+00001C60  FF                db 0xFF
+00001C61  FF                db 0xFF
+00001C62  FF                db 0xFF
+00001C63  FF                db 0xFF
+00001C64  FF                db 0xFF
+00001C65  FF                db 0xFF
+00001C66  FF                db 0xFF
+00001C67  FF                db 0xFF
+00001C68  FF                db 0xFF
+00001C69  FF                db 0xFF
+00001C6A  FF                db 0xFF
+00001C6B  FF                db 0xFF
+00001C6C  FF                db 0xFF
+00001C6D  FF                db 0xFF
+00001C6E  FF                db 0xFF
+00001C6F  FF                db 0xFF
+00001C70  FF                db 0xFF
+00001C71  FF                db 0xFF
+00001C72  FF                db 0xFF
+00001C73  FF                db 0xFF
+00001C74  FF                db 0xFF
+00001C75  FF                db 0xFF
+00001C76  FF                db 0xFF
+00001C77  FF                db 0xFF
+00001C78  FF                db 0xFF
+00001C79  FF                db 0xFF
+00001C7A  FF                db 0xFF
+00001C7B  FF                db 0xFF
+00001C7C  FF                db 0xFF
+00001C7D  FF                db 0xFF
+00001C7E  FF                db 0xFF
+00001C7F  FF                db 0xFF
+00001C80  FF                db 0xFF
+00001C81  FF                db 0xFF
+00001C82  FF                db 0xFF
+00001C83  FF                db 0xFF
+00001C84  FF                db 0xFF
+00001C85  FF                db 0xFF
+00001C86  FF                db 0xFF
+00001C87  FF                db 0xFF
+00001C88  FF                db 0xFF
+00001C89  FF                db 0xFF
+00001C8A  FF                db 0xFF
+00001C8B  FF                db 0xFF
+00001C8C  FF                db 0xFF
+00001C8D  FF                db 0xFF
+00001C8E  FF                db 0xFF
+00001C8F  FF                db 0xFF
+00001C90  FF                db 0xFF
+00001C91  FF                db 0xFF
+00001C92  FF                db 0xFF
+00001C93  FF                db 0xFF
+00001C94  FF                db 0xFF
+00001C95  FF                db 0xFF
+00001C96  FF                db 0xFF
+00001C97  FF                db 0xFF
+00001C98  FF                db 0xFF
+00001C99  FF                db 0xFF
+00001C9A  FF                db 0xFF
+00001C9B  FF                db 0xFF
+00001C9C  FF                db 0xFF
+00001C9D  FF                db 0xFF
+00001C9E  FF                db 0xFF
+00001C9F  FF                db 0xFF
+00001CA0  FF                db 0xFF
+00001CA1  FF                db 0xFF
+00001CA2  FF                db 0xFF
+00001CA3  FF                db 0xFF
+00001CA4  FF                db 0xFF
+00001CA5  FF                db 0xFF
+00001CA6  FF                db 0xFF
+00001CA7  FF                db 0xFF
+00001CA8  FF                db 0xFF
+00001CA9  FF                db 0xFF
+00001CAA  FF                db 0xFF
+00001CAB  FF                db 0xFF
+00001CAC  FF                db 0xFF
+00001CAD  FF                db 0xFF
+00001CAE  FF                db 0xFF
+00001CAF  FF                db 0xFF
+00001CB0  FF                db 0xFF
+00001CB1  FF                db 0xFF
+00001CB2  FF                db 0xFF
+00001CB3  FF                db 0xFF
+00001CB4  FF                db 0xFF
+00001CB5  FF                db 0xFF
+00001CB6  FF                db 0xFF
+00001CB7  FF                db 0xFF
+00001CB8  FF                db 0xFF
+00001CB9  FF                db 0xFF
+00001CBA  FF                db 0xFF
+00001CBB  FF                db 0xFF
+00001CBC  FF                db 0xFF
+00001CBD  FF                db 0xFF
+00001CBE  FF                db 0xFF
+00001CBF  FF                db 0xFF
+00001CC0  FF                db 0xFF
+00001CC1  FF                db 0xFF
+00001CC2  FF                db 0xFF
+00001CC3  FF                db 0xFF
+00001CC4  FF                db 0xFF
+00001CC5  FF                db 0xFF
+00001CC6  FF                db 0xFF
+00001CC7  FF                db 0xFF
+00001CC8  FF                db 0xFF
+00001CC9  FF                db 0xFF
+00001CCA  FF                db 0xFF
+00001CCB  FF                db 0xFF
+00001CCC  FF                db 0xFF
+00001CCD  FF                db 0xFF
+00001CCE  FF                db 0xFF
+00001CCF  FF                db 0xFF
+00001CD0  FF                db 0xFF
+00001CD1  FF                db 0xFF
+00001CD2  FF                db 0xFF
+00001CD3  FF                db 0xFF
+00001CD4  FF                db 0xFF
+00001CD5  FF                db 0xFF
+00001CD6  FF                db 0xFF
+00001CD7  FF                db 0xFF
+00001CD8  FF                db 0xFF
+00001CD9  FF                db 0xFF
+00001CDA  FF                db 0xFF
+00001CDB  FF                db 0xFF
+00001CDC  FF                db 0xFF
+00001CDD  FF                db 0xFF
+00001CDE  FF                db 0xFF
+00001CDF  FF                db 0xFF
+00001CE0  FF                db 0xFF
+00001CE1  FF                db 0xFF
+00001CE2  FF                db 0xFF
+00001CE3  FF                db 0xFF
+00001CE4  FF                db 0xFF
+00001CE5  FF                db 0xFF
+00001CE6  FF                db 0xFF
+00001CE7  FF                db 0xFF
+00001CE8  FF                db 0xFF
+00001CE9  FF                db 0xFF
+00001CEA  FF                db 0xFF
+00001CEB  FF                db 0xFF
+00001CEC  FF                db 0xFF
+00001CED  FF                db 0xFF
+00001CEE  FF                db 0xFF
+00001CEF  FF                db 0xFF
+00001CF0  FF                db 0xFF
+00001CF1  FF                db 0xFF
+00001CF2  FF                db 0xFF
+00001CF3  FF                db 0xFF
+00001CF4  FF                db 0xFF
+00001CF5  FF                db 0xFF
+00001CF6  FF                db 0xFF
+00001CF7  FF                db 0xFF
+00001CF8  FF                db 0xFF
+00001CF9  FF                db 0xFF
+00001CFA  FF                db 0xFF
+00001CFB  FF                db 0xFF
+00001CFC  FF                db 0xFF
+00001CFD  FF                db 0xFF
+00001CFE  FF                db 0xFF
+00001CFF  FF                db 0xFF
+00001D00  FF                db 0xFF
+00001D01  FF                db 0xFF
+00001D02  FF                db 0xFF
+00001D03  FF                db 0xFF
+00001D04  FF                db 0xFF
+00001D05  FF                db 0xFF
+00001D06  FF                db 0xFF
+00001D07  FF                db 0xFF
+00001D08  FF                db 0xFF
+00001D09  FF                db 0xFF
+00001D0A  FF                db 0xFF
+00001D0B  FF                db 0xFF
+00001D0C  FF                db 0xFF
+00001D0D  FF                db 0xFF
+00001D0E  FF                db 0xFF
+00001D0F  FF                db 0xFF
+00001D10  FF                db 0xFF
+00001D11  FF                db 0xFF
+00001D12  FF                db 0xFF
+00001D13  FF                db 0xFF
+00001D14  FF                db 0xFF
+00001D15  FF                db 0xFF
+00001D16  FF                db 0xFF
+00001D17  FF                db 0xFF
+00001D18  FF                db 0xFF
+00001D19  FF                db 0xFF
+00001D1A  FF                db 0xFF
+00001D1B  FF                db 0xFF
+00001D1C  FF                db 0xFF
+00001D1D  FF                db 0xFF
+00001D1E  FF                db 0xFF
+00001D1F  FF                db 0xFF
+00001D20  FF                db 0xFF
+00001D21  FF                db 0xFF
+00001D22  FF                db 0xFF
+00001D23  FF                db 0xFF
+00001D24  FF                db 0xFF
+00001D25  FF                db 0xFF
+00001D26  FF                db 0xFF
+00001D27  FF                db 0xFF
+00001D28  FF                db 0xFF
+00001D29  FF                db 0xFF
+00001D2A  FF                db 0xFF
+00001D2B  FF                db 0xFF
+00001D2C  FF                db 0xFF
+00001D2D  FF                db 0xFF
+00001D2E  FF                db 0xFF
+00001D2F  FF                db 0xFF
+00001D30  FF                db 0xFF
+00001D31  FF                db 0xFF
+00001D32  FF                db 0xFF
+00001D33  FF                db 0xFF
+00001D34  FF                db 0xFF
+00001D35  FF                db 0xFF
+00001D36  FF                db 0xFF
+00001D37  FF                db 0xFF
+00001D38  FF                db 0xFF
+00001D39  FF                db 0xFF
+00001D3A  FF                db 0xFF
+00001D3B  FF                db 0xFF
+00001D3C  FF                db 0xFF
+00001D3D  FF                db 0xFF
+00001D3E  FF                db 0xFF
+00001D3F  FF                db 0xFF
+00001D40  FF                db 0xFF
+00001D41  FF                db 0xFF
+00001D42  FF                db 0xFF
+00001D43  FF                db 0xFF
+00001D44  FF                db 0xFF
+00001D45  FF                db 0xFF
+00001D46  FF                db 0xFF
+00001D47  FF                db 0xFF
+00001D48  FF                db 0xFF
+00001D49  FF                db 0xFF
+00001D4A  FF                db 0xFF
+00001D4B  FF                db 0xFF
+00001D4C  FF                db 0xFF
+00001D4D  FF                db 0xFF
+00001D4E  FF                db 0xFF
+00001D4F  FF                db 0xFF
+00001D50  FF                db 0xFF
+00001D51  FF                db 0xFF
+00001D52  FF                db 0xFF
+00001D53  FF                db 0xFF
+00001D54  FF                db 0xFF
+00001D55  FF                db 0xFF
+00001D56  FF                db 0xFF
+00001D57  FF                db 0xFF
+00001D58  FF                db 0xFF
+00001D59  FF                db 0xFF
+00001D5A  FF                db 0xFF
+00001D5B  FF                db 0xFF
+00001D5C  FF                db 0xFF
+00001D5D  FF                db 0xFF
+00001D5E  FF                db 0xFF
+00001D5F  FF                db 0xFF
+00001D60  FF                db 0xFF
+00001D61  FF                db 0xFF
+00001D62  FF                db 0xFF
+00001D63  FF                db 0xFF
+00001D64  FF                db 0xFF
+00001D65  FF                db 0xFF
+00001D66  FF                db 0xFF
+00001D67  FF                db 0xFF
+00001D68  FF                db 0xFF
+00001D69  FF                db 0xFF
+00001D6A  FF                db 0xFF
+00001D6B  FF                db 0xFF
+00001D6C  FF                db 0xFF
+00001D6D  FF                db 0xFF
+00001D6E  FF                db 0xFF
+00001D6F  FF                db 0xFF
+00001D70  FF                db 0xFF
+00001D71  FF                db 0xFF
+00001D72  FF                db 0xFF
+00001D73  FF                db 0xFF
+00001D74  FF                db 0xFF
+00001D75  FF                db 0xFF
+00001D76  FF                db 0xFF
+00001D77  FF                db 0xFF
+00001D78  FF                db 0xFF
+00001D79  FF                db 0xFF
+00001D7A  FF                db 0xFF
+00001D7B  FF                db 0xFF
+00001D7C  FF                db 0xFF
+00001D7D  FF                db 0xFF
+00001D7E  FF                db 0xFF
+00001D7F  FF                db 0xFF
+00001D80  FF                db 0xFF
+00001D81  FF                db 0xFF
+00001D82  FF                db 0xFF
+00001D83  FF                db 0xFF
+00001D84  FF                db 0xFF
+00001D85  FF                db 0xFF
+00001D86  FF                db 0xFF
+00001D87  FF                db 0xFF
+00001D88  FF                db 0xFF
+00001D89  FF                db 0xFF
+00001D8A  FF                db 0xFF
+00001D8B  FF                db 0xFF
+00001D8C  FF                db 0xFF
+00001D8D  FF                db 0xFF
+00001D8E  FF                db 0xFF
+00001D8F  FF                db 0xFF
+00001D90  FF                db 0xFF
+00001D91  FF                db 0xFF
+00001D92  FF                db 0xFF
+00001D93  FF                db 0xFF
+00001D94  FF                db 0xFF
+00001D95  FF                db 0xFF
+00001D96  FF                db 0xFF
+00001D97  FF                db 0xFF
+00001D98  FF                db 0xFF
+00001D99  FF                db 0xFF
+00001D9A  FF                db 0xFF
+00001D9B  FF                db 0xFF
+00001D9C  FF                db 0xFF
+00001D9D  FF                db 0xFF
+00001D9E  FF                db 0xFF
+00001D9F  FF                db 0xFF
+00001DA0  FF                db 0xFF
+00001DA1  FF                db 0xFF
+00001DA2  FF                db 0xFF
+00001DA3  FF                db 0xFF
+00001DA4  FF                db 0xFF
+00001DA5  FF                db 0xFF
+00001DA6  FF                db 0xFF
+00001DA7  FF                db 0xFF
+00001DA8  FF                db 0xFF
+00001DA9  FF                db 0xFF
+00001DAA  FF                db 0xFF
+00001DAB  FF                db 0xFF
+00001DAC  FF                db 0xFF
+00001DAD  FF                db 0xFF
+00001DAE  FF                db 0xFF
+00001DAF  FF                db 0xFF
+00001DB0  FF                db 0xFF
+00001DB1  FF                db 0xFF
+00001DB2  FF                db 0xFF
+00001DB3  FF                db 0xFF
+00001DB4  FF                db 0xFF
+00001DB5  FF                db 0xFF
+00001DB6  FF                db 0xFF
+00001DB7  FF                db 0xFF
+00001DB8  FF                db 0xFF
+00001DB9  FF                db 0xFF
+00001DBA  FF                db 0xFF
+00001DBB  FF                db 0xFF
+00001DBC  FF                db 0xFF
+00001DBD  FF                db 0xFF
+00001DBE  FF                db 0xFF
+00001DBF  FF                db 0xFF
+00001DC0  FF                db 0xFF
+00001DC1  FF                db 0xFF
+00001DC2  FF                db 0xFF
+00001DC3  FF                db 0xFF
+00001DC4  FF                db 0xFF
+00001DC5  FF                db 0xFF
+00001DC6  FF                db 0xFF
+00001DC7  FF                db 0xFF
+00001DC8  FF                db 0xFF
+00001DC9  FF                db 0xFF
+00001DCA  FF                db 0xFF
+00001DCB  FF                db 0xFF
+00001DCC  FF                db 0xFF
+00001DCD  FF                db 0xFF
+00001DCE  FF                db 0xFF
+00001DCF  FF                db 0xFF
+00001DD0  FF                db 0xFF
+00001DD1  FF                db 0xFF
+00001DD2  FF                db 0xFF
+00001DD3  FF                db 0xFF
+00001DD4  FF                db 0xFF
+00001DD5  FF                db 0xFF
+00001DD6  FF                db 0xFF
+00001DD7  FF                db 0xFF
+00001DD8  FF                db 0xFF
+00001DD9  FF                db 0xFF
+00001DDA  FF                db 0xFF
+00001DDB  FF                db 0xFF
+00001DDC  FF                db 0xFF
+00001DDD  FF                db 0xFF
+00001DDE  FF                db 0xFF
+00001DDF  FF                db 0xFF
+00001DE0  FF                db 0xFF
+00001DE1  FF                db 0xFF
+00001DE2  FF                db 0xFF
+00001DE3  FF                db 0xFF
+00001DE4  FF                db 0xFF
+00001DE5  FF                db 0xFF
+00001DE6  FF                db 0xFF
+00001DE7  FF                db 0xFF
+00001DE8  FF                db 0xFF
+00001DE9  FF                db 0xFF
+00001DEA  FF                db 0xFF
+00001DEB  FF                db 0xFF
+00001DEC  FF                db 0xFF
+00001DED  FF                db 0xFF
+00001DEE  FF                db 0xFF
+00001DEF  FF                db 0xFF
+00001DF0  FF                db 0xFF
+00001DF1  FF                db 0xFF
+00001DF2  FF                db 0xFF
+00001DF3  FF                db 0xFF
+00001DF4  FF                db 0xFF
+00001DF5  FF                db 0xFF
+00001DF6  FF                db 0xFF
+00001DF7  FF                db 0xFF
+00001DF8  FF                db 0xFF
+00001DF9  FF                db 0xFF
+00001DFA  FF                db 0xFF
+00001DFB  FF                db 0xFF
+00001DFC  FF                db 0xFF
+00001DFD  FF                db 0xFF
+00001DFE  FF                db 0xFF
+00001DFF  FF                db 0xFF
+00001E00  FF                db 0xFF
+00001E01  FF                db 0xFF
+00001E02  FF                db 0xFF
+00001E03  FF                db 0xFF
+00001E04  FF                db 0xFF
+00001E05  FF                db 0xFF
+00001E06  FF                db 0xFF
+00001E07  FF                db 0xFF
+00001E08  FF                db 0xFF
+00001E09  FF                db 0xFF
+00001E0A  FF                db 0xFF
+00001E0B  FF                db 0xFF
+00001E0C  FF                db 0xFF
+00001E0D  FF                db 0xFF
+00001E0E  FF                db 0xFF
+00001E0F  FF                db 0xFF
+00001E10  FF                db 0xFF
+00001E11  FF                db 0xFF
+00001E12  FF                db 0xFF
+00001E13  FF                db 0xFF
+00001E14  FF                db 0xFF
+00001E15  FF                db 0xFF
+00001E16  FF                db 0xFF
+00001E17  FF                db 0xFF
+00001E18  FF                db 0xFF
+00001E19  FF                db 0xFF
+00001E1A  FF                db 0xFF
+00001E1B  FF                db 0xFF
+00001E1C  FF                db 0xFF
+00001E1D  FF                db 0xFF
+00001E1E  FF                db 0xFF
+00001E1F  FF                db 0xFF
+00001E20  FF                db 0xFF
+00001E21  FF                db 0xFF
+00001E22  FF                db 0xFF
+00001E23  FF                db 0xFF
+00001E24  FF                db 0xFF
+00001E25  FF                db 0xFF
+00001E26  FF                db 0xFF
+00001E27  FF                db 0xFF
+00001E28  FF                db 0xFF
+00001E29  FF                db 0xFF
+00001E2A  FF                db 0xFF
+00001E2B  FF                db 0xFF
+00001E2C  FF                db 0xFF
+00001E2D  FF                db 0xFF
+00001E2E  FF                db 0xFF
+00001E2F  FF                db 0xFF
+00001E30  FF                db 0xFF
+00001E31  FF                db 0xFF
+00001E32  FF                db 0xFF
+00001E33  FF                db 0xFF
+00001E34  FF                db 0xFF
+00001E35  FF                db 0xFF
+00001E36  FF                db 0xFF
+00001E37  FF                db 0xFF
+00001E38  FF                db 0xFF
+00001E39  FF                db 0xFF
+00001E3A  FF                db 0xFF
+00001E3B  FF                db 0xFF
+00001E3C  FF                db 0xFF
+00001E3D  FF                db 0xFF
+00001E3E  FF                db 0xFF
+00001E3F  FF                db 0xFF
+00001E40  FF                db 0xFF
+00001E41  FF                db 0xFF
+00001E42  FF                db 0xFF
+00001E43  FF                db 0xFF
+00001E44  FF                db 0xFF
+00001E45  FF                db 0xFF
+00001E46  FF                db 0xFF
+00001E47  FF                db 0xFF
+00001E48  FF                db 0xFF
+00001E49  FF                db 0xFF
+00001E4A  FF                db 0xFF
+00001E4B  FF                db 0xFF
+00001E4C  FF                db 0xFF
+00001E4D  FF                db 0xFF
+00001E4E  FF                db 0xFF
+00001E4F  FF                db 0xFF
+00001E50  FF                db 0xFF
+00001E51  FF                db 0xFF
+00001E52  FF                db 0xFF
+00001E53  FF                db 0xFF
+00001E54  FF                db 0xFF
+00001E55  FF                db 0xFF
+00001E56  FF                db 0xFF
+00001E57  FF                db 0xFF
+00001E58  FF                db 0xFF
+00001E59  FF                db 0xFF
+00001E5A  FF                db 0xFF
+00001E5B  FF                db 0xFF
+00001E5C  FF                db 0xFF
+00001E5D  FF                db 0xFF
+00001E5E  FF                db 0xFF
+00001E5F  FF                db 0xFF
+00001E60  FF                db 0xFF
+00001E61  FF                db 0xFF
+00001E62  FF                db 0xFF
+00001E63  FF                db 0xFF
+00001E64  FF                db 0xFF
+00001E65  FF                db 0xFF
+00001E66  FF                db 0xFF
+00001E67  FF                db 0xFF
+00001E68  FF                db 0xFF
+00001E69  FF                db 0xFF
+00001E6A  FF                db 0xFF
+00001E6B  FF                db 0xFF
+00001E6C  FF                db 0xFF
+00001E6D  FF                db 0xFF
+00001E6E  FF                db 0xFF
+00001E6F  FF                db 0xFF
+00001E70  FF                db 0xFF
+00001E71  FF                db 0xFF
+00001E72  FF                db 0xFF
+00001E73  FF                db 0xFF
+00001E74  FF                db 0xFF
+00001E75  FF                db 0xFF
+00001E76  FF                db 0xFF
+00001E77  FF                db 0xFF
+00001E78  FF                db 0xFF
+00001E79  FF                db 0xFF
+00001E7A  FF                db 0xFF
+00001E7B  FF                db 0xFF
+00001E7C  FF                db 0xFF
+00001E7D  FF                db 0xFF
+00001E7E  FF                db 0xFF
+00001E7F  FF                db 0xFF
+00001E80  FF                db 0xFF
+00001E81  FF                db 0xFF
+00001E82  FF                db 0xFF
+00001E83  FF                db 0xFF
+00001E84  FF                db 0xFF
+00001E85  FF                db 0xFF
+00001E86  FF                db 0xFF
+00001E87  FF                db 0xFF
+00001E88  FF                db 0xFF
+00001E89  FF                db 0xFF
+00001E8A  FF                db 0xFF
+00001E8B  FF                db 0xFF
+00001E8C  FF                db 0xFF
+00001E8D  FF                db 0xFF
+00001E8E  FF                db 0xFF
+00001E8F  FF                db 0xFF
+00001E90  FF                db 0xFF
+00001E91  FF                db 0xFF
+00001E92  FF                db 0xFF
+00001E93  FF                db 0xFF
+00001E94  FF                db 0xFF
+00001E95  FF                db 0xFF
+00001E96  FF                db 0xFF
+00001E97  FF                db 0xFF
+00001E98  FF                db 0xFF
+00001E99  FF                db 0xFF
+00001E9A  FF                db 0xFF
+00001E9B  FF                db 0xFF
+00001E9C  FF                db 0xFF
+00001E9D  FF                db 0xFF
+00001E9E  FF                db 0xFF
+00001E9F  FF                db 0xFF
+00001EA0  FF                db 0xFF
+00001EA1  FF                db 0xFF
+00001EA2  FF                db 0xFF
+00001EA3  FF                db 0xFF
+00001EA4  FF                db 0xFF
+00001EA5  FF                db 0xFF
+00001EA6  FF                db 0xFF
+00001EA7  FF                db 0xFF
+00001EA8  FF                db 0xFF
+00001EA9  FF                db 0xFF
+00001EAA  FF                db 0xFF
+00001EAB  FF                db 0xFF
+00001EAC  FF                db 0xFF
+00001EAD  FF                db 0xFF
+00001EAE  FF                db 0xFF
+00001EAF  FF                db 0xFF
+00001EB0  FF                db 0xFF
+00001EB1  FF                db 0xFF
+00001EB2  FF                db 0xFF
+00001EB3  FF                db 0xFF
+00001EB4  FF                db 0xFF
+00001EB5  FF                db 0xFF
+00001EB6  FF                db 0xFF
+00001EB7  FF                db 0xFF
+00001EB8  FF                db 0xFF
+00001EB9  FF                db 0xFF
+00001EBA  FF                db 0xFF
+00001EBB  FF                db 0xFF
+00001EBC  FF                db 0xFF
+00001EBD  FF                db 0xFF
+00001EBE  FF                db 0xFF
+00001EBF  FF                db 0xFF
+00001EC0  FF                db 0xFF
+00001EC1  FF                db 0xFF
+00001EC2  FF                db 0xFF
+00001EC3  FF                db 0xFF
+00001EC4  FF                db 0xFF
+00001EC5  FF                db 0xFF
+00001EC6  FF                db 0xFF
+00001EC7  FF                db 0xFF
+00001EC8  FF                db 0xFF
+00001EC9  FF                db 0xFF
+00001ECA  FF                db 0xFF
+00001ECB  FF                db 0xFF
+00001ECC  FF                db 0xFF
+00001ECD  FF                db 0xFF
+00001ECE  FF                db 0xFF
+00001ECF  FF                db 0xFF
+00001ED0  FF                db 0xFF
+00001ED1  FF                db 0xFF
+00001ED2  FF                db 0xFF
+00001ED3  FF                db 0xFF
+00001ED4  FF                db 0xFF
+00001ED5  FF                db 0xFF
+00001ED6  FF                db 0xFF
+00001ED7  FF                db 0xFF
+00001ED8  FF                db 0xFF
+00001ED9  FF                db 0xFF
+00001EDA  FF                db 0xFF
+00001EDB  FF                db 0xFF
+00001EDC  FF                db 0xFF
+00001EDD  FF                db 0xFF
+00001EDE  FF                db 0xFF
+00001EDF  FF                db 0xFF
+00001EE0  FF                db 0xFF
+00001EE1  FF                db 0xFF
+00001EE2  FF                db 0xFF
+00001EE3  FF                db 0xFF
+00001EE4  FF                db 0xFF
+00001EE5  FF                db 0xFF
+00001EE6  FF                db 0xFF
+00001EE7  FF                db 0xFF
+00001EE8  FF                db 0xFF
+00001EE9  FF                db 0xFF
+00001EEA  FF                db 0xFF
+00001EEB  FF                db 0xFF
+00001EEC  FF                db 0xFF
+00001EED  FF                db 0xFF
+00001EEE  FF                db 0xFF
+00001EEF  FF                db 0xFF
+00001EF0  FF                db 0xFF
+00001EF1  FF                db 0xFF
+00001EF2  FF                db 0xFF
+00001EF3  FF                db 0xFF
+00001EF4  FF                db 0xFF
+00001EF5  FF                db 0xFF
+00001EF6  FF                db 0xFF
+00001EF7  FF                db 0xFF
+00001EF8  FF                db 0xFF
+00001EF9  FF                db 0xFF
+00001EFA  FF                db 0xFF
+00001EFB  FF                db 0xFF
+00001EFC  FF                db 0xFF
+00001EFD  FF                db 0xFF
+00001EFE  FF                db 0xFF
+00001EFF  FF                db 0xFF
+00001F00  FF                db 0xFF
+00001F01  FF                db 0xFF
+00001F02  FF                db 0xFF
+00001F03  FF                db 0xFF
+00001F04  FF                db 0xFF
+00001F05  FF                db 0xFF
+00001F06  FF                db 0xFF
+00001F07  FF                db 0xFF
+00001F08  FF                db 0xFF
+00001F09  FF                db 0xFF
+00001F0A  FF                db 0xFF
+00001F0B  FF                db 0xFF
+00001F0C  FF                db 0xFF
+00001F0D  FF                db 0xFF
+00001F0E  FF                db 0xFF
+00001F0F  FF                db 0xFF
+00001F10  FF                db 0xFF
+00001F11  FF                db 0xFF
+00001F12  FF                db 0xFF
+00001F13  FF                db 0xFF
+00001F14  FF                db 0xFF
+00001F15  FF                db 0xFF
+00001F16  FF                db 0xFF
+00001F17  FF                db 0xFF
+00001F18  FF                db 0xFF
+00001F19  FF                db 0xFF
+00001F1A  FF                db 0xFF
+00001F1B  FF                db 0xFF
+00001F1C  FF                db 0xFF
+00001F1D  FF                db 0xFF
+00001F1E  FF                db 0xFF
+00001F1F  FF                db 0xFF
+00001F20  FF                db 0xFF
+00001F21  FF                db 0xFF
+00001F22  FF                db 0xFF
+00001F23  FF                db 0xFF
+00001F24  FF                db 0xFF
+00001F25  FF                db 0xFF
+00001F26  FF                db 0xFF
+00001F27  FF                db 0xFF
+00001F28  FF                db 0xFF
+00001F29  FF                db 0xFF
+00001F2A  FF                db 0xFF
+00001F2B  FF                db 0xFF
+00001F2C  FF                db 0xFF
+00001F2D  FF                db 0xFF
+00001F2E  FF                db 0xFF
+00001F2F  FF                db 0xFF
+00001F30  FF                db 0xFF
+00001F31  FF                db 0xFF
+00001F32  FF                db 0xFF
+00001F33  FF                db 0xFF
+00001F34  FF                db 0xFF
+00001F35  FF                db 0xFF
+00001F36  FF                db 0xFF
+00001F37  FF                db 0xFF
+00001F38  FF                db 0xFF
+00001F39  FF                db 0xFF
+00001F3A  FF                db 0xFF
+00001F3B  FF                db 0xFF
+00001F3C  FF                db 0xFF
+00001F3D  FF                db 0xFF
+00001F3E  FF                db 0xFF
+00001F3F  FF                db 0xFF
+00001F40  FF                db 0xFF
+00001F41  FF                db 0xFF
+00001F42  FF                db 0xFF
+00001F43  FF                db 0xFF
+00001F44  FF                db 0xFF
+00001F45  FF                db 0xFF
+00001F46  FF                db 0xFF
+00001F47  FF                db 0xFF
+00001F48  FF                db 0xFF
+00001F49  FF                db 0xFF
+00001F4A  FF                db 0xFF
+00001F4B  FF                db 0xFF
+00001F4C  FF                db 0xFF
+00001F4D  FF                db 0xFF
+00001F4E  FF                db 0xFF
+00001F4F  FF                db 0xFF
+00001F50  FF                db 0xFF
+00001F51  FF                db 0xFF
+00001F52  FF                db 0xFF
+00001F53  FF                db 0xFF
+00001F54  FF                db 0xFF
+00001F55  FF                db 0xFF
+00001F56  FF                db 0xFF
+00001F57  FF                db 0xFF
+00001F58  FF                db 0xFF
+00001F59  FF                db 0xFF
+00001F5A  FF                db 0xFF
+00001F5B  FF                db 0xFF
+00001F5C  FF                db 0xFF
+00001F5D  FF                db 0xFF
+00001F5E  FF                db 0xFF
+00001F5F  FF                db 0xFF
+00001F60  FF                db 0xFF
+00001F61  FF                db 0xFF
+00001F62  FF                db 0xFF
+00001F63  FF                db 0xFF
+00001F64  FF                db 0xFF
+00001F65  FF                db 0xFF
+00001F66  FF                db 0xFF
+00001F67  FF                db 0xFF
+00001F68  FF                db 0xFF
+00001F69  FF                db 0xFF
+00001F6A  FF                db 0xFF
+00001F6B  FF                db 0xFF
+00001F6C  FF                db 0xFF
+00001F6D  FF                db 0xFF
+00001F6E  FF                db 0xFF
+00001F6F  FF                db 0xFF
+00001F70  FF                db 0xFF
+00001F71  FF                db 0xFF
+00001F72  FF                db 0xFF
+00001F73  FF                db 0xFF
+00001F74  FF                db 0xFF
+00001F75  FF                db 0xFF
+00001F76  FF                db 0xFF
+00001F77  FF                db 0xFF
+00001F78  FF                db 0xFF
+00001F79  FF                db 0xFF
+00001F7A  FF                db 0xFF
+00001F7B  FF                db 0xFF
+00001F7C  FF                db 0xFF
+00001F7D  FF                db 0xFF
+00001F7E  FF                db 0xFF
+00001F7F  FF                db 0xFF
+00001F80  FF                db 0xFF
+00001F81  FF                db 0xFF
+00001F82  FF                db 0xFF
+00001F83  FF                db 0xFF
+00001F84  FF                db 0xFF
+00001F85  FF                db 0xFF
+00001F86  FF                db 0xFF
+00001F87  FF                db 0xFF
+00001F88  FF                db 0xFF
+00001F89  FF                db 0xFF
+00001F8A  FF                db 0xFF
+00001F8B  FF                db 0xFF
+00001F8C  FF                db 0xFF
+00001F8D  FF                db 0xFF
+00001F8E  FF                db 0xFF
+00001F8F  FF                db 0xFF
+00001F90  FF                db 0xFF
+00001F91  FF                db 0xFF
+00001F92  FF                db 0xFF
+00001F93  FF                db 0xFF
+00001F94  FF                db 0xFF
+00001F95  FF                db 0xFF
+00001F96  FF                db 0xFF
+00001F97  FF                db 0xFF
+00001F98  FF                db 0xFF
+00001F99  FF                db 0xFF
+00001F9A  FF                db 0xFF
+00001F9B  FF                db 0xFF
+00001F9C  FF                db 0xFF
+00001F9D  FF                db 0xFF
+00001F9E  FF                db 0xFF
+00001F9F  FF                db 0xFF
+00001FA0  FF                db 0xFF
+00001FA1  FF                db 0xFF
+00001FA2  FF                db 0xFF
+00001FA3  FF                db 0xFF
+00001FA4  FF                db 0xFF
+00001FA5  FF                db 0xFF
+00001FA6  FF                db 0xFF
+00001FA7  FF                db 0xFF
+00001FA8  FF                db 0xFF
+00001FA9  FF                db 0xFF
+00001FAA  FF                db 0xFF
+00001FAB  FF                db 0xFF
+00001FAC  FF                db 0xFF
+00001FAD  FF                db 0xFF
+00001FAE  FF                db 0xFF
+00001FAF  FF                db 0xFF
+00001FB0  FF                db 0xFF
+00001FB1  FF                db 0xFF
+00001FB2  FF                db 0xFF
+00001FB3  FF                db 0xFF
+00001FB4  FF                db 0xFF
+00001FB5  FF                db 0xFF
+00001FB6  FF                db 0xFF
+00001FB7  FF                db 0xFF
+00001FB8  FF                db 0xFF
+00001FB9  FF                db 0xFF
+00001FBA  FF                db 0xFF
+00001FBB  FF                db 0xFF
+00001FBC  FF                db 0xFF
+00001FBD  FF                db 0xFF
+00001FBE  FF                db 0xFF
+00001FBF  FF                db 0xFF
+00001FC0  FF                db 0xFF
+00001FC1  FF                db 0xFF
+00001FC2  FF                db 0xFF
+00001FC3  FF                db 0xFF
+00001FC4  FF                db 0xFF
+00001FC5  FF                db 0xFF
+00001FC6  FF                db 0xFF
+00001FC7  FF                db 0xFF
+00001FC8  FF                db 0xFF
+00001FC9  FF                db 0xFF
+00001FCA  FF                db 0xFF
+00001FCB  FF                db 0xFF
+00001FCC  FF                db 0xFF
+00001FCD  FF                db 0xFF
+00001FCE  FF                db 0xFF
+00001FCF  FF                db 0xFF
+00001FD0  FF                db 0xFF
+00001FD1  FF                db 0xFF
+00001FD2  FF                db 0xFF
+00001FD3  FF                db 0xFF
+00001FD4  FF                db 0xFF
+00001FD5  FF                db 0xFF
+00001FD6  FF                db 0xFF
+00001FD7  FF                db 0xFF
+00001FD8  FF                db 0xFF
+00001FD9  FF                db 0xFF
+00001FDA  FF                db 0xFF
+00001FDB  FF                db 0xFF
+00001FDC  FF                db 0xFF
+00001FDD  FF                db 0xFF
+00001FDE  FF                db 0xFF
+00001FDF  FF                db 0xFF
+00001FE0  FF                db 0xFF
+00001FE1  FF                db 0xFF
+00001FE2  FF                db 0xFF
+00001FE3  FF                db 0xFF
+00001FE4  FF                db 0xFF
+00001FE5  FF                db 0xFF
+00001FE6  FF                db 0xFF
+00001FE7  FF                db 0xFF
+00001FE8  FF                db 0xFF
+00001FE9  FF                db 0xFF
+00001FEA  FF                db 0xFF
+00001FEB  FF                db 0xFF
+00001FEC  FF                db 0xFF
+00001FED  FF                db 0xFF
+00001FEE  FF                db 0xFF
+00001FEF  FF                db 0xFF
+00001FF0  FF                db 0xFF
+00001FF1  FF                db 0xFF
+00001FF2  FF                db 0xFF
+00001FF3  FF                db 0xFF
+00001FF4  FF                db 0xFF
+00001FF5  FF                db 0xFF
+00001FF6  FF                db 0xFF
+00001FF7  FF                db 0xFF
+00001FF8  FF                db 0xFF
+00001FF9  FF                db 0xFF
+00001FFA  FF                db 0xFF
+00001FFB  FF                db 0xFF
+00001FFC  FF                db 0xFF
+00001FFD  FF                db 0xFF
+00001FFE  FF                db 0xFF
+00001FFF  FF                db 0xFF
+00002000  FF                db 0xFF
+00002001  FF                db 0xFF
+00002002  FF                db 0xFF
+00002003  FF                db 0xFF
+00002004  FF                db 0xFF
+00002005  FF                db 0xFF
+00002006  FF                db 0xFF
+00002007  FF                db 0xFF
+00002008  FF                db 0xFF
+00002009  FF                db 0xFF
+0000200A  FF                db 0xFF
+0000200B  FF                db 0xFF
+0000200C  FF                db 0xFF
+0000200D  FF                db 0xFF
+0000200E  FF                db 0xFF
+0000200F  FF                db 0xFF
+00002010  FF                db 0xFF
+00002011  FF                db 0xFF
+00002012  FF                db 0xFF
+00002013  FF                db 0xFF
+00002014  FF                db 0xFF
+00002015  FF                db 0xFF
+00002016  FF                db 0xFF
+00002017  FF                db 0xFF
+00002018  FF                db 0xFF
+00002019  FF                db 0xFF
+0000201A  FF                db 0xFF
+0000201B  FF                db 0xFF
+0000201C  FF                db 0xFF
+0000201D  FF                db 0xFF
+0000201E  FF                db 0xFF
+0000201F  FF                db 0xFF
+00002020  FF                db 0xFF
+00002021  FF                db 0xFF
+00002022  FF                db 0xFF
+00002023  FF                db 0xFF
+00002024  FF                db 0xFF
+00002025  FF                db 0xFF
+00002026  FF                db 0xFF
+00002027  FF                db 0xFF
+00002028  FF                db 0xFF
+00002029  FF                db 0xFF
+0000202A  FF                db 0xFF
+0000202B  FF                db 0xFF
+0000202C  FF                db 0xFF
+0000202D  FF                db 0xFF
+0000202E  FF                db 0xFF
+0000202F  FF                db 0xFF

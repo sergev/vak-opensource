@@ -1,0 +1,13 @@
+CM MultBand Loop With Load  20m,15m,10m
+CE
+sy len=1.9175	' Half-length
+sy hgh=20
+GW 1 41 0.0 -len  hgh-len 0.0  len  hgh-len  .005
+GW 2 41 0.0  len  hgh-len 0.0  len  hgh+len  .005
+GW 3 41 0.0  len  hgh+len 0.0 -len  hgh+len  .005
+GW 4 41 0.0 -len  hgh+len 0.0 -len  hgh-len  .005
+GE 0
+GN 2 0 0 0 13 .005
+EX 0 1 21  0  1.0 0.0
+FR 0 1 0 0 21.05 1
+EN

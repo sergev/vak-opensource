@@ -1,0 +1,2 @@
+export GOFLAGS="-march=i686"
+../gccgo/configure --enable-languages=c,go --with-ld=/usr/local/gccgo/bin/ld --prefix=/usr/local/gccgo

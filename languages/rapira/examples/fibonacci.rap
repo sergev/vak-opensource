@@ -1,0 +1,15 @@
+fun fibonacci(number)
+ 
+   if number = 0 or number = 1 then
+      return number
+   fi
+ 
+   return fibonacci(number - 1) + fibonacci(number - 2)
+ 
+end
+ 
+value := 0
+do
+   output: fibonacci(value)
+   value := value + 1
+od

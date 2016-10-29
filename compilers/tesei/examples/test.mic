@@ -1,0 +1,92 @@
+;
+; Проверка ассемблирования команд.
+;
+; Без операнда
+	nop
+	wait
+	slp
+	rst
+	sksp
+	tof
+	tdc
+	ijmp
+	ijsr
+	rts
+	rti
+
+; Константа 1 бит
+$1:	rtsc	0
+	rtsc	1
+
+; Константа 4 бита
+	sst	12o
+	cst	0fh
+
+; Команды работы со служебными регистрами и регистром состояния
+	push	#0
+	pop	#1
+	push	#2
+	pop	#3
+	push	#4
+	pop	#5
+	push	#6
+	pop	#7
+	ldr	#1, 55h
+foo:	.data	5
+bar:	.data	3
+	ldr	#1, foo
+	ldr	#5, bar
+
+	mtpr	#0, a0
+	mfpr	a0, #0
+	mtpr	#6, a1
+	mfpr	a1, #6
+
+; Однооперандные команды
+	swap	a0
+	neg	%b1
+	not	c2
+	shl	%d3
+	shr	a4
+	shra	%b5
+	rlc	c6
+	rrc	%d7
+	adc	a1
+	sbc	%b2
+
+; Двухоперандные команды
+	mov	a0, b1
+	cmp	c2, d3
+	add	a4, b5
+	sub	c6, d7
+	and	a0, b1
+	or	c2, d3
+	xor	a4, b5
+
+; Литерные команды
+	movl	a1, 11111111b
+	cmpl	a1, 11111111b
+	addl	a1, 11111111b
+	subl	a1, 11111111b
+	bicl	a1, 11111111b
+	bich	a1, 11111111b
+	bisl	a1, 11111111b
+	bish	a1, 11111111b
+	btgl	a1, 11111111b
+	btgh	a1, 11111111b
+	bttl	a1, 11111111b
+	btth	a1, 11111111b
+
+; Команды передачи управления
+	jmp	$1b
+	jsr	last
+	jnz	$1b
+	jne	last
+	jz	$1b
+	jeq	last
+	jns	$1b
+	js	last
+	jnc	$1b
+last:	jc	last
+
+;	.end

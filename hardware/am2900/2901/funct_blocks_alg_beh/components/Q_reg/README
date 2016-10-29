@@ -1,0 +1,49 @@
+--------------------------------------------------------------------------------
+--
+--   AM2901 Benchmark -- Q_reg component
+--
+-- Source: AMD data book
+--
+-- VHDL Benchmark author Indraneel Ghosh
+--                       University Of California, Irvine, CA 92717
+--
+-- Developed on Nov 1, 1991
+--
+--------------------------------------------------------------------------------
+
+
+THIS DIRECTORY CONTAINS THE FOLLOWING FILES :
+
+q_reg.vhdl    :  File containing the funct_block_alg_beh "Q_reg" in "funct_block_alg_beh2901.vhdl".
+
+test_vectors.vhdl :  Simulation test vector file for "Q_reg"
+
+test_vectors_q_reg.doc  :  Documentation on simulation test vectors in "test_vectors_q_reg.vhdl"
+
+cmd_q.inc     :  Simulation command file for "Q_reg"
+
+
+NOTE : 
+
+     To run simulation on Zycad ( Version 1.0) Simulator :
+
+     Run the following commands in the order given below.
+
+         zvan types.vhd
+
+         zvan MVL7_functions.vhd
+
+         zvan synthesis_types.vhd
+
+         zvan q_reg.vhdl 
+
+         zvan test_vectors.vhdl
+
+         zvsim -t ns -i cmd_q.inc E
+
+     3) As in other cases, the simulation results will be stored in file
+
+        "run.out"
+  
+
+

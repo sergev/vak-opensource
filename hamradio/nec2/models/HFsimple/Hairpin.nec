@@ -1,0 +1,19 @@
+CM 3-element Yagi 21.2 MHz
+CM Example of a hairpin match using a TL card.
+CE
+
+GW 1 21 0 -11.55 0 0 11.55 0 0.03125
+GW 2 21 7 -10.75 0 7 10.75 0 0.03125
+GW 3 21 15 -10.4 0 15 10.4 0 0.03125
+GW 4 1 7 -.5 -1 7 .5 -1 0.0010565
+GS 0 0 .30479
+GE 0
+EX 0 2 11 0 1 0
+LD 5 0 0 0 3.0769E7
+
+SY Tlen=0.487664	' Lenght in meters !
+SY short=1e8	' Short TL end
+TL 2 11 4 1 200 Tlen 0 0 short short
+
+FR 0 1 0 0 21.2 1
+EN

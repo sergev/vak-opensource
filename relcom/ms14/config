@@ -1,0 +1,15 @@
+#
+# Configuration of mail server.
+#
+
+mailbox         = /var/mail/mailserv
+servdir         = /var/spool/mailserv
+publicdir       = /ar/pub
+#mailtocmd       = /usr/lib/relcom/batchmail -gP kiae
+mailtocmd       = /var/spool/mailserv/bin/mail -h -gO
+#mailtocmd       = /usr/sbin/sendmail -t
+myaddress       = mail-server@relcom.ru
+admin           = mailserv-adm@relcom.ru
+headline        = X-Class: Slow\nPrecedence: junk
+
+daemondelay     = 30

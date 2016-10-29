@@ -1,0 +1,38 @@
+CM Masters Superturnstile Element, by K6STI
+CE
+SY D = .0035  ' .005 
+GW	1	5	0	.04	.325	0	.27	.325	D
+GW	2	5	0	.04	.217	0	.222	.217	D
+GW	3	3	0	.04	.108	0	.173	.108	D
+GW	4	3	0	.04	0	0	.125	0	D
+GW	5	3	0	.04	-.108	0	.173	-.108	D
+GW	6	5	0	.04	-.217	0	.222	-.217	D
+GW	7	5	0	.04	-.325	0	.27	-.325	D
+GW	8	3	0	.04	.325	0	.04	.217	D
+GW	9	3	0	.04	.217	0	.04	.108	D
+GW	10	3	0	.04	.108	0	.04	0	D
+GW	11	3	0	.04	0	0	.04	-.108	D
+GW	12	3	0	.04	-.108	0	.04	-.217	D
+GW	13	3	0	.04	-.217	0	.04	-.325	D
+GW	14	3	0	.27	.325	0	.222	.217	D
+GW	15	3	0	.222	.217	0	.173	.108	D
+GW	16	3	0	.173	.108	0	.125	0	D
+GW	17	3	0	.125	0	0	.173	-.108	D
+GW	18	3	0	.173	-.108	0	.222	-.217	D
+GW	19	3	0	.222	-.217	0	.27	-.325	D
+GW	20	1	0	.04	.325	0	0	.325	D
+GW	21	1	0	.04	-.325	0	0	-.325	D
+GW	22	1	0	.04	0	0	0	0	D
+GX	30	010	' Add when needed.
+GE	0
+EX	0	22	1	00	1.0	0.0
+EX	0	52	1	00	-1.0	0.0
+'
+GN	-1
+FR	0	1	0	0	 299.8
+EN
+'This is one element of a wide-bandwidth, omnidirectional, horizontally polarized
+'array called a Masters superturnstile (or batwing).  Two of these elements are
+'placed at right angles and phased 90 degrees.  Several such bays are stacked for
+'increased gain.  Batwing antennas are widely used for TV transmission.  For more
+'information, see "Antennas" by John Kraus, 2nd ed., pp 729-731.

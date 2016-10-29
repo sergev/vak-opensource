@@ -1,0 +1,18 @@
+CM Nec-file for producing NGF file RADIAL4.NGF
+CM to be used together with NGF_Antenna.nec
+CE
+'
+SY FREQ = 3.525
+'
+GW	10	80	0	0	0.1	40	0	0.1	0.0005
+GM	0	0	0	0	45	0	0	0	10
+GX	12	110
+GE	-1
+'
+GN	2	0	0	0	13	5.e-3	' Ground spec, required in NGF file
+'
+FR	0	1	0	0	FREQ		' Frequency is required for NGF file.
+'
+WG RADIAL4.NGF						' Write 4 wire Green's file called RADIAL4.NGF
+'
+EN

@@ -1,0 +1,9 @@
+default:        simx
+include Vmemory.mk
+
+CPPFLAGS        += -DVL_DEBUG=1 -W -Werror -Wall
+
+simx:           test-memory.o test-common.o $(VK_GLOBAL_OBJS) $(VM_PREFIX)__ALL.a
+		$(LINK) $(LDFLAGS) -g $^ $(LOADLIBES) $(LDLIBS) -o $@ $(LIBS) 2>&1 | c++filt
+
+test-memory.o: test-memory.cpp $(VM_PREFIX).h

@@ -1,0 +1,45 @@
+# $Id: Makefile.solaris,v 1.1.1.1 2004-10-12 08:19:19 vak Exp $
+
+# Slightly tested on Solaris 9 with gcc 3.2
+# make -f Makefile.solaris
+
+YACC=		/usr/ccs/bin/yacc
+
+# Define so that $(SENDMAIL_INC)/libmilter/mfapi.h exists
+#
+SENDMAIL_INC=	/usr/local/include/sendmail
+
+# Define so that $(SENDMAIL_LIB)/libmilter.a exists
+#
+SENDMAIL_LIB=	/usr/local/lib
+
+CFLAGS=		-g -I$(SENDMAIL_INC)
+LDFLAGS=	-lmilter -lpthread -lsocket -lnsl -lresolv
+
+all: milter-regex
+
+milter-regex: milter-regex.o eval.o strlcpy.o y.tab.o
+	gcc -o milter-regex milter-regex.o eval.o strlcpy.o y.tab.o -L$(SENDMAIL_LIB) $(LDFLAGS)
+
+milter-regex.o: milter-regex.c eval.h
+	gcc $(CFLAGS) -c milter-regex.c
+
+eval.o: eval.c eval.h
+	gcc $(CFLAGS) -c eval.c
+
+strlcpy.o: strlcpy.c
+	gcc $(CFLAGS) -c strlcpy.c
+
+y.tab.o: y.tab.c
+	gcc $(CFLAGS) -c y.tab.c
+
+y.tab.c: parse.y
+	$(YACC) -d parse.y
+
+# This doesn't work yet, someone know the needed Solaris nroff magic?
+#
+milter-regex.cat8: milter-regex.8
+	nroff -Tascii -mandoc milter-regex.8 > milter-regex.cat8
+
+clean:
+	rm -f *.core milter-regex y.tab.* *.o *.cat8

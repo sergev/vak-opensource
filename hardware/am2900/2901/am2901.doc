@@ -1,0 +1,240 @@
+--------------------------------------------------------------------------------
+--
+--   AM2901 Benchmark
+--
+-- Source: AM2901 Data Book
+--
+-- author: Indraneel Ghosh
+--         University Of California, Irvine, CA 92717
+--
+-- Written on Nov 1, 1991
+--
+--------------------------------------------------------------------------------
+
+1) INTRODUCTION:
+
+  The Am 2901 four-bit microprocessor slice (from Advanced Micro Devices Inc.)
+is a high-speed cascadable ALU intended for use in CPUs, peripheral 
+controllers and programmable microprocessors. 
+
+( NOTE: It will be helpful to refer to the block diagram of Am 2901 in the 
+        postscript file "am2901.ps". )
+
+The data is 4 bits wide at all points.
+
+------------------------------------------------------------------------------
+
+(1.1)      FUNCTIONAL BLOCKS
+
+Its main functional blocks are as follows :
+
+** A 16-word by four bit two port RAM, with an up/down shifter at the input.
+       ## Port A is an output port.
+       ## Port B is a bidirectional port. 
+
+** A register ( called Q ) with an up/down shifter at the input
+
+** An ALU source selector which select two inputs out of the following :
+       ## Port A of RAM
+       ## Port B of RAM
+       ## Q register output
+       ## External data input
+       ## Logical 0
+
+** A 4-bit ALU, capable of performing arithmetic and logical functions on the 
+   selected source words.
+
+** A destination selector which decides :
+       ## whether to load the ALU output ( with or without shifting) into the 
+             RAM.
+       ## whether to load the ALU output ( with or without shifting) or the
+          Q register contents ( with shifting ) into the Q register
+       ## whether the ALU output or the Port A contents should be forwarded to
+           the External data output.
+
+( NOTE: The destination selector is not shown as an explicit block in the
+        figure. Its parts are included in the RAM, Q-register and output
+        selector.)
+
+------------------------------------------------------------------------------
+
+ (1.2)    PORTS
+
+INPUT AND OUTPUT PORTS:
+ _____________________________________________________________________________
+|  PORT | TYPE  |BIT  |                                                       |
+|       |       |WIDTH|      DESCRIPTION                                      |
+|_______|_______|_____|_______________________________________________________|
+|     I |    in | 9   | Instruction word (discussed later)                    |
+|_______|_______|_____|_______________________________________________________|
+|  Aadd |    in | 4   | Address input to RAM ( for READ)                      |
+|_______|_______|_____|_______________________________________________________|
+|  Badd |    in | 4   | Address input to RAM ( for READ / WRITE )             |
+|_______|_______|_____|_______________________________________________________|
+|     D |    in | 4   | Data input to chip                                    |
+|_______|_______|_____|_______________________________________________________|
+|     Y |   out | 4   | Data output from chip                                 |
+|_______|_______|_____|_______________________________________________________|
+|  RAM0 | inout | 1   | Up/down shifter port connected to LSB of RAM          |
+|_______|_______|_____|_______________________________________________________|
+|  RAM3 | inout | 1   | Up/down shifter port connected to MSB of RAM          |
+|_______|_______|_____|_______________________________________________________|
+|    Q0 | inout | 1   | Up/down shifter port connected to LSB of Q-register   |
+|_______|_______|_____|_______________________________________________________|
+|    Q3 | inout | 1   | Up/down shifter port connected to MSB of Q-register   |
+|_______|_______|_____|_______________________________________________________|
+|   CLK |    in | 1   | clock                                                 |
+|_______|_______|_____|_______________________________________________________|
+|    C0 |    in | 1   | Carry input to ALU                                    |
+|_______|_______|_____|_______________________________________________________|
+| OEbar |    in | 1   | Tri-state driver input ( if this is not asserted,     |
+|       |       |     |   the data output Y will be tri-stated to HIGH-Z )    |
+|_______|_______|_____|_______________________________________________________|
+|    C4 |   out | 1   | Carry output from ALU                                 |
+|_______|_______|_____|_______________________________________________________|
+|  Gbar |   out | 1   | Generate term from ALU for carry lookahead            |
+|_______|_______|_____|_______________________________________________________|
+|  Pbar |   out | 1   | Propagate term from ALU for carry lookahead           |
+|_______|_______|_____|_______________________________________________________|
+|   OVR |   out | 1   | Overflow output from ALU (this signals that an        |
+|       |       |     | overflow has occurred, while performing the operation)|
+|_______|_______|_____|_______________________________________________________|
+|    F3 |   out | 1   | MSB of the ALU output                                 |
+|_______|_______|_____|_______________________________________________________|
+|   F30 |   out | 1   | Zero signal ( asserted if the all 4 bits of ALU       |
+|       |       |     |      output are zero).                                |
+|_______|_______|_____|_______________________________________________________|
+
+NOTE: In the models, Aadd and Badd are represented as integers instead of 
+       bit vectors. This is done to avoid cumbersome and unneccessary
+       computation, while accessing the RAM.
+
+------------------------------------------------------------------------------
+
+ (1.3)      THE INSTRUCTION SET:
+
+  The Am 2901 has a 9-bit instruction, which has three 3-bit fields whose 
+   functions are as follows :
+
+** I2 downto I0 : controls ALU source selector
+** I5 downto I3 : controls ALU function
+** I8 downto I6 : controls destination selector
+
+
+  (1.3.1)   ALU SOURCE SELECTOR :
+  ___________________________________________________
+  |      BIT        |                               |
+  |     FIELD       |  ALU SOURCE OPERANDS SELECTED |
+  |                 |-------------------------------|
+  |   I2 I1 I0      |       RE       |      S       |
+  |-----------------|----------------|--------------|
+  |      000        |       A        |      Q       |
+  |      001        |       A        |      B       |
+  |      010        |       0        |      Q       |
+  |      011        |       0        |      B       |
+  |      100        |       0        |      A       |
+  |      101        |       D        |      A       |
+  |      110        |       D        |      Q       |
+  |      111        |       D        |      0       |
+  |_________________|________________|______________| 
+
+  NOTE : RE and S are the two outputs of the ALU source selector. 
+
+
+   (1.3.2) ALU FUNCTION :
+  _____________________________________________________
+  |      BIT        |                                 |
+  |     FIELD       |  ALU FUNCTION ( OUTPUT --> F)   |
+  |                 |---------------------------------|
+  |   I5 I4 I3      |     C0 = 0      |    C0 = 1     |
+  |-----------------|-----------------|---------------|
+  |      000        |   RE + S        | RE + S + 1    |
+  |      001        |   S - RE - 1    | S - RE        |
+  |      010        |   RE - S - 1    | RE - S        |
+  |      011        |   RE or S       | RE or S       |
+  |      100        |   RE and S      | RE and S      |
+  |      101        |   not(RE) and S | not(RE) and S |
+  |      110        |   RE xor S      | RE xor S      |
+  |      111        |   RE xnor S     | RE xnor S     |
+  |_________________|_________________|_______________|
+
+  NOTE : C0 is the carry-in input.
+         F is the output of the ALU.
+
+
+  (1.3.3) ALU DESTINATION :
+  __________________________________________________________________________ 
+  |    BIT   |RAM (Baddress)|    Q-REG.    |        |    RAM     |  Q-REG. |
+  |   FIELD  |   FUNCTION   |   FUNCTION   |   Y    |  SHIFTER   | SHIFTER |
+  |          |--------------|--------------|        |------------|---------|
+  | I8 I7 I6 | SHIFT | LOAD | SHIFT | LOAD |        |RAM0 | RAM3 | Q0 | Q3 |
+  |----------|-------|------|-------|------|--------|-----|------|----|----|
+  |   000    |  ---  | ---  | ---   |   F  |    F   | --- | ---  |--- |--- |
+  |   001    |  ---  | ---  |  ---  | ---  |    F   | --- | ---  |--- |--- |
+  |   010    | ---   |  F   |  ---  | ---  |    A   | --- | ---  |--- |--- |
+  |   011    | ---   |  F   |  ---  | ---  |    F   | --- | ---  |--- |--- |
+  |   100    | down  |  F/2 | down  |  Q/2 |    F   | out |  in  |out | in |
+  |   101    | down  |  F/2 |  ---  | ---  |    F   | out |  in  |out |--- |
+  |   110    |  up   |  2F  |  up   |  2Q  |    F   |  in | out  | in |out |
+  |   111    |  up   |  2F  |  ---  | ---  |    F   |  in | out  |--- |out |
+  |__________|_______|______|_______|______|________|_____|______|____|____|
+
+  NOTE :  Data that is loaded into the RAM is written at the RAM word pointed
+            to by the address input Badd.
+
+          Note that the bidirectional ports are active only when some 
+             shifting is being done. 
+
+          Whenever a bidirectional port is NOT being used as an output by
+           the Am2901, the Am2901 chip tristates it from its own side. Then, 
+           it can be used as an input from the external world or it may be 
+           left inactive. To deal with this phenomenon in our models, we 
+           have a resolution function that resolves the values written by the 
+           two drivers ( the Am2901 chip and the external world).
+
+===========================================================================
+
+2)  MODELS DEVELOPED FOR THE Am2901
+
+process ---> This sub-directory contains the file in which the Am2901 is 
+                  modeled as a single VHDL process.
+
+block   ---> This sub-directory contains the file inwhich the Am2901 is 
+             partitioned into functional blocks and the blocks are modeled as 
+             VHDL concurrent blocks.
+
+===========================================================================
+
+3) TESTING STRATEGY 
+
+   Each of the above models are tested with the set of test vectors in 
+    file "test_vectors.vhdl".
+
+   The test vectors were chosen specifically to verify the functionality 
+   of different portions of the chip in different modes of operation and
+   data transfer along different paths in the model.
+   Each of the three bit fields in the instruction is tested at least once in 
+   each of its eight modes in these test vectors. 
+
+   Those models that have constituent components (e.g. models in "block/")
+    have test vector sets for each of those components.
+    Please see the "ROADMAP" file in the parent of the present directory 
+    ( "2901/") to get an idea where those files are located.
+
+===========================================================================
+
+4) STATUS OF MODELS
+ __________________________________________________________________________
+ |                  |                   |           |        |            |
+ | MODEL            | TEST VECTOR USED  | SIMULATOR | ERRORS | SYNTHESIS  |
+ |__________________|___________________|___________|________|____________|
+ |                  |                   |           |        |            |    
+ |  block           | test_vectors.vhdl | Zycad 1.0 | None   | ----       |
+ |__________________|___________________|___________|________|____________|
+ |                  |                   |           |        |            |
+ |  process         | test_vectors.vhdl | Zycad 1.0 | None   | ----       |    
+ |__________________|___________________|___________|________|____________|
+
+
+
+

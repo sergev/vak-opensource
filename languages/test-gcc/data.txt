@@ -1,0 +1,11 @@
+arm		6	13
+thumb		8       17
+mips            9       17
+i386		9       25
+blackfin        11      22
+
+arm		6       13
+mips		7       15
+thumb		8       17
+blackfin	8       19
+i386		9       25

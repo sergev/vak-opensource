@@ -1,0 +1,15 @@
+proc VICE_VERSA()
+
+	output: "Enter a text "
+	input text: PHRASE
+	REVERSED := ""
+
+	for K to #PHRASE do
+		REVERSED := PHRASE[K] + REVERSED
+	od
+
+	output: REVERSED
+
+end
+
+call VICE_VERSA()
