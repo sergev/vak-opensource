@@ -1,0 +1,13 @@
+# -*- LE-syntax -*-
+# GNU Awk mode, by Abel Morabito <abel.morabito@gmail.com>
+c3,1=#.*$
+i=c-literal
+c1,2=([^[:alnum:]/_]|^)(if|while|do|for|in|break|continue|switch\
+|case|default|asort|asorti|index|length|match|split|sprintf\
+|strtonum|sub|gsub|gensub|substr|tolower|toupper|return|exit|next\
+|getline|print|printf|nextfile\
+|ARGV|ARGC|CONVFMT|ENVIRON|FILENAME|FNR|FS|NF|NR|OFMT|OFS|ORS\
+|RLENGTH|RSTART|RS|SUBSEP|ARGIND|BINMODE|ERRNO|FIELDWIDTHS|IGNORECASE\
+|LINT|PROCINFO|RT|TEXTDOMAIN|BEGIN|END\
+)([^[:alnum:]/_]|$)
+c2=\[|\]|\$|\^|\+|\/|=|~|!|{|}|<|>|;|\(|\)|\|

@@ -1,0 +1,16 @@
+# -*- LE-syntax -*-
+i=c-literal
+i=c++-comment
+c1,2=([^[:alnum:]_]|^)(acl|address|algorithm|allow-query|allow-recursion|allow-transfer\
+|also-notify|auth-nxdomain|blackhole|bogus|category|channel|check-names|cleaning-interval\
+|controls|coresize|datasize|deallocate-on-exit|dialup|directory|dump-file|fake-iquery\
+|fetch-glue|files?|first|forward|forwarders|has-old-clients|heartbeat-interval|hint\
+|host-statistics|include|interface-interval|keys?|lame-ttl|listen-on|logging\
+|maintain-ixfr-base|masters?|match-clients|max-ixfr-log-size|max-n?cache-ttl\
+|max-transfer-time-in|memstatistics-file|min-roots|multiple-cnames|named-xfer|no|notify\
+|only|options|pid-file|port|print-category|print-severity|print-time|pubkey|query-source\
+|recursion|rfc2308-type1|rrset-order|secret|server|severity|size|slave|sortlist|stacksize\
+|statistics-file|statistics-interval|stub|syslog|topology|transfer-format|transfer-source\
+|transfers|transfers-in|transfers-out|transfers-per-ns|treat-cr-as-space|trusted-keys|type\
+|use-id-pool|versions?|view|yes|zone|notify-source)([^[:alnum:]_]|$)
+c2={|}|,|;

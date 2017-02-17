@@ -1,0 +1,13 @@
+# -*- LE-syntax -*-
+# Eiffel mode, by Serge Vakulenko <vak@cronyx.ru>
+c3=--[^\n]*\n
+c3="([^"\\]|\\\\(.|\n))*"
+c1,2=([^[:alnum:]_]|^)(alias|all|and|as|check|class|creation|debug\
+|deferred|do|else|elseif|end|ensure|expanded|export|external|false\
+|feature|from|frozen|if|implies|indexing|infix|inherit|inspect|invariant\
+|is|like|local|loop|not|obsolete|old|once|or|prefix|redefine|rename\
+|require|rescue|retry|select|separate|strip|then|true|undefine|unique\
+|until|variant|when|xor|Current|Result|True|False|Void\
+|ARRAY|BIT|BOOLEAN|CHARACTER|DOUBLE|INTEGER|NONE|POINTER|REAL|STRING\
+)([^[:alnum:]_]|$)
+c2=<<|>>

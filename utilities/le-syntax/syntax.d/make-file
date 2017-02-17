@@ -1,0 +1,14 @@
+# -*- LE-syntax -*-
+# makefile mode, by Raphael Geissert <atomo64@gmail.com>
+s(shell)1=^\t[@-]*(.*(?:\\\\\n(?:.*\\\\\n)*.*)?)
+c3=^[ \t]*#.*$
+c3=#.*$
+c3="|'
+c1,2=([^[:alnum:]_-]|^)(findstring|ifn?eq|endif|define|shell\
+ |else|while|if|fi|then|do|done|for|case|esac|export|MAKE|ifn?def\
+ |(pat)?subst|filter(-out)?|foreach|words|call|wildcard|override\
+)([^[:alnum:]_-]|$)
+c1,2=([^[:alnum:]_]|^)(include)([ \t].+$)
+c2=:|\$|[+-:?]?=|>|<|`|\||\[|\]|\(|\)|{|}|&|\$[@*]
+ci1,1=^([ [:alnum:]/%()$,_.-]+):[^=]
+c4,1=^\t([@-]+)

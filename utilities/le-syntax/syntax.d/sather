@@ -1,0 +1,13 @@
+# -*- LE-syntax -*-
+# Sather mode, by Serge Vakulenko <vak@cronyx.ru>
+c3=--[^\n]*$
+c3="([^"\\]|\\\\(.|\n))*"
+c1,2=([^[:alnum:]_]|^)(abstract|and|any|assert|attr|bind|break!|builtin|case\
+|class|clusters!|cohort|const|else|elsif|end|exception|external|false|far\
+|fork|guard|if|immutable|inout|include|initial|is|ITER|lock|loop|near|new\
+|once|or|out|par|parloop|post|pre|private|protect|quit|raise|readonly|result\
+|return|ROUT|SAME|self|shared|sync|then|true|typecase|unlock|until|void|when\
+|while!|with|yuild|ARRAY|BOOL|CHAR|FLTD|INT|INTI|FLT|FLTI|STR|\\$OB|AREF|AVAL\
+|TUP|SYS|\\$NIL|\\$FINALIZE\
+)([^[:alnum:]_]|$)
+c2=\||#|::=|:=|::

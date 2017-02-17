@@ -1,0 +1,8 @@
+# -*- LE-syntax -*-
+# Tcl mode, by Serge Vakulenko <vak@cronyx.ru>
+c3=#.*$
+i=c-literal
+c1,2=([^[:alnum:]/_]|^)(break|case|continue|exit|for|foreach|if|return\
+ |switch|while|set|eval|proc|global|else|elseif|default\
+)([^[:alnum:]/_]|$)
+c2={|}|\[|\]|\$|;|\(|\)|\|

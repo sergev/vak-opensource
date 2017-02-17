@@ -1,0 +1,12 @@
+# -*- LE-syntax -*-
+c3=^[ \t]*#.*
+s(shell)1=^[ \t]*(?:(?:pre|post)rotate|(?:first|last)action)[ \t]*\n((?:.|\n)*?)\n[\t ]*endscript[ \t\n]
+c1,1=^[ \t]*((?:no)?compress|(?:un)?compresscmd|compressext|compressoptions\
+ |(?:no)?copy(?:truncate)?|(?:no)?create|daily|(?:no)?dateext|(?:no)?delaycompress\
+ |extension|(?:not)?ifempty|include|(?:no)?mail(?:first|last)?|maxage|minsize\
+ |(?:no)?missingok|monthly|(?:no)?olddir|(?:no)?shred|(?:pre|post)rotate|endscript\
+ |(?:first|last)action|rotate|size|sharedscripts|shredcycles|start|tabooext\
+ |weekly|yearly\
+)(?:[^[:alnum:]_]|$)
+c3,1=^[ \t]*(.*)[ \t]*{
+c2={|}

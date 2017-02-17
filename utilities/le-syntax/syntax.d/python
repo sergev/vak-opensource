@@ -1,0 +1,9 @@
+# -*- LE-syntax -*-
+# Python mode, by Serge Vakulenko <vak@cronyx.ru>
+c3=#.*$
+c5="([^"\\]|\\\\(.|\n))*"|'([^'\\]|\\\\(.|\n))*'
+c1,2=([^[:alnum:]_]|^)(if|elif|else|for|in|break|continue|while|pass\
+ |try|except|raise|finally|import|from|class|def|return|global\
+ |print|del|exec|access|in|or|and|not|is|lambda\
+)([^[:alnum:]_]|$)
+c2=:

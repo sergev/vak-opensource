@@ -1,0 +1,9 @@
+# -*- LE-syntax -*-
+# Shell mode, by Serge Vakulenko <vak@cronyx.ru>
+c3,2=([^$]|^)(#.*)$
+c5,1=[^\\]("([^"\\]|\\\\(.|\n))*"|'([^'\\]|\\\\(.|\n))*')
+c1,2=([^[:alnum:]/_]|^)(if|then|else|elif|fi|while|do|done|for|break|continue\
+ |case|in|esac|local|return|exit|alias|bg|cd|eval|exec|export|fc|fg|getopts|hash\
+ |jobid|jobs|pwd|read|readonly|set|setvar|shift|trap|ulimit|umask|unalias|unset\
+ |end|endif|setenv|unsetenv|source|foreach|wait)([^[:alnum:]/_]|$)
+c2={|}|<<|<|>>|>|;;|;|\(|\)|\|

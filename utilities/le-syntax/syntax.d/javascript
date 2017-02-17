@@ -1,0 +1,14 @@
+# -*- LE-syntax -*-
+i=c-literal
+i=c++-comment
+c1,1=(?:[^[:alnum:]_]|^)(\
+ abstract|alert|arguments|Array|boolean|Boolean|break|byte|case|catch|char|\
+ class|confirm|const|continue|Date|debugger|default|delete|do|document|double|\
+ else|enum|escape|event|export|extends|false|final|finally|float|for|Function|\
+ goto|if|implements|import|in|instanceof|int|interface|location|long|native|\
+ new|null|Number|Object|package|parent|private|prompt|protected|public|RegExp|\
+ return|self|short|static|status|String|super|switch|synchronized|this|throw|\
+ throws|top|transient|true|try|typeof|undefined|unescape|var|volatile|while|\
+ window|with)(?:[^[:alnum:]_]|$)
+c4,1=(?:[^[:alnum:]_]|^)(function)(?:[^[:alnum:]_]|$)
+c2=\\[|\\]|\\(|\\)|{|}|,

@@ -1,0 +1,30 @@
+# -*- LE-syntax -*-
+# PL/SQL mode, by Serge Vakulenko <vak@cronyx.ru>
+c3=--.*$|/\\*(?:.|\n)*?\\*/
+c3="([^"\n\\]|\\\\.)*"|'([^\n'\\]|\\\\.)*'
+ci1,1=(?:[^[:alnum:]_]|^)(\
+abort|accept|access|add|all|alter|and|any|array|arraylen|as|asc|assert|\
+assign|at|audit|authorization|avg|base_table|begin|between|binary_integer|\
+body|boolean|by|case|char|char_base|check|close|cluster|clusters|colauth|\
+column|columns|comment|commit|compress|connect|constant|count|crash|create|\
+current|cursor|curval|database|data_base|date|dba|debugoff|debugon|decimal|\
+declare|default|definition|delay|delete|delta|desc|digits|dispose|distinct|\
+do|drop|else|elsif|end|entry|exception|exception_init|exclusive|exists|exit|\
+false|fetch|file|float|for|form|from|function|generic|goto|grant|group|\
+having|identified|if|immediate|in|increment|index|indexes|indicator|initial|\
+insert|integer|interface|intersect|into|is|level|like|limited|lock|long|\
+loop|max|maxextents|min|minus|mlslabel|mod|mode|modify|natural|naturaln|\
+new|nextval|noaudit|nocompress|not|nowait|null|number|number_base|of|\
+offline|on|online|open|option|or|order|others|out|package|partition|pctfree|\
+pls_integer|positive|positiven|pragma|prior|private|privileges|procedure|\
+public|raise|range|raw|real|record|ref|release|rem|rename|resource|return|\
+reverse|revoke|rollback|row|rowid|rowlabel|rownum|rows|rowtype|run|\
+savepoint|schema|select|separate|session|set|share|size|smallint|space|sql|\
+sqlcode|sqlerrm|start|statement|stddev|subtype|successful|sum|synonym|\
+sysdate|tabauth|table|tables|task|terminate|then|to|trigger|true|type|uid|\
+union|unique|update|use|user|validate|values|varchar|varchar2|variance|view|\
+views|when|whenever|where|while|with|work|write|xor|sequence|cascade|before|each|\
+constraint|foreign|key|references|primary|using|decode|replace|enable|disable|\
+returning\
+)(?:[^[:alnum:]_]|$)
+c2=\||\)|\(|:=|=|\|\||<|>|!=

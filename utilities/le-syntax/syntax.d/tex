@@ -1,0 +1,5 @@
+# -*- LE-syntax -*-
+# Tex mode, by Serge Vakulenko <vak@cronyx.ru>
+c3=%.*$
+c1=\\\\[@A-Za-z]*
+c2={|}|\[|\]

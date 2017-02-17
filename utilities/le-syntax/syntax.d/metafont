@@ -1,0 +1,9 @@
+# -*- LE-syntax -*-
+# Metafont mode, by Serge Vakulenko <vak@cronyx.ru>
+c3=%.*$
+c3,1=[^\\]("([^"\\]|\\\\(.|\n))*")
+c1,2=([^[:alnum:]/_]|^)(if|else|elif|fi|lft|rt|top|bot|iff|not\
+ |def|vardef|enddef|suffix|whatever|expr\
+ |fill|draw|filldraw|pickup|let|beginchar|endchar\
+)([^[:alnum:]/_]|$)
+c2=:=|\(|\)|#|=|;|\[|]|---|--|\.\.\.|\.\.|{|}|,

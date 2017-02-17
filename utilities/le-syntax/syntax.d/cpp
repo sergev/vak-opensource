@@ -1,0 +1,5 @@
+# -*- LE-syntax -*-
+c4,1=^[ \t]*(#[ \t]*(?:assert|define|elif|else|endif|error|ident|if|ifdef\
+	|ifndef|import|include|include_next|line|pragma|sccs|unassert|undef)\b)
+c4,1=^[ \t]*(#)
+c4,1=^[ \t]*#[ \t]*include(?:_next)?[ \t]*(<[^>\n]*>|"[^"\n]*")

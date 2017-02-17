@@ -1,0 +1,30 @@
+# -*- LE-syntax -*-
+# Verilog mode, by Serge Vakulenko <vak@cronyx.ru>
+c3="([^"\n\\]|\\\\(.|\n))*"
+#c3,1=`[ \t]*(include[ \t]*"[^"\n]*"|define*|ifdef*|else*|endif*)
+c3=--[^\n]*\n
+i=c-literal
+c1,2=([^[:alnum:]_]|^)(abs\
+|access|after|alias|all|and|and|architecture|array|assert\
+|assume_guarantee|assume|attribute|begin|bit|bit_vector|block\
+|body|boolean|boolean_vector|buffer|buffer|bus|case|character\
+|component|configuration|constant|constant|context|cover|default\
+|delay_length|disconnect|downto|downto|else|elsif|end|entity|error\
+|exit|failure|fairness|file|file|file_open_kind|file_open_status\
+|force|function|generate|generic|group|guarded|if|impure|inertial\
+|in|in|inout|inout|integer|integer_vector|is|label|library|line\
+|linkage|linkage|literal|loop|map|mod|mux_bit|mux_vector|nand\
+|natural|new|next|nor|note|not|not|null|of|of|on|open|or|or|others\
+|others|out|out|package|parameter|port|positive|postponed|procedure\
+|process|property|protected|pure|qsim_12state|qsim_12state_vector\
+|qsim_state|qsim_state_vector|qsim_strength|range|real|real_vector\
+|record|reg_bit|register|reg_vector|reject|release|rem|report|return\
+|rol|ror|select|sequence|severity|severity_level|shared|side|signal\
+|signal|signed|sla|sll|sra|srl|std_logic|std_logic_vector|std_ulogic\
+|std_ulogic_vector|string|strong|subtype|text|then|time|time_vector\
+|to|to|transport|type|type|unaffected|units|unresolved_signed\
+|unresolved_unsigned|unsigned|until|use|ux01|ux01z|variable\
+|variable|vmode|vprop|vunit|wait|warning|when|when|width|with\
+|wor_bit|wor_vector|x01|x01z|xnor|xor|xor\
+)([^[:alnum:]_]|$)
+c2=\\[|\\]|\\(|\\)|{|}|,|@|<=

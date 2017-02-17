@@ -1,0 +1,12 @@
+# -*- LE-syntax -*-
+# Ada mode, by Serge Vakulenko <vak@cronyx.ru>
+c3=--[^\n]*\n
+c3="([^"\\]|\\\\(.|\n))*"
+c1,2=([^[:alnum:]_]|^)(abort|else|new|return|abs|elsif|not|reverse|abstract\
+|end|null|accept|entry|select|access|exception|separate|aliased|exit|of\
+|subtype|all|or|and|for|others|tagged|array|function|out|task|at|terminate\
+|generic|package|then|begin|goto|pragma|type|body|private|if|procedure\
+|case|in|protected|until|constant|is|use|raise|declare|range|when|delay\
+|limited|record|while|delta|loop|rem|with|digits|renames|do|mod|requeue|xor\
+)([^[:alnum:]_]|$)
+c2=<<|>>|:=|\\[|\\]|\\(|\\)|{|}|,|:|#|'Access|'Address|'Size

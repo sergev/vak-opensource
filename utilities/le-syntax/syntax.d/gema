@@ -1,0 +1,17 @@
+# -*- LE-syntax -*-
+# GEMA mode, by Abel Morabito <abel.morabito@gmail.com>
+c3=(^!.*$)|([^\\]!.*$)
+c2,2=([^\\])(\*|?|#|=|\$|(\\\)|\^|;|@|:|<|>|/|{|})
+c1,2=(@)(abort|add|and|append|bind|center|char-int|close|cmpi|cmpn|cmps\
+|column|date|datime|decr|define|div|downcase|end|err|exit-status\
+|expand-wild|fail|file|file-time|fill-center|fill-left|fill-right\
+|getenv|get-switch|incr|inpath|int-char|left|length|line|makepath\
+|mergepath|mod|mul|name|not|or|out|out-column|outpath|pop|probe\
+|push|quote|radix|read|relative-path|repeat|reset-syntax\
+|reverse|right|set|set-locale|set-parm|set-switch|set-syntax|set-wrap\
+|shell|show-help|special-character|sub|subst|substring|tab|terminate\
+|time|unbind|undefine|upcase|var|version|wrap|write)($|{|;| )
+c1,2=(\\\)(a|b|d|e|f|n|r|s|t|v|A|B|C|E|G|I|J|L|N|P|S|W|X|Z)
+c1,2=(\\\)((x[[:xdigit:]]+)|([0-7]+)|(c[[:alpha:]]))
+c1,2=(\$)([0-9]+|[[:alpha:]])
+ci1,2=(<)((-?)(A|C|D|F|G|I|J|K|L|N|O|P|S|T|U|W|X|Y)([0-9]*))(>)

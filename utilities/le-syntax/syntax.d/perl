@@ -1,0 +1,27 @@
+# -*- LE-syntax -*-
+# Perl mode, by Vladislav Zhuk <admin@dru.dn.ua>
+c3,2=(^|[^$\\])(#.*)$
+c5=[^\\$]("(?:[^"\\]|\\\\(?:.|\n))*?"|'(?:[^'\\]|\\\\(?:.|\n))*?')
+si(sql)1=->(?:prepare(?:_cached)?|do|selectrow_array(?:ref)?|selectcol_arrayref|selectall_(?:hash|array)ref)[ \t]*\(\
+q?q{((?:'[^']*?'|"[^"]*?"|[^'"])+?)}
+c1,2=([^[:alnum:]_\$@%#]|^)(abs|accept|alarm|atan2|bind|binmode|bless|caller\
+|chdir|chmod|chomp|chop|chown|chr|chroot|close|closedir|connect|cos|crypt\
+|dbmclose|dbmopen|define|delete|die|do|dump|each|eof|eval|exec|exists|exit|exp\
+|fcntl|fileno|flock|fock|for|foreach|format|formline|getc|getlogin|getpeername\
+|getpgrp|getppid|getpriority|getsockname|getsockopt|glob|gmtime|goto|grep\
+|hex|if|import|index|int|ioctl|join|keys|kill|last|lc|lcfirst|length|link\
+|listen|local|localtime|log|lstat|map|mkdir|msgctl|msgget|msgsnd|msgrcv|my|next\
+|no Module|oct|open|opendir|ord|pack|pipe|pop|pos|s?printf?|push|quotemeta\
+|rand|read|readdir|readline|readlink|recv|redo|ref|rename|require|reset|return|reverse\
+|rewindir|rindex|rmdir|scalar|seek|seekdir|select|select( RBITS| WBITS| EBITS| TIMEOUT)?\
+|semctl|semget|semop|send|setpgrp|setpriority|setsockopt|shift|shmget|shmget\
+|shmread|shutdown|sin|sleep|socket|socketpair|sort|splice|split|sqrt\
+|srand|stat|study|substr|symlink|syscall|sysread|sysseek|system|syswrite|tell|telldir\
+|tied?|times?|truncate|uc|ucfirst|umask|undef|unless|unlink|unpack|untie|unshift\
+|use|utime|values|vec|wait|waitpid|wantarray|warn|while|write|else|elsif\
+|package|sub|BEGIN|END|INIT|CHECK|socket|defined|our\
+)([^[:alnum:]/_]|$)
+c1,1=\\\\(my|our)([^[:alnum:]/_]|$)
+c2={|}|<<|<|>>|>|;;|;|\(|\)|=|=~|!=|&&|\|\||!|\.\.|<=>|&|^|->
+c2,2=([ \t)]|^)(and|or|xor|eq|ne|cmp|lt|gt|le|ge)([ \t(]|$)
+c2,2=([ \t(]|^)(not)([ \t(]|$)

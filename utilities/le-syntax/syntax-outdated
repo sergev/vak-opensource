@@ -1,0 +1,34 @@
+# D mode, by Serge Vakulenko <vak@cronyx.ru>
+/*.d|*.lemon
+c3,1=%[^\n{]*
+c3,1="([^"\n\\]|\\\\(.|\n))*"|'([^\n'\\]|\\\\.)*'
+c3,1=//.*$|/\\*([^*]|\\*[^/])*\\*/
+c1,4=([^[:alnum:]_]|^)(abstract|alias|align|asm|assert|auto|body|bool|break\
+|byte|case|cast|catch|cdouble|cent|cfloat|char|class|const|continue|creal\
+|dchar|debug|default|delegate|delete|deprecated|do|double|else|enum|export\
+|extern|false|final|finally|float|for|foreach|foreach_reverse|function|goto\
+|idouble|if|ifloat|import|in|inout|int|interface|invariant|ireal|is|lazy\
+|long|mixin|module|new|null|out|override|package|pragma|private|protected\
+|public|real|return|scope|short|static|struct|super|switch|synchronized\
+|template|this|throw|true|try|typedef|typeid|typeof|ubyte|ucent|uint|ulong\
+|union|unittest|ushort|version|void|volatile|wchar|while|with|string\
+)([^[:alnum:]_]|$)
+c2,1=\\[|\\]|\\(|\\)|{|}|,
+
+# M-20 assembler mode, by Serge Vakulenko <vak@cronyx.ru>
+/*.S20|*.s20|*.m20
+c3,1=;[^\n]*\n
+c3,1="([^"\\]|\\\\(.|\n))*"
+c3,2=^[ \t]*(#[ \t]*(include[ \t]*<[^>\n]*>|[[:alpha:]]*))
+c1,4=([^[:alnum:]_]|^)(\.адрес|\.вещ|\.текст|\.это\
+|\.endfunc\
+)([^[:alnum:]_]|$)
+c2,1==|,|\(|\)|#|\[|\]|:|@
+
+# Disassembler mode, by Serge Vakulenko <vak@cronyx.ru>
+/*.dis
+#c3,2=^[ \t]*(#[ \t]*(include[ \t]*<[^>\n]*>|[[:alpha:]]*))
+c1,1=^[[:xdigit:]]+:\t[[:xdigit:]]+ \t.*$
+c2,7=^[[:xdigit:]]+ <.*>:$
+c3,1=/\\*([^*]|\\*[^/])*\\*/
+c3,1=//.*$|/\\*([^*]|\\*[^/])*\\*/
