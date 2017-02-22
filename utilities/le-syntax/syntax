@@ -70,10 +70,14 @@ c2=\\[|\\]|\\(|\\)|{|}|,
 i=c++-comment
 i=cpp
 i=c-literal
-c1,2=([^[:alnum:]_]|^)(package|import\
- |var|const|func|for|range|string|true|false|chan|int|type|struct|new\
+c1,2=([^[:alnum:]_]|^)(append|bool|break|byte|cap|case|chan|close|complex\
+|complex128|complex64|const|continue|copy|default|defer|delete|else|error\
+|fallthrough|false|float32|float64|for|func|go|goto|if|imag|import|int|int16\
+|int32|int64|int8|interface|iota|len|make|map|new|nil|package|panic|print\
+|println|range|real|recover|return|rune|select|string|struct|switch|true\
+|type|uint|uint16|uint32|uint64|uint8|uintptr|var\
 )([^[:alnum:]_]|$)
-c2=\\[|\\]|\\(|\\)|{|}|,
+c2=\\[|\\]|\\(|\\)|{|}|,|:=
 
 # named.conf mode (lav)
 /named.conf|/-\*- *(named|bind) *-\*-
