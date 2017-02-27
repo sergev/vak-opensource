@@ -1,5 +1,5 @@
 DC		= gdc -Wall -g
-DC              = dmd
+#DC              = dmd
 DFLAGS		= -O
 LDFLAGS		=
 INSTDIR		= /usr/local
@@ -14,6 +14,9 @@ decho:		decho.o
 
 sample:		sample.o getopt.o
 		$(DC) $(LDFLAGS) sample.o getopt.o -of$@
+
+hello:		hello.o
+		$(DC) $(LDFLAGS) hello.o -o$@
 
 clean:
 		rm -f decho sample *.o *~ a.out
