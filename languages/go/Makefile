@@ -2,7 +2,7 @@ GOC		= gccgo -g
 GOFLAGS		= -O -Wall -fno-split-stack -fno-exceptions
 LDFLAGS		= #-static-libgo -lffi -lpthread
 
-PROGS		= args goecho sieve stream stream.s chickens
+PROGS		= args goecho sieve stream stream.s chickens helloworld
 
 all:		$(PROGS)
 
