@@ -1,6 +1,6 @@
 all:    main
 
-main:   main.y
+main:   main.gy
 	goyacc -o main.go $<
 	go build main.go
 
