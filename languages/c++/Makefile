@@ -8,5 +8,8 @@ ascii3d: ascii3d.cpp
 hello:  hello.cpp
 	$(CXX) $(LDFLAGS) $(CFLAGS) $< -o $@
 
+lol:    lol.cpp
+	clang++ -std=c++11 $< -o $@
+
 clean:
-	rm -f ascii3d hello *.o
+	rm -f ascii3d hello lol *.o
