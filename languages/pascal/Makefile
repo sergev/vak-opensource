@@ -7,4 +7,4 @@ bitset: bitset.pas
 	fpc $<
 
 clean:
-	rm -f hello bitset
+	rm -f *.o hello bitset
