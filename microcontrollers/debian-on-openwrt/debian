@@ -1,0 +1,10 @@
+#!/bin/sh
+swapon /dev/mmcblk0p2
+mount --bind /dev /tmp/run/mountd/mmcblk0p1/dev
+mount --bind /proc /tmp/run/mountd/mmcblk0p1/proc
+mount --bind /sys /tmp/run/mountd/mmcblk0p1/sys
+while [ ! -f /tmp/run/mountd/mmcblk0p1/bin/bash ]; do
+    echo SD card not ready yet...
+    sleep 1
+done
+chroot /tmp/run/mountd/mmcblk0p1 /bin/bash
