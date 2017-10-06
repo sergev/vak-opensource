@@ -1,0 +1,6 @@
+#!/bin/sh
+umount /tmp/run/mountd/mmcblk0p1/dev
+umount /tmp/run/mountd/mmcblk0p1/proc
+umount /tmp/run/mountd/mmcblk0p1/sys
+umount /tmp/run/mountd/mmcblk0p1
+swapoff /dev/mmcblk0p2
