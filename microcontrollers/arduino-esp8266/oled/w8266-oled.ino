@@ -11,23 +11,15 @@ OLED display(SDA, SCL);
 //static const int OLED_RESET = 4;
 
 void setup() {
-    pinMode(D2, OUTPUT);
-    digitalWrite(D2, HIGH);   // turn D2 low to reset OLED
+    pinMode(D0, OUTPUT);
+    digitalWrite(D0, LOW);  // turn D0 low to reset OLED
     delay(50);
-    digitalWrite(D2, LOW);    // while OLED is running, must set D2 in high
+    digitalWrite(D0, HIGH); // while OLED is running, must set D2 in high
     delay(50);
       
     Serial.begin(9600);
     Serial.println("OLED test!");
-#if 0
-    // Reset OLED
-    pinMode(OLED_RESET, OUTPUT);
-    digitalWrite(OLED_RESET, LOW);
-    delay(1);
-    digitalWrite(OLED_RESET, HIGH);
-    delay(10);
-    digitalWrite(OLED_RESET, LOW);
-#endif
+
     // Initialize display
     display.begin();
 
@@ -41,7 +33,6 @@ void setup() {
 
     // Test display clear
     display.clear();
-    delay(1000);
 
     // Test message postioning
     display.print("TOP-LEFT");
@@ -51,7 +42,7 @@ void setup() {
 
     // Test display OFF
     display.off();
-    display.print("3rd row", 2, 8);
+    display.print("3rd row", 2);
     delay(1000);
 
     // Test display ON
