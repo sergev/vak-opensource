@@ -34,7 +34,7 @@ Adafruit_SSD1306 display(D0);
 
 #define NB      (11+4)  /* 11 channels plus 2+2 side bands */
 
-static int band[NB];
+static int band[NB];    /* signal levels for bands */
 
 void setup()
 {
@@ -59,7 +59,7 @@ void setup()
 }
 
 //
-// Reset the bar.
+// Reset bands data.
 //
 static void reset_bands()
 {
@@ -70,7 +70,7 @@ static void reset_bands()
 }
 
 //
-// Increase the bar.
+// Draw the band level.
 //
 static void draw_band(int index)
 {
@@ -86,6 +86,9 @@ static void draw_band(int index)
     }
 }
 
+//
+// Draw all bands
+//
 void draw_bands()
 {
     int i;
