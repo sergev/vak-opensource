@@ -8,7 +8,8 @@ PROJ_BASE       = $(HOME)/Project/Arduino
 ESPTOOL         = $(SKETCHBOOK)/packages/esp8266/tools/esptool/0.4.9/esptool
 SKETCH          = $(notdir $(CURDIR)).ino
 TARGET_DIR      = $(CURDIR)/build-esp8266
-SERIAL_PORT     = /dev/tty.SLAB_USBtoUART
+#SERIAL_PORT     = /dev/tty.SLAB_USBtoUART
+SERIAL_PORT     = /dev/ttyUSB1
 BOARD           = esp8266:esp8266:nodemcuv2:CpuFrequency=80,FlashSize=4M3M
 
 all:
@@ -32,5 +33,3 @@ upload: $(TARGET_DIR)/$(SKETCH).bin
 
 clean:
 	rm -rf $(TARGET_DIR)
-
-$(TARGET_DIR)/$(SKETCH).bin:

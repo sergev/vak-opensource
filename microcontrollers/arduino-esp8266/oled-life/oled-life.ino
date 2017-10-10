@@ -18,18 +18,16 @@
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
  * FITNESS FOR A PARTICULAR PURPOSE.
  */
-#include <SPI.h>
-#include <Wire.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 
-/*
- * On W8266 module, OLED reset signal is connected to pin D0.
- */
+//
+// On W8266 module, OLED reset signal is connected to pin D0.
+//
 Adafruit_SSD1306 display(D0);
 
-#define MX      128     /* x-side length */
-#define MY      32      /* y-side length */
+#define MX      128     // x-side length
+#define MY      32      // y-side length
 
 char mem[MX*MY], mem2[MX*MY];
 char *pm = mem, *pm2 = mem2;
@@ -59,10 +57,10 @@ void setup()
     delay(100);
 }
 
-/*
- * Compute one cell.
- * Return 1 when the cell is alive.
- */
+//
+// Compute one cell.
+// Return 1 when the cell is alive.
+//
 int compute_cell(int x, int y)
 {
     int i = 0;

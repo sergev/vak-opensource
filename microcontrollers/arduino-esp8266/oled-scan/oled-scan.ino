@@ -18,23 +18,20 @@
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
  * FITNESS FOR A PARTICULAR PURPOSE.
  */
-#include <SPI.h>
-#include <Wire.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
-#include "ESP8266WiFi.h"
+#include <ESP8266WiFi.h>
 
-/*
- * On W8266 module, OLED reset signal is connected to pin D0.
- */
+//
+// On W8266 module, OLED reset signal is connected to pin D0.
+//
 Adafruit_SSD1306 display(D0);
 
-#define MX      128     /* x-side length */
-#define MY      32      /* y-side length */
+#define MX      128     // x-side length
+#define MY      32      // y-side length
+#define NB      15      // 11 channels and 2+2 side bands
 
-#define NB      (11+4)  /* 11 channels plus 2+2 side bands */
-
-static int band[NB];    /* signal levels for bands */
+static int band[NB];    // signal levels for bands
 
 void setup()
 {
@@ -43,15 +40,14 @@ void setup()
 
     // Clear the buffer.
     display.clearDisplay();
+
+    // Set size of text.
     display.setTextSize(1);
     display.setTextColor(WHITE);
     display.print("Scan...");
 
     // Set WiFi to station mode
-    Serial.begin(115200);
     WiFi.mode(WIFI_STA);
-    //WiFi.disconnect();
-    Serial.println("Setup done");
 
     // Visualize the result.
     display.display();
@@ -64,6 +60,7 @@ void setup()
 static void reset_bands()
 {
     int i;
+
     for (i=0; i<NB; i++) {
         band[i] = -99;
     }
@@ -74,9 +71,9 @@ static void reset_bands()
 //
 static void draw_band(int index)
 {
+    int level = band[index] + 95;
     int x = index * 8;
     int y;
-    int level = band[index] + 95;
 
     for (y = MY-1; y >= 0; y-=2) {
         if (level < 0)
@@ -92,6 +89,7 @@ static void draw_band(int index)
 void draw_bands()
 {
     int i;
+
     for (i=0; i<NB; i++) {
           draw_band(i);
     }
@@ -154,44 +152,28 @@ static void add_channel(int chan, int rssi)
 
 void loop()
 {
-    Serial.println("scan start");
-
-    // WiFi.scanNetworks will return the number of networks found
+    // Scan Wi-Fi networks and return the number of networks found.
     int n = WiFi.scanNetworks();
-    Serial.println("scan done");
+
+    // Visualize the result.
+    reset_bands();
     display.clearDisplay();
     display.setCursor(0, 0);
-    reset_bands();
     if (n == 0) {
         display.print("no nets");
-        Serial.println("no networks found");
     } else {
         display.print(n);
         display.print(" nets");
-        Serial.print(n);
-        Serial.println(" networks found");
         for (int i = 0; i < n; ++i) {
-            // Print SSID and RSSI for each network found
+            // Get channel number and signal level for each network found.
             int chan = WiFi.channel(i);
             int rssi = WiFi.RSSI(i);
-            Serial.print(i + 1);
-            Serial.print(": channel ");
-            Serial.print(chan);
-            Serial.print(", ");
-            Serial.print(WiFi.SSID(i));
-            Serial.print(" (");
-            Serial.print(rssi);
-            Serial.print(")");
-            Serial.println((WiFi.encryptionType(i) == ENC_TYPE_NONE)?" ":"*");
             add_channel(chan, rssi);
         }
     }
-    Serial.println("");
-
-    // Visualize the result.
     draw_bands();
     display.display();
 
-    // Wait a bit before scanning again
+    // Wait a bit before scanning again.
     delay(1000);
 }
