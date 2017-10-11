@@ -1,38 +1,44 @@
-#ARDUINO_PATH    = /Applications/Arduino.app/Contents/Java
-ARDUINO_PATH    = /opt/arduino-1.8.4
+#ARDUINO_HOME    = /Applications/Arduino.app/Contents/Java
+ARDUINO_HOME    = /opt/arduino-1.8.5
+
+ESP32_TOOLS     = $(ARDUINO_HOME)/hardware/espressif/esp32/tools
 
 PROJ_BASE       = $(HOME)/Project/Arduino
 
-#SKETCHBOOK      = $(HOME)/Library/Arduino15
-SKETCHBOOK      = /home/sergev/.arduino15
-
-ESPTOOL         = $(SKETCHBOOK)/packages/esp32/tools/esptool/0.4.9/esptool
 SKETCH          = $(notdir $(CURDIR)).ino
-TARGET_DIR      = $(CURDIR)/build-esp32
-MONITOR_PORT    = /dev/ttyUSB1
+BUILD_DIR       = $(CURDIR)/build-esp32
+SERIAL_PORT     = /dev/ttyUSB1
+UPLOAD_SPEED    = 460800
 BOARD           = espressif:esp32:lolin32:FlashFreq=80
 
 all:
-	@mkdir -p $(TARGET_DIR)
-	$(ARDUINO_PATH)/arduino-builder -compile -logger=machine \
-            -hardware "$(ARDUINO_PATH)/hardware" \
-            -hardware "$(SKETCHBOOK)/packages" \
-            -tools "$(ARDUINO_PATH)/tools-builder" \
-            -tools "$(ARDUINO_PATH)/hardware/tools/avr" \
-            -tools "$(SKETCHBOOK)/packages" \
-            -built-in-libraries "$(ARDUINO_PATH)/libraries" \
+	@mkdir -p $(BUILD_DIR)
+	$(ARDUINO_HOME)/arduino-builder -compile -logger=machine \
+            -hardware "$(ARDUINO_HOME)/hardware" \
+            -tools "$(ARDUINO_HOME)/tools-builder" \
+            -tools "$(ARDUINO_HOME)/hardware/tools/avr" \
+            -built-in-libraries "$(ARDUINO_HOME)/libraries" \
             -libraries "$(PROJ_BASE)/libraries" \
             -fqbn="$(BOARD)" \
-            -build-path "$(TARGET_DIR)" \
+            -build-path "$(BUILD_DIR)" \
             -warnings=none \
             -prefs=build.warn_data_percentage=75 \
             -verbose "$(SKETCH)"
 
-flash:
-#TODO
-	$(ESPTOOL) -v -cd nodemcu -cb 921600 -cp $(MONITOR_PORT) -ca 0x00000 -cf $(TARGET_DIR)/$(SKETCH).bin
-
-upload: all flash
+upload: $(BUILD_DIR)/$(SKETCH).bin $(BUILD_DIR)/$(SKETCH).partitions.bin
+	$(ESP32_TOOLS)/esptool.py \
+            --chip esp32 \
+            --port $(SERIAL_PORT) \
+            --baud $(UPLOAD_SPEED) \
+            --before default_reset \
+            --after hard_reset write_flash -z \
+            --flash_mode dio \
+            --flash_freq 80m \
+            --flash_size detect \
+            0xe000 $(ESP32_TOOLS)/partitions/boot_app0.bin \
+            0x1000 $(ESP32_TOOLS)/sdk/bin/bootloader.bin \
+            0x10000 $(BUILD_DIR)/$(SKETCH).bin \
+            0X8000 $(BUILD_DIR)/$(SKETCH).partitions.bin
 
 clean:
-	rm -rf $(TARGET_DIR)
+	rm -rf $(BUILD_DIR)

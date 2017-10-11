@@ -1,26 +1,22 @@
 #ARDUINO_HOME    = /Applications/Arduino.app/Contents/Java
-ARDUINO_HOME    = /opt/arduino-1.8.4
+ARDUINO_HOME    = /opt/arduino-1.8.5
+
+ESP32_TOOLS     = $(ARDUINO_HOME)/hardware/espressif/esp32/tools
 
 PROJ_BASE       = $(HOME)/Project/Arduino
-
-#SKETCHBOOK      = $(HOME)/Library/Arduino15
-SKETCHBOOK      = /home/sergev/.arduino15
 
 SKETCH          = $(notdir $(CURDIR)).ino
 BUILD_DIR       = $(CURDIR)/build-esp32
 SERIAL_PORT     = /dev/ttyUSB1
 UPLOAD_SPEED    = 460800
 BOARD           = espressif:esp32:lolin32:FlashFreq=80
-ESP32_TOOLS     = $(ARDUINO_HOME)/hardware/espressif/esp32/tools
 
 all:
 	@mkdir -p $(BUILD_DIR)
 	$(ARDUINO_HOME)/arduino-builder -compile -logger=machine \
             -hardware "$(ARDUINO_HOME)/hardware" \
-            -hardware "$(SKETCHBOOK)/packages" \
             -tools "$(ARDUINO_HOME)/tools-builder" \
             -tools "$(ARDUINO_HOME)/hardware/tools/avr" \
-            -tools "$(SKETCHBOOK)/packages" \
             -built-in-libraries "$(ARDUINO_HOME)/libraries" \
             -libraries "$(PROJ_BASE)/libraries" \
             -fqbn="$(BOARD)" \
