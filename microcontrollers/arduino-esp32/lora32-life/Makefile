@@ -34,7 +34,7 @@ upload: $(BUILD_DIR)/$(SKETCH).bin $(BUILD_DIR)/$(SKETCH).partitions.bin
             --after hard_reset write_flash -z \
             --flash_mode dio \
             --flash_freq 80m \
-            --flash_size detect \
+            --flash_size 4MB \
             0xe000 $(ESP32_TOOLS)/partitions/boot_app0.bin \
             0x1000 $(ESP32_TOOLS)/sdk/bin/bootloader.bin \
             0x10000 $(BUILD_DIR)/$(SKETCH).bin \
