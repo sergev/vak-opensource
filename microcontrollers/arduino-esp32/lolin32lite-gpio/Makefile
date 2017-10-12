@@ -9,7 +9,7 @@ SKETCH          = $(notdir $(CURDIR)).ino
 BUILD_DIR       = $(CURDIR)/build-esp32
 SERIAL_PORT     = /dev/ttyUSB1
 UPLOAD_SPEED    = 460800
-BOARD           = espressif:esp32:lolin32:FlashFreq=80
+BOARD           = espressif:esp32:esp32:FlashFreq=80
 
 all:
 	@mkdir -p $(BUILD_DIR)
