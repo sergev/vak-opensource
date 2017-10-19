@@ -2,12 +2,10 @@ ifeq (,$(wildcard /Applications/Arduino.app/Contents/Java))
     # Linux
     ARDUINO_HOME= /opt/arduino-1.8.5
     SERIAL_PORT = /dev/ttyUSB1
-    SKETCHBOOK  = /home/sergev/.arduino15
 else
     # Mac OS X
     ARDUINO_HOME= /Applications/Arduino.app/Contents/Java
     SERIAL_PORT = /dev/tty.SLAB_USBtoUART
-    SKETCHBOOK  = $(HOME)/Library/Arduino15
 endif
 
 SKETCH          = $(notdir $(CURDIR)).ino
