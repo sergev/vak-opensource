@@ -2,6 +2,7 @@ project Gnat is
    for Languages use ("ada");
    for Object_Dir use "";
    for Exec_Dir use "";
+   --for Runtime ("Ada") use "zfp";
 
    package Builder is
       for Default_Switches ("Ada") use
@@ -14,14 +15,13 @@ project Gnat is
 
    package Binder is
       for Default_Switches ("Ada") use
-        ("-g",					-- keep binder file
-         "-C");					-- generate binder file in C
+        ("-g");					-- keep binder file
    end Binder;
 
    package Linker is
       for Default_Switches ("Ada") use
         ("-C",					--  binder file in C
-         "--GCC=gcc-3.3 -O");
+         "-O");
    end Linker;
 
 end Gnat;

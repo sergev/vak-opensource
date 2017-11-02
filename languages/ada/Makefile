@@ -1,5 +1,4 @@
-CC		= gcc-3.3
-GNATMAKE	= gnatmake --GCC=$(CC) -Pgnat.gpr
+GNATMAKE	= gnatmake -Pgnat.gpr
 
 ALL		= echo hello
 
@@ -18,6 +17,6 @@ hello.o:	hello.adb
 		$(ADAC) $(ADAFLAGS) -c $<
 
 clean:
-		rm -f *~ *.o *.ali $(ALL) b_*.c
+		rm -f *~ *.o *.ali $(ALL) b~*.ad?
 
 .SUFFIXES:	.ada
