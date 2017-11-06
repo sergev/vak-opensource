@@ -66,10 +66,13 @@ c1,2=([^[:alnum:]_]|^)(asm|else|if|switch|case|while|for|goto|break\
 c2=\\[|\\]|\\(|\\)|{|}|,
 
 # Go mode (vak)
-/*.go|/-\*- *go *-\*-
+/*.go|*.gy|*.go-|/-\*- *go *-\*-
 i=c++-comment
 i=cpp
-i=c-literal
+c4="([^"\n\\]|\\\\(.|\n))*"
+c6='([^'\n\\]|\\\\.)*'
+c4=`[^`]*`
+c5,2=([^[:alnum:]_])((0[xX][[:xdigit:]]+)|([0-9]+))
 c1,2=([^[:alnum:]_]|^)(append|bool|break|byte|cap|case|chan|close|complex\
 |complex128|complex64|const|continue|copy|default|defer|delete|else|error\
 |fallthrough|false|float32|float64|for|func|go|goto|if|imag|import|int|int16\
@@ -78,6 +81,20 @@ c1,2=([^[:alnum:]_]|^)(append|bool|break|byte|cap|case|chan|close|complex\
 |type|uint|uint16|uint32|uint64|uint8|uintptr|var\
 )([^[:alnum:]_]|$)
 c2=\\[|\\]|\\(|\\)|{|}|,|:=
+
+# Rust mode (vak)
+/*.rs|/-\*- *rust *-\*-
+i=c++-comment
+i=cpp
+c4="([^"\n\\]|\\\\(.|\n))*"
+c6='([^'\n\\]|\\\\.)*'
+c4=`[^`]*`
+c5,2=([^[:alnum:]_])((0[xX][[:xdigit:]]+)|([0-9]+))
+c1,2=([^[:alnum:]_]|^)(match|if|else|for|loop|while|type|struct|enum|union\
+|as|break|box|continue|extern|fn|in|impl|let|macro|pub|return|yield|super\
+|where|unsafe|use|mod|trait|move|mut|ref|static|const\
+)([^[:alnum:]_]|$)
+c2=\\[|\\]|\\(|\\)|{|}|,|::
 
 # named.conf mode (lav)
 /named.conf|/-\*- *(named|bind) *-\*-
@@ -119,6 +136,13 @@ i=java
 
 /*.js|/-\*- *javascript *-\*-
 i=javascript
+
+/*.json
+c3="([^"\n\\]|\\\\(.|\n))*" *:
+c0="([^"\n\\]|\\\\(.|\n))*"
+c4='([^'\n\\]|\\\\.)*'
+c5,2=([^[:alnum:]_])((0[xX][[:xdigit:]]+)|([0-9]+))
+c2=\\[|\\]|\\(|\\)|{|}|,
 
 # po (i18n) mode (lav)
 /*.po|*.pot
@@ -185,6 +209,8 @@ c2=:|\$|->|=
 c2,1=^(\[)[^\]]+\]
 c2,1=^\[[^\]]+(\])
 c1,1=^\[([^\]]+)\]
+c5="[^"]+?"
+c5='[^']+?'
 
 # CMake files, by Serge Vakulenko <vak@cronyx.ru>
 /CMakeLists.txt
@@ -192,7 +218,7 @@ c3=#.*$
 c2=\(|\)|\${|}
 c5="[^"]+?"
 c1,2=([^[:alnum:]_]|^)(project|message\
- |cmake_minimum_required|set|if|else|endif|find_path|find_library|find_program|add_definitions\
+ |cmake_minimum_required|set|if|else|elseif|endif|find_path|find_library|find_program|add_definitions\
  |include_directories|add_executable|target_link_libraries|include|cmake_policy\
  |execute_process|foreach|endforeach|add_test|add_library|set_tests_properties\
 )([^[:alnum:]_]|$)
@@ -200,7 +226,7 @@ c1,2=([^[:alnum:]_]|^)(project|message\
 /[Mm]akefile|[Mm]akefile-*|*.mk|*.rules|*.defs|*.diag|/^#![ \t]*/.*/make|-\*-.*makefile[^\w]
 i=make-file
 
-/*.v|*.mv|*.vh|*.v.prpl|/-\*- *verilog *-\*-
+/*.v|*.mv|*.vh|*.v.prpl|*.hook|/-\*- *verilog *-\*-
 i=verilog
 
 /*.sv|/-\*- *systemverilog *-\*-
@@ -217,6 +243,18 @@ c1,2=(\W)([0-9]+:)
 #c2,1=^(\[)[^\]]+\]
 #c2,1=^\[[^\]]+(\])
 #c1,1=^\[([^\]]+)\]
+
+# Asylog mode, by Serge Vakulenko <serge@vak.ru>
+/*.av|/-\*- *asylog *-\*-
+c3="([^"\n\\]|\\\\(.|\n))*"
+c3,1=`[ \t]*(include[ \t]*"[^"\n]*"|define*|ifdef*|ifndef*|else*|endif*)
+i=c++-comment
+c1,2=([^[:alnum:]_]|^)(always|begin|case|default|else|end|endcase|endmodule\
+|endselect|for|forever|fork|if|input|integer|join|logic|master|module\
+|output|parameter|repeat|select|$signed|signed|slave|sync|$unsigned|while\
+)([^[:alnum:]_]|$)
+c2=\\[|\\]|\\(|\\)|{|}|,|@|<=|:|;|->|#
+c5,2=([^[:alnum:]_])((([0-9]*'d)*[0-9]+)|([0-9]*'h[[:xdigit:]]+)|([0-9]*'o[0-7]+)|([0-9]*'b[0-1]+))
 
 /[Mm]akefile|[Mm]akefile.*|*.mk|*.rules|*.defs|*.diag|/^#![ \t]*/.*/make|-\*-.*makefile[^\w]
 i=make-file
@@ -337,6 +375,16 @@ c1,2=([^[:alnum:]_]|^)(@startuml|@enduml|hide|skinparam|left|right|header|endhea
 c2=,|->|-->|==|:
 c3=^[ \t]*'.*
 
+# Dot mode, by Serge Vakulenko (serge@vak.ru)
+/*.dot
+c1,2=([^[:alnum:]_]|^)(digraph|size|margin|layout|node|edge|label\
+|fillcolor|arrowhead|arrowtail|dir|both|weight|shape|height|width\
+|style|fontsize|color)([^[:alnum:]_]|$)
+c2=;|}|{|\[|\]|=|->
+c3=#.*$
+c4="[^"]*"
+c5=[0-9][.0-9]*
+
 # Manifest files, by Serge Vakulenko (serge@vak.ru)
 /*.manifest
 c1,2=([^[:alnum:]_]|^)(default|owner|group|dirmode|filemode|dir\
@@ -374,11 +422,21 @@ c3=^.* Write .*$
 c3=^.* Read .*$
 c3=^.*\) .* = .*$
 c4=^.*User\) - [0-9a-f]+ [0-9a-f]+ [0-9a-f]: [0-9a-f]+ .*$
+c6=^.*_TC[1-9].*\) - [0-9a-f]+ [0-9a-f]+ [0-9a-f]: [0-9a-f]+ .*$
 c1=^.*\) [0-9a-f]+ [0-9a-f]+ [0-9a-f]: [0-9a-f]+ .*$
 c1=^.* [:-] [0-9a-f]+ [0-9a-f]+ [0-9a-f]: [0-9a-f]+ .*$
 c1=^[0-9a-f]+:       [0-9a-f]+ .*$
 c6=^replay.log.*$
 c6=\t#.*$
+c3=^INFO:.*$
+c1=^WARNING:.*$
+
+# Altera report files, by Serge Vakulenko <vak@cronyx.ru>
+/*.rpt
+c6=[+;].*$
+c3=^ *Info.*$
+c1=^ *Warning.*$
+c5=^ *Error.*$
 
 # MIPSsim trace files, by Serge Vakulenko <vak@cronyx.ru>
 /*.mtrace|*.[bl][on]64r6|*.[bl][on]32r6
@@ -531,3 +589,28 @@ c1,2=([^[:alnum:]_]|^)(subroutine|common|dimension|data|integer|if|call|return|g
 |end|do|continue|print|format\
 )([^[:alnum:]_]|$)
 c5=[0-9][0-9]*[b]*
+
+# Scheme files, by Serge Vakulenko
+/*.scm|*.abs
+c3=;.*$
+c1=\(|\)|;|`|\|\[|]|{|}
+c6="[^"]+?"
+c1,2=([^[:alnum:]_]|^)(\
+access|and|begin|bkpt|case|cond|cons-stream|declare|default-object?|define\
+|define-integrable|define-macro|define-structure|define-syntax|delay|do\
+|fluid-let|if|in-package|lambda|let|let\*|let-syntax|letrec|local-declare\
+|macro|make-environment|named-lambda|or|quasiquote|quote|scode-quote|sequence\
+|set!|the-environment|unassigned?|using-syntax\
+)([^[:alnum:]_]|$)
+c5,2=([^[:alnum:]_]|^)([0-9][0-9]*)
+
+# ebnf2ps BNF files, by Serge Vakulenko <vak@cronyx.ru>
+/*.bnf
+#c5=\*\*\*.*$
+#c5=--.*$
+c6=#TODO.*$
+c3=#.*$
+#c2=:|\$|->|=
+#c2,1=^(\[)[^\]]+\]
+c5="[^"]*"
+c1={|}|\||/|;|=|\[|\]|\(|\)|+|Identifier

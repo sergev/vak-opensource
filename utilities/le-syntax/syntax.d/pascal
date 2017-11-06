@@ -1,14 +1,17 @@
 # -*- LE-syntax -*-
 # Pascal mode, by Raphael Geissert <atomo64@gmail.com>
-c3={[^}]*?}
-c3='[^'\n]*?'
+#c3={[^}]*?}
+c3=\(\*[^*]*\*\)
+c3=^[*%].*$
+c6='[^'\n]*?'
 ci1,2=([^[:alnum:]_]|^)(\
 begin|end|program\
 |if|in|else|do|while|then|for|(down)?to|until|repeat|case|with|of\
-|and|or|not\
+|and|or|not|div|mod|\.data|exit|true|false\
 |var|type|real|integer|char|boolean|string|nil|array|const|file|packed|byte\
 |procedure|record|set\
 |new|function|goto|label|uses\
 )([^[:alnum:]_]|$)
 ci2,1=^end(\.)
-ci2=<|>|;|\(|\)|\[|\]|:|=|[+*/-]|div|mod|\.\.
+ci2=<|>|;|\(|\)|\[|\]|:|=|[+*/-]|\.\.|@|{|}|,
+ci5,2=([^[:alnum:]_]|^)([0-9]+[B|C]?)([^[:alnum:]_]|$)
