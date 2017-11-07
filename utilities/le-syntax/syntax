@@ -1,9 +1,9 @@
- -*- LE-syntax -*-
+# -*- LE-syntax -*-
 # Syntax patterns for LE editor. (c) 1997-2008 Alexander V. Lukyanov
 # This file is distributed under GNU GPL license.
 # Please send corrections and improvements to <lav@yars.free.net>
 #
-# $Id: syntax,v 1.54 2010/11/23 07:29:35 lav Exp $
+# $Id: syntax,v 1.55 2013/01/31 08:02:47 lav Exp $
 #
 # This file describes how to highlight syntax. The following format
 # used:
@@ -17,9 +17,9 @@
 
 # c1 usually marks keywords
 # c2 usually marks important syntax elements
-# c3 usually marks comments
+# c3 usually marks comments or text strings
 # c4 usually marks preprocessor directives
-# c5 - text strings
+# c5
 # c6
 
 # i=file includes specified file from PKGDATADIR/syntax.d/file
@@ -67,12 +67,14 @@ c2=\\[|\\]|\\(|\\)|{|}|,
 
 # Go mode (vak)
 /*.go|*.gy|*.go-|/-\*- *go *-\*-
-i=c++-comment
-i=cpp
-c4="([^"\n\\]|\\\\(.|\n))*"
-c6='([^'\n\\]|\\\\.)*'
-c4=`[^`]*`
-c5,2=([^[:alnum:]_])((0[xX][[:xdigit:]]+)|([0-9]+))
+c3=//.*$|/\\*(?:.|\n)*?\\*/
+c4,1=^[ \t]*(#[ \t]*(?:assert|define|elif|else|endif|error|ident|if|ifdef\
+	|ifndef|import|include|include_next|line|pragma|sccs|unassert|undef)\b)
+c4,1=^[ \t]*(#)
+c3,1=^[ \t]*#[ \t]*include(?:_next)?[ \t]*(<[^>\n]*>|"[^"\n]*")
+c6="([^"\n\\]|\\\\(.|\n))*"|'([^'\n\\]|\\\\.)*'
+c6=`[^`]*`
+c4=(0[0-7]*)|([1-9][0-9]*)|(0x[0-9a-fA-F]+)
 c1,2=([^[:alnum:]_]|^)(append|bool|break|byte|cap|case|chan|close|complex\
 |complex128|complex64|const|continue|copy|default|defer|delete|else|error\
 |fallthrough|false|float32|float64|for|func|go|goto|if|imag|import|int|int16\
@@ -80,7 +82,7 @@ c1,2=([^[:alnum:]_]|^)(append|bool|break|byte|cap|case|chan|close|complex\
 |println|range|real|recover|return|rune|select|string|struct|switch|true\
 |type|uint|uint16|uint32|uint64|uint8|uintptr|var\
 )([^[:alnum:]_]|$)
-c2=\\[|\\]|\\(|\\)|{|}|,|:=
+c2=\\[|\\]|\\(|\\)|{|}|,|:=|&&|&|\|\||==|!=|\*
 
 # Rust mode (vak)
 /*.rs|/-\*- *rust *-\*-
@@ -128,7 +130,7 @@ i=python
 /*.sa
 i=sather
 
-/*.sh|*.csh|*.environ|.bashrc|.cshrc|/^#![ \t]*/.*/(ba|z|k|tc)?sh|-\*- *sh *-\*-
+/*.sh|*.csh|*.environ|.bashrc|.cshrc|.profile|/^#![ \t]*/.*/(ba|z|k|tc)?sh|-\*- *sh *-\*-
 i=shell
 
 /*.java|/-\*- *java *-\*-
@@ -137,6 +139,7 @@ i=java
 /*.js|/-\*- *javascript *-\*-
 i=javascript
 
+# JSON mode (vak)
 /*.json
 c3="([^"\n\\]|\\\\(.|\n))*" *:
 c0="([^"\n\\]|\\\\(.|\n))*"
@@ -176,14 +179,14 @@ i=tex
 
 /*.php.*|*.php|/<\?php
 s(php)1=<\?(?:php)?((?:.|\n)*?)\?>
-s(html)1=(?:\`|\?>)((?:.|\n)*?)(?:<\?|\')
+s(html)1=(?:\`|\?>)((?:.|\n)*?)(?:<\?|\`)
 i=html
 i=php
 
 /*.html|*.htm|*.shtml|/-\*- *html *-\*-|^<![Dd][Oo][Cc][Tt][Yy][Pp][Ee] [Hh][Tt][Mm][Ll]|^<[Hh][Tt][Mm][Ll]>
 i=html
 
-/*.tcl|/^#![ \t]*/.*/tcl|-\*- *tcl *-\*-
+/*.tcl|*.xdc|/^#![ \t]*/.*/tcl|-\*- *tcl *-\*-
 i=tcl
 
 /*.expect|/^#![ \t]*/usr/bin/expect
@@ -232,7 +235,7 @@ i=verilog
 /*.sv|/-\*- *systemverilog *-\*-
 i=systemverilog
 
-/*.vhdl|*.vhd|/-\*- *vhdl *-\*-
+/*.vhd|*.vhdl|/-\*- *vhdl *-\*-
 i=vhdl
 
 # PMK files, by Serge Vakulenko <vak@cronyx.ru>
@@ -246,24 +249,19 @@ c1,2=(\W)([0-9]+:)
 
 # Asylog mode, by Serge Vakulenko <serge@vak.ru>
 /*.av|/-\*- *asylog *-\*-
-c3="([^"\n\\]|\\\\(.|\n))*"
+c6="([^"\n\\]|\\\\(.|\n))*"
 c3,1=`[ \t]*(include[ \t]*"[^"\n]*"|define*|ifdef*|ifndef*|else*|endif*)
 i=c++-comment
+c3=\(\\*(?:.|\n)*?\\*\)
 c1,2=([^[:alnum:]_]|^)(always|begin|case|default|else|end|endcase|endmodule\
 |endselect|for|forever|fork|if|input|integer|join|logic|master|module\
 |output|parameter|repeat|select|$signed|signed|slave|sync|$unsigned|while\
 )([^[:alnum:]_]|$)
 c2=\\[|\\]|\\(|\\)|{|}|,|@|<=|:|;|->|#
-c5,2=([^[:alnum:]_])((([0-9]*'d)*[0-9]+)|([0-9]*'h[[:xdigit:]]+)|([0-9]*'o[0-7]+)|([0-9]*'b[0-1]+))
-
-/[Mm]akefile|[Mm]akefile.*|*.mk|*.rules|*.defs|*.diag|/^#![ \t]*/.*/make|-\*-.*makefile[^\w]
-i=make-file
-
-/*.v|*.mv|*.sv|*.vh|*.v.prpl|/-\*- *verilog *-\*-
-i=verilog
-
-/*.vhdl|*.vhd|/-\*- *vhdl *-\*-
-i=vhdl
+c4,2=([^[:alnum:]_])('(0|1|d*[0-9]+|h[[:xdigit:]]+|o[0-7]+|b[01]+))
+c4,2=([^[:alnum:]_])([0-9]+('d*[0-9]+|'h[[:xdigit:]]+|'o[0-7]+|'b[01]+|))
+c5=#[^ ]*
+c1==
 
 # Debian control file mode, by Raphael Geissert <atomo64@gmail.com>
 #/control|/^Source:
@@ -272,9 +270,9 @@ c3=^#.*$
 ci2,1=^[[:alnum:]-]+(:)
 c2=\$|=|<|>|\||,
 c2=^ \.
-c1,1=^(Source|Package|Version|Section|Priority|Maintainer|Homepage|Description\
+c1,1=^(Source|Package(-List)?|Version|Section|Priority|Maintainer|Homepage|Description\
  |Standards-Version|(Build-)?Depends(-Indep)?|Architecture|Provides|Replaces\
- |Recommends|Suggests|(Build-)?Conflicts(-Indep)?|Enhances|Uploaders|Vcs-Browser\
+ |Recommends|Suggests|(Build-)?Conflicts(-Indep)?|Breaks|Enhances|Uploaders|Vcs-Browser\
  |Essential|Installed-Size|Binary|Format|Files|Closes|Changes|Urgency\
  |Distribution|Date|Changed-By|Checksums-Sha(1|256))
 ci1=^Vcs-[[:alnum:]]+
@@ -284,7 +282,7 @@ c1,1=^(X[BCS]+-[[:alnum:]-]+)(:)
 // ([^ ]+) .+; +urgency=
 c3=^[ \t]+--.+
 c2,1=urgency=([[:alnum:]]+)
-ci2,1=[ \t]+([[:alnum:]]+);[ \t]+urgency=
+ci2,1=[ \t]+([[:alnum:]-]+);[ \t]+urgency=
 c2,1=^[[:alnum:].-]+ +\((.+)\)
 c1,1=^([[:alnum:].-]+) +\(.+\)
 ci1=closes:[ \t]*(bug)?#?[ \t]?[0-9]+(,[ \t]*\
@@ -313,7 +311,7 @@ c2=[@()]
 
 # really basic m4 and ac modes, by Raphael Geissert <atomo64@gmail.com>
 /*.ac|/-\*- *autoconf *-\*-
-c3,2=(^|[^[:alnum:]_])dnl([^[:alnum:]_].*)?$
+c3,2=(^|[^[:alnum:]_])dnl([^[:alnum:]_\n].*)?$
 c1,2=(^|[^[:alnum:]_])(A[CM]_[[:alnum:]_]+)
 c2=:|=|>|<|,|\||\[|\]|\(|\)|{|}|&
 c3="|'
@@ -366,6 +364,14 @@ i=pascal
 
 /*.t2t
 i=txt2tags
+
+# OCaml mode, by Raphael Geissert <atomo64@gmail.com>
+/*.mli|*.ml
+i=ocaml
+
+# Haskell mode, by Raphael Geissert <atomo64@gmail.com>
+/*.hs
+i=haskell
 
 # PlantUML mode, by Serge Vakulenko (serge@vak.ru)
 /*.uml|/-\*- *PlatUML *-\*-
@@ -528,6 +534,7 @@ c2=^ERROR.*$
 #c3=Write .*$
 #c5=Read .*$
 c1=Memory .*$
+c1=Poll .*$
 c2=\*\*\* .*$
 c2=;.*$
 c1=---.*$
@@ -571,14 +578,15 @@ c6,2=([^[:alnum:]а-я_*/]|^)([0-9][0-9]*)
 c4=@[0-9a-fA-F ]*
 
 # Micro-BESM microcode files, by Serge Vakulenko <vak@cronyx.ru>
-/*.src
-c3=[*;].*$
+/*.src|*.mak
+c4=[*].*$
+c3=[;].*$
+c2=:|,|=
+c1,2=([^[:alnum:]_]|^)(FLIST|СНЕСК|MACRO|PROG|EXTERN|END|ENTRY|EXTERNAL\
+|FIELD|EQU|CONST|val|variable|while|xor)([^[:alnum:]_]|$)
+c6=[A-ZА-Ъ0-9/*]*:
 c5=%[^%]*%
-c6=^>
-c6=^[A-ZА-Ъ0-9/]*:
-c2=,|=
-c1,2=([^[:alnum:]_]|^)(FLIST|СНЕСК|MACRO|PROG|EXTERN|ENTRY|END|EXTERNAL\
-|FIELD|EQU|CONST)([^[:alnum:]_]|$)
+c5=^>
 
 # Fortran files, by Serge Vakulenko <vak@cronyx.ru>
 /*.f|*.b6
