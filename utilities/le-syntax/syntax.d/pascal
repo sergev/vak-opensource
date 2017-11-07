@@ -7,7 +7,7 @@ c6='[^'\n]*?'
 ci1,2=([^[:alnum:]_]|^)(\
 begin|end|program\
 |if|in|else|do|while|then|for|(down)?to|until|repeat|case|with|of\
-|and|or|not|div|mod|\.data|exit|true|false\
+|and|or|not|div|mod|\.data|exit|true|fortran|external|false\
 |var|type|real|integer|char|boolean|string|nil|array|const|file|packed|byte\
 |procedure|record|set\
 |new|function|goto|label|uses\

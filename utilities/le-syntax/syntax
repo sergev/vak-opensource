@@ -68,13 +68,9 @@ c2=\\[|\\]|\\(|\\)|{|}|,
 # Go mode (vak)
 /*.go|*.gy|*.go-|/-\*- *go *-\*-
 c3=//.*$|/\\*(?:.|\n)*?\\*/
-c4,1=^[ \t]*(#[ \t]*(?:assert|define|elif|else|endif|error|ident|if|ifdef\
-	|ifndef|import|include|include_next|line|pragma|sccs|unassert|undef)\b)
-c4,1=^[ \t]*(#)
-c3,1=^[ \t]*#[ \t]*include(?:_next)?[ \t]*(<[^>\n]*>|"[^"\n]*")
 c6="([^"\n\\]|\\\\(.|\n))*"|'([^'\n\\]|\\\\.)*'
 c6=`[^`]*`
-c4=(0[0-7]*)|([1-9][0-9]*)|(0x[0-9a-fA-F]+)
+c5=(0[0-7]*)|([1-9][0-9]*)|(0x[0-9a-fA-F]+)
 c1,2=([^[:alnum:]_]|^)(append|bool|break|byte|cap|case|chan|close|complex\
 |complex128|complex64|const|continue|copy|default|defer|delete|else|error\
 |fallthrough|false|float32|float64|for|func|go|goto|if|imag|import|int|int16\

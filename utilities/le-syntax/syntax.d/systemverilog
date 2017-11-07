@@ -1,8 +1,9 @@
 # -*- LE-syntax -*-
 # SystemVerilog mode, by Serge Vakulenko <vak@cronyx.ru>
-c3="([^"\n\\]|\\\\(.|\n))*"
+c6="([^"\n\\]|\\\\(.|\n))*"
 c3,1=`[ \t]*(include[ \t]*"[^"\n]*"|define*|ifdef*|ifndef*|else*|endif*)
 i=c++-comment
+c3=\(\\*(?:.|\n)*?\\*\)
 c1,2=([^[:alnum:]_]|^)(alias|always|always_comb|always_ff|always_latch\
 |and|assert|assign|assume|automatic|before|begin|bind|bins|binsof|bit|break\
 |buf|bufif0|bufif1|byte|case|casex|casez|cell|chandle|class|clocking|cmos\
@@ -28,5 +29,8 @@ c1,2=([^[:alnum:]_]|^)(alias|always|always_comb|always_ff|always_latch\
 |void|wait|wait_order|wand|weak0|weak1|while|wildcard|wire|with|within|wor\
 |xnor|xor\
 )([^[:alnum:]_]|$)
-c2=\\[|\\]|\\(|\\)|{|}|,|@|<=|:|;|->|#
-c5,2=([^[:alnum:]_])((([0-9]*'d)*[0-9]+)|([0-9]*'h[[:xdigit:]]+)|([0-9]*'o[0-7]+)|([0-9]*'b[0-1]+))
+c6=\\[|\\]|\\(|\\)|{|}|,|@|<=|:|;|->|#
+c2,2=([^[:alnum:]_])('(0|1|d*[0-9]+|h[[:xdigit:]]+|o[0-7]+|b[01]+))
+c2,2=([^[:alnum:]_])([0-9]+('d*[0-9]+|'h[[:xdigit:]]+|'o[0-7]+|'b[01]+|))
+c5=#[^ ]*
+c1==
