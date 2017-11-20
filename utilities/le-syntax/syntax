@@ -438,7 +438,7 @@ c2,2=([^[:alnum:]_]|^)(jz|cjs|jmap|cjp|push|jsrp|cjv|jrp|rfct|rpct\
 c5=\) ..... .....:.*$
 
 # OVPsim trace files, by Serge Vakulenko <vak@cronyx.ru>
-/*.log|log|log-*|*.trace
+/*.log|log|log-*|*.otrace
 c5=!!!.*$
 c4=.* ignored by grmPlayer
 c3=----#.*$
@@ -461,9 +461,17 @@ c6=^replay.log.*$
 c6=\t#.*$
 c3=^INFO:.*$
 c1=^WARNING:.*$
-c3=    Write.*$
-c3=    Read.*$
-c3=    Memory.*$
+
+# BESM-6/SVS SIMH trace files, by Serge Vakulenko <vak@besm6.org>
+/*.log|log|log-*|*.trace
+c5=^cpu. --.*$
+c3=#.*$
+c6=^.* Memory .*$
+c6=^.* Fetch .*$
+c3=^.* Write .*$
+c3=^.* Read .*$
+c3=^.* = .*$
+c1=^cpu. [0-7]+ [0-7]+ [RL]: [0-7]+ .*$
 
 # Altera report files, by Serge Vakulenko <vak@cronyx.ru>
 /*.rpt
@@ -559,7 +567,7 @@ c1=^WARNING.*$
 c2=^ERROR.*$
 
 # Micro-BESM trace file, by Serge Vakulenko <vak@cronyx.ru>
-/*.trace
+/*.mtrace
 #c3=Write .*$
 #c5=Read .*$
 c1=Memory .*$
@@ -660,7 +668,5 @@ c5,2=([^[:alnum:]_]|^)([0-9][0-9]*)
 /*.bnf
 c6=#TODO.*$
 c3=#.*$
-c1==|\||{|}|\[|\]|/|;|+
-c4="[^"]*"
-c1,2=([^[:alnum:]_]|^)(Identifier\
-)([^[:alnum:]_]|$)
+c1={|}|\||/|;|=|\[|\]|\(|\)|+|Identifier
+c5="[^"]*"
