@@ -63,8 +63,10 @@ c1,2=([^[:alnum:]_]|^)(asm|else|if|switch|case|while|for|goto|break\
  |inline|bool|true|false|operator|overload|template|friend|namespace|using\
  |typeid|dynamic_cast|const_cast|static_cast|reinterpret_cast|typename|explicit\
  |nullptr|constexpr|decltype|static_assert|noexcept|alignas|alignof|override|final\
+ |mutable|thread_local|char(16|32)_t|wchar_t|export\
+ |bitand|bitor|compl|(and|not|or|xor)(_eq)?\
 )([^[:alnum:]_]|$)
-c2=\\[|\\]|\\(|\\)|{|}|,
+c2=\\[|\\]|\\(|\\)|{|}|,|<%|%>|<:|:>|\?\?[<>()=/'!-]
 
 # Go mode (vak)
 /*.go|*.gy|*.go-|/-\*- *go *-\*-
@@ -110,6 +112,7 @@ c1,1=\\\\fB((\\\\[^f]|[^\\])*[^\\]?)(\\\\f|$)
 c3,1=\\\\fI((\\\\[^f]|[^\\])*[^\\]?)(\\\\f|$)
 c1,1=^\.B[IR]? (.*)$
 c3,1=^\.I (.*)$
+#i=nroff
 
 /*.e
 i=eiffel
@@ -180,6 +183,7 @@ i=tex
 /*.php.*|*.php|/<\?php
 s(php)1=<\?(?:php)?((?:.|\n)*?)\?>
 s(html)1=(?:\`|\?>)((?:.|\n)*?)(?:<\?|\`)
+c2,1=<(\?(?:php)?)
 i=html
 i=php
 
