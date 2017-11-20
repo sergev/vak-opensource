@@ -59,9 +59,10 @@ c1,2=([^[:alnum:]_]|^)(asm|else|if|switch|case|while|for|goto|break\
  |continue|char|short|int|long|unsigned|signed|auto\
  |const|default|do|double|enum|extern|float|register\
  |return|sizeof|static|struct|typedef|union|void|volatile\
- |try|catch|class|new|delete|private|public|protected|this|virtual\
+ |try|catch|throw|class|new|delete|private|public|protected|this|virtual\
  |inline|bool|true|false|operator|overload|template|friend|namespace|using\
  |typeid|dynamic_cast|const_cast|static_cast|reinterpret_cast|typename|explicit\
+ |nullptr|constexpr|decltype|static_assert|noexcept|alignas|alignof|override|final\
 )([^[:alnum:]_]|$)
 c2=\\[|\\]|\\(|\\)|{|}|,
 
@@ -120,7 +121,7 @@ i=ada
 i=c++-comment
 i=as
 
-/*.py|/#!/usr/bin/python
+/*.py|/^#![ \t]*/.*/python|-\*- *python *-\*-
 i=python
 
 /*.sa
@@ -161,6 +162,9 @@ i=gema
 /*.p[lm]|*.dpl|/^#![ \t]*/.*/\perl|-\*- *perl *-\*-
 i=perl
 
+/*.pod|/^=(pod|head[1-4])$
+i=pod
+
 /*.sql|*.buf|/-\*- *[sS][qQ][lL] *-\*-
 i=sql
 
@@ -181,6 +185,9 @@ i=php
 
 /*.html|*.htm|*.shtml|/-\*- *html *-\*-|^<![Dd][Oo][Cc][Tt][Yy][Pp][Ee] [Hh][Tt][Mm][Ll]|^<[Hh][Tt][Mm][Ll]>
 i=html
+
+/*.css
+i=css
 
 /*.tcl|*.xdc|/^#![ \t]*/.*/tcl|-\*- *tcl *-\*-
 i=tcl
@@ -267,10 +274,10 @@ ci2,1=^[[:alnum:]-]+(:)
 c2=\$|=|<|>|\||,
 c2=^ \.
 c1,1=^(Source|Package(-List)?|Version|Section|Priority|Maintainer|Homepage|Description\
- |Standards-Version|(Build-)?Depends(-Indep)?|Architecture|Provides|Replaces\
+ |Standards-Version|(Build-)?Depends(-Indep)?|Pre-Depends|Architecture|Provides|Replaces\
  |Recommends|Suggests|(Build-)?Conflicts(-Indep)?|Breaks|Enhances|Uploaders|Vcs-Browser\
  |Essential|Installed-Size|Binary|Format|Files|Closes|Changes|Urgency\
- |Distribution|Date|Changed-By|Checksums-Sha(1|256))
+ |Distribution|Date|Changed-By|Checksums-Sha(1|256)|Multi-Arch|Built-Using)
 ci1=^Vcs-[[:alnum:]]+
 c1,1=^(X[BCS]+-[[:alnum:]-]+)(:)
 
@@ -368,6 +375,24 @@ i=ocaml
 # Haskell mode, by Raphael Geissert <atomo64@gmail.com>
 /*.hs
 i=haskell
+
+# git commit message mode
+//# Please enter (the|a) commit message (for your changes|to explain)
+c3=^#
+c1,1=^# On branch ([^[:space:]]+)
+c2,1=^#[[:space:]]+(copied|deleted|modified|new file|renamed\
+ |typechange|unknown|unmerged):
+c2,1=^(Conflicts):
+c3,1=\W('[^']+?')\W
+
+# git rebase (interactive) mode
+//# Rebase .\{1,30\} onto .
+c3=^#
+c2,1=^(p(?:ick)|r(?:eword)|e(?:dit)|s(?:quash)|f(?:ixup)|x|exec)[[:space:]]
+
+# Puppet
+/*.pp
+i=puppet
 
 # PlantUML mode, by Serge Vakulenko (serge@vak.ru)
 /*.uml|/-\*- *PlatUML *-\*-
@@ -500,6 +525,7 @@ c5=##*.*
 #c3=//[^/]*//
 #c5=\*\*[^*]*\*\*
 c5=```
+#i=markdown
 
 # Spice files, by Serge Vakulenko <vak@cronyx.ru>
 /*.lib|*.cir|/\* *ngspice
