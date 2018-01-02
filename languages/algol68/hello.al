@@ -1,3 +1,3 @@
 BEGIN
-    print("Hello, world!")
+    print(("Hello, world!", new line))
 END
