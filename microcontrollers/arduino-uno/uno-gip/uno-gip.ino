@@ -1,13 +1,6 @@
 /*
  * Generate bipolar output 400kHz.
  */
-#include <LiquidCrystal.h>
-
-//
-// Initialize the library by associating any needed LCD interface pin
-// with the arduino pin number it is connected to.
-//
-LiquidCrystal lcd(8, 9, 4, 5, 6, 7);
 
 //
 // Rate for generator.
@@ -17,63 +10,6 @@ LiquidCrystal lcd(8, 9, 4, 5, 6, 7);
 #define RATE_MAX        (RATE_DEFAULT + 8)
 
 int divisor;
-
-//
-// Constants for input buttons.
-//
-enum {
-    BUTTON_NONE,
-    BUTTON_RIGHT,
-    BUTTON_LEFT,
-    BUTTON_UP,
-    BUTTON_DOWN,
-    BUTTON_SELECT,
-};
-
-//
-// Read the buttons.
-//
-int read_buttons()
-{
-    // Expected input values are:
-    // 0 - right button pressed
-    // 131 - up
-    // 307 - down
-    // 480 - left
-    // 721 - select button
-    // 1023 - none
-    int input = analogRead(0);
-
-    if (input > 872) return BUTTON_NONE;
-    if (input > 600) return BUTTON_SELECT;
-    if (input > 393) return BUTTON_LEFT;
-    if (input > 219) return BUTTON_DOWN;
-    if (input > 65)  return BUTTON_UP;
-
-    return BUTTON_RIGHT;
-}
-
-int display_frequency()
-{
-    int khz = 16000 / (1 + divisor) / 2;
-    int i;
-
-    // Display seconds elapsed since power-up.
-    // Use right side of the second line.
-    lcd.setCursor(0, 0);
-
-    lcd.print("Freq ");
-    lcd.print(khz);
-    lcd.print(" kHz ");
-
-    lcd.setCursor(0, 1);
-    for (i=RATE_MAX; i>divisor; i--) {
-        lcd.print("\377");
-    }
-    for (; i>RATE_MIN; i--) {
-        lcd.print(" ");
-    }
-}
 
 #define NOP5 "nop\nnop\nnop\nnop\nnop\n"
 
@@ -105,17 +41,26 @@ int display_frequency()
         NOP##delay2(); \
     }
 
+int khz(int div)
+{
+    return 16000 / (1 + div) / 2;
+}
+
 void generate(int div)
 {
     int phase1 = PORTD | B00000100;
     int phase2 = PORTD | B00001000;
 
-    // Use pins D2, D3 as outputs.
-    pinMode(2, OUTPUT);
-    pinMode(3, OUTPUT);
+    digitalWrite(4, LOW);
+    digitalWrite(5, LOW);
+    digitalWrite(6, LOW);
+    digitalWrite(7, LOW);
+    digitalWrite(8, LOW);
+    digitalWrite(9, LOW);
 
-    lcd.setCursor(0, 1);
-    lcd.print("Generate        ");
+    Serial.print("Generate ");
+    Serial.print(khz(divisor));
+    Serial.print(" kHz...\r\n");
 
     switch (divisor) {
     case 11: LOOP(11, 9);
@@ -138,17 +83,79 @@ void generate(int div)
     }
 }
 
+void idle()
+{
+    static int count;
+    static int fast;
+
+    //wdt_reset();
+    switch (count) {
+    case 0:  digitalWrite(5, LOW); digitalWrite(4, HIGH); break;
+    case 1:  digitalWrite(4, LOW); digitalWrite(5, HIGH); break;
+    case 2:  digitalWrite(5, LOW); digitalWrite(6, HIGH); break;
+    case 3:  digitalWrite(6, LOW); digitalWrite(7, HIGH); break;
+    case 4:  digitalWrite(7, LOW); digitalWrite(8, HIGH); break;
+    case 5:  digitalWrite(8, LOW); digitalWrite(9, HIGH); break;
+    case 6:  digitalWrite(9, LOW); digitalWrite(8, HIGH); break;
+    case 7:  digitalWrite(8, LOW); digitalWrite(7, HIGH); break;
+    case 8:  digitalWrite(7, LOW); digitalWrite(6, HIGH); break;
+    case 9:  digitalWrite(6, LOW); digitalWrite(5, HIGH); break;
+    }
+    if (++fast > 5000) {
+        fast = 0;
+        if (++count > 9)
+            count = 0;
+    }
+}
+
+int wait_input()
+{
+    for (;;) {
+        int c = Serial.read();
+        if (c >= 0)
+            return c;
+        idle();
+    }
+}
+
+void show_status()
+{
+    Serial.write('\n');
+    Serial.print("Frequency: ");
+    Serial.print(khz(divisor));
+    Serial.print(" kHz\r\n");
+}
+
 //
 // Initialize the application.
 //
 void setup()
 {
-    // Set up the screen width and height.
-    lcd.begin(16, 2);
+    Serial.begin(9600);
 
-    // Print a message.
+    // Use pins D2...D9 as outputs.
+    pinMode(2, OUTPUT);
+    pinMode(3, OUTPUT);
+    pinMode(4, OUTPUT);
+    pinMode(5, OUTPUT);
+    pinMode(6, OUTPUT);
+    pinMode(7, OUTPUT);
+    pinMode(8, OUTPUT);
+    pinMode(9, OUTPUT);
+    digitalWrite(2, LOW);
+    digitalWrite(3, LOW);
+    digitalWrite(4, LOW);
+    digitalWrite(5, LOW);
+    digitalWrite(6, LOW);
+    digitalWrite(7, LOW);
+    digitalWrite(8, LOW);
+    digitalWrite(9, LOW);
+
+    delay(10);
+    Serial.write("\r\n------------------------------------------\r\n");
+    Serial.write("Generator for BESM-6 Isolated Power Source\r\n");
+
     divisor = RATE_DEFAULT;
-    display_frequency();
 }
 
 //
@@ -156,38 +163,33 @@ void setup()
 //
 void loop()
 {
-    //
-    // Read the buttons.
-    // Repeat twice to stabilize.
-    //
-    static int last_key = BUTTON_NONE;
-    static int key_depressed = 0;
-    int key = read_buttons();
-    if (key == last_key) {
-        // Perform an action.
-        switch (key) {
-        case BUTTON_RIGHT:
-            if (divisor > RATE_MIN && !key_depressed) {
-                key_depressed = 1;
-                divisor--;
-                display_frequency();
-            }
+    show_status();
+
+    if (divisor > RATE_MIN)
+        Serial.write("\r\n  1. Increase frequency");
+    if (divisor < RATE_MAX)
+        Serial.write("\r\n  2. Decrease frequency");
+    Serial.write("\r\n  3. Generate");
+    Serial.write("\r\n\n");
+    for (;;) {
+        Serial.write("Command: ");
+        int cmd = wait_input();
+        Serial.write("\r\n");
+
+        if (cmd == '\n' || cmd == '\r')
             break;
-        case BUTTON_LEFT:
-            if (divisor < RATE_MAX && !key_depressed) {
-                key_depressed = 1;
-                divisor++;
-                display_frequency();
-            }
+
+        if (cmd == '1' && divisor > RATE_MIN) {
+            divisor--;
             break;
-        case BUTTON_NONE:
-            key_depressed = 0;
+        }
+        if (cmd == '2' && divisor < RATE_MAX) {
+            divisor++;
             break;
-        case BUTTON_SELECT:
+        }
+        if (cmd == '3') {
             generate(divisor);
             break;
         }
     }
-    last_key = key;
-    delay(10);
 }
