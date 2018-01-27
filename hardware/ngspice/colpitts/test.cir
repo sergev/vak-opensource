@@ -1,19 +1,36 @@
 == Test for Colpitts oscillator ==
 
 .include mpf102.lib
+.include 2n5458.lib
+.include j201.lib
 
+*--------
+* MPF102
+*--------
 J1  1 3 2   MPF102      ; JFET
+R1  0 2     250         ; resistor load
+.tran 10ns 400us 300us
+
+*--------
+* 2N5458
+*--------
+*J1  1 3 2   J2N5458    ; JFET
+*R1  0 2     1k         ; resistor load
+*.tran 20ns 800us 600us
+
+*--------
+* J201
+*--------
+*J1  1 3 2   J201       ; JFET
+*R1  0 2     3k         ; resistor load
+*.tran 200ns 1700us 1300us
 
 Vcc 1 0     +10V        ; power source
 
-R1  0 2     150         ; resistor load
-
-C1  2 3     1000e-12    ; 1nF
-C2  0 2     2000e-12    ; 2nF
+C1  2 3     6e-9        ; 6nF
+C2  0 2     12e-9       ; 12nF
 
 L1  0 3     40uH        ; inductance
-
-.tran 10ns 150us 100us
 
 .control
     run

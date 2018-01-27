@@ -1,0 +1,7 @@
+*
+* 2N5458 N−Channel JFET
+*
+* From http://www.gunthard-kraus.de/Spice_Model_CD/Vendor%20List/Spice-Models-collection/jfet.lib
+*
+.model J2N5458	NJF(Vto=-2.882 Beta=488.9u Lambda=3.167m Rd=1 Rs=1 Cgs=4.627p
++                   Cgd=4p Pb=.5 Is=181.3f Kf=4.284E-18 Af=1 Fc=.5)
