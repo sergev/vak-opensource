@@ -1,0 +1,6 @@
+*
+* MPF102 N−Channel JFET
+*
+* From https://sourceforge.net/p/ngspice/mailman/message/26710497/
+*
+.model MPF102   NJF(Vto=-3.41 Beta=1.04m Lambda=2m Rd=1 Rs=1 Cgs=2.414p Cgd=1.6p Pb=1)

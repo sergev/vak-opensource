@@ -1,0 +1,24 @@
+== Test for Colpitts oscillator ==
+
+.include mpf102.lib
+
+J1  1 3 2   MPF102      ; JFET
+
+Vcc 1 0     +10V        ; power source
+
+R1  0 2     150         ; resistor load
+
+C1  2 3     1000e-12    ; 1nF
+C2  0 2     2000e-12    ; 2nF
+
+L1  0 3     40uH        ; inductance
+
+.tran 10ns 150us 100us
+
+.control
+    run
+    plot V(2)
+    plot Vcc#branch
+.endc
+
+.end
