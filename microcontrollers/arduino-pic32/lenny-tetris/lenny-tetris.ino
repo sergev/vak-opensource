@@ -1,13 +1,26 @@
 /*
  * Tetris (C) Copyright 1995, Vadim Antonov
- * Port to uOS (C) 2010, Serge Vakulenko
+ * Port to Arduino (C) 2018, Serge Vakulenko
+ *
+ * Permission to use, copy, modify, and distribute this software
+ * and its documentation for any purpose and without fee is hereby
+ * granted, provided that the above copyright notice appear in all
+ * copies and that both that the copyright notice and this
+ * permission notice and warranty disclaimer appear in supporting
+ * documentation, and that the name of the author not be used in
+ * advertising or publicity pertaining to distribution of the
+ * software without specific, written prior permission.
+ *
+ * The author disclaim all warranties with regard to this
+ * software, including all implied warranties of merchantability
+ * and fitness.  In no event shall the author be liable for any
+ * special, indirect or consequential damages or any damages
+ * whatsoever resulting from loss of use, data or profits, whether
+ * in an action of contract, negligence or other tortious action,
+ * arising out of or in connection with the use or performance of
+ * this software.
  */
-#include <runtime/lib.h>
-#include <stream/stream.h>
-#include <gpanel/gpanel.h>
-#include <random/rand15.h>
-#include "shield-lcd4884.h"
-#include "devcfg.h"
+#include <LCD4884.h>
 
 #define PITWIDTH    12
 #define PITDEPTH    21
@@ -50,9 +63,15 @@ const shape_t shape [NSHAPES] = {
 
 int pit [PITDEPTH+1] [PITWIDTH];
 int pitcnt [PITDEPTH];
-coord_t old [NBLOCKS], new [NBLOCKS], chk [NBLOCKS];
+coord_t old [NBLOCKS], nnew [NBLOCKS], chk [NBLOCKS];
 
-gpanel_t display;
+/*
+ * LCD screen.
+ */
+#define MAXROW      48
+#define MAXCOL      84
+
+static unsigned char screen[MAXROW*MAXCOL/8];
 
 /*
  * Output piece coordinates given its center and angle
@@ -115,6 +134,60 @@ void translate(const shape_t *t, coord_t c, int a, coord_t *res)
 }
 
 /*
+ * Lights a single pixel in the specified color
+ * at the specified x and y addresses
+ */
+void set_pixel(int x, int y, int color)
+{
+    unsigned char *data;
+
+    if (x >= MAXCOL || y >= MAXROW)
+        return;
+    data = &screen[(y >> 3) * MAXCOL + x];
+
+    if (color)
+        *data |= 1 << (y & 7);
+    else
+        *data &= ~(1 << (y & 7));
+
+    lcd.LCD_write_byte(0x40 | (y >> 3), 0);
+    lcd.LCD_write_byte(0x80 | x, 0);
+    lcd.LCD_write_byte(*data, 1);
+}
+
+/*
+ * Draw a filled rectangle in the specified color from (x1,y1) to (x2,y2).
+ *
+ * The best way to fill a rectangle is to take advantage of the "wrap-around" featute
+ * built into the Philips PCF8833 controller. By defining a drawing box, the memory can
+ * be simply filled by successive memory writes until all pixels have been illuminated.
+ */
+void fill_rect(int x0, int y0, int x1, int y1, int color)
+{
+    /* Temporary solution */
+    int xmin, xmax, ymin, ymax, x, y;
+
+    /* calculate the min and max for x and y directions */
+    if (x0 <= x1) {
+        xmin = x0;
+        xmax = x1;
+    } else {
+        xmin = x1;
+        xmax = x0;
+    }
+    if (y0 <= y1) {
+        ymin = y0;
+        ymax = y1;
+    } else {
+        ymin = y1;
+        ymax = y0;
+    }
+    for (y=ymin; y<=ymax; y++)
+        for (x=xmin; x<=xmax; x++)
+            set_pixel(x, y, color);
+}
+
+/*
  * Draw the block
  */
 void draw_block(int h, int w, int visible)
@@ -122,56 +195,51 @@ void draw_block(int h, int w, int visible)
     h *= 4;
     w *= 4;
     if (visible) {
-        gpanel_rect_filled(&display,
-            display.ncol-1 - h, w, display.ncol-1 - (h + 3), w + 3, 1);
+        fill_rect(MAXCOL-1 - h, w, MAXCOL-1 - (h + 3), w + 3, 1);
     } else {
-        gpanel_rect_filled(&display,
-            display.ncol-1 - h, w, display.ncol-1 - (h + 3), w + 3, 0);
+        fill_rect(MAXCOL-1 - h, w, MAXCOL-1 - (h + 3), w + 3, 0);
 
         if (h == (PITDEPTH-1)*5)
-            gpanel_pixel(&display,
-                display.ncol-1 - (h + 3), w + 2, 1);
+            set_pixel(MAXCOL-1 - (h + 3), w + 2, 1);
 
         if (w == 0)
-            gpanel_pixel(&display,
-                display.ncol-1 - (h + 2), w, 1);
+            set_pixel(MAXCOL-1 - (h + 2), w, 1);
         else if (w % 16 == 12)
-            gpanel_pixel(&display,
-                display.ncol-1 - (h + 2), w + 3, 1);
+            set_pixel(MAXCOL-1 - (h + 2), w + 3, 1);
     }
 }
 
 /*
  * Move the piece
  */
-void move(coord_t *old, coord_t *new)
+void move(coord_t *old, coord_t *nnew)
 {
     for (;;) {
         if (old->x == FIN) {
-draw:       if (new->x == FIN)
+draw:       if (nnew->x == FIN)
                 break;
-            if (new->x >= 0)
-                draw_block(new->x, new->y, 1);
-            new++;
+            if (nnew->x >= 0)
+                draw_block(nnew->x, nnew->y, 1);
+            nnew++;
             continue;
         }
-        if (new->x == FIN) {
+        if (nnew->x == FIN) {
 clear:      if (old->x >= 0)
                 draw_block(old->x, old->y, 0);
             old++;
             continue;
         }
-        if (old->x > new->x)
+        if (old->x > nnew->x)
             goto draw;
-        if (old->x < new->x)
+        if (old->x < nnew->x)
             goto clear;
-        if (old->y > new->y)
+        if (old->y > nnew->y)
             goto draw;
-        if (old->y != new->y)
+        if (old->y != nnew->y)
             goto clear;
         /* old & new at the same place */
         old++;
-        new++;
+        nnew++;
     }
 }
 
@@ -252,44 +320,73 @@ void stopped(coord_t *c)
     }
 }
 
-int main()
+//
+// Constants for joystick input.
+//
+enum {
+    JOYSTICK_NONE,
+    JOYSTICK_RIGHT,
+    JOYSTICK_UP,
+    JOYSTICK_DOWN,
+    JOYSTICK_LEFT,
+    JOYSTICK_SELECT,
+};
+
+//
+// Read the joystick.
+//
+int joystick_get()
 {
-    int ptype;      /* Piece type */
-    int angle, anew;    /* Angle */
-    int msec;       /* Timeout */
+    int input = analogRead(0);
+
+    if (input > 882) return JOYSTICK_NONE;
+    if (input > 624) return JOYSTICK_UP;
+    if (input > 424) return JOYSTICK_RIGHT;
+    if (input > 242) return JOYSTICK_DOWN;
+    if (input > 73)  return JOYSTICK_SELECT;
+
+    return JOYSTICK_LEFT;
+}
+
+void setup()
+{
+    lcd.LCD_init();
+    lcd.LCD_clear();
+}
+
+void loop()
+{
+    int ptype;              /* Piece type */
+    int angle, anew;        /* Angle */
+    int msec;               /* Timeout */
+    int key = 0;
     coord_t c, cnew, *cp;
     unsigned up_pressed = 0, left_pressed = 0;
     unsigned right_pressed = 0, down_pressed = 0;
-
-    led_init();
-    joystick_init();
-    gpanel_init(&display, 0);
-    gpanel_clear(&display, 0);
-    gpanel_backlight(&display, 1);
 
     /* Draw the pit */
     clear();
 
 newpiece:
-    ptype = rand15() % NSHAPES;
-    angle = rand15() % 3;
+    ptype = random(NSHAPES);
+    angle = random(3);
 
     c.y = PITWIDTH/2 - 1;
     for (c.x= -2; ; c.x++) {
-        translate(&shape[ptype], c, angle, new);
-        for (cp=new; cp->x!=FIN; cp++) {
+        translate(&shape[ptype], c, angle, nnew);
+        for (cp=nnew; cp->x!=FIN; cp++) {
             if (cp->x >= 0)
                 goto ok;
         }
     }
 ok:
     /* Draw new piece */
-    for (cp=new; cp->x!=FIN; cp++) {
+    for (cp=nnew; cp->x!=FIN; cp++) {
         if (cp->x >= 0) {
             draw_block(cp->x, cp->y, 1);
         }
     }
-    memcpy(old, new, sizeof old);
+    memcpy(old, nnew, sizeof old);
 
     msec = 500;
     for (;;) {
@@ -303,14 +400,14 @@ ok:
             translate(&shape[ptype], cnew, anew, chk);
             for (cp=chk; cp->x!=FIN; cp++) {
                 if (cp->x >= 0 && pit[cp->x][cp->y]) {
-                    stopped(new);
+                    stopped(nnew);
                     goto newpiece;
                 }
             }
             goto check;
         }
 
-        int key = joystick_get();
+        key = joystick_get();
         if (key != JOYSTICK_RIGHT)
             right_pressed = 0;
         else if (! right_pressed) {
@@ -362,7 +459,7 @@ ok:
                     if (cp->x >= 0 && pit[cp->x][cp->y]) {
                         cnew.x--;
                         translate(&shape[ptype], cnew, anew, chk);
-                        move(new, chk);
+                        move(nnew, chk);
                         stopped(chk);
                         goto newpiece;
                     }
@@ -370,7 +467,7 @@ ok:
             }
         }
 
-        mdelay(10);
+        delay(10);
         msec -= 10;
         continue;
 
@@ -385,9 +482,9 @@ check:
         }
         c = cnew;
         angle = anew;
-        memcpy(old, new, sizeof old);
-        memcpy(new, chk, sizeof new);
-        move(old, new);
+        memcpy(old, nnew, sizeof old);
+        memcpy(nnew, chk, sizeof nnew);
+        move(old, nnew);
 done:   ;
     }
 }
