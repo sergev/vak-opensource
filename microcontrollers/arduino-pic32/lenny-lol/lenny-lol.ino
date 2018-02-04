@@ -1,10 +1,10 @@
 /*
- * Testing LoL shield.
+ * LoL shield demo.
  *
- * Writen for the LoL Shield, designed by Jimmie Rodgers:
+ * LoL Shield designed by Jimmie Rodgers:
  * http://jimmieprodgers.com/kits/lolshield/
  *
- * Copyright (C) 2013 Serge Vakulenko, <serge@vak.ru>
+ * Copyright (C) 2013-2018 Serge Vakulenko, <serge@besm6.org>
  *
  * Permission to use, copy, modify, and distribute this software
  * and its documentation for any purpose and without fee is hereby
@@ -24,8 +24,6 @@
  * arising out of or in connection with the use or performance of
  * this software.
  */
-#include <runtime/lib.h>
-#include "devcfg.h"
 
 /* Number of control pins for LoL Shield. */
 #define LOL_NPINS   12
@@ -36,25 +34,8 @@
 /* Number of columns on LoL Shield. */
 #define LOL_NCOL    14
 
-/* Sequence of pins to set high during refresh cycle. */
-static const unsigned pin_mask [LOL_NPINS] = {
-    1 << 14,        /* RB14 - labeled D13 on board */
-    1 << 13,        /* RB13 - D12 */
-    1 << 12,        /* RB12 - D11 */
-    1 << 11,        /* RB11 - D10 */
-    1 << 10,        /* RB10 - D9 */
-    0x10000 << 2,   /* RA2  - D8 */
-    0x10000 << 3,   /* RA3  - D7 */
-    1 << 9,         /* RB9  - D6 */
-    1 << 8,         /* RB8  - D5 */
-    0x10000 << 4,   /* RA4  - D4 */
-    1 << 7,         /* RB7  - D3 */
-    1 << 6,         /* RB6  - D2 */
-};
-
 /* Remap pixels to pin indexes. */
-static const unsigned char charlieplexing [LOL_NROW*LOL_NCOL*2] =
-{
+static const unsigned char charlieplexing[LOL_NROW*LOL_NCOL*2] = {
     0,8,0,7,0,6,0,5,0,4,0,3,0,2,0,1,0,9,9,0,0,10,10,0,0,11,11,0,
     1,8,1,7,1,6,1,5,1,4,1,3,1,2,1,0,1,9,9,1,1,10,10,1,1,11,11,1,
     2,8,2,7,2,6,2,5,2,4,2,3,2,1,2,0,2,9,9,2,2,10,10,2,2,11,11,2,
@@ -66,80 +47,96 @@ static const unsigned char charlieplexing [LOL_NROW*LOL_NCOL*2] =
     8,7,8,6,8,5,8,4,8,3,8,2,8,1,8,0,8,9,9,8,8,10,10,8,8,11,11,8,
 };
 
+void all_pins_tristate()
+{
+    int pin;
+
+    /* Set all pins D2...D13 as inputs. */
+    for (pin = 2; pin < 14; pin++)
+        pinMode(pin, INPUT);
+}
+
+void all_pins_low()
+{
+    int pin;
+
+    /* Set all pins D2...D13 low. */
+    for (pin = 2; pin < 14; pin++)
+        digitalWrite(pin, LOW);
+}
+
+void set_pin_high(int row)
+{
+    /* Set one of pins D2...D13 as output high. */
+    pinMode(13-row, OUTPUT);
+    digitalWrite(13-row, HIGH);
+}
+
+void set_pins_low(int mask)
+{
+    int pin;
+
+    /* Set some of pins D2...D13 as output low. */
+    for (pin = 13; pin >= 2; pin--) {
+        if (mask & 1) {
+            pinMode(pin, OUTPUT);
+            digitalWrite(pin, LOW);
+        }
+        mask >>= 1;
+    }
+}
+
 /*
  * Display a picture on LoL shield.
  * Duration in milliseconds is specified.
  */
-void lol(msec, data)
-    unsigned msec;
-    const short *data;
+void lol(unsigned msec, const unsigned short *data)
 {
-    unsigned row, mask, amask, bmask;
+    unsigned row, mask;
     const unsigned char *map;
-    unsigned low [LOL_NPINS];
+    unsigned low[LOL_NPINS];
 
     /* Clear pin masks. */
-    mask = 0;
     for (row = 0; row < LOL_NPINS; row++) {
-    low [row] = 0;
-    mask |= pin_mask [row];
+        low[row] = 0;
     }
-    amask = mask >> 16;
-    bmask = mask & 0xffff;
 
     /* Convert image to array of pin masks. */
     for (row = 0; row < LOL_NROW; row++) {
-    mask = *data++ & ((1 << LOL_NCOL) - 1);
-    map = &charlieplexing [row * LOL_NCOL * 2];
-    while (mask != 0) {
-        if (mask & 1) {
-        low [map[0]] |= pin_mask [map[1]];
+        mask = *data++ & ((1 << LOL_NCOL) - 1);
+        map = &charlieplexing[row * LOL_NCOL * 2];
+        while (mask != 0) {
+            if (mask & 1) {
+                low[map[0]] |= 1 << map[1];
+            }
+            map += 2;
+            mask >>= 1;
         }
-        map += 2;
-        mask >>= 1;
-    }
     }
 
     /* Display the image. */
-    if (msec < 1)
-    msec = 20;
-    while (msec-- > 0) {
-    for (row = 0; row < LOL_NPINS; row++) {
-        /* Set all pins to tristate. */
-        TRISASET = amask;
-        TRISBSET = bmask;
+    if (msec < LOL_NPINS)
+        msec = LOL_NPINS;
+    while (msec >= LOL_NPINS) {
+        for (row = 0; row < LOL_NPINS; row++) {
+            all_pins_tristate();
 
-        /* Set one pin to high. */
-        mask = pin_mask [row];
-        if (mask & 0xffff) {
-        TRISBCLR = mask;
-        LATBSET = mask;
-        } else {
-        mask >>= 16;
-        TRISACLR = mask;
-        LATASET = mask;
+            /* Set one pin to high. */
+            set_pin_high(row);
+
+            /* Set other pins to low. */
+            set_pins_low(low[row]);
+
+            /* Pause to make it visible. */
+            delay(1);
+            msec--;
+
+            all_pins_low();
         }
-
-        /* Set other pins to low. */
-        mask = low [row];
-        TRISBCLR = mask & 0xffff;
-        LATBCLR = mask & 0xffff;
-        mask >>= 16;
-        TRISACLR = mask;
-        LATACLR = mask;
-
-        /* Pause to make it visible. */
-        udelay(1000 / LOL_NPINS);
-
-        /* Set all low. */
-        LATACLR = amask;
-        LATBCLR = bmask;
-    }
     }
 
     /* Turn display off. */
-    TRISASET = amask;
-    TRISBSET = bmask;
+    all_pins_tristate();
 }
 
 /*
@@ -153,12 +150,11 @@ void demo1()
     static unsigned short picture[9];
     int y, frame;
 
-    for (;;) {
     for (frame = 0; frame<14; frame++) {
         memset(picture, 0, sizeof(picture));
 
         for (y=0; y<9; y++)
-        picture[y] |= 1 << frame;
+            picture[y] |= 1 << frame;
 
         /* Display a frame. */
         lol(100, picture);
@@ -176,7 +172,6 @@ void demo1()
     /* Display a frame. */
     lol(250, picture);
     lol(250, picture);
-    }
 }
 
 /*
@@ -193,22 +188,22 @@ void demo2()
     dx = 1;
     dy = 1;
     for (;;) {
-    /* Draw ball. */
-    picture[y] |= 1 << x;
-    lol(50, picture);
-    picture[y] &= ~(1 << x);
+        /* Draw ball. */
+        picture[y] |= 1 << x;
+        lol(50, picture);
+        picture[y] &= ~(1 << x);
 
-    /* Move the ball. */
-    x += dx;
-    if (x < 0 || x >= 14) {
-        dx = -dx;
-        x += dx + dx;
-    }
-    y += dy;
-    if (y < 0 || y >= 9) {
-        dy = -dy;
-        y += dy + dy;
-    }
+        /* Move the ball. */
+        x += dx;
+        if (x < 0 || x >= 14) {
+            dx = -dx;
+            x += dx + dx;
+        }
+        y += dy;
+        if (y < 0 || y >= 9) {
+            dy = -dy;
+            y += dy + dy;
+        }
     }
 }
 
@@ -372,7 +367,7 @@ void demo2()
 // Seven, eight, lay them straight.
 // Nine, ten, do it again!
 //
-static const unsigned char phrase [] = {
+static const unsigned char phrase[] = {
     __,_O,_N,_E,_comma,_T,_W,_O,_comma,_B,_U,_C,_K,_L,_E,_space,_M,_Y,_space,_S,_H,_O,_E,_dot,
     _T,_H,_R,_E,_E,_comma,_F,_O,_U,_R,_comma,_K,_N,_O,_C,_K,_space,_O,_N,_space,_T,_H,_E,_space,_D,_O,_O,_R,_dot,
     _F,_I,_V,_E,_comma,_S,_I,_X,_comma,_P,_I,_C,_K,_space,_U,_P,_space,_S,_T,_I,_C,_K,_S,_dot,
@@ -387,9 +382,9 @@ void shift_picture(unsigned short *picture, int next)
     int y;
 
     for (y=0; y<9; y++) {
-    picture[y] >>= 1;
-    if (y > 0 && ((next << y) & 0x80))
-        picture[y] |= 1 << 13;
+        picture[y] >>= 1;
+        if (y > 0 && ((next << y) & 0x80))
+            picture[y] |= 1 << 13;
     }
 }
 
@@ -401,33 +396,21 @@ void demo3()
     static unsigned short picture[9];
     const unsigned char *next;
 
-    for (;;) {
     memset(picture, 0, sizeof(picture));
     for (next=phrase; *next!=0xff; next++) {
         shift_picture(picture, *next);
         lol(70, picture);
     }
-    }
 }
 
-int main()
+void setup()
 {
-    /* Unlock CFGCON register. */
-    SYSKEY = 0;
-    SYSKEY = 0xAA996655;
-    SYSKEY = 0x556699AA;
-    CFGCON &= (1 << 13);            // clear IOLOCK
+    /* Empty. */
+}
 
-    /* Disable JTAG ports, to make more pins available. */
-    CFGCON &= (1 << 3);             // clear JTAGEN
-
-    /* Use all ports as digital. */
-    ANSELA = 0;
-    ANSELB = 0;
-
-    for (;;) {
+void loop()
+{
     //demo1();
-    //demo2();
-    demo3();
-    }
+    demo2();
+    //demo3();
 }
