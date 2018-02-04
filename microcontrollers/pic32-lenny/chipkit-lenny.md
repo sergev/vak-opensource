@@ -73,7 +73,8 @@ Power can be sourced from miniUSB, or from external power supply +6.5 ... 12 VDC
 |  VIN      | Input power (6.5V - 12V)  |
 
 ### SPI connector ###
-|:------|:------------|:-----------|
+| Left  | Center      | Right      |
+|:-----:|:-----------:|:----------:|
 | RESET | RB15 - SCK2 | RA4 - SDI2 |
 | GND   | RA9 - SDO2  | 5V         |
 
