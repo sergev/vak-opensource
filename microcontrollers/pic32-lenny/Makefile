@@ -1,14 +1,11 @@
-P               = /usr/local/mipsel441/bin/mipsel-elf32-
-#P               = /usr/local/mips-gcc-4.8.1/bin/mips-elf-
-
+P               = /usr/local/mips-2014.11/bin/mips-sde-elf-
 CC              = $(P)gcc -mips32r2 -EL -g -nostdlib
 OBJCOPY         = $(P)objcopy
 OBJDUMP         = $(P)objdump
-GDB             = /usr/local/mips/insight70/bin/mips-elf-insight
 CFLAGS          = -O -Wall -Werror -DPIC32MX2
 LDFLAGS         = -T using-bootloader.ld -e _start
 
-PROG            = led
+PROG            = blink
 
 all:            $(PROG).hex
 
