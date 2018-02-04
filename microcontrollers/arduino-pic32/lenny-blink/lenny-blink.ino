@@ -1,37 +1,30 @@
-/*
-  Blink
-
-  Turns an LED on for one second, then off for one second, repeatedly.
-
-  Most Arduinos have an on-board LED you can control. On the UNO, MEGA and ZERO
-  it is attached to digital pin 13, on MKR1000 on pin 6. LED_BUILTIN is set to
-  the correct LED pin independent of which board is used.
-  If you want to know what pin the on-board LED is connected to on your Arduino
-  model, check the Technical Specs of your board at:
-  https://www.arduino.cc/en/Main/Products
-
-  modified 8 May 2014
-  by Scott Fitzgerald
-  modified 2 Sep 2016
-  by Arturo Guadalupi
-  modified 8 Sep 2016
-  by Colby Newman
-
-  This example code is in the public domain.
-
-  http://www.arduino.cc/en/Tutorial/Blink
-*/
-
-// the setup function runs once when you press reset or power the board
-void setup() {
-  // initialize digital pin LED_BUILTIN as an output.
-  pinMode(LED_BUILTIN, OUTPUT);
+void setup()
+{
+    // Set pins LED1-3 as output.
+    pinMode(PIN_LED1, OUTPUT);
+    pinMode(PIN_LED2, OUTPUT);
+    pinMode(PIN_LED3, OUTPUT);
 }
 
-// the loop function runs over and over again forever
-void loop() {
-  digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)
-  delay(1000);                       // wait for a second
-  digitalWrite(LED_BUILTIN, LOW);    // turn the LED off by making the voltage LOW
-  delay(1000);                       // wait for a second
+void loop()
+{
+    // Blink LED1.
+    digitalWrite(PIN_LED1, HIGH);
+    delay(100);
+    digitalWrite(PIN_LED1, LOW);
+
+    // Blink LED2.
+    digitalWrite(PIN_LED2, HIGH);
+    delay(100);
+    digitalWrite(PIN_LED2, LOW);
+
+    // Blink LED3.
+    digitalWrite(PIN_LED3, HIGH);
+    delay(100);
+    digitalWrite(PIN_LED3, LOW);
+
+    // Blink LED2.
+    digitalWrite(PIN_LED2, HIGH);
+    delay(100);
+    digitalWrite(PIN_LED2, LOW);
 }
