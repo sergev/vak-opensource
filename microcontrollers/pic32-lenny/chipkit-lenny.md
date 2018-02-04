@@ -30,7 +30,7 @@ Power can be sourced from miniUSB, or from external power supply +6.5 ... 12 VDC
 
 ### Digital connector ###
 | **Signal**| **PIC32**  |
-|:----------|:-----------|
+|:---------:|:-----------|
 |   SCL     | RB8 - SCL1 |
 |   SDA     | RB9 - SDA1 |
 |   AREF    | RA0        |
@@ -52,7 +52,7 @@ Power can be sourced from miniUSB, or from external power supply +6.5 ... 12 VDC
 
 ### Analog connector ###
 | **Signal**| **PIC32**  |
-|:----------|:-----------|
+|:---------:|:-----------|
 |  A0       | RA1        |
 |  A1       | RB0        |
 |  A2       | RC0        |
@@ -62,7 +62,7 @@ Power can be sourced from miniUSB, or from external power supply +6.5 ... 12 VDC
 
 ### Power connector ###
 | **Signal**| **Function**              |
-|:----------|:--------------------------|
+|:---------:|:--------------------------|
 |  PROG     | RB4                       |
 |  IOREF    | 3.3V Logic Voltage        |
 |  RESET    | MCLR                      |
@@ -80,7 +80,7 @@ Power can be sourced from miniUSB, or from external power supply +6.5 ... 12 VDC
 
 ### LEDs ###
 | **LED** | **PIC32** |
-|:--------|:----------|
+|:-------:|:----------|
 |  L      | RA10      |
 |  TX     | RA7       |
 |  RX     | RA8       |
