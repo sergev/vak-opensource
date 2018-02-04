@@ -3,6 +3,7 @@
 .include mpf102.lib
 .include 2n5458.lib
 .include j201.lib
+.include kp303.lib
 
 *--------
 * MPF102
@@ -25,6 +26,19 @@ R1  0 2     250         ; resistor load
 *R1  0 2     3k         ; resistor load
 *.tran 50ns 2000us 1500us
 
+*--------
+* КП303В
+*--------
+*J1  1 3 2   KP303W     ; JFET
+*R1  0 2     500        ; resistor load
+*.tran 50ns 2500us 2000us
+
+*--------
+* КП303Е
+*--------
+*J1  1 3 2   KP303E     ; JFET
+*R1  0 2     300        ; resistor load
+
 Vcc 1 0     +10V        ; power source
 
 C1  2 3     8e-9        ; 8nF
@@ -37,7 +51,9 @@ L1  0 3     40uH        ; inductance
 .control
     run
     plot V(2)
-    plot Vcc#branch
+*   plot Vcc#branch
+*   hardcopy v2.ps V(2)
+*   quit
 .endc
 
 .end

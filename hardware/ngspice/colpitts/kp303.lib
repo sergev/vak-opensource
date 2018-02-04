@@ -1,0 +1,9 @@
+*
+* КП303 N−Channel JFETs
+*
+.model KP303W  NJF (Vto=-1.4 Beta=0.0013 Lambda=0.025 Rd=36 Rs=30 IS=1.145e-13
++                   Cgd=2e-12 Cgs=6e-12 Pb=0.5 B=1.2 Kf=9e-17 Af=1 Fc=0.5 TNOM=27)
+.model KP303E  NJF (Vto=-4.0 Beta=0.0007 Lambda=0.025 Rd=20 Rs=15 IS=1.145e-13
++                   Cgd=2e-12 Cgs=6e-12 Pb=0.5 B=1.2 Kf=1e-16 Af=1 Fc=0.5 TNOM=27)
+.model KP303I  NJF (Vto=-1.6 Beta=0.0014 Lambda=0.025 Rd=30 Rs=25 IS=1.145e-13
++                   Cgd=2e-12 Cgs=6e-12 Pb=0.5 B=1.2 Kf=3e-16 Af=1 Fc=0.5 TNOM=27)
