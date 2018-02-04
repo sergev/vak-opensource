@@ -64,32 +64,40 @@ int main()
     /* Use all ports as digital. */
     ANSELA = 0;
     ANSELB = 0;
+    ANSELC = 0;
     LATA = 0;
     LATB = 0;
+    LATC = 0;
 
-    /* Use pin RB15 as output: LED1 control. */
-    TRISBCLR = 1 << 15;
-
-    /* Use pin RA10 as output: LED2 control. */
+    /* Use pins RA10, RA7 and RA8 as output: LED control. */
     TRISACLR = 1 << 10;
+    TRISACLR = 1 << 7;
+    TRISACLR = 1 << 8;
 
     for (;;) {
-        /* Invert pin RB15. */
-        LATBINV = 1 << 15; udelay (100000);
-        LATBINV = 1 << 15; udelay (100000);
-        LATBINV = 1 << 15; udelay (100000);
-        LATBINV = 1 << 15; udelay (100000);
-
-        /* Delay. */
-        udelay (300000);
-
         /* Invert pin RA10. */
         LATAINV = 1 << 10; udelay (100000);
         LATAINV = 1 << 10; udelay (100000);
         LATAINV = 1 << 10; udelay (100000);
-        LATAINV = 1 << 10; udelay (100000);
+        LATAINV = 1 << 10; //udelay (100000);
 
-        /* Delay. */
-        udelay (300000);
+        /* Invert pin RA7. */
+        LATAINV = 1 << 7; udelay (100000);
+        LATAINV = 1 << 7; udelay (100000);
+        LATAINV = 1 << 7; udelay (100000);
+        LATAINV = 1 << 7; //udelay (100000);
+
+        /* Invert pin RA8. */
+        LATAINV = 1 << 8; udelay (100000);
+        LATAINV = 1 << 8; udelay (100000);
+        LATAINV = 1 << 8; udelay (100000);
+        LATAINV = 1 << 8; //udelay (100000);
+
+        /* Invert pin RA7. */
+        LATAINV = 1 << 7; udelay (100000);
+        LATAINV = 1 << 7; udelay (100000);
+        LATAINV = 1 << 7; udelay (100000);
+        LATAINV = 1 << 7; //udelay (100000);
+
     }
 }

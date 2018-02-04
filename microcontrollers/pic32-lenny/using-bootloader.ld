@@ -7,7 +7,7 @@ OUTPUT_ARCH(mips)
 ENTRY(_reset_vector_)
 MEMORY
 {
-  flash                (rx)  : ORIGIN = 0x9d003000, LENGTH = 253K
+  flash                (rx)  : ORIGIN = 0x9d001000, LENGTH = 252K
   ram                  (rw!x): ORIGIN = 0x80000000, LENGTH = 64K
 
   /* Required by Microchip C32 linker */
