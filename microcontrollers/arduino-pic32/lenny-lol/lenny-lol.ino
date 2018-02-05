@@ -180,14 +180,14 @@ void demo1()
 void demo2()
 {
     static unsigned short picture[9];
-    int x, y, dx, dy;
+    int x, y, dx, dy, msec;
 
     memset(picture, 0, sizeof(picture));
     x = 0;
     y = 0;
     dx = 1;
     dy = 1;
-    for (;;) {
+    for (msec = 0; msec < 3000; msec += 50) {
         /* Draw ball. */
         picture[y] |= 1 << x;
         lol(50, picture);
@@ -276,6 +276,12 @@ void demo2()
             ROW(O,O,O,O,O,O,O), \
             ROW(O,_,_,_,_,_,O), \
             __
+#define _J  ROW(_,O,_,_,_,_,_), \
+            ROW(O,_,_,_,_,_,_), \
+            ROW(O,_,_,_,_,_,O), \
+            ROW(_,O,O,O,O,O,O), \
+            ROW(_,_,_,_,_,_,O), \
+            __
 #define _K  ROW(O,O,O,O,O,O,O), \
             ROW(_,_,_,O,_,_,_), \
             ROW(_,_,_,O,O,_,_), \
@@ -361,19 +367,11 @@ void demo2()
             ROW(_,_,_,_,_,O,O), \
             __
 //
-// One, two, buckle my shoe.
-// Three, four, knock on the door.
-// Five, six, pick up sticks.
-// Seven, eight, lay them straight.
-// Nine, ten, do it again!
+// chipKIT Lenny board by Majenko
 //
 static const unsigned char phrase[] = {
-    __,_O,_N,_E,_comma,_T,_W,_O,_comma,_B,_U,_C,_K,_L,_E,_space,_M,_Y,_space,_S,_H,_O,_E,_dot,
-    _T,_H,_R,_E,_E,_comma,_F,_O,_U,_R,_comma,_K,_N,_O,_C,_K,_space,_O,_N,_space,_T,_H,_E,_space,_D,_O,_O,_R,_dot,
-    _F,_I,_V,_E,_comma,_S,_I,_X,_comma,_P,_I,_C,_K,_space,_U,_P,_space,_S,_T,_I,_C,_K,_S,_dot,
-    _S,_E,_V,_E,_N,_comma,_E,_I,_G,_H,_T,_comma,_L,_A,_Y,_space,_T,_H,_E,_M,_space,_S,_T,_R,_A,_I,_G,_H,_T,_dot,
-    _N,_I,_N,_E,_comma,_T,_E,_N,_comma,_D,_O,_space,_I,_T,_space,_A,_G,_A,_I,_N,_exclam,
-    __, __, __, __, __, __, __, __, __, __, __, __, __, __,
+    __,_C,_H,_I,_P,_K,_I,_T,_space,_L,_E,_N,_N,_Y,_space,_B,_O,_A,_R,_D,_space,
+    _B,_Y,_space,_M,_A,_J,_E,_N,_K,_O,__,__,__,__,__,__,__,__,__,__,__,__,__,
     0xff
 };
 
@@ -410,7 +408,7 @@ void setup()
 
 void loop()
 {
-    //demo1();
+    demo1();
     demo2();
-    //demo3();
+    demo3();
 }
