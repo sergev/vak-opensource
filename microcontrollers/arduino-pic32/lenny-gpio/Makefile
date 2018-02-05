@@ -1,14 +1,15 @@
 ifeq (,$(wildcard /Applications/Arduino.app/Contents/Java))
     # Linux
     ARDUINO_HOME= /opt/arduino-1.8.5
-    SERIAL_PORT = /dev/ttyUSB1
+    PACKAGES_HOME= $(HOME)/.arduino15/packages
+    SERIAL_PORT = /dev/ttyACM1
 else
     # Mac OS X
     ARDUINO_HOME= /Applications/Arduino.app/Contents/Java
+    PACKAGES_HOME= $(HOME)/Library/Arduino15/packages
     SERIAL_PORT = /dev/cu.usbmodemFD131
 endif
 
-PACKAGES_HOME   = /Users/vak/Library/Arduino15/packages
 PROJ_BASE       = $(HOME)/Project/Arduino
 
 SKETCH          = $(notdir $(CURDIR)).ino
@@ -19,7 +20,7 @@ all:
 	@mkdir -p $(BUILD_DIR)
 	$(ARDUINO_HOME)/arduino-builder -compile -logger=machine \
             -hardware "$(ARDUINO_HOME)/hardware" \
-            -hardware /Users/vak/Library/Arduino15/packages \
+            -hardware "$(PACKAGES_HOME)" \
             -tools "$(ARDUINO_HOME)/tools-builder" \
             -tools "$(ARDUINO_HOME)/hardware/tools/avr" \
             -built-in-libraries "$(ARDUINO_HOME)/libraries" \
