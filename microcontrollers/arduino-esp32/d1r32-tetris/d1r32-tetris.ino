@@ -20,7 +20,8 @@
  * arising out of or in connection with the use or performance of
  * this software.
  */
-#include "myLCD4884.h"
+#include <Adafruit_GFX.h>
+#include "Adafruit_PCD8544.h"
 
 #define PITWIDTH    12
 #define PITDEPTH    21
@@ -68,10 +69,12 @@ coord_t old [NBLOCKS], nnew [NBLOCKS], chk [NBLOCKS];
 /*
  * LCD screen.
  */
-#define MAXROW      48
-#define MAXCOL      84
-
-static unsigned char screen[MAXROW*MAXCOL/8];
+Adafruit_PCD8544 lcd = Adafruit_PCD8544(
+    26,     // D2 - SCLK
+    25,     // D3 - DIN
+    17,     // D4 - DC
+    16,     // D5 - CS
+    27);    // D6 - RST
 
 /*
  * Output piece coordinates given its center and angle
@@ -134,28 +137,6 @@ void translate(const shape_t *t, coord_t c, int a, coord_t *res)
 }
 
 /*
- * Lights a single pixel in the specified color
- * at the specified x and y addresses
- */
-void set_pixel(int x, int y, int color)
-{
-    unsigned char *data;
-
-    if (x >= MAXCOL || y >= MAXROW)
-        return;
-    data = &screen[(y >> 3) * MAXCOL + x];
-
-    if (color)
-        *data |= 1 << (y & 7);
-    else
-        *data &= ~(1 << (y & 7));
-
-    lcd.LCD_write_byte(0x40 | (y >> 3), 0);
-    lcd.LCD_write_byte(0x80 | x, 0);
-    lcd.LCD_write_byte(*data, 1);
-}
-
-/*
  * Draw a filled rectangle in the specified color from (x1,y1) to (x2,y2).
  *
  * The best way to fill a rectangle is to take advantage of the "wrap-around" featute
@@ -184,7 +165,7 @@ void fill_rect(int x0, int y0, int x1, int y1, int color)
     }
     for (y=ymin; y<=ymax; y++)
         for (x=xmin; x<=xmax; x++)
-            set_pixel(x, y, color);
+            lcd.drawPixel(x, y, color);
 }
 
 /*
@@ -195,17 +176,17 @@ void draw_block(int h, int w, int visible)
     h *= 4;
     w *= 4;
     if (visible) {
-        fill_rect(MAXCOL-1 - h, w, MAXCOL-1 - (h + 3), w + 3, 1);
+        fill_rect(LCDWIDTH-1 - h, w, LCDWIDTH-1 - (h + 3), w + 3, 1);
     } else {
-        fill_rect(MAXCOL-1 - h, w, MAXCOL-1 - (h + 3), w + 3, 0);
+        fill_rect(LCDWIDTH-1 - h, w, LCDWIDTH-1 - (h + 3), w + 3, 0);
 
         if (h == (PITDEPTH-1)*5)
-            set_pixel(MAXCOL-1 - (h + 3), w + 2, 1);
+            lcd.drawPixel(LCDWIDTH-1 - (h + 3), w + 2, 1);
 
         if (w == 0)
-            set_pixel(MAXCOL-1 - (h + 2), w, 1);
+            lcd.drawPixel(LCDWIDTH-1 - (h + 2), w, 1);
         else if (w % 16 == 12)
-            set_pixel(MAXCOL-1 - (h + 2), w + 3, 1);
+            lcd.drawPixel(LCDWIDTH-1 - (h + 2), w + 3, 1);
     }
 }
 
@@ -350,8 +331,10 @@ int joystick_get()
 
 void setup()
 {
-    lcd.LCD_init();
-    lcd.LCD_clear();
+    lcd.begin();
+    lcd.setContrast(50);
+    lcd.clearDisplay();
+    lcd.display();
 }
 
 void loop()
@@ -407,6 +390,7 @@ ok:
             goto check;
         }
 
+        lcd.display();
         key = joystick_get();
         if (key != JOYSTICK_RIGHT)
             right_pressed = 0;
