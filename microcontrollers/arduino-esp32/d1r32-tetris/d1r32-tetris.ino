@@ -21,7 +21,7 @@
  * this software.
  */
 #include <Adafruit_GFX.h>
-#include "Adafruit_PCD8544.h"
+#include <Adafruit_PCD8544.h>
 
 #define PITWIDTH    12
 #define PITDEPTH    21
@@ -325,11 +325,11 @@ int joystick_get()
     int input = analogRead(2);
 
     // Convert analog value into button.
-    if      (input > 1144) button = JOYSTICK_NONE;
-    else if (input > 966)  button = JOYSTICK_UP;
-    else if (input > 777)  button = JOYSTICK_RIGHT;
-    else if (input > 504)  button = JOYSTICK_DOWN;
-    else if (input > 146)  button = JOYSTICK_SELECT;
+    if      (input > 1153) button = JOYSTICK_NONE;
+    else if (input > 990)  button = JOYSTICK_UP;
+    else if (input > 788)  button = JOYSTICK_RIGHT;
+    else if (input > 514)  button = JOYSTICK_DOWN;
+    else if (input > 140)  button = JOYSTICK_SELECT;
     else                   button = JOYSTICK_LEFT;
 
     // Wait until state is stable.

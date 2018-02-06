@@ -8,11 +8,11 @@
 // SainSmart LCD4884 Arduino shield.
 //
 Adafruit_PCD8544 display = Adafruit_PCD8544(
-    26,     // D2 - SCLK
-    25,     // D3 - DIN
-    17,     // D4 - DC
-    16,     // D5 - CS
-    27);    // D6 - RST
+    2,      // D2 - SCLK
+    3,      // D3 - DIN
+    4,      // D4 - DC
+    5,      // D5 - CS
+    6);     // D6 - RST
 
 void display_button(const char *name, int minv, int maxv)
 {
@@ -36,22 +36,22 @@ void display_button(const char *name, int minv, int maxv)
 //
 int get_joystick(const char **namep)
 {
-    int input = analogRead(2); // Pin A0 on D1 R32 board.
+    int input = analogRead(0); // Read pin A0
 
     //
     // Observed values:
-    // None   1169 - 1302
-    // Up     1020 - 1137
-    // Right   829 - 960
-    // Down    624 - 747
-    // Select  280 - 404
+    // None   1022 - 1023
+    // Up      741 - 742
+    // Right   506 - 506
+    // Down    329 - 330
+    // Select  144 - 145
     // Left      0 - 0
     //
-    if      (input > 1153) *namep = "NONE";
-    else if (input > 990)  *namep = "UP";
-    else if (input > 788)  *namep = "RIGHT";
-    else if (input > 514)  *namep = "DOWN";
-    else if (input > 140)  *namep = "SELECT";
+    if      (input > 882)  *namep = "NONE";
+    else if (input > 624)  *namep = "UP";
+    else if (input > 424)  *namep = "RIGHT";
+    else if (input > 242)  *namep = "DOWN";
+    else if (input > 73)   *namep = "SELECT";
     else                   *namep = "LEFT";
 
     return input;
