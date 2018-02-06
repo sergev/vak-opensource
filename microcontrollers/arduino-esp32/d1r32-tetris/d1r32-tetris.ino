@@ -318,15 +318,26 @@ enum {
 //
 int joystick_get()
 {
-    int input = analogRead(2); // IO2=A0 on D1 R32 board.
+    static int last_button = JOYSTICK_NONE;
+    int button;
 
-    if (input > 882) return JOYSTICK_NONE;
-    if (input > 624) return JOYSTICK_UP;
-    if (input > 424) return JOYSTICK_RIGHT;
-    if (input > 242) return JOYSTICK_DOWN;
-    if (input > 73)  return JOYSTICK_SELECT;
+    // Read pin IO2 (A0) on D1 R32 board.
+    int input = analogRead(2);
 
-    return JOYSTICK_LEFT;
+    // Convert analog value into button.
+    if      (input > 1144) button = JOYSTICK_NONE;
+    else if (input > 966)  button = JOYSTICK_UP;
+    else if (input > 777)  button = JOYSTICK_RIGHT;
+    else if (input > 504)  button = JOYSTICK_DOWN;
+    else if (input > 146)  button = JOYSTICK_SELECT;
+    else                   button = JOYSTICK_LEFT;
+
+    // Wait until state is stable.
+    if (button != last_button) {
+        last_button = button;
+        return JOYSTICK_NONE;
+    }
+    return button;
 }
 
 void setup()
