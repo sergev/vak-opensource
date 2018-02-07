@@ -1,8 +1,8 @@
 CC      = cc
-CFLAGS  = -Wall -Werror -g -I. -DSDL $(shell sdl-config --cflags)
-LIBS    = $(shell sdl-config --libs)
+CFLAGS  = -Wall -Werror -g -I. -DSDL $(shell sdl2-config --cflags)
+LIBS    = $(shell sdl2-config --libs)
 PROG    = flappy pong
-OBJS    = lucidasans15.o lucidasans28.o gpanel-sdl.o input.c
+OBJS    = lucidasans15.o lucidasans28.o gpanel-sdl2.o input.c
 
 all:    $(PROG)
 
