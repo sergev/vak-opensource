@@ -98,8 +98,33 @@ usage:
         scp_print_track(&sf);
     }
 
-    //TODO
-
     scp_close(&sf);
     return 0;
 }
+
+//TODO: generate VCD output
+#if 0
+$date
+        Sat, 10 Feb 2018 03:52:44 -0000
+$end
+$version
+        1.0
+$end
+$timescale
+        1ns
+$end
+$scope module input $end
+$var wire 1 ! CLK $end
+$var wire 1 " CS $end
+$var wire 1 # DOUT $end
+$var wire 1 $ DIN $end
+$upscope $end
+$enddefinitions $end
+$dumpvars
+#0
+0!
+1"
+0#
+0$
+$end
+#endif

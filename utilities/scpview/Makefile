@@ -1,5 +1,5 @@
 PROG            = scp_view
-OBJS            = scp-file.o scp-view.o
+OBJS            = scp.o scp-view.o
 
 CFLAGS          = -O -g -Wall -Werror
 LDFLAGS         = -g

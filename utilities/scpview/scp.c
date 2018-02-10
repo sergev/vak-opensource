@@ -81,15 +81,6 @@ void scp_close(scp_file_t *sf)
 }
 
 /*
- * Reset read pointers.
- */
-void scp_reset(scp_file_t *sf)
-{
-    sf->dat_idx = 0;
-    sf->index_pos = 0;
-}
-
-/*
  * Select a track by index.
  * Read track header.
  */
@@ -105,7 +96,7 @@ int scp_select_track(scp_file_t *sf, unsigned int tn)
     sf->datsz = 0;
 
     /* Read track header. */
-    uint32_t tdh_offset = sf->header.track_offset[tn];
+    unsigned tdh_offset = sf->header.track_offset[tn];
     if (lseek(sf->fd, tdh_offset, SEEK_SET) != tdh_offset)
         return -1;
 
@@ -127,7 +118,6 @@ int scp_select_track(scp_file_t *sf, unsigned int tn)
         sf->datsz += sf->track.rev[rev].nr_samples;
     }
 
-#if 0
     /* Allocate data. */
     sf->dat = calloc(sf->datsz, sizeof(sf->dat[0]));
     if (! sf->dat)
@@ -143,42 +133,39 @@ int scp_select_track(scp_file_t *sf, unsigned int tn)
         sf->datsz += sf->track.rev[rev].nr_samples;
         sf->index_off[rev] = sf->datsz;
     }
-#endif
     return 0;
 }
 
-#if 0
-int scp_next_flux(scp_file_t *sf, unsigned int rev)
+/*
+ * Reset read pointers.
+ */
+void scp_reset(scp_file_t *sf)
 {
-    uint32_t val = 0;
-    unsigned int nr_index_seen = 0;
+    sf->dat_idx = 0;
+    sf->index_pos = 0;
+}
+
+unsigned scp_next_flux(scp_file_t *sf, unsigned int rev)
+{
+    unsigned val = 0;
 
     for (;;) {
         if (sf->dat_idx >= sf->index_pos) {
             sf->index_pos = sf->index_off[rev];
             sf->dat_idx = rev ? sf->index_off[rev-1] : 0;
-            /* Some drives return no flux transitions for tracks >= 160.
-             * Bail if we see no flux transitions in a complete revolution. */
-            if (nr_index_seen++)
-                break;
             val = 0;
         }
 
-        uint32_t t = be16toh(sf->dat[sf->dat_idx++]);
-
-        if (t == 0) { /* overflow */
-            val += 0x10000;
-            continue;
+        unsigned t = be16toh(sf->dat[sf->dat_idx++]);
+        if (t != 0) {
+            val += t;
+            return val;
         }
 
-        val += t;
-        break;
+        /* overflow */
+        val += 0x10000;
     }
-
-    s->flux += val; //TODO
-    return 0;
 }
-#endif
 
 void scp_print_disk_header(scp_file_t *sf)
 {
@@ -203,9 +190,9 @@ void scp_print_disk_header(scp_file_t *sf)
     printf("       Tracks: %d - %d\n", sf->header.start_track, sf->header.end_track);
 
     printf("        Flags: %x <", sf->header.flags);
-    if (sf->header.flags & FLAG_INDEX)  printf("Index");  else printf("NoIndex");
-    if (sf->header.flags & FLAG_TPI)    printf(" 96TPI");  else printf(" 48TPI");
+    if (sf->header.flags & FLAG_TPI)    printf("96TPI");  else printf("48TPI");
     if (sf->header.flags & FLAG_RPM)    printf(" 360RPM"); else printf(" 300RPM");
+    if (sf->header.flags & FLAG_INDEX)  printf(" Index");
     if (sf->header.flags & FLAG_TYPE)   printf(" Normalized");
     if (sf->header.flags & FLAG_MODE)   printf(" Writeable");
     if (sf->header.flags & FLAG_FOOTER) printf(" Footer");
@@ -235,13 +222,19 @@ void scp_print_disk_header(scp_file_t *sf)
 
 void scp_print_track(scp_file_t *sf)
 {
-    int i;
+    int rev;
 
     printf("Track %d:\n", sf->track.track_nr);
-    for (i = 0; i < sf->header.nr_revolutions; i++) {
-        printf("  Revolution %d: %u samples, %f msec, offset %u\n", i,
-            sf->track.rev[i].nr_samples,
-            sf->track.rev[i].duration_25ns * 0.000025,
-            sf->track.rev[i].offset);
+    for (rev = 0; rev < sf->header.nr_revolutions; rev++) {
+        scp_reset(sf);
+        unsigned f1 = scp_next_flux(sf, rev);
+        unsigned f2 = scp_next_flux(sf, rev);
+        unsigned f3 = scp_next_flux(sf, rev);
+        unsigned f4 = scp_next_flux(sf, rev);
+
+        printf("  Revolution %d: %u samples, %f msec, offset %u, data %u-%u-%u-%u...\n",
+            rev, sf->track.rev[rev].nr_samples,
+            sf->track.rev[rev].duration_25ns * 0.000025,
+            sf->track.rev[rev].offset, f1, f2, f3, f4);
     }
 }
