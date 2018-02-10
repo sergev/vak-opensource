@@ -97,6 +97,8 @@ void scp_generate_vcd(scp_file_t *sf, const char *name)
     fprintf(vcd, "$dumpvars\n");
 
     /* Collect all data. */
+    printf("Collecting SCP input data...\n");
+    fflush(stdout);
     for (tn = sf->header.start_track; tn <= sf->header.end_track; tn++) {
 
         if (scp_select_track(sf, tn) < 0) {
@@ -125,11 +127,15 @@ void scp_generate_vcd(scp_file_t *sf, const char *name)
     }
 
     /* Sort all data by timestamp. */
+    printf("Sorting %d samples...\n", nevents);
+    fflush(stdout);
     qsort(event_tab, nevents, sizeof(event_tab[0]), event_compare);
 
     /* Print all data. */
     event_t *ev;
     uint64_t last_nsec = 0;
+    printf("Generating VCD output...\n");
+    fflush(stdout);
     for (ev = event_tab; ev < event_tab + nevents; ev++) {
 // Generate only [10ms, 11ms] range.
 //if (ev->nsec >= 11000000) break;
@@ -147,6 +153,8 @@ void scp_generate_vcd(scp_file_t *sf, const char *name)
 
     fprintf(vcd, "$end\n");
     fclose(vcd);
+    printf("Done\n");
+    fflush(stdout);
 
     /* Deallocate data. */
     free(event_tab);

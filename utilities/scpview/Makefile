@@ -1,7 +1,9 @@
 PROG            = scp_view
 OBJS            = scp.o main.o vcd.o
 
-CFLAGS          = -O -g -Wall -Werror
+GITCOUNT        = $(shell git rev-list HEAD --count)$(if $(shell git ls-files -m),m)
+
+CFLAGS          = -O -g -Wall -Werror -DGITCOUNT='"$(GITCOUNT)"'
 LDFLAGS         = -g
 
 all:            $(PROG)

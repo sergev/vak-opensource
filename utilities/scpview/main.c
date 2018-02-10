@@ -31,10 +31,9 @@
 
 #include "scp.h"
 
-#define VERSION         "0.0"
+#define VERSION         "0.1."GITCOUNT
 #define COPYRIGHT       "Copyright: (C) 2018 Serge Vakulenko"
 
-int debug_level;
 char *progname;
 
 int main(int argc, char **argv)
@@ -45,16 +44,21 @@ int main(int argc, char **argv)
         { NULL,          0, 0, 0 },
     };
     int ch;
+    int show_tracks = 0;
+    char *output_vcd = 0;
 
     setvbuf(stdout, (char *)NULL, _IOLBF, 0);
     setvbuf(stderr, (char *)NULL, _IOLBF, 0);
     printf("SCP Image Viewer, Version %s\n", VERSION);
     progname = argv[0];
 
-    while ((ch = getopt_long(argc, argv, "DhV", long_options, 0)) != -1) {
+    while ((ch = getopt_long(argc, argv, "thVo:", long_options, 0)) != -1) {
         switch (ch) {
-        case 'D':
-            ++debug_level;
+        case 't':
+            show_tracks++;
+            continue;
+        case 'o':
+            output_vcd = optarg;
             continue;
         case 'h':
             break;
@@ -65,10 +69,11 @@ int main(int argc, char **argv)
 usage:
         printf("%s\n\n", COPYRIGHT);
         printf("Usage:\n");
-        printf("       %s [-v] file.scp\n", progname);
+        printf("       %s [-t] [-o output.vcd] input.scp\n", progname);
         printf("\nArgs:\n");
-        printf("       file.scp            Floppy image in SCP format\n");
-        printf("       -D                  Debug mode\n");
+        printf("       input.scp           Floppy image in SCP format\n");
+        printf("       -t                  Show track information\n");
+        printf("       -o output.vcd       Convert to VCD format\n");
         printf("       -h, --help          Print this help message\n");
         printf("       -V, --version       Print version\n");
         printf("\n");
@@ -87,19 +92,25 @@ usage:
         exit(1);
     }
     scp_print_disk_header(&sf);
-#if 0
-    int tn;
-    for (tn = sf.header.start_track; tn <= sf.header.end_track; tn++) {
 
-        if (scp_select_track(&sf, tn) < 0) {
-            fprintf(stderr, "%s: Cannot select track %d\n", argv[0], tn);
-            exit(1);
+    if (show_tracks) {
+        /* Show all track headers. */
+        int tn;
+        for (tn = sf.header.start_track; tn <= sf.header.end_track; tn++) {
+
+            if (scp_select_track(&sf, tn) < 0) {
+                fprintf(stderr, "%s: Cannot select track %d\n", argv[0], tn);
+                exit(1);
+            }
+            scp_print_track(&sf);
         }
-        scp_print_track(&sf);
     }
-#else
-    scp_generate_vcd(&sf, "output.vcd");
-#endif
+
+    if (output_vcd) {
+        /* Convert to VCD format. */
+        scp_generate_vcd(&sf, "output.vcd");
+    }
+
     scp_close(&sf);
     return 0;
 }
