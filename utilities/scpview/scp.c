@@ -12,8 +12,15 @@
 #include <string.h>
 #include <errno.h>
 #include <err.h>
-
 #include "scp.h"
+
+#ifdef __APPLE__
+#   include <libkern/OSByteOrder.h>
+#   define be16toh(x) OSSwapBigToHostInt16(x)
+#   define le16toh(x) OSSwapLittleToHostInt16(x)
+#   define be32toh(x) OSSwapBigToHostInt32(x)
+#   define le32toh(x) OSSwapLittleToHostInt32(x)
+#endif
 
 static void read_exact(int fd, void *buf, size_t count)
 {
@@ -131,7 +138,7 @@ int scp_select_track(scp_file_t *sf, unsigned int tn)
         read_exact(sf->fd, &sf->dat[sf->datsz],
                    sf->track.rev[rev].nr_samples * sizeof(sf->dat[0]));
         sf->datsz += sf->track.rev[rev].nr_samples;
-        sf->index_off[rev] = sf->datsz;
+        sf->index_ptr[rev] = sf->datsz;
     }
     return 0;
 }
@@ -141,8 +148,8 @@ int scp_select_track(scp_file_t *sf, unsigned int tn)
  */
 void scp_reset(scp_file_t *sf)
 {
-    sf->dat_idx = 0;
-    sf->index_pos = 0;
+    sf->iter_ptr = 0;
+    sf->iter_limit = 0;
 }
 
 unsigned scp_next_flux(scp_file_t *sf, unsigned int rev)
@@ -150,13 +157,13 @@ unsigned scp_next_flux(scp_file_t *sf, unsigned int rev)
     unsigned val = 0;
 
     for (;;) {
-        if (sf->dat_idx >= sf->index_pos) {
-            sf->index_pos = sf->index_off[rev];
-            sf->dat_idx = rev ? sf->index_off[rev-1] : 0;
+        if (sf->iter_ptr >= sf->iter_limit) {
+            sf->iter_limit = sf->index_ptr[rev];
+            sf->iter_ptr = rev ? sf->index_ptr[rev-1] : 0;
             val = 0;
         }
 
-        unsigned t = be16toh(sf->dat[sf->dat_idx++]);
+        unsigned t = be16toh(sf->dat[sf->iter_ptr++]);
         if (t != 0) {
             val += t;
             return val;

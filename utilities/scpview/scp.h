@@ -162,14 +162,14 @@ typedef struct {
     scp_disk_header_t header;           /* disk image header */
     scp_track_header_t track;           /* current track header */
 
-    unsigned int index_off[REV_MAX];    /* data offsets of each index */
 
     /* Raw track data. */
     uint16_t *dat;
     unsigned int datsz;
 
-    unsigned int dat_idx;               /* current index into dat[] */
-    unsigned int index_pos;             /* next index offset */
+    unsigned int index_ptr[REV_MAX];    /* data offsets of each index */
+    unsigned int iter_ptr;              /* current index into dat[] */
+    unsigned int iter_limit;            /* next index offset */
 
 } scp_file_t;
 
@@ -180,5 +180,6 @@ void scp_reset(scp_file_t *sf);
 unsigned scp_next_flux(scp_file_t *sf, unsigned int data_rpm);
 void scp_print_disk_header(scp_file_t *sf);
 void scp_print_track(scp_file_t *sf);
+void scp_generate_vcd(scp_file_t *sf, const char *name);
 
 #endif /* __SCP_H__ */
