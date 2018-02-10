@@ -72,7 +72,7 @@ void scp_generate_vcd(scp_file_t *sf, const char *name)
     time_t now = 0;
     time(&now);
 
-    fprintf(vcd, "$date\n\t%s\n$end\n", ctime(&now));
+    fprintf(vcd, "$date\n\t%s$end\n", ctime(&now));
     fprintf(vcd, "$version\n\t%s\n$end\n", VERSION);
     fprintf(vcd, "$timescale\n\t1ns\n$end\n");
     fprintf(vcd, "$scope module scp $end\n");
@@ -112,6 +112,8 @@ void scp_generate_vcd(scp_file_t *sf, const char *name)
             uint64_t nsec = 0;
             int val = 0;
             append_event(0, tn, rev, 0);
+            fprintf(vcd, "0%c%c%u\n", 'a' + tn/16, 'a' + tn%16, rev + 1);
+
             do {
                 unsigned ticks = scp_next_flux(sf, rev);
                 nsec += ticks * 25;
@@ -129,6 +131,12 @@ void scp_generate_vcd(scp_file_t *sf, const char *name)
     event_t *ev;
     uint64_t last_nsec = 0;
     for (ev = event_tab; ev < event_tab + nevents; ev++) {
+// Generate only [10ms, 11ms] range.
+//if (ev->nsec >= 11000000) break;
+//if (ev->nsec < 10000000) continue;
+//ev->nsec -= 10000000;
+        if (ev->nsec == 0)
+            continue;
         if (ev->nsec > last_nsec) {
             fprintf(vcd, "#%ju\n", (uintmax_t)ev->nsec);
             last_nsec = ev->nsec;
