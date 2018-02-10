@@ -86,16 +86,20 @@ usage:
         perror(argv[0]);
         exit(1);
     }
-#if 0
-    for (addr=base; addr-base<nbytes; addr+=blocksz) {
-        progress(progress_step);
-        target_read_block(target, addr, blocksz/4, data);
-        if (fwrite(data, 1, blocksz, fd) != blocksz) {
-            fprintf(stderr, "%s: write error!\n", argv[0]);
+    scp_print_disk_header(&sf);
+
+    int tn;
+    for (tn = sf.header.start_track; tn <= sf.header.end_track; tn++) {
+
+        if (scp_select_track(&sf, tn) < 0) {
+            fprintf(stderr, "%s: Cannot select track %d\n", argv[0], tn);
             exit(1);
         }
+        scp_print_track(&sf);
     }
-#endif
+
+    //TODO
+
     scp_close(&sf);
     return 0;
 }
