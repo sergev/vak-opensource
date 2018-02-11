@@ -93,7 +93,6 @@ static void print_time(FILE *vcd, uint64_t nsec)
 
 typedef struct {
     FILE *vcd;
-    int clock_val;          /* 0 or 1 */
     int hperiod;            /* nsec */
     uint64_t last_tick;     /* nsec */
 } pll_t;
@@ -115,10 +114,6 @@ static void pll_init(pll_t *pll, FILE *vcd, int hperiod)
  */
 static void pll_push(pll_t *pll, int delta)
 {
-    /* Synchronize only on rising clock edge. */
-    if (pll->clock_val == 1)
-        return;
-
     if (delta > -20 && delta < 20) {
         /* Ignore. */
 
@@ -134,12 +129,17 @@ printf("%8ld: Increase hperiod %d by %d\n", pll->last_tick/1000, pll->hperiod, 1
 else printf("%8ld: Bad displacement: hperiod %d, delta %d\n", pll->last_tick/1000, pll->hperiod, delta);
 }
 
-static void pll_tick(pll_t *pll, uint64_t nsec)
+static void pll_tick(pll_t *pll)
 {
-    pll->last_tick = nsec;
-    pll->clock_val ^= 1;
-    print_time(pll->vcd, nsec);
-    fprintf(pll->vcd, "%uc\n", pll->clock_val);
+    /* Rising clock edge. */
+    pll->last_tick += pll->hperiod;
+    print_time(pll->vcd, pll->last_tick);
+    fprintf(pll->vcd, "1c\n");
+
+    /* Falling clock edge. */
+    pll->last_tick += pll->hperiod;
+    print_time(pll->vcd, pll->last_tick);
+    fprintf(pll->vcd, "0c\n");
 }
 
 /*
@@ -149,8 +149,8 @@ static void pll_tick(pll_t *pll, uint64_t nsec)
 static void pll_update(pll_t *pll, uint64_t nsec)
 {
     if (pll->last_tick == 0) {
-        pll->clock_val = 1;
-        pll_tick(pll, nsec);
+        /* PLL starts on first data edge. */
+        pll->last_tick = nsec;
         return;
     }
 
@@ -159,34 +159,30 @@ static void pll_update(pll_t *pll, uint64_t nsec)
 
     if (step >= pll->hperiod && step <= 3*pll->hperiod) {
         /* Step by 1. */
-        pll_tick(pll, pll->last_tick + pll->hperiod);
-        pll_tick(pll, pll->last_tick + pll->hperiod);
+        pll_tick(pll);
         pll_push(pll, (int)step - 2*pll->hperiod);
 
     } else if (step >= 3*pll->hperiod && step <= 5*pll->hperiod) {
         /* Step by 2. */
-        pll_tick(pll, pll->last_tick + pll->hperiod);
-        pll_tick(pll, pll->last_tick + pll->hperiod);
-        pll_tick(pll, pll->last_tick + pll->hperiod);
-        pll_tick(pll, pll->last_tick + pll->hperiod);
+        pll_tick(pll);
+        pll_tick(pll);
         pll_push(pll, (int)step - 4*pll->hperiod);
 
     } else if (step >= 5*pll->hperiod && step <= 7*pll->hperiod) {
         /* Step by 3. */
-        pll_tick(pll, pll->last_tick + pll->hperiod);
-        pll_tick(pll, pll->last_tick + pll->hperiod);
-        pll_tick(pll, pll->last_tick + pll->hperiod);
-        pll_tick(pll, pll->last_tick + pll->hperiod);
-        pll_tick(pll, pll->last_tick + pll->hperiod);
-        pll_tick(pll, pll->last_tick + pll->hperiod);
+        pll_tick(pll);
+        pll_tick(pll);
+        pll_tick(pll);
         pll_push(pll, (int)step - 6*pll->hperiod);
     } else {
         /* PLL error. */
 printf("%8ld: PLL error: last_tick = %ld, hperiod = %d, step = %ld\n", nsec/1000, pll->last_tick, pll->hperiod, step);
+        fprintf(pll->vcd, "1e\n");
         while (pll->last_tick + pll->hperiod < nsec) {
-            pll_tick(pll, pll->last_tick + pll->hperiod);
-            pll_tick(pll, pll->last_tick + pll->hperiod);
+            pll_tick(pll);
         }
+        print_time(pll->vcd, nsec);
+        fprintf(pll->vcd, "0e\n");
     }
 }
 
@@ -217,6 +213,7 @@ void scp_decode_track(scp_file_t *sf, const char *name, int tn, int rev)
 
     fprintf(vcd, "$var wire 1 d track%urev%u $end\n", tn, rev+1);
     fprintf(vcd, "$var wire 1 c clock $end\n");
+    fprintf(vcd, "$var wire 1 e pllerr $end\n");
 
     fprintf(vcd, "$upscope $end\n");
     fprintf(vcd, "$enddefinitions $end\n");
@@ -234,6 +231,7 @@ void scp_decode_track(scp_file_t *sf, const char *name, int tn, int rev)
     append_event(0, 0);
     fprintf(vcd, "0d\n");
     fprintf(vcd, "0c\n");
+    fprintf(vcd, "0e\n");
 
     do {
         unsigned ticks = scp_next_flux(sf, rev);
