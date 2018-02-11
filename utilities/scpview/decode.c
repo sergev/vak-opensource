@@ -115,13 +115,19 @@ static void pll_init(pll_t *pll, FILE *vcd, int period)
  */
 static void pll_push(pll_t *pll, int delta)
 {
-    if (delta < -25 && delta > -500 && pll->period > 1800) {
+    if (delta > -20 && delta < 20) {
+        /* Ignore. */
+
+    } else if (delta < 0 && /*delta > -800 &&*/ pll->period > 1800) {
         pll->period -= 10;
 //printf("%8ld: Decrease period %d by %d\n", pll->last_tick/1000, pll->period, 10);
-    } else if (delta > 25 && delta < 500 && pll->period < 2200) {
+
+    } else if (delta > 0 && /*delta < 800 &&*/ pll->period < 2200) {
         pll->period += 10;
 //printf("%8ld: Increase period %d by %d\n", pll->last_tick/1000, pll->period, 10);
+
     }
+//else printf("%8ld: Bad displacement: period %d, delta %d\n", pll->last_tick/1000, pll->period, delta);
 }
 
 static void pll_tick(pll_t *pll, uint64_t nsec)
@@ -182,9 +188,7 @@ static void pll_update(pll_t *pll, uint64_t nsec)
         pll_push(pll, (int)step - 5*pll->period);
     } else {
         /* PLL error. */
-        fprintf(stderr, "%8ld: PLL error: last_tick = %ld, period = %d, step = %ld\n",
-            nsec/1000, pll->last_tick, pll->period, step);
-
+//printf("%8ld: PLL error: last_tick = %ld, period = %d, step = %ld\n", nsec/1000, pll->last_tick, pll->period, step);
         while (pll->last_tick + pll->period/2 < nsec)
             pll_tick(pll, pll->last_tick + pll->period);
     }
