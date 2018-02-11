@@ -94,18 +94,18 @@ static void print_time(FILE *vcd, uint64_t nsec)
 typedef struct {
     FILE *vcd;
     int clock_val;          /* 0 or 1 */
-    int period;             /* nsec */
+    int hperiod;            /* nsec */
     uint64_t last_tick;     /* nsec */
 } pll_t;
 
 /*
  * Initialize PLL.
  */
-static void pll_init(pll_t *pll, FILE *vcd, int period)
+static void pll_init(pll_t *pll, FILE *vcd, int hperiod)
 {
     memset(pll, 0, sizeof(*pll));
     pll->vcd = vcd;
-    pll->period = period;
+    pll->hperiod = hperiod;
     pll->last_tick = 0;
 }
 
@@ -115,19 +115,23 @@ static void pll_init(pll_t *pll, FILE *vcd, int period)
  */
 static void pll_push(pll_t *pll, int delta)
 {
+    /* Synchronize only on rising clock edge. */
+    if (pll->clock_val == 1)
+        return;
+
     if (delta > -20 && delta < 20) {
         /* Ignore. */
 
-    } else if (delta < 0 && /*delta > -800 &&*/ pll->period > 1800) {
-        pll->period -= 10;
-//printf("%8ld: Decrease period %d by %d\n", pll->last_tick/1000, pll->period, 10);
+    } else if (delta < 0 && pll->hperiod > 1800) {
+        pll->hperiod -= 10;
+printf("%8ld: Decrease hperiod %d by %d\n", pll->last_tick/1000, pll->hperiod, 10);
 
-    } else if (delta > 0 && /*delta < 800 &&*/ pll->period < 2200) {
-        pll->period += 10;
-//printf("%8ld: Increase period %d by %d\n", pll->last_tick/1000, pll->period, 10);
+    } else if (delta > 0 && pll->hperiod < 2200) {
+        pll->hperiod += 10;
+printf("%8ld: Increase hperiod %d by %d\n", pll->last_tick/1000, pll->hperiod, 10);
 
     }
-//else printf("%8ld: Bad displacement: period %d, delta %d\n", pll->last_tick/1000, pll->period, delta);
+else printf("%8ld: Bad displacement: hperiod %d, delta %d\n", pll->last_tick/1000, pll->hperiod, delta);
 }
 
 static void pll_tick(pll_t *pll, uint64_t nsec)
@@ -145,6 +149,7 @@ static void pll_tick(pll_t *pll, uint64_t nsec)
 static void pll_update(pll_t *pll, uint64_t nsec)
 {
     if (pll->last_tick == 0) {
+        pll->clock_val = 1;
         pll_tick(pll, nsec);
         return;
     }
@@ -152,45 +157,36 @@ static void pll_update(pll_t *pll, uint64_t nsec)
     /* Valid step values are 2, 3 or 4 periods. */
     int64_t step = nsec - pll->last_tick;
 
-    if (step >= pll->period/2 && step <= 3*pll->period/2) {
+    if (step >= pll->hperiod && step <= 3*pll->hperiod) {
         /* Step by 1. */
-        pll_tick(pll, pll->last_tick + pll->period);
-        pll_push(pll, (int)step - pll->period);
+        pll_tick(pll, pll->last_tick + pll->hperiod);
+        pll_tick(pll, pll->last_tick + pll->hperiod);
+        pll_push(pll, (int)step - 2*pll->hperiod);
 
-    } else if (step >= 3*pll->period/2 && step <= 5*pll->period/2) {
+    } else if (step >= 3*pll->hperiod && step <= 5*pll->hperiod) {
         /* Step by 2. */
-        pll_tick(pll, pll->last_tick + pll->period);
-        pll_tick(pll, pll->last_tick + pll->period);
-        pll_push(pll, (int)step - 2*pll->period);
+        pll_tick(pll, pll->last_tick + pll->hperiod);
+        pll_tick(pll, pll->last_tick + pll->hperiod);
+        pll_tick(pll, pll->last_tick + pll->hperiod);
+        pll_tick(pll, pll->last_tick + pll->hperiod);
+        pll_push(pll, (int)step - 4*pll->hperiod);
 
-    } else if (step >= 5*pll->period/2 && step <= 7*pll->period/2) {
+    } else if (step >= 5*pll->hperiod && step <= 7*pll->hperiod) {
         /* Step by 3. */
-        pll_tick(pll, pll->last_tick + pll->period);
-        pll_tick(pll, pll->last_tick + pll->period);
-        pll_tick(pll, pll->last_tick + pll->period);
-        pll_push(pll, (int)step - 3*pll->period);
-
-    } else if (step >= 7*pll->period/2 && step <= 9*pll->period/2) {
-        /* Step by 4. */
-        pll_tick(pll, pll->last_tick + pll->period);
-        pll_tick(pll, pll->last_tick + pll->period);
-        pll_tick(pll, pll->last_tick + pll->period);
-        pll_tick(pll, pll->last_tick + pll->period);
-        pll_push(pll, (int)step - 4*pll->period);
-
-    } else if (step >= 9*pll->period/2 && step <= 11*pll->period/2) {
-        /* Step by 5. */
-        pll_tick(pll, pll->last_tick + pll->period);
-        pll_tick(pll, pll->last_tick + pll->period);
-        pll_tick(pll, pll->last_tick + pll->period);
-        pll_tick(pll, pll->last_tick + pll->period);
-        pll_tick(pll, pll->last_tick + pll->period);
-        pll_push(pll, (int)step - 5*pll->period);
+        pll_tick(pll, pll->last_tick + pll->hperiod);
+        pll_tick(pll, pll->last_tick + pll->hperiod);
+        pll_tick(pll, pll->last_tick + pll->hperiod);
+        pll_tick(pll, pll->last_tick + pll->hperiod);
+        pll_tick(pll, pll->last_tick + pll->hperiod);
+        pll_tick(pll, pll->last_tick + pll->hperiod);
+        pll_push(pll, (int)step - 6*pll->hperiod);
     } else {
         /* PLL error. */
-//printf("%8ld: PLL error: last_tick = %ld, period = %d, step = %ld\n", nsec/1000, pll->last_tick, pll->period, step);
-        while (pll->last_tick + pll->period/2 < nsec)
-            pll_tick(pll, pll->last_tick + pll->period);
+printf("%8ld: PLL error: last_tick = %ld, hperiod = %d, step = %ld\n", nsec/1000, pll->last_tick, pll->hperiod, step);
+        while (pll->last_tick + pll->hperiod < nsec) {
+            pll_tick(pll, pll->last_tick + pll->hperiod);
+            pll_tick(pll, pll->last_tick + pll->hperiod);
+        }
     }
 }
 
