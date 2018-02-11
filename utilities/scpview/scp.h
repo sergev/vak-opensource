@@ -205,5 +205,6 @@ unsigned scp_next_flux(scp_file_t *sf, unsigned int data_rpm);
 void scp_print_disk_header(scp_file_t *sf);
 void scp_print_track(scp_file_t *sf);
 void scp_generate_vcd(scp_file_t *sf, const char *name);
+void scp_decode_track(scp_file_t *sf, const char *name, int tn, int rev);
 
 #endif /* __SCP_H__ */

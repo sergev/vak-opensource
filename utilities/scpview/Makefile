@@ -1,5 +1,5 @@
 PROG            = scp_view
-OBJS            = scp.o main.o vcd.o
+OBJS            = scp.o main.o vcd.o decode.o
 
 GITCOUNT        = $(shell git rev-list HEAD --count)$(if $(shell git ls-files -m),m)
 
