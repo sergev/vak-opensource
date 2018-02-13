@@ -28,140 +28,91 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <time.h>
 #include <err.h>
 #include "scp.h"
 
-#define VERSION "1.0"
+/*
+ * Flux-based streams
+ */
+#define CLOCK_CENTRE    2000   /* 2000ns = 2us */
+#define CLOCK_MAX_ADJ   10     /* +/- 10% adjustment */
+#define CLOCK_MIN(_c)   (((_c) * (100 - CLOCK_MAX_ADJ)) / 100)
+#define CLOCK_MAX(_c)   (((_c) * (100 + CLOCK_MAX_ADJ)) / 100)
 
-static uint64_t last_nsec;
-
-static void print_time(FILE *vcd, uint64_t nsec)
-{
-    if (nsec > last_nsec) {
-        fprintf(vcd, "#%ju\n", (uintmax_t)nsec);
-        last_nsec = nsec;
-    }
-}
+/*
+ * Amount to adjust phase/period of our clock based on each observed flux.
+ */
+#define PERIOD_ADJ_PCT  5
+#define PHASE_ADJ_PCT   60
 
 typedef struct {
-    FILE *vcd;
-    int hperiod;            /* nsec */
-    uint64_t last_tick;     /* nsec */
+    scp_file_t *sf;
+    int rev;
+    int clock;          /* nsec */
+    int flux;           /* nsec */
+    int time;           /* nsec */
+    int clocked_zeros;
 } pll_t;
 
 /*
  * Initialize PLL.
  */
-static void pll_init(pll_t *pll, FILE *vcd, int hperiod)
+static void pll_init(pll_t *pll, scp_file_t *sf, int rev)
 {
     memset(pll, 0, sizeof(*pll));
-    pll->vcd = vcd;
-    pll->hperiod = hperiod;
-    pll->last_tick = 0;
+    pll->sf = sf;
+    pll->rev = rev;
+    pll->clock = CLOCK_CENTRE;
 }
 
-/*
- * Push PLL up or down.
- * Adjust period based on input displacement.
- */
-static void pll_push(pll_t *pll, int delta)
+static int pll_next_bit(pll_t *pll)
 {
-    if (delta < -1000 || delta > 1000) {
-        /* Too big delta - ignore. */
-
-    } else if (delta > -20 && delta < 20) {
-        /* Too small delta - ignore. */
-
-    } else if (delta < 0 && pll->hperiod > 1800) {
-        pll->hperiod -= 5;
-//printf("%6jd: Decrease hperiod %d by %d\n", (uintmax_t)(pll->last_tick / 1000), pll->hperiod, 10);
-
-    } else if (delta > 0 && pll->hperiod < 2200) {
-        pll->hperiod += 5;
-//printf("%6jd: Increase hperiod %d by %d\n", (uintmax_t)(pll->last_tick / 1000), pll->hperiod, 10);
-
-    }
-else printf("%6jd: Bad displacement: hperiod %d, delta %d\n", (uintmax_t)(pll->last_tick / 1000), pll->hperiod, delta);
-}
-
-static void pll_tick(pll_t *pll)
-{
-    /* Rising clock edge. */
-    pll->last_tick += pll->hperiod;
-    print_time(pll->vcd, pll->last_tick);
-    fprintf(pll->vcd, "1c\n");
-
-    /* Falling clock edge. */
-    pll->last_tick += pll->hperiod;
-    print_time(pll->vcd, pll->last_tick);
-    fprintf(pll->vcd, "0c\n");
-}
-
-/*
- * Update PLL.
- * Generate VCD output for clock.
- */
-static void pll_update(pll_t *pll, uint64_t nsec)
-{
-    if (pll->last_tick == 0) {
-        /* PLL starts on first data edge. */
-        pll->last_tick = nsec;
-        return;
+    while (pll->flux < pll->clock/2) {
+        pll->flux += 25 * scp_next_flux(pll->sf, pll->rev);
     }
 
-    /* Valid step values are 2, 3 or 4 periods. */
-    int64_t step = nsec - pll->last_tick;
+    pll->time += pll->clock;
+    pll->flux -= pll->clock;
 
-    if (step < pll->hperiod) {
-        /* Step by 0. */
-        pll_push(pll, -1000);
+    if (pll->flux >= pll->clock/2) {
+        pll->clocked_zeros++;
+        return 0;
+    }
 
-    } else if (step >= pll->hperiod && step <= 3*pll->hperiod) {
-        /* Step by 1. */
-        pll_tick(pll);
-        pll_push(pll, (int)step - 2*pll->hperiod);
+    /* PLL: Adjust clock frequency according to phase mismatch.
+     * eg. PERIOD_ADJ_PCT=0% -> timing-window centre freq. never changes */
+    if (pll->clocked_zeros <= 3) {
 
-    } else if (step >= 3*pll->hperiod && step <= 5*pll->hperiod) {
-        /* Step by 2. */
-        pll_tick(pll);
-        pll_tick(pll);
-        pll_push(pll, (int)step - 4*pll->hperiod);
-
-    } else if (step >= 5*pll->hperiod && step <= 7*pll->hperiod) {
-        /* Step by 3. */
-        pll_tick(pll);
-        pll_tick(pll);
-        pll_tick(pll);
-        pll_push(pll, (int)step - 6*pll->hperiod);
+        /* In sync: adjust base clock by a fraction of phase mismatch. */
+        pll->clock += pll->flux * PERIOD_ADJ_PCT / 100;
     } else {
-        /* PLL error. */
-printf("%6jd: PLL error: last_tick = %jd, hperiod = %d, step = %jd\n", (uintmax_t)(nsec / 1000), (uintmax_t)pll->last_tick, pll->hperiod, (uintmax_t)step);
-        fprintf(pll->vcd, "1e\n");
-        while (pll->last_tick + pll->hperiod < nsec) {
-            pll_tick(pll);
-        }
-        print_time(pll->vcd, nsec);
-        fprintf(pll->vcd, "0e\n");
+        /* Out of sync: adjust base clock towards centre. */
+        pll->clock += (CLOCK_CENTRE - pll->clock) * PERIOD_ADJ_PCT / 100;
     }
+
+    /* Clamp the clock's adjustment range. */
+    if (pll->clock < CLOCK_MIN(CLOCK_CENTRE))
+        pll->clock = CLOCK_MIN(CLOCK_CENTRE);
+    if (pll->clock > CLOCK_MAX(CLOCK_CENTRE))
+        pll->clock = CLOCK_MAX(CLOCK_CENTRE);
+
+    /* PLL: Adjust clock phase according to mismatch.
+     * eg. PHASE_ADJ_PCT=100% -> timing window snaps to observed flux. */
+    int new_flux = pll->flux * (100 - PHASE_ADJ_PCT) / 100;
+    pll->time += pll->flux - new_flux;
+    pll->flux = new_flux;
+
+    pll->clocked_zeros = 0;
+    return 1;
 }
 
 /*
- * Write VCD output to the given filename.
+ * Decode MFM data from one track.
  */
 void scp_decode_track(scp_file_t *sf, const char *name, int tn, int rev)
 {
-    FILE *vcd = fopen(name, "w");
-    if (! vcd)
-        err(1, "%s", name);
-
-    time_t now = 0;
-    time(&now);
-
-    fprintf(vcd, "$date\n\t%s$end\n", ctime(&now));
-    fprintf(vcd, "$version\n\t%s\n$end\n", VERSION);
-    fprintf(vcd, "$timescale\n\t1ns\n$end\n");
-    fprintf(vcd, "$scope module scp $end\n");
+    pll_t pll;
+    int val;
 
     /* Every track/rev becomes a wire. */
     if (scp_select_track(sf, tn) < 0)
@@ -169,40 +120,15 @@ void scp_decode_track(scp_file_t *sf, const char *name, int tn, int rev)
 
     if (rev < 1 || rev > sf->header.nr_revolutions)
         errx(1, "Revolution %d out of range 1...%d\n", rev, sf->header.nr_revolutions);
-    rev -= 1;
-
-    fprintf(vcd, "$var wire 1 d track%urev%u $end\n", tn, rev+1);
-    fprintf(vcd, "$var wire 1 c clock $end\n");
-    fprintf(vcd, "$var wire 1 e pllerr $end\n");
-
-    fprintf(vcd, "$upscope $end\n");
-    fprintf(vcd, "$enddefinitions $end\n");
-    fprintf(vcd, "$dumpvars\n");
-    fprintf(vcd, "0d\n");
-    fprintf(vcd, "0c\n");
-    fprintf(vcd, "0e\n");
 
     /* Iterate through all data of this revolution. */
-    uint64_t nsec = 0;
-    int val = 0;
-    pll_t pll;
-
-    pll_init(&pll, vcd, 2000);
-    last_nsec = 0;
+    pll_init(&pll, sf, rev-1);
     scp_reset(sf);
     do {
-        unsigned ticks = scp_next_flux(sf, rev);
-        nsec += ticks * 25;
-        val ^= 1;
+        val = pll_next_bit(&pll);
 
-        pll_update(&pll, nsec);
-        print_time(vcd, nsec);
-        fprintf(vcd, "%ud\n", val);
+        printf("%d", val);
+        //TODO
 
     } while (sf->iter_ptr < sf->iter_limit);
-
-    fprintf(vcd, "$end\n");
-    fclose(vcd);
-    printf("Done\n");
-    fflush(stdout);
 }
