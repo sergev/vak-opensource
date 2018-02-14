@@ -7,5 +7,6 @@ AVRDUDE_CONF    = $(AVR_TOOLS_DIR)/etc/avrdude.conf
 BOARD_TAG       = mega
 BOARD_SUB       = atmega2560
 MONITOR_PORT    = /dev/ttyUSB0
+CPPFLAGS        = -Werror
 
 include $(ARDMK_DIR)/Arduino.mk
