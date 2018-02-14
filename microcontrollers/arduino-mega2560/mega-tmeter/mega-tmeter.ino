@@ -22,6 +22,24 @@ int wait_input()
     }
 }
 
+#if 0
+/*
+ * Print the current state of the device.
+ */
+void print_binary(const char *str, int v)
+{
+    Serial.write(str);
+    Serial.print((v >> 7) & 1);
+    Serial.print((v >> 6) & 1);
+    Serial.print((v >> 5) & 1);
+    Serial.print((v >> 4) & 1);
+    Serial.print((v >> 3) & 1);
+    Serial.print((v >> 2) & 1);
+    Serial.print((v >> 1) & 1);
+    Serial.print(v & 1);
+}
+#endif
+
 /*
  * Print the current state of the device.
  */
@@ -39,7 +57,17 @@ void show_state()
     Serial.write("\r\n Drain input: "); Serial.print(drain_input);
     Serial.write("\r\n  Voltage +5: "); Serial.print(volt5_input);
     Serial.write("\r\n Voltage +15: "); Serial.print(volt15_input);
+    //print_binary("\r\n TCCR3A = ", TCCR3A); print_binary(", TCCR3B = ", TCCR3B);; print_binary(", TCCR3C = ", TCCR3C);
+    //print_binary("\r\n  OCR3A = ", OCR3A); print_binary(", OCR3B = ", OCR3B);
+    //print_binary("\r\n   ICR3 = ", ICR3);
     Serial.write("\r\n");
+}
+
+void set_gate(unsigned val)
+{
+    gate_output = val;
+    analogWrite(gate_output_pin, gate_output);
+    delay(10);
 }
 
 /*
@@ -70,53 +98,43 @@ again:
             break;
 
         if (cmd == '1') {
-            gate_output = 0;
-            analogWrite(gate_output_pin, gate_output);
+            set_gate(0);
             goto again;
         }
         if (cmd == '2') {
-            gate_output = (5 - 4.9) * 255/5;
-            analogWrite(gate_output_pin, gate_output);
+            set_gate(256 - 4.9 * 255/5);
             goto again;
         }
         if (cmd == '3') {
-            gate_output = (5 - 4.8) * 255/5;
-            analogWrite(gate_output_pin, gate_output);
+            set_gate(256 - 4.8 * 255/5);
             goto again;
         }
         if (cmd == '4') {
-            gate_output = (5 - 4.7) * 255/5;
-            analogWrite(gate_output_pin, gate_output);
+            set_gate(256 - 4.7 * 255/5);
             goto again;
         }
         if (cmd == '5') {
-            gate_output = (5 - 4.5) * 255/5;
-            analogWrite(gate_output_pin, gate_output);
+            set_gate(256 - 4.5 * 255/5);
             goto again;
         }
         if (cmd == '6') {
-            gate_output = (5 - 4) * 255/5;
-            analogWrite(gate_output_pin, gate_output);
+            set_gate(256 - 4.0 * 255/5);
             goto again;
         }
         if (cmd == '7') {
-            gate_output = (5 - 3) * 255/5;
-            analogWrite(gate_output_pin, gate_output);
+            set_gate(256 - 3.0 * 255/5);
             goto again;
         }
         if (cmd == '8') {
-            gate_output = (5 - 2) * 255/5;
-            analogWrite(gate_output_pin, gate_output);
+            set_gate(256 - 2.0 * 255/5);
             goto again;
         }
         if (cmd == '9') {
-            gate_output = (5 - 1) * 255/5;
-            analogWrite(gate_output_pin, gate_output);
+            set_gate(256 - 1.0 * 255/5);
             goto again;
         }
         if (cmd == '0') {
-            gate_output = 255;
-            analogWrite(gate_output_pin, gate_output);
+            set_gate(255);
             goto again;
         }
     }
@@ -134,6 +152,9 @@ void setup()
     // A3 - +15V input with divisor 1:4
     //
     pinMode(gate_output_pin, OUTPUT);
+
+    // Clock select for Timer3: No prescaling.
+    TCCR3B = (TCCR3B & ~7) | 1;
     delay(10);
 
     Serial.write("\r\n----------------\r\n");
