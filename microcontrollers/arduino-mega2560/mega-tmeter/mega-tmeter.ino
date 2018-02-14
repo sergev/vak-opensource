@@ -4,11 +4,20 @@
 unsigned gate_output = 0;       // control voltage to the Gate pin of transistor
 unsigned gate_input;            // measured voltage of the Gate pin
 unsigned drain_input;           // measured voltage of the Drain pin
-unsigned volt5_input;           // measured voltage of +5V power source
-unsigned volt15_input;          // measured voltage of +15V power source
+unsigned power5_input;          // measured voltage of +5V power source
+unsigned power15_input;         // measured voltage of +15V power source
 
+//
 // Use Timer3, pins 2, 3 and 5 on Mega 2560 board.
+//
 static const int gate_output_pin = 2;
+
+//
+// Coefficients of resistor dividers.
+//
+#define DRAIN_MULT      (((33 + 10) / 10.0) * (11.33 / 11.21)) // resistors 33k and 10k
+#define POWER5_MULT     (((10 + 10) / 10.0) * (5.00  / 5.08))  // resistors 10k and 10k
+#define POWER15_MULT    (((33 + 10) / 10.0) * (11.39 / 11.06)) // resistors 33k and 10k
 
 /*
  * Read a character from the serial port.
@@ -41,6 +50,15 @@ void print_binary(const char *str, int v)
 #endif
 
 /*
+ * Print volts.
+ */
+void print_mv(int mv)
+{
+    Serial.print(mv / 1000.0, 2);
+    Serial.write("mV");
+}
+
+/*
  * Print the current state of the device.
  */
 void show_state()
@@ -48,18 +66,43 @@ void show_state()
     // Update input values.
     gate_input = analogRead(A0);
     drain_input = analogRead(A1);
-    volt5_input = analogRead(A2);
-    volt15_input = analogRead(A3);
+    power5_input = analogRead(A2);
+    power15_input = analogRead(A3);
+
+    // Compute voltages.
+    int gate_mv = gate_input * (5000.0 / 1024);
+    int drain_mv = drain_input * ((5000.0 / 1024) * DRAIN_MULT);
+    int power5_mv = power5_input * ((5000.0 / 1024) * POWER5_MULT);
+    int power15_mv = power15_input * ((5000.0 / 1024) * POWER15_MULT);
 
     // Display all values.
-    Serial.write("\r\n Gate output: "); Serial.print(gate_output);
-    Serial.write("\r\n  Gate input: "); Serial.print(gate_input);
-    Serial.write("\r\n Drain input: "); Serial.print(drain_input);
-    Serial.write("\r\n  Voltage +5: "); Serial.print(volt5_input);
-    Serial.write("\r\n Voltage +15: "); Serial.print(volt15_input);
-    //print_binary("\r\n TCCR3A = ", TCCR3A); print_binary(", TCCR3B = ", TCCR3B);; print_binary(", TCCR3C = ", TCCR3C);
-    //print_binary("\r\n  OCR3A = ", OCR3A); print_binary(", OCR3B = ", OCR3B);
-    //print_binary("\r\n   ICR3 = ", ICR3);
+    Serial.write("\r\nGate output: ");
+    Serial.print(gate_output);
+
+    Serial.write("\r\n Gate input: ");
+    print_mv(gate_mv);
+    Serial.write(" (");
+    Serial.print(gate_input);
+    Serial.write(")");
+
+    Serial.write("\r\nDrain input: ");
+    print_mv(drain_mv);
+    Serial.write(" (");
+    Serial.print(drain_input);
+    Serial.write(")");
+
+    Serial.write("\r\n  Power +5V: ");
+    print_mv(power5_mv);
+    Serial.write(" (");
+    Serial.print(power5_input);
+    Serial.write(")");
+
+    Serial.write("\r\n Power +15V: ");
+    print_mv(power15_mv);
+    Serial.write(" (");
+    Serial.print(power15_input);
+    Serial.write(")");
+
     Serial.write("\r\n");
 }
 
@@ -147,9 +190,9 @@ void setup()
     // Configure pins.
     // D2 - gate output
     // A0 - gate input
-    // A1 - drain input with divisor 1:3
+    // A1 - drain input with divisor 1:4.3
     // A2 - +5V input with divisor 1:2
-    // A3 - +15V input with divisor 1:4
+    // A3 - +15V input with divisor 1:4.3
     //
     pinMode(gate_output_pin, OUTPUT);
 
