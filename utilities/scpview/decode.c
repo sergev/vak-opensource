@@ -119,11 +119,11 @@ static void pll_push(pll_t *pll, int delta)
 
     } else if (delta < 0 && pll->hperiod > 1800) {
         pll->hperiod -= 10;
-printf("%8ld: Decrease hperiod %d by %d\n", pll->last_tick/1000, pll->hperiod, 10);
+//printf("%8ld: Decrease hperiod %d by %d\n", pll->last_tick/1000, pll->hperiod, 10);
 
     } else if (delta > 0 && pll->hperiod < 2200) {
         pll->hperiod += 10;
-printf("%8ld: Increase hperiod %d by %d\n", pll->last_tick/1000, pll->hperiod, 10);
+//printf("%8ld: Increase hperiod %d by %d\n", pll->last_tick/1000, pll->hperiod, 10);
 
     }
 else printf("%8ld: Bad displacement: hperiod %d, delta %d\n", pll->last_tick/1000, pll->hperiod, delta);
