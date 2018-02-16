@@ -86,30 +86,30 @@ void print_uamp(int uamp)
 }
 
 /*
+ * Measure analog voltage.
+ * Take three samples and return a sum.
+ */
+unsigned measure(int pin)
+{
+    unsigned sum;
+
+    delay(3);
+    sum = analogRead(pin);
+    delay(3);
+    sum += analogRead(pin);
+    delay(3);
+    sum += analogRead(pin);
+    return sum;
+}
+
+/*
  * Measure gate voltage.
  * Repeat until the value is stable for 3 attempts.
  */
 void measure_gate()
 {
-    delay(1);
-    gate_input = analogRead(A0);
-    for (;;) {
-        unsigned attempt1 = gate_input;
-        delay(1);
-        gate_input = analogRead(A0);
-        if (attempt1 != gate_input)
-            continue;
-
-        unsigned attempt2 = gate_input;
-        delay(1);
-        gate_input = analogRead(A0);
-        if (attempt2 != gate_input)
-            continue;
-
-        // The result is stable.
-        gate_mv = gate_input * (5000.0 / 1024);
-        return;
-    }
+    gate_input = measure(A0);
+    gate_mv = gate_input * (5000.0 / 1024 / 3);
 }
 
 /*
@@ -118,48 +118,14 @@ void measure_gate()
  */
 void measure_drain_voltage()
 {
-    delay(1);
-    drain_input = analogRead(A1);
-    for (;;) {
-        unsigned attempt1 = drain_input;
-        delay(1);
-        drain_input = analogRead(A1);
-        if (attempt1 != drain_input)
-            continue;
-
-        unsigned attempt2 = drain_input;
-        delay(1);
-        drain_input = analogRead(A1);
-        if (attempt2 != drain_input)
-            continue;
-
-        // The result is stable.
-        drain_mv = drain_input * ((5000.0 / 1024) * DRAIN_MULT);
-        return;
-    }
+    drain_input = measure(A1);
+    drain_mv = drain_input * ((5000.0 / 1024 / 3) * DRAIN_MULT);
 }
 
 void measure_drain_current()
 {
-    delay(1);
-    drain_current_input = analogRead(A4);
-    for (;;) {
-        unsigned attempt1 = drain_current_input;
-        delay(1);
-        drain_current_input = analogRead(A4);
-        if (attempt1 != drain_current_input)
-            continue;
-
-        unsigned attempt2 = drain_current_input;
-        delay(1);
-        drain_current_input = analogRead(A4);
-        if (attempt2 != drain_current_input)
-            continue;
-
-        // The result is stable.
-        drain_uamp = drain_current_input * ((5000.0 / 1024) * DR_CURRENT_MULT);
-        return;
-    }
+    drain_current_input = measure(A4);
+    drain_uamp = drain_current_input * ((5000.0 / 1024 / 3) * DR_CURRENT_MULT);
 }
 
 /*
@@ -168,25 +134,8 @@ void measure_drain_current()
  */
 void measure_power5()
 {
-    delay(1);
-    power5_input = analogRead(A2);
-    for (;;) {
-        unsigned attempt1 = power5_input;
-        delay(1);
-        power5_input = analogRead(A2);
-        if (attempt1 != power5_input)
-            continue;
-
-        unsigned attempt2 = power5_input;
-        delay(1);
-        power5_input = analogRead(A2);
-        if (attempt2 != power5_input)
-            continue;
-
-        // The result is stable.
-        power5_mv = power5_input * ((5000.0 / 1024) * POWER5_MULT);
-        return;
-    }
+    power5_input = measure(A2);
+    power5_mv = power5_input * ((5000.0 / 1024 / 3) * POWER5_MULT);
 }
 
 /*
@@ -195,25 +144,8 @@ void measure_power5()
  */
 void measure_power15()
 {
-    delay(1);
-    power15_input = analogRead(A3);
-    for (;;) {
-        unsigned attempt1 = power15_input;
-        delay(1);
-        power15_input = analogRead(A3);
-        if (attempt1 != power15_input)
-            continue;
-
-        unsigned attempt2 = power15_input;
-        delay(1);
-        power15_input = analogRead(A3);
-        if (attempt2 != power15_input)
-            continue;
-
-        // The result is stable.
-        power15_mv = power15_input * ((5000.0 / 1024) * POWER15_MULT);
-        return;
-    }
+    power15_input = measure(A3);
+    power15_mv = power15_input * ((5000.0 / 1024 / 3) * POWER15_MULT);
 }
 
 /*
@@ -223,15 +155,16 @@ void show_state()
 {
     // Update input values.
     measure_gate();
-    measure_drain();
+    measure_drain_voltage();
+    measure_drain_current();
     measure_power5();
     measure_power15();
 
     // Display all values.
-    Serial.write("\r\nGate output: ");
+    Serial.write("\r\n  Gate output: ");
     Serial.print(gate_output);
 
-    Serial.write("\r\n Gate input: ");
+    Serial.write("\r\n   Gate input: ");
     print_mv(gate_mv);
     Serial.write(" (");
     Serial.print(gate_input);
@@ -253,13 +186,13 @@ void show_state()
     Serial.print(drain_current_input);
     Serial.write(")");
 
-    Serial.write("\r\n  Power +5V: ");
+    Serial.write("\r\n    Power +5V: ");
     print_mv(power5_mv);
     Serial.write(" (");
     Serial.print(power5_input);
     Serial.write(")");
 
-    Serial.write("\r\n Power +15V: ");
+    Serial.write("\r\n   Power +15V: ");
     if (power15_mv > 5000) {
         print_mv(power15_mv);
         Serial.write(" (");
@@ -282,16 +215,16 @@ void set_gate(unsigned val)
 void measure_jfet()
 {
     int i;
-    unsigned v1 = 0, v2 = 0;
+    //unsigned v1 = 0, v2 = 0;
 
     Serial.write("\r\nMeasuring N-JFET:\r\n\r\n");
     Serial.write(" Vg, V   Id, mA\r\n");
     Serial.write("---------------\r\n");
-    measure_power15();
-    for (i=255; i>=0; i--) {
+    //for (i=255; i>=0; i--) {
+    for (i=0; i<256; i++) {
         set_gate(i);
         measure_gate();
-        measure_drain();
+        measure_drain_current();
 
         // Print results.
         Serial.write(" ");
@@ -299,12 +232,13 @@ void measure_jfet()
         Serial.write("  ");
         Serial.print(drain_uamp / 1000.0, 3);
         Serial.write("\r\n");
-
+#if 0
         // Stop when last three values are same.
-        if (v1 == v2 && v2 == drain_input)
+        if (v1 == v2 && v2 == drain_current_input)
             break;
         v1 = v2;
-        v2 = drain_input;
+        v2 = drain_current_input;
+#endif
     }
     set_gate(0);
     Serial.write("Done\r\n");
