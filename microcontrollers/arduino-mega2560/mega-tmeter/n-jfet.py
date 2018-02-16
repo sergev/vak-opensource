@@ -78,9 +78,6 @@ def least_squares(x, y):
 #
 (Yfs, Idss) = least_squares(Vg[:5], Id[:5])
 
-Yfs = round(Yfs, 2)
-Idss = round(Idss, 2)
-
 #
 # Obtain first approximation of cutoff voltage by the least squares method.
 # Use five last nonzero samples and a least squares method.
@@ -89,12 +86,21 @@ Idss = round(Idss, 2)
 # Voff = -b/a
 #
 (a, b) = least_squares(Vg[-8:-3], Id[-8:-3])
-Voff = round(-b / a, 2)
+Voff = -b / a
 
 #print "a =", a, "mA/V"
 #print "b =", b, "mA"
 
 print "\nResults:"
-print "    Idss =", Idss, "mA"
-print "Vds(off) =", Voff, "V"
-print "     Yfs =", Yfs, "mA/V"
+print "    Idss =", round(Idss, 2), "mA"
+print "Vds(off) =", round(Voff, 2), "V"
+print "     Yfs =", round(Yfs, 2), "mA/V"
+
+#
+# Compute Vsat from formula:
+# Idss = Yfs * (-Voff - Vsat/2)
+# -Voff - Vsat/2 = Idss/Yfs
+# Vsat/2 = -Voff - Idss/Yfs
+#
+Vsat = 2 * (-Voff - Idss/Yfs)
+print "    Vsat =", round(Vsat, 2), "V"

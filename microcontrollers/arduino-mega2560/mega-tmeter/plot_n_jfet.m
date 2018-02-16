@@ -5,8 +5,8 @@
 # N JFET transistor.
 #
 # Id (Vg) = 0                               for Vg <= V0
-#           β * (Vg - V0)^2                 for Vg > V0 and Vg < V0 + Vsat
-#           β * Vsat (2 (Vg - V0) - Vsat)   for Vg >= V0 + Vsat
+#           Yfs * (Vg - V0)^2 / (2 * Vsat)  for Vg > V0 and Vg < V0 + Vsat
+#           Yfs * (Vg - V0 - Vsat/2)        for Vg >= V0 + Vsat
 #
 function Id = n_jfet (Vg)
     V0 = -0.4;
