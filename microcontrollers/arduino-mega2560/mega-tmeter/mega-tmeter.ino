@@ -70,22 +70,115 @@ void print_binary(const char *str, int v)
 void print_mv(int mv)
 {
     Serial.print(mv / 1000.0, 2);
-    Serial.write("mV");
+    Serial.write("V");
 }
 
-void measure_voltages()
+/*
+ * Measure gate voltage.
+ * Repeat until the value is stable for 3 attempts.
+ */
+void measure_gate()
 {
-    // Update input values.
+    delay(1);
     gate_input = analogRead(A0);
-    drain_input = analogRead(A1);
-    power5_input = analogRead(A2);
-    power15_input = analogRead(A3);
+    for (;;) {
+        unsigned attempt1 = gate_input;
+        delay(1);
+        gate_input = analogRead(A0);
+        if (attempt1 != gate_input)
+            continue;
 
-    // Compute voltages.
-    gate_mv = gate_input * (5000.0 / 1024);
-    drain_mv = drain_input * ((5000.0 / 1024) * DRAIN_MULT);
-    power5_mv = power5_input * ((5000.0 / 1024) * POWER5_MULT);
-    power15_mv = power15_input * ((5000.0 / 1024) * POWER15_MULT);
+        unsigned attempt2 = gate_input;
+        delay(1);
+        gate_input = analogRead(A0);
+        if (attempt2 != gate_input)
+            continue;
+
+        // The result is stable.
+        gate_mv = gate_input * (5000.0 / 1024);
+        return;
+    }
+}
+
+/*
+ * Measure drain voltage.
+ * Repeat until the value is stable for 3 attempts.
+ */
+void measure_drain()
+{
+    delay(1);
+    drain_input = analogRead(A1);
+    for (;;) {
+        unsigned attempt1 = drain_input;
+        delay(1);
+        drain_input = analogRead(A1);
+        if (attempt1 != drain_input)
+            continue;
+
+        unsigned attempt2 = drain_input;
+        delay(1);
+        drain_input = analogRead(A1);
+        if (attempt2 != drain_input)
+            continue;
+
+        // The result is stable.
+        drain_mv = drain_input * ((5000.0 / 1024) * DRAIN_MULT);
+        return;
+    }
+}
+
+/*
+ * Measure +5V voltage.
+ * Repeat until the value is stable for 3 attempts.
+ */
+void measure_power5()
+{
+    delay(1);
+    power5_input = analogRead(A2);
+    for (;;) {
+        unsigned attempt1 = power5_input;
+        delay(1);
+        power5_input = analogRead(A2);
+        if (attempt1 != power5_input)
+            continue;
+
+        unsigned attempt2 = power5_input;
+        delay(1);
+        power5_input = analogRead(A2);
+        if (attempt2 != power5_input)
+            continue;
+
+        // The result is stable.
+        power5_mv = power5_input * ((5000.0 / 1024) * POWER5_MULT);
+        return;
+    }
+}
+
+/*
+ * Measure +15V voltage.
+ * Repeat until the value is stable for 3 attempts.
+ */
+void measure_power15()
+{
+    delay(1);
+    power15_input = analogRead(A3);
+    for (;;) {
+        unsigned attempt1 = power15_input;
+        delay(1);
+        power15_input = analogRead(A3);
+        if (attempt1 != power15_input)
+            continue;
+
+        unsigned attempt2 = power15_input;
+        delay(1);
+        power15_input = analogRead(A3);
+        if (attempt2 != power15_input)
+            continue;
+
+        // The result is stable.
+        power15_mv = power15_input * ((5000.0 / 1024) * POWER15_MULT);
+        return;
+    }
 }
 
 /*
@@ -94,7 +187,10 @@ void measure_voltages()
 void show_state()
 {
     // Update input values.
-    measure_voltages();
+    measure_gate();
+    measure_drain();
+    measure_power5();
+    measure_power15();
 
     // Display all values.
     Serial.write("\r\nGate output: ");
@@ -142,45 +238,35 @@ void set_gate(unsigned val)
     delay(10);
 }
 
-void print_json(unsigned a, unsigned b)
-{
-    if (i > 0)
-        Serial.write(",");
-    Serial.write("{");
-    Serial.print(a);
-    Serial.write(",");
-    Serial.print(b);
-    Serial.write("}");
-}
-
-void measure_up()
+void measure_jfet()
 {
     int i;
+    unsigned v1 = 0, v2 = 0;
 
-    Serial.write("Measuring from -5V to 0V\r\n");
-    for (i=0; i<256; i++) {
-        set_gate(i);
-        measure_voltages();
-        if (i > 0)
-            Serial.write(",");
-        print_json(i, gate_mv, drain_mv);
-    }
-    Serial.write("\r\nDone\r\n");
-}
-
-void measure_down()
-{
-    int i;
-
-    Serial.write("Measuring from 0V to -5V\r\n");
+    Serial.write("\r\nMeasuring N-JFET:\r\n\r\n");
+    Serial.write(" Vg, V   Id, mA\r\n");
+    Serial.write("---------------\r\n");
+    measure_power15();
     for (i=255; i>=0; i--) {
         set_gate(i);
-        measure_voltages();
-        if (i < 255)
-            Serial.write(",");
-        print_json(i, gate_mv, drain_mv);
+        measure_gate();
+        measure_drain();
+
+        // Print results.
+        Serial.write(" ");
+        Serial.print(((int)gate_mv - 5000) / 1000.0, 3);
+        Serial.write("  ");
+        Serial.print((power15_mv - drain_mv) / 220.0, 3);
+        Serial.write("\r\n");
+
+        // Stop when last three values are same.
+        if (v1 == v2 && v2 == drain_input)
+            break;
+        v1 = v2;
+        v2 = drain_input;
     }
-    Serial.write("\r\nDone\r\n");
+    set_gate(0);
+    Serial.write("Done\r\n");
 }
 
 /*
@@ -197,8 +283,7 @@ again:
     Serial.write("\r\n  4. Set Gate = -2V");
     Serial.write("\r\n  5. Set Gate = -1V");
     Serial.write("\r\n  6. Set Gate = 0V");
-    Serial.write("\r\n  U. Measure JFET up");
-    Serial.write("\r\n  D. Measure JFET down");
+    Serial.write("\r\n  M. Measure JFET");
     Serial.write("\r\n\n");
     for (;;) {
         Serial.write("Command: ");
@@ -232,12 +317,8 @@ again:
             set_gate(255);
             goto again;
         }
-        if (cmd == 'u' || cmd == 'U') {
-            measure_up();
-            goto again;
-        }
-        if (cmd == 'd' || cmd == 'D') {
-            measure_down();
+        if (cmd == 'm' || cmd == 'M') {
+            measure_jfet();
             goto again;
         }
     }
