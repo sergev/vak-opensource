@@ -4,22 +4,23 @@
 #
 # N JFET transistor.
 #
-# Id (Vg) = 0                               for Vg <= V0
-#           Yfs * (Vg - V0)^2 / (2 * Vsat)  for Vg > V0 and Vg < V0 + Vsat
-#           Yfs * (Vg - V0 - Vsat/2)        for Vg >= V0 + Vsat
+# Id (Vg) = 0                               for Vg <= Voff
+#           Yfs * (Vg - Voff)^2 / (2 * Vsat)  for Vg > Voff and Vg < Voff + Vsat
+#           Yfs * (Vg - Voff - Vsat/2)        for Vg >= Voff + Vsat
 #
 function Id = n_jfet (Vg)
-    V0 = -0.4;
-    Vsat = 0.3;
-    I0 = 3.5;
-    beta = I0 / Vsat / (-V0 - V0 - Vsat);
-    v = Vg - V0;
+    Voff = -0.36;
+    Idss = 3.43;
+    Yfs = 16.21;
+
+    Vsat = 2 * (-Voff - Idss/Yfs);
+    v = Vg - Voff;
     if (v < 0)
         Id = 0;
     elseif (v < Vsat)
-        Id = beta * v * v;
+        Id = Yfs * v * v / (2 * Vsat);
     else
-        Id = beta * Vsat * (v + v - Vsat);
+        Id = Yfs * (v - Vsat/2);
     endif
 endfunction
 

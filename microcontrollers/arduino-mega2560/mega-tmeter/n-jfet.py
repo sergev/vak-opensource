@@ -82,10 +82,48 @@ def least_squares(x, y):
 # Voff = -b/a
 #
 (a, b) = least_squares(Vg[-6:-1], Id[-6:-1])
-Voff = -b / a
+Voff1 = round(-b / a, 2)
 
 #print "a =", a, "mA/V"
 #print "b =", b, "mA"
+
+#
+# Compute error in quadratic approximation: y[i] = (x[i] - x0)^2 * c
+#
+def compute_error(x0, x, y):
+    K = len(x)
+    ln_y = np.log(y)
+    ln_x = np.log(x - x0)
+    c = np.exp(np.sum(ln_y - 2*ln_x) / K)
+    err = y - (x - x0)**2 * c
+    return np.sum(err**2)
+
+#
+# Enhance cutoff approximation.
+#
+def compute_cutoff(x0, x, y):
+    #print "--- Cutoff computation:", x0
+    #print "X =", x
+    #print "Y =", y
+
+    e0 = compute_error(x0, x, y)
+    #print "X0 =", x0, "Err =", e0
+
+    while 1:
+        e1 = compute_error(x0 - 0.01, x, y)
+        #print "X1 =", x0-0.01, "Err =", e1, e0
+        if e1 > e0:
+            break
+        x0 -= 0.01
+        e0 = e1
+
+    #print "Result: Err =", e0
+    return x0
+
+#
+# Get better Voff approximation.
+#
+Voff = compute_cutoff(Voff1, Vg[-8:-1], Id[-8:-1])
 
 print "\nResults:"
 print "    Idss =", round(Idss, 2), "mA"
@@ -93,10 +131,7 @@ print "Vds(off) =", round(Voff, 2), "V"
 print "     Yfs =", round(Yfs, 2), "mA/V"
 
 #
-# Compute Vsat from formula:
-# Idss = Yfs * (-Voff - Vsat/2)
-# -Voff - Vsat/2 = Idss/Yfs
-# Vsat/2 = -Voff - Idss/Yfs
+# Compute saturation voltage Vsat.
 #
 Vsat = 2 * (-Voff - Idss/Yfs)
 print "    Vsat =", round(Vsat, 2), "V"
