@@ -17,9 +17,9 @@ set style line 3 linecolor rgb '#007f00' linetype 1 linewidth 1
 set terminal png enhanced
 set output 'result.png'
 plot '2n5458.txt' \
-    using 1:($2 - 0.468) with lines linestyle 1 title 'line1' axes x1y2, \
- '' using 3:($4 - 0.468) with lines linestyle 2 title 'line2' axes x1y2, \
- '' using 5:($6 - 0.468) with lines linestyle 3 title 'line3' axes x1y2
+    using 1:2 with lines linestyle 1 title 'line1' axes x1y2, \
+ '' using 3:4 with lines linestyle 2 title 'line2' axes x1y2, \
+ '' using 5:6 with lines linestyle 3 title 'line3' axes x1y2
 
 # set terminal xterm
 # replot
