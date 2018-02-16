@@ -4,11 +4,13 @@
 unsigned gate_output = 0;       // control voltage to the Gate pin of transistor
 unsigned gate_input;            // measured voltage of the Gate pin
 unsigned drain_input;           // measured voltage of the Drain pin
+unsigned drain_current_input;   // measured current of the Drain pin
 unsigned power5_input;          // measured voltage of +5V power source
 unsigned power15_input;         // measured voltage of +15V power source
 
 unsigned gate_mv;               // millivolts at the Gate pin
 unsigned drain_mv;              // millivolts at the Drain pin
+unsigned long drain_uamp;       // microamperes at the Drain pin
 unsigned power5_mv;             // +5V power source in millivolts
 unsigned power15_mv;            // +15V power source in millivolts
 
@@ -33,6 +35,7 @@ static const int gate_output_pin = 2;
 #define DRAIN_MULT      (((33 + 10) / 10.0) * CALIBRATE_DRAIN)      // resistors 33k and 10k
 #define POWER5_MULT     (((10 + 10) / 10.0) * CALIBRATE_POWER5)     // resistors 10k and 10k
 #define POWER15_MULT    (((33 + 10) / 10.0) * CALIBRATE_POWER15)    // resistors 33k and 10k
+#define DR_CURRENT_MULT (100000.0 / 220 / 51)                       // resistors 51 and 220
 
 /*
  * Read a character from the serial port.
@@ -74,6 +77,15 @@ void print_mv(int mv)
 }
 
 /*
+ * Print milliamperes.
+ */
+void print_uamp(int uamp)
+{
+    Serial.print(uamp / 1000.0, 2);
+    Serial.write("mA");
+}
+
+/*
  * Measure gate voltage.
  * Repeat until the value is stable for 3 attempts.
  */
@@ -104,7 +116,7 @@ void measure_gate()
  * Measure drain voltage.
  * Repeat until the value is stable for 3 attempts.
  */
-void measure_drain()
+void measure_drain_voltage()
 {
     delay(1);
     drain_input = analogRead(A1);
@@ -123,6 +135,29 @@ void measure_drain()
 
         // The result is stable.
         drain_mv = drain_input * ((5000.0 / 1024) * DRAIN_MULT);
+        return;
+    }
+}
+
+void measure_drain_current()
+{
+    delay(1);
+    drain_current_input = analogRead(A4);
+    for (;;) {
+        unsigned attempt1 = drain_current_input;
+        delay(1);
+        drain_current_input = analogRead(A4);
+        if (attempt1 != drain_current_input)
+            continue;
+
+        unsigned attempt2 = drain_current_input;
+        delay(1);
+        drain_current_input = analogRead(A4);
+        if (attempt2 != drain_current_input)
+            continue;
+
+        // The result is stable.
+        drain_uamp = drain_current_input * ((5000.0 / 1024) * DR_CURRENT_MULT);
         return;
     }
 }
@@ -202,7 +237,7 @@ void show_state()
     Serial.print(gate_input);
     Serial.write(")");
 
-    Serial.write("\r\nDrain input: ");
+    Serial.write("\r\nDrain voltage: ");
     if (power15_mv > 5000) {
         print_mv(drain_mv);
         Serial.write(" (");
@@ -211,6 +246,12 @@ void show_state()
     } else {
         Serial.write("No power!");
     }
+
+    Serial.write("\r\nDrain current: ");
+    print_uamp(drain_uamp);
+    Serial.write(" (");
+    Serial.print(drain_current_input);
+    Serial.write(")");
 
     Serial.write("\r\n  Power +5V: ");
     print_mv(power5_mv);
@@ -256,7 +297,7 @@ void measure_jfet()
         Serial.write(" ");
         Serial.print(((int)gate_mv - 5000) / 1000.0, 3);
         Serial.write("  ");
-        Serial.print((power15_mv - drain_mv) / 220.0, 3);
+        Serial.print(drain_uamp / 1000.0, 3);
         Serial.write("\r\n");
 
         // Stop when last three values are same.
@@ -331,15 +372,17 @@ void setup()
     // Configure pins.
     // D2 - gate output
     // A0 - gate input
-    // A1 - drain input with divisor 1:4.3
+    // A1 - drain voltage input with divisor 1:4.3
     // A2 - +5V input with divisor 1:2
     // A3 - +15V input with divisor 1:4.3
+    // A4 - drain current input via ZXCT1009 current sense monitor
     //
     pinMode(gate_output_pin, OUTPUT);
     pinMode(A0, INPUT);
     pinMode(A1, INPUT);
     pinMode(A2, INPUT);
     pinMode(A3, INPUT);
+    pinMode(A4, INPUT);
 
     // Configure timer 3 prescale factor as 1:1.
     // Set bits CS32,CS31,CS30 to 0b001.
