@@ -1,51 +1,142 @@
 #!/usr/bin/python
-#
-# Compute parameters of N-JFET transistor.
-#
-import math
-import numpy as np
 
-data = [
-# Vg, V   Id, mA
- -0.005,  3.350,
- -0.023,  3.089,
- -0.041,  2.741,
- -0.061,  2.379,
- -0.082,  2.146,
- -0.103,  1.885,
- -0.123,  1.581,
- -0.139,  1.334,
- -0.160,  1.087,
- -0.181,  0.884,
- -0.202,  0.725,
- -0.223,  0.536,
- -0.240,  0.420,
- -0.258,  0.275,
- -0.276,  0.217,
- -0.300,  0.087,
- -0.316,  0.058,
- -0.337,  0.000,
-]
+from cobs import cobs
+import numpy as np
+import serial, time, binascii, json, math
+
+# Timeout for buffered serial I/O in seconds.
+IO_TIMEOUT_SEC = 2
+
+# Path to a serial device.
+#device_name = "/dev/ttyUSB0"
+device_name = "/dev/tty.wchusbserialfd130"
+
+# Bit rate for serial communication.
+baud_rate = 38400
+
+#
+# Connect to the microcontroller on a serial port.
+#
+print "Open:", device_name
+serial_port = serial.Serial(
+    port = device_name,
+    baudrate = baud_rate,
+    bytesize = 8,
+    parity = 'N',
+    stopbits = 1,
+    timeout = IO_TIMEOUT_SEC
+)
+if not serial_port.isOpen():
+    raise ValueError("Couldn't open %s" % port)
+time.sleep(1)
+
+# holds reads until we encounter a 0-byte (COBS!!!)
+receive_buf = [None] * 4096
+receive_pos = 0
+
+#
+# Send a command to the microcontroller.
+#
+def send_command(cmd = ""):
+    data = {"Command": cmd}
+
+    # JSON encoding.
+    data = json.dumps(data, separators=(',',':'))
+
+    # Append CRC32 checksum.
+    checksum = binascii.crc32(data) & 0xFFFFFFFF
+    data += chr(97 + (checksum >> 28 & 0xf))
+    data += chr(97 + (checksum >> 24 & 0xf))
+    data += chr(97 + (checksum >> 20 & 0xf))
+    data += chr(97 + (checksum >> 16 & 0xf))
+    data += chr(97 + (checksum >> 12 & 0xf))
+    data += chr(97 + (checksum >> 8 & 0xf))
+    data += chr(97 + (checksum >> 4 & 0xf))
+    data += chr(97 + (checksum & 0xf))
+
+    # Encode to COBS format.
+    encoded = cobs.encode(str(bytearray(data)))
+    #print "Send:", repr(encoded)
+    #print "Checksum: %08x" % checksum
+    serial_port.write(encoded + '\r')
+
+def reset_receive_buf():
+    global receive_pos
+    receive_buf[0:receive_pos] = [None] * receive_pos
+    receive_pos = 0
+
+#
+# Reads a full line from the microcontroller
+#
+def recv_command():
+    global receive_pos
+    #print "Receive:",
+    while True:
+        c = serial_port.read(1)
+        if not c:
+            raise serial.SerialTimeoutException(
+                "Couldn't recv command in %d seconds" % IO_TIMEOUT_SEC)
+
+        if c == '\r':
+            # End of packet.
+            data = cobs.decode(str(bytearray(receive_buf[0:receive_pos])))
+            reset_receive_buf()
+
+            # Ignore short packets.
+            if len(data) <= 8:
+                print "Short packet"
+                continue
+
+            # Verify checksum.
+            sum = data[-8:]
+            data = data[:-8]
+            checksum = binascii.crc32(data) & 0xFFFFFFFF
+            if sum[0] != chr(97 + (checksum >> 28 & 0xf)) or \
+               sum[1] != chr(97 + (checksum >> 24 & 0xf)) or \
+               sum[2] != chr(97 + (checksum >> 20 & 0xf)) or \
+               sum[3] != chr(97 + (checksum >> 16 & 0xf)) or \
+               sum[4] != chr(97 + (checksum >> 12 & 0xf)) or \
+               sum[5] != chr(97 + (checksum >> 8 & 0xf)) or \
+               sum[6] != chr(97 + (checksum >> 4 & 0xf)) or \
+               sum[7] != chr(97 + (checksum & 0xf)):
+                print "Bad checksum:", sum
+                continue
+
+            # Return received data.
+            return data
+
+        receive_buf[receive_pos] = c
+        receive_pos += 1
+
+        if receive_pos == len(receive_buf):
+            # Buffer overflow.
+            reset_receive_buf()
+            raise RuntimeError("IO read buffer overflow")
+
+send_command("version")
+reply = json.loads(recv_command())
+print "Transistor Meter Version", reply["Version"]
+
+send_command("njfet")
+reply = json.loads(recv_command())
+if "Error" in reply:
+    raise ValueError(reply["Error"])
+    print "Error!",
 
 #
 # Copy data into Numpy arrays.
 #
-N = len(data) / 2
+reply_Vg = reply["Vgate"]
+reply_Id = reply["Idrain"]
+N = len(reply_Vg)
 Vg = np.empty(N)
 Id = np.empty(N)
-for i in range (0, N):
-    Vg[i] = data[i*2]
-    Id[i] = data[i*2 + 1]
-
-#
-# Normalize data: subtract Id(max) current.
-#
-for i in range (0, N):
-    Id[i] -= Id[N-1]
-
-print "Input:"
-print Vg
-print Id
+print "  Vg, V  Id, mA"
+print "  -------------"
+for i in range(0, N):
+    Vg[i] = reply_Vg[i]
+    Id[i] = reply_Id[i]
+    print "  %.3f  %.3f" % (Vg[i], Id[i])
 
 #
 # Least squares method.
@@ -82,7 +173,11 @@ def least_squares(x, y):
 # Voff = -b/a
 #
 (a, b) = least_squares(Vg[-6:-1], Id[-6:-1])
-Voff1 = round(-b / a, 2)
+Voff1 = int(-b / a * 100) * 0.01
+
+# Should not exceed the last point.
+if Vg[-1] <= Voff1:
+    Voff1 = int(Vg[-1] * 100 - 1) * 0.01
 
 #print "a =", a, "mA/V"
 #print "b =", b, "mA"
@@ -125,7 +220,7 @@ def compute_cutoff(x0, x, y):
 #
 Voff = compute_cutoff(Voff1, Vg[-8:-1], Id[-8:-1])
 
-print "\nResults:"
+print
 print "    Idss =", round(Idss, 2), "mA"
 print "Vds(off) =", round(Voff, 2), "V"
 print "     Yfs =", round(Yfs, 2), "mA/V"
