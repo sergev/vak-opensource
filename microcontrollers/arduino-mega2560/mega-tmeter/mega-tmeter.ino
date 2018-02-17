@@ -248,7 +248,7 @@ void send_measurement()
 //
 void cobs_receive(const uint8_t *data, size_t nbytes)
 {
-#if 1
+#if 0
     Serial1.write("Received packet: ");
     Serial1.print(nbytes);
     Serial1.write(" '");
@@ -262,15 +262,23 @@ void cobs_receive(const uint8_t *data, size_t nbytes)
 
     // Check the sum.
     uint32_t checksum = CRC32::calculate(data, nbytes-8);
-    if (data[nbytes] != 'a' + (checksum >> 28) ||
-        data[nbytes+1] != 'a' + ((checksum >> 24) & 0xf) ||
-        data[nbytes+2] != 'a' + ((checksum >> 20) & 0xf) ||
-        data[nbytes+3] != 'a' + ((checksum >> 16) & 0xf) ||
-        data[nbytes+4] != 'a' + ((checksum >> 12) & 0xf) ||
-        data[nbytes+5] != 'a' + ((checksum >> 8) & 0xf) ||
-        data[nbytes+6] != 'a' + ((checksum >> 4) & 0xf) ||
-        data[nbytes+7] != 'a' + ((checksum) & 0xf)) {
+#if 0
+    Serial1.write("Checksum: ");
+    Serial1.print(checksum, HEX);
+    Serial1.write("\r\n");
+#endif
+    if (data[nbytes-8] != 'a' + (checksum >> 28) ||
+        data[nbytes-7] != 'a' + ((checksum >> 24) & 0xf) ||
+        data[nbytes-6] != 'a' + ((checksum >> 20) & 0xf) ||
+        data[nbytes-5] != 'a' + ((checksum >> 16) & 0xf) ||
+        data[nbytes-4] != 'a' + ((checksum >> 12) & 0xf) ||
+        data[nbytes-3] != 'a' + ((checksum >> 8) & 0xf) ||
+        data[nbytes-2] != 'a' + ((checksum >> 4) & 0xf) ||
+        data[nbytes-1] != 'a' + ((checksum) & 0xf)) {
         // Incorrect checksum, ignore the packet.
+#if 0
+        Serial1.write("Bad checksum!\r\n");
+#endif
         return;
     }
     nbytes -= 8;
@@ -279,10 +287,10 @@ void cobs_receive(const uint8_t *data, size_t nbytes)
     JsonObject& root = jsonBuffer.parseObject(data, nbytes);
 
     const char *command = root["Command"];
-#if 1
+#if 0
     Serial1.write("Command: ");
     Serial1.write(command ? command : "(null)");
-    Serial1.write("'\r\n");
+    Serial1.write("\r\n");
 #endif
 
     if (strcmp(command, "version") == 0) {
