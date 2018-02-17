@@ -2,6 +2,7 @@
 
 from cobs import cobs
 import numpy as np
+import matplotlib.pyplot as plt
 import serial, time, binascii, json, math
 
 # Timeout for buffered serial I/O in seconds.
@@ -200,3 +201,48 @@ print "     Yfs =", round(Yfs, 2), "mA/V"
 #
 Vsat = 2 * (-Voff - Idss/Yfs)
 print "    Vsat =", round(Vsat, 2), "V"
+
+#
+# Compute axis X limit.
+#
+xmin = Vg[-1]
+if   xmin > -0.5: xmin = -0.5
+elif xmin > -1:   xmin = -1
+elif xmin > -2:   xmin = -2
+else:             xmin = -5
+
+#
+# Compute axis Y limit.
+#
+ymax = Id[0]
+if   ymax <= 5:  ymax = 5
+elif ymax <= 10: ymax = 10
+elif ymax <= 20: ymax = 20
+elif ymax <= 50: ymax = 50
+else:            ymax = 100
+
+#
+# Draw the picture.
+#
+ax = plt.figure().add_subplot(111)
+ax.yaxis.tick_right()
+ax.yaxis.set_label_position("right")
+
+plt.plot(reply_Vg, reply_Id, 'bo')
+plt.plot(reply_Vg, reply_Id, 'r-')
+plt.title('N JFET', fontsize=18)
+plt.xlabel('Gate Voltage, V', fontsize=18)
+plt.ylabel('Drain Current, mA', fontsize=18)
+plt.grid(True)
+plt.xlim(xmin, 0)
+plt.ylim(0, ymax)
+
+plt.plot([Voff+Vsat, Voff+Vsat], [0, ymax], color='green', linewidth=1, linestyle="--")
+plt.text(Voff + Vsat - xmin*0.02, ymax*0.02, "Vsat")
+
+plt.text(xmin*0.95, ymax*0.9, "Idss = %.2f mA" % Idss, fontsize=16)
+plt.text(xmin*0.95, ymax*0.8, "Vds(off) = %.2f V" % Voff, fontsize=16)
+plt.text(xmin*0.95, ymax*0.7, "Yfs = %.2f mA/V" % Yfs, fontsize=16)
+plt.text(xmin*0.95, ymax*0.6, "Vsat = %.2f V" % Vsat, fontsize=16)
+
+plt.show()
