@@ -1,6 +1,9 @@
 /*
  * Transistor Meter.
  */
+#include <PacketSerial.h>
+#include <CRC32.h>
+
 unsigned gate_output = 0;       // control voltage to the Gate pin of transistor
 unsigned gate_input;            // measured voltage of the Gate pin
 unsigned drain_input;           // measured current of the Drain pin
@@ -13,15 +16,26 @@ unsigned long drain_uamp;       // microamperes at the Drain pin
 //
 static const int gate_output_pin = 2;
 
+//
+// Use PacketSerial byte stuffing protocol on Serial port.
+// Configure 128 byte receive buffer size.
+// Packet marker is CR.
+//
+PacketSerial_<COBS, '\r', 128> cobs;
+
 /*
  * Read a character from the serial port.
  */
 int wait_input()
 {
     for (;;) {
-        int c = Serial.read();
+        int c = Serial1.read();
+
         if (c >= 0)
             return c;
+
+        // Let PacketSerial protocol to do it's job.
+        cobs.update();
     }
 }
 
@@ -31,15 +45,15 @@ int wait_input()
  */
 void print_binary(const char *str, int v)
 {
-    Serial.write(str);
-    Serial.print((v >> 7) & 1);
-    Serial.print((v >> 6) & 1);
-    Serial.print((v >> 5) & 1);
-    Serial.print((v >> 4) & 1);
-    Serial.print((v >> 3) & 1);
-    Serial.print((v >> 2) & 1);
-    Serial.print((v >> 1) & 1);
-    Serial.print(v & 1);
+    Serial1.write(str);
+    Serial1.print((v >> 7) & 1);
+    Serial1.print((v >> 6) & 1);
+    Serial1.print((v >> 5) & 1);
+    Serial1.print((v >> 4) & 1);
+    Serial1.print((v >> 3) & 1);
+    Serial1.print((v >> 2) & 1);
+    Serial1.print((v >> 1) & 1);
+    Serial1.print(v & 1);
 }
 #endif
 
@@ -48,8 +62,8 @@ void print_binary(const char *str, int v)
  */
 void print_mv(int mv)
 {
-    Serial.print(mv / 1000.0, 2);
-    Serial.write("V");
+    Serial1.print(mv / 1000.0, 2);
+    Serial1.write("V");
 }
 
 /*
@@ -57,8 +71,8 @@ void print_mv(int mv)
  */
 void print_uamp(int uamp)
 {
-    Serial.print(uamp / 1000.0, 2);
-    Serial.write("mA");
+    Serial1.print(uamp / 1000.0, 2);
+    Serial1.write("mA");
 }
 
 /*
@@ -107,22 +121,22 @@ void show_state()
     measure_drain();
 
     // Display all values.
-    Serial.write("\r\n  Gate output: ");
-    Serial.print(gate_output);
+    Serial1.write("\r\n  Gate output: ");
+    Serial1.print(gate_output);
 
-    Serial.write("\r\n   Gate input: ");
+    Serial1.write("\r\n   Gate input: ");
     print_mv(gate_mv);
-    Serial.write(" (");
-    Serial.print(gate_input);
-    Serial.write(")");
+    Serial1.write(" (");
+    Serial1.print(gate_input);
+    Serial1.write(")");
 
-    Serial.write("\r\nDrain current: ");
+    Serial1.write("\r\nDrain current: ");
     print_uamp(drain_uamp);
-    Serial.write(" (");
-    Serial.print(drain_input);
-    Serial.write(")");
+    Serial1.write(" (");
+    Serial1.print(drain_input);
+    Serial1.write(")");
 
-    Serial.write("\r\n");
+    Serial1.write("\r\n");
 }
 
 void set_gate(unsigned val)
@@ -132,14 +146,84 @@ void set_gate(unsigned val)
     delay(10);
 }
 
+//
+// Output data buffer for COBS protocol.
+//
+#define COBS_BUFSZ 4096
+uint8_t cobs_outbuf[COBS_BUFSZ];
+uint8_t *cobs_outptr = cobs_outbuf;
+
+//
+// PacketSerial protocol calls this function when a new packet is received.
+//
+void cobs_send()
+{
+    // Check transmit size.
+    if (cobs_outptr <= cobs_outbuf || cobs_outptr > cobs_outbuf+COBS_BUFSZ-8)
+        return;
+
+    // Append checksum.
+    int nbytes = cobs_outptr - cobs_outbuf;
+    uint32_t checksum = CRC32::calculate(cobs_outbuf, nbytes);
+    *cobs_outptr++ = 'a' + (checksum >> 28);
+    *cobs_outptr++ = 'a' + ((checksum >> 24) & 0xf);
+    *cobs_outptr++ = 'a' + ((checksum >> 20) & 0xf);
+    *cobs_outptr++ = 'a' + ((checksum >> 16) & 0xf);
+    *cobs_outptr++ = 'a' + ((checksum >> 12) & 0xf);
+    *cobs_outptr++ = 'a' + ((checksum >> 8) & 0xf);
+    *cobs_outptr++ = 'a' + ((checksum >> 4) & 0xf);
+    *cobs_outptr++ = 'a' + (checksum & 0xf);
+
+    // Send the packet.
+    cobs.send(cobs_outbuf, nbytes + 8);
+    cobs_outptr = cobs_outbuf;
+}
+
+//
+// PacketSerial protocol calls this function when a new packet is received.
+//
+void cobs_receive(const uint8_t *data, size_t nbytes)
+{
+#if 1
+    Serial1.write("Received packet: ");
+    Serial1.print(nbytes);
+    Serial1.write(" '");
+    Serial1.write(data, nbytes);
+    Serial1.write("'\r\n");
+#endif
+    if (nbytes <= 8) {
+        // Ignore short packets.
+        return;
+    }
+
+    // Check the sum.
+    uint32_t checksum = CRC32::calculate(data, nbytes-8);
+    if (data[nbytes] != 'a' + (checksum >> 28) ||
+        data[nbytes+1] != 'a' + ((checksum >> 24) & 0xf) ||
+        data[nbytes+2] != 'a' + ((checksum >> 20) & 0xf) ||
+        data[nbytes+3] != 'a' + ((checksum >> 16) & 0xf) ||
+        data[nbytes+4] != 'a' + ((checksum >> 12) & 0xf) ||
+        data[nbytes+5] != 'a' + ((checksum >> 8) & 0xf) ||
+        data[nbytes+6] != 'a' + ((checksum >> 4) & 0xf) ||
+        data[nbytes+7] != 'a' + ((checksum) & 0xf)) {
+        // Incorrect checksum, ignore the packet.
+        return;
+    }
+    nbytes -= 8;
+
+    //TODO: json
+
+    //cobs_send(data, nbytes);
+}
+
 void measure_jfet()
 {
     int i;
     //unsigned v1 = 0, v2 = 0;
 
-    Serial.write("\r\nMeasuring N-JFET:\r\n\r\n");
-    Serial.write(" Vg, V   Id, mA\r\n");
-    Serial.write("---------------\r\n");
+    Serial1.write("\r\nMeasuring N-JFET:\r\n\r\n");
+    Serial1.write(" Vg, V   Id, mA\r\n");
+    Serial1.write("---------------\r\n");
     digitalWrite(LED_BUILTIN, HIGH);
     for (i=255; i>=0; i--) {
         set_gate(i);
@@ -147,11 +231,11 @@ void measure_jfet()
         measure_drain();
 
         // Print results.
-        Serial.write(" ");
-        Serial.print(((int)gate_mv - 5000) / 1000.0, 3);
-        Serial.write("  ");
-        Serial.print(drain_uamp / 1000.0, 3);
-        Serial.write("\r\n");
+        Serial1.write(" ");
+        Serial1.print(((int)gate_mv - 5000) / 1000.0, 3);
+        Serial1.write("  ");
+        Serial1.print(drain_uamp / 1000.0, 3);
+        Serial1.write("\r\n");
 
         // Stop on zero.
         if (drain_input == 0)
@@ -159,7 +243,7 @@ void measure_jfet()
     }
     set_gate(0);
     digitalWrite(LED_BUILTIN, LOW);
-    Serial.write("Done\r\n");
+    Serial1.write("Done\r\n");
 }
 
 /*
@@ -170,18 +254,19 @@ void menu_top()
 again:
     show_state();
 
-    Serial.write("\r\n  1. Set Gate = -5V");
-    Serial.write("\r\n  2. Set Gate = -4V");
-    Serial.write("\r\n  3. Set Gate = -3V");
-    Serial.write("\r\n  4. Set Gate = -2V");
-    Serial.write("\r\n  5. Set Gate = -1V");
-    Serial.write("\r\n  6. Set Gate = 0V");
-    Serial.write("\r\n  M. Measure JFET");
-    Serial.write("\r\n\n");
+    Serial1.write("\r\n  1. Set Gate = -5V");
+    Serial1.write("\r\n  2. Set Gate = -4V");
+    Serial1.write("\r\n  3. Set Gate = -3V");
+    Serial1.write("\r\n  4. Set Gate = -2V");
+    Serial1.write("\r\n  5. Set Gate = -1V");
+    Serial1.write("\r\n  6. Set Gate = 0V");
+    Serial1.write("\r\n  M. Measure JFET");
+    Serial1.write("\r\n  C. Send COBS Packet");
+    Serial1.write("\r\n\n");
     for (;;) {
-        Serial.write("Command: ");
+        Serial1.write("Command: ");
         int cmd = wait_input();
-        Serial.write("\r\n");
+        Serial1.write("\r\n");
 
         if (cmd == '\n' || cmd == '\r')
             break;
@@ -214,18 +299,29 @@ again:
             measure_jfet();
             goto again;
         }
+        if (cmd == 'c' || cmd == 'C') {
+            *cobs_outptr++ = 'a';
+            *cobs_outptr++ = 'b';
+            *cobs_outptr++ = 'c';
+            cobs_send();
+            goto again;
+        }
     }
 }
 
 void setup()
 {
-    Serial.begin(9600);
+    // Main USB serial port: initialize PacketSerial protocol.
+    cobs.begin(38400);
+    cobs.setPacketHandler(&cobs_receive);
+
+    // Secondary serial port: provide a text menu interface.
+    Serial1.begin(9600);
 
     // Configure pins.
     // D2 - gate output
     // A0 - gate input
     // A1 - drain current input via ZXCT1009 current sense monitor
-    //
     pinMode(LED_BUILTIN, OUTPUT);
     pinMode(gate_output_pin, OUTPUT);
     pinMode(A0, INPUT);
@@ -236,8 +332,8 @@ void setup()
     TCCR3B = (TCCR3B & ~7) | 1;
 
     delay(10);
-    Serial.write("\r\n----------------\r\n");
-    Serial.write("Transistor Meter\r\n");
+    Serial1.write("\r\n----------------\r\n");
+    Serial1.write("Transistor Meter\r\n");
 }
 
 void loop()

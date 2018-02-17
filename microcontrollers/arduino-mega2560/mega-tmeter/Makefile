@@ -15,5 +15,6 @@ AVRDUDE_CONF    = $(AVR_TOOLS_DIR)/etc/avrdude.conf
 BOARD_TAG       = mega
 BOARD_SUB       = atmega2560
 CPPFLAGS        = -Werror
+CXXFLAGS        += -std=gnu++11
 
 include $(ARDMK_DIR)/Arduino.mk
