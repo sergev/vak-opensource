@@ -1,16 +1,31 @@
 #!/usr/bin/python
-
+#
+# Measure parameters of N-JFET transistor:
+#   Idss    - Zero-Gate-Voltage Drain Current
+#   Voff    - Gate-Source Cutoff Voltage
+#   Yfs     - Forward Transfer Admittance
+#   Vsat    - Saturation Voltage Offset
+#
+# The drain current is a function of gate voltage, and can be
+# approximated by formulas:
+#
+# Id(Vg) = 0                                for Vg <= Voff
+#          Yfs * (Vg - Voff)^2 / (2*Vsat)   for Vg >= Voff and Vg <= Voff+Vsat
+#          Yfs * (Vg - Voff - Vsat/2)       for Vg >= Voff+Vsat
+#
 from cobs import cobs
 import numpy as np
 import matplotlib.pyplot as plt
-import serial, time, binascii, json, math
+import serial, time, binascii, json, math, platform, os
 
 # Timeout for buffered serial I/O in seconds.
 IO_TIMEOUT_SEC = 2
 
 # Path to a serial device.
-#device_name = "/dev/ttyUSB0"
-device_name = "/dev/tty.wchusbserialfd130"
+if platform.system() == "Linux":
+    device_name = "/dev/ttyUSB0"
+else:
+    device_name = "/dev/tty.wchusbserialfd130"
 
 # Bit rate for serial communication.
 baud_rate = 38400
@@ -203,6 +218,28 @@ Vsat = 2 * (-Voff - Idss/Yfs)
 print "    Vsat =", round(Vsat, 2), "V"
 
 #
+# Save data to JSON file.
+# Produce uniq filename.
+#
+i = 1
+while 1:
+    basename = "n-jfet-" + str(i)
+    if not os.path.exists(basename + ".json"):
+        break
+    i += 1
+
+file = open(basename+".json", 'w')
+json.dump({
+    "Idss": round(Idss, 2),
+    "Voff": round(Voff, 2),
+    "Yfs":  round(Yfs, 2),
+    "Vsat": round(Vsat, 2),
+    "Vg":   reply_Vg,
+    "Id":   reply_Id,
+}, file, indent=4, sort_keys=True)
+file.close()
+
+#
 # Compute axis X limit.
 #
 xmin = Vg[-1]
@@ -230,20 +267,26 @@ ax.yaxis.set_label_position("right")
 
 plt.plot(reply_Vg, reply_Id, 'bo')
 plt.plot(reply_Vg, reply_Id, 'r-')
-plt.title('N JFET', fontsize=18)
-plt.xlabel('Gate Voltage, V', fontsize=18)
-plt.ylabel('Drain Current, mA', fontsize=18)
+plt.title('N JFET', fontsize=16)
+plt.xlabel('Gate Voltage, V', fontsize=16)
+plt.ylabel('Drain Current, mA', fontsize=16)
 plt.grid(True)
 plt.xlim(xmin, 0)
 plt.ylim(0, ymax)
 
-plt.plot([Voff+Vsat, Voff+Vsat], [0, ymax], color='green', linewidth=1, linestyle="--")
-plt.text(Voff + Vsat - xmin*0.02, ymax*0.02, "Vsat")
+plt.plot([0, xmin*0.1], [Idss, Idss], color='green', linewidth=2, linestyle="--")
+plt.text(xmin*0.16, Idss, "Idss", fontsize=14)
 
-plt.text(xmin*0.95, ymax*0.9, "Idss = %.2f mA" % Idss, fontsize=16)
-plt.text(xmin*0.95, ymax*0.8, "Vds(off) = %.2f V" % Voff, fontsize=16)
-plt.text(xmin*0.95, ymax*0.7, "Yfs = %.2f mA/V" % Yfs, fontsize=16)
-plt.text(xmin*0.95, ymax*0.6, "Vsat = %.2f V" % Vsat, fontsize=16)
+plt.plot([Voff, Voff], [0, ymax*0.1], color='green', linewidth=2, linestyle="--")
+plt.text(Voff + xmin*0.03, ymax*0.11, "Voff", fontsize=14)
 
-plt.savefig('myfig')
+plt.plot([Voff+Vsat, Voff+Vsat], [0, ymax*0.1], color='green', linewidth=2, linestyle="--")
+plt.text(Voff + Vsat + xmin*0.03, ymax*0.11, "Vsat", fontsize=14)
+
+plt.text(xmin*0.95, ymax*0.9, "Idss = %.2f mA" % Idss, fontsize=14)
+plt.text(xmin*0.95, ymax*0.8, "Vds(off) = %.2f V" % Voff, fontsize=14)
+plt.text(xmin*0.95, ymax*0.7, "Yfs = %.2f mA/V" % Yfs, fontsize=14)
+plt.text(xmin*0.95, ymax*0.6, "Vsat = %.2f V" % Vsat, fontsize=14)
+
+plt.savefig(basename)
 plt.show()
