@@ -186,19 +186,62 @@ void cobs_send()
 }
 
 //
-// Send a Version packet.
+// Send generic string packet.
 //
-void send_version()
+void send_string(const char *name, const char *value)
 {
     StaticJsonBuffer<64> jsonBuffer;
 
     JsonObject& root = jsonBuffer.createObject();
-    root["Version"] = VERSION;
+    root[name] = value;
 
     cobs_outptr = cobs_outbuf;
     cobs_outptr += root.printTo(cobs_outptr, COBS_BUFSZ);
     cobs_send();
 }
+
+//
+// Send Version packet.
+//
+void send_version()
+{
+    send_string("Version", VERSION);
+}
+
+//
+// Send Error packet.
+//
+void send_error(const char *message)
+{
+    send_string("Error", message);
+}
+
+#if 0
+//
+// Send a Measurement Results packet.
+//
+void send_measurement()
+{
+    StaticJsonBuffer<4000> jsonBuffer;
+    JsonObject& root = jsonBuffer.createObject();
+
+    // Create the "analog" array
+    JsonArray& Vg = root.createNestedArray("Vgate");
+    for (int i = 0; i < N; i++) {
+        Vg.add(value[i]);
+    }
+
+    // Create the "digital" array
+    JsonArray& Id = root.createNestedArray("Idrain");
+    for (int i = 0; i < N; i++) {
+        Id.add(value[i]);
+    }
+
+    cobs_outptr = cobs_outbuf;
+    cobs_outptr += root.printTo(cobs_outptr, COBS_BUFSZ);
+    cobs_send();
+}
+#endif
 
 //
 // PacketSerial protocol calls this function when a new packet is received.
@@ -232,9 +275,27 @@ void cobs_receive(const uint8_t *data, size_t nbytes)
     }
     nbytes -= 8;
 
-    //TODO: json
+    StaticJsonBuffer<200> jsonBuffer;
+    JsonObject& root = jsonBuffer.parseObject(data, nbytes);
 
-    //cobs_send(data, nbytes);
+    const char *command = root["Command"];
+#if 1
+    Serial1.write("Command: ");
+    Serial1.write(command ? command : "(null)");
+    Serial1.write("'\r\n");
+#endif
+
+    if (strcmp(command, "version") == 0) {
+        send_version();
+    }
+    else if (strcmp(command, "njfet") == 0) {
+        //TODO
+        //send_n_jfet();
+        send_error("N-JFET not implemented yet");
+    }
+    else {
+        send_error("Unknown command");
+    }
 }
 
 void measure_jfet()
