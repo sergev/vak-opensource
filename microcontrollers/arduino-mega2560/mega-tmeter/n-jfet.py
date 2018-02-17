@@ -245,4 +245,5 @@ plt.text(xmin*0.95, ymax*0.8, "Vds(off) = %.2f V" % Voff, fontsize=16)
 plt.text(xmin*0.95, ymax*0.7, "Yfs = %.2f mA/V" % Yfs, fontsize=16)
 plt.text(xmin*0.95, ymax*0.6, "Vsat = %.2f V" % Vsat, fontsize=16)
 
+plt.savefig('myfig')
 plt.show()
