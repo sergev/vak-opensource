@@ -7,7 +7,8 @@ import serial, time, binascii, json
 IO_TIMEOUT_SEC = 2
 
 # Path to a serial device.
-device_name = "/dev/ttyUSB0"
+#device_name = "/dev/ttyUSB0"
+device_name = "/dev/tty.wchusbserialfd130"
 
 # Bit rate for serial communication.
 baud_rate = 38400
@@ -29,7 +30,7 @@ if not serial_port.isOpen():
 time.sleep(1)
 
 # holds reads until we encounter a 0-byte (COBS!!!)
-receive_buf = [None] * 256
+receive_buf = [None] * 4096
 receive_pos = 0
 
 #
@@ -120,4 +121,9 @@ reply = json.loads(recv_command())
 if "Error" in reply:
     print "Error!", reply["Error"]
 else:
-    print "Result =", reply
+    Vg = reply["Vgate"]
+    Id = reply["Idrain"]
+    print "  Vg, V  Id, mA"
+    print "  -------------"
+    for i in range(len(Vg)):
+        print "  %.3f  %.3f" % (Vg[i], Id[i])

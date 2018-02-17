@@ -14,6 +14,10 @@ unsigned drain_input;           // measured current of the Drain pin
 unsigned gate_mv;               // millivolts at the Gate pin
 unsigned long drain_uamp;       // microamperes at the Drain pin
 
+float result_Vg[256];           // gate voltage, V
+float result_Id[256];           // drain current, mA
+int nresults;
+
 //
 // Use Timer3, pins 2, 3 and 5 on Mega 2560 board.
 //
@@ -25,6 +29,13 @@ static const int gate_output_pin = 2;
 // Packet marker is CR.
 //
 PacketSerial_<COBS, '\r', 128> cobs;
+
+//
+// Output data buffer for COBS protocol.
+//
+#define COBS_BUFSZ 4096
+char cobs_outbuf[COBS_BUFSZ];
+char *cobs_outptr = cobs_outbuf;
 
 /*
  * Read a character from the serial port.
@@ -41,24 +52,6 @@ int wait_input()
         cobs.update();
     }
 }
-
-#if 0
-/*
- * Print the current state of the device.
- */
-void print_binary(const char *str, int v)
-{
-    Serial1.write(str);
-    Serial1.print((v >> 7) & 1);
-    Serial1.print((v >> 6) & 1);
-    Serial1.print((v >> 5) & 1);
-    Serial1.print((v >> 4) & 1);
-    Serial1.print((v >> 3) & 1);
-    Serial1.print((v >> 2) & 1);
-    Serial1.print((v >> 1) & 1);
-    Serial1.print(v & 1);
-}
-#endif
 
 /*
  * Print volts.
@@ -152,12 +145,27 @@ void set_gate(unsigned val)
     delay(10);
 }
 
-//
-// Output data buffer for COBS protocol.
-//
-#define COBS_BUFSZ 4096
-char cobs_outbuf[COBS_BUFSZ];
-char *cobs_outptr = cobs_outbuf;
+void measure_jfet()
+{
+    int i;
+
+    digitalWrite(LED_BUILTIN, HIGH);
+    nresults = 0;
+    for (i=0; i<256; i++) {
+        set_gate(255 - i);
+        measure_gate();
+        measure_drain();
+        result_Vg[i] = ((int)gate_mv - 5000) / 1000.0;
+        result_Id[i] = drain_uamp / 1000.0;
+        nresults++;
+
+        // Stop on zero.
+        if (drain_input == 0)
+            break;
+    }
+    set_gate(0);
+    digitalWrite(LED_BUILTIN, LOW);
+}
 
 //
 // Send a PacketSerial packet from cobs_ouput[] buffer.
@@ -216,7 +224,6 @@ void send_error(const char *message)
     send_string("Error", message);
 }
 
-#if 0
 //
 // Send a Measurement Results packet.
 //
@@ -227,34 +234,26 @@ void send_measurement()
 
     // Create the "analog" array
     JsonArray& Vg = root.createNestedArray("Vgate");
-    for (int i = 0; i < N; i++) {
-        Vg.add(value[i]);
+    for (int i = 0; i < nresults; i++) {
+        Vg.add(result_Vg[i]);
     }
 
     // Create the "digital" array
     JsonArray& Id = root.createNestedArray("Idrain");
-    for (int i = 0; i < N; i++) {
-        Id.add(value[i]);
+    for (int i = 0; i < nresults; i++) {
+        Id.add(result_Id[i]);
     }
 
     cobs_outptr = cobs_outbuf;
     cobs_outptr += root.printTo(cobs_outptr, COBS_BUFSZ);
     cobs_send();
 }
-#endif
 
 //
 // PacketSerial protocol calls this function when a new packet is received.
 //
 void cobs_receive(const uint8_t *data, size_t nbytes)
 {
-#if 0
-    Serial1.write("Received packet: ");
-    Serial1.print(nbytes);
-    Serial1.write(" '");
-    Serial1.write(data, nbytes);
-    Serial1.write("'\r\n");
-#endif
     if (nbytes <= 8) {
         // Ignore short packets.
         return;
@@ -262,11 +261,6 @@ void cobs_receive(const uint8_t *data, size_t nbytes)
 
     // Check the sum.
     uint32_t checksum = CRC32::calculate(data, nbytes-8);
-#if 0
-    Serial1.write("Checksum: ");
-    Serial1.print(checksum, HEX);
-    Serial1.write("\r\n");
-#endif
     if (data[nbytes-8] != 'a' + (checksum >> 28) ||
         data[nbytes-7] != 'a' + ((checksum >> 24) & 0xf) ||
         data[nbytes-6] != 'a' + ((checksum >> 20) & 0xf) ||
@@ -276,63 +270,40 @@ void cobs_receive(const uint8_t *data, size_t nbytes)
         data[nbytes-2] != 'a' + ((checksum >> 4) & 0xf) ||
         data[nbytes-1] != 'a' + ((checksum) & 0xf)) {
         // Incorrect checksum, ignore the packet.
-#if 0
-        Serial1.write("Bad checksum!\r\n");
-#endif
         return;
     }
     nbytes -= 8;
 
     StaticJsonBuffer<200> jsonBuffer;
     JsonObject& root = jsonBuffer.parseObject(data, nbytes);
-
     const char *command = root["Command"];
-#if 0
-    Serial1.write("Command: ");
-    Serial1.write(command ? command : "(null)");
-    Serial1.write("\r\n");
-#endif
 
     if (strcmp(command, "version") == 0) {
         send_version();
     }
     else if (strcmp(command, "njfet") == 0) {
-        //TODO
-        //send_n_jfet();
-        send_error("N-JFET not implemented yet");
+        measure_jfet();
+        send_measurement();
     }
     else {
         send_error("Unknown command");
     }
 }
 
-void measure_jfet()
+void print_results()
 {
     int i;
-    //unsigned v1 = 0, v2 = 0;
 
     Serial1.write("\r\nMeasuring N-JFET:\r\n\r\n");
     Serial1.write(" Vg, V   Id, mA\r\n");
     Serial1.write("---------------\r\n");
-    digitalWrite(LED_BUILTIN, HIGH);
-    for (i=255; i>=0; i--) {
-        set_gate(i);
-        measure_gate();
-        measure_drain();
-
-        // Print results.
+    for (i=0; i<nresults; i++) {
         Serial1.write(" ");
-        Serial1.print(((int)gate_mv - 5000) / 1000.0, 3);
+        Serial1.print(result_Vg[i], 3);
         Serial1.write("  ");
-        Serial1.print(drain_uamp / 1000.0, 3);
+        Serial1.print(result_Id[i], 3);
         Serial1.write("\r\n");
-
-        // Stop on zero.
-        if (drain_input == 0)
-            break;
     }
-    set_gate(0);
-    digitalWrite(LED_BUILTIN, LOW);
     Serial1.write("Done\r\n");
 }
 
@@ -363,6 +334,7 @@ again:
 
         if (cmd == 'm' || cmd == 'M') {
             measure_jfet();
+            print_results();
             goto again;
         }
         if (cmd == 'v' || cmd == 'v') {
