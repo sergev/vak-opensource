@@ -56,8 +56,6 @@ def send_command(cmd = ""):
 
     # Encode to COBS format.
     encoded = cobs.encode(str(bytearray(data)))
-    #print "Send:", repr(encoded)
-    #print "Checksum: %08x" % checksum
     serial_port.write(encoded + '\r')
 
 def reset_receive_buf():
@@ -70,7 +68,6 @@ def reset_receive_buf():
 #
 def recv_command():
     global receive_pos
-    #print "Receive:",
     while True:
         c = serial_port.read(1)
         if not c:
@@ -148,39 +145,15 @@ def least_squares(x, y):
     sum_y = np.sum(y)
     sum_xy = np.sum(np.multiply(x, y))
     sum_x2 = np.sum(np.multiply(x, x))
-    #print "Sum(Vg) =", sum_x
-    #print "Sum(Id) =", sum_y
-    #print "Sum(Vg*Id) =", sum_xy
-    #print "Sum(Vg^2) =", sum_x2
-
     a = (K * sum_xy - sum_x * sum_y) / (K * sum_x2 - sum_x * sum_x)
     b = (sum_y - a * sum_x) / K
-    #print "Id =", a, "* Vg +", b
-
     return a, b
 
 #
 # Obtain Idss and Yfs by the least squares method.
 # Use first five samples to find a linear approximation:
 #
-(Yfs, Idss) = least_squares(Vg[:5], Id[:5])
-
-#
-# Obtain first approximation of cutoff voltage by the least squares method.
-# Use five last nonzero samples and a least squares method.
-#
-# Id = a * Vg + b = 0
-# Voff = -b/a
-#
-(a, b) = least_squares(Vg[-6:-1], Id[-6:-1])
-Voff1 = int(-b / a * 100) * 0.01
-
-# Should not exceed the last point.
-if Vg[-1] <= Voff1:
-    Voff1 = int(Vg[-1] * 100 - 1) * 0.01
-
-#print "a =", a, "mA/V"
-#print "b =", b, "mA"
+(Yfs, Idss) = least_squares(Vg[:7], Id[:7])
 
 #
 # Compute error in quadratic approximation: y[i] = (x[i] - x0)^2 * c
@@ -195,29 +168,26 @@ def compute_error(x0, x, y):
 
 #
 # Enhance cutoff approximation.
+# Use the least squares method to draw a quadratic line via
+# a few last points.
 #
 def compute_cutoff(x0, x, y):
-    #print "--- Cutoff computation:", x0
-    #print "X =", x
-    #print "Y =", y
-
     e0 = compute_error(x0, x, y)
-    #print "X0 =", x0, "Err =", e0
-
     while 1:
         e1 = compute_error(x0 - 0.01, x, y)
-        #print "X1 =", x0-0.01, "Err =", e1, e0
         if e1 > e0:
             break
+
         x0 -= 0.01
         e0 = e1
 
-    #print "Result: Err =", e0
     return x0
 
 #
-# Get better Voff approximation.
+# Compute cutoff voltage.
+# Use last point as first approximation.
 #
+Voff1 = int(Vg[-1] * 100 - 1) * 0.01
 Voff = compute_cutoff(Voff1, Vg[-8:-1], Id[-8:-1])
 
 print
