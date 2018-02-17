@@ -1,8 +1,11 @@
 /*
  * Transistor Meter.
  */
+#include <ArduinoJson.h>
 #include <PacketSerial.h>
 #include <CRC32.h>
+
+#define VERSION     "1.0." GITCOUNT
 
 unsigned gate_output = 0;       // control voltage to the Gate pin of transistor
 unsigned gate_input;            // measured voltage of the Gate pin
@@ -121,6 +124,9 @@ void show_state()
     measure_drain();
 
     // Display all values.
+    Serial1.write("\r\n      Version: ");
+    Serial1.write(VERSION);
+
     Serial1.write("\r\n  Gate output: ");
     Serial1.print(gate_output);
 
@@ -150,11 +156,11 @@ void set_gate(unsigned val)
 // Output data buffer for COBS protocol.
 //
 #define COBS_BUFSZ 4096
-uint8_t cobs_outbuf[COBS_BUFSZ];
-uint8_t *cobs_outptr = cobs_outbuf;
+char cobs_outbuf[COBS_BUFSZ];
+char *cobs_outptr = cobs_outbuf;
 
 //
-// PacketSerial protocol calls this function when a new packet is received.
+// Send a PacketSerial packet from cobs_ouput[] buffer.
 //
 void cobs_send()
 {
@@ -175,8 +181,23 @@ void cobs_send()
     *cobs_outptr++ = 'a' + (checksum & 0xf);
 
     // Send the packet.
-    cobs.send(cobs_outbuf, nbytes + 8);
+    cobs.send((const uint8_t*)cobs_outbuf, nbytes + 8);
     cobs_outptr = cobs_outbuf;
+}
+
+//
+// Send a Version packet.
+//
+void send_version()
+{
+    StaticJsonBuffer<64> jsonBuffer;
+
+    JsonObject& root = jsonBuffer.createObject();
+    root["Version"] = VERSION;
+
+    cobs_outptr = cobs_outbuf;
+    cobs_outptr += root.printTo(cobs_outptr, COBS_BUFSZ);
+    cobs_send();
 }
 
 //
@@ -254,14 +275,14 @@ void menu_top()
 again:
     show_state();
 
-    Serial1.write("\r\n  1. Set Gate = -5V");
-    Serial1.write("\r\n  2. Set Gate = -4V");
-    Serial1.write("\r\n  3. Set Gate = -3V");
-    Serial1.write("\r\n  4. Set Gate = -2V");
-    Serial1.write("\r\n  5. Set Gate = -1V");
-    Serial1.write("\r\n  6. Set Gate = 0V");
     Serial1.write("\r\n  M. Measure JFET");
-    Serial1.write("\r\n  C. Send COBS Packet");
+    Serial1.write("\r\n  V. Send Version Packet");
+    Serial1.write("\r\n  0. Set Gate = 0V (-5V)");
+    Serial1.write("\r\n  1. Set Gate = 1V (-4V)");
+    Serial1.write("\r\n  2. Set Gate = 2V (-3V)");
+    Serial1.write("\r\n  3. Set Gate = 3V (-2V)");
+    Serial1.write("\r\n  4. Set Gate = 4V (-1V)");
+    Serial1.write("\r\n  5. Set Gate = 5V (0V)");
     Serial1.write("\r\n\n");
     for (;;) {
         Serial1.write("Command: ");
@@ -271,39 +292,36 @@ again:
         if (cmd == '\n' || cmd == '\r')
             break;
 
-        if (cmd == '1') {
-            set_gate(0);
-            goto again;
-        }
-        if (cmd == '2') {
-            set_gate(256 - 4.0 * 255/5);
-            goto again;
-        }
-        if (cmd == '3') {
-            set_gate(256 - 3.0 * 255/5);
-            goto again;
-        }
-        if (cmd == '4') {
-            set_gate(256 - 2.0 * 255/5);
-            goto again;
-        }
-        if (cmd == '5') {
-            set_gate(256 - 1.0 * 255/5);
-            goto again;
-        }
-        if (cmd == '6') {
-            set_gate(255);
-            goto again;
-        }
         if (cmd == 'm' || cmd == 'M') {
             measure_jfet();
             goto again;
         }
-        if (cmd == 'c' || cmd == 'C') {
-            *cobs_outptr++ = 'a';
-            *cobs_outptr++ = 'b';
-            *cobs_outptr++ = 'c';
-            cobs_send();
+        if (cmd == 'v' || cmd == 'v') {
+            send_version();
+            goto again;
+        }
+        if (cmd == '0') {
+            set_gate(0);
+            goto again;
+        }
+        if (cmd == '1') {
+            set_gate(256 - 4.0 * 255/5);
+            goto again;
+        }
+        if (cmd == '2') {
+            set_gate(256 - 3.0 * 255/5);
+            goto again;
+        }
+        if (cmd == '3') {
+            set_gate(256 - 2.0 * 255/5);
+            goto again;
+        }
+        if (cmd == '4') {
+            set_gate(256 - 1.0 * 255/5);
+            goto again;
+        }
+        if (cmd == '5') {
+            set_gate(255);
             goto again;
         }
     }

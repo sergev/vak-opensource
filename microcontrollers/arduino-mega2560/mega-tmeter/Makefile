@@ -14,7 +14,8 @@ AVR_TOOLS_DIR   = $(ARDUINO_DIR)/hardware/tools/avr
 AVRDUDE_CONF    = $(AVR_TOOLS_DIR)/etc/avrdude.conf
 BOARD_TAG       = mega
 BOARD_SUB       = atmega2560
-CPPFLAGS        = -Werror
-CXXFLAGS        += -std=gnu++11
+GITCOUNT        = $(shell git rev-list HEAD --count)
+CPPFLAGS        = -Werror -DGITCOUNT='"$(GITCOUNT)"'
+CXXFLAGS        += -std=gnu++14 -fno-threadsafe-statics
 
 include $(ARDMK_DIR)/Arduino.mk
