@@ -92,28 +92,6 @@ public:
         }
     }
 
-    /// \brief Set a packet of data.
-    ///
-    /// This function will send an arbitrary packet of data. After
-    /// sending, it will send the specified `PacketMarker` defined in the
-    /// template parameters.
-    ///
-    ///     // Make an array.
-    ///     uint8_t myPacket[2] = { 255, 10 };
-    ///
-    ///     // Send the array.
-    ///     myTextSerial.send(myPacket, 2);
-    ///
-    /// \param buffer A pointer to a data buffer.
-    /// \param size The number of bytes in the data buffer.
-    void send(const uint8_t* buffer, size_t size) const
-    {
-        if(_stream == NULL || buffer == NULL || size == 0) return;
-
-        _stream->write(buffer, size);
-        _stream->write(PacketMarker);
-    }
-
     /// \brief Set the function that will receive packets.
     ///
     /// This function will be called when data is read from the serial stream

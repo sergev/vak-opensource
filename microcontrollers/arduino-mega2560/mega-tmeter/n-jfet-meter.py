@@ -18,7 +18,7 @@ import matplotlib.pyplot as plt
 import serial, time, binascii, json, math, platform, os
 
 # Timeout for buffered serial I/O in seconds.
-IO_TIMEOUT_SEC = 5
+IO_TIMEOUT_SEC = 10
 
 # Path to a serial device.
 if platform.system() == "Linux":
@@ -52,11 +52,7 @@ receive_pos = 0
 #
 # Send a command to the microcontroller.
 #
-def send_command(cmd = ""):
-    data = {"Command": cmd}
-
-    # JSON encoding.
-    data = json.dumps(data, separators=(',',':'))
+def send_command(data = ""):
 
     # Append CRC32 checksum.
     checksum = binascii.crc32(data) & 0xFFFFFFFF
@@ -114,6 +110,7 @@ def recv_command():
                 continue
 
             # Return received data.
+            #print repr(data)
             return data
 
         #print "'" + c + "'"

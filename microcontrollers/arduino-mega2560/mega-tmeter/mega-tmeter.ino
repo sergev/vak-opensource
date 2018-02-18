@@ -1,7 +1,6 @@
 /*
  * Transistor Meter.
  */
-#include <ArduinoJson.h>
 #include <CRC32.h>
 #include "TextSerial.h"
 
@@ -31,16 +30,11 @@ static const int gate_output_pin = 2;
 TextSerial_<'\r', 128> pkt;
 
 //
-// Output data buffer for COBS protocol.
+// Output data buffer for serial packet.
 //
-#define COBS_BUFSZ 2000
-char pkt_outbuf[COBS_BUFSZ];
+#define PKT_BUFSZ 4096
+char pkt_outbuf[PKT_BUFSZ];
 char *pkt_outptr = pkt_outbuf;
-
-//
-// Space for JSON data.
-//
-StaticJsonBuffer<2000> jsonBuffer;
 
 /*
  * Read a character from the serial port.
@@ -191,7 +185,7 @@ void pkt_send()
     Serial1.write("'\r\n");
 #endif
     // Check transmit size.
-    if (pkt_outptr <= pkt_outbuf || pkt_outptr > pkt_outbuf+COBS_BUFSZ-8)
+    if (pkt_outptr <= pkt_outbuf || pkt_outptr > pkt_outbuf+PKT_BUFSZ-8)
         return;
 
     // Append checksum.
@@ -205,9 +199,11 @@ void pkt_send()
     *pkt_outptr++ = 'a' + ((checksum >> 8) & 0xf);
     *pkt_outptr++ = 'a' + ((checksum >> 4) & 0xf);
     *pkt_outptr++ = 'a' + (checksum & 0xf);
+    *pkt_outptr++ = '\r';
+    *pkt_outptr = 0;
 
     // Send the packet.
-    pkt.send((const uint8_t*)pkt_outbuf, nbytes + 8);
+    Serial.write(pkt_outbuf);
     pkt_outptr = pkt_outbuf;
 }
 
@@ -216,11 +212,14 @@ void pkt_send()
 //
 void send_string(const char *name, const char *value)
 {
-    JsonObject& root = jsonBuffer.createObject();
-    root[name] = value;
-
+    // Build JSON formatted stream like: {"name":"value"}
     pkt_outptr = pkt_outbuf;
-    pkt_outptr += root.printTo(pkt_outptr, COBS_BUFSZ);
+    strcpy(pkt_outptr, "{\"");
+    strcpy(pkt_outptr += strlen(pkt_outptr), name);
+    strcpy(pkt_outptr += strlen(pkt_outptr), "\":\"");
+    strcpy(pkt_outptr += strlen(pkt_outptr), value);
+    strcpy(pkt_outptr += strlen(pkt_outptr), "\"}");
+    pkt_outptr += strlen(pkt_outptr);
     pkt_send();
 }
 
@@ -245,27 +244,29 @@ void send_error(const char *message)
 //
 void send_measurement()
 {
+    char buffer[64];
 #if 0
     Serial1.write("Send measurement: ");
     Serial1.print(nresults);
     Serial1.write(" results\r\n");
 #endif
-    JsonObject& root = jsonBuffer.createObject();
-
-    // Create the "analog" array
-    JsonArray& Vg = root.createNestedArray("Vgate");
-    for (int i = 0; i < nresults; i++) {
-        Vg.add(result_Vg[i]);
-    }
-
-    // Create the "digital" array
-    JsonArray& Id = root.createNestedArray("Idrain");
-    for (int i = 0; i < nresults; i++) {
-        Id.add(result_Id[i]);
-    }
-
+    // Build JSON formatted stream like:
+    // {"Vgate":[a,b,...],"Idrain":[x,y,...]}
     pkt_outptr = pkt_outbuf;
-    pkt_outptr += root.printTo(pkt_outptr, COBS_BUFSZ);
+    strcpy(pkt_outptr, "{\"Vgate\":[");
+    for (int i = 0; i < nresults; i++) {
+        if (i > 0)
+            strcpy(pkt_outptr += strlen(pkt_outptr), ",");
+        strcpy(pkt_outptr += strlen(pkt_outptr), dtostrf(result_Vg[i], 0, 3, buffer));
+    }
+    strcpy(pkt_outptr += strlen(pkt_outptr), "],\"Idrain\":[");
+    for (int i = 0; i < nresults; i++) {
+        if (i > 0)
+            strcpy(pkt_outptr += strlen(pkt_outptr), ",");
+        strcpy(pkt_outptr += strlen(pkt_outptr), dtostrf(result_Id[i], 0, 3, buffer));
+    }
+    strcpy(pkt_outptr += strlen(pkt_outptr), "]}");
+    pkt_outptr += strlen(pkt_outptr);
 #if 0
     Serial1.write("\r\nSend: ");
     Serial1.print(pkt_outptr - pkt_outbuf);
@@ -316,14 +317,11 @@ void pkt_receive(const uint8_t *data, size_t nbytes)
     }
     nbytes -= 8;
 
-    StaticJsonBuffer<200> jsonBuffer;
-    JsonObject& root = jsonBuffer.parseObject(data, nbytes);
-    const char *command = root["Command"];
-#if 0
-    Serial1.write("Command: ");
-    Serial1.write(command ? command : "(null)");
-    Serial1.write("\r\n");
-#endif
+    char command[8];
+    memcpy(command, data, sizeof(command));
+    command[sizeof(command) - 1] = 0;
+    if (nbytes < sizeof(command))
+        command[nbytes] = 0;
 
     if (strcmp(command, "version") == 0) {
         send_version();
