@@ -2,8 +2,8 @@
  * Transistor Meter.
  */
 #include <ArduinoJson.h>
-#include <PacketSerial.h>
 #include <CRC32.h>
+#include "TextSerial.h"
 
 #define VERSION     "1.0." GITCOUNT
 
@@ -24,18 +24,23 @@ int nresults;
 static const int gate_output_pin = 2;
 
 //
-// Use PacketSerial byte stuffing protocol on Serial port.
+// Use TextSerial byte stuffing protocol on Serial port.
 // Configure 128 byte receive buffer size.
 // Packet marker is CR.
 //
-PacketSerial_<COBS, '\r', 128> cobs;
+TextSerial_<'\r', 128> pkt;
 
 //
 // Output data buffer for COBS protocol.
 //
-#define COBS_BUFSZ 4096
-char cobs_outbuf[COBS_BUFSZ];
-char *cobs_outptr = cobs_outbuf;
+#define COBS_BUFSZ 2000
+char pkt_outbuf[COBS_BUFSZ];
+char *pkt_outptr = pkt_outbuf;
+
+//
+// Space for JSON data.
+//
+StaticJsonBuffer<2000> jsonBuffer;
 
 /*
  * Read a character from the serial port.
@@ -48,8 +53,8 @@ int wait_input()
         if (c >= 0)
             return c;
 
-        // Let PacketSerial protocol to do it's job.
-        cobs.update();
+        // Let TextSerial protocol to do it's job.
+        pkt.update();
     }
 }
 
@@ -158,7 +163,13 @@ void measure_jfet()
         result_Vg[i] = ((int)gate_mv - 5000) / 1000.0;
         result_Id[i] = drain_uamp / 1000.0;
         nresults++;
-
+#if 0
+        Serial1.write(" ");
+        Serial1.print(result_Vg[i], 3);
+        Serial1.write("  ");
+        Serial1.print(result_Id[i], 3);
+        Serial1.write("\r\n");
+#endif
         // Stop on zero.
         if (drain_input == 0)
             break;
@@ -168,29 +179,36 @@ void measure_jfet()
 }
 
 //
-// Send a PacketSerial packet from cobs_ouput[] buffer.
+// Send a TextSerial packet from pkt_ouput[] buffer.
 //
-void cobs_send()
+void pkt_send()
 {
+#if 0
+    Serial1.write("\r\nSend: ");
+    Serial1.print(pkt_outptr - pkt_outbuf);
+    Serial1.write(" '");
+    Serial1.write(pkt_outbuf, pkt_outptr - pkt_outbuf);
+    Serial1.write("'\r\n");
+#endif
     // Check transmit size.
-    if (cobs_outptr <= cobs_outbuf || cobs_outptr > cobs_outbuf+COBS_BUFSZ-8)
+    if (pkt_outptr <= pkt_outbuf || pkt_outptr > pkt_outbuf+COBS_BUFSZ-8)
         return;
 
     // Append checksum.
-    int nbytes = cobs_outptr - cobs_outbuf;
-    uint32_t checksum = CRC32::calculate(cobs_outbuf, nbytes);
-    *cobs_outptr++ = 'a' + (checksum >> 28);
-    *cobs_outptr++ = 'a' + ((checksum >> 24) & 0xf);
-    *cobs_outptr++ = 'a' + ((checksum >> 20) & 0xf);
-    *cobs_outptr++ = 'a' + ((checksum >> 16) & 0xf);
-    *cobs_outptr++ = 'a' + ((checksum >> 12) & 0xf);
-    *cobs_outptr++ = 'a' + ((checksum >> 8) & 0xf);
-    *cobs_outptr++ = 'a' + ((checksum >> 4) & 0xf);
-    *cobs_outptr++ = 'a' + (checksum & 0xf);
+    int nbytes = pkt_outptr - pkt_outbuf;
+    uint32_t checksum = CRC32::calculate(pkt_outbuf, nbytes);
+    *pkt_outptr++ = 'a' + (checksum >> 28);
+    *pkt_outptr++ = 'a' + ((checksum >> 24) & 0xf);
+    *pkt_outptr++ = 'a' + ((checksum >> 20) & 0xf);
+    *pkt_outptr++ = 'a' + ((checksum >> 16) & 0xf);
+    *pkt_outptr++ = 'a' + ((checksum >> 12) & 0xf);
+    *pkt_outptr++ = 'a' + ((checksum >> 8) & 0xf);
+    *pkt_outptr++ = 'a' + ((checksum >> 4) & 0xf);
+    *pkt_outptr++ = 'a' + (checksum & 0xf);
 
     // Send the packet.
-    cobs.send((const uint8_t*)cobs_outbuf, nbytes + 8);
-    cobs_outptr = cobs_outbuf;
+    pkt.send((const uint8_t*)pkt_outbuf, nbytes + 8);
+    pkt_outptr = pkt_outbuf;
 }
 
 //
@@ -198,14 +216,12 @@ void cobs_send()
 //
 void send_string(const char *name, const char *value)
 {
-    StaticJsonBuffer<64> jsonBuffer;
-
     JsonObject& root = jsonBuffer.createObject();
     root[name] = value;
 
-    cobs_outptr = cobs_outbuf;
-    cobs_outptr += root.printTo(cobs_outptr, COBS_BUFSZ);
-    cobs_send();
+    pkt_outptr = pkt_outbuf;
+    pkt_outptr += root.printTo(pkt_outptr, COBS_BUFSZ);
+    pkt_send();
 }
 
 //
@@ -229,7 +245,11 @@ void send_error(const char *message)
 //
 void send_measurement()
 {
-    StaticJsonBuffer<4000> jsonBuffer;
+#if 0
+    Serial1.write("Send measurement: ");
+    Serial1.print(nresults);
+    Serial1.write(" results\r\n");
+#endif
     JsonObject& root = jsonBuffer.createObject();
 
     // Create the "analog" array
@@ -244,16 +264,30 @@ void send_measurement()
         Id.add(result_Id[i]);
     }
 
-    cobs_outptr = cobs_outbuf;
-    cobs_outptr += root.printTo(cobs_outptr, COBS_BUFSZ);
-    cobs_send();
+    pkt_outptr = pkt_outbuf;
+    pkt_outptr += root.printTo(pkt_outptr, COBS_BUFSZ);
+#if 0
+    Serial1.write("\r\nSend: ");
+    Serial1.print(pkt_outptr - pkt_outbuf);
+    Serial1.write(" '");
+    Serial1.write(pkt_outbuf);
+    Serial1.write("'\r\n");
+#endif
+    pkt_send();
 }
 
 //
-// PacketSerial protocol calls this function when a new packet is received.
+// TextSerial protocol calls this function when a new packet is received.
 //
-void cobs_receive(const uint8_t *data, size_t nbytes)
+void pkt_receive(const uint8_t *data, size_t nbytes)
 {
+#if 0
+    Serial1.write("Received packet: ");
+    Serial1.print(nbytes);
+    Serial1.write(" '");
+    Serial1.write(data, nbytes);
+    Serial1.write("'\r\n");
+#endif
     if (nbytes <= 8) {
         // Ignore short packets.
         return;
@@ -261,6 +295,11 @@ void cobs_receive(const uint8_t *data, size_t nbytes)
 
     // Check the sum.
     uint32_t checksum = CRC32::calculate(data, nbytes-8);
+#if 0
+    Serial1.write("Checksum: ");
+    Serial1.print(checksum, HEX);
+    Serial1.write("\r\n");
+#endif
     if (data[nbytes-8] != 'a' + (checksum >> 28) ||
         data[nbytes-7] != 'a' + ((checksum >> 24) & 0xf) ||
         data[nbytes-6] != 'a' + ((checksum >> 20) & 0xf) ||
@@ -270,6 +309,9 @@ void cobs_receive(const uint8_t *data, size_t nbytes)
         data[nbytes-2] != 'a' + ((checksum >> 4) & 0xf) ||
         data[nbytes-1] != 'a' + ((checksum) & 0xf)) {
         // Incorrect checksum, ignore the packet.
+#if 0
+        Serial1.write("Bad checksum!\r\n");
+#endif
         return;
     }
     nbytes -= 8;
@@ -277,6 +319,11 @@ void cobs_receive(const uint8_t *data, size_t nbytes)
     StaticJsonBuffer<200> jsonBuffer;
     JsonObject& root = jsonBuffer.parseObject(data, nbytes);
     const char *command = root["Command"];
+#if 0
+    Serial1.write("Command: ");
+    Serial1.write(command ? command : "(null)");
+    Serial1.write("\r\n");
+#endif
 
     if (strcmp(command, "version") == 0) {
         send_version();
@@ -370,9 +417,9 @@ again:
 
 void setup()
 {
-    // Main USB serial port: initialize PacketSerial protocol.
-    cobs.begin(38400);
-    cobs.setPacketHandler(&cobs_receive);
+    // Main USB serial port: initialize TextSerial protocol.
+    pkt.begin(38400);
+    pkt.setPacketHandler(&pkt_receive);
 
     // Secondary serial port: provide a text menu interface.
     Serial1.begin(9600);

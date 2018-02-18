@@ -13,13 +13,12 @@
 #          Yfs * (Vg - Voff)^2 / (2*Vsat)   for Vg >= Voff and Vg <= Voff+Vsat
 #          Yfs * (Vg - Voff - Vsat/2)       for Vg >= Voff+Vsat
 #
-from cobs import cobs
 import numpy as np
 import matplotlib.pyplot as plt
 import serial, time, binascii, json, math, platform, os
 
 # Timeout for buffered serial I/O in seconds.
-IO_TIMEOUT_SEC = 2
+IO_TIMEOUT_SEC = 5
 
 # Path to a serial device.
 if platform.system() == "Linux":
@@ -71,8 +70,7 @@ def send_command(cmd = ""):
     data += chr(97 + (checksum & 0xf))
 
     # Encode to COBS format.
-    encoded = cobs.encode(str(bytearray(data)))
-    serial_port.write(encoded + '\r')
+    serial_port.write(data + '\r')
 
 def reset_receive_buf():
     global receive_pos
@@ -92,7 +90,7 @@ def recv_command():
 
         if c == '\r':
             # End of packet.
-            data = cobs.decode(str(bytearray(receive_buf[0:receive_pos])))
+            data = str(bytearray(receive_buf[0:receive_pos]))
             reset_receive_buf()
 
             # Ignore short packets.
@@ -118,6 +116,7 @@ def recv_command():
             # Return received data.
             return data
 
+        #print "'" + c + "'"
         receive_buf[receive_pos] = c
         receive_pos += 1
 
@@ -252,7 +251,8 @@ else:             xmin = -5
 # Compute axis Y limit.
 #
 ymax = Id[0]
-if   ymax <= 5:  ymax = 5
+if   ymax <= 2:  ymax = 2
+elif ymax <= 5:  ymax = 5
 elif ymax <= 10: ymax = 10
 elif ymax <= 20: ymax = 20
 elif ymax <= 50: ymax = 50
