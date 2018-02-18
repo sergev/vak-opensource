@@ -2,7 +2,6 @@
  * Transistor Meter.
  */
 #include <CRC32.h>
-#include "TextSerial.h"
 
 #define VERSION     "1.0." GITCOUNT
 
@@ -23,34 +22,18 @@ int nresults;
 static const int gate_output_pin = 2;
 
 //
-// Use TextSerial byte stuffing protocol on Serial port.
-// Configure 128 byte receive buffer size.
-// Packet marker is CR.
+// Input data buffer for serial packet.
 //
-TextSerial_<'\r', 128> pkt;
+#define PKT_INBUFSZ     128
+uint8_t pkt_inbuf[PKT_INBUFSZ];
+uint8_t *pkt_inptr = pkt_inbuf;
 
 //
 // Output data buffer for serial packet.
 //
-#define PKT_BUFSZ 4096
-char pkt_outbuf[PKT_BUFSZ];
+#define PKT_OUTBUFSZ    4096
+char pkt_outbuf[PKT_OUTBUFSZ];
 char *pkt_outptr = pkt_outbuf;
-
-/*
- * Read a character from the serial port.
- */
-int wait_input()
-{
-    for (;;) {
-        int c = Serial1.read();
-
-        if (c >= 0)
-            return c;
-
-        // Let TextSerial protocol to do it's job.
-        pkt.update();
-    }
-}
 
 /*
  * Print volts.
@@ -173,7 +156,7 @@ void measure_jfet()
 }
 
 //
-// Send a TextSerial packet from pkt_ouput[] buffer.
+// Send a packet from pkt_ouput[] buffer.
 //
 void pkt_send()
 {
@@ -185,7 +168,7 @@ void pkt_send()
     Serial1.write("'\r\n");
 #endif
     // Check transmit size.
-    if (pkt_outptr <= pkt_outbuf || pkt_outptr > pkt_outbuf+PKT_BUFSZ-8)
+    if (pkt_outptr <= pkt_outbuf || pkt_outptr > pkt_outbuf+PKT_OUTBUFSZ-8)
         return;
 
     // Append checksum.
@@ -278,15 +261,16 @@ void send_measurement()
 }
 
 //
-// TextSerial protocol calls this function when a new packet is received.
+// This function is invoked when a new packet is received.
 //
-void pkt_receive(const uint8_t *data, size_t nbytes)
+void pkt_receive()
 {
+    unsigned nbytes = pkt_inptr - pkt_inbuf;
 #if 0
     Serial1.write("Received packet: ");
     Serial1.print(nbytes);
     Serial1.write(" '");
-    Serial1.write(data, nbytes);
+    Serial1.write(pkt_inbuf, nbytes);
     Serial1.write("'\r\n");
 #endif
     if (nbytes <= 8) {
@@ -295,20 +279,20 @@ void pkt_receive(const uint8_t *data, size_t nbytes)
     }
 
     // Check the sum.
-    uint32_t checksum = CRC32::calculate(data, nbytes-8);
+    uint32_t checksum = CRC32::calculate(pkt_inbuf, nbytes-8);
 #if 0
     Serial1.write("Checksum: ");
     Serial1.print(checksum, HEX);
     Serial1.write("\r\n");
 #endif
-    if (data[nbytes-8] != 'a' + (checksum >> 28) ||
-        data[nbytes-7] != 'a' + ((checksum >> 24) & 0xf) ||
-        data[nbytes-6] != 'a' + ((checksum >> 20) & 0xf) ||
-        data[nbytes-5] != 'a' + ((checksum >> 16) & 0xf) ||
-        data[nbytes-4] != 'a' + ((checksum >> 12) & 0xf) ||
-        data[nbytes-3] != 'a' + ((checksum >> 8) & 0xf) ||
-        data[nbytes-2] != 'a' + ((checksum >> 4) & 0xf) ||
-        data[nbytes-1] != 'a' + ((checksum) & 0xf)) {
+    if (pkt_inbuf[nbytes-8] != 'a' + (checksum >> 28) ||
+        pkt_inbuf[nbytes-7] != 'a' + ((checksum >> 24) & 0xf) ||
+        pkt_inbuf[nbytes-6] != 'a' + ((checksum >> 20) & 0xf) ||
+        pkt_inbuf[nbytes-5] != 'a' + ((checksum >> 16) & 0xf) ||
+        pkt_inbuf[nbytes-4] != 'a' + ((checksum >> 12) & 0xf) ||
+        pkt_inbuf[nbytes-3] != 'a' + ((checksum >> 8) & 0xf) ||
+        pkt_inbuf[nbytes-2] != 'a' + ((checksum >> 4) & 0xf) ||
+        pkt_inbuf[nbytes-1] != 'a' + ((checksum) & 0xf)) {
         // Incorrect checksum, ignore the packet.
 #if 0
         Serial1.write("Bad checksum!\r\n");
@@ -317,11 +301,8 @@ void pkt_receive(const uint8_t *data, size_t nbytes)
     }
     nbytes -= 8;
 
-    char command[8];
-    memcpy(command, data, sizeof(command));
-    command[sizeof(command) - 1] = 0;
-    if (nbytes < sizeof(command))
-        command[nbytes] = 0;
+    char *command = (char *) pkt_inbuf;
+    command[nbytes] = 0;
 
     if (strcmp(command, "version") == 0) {
         send_version();
@@ -332,6 +313,40 @@ void pkt_receive(const uint8_t *data, size_t nbytes)
     }
     else {
         send_error("Unknown command");
+    }
+}
+
+void pkt_update()
+{
+    while (Serial.available() > 0) {
+        uint8_t data = Serial.read();
+
+        if (data == '\r') {
+            pkt_receive();
+            pkt_inptr = pkt_inbuf;
+        } else {
+            if (pkt_inptr < &pkt_inbuf[PKT_INBUFSZ-1]) {
+                *pkt_inptr++ = data;
+            } else {
+                // Error, buffer overflow if we write.
+            }
+        }
+    }
+}
+
+/*
+ * Read a character from the serial port.
+ */
+int wait_input()
+{
+    for (;;) {
+        int c = Serial1.read();
+
+        if (c >= 0)
+            return c;
+
+        // Let packet protocol to do it's job.
+        pkt_update();
     }
 }
 
@@ -415,9 +430,8 @@ again:
 
 void setup()
 {
-    // Main USB serial port: initialize TextSerial protocol.
-    pkt.begin(38400);
-    pkt.setPacketHandler(&pkt_receive);
+    // Main USB serial port: initialize packet protocol.
+    Serial.begin(38400);
 
     // Secondary serial port: provide a text menu interface.
     Serial1.begin(9600);
