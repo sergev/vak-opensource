@@ -130,7 +130,6 @@ send_command("njfet")
 reply = json.loads(recv_command())
 if "Error" in reply:
     raise ValueError(reply["Error"])
-    print "Error!",
 
 #
 # Copy data into Numpy arrays.
@@ -138,6 +137,9 @@ if "Error" in reply:
 reply_Vg = reply["Vgate"]
 reply_Id = reply["Idrain"]
 N = len(reply_Vg)
+if N < 10:
+    raise ValueError(reply["Bad transistor!"])
+
 Vg = np.empty(N)
 Id = np.empty(N)
 print "  Vg, V  Id, mA"
