@@ -13,6 +13,11 @@
 #          Yfs * (Vg - Voff)^2 / (2*Vsat)   for Vg >= Voff and Vg <= Voff+Vsat
 #          Yfs * (Vg - Voff - Vsat/2)       for Vg >= Voff+Vsat
 #
+# Copyright (C) 2018 Serge Vakulenko
+#
+# This file is distributed under the terms of the GNU General Public License (GPL).
+# See the accompanying file "COPYING" for more details.
+#
 import numpy as np
 import matplotlib.pyplot as plt
 import serial, time, binascii, json, math, platform, os
