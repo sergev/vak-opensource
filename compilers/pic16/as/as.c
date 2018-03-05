@@ -360,8 +360,8 @@ int main (int argc, char **argv)
 
 	if (! outfile) {
 		if (! infile1) {
-			printf ("PIC 16Cxx Assembler, by Serge V.Vakulenko\n\n");
-			printf ("Usage:\n\tas17 [-O] [-o outfile.hex] infile.s ...\n\n");
+			printf ("PIC12 Assembler, by Serge V.Vakulenko\n\n");
+			printf ("Usage:\n\tas12 [-O] [-o outfile.hex] infile.s ...\n\n");
 			return -1;
 		}
 		outfile = malloc (4 + strlen (infile1));

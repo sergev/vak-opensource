@@ -300,8 +300,8 @@ int main (int argc, char **argv)
 		}
 
 	if (! infile) {
-usage:          printf ("PIC 16Cxx Disassembler, by Serge V.Vakulenko\n\n");
-		printf ("Usage:\n\tdis12 [-o outfile.hex] infile.s ...\n\n");
+usage:          printf ("PIC12 Disassembler, by Serge V.Vakulenko\n\n");
+		printf ("Usage:\n\tdis12 infile.hex\n\n");
 		return -1;
 	}
 

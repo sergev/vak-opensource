@@ -1,22 +1,22 @@
 CFLAGS		= -Wall -g -O
 INSTDIR		= /usr/local
 
-all:		as16 dis16
+all:		as12 dis12
 
-as16:		as.o
-		$(CC) $(LDFLAGS) as.o -o as16
+as12:		as.o
+		$(CC) $(LDFLAGS) as.o -o as12
 
-dis16:		dis.o
-		$(CC) $(LDFLAGS) dis.o -o dis16
+dis12:		dis.o
+		$(CC) $(LDFLAGS) dis.o -o dis12
 
 clean:
-		rm -f *~ *.o a.out *.core as16 dis16
+		rm -f *~ *.o a.out *.core as12 dis12
 
-install:	as16 dis16
-		install -c as16 $(INSTDIR)/bin
-		install -c dis16 $(INSTDIR)/bin
+install:	as12 dis12
+		install -c as12 $(INSTDIR)/bin
+		install -c dis12 $(INSTDIR)/bin
 
 .SUFFIXES:	.hex
 
 .s.hex:
-		as16 $<
+		as12 $<
