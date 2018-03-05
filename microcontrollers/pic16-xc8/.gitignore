@@ -1,0 +1,12 @@
+*.as
+*.lst
+*.obj
+*.rlf
+*.cmf
+*.cof
+*.d
+*.hxl
+*.p1
+*.pre
+*.sdb
+*.sym
