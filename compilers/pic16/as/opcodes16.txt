@@ -1,0 +1,83 @@
+PIC16(L)F1705/9 INSTRUCTION SET
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+BYTE-ORIENTED FILE REGISTER OPERATIONS
+
+ADDWF   f, d    Add W and f                     00 0111 dfff ffff
+ADDWFC  f, d    Add with Carry W and f          11 1101 dfff ffff
+ANDWF   f, d    AND W with f                    00 0101 dfff ffff
+ASRF    f, d    Arithmetic Right Shift          11 0111 dfff ffff
+LSLF    f, d    Logical Left Shift              11 0101 dfff ffff
+LSRF    f, d    Logical Right Shift             11 0110 dfff ffff
+CLRF    f       Clear f                         00 0001 1fff ffff
+CLRW    -       Clear W                         00 0001 0000 00xx
+COMF    f, d    Complement f                    00 1001 dfff ffff
+DECF    f, d    Decrement f                     00 0011 dfff ffff
+INCF    f, d    Increment f                     00 1010 dfff ffff
+IORWF   f, d    Inclusive OR W with f           00 0100 dfff ffff
+MOVF    f, d    Move f                          00 1000 dfff ffff
+MOVWF   f       Move W to f                     00 0000 1fff ffff
+RLF     f, d    Rotate Left f through Carry     00 1101 dfff ffff
+RRF     f, d    Rotate Right f through Carry    00 1100 dfff ffff
+SUBWF   f, d    Subtract W from f               00 0010 dfff ffff
+SUBWFB  f, d    Subtract with Borrow W from f   11 1011 dfff ffff
+SWAPF   f, d    Swap nibbles in f               00 1110 dfff ffff
+XORWF   f, d    Exclusive OR W with f           00 0110 dfff ffff
+
+BYTE ORIENTED SKIP OPERATIONS
+
+DECFSZ  f, d    Decrement f, Skip if 0          00 1011 dfff ffff
+INCFSZ  f, d    Increment f, Skip if 0          00 1111 dfff ffff
+
+BIT-ORIENTED FILE REGISTER OPERATIONS
+
+BCF     f, b    Bit Clear f                     01 00bb bfff ffff
+BSF     f, b    Bit Set f                       01 01bb bfff ffff
+
+BIT-ORIENTED SKIP OPERATIONS
+
+BTFSC   f, b    Bit Test f, Skip if Clear       01 10bb bfff ffff
+BTFSS   f, b    Bit Test f, Skip if Set         01 11bb bfff ffff
+
+LITERAL OPERATIONS
+
+ADDLW   k       Add literal and W               11 1110 kkkk kkkk
+ANDLW   k       AND literal with W              11 1001 kkkk kkkk
+IORLW   k       Inclusive OR literal with W     11 1000 kkkk kkkk
+MOVLB   k       Move literal to BSR             00 0000 001k kkkk
+MOVLP   k       Move literal to PCLATH          11 0001 1kkk kkkk
+MOVLW   k       Move literal to W               11 0000 kkkk kkkk
+SUBLW   k       Subtract W from literal         11 1100 kkkk kkkk
+XORLW   k       Exclusive OR literal with W     11 1010 kkkk kkkk
+
+CONTROL OPERATIONS
+
+BRA     k       Relative Branch                 11 001k kkkk kkkk
+BRW     -       Relative Branch with W          00 0000 0000 1011
+CALL    k       Call Subroutine                 10 0kkk kkkk kkkk
+CALLW   -       Call Subroutine with W          00 0000 0000 1010
+GOTO    k       Go to address                   10 1kkk kkkk kkkk
+RETFIE  -       Return from interrupt           00 0000 0000 1001
+RETLW   k       Return with literal in W        11 0100 kkkk kkkk
+RETURN  -       Return from Subroutine          00 0000 0000 1000
+
+INHERENT OPERATIONS
+
+CLRWDT  -       Clear Watchdog Timer            00 0000 0110 0100
+NOP     -       No Operation                    00 0000 0000 0000
+OPTION  -       Load OPTION_REG register with W 00 0000 0110 0010
+RESET   -       Software device Reset           00 0000 0000 0001
+SLEEP   -       Go into Standby mode            00 0000 0110 0011
+TRIS    f       Load TRIS register with W       00 0000 0110 0fff
+
+C-COMPILER OPTIMIZED
+
+ADDFSR  n, k    Add Literal k to FSRn           11 0001 0nkk kkkk
+MOVIW   n mm    Move Indirect FSRn to W with    00 0000 0001 0nmm
+                pre/post inc/dec modifier, mm
+MOVIW   k[n]    Move INDFn to W,                11 1111 0nkk kkkk
+                Indexed Indirect
+MOVWI   n mm    Move W to Indirect FSRn with    00 0000 0001 1nmm
+                pre/post inc/dec modifier, mm
+MOVWI   k[n]    Move W to INDFn,                11 1111 1nkk kkkk
+                Indexed Indirect

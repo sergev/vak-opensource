@@ -211,8 +211,8 @@ void readimage()
     unsigned char line[16];
 
     while (gethex(&len, &addr, line)) {
-if (debug)
-printf("%d %04lx %02x-%02x-%02x-%02x\n", len, addr, line[0], line[1], line[2], line[3]);
+        if (debug)
+            printf("%d %04lx %02x-%02x-%02x-%02x\n", len, addr, line[0], line[1], line[2], line[3]);
         if (addr == CFGADDR*2) {
             if (len != 4)
                 uerror("invalid config length");
@@ -234,7 +234,18 @@ printf("%d %04lx %02x-%02x-%02x-%02x\n", len, addr, line[0], line[1], line[2], l
     }
 }
 
-void print(int addr, int cmd)
+const char *litfmt(unsigned val)
+{
+    static char buf[40];
+
+    if (val > 9)
+        snprintf(buf, sizeof(buf), "0x%x", val);
+    else
+        snprintf(buf, sizeof(buf), "%d", val);
+    return buf;
+}
+
+void print_opcode(int addr, int cmd)
 {
     char *m;
     int arg;
@@ -242,107 +253,125 @@ void print(int addr, int cmd)
     printf("%04x: %02x %02x\t", addr, cmd >> 8 & 0xff, cmd & 0xff);
 
     switch (cmd) {
-    case 0x000: printf("nop");   goto done;
-    case 0x002: printf("option");goto done;
-    case 0x003: printf("sleep"); goto done;
-    case 0x004: printf("awake"); goto done;
-    case 0x006: printf("tris");  goto done;
-    case 0x007: printf("dump");  goto done;
-    case 0x008: printf("halt");  goto done;
-    case 0x040: printf("az");    goto done;
-    case 0x643: printf("z?");    goto done;
-    case 0x743: printf("nz?");   goto done;
-    case 0x603: printf("c?");    goto done;
-    case 0x703: printf("nc?");   goto done;
+    case 0x0000: printf("nop");           goto done;
+    case 0x0001: printf("reset");         goto done;
+    case 0x0008: printf("return");        goto done;
+    case 0x0009: printf("retfie");        goto done;
+    case 0x000a: printf("callw");         goto done;
+    case 0x000b: printf("brw");           goto done;
+    case 0x0010: printf("moviw\t++fsr0"); goto done;
+    case 0x0011: printf("moviw\t--fsr0"); goto done;
+    case 0x0012: printf("moviw\tfsr0++"); goto done;
+    case 0x0013: printf("moviw\tfsr0--"); goto done;
+    case 0x0014: printf("moviw\t++fsr1"); goto done;
+    case 0x0015: printf("moviw\t--fsr1"); goto done;
+    case 0x0016: printf("moviw\tfsr1++"); goto done;
+    case 0x0017: printf("moviw\tfsr1--"); goto done;
+    case 0x0060: printf("reset");         goto done;
+    case 0x0062: printf("option");        goto done;
+    case 0x0063: printf("sleep");         goto done;
+    case 0x0064: printf("clrwdt");        goto done;
+    case 0x0065: printf("tris\t5");       goto done;
+    case 0x0066: printf("tris\t6");       goto done;
+    case 0x0067: printf("tris\t7");       goto done;
+    case 0x0100:
+    case 0x0101:
+    case 0x0102:
+    case 0x0103: printf("clrw");          goto done;
     }
 
     switch (cmd >> 8) {
-    case 0x8: m = "ret";  goto byteop;
-    case 0x9: m = "call"; goto byteop;
-    case 0xc: m = "cta";  goto byteop;
-    case 0xd: m = "a|c";  goto byteop;
-    case 0xe: m = "a&c";  goto byteop;
-    case 0xf: m = "a^c";
-byteop:
-        printf("%s", m);
-        arg = cmd & 0xff;
-        if (arg > 9)
-            printf("\t0x%x", arg);
-        else if (arg)
-            printf("\t%d", arg);
-        goto done;
+    case 0x00:
+        if (cmd & 0x80) {
+            m = "movwf";
+            goto fop;
+        }
+        if ((cmd & 0xe0) == 0x20) {
+            printf("movlb\t%s", litfmt(cmd & 0x1f));
+            break;
+        }
+        goto unknown;
 
-    case 0x4: m = "bz";  goto bitop;
-    case 0x5: m = "bs";  goto bitop;
-    case 0x6: m = "bs?"; goto bitop;
-    case 0x7: m = "bz?"; goto bitop;
-bitop:
-        printf("%s\t", m);
-        arg = cmd & 0x1f;
-        if (arg > 9)
-            printf("0x%x", arg);
-        else
-            printf("%d", arg);
-        printf(", %d", cmd >> 5 & 7);
-        goto done;
-    }
-
-    switch (cmd >> 4 & 0xfe) {
-    case 0x02: m = "atx";   goto shortop;
-    case 0x06: m = "xz";    goto shortop;
-    case 0x08: m = "a-x";   goto shortop;
-    case 0x0a: m = "x-a";   goto shortop;
-    case 0x0c: m = "x--a";  goto shortop;
-    case 0x0e: m = "x--";   goto shortop;
-    case 0x10: m = "a|x";   goto shortop;
-    case 0x12: m = "x|a";   goto shortop;
-    case 0x14: m = "a&x";   goto shortop;
-    case 0x16: m = "x&a";   goto shortop;
-    case 0x18: m = "a^x";   goto shortop;
-    case 0x1a: m = "x^a";   goto shortop;
-    case 0x1c: m = "a+x";   goto shortop;
-    case 0x1e: m = "x+a";   goto shortop;
-    case 0x20: m = "xta";   goto shortop;
-    case 0x22: m = "tst";   goto shortop;
-    case 0x24: m = "xca";   goto shortop;
-    case 0x26: m = "xc";    goto shortop;
-    case 0x28: m = "x++a";  goto shortop;
-    case 0x2a: m = "x++";   goto shortop;
-    case 0x2c: m = "x--a?"; goto shortop;
-    case 0x2e: m = "x--?";  goto shortop;
-    case 0x30: m = "xc>>a"; goto shortop;
-    case 0x32: m = "xc>>x"; goto shortop;
-    case 0x34: m = "xc<<a"; goto shortop;
-    case 0x36: m = "xc<<x"; goto shortop;
-    case 0x38: m = "xwa";   goto shortop;
-    case 0x3a: m = "xw";    goto shortop;
-    case 0x3c: m = "x++a?"; goto shortop;
-    case 0x3e: m = "x++?";
-shortop:
-        printf("%s", m);
-        arg = cmd & 0x1f;
-        if (arg > 9)
-            printf("\t0x%x", arg);
-        else if (arg)
-            printf("\t%d", arg);
+    case 0x01: m = "clrf";   goto fop;
+    case 0x02: m = "subwf";  goto fop;
+    case 0x03: m = "decf";   goto fop;
+    case 0x04: m = "iorwf";  goto fop;
+    case 0x05: m = "andwf";  goto fop;
+    case 0x06: m = "xorwf";  goto fop;
+    case 0x07: m = "addwf";  goto fop;
+    case 0x08: m = "movf";   goto fop;
+    case 0x09: m = "comf";   goto fop;
+    case 0x0a: m = "incf";   goto fop;
+    case 0x0b: m = "decfsz"; goto fop;
+    case 0x0c: m = "rrf";    goto fop;
+    case 0x0d: m = "rlf";    goto fop;
+    case 0x0e: m = "swapf";  goto fop;
+    case 0x0f: m = "incfsz"; goto fop;
+    case 0x35: m = "lslf";   goto fop;
+    case 0x36: m = "lsrf";   goto fop;
+    case 0x37: m = "asrf";   goto fop;
+    case 0x3b: m = "subwfb"; goto fop;
+    case 0x3d: m = "addwfc"; goto fop;
+fop:
+        printf("%s\t%s", m, litfmt(cmd & 0x7f));
+        if (cmd & 0x80)
+            printf(", w");
         break;
 
-    case 0xa0: case 0xa2: case 0xa4: case 0xa6:
-    case 0xa8: case 0xaa: case 0xac: case 0xae:
-    case 0xb0: case 0xb2: case 0xb4: case 0xb6:
-    case 0xb8: case 0xba: case 0xbc: case 0xbe:
-        printf("goto");
-        arg = cmd & 0x1ff;
-        if (arg > 9)
-            printf("\t0x%x", arg);
-        else if (arg)
-            printf("\t%d", arg);
+    case 0x10: case 0x11: case 0x12: case 0x13: m = "bcf";   goto bitop;
+    case 0x14: case 0x15: case 0x16: case 0x17: m = "bsf";   goto bitop;
+    case 0x18: case 0x19: case 0x1a: case 0x1b: m = "btfsc"; goto bitop;
+    case 0x1c: case 0x1d: case 0x1e: case 0x1f: m = "btfss"; goto bitop;
+bitop:
+        printf("%s\t%s, %d", m, litfmt(cmd & 0x7f), (cmd >> 7) & 7);
+        break;
+
+    case 0x20: case 0x21: case 0x22: case 0x23:
+    case 0x24: case 0x25: case 0x26: case 0x27: m = "call"; goto gotoop;
+    case 0x28: case 0x29: case 0x2a: case 0x2b:
+    case 0x2c: case 0x2d: case 0x2e: case 0x2f: m = "goto"; goto gotoop;
+gotoop:
+        printf("%s\t%s", m, litfmt(cmd & 0x7ff));
+        break;
+
+    case 0x32: case 0x33:
+        arg = (short)(cmd << 7) >> 7;
+        if (arg >= 0)
+            printf("bra\t$+%s", litfmt(arg));
+        else
+            printf("bra\t$-%s", litfmt(-arg));
+        break;
+
+    case 0x30: m = "movlw"; goto kop;
+    case 0x34: m = "retlw"; goto kop;
+    case 0x38: m = "iorlw"; goto kop;
+    case 0x39: m = "andlw"; goto kop;
+    case 0x3a: m = "xorlw"; goto kop;
+    case 0x3c: m = "sublw"; goto kop;
+    case 0x3e: m = "addlw"; goto kop;
+kop:
+        printf("%s\t%s", m, litfmt(cmd & 0xff));
+        break;
+
+    case 0x31:
+        if (cmd & 0x80) {
+            printf("movlp\t%s", litfmt(cmd & 0x7f));
+        } else {
+            printf("addfsr\tfsr%d, %s", (cmd >> 6) & 1, litfmt(cmd & 0x3f));
+        }
+        break;
+
+    case 0x3f:
+        if (cmd & 0x80) {
+            printf("movwi\t%s[fsr%d]", litfmt(cmd & 0x3f), (cmd >> 6) & 1);
+        } else {
+            printf("moviw\t%s[fsr%d]", litfmt(cmd & 0x3f), (cmd >> 6) & 1);
+        }
         break;
 
     default:
+unknown:
         printf("?");
-        if (cmd >= ' ' && cmd <= '~')
-            printf("\t\t; `%c'", cmd);
         break;
     }
 done:
@@ -449,7 +478,7 @@ void disasm()
 
     for (i=0; i<TXTSIZE; ++i)
         if (tbusy[i])
-            print(i, text[i]);
+            print_opcode(i, text[i]);
 }
 
 int main(int argc, char **argv)
