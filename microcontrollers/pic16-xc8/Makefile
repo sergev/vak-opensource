@@ -1,5 +1,12 @@
+ifeq (,$(wildcard /Applications/Arduino.app/Contents/Java))
+    # Linux
+    XC8 = /opt/microchip/xc8/v1.45/bin
+else
+    # Mac OS X
+    XC8 = /Applications/microchip/xc8/v1.45/bin
+endif
 DEV		= 16f1705
-CC		= /opt/microchip/xc8/v1.45/bin/picc --chip=$(DEV) -Q
+CC		= $(XC8)/picc --chip=$(DEV) -Q
 
 all:		flash.hex phase84.hex
 

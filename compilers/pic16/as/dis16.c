@@ -314,7 +314,7 @@ void print_opcode(int addr, int cmd)
     case 0x3d: m = "addwfc"; goto fop;
 fop:
         printf("%s\t%s", m, litfmt(cmd & 0x7f));
-        if (cmd & 0x80)
+        if (! (cmd & 0x80))
             printf(", w");
         break;
 
