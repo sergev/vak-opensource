@@ -318,8 +318,8 @@ fop:
             printf(", w");
         break;
 
-    case 0x10: case 0x11: case 0x12: case 0x13: m = "bcf";   goto bitop;
-    case 0x14: case 0x15: case 0x16: case 0x17: m = "bsf";   goto bitop;
+    case 0x10: case 0x11: case 0x12: case 0x13: m = "bcf ";  goto bitop;
+    case 0x14: case 0x15: case 0x16: case 0x17: m = "bsf ";  goto bitop;
     case 0x18: case 0x19: case 0x1a: case 0x1b: m = "btfsc"; goto bitop;
     case 0x1c: case 0x1d: case 0x1e: case 0x1f: m = "btfss"; goto bitop;
 bitop:

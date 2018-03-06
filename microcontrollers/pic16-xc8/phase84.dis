@@ -1,0 +1,87 @@
+0000: 31 80	movlp	0
+0001: 28 28	goto	0x28
+0004: 14 7e	bsf	0x7e, 0
+0005: 31 80	movlp	0
+0006: 00 20	movlb	0
+0007: 08 7f	movf	0x7f
+0008: 00 f1	movwf	0x71, w
+0009: 1d 0b	btfss	0xb, 2
+000a: 28 17	goto	0x17
+000b: 30 a3	movlw	0xa3
+000c: 00 95	movwf	0x15, w
+000d: 11 0b	bcf	0xb, 2
+000e: 08 74	movf	0x74
+000f: 1d 03	btfss	3, 2
+0010: 28 15	goto	0x15
+0011: 10 0c	bcf	0xc, 0
+0012: 00 21	movlb	1
+0013: 10 0c	bcf	0xc, 0
+0014: 28 17	goto	0x17
+0015: 30 01	movlw	1
+0016: 02 f4	subwf	0x74, w
+0017: 1c 8b	btfss	0xb, 1
+0018: 28 23	goto	0x23
+0019: 10 8b	bcf	0xb, 1
+001a: 08 73	movf	0x73
+001b: 00 f0	movwf	0x70, w
+001c: 08 70	movf	0x70
+001d: 00 f4	movwf	0x74, w
+001e: 00 21	movlb	1
+001f: 14 0c	bsf	0xc, 0
+0020: 15 0b	bsf	0xb, 2
+0021: 16 8b	bsf	0xb, 5
+0022: 14 75	bsf	0x75, 0
+0023: 08 71	movf	0x71
+0024: 00 20	movlb	0
+0025: 00 ff	movwf	0x7f, w
+0026: 10 7e	bcf	0x7e, 0
+0027: 00 09	retfie
+0028: 31 80	movlp	0
+0029: 28 2a	goto	0x2a
+002a: 01 f5	clrf	0x75, w
+002b: 01 f3	clrf	0x73, w
+002c: 01 f4	clrf	0x74, w
+002d: 10 7e	bcf	0x7e, 0
+002e: 00 20	movlb	0
+002f: 31 80	movlp	0
+0030: 28 31	goto	0x31
+0031: 30 ff	movlw	0xff
+0032: 00 21	movlb	1
+0033: 00 8c	movwf	0xc, w
+0034: 30 ff	movlw	0xff
+0035: 00 8e	movwf	0xe, w
+0036: 14 0c	bsf	0xc, 0
+0037: 00 20	movlb	0
+0038: 10 0c	bcf	0xc, 0
+0039: 00 21	movlb	1
+003a: 14 0e	bsf	0xe, 0
+003b: 00 20	movlb	0
+003c: 14 0e	bsf	0xe, 0
+003d: 14 8c	bsf	0xc, 1
+003e: 00 21	movlb	1
+003f: 14 8c	bsf	0xc, 1
+0040: 00 20	movlb	0
+0041: 15 0c	bsf	0xc, 2
+0042: 00 21	movlb	1
+0043: 15 0c	bsf	0xc, 2
+0044: 01 f4	clrf	0x74, w
+0045: 01 f3	clrf	0x73, w
+0046: 10 75	bcf	0x75, 0
+0047: 01 8b	clrf	0xb, w
+0048: 16 0b	bsf	0xb, 4
+0049: 17 8b	bsf	0xb, 7
+004a: 1c 75	btfss	0x75, 0
+004b: 28 4a	goto	0x4a
+004c: 10 75	bcf	0x75, 0
+004d: 00 20	movlb	0
+004e: 18 8c	btfsc	0xc, 1
+004f: 28 54	goto	0x54
+0050: 30 01	movlw	1
+0051: 00 f2	movwf	0x72, w
+0052: 08 72	movf	0x72
+0053: 07 f3	addwf	0x73, w
+0054: 19 0c	btfsc	0xc, 2
+0055: 28 4a	goto	0x4a
+0056: 30 01	movlw	1
+0057: 02 f3	subwf	0x73, w
+0058: 28 4a	goto	0x4a
