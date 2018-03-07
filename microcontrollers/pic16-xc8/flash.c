@@ -75,7 +75,7 @@
 #pragma config BOREN    = OFF       // Brown-out Reset disabled
 #pragma config CLKOUTEN = OFF       // CLKOUT function is disabled. I/O or oscillator function on the CLKOUT pin
 #pragma config IESO     = OFF       // Internal/External Switchover Mode is disabled
-#pragma config FCMEN    = OFF       // Fail-Safe Clock Monitor is disabled
+#pragma config FCMEN    = ON        // Fail-Safe Clock Monitor is enabled
 
 //
 // Register: CONFIG2 @ 0x8008
@@ -132,24 +132,15 @@
 #pragma config LPBOR    = OFF       // Low-Power BOR is disabled
 #pragma config LVP      = ON        // Low-voltage programming enabled
 
-void mdelay(unsigned msec)
-{
-	unsigned char i;
-
-	while (msec-- > 0) {
-		for (i=0; i<200; i++)
-			;
-	}
-}
-
 void main()
 {
-	unsigned char count = 0;
+    unsigned char count = 0;
 
-	PORTC = count;
-	TRISC = 0;
-	while (1) {
-		mdelay(250);
-                PORTC = count++;
-	}
+    PORTC = count;
+    TRISC = 0;
+    while (1) {
+        _delay(CPU_HZ/4);
+
+        PORTC = count++;
+    }
 }

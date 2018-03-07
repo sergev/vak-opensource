@@ -7,11 +7,12 @@ else
 endif
 DEV		= 16f1705
 CC		= $(XC8)/picc --chip=$(DEV) -Q
+CFLAGS          = -DCPU_HZ=2000000
 
 all:		flash.hex phase84.hex
 
 flash.hex:	flash.c
-		$(CC) --asmlist $<
+		$(CC) $(CFLAGS) --asmlist $<
 		dis16 $@ > flash.dis
 
 phase84.hex:	phase84.c

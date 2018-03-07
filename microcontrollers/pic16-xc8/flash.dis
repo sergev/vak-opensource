@@ -8,46 +8,31 @@
 0001: 28 02	goto	2
 0002: 31 87	movlp	7
 0003: 2f fd	goto	0x7fd
-07d5: 30 01	movlw	1
-07d6: 02 f0	subwf	0x70
-07d7: 30 00	movlw	0
-07d8: 3b f1	subwfb	0x71
-07d9: 0a 70	incf	0x70, w
-07da: 19 03	btfsc	3, 2
-07db: 0a 71	incf	0x71, w
-07dc: 19 03	btfsc	3, 2
-07dd: 00 08	return
-07de: 01 f3	clrf	0x73
-07df: 30 c8	movlw	0xc8
-07e0: 02 73	subwf	0x73, w
-07e1: 18 03	btfsc	3, 0
-07e2: 2f d5	goto	0x7d5
-07e3: 30 01	movlw	1
-07e4: 00 f2	movwf	0x72
+07e4: 01 f2	clrf	0x72
 07e5: 08 72	movf	0x72, w
-07e6: 07 f3	addwf	0x73
-07e7: 2f df	goto	0x7df
-07e8: 01 f5	clrf	0x75
-07e9: 08 75	movf	0x75, w
-07ea: 00 20	movlb	0
-07eb: 00 8e	movwf	0xe
-07ec: 00 21	movlb	1
-07ed: 01 8e	clrf	0xe
-07ee: 30 fa	movlw	0xfa
-07ef: 00 f0	movwf	0x70
-07f0: 30 00	movlw	0
-07f1: 00 f1	movwf	0x71
-07f2: 31 87	movlp	7
-07f3: 27 d5	call	0x7d5
-07f4: 31 87	movlp	7
-07f5: 08 75	movf	0x75, w
+07e6: 00 20	movlb	0
+07e7: 00 8e	movwf	0xe
+07e8: 00 21	movlb	1
+07e9: 01 8e	clrf	0xe
+07ea: 30 03	movlw	3
+07eb: 00 f1	movwf	0x71
+07ec: 30 8a	movlw	0x8a
+07ed: 00 f0	movwf	0x70
+07ee: 30 56	movlw	0x56
+07ef: 0b 89	decfsz	9
+07f0: 2f ef	goto	0x7ef
+07f1: 0b f0	decfsz	0x70
+07f2: 2f ef	goto	0x7ef
+07f3: 0b f1	decfsz	0x71
+07f4: 2f ef	goto	0x7ef
+07f5: 08 72	movf	0x72, w
 07f6: 00 20	movlb	0
 07f7: 00 8e	movwf	0xe
 07f8: 30 01	movlw	1
-07f9: 00 f4	movwf	0x74
-07fa: 08 74	movf	0x74, w
-07fb: 07 f5	addwf	0x75
-07fc: 2f ee	goto	0x7ee
+07f9: 00 f0	movwf	0x70
+07fa: 08 70	movf	0x70, w
+07fb: 07 f2	addwf	0x72
+07fc: 2f ea	goto	0x7ea
 07fd: 00 20	movlb	0
 07fe: 31 87	movlp	7
-07ff: 2f e8	goto	0x7e8
+07ff: 2f e4	goto	0x7e4
