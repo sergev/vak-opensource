@@ -200,12 +200,12 @@ void main()
 
     // RA3: /MCLR, always digital input
 
-    // RA4: unused
+    // RA4: UART TX output
     ANSA4  = 0;         // digital
     TRISA4 = 0;         // output
     RA4PPS = 0b10100;   // RA4 = UART TX output
 
-    // RA5: unused
+    // RA5: UART RX input
     TRISA5 = 1;         // input, always digital
     RXPPS  = 0b00101;   // UART RX input = RA5
 
