@@ -1,0 +1,181 @@
+		config FOSC = INTOSC	; Internal oscillator
+		config WDTE = OFF	; Watchdog disabled
+		config CP = ON	; Program memory code protection is enabled
+0000: 31 80	movlp	0
+0001: 28 02	goto	2
+0002: 31 87	movlp	7
+0003: 2f fd	goto	0x7fd
+0771: 00 f0	movwf	0x70
+0772: 00 20	movlb	0
+0773: 1e 11	btfss	0x11, 4
+0774: 2f 72	goto	0x772
+0775: 08 70	movf	0x70, w
+0776: 00 23	movlb	3
+0777: 00 9a	movwf	0x1a
+0778: 00 08	return
+0779: 00 20	movlb	0
+077a: 1e 91	btfss	0x11, 5
+077b: 2f 79	goto	0x779
+077c: 00 23	movlb	3
+077d: 08 19	movf	0x19, w
+077e: 00 f0	movwf	0x70
+077f: 08 70	movf	0x70, w
+0780: 00 f1	movwf	0x71
+0781: 19 1d	btfsc	0x1d, 2
+0782: 2f 79	goto	0x779
+0783: 10 9d	bcf 	0x1d, 1
+0784: 08 71	movf	0x71, w
+0785: 00 08	return
+0786: 08 71	movf	0x71, w
+0787: 00 84	movwf	4
+0788: 08 72	movf	0x72, w
+0789: 00 85	movwf	5
+078a: 00 12	moviw	fsr0++
+078b: 19 03	btfsc	3, 2
+078c: 00 08	return
+078d: 08 71	movf	0x71, w
+078e: 00 84	movwf	4
+078f: 08 72	movf	0x72, w
+0790: 00 85	movwf	5
+0791: 08 00	movf	0, w
+0792: 31 87	movlp	7
+0793: 27 71	call	0x771
+0794: 31 87	movlp	7
+0795: 30 01	movlw	1
+0796: 07 f1	addwf	0x71
+0797: 30 00	movlw	0
+0798: 3d f2	addwfc	0x72
+0799: 2f 86	goto	0x786
+079a: 00 23	movlb	3
+079b: 10 0c	bcf 	0xc, 0
+079c: 00 21	movlb	1
+079d: 14 0c	bsf 	0xc, 0
+079e: 00 23	movlb	3
+079f: 10 8c	bcf 	0xc, 1
+07a0: 00 21	movlb	1
+07a1: 14 8c	bsf 	0xc, 1
+07a2: 00 23	movlb	3
+07a3: 11 0c	bcf 	0xc, 2
+07a4: 00 21	movlb	1
+07a5: 11 0c	bcf 	0xc, 2
+07a6: 00 23	movlb	3
+07a7: 12 0c	bcf 	0xc, 4
+07a8: 00 21	movlb	1
+07a9: 12 0c	bcf 	0xc, 4
+07aa: 30 14	movlw	0x14
+07ab: 00 3d	movlb	0x1d
+07ac: 00 94	movwf	0x14
+07ad: 00 21	movlb	1
+07ae: 16 8c	bsf 	0xc, 5
+07af: 30 05	movlw	5
+07b0: 00 3c	movlb	0x1c
+07b1: 00 a4	movwf	0x24
+07b2: 00 23	movlb	3
+07b3: 10 0e	bcf 	0xe, 0
+07b4: 00 21	movlb	1
+07b5: 10 0e	bcf 	0xe, 0
+07b6: 00 23	movlb	3
+07b7: 10 8e	bcf 	0xe, 1
+07b8: 00 21	movlb	1
+07b9: 10 8e	bcf 	0xe, 1
+07ba: 00 23	movlb	3
+07bb: 11 0e	bcf 	0xe, 2
+07bc: 00 21	movlb	1
+07bd: 11 0e	bcf 	0xe, 2
+07be: 00 23	movlb	3
+07bf: 11 8e	bcf 	0xe, 3
+07c0: 00 21	movlb	1
+07c1: 11 8e	bcf 	0xe, 3
+07c2: 00 23	movlb	3
+07c3: 12 0e	bcf 	0xe, 4
+07c4: 00 21	movlb	1
+07c5: 12 0e	bcf 	0xe, 4
+07c6: 00 23	movlb	3
+07c7: 12 8e	bcf 	0xe, 5
+07c8: 00 21	movlb	1
+07c9: 12 8e	bcf 	0xe, 5
+07ca: 17 19	bsf 	0x19, 6
+07cb: 16 99	bsf 	0x19, 5
+07cc: 16 19	bsf 	0x19, 4
+07cd: 11 99	bcf 	0x19, 3
+07ce: 30 33	movlw	0x33
+07cf: 00 23	movlb	3
+07d0: 00 9b	movwf	0x1b
+07d1: 30 20	movlw	0x20
+07d2: 00 9e	movwf	0x1e
+07d3: 30 90	movlw	0x90
+07d4: 00 9d	movwf	0x1d
+07d5: 30 52	movlw	0x52
+07d6: 00 f5	movwf	0x75
+07d7: 30 2b	movlw	0x2b
+07d8: 00 f4	movwf	0x74
+07d9: 30 00	movlw	0
+07da: 0b 89	decfsz	9
+07db: 2f da	goto	0x7da
+07dc: 0b f4	decfsz	0x74
+07dd: 2f da	goto	0x7da
+07de: 0b f5	decfsz	0x75
+07df: 2f da	goto	0x7da
+07e0: 32 00	bra	$+0
+07e1: 30 00	movlw	0
+07e2: 00 f1	movwf	0x71
+07e3: 30 88	movlw	0x88
+07e4: 00 f2	movwf	0x72
+07e5: 31 87	movlp	7
+07e6: 27 86	call	0x786
+07e7: 31 87	movlp	7
+07e8: 31 87	movlp	7
+07e9: 27 79	call	0x779
+07ea: 31 87	movlp	7
+07eb: 00 f4	movwf	0x74
+07ec: 08 74	movf	0x74, w
+07ed: 00 f6	movwf	0x76
+07ee: 30 14	movlw	0x14
+07ef: 00 f1	movwf	0x71
+07f0: 30 88	movlw	0x88
+07f1: 00 f2	movwf	0x72
+07f2: 31 87	movlp	7
+07f3: 27 86	call	0x786
+07f4: 31 87	movlp	7
+07f5: 08 76	movf	0x76, w
+07f6: 31 87	movlp	7
+07f7: 27 71	call	0x771
+07f8: 31 87	movlp	7
+07f9: 30 1b	movlw	0x1b
+07fa: 00 f1	movwf	0x71
+07fb: 30 88	movlw	0x88
+07fc: 2f e4	goto	0x7e4
+07fd: 00 20	movlb	0
+07fe: 31 87	movlp	7
+07ff: 2f 9a	goto	0x79a
+0800: 34 0d	retlw	0xd
+0801: 34 0a	retlw	0xa
+0802: 34 0d	retlw	0xd
+0803: 34 0a	retlw	0xa
+0804: 34 54	retlw	0x54
+0805: 34 65	retlw	0x65
+0806: 34 73	retlw	0x73
+0807: 34 74	retlw	0x74
+0808: 34 20	retlw	0x20
+0809: 34 73	retlw	0x73
+080a: 34 74	retlw	0x74
+080b: 34 61	retlw	0x61
+080c: 34 72	retlw	0x72
+080d: 34 74	retlw	0x74
+080e: 34 65	retlw	0x65
+080f: 34 64	retlw	0x64
+0810: 34 2e	retlw	0x2e
+0811: 34 0d	retlw	0xd
+0812: 34 0a	retlw	0xa
+0813: 34 00	retlw	0
+0814: 34 47	retlw	0x47
+0815: 34 6f	retlw	0x6f
+0816: 34 74	retlw	0x74
+0817: 34 3a	retlw	0x3a
+0818: 34 20	retlw	0x20
+0819: 34 27	retlw	0x27
+081a: 34 00	retlw	0
+081b: 34 27	retlw	0x27
+081c: 34 0d	retlw	0xd
+081d: 34 0a	retlw	0xa
+081e: 34 00	retlw	0
