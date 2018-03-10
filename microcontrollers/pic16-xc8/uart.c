@@ -242,10 +242,13 @@ void main()
     IRCF0 = 0;
 
     // Initialize uart port.
-    SPBRG = UART_DIVISOR(CPU_HZ, UART_BAUD);
+    SPBRGH = 0;
+    SPBRGL = UART_DIVISOR(CPU_HZ, UART_BAUD);
     TXSTA = 0x20;      // TXEN
     RCSTA = 0x90;      // SPEN, SREN
-    _delay(CPU_HZ/2);
+
+    // Delay 1 msec.
+    _delay(CPU_HZ/1000);
     putstr("\r\n\r\nTest started.\r\n");
 
     for (;;) {

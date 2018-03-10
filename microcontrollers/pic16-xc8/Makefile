@@ -8,7 +8,7 @@ else
     MDB = /Applications/microchip/mplabx/v4.15/mplab_ide.app/Contents/Resources/mplab_ide/bin/mdb.sh
 endif
 DEV		= 16f1705
-CC		= $(XC8)/picc --chip=$(DEV) -Q
+CC		= $(XC8)/picc --chip=$(DEV) -q --warn=-3
 CFLAGS          = -DCPU_HZ=32000000 -DUART_BAUD=9600
 
 all:		uart.hex
