@@ -69,7 +69,6 @@
 #define CH341A_STM_SPI_DBL      0x04
 
 static struct libusb_device_handle *devHandle = NULL;
-//static struct sigaction saold;
 
 /*
  * Configure CH341A, find the device and set the default interface.
@@ -129,17 +128,7 @@ failed:
         devHandle = NULL;
         return -1;
     }
-    printf("Device reported its revision [%d.%02d]\n", desc[12], desc[13]);
-
-#if 0
-    struct sigaction sa;
-    sa.sa_handler = &sig_int;
-    sa.sa_flags = SA_RESTART;
-    sigfillset(&sa.sa_mask);
-    if (sigaction(SIGINT, &sa, &saold) == -1) {
-        perror("Error: cannot handle SIGINT"); // Should not happen
-    }
-#endif
+    printf("CH341 revision %d.%02d\n", desc[12], desc[13]);
     return 0;
 }
 
@@ -155,9 +144,6 @@ int spi_close(void)
     libusb_close(devHandle);
     libusb_exit(NULL);
     devHandle = NULL;
-#if 0
-    sigaction(SIGINT, &saold, NULL);
-#endif
     return 0;
 }
 
@@ -322,107 +308,3 @@ int spi_send(uint8_t *out, int len)
         return -1;
     return 0;
 }
-
-#if 0
-#define JEDEC_ID_LEN 0x52    // additional byte due to SPI shift
-/* read the JEDEC ID of the SPI Flash */
-int32_t ch341SpiCapacity(void)
-{
-    uint8_t out[JEDEC_ID_LEN];
-    uint8_t in[JEDEC_ID_LEN], *ptr, cap;
-    int32_t ret;
-
-    if (devHandle == NULL) return -1;
-    ptr = out;
-    *ptr++ = 0x9F; // Read JEDEC ID
-    for (int i = 0; i < JEDEC_ID_LEN-1; ++i)
-        *ptr++ = 0x00;
-
-    ret = spi_send_receive(out, in, JEDEC_ID_LEN);
-    if (ret < 0) return ret;
-    printf("Manufacturer ID: %02x\n", in[1]);
-    printf("Memory Type: %02x%02x\n", in[2], in[3]);
-
-    if (in[0x11]=='Q' && in[0x12]=='R' && in[0x13]=='Y') {
-        cap = in[0x28];
-        printf("Reading device capacity from CFI structure\n");
-    } else {
-        cap = in[3];
-        printf("No CFI structure found, trying to get capacity from device ID. Set manually if detection fails.\n");
-    }
-
-    printf("Capacity: %02x\n", cap);
-
-    return cap;
-}
-
-/* read status register */
-int32_t ch341ReadStatus(void)
-{
-    uint8_t out[2];
-    uint8_t in[2];
-    int32_t ret;
-
-    if (devHandle == NULL)
-        return -1;
-
-    out[0] = 0x05; // Read status
-    ret = spi_send_receive(out, in, 2);
-    if (ret < 0)
-        return ret;
-    return (in[1]);
-}
-
-/* write status register */
-int32_t ch341WriteStatus(uint8_t status)
-{
-    uint8_t out[2];
-    int32_t ret;
-
-    if (devHandle == NULL)
-        return -1;
-
-    out[0] = 0x06; // Write enable
-    ret = spi_send(out, 1);
-    if (ret < 0)
-        return ret;
-
-    out[0] = 0x01; // Write status
-    out[1] = status;
-    ret = spi_send(out, 2);
-    if (ret < 0)
-        return ret;
-
-    out[0] = 0x04; // Write disable
-    ret = spi_send(out, 1);
-    if (ret < 0)
-        return ret;
-    return 0;
-}
-
-/* chip erase */
-int32_t ch341EraseChip(void)
-{
-    uint8_t out[1];
-    int32_t ret;
-
-    if (devHandle == NULL)
-        return -1;
-
-    out[0] = 0x06; // Write enable
-    ret = spi_send(out, 1);
-    if (ret < 0)
-        return ret;
-
-    out[0] = 0xC7; // Chip erase
-    ret = spi_send(out, 1);
-    if (ret < 0)
-        return ret;
-
-    out[0] = 0x04; // Write disable
-    ret = spi_send(out, 1);
-    if (ret < 0)
-        return ret;
-    return 0;
-}
-#endif

@@ -18,4 +18,4 @@
 int led_init(void);
 int led_close(void);
 int led_clear(void);
-int led_write_row(int row, uint8_t data[4]);
+int led_write(int row, long data);

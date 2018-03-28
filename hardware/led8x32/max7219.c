@@ -47,34 +47,53 @@ static int led_op(int op, int val)
     return spi_send(out, 8);
 }
 
-int led_write_row(int row, uint8_t data[4])
+//
+// Module Orientation
+// ------------------
+//
+//   G  F  E  D  C  B  A  DP
+// +------------------------+
+// | 7  6  5  4  3  2  1  0 | DIG0
+// |                      1 | DIG1
+// |                      2 | DIG2
+// |                      3 | DIG3
+// | O                    4 | DIG4
+// | O  O                 5 | DIG5
+// | O  O  O              6 | DIG6
+// | O  O  O  O           7 | DIG7
+// +------------------------+
+//   Vcc ----      ---- Vcc
+//  DOUT <---      ---< DIN
+//   GND ----      ---- GND
+// CS/LD <---      ---< CS/LD
+//   CLK <---      ---< CLK
+//
+int led_write(int row, long data)
 {
-    uint8_t out[8] = { row, data[0], row, data[1], row, data[2], row, data[3], };
+    uint8_t out[8] = {
+        row+1, data >> 24,
+        row+1, data >> 16,
+        row+1, data >> 8,
+        row+1, data,
+    };
 
     return spi_send(out, 8);
 }
 
 int led_clear()
 {
-    uint8_t zero[] = { 0, 0, 0, 0 };
+    uint8_t out[8*8] = {
+        1, 0, 1, 0, 1, 0, 1, 0,
+        2, 0, 2, 0, 2, 0, 2, 0,
+        3, 0, 3, 0, 3, 0, 3, 0,
+        4, 0, 4, 0, 4, 0, 4, 0,
+        5, 0, 5, 0, 5, 0, 5, 0,
+        6, 0, 6, 0, 6, 0, 6, 0,
+        7, 0, 7, 0, 7, 0, 7, 0,
+        8, 0, 8, 0, 8, 0, 8, 0,
+    };
 
-    if (led_write_row(0, zero) < 0)
-        return -1;
-    if (led_write_row(1, zero) < 0)
-        return -1;
-    if (led_write_row(2, zero) < 0)
-        return -1;
-    if (led_write_row(3, zero) < 0)
-        return -1;
-    if (led_write_row(4, zero) < 0)
-        return -1;
-    if (led_write_row(5, zero) < 0)
-        return -1;
-    if (led_write_row(6, zero) < 0)
-        return -1;
-    if (led_write_row(7, zero) < 0)
-        return -1;
-    return 0;
+    return spi_send(out, 8*8);
 }
 
 //
@@ -100,7 +119,7 @@ int led_init()
     if (status < 0)
         return -1;
 
-    status = led_op(OP_INTENSITY, 31);      // set max intensity
+    status = led_op(OP_INTENSITY, 31/4);    // set intensity 25%
     if (status < 0)
         return -1;
 
