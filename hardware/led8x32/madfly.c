@@ -49,7 +49,7 @@ void draw_pixel(int x, int y, int on)
 
 int main(int argc, char *argv[])
 {
-    int x, y, xNext, yNext;
+    int x, y, xNext, yNext, xLast, yLast;
 
     if (led_init() < 0) {
         goto out;
@@ -57,6 +57,8 @@ int main(int argc, char *argv[])
 
     x = WIDTH / 2;
     y = HEIGHT / 2;
+    xLast = x;
+    yLast = y;
     srandom(time(0));
     for (;;) {
         draw_pixel(x, y, 1);
@@ -77,8 +79,12 @@ int main(int argc, char *argv[])
             case 2: yNext = constrain(y + 1, 0, HEIGHT-1); xNext = x; break;
             case 3: yNext = constrain(y - 1, 0, HEIGHT-1); xNext = x; break;
             }
-        } while (x == xNext && y == yNext); // Repeat until we find a new coordinate
+            // Repeat until we find a new coordinate
+        } while ((x == xNext && y == yNext) ||
+                 (xNext == xLast && yNext == yLast));
 
+        xLast = x;
+        yLast = y;
         x = xNext;
         y = yNext;
     }
