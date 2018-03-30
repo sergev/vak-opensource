@@ -33,7 +33,7 @@ int write_bitmap()
     int i;
 
     for (i=0; i<HEIGHT; i++) {
-        if (led_write(i, bitmap[i]) < 0)
+        if (led_write_row(i, bitmap[i]) < 0)
             return -1;
     }
     return 0;

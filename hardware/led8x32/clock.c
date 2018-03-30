@@ -25,6 +25,13 @@
 #include <sys/time.h>
 #include "max7219.h"
 
+#define WIDTH   32
+#define HEIGHT  8
+
+long bitmap[HEIGHT];
+
+int last_digit[6] = { -1, -1, -1, -1, -1, -1 };
+
 #define ROW(a,b,c,d) (a<<3 | b<<2 | c<<1 | d)
 #define _ 0
 #define O 1
@@ -122,45 +129,86 @@ const unsigned char digits[] = {
 };
 
 //
-// Return a pointer to a glyph of the specified digit.
+// Send bitmap to display.
 //
-const unsigned char *digit_glyph(int n)
-{
-    return &digits[n * 8];
-}
-
-//
-// Copy glyph to the bitmap.
-//
-void copy_glyph(long bitmap[], const unsigned char *glyph, int xoff)
+int write_bitmap()
 {
     int i;
 
-    for (i=0; i<8; i++) {
-        bitmap[i] |= glyph[i] << (32 - 4 - xoff);
+    for (i=0; i<HEIGHT; i++) {
+        if (led_write_row(i, bitmap[i]) < 0)
+            return -1;
+    }
+    return 0;
+}
+
+//
+// Clear the digit.
+//
+void clear_digit(int xoff)
+{
+    int i;
+    long mask = 0xf << (32 - 4 - xoff);
+
+    for (i=0; i<HEIGHT; i++) {
+        bitmap[i] &= ~mask;
     }
 }
 
+//
+// Slide in one row of the glyph to the bitmap.
+//
+void slide_glyph_row(long data, int xoff)
+{
+    int i;
+    long mask = 0xf << (32 - 4 - xoff);
+
+    for (i=HEIGHT-1; i>=1; i--) {
+        bitmap[i] &= ~mask;
+        bitmap[i] |= bitmap[i-1] & mask;
+    }
+    bitmap[0] &= ~mask;
+    bitmap[0] |= data << (32 - 4 - xoff);
+}
+
+//
+// Update one digit of the clock image.
+//
+int slide_glyph(int index, int digit, int column)
+{
+    const unsigned char *glyph = &digits[digit * HEIGHT];
+    int i;
+
+    if (last_digit[index] == digit)
+        return 0;
+    last_digit[index] = digit;
+
+    clear_digit(column);
+
+    // Slide by one row at a time.
+    for (i=0; i<HEIGHT; i++) {
+        slide_glyph_row(glyph[HEIGHT-1-i], column);
+        if (write_bitmap() < 0)
+            return -1;
+    }
+    return 0;
+}
+
+//
+// Update the clock image.
+//
 int update_time(time_t sec)
 {
     struct tm *tm = localtime(&sec);
-    long bitmap[8] = {0};
-    int i;
-
-    copy_glyph(bitmap, digit_glyph(tm->tm_hour/10), 0);
-    copy_glyph(bitmap, digit_glyph(tm->tm_hour%10), 5);
-    copy_glyph(bitmap, digit_glyph(tm->tm_min/10), 11);
-    copy_glyph(bitmap, digit_glyph(tm->tm_min%10), 16);
-    copy_glyph(bitmap, digit_glyph(tm->tm_sec/10), 22);
-    copy_glyph(bitmap, digit_glyph(tm->tm_sec%10), 27);
-
-    for (i=0; i<8; i++) {
-        if (led_write(i, bitmap[i]) < 0)
-            return -1;
-    }
 
     //printf("%02d:%02d:%02d\n", tm->tm_hour, tm->tm_min, tm->tm_sec);
-    return 0;
+
+    slide_glyph(5, tm->tm_sec % 10, 27);
+    slide_glyph(4, tm->tm_sec / 10, 22);
+    slide_glyph(3, tm->tm_min % 10, 16);
+    slide_glyph(2, tm->tm_min / 10, 11);
+    slide_glyph(1, tm->tm_hour % 10, 5);
+    return slide_glyph(0, tm->tm_hour / 10, 0);
 }
 
 int main(int argc, char *argv[])
@@ -174,14 +222,15 @@ int main(int argc, char *argv[])
 
     for (;;) {
         gettimeofday(&tv, 0);
-        if (tv.tv_sec != last_sec) {
-            last_sec = tv.tv_sec;
-            if (update_time(last_sec) < 0)
-                break;
+        if (tv.tv_sec == last_sec) {
+            // Sleep for 20 msec.
+            usleep(20000);
+            continue;
         }
 
-        // Sleep for 20 msec.
-        usleep(20000);
+        last_sec = tv.tv_sec;
+        if (update_time(last_sec) < 0)
+            break;
     }
 
 out:

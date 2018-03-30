@@ -68,7 +68,7 @@ static int led_op(int op, int val)
 // CS/LD <---      ---< CS/LD
 //   CLK <---      ---< CLK
 //
-int led_write(int row, long data)
+int led_write_row(int row, long data)
 {
     uint8_t out[8] = {
         row+1, data >> 24,
@@ -104,10 +104,6 @@ int led_init()
     int status;
 
     status = spi_open();
-    if (status < 0)
-        return -1;
-
-    status = spi_set_speed(0);
     if (status < 0)
         return -1;
 

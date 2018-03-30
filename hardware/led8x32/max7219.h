@@ -18,4 +18,5 @@
 int led_init(void);
 int led_close(void);
 int led_clear(void);
-int led_write(int row, long data);
+int led_write_row(int row, long data);
+int led_write_2rows(int row, long data, long datb);

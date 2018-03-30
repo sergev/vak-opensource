@@ -128,7 +128,7 @@ failed:
         devHandle = NULL;
         return -1;
     }
-    printf("CH341 revision %d.%02d\n", desc[12], desc[13]);
+    //printf("CH341 revision %d.%02d\n", desc[12], desc[13]);
     return 0;
 }
 

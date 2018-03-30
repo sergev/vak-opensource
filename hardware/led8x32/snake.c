@@ -12,7 +12,7 @@
 #define WIDTH   32
 #define HEIGHT  8
 
-#define LENGTH  8
+#define LENGTH  11
 
 int x[LENGTH], y[LENGTH];
 int ptr, nextPtr;
@@ -38,7 +38,7 @@ int write_bitmap()
     int i;
 
     for (i=0; i<HEIGHT; i++) {
-        if (led_write(i, bitmap[i]) < 0)
+        if (led_write_row(i, bitmap[i]) < 0)
             return -1;
     }
     return 0;
