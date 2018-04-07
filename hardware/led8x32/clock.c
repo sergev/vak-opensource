@@ -176,11 +176,12 @@ void slide_glyph_row(long data, int xoff)
 //
 int slide_glyph(int index, int digit, int column)
 {
-    const unsigned char *glyph = &digits[digit * HEIGHT];
+    const unsigned char *glyph;
     int i;
 
     if (last_digit[index] == digit)
         return 0;
+    glyph = &digits[digit * HEIGHT];
     last_digit[index] = digit;
 
     clear_digit(column);
