@@ -1,3 +1,7 @@
+/*
+ * Simple example of NLopt usage from:
+ * http://nlopt.readthedocs.io/en/latest/NLopt_Tutorial/
+ */
 #include <stdio.h>
 #include <math.h>
 #include <nlopt.h>
