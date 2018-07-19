@@ -5,13 +5,18 @@
 #include <Fonts/FreeSans12pt7b.h>
 #include "Adafruit_SSD1306.h"
 
-#define SCK     5    // GPIO5  -- SCK
-#define MISO    19   // GPIO19 -- MISO
-#define MOSI    27   // GPIO27 -- MOSI
-#define SS      18   // GPIO18 -- CS
-#define RST     12   // GPIO14 -- RESET (If Lora does not work, replace it with GPIO14)
-#define DI0     26   // GPIO26 -- IRQ(Interrupt Request)
-#define BAND    433E6
+#define SCK     5    // IO5  -- SCK
+#define MISO    19   // IO19 -- MISO
+#define MOSI    27   // IO27 -- MOSI
+#define SS      18   // IO18 -- CS
+#define RST     12   // IO14 -- RESET (If Lora does not work, replace it with GPIO14)
+#define DI0     26   // IO26 -- IRQ(Interrupt Request)
+
+//
+// ETSI has defined 433 to 434 MHz frequency band for LoRa application.
+// It uses 433.175 MHz, 433.375 MHz and 433.575 MHz frequency channels.
+//
+#define FREQ_HZ 433575000   // 433.575 MHz
 
 unsigned int counter = 0;
 
@@ -35,7 +40,7 @@ void setup()
     // Initialize LoRa chip.
     SPI.begin(SCK, MISO, MOSI, SS);
     LoRa.setPins(SS, RST, DI0);
-    if (!LoRa.begin(BAND)) {
+    if (!LoRa.begin(FREQ_HZ)) {
         Serial.println("Starting LoRa failed!");
         while (1)
             ;
