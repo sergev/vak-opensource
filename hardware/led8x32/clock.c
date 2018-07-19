@@ -190,6 +190,7 @@ int slide_glyph(int index, int digit, int column)
         slide_glyph_row(glyph[HEIGHT-1-i], column);
         if (write_bitmap() < 0)
             return -1;
+        usleep(30000);
     }
     return 0;
 }
