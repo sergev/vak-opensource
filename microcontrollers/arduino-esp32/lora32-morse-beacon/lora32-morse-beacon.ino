@@ -9,8 +9,8 @@
 #define MISO    19   // IO19 -- MISO
 #define MOSI    27   // IO27 -- MOSI
 #define SS      18   // IO18 -- CS
-#define RST     12   // IO14 -- RESET
-#define DI0     26   // IO26 -- IRQ (Interrupt Request)
+#define RST     12   // IO12 -- RESET (If Lora does not work, replace it with IO14)
+#define DI0     26   // IO26 -- IRQ(Interrupt Request)
 
 #define LED     23   // IO23 -- LED
 
@@ -47,8 +47,15 @@ void setup()
         while (1)
             ;
     }
-    //LoRa.onReceive(cbk);
-    //LoRa.receive();
+    //LoRa.setSignalBandwidth(7800);
+    //LoRa.setSignalBandwidth(10400);
+    //LoRa.setSignalBandwidth(15600);
+    //LoRa.setSignalBandwidth(20800);
+    //LoRa.setSignalBandwidth(31250);
+    LoRa.setSignalBandwidth(41700);
+    //LoRa.setSignalBandwidth(62500);
+    LoRa.setCodingRate4(5);
+    LoRa.setSpreadingFactor(6);
 
     Serial.println("init ok");
 
@@ -68,6 +75,20 @@ void setup()
     delay(1500);
 }
 
+void send(int plen)
+{
+    // turn the LED on (HIGH is the voltage level)
+    digitalWrite(LED, HIGH);
+
+    LoRa.setPreambleLength(plen);
+    LoRa.beginPacket();
+    LoRa.write(' ');
+    LoRa.endPacket();
+
+    // turn the LED off by making the voltage LOW
+    digitalWrite(LED, LOW);
+}
+
 void loop()
 {
     counter++;
@@ -75,19 +96,15 @@ void loop()
     display.setCursor(0, 20);
     display.print("Send ");
     display.print(counter);
+
+    display.setCursor(0, 42);
+    display.print(LoRa.getSignalBandwidth());
     display.display();
 
     Serial.println(String(counter));
 
-    digitalWrite(LED, HIGH);    // turn the LED on (HIGH is the voltage level)
-
-    // send packet
-    LoRa.beginPacket();
-    LoRa.print("hello ");
-    LoRa.print(counter);
-    LoRa.endPacket();
-
-    digitalWrite(LED, LOW);     // turn the LED off by making the voltage LOW
-
-    delay(1000);                // wait for a second
+    send(300); delay(300);
+    send(100); delay(300);
+    send(100); delay(300);
+    send(300); delay(900);
 }
