@@ -56,6 +56,7 @@ void setup()
     //LoRa.setSignalBandwidth(62500);
     LoRa.setCodingRate4(5);
     LoRa.setSpreadingFactor(6);
+    LoRa.disableCrc();
 
     Serial.println("init ok");
 
@@ -80,9 +81,9 @@ void send(int plen)
     // turn the LED on (HIGH is the voltage level)
     digitalWrite(LED, HIGH);
 
-    LoRa.setPreambleLength(plen);
-    LoRa.beginPacket();
-    LoRa.write(' ');
+    LoRa.setPreambleLength(plen);   // preamble length
+    LoRa.beginPacket(true);         // no header
+    LoRa.write(0);                  // data 1 byte
     LoRa.endPacket();
 
     // turn the LED off by making the voltage LOW
