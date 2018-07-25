@@ -76,8 +76,12 @@ void setup()
     delay(1500);
 }
 
-void send(int plen)
+void send(int msec)
 {
+    // Compute preamble length of required duration.
+    // To measure the timing, use plen = msec.
+    int plen = (1000L*msec - 19089) / 1536;
+
     // turn the LED on (HIGH is the voltage level)
     digitalWrite(LED, HIGH);
 
@@ -102,10 +106,12 @@ void loop()
     display.print(LoRa.getSignalBandwidth());
     display.display();
 
-    Serial.println(String(counter));
+    // Measure timing.
+    unsigned long t0, t1, t2, t3, t4, t5, t6, t7;
+    t0 = micros(); send(300); t1 = micros(); delay(300);
+    t2 = micros(); send(100); t3 = micros(); delay(300);
+    t4 = micros(); send(100); t5 = micros(); delay(300);
+    t6 = micros(); send(300); t7 = micros(); delay(900);
 
-    send(300); delay(300);
-    send(100); delay(300);
-    send(100); delay(300);
-    send(300); delay(900);
+    Serial.printf("%u: %u %u %u %u %u %u %u %u\r\n", counter, t0, t1, t2, t3, t4, t5, t6, t7);
 }
