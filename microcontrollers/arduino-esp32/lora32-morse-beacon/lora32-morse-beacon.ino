@@ -2,14 +2,15 @@
 #include <LoRa.h>
 #include <Wire.h>
 #include <Adafruit_GFX.h>
-#include <Fonts/FreeSans12pt7b.h>
+//#include <Fonts/FreeMono9pt7b.h>
+#include "Fixed8x16.h"
 #include "Adafruit_SSD1306.h"
 
 #define SCK     5    // IO5  -- SCK
 #define MISO    19   // IO19 -- MISO
 #define MOSI    27   // IO27 -- MOSI
 #define SS      18   // IO18 -- CS
-#define RST     12   // IO12 -- RESET (If Lora does not work, replace it with IO14)
+#define RST     12   // IO12 -- RESET for V2.1 (use IO14 for V2.0)
 #define DI0     26   // IO26 -- IRQ(Interrupt Request)
 
 #define LED     23   // IO23 -- LED
@@ -26,11 +27,14 @@
 Adafruit_SSD1306 display(16);
 
 //
-// Timing for 10 words per minute.
+// Timing.
 //
-int dot_msec   = 120;
-int dash_msec  = 360;
-int pause_msec = 360;
+#define WPM     12  // words per minute
+
+int dot_msec   = 1200 / WPM;
+int dash_msec  = 3600 / WPM;
+int pause_msec = 3600 / WPM;
+
 int space_seen;
 
 void setup()
@@ -63,13 +67,15 @@ void setup()
 
     // Initialize display with the I2C address 0x3C at pins io21 and io22.
     display.begin(SSD1306_SWITCHCAPVCC, 0x3C, true, 21, 22);
+//    display.begin(SSD1306_SWITCHCAPVCC, 0x3C, true, 4, 15);
     display.clearDisplay();
 
     // Set size of text.
-    display.setFont(&FreeSans12pt7b);
+    //display.setFont(&FreeMono9pt7b);
+    display.setFont(&Fixed8x16);
     display.setTextSize(1);
     display.setTextColor(WHITE);
-    display.setCursor(0, 20);
+    display.setCursor(0, Fixed8x16.yAdvance - 2);
 
     // Visualize the result.
     display.display();
