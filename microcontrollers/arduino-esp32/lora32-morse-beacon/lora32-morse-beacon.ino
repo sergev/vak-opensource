@@ -2,34 +2,57 @@
 #include <LoRa.h>
 #include <Wire.h>
 #include <Adafruit_GFX.h>
-//#include <Fonts/FreeMono9pt7b.h>
 #include "Fixed8x16.h"
 #include "Adafruit_SSD1306.h"
 
-#define SCK     5    // IO5  -- SCK
-#define MISO    19   // IO19 -- MISO
-#define MOSI    27   // IO27 -- MOSI
-#define SS      18   // IO18 -- CS
-#define RST     12   // IO12 -- RESET for V2.1 (use IO14 for V2.0)
-#define DI0     26   // IO26 -- IRQ(Interrupt Request)
+//
+// Board pins.
+//
+#if 0
+#define LED         23  // IO23 -- LED for TTGO Lora32 board
+#else
+#define LED         25  // IO25 -- LED for Heltec Lora32 board
+#endif
 
-#define LED     23   // IO23 -- LED
+//
+// LoRa pins.
+//
+#define LORA_SCK    5   // IO5  -- SCK
+#define LORA_MISO   19  // IO19 -- MISO
+#define LORA_MOSI   27  // IO27 -- MOSI
+#define LORA_SS     18  // IO18 -- CS
+#define LORA_RST    12  // IO12 -- RESET for V2.1 (use IO14 for V2.0)
+#define LORA_DI0    26  // IO26 -- Interrupt Request
+
+//
+// OLED pins.
+//
+#define OLED_RST    16  // IO16 -- RESET
+#if 0
+#define OLED_SDA    21  // IO21 -- SDA for TTGO Lora32 board
+#define OLED_SCL    22  // IO22 -- SCL
+#else
+#define OLED_SDA    4   // IO4  -- SDA for Heltec Lora32 board
+#define OLED_SCL    15  // IO15 -- SCL
+#endif
 
 //
 // ETSI has defined 433 to 434 MHz frequency band for LoRa application.
 // It uses 433.175 MHz, 433.375 MHz and 433.575 MHz frequency channels.
 //
-#define FREQ_HZ 433575000   // 433.575 MHz
+#define FREQ_HZ     433575000   // 433.575 MHz
 
 //
-// On Lora32 module, OLED reset signal is connected to gpio16.
+// Set output power to 17 dBm = 50 mW.
 //
-Adafruit_SSD1306 display(16);
+#define TX_DBM      17
 
 //
-// Timing.
+// Morse speed, words per minute.
 //
-#define WPM     12  // words per minute
+#define WPM         12
+
+Adafruit_SSD1306 display(OLED_RST);
 
 int dot_msec   = 1200 / WPM;
 int dash_msec  = 3600 / WPM;
@@ -51,8 +74,8 @@ void setup()
     Serial.println("LoRa Morse Beacon v1.0, by Serge Vakulenko KK6ABQ");
 
     // Initialize LoRa chip.
-    SPI.begin(SCK, MISO, MOSI, SS);
-    LoRa.setPins(SS, RST, DI0);
+    SPI.begin(LORA_SCK, LORA_MISO, LORA_MOSI, LORA_SS);
+    LoRa.setPins(LORA_SS, LORA_RST, LORA_DI0);
     if (!LoRa.begin(FREQ_HZ)) {
         Serial.println("Starting LoRa failed!");
         while (1)
@@ -62,20 +85,17 @@ void setup()
     LoRa.setCodingRate4(5);
     LoRa.setSpreadingFactor(6);
     LoRa.disableCrc();
-
+    LoRa.setTxPower(TX_DBM);
     Serial.println("init ok");
 
-    // Initialize display with the I2C address 0x3C at pins io21 and io22.
-    display.begin(SSD1306_SWITCHCAPVCC, 0x3C, true, 21, 22);
-//    display.begin(SSD1306_SWITCHCAPVCC, 0x3C, true, 4, 15);
+    // Initialize OLED display with the I2C address 0x3C.
+    display.begin(SSD1306_SWITCHCAPVCC, 0x3C, true, OLED_SDA, OLED_SCL);
     display.clearDisplay();
 
-    // Set size of text.
-    //display.setFont(&FreeMono9pt7b);
+    // Set font.
     display.setFont(&Fixed8x16);
-    display.setTextSize(1);
     display.setTextColor(WHITE);
-    display.setCursor(0, Fixed8x16.yAdvance - 2);
+    display.setCursor(0, Fixed8x16.yAdvance);
 
     // Visualize the result.
     display.display();
@@ -87,16 +107,14 @@ void beep(int msec)
     // To measure the timing, use plen = msec.
     int plen = (1000L*msec - 19089) / 1536;
 
-    // turn the LED on (HIGH is the voltage level)
-    digitalWrite(LED, HIGH);
+    digitalWrite(LED, HIGH);        // LED on
 
     LoRa.setPreambleLength(plen);   // preamble length
     LoRa.beginPacket(true);         // no header
     LoRa.write(0);                  // data 1 byte
     LoRa.endPacket();
 
-    // turn the LED off by making the voltage LOW
-    digitalWrite(LED, LOW);
+    digitalWrite(LED, LOW);         // LED off
 }
 
 void send_morse(char *sym, char *str)
@@ -132,7 +150,7 @@ void send_char(int c)
         return;
     case ' ' :
         if (! space_seen) {
-            display.print(" ");
+            display.write(' ');
             display.display();
             Serial.write(c);
             delay(dot_msec + pause_msec);
@@ -191,25 +209,18 @@ void send_message(const char *str)
         send_char(*str++);
         delay(pause_msec);
     }
-    // TODO: fix scrooling
-    display.print("=\n");
+    display.print(" =\n");
     display.display();
     Serial.println(" =");
     delay(dot_msec + pause_msec);
     send_morse("", "-...-");
     delay(dot_msec + pause_msec);
+
+    display.clearDisplay();
+    display.setCursor(0, Fixed8x16.yAdvance);
 }
 
 void loop()
 {
-    send_message("KK6ABQ/B");
-#if 0
-    // Measure timing.
-    unsigned long t0, t1, t2, t3, t4, t5, t6, t7;
-    t0 = micros(); send(300); t1 = micros(); delay(100);
-    t2 = micros(); send(100); t3 = micros(); delay(100);
-    t4 = micros(); send(100); t5 = micros(); delay(100);
-    t6 = micros(); send(300); t7 = micros(); delay(900);
-    Serial.printf("%u %u %u %u %u %u %u %u\r\n", t0, t1, t2, t3, t4, t5, t6, t7);
-#endif
+    send_message("KK6ABQ/B QRPP 50 mW FOX HUNT");
 }

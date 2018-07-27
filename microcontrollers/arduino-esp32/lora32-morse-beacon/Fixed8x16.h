@@ -295,7 +295,7 @@ const GFXglyph Fixed8x16Glyphs[] PROGMEM = {
     { 265, 8, 5, 8, 0, -7 }, /* 0x1D C035 */
     { 270, 8, 7, 8, 0, -8 }, /* 0x1E C036 */
     { 277, 8, 7, 8, 0, -8 }, /* 0x1F C037 */
-    { 284, 8, 0, 1, 0, 0 }, /* 0x20 space */
+    { 284, 8, 0, 8, 0, 0 }, /* 0x20 space */
     { 284, 8, 10, 5, 0, -10 }, /* 0x21 exclam */
     { 294, 8, 4, 7, 0, -11 }, /* 0x22 quotedbl */
     { 298, 8, 9, 8, 0, -9 }, /* 0x23 numbersign */
@@ -518,13 +518,13 @@ const GFXglyph Fixed8x16Glyphs[] PROGMEM = {
     { 2380, 8, 6, 7, 0, -11 }, /* 0xFC udiaeresis */
     { 2386, 8, 6, 6, 0, -11 }, /* 0xFD yacute */
     { 2392, 8, 7, 6, 0, -8 }, /* 0xFE thorn */
-    { 2399, 8, 0, 1, 0, 0 }, /* 0xFF ydiaeresis */
+    { 2399, 8, 0, 8, 0, 0 }, /* 0xFF ydiaeresis */
 };
 
 const GFXfont Fixed8x16 PROGMEM = {
     (uint8_t*)  Fixed8x16Bitmaps,
     (GFXglyph*) Fixed8x16Glyphs,
     0x00,
-    0xFE,
+    0xFF,
     16,
 };
