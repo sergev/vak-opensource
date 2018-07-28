@@ -19,10 +19,10 @@ All text above, and the splash screen must be included in any redistribution
 #define _Adafruit_SSD1306_H_
 
 #if ARDUINO >= 100
- #include "Arduino.h"
+ #include <Arduino.h>
  #define WIRE_WRITE Wire.write
 #else
- #include "WProgram.h"
+ #include <WProgram.h>
   #define WIRE_WRITE Wire.send
 #endif
 

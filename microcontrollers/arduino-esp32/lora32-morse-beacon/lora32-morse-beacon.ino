@@ -18,7 +18,7 @@
  * CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 #include <SPI.h>
-#include <LoRa.h>
+#include "LoRa.h"
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include "Fixed8x16.h"
@@ -27,7 +27,7 @@
 //
 // Board pins.
 //
-#if 0
+#if 1
 #define LED         23  // IO23 -- LED for TTGO Lora32 board
 #else
 #define LED         25  // IO25 -- LED for Heltec Lora32 board
@@ -47,7 +47,7 @@
 // OLED pins.
 //
 #define OLED_RST    16  // IO16 -- RESET
-#if 0
+#if 1
 #define OLED_SDA    21  // IO21 -- SDA for TTGO Lora32 board
 #define OLED_SCL    22  // IO22 -- SCL
 #else
