@@ -8,7 +8,7 @@ Channel Activity                Name    Receive
     6                           K6GRC   145.310  Cupertino
     7                           N6ZX    145.370  Woodside
     8                           WW6BAY  145.390  Palo Alto
-    9                           W6MLP   145.430  Milpitas
+    9   voice                   W6MLP   145.430  Milpitas
    10                           K6FB    145.450  Los Gatos
    11                           WB5NVN  146.085  Portola Valley
    12                           AA6BT   146.115  San Jose
@@ -48,7 +48,7 @@ Channel Activity                Name    Receive
    54                           KR6WP   440.075  Belmont
    55                           KC6SVW  440.087  Vaca
    56                           K1YJ    440.100  San Jose
-   57   data                    W6AMT   440.125  Cupertino
+   57   data, callsign          W6AMT   440.125  Cupertino
    58                           W6TDM   440.150  Cupertino
    59                           K6GOD   440.175  Hayward
    60                           N6BDE   440.200  Palo Alto
@@ -111,7 +111,7 @@ Channel Activity                Name    Receive
   117                           W6AMT   443.275  San Jose
   118   data                    N6IGF   443.400  Fremont
   119   voice                   K6MF    443.450  San Jose
-  120   voice                   K6TAZ   443.550  San Jose
+  120   voice = 98              K6TAZ   443.550  San Jose
   121                           KK6KPQ  443.600  Palo Alto
   122   voice Spanish           K6JJC   443.700  Fremont
   123                           N6HWI   443.725  Fremont
