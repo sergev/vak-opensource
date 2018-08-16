@@ -1,4 +1,7 @@
 #!/usr/bin/env python
+#
+# Convert a CVS file downloaded from FRinder.net to readable format.
+#
 import csv
 
 with open('rfexport-chirp.csv') as csv_file:

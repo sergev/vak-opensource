@@ -1,5 +1,5 @@
 Channel Activity                Name    Receive
------------------------------------------------------------- VHF Band 144-146
+------------------------------------------------------------ VHF Band 145-148
     1                           K6GL    145.170  Sunnyvale
     2                           WA2IBM  145.190  San Jose
     3   voice                   N6NFI   145.230  Palo Alto
@@ -44,7 +44,7 @@ Channel Activity                Name    Receive
    42                           W6GGF   147.825  Morgan Hill
    43                           WA6TEM  147.855  San Jose
    44   voice                   N6QDY   147.945  Milpitas
------------------------------------------------------------- UHF Band 440-446
+------------------------------------------------------------ UHF Band 440-447
    51                           WA6FSP  440.000  Fremont
    52                           WB6KHP  440.025  San Jose
    53                           KB5JR   440.050  San Jose

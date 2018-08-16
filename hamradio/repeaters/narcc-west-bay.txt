@@ -1,70 +1,70 @@
-OUTPUT  INPUT   CALL    LOCATION    SPONSOR STATUS  NOTES   STATION TYPE
-145.1500    144.5500    W6PW    San Francisco   SFARC   Coordinated oersx   Fusion AMS Mode
-145.3700    144.7700    N6ZX    Woodside    KMARC   Coordinated o107.2ersx  Analog Repeater
-145.3700    144.7700    N6ZX    Woodside    KMARC   Coordinated o107.2ersx  Fusion AMS Mode
-145.3900    144.7900    WW6BAY  Palo Alto   Bay-Net Coordinated o100.0elsx  Analog Repeater
-146.0850    146.6850    WB5NVN  Portola Valley  Ray Rothro  Coordinated o100.0e Analog Repeater
-146.6250    146.0250    KE6MNJ  Pescadero   PMAC/South  Coordinated o114.8e Analog Repeater
-146.7300    146.1300    W6SCF   La Honda    SC4ARC  Coordinated o114.8es    Analog Repeater
-146.7900    146.1900    W6TP    San Francisco   GSPLRC  Coordinated o114.8elx   Analog Repeater
-146.8050    146.2050    KC6ULT  Burlingame  SMSO ESB    Coordinated o192.8ers   Analog Repeater
-146.8350    146.2350    WD6INC  Daly City   W1LLE   Coordinated o123.0aelx  Analog Repeater
-146.8650    146.2650    KC6ULT  Redwood City    SMSO ESB    Coordinated o114.8ersx  Analog Repeater
-146.8650    146.2650    KC6ULT  San Mateo   SMSO ESB    Coordinated o114.8ersx  Analog Repeater
-146.9100    146.3100    K6JDE   Daly City   K6JDE   Coordinated o114.8  Analog Repeater
-146.9250    146.3250    WA6TOW  Pacifica    CARC    Coordinated o114.8aelrsx    Analog Repeater
-146.9400    146.3400    K6AIR   Los Altos Hill  K6AIR   Coordinated o123.0es    Analog Repeater
-146.9550    146.3550    W6EZE   Moss Beach  W6EZE   Coordinated o114.8e Analog Repeater
-147.0900    147.6900    WB6CKT  Belmont WB6CKT  Coordinated o100.0es    Analog Repeater
-147.1050    147.7050    W6PW    San Francisco   SFARC   Coordinated oersx   Dstar Voice
-147.2850    147.8850    WR6HMB  Half Moon Bay   WR6HMB  Not Coordinated #o114.8ers  Analog Repeater
-147.3000    147.9000    N6MPX   San Mateo   MSARC   Coordinated o100.0el    Analog Repeater
-147.6750    147.0750    W6MTF   Redwood City    W6MTF   Not Coordinated #o114.8x    Analog Repeater
+OUTPUT      INPUT       CALL    LOCATION        SPONSOR     STATUS              NOTES           STATION TYPE
+145.1500    144.5500    W6PW    San Francisco   SFARC       Coordinated         oersx           Fusion AMS Mode
+145.3700    144.7700    N6ZX    Woodside        KMARC       Coordinated         o107.2ersx      Analog Repeater
+145.3700    144.7700    N6ZX    Woodside        KMARC       Coordinated         o107.2ersx      Fusion AMS Mode
+145.3900    144.7900    WW6BAY  Palo Alto       Bay-Net     Coordinated         o100.0elsx      Analog Repeater
+146.0850    146.6850    WB5NVN  Portola Valley  Ray Rothro  Coordinated         o100.0e         Analog Repeater
+146.6250    146.0250    KE6MNJ  Pescadero       PMAC/South  Coordinated         o114.8e         Analog Repeater
+146.7300    146.1300    W6SCF   La Honda        SC4ARC      Coordinated         o114.8es        Analog Repeater
+146.7900    146.1900    W6TP    San Francisco   GSPLRC      Coordinated         o114.8elx       Analog Repeater
+146.8050    146.2050    KC6ULT  Burlingame      SMSO ESB    Coordinated         o192.8ers       Analog Repeater
+146.8350    146.2350    WD6INC  Daly City       W1LLE       Coordinated         o123.0aelx      Analog Repeater
+146.8650    146.2650    KC6ULT  Redwood City    SMSO ESB    Coordinated         o114.8ersx      Analog Repeater
+146.8650    146.2650    KC6ULT  San Mateo       SMSO ESB    Coordinated         o114.8ersx      Analog Repeater
+146.9100    146.3100    K6JDE   Daly City       K6JDE       Coordinated         o114.8          Analog Repeater
+146.9250    146.3250    WA6TOW  Pacifica        CARC        Coordinated         o114.8aelrsx    Analog Repeater
+146.9400    146.3400    K6AIR   Los Altos Hill  K6AIR       Coordinated         o123.0es        Analog Repeater
+146.9550    146.3550    W6EZE   Moss Beach      W6EZE       Coordinated         o114.8e         Analog Repeater
+147.0900    147.6900    WB6CKT  Belmont         WB6CKT      Coordinated         o100.0es        Analog Repeater
+147.1050    147.7050    W6PW    San Francisco   SFARC       Coordinated         oersx           Dstar Voice
+147.2850    147.8850    WR6HMB  Half Moon Bay   WR6HMB      Not Coordinated     #o114.8ers      Analog Repeater
+147.3000    147.9000    N6MPX   San Mateo       MSARC       Coordinated         o100.0el        Analog Repeater
+147.6750    147.0750    W6MTF   Redwood City    W6MTF       Not Coordinated     #o114.8x        Analog Repeater
 
-OUTPUT  INPUT   CALL    LOCATION    SPONSOR STATUS  NOTES   STATION TYPE
-440.0250    445.0250    N6TZE   Pacifica    Casey Vill  Coordinated o114.8e Analog Repeater
-440.0750    445.0750    KR6WP   Belmont KR6WP   Coordinated o114.8e Analog Repeater
-440.1000    445.1000    WA6DQP  La Honda    WA6DQP  Coordinated o114.8aes   Analog Repeater
-440.4000    445.4000    WB6WTM  Redwood City    WB6WTM RG   Coordinated o127.3l Analog Repeater
-440.4500    445.4500    N6ZX    Woodside    KMARC   Coordinated o107.2es    Analog Repeater
-440.5000    445.5000    N6AMG   Daly City   ERG Coordinated celx    Analog Repeater
-440.5250    445.5250    N3TC    Daly City   N3TC    Coordinated o225.7  Analog Repeater
-440.5500    445.5500    K6PVJ   San Bruno   kg6edy  Coordinated o114.8e Fusion AMS Mode
-440.5750    445.5750    W6VSY   San Francisco   S T ARC ConflictResolution  #o123.0ex   Analog Repeater
-440.6750    445.6750    K6TEA   Daly City   K6TEA   Coordinated clx Analog Repeater
-440.7000    445.7000    K6CV    Brisbane    K6CV    Coordinated celx    Analog Repeater
-440.7250    445.7250    WB6JKV  Pacifica    CARLA   Coordinated o114.8el    Analog Repeater
-440.8250    445.8250    WI6H    San Francisco   WI6H    Not Coordinated #o114.8 Analog Repeater
-440.9500    445.9500    KB6LED  Woodside    KB6LED  Coordinated o162.2x Analog Repeater
-441.0750    446.0750    WA6TOW  Pacifica    CARC    Coordinated o114.8ersx  Analog Repeater
-441.2500    446.2500    K6DNA   SoSanFrancisco  GNEARC  Coordinated o141.3es    Analog Repeater
-441.3000    446.3000    WB6ECE  La Honda    WB6ECE RG   Coordinated o100.0elx   Analog Repeater
-441.3750    446.3750    KC6IAU  Daly City   KC6IAU  Coordinated o146.2l Analog Repeater
-441.4000    446.4000    WD6GGW  Redwood City    WD6GGW  Not Coordinated #o114.8e    Analog Repeater
-441.4500    446.4500    W6EE    San Francisco   W6EE    Not Coordinated #o85.4e Analog Repeater
-441.5250    446.5250    K6AIR   Los Altos Hill  K6AIR   Coordinated o123.0es    Analog Repeater
-441.6500    446.6500    W6FBK   Menlo Park  W6FBK   Coordinated o162.2e Analog Repeater
-441.7250    446.7250    KR6WP   Pacifica    KR6WP   Coordinated cl  Analog Repeater
-441.8875    446.8875    AH6KD   Kensington  Trbo-6  Coordinated olx DMR Repeater
-442.0500    447.0500    WA6GG   San Francisco   NCARG   Coordinated o127.3elr   Analog Repeater
-442.0750    447.0750    N6MVT   San Francisco   CARLA   Coordinated o100.0ael   Analog Repeater
-442.3250    447.3250    KC6YDH  Daly City   KC6YDH  Coordinated c   Analog Repeater
-442.3250    447.3250    KD6KGE  Pescadero   KD6KGE  Coordinated o141.3el    Analog Repeater
-442.3750    447.3750    AB6BN   San Bruno   ab6bn   Coordinated o156.7  Analog Repeater
-442.4750    447.4750    KF6REK  Daly City   BAARC   Coordinated o114.8ae    Analog Repeater
-442.7000    447.7000    N6MNV   SoSanFrancisco  N6MNV   Coordinated o173.8e Analog Repeater
-442.7500    447.7500    W6BUR   Daly City   W6BUR   Not Coordinated #cx DMR Repeater
-442.8500    447.8500    K6JDE   San Bruno   K6JDE   Coordinated o114.8  Analog Repeater
-443.1000    448.1000    W6TP    San Francisco   GSPLRC  Coordinated o114.8elx   Analog Repeater
-443.6750    448.6750    K6MSR   San Francisco   MSR Coordinated clx Analog Repeater
-443.9250    448.9250    KG6TN   SoSanFrancisco  KG6TN   Coordinated o136.5  Analog Repeater
-443.9500    448.9500    W6EZE   Moss Beach  W6EZE   Coordinated o114.8e Analog Repeater
-444.1250    449.1250    W6CBS   San Carlos  W6CBS   Coordinated calx    Analog Repeater
-444.2250    449.2250    W6PW    San Francisco   SFRC    Coordinated oe  Fusion AMS Mode
-444.5000    449.5000    K6MPN   Redwood City    SCARES  Coordinated o100.0es    Analog Repeater
-444.6750    449.6750    K6JDE   Belmont K6JDE   Coordinated o114.8  Analog Repeater
-444.7875    449.7875    KC6ULT  San Mateo   SMSO ESB    Coordinated cer Analog Repeater
-444.8000    449.8000    WA6GEL  Daly City   Red Carpet  Not Coordinated #celx   Analog Repeater
-444.8500    449.8500    K6KYA   San Francisco   K6KYA   Not Coordinated #o114.8el   Analog Repeater
-444.9000    449.9000    WR6HMB  Half Moon Bay   HMBARC  Coordinated o91.5ers    Analog Repeater
-444.9250    449.9250    KB6LCS  San Francisco   N6NMZ   Coordinated o136.5  Analog Repeater
+OUTPUT      INPUT       CALL    LOCATION        SPONSOR     STATUS              NOTES           STATION TYPE
+440.0250    445.0250    N6TZE   Pacifica        Casey Vill  Coordinated         o114.8e         Analog Repeater
+440.0750    445.0750    KR6WP   Belmont         KR6WP       Coordinated         o114.8e         Analog Repeater
+440.1000    445.1000    WA6DQP  La Honda        WA6DQP      Coordinated         o114.8aes       Analog Repeater
+440.4000    445.4000    WB6WTM  Redwood City    WB6WTM RG   Coordinated         o127.3l         Analog Repeater
+440.4500    445.4500    N6ZX    Woodside        KMARC       Coordinated         o107.2es        Analog Repeater
+440.5000    445.5000    N6AMG   Daly City       ERG         Coordinated         celx            Analog Repeater
+440.5250    445.5250    N3TC    Daly City       N3TC        Coordinated         o225.7          Analog Repeater
+440.5500    445.5500    K6PVJ   San Bruno       kg6edy      Coordinated         o114.8e         Fusion AMS Mode
+440.5750    445.5750    W6VSY   San Francisco   S T ARC     ConflictResolution  #o123.0ex       Analog Repeater
+440.6750    445.6750    K6TEA   Daly City       K6TEA       Coordinated         clx             Analog Repeater
+440.7000    445.7000    K6CV    Brisbane        K6CV        Coordinated         celx            Analog Repeater
+440.7250    445.7250    WB6JKV  Pacifica        CARLA       Coordinated         o114.8el        Analog Repeater
+440.8250    445.8250    WI6H    San Francisco   WI6H        Not Coordinated     #o114.8         Analog Repeater
+440.9500    445.9500    KB6LED  Woodside        KB6LED      Coordinated         o162.2x         Analog Repeater
+441.0750    446.0750    WA6TOW  Pacifica        CARC        Coordinated         o114.8ersx      Analog Repeater
+441.2500    446.2500    K6DNA   SoSanFrancisco  GNEARC      Coordinated         o141.3es        Analog Repeater
+441.3000    446.3000    WB6ECE  La Honda        WB6ECE RG   Coordinated         o100.0elx       Analog Repeater
+441.3750    446.3750    KC6IAU  Daly City       KC6IAU      Coordinated         o146.2l         Analog Repeater
+441.4000    446.4000    WD6GGW  Redwood City    WD6GGW      Not Coordinated     #o114.8e        Analog Repeater
+441.4500    446.4500    W6EE    San Francisco   W6EE        Not Coordinated     #o85.4e         Analog Repeater
+441.5250    446.5250    K6AIR   Los Altos Hill  K6AIR       Coordinated         o123.0es        Analog Repeater
+441.6500    446.6500    W6FBK   Menlo Park      W6FBK       Coordinated         o162.2e         Analog Repeater
+441.7250    446.7250    KR6WP   Pacifica        KR6WP       Coordinated         cl              Analog Repeater
+441.8875    446.8875    AH6KD   Kensington      Trbo-6      Coordinated         olx             DMR Repeater
+442.0500    447.0500    WA6GG   San Francisco   NCARG       Coordinated         o127.3elr       Analog Repeater
+442.0750    447.0750    N6MVT   San Francisco   CARLA       Coordinated         o100.0ael       Analog Repeater
+442.3250    447.3250    KC6YDH  Daly City       KC6YDH      Coordinated         c               Analog Repeater
+442.3250    447.3250    KD6KGE  Pescadero       KD6KGE      Coordinated         o141.3el        Analog Repeater
+442.3750    447.3750    AB6BN   San Bruno       ab6bn       Coordinated         o156.7          Analog Repeater
+442.4750    447.4750    KF6REK  Daly City       BAARC       Coordinated         o114.8ae        Analog Repeater
+442.7000    447.7000    N6MNV   SoSanFrancisco  N6MNV       Coordinated         o173.8e         Analog Repeater
+442.7500    447.7500    W6BUR   Daly City       W6BUR       Not Coordinated     #cx DMR         Repeater
+442.8500    447.8500    K6JDE   San Bruno       K6JDE       Coordinated         o114.8          Analog Repeater
+443.1000    448.1000    W6TP    San Francisco   GSPLRC      Coordinated         o114.8elx       Analog Repeater
+443.6750    448.6750    K6MSR   San Francisco   MSR         Coordinated         clx             Analog Repeater
+443.9250    448.9250    KG6TN   SoSanFrancisco  KG6TN       Coordinated         o136.5          Analog Repeater
+443.9500    448.9500    W6EZE   Moss Beach      W6EZE       Coordinated         o114.8e         Analog Repeater
+444.1250    449.1250    W6CBS   San Carlos      W6CBS       Coordinated         calx            Analog Repeater
+444.2250    449.2250    W6PW    San Francisco   SFRC        Coordinated         oe              Fusion AMS Mode
+444.5000    449.5000    K6MPN   Redwood City    SCARES      Coordinated         o100.0es        Analog Repeater
+444.6750    449.6750    K6JDE   Belmont         K6JDE       Coordinated         o114.8          Analog Repeater
+444.7875    449.7875    KC6ULT  San Mateo       SMSO ESB    Coordinated         cer             Analog Repeater
+444.8000    449.8000    WA6GEL  Daly City       Red Carpet  Not Coordinated     #celx           Analog Repeater
+444.8500    449.8500    K6KYA   San Francisco   K6KYA       Not Coordinated     #o114.8el       Analog Repeater
+444.9000    449.9000    WR6HMB  Half Moon Bay   HMBARC      Coordinated         o91.5ers        Analog Repeater
+444.9250    449.9250    KB6LCS  San Francisco   N6NMZ       Coordinated         o136.5          Analog Repeater
