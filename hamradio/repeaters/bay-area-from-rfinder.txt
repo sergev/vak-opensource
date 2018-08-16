@@ -48,7 +48,7 @@ Channel Activity                Name    Receive
    54                           KR6WP   440.075  Belmont
    55                           KC6SVW  440.087  Vaca
    56                           K1YJ    440.100  San Jose
-   57   data, callsign          W6AMT   440.125  Cupertino
+   57   data                    W6AMT   440.125  Cupertino
    58                           W6TDM   440.150  Cupertino
    59                           K6GOD   440.175  Hayward
    60                           N6BDE   440.200  Palo Alto
