@@ -17,33 +17,33 @@ Channel Activity                Name    Receive
    15                           KM6EF   146.610  Union City
    16   noise                   WR6ABD  146.640  San Jose
    17   callsign                K6SA    146.655  Saratoga
-   1x   voice                   W6BUR   146.670- Oakland, PL 167.9
-   18                           W6SCF   146.730  La Honda
-   19                           W6LAH   146.745  LosAltosHills
-   20                           WB6OQS  146.760  San Jose
-   21   voice                   K6INC   146.820  San Jose
-   2x   callsign                WA6QFR  146.850  San Bruno (no PL)
-   22   noise                   KC6ULT  146.865  San Mateo
-   23                           AA6PL   146.895  San Carlos
-   24                           K6AIR   146.940  Los Altos Hill
-   25                           AD1U    146.970  San Jose
-   26                           W6UU    146.985  San Jose
-   27                           WA6PWW  147.015  Fremont
-   28   callsign                W6SRR   147.045  Pleasanton
-   29                           WB6CKT  147.090  Belmont
-   30   data                    WA6DY   147.105  Sunnyvale
-   31                           WR6AOK  147.120  Ben Lomond
-   32   callsign                WA6YCZ  147.150  San Jose
-   33                           KB6FEC  147.165  San Jose
-   3x   voice, data             W6WLS   147.180+ Felton (PL 94.8)
-   34                           KF6FWO  147.285  San Jose
-   35                           N6MPX   147.300  San Mateo
-   36   callsign                K7DAA   147.330  Morgan Hill
-   37                           W6TI    147.360  Palo Alto
-   38                           W6PIY   147.390  San Jose
-   39                           W6GGF   147.825  Morgan Hill
-   40                           WA6TEM  147.855  San Jose
-   41   voice                   N6QDY   147.945  Milpitas
+   18   voice                   W6BUR   146.670- Oakland, PL 167.9
+   19                           W6SCF   146.730  La Honda
+   20                           W6LAH   146.745  LosAltosHills
+   21                           WB6OQS  146.760  San Jose
+   22   voice                   K6INC   146.820  San Jose
+   23   callsign                WA6QFR  146.850  San Bruno (no PL)
+   24   noise                   KC6ULT  146.865  San Mateo
+   25                           AA6PL   146.895  San Carlos
+   26                           K6AIR   146.940  Los Altos Hill
+   27                           AD1U    146.970  San Jose
+   28                           W6UU    146.985  San Jose
+   29                           WA6PWW  147.015  Fremont
+   30   callsign                W6SRR   147.045  Pleasanton
+   31                           WB6CKT  147.090  Belmont
+   32   data                    WA6DY   147.105  Sunnyvale
+   33                           WR6AOK  147.120  Ben Lomond
+   34   callsign                WA6YCZ  147.150  San Jose
+   35                           KB6FEC  147.165  San Jose
+   36   voice, data             W6WLS   147.180+ Felton (PL 94.8)
+   37                           KF6FWO  147.285  San Jose
+   38                           N6MPX   147.300  San Mateo
+   39   callsign                K7DAA   147.330  Morgan Hill
+   40                           W6TI    147.360  Palo Alto
+   41                           W6PIY   147.390  San Jose
+   42                           W6GGF   147.825  Morgan Hill
+   43                           WA6TEM  147.855  San Jose
+   44   voice                   N6QDY   147.945  Milpitas
 ------------------------------------------------------------ UHF Band 440-446
    51                           WA6FSP  440.000  Fremont
    52                           WB6KHP  440.025  San Jose
