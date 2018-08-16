@@ -17,10 +17,12 @@ Channel Activity                Name    Receive
    15                           KM6EF   146.610  Union City
    16   noise                   WR6ABD  146.640  San Jose
    17   callsign                K6SA    146.655  Saratoga
+   1x   voice                   W6BUR   146.670- Oakland, PL 167.9
    18                           W6SCF   146.730  La Honda
    19                           W6LAH   146.745  LosAltosHills
    20                           WB6OQS  146.760  San Jose
    21   voice                   K6INC   146.820  San Jose
+   2x   callsign                WA6QFR  146.850  San Bruno (no PL)
    22   noise                   KC6ULT  146.865  San Mateo
    23                           AA6PL   146.895  San Carlos
    24                           K6AIR   146.940  Los Altos Hill
@@ -33,6 +35,7 @@ Channel Activity                Name    Receive
    31                           WR6AOK  147.120  Ben Lomond
    32   callsign                WA6YCZ  147.150  San Jose
    33                           KB6FEC  147.165  San Jose
+   3x   voice, data             W6WLS   147.180+ Felton (PL 94.8)
    34                           KF6FWO  147.285  San Jose
    35                           N6MPX   147.300  San Mateo
    36   callsign                K7DAA   147.330  Morgan Hill
@@ -46,16 +49,18 @@ Channel Activity                Name    Receive
    52                           WB6KHP  440.025  San Jose
    53                           KB5JR   440.050  San Jose
    54                           KR6WP   440.075  Belmont
-   55                           KC6SVW  440.087  Vaca
+   55                           KH6N    440.0875 San Jose
    56                           K1YJ    440.100  San Jose
    57   data                    W6AMT   440.125  Cupertino
    58                           W6TDM   440.150  Cupertino
    59                           K6GOD   440.175  Hayward
    60                           N6BDE   440.200  Palo Alto
+   6x   noise                   K6LLC   440.225+ San Jose (PL 123)
    61   voice                   WA6HHQ  440.275  San Jose
    62   voice = 98              K9GVF   440.325  Felton
    63                           N6TNR   440.375  San Jose
    64                           WR6COP  440.450  San Jose
+   6x   data                    N6TNR   440.500  San Jose
    65                           KA6ZRJ  440.575  Morgan Hill
    66                           KC6TYG  440.650  Los Gatos
    67                           W6ASH   440.800  Mountain View
@@ -76,14 +81,15 @@ Channel Activity                Name    Receive
    82                           K6AIR   441.525  Los Altos Hill
    83                           W6VB    441.550  Cupertino
    84                           WB6IRC  441.575  Palo Alto
-   85                           W6CBS   441.612  San Carlos
+   85                           W6CBS   441.6125 San Carlos
+   8x   voice                   N7WG    441.675  Santa Cruz (PL 123)
    86   callsign                K6UB    441.700  Los Gatos
    87                           WA6QDP  441.725  San Jose
    88                           W1NSA   441.775  San Jose
    89                           N6QDY   441.800  Milpitas
    90   data                    KG6KCL  441.850  San Jose
    91                           WW6HP   442.000  Palo Alto
-   92                           WR6BAT  442.125  Cupertino
+   92   callsign                WR6BAT  442.125  Cupertino
    93                           K9GVF   442.175  Campbell
    94                           KJ6ID   442.250  Santa Clara
    95                           K6INC   442.300  Los Gatos
@@ -111,6 +117,7 @@ Channel Activity                Name    Receive
   117                           W6AMT   443.275  San Jose
   118   data                    N6IGF   443.400  Fremont
   119   voice                   K6MF    443.450  San Jose
+  11x   data                    K6LNK   443.500  Orinda
   120   voice = 98              K6TAZ   443.550  San Jose
   121                           KK6KPQ  443.600  Palo Alto
   122   voice Spanish           K6JJC   443.700  Fremont
@@ -136,7 +143,8 @@ Channel Activity                Name    Receive
   142                           N6NAC   444.625  San Jose
   143                           WB6KHP  444.700  San Jose
   144   voice = 109             K6GOD   444.725  San Jose
-  145                           WA6GEL  444.800  Daly City
+  145   voice                   WA6GEL  444.800  Daly City
+  14x   data                    KQ6RC   444.875  Santa Clara DMR
   146                           KU6V    444.900  San Jose
   147                           KB6LED  444.950  Palo Alto
   148                           WB6KHP  444.975  Los Gatos
