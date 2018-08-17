@@ -216,7 +216,7 @@ int main(int argc, char *argv[])
 {
     struct timeval tv;
     time_t last_sec = 0;
-
+again:
     if (led_init() < 0) {
         goto out;
     }
@@ -230,8 +230,11 @@ int main(int argc, char *argv[])
         }
 
         last_sec = tv.tv_sec;
-        if (update_time(last_sec) < 0)
-            break;
+        if (update_time(last_sec) < 0) {
+            // Device disconnected, try again.
+            usleep(1000000);
+            goto again;
+        }
     }
 
 out:

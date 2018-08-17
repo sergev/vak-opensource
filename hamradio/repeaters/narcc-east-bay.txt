@@ -2,8 +2,7 @@ OUTPUT      INPUT       CALL    LOCATION        SPONSOR     STATUS              
 144.9750    147.4750    K6MDD   Concord         K6MDD       Not Coordinated     #oelrsx         DMR Repeater
 144.9875    147.4875    W6TCP   Fremont         W6TCP       Not Coordinated     #olx            DMR Repeater
 145.0000    147.5000    W6CX    Concord         MDARC       Not Coordinated     #oersx          Dstar Voice
-145.0125    147.5125    AH6KD   El Cerrito      TRBO-6      Not Coordinated     #o              DMR Repeater
-145.0125    147.5125    W6YYY   Pleasnaton      Pleasanton  Not Coordinated     #o              DMR Repeater
+145.0125    147.5125    W6YYY   Pleasanton      Pleasanton  Not Coordinated     #o              DMR Repeater
 145.1100    144.5100    WA6KQB  San Pablo       CCCC        Coordinated         o82.5ers        Analog Repeater
 145.1300    144.5300    K6EAG   Hayward         Hayward RC  Coordinated         o127.3ers       Analog Repeater
 145.2500    144.6500    KQ6RC   Hayward         KQ6RC       Coordinated         cl              Analog Repeater
@@ -18,9 +17,7 @@ OUTPUT      INPUT       CALL    LOCATION        SPONSOR     STATUS              
 146.6250    146.0250    W6MTF   Oakland         W6MTF       Coordinated         o156.7          Analog Repeater
 146.6400    146.0400    W6STA   Redding         STARES      Coordinated         o88.5s          Analog Repeater
 146.6700    146.0700    N6MM    Newark          KI6KGN      Coordinated         o110.9          Analog Repeater
-146.6700    146.0700    W6BUR   Oakland         W6BUR       Not Coordinated     #o85.4erx       Analog Repeater
 146.7600    146.1600    W6AY    Redwood City    W6MTF       Not Coordinated     #o114.8         Mixed Mode P25
-146.7750    146.1750    K6BW    San Anselmo     HWA         Coordinated         o127.3e         Analog Repeater
 146.7750    146.1750    W6LLL   Livermore       LLNLRC      Coordinated         o100.0elrsx     Analog Repeater
 146.8500    146.2500    K6LNK   Orinda          CARLA       Coordinated         o103.5el        Analog Repeater
 146.8800    146.2800    WB6NDJ  Oakland         ORCA        Coordinated         o77.0ersx       Analog Repeater
@@ -47,8 +44,6 @@ OUTPUT      INPUT       CALL    LOCATION        SPONSOR     STATUS              
 440.0500    445.0500    KQ6YG   Hayward         KQ6YG       Coordinated         o156.7          Analog Repeater
 440.1250    445.1250    W6TCP   Fremont         W6TCP       Coordinated         ox              DMR Repeater
 440.1375    445.1375    K6PIT   Pittsburg       K6BIV       Coordinated         oaelrsx         DMR Repeater
-440.1750    445.1750    K6GOD   Berkeley        K6GOD       Coordinated         cx              Analog Repeater
-440.1750    445.1750    K6GOD   Fremont         K6GOD       Coordinated         cersx           Analog Repeater
 440.1750    445.1750    K6GOD   Hayward         K6GOD       Coordinated         ce              Analog Repeater
 440.2125    445.2125    K6LNK   Walnut Creek    CARLA       Coordinated         oel             DMR Repeater
 440.3000    445.3000    N6AMG   Concord         ERG         Coordinated         caelx           Analog Repeater
@@ -56,7 +51,6 @@ OUTPUT      INPUT       CALL    LOCATION        SPONSOR     STATUS              
 440.3500    445.3500    KM6EF   Oakland         GSARC       Coordinated         o123.0elrs      Analog Repeater
 440.4000    445.4000    WB6WTM  Oakland         WB6WTM      Coordinated         celx            Analog Repeater
 440.4250    445.4250    WA6HAM  San Ramon       CCRA        Coordinated         o79.7aelrsx     Analog Repeater
-440.4750    445.4750    KI6VYL  Oakland         KB6LED      Coordinated         o97.4l          Analog Repeater
 440.4750    445.4750    KK6AN   Hayward         NorCal RUG  Not Coordinated     #o71.9aels      Analog Repeater
 440.5250    445.5250    N6MM    Newark          KI6KGN      Coordinated         o110.9          Analog Repeater
 440.5500    445.5500    KD7DNM  Moraga          KD7DNM      Not Coordinated     #o123.0e        Analog Repeater
@@ -67,7 +61,6 @@ OUTPUT      INPUT       CALL    LOCATION        SPONSOR     STATUS              
 440.8250    445.8250    WI6H    Berkeley        WI6H        Not Coordinated     #o114.8lx       Analog Repeater
 440.8500    445.8500    KC6IAU  Hayward         KC6IAU      Coordinated         o146.2lx        Analog Repeater
 440.8750    445.8750    WA6HAM  Concord         CCRA        Coordinated         o79.7aelrsx     Analog Repeater
-440.9000    445.9000    KI6KGN  Fremont         KI6KGN      Coordinated         o141.3l         Analog Repeater
 440.9000    445.9000    N6BRK   Berkeley        NALCO       Coordinated         o131.8ers       Analog Repeater
 440.9250    445.9250    KH8AF   Berkeley        KH8AF       Coordinated         celx            Analog Repeater
 440.9500    445.9500    KB6LED  Hayward         KB6LED      Coordinated         o100.0          Analog Repeater
@@ -82,7 +75,6 @@ OUTPUT      INPUT       CALL    LOCATION        SPONSOR     STATUS              
 441.4750    446.4750    W6YOP   Oakland         YOP HLLS    Coordinated         o127.3lrx       Analog Repeater
 441.5750    446.5750    KC6IAU  San Francisco   KC6IAU      Coordinated         o146.2l         Analog Repeater
 441.6500    446.6500    K6JSI   Richmond Heigh  WIN System  Not Coordinated     #o100.0l        Analog Repeater
-441.7500    446.7500    K1BMW   Truckee         WA6YOP      Coordinated         o123.0elrx      Analog Repeater
 441.7500    446.7500    W6YOP   Concord         YOP HLLS    Coordinated         o127.3elrx      Analog Repeater
 441.8000    446.8000    KQ6RC   Hayward         KQ6RC       Coordinated         cl              Analog Repeater
 441.8250    446.8250    K6LRG   Livermore       K6LRG       Not Coordinated     #o              DMR Repeater
@@ -90,41 +82,34 @@ OUTPUT      INPUT       CALL    LOCATION        SPONSOR     STATUS              
 441.9750    446.9750    W6CBS   Orinda          W6CBS       Not Coordinated     #celx           Analog Repeater
 442.0750    447.0750    K6LNK   Pleasanton      CARLA       Coordinated         o103.5el        Analog Repeater
 442.1000    447.1000    W6JMX   Hayward         W6JMX       Coordinated         o141.3lx        Analog Repeater
-442.1500    447.1500    WA6DUR  Richmond        WA6DUR      Coordinated         o100.0ae        Analog Repeater
 442.1500    447.1500    WD6INC  Dublin          W1LLE       Coordinated         o123.0ael       Analog Repeater
 442.2000    447.2000    KH8AF   Oakland         KH8AF       Coordinated         celx            Analog Repeater
 442.2250    447.2250    N6MM    Newark          KI6KGN      Coordinated         o110.9e         Analog Repeater
-442.2250    447.2250    WH6KA   Monterey        WH6KA       Not Coordinated     #ce             Analog Repeater
 442.2500    447.2500    KD6QDW  Oakland         KD6QDW      Not Coordinated     #o103.5lx       Analog Repeater
 442.2750    447.2750    WA6ZTY  Berkeley        WA6ZTY      Not Coordinated     #o100.0         Analog Repeater
 442.3500    447.3500    K6GOD   Hayward         K6GOD       Coordinated         o107.2          Analog Repeater
 442.4000    447.4000    WB6NDJ  Oakland         ORCA        Coordinated         o77.0ersx       Analog Repeater
-442.4500    447.4500    KI6O    Concord         KI6O        Not Coordinated     #celrsx         Analog Repeater
 442.4500    447.4500    KI6O    Moraga          KI6O        Not Coordinated     #cersx          Analog Repeater
 442.5250    447.5250    K6MFM   Walnut Creek    K6MFM       Coordinated         o88.5e          Analog Repeater
 442.5375    447.5375    WX6D    Hanford         N6IB        Pending             #oelx           DMR Repeater
 442.5500    447.5500    N6APB   San Ramon       N6APB       Not Coordinated     #c              Analog Repeater
 442.6000    447.6000    WA6PWW  Fremont         TRICO ARC   Coordinated         o107.2e         Analog Repeater
 442.6250    447.6250    W6SRR   Pleasanton      Sunol Ridg  Coordinated         o94.8elrsx      Analog Repeater
-442.6500    447.6500    KF6ZOO  Pittsburg       KF6ZOO      Coordinated         cl              Analog Repeater
 442.6500    447.6500    KQ6RC   Hayward         KQ6RC       Coordinated         cel             Analog Repeater
 442.6750    447.6750    WB6UZX  Berkeley        WB6UZX      Coordinated         celsx           Analog Repeater
 442.7250    447.7250    K6DJR   Berkeley        CALNET      Coordinated         celx            Analog Repeater
 442.7500    447.7500    WA6RQX  Bakersfield     WCRN        Not Coordinated     #o141.3elrx     Analog Repeater
 442.7750    447.7750    KB6NCL  San Leandro     KG6KCL      Not Coordinated     #cel            Analog Repeater
-442.8750    447.8750    KK6JP   Redding         MARC        Coordinated         o162.2e         Analog Repeater
 442.8750    447.8750    KQ6YG   Hayward         KQ6YG       Coordinated         o100.0          Analog Repeater
 442.9250    447.9250    W6RGG   Pleasanton      W6RGG       Coordinated         crx             Analog Repeater
 442.9625    447.9625    K6WL    San Ramon       K6WL        Not Coordinated     #ol             DMR Repeater
 442.9750    447.9750    K6REQ   Lafayette       LARIG       Coordinated         o123.0el        Analog Repeater
 443.0500    448.0500    N6QOP   Orinda          CARLA       Coordinated         o114.8el        Analog Repeater
 443.0625    448.0625    N6MVT   Walnut Creek    N6MVT       Not Coordinated     #o              DMR Repeater
-443.1750    448.1750    KM6HJA  San Jose        KM6HJA      Coordinated         o107.2          Analog Repeater
 443.1750    448.1750    KM6HJA  San Lorenzo     KM6HJA      Coordinated         o162.2l         Analog Repeater
 443.2000    448.2000    N6GVI   Oakland         CATS        Coordinated         caelx           Analog Repeater
 443.3250    448.3250    K6LNK   Hayward         CARLA       Coordinated         o114.8el        Analog Repeater
 443.3500    448.3500    AC6OT   Oakland         OARC        Not Coordinated     #o186.2rsx      Analog Repeater
-443.3750    448.3750    K6KBL   San Leandro     SL ARES     Coordinated         o156.7rs        Fusion AMS Mode
 443.3750    448.3750    WB6SHU  Oakland         W6BUR       Not Coordinated     #o114.8ex       Analog Repeater
 443.4000    448.4000    WA6KPX  Fremont         YAARC       Not Coordinated     #cex            Analog Repeater
 443.4750    448.4750    K6LNK   Walnut Creek    CARLA       Coordinated         o114.8el        Analog Repeater
@@ -140,12 +125,9 @@ OUTPUT      INPUT       CALL    LOCATION        SPONSOR     STATUS              
 443.9750    448.9750    WW6BAY  Oakland         Bay Net     Coordinated         o100.0elx       Analog Repeater
 444.0000    449.0000    K6NOX   Orinda          Knox LaRue  Coordinated         o100.0aex       Analog Repeater
 444.0375    449.0375    K6HLE   San Jose        AREA Repea  Coordinated         oel             DMR Repeater
-444.0375    449.0375    NN6J    Petaluma        nn6j    Not Coordinated         #o              Analog Repeater
-444.1500    449.1500    N3EL    Newark          DX2N CLUB   Coordinated         o103.5e         Analog Repeater
 444.1500    449.1500    WB6PQM  Concord         Diablo DMR  Coordinated         ol              DMR Repeater
 444.2000    449.2000    W6RGG   San Leandro     AC RACES    Coordinated         o107.2er        Analog Repeater
 444.2500    449.2500    WB6TCS  Oakland         WB6TCS      Coordinated         o100.0ex        Analog Repeater
-444.2750    449.2750    N6LDJ   Pleasanton      HORK        Coordinated         oel             DMR Repeater
 444.2750    449.2750    WA6KQB  San Pablo       CCCC        Coordinated         o82.5ers        Analog Repeater
 444.4500    449.4500    KF6HTE  Martinez        MtzARC      Coordinated         o107.2ers       Analog Repeater
 444.5500    449.5500    K6EMV   Hayward         K6EMV       Not Coordinated     #o77.0          Analog Repeater
@@ -155,9 +137,6 @@ OUTPUT      INPUT       CALL    LOCATION        SPONSOR     STATUS              
 444.7000    449.7000    N6GVI   El Cerrito      CATS        Coordinated         cael            Analog Repeater
 444.7250    449.7250    W6APX   Antioch         NORCALRUG   Coordinated         o114.8l         Analog Repeater
 444.7750    449.7750    W6YOP   Orinda          YOP HLLS    Coordinated         o127.3lrx       Analog Repeater
-444.8000    449.8000    KD6GLT  Oakland         KD6GLT      Not Coordinated     #c              Analog Repeater
 444.8000    449.8000    WA6GEL  Fremont         Red Carpet  Not Coordinated     #cerx           Analog Repeater
 444.8250    449.8250    K6EAG   Hayward         Hayward RC  Coordinated         o127.3ers       Analog Repeater
 444.8500    449.8500    KB6LED  Hayward         DMR CC1     Coordinated         o               DMR Repeater
-444.9875    449.9875    AH6KD   El Cerrito      SF Trbo     Coordinated         oel             Analog Repeater
-444.9875    449.9875    W6UUU   Oakland         HORK        Coordinated         olx             DMR Repeater

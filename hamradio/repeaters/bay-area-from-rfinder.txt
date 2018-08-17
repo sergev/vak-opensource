@@ -2,167 +2,68 @@ Channel Activity                Name    Receive
 ------------------------------------------------------------ VHF Band 145-148
     1   data                    W6CX    145.000  Concord
     2   noise                   K6GL    145.170  Sunnyvale
-    3                           WA2IBM  145.190  San Jose
-    4   voice                   N6NFI   145.230  Palo Alto
-    5                           NA6MF   145.250  Moffett Field
-    6                           W6ASH   145.270  Mountain View
-    7   noise                   KB6LED  145.290  Berkeley, PL 131.8
-    8                           K6GRC   145.310  Cupertino
-    9                           N6ZX    145.370  Woodside
-   10                           WW6BAY  145.390  Palo Alto
-   11   voice                   W6MLP   145.430  Milpitas
-   12                           K6FB    145.450  Los Gatos
-   13   voice                   ???     145.475  ???
-   14                           WB5NVN  146.085  Portola Valley
-   15                           AA6BT   146.115  San Jose
-   16                           KC6LLI  146.205  San Jose
-   17                           KE6MON  146.355  San Jose
-   18                           KM6EF   146.610  Union City
-   19   noise                   WR6ABD  146.640  San Jose
-   20   callsign                K6SA    146.655  Saratoga
-   21   voice                   W6BUR   146.670- Oakland, PL 167.9
-   22   voice                   K6GWE   146.700  Mill Valley, PL 179.9
-   23                           W6SCF   146.730  La Honda
-   24                           W6LAH   146.745  LosAltosHills
-   25                           WB6OQS  146.760  San Jose
-   26   voice                   K6INC   146.820  San Jose
-   27   callsign                WA6QFR  146.850  San Bruno (no PL)
-   28   noise                   KC6ULT  146.865  San Mateo
-   29                           AA6PL   146.895  San Carlos
-   30                           K6AIR   146.940  Los Altos Hill
-   31                           AD1U    146.970  San Jose
-   32                           W6UU    146.985  San Jose
-   33                           WA6PWW  147.015  Fremont
-   34   callsign                W6SRR   147.045  Pleasanton
-   35   voice                   W6CX    147.060  Concord, PL 100.0
-   36                           WB6CKT  147.090  Belmont
-   37   data                    WA6DY   147.105  Sunnyvale
-   38                           WR6AOK  147.120  Ben Lomond
-   39   callsign                WA6YCZ  147.150  San Jose
-   40                           KB6FEC  147.165  San Jose
-   41   voice, data             W6WLS   147.180+ Felton (PL 94.8)
-   42                           KF6FWO  147.285  San Jose
-   43                           N6MPX   147.300  San Mateo
-   44   callsign                K7DAA   147.330  Morgan Hill
-   45                           W6TI    147.360  Palo Alto
-   46                           W6PIY   147.390  San Jose
-   47   noise                   ???     147.555  ???
-   48                           W6GGF   147.825  Morgan Hill
-   49   noise                   WA6TEM  147.855  San Jose
-   50   voice                   ???     147.870  ???
-   51   voice                   N6QDY   147.945  Milpitas
+    3   voice                   N6NFI   145.230  Palo Alto
+    4   noise                   KB6LED  145.290  Berkeley, PL 131.8
+    5   voice                   W6MLP   145.430  Milpitas
+    6   voice                   ???     145.475  ???
+    7   noise                   WR6ABD  146.640  San Jose
+    8   callsign                K6SA    146.655  Saratoga
+    9   voice                   W6BUR   146.670- Oakland, PL 167.9
+   10   voice                   K6GWE   146.700  Mill Valley, PL 179.9
+   11   voice                   K6INC   146.820  San Jose
+   12   callsign                WA6QFR  146.850  San Bruno (no PL)
+   13   noise                   KC6ULT  146.865  San Mateo
+   14   callsign                W6SRR   147.045  Pleasanton
+   15   voice                   W6CX    147.060  Concord, PL 100.0
+   16   data                    WA6DY   147.105  Sunnyvale
+   17   callsign                WA6YCZ  147.150  San Jose
+   18   voice, data             W6WLS   147.180+ Felton (PL 94.8)
+   19   callsign                K7DAA   147.330  Morgan Hill
+   20   noise                   WA6TEM  147.855  San Jose
+   21   voice                   ???     147.870  ???
+   22   voice                   N6QDY   147.945  Milpitas
 ------------------------------------------------------------ UHF Band 440-447
-   61                           WA6FSP  440.000  Fremont
-   62                           WB6KHP  440.025  San Jose
-   63                           KB5JR   440.050  San Jose
-   64                           KR6WP   440.075  Belmont
-   65                           KH6N    440.0875 San Jose
-   66                           K1YJ    440.100  San Jose
-   67   data                    W6AMT   440.125  Cupertino
-   68                           W6TDM   440.150  Cupertino
-   69                           K6GOD   440.175  Hayward
-   70                           N6BDE   440.200  Palo Alto
-   71   noise                   K6LLC   440.225+ San Jose (PL 123)
-   72   voice                   WA6HHQ  440.275  San Jose
-   73   voice = 98              K9GVF   440.325  Felton
-   74                           N6TNR   440.375  San Jose
-   75   test signal             WR6COP  440.450  San Jose
-   76   data                    N6TNR   440.500  San Jose
-   77                           KA6ZRJ  440.575  Morgan Hill
-   78                           KC6TYG  440.650  Los Gatos
-   79                           W6ASH   440.800  Mountain View
-   80                           KH6N    440.875  Los Altos
-   81                           KI6KGN  440.900  Fremont
-   82                           WR6COP  440.950  San Jose
-   83   voice                   NO1PC   441.025  Campbell
-   84                           K6GOD   441.100  Santa Cruz
-   85                           KC6WXO  441.125  Fremont
-   86                           KC6BJO  441.150  San Jose
-   87                           KF6FWO  441.175  San Jose
-   88                           AB6AC   441.225  San Jose
-   89                           WB6WTM  441.250  Los Altos
-   90                           K6BEN   441.275  San Jose
-   91                           WB6ECE  441.300  La Honda
-   92                           W6PIY   441.350  San Jose
-   93   voice                   WD6GGW  441.400  Redwood City
-   94                           K6AIR   441.525  Los Altos Hill
-   95                           W6VB    441.550  Cupertino
-   96                           WB6IRC  441.575  Palo Alto
-   97                           W6CBS   441.6125 San Carlos
-   98   voice                   W6RCA   441.625  San Jose
-   99   voice                   N7WG    441.675  Santa Cruz (PL 123)
-  100   callsign                K6UB    441.700  Los Gatos
-  101                           WA6QDP  441.725  San Jose
-  102   callsign                W1NSA   441.775  San Jose
-  103                           N6QDY   441.800  Milpitas
-  104   data                    AD1U    441.825  Los Gatos, DMR
-  105   data                    KG6KCL  441.850  San Jose
-  106   data                    KK6USZ  441.950  Saratoga, DMR
-  107                           WW6HP   442.000  Palo Alto
-  108   voice                   WR6BAT  442.125  Cupertino
-  109                           K9GVF   442.175  Campbell
-  110                           KJ6ID   442.250  Santa Clara
-  111                           K6INC   442.300  Los Gatos
-  112                           K6GOD   442.350  San Jose
-  113                           W6UU    442.425  San Jose
-  114   voice = 62              WB6KHP  442.450  San Jose
-  115   callsign                WB6ZVW  442.500  San Jose
-  116                           WA6FUL  442.550  Santa Cruz
-  117                           K6FB    442.575  Palo Alto
-  118                           WA6PWW  442.600  Fremont
-  119                           W6SRR   442.625  Pleasanton
-  120                           KG6KCL  442.775  San Jose
-  121                           K6OTR   442.800  Palo Alto
-  122                           WR6COP  442.825  San Jose
-  123                           K6MIA   442.850  San Jose
-  124   data                    WA6YLV  442.875  San Jose
-  125   voice = 144             WR6ABD  442.900  San Jose
-  126                           K6YZS   442.950  San Jose
-  127   voice                   K7DAA   442.975  Morgan Hill
-  128   noise?                  W6OOL   443.000  Palo Alto
-  129                           WA6ABB  443.025  Los Gatos
-  130   voice                   N6QOP   443.050  Orinda (CARLA)
-  131   voice                   K6LNK   443.075  San Jose (CARLA)
-  132                           K6BEN   443.125  Saratoga
-  133   voice                   WW6BAY  443.225  Palo Alto
-  134                           W6AMT   443.275  San Jose
-  135   data                    AD1U    443.300  San Jose, DMR
-  136   data                    N6IGF   443.400  Fremont
-  137   voice                   K6MF    443.450  San Jose
-  138   data                    K6LNK   443.500  Orinda
-  139   voice = 98              K6TAZ   443.550  San Jose
-  140   voice                   KE6STH  443.575  San Jose, PL 110.9, Mixed mode P25
-  141                           KK6KPQ  443.600  Palo Alto
-  142   voice Spanish           K6JJC   443.700  Fremont
-  143                           N6HWI   443.725  Fremont
-  144                           K9GVF   443.750  Los Gatos
-  145                           WA6GFY  443.775  San Jose
-  146                           WC6O    443.850  Los Altos Hills
-  147                           W6YL    443.900  San Jose
-  148   voice                   WW6BAY  443.975  Oakland, PL 100.0
-  149   data                    K6JJC   444.025  San Jose
-  150                           KD6CUC  444.050  San Jose
-  151   data                    KJ6VU   444.075  San Jose
-  152   callsign                N6TLQ   444.100  San Jose
-  153                           WB6LPZ  444.125  Los Gatos
-  154                           W6WLS   444.150  Felton
-  155                           W6OOL   444.175  San Jose
-  156                           KE6JTK  444.225  Los Altos Hills
-  157                           W7AFG   444.300  San Jose
-  158                           KJ6VU   444.350  Palo Alto
-  159   data                    NA6MM   444.425  Los Gatos
-  160   data                    W6OTX   444.475  San Jose, DMR
-  161                           K6MPN   444.500  Redwood City
-  162                           AF6EQ   444.550  Sunnyvale
-  163                           WB6OQS  444.600  San Jose
-  164                           N6NAC   444.625  San Jose
-  165   voice                   W6RCA   444.675  Oakland
-  166                           WB6KHP  444.700  San Jose
-  167   voice = 109             K6GOD   444.725  San Jose
-  168   voice                   WA6GEL  444.800  Daly City
-  169   data                    KQ6RC   444.875  Santa Clara DMR
-  170                           KU6V    444.900  San Jose
-  171                           KB6LED  444.950  Palo Alto
-  172   voice                   WB6KHP  444.975  Los Gatos
-  173                           KF6JEE  446.280  Woodside
+   51   data                    W6AMT   440.125  Cupertino
+   52   noise                   K6LLC   440.225+ San Jose (PL 123)
+   53   voice                   WA6HHQ  440.275  San Jose
+   54   voice                   K9GVF   440.325  Felton
+   55   test signal             WR6COP  440.450  San Jose
+   56   data                    N6TNR   440.500  San Jose
+   57   voice                   NO1PC   441.025  Campbell
+   58   voice                   WD6GGW  441.400  Redwood City
+   59   voice                   W6RCA   441.625  San Jose
+   60   voice                   N7WG    441.675  Santa Cruz (PL 123)
+   61   callsign                K6UB    441.700  Los Gatos
+   62   callsign                W1NSA   441.775  San Jose
+   63   data                    AD1U    441.825  Los Gatos, DMR
+   64   data                    KG6KCL  441.850  San Jose
+   65   data                    KK6USZ  441.950  Saratoga, DMR
+   66   voice                   WR6BAT  442.125  Cupertino
+   67   voice                   WB6KHP  442.450  San Jose
+   68   callsign                WB6ZVW  442.500  San Jose
+   69   data                    WA6YLV  442.875  San Jose
+   70   voice                   WR6ABD  442.900  San Jose
+   71   voice                   K7DAA   442.975  Morgan Hill
+   72   noise?                  W6OOL   443.000  Palo Alto
+   73   voice                   N6QOP   443.050  Orinda (CARLA)
+   74   voice                   K6LNK   443.075  San Jose (CARLA)
+   75   voice                   WW6BAY  443.225  Palo Alto
+   76   data                    AD1U    443.300  San Jose, DMR
+   77   data                    N6IGF   443.400  Fremont
+   78   voice                   K6MF    443.450  San Jose
+   79   data                    K6LNK   443.500  Orinda
+   80   voice                   K6TAZ   443.550  San Jose
+   81   voice                   KE6STH  443.575  San Jose, PL 110.9, Mixed mode P25
+   82   voice Spanish           K6JJC   443.700  Fremont
+   83   voice                   WW6BAY  443.975  Oakland, PL 100.0
+   84   data                    K6JJC   444.025  San Jose
+   85   data                    KJ6VU   444.075  San Jose
+   86   callsign                N6TLQ   444.100  San Jose
+   87   data                    NA6MM   444.425  Los Gatos
+   88   data                    W6OTX   444.475  San Jose, DMR
+   89   voice                   W6RCA   444.675  Oakland
+   90   voice                   K6GOD   444.725  San Jose
+   91   voice                   WA6GEL  444.800  Daly City
+   92   data                    KQ6RC   444.875  Santa Clara DMR
+   93   voice                   WB6KHP  444.975  Los Gatos
 ------------------------------------------------------------

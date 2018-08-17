@@ -1,10 +1,8 @@
 OUTPUT      INPUT       CALL    LOCATION        SPONSOR     STATUS              NOTES           STATION TYPE
 144.9625    147.4625    W6OTX   San Jose        PAARA       Not Coordinated     #oelx           DMR Repeater
-145.1700    144.5700    K6GL    Sunnyvale       SNNYVLARES  Not Coordinated     #o94.8ers       Analog Repeater
 145.1700    144.5700    K6SNY   Sunnyvale       SARES-RG    Coordinated         o94.8ers        Analog Repeater
 145.1900    144.5900    WA2IBM  San Jose        IBM ARC     Not Coordinated     #o151.4ae       Analog Repeater
 145.2100    144.6100    KB6FEC  San Jose        AREA        Coordinated         o114.8rs        Analog Repeater
-145.2100    144.6100    N6HU    Soledad         N6HU        Coordinated         cel             Analog Repeater
 145.2300    144.6300    N6NFI   Palo Alto       SPARK/SARS  Coordinated         o100.0aersx     Analog Repeater
 145.2500    144.6500    NA6MF   Moffett Field   Ames ARC    Coordinated         o123.0rs        Analog Repeater
 145.2700    144.6700    W6ASH   Mountain View   SPECS RA    Coordinated         o100.0aelrs     Analog Repeater
@@ -15,18 +13,15 @@ OUTPUT      INPUT       CALL    LOCATION        SPONSOR     STATUS              
 146.3550    146.9550    KE6MON  San Jose        LAPU-LAPU   Coordinated         o123.0          Analog Repeater
 146.6400    146.0400    WR6ABD  San Jose        LPRC        Coordinated         o162.2ex        Analog Repeater
 146.6550    146.0550    K6SA    Saratoga        SARA        Coordinated         o114.8elrs      Analog Repeater
-146.7450    146.1450    W6LAH   LosAltosHills   LAHEG       Coordinated         ce              Analog Repeater
 146.7450    146.1450    W6LAH   LosAltosHills   LAHEG       Coordinated         o110.9e         Analog Repeater
 146.7600    146.1600    WB6OQS  San Jose        SCVRS       Not Coordinated     #o151.4alx      Analog Repeater
 146.8200    146.2200    K6INC   San Jose        SCAN INT'L  Coordinated         o123.0          Analog Repeater
 146.8950    146.2950    KB6FEC  San Jose        KB6FEC      Coordinated         o110.9rs        Analog Repeater
 146.9700    146.3700    WA6INC  San Jose        AD1U        Coordinated         cl              Analog Repeater
 146.9850    146.3850    W6UU    San Jose        SCCARA      Coordinated         o114.8aer       Analog Repeater
-147.0300    147.6300    WB6KHP  San Jose        CFMA        Not Coordinated     #o107.2l        Analog Repeater
 147.0300    147.6300    WB6KHP  San Jose        CFMA        Coordinated         o107.2l         Analog Repeater
 147.1050    147.7050    WA6DJ   Sunnyvale       PARE        Coordinated         o100.0el        Analog Repeater
 147.1500    147.7500    WA6YCZ  San Jose        BAYCOM      Not Coordinated     #celx           Analog Repeater
-147.1650    147.7650    KB6FEC  San Jose        KB6FEC      Coordinated         o162.2ers       Analog Repeater
 147.1650    147.7650    KB6FEC  San Jose        KB6FEC      Coordinated         o100.0rs        Analog Repeater
 147.2850    147.8850    KF6FWO  San Jose        MARA        Coordinated         o103.5aer       Analog Repeater
 147.3300    147.9300    K7DAA   Morgan Hill     MHARS       Coordinated         o103.5ae        Analog Repeater
@@ -51,21 +46,17 @@ OUTPUT      INPUT       CALL    LOCATION        SPONSOR     STATUS              
 440.4375    445.4375    NU6P    Saratoga        SHARG       Coordinated         o               DMR Repeater
 440.4750    445.4750    K6GOD   San Jose        K6GOD       Coordinated         celx            Analog Repeater
 440.5250    445.5250    KI6KGN  Los Gatos       N6MM        Coordinated         o146.2l         Mixed Mode P25
-440.6500    445.6500    K6DLP   Santa Maria     K6DLP       Coordinated         cel             Analog Repeater
 440.6500    445.6500    KC6TYG  Los Gatos       WA6JZN      Not Coordinated     #o94.8ex        Analog Repeater
 440.8000    445.8000    W6ASH   Mountain View   SPECS RA    Coordinated         o100.0aelrs     Analog Repeater
 440.8750    445.8750    KH6N    Los Altos       KH6N        Coordinated         o100.0rs        Analog Repeater
 441.0250    446.0250    NO1PC   Campbell        NO1PC - Ca  Coordinated         o110.9elrsx     Analog Repeater
 441.0500    446.0500    K6NN    Los Gatos       T&BC        Coordinated         o100.0ex        Analog Repeater
-441.0500    446.0500    N6UUI   Los Gatos       TEL PNRS    Not Coordinated     #o123.0ex       Analog Repeater
 441.1000    446.1000    K6GOD   Palo Alto       K6GOD       Coordinated         celrsx          Analog Repeater
-441.1000    446.1000    K6GOD   Santa Cruz      K6GOD       Coordinated         cex             Analog Repeater
 441.1500    446.1500    KC6BJO  San Jose        KAISER HP   Not Coordinated     #o100.0e        Analog Repeater
 441.1750    446.1750    KF6FWO  San Jose        MARA        Coordinated         o103.5ar        Analog Repeater
 441.2500    446.2500    WB6WTM  Los Altos       WB6WTM      Coordinated         cel             Analog Repeater
 441.2750    446.2750    K6BEN   San Jose        W2NYC       Coordinated         celrx           Analog Repeater
 441.3000    446.3000    WB6ECE  Milpitas        WB6ECE RG   Coordinated         o100.0ex        Analog Repeater
-441.3000    446.3000    WB6ECE  San Jose        WB6ECE RG   Coordinated         o100.0elx       Analog Repeater
 441.3500    446.3500    W6PIY   San Jose        WVARA       Coordinated         o88.5aels       Analog Repeater
 441.5500    446.5500    W6VB    Cupertino       W6VB        Coordinated         caels           Analog Repeater
 441.5750    446.5750    K6IRC   Palo Alto       ARN Not     Coordinated         #celx           Analog Repeater
@@ -73,31 +64,24 @@ OUTPUT      INPUT       CALL    LOCATION        SPONSOR     STATUS              
 441.6250    446.6250    W6RCA   San Jose        W6CBS       Coordinated         clx             Analog Repeater
 441.7000    446.7000    K6UB    Los Gatos       K6UB        Coordinated         o127.3el        Analog Repeater
 441.7250    446.7250    WA6QDP  San Jose        WA6QDP      Coordinated         celx            Analog Repeater
-441.7750    446.7750    K6GOD   San Jose        K6GOD       Coordinated         ce              Analog Repeater
 441.7750    446.7750    K6GOD   San Jose        K6GOD       Coordinated         celx            Analog Repeater
 441.8250    446.8250    AD1U    Los Gatos       AD1U        Coordinated         ol              DMR Repeater
-441.8250    446.8250    AD1U    San Jose        AD1U        Coordinated         cl              Analog Repeater
 441.8500    446.8500    K6OTR   Palo Alto       SCAR        Coordinated         o114.8x         Analog Repeater
 441.9000    446.9000    W6MOW   Hollister       W6MOW       Coordinated         o110.9el        Analog Repeater
 441.9500    446.9500    KK6USZ  Saratoga        SHARG       Coordinated         o               DMR Repeater
-441.9500    446.9500    N6MPX   San Jose        MSARC       Coordinated         o100.0el        Analog Repeater
 442.0000    447.0000    WW6HP   Palo Alto       HPSVRC      Coordinated         o151.4ex        Analog Repeater
 442.0250    447.0250    K6SNC   Santa Clara     SCARS       Coordinated         o100.0rs        Analog Repeater
 442.1000    447.1000    W6JMX   Woodside        W6JMX       Coordinated         o141.3lx        Analog Repeater
 442.1250    447.1250    K6PMI   Cupertino       W5AIM       Coordinated         cesx            Analog Repeater
-442.1750    447.1750    N1UFD   San Jose        CALNET      Not Coordinated     #celx           Analog Repeater
 442.1750    447.1750    NO1PC   Campbell        CalNet      Coordinated         o100.0el        Analog Repeater
 442.2500    447.2500    KJ6ORX  Los Altos Hill  KJ6ORX      Coordinated         o100.0e         Analog Repeater
 442.3000    447.3000    K6INC   Los Gatos       SCAN INT'L  Coordinated         o114.8elx       Analog Repeater
-442.3500    447.3500    K6GOD   Cupertino       K6GOD       Coordinated         ce              Analog Repeater
-442.3500    447.3500    K6GOD   Milpitas        K6GOD       Coordinated         o100.0e         Analog Repeater
 442.3500    447.3500    K6GOD   San Jose        K6GOD       Coordinated         o123.0          Analog Repeater
 442.4250    447.4250    W6UU    San Jose        SCCARA      Coordinated         o107.2er        Analog Repeater
 442.4500    447.4500    KJ6VU   Palo Alto       NCCRA       Coordinated         celx            Analog Repeater
 442.5000    447.5000    WB6ZVW  San Jose        CPRA        Coordinated         o100.0ersx      Analog Repeater
 442.5375    447.5375    WB6PHE  New Almaden     WB6PHE      Not Coordinated     #o127.3ex       Analog Repeater
 442.5500    447.5500    K6GOD   San Jose        K6GOD       Coordinated         celx            Analog Repeater
-442.5500    447.5500    K6GOD   Santa Cruz      K6GOD       Coordinated         cex             Analog Repeater
 442.5750    447.5750    K6FB    Palo Alto       LCARC       Coordinated         o100.0elrsx     Analog Repeater
 442.7000    447.7000    N6MNV   San Jose        Rolm ARC    Coordinated         o100.0e         Analog Repeater
 442.7750    447.7750    KU6V    San Jose        KU6V        Coordinated         o131.8e         Analog Repeater
@@ -107,7 +91,6 @@ OUTPUT      INPUT       CALL    LOCATION        SPONSOR     STATUS              
 442.9500    447.9500    K6YZS   San Jose        K6YZS       Not Coordinated     #o85.4ex        Analog Repeater
 442.9750    447.9750    K7DAA   Morgan Hill     MHARS       Coordinated         o100.0elx       Analog Repeater
 443.0000    448.0000    W6OOL   Palo Alto       W6OOL       Coordinated         caex            Analog Repeater
-443.0250    448.0250    K6EXE   Milpitas        K6EXE       Coordinated         cers            Analog Repeater
 443.0250    448.0250    WA6ABB  Los Gatos       WA6ABB      Coordinated         caex            Analog Repeater
 443.0750    448.0750    K6LNK   San Jose        CARLA       Coordinated         o123.0e         Analog Repeater
 443.1250    448.1250    K6BEN   Saratoga        W2NYC       Coordinated         caelr           Analog Repeater
@@ -115,8 +98,6 @@ OUTPUT      INPUT       CALL    LOCATION        SPONSOR     STATUS              
 443.2250    448.2250    WW6BAY  Palo Alto       Bay Net     Coordinated         o100.0elx       Analog Repeater
 443.2750    448.2750    K6SNY   San Jose        SARES-RG    Coordinated         o107.2ersx      Analog Repeater
 443.3000    448.3000    AD1U    San Jose        AD1U        Coordinated         c               DMR Repeater
-443.3000    448.3000    NA6MD   Gilroy          NA6MD       Coordinated         c               Analog Repeater
-443.3000    448.3000    WA6INC  San Jose        NA6MD       Coordinated         c               Analog Repeater
 443.4250    448.4250    WA6GG   Fremont         NCARG       Coordinated         o100.0lrx       Analog Repeater
 443.4500    448.4500    K6MF    San Jose        K6MF        Coordinated         cel             Analog Repeater
 443.4750    448.4750    K6LNK   San Jose        CARLA       Coordinated         o123.0elx       Analog Repeater
@@ -133,21 +114,17 @@ OUTPUT      INPUT       CALL    LOCATION        SPONSOR     STATUS              
 443.9500    448.9500    AD1U    Los Gatos       AD1U        Coordinated         o               DMR Repeater
 444.0000    449.0000    WA6INC  San Jose        AD1U        Coordinated         c               Analog Repeater
 444.0250    449.0250    K6HLE   San Jose        AREA Repea  Coordinated         oelsx           DMR Repeater
-444.0500    449.0500    KB6FEC  San Jose        KB6FEC      Coordinated         o88.5ls         Analog Repeater
 444.0500    449.0500    KB6FEC  San Jose        AREA Repea  Coordinated         o162.2els       Analog Repeater
 444.0750    449.0750    WW6BAY  Palo Alto       Bay Net     Coordinated         oelx            Dstar Voice
-444.1000    449.1000    W1NSA   Cupertino       CCARC       Coordinated         ce              Analog Repeater
 444.1000    449.1000    W1NSA   Sunnyvale       CCARC       Coordinated         ce              Analog Repeater
 444.1750    449.1750    WA6RQX  San Jose        WA6RQX      Coordinated         o192.8elrx      Analog Repeater
 444.2250    449.2250    KE6JTK  San Jose        KE6JTK      Pending             #o131.8ae       Analog Repeater
 444.2625    449.2625    WA6HTP  San Jose        WA6HTP      Not Coordinated     #ol             DMR Repeater
-444.3000    449.3000    W7AFG   San Jose        AREA Repea  Coordinated         o162.2aers      Analog Repeater
 444.3000    449.3000    W7AFG   San Jose        AREA Repea  Coordinated         o173.8ersx      Analog Repeater
 444.3250    449.3250    WA6INC  San Jose        WA6INC      Coordinated         c               Analog Repeater
 444.3500    449.3500    WW6BAY  Palo Alto       Bay Net     Coordinated         oelx            DMR Repeater
 444.3750    449.3750    N6INC   Milpitas        N6INC       Coordinated         cl              Analog Repeater
 444.4000    449.4000    WA6YCZ  San Jose        BAYCOM      Coordinated         celx            Analog Repeater
-444.4250    449.4250    WW6BAY  Palo Alto       Bay-Net     Coordinated         o127.3ersx      Analog Repeater
 444.4250    449.4250    WW6BAY  Palo Alto       Bay-Net     Coordinated         o127.3ersx      Fusion AMS Mode
 444.4500    449.4500    WB6JSO  San Jose        WB6JSO      Coordinated         o100.0e         Analog Repeater
 444.4750    449.4750    W6OTX   San Jose        PAARA       Coordinated         oelx            DMR Repeater

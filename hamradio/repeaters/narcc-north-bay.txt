@@ -14,12 +14,8 @@ OUTPUT      INPUT   CALL    LOCATION            SPONSOR     STATUS              
 146.6700    146.0700    WA6M    Bodega Bay      WA6YGD      Coordinated         o88.5lr         Analog Repeater
 146.7000    146.1000    K6GWE   Mill Valley     ACS Not     Coordinated         #o179.9aerx     Analog Repeater
 146.7300    146.1300    K6ACS   Santa Rosa      Sonoma ACS  Coordinated         o88.5erx        Analog Repeater
-146.7750    146.1750    K6BW    Mill Valley     HWA         Coordinated         o110.9e         Analog Repeater
-146.7750    146.1750    K6BW    Novato          HWA         Not Coordinated     #o110.9e        Analog Repeater
 146.7750    146.1750    K6BW    Pt Reyes Stn    HWA         Coordinated         o151.4e         Analog Repeater
-146.7750    146.1750    N1PPP   Kelseyville     Nice Amate  Coordinated         o103.5esx       Analog Repeater
 146.7900    146.1900    K6CSR   Santa Rosa      K6CSR       Coordinated         o88.5r          Fusion AMS Mode
-146.8200    146.2200    W6BYS   Napa            NARC        Coordinated         o100.0elrx      Analog Repeater
 146.8200    146.2200    W6BYS   Napa            NARC        Coordinated         o151.4elrx      Analog Repeater
 146.8350    146.2350    KE6EAQ  Santa Rosa      SR ARES     Coordinated         o88.5es         Analog Repeater
 146.8650    146.2650    KI6SUD  Dillon Beach    OceanMarin  Coordinated         o88.5l          Analog Repeater
@@ -27,11 +23,8 @@ OUTPUT      INPUT   CALL    LOCATION            SPONSOR     STATUS              
 146.9400    146.3400    N6PHP   Santa Rosa      SMRS        Coordinated         o88.5el         Analog Repeater
 146.9700    146.3700    KI6B    Cloverdale      SMRS        Coordinated         o103.5ls        Analog Repeater
 146.9850    146.3850    W6IBC   Windsor         W6IBC       Coordinated         o88.5           Analog Repeater
-147.1800    147.7800    W6CO    Napa            SARS        Not Coordinated     #o151.4ersx     Analog Repeater
 147.1800    147.7800    W6CO    Napa            SARS        Coordinated         o91.5elrs       Analog Repeater
-147.3150    147.9150    W6SON   Santa Rosa      SCRA        Coordinated         o156.7es        Analog Repeater
 147.3150    147.9150    W6SON   Sebastopol      SCRA        Coordinated         o88.5es         Analog Repeater
-147.3300    147.9300    K6GWE   Novato          ACS Not     Coordinated         #o203.5erx      Analog Repeater
 147.3300    147.9300    K6GWE   San Rafael      ACS Not     Coordinated         #o173.8er       Analog Repeater
 147.6750    147.0750    N1PPP   Clear Lake      LCSOOESAA   Coordinated         o88.5ex         Analog Repeater
 
@@ -46,25 +39,20 @@ OUTPUT      INPUT       CALL    LOCATION        SPONSOR     STATUS              
 440.4750    445.4750    WA6FUL  Sebastopol      Wa6ful      Coordinated         o97.4           Analog Repeater
 440.6500    445.6500    KG6MZV  Novato          KG6MZV      Coordinated         ol              DMR Repeater
 440.8250    445.8250    WI6H    Laytonville     WI6H        Not Coordinated     #o114.8el       Analog Repeater
-440.9250    445.9250    KH8AF   Mill Valley     KH8AF       Coordinated         cel             Analog Repeater
 440.9250    445.9250    KH8AF   Novato          KH8AF       Coordinated         celx            Analog Repeater
-440.9250    445.9250    KH8AF   San Rafael      KH8AF       Coordinated         cel             Analog Repeater
 440.9500    445.9500    WA6FUL  Sebastopol      WA6FUL/HF   Coordinated         o123.0el        Analog Repeater
 441.1000    446.1000    WA6FUL  Sebastopol      WA6FUL      Coordinated         o192.8ers       Analog Repeater
 441.2500    446.2500    KR6BEN  Benicia         BeniciaARC  Coordinated         o100.0er        Analog Repeater
 441.3000    446.3000    KV6A    Santa Rosa      SKM         Coordinated         o88.5alrs       Analog Repeater
 441.3500    446.3500    KG6UFR  Kelseyville     CRS         Not Coordinated     #o100.0ex       Analog Repeater
-441.3750    446.3750    W6SON   Santa Rosa      SCRA        Coordinated         o114.8es        Analog Repeater
 441.3750    446.3750    W6SON   Sebastopol      SCRA        Coordinated         o88.5ers        Analog Repeater
 441.4250    446.4250    N6GJM   Kelseyville     CDF/VIP     Not Coordinated     #o100.0ex       Analog Repeater
 441.6500    446.6500    K6CSR   Santa Rosa      K6CSR       Coordinated         o88.5r          Analog Repeater
-441.6750    446.6750    WA7G    Calistoga       WIN System  Coordinated         o123.0elrx      Analog Repeater
 441.6750    446.6750    WA7G    Napa            WA7G        Coordinated         o100.0erx       Analog Repeater
 441.8000    446.8000    W6CO    Napa            SARS        Coordinated         o151.4aer       Analog Repeater
 441.9000    446.9000    W6CO    Calistoga       SARS        Coordinated         o151.4ersx      Analog Repeater
 442.1125    447.1125    K6ACS   Santa Rosa      K6ACS       Coordinated         oer             DMR Repeater
 442.1750    447.1750    KH8AF   San Rafael      KH8AF       Coordinated         cel             Analog Repeater
-442.2000    447.2000    KH8AF   Mill Valley     KH8AF       Coordinated         oelx            Analog Repeater
 442.2000    447.2000    KH8AF   Novato          KH8AF       Coordinated         celx            Analog Repeater
 442.2500    447.2500    N6TKW   Napa            HAMSEXY     Coordinated         o151.4elr       Analog Repeater
 442.3250    447.3250    N6AMG   Sebastopol      ERG         Coordinated         cel             Analog Repeater
@@ -81,14 +69,11 @@ OUTPUT      INPUT       CALL    LOCATION        SPONSOR     STATUS              
 443.6000    448.6000    KI6B    Novato          SMRS        Coordinated         celsx           Analog Repeater
 443.9000    448.9000    W6FMG   American Canyo  MARRN       Not Coordinated     #o173.8el       Analog Repeater
 444.1500    449.1500    N6PMF   Calistoga       YOP HLLS    Coordinated         celrsx          Analog Repeater
-444.1500    449.1500    WB6TMS  Willits         SMRS        Coordinated         celr            Analog Repeater
 444.1750    449.1750    N6TKW   Calistoga       NARC        Coordinated         o151.4el        Analog Repeater
 444.2250    449.2250    NI6B    Petaluma        SMRS        Coordinated         celr            Analog Repeater
 444.3750    449.3750    KD6RC   Santa Rosa      KD6RC       Coordinated         o107.2          Analog Repeater
-444.3750    449.3750    WB6RUT  Santa Rosa      WB6RUT      Not Coordinated     #clrx           Analog Repeater
 444.4750    449.4750    K6IRC   Calistoga       ARN         Not Coordinated     #celx           Analog Repeater
 444.5250    449.5250    K6ZRX   Napa            K6ZRX       Coordinated         oael            Analog Repeater
-444.5250    449.5250    WB6TMS  Pt Reyes Stn    SMRS        Coordinated         cel             Analog Repeater
 444.7250    449.7250    N6TKW   Yountville      NARC        Coordinated         o151.4es        Analog Repeater
 444.8250    449.8250    WA6TIP  Sebastopol      WA6TIP      Coordinated         o131.8          Analog Repeater
 444.9000    449.9000    KF6SZA  Santa Rosa      KF6SZA      Not Coordinated     #o88.5es        Analog Repeater
