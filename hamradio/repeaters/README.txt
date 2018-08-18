@@ -8,7 +8,7 @@ From narcc.org:
     narcc-west-bay.txt  - raw data for West Bay area
     narcc-conflicts.txt - detected conflicts
     narcc.py            - script to convert raw data
-    bay-area-from-narcc.txt - result
+    santa-clara.txt     - result
     repeaters.txt       - previous version
 
 My observations:

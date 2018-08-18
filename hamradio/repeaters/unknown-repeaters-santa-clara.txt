@@ -1,0 +1,3 @@
+OUTPUT      INPUT       CALL    LOCATION        SPONSOR     STATUS              NOTES           STATION TYPE
+145.475     -           Unkn-1  ???             ???         --                  #o              Analog Repeater
+147.870     -           Unkn-2  ???             ???         --                  #o              Analog Repeater

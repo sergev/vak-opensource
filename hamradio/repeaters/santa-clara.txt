@@ -1,0 +1,291 @@
+Channel Modulation  Activity    Name    Receive  Location
+    1   DMR                     W6OTX   144.9625 San Jose
+    2   DMR         data        K6MDD   144.975  Concord
+    3   DMR                     W6TCP   144.9875 Fremont
+    4   Dstar       data        W6CX    145.000  Concord
+    5   DMR                     W6YYY   145.0125 Pleasanton
+    6   Dstar                   K6ACS   145.040  Santa Rosa
+    7   FM                      WA6KQB  145.110  San Pablo
+    8   FM                      K6EAG   145.130  Hayward
+    9   Fusion                  W6PW    145.150  San Francisco
+   10   FM          noise       K6SNY   145.170  Sunnyvale
+   11   FM                      WA2IBM  145.190  San Jose
+   12   FM                      KB6FEC  145.210  San Jose
+   13   FM          voice       N6NFI   145.230  Palo Alto
+   14   FM                      NA6MF   145.250  Moffett Field
+   15   FM                      W6ASH   145.270  Mountain View
+   16   FM          noise       KB6LED  145.290  Berkeley
+   17   FM                      KB6FEC  145.310  San Jose
+   18   FM                      K6POU   145.330  Concord
+   19   FM                      AB6CR   145.350  Livermore
+   20   Fusion                  N6ZX    145.370  Woodside
+   21   FM                      WW6BAY  145.390  Palo Alto
+   22   FM                      WA6HAM  145.410  San Ramon
+   23   FM          voice       W6MLP   145.430  Milpitas
+   24   FM                      K6FB    145.450  Los Gatos
+   25   FM                      WB6TMS  145.470  Pt Reyes Stn
+   26   FM          voice       Unkn-1  145.475  ???
+   27   FM                      WA6HAM  145.490  Orinda
+   28   FM                      WB5NVN  146.085  Portola Valley
+   29   FM                      AA6BT   146.115  San Jose
+   30   FM                      AA6GV   146.205  Sonoma
+   31   FM                      KE6MON  146.355  San Jose
+   32   FM                      KM6EF   146.610  Union City
+   33   FM                      W6MTF   146.625  Oakland
+   34   FM          noise       WR6ABD  146.640  San Jose
+   35   FM          callsign    K6SA    146.655  Saratoga
+   36   FM          voice       N6MM    146.670  Newark
+   37   FM          voice       K6GWE   146.700  Mill Valley
+   38   FM                      W6SCF   146.730  La Honda
+   39   FM                      W6LAH   146.745  LosAltosHills
+   40   FM                      WB6OQS  146.760  San Jose
+   41   FM                      W6LLL   146.775  Livermore
+   42   FM                      W6TP    146.790  San Francisco
+   43   FM                      KC6ULT  146.805  Burlingame
+   44   FM          voice       K6INC   146.820  San Jose
+   45   FM                      WD6INC  146.835  Daly City
+   46   FM          callsign    K6LNK   146.850  Orinda
+   47   FM          noise       KC6ULT  146.865  Redwood City
+   48   FM                      WB6NDJ  146.880  Oakland
+   49   FM                      KB6FEC  146.895  San Jose
+   50   FM                      KQ6YG   146.910  Hayward
+   51   FM                      WA6TOW  146.925  Pacifica
+   52   FM                      W6HUM   146.940  Whitethorn
+   53   FM                      W6EZE   146.955  Moss Beach
+   54   FM                      WA6INC  146.970  San Jose
+   55   FM                      W6UU    146.985  San Jose
+   56   FM                      WA6PWW  147.015  Fremont
+   57   FM                      WB6KHP  147.030  San Jose
+   58   FM          callsign    W6SRR   147.045  Pleasanton
+   59   FM          voice       W6CX    147.060  Concord
+   60   FM                      WB6CKT  147.090  Belmont
+   61   FM          data        WA6DJ   147.105  Sunnyvale
+   62   FM                      AD6KV   147.120  Livermore
+   63   FM          callsign    WA6YCZ  147.150  San Jose
+   64   FM                      KB6FEC  147.165  San Jose
+   65   FM          voice,data  W6CO    147.180  Napa
+   66   FM                      WB6TCS  147.210  Oakland
+   67   FM                      W6RGG   147.240  San Leandro
+   68   FM                      KF6FWO  147.285  San Jose
+   69   FM                      N6MPX   147.300  San Mateo
+   70   FM                      KQ6RC   147.315  Hayward
+   71   FM          callsign    K7DAA   147.330  Morgan Hill
+   72   FM                      W6TI    147.360  Palo Alto
+   73   FM                      W6PIY   147.390  San Jose
+   74   FM                      WG6LEE  147.675  Saratoga
+   75   FM                      WA6HAM  147.735  Concord
+   76   FM                      W6GGF   147.825  Morgan Hill
+   77   FM          noise       WA6TEM  147.855  San Jose
+   78   FM          voice       Unkn-2  147.870  ???
+   79   FM          voice       AB6LI   147.945  Los Gatos
+   80   FM                      N3EL    147.975  Hayward
+   81   FM                      WA6FSP  440.000  Fremont
+   82   DMR                     W6PE    440.0125 Sonoma
+   83   FM                      KI6KGN  440.025  Fremont
+   84   FM                      W6YYY   440.0375 San Jose
+   85   FM                      KQ6YG   440.050  Hayward
+   86   FM                      KR6WP   440.075  Belmont
+   87   FM                      W6SMQ   440.100  San Jose
+   88   FM          data        W6AMT   440.125  Cupertino
+   89   FM                      K6SIA   440.1375 Gilroy
+   90   FM                      W6TDM   440.150  Cupertino
+   91   FM                      K6GOD   440.175  Hayward
+   92   FM                      N6BDE   440.200  Palo Alto
+   93   DMR                     K6LNK   440.2125 Walnut Creek
+   94   FM          noise       K6LLC   440.225  San Jose
+   95   FM                      N6GVI   440.250  Novato
+   96   FM          voice       W6YOP   440.275  San Jose
+   97   Dstar                   W6IOS   440.300  San Jose
+   98   FM          voice       WB6FRM  440.325  Concord
+   99   FM                      KM6EF   440.350  Oakland
+  100   FM                      N6TNR   440.375  San Jose
+  101   FM                      WB6WTM  440.400  Oakland
+  102   FM                      WA6HAM  440.425  San Ramon
+  103   DMR                     NU6P    440.4375 Saratoga
+  104   FM          test        N6ZX    440.450  Woodside
+  105   FM                      K6GOD   440.475  San Jose
+  106   FM          data        N6AMG   440.500  Daly City
+  107   P25                     KI6KGN  440.525  Los Gatos
+  108   FM                      KD7DNM  440.550  Moraga
+  109   FM                      W6VSY   440.575  San Francisco
+  110   FM                      KR6WP   440.600  South San Fran
+  111   FM                      WA6HAM  440.625  Orinda
+  112   FM                      KC6TYG  440.650  Los Gatos
+  113   FM                      K6TEA   440.675  Daly City
+  114   FM                      K6CV    440.700  Brisbane
+  115   FM                      WB6JKV  440.725  Pacifica
+  116   FM                      N6QOP   440.750  Oakland
+  117   FM                      W6ASH   440.800  Mountain View
+  118   FM                      WI6H    440.825  Berkeley
+  119   FM                      KC6IAU  440.850  Hayward
+  120   FM                      KH6N    440.875  Los Altos
+  121   FM                      N6BRK   440.900  Berkeley
+  122   FM                      KH8AF   440.925  Berkeley
+  123   FM                      KB6LED  440.950  Hayward
+  124   FM                      K6ORI   440.975  Orinda
+  125   FM          voice       NO1PC   441.025  Campbell
+  126   FM                      K6NN    441.050  Los Gatos
+  127   FM                      WA6TOW  441.075  Pacifica
+  128   FM                      K6GOD   441.100  Palo Alto
+  129   FM                      N3MMQ   441.125  Fremont
+  130   FM                      KC6BJO  441.150  San Jose
+  131   FM                      KF6FWO  441.175  San Jose
+  132   FM                      N6GVI   441.200  Concord
+  133   FM                      W6RCA   441.225  Oakland
+  134   FM                      WB6WTM  441.250  Los Altos
+  135   FM                      K6BEN   441.275  San Jose
+  136   FM                      WB6ECE  441.300  Milpitas
+  137   FM                      W6CX    441.325  Concord
+  138   FM                      W6PIY   441.350  San Jose
+  139   FM                      KC6IAU  441.375  Daly City
+  140   FM          voice       N6EOC   441.400  Oakland
+  141   FM                      W6MTF   441.425  Oakland
+  142   FM                      W6EE    441.450  San Francisco
+  143   FM                      W6YOP   441.475  Oakland
+  144   FM                      K6AIR   441.525  Los Altos Hill
+  145   FM                      W6VB    441.550  Cupertino
+  146   FM                      K6IRC   441.575  Palo Alto
+  147   FM                      N6HU    441.600  Soledad
+  148   FM          voice       W6RCA   441.625  San Jose
+  149   FM                      K6JSI   441.650  Richmond Heigh
+  150   FM                      WA7G    441.675  Napa
+  151   FM          callsign    K6UB    441.700  Los Gatos
+  152   FM                      WA6QDP  441.725  San Jose
+  153   FM                      W6YOP   441.750  Concord
+  154   FM          callsign    K6GOD   441.775  San Jose
+  155   FM                      KQ6RC   441.800  Hayward
+  156   DMR         data        AD1U    441.825  Los Gatos
+  157   FM          data        K6OTR   441.850  Palo Alto
+  158   DMR                     AH6KD   441.8875 Kensington
+  159   FM                      W6MOW   441.900  Hollister
+  160   FM                      AA6QP   441.925  Union City
+  161   DMR         data        KK6USZ  441.950  Saratoga
+  162   FM                      W6CBS   441.975  Orinda
+  163   FM                      WW6HP   442.000  Palo Alto
+  164   FM                      K6SNC   442.025  Santa Clara
+  165   FM                      WA6GG   442.050  San Francisco
+  166   FM                      K6LNK   442.075  Pleasanton
+  167   FM                      W6JMX   442.100  Woodside
+  168   DMR                     K6ACS   442.1125 Santa Rosa
+  169   FM          voice       K6PMI   442.125  Cupertino
+  170   FM                      WD6INC  442.150  Dublin
+  171   FM                      NO1PC   442.175  Campbell
+  172   FM                      KH8AF   442.200  Oakland
+  173   FM                      N6MM    442.225  Newark
+  174   FM                      KJ6ORX  442.250  Los Altos Hill
+  175   FM                      WA6ZTY  442.275  Berkeley
+  176   FM                      K6INC   442.300  Los Gatos
+  177   FM                      KD6KGE  442.325  Pescadero
+  178   FM                      K6GOD   442.350  San Jose
+  179   FM                      AB6BN   442.375  San Bruno
+  180   FM                      WB6NDJ  442.400  Oakland
+  181   FM                      W6UU    442.425  San Jose
+  182   FM          voice       KJ6VU   442.450  Palo Alto
+  183   FM                      KF6REK  442.475  Daly City
+  184   FM          callsign    WB6ZVW  442.500  San Jose
+  185   FM                      K6MFM   442.525  Walnut Creek
+  186   FM                      WB6PHE  442.5375 New Almaden
+  187   FM                      K6GOD   442.550  San Jose
+  188   FM                      K6FB    442.575  Palo Alto
+  189   FM                      WA6PWW  442.600  Fremont
+  190   FM                      W6SRR   442.625  Pleasanton
+  191   FM                      KQ6RC   442.650  Hayward
+  192   FM                      WB6UZX  442.675  Berkeley
+  193   FM                      N6MNV   442.700  San Jose
+  194   FM                      K6DJR   442.725  Berkeley
+  195   FM                      WA6RQX  442.750  Bakersfield
+  196   FM                      KU6V    442.775  San Jose
+  197   FM                      K6OTR   442.800  Palo Alto
+  198   FM                      W7AFG   442.825  San Jose
+  199   FM                      K6JDE   442.850  San Bruno
+  200   FM          data        KQ6YG   442.875  Hayward
+  201   FM          voice       WR6ABD  442.900  San Jose
+  202   FM                      W6RGG   442.925  Pleasanton
+  203   FM                      K6YZS   442.950  San Jose
+  204   DMR                     K6WL    442.9625 San Ramon
+  205   FM          voice       K7DAA   442.975  Morgan Hill
+  206   FM          noise       W6OOL   443.000  Palo Alto
+  207   FM                      WA6ABB  443.025  Los Gatos
+  208   FM          voice       N6QOP   443.050  Orinda
+  209   DMR                     N6MVT   443.0625 Walnut Creek
+  210   FM          voice       K6LNK   443.075  San Jose
+  211   FM                      W6TP    443.100  San Francisco
+  212   FM                      K6BEN   443.125  Saratoga
+  213   FM                      K6SA    443.150  Cupertino
+  214   FM                      KM6HJA  443.175  San Lorenzo
+  215   FM                      N6GVI   443.200  Oakland
+  216   FM          voice       WW6BAY  443.225  Palo Alto
+  217   FM                      K6GWE   443.250  Mill Valley
+  218   FM                      K6SNY   443.275  San Jose
+  219   DMR         data        AD1U    443.300  San Jose
+  220   FM                      K6LNK   443.325  Hayward
+  221   FM                      AC6OT   443.350  Oakland
+  222   FM                      WB6SHU  443.375  Oakland
+  223   FM          data        WA6KPX  443.400  Fremont
+  224   FM                      WA6GG   443.425  Fremont
+  225   FM          voice       K6MF    443.450  San Jose
+  226   FM                      K6LNK   443.475  San Jose
+  227   DMR         data        K6LNK   443.500  Orinda
+  228   DMR                     W6SRR   443.5125 Pleasanton
+  229   Dstar                   KJ6WZS  443.525  Gilroy
+  230   FM          voice       WB6FRM  443.550  San Jose
+  231   P25         voice       KE6STH  443.575  San Jose
+  232   FM                      KI6B    443.600  Novato
+  233   FM                      K6MSR   443.625  San Jose
+  234   FM                      K6TEA   443.650  Pleasanton
+  235   FM                      K6MSR   443.675  Los Altos
+  236   FM          voice       AC6FE   443.700  Frement Ca.
+  237   FM                      N6HWI   443.725  Fremont
+  238   FM                      NO1PC   443.750  Los Gatos
+  239   FM                      WA6GFY  443.775  San Jose
+  240   FM                      K6POU   443.800  Concord
+  241   DMR                     W6CMU   443.825  Moffett Field
+  242   FM                      W6BUG   443.850  LosAltosHills
+  243   FM                      W6MTF   443.875  Oakland
+  244   FM                      W6YL    443.900  San Jose
+  245   FM                      KG6TN   443.925  SoSanFrancisco
+  246   DMR                     AD1U    443.950  Los Gatos
+  247   FM          voice       WW6BAY  443.975  Oakland
+  248   FM                      WA6INC  444.000  San Jose
+  249   DMR         data        K6HLE   444.025  San Jose
+  250   DMR                     K6HLE   444.0375 San Jose
+  251   FM                      KB6FEC  444.050  San Jose
+  252   Dstar       data        WW6BAY  444.075  Palo Alto
+  253   FM          callsign    W1NSA   444.100  Sunnyvale
+  254   FM                      W6CBS   444.125  San Carlos
+  255   DMR                     WB6PQM  444.150  Concord
+  256   FM                      WA6RQX  444.175  San Jose
+  257   FM                      W6RGG   444.200  San Leandro
+  258   FM                      KE6JTK  444.225  San Jose
+  259   FM                      WB6TCS  444.250  Oakland
+  260   DMR                     WA6HTP  444.2625 San Jose
+  261   FM                      WA6KQB  444.275  San Pablo
+  262   FM                      W7AFG   444.300  San Jose
+  263   FM                      WA6INC  444.325  San Jose
+  264   DMR                     WW6BAY  444.350  Palo Alto
+  265   FM                      N6INC   444.375  Milpitas
+  266   FM                      WA6YCZ  444.400  San Jose
+  267   Fusion      data        WW6BAY  444.425  Palo Alto
+  268   FM                      WB6JSO  444.450  San Jose
+  269   DMR         data        W6OTX   444.475  San Jose
+  270   FM                      K6MPN   444.500  Redwood City
+  271   FM                      K6SNY   444.525  Sunnyvale
+  272   FM                      K6GOD   444.550  San Jose
+  273   FM                      W6NAD   444.575  Morgan Hill
+  274   FM                      WB6OQS  444.600  San Jose
+  275   FM                      N6NAC   444.625  San Jose
+  276   FM                      W6PUE   444.650  Oakland
+  277   FM          voice       W6RCA   444.675  Oakland
+  278   FM                      WB6KHP  444.700  San Jose
+  279   FM          voice       K6GOD   444.725  San Jose
+  280   FM                      N9JIM   444.750  Santa Clara
+  281   FM                      W6YOP   444.775  Orinda
+  282   FM                      KC6ULT  444.7875 San Mateo
+  283   FM          voice       WA6GEL  444.800  San Jose
+  284   FM                      K6EAG   444.825  Hayward
+  285   FM                      N6AMO   444.850  Monterey
+  286   DMR         data        KQ6RC   444.875  Santa Clara
+  287   FM                      KU6V    444.900  San Jose
+  288   FM                      KB6LCS  444.925  Los Gatos
+  289   FM                      KB6LED  444.950  Palo Alto
+  290   FM          voice       WB6KHP  444.975  Los Gatos
