@@ -53,6 +53,10 @@ for o, a in opts:
         usage()
         sys.exit(1)
 
+if not args:
+    usage()
+    sys.exit()
+
 #
 # Add a repeater to the list.
 #
@@ -103,7 +107,26 @@ def get_activity(mhz):
     try:
         return activity[mhz]
     except:
-        return ""
+        return "-"
+
+#
+# Get CTSS frequency from the notes.
+#
+def get_ctss(notes):
+    ctss = filter(lambda ch: ch in "0123456789.", notes)
+    if ctss:
+        return ctss
+    else:
+        return "-"
+
+#
+# Get location and open/closed status.
+#
+def get_location(r):
+    location = r['location']
+    if 'c' in r['notes']:
+        location += " (closed)"
+    return location
 
 #
 # Read and process all input files.
@@ -134,12 +157,13 @@ for filename in args:
 #
 # Print repeaters, sorted by frequency.
 #
-print "Channel Modulation  Activity    Name    Receive  Location"
-
 chan_index = 0
 for mhz in sorted(repeaters):
+    if chan_index == 0:
+        print "Channel Modulation  Activity    Name    Receive   PL     Location"
     chan_index += 1
     r = repeaters[mhz]
-    print "  %3d   %-10s  %-10s  %-6s  %-8s %s" %\
-        (chan_index, get_modulation(r['type']), get_activity(mhz), r['name'], r['freq'], r['location'])
+    print "  %3d   %-10s  %-10s  %-6s  %-8s  %-5s  %s" %\
+        (chan_index, get_modulation(r['type']), get_activity(mhz),
+         r['name'], r['freq'], get_ctss(r['notes']), get_location(r))
     #TODO: PL, voice/DMR/Fusion/Dstar
