@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #
-# Convert data from narcc.org to a readable format.
+# Convert data from narcc.org to a configuration for yaesutool.
 #
 import sys, getopt
 
@@ -8,7 +8,7 @@ import sys, getopt
 # Print usage message.
 #
 def usage():
-    print "Usage: narcc [-a activity.txt] filename.txt..."
+    print "Usage: narcc-to-yaesutool [-a activity.txt] filename.txt..."
 
 #
 # Load activity file: result of listenings.
