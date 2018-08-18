@@ -7,7 +7,7 @@ From narcc.org:
     narcc-south-bay.txt - raw data for South Bay area
     narcc-west-bay.txt  - raw data for West Bay area
     narcc-conflicts.txt - detected conflicts
-    narcc.py            - script to convert raw data
+    narcc-report.py     - script to convert raw data to a readable report
     santa-clara.txt     - result
     repeaters.txt       - previous version
 

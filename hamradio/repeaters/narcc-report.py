@@ -166,4 +166,3 @@ for mhz in sorted(repeaters):
     print "  %3d   %-10s  %-10s  %-6s  %-8s  %-5s  %s" %\
         (chan_index, get_modulation(r['type']), get_activity(mhz),
          r['name'], r['freq'], get_ctss(r['notes']), get_location(r))
-    #TODO: PL, voice/DMR/Fusion/Dstar
