@@ -209,6 +209,7 @@ for mhz in sorted(repeaters):
 
     if chan_index == 0:
         print "Channel Name    Receive  Transmit R-Squel T-Squel Power FM     Scan BCL Scode PTTID"
+        chan_index = 10
     chan_index += 1
     r = repeaters[mhz]
     print "  %3d   %-6s  %-8s %-8s    -    %5s   High  Wide   +    -   -     - # %s" %\

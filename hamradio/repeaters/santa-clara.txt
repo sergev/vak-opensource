@@ -1,291 +1,291 @@
 Channel Modulation  Activity    Name    Receive   PL     Location
-    1   DMR         -           W6OTX   144.9625  -      San Jose
-    2   DMR         data        K6MDD   144.975   -      Concord
-    3   DMR         -           W6TCP   144.9875  -      Fremont
-    4   Dstar       data        W6CX    145.000   -      Concord
-    5   DMR         -           W6YYY   145.0125  -      Pleasanton
-    6   Dstar       -           K6ACS   145.040   -      Santa Rosa
-    7   FM          -           WA6KQB  145.110   82.5   San Pablo
-    8   FM          -           K6EAG   145.130   127.3  Hayward
-    9   Fusion      -           W6PW    145.150   -      San Francisco
-   10   FM          noise       K6SNY   145.170   94.8   Sunnyvale
-   11   FM          -           WA2IBM  145.190   151.4  San Jose
-   12   FM          -           KB6FEC  145.210   114.8  San Jose
-   13   FM          voice       N6NFI   145.230   100.0  Palo Alto
-   14   FM          -           NA6MF   145.250   123.0  Moffett Field
-   15   FM          -           W6ASH   145.270   100.0  Mountain View
-   16   FM          noise       KB6LED  145.290   131.8  Berkeley
-   17   FM          -           KB6FEC  145.310   162.2  San Jose
-   18   FM          -           K6POU   145.330   100.0  Concord
-   19   FM          -           AB6CR   145.350   100.0  Livermore
-   20   Fusion      -           N6ZX    145.370   107.2  Woodside
-   21   FM          -           WW6BAY  145.390   100.0  Palo Alto
-   22   FM          -           WA6HAM  145.410   107.2  San Ramon
-   23   FM          voice       W6MLP   145.430   85.4   Milpitas
-   24   FM          -           K6FB    145.450   100.0  Los Gatos
-   25   FM          -           WB6TMS  145.470   88.5   Pt Reyes Stn
-   26   FM          voice       Unkn-1  145.475   -      ???
-   27   FM          -           WA6HAM  145.490   107.2  Orinda
-   28   FM          -           WB5NVN  146.085   100.0  Portola Valley
-   29   FM          -           AA6BT   146.115   100.0  San Jose
-   30   FM          -           AA6GV   146.205   88.5   Sonoma
-   31   FM          -           KE6MON  146.355   123.0  San Jose
-   32   FM          -           KM6EF   146.610   123.0  Union City
-   33   FM          -           W6MTF   146.625   156.7  Oakland
-   34   FM          noise       WR6ABD  146.640   162.2  San Jose
-   35   FM          callsign    K6SA    146.655   114.8  Saratoga
-   36   FM          voice       N6MM    146.670   110.9  Newark
-   37   FM          voice       K6GWE   146.700   179.9  Mill Valley
-   38   FM          -           W6SCF   146.730   114.8  La Honda
-   39   FM          -           W6LAH   146.745   110.9  LosAltosHills
-   40   FM          -           WB6OQS  146.760   151.4  San Jose
-   41   FM          -           W6LLL   146.775   100.0  Livermore
-   42   FM          -           W6TP    146.790   114.8  San Francisco
-   43   FM          -           KC6ULT  146.805   192.8  Burlingame
-   44   FM          voice       K6INC   146.820   123.0  San Jose
-   45   FM          -           WD6INC  146.835   123.0  Daly City
-   46   FM          callsign    K6LNK   146.850   103.5  Orinda
-   47   FM          noise       KC6ULT  146.865   114.8  Redwood City
-   48   FM          -           WB6NDJ  146.880   77.0   Oakland
-   49   FM          -           KB6FEC  146.895   110.9  San Jose
-   50   FM          -           KQ6YG   146.910   156.7  Hayward
-   51   FM          -           WA6TOW  146.925   114.8  Pacifica
-   52   FM          -           W6HUM   146.940   103.5  Whitethorn
-   53   FM          -           W6EZE   146.955   114.8  Moss Beach
-   54   FM          -           WA6INC  146.970   -      San Jose (closed)
-   55   FM          -           W6UU    146.985   114.8  San Jose
-   56   FM          -           WA6PWW  147.015   103.5  Fremont
-   57   FM          -           WB6KHP  147.030   107.2  San Jose
-   58   FM          callsign    W6SRR   147.045   94.8   Pleasanton
-   59   FM          voice       W6CX    147.060   100.0  Concord
-   60   FM          -           WB6CKT  147.090   100.0  Belmont
-   61   FM          data        WA6DJ   147.105   100.0  Sunnyvale
-   62   FM          -           AD6KV   147.120   100.0  Livermore
-   63   FM          callsign    WA6YCZ  147.150   -      San Jose (closed)
-   64   FM          -           KB6FEC  147.165   100.0  San Jose
-   65   FM          voice,data  W6CO    147.180   91.5   Napa
-   66   FM          -           WB6TCS  147.210   100.0  Oakland
-   67   FM          -           W6RGG   147.240   107.2  San Leandro
-   68   FM          -           KF6FWO  147.285   103.5  San Jose
-   69   FM          -           N6MPX   147.300   100.0  San Mateo
-   70   FM          -           KQ6RC   147.315   -      Hayward (closed)
-   71   FM          callsign    K7DAA   147.330   103.5  Morgan Hill
-   72   FM          -           W6TI    147.360   110.9  Palo Alto
-   73   FM          -           W6PIY   147.390   151.4  San Jose
-   74   FM          -           WG6LEE  147.675   162.2  Saratoga
-   75   FM          -           WA6HAM  147.735   107.2  Concord
-   76   FM          -           W6GGF   147.825   100.0  Morgan Hill
-   77   FM          noise       WA6TEM  147.855   100.0  San Jose
-   78   FM          voice       Unkn-2  147.870   -      ???
-   79   FM          voice       AB6LI   147.945   156.7  Los Gatos
-   80   FM          -           N3EL    147.975   162.2  Hayward
-   81   FM          -           WA6FSP  440.000   110.9  Fremont
-   82   DMR         -           W6PE    440.0125  -      Sonoma
-   83   FM          -           KI6KGN  440.025   167.9  Fremont
-   84   FM          -           W6YYY   440.0375  100.0  San Jose
-   85   FM          -           KQ6YG   440.050   156.7  Hayward
-   86   FM          -           KR6WP   440.075   114.8  Belmont
-   87   FM          -           W6SMQ   440.100   127.3  San Jose
-   88   FM          data        W6AMT   440.125   114.8  Cupertino
-   89   FM          -           K6SIA   440.1375  -      Gilroy
-   90   FM          -           W6TDM   440.150   100.0  Cupertino
-   91   FM          -           K6GOD   440.175   -      Hayward (closed)
-   92   FM          -           N6BDE   440.200   123.0  Palo Alto
-   93   DMR         -           K6LNK   440.2125  -      Walnut Creek
-   94   FM          noise       K6LLC   440.225   88.5   San Jose
-   95   FM          -           N6GVI   440.250   -      Novato (closed)
-   96   FM          voice       W6YOP   440.275   127.3  San Jose
-   97   Dstar       -           W6IOS   440.300   -      San Jose
-   98   FM          voice       WB6FRM  440.325   -      Concord (closed)
-   99   FM          -           KM6EF   440.350   123.0  Oakland
-  100   FM          -           N6TNR   440.375   -      San Jose (closed)
-  101   FM          -           WB6WTM  440.400   -      Oakland (closed)
-  102   FM          -           WA6HAM  440.425   79.7   San Ramon
-  103   DMR         -           NU6P    440.4375  -      Saratoga
-  104   FM          test        N6ZX    440.450   107.2  Woodside
-  105   FM          -           K6GOD   440.475   -      San Jose (closed)
-  106   FM          data        N6AMG   440.500   -      Daly City (closed)
-  107   P25         -           KI6KGN  440.525   146.2  Los Gatos
-  108   FM          -           KD7DNM  440.550   123.0  Moraga
-  109   FM          -           W6VSY   440.575   123.0  San Francisco
-  110   FM          -           KR6WP   440.600   -      South San Fran (closed)
-  111   FM          -           WA6HAM  440.625   79.7   Orinda
-  112   FM          -           KC6TYG  440.650   94.8   Los Gatos
-  113   FM          -           K6TEA   440.675   -      Daly City (closed)
-  114   FM          -           K6CV    440.700   -      Brisbane (closed)
-  115   FM          -           WB6JKV  440.725   114.8  Pacifica
-  116   FM          -           N6QOP   440.750   114.8  Oakland
-  117   FM          -           W6ASH   440.800   100.0  Mountain View
-  118   FM          -           WI6H    440.825   114.8  Berkeley
-  119   FM          -           KC6IAU  440.850   146.2  Hayward
-  120   FM          -           KH6N    440.875   100.0  Los Altos
-  121   FM          -           N6BRK   440.900   131.8  Berkeley
-  122   FM          -           KH8AF   440.925   -      Berkeley (closed)
-  123   FM          -           KB6LED  440.950   100.0  Hayward
-  124   FM          -           K6ORI   440.975   123.0  Orinda
-  125   FM          voice       NO1PC   441.025   110.9  Campbell
-  126   FM          -           K6NN    441.050   100.0  Los Gatos
-  127   FM          -           WA6TOW  441.075   114.8  Pacifica
-  128   FM          -           K6GOD   441.100   -      Palo Alto (closed)
-  129   FM          -           N3MMQ   441.125   100.0  Fremont
-  130   FM          -           KC6BJO  441.150   100.0  San Jose
-  131   FM          -           KF6FWO  441.175   103.5  San Jose
-  132   FM          -           N6GVI   441.200   -      Concord (closed)
-  133   FM          -           W6RCA   441.225   -      Oakland (closed)
-  134   FM          -           WB6WTM  441.250   -      Los Altos (closed)
-  135   FM          -           K6BEN   441.275   -      San Jose (closed)
-  136   FM          -           WB6ECE  441.300   100.0  Milpitas
-  137   FM          -           W6CX    441.325   100.0  Concord
-  138   FM          -           W6PIY   441.350   88.5   San Jose
-  139   FM          -           KC6IAU  441.375   146.2  Daly City
-  140   FM          voice       N6EOC   441.400   -      Oakland (closed)
-  141   FM          -           W6MTF   441.425   -      Oakland (closed)
-  142   FM          -           W6EE    441.450   85.4   San Francisco
-  143   FM          -           W6YOP   441.475   127.3  Oakland
-  144   FM          -           K6AIR   441.525   123.0  Los Altos Hill
-  145   FM          -           W6VB    441.550   -      Cupertino (closed)
-  146   FM          -           K6IRC   441.575   -      Palo Alto (closed)
-  147   FM          -           N6HU    441.600   -      Soledad (closed)
-  148   FM          voice       W6RCA   441.625   -      San Jose (closed)
-  149   FM          -           K6JSI   441.650   100.0  Richmond Heigh
-  150   FM          -           WA7G    441.675   100.0  Napa
-  151   FM          callsign    K6UB    441.700   127.3  Los Gatos
-  152   FM          -           WA6QDP  441.725   -      San Jose (closed)
-  153   FM          -           W6YOP   441.750   127.3  Concord
-  154   FM          callsign    K6GOD   441.775   -      San Jose (closed)
-  155   FM          -           KQ6RC   441.800   -      Hayward (closed)
-  156   DMR         data        AD1U    441.825   -      Los Gatos
-  157   FM          data        K6OTR   441.850   114.8  Palo Alto
-  158   DMR         -           AH6KD   441.8875  -      Kensington
-  159   FM          -           W6MOW   441.900   110.9  Hollister
-  160   FM          -           AA6QP   441.925   88.5   Union City
-  161   DMR         data        KK6USZ  441.950   -      Saratoga
-  162   FM          -           W6CBS   441.975   -      Orinda (closed)
-  163   FM          -           WW6HP   442.000   151.4  Palo Alto
-  164   FM          -           K6SNC   442.025   100.0  Santa Clara
-  165   FM          -           WA6GG   442.050   127.3  San Francisco
-  166   FM          -           K6LNK   442.075   103.5  Pleasanton
-  167   FM          -           W6JMX   442.100   141.3  Woodside
-  168   DMR         -           K6ACS   442.1125  -      Santa Rosa
-  169   FM          voice       K6PMI   442.125   -      Cupertino (closed)
-  170   FM          -           WD6INC  442.150   123.0  Dublin
-  171   FM          -           NO1PC   442.175   100.0  Campbell
-  172   FM          -           KH8AF   442.200   -      Oakland (closed)
-  173   FM          -           N6MM    442.225   110.9  Newark
-  174   FM          -           KJ6ORX  442.250   100.0  Los Altos Hill
-  175   FM          -           WA6ZTY  442.275   100.0  Berkeley
-  176   FM          -           K6INC   442.300   114.8  Los Gatos
-  177   FM          -           KD6KGE  442.325   141.3  Pescadero
-  178   FM          -           K6GOD   442.350   123.0  San Jose
-  179   FM          -           AB6BN   442.375   156.7  San Bruno
-  180   FM          -           WB6NDJ  442.400   77.0   Oakland
-  181   FM          -           W6UU    442.425   107.2  San Jose
-  182   FM          voice       KJ6VU   442.450   -      Palo Alto (closed)
-  183   FM          -           KF6REK  442.475   114.8  Daly City
-  184   FM          callsign    WB6ZVW  442.500   100.0  San Jose
-  185   FM          -           K6MFM   442.525   88.5   Walnut Creek
-  186   FM          -           WB6PHE  442.5375  127.3  New Almaden
-  187   FM          -           K6GOD   442.550   -      San Jose (closed)
-  188   FM          -           K6FB    442.575   100.0  Palo Alto
-  189   FM          -           WA6PWW  442.600   107.2  Fremont
-  190   FM          -           W6SRR   442.625   94.8   Pleasanton
-  191   FM          -           KQ6RC   442.650   -      Hayward (closed)
-  192   FM          -           WB6UZX  442.675   -      Berkeley (closed)
-  193   FM          -           N6MNV   442.700   100.0  San Jose
-  194   FM          -           K6DJR   442.725   -      Berkeley (closed)
-  195   FM          -           WA6RQX  442.750   141.3  Bakersfield
-  196   FM          -           KU6V    442.775   131.8  San Jose
-  197   FM          -           K6OTR   442.800   114.8  Palo Alto
-  198   FM          -           W7AFG   442.825   173.8  San Jose
-  199   FM          -           K6JDE   442.850   114.8  San Bruno
-  200   FM          data        KQ6YG   442.875   100.0  Hayward
-  201   FM          voice       WR6ABD  442.900   162.2  San Jose
-  202   FM          -           W6RGG   442.925   -      Pleasanton (closed)
-  203   FM          -           K6YZS   442.950   85.4   San Jose
-  204   DMR         -           K6WL    442.9625  -      San Ramon
-  205   FM          voice       K7DAA   442.975   100.0  Morgan Hill
-  206   FM          noise       W6OOL   443.000   -      Palo Alto (closed)
-  207   FM          -           WA6ABB  443.025   -      Los Gatos (closed)
-  208   FM          voice       N6QOP   443.050   114.8  Orinda
-  209   DMR         -           N6MVT   443.0625  -      Walnut Creek
-  210   FM          voice       K6LNK   443.075   123.0  San Jose
-  211   FM          -           W6TP    443.100   114.8  San Francisco
-  212   FM          -           K6BEN   443.125   -      Saratoga (closed)
-  213   FM          -           K6SA    443.150   100.0  Cupertino
-  214   FM          -           KM6HJA  443.175   162.2  San Lorenzo
-  215   FM          -           N6GVI   443.200   -      Oakland (closed)
-  216   FM          voice       WW6BAY  443.225   100.0  Palo Alto
-  217   FM          -           K6GWE   443.250   179.9  Mill Valley
-  218   FM          -           K6SNY   443.275   107.2  San Jose
-  219   DMR         data        AD1U    443.300   -      San Jose (closed)
-  220   FM          -           K6LNK   443.325   114.8  Hayward
-  221   FM          -           AC6OT   443.350   186.2  Oakland
-  222   FM          -           WB6SHU  443.375   114.8  Oakland
-  223   FM          data        WA6KPX  443.400   -      Fremont (closed)
-  224   FM          -           WA6GG   443.425   100.0  Fremont
-  225   FM          voice       K6MF    443.450   -      San Jose (closed)
-  226   FM          -           K6LNK   443.475   123.0  San Jose
-  227   DMR         data        K6LNK   443.500   -      Orinda
-  228   DMR         -           W6SRR   443.5125  -      Pleasanton
-  229   Dstar       -           KJ6WZS  443.525   123.0  Gilroy
-  230   FM          voice       WB6FRM  443.550   -      San Jose (closed)
-  231   P25         voice       KE6STH  443.575   110.9  San Jose
-  232   FM          -           KI6B    443.600   -      Novato (closed)
-  233   FM          -           K6MSR   443.625   -      San Jose (closed)
-  234   FM          -           K6TEA   443.650   -      Pleasanton (closed)
-  235   FM          -           K6MSR   443.675   -      Los Altos (closed)
-  236   FM          voice       AC6FE   443.700   -      Frement Ca. (closed)
-  237   FM          -           N6HWI   443.725   127.3  Fremont
-  238   FM          -           NO1PC   443.750   100.0  Los Gatos
-  239   FM          -           WA6GFY  443.775   100.0  San Jose
-  240   FM          -           K6POU   443.800   100.0  Concord
-  241   DMR         -           W6CMU   443.825   -      Moffett Field
-  242   FM          -           W6BUG   443.850   -      LosAltosHills (closed)
-  243   FM          -           W6MTF   443.875   -      Oakland (closed)
-  244   FM          -           W6YL    443.900   100.0  San Jose
-  245   FM          -           KG6TN   443.925   136.5  SoSanFrancisco
-  246   DMR         -           AD1U    443.950   -      Los Gatos
-  247   FM          voice       WW6BAY  443.975   100.0  Oakland
-  248   FM          -           WA6INC  444.000   -      San Jose (closed)
-  249   DMR         data        K6HLE   444.025   -      San Jose
-  250   DMR         -           K6HLE   444.0375  -      San Jose
-  251   FM          -           KB6FEC  444.050   162.2  San Jose
-  252   Dstar       data        WW6BAY  444.075   -      Palo Alto
-  253   FM          callsign    W1NSA   444.100   -      Sunnyvale (closed)
-  254   FM          -           W6CBS   444.125   -      San Carlos (closed)
-  255   DMR         -           WB6PQM  444.150   -      Concord
-  256   FM          -           WA6RQX  444.175   192.8  San Jose
-  257   FM          -           W6RGG   444.200   107.2  San Leandro
-  258   FM          -           KE6JTK  444.225   131.8  San Jose
-  259   FM          -           WB6TCS  444.250   100.0  Oakland
-  260   DMR         -           WA6HTP  444.2625  -      San Jose
-  261   FM          -           WA6KQB  444.275   82.5   San Pablo
-  262   FM          -           W7AFG   444.300   173.8  San Jose
-  263   FM          -           WA6INC  444.325   -      San Jose (closed)
-  264   DMR         -           WW6BAY  444.350   -      Palo Alto
-  265   FM          -           N6INC   444.375   -      Milpitas (closed)
-  266   FM          -           WA6YCZ  444.400   -      San Jose (closed)
-  267   Fusion      data        WW6BAY  444.425   127.3  Palo Alto
-  268   FM          -           WB6JSO  444.450   100.0  San Jose
-  269   DMR         data        W6OTX   444.475   -      San Jose
-  270   FM          -           K6MPN   444.500   100.0  Redwood City
-  271   FM          -           K6SNY   444.525   94.8   Sunnyvale
-  272   FM          -           K6GOD   444.550   -      San Jose (closed)
-  273   FM          -           W6NAD   444.575   -      Morgan Hill (closed)
-  274   FM          -           WB6OQS  444.600   141.3  San Jose
-  275   FM          -           N6NAC   444.625   110.9  San Jose
-  276   FM          -           W6PUE   444.650   -      Oakland (closed)
-  277   FM          voice       W6RCA   444.675   -      Oakland (closed)
-  278   FM          -           WB6KHP  444.700   127.3  San Jose
-  279   FM          voice       K6GOD   444.725   162.2  San Jose
-  280   FM          -           N9JIM   444.750   100.0  Santa Clara
-  281   FM          -           W6YOP   444.775   127.3  Orinda
-  282   FM          -           KC6ULT  444.7875  -      San Mateo (closed)
-  283   FM          voice       WA6GEL  444.800   -      San Jose (closed)
-  284   FM          -           K6EAG   444.825   127.3  Hayward
-  285   FM          -           N6AMO   444.850   110.9  Monterey
-  286   DMR         data        KQ6RC   444.875   -      Santa Clara (closed)
-  287   FM          -           KU6V    444.900   110.9  San Jose
-  288   FM          -           KB6LCS  444.925   156.7  Los Gatos
-  289   FM          -           KB6LED  444.950   162.2  Palo Alto
-  290   FM          voice       WB6KHP  444.975   127.3  Los Gatos
+   11   DMR         -           W6OTX   144.9625  -      San Jose
+   12   DMR         data        K6MDD   144.975   -      Concord
+   13   DMR         -           W6TCP   144.9875  -      Fremont
+   14   Dstar       data        W6CX    145.000   -      Concord
+   15   DMR         -           W6YYY   145.0125  -      Pleasanton
+   16   Dstar       -           K6ACS   145.040   -      Santa Rosa
+   17   FM          -           WA6KQB  145.110   82.5   San Pablo
+   18   FM          -           K6EAG   145.130   127.3  Hayward
+   19   Fusion      -           W6PW    145.150   -      San Francisco
+   20   FM          noise       K6SNY   145.170   94.8   Sunnyvale
+   21   FM          -           WA2IBM  145.190   151.4  San Jose
+   22   FM          -           KB6FEC  145.210   114.8  San Jose
+   23   FM          voice       N6NFI   145.230   100.0  Palo Alto
+   24   FM          -           NA6MF   145.250   123.0  Moffett Field
+   25   FM          -           W6ASH   145.270   100.0  Mountain View
+   26   FM          noise       KB6LED  145.290   131.8  Berkeley
+   27   FM          -           KB6FEC  145.310   162.2  San Jose
+   28   FM          -           K6POU   145.330   100.0  Concord
+   29   FM          -           AB6CR   145.350   100.0  Livermore
+   30   Fusion      -           N6ZX    145.370   107.2  Woodside
+   31   FM          -           WW6BAY  145.390   100.0  Palo Alto
+   32   FM          -           WA6HAM  145.410   107.2  San Ramon
+   33   FM          voice       W6MLP   145.430   85.4   Milpitas
+   34   FM          -           K6FB    145.450   100.0  Los Gatos
+   35   FM          -           WB6TMS  145.470   88.5   Pt Reyes Stn
+   36   FM          voice       Unkn-1  145.475   -      ???
+   37   FM          -           WA6HAM  145.490   107.2  Orinda
+   38   FM          -           WB5NVN  146.085   100.0  Portola Valley
+   39   FM          -           AA6BT   146.115   100.0  San Jose
+   40   FM          -           AA6GV   146.205   88.5   Sonoma
+   41   FM          -           KE6MON  146.355   123.0  San Jose
+   42   FM          -           KM6EF   146.610   123.0  Union City
+   43   FM          -           W6MTF   146.625   156.7  Oakland
+   44   FM          noise       WR6ABD  146.640   162.2  San Jose
+   45   FM          callsign    K6SA    146.655   114.8  Saratoga
+   46   FM          voice       N6MM    146.670   110.9  Newark
+   47   FM          voice       K6GWE   146.700   179.9  Mill Valley
+   48   FM          -           W6SCF   146.730   114.8  La Honda
+   49   FM          -           W6LAH   146.745   110.9  LosAltosHills
+   50   FM          -           WB6OQS  146.760   151.4  San Jose
+   51   FM          -           W6LLL   146.775   100.0  Livermore
+   52   FM          -           W6TP    146.790   114.8  San Francisco
+   53   FM          -           KC6ULT  146.805   192.8  Burlingame
+   54   FM          voice       K6INC   146.820   123.0  San Jose
+   55   FM          -           WD6INC  146.835   123.0  Daly City
+   56   FM          callsign    K6LNK   146.850   103.5  Orinda
+   57   FM          noise       KC6ULT  146.865   114.8  Redwood City
+   58   FM          -           WB6NDJ  146.880   77.0   Oakland
+   59   FM          -           KB6FEC  146.895   110.9  San Jose
+   60   FM          -           KQ6YG   146.910   156.7  Hayward
+   61   FM          -           WA6TOW  146.925   114.8  Pacifica
+   62   FM          -           W6HUM   146.940   103.5  Whitethorn
+   63   FM          -           W6EZE   146.955   114.8  Moss Beach
+   64   FM          -           WA6INC  146.970   -      San Jose (closed)
+   65   FM          -           W6UU    146.985   114.8  San Jose
+   66   FM          -           WA6PWW  147.015   103.5  Fremont
+   67   FM          -           WB6KHP  147.030   107.2  San Jose
+   68   FM          callsign    W6SRR   147.045   94.8   Pleasanton
+   69   FM          voice       W6CX    147.060   100.0  Concord
+   70   FM          -           WB6CKT  147.090   100.0  Belmont
+   71   FM          data        WA6DJ   147.105   100.0  Sunnyvale
+   72   FM          -           AD6KV   147.120   100.0  Livermore
+   73   FM          callsign    WA6YCZ  147.150   -      San Jose (closed)
+   74   FM          -           KB6FEC  147.165   100.0  San Jose
+   75   FM          voice,data  W6CO    147.180   91.5   Napa
+   76   FM          -           WB6TCS  147.210   100.0  Oakland
+   77   FM          -           W6RGG   147.240   107.2  San Leandro
+   78   FM          -           KF6FWO  147.285   103.5  San Jose
+   79   FM          -           N6MPX   147.300   100.0  San Mateo
+   80   FM          -           KQ6RC   147.315   -      Hayward (closed)
+   81   FM          callsign    K7DAA   147.330   103.5  Morgan Hill
+   82   FM          -           W6TI    147.360   110.9  Palo Alto
+   83   FM          -           W6PIY   147.390   151.4  San Jose
+   84   FM          -           WG6LEE  147.675   162.2  Saratoga
+   85   FM          -           WA6HAM  147.735   107.2  Concord
+   86   FM          -           W6GGF   147.825   100.0  Morgan Hill
+   87   FM          noise       WA6TEM  147.855   100.0  San Jose
+   88   FM          voice       Unkn-2  147.870   -      ???
+   89   FM          voice       AB6LI   147.945   156.7  Los Gatos
+   90   FM          -           N3EL    147.975   162.2  Hayward
+   91   FM          -           WA6FSP  440.000   110.9  Fremont
+   92   DMR         -           W6PE    440.0125  -      Sonoma
+   93   FM          -           KI6KGN  440.025   167.9  Fremont
+   94   FM          -           W6YYY   440.0375  100.0  San Jose
+   95   FM          -           KQ6YG   440.050   156.7  Hayward
+   96   FM          -           KR6WP   440.075   114.8  Belmont
+   97   FM          -           W6SMQ   440.100   127.3  San Jose
+   98   FM          data        W6AMT   440.125   114.8  Cupertino
+   99   FM          -           K6SIA   440.1375  -      Gilroy
+  100   FM          -           W6TDM   440.150   100.0  Cupertino
+  101   FM          -           K6GOD   440.175   -      Hayward (closed)
+  102   FM          -           N6BDE   440.200   123.0  Palo Alto
+  103   DMR         -           K6LNK   440.2125  -      Walnut Creek
+  104   FM          noise       K6LLC   440.225   88.5   San Jose
+  105   FM          -           N6GVI   440.250   -      Novato (closed)
+  106   FM          voice       W6YOP   440.275   127.3  San Jose
+  107   Dstar       -           W6IOS   440.300   -      San Jose
+  108   FM          voice       WB6FRM  440.325   -      Concord (closed)
+  109   FM          -           KM6EF   440.350   123.0  Oakland
+  110   FM          -           N6TNR   440.375   -      San Jose (closed)
+  111   FM          -           WB6WTM  440.400   -      Oakland (closed)
+  112   FM          -           WA6HAM  440.425   79.7   San Ramon
+  113   DMR         -           NU6P    440.4375  -      Saratoga
+  114   FM          test        N6ZX    440.450   107.2  Woodside
+  115   FM          -           K6GOD   440.475   -      San Jose (closed)
+  116   FM          data        N6AMG   440.500   -      Daly City (closed)
+  117   P25         -           KI6KGN  440.525   146.2  Los Gatos
+  118   FM          -           KD7DNM  440.550   123.0  Moraga
+  119   FM          -           W6VSY   440.575   123.0  San Francisco
+  120   FM          -           KR6WP   440.600   -      South San Fran (closed)
+  121   FM          -           WA6HAM  440.625   79.7   Orinda
+  122   FM          -           KC6TYG  440.650   94.8   Los Gatos
+  123   FM          -           K6TEA   440.675   -      Daly City (closed)
+  124   FM          -           K6CV    440.700   -      Brisbane (closed)
+  125   FM          -           WB6JKV  440.725   114.8  Pacifica
+  126   FM          -           N6QOP   440.750   114.8  Oakland
+  127   FM          -           W6ASH   440.800   100.0  Mountain View
+  128   FM          -           WI6H    440.825   114.8  Berkeley
+  129   FM          -           KC6IAU  440.850   146.2  Hayward
+  130   FM          -           KH6N    440.875   100.0  Los Altos
+  131   FM          -           N6BRK   440.900   131.8  Berkeley
+  132   FM          -           KH8AF   440.925   -      Berkeley (closed)
+  133   FM          -           KB6LED  440.950   100.0  Hayward
+  134   FM          -           K6ORI   440.975   123.0  Orinda
+  135   FM          voice       NO1PC   441.025   110.9  Campbell
+  136   FM          -           K6NN    441.050   100.0  Los Gatos
+  137   FM          -           WA6TOW  441.075   114.8  Pacifica
+  138   FM          -           K6GOD   441.100   -      Palo Alto (closed)
+  139   FM          -           N3MMQ   441.125   100.0  Fremont
+  140   FM          -           KC6BJO  441.150   100.0  San Jose
+  141   FM          -           KF6FWO  441.175   103.5  San Jose
+  142   FM          -           N6GVI   441.200   -      Concord (closed)
+  143   FM          -           W6RCA   441.225   -      Oakland (closed)
+  144   FM          -           WB6WTM  441.250   -      Los Altos (closed)
+  145   FM          -           K6BEN   441.275   -      San Jose (closed)
+  146   FM          -           WB6ECE  441.300   100.0  Milpitas
+  147   FM          -           W6CX    441.325   100.0  Concord
+  148   FM          -           W6PIY   441.350   88.5   San Jose
+  149   FM          -           KC6IAU  441.375   146.2  Daly City
+  150   FM          voice       N6EOC   441.400   -      Oakland (closed)
+  151   FM          -           W6MTF   441.425   -      Oakland (closed)
+  152   FM          -           W6EE    441.450   85.4   San Francisco
+  153   FM          -           W6YOP   441.475   127.3  Oakland
+  154   FM          -           K6AIR   441.525   123.0  Los Altos Hill
+  155   FM          -           W6VB    441.550   -      Cupertino (closed)
+  156   FM          -           K6IRC   441.575   -      Palo Alto (closed)
+  157   FM          -           N6HU    441.600   -      Soledad (closed)
+  158   FM          voice       W6RCA   441.625   -      San Jose (closed)
+  159   FM          -           K6JSI   441.650   100.0  Richmond Heigh
+  160   FM          -           WA7G    441.675   100.0  Napa
+  161   FM          callsign    K6UB    441.700   127.3  Los Gatos
+  162   FM          -           WA6QDP  441.725   -      San Jose (closed)
+  163   FM          -           W6YOP   441.750   127.3  Concord
+  164   FM          callsign    K6GOD   441.775   -      San Jose (closed)
+  165   FM          -           KQ6RC   441.800   -      Hayward (closed)
+  166   DMR         data        AD1U    441.825   -      Los Gatos
+  167   FM          data        K6OTR   441.850   114.8  Palo Alto
+  168   DMR         -           AH6KD   441.8875  -      Kensington
+  169   FM          -           W6MOW   441.900   110.9  Hollister
+  170   FM          -           AA6QP   441.925   88.5   Union City
+  171   DMR         data        KK6USZ  441.950   -      Saratoga
+  172   FM          -           W6CBS   441.975   -      Orinda (closed)
+  173   FM          -           WW6HP   442.000   151.4  Palo Alto
+  174   FM          -           K6SNC   442.025   100.0  Santa Clara
+  175   FM          -           WA6GG   442.050   127.3  San Francisco
+  176   FM          -           K6LNK   442.075   103.5  Pleasanton
+  177   FM          -           W6JMX   442.100   141.3  Woodside
+  178   DMR         -           K6ACS   442.1125  -      Santa Rosa
+  179   FM          voice       K6PMI   442.125   -      Cupertino (closed)
+  180   FM          -           WD6INC  442.150   123.0  Dublin
+  181   FM          -           NO1PC   442.175   100.0  Campbell
+  182   FM          -           KH8AF   442.200   -      Oakland (closed)
+  183   FM          -           N6MM    442.225   110.9  Newark
+  184   FM          -           KJ6ORX  442.250   100.0  Los Altos Hill
+  185   FM          -           WA6ZTY  442.275   100.0  Berkeley
+  186   FM          -           K6INC   442.300   114.8  Los Gatos
+  187   FM          -           KD6KGE  442.325   141.3  Pescadero
+  188   FM          -           K6GOD   442.350   123.0  San Jose
+  189   FM          -           AB6BN   442.375   156.7  San Bruno
+  190   FM          -           WB6NDJ  442.400   77.0   Oakland
+  191   FM          -           W6UU    442.425   107.2  San Jose
+  192   FM          voice       KJ6VU   442.450   -      Palo Alto (closed)
+  193   FM          -           KF6REK  442.475   114.8  Daly City
+  194   FM          callsign    WB6ZVW  442.500   100.0  San Jose
+  195   FM          -           K6MFM   442.525   88.5   Walnut Creek
+  196   FM          -           WB6PHE  442.5375  127.3  New Almaden
+  197   FM          -           K6GOD   442.550   -      San Jose (closed)
+  198   FM          -           K6FB    442.575   100.0  Palo Alto
+  199   FM          -           WA6PWW  442.600   107.2  Fremont
+  200   FM          -           W6SRR   442.625   94.8   Pleasanton
+  201   FM          -           KQ6RC   442.650   -      Hayward (closed)
+  202   FM          -           WB6UZX  442.675   -      Berkeley (closed)
+  203   FM          -           N6MNV   442.700   100.0  San Jose
+  204   FM          -           K6DJR   442.725   -      Berkeley (closed)
+  205   FM          -           WA6RQX  442.750   141.3  Bakersfield
+  206   FM          -           KU6V    442.775   131.8  San Jose
+  207   FM          -           K6OTR   442.800   114.8  Palo Alto
+  208   FM          -           W7AFG   442.825   173.8  San Jose
+  209   FM          -           K6JDE   442.850   114.8  San Bruno
+  210   FM          data        KQ6YG   442.875   100.0  Hayward
+  211   FM          voice       WR6ABD  442.900   162.2  San Jose
+  212   FM          -           W6RGG   442.925   -      Pleasanton (closed)
+  213   FM          -           K6YZS   442.950   85.4   San Jose
+  214   DMR         -           K6WL    442.9625  -      San Ramon
+  215   FM          voice       K7DAA   442.975   100.0  Morgan Hill
+  216   FM          noise       W6OOL   443.000   -      Palo Alto (closed)
+  217   FM          -           WA6ABB  443.025   -      Los Gatos (closed)
+  218   FM          voice       N6QOP   443.050   114.8  Orinda
+  219   DMR         -           N6MVT   443.0625  -      Walnut Creek
+  220   FM          voice       K6LNK   443.075   123.0  San Jose
+  221   FM          -           W6TP    443.100   114.8  San Francisco
+  222   FM          -           K6BEN   443.125   -      Saratoga (closed)
+  223   FM          -           K6SA    443.150   100.0  Cupertino
+  224   FM          -           KM6HJA  443.175   162.2  San Lorenzo
+  225   FM          -           N6GVI   443.200   -      Oakland (closed)
+  226   FM          voice       WW6BAY  443.225   100.0  Palo Alto
+  227   FM          -           K6GWE   443.250   179.9  Mill Valley
+  228   FM          -           K6SNY   443.275   107.2  San Jose
+  229   DMR         data        AD1U    443.300   -      San Jose (closed)
+  230   FM          -           K6LNK   443.325   114.8  Hayward
+  231   FM          -           AC6OT   443.350   186.2  Oakland
+  232   FM          -           WB6SHU  443.375   114.8  Oakland
+  233   FM          data        WA6KPX  443.400   -      Fremont (closed)
+  234   FM          -           WA6GG   443.425   100.0  Fremont
+  235   FM          voice       K6MF    443.450   -      San Jose (closed)
+  236   FM          -           K6LNK   443.475   123.0  San Jose
+  237   DMR         data        K6LNK   443.500   -      Orinda
+  238   DMR         -           W6SRR   443.5125  -      Pleasanton
+  239   Dstar       -           KJ6WZS  443.525   123.0  Gilroy
+  240   FM          voice       WB6FRM  443.550   -      San Jose (closed)
+  241   P25         voice       KE6STH  443.575   110.9  San Jose
+  242   FM          -           KI6B    443.600   -      Novato (closed)
+  243   FM          -           K6MSR   443.625   -      San Jose (closed)
+  244   FM          -           K6TEA   443.650   -      Pleasanton (closed)
+  245   FM          -           K6MSR   443.675   -      Los Altos (closed)
+  246   FM          voice       AC6FE   443.700   -      Frement Ca. (closed)
+  247   FM          -           N6HWI   443.725   127.3  Fremont
+  248   FM          -           NO1PC   443.750   100.0  Los Gatos
+  249   FM          -           WA6GFY  443.775   100.0  San Jose
+  250   FM          -           K6POU   443.800   100.0  Concord
+  251   DMR         -           W6CMU   443.825   -      Moffett Field
+  252   FM          -           W6BUG   443.850   -      LosAltosHills (closed)
+  253   FM          -           W6MTF   443.875   -      Oakland (closed)
+  254   FM          -           W6YL    443.900   100.0  San Jose
+  255   FM          -           KG6TN   443.925   136.5  SoSanFrancisco
+  256   DMR         -           AD1U    443.950   -      Los Gatos
+  257   FM          voice       WW6BAY  443.975   100.0  Oakland
+  258   FM          -           WA6INC  444.000   -      San Jose (closed)
+  259   DMR         data        K6HLE   444.025   -      San Jose
+  260   DMR         -           K6HLE   444.0375  -      San Jose
+  261   FM          -           KB6FEC  444.050   162.2  San Jose
+  262   Dstar       data        WW6BAY  444.075   -      Palo Alto
+  263   FM          callsign    W1NSA   444.100   -      Sunnyvale (closed)
+  264   FM          -           W6CBS   444.125   -      San Carlos (closed)
+  265   DMR         -           WB6PQM  444.150   -      Concord
+  266   FM          -           WA6RQX  444.175   192.8  San Jose
+  267   FM          -           W6RGG   444.200   107.2  San Leandro
+  268   FM          -           KE6JTK  444.225   131.8  San Jose
+  269   FM          -           WB6TCS  444.250   100.0  Oakland
+  270   DMR         -           WA6HTP  444.2625  -      San Jose
+  271   FM          -           WA6KQB  444.275   82.5   San Pablo
+  272   FM          -           W7AFG   444.300   173.8  San Jose
+  273   FM          -           WA6INC  444.325   -      San Jose (closed)
+  274   DMR         -           WW6BAY  444.350   -      Palo Alto
+  275   FM          -           N6INC   444.375   -      Milpitas (closed)
+  276   FM          -           WA6YCZ  444.400   -      San Jose (closed)
+  277   Fusion      data        WW6BAY  444.425   127.3  Palo Alto
+  278   FM          -           WB6JSO  444.450   100.0  San Jose
+  279   DMR         data        W6OTX   444.475   -      San Jose
+  280   FM          -           K6MPN   444.500   100.0  Redwood City
+  281   FM          -           K6SNY   444.525   94.8   Sunnyvale
+  282   FM          -           K6GOD   444.550   -      San Jose (closed)
+  283   FM          -           W6NAD   444.575   -      Morgan Hill (closed)
+  284   FM          -           WB6OQS  444.600   141.3  San Jose
+  285   FM          -           N6NAC   444.625   110.9  San Jose
+  286   FM          -           W6PUE   444.650   -      Oakland (closed)
+  287   FM          voice       W6RCA   444.675   -      Oakland (closed)
+  288   FM          -           WB6KHP  444.700   127.3  San Jose
+  289   FM          voice       K6GOD   444.725   162.2  San Jose
+  290   FM          -           N9JIM   444.750   100.0  Santa Clara
+  291   FM          -           W6YOP   444.775   127.3  Orinda
+  292   FM          -           KC6ULT  444.7875  -      San Mateo (closed)
+  293   FM          voice       WA6GEL  444.800   -      San Jose (closed)
+  294   FM          -           K6EAG   444.825   127.3  Hayward
+  295   FM          -           N6AMO   444.850   110.9  Monterey
+  296   DMR         data        KQ6RC   444.875   -      Santa Clara (closed)
+  297   FM          -           KU6V    444.900   110.9  San Jose
+  298   FM          -           KB6LCS  444.925   156.7  Los Gatos
+  299   FM          -           KB6LED  444.950   162.2  Palo Alto
+  300   FM          voice       WB6KHP  444.975   127.3  Los Gatos

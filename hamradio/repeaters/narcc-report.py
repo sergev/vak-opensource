@@ -161,6 +161,7 @@ chan_index = 0
 for mhz in sorted(repeaters):
     if chan_index == 0:
         print "Channel Modulation  Activity    Name    Receive   PL     Location"
+        chan_index = 10
     chan_index += 1
     r = repeaters[mhz]
     print "  %3d   %-10s  %-10s  %-6s  %-8s  %-5s  %s" %\
