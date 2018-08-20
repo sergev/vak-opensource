@@ -31,7 +31,7 @@ Channel Modulation  Activity    Name    Receive   PL     Location
    40   FM          -           AA6GV   146.205   88.5   Sonoma
    41   FM          -           KE6MON  146.355   123.0  San Jose
    42   FM          -           KM6EF   146.610   123.0  Union City
-   43   FM          -           W6MTF   146.625   156.7  Oakland
+   43   FM          -           KE6MNJ  146.625   114.8  Pescadero
    44   FM          noise       WR6ABD  146.640   162.2  San Jose
    45   FM          callsign    K6SA    146.655   114.8  Saratoga
    46   FM          voice       N6MM    146.670   110.9  Newark
@@ -48,9 +48,9 @@ Channel Modulation  Activity    Name    Receive   PL     Location
    57   FM          noise       KC6ULT  146.865   114.8  Redwood City
    58   FM          -           WB6NDJ  146.880   77.0   Oakland
    59   FM          -           KB6FEC  146.895   110.9  San Jose
-   60   FM          -           KQ6YG   146.910   156.7  Hayward
+   60   FM          -           K6JDE   146.910   114.8  Daly City
    61   FM          -           WA6TOW  146.925   114.8  Pacifica
-   62   FM          -           W6HUM   146.940   103.5  Whitethorn
+   62   FM          -           K6AIR   146.940   123.0  Los Altos Hill
    63   FM          -           W6EZE   146.955   114.8  Moss Beach
    64   FM          -           WA6INC  146.970   -      San Jose (closed)
    65   FM          -           W6UU    146.985   114.8  San Jose
@@ -81,7 +81,7 @@ Channel Modulation  Activity    Name    Receive   PL     Location
    90   FM          -           N3EL    147.975   162.2  Hayward
    91   FM          -           WA6FSP  440.000   110.9  Fremont
    92   DMR         -           W6PE    440.0125  -      Sonoma
-   93   FM          -           KI6KGN  440.025   167.9  Fremont
+   93   FM          -           N6TZE   440.025   114.8  Pacifica
    94   FM          -           W6YYY   440.0375  100.0  San Jose
    95   FM          -           KQ6YG   440.050   156.7  Hayward
    96   FM          -           KR6WP   440.075   114.8  Belmont
@@ -99,14 +99,14 @@ Channel Modulation  Activity    Name    Receive   PL     Location
   108   FM          voice       WB6FRM  440.325   -      Concord (closed)
   109   FM          -           KM6EF   440.350   123.0  Oakland
   110   FM          -           N6TNR   440.375   -      San Jose (closed)
-  111   FM          -           WB6WTM  440.400   -      Oakland (closed)
+  111   FM          -           WB6WTM  440.400   127.3  Redwood City
   112   FM          -           WA6HAM  440.425   79.7   San Ramon
   113   DMR         -           NU6P    440.4375  -      Saratoga
   114   FM          test        N6ZX    440.450   107.2  Woodside
   115   FM          -           K6GOD   440.475   -      San Jose (closed)
   116   FM          data        N6AMG   440.500   -      Daly City (closed)
   117   P25         -           KI6KGN  440.525   146.2  Los Gatos
-  118   FM          -           KD7DNM  440.550   123.0  Moraga
+  118   Fusion      -           K6PVJ   440.550   114.8  San Bruno
   119   FM          -           W6VSY   440.575   123.0  San Francisco
   120   FM          -           KR6WP   440.600   -      South San Fran (closed)
   121   FM          -           WA6HAM  440.625   79.7   Orinda
@@ -116,12 +116,12 @@ Channel Modulation  Activity    Name    Receive   PL     Location
   125   FM          -           WB6JKV  440.725   114.8  Pacifica
   126   FM          -           N6QOP   440.750   114.8  Oakland
   127   FM          -           W6ASH   440.800   100.0  Mountain View
-  128   FM          -           WI6H    440.825   114.8  Berkeley
+  128   FM          -           WI6H    440.825   114.8  San Francisco
   129   FM          -           KC6IAU  440.850   146.2  Hayward
   130   FM          -           KH6N    440.875   100.0  Los Altos
   131   FM          -           N6BRK   440.900   131.8  Berkeley
   132   FM          -           KH8AF   440.925   -      Berkeley (closed)
-  133   FM          -           KB6LED  440.950   100.0  Hayward
+  133   FM          -           KB6LED  440.950   162.2  Woodside
   134   FM          -           K6ORI   440.975   123.0  Orinda
   135   FM          voice       NO1PC   441.025   110.9  Campbell
   136   FM          -           K6NN    441.050   100.0  Los Gatos
@@ -138,7 +138,7 @@ Channel Modulation  Activity    Name    Receive   PL     Location
   147   FM          -           W6CX    441.325   100.0  Concord
   148   FM          -           W6PIY   441.350   88.5   San Jose
   149   FM          -           KC6IAU  441.375   146.2  Daly City
-  150   FM          voice       N6EOC   441.400   -      Oakland (closed)
+  150   FM          voice       WD6GGW  441.400   114.8  Redwood City
   151   FM          -           W6MTF   441.425   -      Oakland (closed)
   152   FM          -           W6EE    441.450   85.4   San Francisco
   153   FM          -           W6YOP   441.475   127.3  Oakland
@@ -147,7 +147,7 @@ Channel Modulation  Activity    Name    Receive   PL     Location
   156   FM          -           K6IRC   441.575   -      Palo Alto (closed)
   157   FM          -           N6HU    441.600   -      Soledad (closed)
   158   FM          voice       W6RCA   441.625   -      San Jose (closed)
-  159   FM          -           K6JSI   441.650   100.0  Richmond Heigh
+  159   FM          -           W6FBK   441.650   162.2  Menlo Park
   160   FM          -           WA7G    441.675   100.0  Napa
   161   FM          callsign    K6UB    441.700   127.3  Los Gatos
   162   FM          -           WA6QDP  441.725   -      San Jose (closed)
@@ -164,7 +164,7 @@ Channel Modulation  Activity    Name    Receive   PL     Location
   173   FM          -           WW6HP   442.000   151.4  Palo Alto
   174   FM          -           K6SNC   442.025   100.0  Santa Clara
   175   FM          -           WA6GG   442.050   127.3  San Francisco
-  176   FM          -           K6LNK   442.075   103.5  Pleasanton
+  176   FM          -           N6MVT   442.075   100.0  San Francisco
   177   FM          -           W6JMX   442.100   141.3  Woodside
   178   DMR         -           K6ACS   442.1125  -      Santa Rosa
   179   FM          voice       K6PMI   442.125   -      Cupertino (closed)
@@ -193,7 +193,7 @@ Channel Modulation  Activity    Name    Receive   PL     Location
   202   FM          -           WB6UZX  442.675   -      Berkeley (closed)
   203   FM          -           N6MNV   442.700   100.0  San Jose
   204   FM          -           K6DJR   442.725   -      Berkeley (closed)
-  205   FM          -           WA6RQX  442.750   141.3  Bakersfield
+  205   DMR         -           W6BUR   442.750   -      Daly City (closed)
   206   FM          -           KU6V    442.775   131.8  San Jose
   207   FM          -           K6OTR   442.800   114.8  Palo Alto
   208   FM          -           W7AFG   442.825   173.8  San Jose
@@ -275,7 +275,7 @@ Channel Modulation  Activity    Name    Receive   PL     Location
   284   FM          -           WB6OQS  444.600   141.3  San Jose
   285   FM          -           N6NAC   444.625   110.9  San Jose
   286   FM          -           W6PUE   444.650   -      Oakland (closed)
-  287   FM          voice       W6RCA   444.675   -      Oakland (closed)
+  287   FM          voice       K6JDE   444.675   114.8  Belmont
   288   FM          -           WB6KHP  444.700   127.3  San Jose
   289   FM          voice       K6GOD   444.725   162.2  San Jose
   290   FM          -           N9JIM   444.750   100.0  Santa Clara

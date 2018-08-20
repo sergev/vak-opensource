@@ -1,5 +1,6 @@
 #
 # Results of my listening and scanning the ham bands.
+# Location: Santa Clara
 #
 Index   Data        Frequency   Activity
     1   2018-08-16  144.975     data

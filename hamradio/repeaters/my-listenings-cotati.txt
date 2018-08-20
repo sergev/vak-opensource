@@ -1,0 +1,11 @@
+#
+# Results of my listening and scanning the ham bands.
+# Location: Cotati
+#
+Index   Data        Frequency   Activity
+    1   2018-08-18  145.040     data
+    1   2018-08-18  145.490     voice
+    1   2018-08-18  146.850     callsign
+    1   2018-08-18  440.125     data
+    1   2018-08-18  440.950     data
+    1   2018-08-18  442.1125    data
