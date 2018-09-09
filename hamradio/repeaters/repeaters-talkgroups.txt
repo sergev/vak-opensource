@@ -1,5 +1,3 @@
-444.350 - WW6BAY - Palo Alto (Bay-Net 7) - CC1
-
 NorCal-DMR Network
 ~~~~~~~~~~~~~~~~~~
 144.975 - K6MDD - Mt Diablo (NorCal) - CC1
@@ -7,83 +5,89 @@ NorCal-DMR Network
     BM = BrandMeister
     CB = C-Bridge
 
-    Group Name          Group ID    Time Slot   Network     Type
-------------------------------------------------------------------------
-1   Local               2           2           Both        Static
-2   NorCal              31068       2           Both        Varies
-3   NorCal 1            31069       2           Both        Dynamic
-4   NorCal 5150         95150       2           Both        Varies
-5   DMR of Anarchy      31666       2           Both        Varies
-6   California          3106        1           Both        Static
-7   CAL 1               31061       1           Both        Dynamic
-8   SoCal               31066       1           Both        Dynamic
-9   SoCal 1             31067       1           Both        Dynamic
-10  Mountain West       31062       1           Both        Dynamic
-11  Mountain West 1     31063       1           Both        Dynamic
-12  SNARS               31328       1           Both        Dynamic
-13  Southwest Region    3176        1           CB          Static
-14  Southwest 1         31761       1           CB          Dynamic
-15  North America CB    3           1           CB          Dynamic
-16  North America BM    93          1           BM          Static
-17  Worldwide CB        1           1           CB          Dynamic
-18  Worldwide BM        91          1           BM          Dynamic
-19  TAC 310             310         1           Both        Dynamic
-20  TAC 311             311         1           Both        Dynamic
-21  TAC 312             312         1           Both        Dynamic
-22  WW English          13          1           CB          Dynamic
-23  English 1           113         1           CB          Dynamic
-24  English 2           123         1           CB          Dynamic
+    Time Slot   Group ID    Group Name          Type        Network
+----------------------------------------------------------------------
+    2           2           Local               Static      Both
+    2           31068       NorCal              Varies      Both
+    2           31069       NorCal 1            Dynamic     Both
+    2           31666       DMR of Anarchy      Varies      Both
+    2           95150       NorCal 5150         Varies      Both
+
+    1           93          North America BM    Static      BM
+    1           3106        California          Static      Both
+    1           3176        Southwest Region    Static      CB
+
+    1           1           Worldwide CB        Dynamic     CB
+    1           3           North America CB    Dynamic     CB
+    1           13          WW English          Dynamic     CB
+    1           91          Worldwide BM        Dynamic     BM
+    1           113         English 1           Dynamic     CB
+    1           123         English 2           Dynamic     CB
+    1           310         TAC 310             Dynamic     Both
+    1           311         TAC 311             Dynamic     Both
+    1           312         TAC 312             Dynamic     Both
+    1           31061       CAL 1               Dynamic     Both
+    1           31062       Mountain West       Dynamic     Both
+    1           31063       Mountain West 1     Dynamic     Both
+    1           31066       SoCal               Dynamic     Both
+    1           31067       SoCal 1             Dynamic     Both
+    1           31328       SNARS               Dynamic     Both
+    1           31761       Southwest 1         Dynamic     CB
 
 
+NorCal
+~~~~~~
 440.125 - W6TCP - Fremont (NorCal) - CC3
 
-    Group Name          Group ID    Time Slot   Network     Type
+    Time Slot   Group ID    Group Name          Type        Network
 ------------------------------------------------------------------------
-1   Local               2           2           Both        Static
-2   NorCal              31068       2           Both
-3   DMR of Anarchy      31666       2           Both
-4   NorCal 5150         95150       2           Both
-5   California          3106        1           Both
-6   TAC 310             310         1           Both
-7   BayNet              31075       1           Both
+    2           2           Local               Static      Both
+    2           31068       NorCal                          Both
+    2           31666       DMR of Anarchy                  Both
+    2           95150       NorCal 5150                     Both
+
+    1           310         TAC 310                         Both
+    1           3106        California                      Both
+    1           31075       BayNet                          Both
 
 
 AD1U
 ~~~~
 441.825 - AD1U - San Jose - CC1, TS1 2, group 515 Philippines
 
-    Group Name          Group ID    Time Slot   Network     Type
+    Time Slot   Group ID    Group Name          Type        Network
 ------------------------------------------------------------------------
-1   Philippines         515         1, 2        BM          Static?
+    1, 2        515         Philippines         Static?     BM
 
 
 AREA
 ~~~~
 444.025 - K6HLE - San Jose - CC1
 
-    Group Name          Group ID    Time Slot   Network     Type
-------------------------------------------------------------------------
-1   North America BM    93          1           BM          Static
-2   California          3106        1           Both        Static
-3   USA - Area 6 4646   31096       1
-4   Local               2           1
-5   NorCal 5150         5150        1
-6   NorCal 1            621         1                       10 Mins
-7   California          3106        2
-8   Cal 1               2251        2                       10 Mins
-9   NorCal              31068       2           Both        Varies
-10  UA Southwest 1      31761       2
-11  Southwest           3176        2                       10 Mins
-12  North America       3           2
-13  Worldwide English   13          2                       10 Mins
-14  World Wide          1           2                       20 Mins
-15  Comm 1              3777215     2
-16  TAC 310             310         2                       10 Mins
-17  Parrot              9998        2                       10 Mins
-18  Audio Test          9999        2                       5 Mins
-19  Red Cross           4742        2                       Priority
+    Time Slot   Group ID    Group Name          Type        Network
+  ----------------------------------------------------------------------
+    1           2           Local
+    1           93          North America BM    Static      BM
+    1           621         NorCal 1            10 Mins
+    1           3106        California          Static      Both
+    1           5150        NorCal 5150
+    1           31096       USA - Area 6 4646
 
-444.0375 - K6HLE - San Jose - CC1
+    2           1           World Wide          20 Mins
+    2           3           North America
+    2           13          Worldwide English   10 Mins
+    2           310         TAC 310             10 Mins
+    2           2251        Cal 1               10 Mins
+    2           3106        California
+    2           3176        Southwest           10 Mins
+    2           4742        Red Cross           Priority
+    2           9998        Parrot              10 Mins
+    2           9999        Audio Test          5 Mins
+    2           31068       NorCal              Varies      Both
+    2           31761       UA Southwest 1
+    2           3777215     Comm 1
+
+444.0375 - K6HLE - San Jose - CC1 - no activity
 
     Group Name          Group ID    Time Slot   Network     Type
 ------------------------------------------------------------------------
@@ -104,6 +108,13 @@ AREA
 15  Red Cross           4742        2                       Priority
 
 
+Bay-Net
+~~~~~~~
+444.350 - WW6BAY - Palo Alto (Bay-Net 7) - CC1 - no activity
+
+    http://bay-net.org/
+    Net every thursday 20:00 on DMR 444.350 CC1 TS2.
+
 PAARA
 ~~~~~
 444.475 - W6OTX - San Jose (PAARA) - CC1
@@ -111,12 +122,17 @@ PAARA
     Group Name          Group ID    Time Slot   Network     Type
 ------------------------------------------------------------------------
 1   California          3106        1
+
 2   NorCal              31068       2
 
 
 Baycom
 ~~~~~~
-441.850 - K6OTR - Palo Alto (Baycom) - CC1
+440.5000    DMR CC 1    N6AMG, Mt Bruno     \
+440.5875    DMR CC 2    WA6ECE, Bonny Dune   \
+441.8500    DMR CC 1    K6OTR, Black Mtn      | Linked TG 97150/TS 2
+442.5375    DMR CC 1    WA6YCZ, Mt Umunhum   /
+443.4000    DMR CC 1    WA6KPX, Mt Allison  /
 
     Group Name          Group ID    Time Slot   Network     Type
 ------------------------------------------------------------------------
@@ -125,6 +141,7 @@ Baycom
 3   NorCal AllStar      31065       1           BM
 4   BayNet              31075       1           Both
 5   USA - Area 6 4646   31096       1           BM
+
 6   Baycom              97150       2           -
 
 
@@ -132,41 +149,51 @@ KK6USZ
 ~~~~~~
 441.950 - KK6USZ - Saratoga - CC1
 
-    Group Name          Group ID    Time Slot   Network     Type
-------------------------------------------------------------------------
-1   Nebraska            3131        1                       Static
-2   Handi-Hams          31990       1                       Static
-3   Worldwide BM        91          1                       Dynamic
-4   California          3106        1                       Dynamic
-5   Texas               3148        1                       Dynamic
-6   XLX013D PAPA        31078       1                       Dynamic
-7   SNARS (Reno/Tahoe)  31328       1                       Dynamic
-8   Local               2           2                       Static
-9   NorCal              31068       2                       Static
-10  Santa Clara County  31064       2                       Static
-11  Bay-Net             31075       2                       Static
-12  Cluster KK6USZ      110670      2                       Static
-13  NorCal 1            31069       2                       Dynamic
-14  NorCal 5150         95150       2                       Dynamic
-15  DMR of Anarchy      31666       2                       Dynamic
-16  Baycom              97150       2           -           Dynamic
+    Time Slot   Group ID    Group Name          Type        Network
+  ----------------------------------------------------------------------
+    1           3131        Nebraska            Static
+    1           31990       Handi-Hams          Static
+    1           91          Worldwide BM        Dynamic
+    1           3106        California          Dynamic
+    1           3148        Texas               Dynamic
+    1           31078       XLX013D PAPA        Dynamic
+    1           31328       SNARS (Reno/Tahoe)  Dynamic
+
+    2           2           Local               Static
+    2           31068       NorCal              Static
+    2           31064       Santa Clara County  Static
+    2           31075       Bay-Net             Static
+    2           110670      Cluster KK6USZ      Static
+    2           31069       NorCal 1            Dynamic
+    2           95150       NorCal 5150         Dynamic
+    2           31666       DMR of Anarchy      Dynamic
+    2           97150       Baycom              Dynamic     -
 
 
 Carla
 ~~~~~
 443.500 - K6LNK - Orinda (N6MVT Carla) - CC1
 
-    Group Name          Group ID    Time Slot   Network     Type
+    Time Slot   Group ID    Group Name          Type        Network
 ------------------------------------------------------------------------
-4   California          3106    1   Static
-    KPARN               31072   1   Static
-    SNARS (Reno/Tahoe)  31328   1   Static
-    SNARS 2             31329   1   Static
-    Cluster K6LNK       23      1   Static
-19  TAC 310             310     1   Dynamic
-18  Worldwide BM        91      1   Dynamic
-8   Local               2       2   Static
-9   NorCal              31068   2   Static
-    CARLA               310604  2   Static
-    Tri-LERT            310703  2   Static
-    Cluster CARLA       21      2   Static
+    1           23          Cluster K6LNK       Static
+    1           3106        California          Static
+    1           31072       KPARN               Static
+    1           31328       SNARS (Reno/Tahoe)  Static
+    1           31329       SNARS 2             Static
+    1           91          Worldwide BM        Dynamic
+    1           310         TAC 310             Dynamic
+
+    2           2           Local               Static
+    2           21          Cluster CARLA       Static
+    2           31068       NorCal              Static
+    2           310604      CARLA               Static
+    2           310703      Tri-LERT            Static
+
+
+Moffett Field
+~~~~~~~~~~~~~
+443.825 +5MHz DMR CC 1  W6CMU - no activity
+
+    Carnegie Mellon University Silicon Valley Wireless Innovators
+    http://sv.cmu.edu/wireless-innovators/index.html
