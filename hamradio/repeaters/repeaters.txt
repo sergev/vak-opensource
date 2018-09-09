@@ -1,0 +1,169 @@
+MHz       Duplex Offset CTSS  DCS   Name   Location
+----------------------------------------------------
+145.17000 -      0.6    94.8        K6GL   Sunnyvale
+145.17000 -      0.6    94.8        K6SNY  Sunnyvale
+145.19000 -      0.6    151.4       WA2IBM San Jose
+145.23000 -      0.6    100.0       N6NFI  Palo Alto
+145.25000 -      0.6    123.0       NA6MF  Moffett Field
+145.27000 -      0.6    100.0       W6ASH  Mountain View
+145.31000 -      0.6    127.3       K6GRC  Cupertino
+145.31000 -      0.6    162.2       KB6FEC San Jose
+145.37000 -      0.6    107.2       N6ZX   Woodside
+145.39000 -      0.6    100.0       WW6BAY Palo Alto
+145.39000 -      0.6    94.8        W6DYL  San Jose
+145.43000 -      0.6    85.4        W6MLP  Milpitas
+145.45000 -      0.6    100.0       K6FB   Los Gatos
+146.08500 +      0.6    100.0       WB5NVN Portola Valley
+146.08500 +      0.6    114.8       KI6AOZ Newark
+146.11500 +      0.6    100.0       AA6BT  San Jose
+146.20500 +      0.6    103.5       KC6LLI San Jose
+146.35500 +      0.6    123.0       KE6MON San Jose
+146.35500 +      0.6    127.3       KD6AOG San Jose
+146.61000 -      0.6    123.0       KM6EF  Union City
+146.64000 -      0.6    162.2       WR6ABD San Jose
+146.65500 -      0.6    114.8       K6SA   Saratoga
+146.73000 -      0.6    114.8       W6SCF  La Honda
+146.74500 -      0.6    110.9       W6LAH  LosAltosHills
+146.76000 -      0.6    151.4       WB6OQS San Jose
+146.82000 -      0.6    123.0       K6INC  San Jose
+146.86500 -      0.6    114.8       KC6ULT San Mateo
+146.89500 -      0.6    110.9       AA6PL  San Carlos
+146.89500 -      0.6    110.9       KB6FEC San Jose
+146.94000 -      0.6    123.0       K6AIR  Los Altos Hill
+146.97000 -      0.6                AD1U   San Jose
+146.98500 -      0.6    114.8       W6UU   San Jose
+146.98500 -      0.6    114.8       W6UU   San Jose
+147.01500 +      0.6    103.5       WA6PWW Fremont
+147.04500 +      0.6    94.8        W6SRR  Pleasanton
+147.09000 +      0.6    100.0       WB6CKT Belmont
+147.10500 +      0.6    100.0       WA6DY  Sunnyvale
+147.10500 +      0.6    77.0        K6FUZ  Cupertino
+147.12000 +      0.6    94.8        WR6AOK Ben Lomond
+147.15000 +      0.6                WA6YCZ San Jose
+147.16500 +      0.6    100.0       KB6FEC San Jose
+147.28500 +      0.6    103.5       KF6FWO San Jose
+147.30000 +      0.6    100.0       N6MPX  San Mateo
+147.33000 +      0.6    103.5       K7DAA  Morgan Hill
+147.36000 +      0.6    110.9       W6TI   Palo Alto
+147.39000 +      0.6    151.4       W6PIY  San Jose
+147.82500 -      0.6    100.0       W6GGF  Morgan Hill
+147.85500 -      0.6    100.0       WA6TEM San Jose
+147.94500 -      0.6    77.0        N6QDY  Milpitas
+----------------------------------------------------
+440.00000 +      5      110.9       WA6FSP Fremont
+440.02500 +      5      100.0       WB6KHP San Jose
+440.05000 +      5      100.0       KB5JR  San Jose
+440.07500 +      5      114.8       KR6WP  Belmont
+440.08700 +      5      110.9       KC6SVW Vaca
+440.10000 +      5      100.0       K1YJ   San Jose
+440.10000 +      5      114.8       WA6DQP La Honda
+440.10000 +      5      127.3       W6SMQ  San Jose
+440.12500 +      5      114.8       W6AMT  Cupertino
+440.15000 +      5      100.0       W6TDM  Cupertino
+440.17500 +      5      131.8       K6GOD  Hayward
+440.20000 +      5      123.0       N6BDE  Palo Alto
+440.27500 +      5      127.3       WA6HHQ San Jose
+440.27500 +      5      127.3       WA6YOP San Jose
+440.32500 +      5      131.8       K9GVF  Felton
+440.37500 +      5                  N6TNR  San Jose
+440.45000 +      5      100.0       WR6COP San Jose
+440.45000 +      5      107.2       N6ZX   Woodside
+440.57500 +      5      114.8       KA6ZRJ Morgan Hill
+440.65000 +      5      94.8        KC6TYG Los Gatos
+440.80000 +      5      100.0       W6ASH  Mountain View
+440.87500 +      5      100.0       KH6N   Los Altos
+440.90000 +      5      141.3       KI6KGN Fremont
+440.95000 +      5      71.9        WR6COP San Jose
+441.02500 +      5      110.9       NO1PC  Campbell
+441.02500 +      5      156.7       K9GVF  Campbell
+441.10000 +      5      156.7       K6GOD  Santa Cruz
+441.10000 +      5      192.8       WA6FUL Sebastopol
+441.12500 +      5      100.0       KC6WXO Fremont
+441.15000 +      5      100.0       KC6BJO San Jose
+441.17500 +      5      103.5       KF6FWO San Jose
+441.22500 +      5      127.3       AB6AC  San Jose
+441.25000 +      5                  WB6WTM Los Altos
+441.27500 +      5                  K6BEN  San Jose
+441.30000 +      5      100.0       WB6ECE La Honda
+441.35000 +      5                  W6PIY  San Jose
+441.40000 +      5      114.8       WD6GGW Redwood City
+441.52500 +      5      123.0       K6AIR  Los Altos Hill
+441.52500 +      5      123.0       N6OXR  Fremont
+441.55000 +      5                  W6VB   Cupertino
+441.57500 +      5      94.8        WB6IRC Palo Alto
+441.57500 +      5                  K6IRC  Palo Alto
+441.61250 +      5      100.0       W6CBS  San Carlos
+441.70000 +      5      127.3       K6UB   Los Gatos
+441.72500 +      5                  WA6QDP San Jose
+441.77500 +      5      156.7       W1NSA  San Jose
+441.80000 +      5      77.0        N6QDY  Milpitas
+441.85000 +      5                  KG6KCL San Jose
+442.00000 +      5      151.4       WW6HP  Palo Alto
+442.12500 +      5                  WR6BAT Cupertino
+442.17500 +      5      100.0       K9GVF  Campbell, Crystal Peak
+442.17500 +      5      100.0       NO1PC  Campbell
+442.17500 +      5                  N1UFD  San Jose
+442.25000 +      5      77.0        KJ6ID  Santa Clara
+442.30000 +      5      114.8       K6INC  Los Gatos
+442.35000 +      5      123.0       K6GOD  San Jose
+442.42500 +      5      107.2       W6UU   San Jose
+442.45000 +      5      100.0       WB6KHP San Jose
+442.50000 +      5      100.0       WB6ZVW San Jose
+442.55000 +      5                  WA6FUL Santa Cruz
+442.57500 +      5      100.0       K6FB   Palo Alto
+442.60000 +      5      107.2       WA6PWW Fremont
+442.62500 +      5      94.8        W6SRR  Pleasanton
+442.77500 +      5      131.8       KG6KCL San Jose
+442.77500 +      5      131.8       KU6V   San Jose
+442.80000 +      5      114.8       K6OTR  Palo Alto
+442.82500 +      5                  WR6COP San Jose
+442.85000 +      5      100.0       K6MIA  San Jose
+442.87500 +      5      100.0       WA6YLV San Jose
+442.90000 +      5      162.2       WR6ABD San Jose
+442.95000 +      5      85.4        K6YZS  San Jose
+442.97500 +      5      100.0       K7DAA  Morgan Hill
+443.00000 +      5                  W6OOL  Palo Alto
+443.02500 +      5                  K6EXE  Milpitas
+443.02500 +      5                  WA6ABB Los Gatos
+443.07500 +      5      123.0       K6LNK  San Jose
+443.12500 +      5                  K6BEN  Saratoga
+443.22500 +      5      100.0       KJ6VU  San Jose
+443.22500 +      5      100.0       WW6BAY Palo Alto
+443.22500 +      5                  KJ6K   Palo Alto
+443.27500 +      5      107.2       W6AMT  San Jose
+443.40000 +      5                  N6IGF  Fremont
+443.45000 +      5                  K6MF   San Jose
+443.55000 +      5                  K6TAZ  San Jose
+443.60000 +      5                  KK6KPQ Palo Alto, Gunn High School
+443.70000 +      5      186.2       K6JJC  Fremont
+443.72500 +      5      127.3       N6HWI  Fremont
+443.75000 +      5      100.0       K9GVF  Los Gatos
+443.75000 +      5      100.0       WB6NNY Palo Alto
+443.77500 +      5      100.0       WA6GFY San Jose
+443.85000 +      5                  W6BUG  LosAltosHills
+443.85000 +      5                  WC6O   Los Altos Hills
+443.90000 +      5      100.0       W6YL   San Jose
+443.90000 +      5      162.2       W1NSA  San Jose
+444.02500 +      5      136.5       K6JJC  San Jose
+444.05000 +      5                  KD6CUC San Jose
+444.07500 +      5      100.0       KJ6VU  San Jose
+444.10000 +      5                  N6TLQ  San Jose
+444.12500 +      5                  WB6LPZ Los Gatos
+444.15000 +      5      123.0       W6WLS  Felton
+444.17500 +      5      107.2       W6OOL  San Jose
+444.22500 +      5      131.8       KE6JTK Los Altos Hills
+444.22500 +      5      131.8       KE6JTK San Jose
+444.30000 +      5      173.8       W7AFG  San Jose
+444.35000 +      5                  KJ6VU  Palo Alto
+444.42500 +      5      107.2       NA6MM  Los Gatos
+444.50000 +      5      100.0       K6MPN  Redwood City
+444.55000 +      5      100.0       AF6EQ  Sunnyvale
+444.60000 +      5      141.3       WB6OQS San Jose
+444.62500 +      5      110.9       N6NAC  San Jose
+444.70000 +      5      127.3       WB6KHP San Jose
+444.72500 +      5      162.2       K6GOD  San Jose
+444.80000 +      5                  WA6GEL Daly City
+444.90000 +      5      110.9       KU6V   San Jose
+444.95000 +      5      162.2       KB6LED Palo Alto
+444.97500 +      5      127.3       WB6KHP Los Gatos
+446.28000 -      5      131.8       KF6JEE Woodside

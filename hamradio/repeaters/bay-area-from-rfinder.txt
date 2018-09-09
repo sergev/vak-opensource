@@ -1,0 +1,69 @@
+Channel Activity                Name    Receive
+------------------------------------------------------------ VHF Band 145-148
+    1   data                    W6CX    145.000  Concord
+    2   noise                   K6GL    145.170  Sunnyvale
+    3   voice                   N6NFI   145.230  Palo Alto
+    4   noise                   KB6LED  145.290  Berkeley, PL 131.8
+    5   voice                   W6MLP   145.430  Milpitas
+    6   voice                   ???     145.475  ???
+    7   noise                   WR6ABD  146.640  San Jose
+    8   callsign                K6SA    146.655  Saratoga
+    9   voice                   W6BUR   146.670- Oakland, PL 167.9
+   10   voice                   K6GWE   146.700  Mill Valley, PL 179.9
+   11   voice                   K6INC   146.820  San Jose
+   12   callsign                WA6QFR  146.850  San Bruno (no PL)
+   13   noise                   KC6ULT  146.865  San Mateo
+   14   callsign                W6SRR   147.045  Pleasanton
+   15   voice                   W6CX    147.060  Concord, PL 100.0
+   16   data                    WA6DY   147.105  Sunnyvale
+   17   callsign                WA6YCZ  147.150  San Jose
+   18   voice, data             W6WLS   147.180+ Felton (PL 94.8)
+   19   callsign                K7DAA   147.330  Morgan Hill
+   20   noise                   WA6TEM  147.855  San Jose
+   21   voice                   ???     147.870  ???
+   22   voice                   N6QDY   147.945  Milpitas
+------------------------------------------------------------ UHF Band 440-447
+   51   data                    W6AMT   440.125  Cupertino
+   52   noise                   K6LLC   440.225+ San Jose (PL 123)
+   53   voice                   WA6HHQ  440.275  San Jose
+   54   voice                   K9GVF   440.325  Felton
+   55   test signal             WR6COP  440.450  San Jose
+   56   data                    N6TNR   440.500  San Jose
+   57   voice                   NO1PC   441.025  Campbell
+   58   voice                   WD6GGW  441.400  Redwood City
+   59   voice                   W6RCA   441.625  San Jose
+   60   voice                   N7WG    441.675  Santa Cruz (PL 123)
+   61   callsign                K6UB    441.700  Los Gatos
+   62   callsign                W1NSA   441.775  San Jose
+   63   data                    AD1U    441.825  Los Gatos, DMR
+   64   data                    KG6KCL  441.850  San Jose
+   65   data                    KK6USZ  441.950  Saratoga, DMR
+   66   voice                   WR6BAT  442.125  Cupertino
+   67   voice                   WB6KHP  442.450  San Jose
+   68   callsign                WB6ZVW  442.500  San Jose
+   69   data                    WA6YLV  442.875  San Jose
+   70   voice                   WR6ABD  442.900  San Jose
+   71   voice                   K7DAA   442.975  Morgan Hill
+   72   noise?                  W6OOL   443.000  Palo Alto
+   73   voice                   N6QOP   443.050  Orinda (CARLA)
+   74   voice                   K6LNK   443.075  San Jose (CARLA)
+   75   voice                   WW6BAY  443.225  Palo Alto
+   76   data                    AD1U    443.300  San Jose, DMR
+   77   data                    N6IGF   443.400  Fremont
+   78   voice                   K6MF    443.450  San Jose
+   79   data                    K6LNK   443.500  Orinda
+   80   voice                   K6TAZ   443.550  San Jose
+   81   voice                   KE6STH  443.575  San Jose, PL 110.9, Mixed mode P25
+   82   voice Spanish           K6JJC   443.700  Fremont
+   83   voice                   WW6BAY  443.975  Oakland, PL 100.0
+   84   data                    K6JJC   444.025  San Jose
+   85   data                    KJ6VU   444.075  San Jose
+   86   callsign                N6TLQ   444.100  San Jose
+   87   data                    NA6MM   444.425  Los Gatos
+   88   data                    W6OTX   444.475  San Jose, DMR
+   89   voice                   W6RCA   444.675  Oakland
+   90   voice                   K6GOD   444.725  San Jose
+   91   voice                   WA6GEL  444.800  Daly City
+   92   data                    KQ6RC   444.875  Santa Clara DMR
+   93   voice                   WB6KHP  444.975  Los Gatos
+------------------------------------------------------------

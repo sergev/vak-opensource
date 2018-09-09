@@ -1,0 +1,470 @@
+List from: http://www.mdarc.org/resources/clubs-in-sf-bay-area
+
+Location                    Name                                                                Contact
+----------------------------------------------------------------------------------------------------------------------
+Cupertino                   50 MHz and Up Group                                                 http://50mhzandup.org/
+    No repeaters or nets.
+
+Alameda                     Amateur Radio Club of Alameda                                       http://www.arcaham.org/
+    Repeater K6QLF:
+        444.575 +5 MHz, PL 88.5 Hz, power 7 W
+    Net:
+        Thursdays at 19:00, at 444.575 MHz
+
+Pleasant Hill               Amateur Radio Guild of Pleasant Hill                                http://amateurradioguildofpleasanthill.webs.com/
+    Inactive.
+
+San Jose                    American Legion Post 318                                            http://www.alcapost318.org/index.php?id=90
+    No repeaters, no nets at VHF/UHF.
+
+Cupertino                   Association of Silicon Valley Amateur Radio Organizations (ASVARO)  http://www.asvaro.org/
+    No repeaters or nets.
+    Organizer of ham flea market.
+
+Los Gatos                   Bay Area Communications Society (BAYCOM)                            http://www.wa6ycz.org/index.php
+    Repeaters:
+        224.9400    --          WA6YCZ, Mt Umunhum
+        147.1500    110.9Hz     WA6YCZ, Mt Umunhum  \ Linked
+        444.4000    100.0Hz     WA6YCZ, Mt Umunhum  /
+        442.5375    DMR CC 1    WA6YCZ, Mt Umunhum  \
+        443.4000    DMR CC 1    WA6KPX, Mt Allison   \
+        441.8500    DMR CC 1    K6OTR, Black Mtn     | Linked TG 97150/TS 2
+        440.5000    DMR CC 1    N6AMG, Mt Bruno      /
+        440.5875    DMR CC 2    WA6ECE, Bonny Dune  /
+    No nets.
+
+San Mateo                   Bay Area Educational Amateur Radio Society                          http://www.baears.com/
+    No repeaters or nets.
+
+East & South Bay            Bay-Net Amateur Radio Club & Repeater Network                       http://bay-net.org/
+    Repeaters:
+        Southbay Site (Palo Alto)
+            Bay-Net 4   145.390 -0.6Mhz PL 100.0
+            Bay-Net 1   443.225 +5Mhz   PL 100.0
+            Bay-Net 5   444.075                     D-Star
+            Bay-Net 7   444.350                     DMR
+            Bay-Net 6   444.425 +5Mhz   PL 127.3    Fusion FM / C4FM
+            Bay-Net 3   927.8625-25Mhz  DPL 023
+        Eastbay Site (Oakland and Berkeley)
+            Bay-Net 2   443.975 +5Mhz   PL 100.0
+    Net every thursday 20:00 on DMR 444.350 CC1 TS2, Fusion 444.425.
+
+Moffett Field               Carnegie Mellon University Silicon Valley Wireless Innovators       http://sv.cmu.edu/wireless-innovators/index.html
+    Repeater: W6CMU 443.825 +5MHz DMR Color Code 1.
+    No nets.
+
+San Francisco               Cathay Amateur Radio Club                                           http://cathayradio.org/
+    Repeaters:
+        N6NFI  145.230 -0.6Mhz  PL 100.0  Palo Alto
+        W6ASH  145.270 -0.6Mhz  PL 100.0  Mt. View
+        K6POU  145.330 -0.6Mhz  PL 100.0  Mt. Diablo
+        K6FB   145.450 -0.6Mhz  PL 100.0  Los Gatos
+        W6UU   146.385 +0.6Mhz  PL 114.8  San Jose
+        WB6OQS 146.760 -0.6Mhz  PL 151.4  San Jose
+    Nets on Mondays 21:00 at:
+        146.670 -0.6MHz PL 85.4 Hz
+        442.700 +5MHz   PL 173.8 Hz
+
+Alameda                     Coast Guard Island Amateur Radio Club                               http://w6nmc.org/
+    No repeaters or nets.
+
+Pacifica                    Coastside Amateur Radio Club                                        http://www.coastsidearc.org/
+    Repeaters:
+        WA6TOW, located on Montara Mountain, 146.925 Mhz (negative offset), PL 114.8
+    Nets:
+        Wednesday at 7:00 PM and 9:00 PM the CARC membership net.
+        http://www.coastsidearc.org/repeater_calendar.html
+
+San Pablo                   Contra Costa Communications Club (CCCC)                             http://www.wa6kqb.org/
+    Repeaters:
+        145.110MHZ (-) PL 82.5
+        224.300MHZ (-) PL 82.5
+        444.275MHZ (+) PL 82.5
+    Nets:
+        http://www.wa6kqb.org/nets.html
+
+Central Costa Costa County  Contra Costa Repeater Association (CCRA)                            http://ccra.us/
+    Repeaters:
+        145.41 MHz  -600 KHz PL 107.2 Hz
+        145.49 MHz  --//--
+        147.735 MHz --//--
+    Net:
+        Mondays at 7:35 PM using one of 3 linked repeaters.
+
+El Sobrante, Berkeley       East Bay Amateur Radio Club (EBARC)                                 http://www.ebarc.org/
+    No repeaters or nets.
+
+Los Altos area              Foothills Amateur Radio Society                                     http://www.fars.k6ya.org/
+    Repeaters:
+        N6NFI Repeater (formerly W6APZ): ARES, Hospital Net
+            Freq:   145.230 MHz -600 KHz, PL 100 Hz
+            QTH:    Stanford, Palo Alto
+    Nets:
+        FARS Weekly Net: at 8:00 PM each Thursday evening on the N6NFI repeater.
+        9AM Talk Net: Informal net at 9:00 AM weekdays on the N6NFI repeater.
+        CQ Young Hams: At 2:00 PM on Saturdays on the N6NFI repeater. Contact Ryan, K3SFG for more information.
+        Kid's Net: At 7:30 PM on Tuesdays on the WA6TEM repeater, 147.855-/100Hz.
+
+Gilroy                      Fremont Peak Repeater Association (FPRA)                            http://www.fremontpeak.org/home/
+    Repeaters:
+        145.470 -600, PL 94.8
+        441.450 +, PL 123.0
+        APRS: 144.390 (K6JE-3 DIGI)
+
+    Net:
+        Weekly Each Monday at 8:00 PM at 145.470 Mhz -600, PL 94.8
+
+Gilroy                      Garlic Valley Radio Club                                            http://www.gvarc.net/
+    Repeaters:
+        W6GGF  147.825 (-) 100 PL, covers the Morgan Hill and Gilroy
+        WB6ZVW 442.500 (+) 100 PL, covers the South Bay areas of Morgan Hill and Gilroy
+    Net:
+        Weekly each Tuesday at 7:30 PM on 147.825 PL 100.
+
+Hayward                     Hayward Radio Club                                                  http://www.qsl.net/k6eag/index2.html
+    Repeaters (Hayward Airport):
+        145.13  -600  PL 127.3
+        444.825 +5Mhz PL 127.3
+        52.76   -500  PL 114.8
+    Nets:
+        Repeater round table: Wednesdays at 1900, K6EAG 2M repeater.
+        10 Meter round table: Wednesdays at 2000, 28.350 Mhz
+
+Cupertino                   Hewlett Packard Silicon Valley Radio Club                           http://www.pdarrl.org/clubs/hpsvrc/
+                            Kensington Amateur Radio Operators and
+    Repeater:
+        442.000 MHz, PL 100Hz
+
+
+Kensington, El Cerrito          El Cerrito Ham Operators (KARO-ECHO)                            https://www.karoecho.net/
+    No repeaters or nets.
+
+Pacifica                    Knights of the MegaHertz                                            http://www.knightsmhz.org/
+    Repeaters:
+        Main: WA6TOW 146.925 -600 offset pl 114.8 Montara peak Pacifica
+      Backup: KC6ULT 146.865 -600 PL 114.8 Redwood City highlands
+    Net:
+        Every Sunday at 7am on the WA6TOW 146.925 -600 PL114.8
+        WA6TOW UHF system on 441.075 +5mhz offset and a PL of 114.8
+
+Saratoga                    Las Cumbres Amateur Radio Club                                      http://www.k6fb.com/
+    Repeaters:
+        145.450 MHz -600 kHz    100.0 Hz    Castle Rock
+        223.880 MHz -1.6 MHz    100.0 Hz    Castle Rock
+        442.575 MHz +5.0 MHz    100.0 Hz    Black Mountain
+    Nets:
+        Castle Rock Thursday Net:
+            Every Thursday, 8:00 pm on 2m and 440 frequencies.
+        American Legion Post 380 Net
+            Every Thursday, 7:30 pm on 2m and 440 frequencies.
+
+Sunnyvale                   Lockheed Martin Amateur Radio Club                                  http://www.qsl.net/lmarc/
+    Repeaters WA6GFY on Mt. Umunhum:
+        145.62  Simplex PL 100 Hz
+        224.28  (-)     PL 100 Hz
+        443.775 (+)     PL 100 Hz
+        1283.7  (-)     no PL
+
+Hollister                   Loma Pioneer Repeater Club                                          http://lprc.net/
+    Repeaters:
+        146.640 (-) PL 162.2
+        442.900 (+) PL 162.2 WIN System
+        144.390              APRS Digipeater
+        144.910              Packet Node LPRC2
+
+San Mateo                   Mad Scientists Amateur Radio Club                                   http://msarc.net/
+    Repeaters:
+        147.300 +600kHz PL 100Hz    San Mateo
+        441.950 +5MHz   PL 100Hz    San Jose
+    Nets:
+        Weekly MSARC NET:
+            Every Friday night at 9:00pm
+        Newsline Replay:
+            Every Saturday morning at 9:00am
+
+Martinez                    Martinez Amateur Radio Club                                         https://martinezarc.wordpress.com/
+    No repeaters.
+    Nets:
+        Wednesday nights at 6:45pm on 146.505 MHz simplex
+
+Marina                      Monterey Bay Amateur Radio Association                              http://n6ij.org/
+    No repeaters.
+    Net: every Friday at 19:30 on the WR6ABD repeater, 146.640 MHz-/162.2 PL.
+
+Morgan Hill                 Morgan Hill Amateur Radio Society                                   http://www.mhars.org
+    Repeaters:
+        K7DAA 147.33 MHz +600 kHz, PL 103.5, coverage from Bernal and Santa Theresa roads
+                                             in San Jose to Hollister and San Juan Bautista.
+        K7DAA 442.975 MHz +5 MHz, PL 100,    coverage Monterey Bay and Seaside,
+                                             San Francisco south all the way through Hollister.
+
+Contra Costa County         Mount Diablo Amateur Radio Club (MDARC)                             http://www.mdarc.org/
+    Repeaters:
+        W6CX Voice Repeaters:
+            147.060 MHz + / PL 100Hz  -  EchoLink: W6CX-R /133896, IRLP: 3057    Stream Online
+            224.780 MHz - / PL 77Hz
+            441.325 MHz + / PL 100Hz
+        W6CX ATV Repeater
+            Inputs: 1292.50 MHz Digital
+                    1270.00 MHz FM
+            Output: 1244.50 MHz Digital
+        W6CX D-STAR
+            145.000  DUP +   Offset 2.5  (Port C)
+        Packet / APRS:
+            W6CX-3 Packet Node 144.39
+
+    Nets:
+        Voice Nets
+            Daily, Mondays thru Fridays:
+                05:42AM: 5:42 Morning Muster
+                    2 meters, 220 MHz and 440 meters: 147.060 /+ (100PL); Linked to 224.780/441.325 /+ (100PL)
+                    Net Control is Trevor Hall, WA6JAU.
+
+                06:10AM: 6:10 Net
+                    2 meters, 220 MHz and 440 meters: 147.060 /+ (100PL); Linked to 224.780/441.325 /+ (100PL)
+                    Net Control is Harry Styron, K6HS.
+            Sundays:
+                6:00PM: LDS Collaborative Net
+                    2 meters: 147.060 /+ (100PL)
+                6:30PM: Danville Emergency Communications Net
+                    2 meters: 147.060 /+ (100PL)
+            Mondays:
+                8:00PM: SATERN Net
+                    2 meters, 220 MHz and 440 meters: 147.060 /+ (100PL); Linked to 224.780/441.325 /+ (100PL)
+            Wednesdays:
+                7:00PM: SkyWarn Net
+                    2 meters: 147.060 /+ (100PL)
+            Thursdays:
+                7:30 PM: MDARC Club Net
+                    2 meters, 220 MHz and 440 meters: 147.060 /+ (100PL); Linked to 224.780/441.325 /+ (100PL)
+            Monthly:
+                4th Wednesday, 12:00PM: Bay Area Hospital Net
+                    2 meters 147.060 /+ (100PL)
+
+Mountain View               Mountain View Amateur Radio Association (MVARA)                     http://www.mvara.com/
+    Repeaters:
+        442.125 MHz, PL 162.2 - K6PMI/R UHF Repeater System (prev WR6BAT)
+        441.55 MHz,  PL 100.0 - W6VB/R System
+
+Sacramento                  Mt.Vaca Radio Club                                                  http://www.mvrc.org/
+    Repeater:
+        K6MVR 147.000, input 146.400 (-) PL 136.5 - Mount Vaca, above Vacaville
+    Nets:
+        YARS/MVRC Monday Night Net, every Monday at 8:30 p.m.
+        NorCal Skywarn Net, every Wednesday at 7:00 p.m.
+        Davis Double Century Bike Ride, third Saturday of May, all day.
+        Foxy's Fall Bike Ride, third Saturday of October, all day.
+
+Moffett Field               NASA Ames Research Center Amateur Radio Club (AARC)                 http://hamradio.arc.nasa.gov/
+    Repeaters NA6MF:
+        145.250 MHz, minus offset, tone 123.0
+        146.445 MHz - simplex net
+        146.490 MHz - special events including NASA-TV audio
+    Net:
+        Tuesday at 12:00 on 146.445 Mhz simplex
+
+South Bay                   Northern California Contest Club (NCCC)                             http://nccc.cc/
+    No repeaters or nets.
+
+San Jose                    Northern California DX Club (NCDXC)                                 http://www.ncdxc.org/
+    Repeater:
+        W6TI - 147.360+ PL 110.9
+
+Cupertino                   Northern California DX Foundation                                   http://www.ncdxf.org/
+    No repeaters or nets.
+
+Oakland                     Oakland Radio Communication Association (ORCA)                      http://www.ww6or.com/
+    Repeater:
+        146.88 Mhz, minus offset, PL tone of 77.0 hz
+    Nets:
+        Thursdays 19:30 local time. Simplex net follows on 147.585 or the alternate simplex frequency 146.565.
+
+Palo Alto                   Palo Alto Amateur Radio Association (PAARA)                         http://paara.org/
+    Nets:
+        Every Monday 20:30 on N6NFI 145.230 (-), PL 100Hz
+
+San Francisco               San Francisco Radio Club                                            http://www.sfarc.org/
+    Repeaters FM:
+        145.150MHz -600kHz, DCS 664 - Sutro Tower, Wide Area Coverage
+        444.225MHz ​+5MHz, DCS 664​   - VA Hospital, West San Francisco
+    Repeaters D-STAR:
+        147.105MHz +600kHz          - VA Hospital, Wide Area Coverage
+        444.1625MHz +5Mhz
+        1284.6GHz -12Mhz
+        1251.0 Simplex
+    Nets:
+        https://www.sfarc.org/repeaters--nets.html
+
+San Francisco               San Francisco Ham Radio Club                                        http://www.qsl.net/no6pw/
+    No repeaters or nets.
+
+San Jose                    San Jose IBM Club Amateur Radio Club                                http://www.ibmarc.org/snj
+    No repeaters or nets.
+
+San Jose                    San Jose State University Amateur Radio Club (SJSUARC)              http://www.w6yl.com/
+    No repeaters or nets.
+
+Felton                      San Lorenzo Valley Amateur Radio Club                               http://www.slvarc.org/
+    Repeaters:
+        WR6AOK - 147.120 MHz +600 KHz, PL 94.8 Hz - Voice
+        WR6AOK - 145.690 MHz - packet digipeater
+    Nets:
+        Rag Chew: Thursday nights at 19:30 on the WR6AOK repeater
+
+San Mateo                   San Mateo Radio Club                                                https://sites.google.com/site/w6uqhamradioclub/
+    Repeaters:
+        N6ZX - 145.370 MHz -600 KHz, PL 107.2 Hz
+    Nets:
+        Every Tuesday evening at 19:00 on the N6ZX repeater.
+
+Santa Clara                 Santa Clara County Amateur Radio Association                        http://www.qsl.net/sccara/
+    Repeaters:
+        W6UU - 146.985 (-), PL 114.8 Hz - Near Eagle Rock, East San Jose
+               442.425 (+), PL 107.2 Hz - Regional Medical Center
+    Nets:
+        Mondays at 7:30 PM, 146.985 repeater
+        Thursdays at 8:00 PM, 28.385 MHz USB
+
+Santa Clara                 Santa Clara Valley Repeater Society                                 http://www.scvrs.org/
+    Repeaters at Loma Prieta:
+        146.76 Mhz -0.6 Mhz, PL 151.4 Hz - Normally linked to 1.25m
+        224.26 Mhz -1.6 Mhz, PL 123.0 Hz - Normally linked to 2m
+        444.60 Mhz +5.0 Mhz, PL 141.3 Hz - Can be linked to the above as needed
+    Nets:
+        Every Monday night at 09:00 PM at above repeaters.
+
+Santa Cruz                  Santa Cruz County Amateur Radio Club                                http://www.k6bj.org/
+    Santa Cruz County:
+        Repeaters:
+            K6BJ 146.790- PL 94.8 Santa Cruz  (linked to KI6EH)
+            KI6EH 147.945- PL 94.8 Watsonville (linked to K6BJ)
+            K6BJ 440.925+ PL 123.0 Santa Cruz (not linked)
+            K6BJ D-Star 441.675 +5MHz (D Star link: tinyurl.com/dstar-sc)
+        Nets:
+            SCCARC Net Monday 7:30 PM 146.79- /147.945- /147.180+ linked
+            SCCARC 10 Meter Net Monday 7:00 PM 28.308 MHz USB
+            ARES Monthly Net SC County Wide ARES, First Tuesday 7:30 PM on 147.180+ PL 94.8
+    San Lorenzo Valley:
+        Repeaters:
+            WR6AOK 147.120+ PL 94.8 Ben Lomond
+            AB6VS 440.550+ / AE6KE 146.835- PL 94.8 Loma Prieta  (linked for net)
+        Nets:
+            SLV Net Thursday 7:30 PM
+            LP ARES / LPARC Net Tuesday 7:15 PM
+    Monterey County
+        Repeaters:
+            K6LY 146.97- PL 94.8 / 444.700+ PL123 (linked for net) Monterey
+            LPRC WR6ABD 146.640- PL 162.2 / 442.900+ PL 162.2 (winsystem.org)
+        Nets:
+            Monterey Co. ARES Net Wednesday 7:30 PM K6LY 146.970- (PL 94.8)
+            LPRC Net Tuesday 8:00 PM  146.640-(PL 162.2)  followed by Amateur Radio Newsline broadcast
+            Santa Clara Valley Section Traffic NET  Tuesday 9:00PM 146.640- (PL 162.2)
+
+Saratoga                    Saratoga Amateur Radio Association                                  http://www.k6sa.net/
+    Repeaters K6SA:
+        146.655 -, PL 114.8
+        443.150 +, PL 100
+    Nets:
+        Sundays, 9:00 pm at K6SA/R, 146.655 MHz, -, PL 114.8
+
+La Honda                    SC4 Amateur Radio Club                                              http://www.sc4arc.org/
+    Repeaters:
+        KC6ULT (CTL93)  146.865 MHz(-) CTCSS: 114.8
+        KD6KGE (CMD33)  442.325 MHz(+) CTCSS: 141.3
+        N6ZX            145.370 MHz(-) CTCSS: 107.2
+        W6SCF (CMD31)   146.730 MHz(-) CTCSS: 114.8
+        WA6DQP (CMD32)  440.100 MHz(+) CTCSS: 114.8
+        WA6TOW (CTL91)  146.925 MHz(-) CTCSS: 114.8
+        WR6HMB (CMD21)  147.285 MHz(+) CTCSS: 114.8
+        Packet on 145.6300 MHz: W6SCF-10 Winlink 2000
+    Nets:
+        Every Monday nights at 7:30 PM on the 146.730 repeater
+
+San Jose                    Silicon Valley ATV Group                                            http://www.k6ben.com/K6BEN_ATV/Home.html
+    Repeaters:
+        443.125 MHz, PL 123 - Loma Prieta
+        441.275 MHz, PL 123
+        224.46 MHz, PL 123
+    Nets:
+        Every Wednesday at 8:30 PM.
+
+Fremont                     South Bay Amateur Radio Association (SBARA)                         http://www.sbara.org/
+    Repeaters:
+        WA6PWW:
+            147.015 +600 kHz, PL 103.5 - near above Niles/Union City
+            223.900 -1.6 MHz, PL 107.2
+            442.600 +5 MHz,   PL 107.2
+        ACWD (N3MMQ):
+            441.125 +5 MHz,   PL 100.0 - Coyote Hills
+        KN6EF:
+            146.610 -600 kHz, PL 123.0 - atop the Masonic Home in Union City
+        N6NFI:
+            145.230 -600 kHz, PL 100.0 - hills of Palo Alto
+        W6SRR:
+            147.045 (Narrow FM) +600 kHz, PL 94.8 - Sunol Peak
+            442.625 +5 MHz, PL 94.8
+        K6FB:
+            145.450 -600 kHz, PL 100.0 - Skyline Ridge near Castle Rock State Park
+            223.880 -1.6 MHz, PL 100.0
+            442.575 +5 MHz, PL 100.0
+        LPRC:
+            146.640 -600 kHz, PL 162.2 - Loma Prieta Summit
+            442.900 +5 MHz, PL 162.2
+        K6AIR:
+            146.940 -600 kHz, PL 123.0 - Los Altos Hills
+            441.525 +5 MHz, PL 123.0
+        Packet:
+            KU6S-2 145.050 MHz - central Fremont
+            K6FB-2 145.050 MHz - Skyline Ridge
+    Nets:
+        https://www.sbara.org/nets.php
+
+Mountain View               Southern Peninsula Emergency Communication System                   http://www.specsnet.org/
+    Repeaters W6ASH:
+        145.270 - 100 PL
+        224.140 - 88.5 PL
+        440.800 + 100 PL
+    Nets:
+        Main SPECS Net: Monday nights at 20:00 on 145.270 PL 100.
+        UHF Net: Monday nights at 19:30-20:00.
+
+Richmond                    SS Red Oak Victory Amateur Radio Club                               http://www.qsl.net/redoakarc/
+    No repeaters or nets.
+
+Stanford University         Stanford Amateur Radio Club                                         http://www-suares.stanford.edu/
+    Repeater:
+        N6BDE 440.200 MHz (+5 MHz), PL 123.0 Hz
+    No regular nets.
+
+Santa Cruz                  UCSC Amateur Radio Club                                             https://hams.soe.ucsc.edu/
+    Repeater:
+        145.310 (-) PL 94.8
+    Net:
+        Monday Nights at 7:30pm on 145.310 (-) PL 94.8.
+
+Alameda                     USS Hornet Amateur Radio Club                                       http://www.hornet-arc.us/
+    No repeaters or nets.
+
+San Francisco               USS Pampanito Amateur Radio Club                                    http://www.qsl.net/nj6vt/
+    No repeaters or nets.
+
+Berkeley                    W6BB Amateur Radio Club                                             http://www.w6bb.org/
+    Repeaters:
+        WA6ZTY - 442.275+ Mhz, PL 100 Hz - Lawrence Berkeley National Lab repeater
+        N6BRK  - 440.900+ Mhz, PL 131.8 Hz - NALCO
+        Cal Bears - 146.430 Mhz simplex
+    Net:
+        Thursday evening net at 7.30pm (weekly, but somewhat sporadic), on 442.275 and 146.430 Mhz simplex.
+
+San Francisco               Washington High School Amateur Radio Club                           http://gwhsarc.weebly.com/
+    No repeaters or nets.
+
+San Jose                    West Valley Amateur Radio Association                               http://www.wvara.org/
+    Repeaters W6PIY:
+        52.580- PL 151.4 Hz - atop Good Samaritan Hospital in San Jose, CA (near the interchange of highways 17 and 85)
+        147.39+ PL 151.4 Hz
+        223.96- PL 156.7 Hz
+        441.35+ PL 88.5 Hz
+        1286.2- PL 100 Hz
+
+----------------------------------------------------------------------------------------------------------------------

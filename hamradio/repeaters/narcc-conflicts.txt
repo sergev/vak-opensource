@@ -1,0 +1,399 @@
+Conflict:
+      ignore: 145.250 KQ6RC Hayward
+    existing: 145.250 NA6MF Moffett Field
+Conflict:
+      ignore: 145.430 KO6PW Livermore
+    existing: 145.430 W6MLP Milpitas
+Conflict:
+      ignore: 146.355 K6SRM Danville
+    existing: 146.355 KE6MON San Jose
+Conflict:
+      ignore: 146.640 W6STA Redding
+    existing: 146.640 WR6ABD San Jose
+Conflict:
+      ignore: 146.760 W6AY Redwood City
+    existing: 146.760 WB6OQS San Jose
+Conflict:
+      ignore: 147.150 KB6FEC Livermore
+    existing: 147.150 WA6YCZ San Jose
+Conflict:
+      ignore: 147.285 N6VRC Hanford
+    existing: 147.285 KF6FWO San Jose
+Conflict:
+      ignore: 147.390 W6HY Crescent City
+    existing: 147.390 W6PIY San Jose
+Conflict:
+      ignore: 147.825 KF6ALA Alameda
+    existing: 147.825 W6GGF Morgan Hill
+Conflict:
+      ignore: 440.0375 W6YYY Oakland
+    existing: 440.0375 W6YYY San Jose
+Conflict:
+      ignore: 440.125 W6TCP Fremont
+    existing: 440.125 W6AMT Cupertino
+Conflict:
+      ignore: 440.1375 K6PIT Pittsburg
+    existing: 440.1375 K6SIA Gilroy
+Conflict:
+      ignore: 440.300 N6AMG Concord
+    existing: 440.300 W6IOS San Jose
+Conflict:
+      ignore: 440.475 KK6AN Hayward
+    existing: 440.475 K6GOD San Jose
+Conflict:
+      ignore: 440.525 N6MM Newark
+    existing: 440.525 KI6KGN Los Gatos
+Conflict:
+      ignore: 440.650 K6RGK Antioch
+    existing: 440.650 KC6TYG Los Gatos
+Conflict:
+      ignore: 440.875 WA6HAM Concord
+    existing: 440.875 KH6N Los Altos
+Conflict:
+      ignore: 441.100 K6GOD San Jose
+    existing: 441.100 K6GOD Palo Alto
+Conflict:
+      ignore: 441.575 KC6IAU San Francisco
+    existing: 441.575 K6IRC Palo Alto
+Conflict:
+      ignore: 441.825 K6LRG Livermore
+    existing: 441.825 AD1U Los Gatos
+Conflict:
+      ignore: 442.100 W6JMX Hayward
+    existing: 442.100 W6JMX Woodside
+Conflict:
+      ignore: 442.250 KD6QDW Oakland
+    existing: 442.250 KJ6ORX Los Altos Hill
+Conflict:
+      ignore: 442.350 K6GOD Hayward
+    existing: 442.350 K6GOD San Jose
+Conflict:
+      ignore: 442.450 KI6O Moraga
+    existing: 442.450 KJ6VU Palo Alto
+Conflict:
+      ignore: 442.5375 WX6D Hanford
+    existing: 442.5375 WB6PHE New Almaden
+Conflict:
+      ignore: 442.550 N6APB San Ramon
+    existing: 442.550 K6GOD San Jose
+Conflict:
+      ignore: 442.775 KB6NCL San Leandro
+    existing: 442.775 KU6V San Jose
+Conflict:
+      ignore: 442.975 K6REQ Lafayette
+    existing: 442.975 K7DAA Morgan Hill
+Conflict:
+      ignore: 443.475 K6LNK Walnut Creek
+    existing: 443.475 K6LNK San Jose
+Conflict:
+      ignore: 443.750 N6OGN Modesto ca
+    existing: 443.750 NO1PC Los Gatos
+Conflict:
+      ignore: 443.825 KK6BSN Walnut Creek
+    existing: 443.825 W6CMU Moffett Field
+Conflict:
+      ignore: 444.000 K6NOX Orinda
+    existing: 444.000 WA6INC San Jose
+Conflict:
+      ignore: 444.450 KF6HTE Martinez
+    existing: 444.450 WB6JSO San Jose
+Conflict:
+      ignore: 444.550 K6EMV Hayward
+    existing: 444.550 K6GOD San Jose
+Conflict:
+      ignore: 444.575 K6QLF Alameda
+    existing: 444.575 W6NAD Morgan Hill
+Conflict:
+      ignore: 444.700 N6GVI El Cerrito
+    existing: 444.700 WB6KHP San Jose
+Conflict:
+      ignore: 444.725 W6APX Antioch
+    existing: 444.725 K6GOD San Jose
+Conflict:
+      ignore: 444.800 WA6GEL Fremont
+    existing: 444.800 WA6GEL San Jose
+Conflict:
+      ignore: 444.850 KB6LED Hayward
+    existing: 444.850 N6AMO Monterey
+Conflict:
+      ignore: 146.625 KE6MNJ Pescadero
+    existing: 146.625 W6MTF Oakland
+Conflict:
+      ignore: 146.910 K6JDE Daly City
+    existing: 146.910 KQ6YG Hayward
+Conflict:
+      ignore: 146.940 K6AIR Los Altos Hill
+    existing: 146.940 W6HUM Whitethorn
+Conflict:
+      ignore: 147.105 W6PW San Francisco
+    existing: 147.105 WA6DJ Sunnyvale
+Conflict:
+      ignore: 147.285 WR6HMB Half Moon Bay
+    existing: 147.285 KF6FWO San Jose
+Conflict:
+      ignore: 147.675 W6MTF Redwood City
+    existing: 147.675 WG6LEE Saratoga
+Conflict:
+      ignore: 440.025 N6TZE Pacifica
+    existing: 440.025 KI6KGN Fremont
+Conflict:
+      ignore: 440.100 WA6DQP La Honda
+    existing: 440.100 W6SMQ San Jose
+Conflict:
+      ignore: 440.400 WB6WTM Redwood City
+    existing: 440.400 WB6WTM Oakland
+Conflict:
+      ignore: 440.525 N3TC Daly City
+    existing: 440.525 KI6KGN Los Gatos
+Conflict:
+      ignore: 440.550 K6PVJ San Bruno
+    existing: 440.550 KD7DNM Moraga
+Conflict:
+      ignore: 440.825 WI6H San Francisco
+    existing: 440.825 WI6H Berkeley
+Conflict:
+      ignore: 440.950 KB6LED Woodside
+    existing: 440.950 KB6LED Hayward
+Conflict:
+      ignore: 441.250 K6DNA SoSanFrancisco
+    existing: 441.250 WB6WTM Los Altos
+Conflict:
+      ignore: 441.300 WB6ECE La Honda
+    existing: 441.300 WB6ECE Milpitas
+Conflict:
+      ignore: 441.400 WD6GGW Redwood City
+    existing: 441.400 N6EOC Oakland
+Conflict:
+      ignore: 441.650 W6FBK Menlo Park
+    existing: 441.650 K6JSI Richmond Heigh
+Conflict:
+      ignore: 441.725 KR6WP Pacifica
+    existing: 441.725 WA6QDP San Jose
+Conflict:
+      ignore: 442.075 N6MVT San Francisco
+    existing: 442.075 K6LNK Pleasanton
+Conflict:
+      ignore: 442.700 N6MNV SoSanFrancisco
+    existing: 442.700 N6MNV San Jose
+Conflict:
+      ignore: 442.750 W6BUR Daly City
+    existing: 442.750 WA6RQX Bakersfield
+Conflict:
+      ignore: 443.675 K6MSR San Francisco
+    existing: 443.675 K6MSR Los Altos
+Conflict:
+      ignore: 443.950 W6EZE Moss Beach
+    existing: 443.950 AD1U Los Gatos
+Conflict:
+      ignore: 444.225 W6PW San Francisco
+    existing: 444.225 KE6JTK San Jose
+Conflict:
+      ignore: 444.675 K6JDE Belmont
+    existing: 444.675 W6RCA Oakland
+Conflict:
+      ignore: 444.800 WA6GEL Daly City
+    existing: 444.800 WA6GEL San Jose
+Conflict:
+      ignore: 444.850 K6KYA San Francisco
+    existing: 444.850 N6AMO Monterey
+Conflict:
+      ignore: 444.900 WR6HMB Half Moon Bay
+    existing: 444.900 KU6V San Jose
+Conflict:
+      ignore: 444.925 KB6LCS San Francisco
+    existing: 444.925 KB6LCS Los Gatos
+Conflict:
+      ignore: 145.150 KI6QCU Cobb
+    existing: 145.150 W6PW San Francisco
+Conflict:
+      ignore: 145.170 KI6B Inverness
+    existing: 145.170 K6SNY Sunnyvale
+Conflict:
+      ignore: 145.190 K6CDF Santa Rosa
+    existing: 145.190 WA2IBM San Jose
+Conflict:
+      ignore: 145.310 K6LI Vallejo
+    existing: 145.310 KB6FEC San Jose
+Conflict:
+      ignore: 145.350 WA6YGD Santa Rosa
+    existing: 145.350 AB6CR Livermore
+Conflict:
+      ignore: 145.390 AC6VJ Middletown
+    existing: 145.390 WW6BAY Palo Alto
+Conflict:
+      ignore: 146.115 N6TKW Napa
+    existing: 146.115 AA6BT San Jose
+Conflict:
+      ignore: 146.640 WB6QAZ Cloverdale
+    existing: 146.640 WR6ABD San Jose
+Conflict:
+      ignore: 146.655 N6TKW Napa
+    existing: 146.655 K6SA Saratoga
+Conflict:
+      ignore: 146.670 WA6M Bodega Bay
+    existing: 146.670 N6MM Newark
+Conflict:
+      ignore: 146.730 K6ACS Santa Rosa
+    existing: 146.730 W6SCF La Honda
+Conflict:
+      ignore: 146.775 K6BW Pt Reyes Stn
+    existing: 146.775 W6LLL Livermore
+Conflict:
+      ignore: 146.790 K6CSR Santa Rosa
+    existing: 146.790 W6TP San Francisco
+Conflict:
+      ignore: 146.820 W6BYS Napa
+    existing: 146.820 K6INC San Jose
+Conflict:
+      ignore: 146.835 KE6EAQ Santa Rosa
+    existing: 146.835 WD6INC Daly City
+Conflict:
+      ignore: 146.865 KI6SUD Dillon Beach
+    existing: 146.865 KC6ULT Redwood City
+Conflict:
+      ignore: 146.910 WB6TMS Petaluma
+    existing: 146.910 KQ6YG Hayward
+Conflict:
+      ignore: 146.940 N6PHP Santa Rosa
+    existing: 146.940 W6HUM Whitethorn
+Conflict:
+      ignore: 146.970 KI6B Cloverdale
+    existing: 146.970 WA6INC San Jose
+Conflict:
+      ignore: 146.985 W6IBC Windsor
+    existing: 146.985 W6UU San Jose
+Conflict:
+      ignore: 147.315 W6SON Sebastopol
+    existing: 147.315 KQ6RC Hayward
+Conflict:
+      ignore: 147.330 K6GWE San Rafael
+    existing: 147.330 K7DAA Morgan Hill
+Conflict:
+      ignore: 147.675 N1PPP Clear Lake
+    existing: 147.675 WG6LEE Saratoga
+Conflict:
+      ignore: 440.050 W6CO Napa
+    existing: 440.050 KQ6YG Hayward
+Conflict:
+      ignore: 440.1375 NN6J Hopland
+    existing: 440.1375 K6SIA Gilroy
+Conflict:
+      ignore: 440.200 KD6CJQ Santa Rosa
+    existing: 440.200 N6BDE Palo Alto
+Conflict:
+      ignore: 440.400 WB6WTM Sebastapol
+    existing: 440.400 WB6WTM Oakland
+Conflict:
+      ignore: 440.450 K6EAR Santa Rosa
+    existing: 440.450 N6ZX Woodside
+Conflict:
+      ignore: 440.475 WA6FUL Sebastopol
+    existing: 440.475 K6GOD San Jose
+Conflict:
+      ignore: 440.650 KG6MZV Novato
+    existing: 440.650 KC6TYG Los Gatos
+Conflict:
+      ignore: 440.825 WI6H Laytonville
+    existing: 440.825 WI6H Berkeley
+Conflict:
+      ignore: 440.925 KH8AF Novato
+    existing: 440.925 KH8AF Berkeley
+Conflict:
+      ignore: 440.950 WA6FUL Sebastopol
+    existing: 440.950 KB6LED Hayward
+Conflict:
+      ignore: 441.100 WA6FUL Sebastopol
+    existing: 441.100 K6GOD Palo Alto
+Conflict:
+      ignore: 441.250 KR6BEN Benicia
+    existing: 441.250 WB6WTM Los Altos
+Conflict:
+      ignore: 441.300 KV6A Santa Rosa
+    existing: 441.300 WB6ECE Milpitas
+Conflict:
+      ignore: 441.350 KG6UFR Kelseyville
+    existing: 441.350 W6PIY San Jose
+Conflict:
+      ignore: 441.375 W6SON Sebastopol
+    existing: 441.375 KC6IAU Daly City
+Conflict:
+      ignore: 441.425 N6GJM Kelseyville
+    existing: 441.425 W6MTF Oakland
+Conflict:
+      ignore: 441.650 K6CSR Santa Rosa
+    existing: 441.650 K6JSI Richmond Heigh
+Conflict:
+      ignore: 441.800 W6CO Napa
+    existing: 441.800 KQ6RC Hayward
+Conflict:
+      ignore: 441.900 W6CO Calistoga
+    existing: 441.900 W6MOW Hollister
+Conflict:
+      ignore: 442.175 KH8AF San Rafael
+    existing: 442.175 NO1PC Campbell
+Conflict:
+      ignore: 442.200 KH8AF Novato
+    existing: 442.200 KH8AF Oakland
+Conflict:
+      ignore: 442.250 N6TKW Napa
+    existing: 442.250 KJ6ORX Los Altos Hill
+Conflict:
+      ignore: 442.325 N6AMG Sebastopol
+    existing: 442.325 KD6KGE Pescadero
+Conflict:
+      ignore: 442.425 K6LI Vallejo
+    existing: 442.425 W6UU San Jose
+Conflict:
+      ignore: 442.525 K6ER Sausalito
+    existing: 442.525 K6MFM Walnut Creek
+Conflict:
+      ignore: 442.750 KR6BEN Benicia
+    existing: 442.750 WA6RQX Bakersfield
+Conflict:
+      ignore: 442.825 WR6COP Clear Lake
+    existing: 442.825 W7AFG San Jose
+Conflict:
+      ignore: 442.850 K6INC Vallejo
+    existing: 442.850 K6JDE San Bruno
+Conflict:
+      ignore: 443.425 WA6FUL Sebastopol
+    existing: 443.425 WA6GG Fremont
+Conflict:
+      ignore: 443.450 WU7Q Napa
+    existing: 443.450 K6MF San Jose
+Conflict:
+      ignore: 443.475 K6LNK Geyserville
+    existing: 443.475 K6LNK San Jose
+Conflict:
+      ignore: 443.525 K6GWE San Rafael
+    existing: 443.525 KJ6WZS Gilroy
+Conflict:
+      ignore: 443.900 W6FMG American Canyo
+    existing: 443.900 W6YL San Jose
+Conflict:
+      ignore: 444.150 N6PMF Calistoga
+    existing: 444.150 WB6PQM Concord
+Conflict:
+      ignore: 444.175 N6TKW Calistoga
+    existing: 444.175 WA6RQX San Jose
+Conflict:
+      ignore: 444.225 NI6B Petaluma
+    existing: 444.225 KE6JTK San Jose
+Conflict:
+      ignore: 444.375 KD6RC Santa Rosa
+    existing: 444.375 N6INC Milpitas
+Conflict:
+      ignore: 444.475 K6IRC Calistoga
+    existing: 444.475 W6OTX San Jose
+Conflict:
+      ignore: 444.525 K6ZRX Napa
+    existing: 444.525 K6SNY Sunnyvale
+Conflict:
+      ignore: 444.725 N6TKW Yountville
+    existing: 444.725 K6GOD San Jose
+Conflict:
+      ignore: 444.825 WA6TIP Sebastopol
+    existing: 444.825 K6EAG Hayward
+Conflict:
+      ignore: 444.900 KF6SZA Santa Rosa
+    existing: 444.900 KU6V San Jose

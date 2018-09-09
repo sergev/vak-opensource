@@ -2,7 +2,7 @@ ifeq (,$(wildcard /Applications/Arduino.app/Contents/Java))
     # Linux
     ARDUINO_HOME= /opt/arduino-1.8.5
     PACKAGES_HOME= $(HOME)/.arduino15/packages
-    SERIAL_PORT = /dev/ttyACM1
+    SERIAL_PORT = /dev/ttyACM0
 else
     # Mac OS X
     ARDUINO_HOME= /Applications/Arduino.app/Contents/Java
@@ -35,7 +35,7 @@ all:
             -mmips:isa32r2 -d -S $(BUILD_DIR)/$(SKETCH).elf > $(BUILD_DIR)/$(SKETCH).dis
 
 upload: $(BUILD_DIR)/$(SKETCH).hex
-	$(PACKAGES_HOME)/chipKIT/tools/pic32prog/v2.1.24/pic32prog \
+	$(PACKAGES_HOME)/chipKIT/tools/pic32prog/v2.1.41/pic32prog \
             -d $(SERIAL_PORT) \
             $(BUILD_DIR)/$(SKETCH).hex
 
