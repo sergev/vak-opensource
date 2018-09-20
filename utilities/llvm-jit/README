@@ -1,0 +1,17 @@
+Getting started with the LLVM C API
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+See accompanying blog post by Paul Smith at:
+https://pauladamsmith.com/blog/2015/01/how-to-get-started-with-llvm-c-api.html
+
+Tested with LLVM 3.8.0.
+
+To use on Ubuntu, install LLVM and CLANG:
+
+    sudo apt-get install clang-3.8 llvm-3.8
+
+Once LLVM is installed, clone this repo, cd to it, and run:
+
+    $ make
+    $ ./sum 42 99
+    141
