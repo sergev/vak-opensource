@@ -427,7 +427,10 @@ struct text *msg;/* msg is a pointer to seek address and length of mess */
 	register char *tbuf;
 	lseek(datfd, (off_t) msg->seekadr, 0);
 	tbuf = (char *) alloca(msg->txtlen + 1);
-	read(datfd,tbuf,msg->txtlen);
+	if (read(datfd,tbuf,msg->txtlen) != msg->txtlen) {
+	        printf("Corrupted dat file!\n");
+	        return;
+	}
 	s=tbuf;
 	nonfirst=0;
 	while (s-tbuf<msg->txtlen)      /* read a line at a time        */
@@ -457,7 +460,10 @@ int skip;         /* assumes object 1 doesn't have prop 1, obj 2 no prop 2 &c*/
 	lseek(datfd, (off_t) ptext[msg].seekadr, 0);
 	lstr = ptext[msg].txtlen;
 	tbuf = (char *) alloca(lstr + 1);
-	read(datfd,tbuf,lstr);
+	if (read(datfd,tbuf,lstr) != lstr) {
+	        printf("Corrupted dat file!\n");
+	        return;
+        }
 	s=tbuf;
 	nonfirst=0;
 	while (s-tbuf<lstr)             /* read a line at a time        */
