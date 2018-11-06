@@ -15,7 +15,7 @@
 /* Device handle for libusb. */
 hid_device *hiddev;
 
-unsigned char reply [64];
+unsigned char reply[42];
 int reply_len;
 
 int debug_level = 1;
@@ -32,7 +32,7 @@ int debug_level = 1;
  */
 static void send_recv(const unsigned char *data, unsigned nbytes)
 {
-    unsigned char buf [64];
+    unsigned char buf[42];
     unsigned k;
 
     memset(buf, 0, sizeof(buf));
@@ -53,17 +53,15 @@ static void send_recv(const unsigned char *data, unsigned nbytes)
         }
         fprintf(stderr, "\n");
     }
-#define SEND_LEN 42
-#define RECV_LEN 42
-    hid_write(hiddev, buf, SEND_LEN);
+    hid_write(hiddev, buf, sizeof(buf));
 
     memset(reply, 0, sizeof(reply));
-    reply_len = hid_read_timeout(hiddev, reply, RECV_LEN, 4000);
+    reply_len = hid_read_timeout(hiddev, reply, sizeof(reply), 4000);
     if (reply_len == 0) {
         fprintf(stderr, "Timed out.\n");
         exit(-1);
     }
-    if (reply_len != RECV_LEN) {
+    if (reply_len != sizeof(reply)) {
         fprintf(stderr, "error %d receiving packet\n", reply_len);
         exit(-1);
     }
@@ -75,6 +73,10 @@ static void send_recv(const unsigned char *data, unsigned nbytes)
             fprintf(stderr, " %02x", reply[k]);
         }
         fprintf(stderr, "\n");
+    }
+    if (reply[0] != 3 || reply[1] != 0 || reply[3] != 0) {
+        fprintf(stderr, "incorrect reply\n");
+        exit(-1);
     }
 }
 
@@ -92,13 +94,23 @@ int main()
 
     /* Read version of adapter. */
     send_recv(CMD_PRG, 7);
-    if (reply[0] != CMD_ACK) {
+    if (reply[2] != 1 || reply[4] != CMD_ACK) {
         fprintf(stderr, "Wrong reply %#x, expected %#x\n", reply[0], CMD_ACK);
         return 0;
     }
 
     send_recv(CMD_PRG2, 2);
 
-    //TODO
+// ---Send 01 00 07 00 02 50 52 4f 47 52 41
+// ---Recv 03 00 01 00 41 00 00 00 00 00 00 00 00 00 00 00
+//         00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+//         00 00 00 00 00 00 00 00 00 00
+// ---Send 01 00 02 00 4d 02
+// ---Recv 03 00 10 00 42 46 2d 35 52 ff ff ff 56 32 31 30
+//         00 04 80 04 00 00 00 00 00 00 00 00 00 00 00 00
+//         00 00 00 00 00 00 00 00 00 00
+
+42 46 2d 35 52 ff ff ff 56 32 31 30 00 04 80 04
+ B  F  -  5  R           V  2  1  0
     return 0;
 }
