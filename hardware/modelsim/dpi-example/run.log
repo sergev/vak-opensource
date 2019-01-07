@@ -1,0 +1,13 @@
+# vsim -c "+nowarn3116" -l run.log -do "run 100000us; quit" testbench 
+# Start time: 18:43:48 on Jan 06,2019
+# Loading sv_std.std
+# Loading work.testbench
+# Loading /tmp/vak@kvak_dpi_24398/linuxpe_gcc-7/vsim_auto_compile.so
+# run 100000us
+# ----- Start -----
+# C function called.
+# ----- Finish -----
+# ** Note: $finish    : test.sv(10)
+#    Time: 0 ps  Iteration: 0  Instance: /testbench
+# End time: 18:43:48 on Jan 06,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0, Suppressed Warnings: 1
