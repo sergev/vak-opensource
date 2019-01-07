@@ -11,7 +11,7 @@ clean:
 xsim.dir:
 		xvlog --nolog --sv test.sv
 		xsc -c dpi.c
-		xsc --link dpi.c
+		xsc --link
 		xelab --nolog testbench -sv_lib dpi
 
 run:            xsim.dir
