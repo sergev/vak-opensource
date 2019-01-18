@@ -1,0 +1,21 @@
+execution:
+- concurrency: 10
+  hold-for: 5m
+  ramp-up: 2m
+  scenario: yaml_example
+
+scenarios:
+  yaml_example:
+    retrieve-resources: false
+    requests:
+      - http://example.com/
+
+reporting:
+- module: final-stats
+- module: console
+
+settings:
+  check-interval: 5s
+  default-executor: jmeter
+
+provisioning: local
