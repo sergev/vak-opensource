@@ -1,6 +1,6 @@
 OBJS		= toutf.o #detect.o
 PROG		= toutf
-CFLAGS		= -Wall -g #-O
+CFLAGS		= -Wall -g -O
 LDFLAGS		= -g
 
 all:		$(PROG)
