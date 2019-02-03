@@ -14,6 +14,7 @@ CORE            = microcore
 BOARD_TAG       = attiny13
 MCU             = attiny13a
 AVRDUDE_MCU     = attiny13
+#AVRDUDE_MCU     = attiny85
 F_CPU           = 9600000
 HEX_MAXIMUM_SIZE= 1024
 CPPFLAGS        = -Werror
@@ -23,6 +24,7 @@ CPPFLAGS        = -Werror
 # Use: make ispload
 #
 ISP_PROG        = avrisp2
+#ISP_PROG        = usbasp
 ISP_PORT        = usb
 AVRDUDE_OPTS    = -v
 

@@ -7,7 +7,8 @@ else
     # Mac OS: use brew install arduino-mk
     ARDUINO_DIR = /Applications/Arduino.app/Contents/Java
     ARDMK_DIR   = /usr/local/opt/arduino-mk
-    MONITOR_PORT= /dev/tty.wchusbserialfd130
+#   MONITOR_PORT= /dev/tty.wchusbserialfd130
+    MONITOR_PORT= /dev/tty.usbmodemFD131
 endif
 
 AVR_TOOLS_DIR   = $(ARDUINO_DIR)/hardware/tools/avr
