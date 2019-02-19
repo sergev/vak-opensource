@@ -25,6 +25,7 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include <string.h>
+#include <unistd.h>
 #include "ch341a.h"
 
 #define DEFAULT_TIMEOUT         1000     // 1000mS for USB timeouts
@@ -108,20 +109,23 @@ int spi_open()
     if (libusb_kernel_driver_active(devHandle, 0)) {
         ret = libusb_detach_kernel_driver(devHandle, 0);
         if (ret) {
-            fprintf(stderr, "Failed to detach kernel driver: '%s'\n", strerror(-ret));
+            fprintf(stderr, "Failed to detach kernel driver: '%s'\n",
+                libusb_error_name(ret));
             goto failed;
         }
     }
 
     ret = libusb_claim_interface(devHandle, 0);
     if (ret) {
-        fprintf(stderr, "Failed to claim interface 0: '%s'\n", strerror(-ret));
+        fprintf(stderr, "Failed to claim interface 0: '%s'\n",
+            libusb_error_name(ret));
         goto failed;
     }
 
     ret = libusb_get_descriptor(devHandle, LIBUSB_DT_DEVICE, 0x00, desc, 0x12);
     if (ret < 0) {
-        fprintf(stderr, "Failed to get device descriptor: '%s'\n", strerror(-ret));
+        fprintf(stderr, "Failed to get device descriptor: '%s'\n",
+            libusb_error_name(ret));
         libusb_release_interface(devHandle, 0);
 failed:
         libusb_close(devHandle);
@@ -154,18 +158,26 @@ int spi_close(void)
 static int transfer(const char *func, uint8_t type, uint8_t *buf, int len)
 {
     int32_t ret;
-    int transfered;
+    int transfered, retry;
 
     if (devHandle == NULL)
         return -1;
+    for (retry = 0; retry < 3; retry++) {
+        ret = libusb_bulk_transfer(devHandle, type, buf, len, &transfered, DEFAULT_TIMEOUT);
+        if (ret >= 0)
+            return transfered;
 
-    ret = libusb_bulk_transfer(devHandle, type, buf, len, &transfered, DEFAULT_TIMEOUT);
-    if (ret < 0) {
-        fprintf(stderr, "%s: Failed to %s %d bytes '%s'\n", func,
-                (type == BULK_WRITE_ENDPOINT) ? "write" : "read", len, strerror(-ret));
-        return -1;
+        if (ret != LIBUSB_ERROR_PIPE)
+            break;
+
+        // Sometimes the chip does not recognize the command, for unknown reason.
+        // Need to repeat.
+        usleep(10000);
     }
-    return transfered;
+    fprintf(stderr, "%s: Failed to %s %d bytes '%s'\n", func,
+            (type == BULK_WRITE_ENDPOINT) ? "write" : "read", len,
+            libusb_error_name(ret));
+    return -1;
 }
 
 /*
@@ -186,7 +198,7 @@ int spi_set_speed(int speed)
 }
 
 /*
- * ch341 requres LSB first, swap the bit order before send and after receive
+ * CH341 requres LSB first, swap the bit order before send and after receive.
  */
 static uint8_t swapByte(uint8_t c)
 {
@@ -201,7 +213,7 @@ static uint8_t swapByte(uint8_t c)
 }
 
 /*
- * assert or deassert the chip-select pin of the spi device
+ * Assert or deassert the chip-select pin of the spi device.
  */
 static void chip_select(uint8_t *ptr, bool selected)
 {
@@ -213,7 +225,7 @@ static void chip_select(uint8_t *ptr, bool selected)
 }
 
 /*
- * transfer len bytes of data to the spi device
+ * Transfer len bytes of data to the spi device.
  */
 int spi_send_receive(uint8_t *out, uint8_t *in, int len)
 {
@@ -263,7 +275,7 @@ int spi_send_receive(uint8_t *out, uint8_t *in, int len)
 }
 
 /*
- * transfer len bytes of data to the spi device
+ * Transfer len bytes of data to the spi device.
  */
 int spi_send(uint8_t *out, int len)
 {
