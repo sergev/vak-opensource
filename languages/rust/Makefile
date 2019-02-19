@@ -1,4 +1,4 @@
-PROG            = hello example #arc
+PROG            = hello example format #arc
 RUSTC           = rustc
 
 all:		$(PROG)

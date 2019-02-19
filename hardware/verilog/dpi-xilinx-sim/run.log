@@ -1,0 +1,22 @@
+#-----------------------------------------------------------
+# xsim v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Sun Jan  6 21:03:33 2019
+# Process ID: 28608
+# Current directory: /home/vak/Project/vak-opensource/hardware/verilog/dpi-xilinx-sim
+# Command line: xsim -log run.log -mode tcl -source {xsim.dir/work.testbench/xsim_script.tcl}
+# Log file: /home/vak/Project/vak-opensource/hardware/verilog/dpi-xilinx-sim/run.log
+# Journal file: /home/vak/Project/vak-opensource/hardware/verilog/dpi-xilinx-sim/xsim.jou
+#-----------------------------------------------------------
+source xsim.dir/work.testbench/xsim_script.tcl
+# xsim {work.testbench} -autoloadwcfg -runall
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+run -all
+----- Start -----
+C function called.
+----- Finish -----
+$finish called at time : 0 fs : File "/home/vak/Project/vak-opensource/hardware/verilog/dpi-xilinx-sim/test.sv" Line 10
+exit
+INFO: [Common 17-206] Exiting xsim at Sun Jan  6 21:03:41 2019...

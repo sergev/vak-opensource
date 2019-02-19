@@ -206,14 +206,19 @@ int update_time(time_t sec)
 
     if (slide_glyph(5, tm->tm_sec % 10, 27) < 0)
         return -1;
+
     if (slide_glyph(4, tm->tm_sec / 10, 22) < 0)
         return -1;
+
     if (slide_glyph(3, tm->tm_min % 10, 16) < 0)
         return -1;
+
     if (slide_glyph(2, tm->tm_min / 10, 11) < 0)
         return -1;
+
     if (slide_glyph(1, tm->tm_hour % 10, 5) < 0)
         return -1;
+
     return slide_glyph(0, tm->tm_hour / 10, 0);
 }
 
@@ -223,7 +228,8 @@ int main(int argc, char *argv[])
     time_t last_sec = 0;
 again:
     if (led_init() < 0) {
-        goto out;
+        led_close();
+        return 0;
     }
 
     for (;;) {
@@ -243,8 +249,4 @@ again:
             goto again;
         }
     }
-
-out:
-    led_close();
-    return 0;
 }

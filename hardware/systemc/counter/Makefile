@@ -1,8 +1,8 @@
-SYSTEMC         = /usr/local/mips/systemc-2.3.0
+# Use: module load systemc/2.3.1
 
-CXX             = g++ -m32 -pthread
-CXXFLAGS        = -DSC_INCLUDE_FX -I$(SYSTEMC)/include -Wall -O3
-LIBS            = -static -L$(SYSTEMC)/lib-linux -lsystemc -lm
+CXX             = g++ -pthread
+CXXFLAGS        = -DSC_INCLUDE_FX -I$(SYSTEMC_INCLUDE) -Wall -O3
+LIBS            = -L$(SYSTEMC_LIBDIR) -lsystemc -lm
 
 PROGS           = counter-tb
 OBJS            = counter-tb.o
@@ -17,4 +17,4 @@ counter-tb:     $(OBJS)
 		$(CXX) -o $@ $(OBJS) $(LIBS)
 
 run:
-		LD_LIBRARY_PATH=$(SYSTEMC)/lib-linux ./counter-tb
+		./counter-tb
