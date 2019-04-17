@@ -1,0 +1,6 @@
+	LOOPS = 10000
+	&STLIMIT = LOOPS * 2 + 10
+	A = 0
+LOOP	A = A + 1
+	LT(A,LOOPS)		:S(LOOP)
+END

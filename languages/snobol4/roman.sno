@@ -1,0 +1,36 @@
+* ROMAN(N) - Convert integer N to Roman numeral form
+*	N must be positive and less than 4000
+*	An asterisk appears in the result if N >+ 4000
+*	The function fails if N is not an integer
+
+	DEFINE('ROMAN(N)UNITS')		:(ROMAN_END)
+
+* Get rightmost digit to UNITS and remove it from N
+* Return null result if argument is null
+ROMAN	N RPOS(1) LEN(1) . UNITS =	:F(RETURN)
+
+* Search for digit, replace with its Roman form.
+* Return failing if not a digit.
+	'0,1I,2II,3III,4IV,5V,6VI,7VII,8VIII,9IX,' UNITS
++		BREAK(',') . UNITS		:F(FRETURN)
+
+* Convert rest of N and multiply by 10.  Propagate a
+* failure return from recursive call back to caller
+	ROMAN = REPLACE(ROMAN(N),'IVXLCDM','XLCDM**') UNITS
++			:S(RETURN) F(FRETURN)
+
+ROMAN_END
+
+
+	DEFINE("TEST(I,J)")				:(TEST_END)
+TEST	OUTPUT = I ' -> ' ROMAN(I)
+	EQ(I,J)						:S(RETURN)
+	I = I + 1					:(TEST)
+TEST_END
+
+	TEST(1,100)
+	TEST(149,151)
+	TEST(480,520)
+	TEST(1900,2100)
+
+END

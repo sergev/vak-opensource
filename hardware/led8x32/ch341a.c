@@ -162,7 +162,7 @@ static int transfer(const char *func, uint8_t type, uint8_t *buf, int len)
 
     if (devHandle == NULL)
         return -1;
-    for (retry = 0; retry < 3; retry++) {
+    for (retry = 0; retry < 10; retry++) {
         ret = libusb_bulk_transfer(devHandle, type, buf, len, &transfered, DEFAULT_TIMEOUT);
         if (ret >= 0)
             return transfered;

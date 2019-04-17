@@ -1,0 +1,19 @@
+*	test functions
+
+	DEFINE("FACT(X)")			:(END_FACT)
+FACT	FACT = EQ(X,0) 1			:S(RETURN)
+	FACT = X * FACT(X - 1)			:(RETURN)
+END_FACT
+
+	DEFINE("DOIT(X)")			:(END_DOIT)
+DOIT	OUTPUT = "FACT(" X ") = " FACT(X)	:(RETURN)
+END_DOIT
+
+	DOIT(0)
+	DOIT(1)
+	DOIT(2)
+	DOIT(3)
+	DOIT(4)
+	DOIT(5)
+	DOIT(6)
+END

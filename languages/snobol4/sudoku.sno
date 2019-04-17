@@ -1,0 +1,213 @@
+* Sudoku solving program written in the SNOBOL4 programming language
+* Look at end for sample input
+* copy sample and paste into input stream (MJH)
+* snobol4 sudoku.sno < sudokuInput.txt
+
+*       &STAT = 0
+* cells are numbered 0 through 80
+        a = ARRAY("0:80")
+        b = ARRAY("0:80")
+        DATA("c(index,z1,z2,z3)")
+* z1 is row link, z2 is column link, z3 is 3x3 block link
+        DEFINE('prop(b)n,m,p,q,r,s,t')
+        DEFINE('compute(b)did,n,mxl,mxs,mxn,tryc,ncopy,z')
+
+* setup loop
+        n = -1
+sulp1   n = n + 1
+        a<n> = c(n)
+        LT(n,80) :S(sulp1)
+* set up zone links
+        n = -1
+sulp2   n = n + 1
+        r = n / 9
+        c = REMDR(n,9)
+* set row and column zones
+        rp = REMDR(r + 1, 9)
+        cp = REMDR(c + 1, 9)
+        z1(a<n>) = a<r * 9 + cp>
+        z2(a<n>) = a<rp * 9 + c>
+* do little 3x3 block zones
+* xr and xc are which block number (row colum)  0-2 0-2
+* br and bc are which cell with in the little block (row col) 0-2 0-2
+        xr = r / 3
+        xc = c / 3
+        br = REMDR(r,3)
+        bc = REMDR(c,3)
+        newbc = REMDR(bc + 1,3)
+        newbr = REMDR(br + (bc + 1) / 3,3)
+        z3(a<n>) = a<xr * 27 + newbr * 9 + xc * 3 + newbc>
+        LT(n,80) :S(sulp2)
+
+* Read input puzzle
+        &TRIM = 1
+        n = -1
+sulp3   inline = INPUT :F(solve)
+        IDENT(inline) :S(solve)
+	IDENT(inline, 'STOP') :S(END)
+        OUTPUT = inline
+sulp4   inline LEN(1) . x = :F(sulp3)
+        n = n + 1
+        b<n> = '123456789'
+        x NOTANY('123456789') :S(sulp4)
+        b<n> = x :(sulp4)
+
+* solve puzzle
+solve   compute(b) :S(nextpuzzle)
+        OUTPUT = 'No solution'
+nextpuzzle OUTPUT =
+        n = -1
+findnextpuzzle inline = INPUT :F(END)
+        IDENT(inline) :S(findnextpuzzle)
+	IDENT(inline, 'STOP') :S(END)
+        OUTPUT = inline
+        :(sulp4)
+
+* Descend trying different alternatives
+compute did = 0
+        DIFFER(prop(b)) :F(FRETURN)
+        GT(did,0) :S(compute)
+* scan to see if solved and find longest string
+        n = 0
+        mxl = 0
+scnlp1  xs = b<n>
+        GT(SIZE(xs),mxl) :F(scnlp1nx)
+        mxs = xs
+        mxl = SIZE(mxs)
+        mxn = n
+scnlp1nx n = n + 1 LT(n,80) :S(scnlp1)
+        EQ(mxl,1)            :F(trylp)
+* Print out the solution stored in array b
+printout n = 0
+printoutlp
+        z = z b<n>
+        n = n + 1 LT(n,80) :S(printoutlp)
+        OUTPUT =
+printoutlp3 z LEN(9) . OUTPUT = :S(printoutlp3)F(RETURN)
+
+trylp   mxs LEN(1) . tryc = :F(FRETURN)
+        ncopy = COPY(b)
+        ncopy<mxn> = tryc
+        compute(ncopy) :S(RETURN)
+        :(trylp)
+
+*propagate restrictions
+prop    n = 0
+proplp  s = b<n>
+        m = 8
+        p = index(z1(a<n>))
+        q = index(z2(a<n>))
+        r = index(z3(a<n>))
+
+proplp2 EQ(SIZE(s),1) :F(propskip)
+
+        t = b<p>
+proprm1 t s = :F(proprm1n)
+        did = did + 1
+proprm1n
+        b<p> = t DIFFER(t) :F(FRETURN)
+        p = index(z1(a<p>))
+
+        t = b<q>
+proprm2 t s = :F(proprm2n)
+        did = did + 1
+proprm2n
+        b<q> = t DIFFER(t) :F(FRETURN)
+        q = index(z2(a<q>))
+
+        t = b<r>
+proprm3 t s = :F(proprm3n)
+        did = did + 1
+proprm3n
+        b<r> = t DIFFER(t) :F(FRETURN)
+        r = index(z3(a<r>))
+
+        m = m - 1 GT(m,1) :S(proplp2)
+propskip n = n + 1 LT(n,80) :S(proplp)
+propdone prop = b :(RETURN)
+
+
+END
+---17--35
+7--------
+--2--3697
+---3-7-82
+---------
+51-6-4---
+8639--7--
+--------9
+49--56---
+
+-7--8--6-
+---32-5--
+-95--7---
+--34----6
+--78-51--
+1----29--
+---7--38-
+--9-53---
+-3--6--5-
+
+
+2-7----8-
+--12---36
+----6-5--
+-----8--3
+6-83-52-7
+4--6-----
+--5-7----
+34---69--
+-7----4-2
+
+STOP
+
+69-----2-
+-----18--
+-15-8--6-
+----48--6
+--95-67--
+5--91----
+-3--5-61-
+--78-----
+-4-----73
+
+----5---1
+---4--8-9
+-9-6-1--4
+7------1-
+-61---73-
+-4------8
+6--7-2-9-
+2-7--3---
+9---1----
+
+---9----8
+---3--2-6
+7-86---5-
+------6-1
+3-91-85-4
+6-4------
+-8---34-2
+9-7--4---
+1----6---
+
+-8-7--1--
+-62-9--45
+5---649--
+85-9---3-
+9-38-26--
+-2---3--8
+--842---7
+64--7--2-
+--7----1-
+
+98----1--
+-6-----45
+5---649--
+8--9---3-
+--38-26--
+-2---3--8
+--842---7
+64-----2-
+--7----19
+
