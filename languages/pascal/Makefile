@@ -1,4 +1,4 @@
-all:    hello bitset
+all:    hello bitset match roman
 
 hello:  hello.pas
 	fpc $<
@@ -6,5 +6,11 @@ hello:  hello.pas
 bitset: bitset.pas
 	fpc $<
 
+match:  match.pas
+	fpc $<
+
+roman:  roman.pas
+	fpc $<
+
 clean:
-	rm -f *.o hello bitset
+	rm -f *.o hello bitset match roman
