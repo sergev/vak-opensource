@@ -1,4 +1,4 @@
-PROG            = fputest
+PROG            = fputest float128
 CFLAGS		= -O3 -Wall -Werror
 #CFLAGS		= -m32 -O -Wall -Werror
 #LDFLAGS		= -m32
@@ -22,3 +22,6 @@ nlopt-newuoa:   nlopt-newuoa.o
 
 clean:
 		rm -f $(PROG) *.o *.dis *~ a.out
+
+float128:       float128.o
+		$(CC) $(LDFLAGS) $< -lquadmath -o $@
