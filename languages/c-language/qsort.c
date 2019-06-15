@@ -1,101 +1,67 @@
+//
+// Numeric vector sort
+//
 #include <stdio.h>
 #include <stdlib.h>
-#include <assert.h>
+#include <complex.h>
+#include <sys/time.h>
 
-#define NTIMES  2       // Repeat test several times
-#define NELEM   16      // Number of elements in data array, power of 2
-
-// This array is initialized to put it into DATA section.
-int arr_cached [NELEM] = { 1 };
-
-// This array is not initialized to put it into BSS section.
-int arr_uncached [NELEM];
-
-void dump (int *array, int elements)
+double clock_now()
 {
-    int start, i;
+    struct timeval now;
 
-    if (array >= arr_cached && array < arr_cached+NELEM) {
-        start = array - arr_cached;
-        printf ("cached:");
-    } else {
-        start = array - arr_uncached;
-        printf ("uncached:");
-    }
-
-    for (i = 0; i < elements; i++)
-        printf (" %d:%d", start + i, array[i]);
-    printf ("\n");
+    gettimeofday(&now, NULL);
+    return (double)now.tv_sec + (double)now.tv_usec/1.0e6;
 }
 
-// Public-domain implementation by Eugene Jitomirsky.
-// Should be called with 2 elements and more.
-void quickSort (int *array, int elements)
+void quicksort(double *a, int lo, int hi)
 {
-    dump (array, elements);
+    int i = lo;
+    int j = hi;
+    while (i < hi) {
+        double pivot = a[(lo+hi)/2];
 
-    int pivot = array[0];
-    int left = 1;
-    int right = elements-1;
+        // Partition
+        while (i <= j) {
+            while (a[i] < pivot) {
+                i = i + 1;
+            }
+            while (a[j] > pivot) {
+                j = j - 1;
+            }
+            if (i <= j) {
+                double t = a[i];
+                a[i] = a[j];
+                a[j] = t;
+                i = i + 1;
+                j = j - 1;
+            }
+        }
 
-    for (;;) {
-        while (array[left] <= pivot && left < right)
-            left++;
-        while (array[right] > pivot && right >= left)
-            right--;
-        if (left >= right)
-            break;
-
-        int elem = array[left];
-        array[left] = array[right];
-        array[right] = elem;
-    }
-    array[0] = array[right];
-    array[right] = pivot;
-
-    if (right > 1)
-        quickSort (array, right);
-
-    if (right < elements-2)
-        quickSort (&array[right+1], elements-right-1);
-}
-
-// Stop with the FAIL result
-void failure ()
-{
-    printf ("FAIL\n");
-    exit (1);
-}
-
-// Initialize, sort and check an array
-void test_array (int *arr, int seed)
-{
-    int i;
-
-    // Make some pseudo-random data
-    for (i = 0; i < NELEM; i++)
-        arr [i] = (i ^ seed ^ NELEM/2) & (NELEM-1);
-
-    quickSort (arr, NELEM);
-    dump (arr, NELEM);
-
-    for (i = 0; i < NELEM; i++) {
-        if (arr [i] != i)
-            failure ();
+        // Recursion for quicksort
+        if (lo < j) {
+            quicksort(a, lo, j);
+        }
+        lo = i;
+        j = hi;
     }
 }
 
-// Main test routine
-int main ()
+#define N 10000000
+
+double data[N];
+
+int main()
 {
-    int n;
+    double t0, t1;
 
-    for (n = 0; n < NTIMES; n++) {
-        test_array (arr_cached, n+1);
-        test_array (arr_uncached, n+1);
-    }
+    for (int k=0; k<N; ++k)
+        data[k] = random();
 
-    // Stop with the PASS result
-    printf ("PASS\n");
+    t0 = clock_now();
+    quicksort(data, 0, N-1);
+    t1 = clock_now();
+
+    printf("size = %d, msec = %.1f\n", N, (t1 - t0) * 1000);
     return 0;
 }
