@@ -1,0 +1,47 @@
+#! /usr/bin/env python
+# encoding: utf-8
+#
+# Use:
+#       waf configure build
+#       waf install
+#       waf clean
+#       waf distclean
+#
+import sys
+
+APPNAME = 'sdwrite'
+VERSION = '0.1'
+
+def options(opt):
+    opt.load('compiler_c')
+
+def configure(conf):
+    out = 'build'
+    conf.load('compiler_c')
+
+def build(bld):
+    #print "sys.platform =", sys.platform
+    LIBS = []
+    if sys.platform == 'linux2':
+        LIBS = ['udev']
+    if sys.platform == 'darwin':
+        LIBS = ['-framework', 'IOKit', '-framework', 'CoreFoundation']
+
+    bld.program(
+        source       = 'sdwriter.c',
+        target       = APPNAME,
+
+        includes     = ['.'],
+#       defines      = ['LINUX=1'],
+
+        lib          = LIBS,
+#       libpath      = ['/usr/lib'],
+
+#       rpath        = ['/opt/kde/lib']
+#       vnum         = '1.2.3',
+
+#       idx          = 123,
+        install_path = '/usr/local/bin',
+        cflags       = ['-g', '-O', '-Wall'],
+        ldflags      = ['-g'],
+    )
