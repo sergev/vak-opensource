@@ -1,4 +1,4 @@
-KOTLINC = /snap/kotlin/37/bin/kotlinc
+KOTLINC = /snap/bin/kotlinc
 
 all:    hello.jar varargs.jar datetime.jar sort.jar
 
