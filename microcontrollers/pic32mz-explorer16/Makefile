@@ -1,5 +1,6 @@
-P              = /usr/local/mips-gcc-4.8.1/bin/mips-elf-
+#P              = /usr/local/mips-gcc-4.8.1/bin/mips-elf-
 #P               = /usr/local/mips-2013.11/bin/mips-sde-elf-
+P               = /usr/local/mips-2014.11/bin/mips-sde-elf-
 CC              = $(P)gcc -mips32r2 -EL -g -nostdlib
 GDB             = mipsel-elf32-gdb
 OBJCOPY         = $(P)objcopy
@@ -11,8 +12,8 @@ CFLAGS          = -O -Wall -Werror -DPIC32MZ
 LDFLAGS         = -T pic32mz.ld -e _start
 
 #PROG            = lcd
-#PROG            = blink
-PROG            = uart
+PROG            = blink
+#PROG            = uart
 
 all:            $(PROG).hex
 

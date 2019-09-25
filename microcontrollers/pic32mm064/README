@@ -1,0 +1,7 @@
+Example of simple program for PIC32MM0064 microcontroller
+in DIP28 package, plugged into a Microchip Microstick II board.
+
+This example will blink the D6 LED on the Microstick II at
+an increasing speed until it appears ON and then repeats.
+
+Using GCC compiler and pic32prog programming utility.

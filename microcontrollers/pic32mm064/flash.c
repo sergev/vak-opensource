@@ -1,13 +1,13 @@
-/*
- * Include processor definitions.
- */
-#include "pic32mx.h"
+//
+// Include processor definitions.
+//
+#include "pic32mm.h"
 
-#define MHZ     40              /* CPU clock is 40 MHz. */
+#define MHZ     25              // CPU clock is 25 MHz
 
-/*
- * Chip configuration.
- */
+//
+// Chip configuration.
+//
 PIC32_DEVCFG(
     DEVCFG0_DEBUG_DISABLED |    /* ICE debugger disabled */
     DEVCFG0_JTAGDIS,            /* Disable JTAG port */
@@ -47,11 +47,11 @@ asm("          .text");
  */
 void udelay(unsigned usec)
 {
-    unsigned now = mfc0(C0_COUNT, 0);
+    unsigned now = mfc0(C0_Count, 0);
     unsigned final = now + usec * MHZ / 2;
 
     for (;;) {
-        now = mfc0(C0_COUNT, 0);
+        now = mfc0(C0_Count, 0);
 
         /* This comparison is valid only when using a signed type. */
         if ((int) (now - final) >= 0)
@@ -62,12 +62,12 @@ void udelay(unsigned usec)
 int main()
 {
     /* Initialize coprocessor 0. */
-    mtc0(C0_COUNT, 0, 0);
-    mtc0(C0_COMPARE, 0, -1);
-    mtc0(C0_EBASE, 1, 0x9fc00000);      /* Vector base */
-    mtc0(C0_INTCTL, 1, 1 << 5);         /* Vector spacing 32 bytes */
-    mtc0(C0_CAUSE, 0, 1 << 23);         /* Set IV */
-    mtc0(C0_STATUS, 0, 0);              /* Clear BEV */
+    mtc0(C0_Count, 0, 0);
+    mtc0(C0_Compare, 0, -1);
+    mtc0(C0_EBase, 1, 0x9fc00000);      /* Vector base */
+    mtc0(C0_IntCtl, 1, 1 << 5);         /* Vector spacing 32 bytes */
+    mtc0(C0_Cause, 0, 1 << 23);         /* Set IV */
+    mtc0(C0_Status, 0, 0);              /* Clear BEV */
 
     /* Use all ports as digital. */
     ANSELA = 0;
