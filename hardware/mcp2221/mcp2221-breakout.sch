@@ -63,9 +63,9 @@
 <layer number="53" name="tGND_GNDA" color="7" fill="9" visible="yes" active="no"/>
 <layer number="54" name="bGND_GNDA" color="1" fill="9" visible="yes" active="no"/>
 <layer number="56" name="wert" color="7" fill="1" visible="yes" active="no"/>
-<layer number="57" name="tCAD" color="7" fill="1" visible="no" active="no"/>
-<layer number="59" name="tCarbon" color="7" fill="1" visible="no" active="no"/>
-<layer number="60" name="bCarbon" color="7" fill="1" visible="no" active="no"/>
+<layer number="57" name="tCAD" color="7" fill="1" visible="yes" active="no"/>
+<layer number="59" name="tCarbon" color="7" fill="1" visible="yes" active="no"/>
+<layer number="60" name="bCarbon" color="7" fill="1" visible="yes" active="no"/>
 <layer number="90" name="Modules" color="5" fill="1" visible="yes" active="yes"/>
 <layer number="91" name="Nets" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="92" name="Busses" color="1" fill="1" visible="yes" active="yes"/>
@@ -1597,75 +1597,166 @@ Basic schematic elements and footprints for 0603, 1206, and PTH 1/10th watt (sma
 </deviceset>
 </devicesets>
 </library>
-<library name="ak">
-<description>Artekit public library</description>
+<library name="microchip-mcp2221">
+<description>&lt;b&gt;USB-to-UART/I2C serial converter&lt;/b&gt;&lt;p&gt;
+The MCP2221 is a USB-to-UART/I2C serial converter which enables USB connectivity in applications that have a UART and I2C interfaces. The device reduces external components by integrating the USB termination resistors and the oscillator needed for USB operation. The MCP2221 also has four GP pins providing miscellaneous functionalities (GPIO, USBCFG, SSPND, Clock Output, ADC, DAC, interrupt detector).&lt;p&gt;
+Source: &lt;a href="http://www.microchip.com/wwwproducts/Devices.aspx?product=MCP2221"&gt;www.microchip.com/MCP2221&lt;/a&gt; and &lt;a href="http://www.microchipdirect.com/ProductDetails.aspx?Category=MCP2221"&gt;www.microchipdirect.com&lt;/a&gt;&lt;p&gt;
+Tutorial: &lt;a href="https://docs.google.com/document/d/1P3zzqCKdEXzCe--1Yyg8PClCZKsUri8pyNO7AV2daaw/edit?usp=sharing"&gt;MCP2221 by Arnauld Biganzoli&lt;/a&gt;</description>
 <packages>
-<package name="SOICN-14">
-<smd name="1" x="-3.805" y="-2.525" dx="2" dy="0.6" layer="1" rot="R90"/>
-<smd name="2" x="-2.535" y="-2.525" dx="2" dy="0.6" layer="1" rot="R90"/>
-<smd name="3" x="-1.265" y="-2.525" dx="2" dy="0.6" layer="1" rot="R90"/>
-<smd name="4" x="0.005" y="-2.525" dx="2" dy="0.6" layer="1" rot="R90"/>
-<smd name="8" x="3.815" y="2.325" dx="2" dy="0.6" layer="1" rot="R90"/>
-<smd name="7" x="3.815" y="-2.525" dx="2" dy="0.6" layer="1" rot="R90"/>
-<smd name="6" x="2.545" y="-2.525" dx="2" dy="0.6" layer="1" rot="R90"/>
-<smd name="5" x="1.275" y="-2.525" dx="2" dy="0.6" layer="1" rot="R90"/>
-<wire x1="-4.85" y1="1.85" x2="-4.85" y2="0.4" width="0.127" layer="21"/>
-<wire x1="-4.85" y1="0.4" x2="-4.85" y2="-0.6" width="0.127" layer="21"/>
-<wire x1="-4.85" y1="-0.6" x2="-4.85" y2="-2.05" width="0.127" layer="21"/>
-<wire x1="-4.85" y1="-2.05" x2="4.75" y2="-2.05" width="0.127" layer="21"/>
-<wire x1="4.75" y1="-2.05" x2="4.75" y2="1.85" width="0.127" layer="21"/>
-<wire x1="4.75" y1="1.85" x2="-4.85" y2="1.85" width="0.127" layer="21"/>
-<wire x1="-4.85" y1="0.4" x2="-3.9" y2="0.4" width="0.127" layer="21"/>
-<wire x1="-3.9" y1="0.4" x2="-3.9" y2="-0.6" width="0.127" layer="21"/>
-<wire x1="-3.9" y1="-0.6" x2="-4.85" y2="-0.6" width="0.127" layer="21"/>
-<text x="-3.2" y="3.9" size="1.27" layer="25">&gt;NAME</text>
-<text x="-3.7" y="-5.4" size="1.27" layer="27">&gt;VALUE</text>
-<smd name="9" x="2.515" y="2.325" dx="2" dy="0.6" layer="1" rot="R90"/>
-<smd name="10" x="1.215" y="2.325" dx="2" dy="0.6" layer="1" rot="R90"/>
-<smd name="11" x="0.015" y="2.325" dx="2" dy="0.6" layer="1" rot="R90"/>
-<smd name="12" x="-1.285" y="2.325" dx="2" dy="0.6" layer="1" rot="R90"/>
-<smd name="13" x="-2.585" y="2.325" dx="2" dy="0.6" layer="1" rot="R90"/>
-<smd name="14" x="-3.885" y="2.325" dx="2" dy="0.6" layer="1" rot="R90"/>
+<package name="DIL14">
+<description>&lt;b&gt;14-Lead Plastic Dual In-Line (P) - 300 mil Body [PDIP]&lt;/b&gt;&lt;p&gt;
+Source: &lt;a href="http://www.microchip.com/packaging"&gt;www.microchip.com/packaging&lt;/a&gt;</description>
+<wire x1="8.89" y1="2.921" x2="-8.89" y2="2.921" width="0.1524" layer="21"/>
+<wire x1="-8.89" y1="-2.921" x2="8.89" y2="-2.921" width="0.1524" layer="21"/>
+<wire x1="8.89" y1="2.921" x2="8.89" y2="-2.921" width="0.1524" layer="21"/>
+<wire x1="-8.89" y1="2.921" x2="-8.89" y2="1.016" width="0.1524" layer="21"/>
+<wire x1="-8.89" y1="-2.921" x2="-8.89" y2="-1.016" width="0.1524" layer="21"/>
+<wire x1="-8.89" y1="1.016" x2="-8.89" y2="-1.016" width="0.1524" layer="21" curve="-180"/>
+<pad name="1" x="-7.62" y="-3.81" drill="0.8128" shape="long" rot="R90"/>
+<pad name="2" x="-5.08" y="-3.81" drill="0.8128" shape="long" rot="R90"/>
+<pad name="7" x="7.62" y="-3.81" drill="0.8128" shape="long" rot="R90"/>
+<pad name="8" x="7.62" y="3.81" drill="0.8128" shape="long" rot="R90"/>
+<pad name="3" x="-2.54" y="-3.81" drill="0.8128" shape="long" rot="R90"/>
+<pad name="4" x="0" y="-3.81" drill="0.8128" shape="long" rot="R90"/>
+<pad name="6" x="5.08" y="-3.81" drill="0.8128" shape="long" rot="R90"/>
+<pad name="5" x="2.54" y="-3.81" drill="0.8128" shape="long" rot="R90"/>
+<pad name="9" x="5.08" y="3.81" drill="0.8128" shape="long" rot="R90"/>
+<pad name="10" x="2.54" y="3.81" drill="0.8128" shape="long" rot="R90"/>
+<pad name="11" x="0" y="3.81" drill="0.8128" shape="long" rot="R90"/>
+<pad name="12" x="-2.54" y="3.81" drill="0.8128" shape="long" rot="R90"/>
+<pad name="13" x="-5.08" y="3.81" drill="0.8128" shape="long" rot="R90"/>
+<pad name="14" x="-7.62" y="3.81" drill="0.8128" shape="long" rot="R90"/>
+<text x="-9.271" y="-3.048" size="1.27" layer="25" ratio="10" rot="R90">&gt;NAME</text>
+<text x="-5.461" y="-0.635" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
+</package>
+<package name="SOIC14">
+<description>&lt;b&gt;14-Lead Plastic Small Outline (SL) - Narrow 3.90 mm Body [SOIC]&lt;/b&gt;&lt;p&gt;
+Source: &lt;a href="http://www.microchip.com/packaging"&gt;www.microchip.com/packaging&lt;/a&gt;</description>
+<wire x1="-4.76" y1="3.9" x2="4.76" y2="3.9" width="0.1998" layer="39"/>
+<wire x1="4.76" y1="-3.9" x2="-4.76" y2="-3.9" width="0.1998" layer="39"/>
+<wire x1="-4.76" y1="-3.9" x2="-4.76" y2="3.9" width="0.1998" layer="39"/>
+<wire x1="4.305" y1="-1.9" x2="-4.305" y2="-1.9" width="0.2032" layer="51"/>
+<wire x1="-4.305" y1="-1.9" x2="-4.305" y2="-1.4" width="0.2032" layer="51"/>
+<wire x1="-4.305" y1="-1.4" x2="-4.305" y2="1.9" width="0.2032" layer="51"/>
+<wire x1="-4.305" y1="1.9" x2="4.305" y2="1.9" width="0.2032" layer="51"/>
+<wire x1="4.305" y1="-1.4" x2="-4.305" y2="-1.4" width="0.2032" layer="51"/>
+<wire x1="4.305" y1="1.9" x2="4.305" y2="-1.4" width="0.2032" layer="51"/>
+<wire x1="4.305" y1="-1.4" x2="4.305" y2="-1.9" width="0.2032" layer="51"/>
+<wire x1="4.76" y1="3.9" x2="4.76" y2="-3.9" width="0.1998" layer="39"/>
+<smd name="2" x="-2.54" y="-2.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="11" x="0" y="2.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="1" x="-3.81" y="-2.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="3" x="-1.27" y="-2.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="4" x="0" y="-2.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="12" x="-1.27" y="2.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="10" x="1.27" y="2.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="9" x="2.54" y="2.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="6" x="2.54" y="-2.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="5" x="1.27" y="-2.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="7" x="3.81" y="-2.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="8" x="3.81" y="2.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="13" x="-2.54" y="2.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="14" x="-3.81" y="2.6" dx="0.6" dy="2.2" layer="1"/>
+<text x="-4.445" y="-1.905" size="1.016" layer="25" font="vector" rot="R90">&gt;NAME</text>
+<text x="-2.8194" y="-0.0254" size="0.6096" layer="27" font="vector">&gt;VALUE</text>
+<rectangle x1="-4.0551" y1="-3.1001" x2="-3.5649" y2="-2" layer="51"/>
+<rectangle x1="-2.7851" y1="-3.1001" x2="-2.2949" y2="-2" layer="51"/>
+<rectangle x1="-1.5151" y1="-3.1001" x2="-1.0249" y2="-2" layer="51"/>
+<rectangle x1="-0.2451" y1="-3.1001" x2="0.2451" y2="-2" layer="51"/>
+<rectangle x1="2.2949" y1="2" x2="2.7851" y2="3.1001" layer="51"/>
+<rectangle x1="1.0249" y1="2" x2="1.5151" y2="3.1001" layer="51"/>
+<rectangle x1="-0.2451" y1="2" x2="0.2451" y2="3.1001" layer="51"/>
+<rectangle x1="-1.5151" y1="2" x2="-1.0249" y2="3.1001" layer="51"/>
+<rectangle x1="1.0249" y1="-3.1001" x2="1.5151" y2="-2" layer="51"/>
+<rectangle x1="2.2949" y1="-3.1001" x2="2.7851" y2="-2" layer="51"/>
+<rectangle x1="3.5649" y1="-3.1001" x2="4.0551" y2="-2" layer="51"/>
+<rectangle x1="3.5649" y1="2" x2="4.0551" y2="3.1001" layer="51"/>
+<rectangle x1="-2.7851" y1="2" x2="-2.2949" y2="3.1001" layer="51"/>
+<rectangle x1="-4.0551" y1="2" x2="-3.5649" y2="3.1001" layer="51"/>
+<wire x1="-4.2164" y1="0.508" x2="-4.2164" y2="-0.508" width="0.1524" layer="21" curve="-180"/>
+</package>
+<package name="TSSOP14">
+<description>&lt;b&gt;14-Lead Plastic Thin Shrink Small Outline (ST) - 4.4 mm Body [TSSOP]&lt;/b&gt;&lt;p&gt;
+Source: &lt;a href="http://www.microchip.com/packaging"&gt;www.microchip.com/packaging&lt;/a&gt;</description>
+<wire x1="2.455" y1="-2.15" x2="-2.455" y2="-2.15" width="0.2032" layer="21"/>
+<wire x1="-2.455" y1="-2.15" x2="-2.455" y2="2.15" width="0.2032" layer="21"/>
+<wire x1="2.455" y1="2.15" x2="2.455" y2="-2.15" width="0.2032" layer="21"/>
+<wire x1="-2.455" y1="2.15" x2="2.455" y2="2.15" width="0.2032" layer="21"/>
+<circle x="-1.825" y="-1.525" radius="0.375" width="0" layer="21"/>
+<smd name="1" x="-1.95" y="-2.825" dx="0.35" dy="1" layer="1"/>
+<smd name="2" x="-1.3" y="-2.825" dx="0.35" dy="1" layer="1"/>
+<smd name="3" x="-0.65" y="-2.825" dx="0.35" dy="1" layer="1"/>
+<smd name="4" x="0" y="-2.825" dx="0.35" dy="1" layer="1"/>
+<smd name="5" x="0.65" y="-2.825" dx="0.35" dy="1" layer="1"/>
+<smd name="6" x="1.3" y="-2.825" dx="0.35" dy="1" layer="1"/>
+<smd name="7" x="1.95" y="-2.825" dx="0.35" dy="1" layer="1"/>
+<smd name="8" x="1.95" y="2.825" dx="0.35" dy="1" layer="1" rot="R180"/>
+<smd name="9" x="1.3" y="2.825" dx="0.35" dy="1" layer="1" rot="R180"/>
+<smd name="10" x="0.65" y="2.825" dx="0.35" dy="1" layer="1" rot="R180"/>
+<smd name="11" x="0" y="2.825" dx="0.35" dy="1" layer="1" rot="R180"/>
+<smd name="12" x="-0.65" y="2.825" dx="0.35" dy="1" layer="1" rot="R180"/>
+<smd name="13" x="-1.3" y="2.825" dx="0.35" dy="1" layer="1" rot="R180"/>
+<smd name="14" x="-1.95" y="2.825" dx="0.35" dy="1" layer="1" rot="R180"/>
+<text x="-2.6" y="-2.6" size="1.27" layer="25" rot="R90">&gt;NAME</text>
+<text x="3.265" y="-2.615" size="0.6096" layer="27" rot="R90">&gt;VALUE</text>
+<rectangle x1="-2.1" y1="-3.2" x2="-1.8" y2="-2.225" layer="51"/>
+<rectangle x1="-1.45" y1="-3.2" x2="-1.15" y2="-2.225" layer="51"/>
+<rectangle x1="-0.8" y1="-3.2" x2="-0.5" y2="-2.225" layer="51"/>
+<rectangle x1="-0.15" y1="-3.2" x2="0.15" y2="-2.225" layer="51"/>
+<rectangle x1="0.5" y1="-3.2" x2="0.8" y2="-2.225" layer="51"/>
+<rectangle x1="1.15" y1="-3.2" x2="1.45" y2="-2.225" layer="51"/>
+<rectangle x1="1.8" y1="-3.2" x2="2.1" y2="-2.225" layer="51"/>
+<rectangle x1="1.8" y1="2.225" x2="2.1" y2="3.2" layer="51" rot="R180"/>
+<rectangle x1="1.15" y1="2.225" x2="1.45" y2="3.2" layer="51" rot="R180"/>
+<rectangle x1="0.5" y1="2.225" x2="0.8" y2="3.2" layer="51" rot="R180"/>
+<rectangle x1="-0.15" y1="2.225" x2="0.15" y2="3.2" layer="51" rot="R180"/>
+<rectangle x1="-0.8" y1="2.225" x2="-0.5" y2="3.2" layer="51" rot="R180"/>
+<rectangle x1="-1.45" y1="2.225" x2="-1.15" y2="3.2" layer="51" rot="R180"/>
+<rectangle x1="-2.1" y1="2.225" x2="-1.8" y2="3.2" layer="51" rot="R180"/>
 </package>
 </packages>
 <symbols>
-<symbol name="MCP2221-I/SL">
-<description>&lt;b&gt;USB Interface IC USB to I2C Bridge Device&lt;/b&gt;&lt;p&gt;</description>
-<pin name="D+" x="-15.24" y="5.08" length="middle"/>
-<pin name="D-" x="-15.24" y="7.62" length="middle"/>
-<pin name="GP0" x="15.24" y="10.16" length="middle" rot="R180"/>
-<pin name="GP1" x="15.24" y="7.62" length="middle" rot="R180"/>
-<pin name="GP2" x="15.24" y="5.08" length="middle" rot="R180"/>
-<pin name="GP3" x="15.24" y="2.54" length="middle" rot="R180"/>
-<pin name="VUSB" x="-15.24" y="12.7" length="middle"/>
-<pin name="#RST" x="-15.24" y="0" length="middle"/>
-<pin name="URX" x="15.24" y="-2.54" length="middle" rot="R180"/>
-<pin name="UTX" x="15.24" y="-5.08" length="middle" rot="R180"/>
-<pin name="SCL" x="15.24" y="-10.16" length="middle" rot="R180"/>
-<pin name="SDA" x="15.24" y="-12.7" length="middle" rot="R180"/>
-<pin name="VCC" x="0" y="20.32" length="middle" rot="R270"/>
-<pin name="GND" x="0" y="-22.86" length="middle" rot="R90"/>
-<wire x1="-10.16" y1="15.24" x2="-10.16" y2="-17.78" width="0.254" layer="94"/>
-<wire x1="-10.16" y1="-17.78" x2="10.16" y2="-17.78" width="0.254" layer="94"/>
-<wire x1="10.16" y1="-17.78" x2="10.16" y2="15.24" width="0.254" layer="94"/>
-<wire x1="10.16" y1="15.24" x2="-10.16" y2="15.24" width="0.254" layer="94"/>
-<text x="5.08" y="20.32" size="1.778" layer="95">&gt;NAME</text>
-<text x="5.08" y="17.78" size="1.778" layer="96">&gt;VALUE</text>
+<symbol name="MCP2221">
+<description>&lt;b&gt;MCP2221&lt;/b&gt;&lt;p&gt;
+The MCP2221 is a USB-to-UART/I2C serial converter which enables USB connectivity in applications that have a UART and I2C interfaces. The device reduces external components by integrating the USB termination resistors and the oscillator needed for USB operation. The MCP2221 also has four GP pins providing miscellaneous functionalities (GPIO, USBCFG, SSPND, Clock Output, ADC, DAC, interrupt detector).&lt;p&gt;
+Source: &lt;a href="http://www.microchip.com/wwwproducts/Devices.aspx?product=MCP2221"&gt;www.microchip.com/MCP2221&lt;/a&gt;</description>
+<pin name="VDD" x="-2.54" y="30.48" length="middle" direction="pwr" rot="R270"/>
+<pin name="VSS" x="0" y="-30.48" length="middle" direction="pwr" rot="R90"/>
+<pin name="D+" x="-20.32" y="-2.54" length="middle"/>
+<pin name="D-" x="-20.32" y="-7.62" length="middle"/>
+<pin name="SCL" x="20.32" y="22.86" length="middle" direction="out" rot="R180"/>
+<pin name="SDA" x="20.32" y="17.78" length="middle" rot="R180"/>
+<pin name="URX" x="20.32" y="7.62" length="middle" direction="in" rot="R180"/>
+<pin name="UTX" x="20.32" y="2.54" length="middle" direction="out" rot="R180"/>
+<pin name="GP0" x="20.32" y="-7.62" length="middle" rot="R180"/>
+<pin name="GP1" x="20.32" y="-12.7" length="middle" rot="R180"/>
+<pin name="GP2" x="20.32" y="-17.78" length="middle" rot="R180"/>
+<pin name="GP3" x="20.32" y="-22.86" length="middle" rot="R180"/>
+<pin name="!RST" x="-20.32" y="7.62" length="middle" direction="in" function="dot"/>
+<pin name="VUSB" x="2.54" y="30.48" length="middle" direction="pwr" rot="R270"/>
+<text x="-15.24" y="27.94" size="1.778" layer="95">&gt;NAME</text>
+<text x="-15.24" y="-27.94" size="1.778" layer="96">&gt;VALUE</text>
+<wire x1="-15.24" y1="25.4" x2="15.24" y2="25.4" width="0.254" layer="94"/>
+<wire x1="15.24" y1="25.4" x2="15.24" y2="-25.4" width="0.254" layer="94"/>
+<wire x1="15.24" y1="-25.4" x2="-15.24" y2="-25.4" width="0.254" layer="94"/>
+<wire x1="-15.24" y1="-25.4" x2="-15.24" y2="25.4" width="0.254" layer="94"/>
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="MCP2221-I/SL" prefix="U">
-<description>&lt;b&gt;USB Interface IC USB to I2C Bridge Device&lt;/b&gt;&lt;p&gt;</description>
+<deviceset name="MCP2221-*" prefix="U">
+<description>&lt;b&gt;MCP2221 in PDIP, SOIC and TSSOP package&lt;/b&gt;&lt;p&gt;
+The MCP2221 is a USB-to-UART/I2C serial converter which enables USB connectivity in applications that have a UART and I2C interfaces. The device reduces external components by integrating the USB termination resistors and the oscillator needed for USB operation. The MCP2221 also has four GP pins providing miscellaneous functionalities (GPIO, USBCFG, SSPND, Clock Output, ADC, DAC, interrupt detector).&lt;p&gt;
+Source: &lt;a href="http://www.microchip.com/wwwproducts/Devices.aspx?product=MCP2221"&gt;www.microchip.com/MCP2221&lt;/a&gt; and &lt;a href="http://www.microchipdirect.com/ProductDetails.aspx?Category=MCP2221"&gt;www.microchipdirect.com&lt;/a&gt;&lt;p&gt;
+Tutorial: &lt;a href="https://docs.google.com/document/d/1P3zzqCKdEXzCe--1Yyg8PClCZKsUri8pyNO7AV2daaw/edit?usp=sharing"&gt;MCP2221 by Arnauld Biganzoli&lt;/a&gt;</description>
 <gates>
-<gate name="G$1" symbol="MCP2221-I/SL" x="0" y="0"/>
+<gate name="G$1" symbol="MCP2221" x="0" y="0"/>
 </gates>
 <devices>
-<device name="" package="SOICN-14">
+<device name="I/P" package="DIL14">
 <connects>
-<connect gate="G$1" pin="#RST" pad="4"/>
+<connect gate="G$1" pin="!RST" pad="4"/>
 <connect gate="G$1" pin="D+" pad="13"/>
 <connect gate="G$1" pin="D-" pad="12"/>
-<connect gate="G$1" pin="GND" pad="14"/>
 <connect gate="G$1" pin="GP0" pad="2"/>
 <connect gate="G$1" pin="GP1" pad="3"/>
 <connect gate="G$1" pin="GP2" pad="7"/>
@@ -1674,14 +1765,54 @@ Basic schematic elements and footprints for 0603, 1206, and PTH 1/10th watt (sma
 <connect gate="G$1" pin="SDA" pad="9"/>
 <connect gate="G$1" pin="URX" pad="5"/>
 <connect gate="G$1" pin="UTX" pad="6"/>
-<connect gate="G$1" pin="VCC" pad="1"/>
+<connect gate="G$1" pin="VDD" pad="1"/>
+<connect gate="G$1" pin="VSS" pad="14"/>
 <connect gate="G$1" pin="VUSB" pad="11"/>
 </connects>
 <technologies>
-<technology name="">
-<attribute name="MF" value="Silicon Laboratories" constant="no"/>
-<attribute name="MPN" value="MCP2221-I/SL" constant="no"/>
-</technology>
+<technology name=""/>
+</technologies>
+</device>
+<device name="I/SL" package="SOIC14">
+<connects>
+<connect gate="G$1" pin="!RST" pad="4"/>
+<connect gate="G$1" pin="D+" pad="13"/>
+<connect gate="G$1" pin="D-" pad="12"/>
+<connect gate="G$1" pin="GP0" pad="2"/>
+<connect gate="G$1" pin="GP1" pad="3"/>
+<connect gate="G$1" pin="GP2" pad="7"/>
+<connect gate="G$1" pin="GP3" pad="8"/>
+<connect gate="G$1" pin="SCL" pad="10"/>
+<connect gate="G$1" pin="SDA" pad="9"/>
+<connect gate="G$1" pin="URX" pad="5"/>
+<connect gate="G$1" pin="UTX" pad="6"/>
+<connect gate="G$1" pin="VDD" pad="1"/>
+<connect gate="G$1" pin="VSS" pad="14"/>
+<connect gate="G$1" pin="VUSB" pad="11"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="I/ST" package="TSSOP14">
+<connects>
+<connect gate="G$1" pin="!RST" pad="4"/>
+<connect gate="G$1" pin="D+" pad="13"/>
+<connect gate="G$1" pin="D-" pad="12"/>
+<connect gate="G$1" pin="GP0" pad="2"/>
+<connect gate="G$1" pin="GP1" pad="3"/>
+<connect gate="G$1" pin="GP2" pad="7"/>
+<connect gate="G$1" pin="GP3" pad="8"/>
+<connect gate="G$1" pin="SCL" pad="10"/>
+<connect gate="G$1" pin="SDA" pad="9"/>
+<connect gate="G$1" pin="URX" pad="5"/>
+<connect gate="G$1" pin="UTX" pad="6"/>
+<connect gate="G$1" pin="VDD" pad="1"/>
+<connect gate="G$1" pin="VSS" pad="14"/>
+<connect gate="G$1" pin="VUSB" pad="11"/>
+</connects>
+<technologies>
+<technology name=""/>
 </technologies>
 </device>
 </devices>
@@ -1706,8 +1837,8 @@ Basic schematic elements and footprints for 0603, 1206, and PTH 1/10th watt (sma
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
 <part name="C4" library="SparkFun" deviceset="CAP_POL" device="PTH2" value="10uF"/>
 <part name="R1" library="SparkFun" deviceset="RESISTOR" device="PTH1" value="10K"/>
-<part name="U3" library="ak" deviceset="MCP2221-I/SL" device=""/>
 <part name="GND2" library="supply1" deviceset="GND" device=""/>
+<part name="U1" library="microchip-mcp2221" deviceset="MCP2221-*" device="I/P"/>
 </parts>
 <sheets>
 <sheet>
@@ -1723,9 +1854,9 @@ Basic schematic elements and footprints for 0603, 1206, and PTH 1/10th watt (sma
 <instance part="C3" gate="G$1" x="55.88" y="78.74"/>
 <instance part="GND1" gate="1" x="20.32" y="68.58"/>
 <instance part="C4" gate="G$1" x="66.04" y="81.28"/>
-<instance part="R1" gate="G$1" x="76.2" y="81.28" rot="MR270"/>
-<instance part="U3" gate="G$1" x="106.68" y="76.2"/>
-<instance part="GND2" gate="1" x="106.68" y="50.8"/>
+<instance part="R1" gate="G$1" x="76.2" y="78.74" rot="MR270"/>
+<instance part="GND2" gate="1" x="101.6" y="30.48"/>
+<instance part="U1" gate="G$1" x="101.6" y="63.5"/>
 </instances>
 <busses>
 </busses>
@@ -1756,7 +1887,7 @@ Basic schematic elements and footprints for 0603, 1206, and PTH 1/10th watt (sma
 <pinref part="X1" gate="G$1" pin="GND"/>
 </segment>
 <segment>
-<pinref part="U3" gate="G$1" pin="GND"/>
+<pinref part="U1" gate="G$1" pin="VSS"/>
 <pinref part="GND2" gate="1" pin="GND"/>
 </segment>
 </net>
@@ -1775,27 +1906,26 @@ Basic schematic elements and footprints for 0603, 1206, and PTH 1/10th watt (sma
 <pinref part="IC2" gate="G$1" pin="OUT"/>
 <pinref part="C4" gate="G$1" pin="+"/>
 <pinref part="R1" gate="G$1" pin="1"/>
-<wire x1="76.2" y1="86.36" x2="76.2" y2="88.9" width="0.1524" layer="91"/>
+<wire x1="76.2" y1="83.82" x2="76.2" y2="88.9" width="0.1524" layer="91"/>
+<wire x1="76.2" y1="88.9" x2="76.2" y2="96.52" width="0.1524" layer="91"/>
+<pinref part="U1" gate="G$1" pin="VUSB"/>
+<wire x1="76.2" y1="96.52" x2="99.06" y2="96.52" width="0.1524" layer="91"/>
+<wire x1="99.06" y1="96.52" x2="104.14" y2="96.52" width="0.1524" layer="91"/>
+<wire x1="104.14" y1="96.52" x2="104.14" y2="93.98" width="0.1524" layer="91"/>
+<pinref part="U1" gate="G$1" pin="VDD"/>
+<wire x1="99.06" y1="96.52" x2="99.06" y2="93.98" width="0.1524" layer="91"/>
 <junction x="76.2" y="88.9"/>
-<pinref part="U3" gate="G$1" pin="VUSB"/>
-<wire x1="76.2" y1="88.9" x2="86.36" y2="88.9" width="0.1524" layer="91"/>
-<pinref part="U3" gate="G$1" pin="VCC"/>
-<wire x1="86.36" y1="88.9" x2="91.44" y2="88.9" width="0.1524" layer="91"/>
-<wire x1="106.68" y1="96.52" x2="86.36" y2="96.52" width="0.1524" layer="91"/>
-<wire x1="86.36" y1="96.52" x2="86.36" y2="88.9" width="0.1524" layer="91"/>
-<junction x="86.36" y="88.9"/>
+<junction x="99.06" y="96.52"/>
 </segment>
 </net>
 <net name="D-" class="0">
 <segment>
-<wire x1="0" y1="86.36" x2="5.08" y2="86.36" width="0.1524" layer="91"/>
-<label x="5.08" y="86.36" size="1.778" layer="95"/>
+<wire x1="0" y1="86.36" x2="7.62" y2="86.36" width="0.1524" layer="91"/>
 <pinref part="X1" gate="G$1" pin="D-"/>
-</segment>
-<segment>
-<pinref part="U3" gate="G$1" pin="D-"/>
-<wire x1="91.44" y1="83.82" x2="88.9" y2="83.82" width="0.1524" layer="91"/>
-<label x="83.82" y="83.82" size="1.778" layer="95"/>
+<wire x1="7.62" y1="86.36" x2="7.62" y2="55.88" width="0.1524" layer="91"/>
+<label x="2.54" y="55.88" size="1.778" layer="95"/>
+<pinref part="U1" gate="G$1" pin="D-"/>
+<wire x1="7.62" y1="55.88" x2="81.28" y2="55.88" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="5V" class="0">
@@ -1817,22 +1947,21 @@ Basic schematic elements and footprints for 0603, 1206, and PTH 1/10th watt (sma
 </net>
 <net name="D+" class="0">
 <segment>
+<label x="0" y="60.96" size="1.778" layer="95"/>
+<pinref part="U1" gate="G$1" pin="D+"/>
+<wire x1="81.28" y1="60.96" x2="5.08" y2="60.96" width="0.1524" layer="91"/>
 <wire x1="0" y1="83.82" x2="5.08" y2="83.82" width="0.1524" layer="91"/>
-<label x="5.08" y="83.82" size="1.778" layer="95"/>
 <pinref part="X1" gate="G$1" pin="D+"/>
-</segment>
-<segment>
-<pinref part="U3" gate="G$1" pin="D+"/>
-<wire x1="91.44" y1="81.28" x2="88.9" y2="81.28" width="0.1524" layer="91"/>
-<label x="83.82" y="81.28" size="1.778" layer="95"/>
+<wire x1="5.08" y1="60.96" x2="5.08" y2="83.82" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="/RESET" class="0">
 <segment>
+<pinref part="U1" gate="G$1" pin="!RST"/>
+<wire x1="81.28" y1="71.12" x2="76.2" y2="71.12" width="0.1524" layer="91"/>
 <pinref part="R1" gate="G$1" pin="2"/>
-<pinref part="U3" gate="G$1" pin="#RST"/>
-<wire x1="76.2" y1="76.2" x2="91.44" y2="76.2" width="0.1524" layer="91"/>
-<label x="81.28" y="73.66" size="1.778" layer="95"/>
+<wire x1="76.2" y1="71.12" x2="76.2" y2="73.66" width="0.1524" layer="91"/>
+<label x="73.66" y="68.58" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
