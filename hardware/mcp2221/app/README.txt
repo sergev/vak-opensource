@@ -1,0 +1,4 @@
+Build:
+
+    qmake
+    make
