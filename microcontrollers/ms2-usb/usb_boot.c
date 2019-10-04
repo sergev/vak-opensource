@@ -61,7 +61,7 @@ static USB_HANDLE request_handle;
 PIC32_DEVCFG (
     DEVCFG0_DEBUG_DISABLED |    /* ICE debugger disabled */
     DEVCFG0_JTAGDIS,            /* Disable JTAG port */
-#if 1
+#if 0
     // External crystal 16 MHz.
     DEVCFG1_FNOSC_PRIPLL |      /* Primary oscillator with PLL */
     DEVCFG1_POSCMOD_HS |        /* HS oscillator */
