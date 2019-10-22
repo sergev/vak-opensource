@@ -23,7 +23,8 @@
 #   make raw_upload  - upload without first resetting
 #   make show_boards - list all the boards defined in boards.txt
 #
-MPIDE_DIR       = /opt/mpide-0022-linux32-20110822
+#MPIDE_DIR       = /opt/mpide-0022-linux32-20110822
+MPIDE_DIR       = /opt/mpide-0023-linux-20120903
 
 ARDUINO_PORT    = /dev/ttyUSB*
 
