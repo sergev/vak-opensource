@@ -1,5 +1,5 @@
 diff --git a/board/microchip/pic32mzda/ddr.c b/board/microchip/pic32mzda/ddr.c
-index 5db5e00..4b835ad 100644
+index 5db5e008ec..c0fb055d05 100644
 --- a/board/microchip/pic32mzda/ddr.c
 +++ b/board/microchip/pic32mzda/ddr.c
 @@ -62,9 +62,9 @@
@@ -14,30 +14,69 @@ index 5db5e00..4b835ad 100644
  #define CS_BITS		1
  
  /* DDR constants */
-@@ -147,6 +147,21 @@
+@@ -147,6 +147,60 @@
  #define SCL_EN			0x04000000
  #define SCL_LUBPASS		3
  
 +/*
-+ * Return DDR size from devcfg register.
++ * Return DDR size based on DEVID register.
 + */
 +int pic32_ddr_size(void)
 +{
-+	uint32_t	*devcfg;
++	uint32_t devid = *(uint32_t*) DEVID;
 +
-+	devcfg = (uint32_t *) CONFIG_DEVCFG_3;
-+	if (((*devcfg >> 16) & 0xF) == 5) {
-+		return (32);
++	/* Devices which have 32Mbytes of internal SDRAM:
++	 * series DAG, DAH, DAR and DAS. For details, see table C-9
++	 * in PIC32 Flash Programming Specification, DS60001145W.
++	 */
++	switch (devid & 0x0fffffff) {
++	case 0x05F42053:	/* PIC32MZ1025DAG169 */
++	case 0x05F45053:        /* PIC32MZ1064DAG169 */
++	case 0x05F4B053:        /* PIC32MZ2025DAG169 */
++	case 0x05F4E053:        /* PIC32MZ2064DAG169 */
++	case 0x05FAE053:        /* PIC32MZ1025DAG176 */
++	case 0x05FB1053:        /* PIC32MZ1064DAG176 */
++	case 0x05FB7053:        /* PIC32MZ2025DAG176 */
++	case 0x05FBA053:        /* PIC32MZ2064DAG176 */
++
++	case 0x05F43053:        /* PIC32MZ1025DAH169 */
++	case 0x05F46053:        /* PIC32MZ1064DAH169 */
++	case 0x05F4C053:        /* PIC32MZ2025DAH169 */
++	case 0x05F4F053:        /* PIC32MZ2064DAH169 */
++	case 0x05FAF053:        /* PIC32MZ1025DAH176 */
++	case 0x05FB2053:        /* PIC32MZ1064DAH176 */
++	case 0x05FB8053:        /* PIC32MZ2025DAH176 */
++	case 0x05FBB053:        /* PIC32MZ2064DAH176 */
++
++	case 0x08A42053:        /* PIC32MZ1025DAR169 */
++	case 0x08A45053:        /* PIC32MZ1064DAR169 */
++	case 0x08A4B053:        /* PIC32MZ2025DAR169 */
++	case 0x08A4E053:        /* PIC32MZ2064DAR169 */
++	case 0x08AAE053:        /* PIC32MZ1025DAR176 */
++	case 0x08AB1053:        /* PIC32MZ1064DAR176 */
++	case 0x08AB7053:        /* PIC32MZ2025DAR176 */
++	case 0x08ABA053:        /* PIC32MZ2064DAR176 */
++
++	case 0x08A43053:        /* PIC32MZ1025DAS169 */
++	case 0x08A46053:        /* PIC32MZ1064DAS169 */
++	case 0x08A4C053:        /* PIC32MZ2025DAS169 */
++	case 0x08A4F053:        /* PIC32MZ2064DAS169 */
++	case 0x08AAF053:        /* PIC32MZ1025DAS176 */
++	case 0x08AB2053:        /* PIC32MZ1064DAS176 */
++	case 0x08AB8053:        /* PIC32MZ2025DAS176 */
++	case 0x08ABB053:        /* PIC32MZ2064DAS176 */
++		return 32;
 +	}
 +
-+	return (128);
++	/* Others use external 128Mbytes of DDR2 memory. */
++	return 128;
 +}
 +
  void ddr_pmd_unlock(void)
  {
  	writel(0, PMD7);
 diff --git a/board/microchip/pic32mzda/pic32mzda.c b/board/microchip/pic32mzda/pic32mzda.c
-index 7f19447..84fd387 100644
+index 7f19447054..84fd3870d3 100644
 --- a/board/microchip/pic32mzda/pic32mzda.c
 +++ b/board/microchip/pic32mzda/pic32mzda.c
 @@ -51,7 +51,7 @@ phys_size_t initdram(int board_type)
@@ -50,20 +89,10 @@ index 7f19447..84fd387 100644
  
  #ifdef CONFIG_SYS_DRAM_TEST
 diff --git a/include/configs/pic32mzdask.h b/include/configs/pic32mzdask.h
-index 6eb5fb8..d234dd2 100644
+index 6eb5fb8444..9ffd530d2e 100644
 --- a/include/configs/pic32mzdask.h
 +++ b/include/configs/pic32mzdask.h
-@@ -23,6 +23,9 @@
- #define CONFIG_MIPS	        1
- #define CONFIG_MIPS32		1  /* MIPS32 CPU core	*/
- 
-+/* Configuration words */
-+#define CONFIG_DEVCFG_3			0xbfc0ffc0
-+
- /* Primary oscillator */
- #define CONFIG_PIC32_POSC_FREQ		24000000
- 
-@@ -58,7 +61,9 @@
+@@ -58,7 +58,9 @@
  
  /* SDRAM Configuration (for final code, data, stack, heap) */
  #define CONFIG_SYS_SDRAM_BASE		0x88000000
@@ -74,3 +103,145 @@ index 6eb5fb8..d234dd2 100644
  
  #define CONFIG_SYS_MALLOC_LEN		(256 << 10)
  #define CONFIG_SYS_BOOTPARAMS_LEN	(4 << 10)
+diff --git a/include/linux/compiler-gcc6.h b/include/linux/compiler-gcc6.h
+new file mode 100644
+index 0000000000..c8c5659525
+--- /dev/null
++++ b/include/linux/compiler-gcc6.h
+@@ -0,0 +1,65 @@
++#ifndef __LINUX_COMPILER_H
++#error "Please don't include <linux/compiler-gcc5.h> directly, include <linux/compiler.h> instead."
++#endif
++
++#define __used				__attribute__((__used__))
++#define __must_check			__attribute__((warn_unused_result))
++#define __compiler_offsetof(a, b)	__builtin_offsetof(a, b)
++
++/* Mark functions as cold. gcc will assume any path leading to a call
++   to them will be unlikely.  This means a lot of manual unlikely()s
++   are unnecessary now for any paths leading to the usual suspects
++   like BUG(), printk(), panic() etc. [but let's keep them for now for
++   older compilers]
++
++   Early snapshots of gcc 4.3 don't support this and we can't detect this
++   in the preprocessor, but we can live with this because they're unreleased.
++   Maketime probing would be overkill here.
++
++   gcc also has a __attribute__((__hot__)) to move hot functions into
++   a special section, but I don't see any sense in this right now in
++   the kernel context */
++#define __cold			__attribute__((__cold__))
++
++#define __UNIQUE_ID(prefix) __PASTE(__PASTE(__UNIQUE_ID_, prefix), __COUNTER__)
++
++#ifndef __CHECKER__
++# define __compiletime_warning(message) __attribute__((warning(message)))
++# define __compiletime_error(message) __attribute__((error(message)))
++#endif /* __CHECKER__ */
++
++/*
++ * Mark a position in code as unreachable.  This can be used to
++ * suppress control flow warnings after asm blocks that transfer
++ * control elsewhere.
++ *
++ * Early snapshots of gcc 4.5 don't support this and we can't detect
++ * this in the preprocessor, but we can live with this because they're
++ * unreleased.  Really, we need to have autoconf for the kernel.
++ */
++#define unreachable() __builtin_unreachable()
++
++/* Mark a function definition as prohibited from being cloned. */
++#define __noclone	__attribute__((__noclone__))
++
++/*
++ * Tell the optimizer that something else uses this function or variable.
++ */
++#define __visible __attribute__((externally_visible))
++
++/*
++ * GCC 'asm goto' miscompiles certain code sequences:
++ *
++ *   http://gcc.gnu.org/bugzilla/show_bug.cgi?id=58670
++ *
++ * Work it around via a compiler barrier quirk suggested by Jakub Jelinek.
++ *
++ * (asm goto is automatically volatile - the naming reflects this.)
++ */
++#define asm_volatile_goto(x...)	do { asm goto(x); asm (""); } while (0)
++
++#ifdef CONFIG_ARCH_USE_BUILTIN_BSWAP
++#define __HAVE_BUILTIN_BSWAP32__
++#define __HAVE_BUILTIN_BSWAP64__
++#define __HAVE_BUILTIN_BSWAP16__
++#endif /* CONFIG_ARCH_USE_BUILTIN_BSWAP */
+diff --git a/include/linux/compiler-gcc7.h b/include/linux/compiler-gcc7.h
+new file mode 100644
+index 0000000000..c8c5659525
+--- /dev/null
++++ b/include/linux/compiler-gcc7.h
+@@ -0,0 +1,65 @@
++#ifndef __LINUX_COMPILER_H
++#error "Please don't include <linux/compiler-gcc5.h> directly, include <linux/compiler.h> instead."
++#endif
++
++#define __used				__attribute__((__used__))
++#define __must_check			__attribute__((warn_unused_result))
++#define __compiler_offsetof(a, b)	__builtin_offsetof(a, b)
++
++/* Mark functions as cold. gcc will assume any path leading to a call
++   to them will be unlikely.  This means a lot of manual unlikely()s
++   are unnecessary now for any paths leading to the usual suspects
++   like BUG(), printk(), panic() etc. [but let's keep them for now for
++   older compilers]
++
++   Early snapshots of gcc 4.3 don't support this and we can't detect this
++   in the preprocessor, but we can live with this because they're unreleased.
++   Maketime probing would be overkill here.
++
++   gcc also has a __attribute__((__hot__)) to move hot functions into
++   a special section, but I don't see any sense in this right now in
++   the kernel context */
++#define __cold			__attribute__((__cold__))
++
++#define __UNIQUE_ID(prefix) __PASTE(__PASTE(__UNIQUE_ID_, prefix), __COUNTER__)
++
++#ifndef __CHECKER__
++# define __compiletime_warning(message) __attribute__((warning(message)))
++# define __compiletime_error(message) __attribute__((error(message)))
++#endif /* __CHECKER__ */
++
++/*
++ * Mark a position in code as unreachable.  This can be used to
++ * suppress control flow warnings after asm blocks that transfer
++ * control elsewhere.
++ *
++ * Early snapshots of gcc 4.5 don't support this and we can't detect
++ * this in the preprocessor, but we can live with this because they're
++ * unreleased.  Really, we need to have autoconf for the kernel.
++ */
++#define unreachable() __builtin_unreachable()
++
++/* Mark a function definition as prohibited from being cloned. */
++#define __noclone	__attribute__((__noclone__))
++
++/*
++ * Tell the optimizer that something else uses this function or variable.
++ */
++#define __visible __attribute__((externally_visible))
++
++/*
++ * GCC 'asm goto' miscompiles certain code sequences:
++ *
++ *   http://gcc.gnu.org/bugzilla/show_bug.cgi?id=58670
++ *
++ * Work it around via a compiler barrier quirk suggested by Jakub Jelinek.
++ *
++ * (asm goto is automatically volatile - the naming reflects this.)
++ */
++#define asm_volatile_goto(x...)	do { asm goto(x); asm (""); } while (0)
++
++#ifdef CONFIG_ARCH_USE_BUILTIN_BSWAP
++#define __HAVE_BUILTIN_BSWAP32__
++#define __HAVE_BUILTIN_BSWAP64__
++#define __HAVE_BUILTIN_BSWAP16__
++#endif /* CONFIG_ARCH_USE_BUILTIN_BSWAP */

@@ -1,11 +1,6 @@
-CROSS_COMPILE: mips-mti-linux-gnu verion: 2016.05-03
-
-Поменял img на mti.
-Проверил с версией codescape-linux/2019.09-01 - u-boot работает.
-Для этого надо слегка поправить u-boot:
-    cd u-boot-pic32/include/linux
-    cp compiler-gcc5.h compiler-gcc6.h
-    cp compiler-gcc5.h compiler-gcc7.h
+toolchain:
+        Install MIPS Codescape MTI GNU/Linux Toolchain, version 2019.09-01:
+        https://codescape.mips.com/components/toolchain/2019.09-01/downloads.html
 
 u-boot:
 	git clone https://github.com/MicrochipTech/u-boot-pic32.git
@@ -18,20 +13,7 @@ u-boot:
 	cd ..
 	make
 
-	mdb.sh mdb.cfg
-К сожалению, утилита MDB не срабатывает:
-program obj/u-boot-32m.hex
-Programming target...
-Program failed.
-
-Прошить получается только в диалоговом режиме через MPLABX.
-
-	obj/u-boot-128m.hex - PIC32MZ2064DAA288
-	obj/u-boot-32m.hex  - PIC32MZ2064DAG169
-
-На самом деле на плате стоит PIC32MZ2064DA_R_169, но MPLABX отказывается конфигурить
-для него программатор "PIC32MZ DA Starter Kit".
-
+        ./upload.sh
 
 linux:
 	git clone https://github.com/MicrochipTech/linux-pic32.git
