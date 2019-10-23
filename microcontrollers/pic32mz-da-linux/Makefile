@@ -1,55 +1,37 @@
 #
+# Path to U-Boot binary.
 #
+U_BOOT          = ../u-boot-pic32-sergev/u-boot.bin
+
 #
-SHELL	= /bin/sh
+# PIC32MZ2064DAxxxx device configuration words
+#
+DEVCFG4		= 0xF4FFFFFF
+DEVCFG3		= 0xFEF0FFFF
+DEVCFG2		= 0xF7F9B11A
+DEVCFG1		= 0x5F74FCF9
+DEVCFG0		= 0xF7FFFFD3
+JMPMAIN         = 0x0B401000    # j 0x9D004000 <main>
+NOP             = 0x00000000	# nop
 
-CROSS_COMPILE	= mips-mti-linux-gnu-
-U_BOOT_DIR	= u-boot-pic32
+#
+# Use srec_cat utility to generate Intel hex output.
+#
+IHEX_CAT        = srec_cat -output - -intel
 
-CC	= $(CROSS_COMPILE)gcc
-OBJCOPY	= $(CROSS_COMPILE)objcopy
-SREC	= srec_cat
+all:            u-boot.hex
 
-DEVCFG	= -Wl,--section-start,.devcfg=0xBFC0FFBC
-RESET	= -Wl,--section-start,.reset=0x9FC00000
-TEXT	= -Ttext 0x9D004000
-CFLAGS	= -nostdinc -nostdlib -EL -mabi=32 -march=mips32r2 -Wa,-mips32r2 \
-	  -G 0 -mabicalls -msoft-float $(DEVCFG) $(RESET) $(TEXT)
-
-ifeq ($(MEMSIZE),32)
-	CFLAGS	+= -DPIC32_MEM_32M
-endif
-
-U_BOOT	= $(U_BOOT_DIR)/u-boot.bin
-
-all:	obj/u-boot-32m.hex obj/u-boot-128m.hex
-
-obj/u-boot-32m.hex:
-	$(MAKE) $(MFLAGS) MEMSIZE=32 u-boot-hex
-
-obj/u-boot-128m.hex:
-	$(MAKE) $(MFLAGS) MEMSIZE=128 u-boot-hex
-
-u-boot-hex:	head.c Makefile obj/u-boot.hex
-	mkdir -p obj
-	$(CC) -O2 -Wall $(CFLAGS) -e dummy -o obj/head-$(MEMSIZE).elf head.c
-	$(OBJCOPY) -O binary \
-	    -j .devcfg obj/head-$(MEMSIZE).elf obj/devcfg-$(MEMSIZE).bin
-	$(SREC) -output - -intel \
-	    obj/devcfg-$(MEMSIZE).bin -binary -offset 0x1FC0FFBC | \
-	    grep -v ':00000001FF' > obj/devcfg-$(MEMSIZE).hex
-	$(OBJCOPY) -O binary \
-	    -j .reset obj/head-$(MEMSIZE).elf obj/reset-$(MEMSIZE).bin
-	$(SREC) -output - -intel \
-	    obj/reset-$(MEMSIZE).bin -binary -offset 0x1FC00000 | \
-	    grep -v ':00000001FF' > obj/reset-$(MEMSIZE).hex
-	cat obj/devcfg-$(MEMSIZE).hex obj/reset-$(MEMSIZE).hex \
-	    obj/u-boot.hex > obj/u-boot-$(MEMSIZE)m.hex
-
-obj/u-boot.hex:	$(U_BOOT)
-	mkdir -p obj
-	$(SREC) -output obj/u-boot.hex -intel \
-	    $(U_BOOT) -binary -offset 0x1D004000
+u-boot.hex:     $(U_BOOT) Makefile
+		( \
+	            $(IHEX_CAT) -gen 0x1FC00000 0x1FC00004 -l-e-const $(JMPMAIN) 4; \
+	            $(IHEX_CAT) -gen 0x1FC00004 0x1FC00008 -l-e-const $(NOP)     4; \
+	            $(IHEX_CAT) -gen 0x1FC0FFBC 0x1FC0FFC0 -l-e-const $(DEVCFG4) 4; \
+	            $(IHEX_CAT) -gen 0x1FC0FFC0 0x1FC0FFC4 -l-e-const $(DEVCFG3) 4; \
+	            $(IHEX_CAT) -gen 0x1FC0FFC4 0x1FC0FFC8 -l-e-const $(DEVCFG2) 4; \
+	            $(IHEX_CAT) -gen 0x1FC0FFC8 0x1FC0FFCC -l-e-const $(DEVCFG1) 4; \
+	            $(IHEX_CAT) -gen 0x1FC0FFCC 0x1FC0FFD0 -l-e-const $(DEVCFG0) 4  \
+	        ) | grep -v ':00000001FF' > u-boot.hex
+		$(IHEX_CAT) $(U_BOOT) -binary -offset 0x1D004000 >> u-boot.hex
 
 clean:
-	rm -rf obj
+		rm -rf *.hex
