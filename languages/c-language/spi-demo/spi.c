@@ -38,8 +38,8 @@ int spi_init(char *devname, unsigned bits_per_sec)
 
     hw_fd = open(devname, O_RDWR);
     if (hw_fd < 0)  {
-        perror("Failed to open SPI device.\n");
-        DEBUG_PRINT("Failed to open SPI device\n");
+        DEBUG_PRINT("Failed to open SPI device!\n");
+        perror(devname);
         return -1;
     } else {
         DEBUG_PRINT("open : %s\n", devname);

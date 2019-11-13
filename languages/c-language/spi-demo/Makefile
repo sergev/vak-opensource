@@ -2,8 +2,7 @@ CC      = gcc
 CFLAGS  = -g -O2 -Wall -Werror
 
 TARGET  = spi-demo
-#OBJ     = bmp.o font16.o font20.o font24.o lcd.o paint.o spi.o
-OBJ     = gpio.o spi.o #lcd.o
+OBJ     = gpio.o spi.o alt.o
 
 all:    $(TARGET)
 

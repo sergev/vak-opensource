@@ -7,12 +7,18 @@
 /*
  * Hardware pins on GPIO connector.
  */
-#define PIN_LCD_CS      8   // Outputs
-#define PIN_LCD_RST     27
-#define PIN_LCD_DC      25
-#define PIN_LCD_BL      24
+#ifdef MODE_INPUT
+//
+// Raspberry Pi
+//
+// Outputs
+#define PIN_LCD_CS      8   // Chip Select
+#define PIN_LCD_RST     27  // Reset
+#define PIN_LCD_DC      25  // Data/Cmd
+#define PIN_LCD_BL      24  // Backlight
 
-#define PIN_KEY_UP      6   // Inputs
+// Inputs
+#define PIN_KEY_UP      6
 #define PIN_KEY_DOWN    19
 #define PIN_KEY_LEFT    5
 #define PIN_KEY_RIGHT   26
@@ -20,13 +26,34 @@
 #define PIN_KEY1        21
 #define PIN_KEY2        20
 #define PIN_KEY3        16
+#else
+//
+// PIC32MZ DA Starter Kit
+//
+// Outputs
+#define PIN_LCD_CS      GPIO_PIN('D', 0)    // p8  - RD0 - j24
+#define PIN_LCD_RST     GPIO_PIN('B', 8)    // p27 - RB8 - j13
+#define PIN_LCD_DC      GPIO_PIN('H', 6)    // p25 - RH6 - j22
+#define PIN_LCD_BL      GPIO_PIN('H', 4)    // p24 - RH4 - j18
+
+// Inputs
+#define PIN_KEY_UP      GPIO_PIN('K', 2)    // p6  - RK2  - j31
+#define PIN_KEY_DOWN    GPIO_PIN('B', 0)    // p19 - RB0  - j35
+#define PIN_KEY_LEFT    GPIO_PIN('K', 1)    // p5  - RK1  - j29
+#define PIN_KEY_RIGHT   GPIO_PIN('H', 7)    // p26 - RH7  - j37
+#define PIN_KEY_PRESS   GPIO_PIN('G', 9)    // p13 - RG9  - j33
+#define PIN_KEY1        GPIO_PIN('D', 15)   // p21 - RD15 - j40
+#define PIN_KEY2        GPIO_PIN('H', 12)   // p20 - RH12 - j38
+#define PIN_KEY3        GPIO_PIN('B', 15)   // p16 - RB15 - j36
+#endif
 
 /*
  * Initialize the pins and SPI protocol.
  */
 void lcd_init()
 {
-#if 1
+#ifdef MODE_INPUT
+    // Raspberry Pi
     gpio_export(PIN_LCD_CS);
     gpio_export(PIN_LCD_RST);
     gpio_export(PIN_LCD_DC);
@@ -39,6 +66,10 @@ void lcd_init()
     gpio_export(PIN_KEY1);
     gpio_export(PIN_KEY2);
     gpio_export(PIN_KEY3);
+#else
+    // PIC32MZ DA Starter Kit
+    // Re-map U2RX pin from p19 to p3, temporarily.
+    gpio_set_mode(GPIO_PIN('F', 8), MODE_U2RX);
 #endif
 
     // Output pins.
@@ -58,8 +89,16 @@ void lcd_init()
     gpio_set_mode(PIN_KEY2,      MODE_INPUT);
     gpio_set_mode(PIN_KEY3,      MODE_INPUT);
 
+    //
     // Open the SPI port.
+    //
+#ifdef MODE_INPUT
+    // Raspberry Pi
     spi_init("/dev/spidev0.0", 20000000);
+#else
+    // PIC32MZ DA Starter Kit
+    spi_init("/dev/spidev2.0", 10000000);
+#endif
 }
 
 /*
@@ -241,5 +280,9 @@ int main()
     lcd_clear(240, 240, 0xffff);
 
     spi_close();
+
+    // Restore U2RX, U2TX pins.
+    gpio_set_mode(GPIO_PIN('G', 9), MODE_U2RX);
+    gpio_set_mode(GPIO_PIN('B', 0), MODE_U2TX);
     return 0;
 }
