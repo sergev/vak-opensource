@@ -6,13 +6,6 @@
 #include <linux/spi/spidev.h>
 #include "spi.h"
 
-#define SPI_DEBUG 0
-#if SPI_DEBUG
-#   define DEBUG_PRINT(__info,...) printf("Debug: " __info,##__VA_ARGS__)
-#else
-#   define DEBUG_PRINT(__info,...)
-#endif
-
 static int      hw_fd;
 static uint32_t hw_speed;
 static uint8_t  hw_bits;
@@ -34,32 +27,24 @@ static struct spi_ioc_transfer ioc;
  */
 int spi_init(char *devname, unsigned bits_per_sec)
 {
-    int ret = 0;
-
     hw_fd = open(devname, O_RDWR);
     if (hw_fd < 0)  {
-        DEBUG_PRINT("Failed to open SPI device!\n");
         perror(devname);
         return -1;
-    } else {
-        DEBUG_PRINT("open : %s\n", devname);
     }
 
     // LSB first, ignore CS.
-    hw_mode = MODE_LSB_FIRST | MODE_NO_CS;
+    //hw_mode = MODE_LSB_FIRST | MODE_NO_CS;
+    hw_mode = 0;
 
     //
     // Set transfer size.
     //
     hw_bits = 8;
-    ret = ioctl(hw_fd, SPI_IOC_WR_BITS_PER_WORD, &hw_bits);
-    if (ret == -1) {
-        DEBUG_PRINT("can't set bits per word\n");
+    if (ioctl(hw_fd, SPI_IOC_WR_BITS_PER_WORD, &hw_bits) < 0) {
         return -1;
     }
-    ret = ioctl(hw_fd, SPI_IOC_RD_BITS_PER_WORD, &hw_bits);
-    if (ret == -1) {
-        DEBUG_PRINT("can't get bits per word\n");
+    if (ioctl(hw_fd, SPI_IOC_RD_BITS_PER_WORD, &hw_bits) < 0) {
         return -1;
     }
     ioc.bits_per_word = hw_bits;
@@ -70,11 +55,9 @@ int spi_init(char *devname, unsigned bits_per_sec)
     //
     hw_speed = bits_per_sec;
     if (ioctl(hw_fd, SPI_IOC_WR_MAX_SPEED_HZ, &hw_speed) < 0) {
-        DEBUG_PRINT("can't set max speed\n");
         return -1;
     }
     if (ioctl(hw_fd, SPI_IOC_RD_MAX_SPEED_HZ, &hw_speed) < 0) {
-        DEBUG_PRINT("can't get max speed\n");
         return -1;
     }
     ioc.speed_hz = hw_speed;
@@ -100,8 +83,7 @@ int spi_set_mode(int mode)
     hw_mode &= ~(MODE_CPHA | MODE_CPOL);
     hw_mode |= mode & (MODE_CPHA | MODE_CPOL);
 
-    if (ioctl(hw_fd, SPI_IOC_WR_MODE, &hw_mode) == -1) {
-        DEBUG_PRINT("can't set spi mode\n");
+    if (ioctl(hw_fd, SPI_IOC_WR_MODE, &hw_mode) < 0) {
         return -1;
     }
     return 0;
@@ -119,8 +101,9 @@ int spi_transfer(uint8_t send)
     ioc.tx_buf = (unsigned long)&send;
     ioc.rx_buf = (unsigned long)receive;
 
-    if (ioctl(hw_fd, SPI_IOC_MESSAGE(1), &ioc) < 1)
-        DEBUG_PRINT("can't send spi message\n");
+    if (ioctl(hw_fd, SPI_IOC_MESSAGE(1), &ioc) < 0) {
+        return -1;
+    }
     return receive[0];
 }
 
@@ -133,8 +116,7 @@ int spi_bulk_rw(uint8_t *buf, uint32_t len)
     ioc.tx_buf = (unsigned long)buf;
     ioc.rx_buf = (unsigned long)buf;
 
-    if (ioctl(hw_fd, SPI_IOC_MESSAGE(1), &ioc)  < 1 ){
-        DEBUG_PRINT("can't send spi message\n");
+    if (ioctl(hw_fd, SPI_IOC_MESSAGE(1), &ioc) < 0) {
         return -1;
     }
     return 0;

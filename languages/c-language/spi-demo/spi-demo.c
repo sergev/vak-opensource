@@ -97,7 +97,7 @@ void lcd_init()
     spi_init("/dev/spidev0.0", 20000000);
 #else
     // PIC32MZ DA Starter Kit
-    spi_init("/dev/spidev2.0", 10000000);
+    spi_init("/dev/spidev2.0", 20000000);
 #endif
 }
 
@@ -282,7 +282,7 @@ int main()
     spi_close();
 
     // Restore U2RX, U2TX pins.
-    gpio_set_mode(GPIO_PIN('G', 9), MODE_U2RX);
-    gpio_set_mode(GPIO_PIN('B', 0), MODE_U2TX);
+    gpio_set_mode(GPIO_PIN('G', 9), MODE_U2TX);
+    gpio_set_mode(GPIO_PIN('B', 0), MODE_U2RX);
     return 0;
 }
