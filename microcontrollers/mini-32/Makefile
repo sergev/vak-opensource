@@ -2,7 +2,9 @@
 # Path to your MIPS GCC toolchain.
 #
 #P               = /usr/local/pic32-tools/bin/pic32-
-P               = /usr/local/mips-gcc-4.8.1/bin/mips-elf-
+#P               = /usr/local/mips-gcc-4.8.1/bin/mips-elf-
+P               = /usr/local/mips-2014.05/bin/mips-sde-elf-
+#LDFLAGS         = -Wl,--oformat=elf32-tradlittlemips
 
 CC              = $(P)gcc -mips32r2 -EL -g -nostdlib
 OBJCOPY         = $(P)objcopy
