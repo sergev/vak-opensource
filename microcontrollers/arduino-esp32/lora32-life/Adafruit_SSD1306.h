@@ -70,29 +70,31 @@ All text above, and the splash screen must be included in any redistribution
     SSD1306_96_16
 
     -----------------------------------------------------------------------*/
-   #define SSD1306_128_64
+//   #define SSD1306_64_48
+#define SSD1306_128_64
 //   #define SSD1306_128_32
 //   #define SSD1306_96_16
 /*=========================================================================*/
 
 #if defined SSD1306_128_64 && defined SSD1306_128_32
-  #error "Only one SSD1306 display can be specified at once in SSD1306.h"
+  #error "Only one SSD1306 display can be specified at once in Adafruit_SSD1306.h"
 #endif
-#if !defined SSD1306_128_64 && !defined SSD1306_128_32 && !defined SSD1306_96_16
-  #error "At least one SSD1306 display must be specified in SSD1306.h"
+#if !defined SSD1306_128_64 && !defined SSD1306_128_32 && !defined SSD1306_96_16 && !defined SSD1306_64_48
+  #error "At least one SSD1306 display must be specified in Adafruit_SSD1306.h"
 #endif
 
 #if defined SSD1306_128_64
   #define SSD1306_LCDWIDTH                  128
   #define SSD1306_LCDHEIGHT                 64
-#endif
-#if defined SSD1306_128_32
+#elif defined SSD1306_128_32
   #define SSD1306_LCDWIDTH                  128
   #define SSD1306_LCDHEIGHT                 32
-#endif
-#if defined SSD1306_96_16
+#elif defined SSD1306_96_16
   #define SSD1306_LCDWIDTH                  96
   #define SSD1306_LCDHEIGHT                 16
+#elif defined SSD1306_64_48
+  #define SSD1306_LCDWIDTH                  64
+  #define SSD1306_LCDHEIGHT                 48
 #endif
 
 #define SSD1306_SETCONTRAST 0x81
@@ -147,7 +149,7 @@ class Adafruit_SSD1306 : public Adafruit_GFX {
   Adafruit_SSD1306(int8_t DC, int8_t RST, int8_t CS);
   Adafruit_SSD1306(int8_t RST = -1);
 
-  void begin(uint8_t switchvcc = SSD1306_SWITCHCAPVCC, uint8_t i2caddr = SSD1306_I2C_ADDRESS, bool reset=true);
+  void begin(uint8_t switchvcc = SSD1306_SWITCHCAPVCC, uint8_t i2caddr = SSD1306_I2C_ADDRESS, bool reset=true, int8_t sda = -1, int8_t scl = -1);
   void ssd1306_command(uint8_t c);
 
   void clearDisplay(void);

@@ -35,7 +35,7 @@ char *pm = mem, *pm2 = mem2;
 void setup()
 {
     // Initialize with the I2C addr
-    display.begin(SSD1306_SWITCHCAPVCC, 0x3C);
+    display.begin(SSD1306_SWITCHCAPVCC, 0x3C, true, 4, 15);
 
     // Clear the buffer.
     display.clearDisplay();
