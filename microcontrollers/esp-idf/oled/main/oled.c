@@ -1,29 +1,34 @@
-/**
- * Copyright (c) 2017 Tara Keeling
+/*
+ * Interface to a b/w OLED display based on SSD1306 controller.
+ * Based on sources from Tara Keeling.
  *
- * This software is released under the MIT License.
- * https://opensource.org/licenses/MIT
+ * Copyright (C) 2019 Serge Vakulenko
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ *   1. Redistributions of source code must retain the above copyright notice,
+ *      this list of conditions and the following disclaimer.
+ *   2. Redistributions in binary form must reproduce the above copyright
+ *      notice, this list of conditions and the following disclaimer in the
+ *      documentation and/or other materials provided with the distribution.
+ *   3. The name of the author may not be used to endorse or promote products
+ *      derived from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED
+ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO
+ * EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+ * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+ * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+ * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+ * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-
-#include <stdio.h>
 #include <string.h>
-#include <stdint.h>
-#include <stdbool.h>
-#include <stdlib.h>
-#include <math.h>
 #include <driver/i2c.h>
-
 #include "oled.h"
-#include "font.h"
-
-#define COM_Disable_LR_Remap 0
-#define COM_Enable_LR_Remap BIT(5)
-
-#define COM_Pins_Sequential 0
-#define COM_Pins_Alternative BIT(4)
-
-#define COM_ScanDir_LR 0
-#define COM_ScanDir_RL 1
 
 //
 // I2C interface.
@@ -41,7 +46,27 @@
 #define OLED_WIDTH      128
 #define OLED_HEIGHT     64
 
-/*static*/ oled_t oled;
+#ifndef BIT
+#   define BIT(n) (1 << n)
+#endif
+
+#define CheckBounds(expr, retexpr) { \
+    if (expr) { \
+        printf("[%s:%d] %s\n", __FUNCTION__, __LINE__, #expr); \
+        retexpr; \
+    } \
+}
+
+#define COM_Disable_LR_Remap 0
+#define COM_Enable_LR_Remap BIT(5)
+
+#define COM_Pins_Sequential 0
+#define COM_Pins_Alternative BIT(4)
+
+#define COM_ScanDir_LR 0
+#define COM_ScanDir_RL 1
+
+oled_t oled;
 
 //
 // SSD1306 commands.
@@ -99,7 +124,8 @@ int oled_send_command(uint8_t byte)
 
 int oled_send_data(uint8_t *data, size_t nbytes)
 {
-    NullCheck(data, return 0);
+    if (!data)
+        return -1;
 
     i2c_cmd_handle_t cmd = i2c_cmd_link_create();
     if (!cmd)
@@ -121,13 +147,13 @@ int oled_send_data(uint8_t *data, size_t nbytes)
 
 void oled_set_mux_ratio(uint8_t ratio)
 {
-    oled_send_command(0xA8);
+    oled_send_command(SSDCmd_Set_Mux_Ratio);
     oled_send_command(ratio);
 }
 
 void oled_set_display_offset(uint8_t offset)
 {
-    oled_send_command(0xD3);
+    oled_send_command(SSDCmd_Set_Display_Offset);
     oled_send_command(offset);
 }
 
@@ -202,15 +228,23 @@ void oled_set_display_address_mode(oled_address_mode_t addressMode)
     oled_send_command(addressMode);
 }
 
+//
+// Fill whole screen with color.
+//
+void oled_clear(int color)
+{
+    memset(oled.image, color ? 0xff : 0, oled.image_size);
+}
+
 void oled_update()
 {
-    oled_send_data(oled.Framebuffer, oled.FramebufferSize);
+    oled_send_data(oled.image, oled.image_size);
 }
 
 void oled_write_raw_data(uint8_t *data, size_t nbytes)
 {
-    if (nbytes > oled.FramebufferSize) {
-        nbytes = oled.FramebufferSize;
+    if (nbytes > oled.image_size) {
+        nbytes = oled.image_size;
     }
     if (nbytes > 0) {
         oled_send_data(data, nbytes);
@@ -299,14 +333,14 @@ int oled_init(int portrait, int color, int *xsize, int *ysize)
     // Initialize SSD1306 chip.
     //
     memset(&oled, 0, sizeof(oled));
-    oled.FramebufferSize = (OLED_WIDTH * OLED_HEIGHT) / 8;
+    oled.image_size = (OLED_WIDTH * OLED_HEIGHT) / 8;
 
-    oled.Framebuffer = (uint8_t*) malloc(oled.FramebufferSize);
-    if (!oled.Framebuffer) {
+    oled.image = (uint8_t*) malloc(oled.image_size);
+    if (!oled.image) {
         printf("Failed allocate OLED frame buffer!\n");
         return -1;
     }
-    memset(oled.Framebuffer, 0, oled.FramebufferSize);
+    memset(oled.image, 0, oled.image_size);
 
     oled_reset();
 

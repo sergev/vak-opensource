@@ -1,11 +1,19 @@
 cmake_minimum_required(VERSION 3.5)
 idf_component_register(
     SRCS
-        "draw.c"
-        "font.c"
-        "font_Comic_Neue_25x28.c"
-        "main.c"
         "oled.c"
+        "draw.c"
+        "main.c"
+        "lucidasans7.c"
+        "lucidasans9.c"
+        "lucidasans11.c"
+        "lucidasans15.c"
+        "lucidasans28.c"
+        "verdana7.c"
+        "5x7.c"
+        "6x9.c"
+        "digits20.c"
+        "digits32.c"
 
     INCLUDE_DIRS
         ""
