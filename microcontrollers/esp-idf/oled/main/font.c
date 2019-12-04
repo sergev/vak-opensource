@@ -1,6 +1,6 @@
 /**
  * Copyright (c) 2017 Tara Keeling
- * 
+ *
  * This software is released under the MIT License.
  * https://opensource.org/licenses/MIT
  */
@@ -9,110 +9,110 @@
 #include <string.h>
 #include <ctype.h>
 
-#include "ssd1306.h"
+#include "oled.h"
 #include "font.h"
 
-int FontGetCharHeight( struct FontDef* FontHandle, char c ) {
-    NullCheck( FontHandle, return 0 );
-    NullCheck( FontHandle->Data, return 0 );
+int font_get_char_height(font_t *font, char c)
+{
+    NullCheck(font, return 0);
+    NullCheck(font->Data, return 0);
 
-    return FontHandle->Height * 8;
+    return font->height * 8;
 }
 
-int FontMeasureString( struct FontDef* FontHandle, const char* Text ) {
+int font_measure_string(font_t *font, const char* Text)
+{
     int StringWidthInPixels = 0;
     int Length = 0;
     int i = 0;
 
-    NullCheck( FontHandle, return 0 );
-    NullCheck( FontHandle->Data, return 0 );
-    NullCheck( Text, return 0 );
+    NullCheck(font, return 0);
+    NullCheck(font->Data, return 0);
+    NullCheck(Text, return 0);
 
-    for ( i = 0, Length = strlen( Text ); i < Length; i++ ) {
-        StringWidthInPixels+= FontGetCharWidth( FontHandle, Text[ i ] );
+    for (i = 0, Length = strlen(Text); i < Length; i++) {
+        StringWidthInPixels+= font_get_char_width(font, Text[ i ]);
     }
 
     return StringWidthInPixels;
 }
 
-int FontGetCharWidth( struct FontDef* FontHandle, char c ) {
-    const uint8_t* WidthOffset = FontHandle->Data;
+int font_get_char_width(font_t *font, char c)
+{
+    const uint8_t* WidthOffset = font->Data;
 
-    NullCheck( FontHandle, return 0 );
-    NullCheck( FontHandle->Data, return 0 );
+    NullCheck(font, return 0);
+    NullCheck(font->Data, return 0);
 
-    if ( c < FontHandle->StartChar || c > FontHandle->EndChar )
+    if (c < font->StartChar || c > font->EndChar)
         return 0;
 
-    WidthOffset+= ( c - FontHandle->StartChar ) * ( ( FontHandle->Width * FontHandle->Height ) + 1 );
+    WidthOffset+= (c - font->StartChar) * ((font->width * font->height) + 1);
     return *WidthOffset;
 }
 
-void FontDrawChar( struct SSD1306_Device* DeviceHandle, char c, int x, int y, bool Color ) {
+void font_draw_char(font_t *font, char c, int x, int y, bool color)
+{
     const uint8_t* FontOffset = NULL;
-    struct FontDef* Font = NULL;
     int GlyphSizeInBytes = 0;
     int CharHeight = 0;
     int CharWidth = 0;
     int x2 = 0;
     int y2 = 0;
 
-    NullCheck( DeviceHandle, return );
-    NullCheck( DeviceHandle->Framebuffer, return );
-    NullCheck( DeviceHandle->Font, return );
-    NullCheck( DeviceHandle->Font->Data, return );
+    NullCheck(oled.Framebuffer, return);
+    NullCheck(font, return);
+    NullCheck(font->Data, return);
 
-    CharWidth = FontGetCharWidth( DeviceHandle->Font, c );
-    CharHeight = FontGetCharHeight( DeviceHandle->Font, c );
+    CharWidth = font_get_char_width(font, c);
+    CharHeight = font_get_char_height(font, c);
 
-    CheckBounds( x >= ( DeviceHandle->Width ) - CharWidth, return );
-    CheckBounds( y >= ( DeviceHandle->Height ) - CharHeight, return );
+    CheckBounds(x >= oled.width - CharWidth, return);
+    CheckBounds(y >= oled.height - CharHeight, return);
 
-    if ( c < DeviceHandle->Font->StartChar || c > DeviceHandle->Font->EndChar ) {
+    if (c < font->StartChar || c > font->EndChar) {
         return;
     }
-
-    Font = DeviceHandle->Font;
 
     /* Divide y by 8 to get which page the Y coordinate is on */
     y>>= 3;
 
     /* Height is size in bytes, so a 16px high font would be 2 bytes tall */
-    GlyphSizeInBytes = ( Font->Width * Font->Height ) + 1;
-    FontOffset = &Font->Data[ ( ( c - Font->StartChar ) * GlyphSizeInBytes ) + 1 ];
+    GlyphSizeInBytes = (font->width * font->height) + 1;
+    FontOffset = &font->Data[ ((c - font->StartChar) * GlyphSizeInBytes) + 1 ];
 
-    for ( x2 = 0; x2 < FontGetCharWidth( Font, c ); x2++ ) {
-        for ( y2 = 0; y2 < Font->Height; y2++ ) {
-            DeviceHandle->Framebuffer[ ( ( y2 + y ) * DeviceHandle->Width ) + ( x + x2 ) ] = ( Color == true ) ? *FontOffset : ! *FontOffset;
+    for (x2 = 0; x2 < font_get_char_width(font, c); x2++) {
+        for (y2 = 0; y2 < font->height; y2++) {
+            oled.Framebuffer[ ((y2 + y) * oled.width) + (x + x2) ] = (color == true) ? *FontOffset : ! *FontOffset;
             FontOffset++;
         }
     }
 }
 
-void FontDrawString( struct SSD1306_Device* DeviceHandle, const char* Text, int x, int y, bool Color ) {
+void font_draw_string(font_t *font, const char* Text, int x, int y, bool color)
+{
     int Length = 0;
     int i = 0;
     int x2 = 0;
     int y2 = 0;
 
-    NullCheck( DeviceHandle, return );
-    NullCheck( DeviceHandle->Framebuffer, return );
-    NullCheck( DeviceHandle->Font, return );
-    NullCheck( DeviceHandle->Font->Data, return );
-    NullCheck( Text, return );
+    NullCheck(oled.Framebuffer, return);
+    NullCheck(font, return);
+    NullCheck(font->Data, return);
+    NullCheck(Text, return);
 
-    CheckBounds( x >= DeviceHandle->Width, return );
-    CheckBounds( y >= DeviceHandle->Height, return );
+    CheckBounds(x >= oled.width, return);
+    CheckBounds(y >= oled.height, return);
 
-    for ( i = 0, x2 = x, y2 = y, Length = strlen( Text ); i < Length; i++ ) {
-        FontDrawChar( DeviceHandle, Text[ i ], x2, y2, Color );
-        x2+= FontGetCharWidth( DeviceHandle->Font, Text[ i ] );
+    for (i = 0, x2 = x, y2 = y, Length = strlen(Text); i < Length; i++) {
+        font_draw_char(font, Text[ i ], x2, y2, color);
+        x2+= font_get_char_width(font, Text[ i ]);
     }
 }
 
-void FontDrawCharUnaligned( struct SSD1306_Device* DeviceHandle, char c, int x, int y, bool Color ) {
+void font_draw_char_unaligned(font_t *font, char c, int x, int y, bool color)
+{
     const uint8_t* FontOffset = NULL;
-    struct FontDef* Font = NULL;
     int CharSizeInBytes = 0;
     int CharHeight = 0;
     int CharWidth = 0;
@@ -120,35 +120,31 @@ void FontDrawCharUnaligned( struct SSD1306_Device* DeviceHandle, char c, int x, 
     int y2 = 0;
     int i = 0;
 
-    NullCheck( DeviceHandle, return );
-    NullCheck( DeviceHandle->Framebuffer, return );
-    NullCheck( DeviceHandle->Font, return );
-    NullCheck( DeviceHandle->Font->Data, return );
+    NullCheck(oled.Framebuffer, return);
+    NullCheck(font, return);
+    NullCheck(font->Data, return);
 
-    Font = DeviceHandle->Font;
-    CharWidth = FontGetCharWidth( Font, c );
-    CharHeight = FontGetCharHeight( Font, c );
-    
-    CheckBounds( x >= ( DeviceHandle->Width ) - CharWidth, return );
-    CheckBounds( y >= ( DeviceHandle->Height ) - CharHeight, return );
+    CharWidth = font_get_char_width(font, c);
+    CharHeight = font_get_char_height(font, c);
 
-    if ( c < Font->StartChar || c > Font->EndChar ) {
+    CheckBounds(x >= oled.width - CharWidth, return);
+    CheckBounds(y >= oled.height - CharHeight, return);
+
+    if (c < font->StartChar || c > font->EndChar) {
         return;
     }
 
     /* Height is size in bytes, so a 16px high font would be 2 bytes tall */
-    CharSizeInBytes = ( Font->Width * Font->Height ) + 1;
-    FontOffset = &Font->Data[ ( ( c - Font->StartChar ) * CharSizeInBytes ) + 1 ];
+    CharSizeInBytes = (font->width * font->height) + 1;
+    FontOffset = &font->Data[ ((c - font->StartChar) * CharSizeInBytes) + 1 ];
 
-    for ( x2 = 0; x2 < CharWidth; x2++ ) {
-        for ( y2 = 0; y2 < Font->Height; y2++ ) {
-            for ( i = 7; i >= 0; i-- ) {
-                if ( *FontOffset & BIT( i ) ) {
-                    SSD1306_DrawPixel( DeviceHandle,
-                        x + x2,
-                        y + ( i + ( y2 * 8 ) ),
-                        Color
-                    ); 
+    for (x2 = 0; x2 < CharWidth; x2++) {
+        for (y2 = 0; y2 < font->height; y2++) {
+            for (i = 7; i >= 0; i--) {
+                if (*FontOffset & BIT(i)) {
+                    oled_draw_pixel(x + x2,
+                                    y + (i + (y2 * 8)),
+                                    color);
                 }
             }
 
@@ -157,26 +153,27 @@ void FontDrawCharUnaligned( struct SSD1306_Device* DeviceHandle, char c, int x, 
     }
 }
 
-void FontDrawStringUnaligned( struct SSD1306_Device* DeviceHandle, const char* Text, int x, int y, bool Color ) {
+void font_draw_string_unaligned(font_t *font, const char* Text, int x, int y, bool color)
+{
     int Length = 0;
     int i = 0;
 
-    NullCheck( DeviceHandle, return );
-    NullCheck( DeviceHandle->Framebuffer, return );
-    NullCheck( DeviceHandle->Font, return );
-    NullCheck( DeviceHandle->Font->Data, return );
-    NullCheck( Text, return );
+    NullCheck(oled.Framebuffer, return);
+    NullCheck(font, return);
+    NullCheck(font->Data, return);
+    NullCheck(Text, return);
 
-    CheckBounds( x >= DeviceHandle->Width, return );
-    CheckBounds( y >= DeviceHandle->Height, return );
+    CheckBounds(x >= oled.width, return);
+    CheckBounds(y >= oled.height, return);
 
-    for ( i = 0, Length = strlen( Text ); i < Length; i++ ) {
-        FontDrawCharUnaligned( DeviceHandle, Text[ i ], x, y, Color );
-        x+= FontGetCharWidth( DeviceHandle->Font, Text[ i ] );
+    for (i = 0, Length = strlen(Text); i < Length; i++) {
+        font_draw_char_unaligned(font, Text[ i ], x, y, color);
+        x+= font_get_char_width(font, Text[ i ]);
     }
 }
 
-void FontDrawAnchoredString( struct SSD1306_Device* DeviceHandle, const char* Text, TextAnchor Anchor , bool Color ) {
+void font_draw_anchored_string(font_t *font, const char* Text, TextAnchor Anchor , bool color)
+{
     int StringLengthInPixels = 0;
     int CharHeight = 0;
     int MidpointX = 0;
@@ -184,25 +181,24 @@ void FontDrawAnchoredString( struct SSD1306_Device* DeviceHandle, const char* Te
     int x = 0;
     int y = 0;
 
-    NullCheck( DeviceHandle, return );
-    NullCheck( DeviceHandle->Framebuffer, return );
-    NullCheck( DeviceHandle->Font, return );
-    NullCheck( DeviceHandle->Font->Data, return );
-    NullCheck( Text, return );    
+    NullCheck(oled.Framebuffer, return);
+    NullCheck(font, return);
+    NullCheck(font->Data, return);
+    NullCheck(Text, return);
 
-    StringLengthInPixels = FontMeasureString( DeviceHandle->Font, Text );
-    CharHeight = FontGetCharHeight( DeviceHandle->Font, ' ' );
-    MidpointX = ( DeviceHandle->Width / 2 ) - 1;
-    MidpointY = ( DeviceHandle->Height / 2 ) - 1;
+    StringLengthInPixels = font_measure_string(font, Text);
+    CharHeight = font_get_char_height(font, ' ');
+    MidpointX = (oled.width / 2) - 1;
+    MidpointY = (oled.height / 2) - 1;
 
-    switch ( Anchor ) {
+    switch (Anchor) {
         case TextAnchor_North: {
-            x = MidpointX - ( StringLengthInPixels / 2 );
+            x = MidpointX - (StringLengthInPixels / 2);
             y = 0;
             break;
         }
         case TextAnchor_NorthEast: {
-            x = DeviceHandle->Width - 1 - StringLengthInPixels;
+            x = oled.width - 1 - StringLengthInPixels;
             y = 0;
             break;
         }
@@ -212,39 +208,39 @@ void FontDrawAnchoredString( struct SSD1306_Device* DeviceHandle, const char* Te
             break;
         }
         case TextAnchor_East: {
-            y = MidpointY - ( CharHeight / 2 );
-            x = DeviceHandle->Width - 1 - StringLengthInPixels;
+            y = MidpointY - (CharHeight / 2);
+            x = oled.width - 1 - StringLengthInPixels;
             break;
         }
         case TextAnchor_West: {
-            y = MidpointY - ( CharHeight / 2 );
+            y = MidpointY - (CharHeight / 2);
             x = 0;
             break;
         }
         case TextAnchor_SouthEast: {
-            y = DeviceHandle->Height - 1 - CharHeight;
-            x = DeviceHandle->Width - 1 - StringLengthInPixels;
+            y = oled.height - 1 - CharHeight;
+            x = oled.width - 1 - StringLengthInPixels;
             break;
         }
         case TextAnchor_SouthWest: {
-            y = DeviceHandle->Height - 1 - CharHeight;
+            y = oled.height - 1 - CharHeight;
             x = 0;
             break;
         }
         case TextAnchor_South: {
-            x = MidpointX - ( StringLengthInPixels / 2 );
-            y = DeviceHandle->Height - 1 - CharHeight;
+            x = MidpointX - (StringLengthInPixels / 2);
+            y = oled.height - 1 - CharHeight;
             break;
         }
         case TextAnchor_Center: {
-            x = MidpointX - ( StringLengthInPixels / 2 );
-            y = MidpointY - ( CharHeight / 2 );
+            x = MidpointX - (StringLengthInPixels / 2);
+            y = MidpointY - (CharHeight / 2);
             break;
         }
         default: {
             return;
         }
     };
-    
-    FontDrawStringUnaligned( DeviceHandle, Text, x, y, Color );
+
+    font_draw_string_unaligned(font, Text, x, y, color);
 }

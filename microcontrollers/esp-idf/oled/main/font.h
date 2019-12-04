@@ -3,13 +3,13 @@
 
 #include <stdbool.h>
 
-struct FontDef {
-    const uint8_t* Data;
-    int Width;  /* Width in bytes */
-    int Height; /* Height in bytes */
+typedef struct {
+    const uint8_t *Data;
+    int width;      /* Width in bytes */
+    int height;     /* Height in bytes */
     int StartChar;  /* Which ascii # the font starts with (usually a space or !) */
     int EndChar;    /* Ending ascii # the font ends with */
-};
+} font_t;
 
 typedef enum {
     TextAnchor_East = 0,
@@ -23,22 +23,15 @@ typedef enum {
     TextAnchor_Center
 } TextAnchor;
 
-extern struct FontDef Font_Ubuntu_Mono_6x10;
-extern struct FontDef Font_Liberation_Sans_15x16;
-extern struct FontDef Font_Liberation_Serif_19x19;
-extern struct FontDef Font_Comic_Neue_25x28;
+int font_get_char_height(font_t *font, char c);
+int font_measure_string(font_t *font, const char *text);
+int font_get_char_width(font_t *font, char c);
 
-struct SSD1306_Device;
+void font_draw_char(font_t *font, char c, int x, int y, bool color);
+void font_draw_string(font_t *font, const char *text, int x, int y, bool color);
 
-int FontGetCharHeight( struct FontDef* FontHandle, char c );
-int FontMeasureString( struct FontDef* FontHandle, const char* Text );
-int FontGetCharWidth( struct FontDef* FontHandle, char c );
-
-void FontDrawChar( struct SSD1306_Device* DeviceHandle, char c, int x, int y, bool Color );
-void FontDrawString( struct SSD1306_Device* DeviceHandle, const char* Text, int x, int y, bool Color );
-
-void FontDrawCharUnaligned( struct SSD1306_Device* DeviceHandle, char c, int x, int y, bool Color );
-void FontDrawStringUnaligned( struct SSD1306_Device* DeviceHandle, const char* Text, int x, int y, bool Color );
-void FontDrawAnchoredString( struct SSD1306_Device* DeviceHandle, const char* Text, TextAnchor Anchor , bool Color );
+void font_draw_char_unaligned(font_t *font, char c, int x, int y, bool color);
+void font_draw_string_unaligned(font_t *font, const char *text, int x, int y, bool color);
+void font_draw_anchored_string(font_t *font, const char *text, TextAnchor anchor , bool color);
 
 #endif
