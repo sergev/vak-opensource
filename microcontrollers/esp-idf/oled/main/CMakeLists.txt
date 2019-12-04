@@ -14,6 +14,11 @@ idf_component_register(
         "6x9.c"
         "digits20.c"
         "digits32.c"
+        "dejavusans10.c"
+        "dejavusans12.c"
+        "dejavusans14.c"
+        "dejavusans18.c"
+        "dejavusans8.c"
 
     INCLUDE_DIRS
         ""

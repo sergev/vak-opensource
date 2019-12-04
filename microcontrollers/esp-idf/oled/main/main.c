@@ -48,6 +48,11 @@ extern oled_font_t font_5x7;
 extern oled_font_t font_6x9;
 extern oled_font_t font_digits20;
 extern oled_font_t font_digits32;
+extern oled_font_t font_dejavusans8;
+extern oled_font_t font_dejavusans10;
+extern oled_font_t font_dejavusans12;
+extern oled_font_t font_dejavusans14;
+extern oled_font_t font_dejavusans18;
 
 void setup_pins()
 {
@@ -100,14 +105,19 @@ void app_main()
     for (;;) {
         printf("Screen size %u x %u.\n", xsize, ysize);
 
-        show(&font_lucidasans7, "Lucida Sans 7", 0);
-        show(&font_lucidasans9, "Lucida Sans 9", 0);
-        show(&font_lucidasans11, "Lucida Sans 11", 0);
-        show(&font_lucidasans15, "Lucida Sans 15", 0);
-        show(&font_lucidasans28, "Lucida Sans 28", 0);
-        show(&font_verdana7, "Verdana 7", 0);
-        show(&font_5x7, "5x7", 0);
-        show(&font_6x9, "6x9", 0);
+        show(&font_dejavusans8, "DejaVu Sans 8", 0);
+        show(&font_dejavusans10, "DejaVu Sans 10", 0);
+        show(&font_dejavusans12, "DejaVu Sans 12", 0);
+        show(&font_dejavusans14, "DejaVu Sans 14", 0);
+        show(&font_dejavusans18, "DejaVu Sans 18", 0);
+        //show(&font_lucidasans7, "Lucida Sans 7", 0);
+        //show(&font_lucidasans9, "Lucida Sans 9", 0);
+        //show(&font_lucidasans11, "Lucida Sans 11", 0);
+        //show(&font_lucidasans15, "Lucida Sans 15", 0);
+        //show(&font_lucidasans28, "Lucida Sans 28", 0);
+        //show(&font_verdana7, "Verdana 7", 0);
+        //show(&font_5x7, "5x7", 0);
+        //show(&font_6x9, "6x9", 0);
         show(&font_digits20, "Digits 20", 1);
         show(&font_digits32, "Digits 32", 1);
     }
