@@ -998,14 +998,14 @@ generate_font(FILE *out, char *iname, char *oname)
     /*
      * Generate the font bounding box.
      */
-    fprintf(out, "FONTBOUNDINGBOX %hd %hd %hd %hd\n",
+    fprintf(out, "FONTBOUNDINGBOX %d %d %d %d\n",
             bbx.maxrb - bbx.minlb, bbx.maxas + bbx.maxds,
             bbx.minlb, -bbx.maxds);
 
     /*
      * Print the properties.
      */
-    fprintf(out, "STARTPROPERTIES %hd\n", 19);
+    fprintf(out, "STARTPROPERTIES %d\n", 19);
 
     /*
      * Print the font properties from the XLFD name.
@@ -1046,7 +1046,7 @@ generate_font(FILE *out, char *iname, char *oname)
      * Make sure to add the FONT_ASCENT and FONT_DESCENT properties
      * because X11 can not live without them.
      */
-    fprintf(out, "FONT_ASCENT %hd\nFONT_DESCENT %hd\n",
+    fprintf(out, "FONT_ASCENT %d\nFONT_DESCENT %d\n",
             (horizontal->Ascender * imetrics.y_ppem) / upm,
             -((horizontal->Descender * imetrics.y_ppem) / upm));
 

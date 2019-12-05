@@ -33,26 +33,79 @@
 #define PIN_LED     2   // TTGO LoRa32 board
 #define PIN_BUTTON  0
 
-/*
- * Screen size.
- */
-int xsize, ysize;
-
-extern oled_font_t font_lucidasans7;
-extern oled_font_t font_lucidasans9;
-extern oled_font_t font_lucidasans11;
-extern oled_font_t font_lucidasans15;
-extern oled_font_t font_lucidasans28;
-extern oled_font_t font_verdana7;
+//
+// Font collection.
+//
 extern oled_font_t font_5x7;
 extern oled_font_t font_6x9;
 extern oled_font_t font_digits20;
 extern oled_font_t font_digits32;
+
+extern oled_font_t font_lucidasans8;
+extern oled_font_t font_lucidasans10;
+extern oled_font_t font_lucidasans12;
+extern oled_font_t font_lucidasans14;
+extern oled_font_t font_lucidasans18;
+extern oled_font_t font_lucidasans28;
+
+extern oled_font_t font_verdana8;
+extern oled_font_t font_verdana10;
+extern oled_font_t font_verdana12;
+extern oled_font_t font_verdana14;
+extern oled_font_t font_verdana18;
+
+extern oled_font_t font_tahoma8;
+extern oled_font_t font_tahoma10;
+extern oled_font_t font_tahoma12;
+extern oled_font_t font_tahoma14;
+extern oled_font_t font_tahoma18;
+
+extern oled_font_t font_georgia8;
+extern oled_font_t font_georgia10;
+extern oled_font_t font_georgia12;
+extern oled_font_t font_georgia14;
+extern oled_font_t font_georgia18;
+
 extern oled_font_t font_dejavusans8;
 extern oled_font_t font_dejavusans10;
 extern oled_font_t font_dejavusans12;
 extern oled_font_t font_dejavusans14;
 extern oled_font_t font_dejavusans18;
+
+extern oled_font_t font_dejavusanscond8;
+extern oled_font_t font_dejavusanscond10;
+extern oled_font_t font_dejavusanscond12;
+extern oled_font_t font_dejavusanscond14;
+extern oled_font_t font_dejavusanscond18;
+
+extern oled_font_t font_freesans8;
+extern oled_font_t font_freesans10;
+extern oled_font_t font_freesans12;
+extern oled_font_t font_freesans14;
+extern oled_font_t font_freesans18;
+
+extern oled_font_t font_liberationsans8;
+extern oled_font_t font_liberationsans10;
+extern oled_font_t font_liberationsans12;
+extern oled_font_t font_liberationsans14;
+extern oled_font_t font_liberationsans18;
+
+extern oled_font_t font_liberationserif8;
+extern oled_font_t font_liberationserif10;
+extern oled_font_t font_liberationserif12;
+extern oled_font_t font_liberationserif14;
+extern oled_font_t font_liberationserif18;
+
+extern oled_font_t font_ubuntu8;
+extern oled_font_t font_ubuntu10;
+extern oled_font_t font_ubuntu12;
+extern oled_font_t font_ubuntu14;
+extern oled_font_t font_ubuntu18;
+
+//
+// Screen size.
+//
+int xsize, ysize;
 
 void setup_pins()
 {
@@ -74,8 +127,8 @@ void show(const oled_font_t *font, const char *title, int digits_only)
                          "The quick brown fox jumps over the lazy dog.";
 
     oled_clear(0);
-    oled_text(&font_lucidasans11, 1, 0, x, y, title);
-    y += font_lucidasans11.height;
+    oled_text(&font_tahoma10, 1, 0, x, y, title);
+    y += font_tahoma10.height;
 
     for (i=0; y<ysize; i++) {
         oled_text(font, 1, 0, x, y, phrase);
@@ -105,19 +158,70 @@ void app_main()
     for (;;) {
         printf("Screen size %u x %u.\n", xsize, ysize);
 
+        show(&font_tahoma8, "Tahoma 8", 0);
+        show(&font_tahoma10, "Tahoma 10", 0);
+        show(&font_tahoma12, "Tahoma 12", 0);
+        show(&font_tahoma14, "Tahoma 14", 0);
+        show(&font_tahoma18, "Tahoma 18", 0);
+
+        show(&font_lucidasans8, "Lucida Sans 8", 0);
+        show(&font_lucidasans10, "Lucida Sans 10", 0);
+        show(&font_lucidasans12, "Lucida Sans 12", 0);
+        show(&font_lucidasans14, "Lucida Sans 14", 0);
+        show(&font_lucidasans18, "Lucida Sans 18", 0);
+        show(&font_lucidasans28, "Lucida Sans 28", 0);
+
+        show(&font_verdana8, "Verdana 8", 0);
+        show(&font_verdana10, "Verdana 10", 0);
+        show(&font_verdana12, "Verdana 12", 0);
+        show(&font_verdana14, "Verdana 14", 0);
+        show(&font_verdana18, "Verdana 18", 0);
+
+        show(&font_georgia8, "Georgia 8", 0);
+        show(&font_georgia10, "Georgia 10", 0);
+        show(&font_georgia12, "Georgia 12", 0);
+        show(&font_georgia14, "Georgia 14", 0);
+        show(&font_georgia18, "Georgia 18", 0);
+
         show(&font_dejavusans8, "DejaVu Sans 8", 0);
         show(&font_dejavusans10, "DejaVu Sans 10", 0);
         show(&font_dejavusans12, "DejaVu Sans 12", 0);
         show(&font_dejavusans14, "DejaVu Sans 14", 0);
         show(&font_dejavusans18, "DejaVu Sans 18", 0);
-        //show(&font_lucidasans7, "Lucida Sans 7", 0);
-        //show(&font_lucidasans9, "Lucida Sans 9", 0);
-        //show(&font_lucidasans11, "Lucida Sans 11", 0);
-        //show(&font_lucidasans15, "Lucida Sans 15", 0);
-        //show(&font_lucidasans28, "Lucida Sans 28", 0);
-        //show(&font_verdana7, "Verdana 7", 0);
-        //show(&font_5x7, "5x7", 0);
-        //show(&font_6x9, "6x9", 0);
+
+        show(&font_dejavusanscond8, "DejaVu Sans C 8", 0);
+        show(&font_dejavusanscond10, "DejaVu Sans C 10", 0);
+        show(&font_dejavusanscond12, "DejaVu Sans C 12", 0);
+        show(&font_dejavusanscond14, "DejaVu Sans C 14", 0);
+        show(&font_dejavusanscond18, "DejaVu Sans C 18", 0);
+
+        show(&font_freesans8, "FreeSans 8", 0);
+        show(&font_freesans10, "FreeSans 10", 0);
+        show(&font_freesans12, "FreeSans 12", 0);
+        show(&font_freesans14, "FreeSans 14", 0);
+        show(&font_freesans18, "FreeSans 18", 0);
+
+        show(&font_liberationsans8, "Liberation Sans 8", 0);
+        show(&font_liberationsans10, "Liberation Sans 10", 0);
+        show(&font_liberationsans12, "Liberation Sans 12", 0);
+        show(&font_liberationsans14, "Liberation Sans 14", 0);
+        show(&font_liberationsans18, "Liberation Sans 18", 0);
+
+        show(&font_liberationserif8, "Liberation Serif 8", 0);
+        show(&font_liberationserif10, "Liberation Serif 10", 0);
+        show(&font_liberationserif12, "Liberation Serif 12", 0);
+        show(&font_liberationserif14, "Liberation Serif 14", 0);
+        show(&font_liberationserif18, "Liberation Serif 18", 0);
+
+        show(&font_ubuntu8, "Ubuntu 8", 0);
+        show(&font_ubuntu10, "Ubuntu 10", 0);
+        show(&font_ubuntu12, "Ubuntu 12", 0);
+        show(&font_ubuntu14, "Ubuntu 14", 0);
+        show(&font_ubuntu18, "Ubuntu 18", 0);
+
+        show(&font_5x7, "5x7", 0);
+        show(&font_6x9, "6x9", 0);
+
         show(&font_digits20, "Digits 20", 1);
         show(&font_digits32, "Digits 32", 1);
     }
