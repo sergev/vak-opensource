@@ -132,7 +132,7 @@ getopts(int *pac, char ***pav)
                 char *e;
                 exclude_start = strtol (p, &e, 0);
                 if (*e != '-') {
-                    fprintf(stderr, "Invalud option ignored: %s\r\n", p);
+                    fprintf(stderr, "Invalid option ignored: %s\r\n", p);
                     exclude_start = 0;
                     break;
                 }
@@ -145,7 +145,7 @@ getopts(int *pac, char ***pav)
                     char *e;
                     exclude_start = strtol (av[0], &e, 0);
                     if (*e != '-') {
-                        fprintf(stderr, "Invalud option ignored: %s\r\n", av[0]);
+                        fprintf(stderr, "Invalid option ignored: %s\r\n", av[0]);
                         exclude_start = 0;
                         break;
                     }
