@@ -202,7 +202,7 @@ void app_main()
 
     for (;;) {
         printf("Screen size %u x %u.\n", xsize, ysize);
-#if 0
+
         show(&font_tahoma8, "Tahoma 8", 0);
         show(&font_tahoma10, "Tahoma 10", 0);
         show(&font_tahoma12, "Tahoma 12", 0);
@@ -256,7 +256,7 @@ void app_main()
         show(&font_ubuntu12, "Ubuntu 12", 0);
         show(&font_ubuntu14, "Ubuntu 14", 0);
         show(&font_ubuntu18, "Ubuntu 18", 0);
-#endif
+
         show(&font_lucidasans8, "Lucida Sans 8", 0);
         show(&font_lucidasans10, "Lucida Sans 10", 0);
         show(&font_lucidasans12, "Lucida Sans 12", 0);
@@ -294,12 +294,11 @@ void app_main()
         show(&font_times14, "Times 14", 0);
         show(&font_times18, "Times 18", 0);
         show(&font_times24, "Times 24", 0);
-#if 0
+
         show(&font_5x7, "5x7", 0);
         show(&font_6x9, "6x9", 0);
 
         show(&font_digits20, "Digits 20", 1);
         show(&font_digits32, "Digits 32", 1);
-#endif
     }
 }
