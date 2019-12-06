@@ -66,6 +66,27 @@ vpath %.bdf bdf
 %.c:            %.bdf convbdf
 		./convbdf -u0 -s0x20 -l0x7e $<
 
+lucidasans8.c:  lucidasans8.bdf convbdf
+		./convbdf -u0 -s0x20 -l0x7e -a1 -d1 $<
+
+lucidasans10.c: lucidasans10.bdf convbdf
+		./convbdf -u0 -s0x20 -l0x7e -a2 -d0 $<
+
+lucidasans12.c: lucidasans12.bdf convbdf
+		./convbdf -u0 -s0x20 -l0x7e -a2 -d1 $<
+
+lucidasans14.c: lucidasans14.bdf convbdf
+		./convbdf -u0 -s0x20 -l0x7e -a4 -d1 $<
+
+lucidasans18.c: lucidasans18.bdf convbdf
+		./convbdf -u0 -s0x20 -l0x7e -a4 -d2 $<
+
+lucidasans19.c: lucidasans19.bdf convbdf
+		./convbdf -u0 -s0x20 -l0x7e -a4 -d2 $<
+
+lucidasans24.c: lucidasans24.bdf convbdf
+		./convbdf -u0 -s0x20 -l0x7e -a5 -d2 $<
+
 #
 # Lucida Sans Regular
 #

@@ -203,6 +203,23 @@ void app_main()
     for (;;) {
         printf("Screen size %u x %u.\n", xsize, ysize);
 
+        show(&font_lucidasans8, "Lucida Sans 8", 0);
+        show(&font_lucidasans10, "Lucida Sans 10", 0);
+        show(&font_lucidasans12, "Lucida Sans 12", 0);
+        show(&font_lucidasans14, "Lucida Sans 14", 0);
+        show(&font_lucidasans18, "Lucida Sans 18", 0);
+        show(&font_lucidasans19, "Lucida Sans 19", 0);
+        show(&font_lucidasans24, "Lucida Sans 24", 0);
+        show(&font_lucidasans28, "Lucida Sans 28", 0);
+
+        show(&font_lucidabright8, "Lucida Bright 8", 0);
+        show(&font_lucidabright10, "Lucida Bright 10", 0);
+        show(&font_lucidabright12, "Lucida Bright 12", 0);
+        show(&font_lucidabright14, "Lucida Bright 14", 0);
+        show(&font_lucidabright18, "Lucida Bright 18", 0);
+        show(&font_lucidabright19, "Lucida Bright 19", 0);
+        show(&font_lucidabright24, "Lucida Bright 24", 0);
+
         show(&font_tahoma8, "Tahoma 8", 0);
         show(&font_tahoma10, "Tahoma 10", 0);
         show(&font_tahoma12, "Tahoma 12", 0);
@@ -256,23 +273,6 @@ void app_main()
         show(&font_ubuntu12, "Ubuntu 12", 0);
         show(&font_ubuntu14, "Ubuntu 14", 0);
         show(&font_ubuntu18, "Ubuntu 18", 0);
-
-        show(&font_lucidasans8, "Lucida Sans 8", 0);
-        show(&font_lucidasans10, "Lucida Sans 10", 0);
-        show(&font_lucidasans12, "Lucida Sans 12", 0);
-        show(&font_lucidasans14, "Lucida Sans 14", 0);
-        show(&font_lucidasans18, "Lucida Sans 18", 0);
-        show(&font_lucidasans19, "Lucida Sans 19", 0);
-        show(&font_lucidasans24, "Lucida Sans 24", 0);
-        show(&font_lucidasans28, "Lucida Sans 28", 0);
-
-        show(&font_lucidabright8, "Lucida Bright 8", 0);
-        show(&font_lucidabright10, "Lucida Bright 10", 0);
-        show(&font_lucidabright12, "Lucida Bright 12", 0);
-        show(&font_lucidabright14, "Lucida Bright 14", 0);
-        show(&font_lucidabright18, "Lucida Bright 18", 0);
-        show(&font_lucidabright19, "Lucida Bright 19", 0);
-        show(&font_lucidabright24, "Lucida Bright 24", 0);
 
         show(&font_courier8, "Courier 8", 0);
         show(&font_courier10, "Courier 10", 0);
