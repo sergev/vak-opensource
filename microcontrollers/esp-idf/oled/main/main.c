@@ -102,6 +102,20 @@ extern oled_font_t font_ubuntu12;
 extern oled_font_t font_ubuntu14;
 extern oled_font_t font_ubuntu18;
 
+extern oled_font_t font_helv11;
+extern oled_font_t font_helv13;
+extern oled_font_t font_helv16;
+extern oled_font_t font_helv19;
+extern oled_font_t font_helv24;
+extern oled_font_t font_helv32;
+
+extern oled_font_t font_times11;
+extern oled_font_t font_times13;
+extern oled_font_t font_times16;
+extern oled_font_t font_times19;
+extern oled_font_t font_times24;
+extern oled_font_t font_times32;
+
 //
 // Screen size.
 //
@@ -218,7 +232,21 @@ void app_main()
         show(&font_ubuntu12, "Ubuntu 12", 0);
         show(&font_ubuntu14, "Ubuntu 14", 0);
         show(&font_ubuntu18, "Ubuntu 18", 0);
+#if 0
+        show(&font_helv11, "Helv 11", 0);
+        show(&font_helv13, "Helv 13", 0);
+        show(&font_helv16, "Helv 16", 0);
+        show(&font_helv19, "Helv 19", 0);
+        show(&font_helv24, "Helv 24", 0);
+        show(&font_helv32, "Helv 32", 0);
 
+        show(&font_times11, "Times 11", 0);
+        show(&font_times13, "Times 13", 0);
+        show(&font_times16, "Times 16", 0);
+        show(&font_times19, "Times 19", 0);
+        show(&font_times24, "Times 24", 0);
+        show(&font_times32, "Times 32", 0);
+#endif
         show(&font_5x7, "5x7", 0);
         show(&font_6x9, "6x9", 0);
 

@@ -463,8 +463,10 @@ bdf_read_header(FILE *fp, font_t *pf)
 
     /* initially use font maxwidth * height for bits allocation*/
     pf->bits_size = nchars * WORDS(maxwidth) * pf->height;
+//printf("--- %s() bits_size = %ld\n", __func__, pf->bits_size);
 
     /* allocate bits, offset, and width arrays*/
+//printf("---     allocate bits[] size %ld bytes\n", pf->bits_size * sizeof(unsigned short) + EXTRA);
     pf->bits = (unsigned short*) malloc(pf->bits_size * sizeof(unsigned short) + EXTRA);
     pf->offset = (unsigned long*) malloc(pf->size * sizeof(unsigned long));
     pf->width = (unsigned char*) malloc(pf->size * sizeof(unsigned char));
@@ -567,6 +569,8 @@ bdf_read_bitmaps(FILE *fp, font_t *pf)
 
             ch_words = WORDS(width);
 #define BM(row,col) (*(ch_bitmap + ((row)*ch_words) + (col)))
+//printf("--- %s() fill bits[%d], ch_words = %ld\n", __func__, ofs, ch_words);
+//printf("---     height %d, descent %d, bby %d, bbh %d\n", pf->height, pf->descent, bby, bbh);
 
             /* read bitmaps*/
             for (i=0; ; ++i) {
@@ -594,6 +598,12 @@ bdf_read_bitmaps(FILE *fp, font_t *pf)
                         ndx, ndx+NIBBLES_PER_WORD-1-padnibbles);
                     value <<= padnibbles * NIBBLES_PER_WORD;
 
+                    int row = pf->height - pf->descent - bby - bbh + i;
+                    if (row < 0) {
+                        fprintf(stderr, "Error: row out of bounding box, check your BFD file!\n");
+                        return 0;
+                    }
+//printf("---     row %d, offset %d\n", row, (row + i) * ch_words);
                     BM(pf->height - pf->descent - bby - bbh + i, k) |=
                         value >> bbx;
                     /* handle overflow into next image word*/

@@ -34,6 +34,8 @@ TTF_Georgia     = /usr/share/fonts/truetype/msttcorefonts/Georgia.ttf
 # Bitmap fonts
 #
 #FONTS           += 5x7.c 6x9.c
+FONTS           += helv11.c helv13.c helv16.c helv19.c helv24.c helv32.c
+FONTS           += times11.c times13.c times16.c times19.c times24.c times32.c
 BDF_5x7         = bdf/5x7.bdf
 BDF_6x9         = bdf/6x9.bdf
 
@@ -63,6 +65,42 @@ otf2bdf:        otf2bdf.o remap.o
 
 6x9.c:		convbdf $(BDF_6x9)
 		./convbdf -u0 -l0x44f -x0xa0-0x40f $(BDF_6x9)
+
+helv11.c:       convbdf bdf/helv11.bdf
+		./convbdf -u0x7e -s0x21 -l0x7e bdf/helv11.bdf
+
+helv13.c:       convbdf bdf/helv13.bdf
+		./convbdf -u0x7e -s0x21 -l0x7e bdf/helv13.bdf
+
+helv16.c:       convbdf bdf/helv16.bdf
+		./convbdf -u0x7e -s0x21 -l0x7e bdf/helv16.bdf
+
+helv19.c:       convbdf bdf/helv19.bdf
+		./convbdf -u0x7e -s0x21 -l0x7e bdf/helv19.bdf
+
+helv24.c:       convbdf bdf/helv24.bdf
+		./convbdf -u0x7e -s0x21 -l0x7e bdf/helv24.bdf
+
+helv32.c:       convbdf bdf/helv32.bdf
+		./convbdf -u0x7e -s0x21 -l0x7e bdf/helv32.bdf
+
+times11.c:      convbdf bdf/times11.bdf
+		./convbdf -u0x7e -s0x21 -l0x7e bdf/times11.bdf
+
+times13.c:      convbdf bdf/times13.bdf
+		./convbdf -u0x7e -s0x21 -l0x7e bdf/times13.bdf
+
+times16.c:      convbdf bdf/times16.bdf
+		./convbdf -u0x7e -s0x21 -l0x7e bdf/times16.bdf
+
+times19.c:      convbdf bdf/times19.bdf
+		./convbdf -u0x7e -s0x21 -l0x7e bdf/times19.bdf
+
+times24.c:      convbdf bdf/times24.bdf
+		./convbdf -u0x7e -s0x21 -l0x7e bdf/times24.bdf
+
+times32.c:      convbdf bdf/times32.bdf
+		./convbdf -u0x7e -s0x21 -l0x7e bdf/times32.bdf
 
 #
 # Lucida Sans Regular

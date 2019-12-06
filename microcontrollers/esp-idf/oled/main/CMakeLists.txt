@@ -59,6 +59,18 @@ idf_component_register(
         "tahoma14.c"
         "tahoma18.c"
         "tahoma8.c"
+        "helv11.c"
+        "helv13.c"
+        "helv16.c"
+        "helv19.c"
+        "helv24.c"
+        "helv32.c"
+        "times11.c"
+        "times13.c"
+        "times16.c"
+        "times19.c"
+        "times24.c"
+        "times32.c"
 
     INCLUDE_DIRS
         ""
