@@ -113,14 +113,11 @@ void wifi_scan()
     } else {
         tft.setTextDatum(TL_DATUM);
         tft.setCursor(0, 0);
-        Serial.printf("Found %d net\n", n);
+        Serial.printf("Found %d nets\r\n", n);
         for (int i = 0; i < n; ++i) {
-            sprintf(buff,
-                    "[%d]:%s(%d)",
-                    i + 1,
-                    WiFi.SSID(i).c_str(),
-                    WiFi.RSSI(i));
+            sprintf(buff, "%d %s", WiFi.RSSI(i), WiFi.SSID(i).c_str());
             tft.println(buff);
+            Serial.println(buff);
         }
     }
     WiFi.mode(WIFI_OFF);
@@ -143,7 +140,7 @@ void setup()
     }
 #if 0
     tft.setSwapBytes(true);
-    tft.pushImage(0, 0,  240, 135, ttgo);
+    tft.pushImage(0, 0, 240, 135, ttgo);
     espDelay(3000);
 
     tft.setRotation(0);
