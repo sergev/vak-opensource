@@ -551,7 +551,7 @@ bdf_read_bitmaps(FILE *fp, font_t *pf)
                     encoding, encoding);
                 continue;
             }
-            pf->offset[encoding-pf->firstchar] = ofs;
+            pf->offset[encoding - pf->firstchar] = ofs;
 
             /* calc char width*/
             if (bbx < 0) {
@@ -614,7 +614,7 @@ bdf_read_bitmaps(FILE *fp, font_t *pf)
                 }
             }
 
-            ofs += WORDS(width) * pf->height;
+            ofs += ch_words * pf->height;
 
             continue;
         }
@@ -642,7 +642,7 @@ bdf_read_bitmaps(FILE *fp, font_t *pf)
             encodetable = 1;
             break;
         }
-        l += WORDS(pf->width[i]) * pf->height;
+        l += pf->height;
     }
     if (!encodetable) {
         free(pf->offset);
@@ -792,7 +792,7 @@ gen_c_source(font_t *pf, char *path)
         int bitcount = 0;
         int width = pf->width ? pf->width[i] : pf->maxwidth;
         int height = pf->height - ascent_correction - descent_correction;
-        unsigned short *bits = pf->bits + (pf->offset? pf->offset[i]: (pf->height * i));
+        unsigned short *bits = pf->bits + (pf->offset ? pf->offset[i] : (pf->height * i));
         unsigned short bitvalue = 0;
 
         /*
@@ -800,24 +800,26 @@ gen_c_source(font_t *pf, char *path)
          * the default character in encode map, or the default
          * character hasn't been generated yet.
          */
-        if (pf->offset && (pf->offset[i] == pf->offset[pf->defaultchar-pf->firstchar])) {
+        if (pf->offset && (pf->offset[i] == pf->offset[pf->defaultchar - pf->firstchar])) {
             if (did_defaultchar)
                 continue;
             did_defaultchar = 1;
         }
 
         fprintf(ofp, "\n/* Character %d (0x%02x):\n   width %d",
-            i+pf->firstchar, i+pf->firstchar, width);
+            i + pf->firstchar, i + pf->firstchar, width);
 
         bits += WORDS(width) * ascent_correction;
         if (gen_map) {
             fprintf(ofp, "\n   +");
-            for (x=0; x<width; ++x) fprintf(ofp, "-");
+            for (x=0; x<width; ++x)
+                fprintf(ofp, "-");
             fprintf(ofp, "+\n");
 
             x = 0;
             while (height > 0) {
-                if (x == 0) fprintf(ofp, "   |");
+                if (x == 0)
+                    fprintf(ofp, "   |");
 
                 if (bitcount <= 0) {
                     bitcount = BITS_PER_WORD;
@@ -836,12 +838,13 @@ gen_c_source(font_t *pf, char *path)
                 }
             }
             fprintf(ofp, "   +");
-            for (x=0; x<width; ++x) fprintf(ofp, "-");
+            for (x=0; x<width; ++x)
+                fprintf(ofp, "-");
             fprintf(ofp, "+ */\n");
         } else
             fprintf(ofp, " */\n");
 
-        bits = pf->bits + (pf->offset? pf->offset[i]: (pf->height * i));
+        bits = pf->bits + (pf->offset ? pf->offset[i]: (pf->height * i));
         bits += WORDS(width) * ascent_correction;
         height = pf->height - ascent_correction - descent_correction;
         for (; height>0; --height) {

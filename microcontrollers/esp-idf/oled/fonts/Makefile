@@ -20,7 +20,7 @@ TTF_Ubuntu      = /usr/share/fonts/truetype/ubuntu/Ubuntu-R.ttf
 #
 # Windows fonts
 #
-FONTS           += lucidasans8.c lucidasans10.c lucidasans12.c lucidasans14.c lucidasans18.c lucidasans28.c
+FONTS           += lucidasans28.c
 FONTS           += verdana8.c verdana10.c verdana12.c verdana14.c verdana18.c
 FONTS           += tahoma8.c tahoma10.c tahoma12.c tahoma14.c tahoma18.c
 FONTS           += georgia8.c georgia10.c georgia12.c georgia14.c georgia18.c
@@ -34,10 +34,11 @@ TTF_Georgia     = /usr/share/fonts/truetype/msttcorefonts/Georgia.ttf
 # Bitmap fonts
 #
 #FONTS           += 5x7.c 6x9.c
-FONTS           += helv11.c helv13.c helv16.c helv19.c helv24.c helv32.c
-FONTS           += times11.c times13.c times16.c times19.c times24.c times32.c
-BDF_5x7         = bdf/5x7.bdf
-BDF_6x9         = bdf/6x9.bdf
+FONTS           += courier8.c courier10.c courier12.c courier14.c courier18.c courier24.c
+FONTS           += helvetica8.c helvetica10.c helvetica12.c helvetica14.c helvetica18.c helvetica24.c
+FONTS           += lucidabright8.c lucidabright10.c lucidabright12.c lucidabright14.c lucidabright18.c lucidabright19.c lucidabright24.c
+FONTS           += lucidasans8.c lucidasans10.c lucidasans12.c lucidasans14.c lucidasans18.c lucidasans19.c lucidasans24.c
+FONTS           += times8.c times10.c times12.c times14.c times18.c times24.c
 
 # Latin
 CHARSET         = 20_126 164
@@ -60,76 +61,35 @@ otf2bdf:        otf2bdf.o remap.o
 #
 # BDF fonts
 #
-5x7.c:		convbdf $(BDF_5x7)
-		./convbdf -u0 -l0x44f -x0xa0-0x40f $(BDF_5x7)
+# For cyrillics, use options: -u0 -l0x44f -x0xa0-0x40f
+vpath %.bdf bdf
+%.c:            %.bdf convbdf
+		./convbdf -u0 -s0x20 -l0x7e $<
 
-6x9.c:		convbdf $(BDF_6x9)
-		./convbdf -u0 -l0x44f -x0xa0-0x40f $(BDF_6x9)
+lucidasans8.c:  lucidasans8.bdf convbdf
+		./convbdf -u0 -s0x20 -l0x7e -a1 -d1 $<
 
-helv11.c:       convbdf bdf/helv11.bdf
-		./convbdf -u0x7e -s0x21 -l0x7e bdf/helv11.bdf
+lucidasans10.c: lucidasans10.bdf convbdf
+		./convbdf -u0 -s0x20 -l0x7e -a2 -d0 $<
 
-helv13.c:       convbdf bdf/helv13.bdf
-		./convbdf -u0x7e -s0x21 -l0x7e bdf/helv13.bdf
+lucidasans12.c: lucidasans12.bdf convbdf
+		./convbdf -u0 -s0x20 -l0x7e -a2 -d1 $<
 
-helv16.c:       convbdf bdf/helv16.bdf
-		./convbdf -u0x7e -s0x21 -l0x7e bdf/helv16.bdf
+lucidasans14.c: lucidasans14.bdf convbdf
+		./convbdf -u0 -s0x20 -l0x7e -a4 -d1 $<
 
-helv19.c:       convbdf bdf/helv19.bdf
-		./convbdf -u0x7e -s0x21 -l0x7e bdf/helv19.bdf
+lucidasans18.c: lucidasans18.bdf convbdf
+		./convbdf -u0 -s0x20 -l0x7e -a4 -d2 $<
 
-helv24.c:       convbdf bdf/helv24.bdf
-		./convbdf -u0x7e -s0x21 -l0x7e bdf/helv24.bdf
+lucidasans19.c: lucidasans19.bdf convbdf
+		./convbdf -u0 -s0x20 -l0x7e -a4 -d2 $<
 
-helv32.c:       convbdf bdf/helv32.bdf
-		./convbdf -u0x7e -s0x21 -l0x7e bdf/helv32.bdf
-
-times11.c:      convbdf bdf/times11.bdf
-		./convbdf -u0x7e -s0x21 -l0x7e bdf/times11.bdf
-
-times13.c:      convbdf bdf/times13.bdf
-		./convbdf -u0x7e -s0x21 -l0x7e bdf/times13.bdf
-
-times16.c:      convbdf bdf/times16.bdf
-		./convbdf -u0x7e -s0x21 -l0x7e bdf/times16.bdf
-
-times19.c:      convbdf bdf/times19.bdf
-		./convbdf -u0x7e -s0x21 -l0x7e bdf/times19.bdf
-
-times24.c:      convbdf bdf/times24.bdf
-		./convbdf -u0x7e -s0x21 -l0x7e bdf/times24.bdf
-
-times32.c:      convbdf bdf/times32.bdf
-		./convbdf -u0x7e -s0x21 -l0x7e bdf/times32.bdf
+lucidasans24.c: lucidasans24.bdf convbdf
+		./convbdf -u0 -s0x20 -l0x7e -a5 -d2 $<
 
 #
 # Lucida Sans Regular
 #
-lucidasans8.c:	otf2bdf convbdf $(TTF_Lucida)
-		./otf2bdf -p 8 -l "$(CHARSET)" $(TTF_Lucida) > lucidasans8.bdf
-		./convbdf -u164 -a2 -d0 lucidasans8.bdf
-		rm -f lucidasans8.bdf
-
-lucidasans10.c:	otf2bdf convbdf $(TTF_Lucida)
-		./otf2bdf -p 10 -l "$(CHARSET)" $(TTF_Lucida) > lucidasans10.bdf
-		./convbdf -u164 -a3 -d0 lucidasans10.bdf
-		rm -f lucidasans10.bdf
-
-lucidasans12.c:	otf2bdf convbdf $(TTF_Lucida)
-		./otf2bdf -p 12 -l "$(CHARSET)" $(TTF_Lucida) > lucidasans12.bdf
-		./convbdf -u164 -a4 -d1 lucidasans12.bdf
-		rm -f lucidasans12.bdf
-
-lucidasans14.c:	otf2bdf convbdf $(TTF_Lucida)
-		./otf2bdf -p 14 -l "$(CHARSET)" $(TTF_Lucida) > lucidasans14.bdf
-		./convbdf -u164 -a4 -d2 lucidasans14.bdf
-		rm -f lucidasans14.bdf
-
-lucidasans18.c:	otf2bdf convbdf $(TTF_Lucida)
-		./otf2bdf -p 18 -l "$(CHARSET)" $(TTF_Lucida) > lucidasans18.bdf
-		./convbdf -u164 -a5 -d2 lucidasans18.bdf
-		rm -f lucidasans18.bdf
-
 lucidasans28.c:	otf2bdf convbdf $(TTF_Lucida)
 		./otf2bdf -p 28 -l "$(CHARSET)" $(TTF_Lucida) > lucidasans28.bdf
 		./convbdf -u164 -a7 -d3 lucidasans28.bdf
