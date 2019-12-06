@@ -41,13 +41,6 @@ extern oled_font_t font_6x9;
 extern oled_font_t font_digits20;
 extern oled_font_t font_digits32;
 
-extern oled_font_t font_lucidasans8;
-extern oled_font_t font_lucidasans10;
-extern oled_font_t font_lucidasans12;
-extern oled_font_t font_lucidasans14;
-extern oled_font_t font_lucidasans18;
-extern oled_font_t font_lucidasans28;
-
 extern oled_font_t font_verdana8;
 extern oled_font_t font_verdana10;
 extern oled_font_t font_verdana12;
@@ -116,6 +109,44 @@ extern oled_font_t font_times19;
 extern oled_font_t font_times24;
 extern oled_font_t font_times32;
 
+extern oled_font_t font_lucidasans8;
+extern oled_font_t font_lucidasans10;
+extern oled_font_t font_lucidasans12;
+extern oled_font_t font_lucidasans14;
+extern oled_font_t font_lucidasans18;
+extern oled_font_t font_lucidasans19;
+extern oled_font_t font_lucidasans24;
+extern oled_font_t font_lucidasans28;
+
+extern oled_font_t font_lucidabright8;
+extern oled_font_t font_lucidabright10;
+extern oled_font_t font_lucidabright12;
+extern oled_font_t font_lucidabright14;
+extern oled_font_t font_lucidabright18;
+extern oled_font_t font_lucidabright19;
+extern oled_font_t font_lucidabright24;
+
+extern oled_font_t font_courier8;
+extern oled_font_t font_courier10;
+extern oled_font_t font_courier12;
+extern oled_font_t font_courier14;
+extern oled_font_t font_courier18;
+extern oled_font_t font_courier24;
+
+extern oled_font_t font_helvetica8;
+extern oled_font_t font_helvetica10;
+extern oled_font_t font_helvetica12;
+extern oled_font_t font_helvetica14;
+extern oled_font_t font_helvetica18;
+extern oled_font_t font_helvetica24;
+
+extern oled_font_t font_times8;
+extern oled_font_t font_times10;
+extern oled_font_t font_times12;
+extern oled_font_t font_times14;
+extern oled_font_t font_times18;
+extern oled_font_t font_times24;
+
 //
 // Screen size.
 //
@@ -171,19 +202,12 @@ void app_main()
 
     for (;;) {
         printf("Screen size %u x %u.\n", xsize, ysize);
-
+#if 0
         show(&font_tahoma8, "Tahoma 8", 0);
         show(&font_tahoma10, "Tahoma 10", 0);
         show(&font_tahoma12, "Tahoma 12", 0);
         show(&font_tahoma14, "Tahoma 14", 0);
         show(&font_tahoma18, "Tahoma 18", 0);
-
-        show(&font_lucidasans8, "Lucida Sans 8", 0);
-        show(&font_lucidasans10, "Lucida Sans 10", 0);
-        show(&font_lucidasans12, "Lucida Sans 12", 0);
-        show(&font_lucidasans14, "Lucida Sans 14", 0);
-        show(&font_lucidasans18, "Lucida Sans 18", 0);
-        show(&font_lucidasans28, "Lucida Sans 28", 0);
 
         show(&font_verdana8, "Verdana 8", 0);
         show(&font_verdana10, "Verdana 10", 0);
@@ -232,25 +256,50 @@ void app_main()
         show(&font_ubuntu12, "Ubuntu 12", 0);
         show(&font_ubuntu14, "Ubuntu 14", 0);
         show(&font_ubuntu18, "Ubuntu 18", 0);
-#if 0
-        show(&font_helv11, "Helv 11", 0);
-        show(&font_helv13, "Helv 13", 0);
-        show(&font_helv16, "Helv 16", 0);
-        show(&font_helv19, "Helv 19", 0);
-        show(&font_helv24, "Helv 24", 0);
-        show(&font_helv32, "Helv 32", 0);
-
-        show(&font_times11, "Times 11", 0);
-        show(&font_times13, "Times 13", 0);
-        show(&font_times16, "Times 16", 0);
-        show(&font_times19, "Times 19", 0);
-        show(&font_times24, "Times 24", 0);
-        show(&font_times32, "Times 32", 0);
 #endif
+        show(&font_lucidasans8, "Lucida Sans 8", 0);
+        show(&font_lucidasans10, "Lucida Sans 10", 0);
+        show(&font_lucidasans12, "Lucida Sans 12", 0);
+        show(&font_lucidasans14, "Lucida Sans 14", 0);
+        show(&font_lucidasans18, "Lucida Sans 18", 0);
+        show(&font_lucidasans19, "Lucida Sans 19", 0);
+        show(&font_lucidasans24, "Lucida Sans 24", 0);
+        show(&font_lucidasans28, "Lucida Sans 28", 0);
+
+        show(&font_lucidabright8, "Lucida Bright 8", 0);
+        show(&font_lucidabright10, "Lucida Bright 10", 0);
+        show(&font_lucidabright12, "Lucida Bright 12", 0);
+        show(&font_lucidabright14, "Lucida Bright 14", 0);
+        show(&font_lucidabright18, "Lucida Bright 18", 0);
+        show(&font_lucidabright19, "Lucida Bright 19", 0);
+        show(&font_lucidabright24, "Lucida Bright 24", 0);
+
+        show(&font_courier8, "Courier 8", 0);
+        show(&font_courier10, "Courier 10", 0);
+        show(&font_courier12, "Courier 12", 0);
+        show(&font_courier14, "Courier 14", 0);
+        show(&font_courier18, "Courier 18", 0);
+        show(&font_courier24, "Courier 24", 0);
+
+        show(&font_helvetica8, "Helvetica 8", 0);
+        show(&font_helvetica10, "Helvetica 10", 0);
+        show(&font_helvetica12, "Helvetica 12", 0);
+        show(&font_helvetica14, "Helvetica 14", 0);
+        show(&font_helvetica18, "Helvetica 18", 0);
+        show(&font_helvetica24, "Helvetica 24", 0);
+
+        show(&font_times8, "Times 8", 0);
+        show(&font_times10, "Times 10", 0);
+        show(&font_times12, "Times 12", 0);
+        show(&font_times14, "Times 14", 0);
+        show(&font_times18, "Times 18", 0);
+        show(&font_times24, "Times 24", 0);
+#if 0
         show(&font_5x7, "5x7", 0);
         show(&font_6x9, "6x9", 0);
 
         show(&font_digits20, "Digits 20", 1);
         show(&font_digits32, "Digits 32", 1);
+#endif
     }
 }
