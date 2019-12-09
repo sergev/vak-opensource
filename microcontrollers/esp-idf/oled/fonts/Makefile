@@ -19,15 +19,16 @@ TTF_Ubuntu      = /usr/share/fonts/truetype/ubuntu/Ubuntu-R.ttf
 
 #
 # Windows fonts
+# Use: sudo apt-get install ubuntu-restricted-extras
 #
 FONTS           += lucidasans28.c
 FONTS           += verdana8.c verdana10.c verdana12.c verdana14.c verdana18.c
-FONTS           += tahoma8.c tahoma10.c tahoma12.c tahoma14.c tahoma18.c
+FONTS           += tahoma8.c tahoma10.c tahoma12.c tahoma14.c tahoma18.c tahoma20.c tahoma24.c tahoma28.c tahoma32.c
 FONTS           += georgia8.c georgia10.c georgia12.c georgia14.c georgia18.c
 FONTS           += digits32.c digits20.c
 TTF_Lucida      = /opt/arduino-1.8.5/java/lib/fonts/LucidaSansRegular.ttf
 TTF_Verdana     = /usr/share/fonts/truetype/msttcorefonts/Verdana.ttf
-TTF_Tahoma      = /usr/share/wine/fonts/tahoma.ttf
+TTF_Tahoma      = /usr/share/fonts/truetype/msttcorefonts/tahoma.ttf
 TTF_Georgia     = /usr/share/fonts/truetype/msttcorefonts/Georgia.ttf
 
 #
@@ -160,6 +161,26 @@ tahoma18.c:	otf2bdf convbdf $(TTF_Tahoma)
 		./otf2bdf -p 18 -l "$(CHARSET)" $(TTF_Tahoma) > tahoma18.bdf
 		./convbdf -a6 -d0 tahoma18.bdf
 		rm -f tahoma18.bdf
+
+tahoma20.c:	otf2bdf convbdf $(TTF_Tahoma)
+		./otf2bdf -p 20 -l "$(CHARSET)" $(TTF_Tahoma) > tahoma20.bdf
+		./convbdf -a6 -d0 tahoma20.bdf
+		rm -f tahoma20.bdf
+
+tahoma24.c:	otf2bdf convbdf $(TTF_Tahoma)
+		./otf2bdf -p 24 -l "$(CHARSET)" $(TTF_Tahoma) > tahoma24.bdf
+		./convbdf -a7 -d0 tahoma24.bdf
+		rm -f tahoma24.bdf
+
+tahoma28.c:	otf2bdf convbdf $(TTF_Tahoma)
+		./otf2bdf -p 28 -l "$(CHARSET)" $(TTF_Tahoma) > tahoma28.bdf
+		./convbdf -a8 -d1 tahoma28.bdf
+		rm -f tahoma28.bdf
+
+tahoma32.c:	otf2bdf convbdf $(TTF_Tahoma)
+		./otf2bdf -p 32 -l "$(CHARSET)" $(TTF_Tahoma) > tahoma32.bdf
+		./convbdf -a10 -d1 tahoma32.bdf
+		rm -f tahoma32.bdf
 
 #
 # Georgia
