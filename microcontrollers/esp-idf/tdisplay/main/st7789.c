@@ -210,28 +210,39 @@ int tft_init(int portrait, int color, int *xsize, int *ysize)
 
     // Rotate the coordinates.
     tft_send_command(Cmd_Memory_Data_Access_Control);
-    if (portrait) {
-        // Portrait
-        tft.width   = CONFIG_WIDTH;
-        tft.height  = CONFIG_HEIGHT;
-        tft.offsetx = CONFIG_OFFSETX;
-        tft.offsety = CONFIG_OFFSETY;
-        tft_send_byte(0x00);            // RGB
-
-        //TODO: Inverted portrait
-        //tft.offsetx = CONFIG_OFFSETX + 1;
-        //tft_send_byte(0xc0);          // MY, MX
-    } else {
-        // Landscape (Portrait + 90)
+    switch (portrait) {
+    default:
+        // Landscape
         tft.width   = CONFIG_HEIGHT;
         tft.height  = CONFIG_WIDTH;
         tft.offsetx = CONFIG_OFFSETY;
         tft.offsety = CONFIG_OFFSETX + 1;
         tft_send_byte(0x60);            // MX, MV
-
-        //TODO: Inverted landscape
-        //tft.offsety = CONFIG_OFFSETX;
-        //tft_send_byte(0xa0);          // MY, MV
+        break;
+    case 1:
+        // Portrait (Landscape - 90)
+        tft.width   = CONFIG_WIDTH;
+        tft.height  = CONFIG_HEIGHT;
+        tft.offsetx = CONFIG_OFFSETX;
+        tft.offsety = CONFIG_OFFSETY;
+        tft_send_byte(0x00);            // RGB
+        break;
+    case 2:
+        // Landscape + 180
+        tft.width   = CONFIG_HEIGHT;
+        tft.height  = CONFIG_WIDTH;
+        tft.offsetx = CONFIG_OFFSETY;
+        tft.offsety = CONFIG_OFFSETX;
+        tft_send_byte(0xa0);          // MY, MV
+        break;
+    case 3:
+        // Portrait (Landscape + 90)
+        tft.width   = CONFIG_WIDTH;
+        tft.height  = CONFIG_HEIGHT;
+        tft.offsetx = CONFIG_OFFSETX + 1;
+        tft.offsety = CONFIG_OFFSETY;
+        tft_send_byte(0xc0);          // MY, MX
+        break;
     }
 
     tft_send_command(Cmd_Display_Inversion_On);

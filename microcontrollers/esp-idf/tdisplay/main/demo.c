@@ -75,12 +75,11 @@ void wait_button(int pin)
 
 void app_main()
 {
-    printf("Draw fonts.\n");
+    printf("Draw picture.\n");
     setup_pins();
 
-    if (tft_init(0, 0, &xsize, &ysize) < 0)
+    if (tft_init(2, 0, &xsize, &ysize) < 0)
         return;
-
 
     for (;;) {
         printf("Screen size %u x %u.\n", xsize, ysize);
