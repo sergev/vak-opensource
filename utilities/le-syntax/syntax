@@ -39,7 +39,7 @@ c2,7=^si?(\\()[^\n]+(\\))[0-9]*(=)
 c2=^/
 
 # C language mode (lav)
-/*.c|*.td|*.y|*.l|*.ino|/-\*- *c *-\*-
+/*.c|*.c-|*.td|*.y|*.l|*.ino|/-\*- *c *-\*-
 i=c++-comment
 i=cpp
 i=c-literal
@@ -60,7 +60,7 @@ c1,2=([^[:alnum:]_]|^)(auto|extrn|goto|return|if|while|else\
 c2=\\[|\\]|\\(|\\)|{|}|,
 
 # C++ mode (lav)
-/*.cc|*.C|*.cpp|*.h|*.hh|*.hpp|*.H|*.pde|*.ino|/-\*- *c\+\+ *-\*-
+/*.cc|*.C|*.cpp|*.cpp-|*.h|*.h-|*.h.in|*.hh|*.hpp|*.H|*.pde|*.ino|/-\*- *c\+\+ *-\*-
 i=c++-comment
 i=cpp
 i=c-literal
@@ -75,7 +75,7 @@ c1,2=([^[:alnum:]_]|^)(asm|else|if|switch|case|while|for|goto|break\
  |mutable|thread_local|char(16|32)_t|wchar_t|export\
  |bitand|bitor|compl|(and|not|or|xor)(_eq)?\
 )([^[:alnum:]_]|$)
-c2=\\[|\\]|\\(|\\)|{|}|,|<%|%>|<:|:>|\?\?[<>()=/'!-]
+c2=\\[|\\]|\\(|\\)|{|}|,|<%|%>|<:|:>|\?\?[<>()=/'!-]|=
 
 # Go mode (vak)
 /*.go|*.gy|*.go-|/-\*- *go *-\*-
@@ -204,7 +204,7 @@ i=css
 /*.tcl|*.xdc|/^#![ \t]*/.*/tcl|-\*- *tcl *-\*-
 i=tcl
 
-/*.expect|/^#![ \t]*/usr/bin/expect
+/*.expect|/^#![ \t]*/usr/bin/expect|/^#%Module
 i=tcl
 
 /*.mf|*.mp
@@ -239,6 +239,15 @@ c1,2=([^[:alnum:]_]|^)(project|message\
  |cmake_minimum_required|set|if|else|elseif|endif|find_path|find_library|find_program|add_definitions\
  |include_directories|add_executable|target_link_libraries|include|cmake_policy\
  |execute_process|foreach|endforeach|add_test|add_library|set_tests_properties\
+)([^[:alnum:]_]|$)
+
+# Octave files, by Serge Vakulenko
+/*.m
+c3=#.*$
+c2=\(|\)|=
+c5="[^"]+?"
+c1,2=([^[:alnum:]_]|^)(function|endfunction\
+ |if|else|elseif|endif\
 )([^[:alnum:]_]|$)
 
 /[Mm]akefile|[Mm]akefile-*|*.mk|*.rules|*.defs|*.diag|/^#![ \t]*/.*/make|-\*-.*makefile[^\w]
@@ -286,10 +295,10 @@ ci2,1=^[[:alnum:]-]+(:)
 c2=\$|=|<|>|\||,
 c2=^ \.
 c1,1=^(Source|Package(-List)?|Version|Section|Priority|Maintainer|Homepage|Description\
- |Standards-Version|(Build-)?Depends(-Indep)?|Architecture|Provides|Replaces\
+ |Standards-Version|(Build-)?Depends(-Indep)?|Pre-Depends|Architecture|Provides|Replaces\
  |Recommends|Suggests|(Build-)?Conflicts(-Indep)?|Breaks|Enhances|Uploaders|Vcs-Browser\
  |Essential|Installed-Size|Binary|Format|Files|Closes|Changes|Urgency\
- |Distribution|Date|Changed-By|Checksums-Sha(1|256))
+ |Distribution|Date|Changed-By|Checksums-Sha(1|256)|Multi-Arch|Built-Using)
 ci1=^Vcs-[[:alnum:]]+
 c1,1=^(X[BCS]+-[[:alnum:]-]+)(:)
 
@@ -444,6 +453,24 @@ c2,2=([^[:alnum:]_]|^)(jz|cjs|jmap|cjp|push|jsrp|cjv|jrp|rfct|rpct\
 |crtn|cjpp|ldct|loop|cont|twb\
 )([^[:alnum:]_]|$)
 c5=\) ..... .....:.*$
+
+# MESM-6 trace files, by Serge Vakulenko <vak@cronyx.ru>
+/output*.trace|pass*.trace|fail*.trace
+c2=\*\*\*.*$
+c5=;.*$
+c5= -- .*$
+c5= Store .*$
+c1= Load .*$
+c6= Fetch .*$
+c6,1=\)   (...: ................... [^(\n]*)
+c3,1=\)(        (A|Y|C|R|GIE|SP|M.*) = .*)$
+c3=\(busy\)
+
+# Vivado log mode, by Serge Vakulenko <vak@cronyx.ru>
+/vivado.log
+c6=^INFO.*$
+c1=^WARNING.*$
+c5=^ERROR:.*$
 
 # OVPsim trace files, by Serge Vakulenko <vak@cronyx.ru>
 /*.log|log|log-*|*.otrace
@@ -624,14 +651,41 @@ c6,2=(=h)([0-9a-fA-F ]*)
 c6,2=([^[:alnum:]а-я_*/]|^)([0-9][0-9]*)
 c4=@[0-9a-fA-F ]*
 
+# BESM-6 Madlen assembler file, by Serge Vakulenko <serge@vak.ru>
+/*.madlen
+c3=^[cC][^\n]*\n
+c3=\.[^\n]*\n
+c1,2=([^[:alnum:]а-яА-Я_.]|^)(NAME|LC|SUBP|END|TEXT|ISO|INT|LOG|BSS\
+|EQU|name|lc|subp|log|bss|data|set|end|lp|entry|weq|oct|int|iso|equ\
+|UTC|WTC|VTM|UTM|UZA|U1A|UJ|VJM|IJ|\*33|VZM|V1M|\*36|VLM\
+|ATX|STX|MOD|XTS|A\+X|A-X|X-A|AMX|XTA|AAX|AEX|ARX|AVX|AOX|A/X|A\*X\
+|APX|AUX|ACX|ANX|E\+X|E-X|ASX|XTR|RTE|YTA|\*32|EXT|E\+N|E-N|ASN|NTR\
+|ATI|STI|ITA|ITS|MTJ|J\+M\
+|utc|wtc|vtm|utm|uza|u1a|uj|vjm|ij|\*33|vzm|v1m|\*36|vlm\
+|atx|stx|mod|xts|a\+x|a-x|x-a|amx|xta|aax|aex|arx|avx|aox|a/x|a\*x\
+|apx|aux|acx|anx|e\+x|e-x|asx|xtr|rte|yta|\*32|ext|e\+n|e-n|asn|ntr\
+|ati|sti|ita|its|mtj|j\+m\
+|\*20|\*21|\*46|\*47|\*50|\*51|\*52|\*53|\*54|\*55|\*56|\*57\
+|\*60|\*61|\*62|\*63|\*64|\*65|\*66|\*67|\*70|\*71|\*72|\*73|\*74|\*75|\*76|\*77\
+)([^[:alnum:]а-яА-Я_.]|$)
+c1=,|:|=|+|-
+c5,2=([^[:alnum:]а-яА-Я_*/]|^)([0-9][0-9]*[bBвВ]?)
+c6=’[0-9a-fA-F ]*’
+
 # BESM-6 Bemsh assembler file, by Serge Vakulenko <serge@vak.ru>
 /*.bemsh
 c3=^\*[^\n]*\n
+c3= ,[^\n]*\n
 c1,2=([^[:alnum:]а-яА-Я_.]|^)(МАСRО|GВLА|АIF|ЕQ|МЕХIТ|АNОР|МЕND|СТРН|СТРОК\
 |РЖА|УИА|РЕГ|СЧ|ЗП|ЦИКЛ|СДА|ПБ|УИ|ПАМ|И|ПЕ|ПО|НТЖ|ИЛИ|НОП|СБР|НЕД|СЛИА\
 |СЧИ|ВЧ|СТОП|СЛЦ|ЧЕД|ЕХТ|СТАРТ|SЕТА|КОНД|ДК|КОНК|ПИНО|МОДА|АGО|ВХОДН\
 |УПОТР|ВНЕШН|ФИНИШ|УИМ|СЧМ|ЗПМ|ПИО|МОД|СЛИ|УИИ|СЛПА|СД|СЧМР|УМН|ВЧОБ\
-|СЛ|ДЕЛ|ВЧП|ЛИТЕР|LСLА|ВНЕШ|ЭКВ\
+|СЛ|ДЕЛ|ВЧП|ЛИТЕР|LСLА|ВНЕШ|ЭКВ|стоп|конд|конк|start|fin|nop|пам|адрес\
+|\*20|\*21|utc|wtc|vtm|utm|uza|u1a|uj|vjm|ij|\*33|vzm|v1m|\*36|vlm\
+|atx|stx|mod|xts|a\+x|a-x|x-a|amx|xta|aax|aex|arx|avx|aox|a/x|a\*x\
+|apx|aux|acx|anx|e\+x|e-x|asx|xtr|rte|yta|\*32|ext|e\+n|e-n|asn|ntr\
+|ati|sti|ita|its|mtj|j\+m|\*46|\*47|\*50|\*51|\*52|\*53|\*54|\*55|\*56|\*57\
+|\*60|\*61|\*62|\*63|\*64|\*65|\*66|\*67|\*70|\*71|\*72|\*73|\*74|\*75|\*76|\*77\
 )([^[:alnum:]а-яА-Я_.]|$)
 #c2=:
 c1=,|+|-|\(|\)|=
