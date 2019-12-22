@@ -5,7 +5,7 @@ ifeq (,$(wildcard /Applications/Arduino.app/Contents/Java))
 else
     # Mac OS X
     ARDUINO_HOME= /Applications/Arduino.app/Contents/Java
-    SERIAL_PORT = /dev/tty.SLAB_USBtoUART
+    SERIAL_PORT = /dev/tty.wchusbserialfd130
 endif
 
 ESP32_TOOLS     = $(ARDUINO_HOME)/hardware/espressif/esp32/tools

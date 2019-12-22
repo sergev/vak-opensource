@@ -5,7 +5,7 @@ ifeq (,$(wildcard /Applications/Arduino.app/Contents/Java))
 else
     # Mac OS X
     ARDUINO_HOME= /Applications/Arduino.app/Contents/Java
-    SERIAL_PORT = /dev/tty.SLAB_USBtoUART
+    SERIAL_PORT = /dev/tty.wchusbserialfa1320
 endif
 
 ESP32_TOOLS     = $(ARDUINO_HOME)/hardware/espressif/esp32/tools
@@ -13,7 +13,8 @@ PROJ_BASE       = $(HOME)/Project/Arduino
 
 SKETCH          = $(notdir $(CURDIR)).ino
 BUILD_DIR       = $(CURDIR)/build-esp32
-UPLOAD_SPEED    = 460800
+#UPLOAD_SPEED    = 460800
+UPLOAD_SPEED    = 115200
 BOARD           = espressif:esp32:esp32:FlashFreq=80
 
 all:

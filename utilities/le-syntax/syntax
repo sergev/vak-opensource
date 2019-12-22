@@ -39,7 +39,7 @@ c2,7=^si?(\\()[^\n]+(\\))[0-9]*(=)
 c2=^/
 
 # C language mode (lav)
-/*.c|*.b|*.td|*.y|*.l|*.ino|/-\*- *c *-\*-
+/*.c|*.td|*.y|*.l|*.ino|/-\*- *c *-\*-
 i=c++-comment
 i=cpp
 i=c-literal
@@ -47,6 +47,15 @@ c1,2=([^[:alnum:]_]|^)(asm|else|if|switch|case|while|for|goto|break\
  |continue|char|short|int|long|unsigned|signed|auto\
  |const|default|do|double|enum|extern|float|register\
  |return|sizeof|static|struct|typedef|union|void|volatile\
+)([^[:alnum:]_]|$)
+c2=\\[|\\]|\\(|\\)|{|}|,
+
+# B language mode (vak)
+/*.b|/-\*- *b *-\*-
+i=c++-comment
+i=cpp
+i=c-literal
+c1,2=([^[:alnum:]_]|^)(auto|extrn|goto|return|if|while|else\
 )([^[:alnum:]_]|$)
 c2=\\[|\\]|\\(|\\)|{|}|,
 
@@ -112,7 +121,6 @@ c1,1=\\\\fB((\\\\[^f]|[^\\])*[^\\]?)(\\\\f|$)
 c3,1=\\\\fI((\\\\[^f]|[^\\])*[^\\]?)(\\\\f|$)
 c1,1=^\.B[IR]? (.*)$
 c3,1=^\.I (.*)$
-#i=nroff
 
 /*.e
 i=eiffel
@@ -278,10 +286,10 @@ ci2,1=^[[:alnum:]-]+(:)
 c2=\$|=|<|>|\||,
 c2=^ \.
 c1,1=^(Source|Package(-List)?|Version|Section|Priority|Maintainer|Homepage|Description\
- |Standards-Version|(Build-)?Depends(-Indep)?|Pre-Depends|Architecture|Provides|Replaces\
+ |Standards-Version|(Build-)?Depends(-Indep)?|Architecture|Provides|Replaces\
  |Recommends|Suggests|(Build-)?Conflicts(-Indep)?|Breaks|Enhances|Uploaders|Vcs-Browser\
  |Essential|Installed-Size|Binary|Format|Files|Closes|Changes|Urgency\
- |Distribution|Date|Changed-By|Checksums-Sha(1|256)|Multi-Arch|Built-Using)
+ |Distribution|Date|Changed-By|Checksums-Sha(1|256))
 ci1=^Vcs-[[:alnum:]]+
 c1,1=^(X[BCS]+-[[:alnum:]-]+)(:)
 
@@ -461,6 +469,9 @@ c6=^replay.log.*$
 c6=\t#.*$
 c3=^INFO:.*$
 c1=^WARNING:.*$
+c3=    Write.*$
+c3=    Read.*$
+c3=    Memory.*$
 
 # BESM-6/SVS SIMH trace files, by Serge Vakulenko <vak@besm6.org>
 /*.log|log|log-*|*.trace
@@ -537,7 +548,6 @@ c5=##*.*
 #c3=//[^/]*//
 #c5=\*\*[^*]*\*\*
 c5=```
-#i=markdown
 
 # Spice files, by Serge Vakulenko <vak@cronyx.ru>
 /*.lib|*.cir|/\* *ngspice
@@ -641,7 +651,7 @@ c5=%[^%]*%
 c5=^>
 
 # Fortran files, by Serge Vakulenko <vak@cronyx.ru>
-/*.f|*.b6
+/*.f
 c3=^[*cCсС].*$
 c1==|\(|\)|,|/|\$
 c2='[^']+?'
@@ -668,5 +678,7 @@ c5,2=([^[:alnum:]_]|^)([0-9][0-9]*)
 /*.bnf
 c6=#TODO.*$
 c3=#.*$
-c1={|}|\||/|;|=|\[|\]|\(|\)|+|Identifier
-c5="[^"]*"
+c1==|\||{|}|\[|\]|/|;|+
+c4="[^"]*"
+c1,2=([^[:alnum:]_]|^)(Identifier\
+)([^[:alnum:]_]|$)
