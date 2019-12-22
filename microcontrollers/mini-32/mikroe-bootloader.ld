@@ -1,8 +1,8 @@
 /*
  * Linker script for PIC32 MX5/6/7 firmware using HID bootloader.
  */
-OUTPUT_FORMAT("elf32-littlemips", "elf32-bigmips",
-	      "elf32-littlemips")
+OUTPUT_FORMAT("elf32-tradlittlemips", "elf32-tradbigmips",
+	      "elf32-tradlittlemips")
 OUTPUT_ARCH(mips)
 ENTRY(_reset_vector_)
 MEMORY

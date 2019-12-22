@@ -1,5 +1,5 @@
 
-led.elf:     file format elf32-littlemips
+led.elf:     file format elf32-tradlittlemips
 
 
 Disassembly of section .text:
