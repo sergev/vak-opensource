@@ -1,0 +1,5 @@
+123 456
+/* comment
+ * multi-line */
+abc def
+"foo" // string
