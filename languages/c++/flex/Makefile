@@ -1,6 +1,7 @@
 LEX         = flex
 CXXFLAGS    = -std=c++14 -Wall -Wno-deprecated-register
-LIBS        = #-ll -lm
+LIBS        = -ll
+OBJ         = main.o scan.o
 
 all:    test-scan
 	./test-scan < input.txt > output.txt
@@ -11,8 +12,8 @@ clean:
 
 run:    test-scan
 
-test-scan: scan.o
-	$(CXX) $(LDFLAGS) $(CXXFLAGS) -o $@ $< $(LIBS)
+test-scan: $(OBJ)
+	$(CXX) $(LDFLAGS) $(CXXFLAGS) -o $@ $(OBJ) $(LIBS)
 
 scan.cpp: scan.ll
 	$(LEX) -o $@ $<
