@@ -31,11 +31,34 @@ list
     ;
 
 item
-    : UPPER   { Demo::add_upper(); }
-    | LOWER   { Demo::add_lower(); }
-    | WORD    { Demo::add_word($1); }
-    | NEWLINE { Demo::add_newline(); }
-    | CHAR    { Demo::add_char(); }
+    : UPPER {
+                Demo::uppercase++;
+                Demo::chars++;
+                Demo::words++;
+            }
+    | LOWER {
+                Demo::lowercase++;
+                Demo::chars++;
+                Demo::words++;
+            }
+    | WORD {
+                Demo::words++;
+                Demo::chars += $1.length();
+                for (const char &c : $1) {
+                    if (isupper(c)) {
+                        Demo::uppercase++;
+                    } else {
+                        Demo::lowercase++;
+                    }
+                }
+            }
+    | NEWLINE {
+                Demo::lines++;
+                Demo::chars++;
+            }
+    | CHAR {
+                Demo::chars++;
+            }
     ;
 
 %%

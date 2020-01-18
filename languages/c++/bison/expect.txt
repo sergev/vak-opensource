@@ -1,0 +1,5 @@
+Lines: 5
+Words: 9
+Characters: 65
+Uppercase: 3
+Lowercase: 29

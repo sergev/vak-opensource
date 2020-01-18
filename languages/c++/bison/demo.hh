@@ -2,13 +2,14 @@
 
 namespace Demo {
 
-void add_upper();
-void add_lower();
-void add_word(const std::string &word);
-void add_newline();
-void add_char();
-
 int get_next_token(Demo::Grammar::semantic_type *const lval,
                    Demo::Grammar::location_type *location);
+
+// Counters.
+extern unsigned chars;
+extern unsigned words;
+extern unsigned lines;
+extern unsigned uppercase;
+extern unsigned lowercase;
 
 } // namespace Demo

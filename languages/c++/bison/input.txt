@@ -1,0 +1,5 @@
+123 .4567e3
+/* comment
+ * multi-line */
+ab c def
+"FOO" // string

@@ -1,4 +1,4 @@
-CXXFLAGS = -g -O -Wall -std=c++14 -Wno-deprecated-register
+CXXFLAGS = -g -O -Wall -std=c++14
 LDFLAGS = -g
 OBJS    = main.o grammar.o
 
@@ -6,6 +6,10 @@ all:    wcount
 
 clean:
 	rm -f *.o wcount grammar.tab.* location.hh
+
+run:    wcount
+	./wcount < input.txt > output.txt
+	@if diff expect.txt output.txt; then echo "Test PASS"; else echo "Test FAIL!"; fi
 
 wcount: $(OBJS)
 	$(CXX) $(LDFLAGS) -o $@ $(OBJS)

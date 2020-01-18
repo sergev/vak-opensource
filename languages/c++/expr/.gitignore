@@ -1,5 +1,5 @@
+expr
+scan.cc
 *.o
 *.tab.*
-location.hh
-wcount
 output.txt
