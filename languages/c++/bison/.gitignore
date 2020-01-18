@@ -1,0 +1,4 @@
+*.o
+*.tab.*
+location.hh
+wcount
