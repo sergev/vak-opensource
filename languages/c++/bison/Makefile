@@ -1,6 +1,6 @@
 CXXFLAGS = -g -O -Wall -std=c++14
 LDFLAGS = -g
-OBJS    = main.o grammar.o
+OBJS    = main.o parser.o grammar.o
 
 all:    wcount
 
@@ -20,5 +20,6 @@ grammar.tab.cc grammar.tab.hh: grammar.yy
 grammar.o: grammar.tab.cc
 	$(CXX) $(CXXFLAGS) -o $@ -c $<
 ###
-grammar.tab.o: grammar.tab.cc grammar.tab.hh
-main.o: main.cc grammar.tab.hh
+grammar.tab.o: grammar.tab.cc grammar.tab.hh parser.hh
+main.o: main.cc parser.hh grammar.tab.hh
+parser.o: parser.cc parser.hh grammar.tab.hh

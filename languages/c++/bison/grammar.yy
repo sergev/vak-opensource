@@ -8,12 +8,22 @@
 %define parse.assert
 %locations
 
+// Add parameter to the Grammar() constructor.
+%code requires {
+    namespace Demo {
+        class Parser;
+    }
+}
+%parse-param { Demo::Parser &parser }
+
+// Use get_next_token() for reading the input stream.
 %code {
-    #include "demo.hh"
+    #include "parser.hh"
     #undef yylex
-    #define yylex get_next_token
+    #define yylex parser.get_next_token
 }
 
+// Define tokens.
 %token               END    0     "end of file"
 %token               UPPER
 %token               LOWER
@@ -32,32 +42,37 @@ list
 
 item
     : UPPER {
-                Demo::uppercase++;
-                Demo::chars++;
-                Demo::words++;
+                // Single character, upper case.
+                parser.uppercase++;
+                parser.chars++;
+                parser.words++;
             }
     | LOWER {
-                Demo::lowercase++;
-                Demo::chars++;
-                Demo::words++;
+                // Single character, lower case.
+                parser.lowercase++;
+                parser.chars++;
+                parser.words++;
             }
     | WORD {
-                Demo::words++;
-                Demo::chars += $1.length();
+                // Word, a sequence of characters.
+                parser.words++;
+                parser.chars += $1.length();
                 for (const char &c : $1) {
                     if (isupper(c)) {
-                        Demo::uppercase++;
+                        parser.uppercase++;
                     } else {
-                        Demo::lowercase++;
+                        parser.lowercase++;
                     }
                 }
             }
     | NEWLINE {
-                Demo::lines++;
-                Demo::chars++;
+                // Line delimiter.
+                parser.lines++;
+                parser.chars++;
             }
     | CHAR {
-                Demo::chars++;
+                // Other symbol.
+                parser.chars++;
             }
     ;
 
