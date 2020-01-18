@@ -8,23 +8,7 @@
 %option prefix="Scanner_"
 
 %{
-
-class Scanner : public yyFlexLexer {
-public:
-    // Types of input tokens.
-    enum class Token {
-        END,
-        NUMBER,
-        NAME,
-        STRING,
-    };
-
-    Scanner() {}
-    virtual ~Scanner() {}
-
-    // This routine scans the input and returns a next token.
-    Token get_next_token();
-};
+#include "scanner.h"
 
 // Define the scan routine for flex.
 #undef YY_DECL
@@ -32,7 +16,6 @@ public:
 
 // Special action on end of file.
 #define yyterminate() return Scanner::Token::END;
-
 %}
 
 string	\"[^\n"]+\"
@@ -75,26 +58,3 @@ number	{num1}|{num2}
 {string}	return Token::STRING;
 
 %%
-
-int main(int argc, char *argv[])
-{
-    Scanner scan;
-
-    for (;;) {
-        switch (scan.get_next_token()) {
-        case Scanner::Token::END:
-            break;
-        case Scanner::Token::NUMBER:
-            std::cout << scan.lineno() << ": number " << scan.YYText() << '\n';
-            continue;
-        case Scanner::Token::NAME:
-            std::cout << scan.lineno() << ": name " << scan.YYText() << '\n';
-            continue;
-        case Scanner::Token::STRING:
-            std::cout << scan.lineno() << ": string " << scan.YYText() << '\n';
-            continue;
-        }
-        break;
-    }
-    return 0;
-}

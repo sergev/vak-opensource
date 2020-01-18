@@ -1,5 +1,5 @@
-123 456
+123 .4567e3
 /* comment
  * multi-line */
-abc def
+ab c def
 "foo" // string

@@ -1,4 +1,4 @@
-CFLAGS  = -O3 -std=gnu++11 -Wall
+CFLAGS  = -O3 -std=c++17 -Wall
 
 all:    ascii3d
 

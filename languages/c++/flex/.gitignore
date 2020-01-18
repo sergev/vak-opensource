@@ -1,4 +1,4 @@
 output.txt
 scan.cpp
-scan.o
+*.o
 test-scan
