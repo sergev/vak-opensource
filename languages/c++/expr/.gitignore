@@ -3,3 +3,4 @@ scan.cc
 *.o
 *.tab.*
 output.txt
+location.hh

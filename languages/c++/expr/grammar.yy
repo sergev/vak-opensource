@@ -1,57 +1,65 @@
-%{
-    #include <iostream>
-    #include <string>
-    #include <map>
+%skeleton "lalr1.cc"
+%require  "3.2"
+%debug
+%defines
+%define api.namespace { Demo }
+%define api.parser.class { Grammar }
+%define api.value.type variant
+%define parse.assert
+%locations
 
-    static std::map<std::string, int> vars;
+// Add parameter to the Grammar() constructor.
+%code requires {
+    namespace Demo {
+        class Parser;
+    }
+}
+%parse-param { Demo::Parser &parser }
 
-    inline void yyerror(const char *s) { std::cout << s << std::endl; }
-
-    extern int yylex();
-%}
-
-%union {
-    int i;
-    std::string *s;
+// Use get_next_token() for reading the input stream.
+%code {
+    #include "parser.hh"
+    #undef yylex
+    #define yylex parser.scanner.get_next_token
 }
 
-%token BATATA
-%token<i> INT
-%token<s> VAR
-%type<i> expr
+%token       END    0 "end of file"
+%token       ERROR
+%token       PLUS
+%token       MINUS
+%token       MUL
+%token       DIV
+%token       REM
+%token       LPAR
+%token       RPAR
+%token       BATATA
+%token <int> INT
 
-%right '='
-%left '+' '-'
-%left '*' '/' '%'
+%type <int> expr
+
+%left PLUS MINUS
+%left MUL DIV REM
 %right BATATA
 
 %%
 
-list: stmt
-    | list stmt
-    ;
-
-stmt: expr ','
-    | expr ':'                  { std::cout << $1 << std::endl; }
+input: expr                     { parser.result = $1; }
     ;
 
 expr: INT                       { $$ = $1; }
-    | VAR                       { $$ = vars[*$1];      delete $1; }
-    | VAR '=' expr              { $$ = vars[*$1] = $3; delete $1; }
-    | expr '+' expr             { $$ = $1 + $3; }
-    | expr '-' expr             { $$ = $1 - $3; }
-    | expr '*' expr             { $$ = $1 * $3; }
-    | expr '/' expr             { $$ = $1 / $3; }
-    | expr '%' expr             { $$ = $1 % $3; }
-    | '+' expr %prec BATATA     { $$ =  $2; }
-    | '-' expr %prec BATATA     { $$ = -$2; }
-    | '(' expr ')'              { $$ =  $2; }
+    | expr PLUS expr            { $$ = $1 + $3; }
+    | expr MINUS expr           { $$ = $1 - $3; }
+    | expr MUL expr             { $$ = $1 * $3; }
+    | expr DIV expr             { $$ = $1 / $3; }
+    | expr REM expr             { $$ = $1 % $3; }
+    | PLUS expr %prec BATATA    { $$ =  $2; }
+    | MINUS expr %prec BATATA   { $$ = -$2; }
+    | LPAR expr RPAR            { $$ =  $2; }
     ;
 
 %%
 
-int main()
+void Demo::Grammar::error(const location_type &loc, const std::string &message)
 {
-    yyparse();
-    return 0;
+    std::cerr << "Error: " << message << " at " << loc << "\n";
 }

@@ -1,6 +1,6 @@
 CXXFLAGS = -g -O -Wall -std=c++14 -Wno-deprecated-register
 LDFLAGS = -g
-OBJS    = scan.o grammar.o
+OBJS    = main.o parser.o scan.o grammar.tab.o
 
 all:    expr
 
@@ -17,11 +17,10 @@ expr:   $(OBJS)
 grammar.tab.cc grammar.tab.hh: grammar.yy
 	bison -d $<
 
-grammar.o: grammar.tab.cc
-	$(CXX) $(CXXFLAGS) -o $@ -c $<
-
 scan.cc: scan.ll grammar.tab.hh
 	$(LEX) -o $@ scan.ll
 ###
-grammar.tab.o: grammar.tab.cc grammar.tab.hh
-expr.o: expr.cc grammar.tab.hh
+grammar.tab.o: grammar.tab.cc grammar.tab.hh parser.hh scanner.hh
+main.o: main.cc parser.hh grammar.tab.hh scanner.hh
+parser.o: parser.cc parser.hh grammar.tab.hh scanner.hh
+scan.o: scan.cc parser.hh grammar.tab.hh scanner.hh
