@@ -37,5 +37,11 @@ add_subdirectory(${CMAKE_CURRENT_BINARY_DIR}/googletest-src
 #
 # Now simply link against gtest or gtest_main as needed.
 #
-add_executable(test example.cpp)
+add_executable(test
+    CharUtil.cpp
+    StringUtil.cpp
+    CharUtilTest.cpp
+    SoundexTest.cpp
+    StringUtilTest.cpp
+)
 target_link_libraries(test gtest_main)
