@@ -7,7 +7,6 @@
 // Source: https://www.cl.cam.ac.uk/~am21/research/funnel/prolog.c
 //
 #include <iostream>
-#include <string.h>
 
 class Atom {
     std::string atomname;
