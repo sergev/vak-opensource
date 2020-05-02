@@ -183,7 +183,7 @@ namespace Operations
     }
     Real Lerp(Real A, Real B, Real T)
     {
-        return std::fma(T, B, std::fma(-T, A, A));
+        return fma(T, B, fma(-T, A, A));
     }
     Real Union(Real A, Real B)
     {
@@ -247,8 +247,8 @@ namespace Translate
     Vec3 RepeatGround(const Vec3& Position, const Vec3& Bounds)
     {
         Vec3 Rep{ Position };
-        Rep.X = std::remainder(Rep.X, Bounds.X) - (Bounds.X * Real(0.5));
-        Rep.Z = std::remainder(Rep.Z, Bounds.Z) - (Bounds.Z * Real(0.5));
+        Rep.X = remainder(Rep.X, Bounds.X) - (Bounds.X * Real(0.5));
+        Rep.Z = remainder(Rep.Z, Bounds.Z) - (Bounds.Z * Real(0.5));
         return Rep;
     }
 }

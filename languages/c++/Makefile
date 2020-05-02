@@ -11,8 +11,11 @@ hello:  hello.cpp
 calculator: calculator.cpp
 	$(CXX) $(LDFLAGS) $(CFLAGS) $< -o $@
 
+prolog: prolog.cpp
+	$(CXX) $(LDFLAGS) $(CFLAGS) $< -o $@
+
 lol:    lol.cpp
 	clang++ -std=c++11 $< -o $@
 
 clean:
-	rm -f ascii3d hello lol calculator *.o
+	rm -f ascii3d hello lol calculator prolog *.o
