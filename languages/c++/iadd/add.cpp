@@ -1,7 +1,7 @@
-#include "catch.hpp"
+#include "gtest/gtest.h"
 
 //
-// Add two integet numbers.
+// Add two integer numbers.
 // Throw an exception in case of overflow.
 //
 int add(int a, int b)
@@ -37,78 +37,84 @@ int add(int a, int b)
 //
 // Check valid inputs.
 //
-TEST_CASE("Check zero", "[add]")
+TEST(add, check_zero)
 {
-    REQUIRE(add(0,         INT_MIN)   == INT_MIN);
-    REQUIRE(add(0,         INT_MIN+1) == INT_MIN+1);
-    REQUIRE(add(0,         -1)        == -1);
-    REQUIRE(add(0,         0)         == 0);
-    REQUIRE(add(0,         1)         == 1);
-    REQUIRE(add(0,         INT_MAX-1) == INT_MAX-1);
-    REQUIRE(add(0,         INT_MAX)   == INT_MAX);
+    EXPECT_EQ(add(0,         INT_MIN),   INT_MIN);
+    EXPECT_EQ(add(0,         INT_MIN+1), INT_MIN+1);
+    EXPECT_EQ(add(0,         -1),        -1);
+    EXPECT_EQ(add(0,         0),         0);
+    EXPECT_EQ(add(0,         1),         1);
+    EXPECT_EQ(add(0,         INT_MAX-1), INT_MAX-1);
+    EXPECT_EQ(add(0,         INT_MAX),   INT_MAX);
 
-    REQUIRE(add(INT_MIN,   0)         == INT_MIN);
-    REQUIRE(add(INT_MIN+1, 0)         == INT_MIN+1);
-    REQUIRE(add(-1,        0)         == -1);
-    REQUIRE(add(1,         0)         == 1);
-    REQUIRE(add(INT_MAX-1, 0)         == INT_MAX-1);
-    REQUIRE(add(INT_MAX,   0)         == INT_MAX);
+    EXPECT_EQ(add(INT_MIN,   0),         INT_MIN);
+    EXPECT_EQ(add(INT_MIN+1, 0),         INT_MIN+1);
+    EXPECT_EQ(add(-1,        0),         -1);
+    EXPECT_EQ(add(1,         0),         1);
+    EXPECT_EQ(add(INT_MAX-1, 0),         INT_MAX-1);
+    EXPECT_EQ(add(INT_MAX,   0),         INT_MAX);
 }
 
-TEST_CASE("Check one", "[add]")
+TEST(add, check_one)
 {
-    REQUIRE(add(1,         INT_MIN)   == INT_MIN+1);
-    REQUIRE(add(1,         INT_MIN+1) == INT_MIN+2);
-    REQUIRE(add(1,         -1)        == 0);
-    REQUIRE(add(1,         1)         == 2);
-    REQUIRE(add(1,         INT_MAX-1) == INT_MAX);
-    REQUIRE(add(-1,        INT_MIN+1) == INT_MIN);
-    REQUIRE(add(-1,        -1)        == -2);
-    REQUIRE(add(-1,        1)         == 0);
-    REQUIRE(add(-1,        INT_MAX-1) == INT_MAX-2);
-    REQUIRE(add(-1,        INT_MAX)   == INT_MAX-1);
+    EXPECT_EQ(add(1,         INT_MIN),   INT_MIN+1);
+    EXPECT_EQ(add(1,         INT_MIN+1), INT_MIN+2);
+    EXPECT_EQ(add(1,         -1),        0);
+    EXPECT_EQ(add(1,         1),         2);
+    EXPECT_EQ(add(1,         INT_MAX-1), INT_MAX);
+    EXPECT_EQ(add(-1,        INT_MIN+1), INT_MIN);
+    EXPECT_EQ(add(-1,        -1),        -2);
+    EXPECT_EQ(add(-1,        1),         0);
+    EXPECT_EQ(add(-1,        INT_MAX-1), INT_MAX-2);
+    EXPECT_EQ(add(-1,        INT_MAX),   INT_MAX-1);
 
-    REQUIRE(add(INT_MAX-1, 1)         == INT_MAX);
-    REQUIRE(add(INT_MIN,   1)         == INT_MIN+1);
-    REQUIRE(add(INT_MIN+1, 1)         == INT_MIN+2);
+    EXPECT_EQ(add(INT_MAX-1, 1),         INT_MAX);
+    EXPECT_EQ(add(INT_MIN,   1),         INT_MIN+1);
+    EXPECT_EQ(add(INT_MIN+1, 1),         INT_MIN+2);
 
-    REQUIRE(add(INT_MAX,   -1)        == INT_MAX-1);
-    REQUIRE(add(INT_MAX-1, -1)        == INT_MAX-2);
-    REQUIRE(add(INT_MIN+1, -1)        == INT_MIN);
+    EXPECT_EQ(add(INT_MAX,   -1),        INT_MAX-1);
+    EXPECT_EQ(add(INT_MAX-1, -1),        INT_MAX-2);
+    EXPECT_EQ(add(INT_MIN+1, -1),        INT_MIN);
 }
 
-TEST_CASE("Check int_max, int_min", "[add]")
+TEST(add, check_max_mix)
 {
-    REQUIRE(add(INT_MAX,   INT_MIN)   == -1);
-    REQUIRE(add(INT_MAX,   INT_MIN+1) == 0);
-    REQUIRE(add(INT_MAX-1, INT_MIN)   == -2);
-    REQUIRE(add(INT_MAX-1, INT_MIN+1) == -1);
+    EXPECT_EQ(add(INT_MAX,   INT_MIN),   -1);
+    EXPECT_EQ(add(INT_MAX,   INT_MIN+1), 0);
+    EXPECT_EQ(add(INT_MAX-1, INT_MIN),   -2);
+    EXPECT_EQ(add(INT_MAX-1, INT_MIN+1), -1);
 
-    REQUIRE(add(INT_MIN,   INT_MAX-1) == -2);
-    REQUIRE(add(INT_MIN,   INT_MAX)   == -1);
-    REQUIRE(add(INT_MIN+1, INT_MAX-1) == -1);
-    REQUIRE(add(INT_MIN+1, INT_MAX)   == 0);
+    EXPECT_EQ(add(INT_MIN,   INT_MAX-1), -2);
+    EXPECT_EQ(add(INT_MIN,   INT_MAX),   -1);
+    EXPECT_EQ(add(INT_MIN+1, INT_MAX-1), -1);
+    EXPECT_EQ(add(INT_MIN+1, INT_MAX),   0);
 }
 
 //
 // Check exception on overflow.
 //
-TEST_CASE( "Check overflow", "[add]")
+TEST(add, check_overflow)
 {
-    REQUIRE_THROWS(add(1,         INT_MAX));
-    REQUIRE_THROWS(add(-1,        INT_MIN));
+    EXPECT_ANY_THROW(add(1,         INT_MAX));
+    EXPECT_ANY_THROW(add(-1,        INT_MIN));
 
-    REQUIRE_THROWS(add(INT_MAX,   1));
-    REQUIRE_THROWS(add(INT_MIN,   -1));
+    EXPECT_ANY_THROW(add(INT_MAX,   1));
+    EXPECT_ANY_THROW(add(INT_MIN,   -1));
 
-    REQUIRE_THROWS(add(INT_MAX,   INT_MAX-1));
-    REQUIRE_THROWS(add(INT_MAX,   INT_MAX));
-    REQUIRE_THROWS(add(INT_MAX-1, INT_MAX-1));
-    REQUIRE_THROWS(add(INT_MAX-1, INT_MAX));
+    EXPECT_ANY_THROW(add(INT_MAX,   INT_MAX-1));
+    EXPECT_ANY_THROW(add(INT_MAX,   INT_MAX));
+    EXPECT_ANY_THROW(add(INT_MAX-1, INT_MAX-1));
+    EXPECT_ANY_THROW(add(INT_MAX-1, INT_MAX));
 
-    REQUIRE_THROWS(add(INT_MIN,   INT_MIN));
-    REQUIRE_THROWS(add(INT_MIN,   INT_MIN));
-    REQUIRE_THROWS(add(INT_MIN,   INT_MIN+1));
-    REQUIRE_THROWS(add(INT_MIN+1, INT_MIN));
-    REQUIRE_THROWS(add(INT_MIN+1, INT_MIN+1));
+    EXPECT_ANY_THROW(add(INT_MIN,   INT_MIN));
+    EXPECT_ANY_THROW(add(INT_MIN,   INT_MIN));
+    EXPECT_ANY_THROW(add(INT_MIN,   INT_MIN+1));
+    EXPECT_ANY_THROW(add(INT_MIN+1, INT_MIN));
+    EXPECT_ANY_THROW(add(INT_MIN+1, INT_MIN+1));
+}
+
+int main(int argc, char **argv)
+{
+    ::testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
 }
