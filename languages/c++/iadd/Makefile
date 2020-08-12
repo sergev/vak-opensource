@@ -1,6 +1,7 @@
 OBJ             = add.o gtest/gtest-all.o
-CXXFLAGS        = -std=c++11 -O -g -Wall -Werror -I.
-LDFLAGS         = -g
+CXX             = c++ -std=c++11 -fsanitize=signed-integer-overflow -g
+CXXFLAGS        = -O -Wall -Werror -I.
+LDFLAGS         =
 
 all:            add
 

@@ -14,8 +14,11 @@ calculator: calculator.cpp
 prolog: prolog.cpp
 	$(CXX) $(LDFLAGS) $(CFLAGS) $< -o $@
 
+async:  async.cpp
+	$(CXX) $(LDFLAGS) $(CFLAGS) $< -o $@
+
 lol:    lol.cpp
 	clang++ -std=c++11 $< -o $@
 
 clean:
-	rm -f ascii3d hello lol calculator prolog *.o
+	rm -f ascii3d hello lol calculator prolog async *.o
