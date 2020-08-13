@@ -60,7 +60,7 @@ int main()
 
     // Calls X()(43); with async policy
     // prints "43" concurrently
-    auto a3 = std::async(std::launch::async, X(), 43);
+    auto a3 = std::async(std::launch::async, x, 43);
 
     a2.wait();                     // prints "world!"
 
