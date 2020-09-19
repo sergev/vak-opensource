@@ -1,0 +1,31 @@
+array9<array9<int>> grid;
+
+boxes = [0, 3, 6].map(function^ (num) {
+  return [0, 3, 6].map(function^ (num2) {
+    return [
+      grid[num2][num], grid[num2][num+1], grid[num2][num+2],
+      grid[num2+1][num], grid[num2+1][num+1], grid[num2+1][num+2],
+      grid[num2+2][num], grid[num2+2][num+1], grid[num2+2][num+2]
+    ];
+  });
+});
+
+function validCollection?(collection) {
+  invariant collection.uniq?;
+  invariant collection.all?(*valueValid?);
+};
+
+function valueValid?(value) {
+  return value.between?(1,9);
+};
+
+grid.each(*validCollection?);
+grid.transpose.each(*validCollection?);
+
+boxes.each(function (boxRow) {
+  boxRow.each(function (box) {
+    validCollection?(box);
+  });
+});
+
+expose grid;

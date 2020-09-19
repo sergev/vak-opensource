@@ -1,0 +1,13 @@
+{
+  grid: [
+    [undefined,3,        7,        9,        undefined,4,        6,        undefined,8],
+    [undefined,undefined,undefined,undefined,3,        undefined,undefined,undefined,undefined],
+    [undefined,8,        undefined,undefined,undefined,undefined,1,        undefined,2],
+    [5,        undefined,6,        2,        undefined,undefined,3,        undefined,undefined],
+    [undefined,undefined,9,        7,        1,        3,        4,        undefined,undefined],
+    [undefined,undefined,3,        undefined,undefined,6,        2,        undefined,9],
+    [6,        undefined,8,        undefined,undefined,undefined,undefined,7,        undefined],
+    [undefined,undefined,undefined,undefined,9,        undefined,undefined,undefined,undefined],
+    [3,        undefined,2,        8,        undefined,1,        5,        4,        undefined]
+  ]
+}
