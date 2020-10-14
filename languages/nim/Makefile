@@ -9,3 +9,6 @@ clean:
 
 hello:          hello.nim
 		$(NIMC) compile -d:release $<
+
+gui:            gui.nim
+		$(NIMC) compile -d:release $<
