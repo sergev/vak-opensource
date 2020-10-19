@@ -1,0 +1,46 @@
+/\n/ {
+    // Count lines.
+    lval.nline++
+    lval.nchar++
+}
+
+/[^ \t\n]+/ {
+    // Count words.
+    lval.nword++
+    lval.nchar += len(yylex.Text())
+}
+
+/./ {
+    // Count characters.
+    lval.nchar++
+}
+
+//
+
+// Example from Flex manual: a scanner that counts characters and lines.
+package main
+import (
+    "fmt"
+    "os"
+)
+
+//
+// Accumulate results in this structure.
+//
+type yySymType struct {
+    nline int
+    nchar int
+    nword int
+}
+
+//
+// Process the standard input and print results.
+//
+func main() {
+    var result yySymType
+    lex := NewLexer(os.Stdin)
+    lex.Lex(&result)
+    fmt.Printf("Lines: %d\n", result.nline)
+    fmt.Printf("Words: %d\n", result.nword)
+    fmt.Printf("Chars: %d\n", result.nchar)
+}
