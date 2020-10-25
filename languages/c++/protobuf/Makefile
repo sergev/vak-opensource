@@ -1,5 +1,5 @@
 OBJS            = print-graph.o onnx.pb.o
-CXXFLAGS        = -g -Wall -O
+CXXFLAGS        = -g -Wall -O -std=c++14
 LDFLAGS         = -g
 LIBS            = -lprotobuf
 
