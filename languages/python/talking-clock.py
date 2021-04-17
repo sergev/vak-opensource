@@ -2,6 +2,12 @@
 #
 # Talking clock, using my Google Home device as a media player.
 #
+# Prerequisites:
+#       pip3 install --user pychromecast
+#
+# Use 'crontab -e' to run this script every hour, like:
+#       0 * * * * $HOME/bin/talking-clock.py
+#
 import pychromecast, uuid, time, datetime
 
 #
@@ -33,6 +39,7 @@ def open_media_controller(my_uuid, my_ip_addr, my_port):
                                              port = my_port,
                                              device = my_device)
     print("My Chromecast device:", my_cast_device)
+    my_cast_device.wait()
     return my_cast_device.media_controller
 
 #
