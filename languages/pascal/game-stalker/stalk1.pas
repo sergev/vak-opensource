@@ -74,12 +74,22 @@ begin
 end;
 
 procedure READCHAR(var CH:char); {L01166}
+label 1;
 begin
-    while true do begin
+1:
+    CH := readkey;
+    if CH = CHR(0) then begin
+        { функциональная клавиша }
         CH := readkey;
-        if CH <> CHR(0) then
-            break;
-        CH := readkey; { игнорируем функциональные клавиши }
+        case CH of
+        'H': CH := '8'; { стрелка вверх }
+        'P': CH := '2'; { стрелка вниз }
+        'K': CH := '4'; { стрелка влево }
+        'M': CH := '6'; { стрелка вправо }
+        'I': CH := '.'; { page up }
+        'Q': CH := '5'; { page down }
+        else goto 1;    { неизвестная клавиша - игнорируем }
+        end;
     end;
 
     if (ORD(CH) >= ORD('a')) and (ORD(CH) <= ORD('z')) then
@@ -337,6 +347,7 @@ for VAR4:=1 to 8 do begin { цикл по этажам } {L07652}
         VAR16:=RANDOM(0,7)+VAR16; {L10230}
     end;
 end;
+delay(1000);
 WRITE(CHR(&15));
 WRITE('     Темный  коридор ...     ');
 for VAR4:=1 to 8 do begin { цикл по этажам } {L10326}
@@ -358,6 +369,7 @@ for VAR4:=1 to 8 do begin { цикл по этажам } {L10326}
         VAR20:=RANDOM(2,5)+VAR20; {L11036}
     end;
 end;
+delay(1000);
 WRITE(CHR(&15));
 WRITE('     С к е л е т ы . . .   ');
 for VAR20:=1 to DUNGEON do begin {L11136}
@@ -366,6 +378,7 @@ for VAR20:=1 to DUNGEON do begin {L11136}
         L05702(CHR(VAR16)); {L11256}
     end;
 end;
+delay(1000);
 WRITE(CHR(&15));
 WRITE(' a-a-a-a-a-a-a-a-a-a-a-a-a . . . . . . .');
 for VAR4:=0 to 8 do begin {L11350}
@@ -404,6 +417,7 @@ for VAR16:=1 to 4 do begin {L12100}
     V33122[VAR16]:=' '; {L12140}
 end;
 VAR4:=0; { Этаж = 0 } {L12170}
+delay(1000);
 L03362('J');
 CLEARMSG;
 WRITE('Прогнивший пол провалился...');
