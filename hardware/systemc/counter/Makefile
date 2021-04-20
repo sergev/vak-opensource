@@ -1,6 +1,6 @@
 # Use: module load systemc/2.3.1
 SYSTEMC_INCLUDE ?= /usr/include
-SYSTEMC_LIBDIR  ?= /usr/lib/x86_64-linux-gnu
+SYSTEMC_LIBDIR  ?= /usr/local/lib
 
 CXX             = g++ -pthread
 CXXFLAGS        = -DSC_INCLUDE_FX -I$(SYSTEMC_INCLUDE) -Wall -O3
