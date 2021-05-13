@@ -1,0 +1,8 @@
+[package]
+name = "rust-sort"
+version = "0.1.0"
+authors = ["jenyay <jenyay.ilin@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+rand = "0.6.4"
