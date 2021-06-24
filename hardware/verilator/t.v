@@ -2,6 +2,7 @@
 //
 // This file ONLY is placed into the Public Domain, for any use,
 // without warranty, 2003 by Wilson Snyder.
+`timescale 1ns / 1ps
 
 module t (/*AUTOARG*/
    // Outputs
@@ -10,8 +11,8 @@ module t (/*AUTOARG*/
    clk, fastclk, reset_l
    );
 
-   input clk /*verilator sc_clock*/;
-   input fastclk /*verilator sc_clock*/;
+   input clk;
+   input fastclk;
    input reset_l;
    output passed;
 
