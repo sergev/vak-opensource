@@ -9,7 +9,7 @@ VerilatedVcdC *tfp;             // Trace dump
 
 void trace_fetch (unsigned cycount, unsigned addr, unsigned opcode)
 {
-    unsigned short *mem = uut->v__DOT__ram__DOT__memory + (addr >> 1);
+    unsigned short *mem = uut->datapath__DOT__ram__DOT__memory + (addr >> 1);
 
     printf ("%4u-%1u) %06o: %s\n", main_time, cycount, addr,
         disasm (addr, opcode, mem[1], mem[2]));
@@ -58,7 +58,7 @@ usage:      fprintf (stderr, "Usage:\n");
 #endif
 
     if (argc == 1) {                    // Load executable file
-        load_file (argv[0], 0500, uut->v__DOT__ram__DOT__memory);
+        load_file (argv[0], 0500, uut->datapath__DOT__ram__DOT__memory);
     }
     VL_PRINTF ("%4u)\tstarted datapath testing\n", main_time);
 
@@ -73,9 +73,9 @@ usage:      fprintf (stderr, "Usage:\n");
     VL_PRINTF ("%4u)\tturn reset off\n", main_time);
 
     // Initiate instruction fetching.
-    uut->v__DOT__reg_input = 0500;
-    uut->v__DOT__cycount_next = 0;
-    uut->v__DOT__ctl_ir_we = 0;
+    uut->datapath__DOT__alu_out = 0500;
+    uut->datapath__DOT__cycount_next = 0;
+    uut->datapath__DOT__ctl_ir_we = 0;
 
     while (main_time < 200 && ! Verilated::gotFinish()) {
         uut->clk = 1;
@@ -91,7 +91,7 @@ usage:      fprintf (stderr, "Usage:\n");
             tfp->dump (main_time);
 #endif
 	main_time++;                    // Time passes...
-        VL_PRINTF (uut->v__DOT__cycount == 0 ? "------\n" : "\n");
+        VL_PRINTF (uut->datapath__DOT__cycount == 0 ? "------\n" : "\n");
     }
     uut->final();
 #if VM_TRACE

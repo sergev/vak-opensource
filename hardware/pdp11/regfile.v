@@ -27,10 +27,10 @@ module regfile (
         if (reset) begin
             // On reset, PC is cleared.
             r [7] = 0;
-            $c ("trace_reg (", datapath.cycount, ",", 7, ",", 0, ");");
+            //$c ("trace_reg (", datapath.cycount, ",", 7, ",", 0, ");");
         end else if (we == 1) begin
             r [selb] = w;
-            $c ("trace_reg (", datapath.cycount, ",", selb, ",", w, ");");
+            //$c ("trace_reg (", datapath.cycount, ",", selb, ",", w, ");");
         end
     end
 

@@ -9,7 +9,7 @@
 # Lesser General Public License Version 3 or the Perl Artistic License
 # Version 2.0.
 #
-ALL             = obj-datapath/simx #obj-alu/simx obj-regfile/simx obj-memory/simx
+ALL             = obj-datapath/simx obj-alu/simx obj-memory/simx obj-regfile/simx
 
 all compile:    $(ALL)
 
@@ -50,7 +50,7 @@ obj-memory/Vmemory.h: memory.v
 #
 # datapath
 #
-obj-datapath/simx: obj-datapath/Vdatapath.h *.h *.cpp *.c
+obj-datapath/simx: obj-datapath/Vdatapath.h *.h *.cpp
 		[ -d obj-datapath ] && $(MAKE) -C obj-datapath -f ../Makefile-datapath
 		cp $@ .
 

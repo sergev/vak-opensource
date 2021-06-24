@@ -21,7 +21,7 @@ const struct stimulus_1 tab1[] = {
     { 5,  0x5555 },
     { 6,  0x6666 },
     { 7,  0x7777 },
-    { ~0, 0     },
+    { ~0u, 0     },
 };
 
 struct stimulus_2 {
@@ -38,7 +38,7 @@ const struct stimulus_2 tab2[] = {
     { 6,  0 },
     { 7,  1 },
     { 0,  2 },
-    { ~0, 0 },
+    { ~0u,0 },
 };
 
 static void delay (unsigned n)

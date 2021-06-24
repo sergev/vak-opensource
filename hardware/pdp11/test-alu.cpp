@@ -14,7 +14,7 @@ struct stimulus {
     unsigned ps_in;
     unsigned delay;
     unsigned d_out;
-    unsigned psr_out;
+    unsigned ps_out;
 };
 
 const struct stimulus tab[] = {
@@ -68,7 +68,7 @@ const struct stimulus tab[] = {
     { BISB, 0x2134, 0x5678, N+Z+V+C,5,  0x567c, C	},
     { XOR,  0x1234, 0x5678, N+Z+V+C,5,  0x444c, C	},
 
-    { ~0,   0,      0,      0,      0,  0,      0       },
+    { ~0u,  0,      0,      0,      0,  0,      0       },
 };
 
 static void delay (unsigned n)
@@ -117,7 +117,7 @@ int main (int argc, char **argv)
     uut->op = 0;                // Initialize inputs
     uut->a = 0;
     uut->b = 0;
-    uut->ps = 0;
+    uut->ps_in = 0;
 
     // Wait for global reset to finish
     delay (10);
@@ -128,10 +128,10 @@ int main (int argc, char **argv)
         uut->op = s->op_in;
         uut->a = s->a_in;
         uut->b = s->b_in;
-        uut->ps = s->ps_in;
+        uut->ps_in = s->ps_in;
         delay (5);
-        show (uut->op, uut->a, uut->b, uut->ps, uut->d, uut->psr,
-            (uut->d == s->d_out && uut->psr == s->psr_out));
+        show (uut->op, uut->a, uut->b, uut->ps_in, uut->d, uut->ps_out,
+            (uut->d == s->d_out && uut->ps_out == s->ps_out));
     }
     delay (5);
     VL_PRINTF ("(%u) finished ALU testing\n", main_time);

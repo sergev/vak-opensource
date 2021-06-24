@@ -1,0 +1,9 @@
+*~
+obj-datapath/
+simx
+*.dis
+*.o
+*.out
+obj-alu/
+obj-memory/
+obj-regfile/

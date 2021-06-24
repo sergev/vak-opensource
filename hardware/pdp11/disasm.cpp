@@ -2,6 +2,7 @@
 #include <stdarg.h>
 #include <string.h>
 #include <stdlib.h>
+#include <string>
 
 /*
  * PDP-11 opcode types.
@@ -284,12 +285,12 @@ static const struct opcode op[] = {
 static char buf [60];
 static char *bufptr;
 
-static void append (char *fmt, ...)
+static void append (const std::string &fmt, ...)
 {
     va_list args;
 
     va_start (args, fmt);
-    bufptr += vsprintf (bufptr, fmt, args);
+    bufptr += vsprintf (bufptr, fmt.c_str(), args);
     va_end (args);
 }
 
