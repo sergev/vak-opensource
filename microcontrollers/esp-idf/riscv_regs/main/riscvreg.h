@@ -188,7 +188,7 @@
 #define	RS2_C_RA	(X_RA << RS2_C_SHIFT)
 
 #define	CSR_ZIMM(val)							\
-	(__builtin_constant_p(val) && ((u_long)(val) < 32))
+	(__builtin_constant_p(val) && ((unsigned long)(val) < 32))
 
 #define	csr_swap(csr, val)						\
 ({	if (CSR_ZIMM(val))  						\
@@ -222,7 +222,7 @@
 })
 
 #define	csr_read(csr)							\
-({	u_long val;							\
+({	unsigned long val;							\
 	__asm __volatile("csrr %0, " #csr : "=r" (val));		\
 	val;								\
 })
