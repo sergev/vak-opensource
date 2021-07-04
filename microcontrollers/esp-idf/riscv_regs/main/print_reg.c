@@ -2,6 +2,7 @@
 #include "riscvreg.h"
 #include "encoding.h"
 
+#define CSR_USTATUS     0x000   // User Status
 #define CSR_TCONTROL    0x7a5   // Global Trigger Control
 #define CSR_DSCRATCH1   0x7b3   // Debug Scratch Register 1
 #define CSR_MPCER       0x7e0   // Machine Performance Counter Event
@@ -25,24 +26,21 @@
 
 void print_all_regs()
 {
-    // Machine Information CSRs
-    print_reg_ro(CSR_MVENDORID,  mvendorid,   "mvendorid");
-    print_reg_ro(CSR_MARCHID,    marchid,     "marchid");
-    print_reg_ro(CSR_MIMPID,     mimpid,      "mimpid");
-    print_reg_ro(CSR_MHARTID,    mhartid,     "mhartid");
+    // User Trap Setup
+    print_reg_rw(CSR_USTATUS,    ustatus,     "ustatus");
 
-    // Machine Trap Setup CSRs
+    // Machine Trap Setup
     print_reg_rw(CSR_MSTATUS,    mstatus,     "mstatus");
     print_reg_rw(CSR_MISA,       misa,        "misa");
     print_reg_rw(CSR_MTVEC,      mtvec,       "mtvec");
 
-    // Machine Trap Handling CSRs
+    // Machine Trap Handling
     print_reg_rw(CSR_MSCRATCH,   mscratch,    "mscratch");
     print_reg_rw(CSR_MEPC,       mepc,        "mepc");
     print_reg_rw(CSR_MCAUSE,     mcause,      "mcause");
     print_reg_rw(CSR_MTVAL,      mtval,       "mtval");
 
-    // Physical Memory Protection (PMP) CSRs
+    // Physical Memory Protection (PMP)
     print_reg_rw(CSR_PMPCFG0,    pmpcfg0,     "pmpcfg0");
     print_reg_rw(CSR_PMPCFG1,    pmpcfg1,     "pmpcfg1");
     print_reg_rw(CSR_PMPCFG2,    pmpcfg2,     "pmpcfg2");
@@ -64,13 +62,13 @@ void print_all_regs()
     print_reg_rw(CSR_PMPADDR14,  pmpaddr14,   "pmpaddr14");
     print_reg_rw(CSR_PMPADDR15,  pmpaddr15,   "pmpaddr15");
 
-    // Trigger Module CSRs (shared with Debug Mode)
+    // Trigger Module (shared with Debug Mode)
     print_reg_rw(CSR_TSELECT,    tselect,     "tselect");     // Trigger Select Register
     print_reg_rw(CSR_TDATA1,     tdata1,      "tdata1");      // Trigger Abstract Data 1
     print_reg_rw(CSR_TDATA2,     tdata2,      "tdata2");      // Trigger Abstract Data 2
     print_reg_rw(CSR_TCONTROL,   0x7a5,       "tcontrol");    // Global Trigger Control
 
-    // Debug Mode CSRs
+    // Debug Mode
 #if 0
     // These cause Illegal Instruction exception.
     print_reg_rw(CSR_DCSR,       dcsr,        "dcsr");        // Debug Control and Status
@@ -79,16 +77,22 @@ void print_all_regs()
     print_reg_rw(CSR_DSCRATCH1,  0x7b3,       "dscratch1");   // Debug Scratch Register 1
 #endif
 
-    // Performance Counter CSRs (Custom) 4
+    // Performance Counter (Custom)
     print_reg_rw(CSR_MPCER,      0x7e0,       "mpcer");       // Machine Performance Counter Event
     print_reg_rw(CSR_MPCMR,      0x7e1,       "mpcmr");       // Machine Performance Counter Mode
     print_reg_rw(CSR_MPCCR,      0x7e2,       "mpccr");       // Machine Performance Counter Count
 
-    // User Custom CSRs
+    // User Custom Registers
     print_reg_rw(0x800,          0x800,       "0x800");
     print_reg_rw(0x801,          0x801,       "0x801");
     print_reg_rw(0x802,          0x802,       "0x802");
     print_reg_rw(0x803,          0x803,       "0x803");
     print_reg_rw(0x804,          0x804,       "0x804");
     print_reg_rw(0x805,          0x805,       "0x805");
+
+    // Machine Information
+    print_reg_ro(CSR_MVENDORID,  mvendorid,   "mvendorid");
+    print_reg_ro(CSR_MARCHID,    marchid,     "marchid");
+    print_reg_ro(CSR_MIMPID,     mimpid,      "mimpid");
+    print_reg_ro(CSR_MHARTID,    mhartid,     "mhartid");
 }
