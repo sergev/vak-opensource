@@ -1,0 +1,78 @@
+PROGRAM sieve CONTEXT VOID
+USE standard
+BEGIN
+    #
+    | Searches for prime numbers.
+    | Copyright(c) 2011    MT
+    |
+    | This  program is free software: you can redistribute it and/or modify it
+    | under  the  terms of the GNU General Public License as published by  the
+    | Free  Software Foundation, either version 3 of the License, or (at  your
+    | option) any later version.
+    |
+    | This  program  is  distributed in the hope that it will be  useful,  but
+    | WITHOUT   ANY   WARRANTY;  without  even   the   implied   warranty   of
+    | MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
+    | Public License for more details.
+    |
+    | You  should have received a copy of the GNU General Public License along
+    | with this program.  If not, see <http://www.gnu.org/licenses/>.
+    |
+    | 27 Dec 11   0.1   - Initial version using an array - MT
+    | 16 Jan 21   0.2   - Rewritten to use a recursive procedure to store each
+    |                     prime number in a list - MT
+    |                   - Prints primes as they are found - MT
+    | 17 Jan 21   0.3   - Searching the list iterativly is more awkward but it
+    |                     is more efficent as it pushes fewer values on to the
+    |                     stack and uses less memory as a result - MT
+    #
+    MODE LIST = STRUCT (REF LIST link, INT leaf);
+    REF LIST empty = NIL;   # Define a nil pointer as an empty list. #
+    REF LIST list := empty; # Define a new list, initially empty. #
+
+    INT count := 0;
+
+    #
+    | Iterative procedure to append a number to a linked list of it is a prime.
+    #
+    PROC append = (REF REF LIST list, INT number) VOID:
+    BEGIN
+        REF REF LIST node := list;
+        INT remainder := 1;
+
+        #
+        | Search the list but give up if the number isn't prime.
+        #
+        WHILE (node ISNT empty) AND remainder > 0 DO
+            remainder := number MOD leaf OF node;
+            node := link OF node
+        OD;
+
+        #
+        | If we are at the end of the list then the number is prime, so  add
+        | it  to the list.  Then print it before checking to see if we  need
+        | to follow it with a newline or delimiter.
+        #
+        IF node IS empty THEN
+            REF REF LIST (node) := HEAP LIST := (empty,number);
+            print ((number));
+            count +:= 1;
+            IF count MOD 8 = 0 THEN
+                print((newline))
+            ELSE
+                print((","))
+            FI
+        FI
+    END;
+
+
+    FOR number FROM 2 TO 1000 DO
+        append(list, number)
+    OD;
+
+    IF count MOD 8 /= 0 THEN
+        print((newline))
+    FI;
+    print(("Found ", whole(count, 0), " primes.", newline))
+END
+FINISH.
