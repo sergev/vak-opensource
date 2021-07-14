@@ -52,7 +52,7 @@ begin
         repetitions of the cycle labeled scan is log_2 n;
   begin
     integer i, j;
-    real temp, temp 1;
+    real temp, temp1;
     if in <= A[1] then
       out := 1
     else begin
@@ -64,9 +64,9 @@ begin
       j := i + i;
       if j <= n then begin
         temp := A[j];
-        temp 1 := A[j + 1];
-        if temp 1 < temp then begin
-          temp := temp 1;
+        temp1 := A[j + 1];
+        if temp1 < temp then begin
+          temp := temp1;
           j := j + 1
         end;
         if temp < in then begin
@@ -94,7 +94,7 @@ begin
     i := n := n + 1;
   scan:
     if i > 1 then begin
-      j := i % 2;
+      j := i mod 2;
       if in < A[j] then begin
         A[i] := A[j];
         i := j;
@@ -131,10 +131,10 @@ begin
     if j < n then go to L
   end SETHEAP;
 
-  procedure HEAPSORT TEST(n);
+  procedure HEAPSORT_TEST(n);
     value n;
     integer n;
-    comment HEAPSORT TEST tests the implementation on a random array
+    comment HEAPSORT_TEST tests the implementation on a random array
       of n elements. This procedure is not part of the original
       algorithm definition, and is only provided for completeness;
   begin
@@ -146,7 +146,7 @@ begin
       A[i] := random
     end;
     SETHEAP(A, n);
-    
+
     comment CAVEAT - the following loop does not work;
     i := n;
   loop:
@@ -159,7 +159,7 @@ begin
       SWOPHEAP(A, i - 1, A[i], out);
       A[i] := out
     end;
-    
+
     comment now check if A is sorted in descending order;
     for i := 2 step 1 until n do begin
       if A[i] > A[i - 1] then begin
@@ -169,14 +169,15 @@ begin
     end;
     outstring(1, "HEAPSORT implementation is correct!\n");
   exit:
-  end HEAPSORT TEST;
+  end HEAPSORT_TEST;
 
   real procedure random;
   begin
-    inline("my_dsa.retval.u.real_val = rand();")
+    comment inline("my_dsa.retval.u.real_val = rand();");
+    random := 0.1
   end random;
 
   comment main program;
-  HEAPSORT TEST(10)
+  HEAPSORT_TEST(10)
 
 end

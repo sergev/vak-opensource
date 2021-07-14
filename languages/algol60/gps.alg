@@ -15,7 +15,7 @@ begin comment These examples were described in [D.E.Knuth, J.N.Merner.
       comment The first example demonstrates usage of the procedure
          GPS to create a matrix A[i,j] = i+j;
 
-first example:
+first_example:
       begin
          real i, j;
          array A[1:2,1:3];
@@ -26,12 +26,12 @@ first example:
          outstring(1, "\n");
          outreal(1, A[2,1]); outreal(1, A[2,2]); outreal(1, A[2,3]);
          outstring(1, "\n")
-      end of first example;
+      end of first_example;
 
       comment The second example demonstrates usage of the procedure
          GPS to perform matrix multiplication;
 
-second example:
+second_example:
       begin
 
          procedure testmatr(n) result:(a);
@@ -101,6 +101,6 @@ skip:       print matrix("B = inv(A)", n, B);
                0.0), C[i+1,1], 0.0);
             print matrix("C = A * B", n, C)
          end
-      end of second example
+      end of second_example
 
 end
