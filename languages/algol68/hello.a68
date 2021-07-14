@@ -1,0 +1,6 @@
+PROGRAM hello CONTEXT VOID
+USE standard
+BEGIN
+    print(("Hello, Algol-68!", newline))
+END
+FINISH

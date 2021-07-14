@@ -1,0 +1,7 @@
+*.c
+*.o
+hello
+gcd
+factorial
+fibonacci
+sieve
