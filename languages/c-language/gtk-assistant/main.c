@@ -7,7 +7,7 @@
 
 #include <gtk/gtk.h>
 
-static GtkWidget *assistant = NULL;
+GtkApplication *application;
 static GtkWidget *progress_bar = NULL;
 
 static gboolean apply_changes_gradually(gpointer data)
@@ -23,9 +23,7 @@ static gboolean apply_changes_gradually(gpointer data)
         return G_SOURCE_CONTINUE;
     } else {
         /* Close automatically once changes are fully applied. */
-        //gtk_widget_destroy(assistant);
-        //assistant = NULL;
-        //TODO
+        g_application_quit(G_APPLICATION(application));
         return G_SOURCE_REMOVE;
     }
 }
@@ -156,9 +154,8 @@ static void activate(GtkApplication *app, gpointer user_data)
 {
     GtkWidget *window = gtk_application_window_new(app);
 
-    assistant = gtk_assistant_new();
+    GtkWidget *assistant = gtk_assistant_new();
     gtk_window_set_default_size(GTK_WINDOW(assistant), 600, 300);
-    gtk_window_set_screen(GTK_WINDOW(assistant), gtk_widget_get_screen(window));
 
     create_page1(assistant);
     create_page2(assistant);
@@ -173,6 +170,8 @@ static void activate(GtkApplication *app, gpointer user_data)
     g_signal_connect(G_OBJECT(assistant), "prepare", G_CALLBACK(on_assistant_prepare), NULL);
 
     gtk_widget_show(assistant);
+
+    gtk_window_set_transient_for(GTK_WINDOW(assistant), GTK_WINDOW(window));
 }
 
 int main(int argc, char **argv)
@@ -181,6 +180,7 @@ int main(int argc, char **argv)
     int status;
 
     app = gtk_application_new("org.gtk.example", G_APPLICATION_FLAGS_NONE);
+    application = app;
     g_signal_connect(app, "activate", G_CALLBACK(activate), NULL);
     status = g_application_run(G_APPLICATION(app), argc, argv);
     g_object_unref(app);
