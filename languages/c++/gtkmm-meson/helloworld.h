@@ -7,7 +7,7 @@
 class HelloWorld : public Gtk::Window {
 public:
     HelloWorld();
-    ~HelloWorld() override;
+    virtual ~HelloWorld();
 
 protected:
     // Signal handlers:
