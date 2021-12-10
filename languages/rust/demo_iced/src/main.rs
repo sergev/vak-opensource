@@ -1,3 +1,5 @@
+// This example showcases a simple native custom widget that draws a circle.
+mod circle;
 use iced::Application;
 
 //
@@ -7,7 +9,8 @@ use iced::Application;
 //
 pub fn main() -> iced::Result {
     // Use logger for debug messages.
-    simple_logger::init_with_level(log::Level::Warn).unwrap();
+    let env = env_logger::Env::default().default_filter_or("warn");
+    env_logger::Builder::from_env(env).init();
 
     MyApp::run(iced::Settings::default())
 }
@@ -20,7 +23,7 @@ struct MyApp {
     button1_state: iced::button::State,
     button2_state: iced::button::State,
     button3_state: iced::button::State,
-    phrase_selected: String,
+    radius: f32,
 }
 
 //
@@ -28,7 +31,7 @@ struct MyApp {
 //
 #[derive(Debug, Clone)]
 pub enum Message {
-    Phrase(String),
+    Radius(f32),
 }
 
 //
@@ -51,7 +54,7 @@ impl iced::Application for MyApp {
     fn new(_flags: ()) -> (Self, iced::Command<Message>) {
         (
             Self {
-                phrase_selected: "Hello, World!".to_string(),
+                radius: 100.0,
                 ..Self::default()
             },
             iced::Command::none(),
@@ -75,9 +78,9 @@ impl iced::Application for MyApp {
     //
     fn update(&mut self, message: Message, _cb: &mut iced::Clipboard) -> iced::Command<Message> {
         match message {
-            Message::Phrase(phrase) => {
-                log::warn!("phrase = {}", phrase);
-                self.phrase_selected = phrase;
+            Message::Radius(radius) => {
+                log::warn!("radius = {}", radius);
+                self.radius = radius;
             }
         }
 
@@ -89,10 +92,9 @@ impl iced::Application for MyApp {
     // These widgets can produce messages based on user interaction.
     //
     fn view(&mut self) -> iced::Element<Message> {
-        let message = iced::Text::new(&self.phrase_selected)
-            .size(96);
+        let contents = circle::Circle::new(self.radius);
 
-        let canvas = iced::Container::new(message)
+        let canvas = iced::Container::new(contents)
             .width(iced::Length::Fill)
             .height(iced::Length::Fill)
             .padding(20)
@@ -102,12 +104,12 @@ impl iced::Application for MyApp {
         let controls = iced::Column::new()
             .padding(10)
             .spacing(20)
-            .push(iced::Button::new(&mut self.button1_state, iced::Text::new("Hi there!"))
-                    .on_press(Message::Phrase("Hi there!".to_string())))
-            .push(iced::Button::new(&mut self.button2_state, iced::Text::new("Hola!"))
-                    .on_press(Message::Phrase("Hola!".to_string())))
-            .push(iced::Button::new(&mut self.button3_state, iced::Text::new("Приветик!"))
-                    .on_press(Message::Phrase("Приветик!".to_string())));
+            .push(iced::Button::new(&mut self.button1_state, iced::Text::new("Normal"))
+                    .on_press(Message::Radius(100.0)))
+            .push(iced::Button::new(&mut self.button2_state, iced::Text::new("Small"))
+                    .on_press(Message::Radius(20.0)))
+            .push(iced::Button::new(&mut self.button3_state, iced::Text::new("Large"))
+                    .on_press(Message::Radius(300.0)));
 
         let content = iced::Row::new()
             .spacing(20)

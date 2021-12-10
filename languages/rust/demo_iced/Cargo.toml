@@ -7,5 +7,7 @@ publish = false
 
 [dependencies]
 iced = { version = "0.3.0" }
+iced_native = "0.4.0"
+iced_graphics = "0.2.0"
 log = "0.4"
-simple_logger = "1.13"
+env_logger = "0.9"
