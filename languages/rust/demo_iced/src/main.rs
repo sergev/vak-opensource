@@ -1,4 +1,4 @@
-use iced::*;
+use iced::Application;
 
 //
 // Run the Application.
@@ -9,7 +9,7 @@ pub fn main() -> iced::Result {
     // Use logger for debug messages.
     simple_logger::init_with_level(log::Level::Warn).unwrap();
 
-    MyApp::run(Settings::default())
+    MyApp::run(iced::Settings::default())
 }
 
 //
@@ -17,9 +17,9 @@ pub fn main() -> iced::Result {
 //
 #[derive(Default)]
 struct MyApp {
-    button1_state: button::State,
-    button2_state: button::State,
-    button3_state: button::State,
+    button1_state: iced::button::State,
+    button2_state: iced::button::State,
+    button3_state: iced::button::State,
     phrase_selected: String,
 }
 
@@ -37,10 +37,10 @@ pub enum Message {
 // An Application can execute asynchronous actions by returning
 // a Command in some of its methods.
 //
-impl Application for MyApp {
+impl iced::Application for MyApp {
 
     type Message = Message;
-    type Executor = executor::Default;
+    type Executor = iced::executor::Default;
     type Flags = ();
 
     //
@@ -48,13 +48,13 @@ impl Application for MyApp {
     // Return the initial state of our app.
     // Also return a Command to perform some async action in the background on startup.
     //
-    fn new(_flags: ()) -> (Self, Command<Message>) {
+    fn new(_flags: ()) -> (Self, iced::Command<Message>) {
         (
             Self {
                 phrase_selected: "Hello, World!".to_string(),
                 ..Self::default()
             },
-            Command::none(),
+            iced::Command::none(),
         )
     }
 
@@ -73,7 +73,7 @@ impl Application for MyApp {
     // are be handled by this method.
     // Any Command returned will be executed immediately in the background.
     //
-    fn update(&mut self, message: Message, _cb: &mut Clipboard) -> Command<Message> {
+    fn update(&mut self, message: Message, _cb: &mut iced::Clipboard) -> iced::Command<Message> {
         match message {
             Message::Phrase(phrase) => {
                 log::warn!("phrase = {}", phrase);
@@ -81,35 +81,35 @@ impl Application for MyApp {
             }
         }
 
-        Command::none()
+        iced::Command::none()
     }
 
     //
     // Return the widgets to display in the Application.
     // These widgets can produce messages based on user interaction.
     //
-    fn view(&mut self) -> Element<Message> {
-        let message = Text::new(&self.phrase_selected)
+    fn view(&mut self) -> iced::Element<Message> {
+        let message = iced::Text::new(&self.phrase_selected)
             .size(96);
 
-        let canvas = Container::new(message)
-            .width(Length::Fill)
-            .height(Length::Fill)
+        let canvas = iced::Container::new(message)
+            .width(iced::Length::Fill)
+            .height(iced::Length::Fill)
             .padding(20)
             .center_x()
             .center_y();
 
-        let controls = Column::new()
+        let controls = iced::Column::new()
             .padding(10)
             .spacing(20)
-            .push(Button::new(&mut self.button1_state, Text::new("Hi there!"))
+            .push(iced::Button::new(&mut self.button1_state, iced::Text::new("Hi there!"))
                     .on_press(Message::Phrase("Hi there!".to_string())))
-            .push(Button::new(&mut self.button2_state, Text::new("Hola!"))
+            .push(iced::Button::new(&mut self.button2_state, iced::Text::new("Hola!"))
                     .on_press(Message::Phrase("Hola!".to_string())))
-            .push(Button::new(&mut self.button3_state, Text::new("Приветик!"))
+            .push(iced::Button::new(&mut self.button3_state, iced::Text::new("Приветик!"))
                     .on_press(Message::Phrase("Приветик!".to_string())));
 
-        let content = Row::new()
+        let content = iced::Row::new()
             .spacing(20)
             .push(canvas)
             .push(controls);
