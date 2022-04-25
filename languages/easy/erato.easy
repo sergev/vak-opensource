@@ -1,0 +1,72 @@
+PROGRAM Eratosthenes:
+
+    /* This example EASY program reads an input integer topnum and then
+       uses the Sieve of Eratosthenes (see Chapter 15) to build
+       a table of all the primes between 1 and topnum and to print that
+       table.
+    */
+
+    DECLARE topnum INTEGER;
+
+    FUNCTION abs(x REAL) REAL:
+        /* This function returns the real absolute value of its real
+           argument.
+        */
+
+        IF x < 0 THEN RETURN -x; ELSE RETURN x; FI;
+
+    END FUNCTION abs;
+
+    FUNCTION integersqrt(a INTEGER) INTEGER:
+
+        /* This function takes an integer as argument and returns as value
+           the floor of the square root of the argument.
+           The FOR loop which calculates the square root is simply
+           Newton's approximation. The last FOR loop makes sure
+           that the integer value calculated is really the floor of
+           the square root of a. Notice the rather tricky use
+           of the iteration and the null subject statements.
+        */
+
+        SELECT TRUE OF
+            CASE (a < 0): OUTPUT "a < 0 in FUNCTION integersqrt."; EXIT;
+            CASE (a = 0): RETURN 0;
+            CASE (a > 0):
+                DECLARE (x, ra) REAL;
+                DECLARE epsilon REAL;
+                DECLARE sqrt INTEGER;
+                SET ra := FLOAT(a);
+                SET epsilon := 0.0000001*ra;
+                FOR x := ra/2. BY (ra/x-x)/2. WHILE abs(ra-x*x) > epsilon
+                    DO ; END FOR;
+                FOR sqrt := FIX(x)-l BY 1 WHILE (sqrt+1)*(sqrt+1) <= a
+                    DO END FOR;
+                RETURN sqrt;
+        END SELECT;
+    END FUNCTION integersqrt;
+
+    INPUT topnum;
+    IF topnum > 0 THEN
+        DECLARE sieve ARRAY[1:topnum] OF BOOLEAN;
+        DECLARE (i, limit, count) INTEGER;
+        FOR i := 1 TO topnum DO SET sieve[i] := TRUE; END FOR;
+        SET limit := integersqrt(topnum)+l; /* Avoid repeating square root */
+        FOR i := 2 TO 1imit DO
+            IF sieve[i] THEN
+                DECLARE j INTEGER;
+                FOR j := 2*i BY i TO topnum DO SET sieve[j] := FALSE; END FOR;
+            FI;
+        END FOR;
+        SET count := 0;
+        FOR i := 1 TO topnum DO
+            IF sieve[i] THEN
+                SET count := count + 1;
+                OUTPUT "Prime[" || count || "] = " || i;
+            FI;
+        END FOR;
+    ELSE
+        OUTPUT "Input value " || topnum || " non-positive.";
+    FI;
+    EXIT;
+
+END PROGRAM Eratosthenes;
