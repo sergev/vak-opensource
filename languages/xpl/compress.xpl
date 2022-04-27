@@ -1,170 +1,113 @@
-1   /*  ~$F Large free string space
+1   /*  ~$F large free string space
 2       A Text Compression Program.
 3
 4       Author -- Charles Wetherell  18 August 1976.
 5       Last date modified -- 25 August 1976.
 6
-TODO:
-7       This program compresses text files using the mayne-james dictionary
-8       input is an arbitrary text file and output
-so m e
-construction alg o rithm .
-is the com pressed file along w ith an enco ding dictionary.
-statistics on pro g ram efficiency and com pression rate are kept.
-tw o passes by the source file are necessary. on the first pass the
-dictionary is built and a record of all characters seen is kept.
-betw een passes the character record is used to add enco ding s to the
-89
-10
-11
-12
-13
-dictio nary entries. during the seco nd pass, lo ng hig h freq uency
-string s are replaced by sho rter enco ding string s as the com pressed
-14
-15
-file is w ritten. further info rm atio n abo ut the techniq ue can be
-fo und in chapter 11 of
-16
-17
+7       This program compresses text files using the Mayne-James dictionary
+8       construction algorithm. Input is an arbitrary text file and output
+9       is the compressed file along with an encoding dictionary.  Some
+10      statistics on program efficiency and compression rate are kept.
+11      Two passes by the source file are necessary. On the first pass the
+12      dictionary is built and a record of all characters seen is kept.
+13      Between passes the character record is used to add encodings to the
+14      dictionary entries. During the second pass, long high frequency
+15      strings are replaced by shorter encoding strings as the compressed
+16      file is written. Further information about the technique can be
+17      found in chapter 11 of
 18
-w etherell, c.s. etudes fo r pro g ram m ers. prentice-hall,
-eng lew o o d cliffs, nj. 1978.
-19
-20
+19          Wetherell, C.S.  Etudes For Programmers.  Prentice-Hall,
+20              Englewood Cliffs, NJ. 1978.
 21
-in this versio n of the alg orithm , ends of input lines sto p string
-m atches during dictionary construction and text enco ding ; the
-carriage return is not treated like a character.
-w hose internal representations lie in the range 1 to 127 w ill be
-considered fo r enco ding pairs so that the pairs w ill have
-reasonable print representations. in a full w orking im plem entatio n
-all 256 available characters w ould be used fo r enco ding .
-22
-23
-24 o nly characters
-25
-26
-27
-28
+22      In this version of the algorithm, ends of input lines stop string
+23      matches during dictionary construction and text encoding; the
+24      carriage return is not treated like a character.  Only characters
+25      whose internal representations lie in the range 1 to 127 will be
+26      considered for encoding pairs so that the pairs will have
+27      reasonable print representations. In a full working implementation
+28      all 256 available characters would be used for encoding.
 29
-the dictionary search, entry, and cleanup routines are w ritten
-so that they m ay be changed quite easily.
-the alg o rithm s can be m odified by replacing the bo dies of procedures
-search.dictio nary, clean.dictionary, and build.entry, along w ith
-m aking any necessary changes to prepare.the.pro g ram .
-thresho lds param eters are all calculated by functio ns and can be
-be m od ifed by changing the functio n definitions.
-if there is a data structure added fo r searching , m ake sure that
-build.enco ding .table leaves the structure in good shape after codes
-are added and entries of leng th tw o and less are deleted.
-30
-31
-32
-33
-34 the vario us
-35
-36
-37
-38
-39
+30      The dictionary search, entry, and cleanup routines are written
+31      so that they may be changed quite easily.
+32      The algorithms can be modified by replacing the bodies of procedures
+33      search.dictionary, clean.dictionary, and build.entry, along with
+34      making any necessary changes to prepare.the.program.  The various
+35      thresholds parameters are all calculated by functions and can be
+36      be modifed by changing the function definitions.
+37      If there is a data structure added for searching, make sure that
+38      build.encoding.table leaves the structure in good shape after codes
+39      are added and entries of length two and less are deleted.
 40
-this versio n uses sim ple linear search, a hyperbolic thresho ld
-fo r coalescence, a m ean thresho ld fo r deletion, and an in itial
-count of one fo r coalesced entries.
-41
-42
-43
-44 */
-45 46 /* so m e m acro s to im pro ve xpl as a lang uag e. v
+41      This version uses simple linear search, a hyperbolic threshold
+42      for coalescence, a mean threshold for deletion, and an initial
+43      count of one for coalesced entries.
+44  */
+45
+46  /* Some macros to improve XPL as a language.                            */
 47
-180 compressed solutions
-48 declare lo g ical
-true
-false
-literally 'bit(1)',
-literally ' l' ,
-literally 'o ',
-literally '«v' ,
-49
-50
-51 not /* to im pro ve printing */
-com pute.tim e literally 'co rew o rd(”52 1e312")*2'; /* the clo ck */
+48  declare logical literally 'bit(1)',
+49          true    literally '1',
+50          false   literally '0',
+51          not     literally '~',      /* to improve printing */
+52          compute.time literally 'coreword("1e312")*2'; /* the clock */
 53
-54 /* declaratio ns fo r i/o units v 55
-56 declare so urce.file literally 'l',
-57 echo .file literally '2',
-58 print literally 'o utput(echo .file) =';
+54  /* Declarations for I/O units                                           */
+55
+56  declare source.file literally '1',
+57          echo.file   literally '2',
+58          print literally 'output(echo.file) =';
 59
-60 /* declaratio ns fo r the input ro utine v 61
-62 declare input.buffer character,
-(print.so urce, check.characters) lo g ical,
-character.used("ff") lo g ical; /* i.e. 256 different entries*/
-63
-64
+60  /* Declarations for the input routine                                   */
+61
+62  declare input.buffer character,
+63          (print.source, check.characters) logical,
+64          character.used("ff") logical;   /* i.e. 256 different entries   */
 65
-66 /* declaratio ns fo r the dictio nary v 67
-68 declare dictionary.size literally '100',
-dictionary.string (dictio nary.size) character,
-dictionary.count(dictionary.size) fixed,
-dictionary.code(dictionary.size) character,
-dictionary.usage(dictionary.size) fixed,
-dictionary.top fixed;
-69
-70
-71
-72
-73
+66  /* Declarations for the dictionary                                      */
+67
+68  declare dictionary.size literally '100',
+69          dictionary.string(dictionary.size) character,
+70          dictionary.count(dictionary.size) fixed,
+71          dictionary.code(dictionary.size) character,
+72          dictionary.usage(dictionary.size) fixed,
+73          dictionary.top fixed;
 74
-75 /* co ntro l fo r enco ding print. v 76
-77 declare print.enco ding lo g ical;
+75  /* Control for encoding print.                                          */
+76
+77  declare print.encoding logical;
 78
-79 /* declarations fo r enco ding statistics */
+79  /* Declarations for encoding statistics */
 80
-81 declare search.co m pares fixed,
-build.co m pares fixed,
-com press.com pares fixed;
-82
-83
+81  declare search.compares fixed,
+82          build.compares fixed,
+83          compress.compares fixed;
 84
-85 declare tim e.check(10) fixed;
+85  declare time.check(10) fixed;
 86
-87 declare (input.leng th, output.leng th) fixed;
+87  declare (input.length, output.length) fixed;
 88
-89 i.fo rm at: pro cedure(num ber, w idth) character;
+89  i.format: procedure(number, width) character;
 90
-91 /* functio n i.fo rm at co nverts its arg um ent num ber into a string
-and then pads the string on the left to bring the leng th up
-to w idth characters. all of this is just the fo rtran
-integ er fo rm at.
-92
-93
-94
-95 */
-181 compressed solutions
+91      /* Function i.format converts its argument number into a string
+92         and then pads the string on the left to bring the length up
+93         to width characters. All of this is just the FORTRAN
+94         integer format.
+95      */
 96
-declare num ber fixed,
-w idth fixed;
-97
-98
+97      declare number fixed,
+98              width fixed;
 99
-declare string character,
-blanks character in itial ('
-100
-101
+100     declare string character,
+101             blanks character initial ('                     ');
 102
-string = num ber;
-if leng th(string ) < w idth
-then string = substr(blanks,0,w idth-leng th(string )) || string ;
-return string ;
-103
-104
-105
-106
+103     string = num ber;
+104     if length(string) < width then
+105         string = substr(blanks, 0, width - length(string)) || string;
+106     return string;
 107
-108 end i.fo rm at;
+108 end i.format;
 109
-110 prepare.the.pro g ram : procedure;
+110 prepare.the.program: procedure;
 111
 /* only sim ple clearing of the dictionary, the character record,
 the statistics, and a few scalars is required.
