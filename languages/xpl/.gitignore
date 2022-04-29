@@ -1,3 +1,7 @@
 *.c
 *.xh
 echo
+compr
+*.dSYM
+compress
+text
