@@ -87,13 +87,14 @@ declare (input_length, output_length) fixed;
 
 compute_time: procedure fixed;
 
-    /* the clock in nanoseconds */
+    /* Return the time in nanoseconds,
+       obtained via clock_gettime() system call.
+     */
 
-    declare nsec fixed;
-
-    //TODO: gettimeofday(struct timeval *tv, struct timezone *tz);
-    nsec = inline('0');
-    return nsec;
+    call inline('#include <time.h>');
+    call inline('struct timespec tv;');
+    call inline('clock_gettime(CLOCK_REALTIME, &tv);');
+    return inline('tv.tv_sec * 1000000000 + tv.tv_nsec');
 
 end compute_time;
 
@@ -382,7 +383,7 @@ build_encoding_table: procedure;
             do j = 1 to "7f";   /* loop over seco nd characters */
                 if top = dictionary_top then return;
                 top = top + 1;
-                dictionary_code(top) = ' ' || ' ';
+                dictionary_code(top) = unique(' ' || ' ');
                 byte(dictionary_code(top),0) = i;
                 byte(dictionary_code(top),1) = j;
             end;
@@ -468,13 +469,13 @@ print_summary_statistics: procedure;
                 || compress_compares;
     print '*** time checks in milleseconds ***';
     print '   time to prepare = '
-                || time_check(0) - time_check(1);
+                || time_check(1) - time_check(0);
     print '   time to build dictionary = '
-                || time_check(1) - time_check(2);
+                || time_check(2) - time_check(1);
     print '   encoding table time = '
-                || time_check(2) - time_check(3);
+                || time_check(3) - time_check(2);
     print '   compression time = '
-                || time_check(3) - time_check(4);
+                || time_check(4) - time_check(3);
 
 end print_summary_statistics;
 
@@ -487,12 +488,12 @@ end print_summary_statistics;
 time_check(0) = compute_time;
 source_file = xfopen('text', 'r');
 if source_file < 0 then do;
-    output(1) = 'Cannot open input: "text"';
+    output(1) = 'Cannot open input';
     call exit(1);
 end;
 echo_file = xfopen('compress', 'w');
 if echo_file < 0 then do;
-    output(1) = 'Cannot open output: "compress"';
+    output(1) = 'Cannot open output';
     call exit(1);
 end;
 print '*** begin the text compression. ***';
@@ -507,7 +508,7 @@ time_check(2) = compute_time;
 call build_encoding_table;
 
 if xrewind(source_file) < 0 then do;
-    output(1) = 'Rewind failed.';
+    output(1) = 'Rewind failed';
     call exit(2);
 end;
 search_compares = 0;

@@ -1,10 +1,10 @@
 PROG    = echo compr
-CFLAGS  = -g
+CFLAGS  = -O
 
 all:    $(PROG)
 
 clean:
-	rm -rf *.c *.xh $(PROG)
+	rm -rf *.c *.xh *.dSYM $(PROG)
 
 echo:   echo.xpl
 	xpl $<
