@@ -1,1 +1,1 @@
-XPL to C compiler is available here: https://sourceforge.net/projects/xpl-compiler/
+XPL to C compiler is available here: https://github.com/sergev/xpl-compiler.git
