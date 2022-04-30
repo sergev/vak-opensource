@@ -47,6 +47,7 @@ c1,2=([^[:alnum:]_]|^)(asm|else|if|switch|case|while|for|goto|break\
  |continue|char|short|int|long|unsigned|signed|auto\
  |const|default|do|double|enum|extern|float|register\
  |return|sizeof|static|struct|typedef|union|void|volatile\
+ |bool|true|false\
 )([^[:alnum:]_]|$)
 c2=\\[|\\]|\\(|\\)|{|}|,
 
@@ -60,10 +61,11 @@ c1,2=([^[:alnum:]_]|^)(auto|extrn|goto|return|if|while|else\
 c2=\\[|\\]|\\(|\\)|{|}|,
 
 # C++ mode (lav)
-/*.cc|*.C|*.cpp|*.cpp-|*.h|*.h-|*.h.in|*.hh|*.hpp|*.H|*.pde|*.ino|/-\*- *c\+\+ *-\*-
+/*.cc|*.C|*.cpp|*.cpp-|*.h|*.h-|*.h.in|*.hh|*.hpp|*.H|*.pde|*.ino|*.yy|*.ll|/-\*- *c\+\+ *-\*-
 i=c++-comment
 i=cpp
-i=c-literal
+c5="([^"\n\\]|\\\\(.|\n))*"|'([^'\n\\]|\\\\.)*'
+c5,2=([^[:alnum:]_])((0[xX][[:xdigit:]]+)|([0-9]+))
 c1,2=([^[:alnum:]_]|^)(asm|else|if|switch|case|while|for|goto|break\
  |continue|char|short|int|long|unsigned|signed|auto\
  |const|default|do|double|enum|extern|float|register\
@@ -78,7 +80,7 @@ c1,2=([^[:alnum:]_]|^)(asm|else|if|switch|case|while|for|goto|break\
 c2=\\[|\\]|\\(|\\)|{|}|,|<%|%>|<:|:>|\?\?[<>()=/'!-]|=
 
 # Go mode (vak)
-/*.go|*.gy|*.go-|/-\*- *go *-\*-
+/*.go|*.gy|*.nex|*.go-|/-\*- *go *-\*-
 c3=//.*$|/\\*(?:.|\n)*?\\*/
 c6="([^"\n\\]|\\\\(.|\n))*"|'([^'\n\\]|\\\\.)*'
 c6=`[^`]*`
@@ -93,7 +95,7 @@ c1,2=([^[:alnum:]_]|^)(append|bool|break|byte|cap|case|chan|close|complex\
 c2=\\[|\\]|\\(|\\)|{|}|,|:=|&&|&|\|\||==|!=|\*
 
 # Rust mode (vak)
-/*.rs|/-\*- *rust *-\*-
+/*.rs|*.rs-|/-\*- *rust *-\*-
 i=c++-comment
 i=cpp
 c4="([^"\n\\]|\\\\(.|\n))*"
@@ -102,9 +104,20 @@ c4=`[^`]*`
 c5,2=([^[:alnum:]_])((0[xX][[:xdigit:]]+)|([0-9]+))
 c1,2=([^[:alnum:]_]|^)(match|if|else|for|loop|while|type|struct|enum|union\
 |as|break|box|continue|extern|fn|in|impl|let|macro|pub|return|yield|super\
-|where|unsafe|use|mod|trait|move|mut|ref|static|const\
+|where|unsafe|use|mod|trait|move|mut|ref|static|const|dyn|async\
 )([^[:alnum:]_]|$)
 c2=\\[|\\]|\\(|\\)|{|}|,|::
+
+# XPL mode (vak)
+/*.xpl
+c3=//.*$|/\\*(?:.|\n)*?\\*/
+c6="([^"\n\\]|\\\\(.|\n))*"|'([^'\n\\]|\\\\.)*'
+c5=(0[0-7]*)|([1-9][0-9]*)|(0x[0-9a-fA-F]+)
+c1,2=([^[:alnum:]_]|^)(bit|declare|external|initial|return|xor|by|do|fixed\
+|label|then|call|else|go|literally|to|case|end|goto|mod|transparent|character\
+|eof|if|procedure|while\
+)([^[:alnum:]_]|$)
+c2=\|\|
 
 # named.conf mode (lav)
 /named.conf|/-\*- *(named|bind) *-\*-
@@ -736,3 +749,39 @@ c1==|\||{|}|\[|\]|/|;|+
 c4="[^"]*"
 c1,2=([^[:alnum:]_]|^)(Identifier\
 )([^[:alnum:]_]|$)
+
+# Algol-60 files, by Serge Vakulenko <vak@cronyx.ru>
+/*.alg
+c3=comment.*;
+c1==|\(|\)|,|/|\$
+c2='[^']+?'
+c1,2=([^[:alnum:]_]|^)(begin|integer|real|array|if|else|proc|return|goto\
+|end|value|label|true|false|boolean|then|procedure|string|while|do|for\
+|step|until|and|or\
+)([^[:alnum:]_]|$)
+c5=[0-9][0-9]*|&.
+
+# Algol-68 files, by Serge Vakulenko <vak@cronyx.ru>
+/*.a68|*.al
+c3=#[^#]*#
+c1==|\(|\)|,|/|\$|:=|<=|>=
+c2="[^"]+?"
+c1,2=([^[:alnum:]_]|^)(PROGRAM|CONTEXT|VOID|USE|BEGIN|END|PROC|INT\
+|FOR|FROM|TO|DO|OD|IF|THEN|ELSE|FI|FINISH|ABS|MOD|MODE|STRUCT|SEMA|REF\
+|LEVEL|NEW|DOWN|OF|UP|PAR|PLUSAB|NIL|WHILE|ISNT|AND|IS|HEAP|STRING\
+)([^[:alnum:]_]|$)
+c5,2=([^[:alnum:]_]|^)([0-9][0-9]*|&.)
+
+# Qt QML files, by Serge Vakulenko
+/*.qml
+c3=//.*$|/\\*(?:.|\n)*?\\*/
+c1=:|{|}|=
+c1=\ [a-z]+:
+c6=""|"[^"]+?"
+c1,2=([^[:alnum:]_]|^)(import|property|signal|alias|qsTr\
+|[a-zA-Z.]+:)([^[:alnum:]_]|$)
+c4,2=([^[:alnum:]_]|^)(Item|Rectangle|Text|Grid|MouseArea|State|Transition\
+|ParallelAnimation|NumberAnimation|ColorAnimation|PropertyChanges\
+|ApplicationWindow|MenuBar|Menu|MenuItem|Button\
+|[a-zA-Z.]+:)([^[:alnum:]_]|$)
+c5,2=([^[:alnum:]_]|^)([0-9][0-9]*|&.)
