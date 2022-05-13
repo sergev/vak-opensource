@@ -74,8 +74,8 @@ if minute == 0:
     mc = open_media_controller("c854c4ea-517a-29cf-e083-1e63659ea1c6", "192.168.86.75", 8009)
 
     # Play a chime, to get attention.
-    play_media(mc, "http://166.84.7.114/pub/media/talking-clock/service-login.oga", "application/ogg")
+    play_media(mc, "https://pub.sergev.org/media/talking-clock/service-login.oga", "application/ogg")
 
     # Speak the hour.
     filename = f"{hour:02d}_ru.mp3"
-    play_media(mc, "http://166.84.7.114/pub/media/talking-clock/" + filename, "audio/mpeg")
+    play_media(mc, "https://pub.sergev.org/media/talking-clock/" + filename, "audio/mpeg")

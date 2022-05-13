@@ -1,0 +1,62 @@
+#!/bin/sh
+#
+# Перекодирование кириллицы КОИ8-Windows-DOS-Mac-Unicode,
+# в любом направлении, с применением iconv(1).
+# Рекомендуется установить этот скрипт с именами:
+#     koi-utf
+#     win-utf
+#     dos-utf
+#     mac-utf
+#     utf-koi
+#     utf-win
+#     utf-dos
+#     utf-mac
+#
+# Copyright (C) 2009 Serge Vakulenko <serge@vak.ru>
+#
+# This file is distributed in the hope that it will be useful, but WITHOUT
+# ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+# FITNESS FOR A PARTICULAR PURPOSE.
+#
+# You can redistribute this file and/or modify it under the terms of the GNU
+# General Public License (GPL) as published by the Free Software Foundation;
+# either version 2 of the License, or (at your discretion) any later version.
+# See the accompanying file "COPYING.txt" for more details.
+#
+prog=`basename $0`
+
+case "$prog" in
+koi-*)	from="KOI8-R"		;;
+dos-*)	from="CP866"		;;
+win-*)	from="CP1251"		;;
+mac-*)	from="MAC-CYRILLIC"	;;
+utf-*)	from="UTF-8"		;;
+*)	echo "$prog: unknown source encoding"; exit 0
+esac
+
+case "$prog" in
+*-koi)	to="KOI8-R"		;;
+*-dos)	to="CP866"		;;
+*-win)	to="CP1251"		;;
+*-mac)	to="MAC-CYRILLIC"	;;
+*-utf)	to="UTF-8"		;;
+*)	echo "$prog: unknown target encoding"; exit 0
+esac
+
+if [ $# = 0 ]; then
+	tty=`tty`
+	tty=`dirname "$tty"`
+	if [ "$tty" = "/dev" -o "$tty" = "/dev/pts" ]; then
+		echo "Change text encoding from '$from' to '$to'."
+		echo "Usage:"
+		echo "        $prog [filename...]"
+		exit 0
+	fi
+	iconv -f "$from" -t "$to"
+	exit 0
+fi
+
+tmp=./iconv$$.tmp
+for file in $*; do
+	iconv -f "$from" -t "$to" -o $tmp $file && mv $tmp $file
+done
