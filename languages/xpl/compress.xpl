@@ -456,7 +456,7 @@ print_summary_statistics: procedure;
         print '' || dictionary_code(i) || ' '
                  || i_format(dictionary_count(i), 9) || ' '
                  || i_format(dictionary_usage(i), 9)
-                 || ' |' || dictionary_string(i) || '|';
+                 || '   |' || dictionary_string(i) || '|';
     end;
     print '';
     print '   characters in input = ' || input_length;
@@ -479,46 +479,54 @@ print_summary_statistics: procedure;
 
 end print_summary_statistics;
 
-/* The main routine must assign the I/O units to files, initialize
-   needed variables, call the dictionary construction algorithm, build
-   the encoding table, and then encode the output.  Most of this work
-   is done in called procedures.
-*/
+compress_file: procedure(input_filename, output_filename);
 
-time_check(0) = compute_time;
-source_file = xfopen('text', 'r');
-if source_file < 0 then do;
-    output(1) = 'Cannot open input';
-    call exit(1);
-end;
-echo_file = xfopen('compress', 'w');
-if echo_file < 0 then do;
-    output(1) = 'Cannot open output';
-    call exit(1);
-end;
-print '*** begin the text compression. ***';
-print '';
+    /* The main routine must assign the I/O units to files, initialize
+       needed variables, call the dictionary construction algorithm, build
+       the encoding table, and then encode the output.  Most of this work
+       is done in called procedures.
+    */
 
-call prepare_the_program;
-print_source = true; check_characters = true;
-time_check(1) = compute_time;
-call build_dictionary;
-build_compares = search_compares;
-time_check(2) = compute_time;
-call build_encoding_table;
+    declare (input_filename, output_filename) character;
 
-if xrewind(source_file) < 0 then do;
-    output(1) = 'Rewind failed';
-    call exit(2);
-end;
-search_compares = 0;
-print_source, check_characters = false;
-print_encoding = true;
-time_check(3) = compute_time;
-call compress_text;
-compress_compares = search_compares;
+    time_check(0) = compute_time;
+    source_file = xfopen(input_filename, 'r');
+    if source_file < 0 then do;
+        output(1) = 'Cannot open input';
+        call exit(1);
+    end;
+    echo_file = xfopen(output_filename, 'w');
+    if echo_file < 0 then do;
+        output(1) = 'Cannot open output';
+        call exit(1);
+    end;
+    print '*** begin the text compression. ***';
+    print '';
 
-time_check(4) = compute_time;
-call print_summary_statistics;
+    call prepare_the_program;
+    print_source = true; check_characters = true;
+    time_check(1) = compute_time;
+    call build_dictionary;
+    build_compares = search_compares;
+    time_check(2) = compute_time;
+    call build_encoding_table;
+
+    if xrewind(source_file) < 0 then do;
+        output(1) = 'Rewind failed';
+        call exit(2);
+    end;
+    search_compares = 0;
+    print_source, check_characters = false;
+    print_encoding = true;
+    time_check(3) = compute_time;
+    call compress_text;
+    compress_compares = search_compares;
+
+    time_check(4) = compute_time;
+    call print_summary_statistics;
+
+end compress_file;
+
+call compress_file('text', 'compress');
 
 eof eof eof eof eof eof
