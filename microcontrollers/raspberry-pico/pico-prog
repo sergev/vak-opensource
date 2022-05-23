@@ -1,0 +1,16 @@
+#!/bin/sh
+
+if [[ $# -ne 1 ]]; then
+    echo "Usage: pico-prog <file>"
+else
+    file="$1"
+    openocd -f interface/picoprobe.cfg \
+            -f target/rp2040.cfg \
+            -c "echo { ____}" \
+            -c "echo {|  _ \ _ __ ___   __ _ _ __ __ _ _ __ ___}" \
+            -c "echo {| |_) | '__/ _ \ / _' | '__/ _' | '_ ' _ \ }" \
+            -c "echo {|  __/| | | (_) | (_| | | | (_| | | | | | |}" \
+            -c "echo {|_|   |_|  \___/ \__, |_|  \__,_|_| |_| |_|}" \
+            -c "echo {                 |___/}" \
+            -c "program $file verify reset exit"
+fi

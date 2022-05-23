@@ -1,0 +1,4 @@
+#!/bin/sh
+
+set -x
+minicom -D /dev/tty.usbmodem14301 -b 115200

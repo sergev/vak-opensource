@@ -1,0 +1,13 @@
+#!/bin/sh
+
+#set -x
+openocd -f interface/picoprobe.cfg \
+        -f target/rp2040.cfg \
+        -c "init" \
+        -c "echo { ____                _}" \
+        -c "echo {|  _ \ ___  ___  ___| |_}" \
+        -c "echo {| |_) / _ \/ __|/ _ \ __|}" \
+        -c "echo {|  _ <  __/\__ \  __/ |_}" \
+        -c "echo {|_| \_\___||___/\___|\__|}" \
+        -c "reset" \
+        -c "exit"
