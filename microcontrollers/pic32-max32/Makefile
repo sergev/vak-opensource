@@ -1,20 +1,29 @@
-P               = /usr/local/mips-gcc-4.8.1/bin/mips-elf-
-CC              = $(P)gcc -mips32r2 -EL -g -nostdlib
-OBJCOPY         = $(P)objcopy
-OBJDUMP         = $(P)objdump
-GDB             = /usr/local/mips/insight70/bin/mips-elf-insight
-CFLAGS          = -O -Wall -Werror -DPIC32MX7
-LDFLAGS         = -T using-bootloader.ld -e _start
+# GNU toolchain.
+#P               = /usr/local/mips-gcc-4.9.4/bin/mips-elf-
+#CC              = $(P)gcc -EL -mips32r2 -g -nostdlib
+#LD              = $(P)ld -EL -mips32r2 -g
+#OBJCOPY         = $(P)objcopy --change-addresses=0x80000000
+#OBJDUMP         = $(P)objdump -mmips:isa32r2
+
+# LLVM toolchain and GNU linker.
+P               = /usr/local/toolchain-mips/bin
+CC              = $(P)/clang -target mipsel -mcpu=mips32r2 -mabi=o32 -mfloat-abi=soft -g -nostdlib \
+                  -finline-hint-functions
+LD              = $(P)/mips-elf-ld -EL -mips32r2 -g
+OBJCOPY         = $(P)/llvm-objcopy
+OBJDUMP         = $(P)/llvm-objdump --mcpu=mips32r2
 
 PROG            = uart
+CFLAGS          = -O -Wall -Werror -DPIC32MX7 -fomit-frame-pointer
+LDFLAGS         = -T using-bootloader.ld -e _start
 
 all:            $(PROG).hex
 
 $(PROG).hex:    $(PROG).c
 		$(CC) $(CFLAGS) -c $<
-		$(CC) $(LDFLAGS) $(PROG).o -o $(PROG).elf
-		$(OBJCOPY) -O ihex --change-addresses=0x80000000 $(PROG).elf $(PROG).hex
-		$(OBJDUMP) -mmips:isa32r2 -d -S $(PROG).elf > $(PROG).dis
+		$(LD) $(LDFLAGS) $(PROG).o -o $(PROG).elf
+		$(OBJCOPY) -O ihex $(PROG).elf $(PROG).hex
+		$(OBJDUMP) -d -S $(PROG).elf > $(PROG).dis
 
 load:           $(PROG).hex
 		pic32prog $(PROG).hex

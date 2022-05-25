@@ -33,13 +33,13 @@ asm ("          .text");
  * which increments at half CPU rate.
  * We use it to get a precise delay.
  */
-void udelay (unsigned usec)
+void udelay(unsigned usec)
 {
-    unsigned now = mfc0 (C0_COUNT, 0);
+    unsigned now = mfc0(C0_COUNT, 0);
     unsigned final = now + usec * MHZ / 2;
 
     for (;;) {
-        now = mfc0 (C0_COUNT, 0);
+        now = mfc0(C0_COUNT, 0);
 
         /* This comparison is valid only when using a signed type. */
         if ((int) (now - final) >= 0)
@@ -50,7 +50,7 @@ void udelay (unsigned usec)
 /*
  * Send a byte to the UART transmitter, with interrupts disabled.
  */
-void putch (unsigned char c)
+void putch(unsigned char c)
 {
     /* Wait for transmitter shift register empty. */
     while (! (U1STA & PIC32_USTA_TRMT))
@@ -73,7 +73,7 @@ again:
 /*
  * Send a string to UART.
  */
-void putstr (char *str)
+void putstr(char *str)
 {
     while (*str)
         putch(*str++);
@@ -82,7 +82,7 @@ void putstr (char *str)
 int main()
 {
     /* Initialize UART. */
-    U1BRG = PIC32_BRG_BAUD (MHZ * 500000, 115200);
+    U1BRG = PIC32_BRG_BAUD(MHZ * 500000, 115200);
     U1STA = 0;
     U1MODE = PIC32_UMODE_PDSEL_8NPAR |      /* 8-bit data, no parity */
              PIC32_UMODE_ON;                /* UART Enable */
@@ -90,20 +90,20 @@ int main()
                PIC32_USTA_UTXEN;            /* Transmit Enable */
 
     while (1) {
-        putstr ("\r\nHello, World!\r\n");
+        putstr("\r\nHello, World!\r\n");
 
         /* Stop simulation. */
-        asm volatile ("sltiu $zero, $zero, 0xABC2");
+        asm volatile ("sltiu $zero, $zero, -0x543e");
 
-        putch ('.'); udelay (1000000);
-        putch ('.'); udelay (1000000);
-        putch ('.'); udelay (1000000);
-        putch ('.'); udelay (1000000);
-        putch ('.'); udelay (1000000);
-        putch ('.'); udelay (1000000);
-        putch ('.'); udelay (1000000);
-        putch ('.'); udelay (1000000);
-        putch ('.'); udelay (1000000);
-        putch ('.'); udelay (1000000);
+        putch('.'); udelay(1000000);
+        putch('.'); udelay(1000000);
+        putch('.'); udelay(1000000);
+        putch('.'); udelay(1000000);
+        putch('.'); udelay(1000000);
+        putch('.'); udelay(1000000);
+        putch('.'); udelay(1000000);
+        putch('.'); udelay(1000000);
+        putch('.'); udelay(1000000);
+        putch('.'); udelay(1000000);
     }
 }
