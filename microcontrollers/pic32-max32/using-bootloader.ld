@@ -1,8 +1,10 @@
 /*
  * Linker script for PIC32 MX5/6/7 firmware using HID bootloader.
  */
+/*
 OUTPUT_FORMAT("elf32-littlemips", "elf32-bigmips",
 	      "elf32-littlemips")
+*/
 OUTPUT_ARCH(mips)
 ENTRY(_reset_vector_)
 MEMORY
@@ -27,7 +29,7 @@ SECTIONS
   {
     /* Exception handlers. */
     *(.exception)
-    . = 0x1000;
+    . = ALIGN (0x1000);
     /* Execution starts here. */
     *(.startup)
     *(.text .stub .text.* .gnu.linkonce.t.*)
@@ -35,7 +37,7 @@ SECTIONS
     *(.gnu.warning)
     *(.glue_7t) *(.glue_7)
     __rodata_start = . ;
-    *(.rodata .rodata.* .gnu.linkonce.r.* .rel.dyn)
+    *(.rodata .rodata.* .gnu.linkonce.r.* /*.rel.dyn*/)
     *(.dinit)
     /* Align here to ensure that the .text section ends on word boundary. */
     . = ALIGN (32 / 8);
@@ -108,4 +110,6 @@ SECTIONS
   .debug_pubtypes 0 : { *(.debug_pubtypes) }
   .debug_ranges   0 : { *(.debug_ranges) }
   .gnu.attributes 0 : { KEEP (*(.gnu.attributes)) }
+
+  /DISCARD/ : { *(.reginfo) *(.MIPS.abiflags) *(.got.plt) *(.got) }
 }
