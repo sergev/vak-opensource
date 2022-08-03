@@ -20,6 +20,9 @@ async:  async.cpp
 streambuf: streambuf.cpp
 	$(CXX) $(LDFLAGS) $(CFLAGS) $< -o $@
 
+map: map.cpp
+	$(CXX) $(LDFLAGS) $(CFLAGS) $< -o $@
+
 lol:    lol.cpp
 	clang++ -std=c++11 $< -o $@
 
