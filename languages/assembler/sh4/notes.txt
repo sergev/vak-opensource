@@ -1,0 +1,15 @@
+
+Linux syscalls:
+
+in:
+	r0 : arg 4
+	r1 : arg 5
+	r3 : syscall number
+	r4 : arg 0
+	r5 : arg 1
+	r6 : arg 2
+	r7 : arg 3
+	Then execute 'trapa #17'
+
+out:
+	r0 : return value
