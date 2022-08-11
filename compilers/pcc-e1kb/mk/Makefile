@@ -7,14 +7,13 @@
 #
 #-------------------------------------------------------
 
-SHELL   = /bin/sh
 INSTALL = /usr/SVSB
 M       = ../mip
 P       = ../pcc
 C       = $(CFLAGS) -I$(M) -I$(P) -DFLEXNAMES $(ITM)
-CFLAGS  = -O #-M2l
-LDFLAGS = #-M2l
-
+CFLAGS  = -std=c89 -Wno-implicit-function-declaration -Wno-return-type
+LDFLAGS =
+YACC    = byacc
 
 all:    ccom
 
@@ -52,7 +51,7 @@ cgram.o: $(M)/manifest $(M)/mfile1 $(P)/macdefs cgram.c
 	$(CC) -c $(C) cgram.c
 
 cgram.c: $(M)/cgram.y
-	yacc $(M)/cgram.y
+	$(YACC) $(M)/cgram.y
 	mv y.tab.c cgram.c
 
 comm1.o: $(M)/manifest $(M)/mfile1 $(M)/common $(P)/macdefs $(M)/comm1.c

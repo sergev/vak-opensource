@@ -36,6 +36,8 @@ extern ddebug;
 
 extern OFFSZ tsize ();
 
+static int paintcast(NODE *p, int t);
+
 NODE *
 buildtree( o, l, r ) register NODE *l, *r; {
 	register NODE *p, *q;
@@ -519,7 +521,7 @@ buildtree( o, l, r ) register NODE *l, *r; {
 
 	}
 
-static
+static int
 paintcast(p, t)			/* can we paint type t onto ICON *p? */
 register NODE *p;
 register int t;

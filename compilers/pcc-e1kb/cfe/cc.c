@@ -47,7 +47,6 @@ char *tmpc = "/tmp/cccXXXXXX";
 char *outfile;
 char *savestr (), *setsuf ();
 int idexit ();
-extern char *mktemp (), *malloc (), *strncpy ();
 char *av [MAXARGC], *clist [MAXARGC], *llist [MAXARGC], *plist [MAXARGC];
 int cflag, errflag, Pflag, Sflag, Eflag, pflag, gflag, aflag, Oflag;
 int xflag, Xflag, mflag, vflag, Mflag, Aflag, Lflag;
@@ -57,7 +56,7 @@ int nc, nl, np, nxo, na;
 
 char msg;
 
-initmsg ()
+void initmsg ()
 {
 	register char *p;
 	extern char *getenv ();
@@ -65,8 +64,7 @@ initmsg ()
 	msg = (p = getenv ("MSG")) && *p == 'r';
 }
 
-main (argc, argv)
-char **argv;
+int main (int argc, char **argv)
 {
 	char *t;
 	char *assource;
@@ -313,13 +311,13 @@ load:
 	dexit ();
 }
 
-idexit ()
+void idexit ()
 {
 	errflag++;
 	dexit ();
 }
 
-dexit ()
+void dexit ()
 {
 	if (!Pflag) {
 		if (!Sflag) unlink (tmps);
@@ -333,7 +331,7 @@ dexit ()
 
 /* VARARGS1 */
 
-error (s, x)
+void error (s, x)
 char *s, *x;
 {
 	fprintf (stderr, "cc: ");
@@ -343,7 +341,7 @@ char *s, *x;
 	errflag++;
 }
 
-getsuf (as)
+int getsuf (as)
 char as[];
 {
 	register int c;
@@ -371,7 +369,7 @@ char *as;
 	return (s1);
 }
 
-callsys (f, v)
+int callsys (f, v)
 char *f, **v;
 {
 	int t, status;
@@ -404,7 +402,7 @@ char *f, **v;
 	return ((status >> 8) & 0377);
 }
 
-nodup (l, os)
+int nodup (l, os)
 char **l, *os;
 {
 	register char *t, *s;

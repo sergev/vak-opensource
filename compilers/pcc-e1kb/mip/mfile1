@@ -109,7 +109,7 @@ union ndu {
 		NODE *left;
 		NODE * right;
 		}in; /* interior node */
-	
+
 	struct {
 		/* this structure is the same as above,
 		   but is used when a value, rather than
@@ -123,7 +123,7 @@ union ndu {
 # endif
 		int rval;
 		}tn; /* terminal node */
-	
+
 	struct {
 		/* this structure is used when a floating point constant
 		   is being computed */
@@ -270,6 +270,7 @@ TWORD	types();
 double atof();
 
 char *exname(), *exdcon();
+
 
 # define checkst(x)
 

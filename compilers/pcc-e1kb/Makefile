@@ -7,8 +7,8 @@
 #
 SHELL   = /bin/sh
 INSTALL = /usr/SVSB
-CFLAGS  = -M2l -LARGE
-LDFLAGS = -M2l
+CFLAGS  =
+LDFLAGS =
 
 DIRS    = h cfe cpp m4 mix mk # tst/libtst tst/libtst/tst0 stand
 

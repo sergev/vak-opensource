@@ -1,8 +1,7 @@
 
-SHELL   = /bin/sh
 INSTALL = /usr/SVSB
 CFLAGS  =
-CC      = /bin/cc
+CC      = cc
 cc      = cc
 cc2     = cc2
 
