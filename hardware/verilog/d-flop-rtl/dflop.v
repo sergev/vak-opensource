@@ -36,7 +36,7 @@ module main;
     //
     assign #1 k = ~(l | n);
     assign #1 l = ~(k | cp);
-    assign #1 m = ~(l | cp);
+    assign #2 m = ~(l | cp); // Note: longer delay to avoid glitches
     assign #1 n = ~(m | d);
     assign #1 q = ~(l | nq);
     assign #1 nq = ~(m | q);
