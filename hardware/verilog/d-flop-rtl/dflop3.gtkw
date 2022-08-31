@@ -1,0 +1,36 @@
+[*]
+[*] GTKWave Analyzer v3.3.87 (w)1999-2017 BSI
+[*] Thu Aug 11 07:30:02 2022
+[*]
+[dumpfile] "dflop3.vcd"
+[dumpfile_mtime] "Thu Aug 11 07:28:35 2022"
+[dumpfile_size] 940
+[savefile] "dflop3.gtkw"
+[timestart] 0
+[size] 1395 600
+[pos] -1 -1
+*-5.332654 122 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_width] 193
+[signals_width] 78
+[sst_expanded] 1
+[sst_vpaned_height] 167
+@28
+main.cp
+main.d
+@201
+-
+@28
+main.q
+@200
+-
+@28
+main.k
+main.l
+main.m
+main.n
+@200
+-
+@28
+main.nq
+[pattern_trace] 1
+[pattern_trace] 0

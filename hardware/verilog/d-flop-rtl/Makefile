@@ -1,10 +1,13 @@
 VFLAGS          =
-SRCS            = dflop.v
+ALL             = dflop dflop3
 
-all:            dflop
+all:            $(ALL)
 
-dflop:          $(SRCS)
-		iverilog $(VFLAGS) -o $@ $(SRCS)
+dflop:          dflop.v
+		iverilog $(VFLAGS) -o $@ $<
+
+dflop3:         dflop3.v
+		iverilog $(VFLAGS) -o $@ $<
 
 clean:
-		rm -f dflop
+		rm -f $(ALL)
