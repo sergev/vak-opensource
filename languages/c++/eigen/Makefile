@@ -1,4 +1,5 @@
-CXXFLAGS= -std=c++14 -Wall -Werror -g -I /usr/local/Cellar/eigen/3.*/include/eigen3
+EIGEN3  = $(shell pkg-config --cflags eigen3)
+CXXFLAGS= -std=c++14 -Wall -Werror -g -O $(EIGEN3)
 LDFLAGS = -g
 
 convolve: convolve.o

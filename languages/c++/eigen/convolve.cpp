@@ -28,12 +28,12 @@ bool almost_equal(float x, float y)
 {
     float maxval = std::max({
         1.0f,
-        std::fabsf(x),
-        std::fabsf(y),
+        std::fabs(x),
+        std::fabs(y),
     });
     float epsilon = maxval * std::numeric_limits<float>::epsilon();
 
-    return std::fabsf(x - y) <= epsilon;
+    return std::fabs(x - y) <= epsilon;
 }
 
 int main()
