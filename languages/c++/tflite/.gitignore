@@ -1,0 +1,5 @@
+*.o
+tflite_model_parse
+*.tflite
+*.fbs
+schema_*.h
