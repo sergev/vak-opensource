@@ -21,3 +21,6 @@ schema.fbs:
 	wget https://github.com/tensorflow/tensorflow/raw/master/tensorflow/lite/schema/schema.fbs
 
 tflite_model_parse.o: tflite_model_parse.cpp schema_tflite.h
+
+mnist.tflite:
+	wget https://github.com/tutorials-with-ci/tflite-model-parse/raw/master/model/mnist.tflite
