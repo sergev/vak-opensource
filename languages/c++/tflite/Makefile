@@ -11,8 +11,8 @@ clean:
 tflite_model_parse: $(OBJS)
 	$(CXX) $(LDFLAGS) $(OBJS) -o $@
 
-run:    tflite_model_parse
-	./tflite_model_parse
+run:    tflite_model_parse mnist.tflite
+	./tflite_model_parse mnist.tflite
 
 schema_tflite.h: schema.fbs
 	flatc -c schema.fbs --gen-mutable --filename-suffix _tflite

@@ -20,10 +20,15 @@ void PrintVector(const flatbuffers::Vector<T> &values)
     printf("]\n");
 }
 
-int main()
+int main(int argc, char *argv[])
 {
+    if (argc != 2) {
+        printf("Usage: %s model.tflite\n", argv[0]);
+        return 1;
+    }
+
     std::ifstream infile;
-    infile.open("mnist.tflite", std::ios::binary | std::ios::in);
+    infile.open(argv[1], std::ios::binary | std::ios::in);
     infile.seekg(0, std::ios::end);
     int length = infile.tellg();
     infile.seekg(0, std::ios::beg);
@@ -69,7 +74,7 @@ int main()
     PrintVector(scales);
     printf("Input Quanzation Zero-Points: ");
     PrintVector(*input_quantization.zero_point());
-
+#if 0
     auto &output_quantization = *output_tensor.mutable_quantization();
     printf("Output Quanzation Scales: ");
     PrintVector(*output_quantization.scale());
@@ -80,4 +85,5 @@ int main()
     outfile.open("mnist_mutated.tflite", std::ios::binary | std::ios::out);
     outfile.write(data.data(), length);
     outfile.close();
+#endif
 }
