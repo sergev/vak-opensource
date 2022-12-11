@@ -3,7 +3,7 @@
 // $ scala hello.scala abra cadabra
 //
 object Hello {
-    def main(args: Array[String]) {
+    def main(args: Array[String]) = {
         // Print string.
         println("Hello!")
 
