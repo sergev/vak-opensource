@@ -39,7 +39,7 @@ c2,7=^si?(\\()[^\n]+(\\))[0-9]*(=)
 c2=^/
 
 # C language mode (lav)
-/*.c|*.c-|*.td|*.y|*.l|*.ino|/-\*- *c *-\*-
+/*.c|*.c-|*.td|*.y|*.l|*.ino|*.md|/-\*- *c *-\*-
 i=c++-comment
 i=cpp
 i=c-literal
@@ -74,7 +74,7 @@ c1,2=([^[:alnum:]_]|^)(asm|else|if|switch|case|while|for|goto|break\
  |inline|bool|true|false|operator|overload|template|friend|namespace|using\
  |typeid|dynamic_cast|const_cast|static_cast|reinterpret_cast|typename|explicit\
  |nullptr|constexpr|decltype|static_assert|noexcept|alignas|alignof|override|final\
- |mutable|thread_local|char(16|32)_t|wchar_t|export\
+ |mutable|thread_local|char(16|32)_t|wchar_t|export|import|module\
  |bitand|bitor|compl|(and|not|or|xor)(_eq)?\
 )([^[:alnum:]_]|$)
 c2=\\[|\\]|\\(|\\)|{|}|,|<%|%>|<:|:>|\?\?[<>()=/'!-]|=
@@ -118,6 +118,19 @@ c1,2=([^[:alnum:]_]|^)(bit|declare|external|initial|return|xor|by|do|fixed\
 |eof|if|procedure|while\
 )([^[:alnum:]_]|$)
 c2=\|\|
+
+# Scala mode (vak)
+/*.scala
+i=c++-comment
+i=cpp
+c5="([^"\n\\]|\\\\(.|\n))*"|'([^'\n\\]|\\\\.)*'
+c5,2=([^[:alnum:]_])((0[xX][[:xdigit:]]+)|([0-9]+))
+c1,2=([^[:alnum:]_]|^)(abstract|case|catch|class|def|do|else|extends|false|final\
+|finally|for|forSome|if|implicit|import|lazy|match|new|null|object|override\
+|package|private|protected|return|sealed|super|this|throw|trait|true|try|type\
+|val|var|while|with|yield\
+)([^[:alnum:]_]|$)
+c2=>:|⇒|=>|=|<%|<:|←|<-|#|@|:|_
 
 # named.conf mode (lav)
 /named.conf|/-\*- *(named|bind) *-\*-
