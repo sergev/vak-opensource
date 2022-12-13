@@ -2,10 +2,10 @@
 // Trivial solution: it runs in O(n^2) time.
 //
 fn two_sum(nums: Vec<i32>, target: i32) -> Vec<i32> {
-    for (i, a) in nums.iter().enumerate() {
-        for (j, b) in nums[i+1..].iter().enumerate() {
+    for (j, b) in nums.iter().enumerate() {
+        for (i, a) in nums[..j].iter().enumerate() {
             if a + b == target {
-                return vec![i as i32, (j + i + 1) as i32];
+                return vec![i as i32, j as i32];
             }
         }
     }
@@ -58,11 +58,11 @@ fn two_sum_3(nums: Vec<i32>, target: i32) -> Vec<i32> {
     use std::collections::HashMap;
     let mut complements: HashMap<i32, i32> = HashMap::new();
 
-    for (i, num) in nums.iter().enumerate() {
-        if let Some(&index) = complements.get(num) {
-            return vec![index, i as i32];
+    for (j, num) in nums.iter().enumerate() {
+        if let Some(&i) = complements.get(num) {
+            return vec![i, j as i32];
         }
-        complements.insert(target - num, i as i32);
+        complements.insert(target - num, j as i32);
     }
     panic!("no solution");
 }
