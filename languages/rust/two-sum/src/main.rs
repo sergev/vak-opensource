@@ -1,4 +1,21 @@
+//
+// Trivial solution: it runs in O(n^2) time.
+//
 fn two_sum(nums: Vec<i32>, target: i32) -> Vec<i32> {
+    for (i, a) in nums.iter().enumerate() {
+        for (j, b) in nums[i+1..].iter().enumerate() {
+            if a + b == target {
+                return vec![i as i32, (j + i + 1) as i32];
+            }
+        }
+    }
+    panic!("no solution");
+}
+
+//
+// Functional approach: also O(n^2) time.
+//
+fn two_sum_2(nums: Vec<i32>, target: i32) -> Vec<i32> {
     //
     // Pair each number with it's index.
     // For example: [(2, 0), (7, 1), (11, 2), (15, 3)]
@@ -37,7 +54,7 @@ fn two_sum(nums: Vec<i32>, target: i32) -> Vec<i32> {
 //
 // More efficient solution: it runs in linear time.
 //
-fn two_sum_2(nums: Vec<i32>, target: i32) -> Vec<i32> {
+fn two_sum_3(nums: Vec<i32>, target: i32) -> Vec<i32> {
     use std::collections::HashMap;
     let mut complements: HashMap<i32, i32> = HashMap::new();
 
@@ -47,9 +64,7 @@ fn two_sum_2(nums: Vec<i32>, target: i32) -> Vec<i32> {
         }
         complements.insert(target - num, i as i32);
     }
-
-    // No solution
-    vec![]
+    panic!("no solution");
 }
 
 #[cfg(test)]
