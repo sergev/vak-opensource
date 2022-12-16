@@ -56,7 +56,7 @@ fn two_sum_2(nums: Vec<i32>, target: i32) -> Vec<i32> {
 //
 fn two_sum_3(nums: Vec<i32>, target: i32) -> Vec<i32> {
     use std::collections::HashMap;
-    let mut complements: HashMap<i32, i32> = HashMap::new();
+    let mut complements = HashMap::<i32, i32>::new();
 
     for (j, num) in nums.iter().enumerate() {
         if let Some(&i) = complements.get(num) {

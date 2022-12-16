@@ -55,4 +55,18 @@ object Solution {
         }
         run(0, HashMap())
     }
+
+    //
+    // Trivial solution.
+    //
+    def twoSum3(nums: Array[Int], target: Int): Array[Int] = {
+        for (j <- nums.indices) {
+            for (i <- 0 until j) {
+                if (nums(i) + nums(j) == target) {
+                    return Array(i, j)
+                }
+            }
+        }
+        throw Exception("no solution")
+    }
 }
