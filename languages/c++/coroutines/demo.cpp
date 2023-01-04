@@ -1,9 +1,19 @@
 //
 // Demo of coroutines, based on article: https://www.scs.stanford.edu/~dm/blog/c++-coroutines.html
-// Use g++ 10.3 to compile.
 //
 #include <iostream>
-#include <coroutine>
+
+#if __has_include(<coroutine>)
+    // Use g++ 10.3 or later to compile.
+    #include <coroutine>
+    using std::suspend_always;
+    using std::coroutine_handle;
+#else
+    // Use clang++ 12.0 or later to compile on Mac.
+    #include <experimental/coroutine>
+    using std::experimental::suspend_always;
+    using std::experimental::coroutine_handle;
+#endif
 
 //
 // Return type for coroutines.
@@ -17,24 +27,24 @@ public:
     // (2) suspend when done, let caller destroy the handle.
     struct promise_type {
         co_void_t get_return_object() { return { *this }; }
-        std::suspend_always initial_suspend() { return {}; }
-        std::suspend_always final_suspend() noexcept { return {}; }
+        suspend_always initial_suspend() { return {}; }
+        suspend_always final_suspend() noexcept { return {}; }
         void unhandled_exception() {}
         void return_void() noexcept {}
     };
 
     // Constructor: extract the coroutine handle from promise.
     co_void_t(promise_type &promise)
-        : handle(std::coroutine_handle<promise_type>::from_promise(promise))
+        : handle(coroutine_handle<promise_type>::from_promise(promise))
     {
     }
 
     // Return the handle, cast to void value.
-    operator std::coroutine_handle<>() const { return handle; }
+    operator coroutine_handle<>() const { return handle; }
 
 private:
     // Store the coroutine handle here.
-    std::coroutine_handle<promise_type> handle;
+    coroutine_handle<promise_type> handle;
 };
 
 //
@@ -42,7 +52,7 @@ private:
 //
 struct co_await_t {
     constexpr bool await_ready() const noexcept { return false; }
-    void await_suspend(std::coroutine_handle<> handle) {}
+    void await_suspend(coroutine_handle<> handle) {}
     constexpr void await_resume() const noexcept {}
 };
 
@@ -62,7 +72,7 @@ co_void_t counter()
 //
 int main()
 {
-    std::coroutine_handle<> continuation = counter();
+    coroutine_handle<> continuation = counter();
     for (int i = 0; i < 5; ++i) {
         std::cout << "In main function\n";
         continuation.resume();
