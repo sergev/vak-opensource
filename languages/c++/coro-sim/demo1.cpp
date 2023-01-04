@@ -60,9 +60,9 @@ int main(int argc, char **argv)
     // One shot, with delay.
     //
     sim.spawn("once", [&](simulator_t &sim) -> co_void_t {
+        co_await sim.delay(3);
         std::cout << '(' << sim.time() << ") One shot" << std::endl;
-        co_await sim.exit();
-    }, 3);
+    });
 
     // Run simulation until all processes finish.
     while (sim.advance())

@@ -1,5 +1,5 @@
 //
-// Discrete-event simulator based on C++20 coroutines.
+// Discrete-time simulator based on C++20 coroutines.
 //
 // Copyright (c) 2021 Serge Vakulenko
 //
@@ -22,19 +22,17 @@
 // SOFTWARE.
 //
 #include "simulator.h"
-
 #include <iostream>
 
 //
 // Create a process with given name and given top level routine.
 //
 void simulator_t::spawn(const std::string &name,
-                        std::function<co_void_t(simulator_t &sim)> func,
-                        uint64_t delay)
+                        std::function<co_void_t(simulator_t &sim)> func)
 {
-    // Allocate new process instance and add to the event queue.
+    // Allocate new process instance and add to the queue.
     // Lazy-start the coroutine and store the continuation.
-    event_queue = std::make_unique<process_t>(name, func(*this), delay, std::move(event_queue));
+    proc_queue = std::make_unique<process_t>(name, func(*this), std::move(proc_queue));
 
     // std::cout << "process " << proc.name << " handle: " << handle.address() << std::endl;
 }
@@ -45,14 +43,14 @@ void simulator_t::spawn(const std::string &name,
 bool simulator_t::advance()
 {
     // Select next process from the queue.
-    cur_proc = std::move(event_queue);
+    cur_proc = std::move(proc_queue);
     if (cur_proc == nullptr) {
         // All done.
         return false;
     }
 
     // Remove this process from the queue.
-    event_queue = std::move(cur_proc->next);
+    proc_queue = std::move(cur_proc->next);
 
     if (cur_proc->delay != 0) {
         // Advance time.
@@ -60,23 +58,14 @@ bool simulator_t::advance()
     }
 
     // Resume the process.
-    // std::cout << '(' << time_ticks << ") Resume process '" << cur_proc->name << '\'' <<
-    // std::endl;
+    // std::cout << '(' << time_ticks << ") Resume process '" << cur_proc->name << '\'' << std::endl;
     cur_proc->continuation.resume();
 
-    // On return, in case the current process is still active - deallocate it.
+    // On return, when the current process is still active - deallocate it.
     if (cur_proc != nullptr) {
         cur_proc.reset();
     }
     return true;
-}
-
-//
-// Finish the simulation.
-//
-void simulator_t::finish()
-{
-    event_queue.reset();
 }
 
 //
@@ -87,9 +76,9 @@ void simulator_t::finish()
 //
 simulator_t::co_await_t simulator_t::delay(uint64_t num_clocks)
 {
-    // Put the current process to queue of pending events.
+    // Insert the current process into the queue.
     // Keep the queue sorted.
-    std::unique_ptr<process_t> *que_ptr = &event_queue;
+    std::unique_ptr<process_t> *que_ptr = &proc_queue;
     for (;;) {
         process_t *p = que_ptr->get();
         if (p == nullptr) {

@@ -1,5 +1,5 @@
 //
-// Discrete-event simulator based on C++20 coroutines.
+// Discrete-time simulator based on C++20 coroutines.
 //
 // Copyright (c) 2021 Serge Vakulenko
 //
@@ -71,12 +71,12 @@ private:
         const std::string name;               // Name for log file
         std::coroutine_handle<> continuation; // Handle for coroutine continuation
         uint64_t delay;                       // Time to wait
-        std::unique_ptr<process_t> next;      // Member of event queue
+        std::unique_ptr<process_t> next;      // The rest of the process queue
 
         // Allocate a process with given name.
         process_t(const std::string &name, std::coroutine_handle<> continuation,
-                  uint64_t delay, std::unique_ptr<process_t> next)
-            : name(name), continuation(continuation), delay(delay), next(std::move(next))
+                  std::unique_ptr<process_t> next)
+            : name(name), continuation(continuation), delay(0), next(std::move(next))
         {}
 
         // Destroy the process instance.
@@ -92,9 +92,9 @@ private:
         constexpr void await_resume() const noexcept {}
     };
 
-    std::unique_ptr<process_t> cur_proc;    // Current active process
-    std::unique_ptr<process_t> event_queue; // Queue of pending events
-    uint64_t time_ticks{ 0 };               // Simulated time
+    std::unique_ptr<process_t> cur_proc;   // Current active process
+    std::unique_ptr<process_t> proc_queue; // Queue of suspended processes
+    uint64_t time_ticks{ 0 };              // Simulated time
 
 public:
     // Default constructor.
@@ -111,20 +111,13 @@ public:
     //
     // Create a process with given name and given top level routine.
     //
-    void spawn(const std::string &name,
-               std::function<co_void_t(simulator_t &sim)> func,
-               uint64_t delay = 0);
+    void spawn(const std::string &name, std::function<co_void_t(simulator_t &sim)> func);
 
     //
     // Advance the simulation.
     // Return false when no more processes to run.
     //
     bool advance();
-
-    //
-    // Finish the simulation.
-    //
-    void finish();
 
     //
     // Delay the current process by a given number of clock ticks.
@@ -135,9 +128,7 @@ public:
     co_await_t delay(uint64_t num_clocks);
 
     //
-    // Exit the current process.
-    // This routine should be invoked as:
-    //      co_await sim.exit();
+    // Finish the simulation.
     //
-    co_await_t exit() { return {}; }
+    void finish() { proc_queue.reset(); }
 };
