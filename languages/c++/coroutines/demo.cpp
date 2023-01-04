@@ -4,12 +4,12 @@
 #include <iostream>
 
 #if __has_include(<coroutine>)
-    // Use g++ 10.3 or later to compile.
+    // Use clang++ 15.0 or g++ 10.3 or later to compile.
     #include <coroutine>
     using std::suspend_always;
     using std::coroutine_handle;
 #else
-    // Use clang++ 12.0 or later to compile on Mac.
+    // Use clang++ 14.0 or earlier to compile on Mac.
     #include <experimental/coroutine>
     using std::experimental::suspend_always;
     using std::experimental::coroutine_handle;

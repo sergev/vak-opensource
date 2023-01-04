@@ -1,12 +1,11 @@
-CLANG   = clang++ -std=c++20 -stdlib=libc++ -fcoroutines-ts
-CXX     = g++-12 -std=c++20 -fcoroutines #-stdlib=libc++ -fcoroutines-ts
-CXXFLAGS = -g -O
-PROG    = demo
+CLANG   = /opt/homebrew/opt/llvm/bin/clang++
+CXX     = g++-12
+CXXFLAGS = -std=c++20 -g -O
 
-all:    $(PROG)
+all:    demo demo-clang
 
 clean:
-	rm -f $(PROG) demo-mac
+	rm -rf demo demo-clang demo*.dSYM
 
-demo-mac: demo.cpp
-	$(CLANG) $< -o $@
+demo-clang: demo.cpp
+	$(CLANG) $(CXXFLAGS) $< -o $@
