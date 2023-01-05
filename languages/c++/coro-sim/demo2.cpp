@@ -24,9 +24,13 @@
 #include <iostream>
 #include "simulator.h"
 
+class Demo : public Simulator {
+    // Add your stuff here.
+};
+
 int main(int argc, char **argv)
 {
-    Simulator sim;
+    Demo sim;
 
     //
     // Clock generator.

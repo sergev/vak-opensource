@@ -22,25 +22,21 @@
 // SOFTWARE.
 //
 #include "simulator.h"
-#include <iostream>
 
 //
 // Create a process with given name and given top level routine.
 //
-void simulator_t::spawn(const std::string &name,
-                        std::function<co_void_t(simulator_t &sim)> func)
+void Simulator::spawn(const std::string &name, std::coroutine_handle<> continuation)
 {
     // Allocate new process instance and add to the queue.
     // Lazy-start the coroutine and store the continuation.
-    proc_queue = std::make_unique<process_t>(name, func(*this), std::move(proc_queue));
-
-    // std::cout << "process " << proc.name << " handle: " << handle.address() << std::endl;
+    proc_queue = std::make_unique<Process>(name, continuation, std::move(proc_queue));
 }
 
 //
 // Run the simulation.
 //
-bool simulator_t::advance()
+bool Simulator::advance()
 {
     // Select next process from the queue.
     cur_proc = std::move(proc_queue);
@@ -54,11 +50,10 @@ bool simulator_t::advance()
 
     if (cur_proc->delay != 0) {
         // Advance time.
-        time_ticks += cur_proc->delay;
+        clock_ticks += cur_proc->delay;
     }
 
     // Resume the process.
-    // std::cout << '(' << time_ticks << ") Resume process '" << cur_proc->name << '\'' << std::endl;
     cur_proc->continuation.resume();
 
     // On return, when the current process is still active - deallocate it.
@@ -74,13 +69,13 @@ bool simulator_t::advance()
 // This routine should be invoked as:
 //      co_await sim.delay(N);
 //
-simulator_t::co_await_t simulator_t::delay(uint64_t num_clocks)
+Simulator::Reschedule Simulator::delay(uint64_t num_clocks)
 {
     // Insert the current process into the queue.
     // Keep the queue sorted.
-    std::unique_ptr<process_t> *que_ptr = &proc_queue;
+    std::unique_ptr<Process> *que_ptr = &proc_queue;
     for (;;) {
-        process_t *p = que_ptr->get();
+        Process *p = que_ptr->get();
         if (p == nullptr) {
             break;
         }

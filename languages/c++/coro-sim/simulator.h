@@ -25,20 +25,19 @@
 #include <cstdint>
 #include <string>
 #include <memory>
-#include <functional>
 
 //
 // Return type for coroutines.
 // With this return type, on the first call of the coroutine function,
 // a handle is returned (with void value), right before the body of the function starts.
 //
-class co_void_t {
+class Coroutine {
 public:
     // This structure defines the behavior of the coroutine:
     // (1) suspend initially right before executing the target routine;
     // (2) suspend when done, let caller destroy the handle.
     struct promise_type {
-        co_void_t get_return_object() { return { *this }; }
+        Coroutine get_return_object() { return { *this }; }
         std::suspend_always initial_suspend() { return {}; }
         std::suspend_always final_suspend() noexcept { return {}; }
         void unhandled_exception() {}
@@ -46,7 +45,7 @@ public:
     };
 
     // Constructor: extract the coroutine handle from promise.
-    co_void_t(promise_type &promise)
+    Coroutine(promise_type &promise)
         : handle(std::coroutine_handle<promise_type>::from_promise(promise))
     {
     }
@@ -62,56 +61,55 @@ private:
 //
 // Discrete time simulator based on coroutines.
 //
-class simulator_t {
+class Simulator {
 private:
     //
     // Info about the process.
     //
-    struct process_t {
+    struct Process {
         const std::string name;               // Name for log file
         std::coroutine_handle<> continuation; // Handle for coroutine continuation
-        uint64_t delay;                       // Time to wait
-        std::unique_ptr<process_t> next;      // The rest of the process queue
+        uint64_t delay{ 0 };                  // Time to wait
+        std::unique_ptr<Process> next;        // The rest of the process queue
 
         // Allocate a process with given name.
-        process_t(const std::string &name, std::coroutine_handle<> continuation,
-                  std::unique_ptr<process_t> next)
-            : name(name), continuation(continuation), delay(0), next(std::move(next))
+        Process(const std::string &name, std::coroutine_handle<> continuation, std::unique_ptr<Process> next)
+            : name(name), continuation(continuation), next(std::move(next))
         {}
 
         // Destroy the process instance.
-        ~process_t() { continuation.destroy(); }
+        ~Process() { continuation.destroy(); }
     };
 
     //
     // Info for co_await, to switch from coroutine back to sim.run().
     //
-    struct co_await_t {
+    struct Reschedule {
         constexpr bool await_ready() const noexcept { return false; }
         void await_suspend(std::coroutine_handle<> handle) {}
         constexpr void await_resume() const noexcept {}
     };
 
-    std::unique_ptr<process_t> cur_proc;   // Current active process
-    std::unique_ptr<process_t> proc_queue; // Queue of suspended processes
-    uint64_t time_ticks{ 0 };              // Simulated time
+    std::unique_ptr<Process> cur_proc;   // Current active process
+    std::unique_ptr<Process> proc_queue; // Queue of suspended processes
+    uint64_t clock_ticks{ 0 };           // Simulated time
 
 public:
     // Default constructor.
-    explicit simulator_t() {}
+    explicit Simulator() {}
 
     // Forbid the copy constructor.
-    simulator_t(const simulator_t &) = delete;
+    Simulator(const Simulator &) = delete;
 
     //
     // Return the simulated time.
     //
-    uint64_t time() const { return time_ticks; }
+    uint64_t get_clock() const { return clock_ticks; }
 
     //
     // Create a process with given name and given top level routine.
     //
-    void spawn(const std::string &name, std::function<co_void_t(simulator_t &sim)> func);
+    void spawn(const std::string &name, std::coroutine_handle<> continuation);
 
     //
     // Advance the simulation.
@@ -125,7 +123,7 @@ public:
     // This routine should be invoked as:
     //      co_await sim.delay(N);
     //
-    co_await_t delay(uint64_t num_clocks);
+    Reschedule delay(uint64_t num_clocks);
 
     //
     // Finish the simulation.
