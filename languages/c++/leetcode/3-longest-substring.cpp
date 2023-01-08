@@ -11,9 +11,9 @@ class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
         unordered_set<char> substring;
-        unsigned start = 0, end = 0, maxlen = 0;
-        for (; end < s.size(); end++) {
-            char c = s[end];
+        unsigned first = 0, last = 0, maxlen = 0;
+        for (; last < s.size(); last++) {
+            char c = s[last];
             if (substring.count(c) == 0) {
                 // Add next char to the set, if it's not there.
                 // Remember the length.
@@ -22,11 +22,9 @@ public:
                     maxlen = substring.size();
                 }
             } else {
-                // Otherwise advance the start index removing characters from the set.
-                for (;;) {
-                    assert(start < end);
-                    char x = s[start];
-                    start++;
+                // Otherwise advance the first index removing characters from the set.
+                while (first < last) {
+                    char x = s[first++];
                     if (x == c) {
                         break;
                     }
