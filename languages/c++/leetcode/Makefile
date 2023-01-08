@@ -1,6 +1,7 @@
-OBJ             = gtest/gtest-all.o \
+OBJ             = 1-two-sum.o \
+                  2-add-two-numbers.o \
                   main.o \
-                  1-two-sum.o
+                  gtest/gtest-all.o
 
 CXXFLAGS        = -std=c++11 -O -g -Wall -Werror -I.
 LDFLAGS         = -g
