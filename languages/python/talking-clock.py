@@ -30,14 +30,8 @@ def find_media_controller(my_uuid):
 # Open media controller with given IP address, port and unique ID.
 #
 def open_media_controller(my_uuid, my_ip_addr, my_port):
-    my_device = pychromecast.DeviceStatus(friendly_name = 'Abra',
-                                          model_name = 'Cadabra',
-                                          manufacturer = 'Unknown',
-                                          uuid = uuid.UUID(my_uuid),
-                                          cast_type = 'cast')
-    my_cast_device = pychromecast.Chromecast(my_ip_addr,
-                                             port = my_port,
-                                             device = my_device)
+    host = (my_ip_addr, my_port, uuid.UUID(my_uuid), 'Cadabra', 'Abra')
+    my_cast_device = pychromecast.get_chromecast_from_host(host)
     print("My Chromecast device:", my_cast_device)
     my_cast_device.wait()
     return my_cast_device.media_controller
