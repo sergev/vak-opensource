@@ -39,7 +39,7 @@ c2,7=^si?(\\()[^\n]+(\\))[0-9]*(=)
 c2=^/
 
 # C language mode (lav)
-/*.c|*.c-|*.td|*.y|*.l|*.ino|*.md|/-\*- *c *-\*-
+/*.c|*.c-|*.td|*.y|*.l|*.ino|/-\*- *c *-\*-
 i=c++-comment
 i=cpp
 i=c-literal
@@ -62,10 +62,13 @@ c2=\\[|\\]|\\(|\\)|{|}|,
 
 # C++ mode (lav)
 /*.cc|*.C|*.cpp|*.cpp-|*.h|*.h-|*.h.in|*.hh|*.hpp|*.H|*.pde|*.ino|*.yy|*.ll|/-\*- *c\+\+ *-\*-
+c5=// *TODO.*
 i=c++-comment
 i=cpp
 c5="([^"\n\\]|\\\\(.|\n))*"|'([^'\n\\]|\\\\.)*'
-c5,2=([^[:alnum:]_])((0[xX][[:xdigit:]]+)|([0-9]+))
+c5=R"\((.|\n)*\)"
+c5=R"~\((.|\n)*\)~"
+c5,2=([^[:alnum:]_])((0[xX][[:xdigit:]]+)|(0[bB][01]+)|([0-9]+))
 c1,2=([^[:alnum:]_]|^)(asm|else|if|switch|case|while|for|goto|break\
  |continue|char|short|int|long|unsigned|signed|auto\
  |const|default|do|double|enum|extern|float|register\
@@ -77,7 +80,9 @@ c1,2=([^[:alnum:]_]|^)(asm|else|if|switch|case|while|for|goto|break\
  |mutable|thread_local|char(16|32)_t|wchar_t|export|import|module\
  |bitand|bitor|compl|(and|not|or|xor)(_eq)?\
 )([^[:alnum:]_]|$)
-c2=\\[|\\]|\\(|\\)|{|}|,|<%|%>|<:|:>|\?\?[<>()=/'!-]|=
+c2=\\[|\\]|\\(|\\)|{|}|,|<%|%>|<:|:>|\?\?[<>()=/'!-]|=|<<|>>
+#c2=std::cout|std::cerr|std::endl
+c6=[[:alnum:]_]*::
 
 # Go mode (vak)
 /*.go|*.gy|*.nex|*.go-|/-\*- *go *-\*-
@@ -158,8 +163,9 @@ i=ada
 i=c++-comment
 i=as
 
-/*.py|/^#![ \t]*/.*/python|-\*- *python *-\*-
+/*.py|/^#![ \t]*/.*/python|-\*- *python *-\*-|env python
 i=python
+c5,2=([^[:alnum:]_])((0[xX][[:xdigit:]]+)|([0-9]+))
 
 /*.sa
 i=sather
@@ -170,7 +176,7 @@ i=shell
 /*.java|/-\*- *java *-\*-
 i=java
 
-/*.js|/-\*- *javascript *-\*-
+/*.js|Jenkinsfile|/-\*- *javascript *-\*-
 i=javascript
 
 # JSON mode (vak)
@@ -180,6 +186,7 @@ c0="([^"\n\\]|\\\\(.|\n))*"
 c4='([^'\n\\]|\\\\.)*'
 c5,2=([^[:alnum:]_])((0[xX][[:xdigit:]]+)|([0-9]+))
 c2=\\[|\\]|\\(|\\)|{|}|,
+c6=//.*$|/\\*(?:.|\n)*?\\*/
 
 # po (i18n) mode (lav)
 /*.po|*.pot
@@ -263,7 +270,7 @@ c2=\(|\)|\${|}
 c5="[^"]+?"
 c1,2=([^[:alnum:]_]|^)(project|message\
  |cmake_minimum_required|set|if|else|elseif|endif|find_path|find_library|find_program|add_definitions\
- |include_directories|add_executable|target_link_libraries|include|cmake_policy\
+ |target_include_directories|add_executable|target_link_libraries|include|cmake_policy\
  |execute_process|foreach|endforeach|add_test|add_library|set_tests_properties\
 )([^[:alnum:]_]|$)
 
@@ -412,6 +419,22 @@ i=fvwm2
 /*.pas
 i=pascal
 
+# Oberon mode, by Serge Vakulenko
+/*.Mod|*.mod
+c3={[^}]*?}|\(\*[^*]*\*\)
+c6="[^"\n]*?"
+c5,2=([^[:alnum:]_])((0[xX][[:xdigit:]]+)|(0[bB][01]+)|([0-9]+))
+ci1,2=([^[:alnum:]_]|^)(\
+BEGIN|END|MODULE\
+|IF|IN|ELSE|DO|WHILE|THEN|FOR|(DOWN)?TO|UNTIL|REPEAT|CASE|WITH|OF\
+|AND|OR|NOT\
+|VAR|TYPE|REAL|INTEGER|CHAR|BOOLEAN|STRING|NIL|ARRAY|CONST|FILE|PACKED|BYTE\
+|PROCEDURE|RECORD|SET\
+|NEW|FUNCTION|GOTO|LABEL|USES\
+)([^[:alnum:]_]|$)
+ci2,1=^end(\.)
+ci2=<|>|;|\(|\)|\[|\]|:|=|[+*/-]|\.\.
+
 /*.t2t
 i=txt2tags
 
@@ -468,7 +491,7 @@ c2==
 c3=^[ \t]*#.*
 
 # micro-BESM trace files, by Serge Vakulenko <vak@cronyx.ru>
-/output*.trace
+/output*.btrace
 c2=\*\*\*.*$
 c5=;.*$
 c5=--.*$
@@ -481,7 +504,7 @@ c2,2=([^[:alnum:]_]|^)(jz|cjs|jmap|cjp|push|jsrp|cjv|jrp|rfct|rpct\
 c5=\) ..... .....:.*$
 
 # MESM-6 trace files, by Serge Vakulenko <vak@cronyx.ru>
-/output*.trace|pass*.trace|fail*.trace
+/output*.mtrace|pass*.mtrace|fail*.mtrace
 c2=\*\*\*.*$
 c5=;.*$
 c5= -- .*$
@@ -499,7 +522,7 @@ c1=^WARNING.*$
 c5=^ERROR:.*$
 
 # OVPsim trace files, by Serge Vakulenko <vak@cronyx.ru>
-/*.log|log|log-*|*.otrace
+/*.olog|olog|olog-*|*.otrace
 c5=!!!.*$
 c4=.* ignored by grmPlayer
 c3=----#.*$
@@ -526,8 +549,25 @@ c3=    Write.*$
 c3=    Read.*$
 c3=    Memory.*$
 
+# isim trace files, by Serge Vakulenko
+/*.log
+c6=^@.*$
+c3=^---.*$
+c5=^run: .*$
+c3=^id: .*$
+c3=^[0-9]: .*$
+c2=.*arith: .*$
+c5=ERROR: .*$
+#c3=#.*$
+#c6=^.* Memory .*$
+#c6=^.* Fetch .*$
+#c3=^.* Write .*$
+#c3=^.* Read .*$
+#c3=^.* = .*$
+#c1=^cpu. [0-7]+ [0-7]+ [RL]: [0-7]+ .*$
+
 # BESM-6/SVS SIMH trace files, by Serge Vakulenko <vak@besm6.org>
-/*.log|log|log-*|*.trace
+/*.blog|blog|blog-*|*.btrace
 c5=^cpu. --.*$
 c3=#.*$
 c6=^.* Memory .*$
@@ -601,6 +641,7 @@ c5=##*.*
 #c3=//[^/]*//
 #c5=\*\*[^*]*\*\*
 c5=```
+c6=^    .*$
 
 # Spice files, by Serge Vakulenko <vak@cronyx.ru>
 /*.lib|*.cir|/\* *ngspice
@@ -798,3 +839,72 @@ c4,2=([^[:alnum:]_]|^)(Item|Rectangle|Text|Grid|MouseArea|State|Transition\
 |ApplicationWindow|MenuBar|Menu|MenuItem|Button\
 |[a-zA-Z.]+:)([^[:alnum:]_]|$)
 c5,2=([^[:alnum:]_]|^)([0-9][0-9]*|&.)
+
+# MLA simulator output, by Serge Vakulenko
+/*.output
+c6=@.*$
+c1=^ir/sched:.*$
+c5=^run:.*$
+
+# YAML format, by Serge Vakulenko
+/*.yml|*.yaml
+c3=#.*$
+c5,2=([^[:alnum:]_]|^)((0[0-7]*)|([1-9][0-9]*)|(0x[0-9a-fA-F]+))([^[:alnum:]_]|$)
+c1=\\[|\\]|\\(|\\)|{|}|-|:|\*|<<|>>|/
+
+# Sima MLC format, by Serge Vakulenko
+/*.mlc
+c3=;.*$
+c3=\.comment .*$
+c4="[^"]*"
+c5,2=([^[:alnum:]_]|^)((0[0-7]*)|([1-9][0-9]*)|(0x[0-9a-fA-F]+)|(0b[01]+))([^[:alnum:]_]|$)
+c1=\\[|\\]|\\(|\\)|{|}|-|:|\*|<<|>>|/
+c1,2=([^[:alnum:]_]|^)([nesw]+)([^[:alnum:]_]|$)
+c6,2=([^[:alnum:]_]|^)((\
+r|ch|ich|och|sx|sy|pad_left|pad_top|pool_height|pool_width|dilate_x|dilate_y|halt\
+|t1|t2|src2|src3|const|udf_select|shift|per_axis|in_use|lane|sp_stride|ch_stride\
+|has_bias|bias|zp|dest_tile|command|count|rd_sp_stride|rd_ch_stride|wr_sp_stride|wr_ch_stride\
+|off|dcmp|pad|nc|nloc|ifm_addr_ofs|ifm_ch_ofs\
+) *=)
+c1,2=([^[:alnum:]_]|^)(\
+define|l2_load|l2_store|mmul|udf_write|move|nop|break|add|mul\
+|round|shl|shr|elmt_wise|asl|asr|lsl|lsr\
+|mmul_ew|reduce|udf|matrix|fm|filter|\.version|matmul|conv|tconv|dsconv\
+|sub|and|or|relu|maxpool|avgpool|pool|\.l1_data|\.l1_fill|\.l1_check|\.l2_check\
+|\.comment|\.marker|\.l2|\.tile|\.l2_data|\.l2_fill|\.dram_data|\.dram_check\
+|\.dma_start|\.dma_end|\.dram_to_l2|\.l2_to_dram|\.seg_mla|\.seg_cpu|\.so\
+|int8|int32_1|int32_4\
+|sum|column|min|row\
+|lut|udf0|udf1|udf2|udf3|shift\
+)([^[:alnum:]_]|$)
+
+# SiMa trace files, by Serge Vakulenko
+#c1,2=(\) )(\[tile.*] write .*)$
+#c1,2=(\) )(\[l2.*] * write .*)$
+#c3,2=(\) )(\[tile.*] tensor .*)$
+#c3,2=(\) )(\[tile.*] lock .*)$
+#c3,2=(\) )(\[l2.*] * lock .*)$
+#c6,2=(\) )(\[tile.*] instr .*)$
+/*.trace
+c6,2=(\) )(\[tile . .])( )
+c1,2=(\) )(\[l2 .])( )
+c1,2=(\) )(\[l2 . .])( )
+c3,2=(\) )(\[dram])( )
+c3,2=(\) )(\[dma])( )
+#----------------------
+#c5,2=( )(i[0-9]+ fetch .*)$
+#c4,2=( )(i[0-9]+ done .*)$
+#c6,2=( )(i[0-9]+ read .*)$
+#c1,2=( )(i[0-9]+ write .*)$
+#c3,2=( )(i[0-9]+ lock .*)$
+#c6,2=( )(i[0-9]+ line .*)$
+#----------------------
+c5,2=( )(fetch .*)$
+c4,2=( )(done .*)$
+c6,2=( )(read .*)$
+c1,2=( )(write .*)$
+c3,2=( )(lock .*)$
+c6,2=( )(line .*)$
+c3,2=( )(mmul: .*)$
+c1,2=( )(tensor .* ready .*)$
+#c3,2=( )(  .*)$
