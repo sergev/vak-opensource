@@ -1,2 +1,4 @@
 print_floats
 print_bfloat16
+float_epsilons
+bfloat16_epsilons
