@@ -1,4 +1,4 @@
-PROG            = fputest float128
+PROG            = fputest malloc-stress-test
 CFLAGS		= -O3 -Wall -Werror
 #CFLAGS		= -m32 -O -Wall -Werror
 #LDFLAGS		= -m32
