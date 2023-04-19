@@ -1,10 +1,9 @@
-%title 'hello_world'
 module hello_world = begin
 
     external routine puts;
 
     global routine hello_world = begin
-        puts(uplit(%string('hello, world!')))
+        puts(uplit('hello, world!'));
     end;
 
 end eludom
