@@ -1,5 +1,6 @@
 #include <stdio.h>
-#include <stdlib.h>
+#include <string.h>
+#include <alloca.h>
 #include <unistd.h>
 #include <fcntl.h>
 #include <errno.h>
@@ -17,7 +18,7 @@ void read_elf_file(const char *filename, unsigned elf_machine)
     if (elf_file < 0) {
         err(-1, "%s: Cannot open file", filename);
     }
-    printf("File %s\n", filename);
+    printf("\nFile %s\n", filename);
 
     // Identify ELF class: 32-bit or 64-bit.
     unsigned char ident[EI_NIDENT];

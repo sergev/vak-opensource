@@ -122,11 +122,11 @@ void read_elf32_file(int elf_file, const char *filename, unsigned elf_machine)
     // Set PC to the entry point.
     //
     unsigned entry_address = elf_header.e_entry;
-    printf("Entry address: 0x%jx\n", (uintmax_t)entry_address);
+    printf("Entry address 0x%jx\n", (uintmax_t)entry_address);
     //TODO: cpu.set_pc(entry_address);
 
     //
-    // Scan the symbol table to find signature labels.
+    // Scan the symbol table.
     //
     if (elf_header.e_shnum > 0) {
         if (elf_header.e_shentsize != sizeof(Elf32_Shdr)) {
@@ -142,17 +142,35 @@ void read_elf32_file(int elf_file, const char *filename, unsigned elf_machine)
             err(-1, "Cannot read Section header");
         }
 
+        // Load Section Header String table.
+        unsigned shstr_table_size = section_header[elf_header.e_shstrndx].sh_size;
+        char shstr_table[shstr_table_size];
+        if (shstr_table_size > 0) {
+            // Load the string table.
+            if (lseek(elf_file, section_header[elf_header.e_shstrndx].sh_offset, SEEK_SET) != section_header[elf_header.e_shstrndx].sh_offset) {
+                err(-1, "Cannot seek Section Header String table");
+            }
+            if (read(elf_file, shstr_table, shstr_table_size) != shstr_table_size) {
+                err(-1, "Cannot read Section Header String table");
+            }
+        }
+
         // Load the string table.
         char *string_table = 0;
         unsigned string_table_size = 0;
         for (unsigned i = 0; i < elf_header.e_shnum; i++) {
-            if (section_header[i].sh_type == SHT_STRTAB) {
+            if (section_header[i].sh_type == SHT_STRTAB &&
+                section_header[i].sh_name < shstr_table_size &&
+                strcmp(".strtab", section_header[i].sh_name + shstr_table) == 0) {
+
                 unsigned num_bytes = section_header[i].sh_size;
                 if (num_bytes > 0) {
                     // Load the string table.
-                    string_table = malloc(num_bytes);
                     string_table_size = num_bytes;
-
+                    string_table = alloca(num_bytes);
+                    if (string_table == 0) {
+                        errc(-1, ENOMEM, "Cannot allocate String table");
+                    }
                     if (lseek(elf_file, section_header[i].sh_offset, SEEK_SET) != section_header[i].sh_offset) {
                         err(-1, "Cannot seek String table");
                     }
@@ -162,6 +180,9 @@ void read_elf32_file(int elf_file, const char *filename, unsigned elf_machine)
                 }
                 break;
             }
+        }
+        if (string_table == 0) {
+            errc(-1, ENOEXEC, "No String table");
         }
 
         // Load the symbol table.
@@ -185,10 +206,10 @@ void read_elf32_file(int elf_file, const char *filename, unsigned elf_machine)
 
                     for (unsigned s = 0; s < num_symbols; s++) {
                         if (symbol_table[s].st_name != STN_UNDEF &&
-                            symbol_table[s].st_info == ELF32_ST_INFO(STB_GLOBAL, STT_NOTYPE) &&
                             symbol_table[s].st_name < string_table_size) {
                             // Found a global untyped symbol with valid name.
-                            const char *name = &string_table[symbol_table[s].st_name];
+                            unsigned name_offset = symbol_table[s].st_name;
+                            const char *name = string_table + name_offset;
 
                             printf("Symbol %s = 0x%x\n", name, symbol_table[s].st_value);
                         }
