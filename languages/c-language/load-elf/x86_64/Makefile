@@ -1,5 +1,6 @@
 CC      = x86_64-elf-gcc
 LD      = x86_64-elf-ld
+OBJDUMP = x86_64-elf-objdump
 CFLAGS  = -g -O -Wall -I..
 LDFLAGS = -g -nostdlib
 LIBS    = mylib-x86_64.so
@@ -12,6 +13,7 @@ clean:
 hello.elf: ../hello.c $(LIBS)
 	$(CC) $(CFLAGS) -c -fPIC -fno-plt ../hello.c -o hello.o
 	$(LD) $(LDFLAGS) -e main -shared -fPIC -fno-plt hello.o $(LIBS) -o $@
+	$(OBJDUMP) -D $@ > hello.dis
 
 mylib-x86_64.so: ../stub.c
 	$(CC) $(CFLAGS) -c -fPIC -fno-plt $< -o stub.o

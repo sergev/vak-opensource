@@ -5,3 +5,4 @@ read_elf
 read_elf.dSYM
 *.readelf
 *.so
+*.dis
