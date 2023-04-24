@@ -1,0 +1,7 @@
+*.o
+exec_elf.h
+exec_elf32.h
+read_elf
+read_elf.dSYM
+*.readelf
+*.so
