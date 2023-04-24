@@ -52,49 +52,69 @@ void read_elf64_file(int elf_file, const char *filename, unsigned elf_machine)
     //
     for (int i = 0; i < elf_header.e_phnum; i++) {
         // Chooze loadable non-empty segments.
-        if (segment[i].p_type != PT_LOAD || segment[i].p_memsz <= 0)
-            continue;
-
         uint64_t vaddr  = segment[i].p_vaddr;
         uint64_t memsz  = segment[i].p_memsz;
         uint64_t filesz = segment[i].p_filesz;
 
-        // Verbose logging.
-        if (segment[i].p_flags & PF_X) {
-            // Executable code.
-            printf("Code 0x%jx-0x%jx size %ju bytes\n",
-                   (uintmax_t)vaddr, (uintmax_t)(vaddr + memsz - 1), (uintmax_t)memsz);
-        } else if (filesz > 0) {
-            // Initialized data.
-            printf("Data 0x%jx-0x%jx size %ju bytes\n",
-                   (uintmax_t)vaddr, (uintmax_t)(vaddr + filesz - 1), (uintmax_t)filesz);
+        switch (segment[i].p_type) {
+        case PT_LOAD:
+            if (memsz <= 0) {
+                // Skip empty sections.
+                continue;
+            }
+
+            // Verbose logging.
+            if (segment[i].p_flags & PF_X) {
+                // Executable code.
+                printf("Code 0x%jx-0x%jx size %ju bytes\n",
+                       (uintmax_t)vaddr, (uintmax_t)(vaddr + memsz - 1), (uintmax_t)memsz);
+            } else if (filesz > 0) {
+                // Initialized data.
+                printf("Data 0x%jx-0x%jx size %ju bytes\n",
+                       (uintmax_t)vaddr, (uintmax_t)(vaddr + filesz - 1), (uintmax_t)filesz);
+                if (memsz > filesz) {
+                    // Zeroed data.
+                    printf("BSS  0x%jx-0x%jx size %ju bytes\n",
+                           (uintmax_t)(vaddr + filesz), (uintmax_t)(vaddr + memsz - 1), (uintmax_t)(memsz - filesz));
+                }
+            }
+
+            // Read data from file.
+            if (filesz > 0) {
+                if (lseek(elf_file, segment[i].p_offset, SEEK_SET) != segment[i].p_offset) {
+                    err(-1, "Cannot seek segment #%u", i);
+                }
+
+                char buf[filesz];
+                if (read(elf_file, buf, filesz) != filesz) {
+                    err(-1, "%s: Cannot read segment #%u", filename, i);
+                }
+                //TODO: write_output((uint8_t *)buf, vaddr, filesz);
+            }
+
+            // Clear BSS.
             if (memsz > filesz) {
-                // Zeroed data.
-                printf("BSS  0x%jx-0x%jx size %ju bytes\n",
-                       (uintmax_t)(vaddr + filesz), (uintmax_t)(vaddr + memsz - 1), (uintmax_t)(memsz - filesz));
+                //unsigned nbytes = memsz - filesz;
+                //unsigned addr = vaddr + filesz;
+
+                //printf("Clear 0x%x-0x%x size %u bytes\n", addr, addr + nbytes - 1, nbytes);
+                //TODO: memset(addr, 0, nbytes);
             }
-        }
+            break;
 
-        // Read data from file.
-        if (filesz > 0) {
-            if (lseek(elf_file, segment[i].p_offset, SEEK_SET) != segment[i].p_offset) {
-                err(-1, "Cannot seek segment #%u", i);
-            }
+        case PT_DYNAMIC:
+            //TODO: parse dynamic section
+            printf("Dynamic 0x%jx-0x%jx size %ju bytes\n",
+                   (uintmax_t)vaddr, (uintmax_t)(vaddr + memsz - 1), (uintmax_t)memsz);
+            break;
 
-            char buf[filesz];
-            if (read(elf_file, buf, filesz) != filesz) {
-                err(-1, "%s: Cannot read segment #%u", filename, i);
-            }
-            //TODO: write_output((uint8_t *)buf, vaddr, filesz);
-        }
+        case PT_LOPROC + 1:
+            // .ARM.exidx section - can be safely ignored.
+            break;
 
-        // Clear BSS.
-        if (memsz > filesz) {
-            //unsigned nbytes = memsz - filesz;
-            //unsigned addr = vaddr + filesz;
-
-            //printf("Clear 0x%x-0x%x size %u bytes\n", addr, addr + nbytes - 1, nbytes);
-            //TODO: memset(addr, 0, nbytes);
+        default:
+            errc(-1, ENOEXEC, "Unknown Program Header type 0x%x", segment[i].p_type);
+            break;
         }
     }
 

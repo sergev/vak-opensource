@@ -52,49 +52,69 @@ void read_elf32_file(int elf_file, const char *filename, unsigned elf_machine)
     //
     for (int i = 0; i < elf_header.e_phnum; i++) {
         // Chooze loadable non-empty segments.
-        if (segment[i].p_type != PT_LOAD || segment[i].p_memsz <= 0)
-            continue;
-
         unsigned vaddr  = segment[i].p_vaddr;
         unsigned memsz  = segment[i].p_memsz;
         unsigned filesz = segment[i].p_filesz;
 
-        // Verbose logging.
-        if (segment[i].p_flags & PF_X) {
-            // Executable code.
-            printf("Code 0x%x-0x%x size %u bytes\n",
-                   vaddr, vaddr + memsz - 1, memsz);
-        } else if (filesz > 0) {
-            // Initialized data.
-            printf("Data 0x%x-0x%x size %u bytes\n",
-                   vaddr, vaddr + filesz - 1, filesz);
+        switch (segment[i].p_type) {
+        case PT_LOAD:
+            if (memsz <= 0) {
+                // Skip empty sections.
+                continue;
+            }
+
+            // Verbose logging.
+            if (segment[i].p_flags & PF_X) {
+                // Executable code.
+                printf("Code 0x%x-0x%x size %u bytes\n",
+                       vaddr, vaddr + memsz - 1, memsz);
+            } else if (filesz > 0) {
+                // Initialized data.
+                printf("Data 0x%x-0x%x size %u bytes\n",
+                       vaddr, vaddr + filesz - 1, filesz);
+                if (memsz > filesz) {
+                    // Zeroed data.
+                    printf("BSS  0x%x-0x%x size %u bytes\n",
+                           vaddr + filesz, vaddr + memsz - 1, memsz - filesz);
+                }
+            }
+
+            // Read data from file.
+            if (filesz > 0) {
+                if (lseek(elf_file, segment[i].p_offset, SEEK_SET) != segment[i].p_offset) {
+                    err(-1, "Cannot seek segment #%u", i);
+                }
+
+                char buf[filesz];
+                if (read(elf_file, buf, filesz) != filesz) {
+                    err(-1, "%s: Cannot read segment #%u", filename, i);
+                }
+                //TODO: write_output((uint8_t *)buf, vaddr, filesz);
+            }
+
+            // Clear BSS.
             if (memsz > filesz) {
-                // Zeroed data.
-                printf("BSS  0x%x-0x%x size %u bytes\n",
-                       vaddr + filesz, vaddr + memsz - 1, memsz - filesz);
+                //unsigned nbytes = memsz - filesz;
+                //unsigned addr = vaddr + filesz;
+
+                //printf("BSS 0x%x-0x%x size %u bytes\n", addr, addr + nbytes - 1, nbytes);
+                //TODO: memset(addr, 0, nbytes);
             }
-        }
+            break;
 
-        // Read data from file.
-        if (filesz > 0) {
-            if (lseek(elf_file, segment[i].p_offset, SEEK_SET) != segment[i].p_offset) {
-                err(-1, "Cannot seek segment #%u", i);
-            }
+        case PT_DYNAMIC:
+            //TODO: parse dynamic section
+            printf("Dynamic 0x%x-0x%x size %u bytes\n",
+                   vaddr, vaddr + memsz - 1, memsz);
+            break;
 
-            char buf[filesz];
-            if (read(elf_file, buf, filesz) != filesz) {
-                err(-1, "%s: Cannot read segment #%u", filename, i);
-            }
-            //TODO: write_output((uint8_t *)buf, vaddr, filesz);
-        }
+        case PT_LOPROC + 1:
+            // .ARM.exidx section - can be safely ignored.
+            break;
 
-        // Clear BSS.
-        if (memsz > filesz) {
-            unsigned nbytes = memsz - filesz;
-            unsigned addr = vaddr + filesz;
-
-            printf("BSS 0x%x-0x%x size %u bytes\n", addr, addr + nbytes - 1, nbytes);
-            //TODO: memset(addr, 0, nbytes);
+        default:
+            errc(-1, ENOEXEC, "Unknown Program Header type 0x%x", segment[i].p_type);
+            break;
         }
     }
 
