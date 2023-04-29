@@ -1,13 +1,13 @@
-#CC      = x86_64-elf-gcc
-#LD      = x86_64-elf-ld
-#OBJDUMP = x86_64-elf-objdump
+CC      = x86_64-elf-gcc
+LD      = x86_64-elf-ld
+OBJDUMP = x86_64-elf-objdump
 
-CC      = gcc
-LD      = ld
-OBJDUMP = objdump
+#CC      = gcc
+#LD      = ld
+#OBJDUMP = objdump
 
-CFLAGS  = -g -O -Wall -I..
-LDFLAGS = -g -nostdlib -shared
+CFLAGS  = -g -O -Wall -I.. -fpie
+LDFLAGS = -g -nostdlib -shared -fpie
 LIBS    = mylib-x86_64.so
 
 all:    $(LIBS) hello.elf

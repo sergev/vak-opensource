@@ -1,6 +1,6 @@
 CC      = arm-none-eabi-gcc
 OBJDUMP = arm-none-eabi-objdump
-ARCH_FLAGS = -march=armv6t2 -mthumb -msingle-pic-base -mpic-register=r9 -mno-pic-data-is-text-relative
+ARCH_FLAGS = -mcpu=cortex-m0plus -mthumb -msingle-pic-base -mpic-register=r9 -mno-pic-data-is-text-relative
 # TODO: -fpie -fno-plt
 CFLAGS  = -g -O -Wall -I.. $(ARCH_FLAGS)
 LDFLAGS = -g $(ARCH_FLAGS) -nostdlib
