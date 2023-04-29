@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <alloca.h>
 #include <unistd.h>
@@ -6,6 +7,12 @@
 #include <errno.h>
 #include <err.h>
 #include "elf.h"
+
+#define errexit(eval, code, ...) { \
+        fprintf(stderr, __VA_ARGS__); \
+        fprintf(stderr, ": %s\n", strerror(code)); \
+        exit(eval); \
+    }
 
 #include "read_elf32.c"
 
@@ -27,16 +34,16 @@ void read_elf_file(const char *filename, unsigned elf_machine)
     }
     if (ident[EI_MAG0] != ELFMAG0 || ident[EI_MAG1] != ELFMAG1 ||
         ident[EI_MAG2] != ELFMAG2 || ident[EI_MAG3] != ELFMAG3) {
-        errc(-1, ENOEXEC, "Bad ELF magic");
+        errexit(-1, ENOEXEC, "Bad ELF magic");
     }
     if (ident[EI_DATA] != ELFDATA2LSB) {
-        errc(-1, ENOEXEC, "Wrong ELF data format, little-endian expected");
+        errexit(-1, ENOEXEC, "Wrong ELF data format, little-endian expected");
     }
     if (ident[EI_VERSION] != EV_CURRENT) {
-        errc(-1, ENOEXEC, "Unknown ELF version");
+        errexit(-1, ENOEXEC, "Unknown ELF version");
     }
     if (ident[EI_OSABI] != ELFOSABI_SYSV) {
-        errc(-1, ENOEXEC, "Unknown ABI identification");
+        errexit(-1, ENOEXEC, "Unknown ABI identification");
     }
 
     switch (ident[EI_CLASS]) {
@@ -47,7 +54,7 @@ void read_elf_file(const char *filename, unsigned elf_machine)
         read_elf64_file(elf_file, filename, elf_machine);
         break;
     default:
-        errc(-1, ENOEXEC, "Unknown ELF class");
+        errexit(-1, ENOEXEC, "Unknown ELF class");
     }
 
     close(elf_file);

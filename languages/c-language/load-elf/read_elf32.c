@@ -15,25 +15,25 @@ void read_elf32_file(int elf_file, const char *filename, unsigned elf_machine)
     // Make sure ELF header is correct.
     //
     if (elf_header.e_ehsize != sizeof(Elf32_Ehdr)) {
-        errc(-1, ENOEXEC, "Bad ELF header size");
+        errexit(-1, ENOEXEC, "Bad ELF header size");
     }
     if (elf_header.e_type != ET_DYN) {
-        errc(-1, ENOEXEC, "Not dynamic");
+        errexit(-1, ENOEXEC, "Not dynamic");
     }
     if (elf_header.e_machine != elf_machine) {
-        errc(-1, ENOEXEC, "Bad ELF machine %u, expect %u", elf_header.e_machine, elf_machine);
+        errexit(-1, ENOEXEC, "Bad ELF machine %u, expect %u", elf_header.e_machine, elf_machine);
     }
     if (elf_header.e_version != EV_CURRENT) {
-        errc(-1, ENOEXEC, "Bad ELF version");
+        errexit(-1, ENOEXEC, "Bad ELF version");
     }
     if (elf_header.e_phentsize != sizeof(Elf32_Phdr)) {
-        errc(-1, ENOEXEC, "Bad ELF Program Header Entry size");
+        errexit(-1, ENOEXEC, "Bad ELF Program Header Entry size");
     }
     if (elf_header.e_phoff == 0) {
-        errc(-1, ENOEXEC, "Bad ELF Program Header offset");
+        errexit(-1, ENOEXEC, "Bad ELF Program Header offset");
     }
     if (elf_header.e_phnum == 0) {
-        errc(-1, ENOEXEC, "Empty Program header");
+        errexit(-1, ENOEXEC, "Empty Program header");
     }
 
     //
@@ -113,7 +113,7 @@ void read_elf32_file(int elf_file, const char *filename, unsigned elf_machine)
             break;
 
         default:
-            errc(-1, ENOEXEC, "Unknown Program Header type 0x%x", segment[i].p_type);
+            errexit(-1, ENOEXEC, "Unknown Program Header type 0x%x", segment[i].p_type);
             break;
         }
     }
@@ -130,7 +130,7 @@ void read_elf32_file(int elf_file, const char *filename, unsigned elf_machine)
     //
     if (elf_header.e_shnum > 0) {
         if (elf_header.e_shentsize != sizeof(Elf32_Shdr)) {
-            errc(-1, ENOEXEC, "Bad Section header size");
+            errexit(-1, ENOEXEC, "Bad Section header size");
         }
 
         // Load section headers.
@@ -169,7 +169,7 @@ void read_elf32_file(int elf_file, const char *filename, unsigned elf_machine)
                     string_table_size = num_bytes;
                     string_table = alloca(num_bytes);
                     if (string_table == 0) {
-                        errc(-1, ENOMEM, "Cannot allocate String table");
+                        errexit(-1, ENOMEM, "Cannot allocate String table");
                     }
                     if (lseek(elf_file, section_header[i].sh_offset, SEEK_SET) != section_header[i].sh_offset) {
                         err(-1, "Cannot seek String table");
@@ -182,14 +182,14 @@ void read_elf32_file(int elf_file, const char *filename, unsigned elf_machine)
             }
         }
         if (string_table == 0) {
-            errc(-1, ENOEXEC, "No String table");
+            errexit(-1, ENOEXEC, "No String table");
         }
 
         // Load the symbol table.
         for (unsigned i = 0; i < elf_header.e_shnum; i++) {
             if (section_header[i].sh_type == SHT_SYMTAB) {
                 if (section_header[i].sh_entsize != sizeof(Elf32_Sym)) {
-                    errc(-1, ENOEXEC, "Bad Symbol Entry size");
+                    errexit(-1, ENOEXEC, "Bad Symbol Entry size");
                 }
 
                 unsigned num_symbols = section_header[i].sh_size / section_header[i].sh_entsize;
