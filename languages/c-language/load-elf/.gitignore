@@ -6,3 +6,5 @@ read_elf.dSYM
 *.readelf
 *.so
 *.dis
+*.c-
+*.h-
