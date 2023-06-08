@@ -1,4 +1,4 @@
-PDF     = week1.pdf
+PDF     = week1.pdf week2.pdf
 
 all:    $(PDF)
 
