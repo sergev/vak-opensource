@@ -16,153 +16,208 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdint.h>
+#include <stdbool.h>
 #include <errno.h>
-#include <getopt.h>
+#include <math.h>
 
-char *progname;
+typedef enum {
+    MODE_FLOAT,
+    MODE_HEXINT,
+} float_mode_t;
 
-extern char *optarg;
-extern int optind;
-extern float strtof(const char *nptr, char **endptr);
+float_mode_t mode;
 
 void usage()
 {
-    fprintf(stderr, "Convert float number from hex to decimal\n");
+    fprintf(stderr, "Show a floating-point number in different formats\n");
     fprintf(stderr, "Usage:\n");
-    fprintf(stderr, "    %s [-d] float-number\n", progname);
-    fprintf(stderr, "or:\n");
-    fprintf(stderr, "    %s [-d] -h hex-number\n", progname);
-    fprintf(stderr, "or:\n");
-    fprintf(stderr, "    %s [-d] -t testfloat-hex-number\n", progname);
+    fprintf(stderr, "    float number\n");
+    fprintf(stderr, "    double number\n");
+    fprintf(stderr, "    bfloat16 number\n");
+    fprintf(stderr, "\nNumbers:\n");
+    fprintf(stderr, "    [+-]DDD.DDDe[+-]DD    - decimal floating-point literal\n");
+    fprintf(stderr, "    0xNNNN                - hexadecimal image\n");
+    fprintf(stderr, "    [+-]0xHHH.HHHp[+-]DD  - hexfloat literal, as in C++17\n");
     fprintf(stderr, "\nExamples:\n");
-    fprintf(stderr, "    %s 1.2\n", progname);
-    fprintf(stderr, "    %s -d 3.14\n", progname);
-    fprintf(stderr, "    %s -h 55555555\n", progname);
-    fprintf(stderr, "    %s -d -h 5555555555555555\n", progname);
-    fprintf(stderr, "    %s -t 012.345678\n", progname);
-    fprintf(stderr, "    %s -d -t 123.456789abcdef0\n", progname);
+    fprintf(stderr, "    float 1.2\n");
+    fprintf(stderr, "    double 3.14\n");
+    fprintf(stderr, "    bfloat16 -3.14\n");
+    fprintf(stderr, "    float 0x55555555\n");
+    fprintf(stderr, "    double 0x5555555555555555\n");
+    fprintf(stderr, "    bfloat16 0x5555\n");
+    fprintf(stderr, "    float 0x1.fp127\n");
+    fprintf(stderr, "    double 0xa.bp-1000\n");
+    fprintf(stderr, "    bfloat16 -0xffp120\n");
     exit(-1);
 }
 
-float get_testfloat(const char *str)
+//
+// Prefix 0x, but no pN suffix - mode HEXINT.
+//
+float_mode_t detect_mode(const char *input)
 {
-    char *endptr;
-    unsigned exp;
-    union {
-        uint32_t uns32;
-        float float32;
-    } val;
-
-    exp = strtoul(str, &endptr, 16);
-    if (*endptr != '.') {
-        fprintf(stderr, "%s: bad format\n", endptr);
-        exit(-1);
+    if (strcasestr(input, "0x") != NULL &&
+        strcasestr(input, "p") == NULL) {
+        return MODE_HEXINT;
     }
-    val.uns32 = strtoul(endptr+1, 0, 16);
-    val.uns32 |= exp << 23;
-    return (exp & 0x800) ? -val.float32 : val.float32;
+    return MODE_FLOAT;
 }
 
-double get_testfloat_double(const char *str)
+void print_double(const char *input)
 {
-    char *endptr;
-    unsigned exp;
     union {
         uint64_t uns64;
         double float64;
-    } val;
+        uint16_t uns16[4];
+    } d;
+    char *endptr = "";
 
-    exp = strtoul(str, &endptr, 16);
-    if (*endptr != '.') {
-        fprintf(stderr, "%s: bad format\n", str);
+    errno = 0;
+    switch (mode) {
+    case MODE_HEXINT:
+        d.uns64 = strtoull(input, &endptr, 16);
+        break;
+    default:
+        d.float64 = strtod(input, &endptr);
+        break;
+    }
+
+    if (errno != 0) {
+        perror(input);
         exit(-1);
     }
-    val.uns64 = strtoull(endptr+1, 0, 16);
-    val.uns64 |= (unsigned long long) exp << 52;
-    return val.float64;
+    if (*endptr != 0) {
+        fprintf(stderr, "%s: bad format\n", input);
+        exit(-1);
+    }
+
+    printf("%.17g = %a = <%04x %04x %04x %04x>\n", d.float64, d.float64, d.uns16[3], d.uns16[2], d.uns16[1], d.uns16[0]);
+}
+
+void print_float(const char *input)
+{
+    union {
+        uint32_t uns32;
+        float float32;
+        uint16_t uns16[2];
+    } f;
+    char *endptr = "";
+
+    errno = 0;
+    switch (mode) {
+    case MODE_HEXINT:
+        f.uns32 = strtoul(input, &endptr, 16);
+        break;
+    default:
+        f.float32 = strtof(input, &endptr);
+        break;
+    }
+
+    if (errno != 0) {
+        perror(input);
+        exit(-1);
+    }
+    if (*endptr != 0) {
+        fprintf(stderr, "%s: bad format\n", input);
+        exit(-1);
+    }
+
+    printf("%.8g = %a = <%04x %04x>\n", f.float32, f.float32, f.uns16[1], f.uns16[0]);
+}
+
+//
+// Round value to a valid bfloat16 value.
+//
+float round_to_bfloat16(float input)
+{
+    int exponent;
+    float mantissa = frexpf(input, &exponent);
+
+    if (exponent < -125) {
+        fprintf(stderr, "%a: denormal\n", input);
+        exit(-1);
+    }
+
+    // Round half away from zero.
+    if (mantissa > 0) {
+        mantissa += 0x0.008p0;
+    } else if (mantissa < 0) {
+        mantissa -= 0x0.008p0;
+    }
+
+    return ldexpf(mantissa, exponent);
+}
+
+void print_bfloat16(const char *input)
+{
+    union {
+        uint32_t uns32;
+        float float32;
+        uint16_t uns16[2];
+    } f;
+    char *endptr = "";
+
+    errno = 0;
+    switch (mode) {
+    case MODE_HEXINT:
+        f.uns32 = strtoul(input, &endptr, 16) << 16;
+        break;
+    default:
+        f.float32 = round_to_bfloat16(strtof(input, &endptr));
+        break;
+    }
+
+    if (errno != 0) {
+        perror(input);
+        exit(-1);
+    }
+    if (*endptr != 0) {
+        fprintf(stderr, "%s: bad format\n", input);
+        exit(-1);
+    }
+
+    f.uns16[0] = 0;
+    printf("%.8g = %a = <%04x>\n", f.float32, f.float32, f.uns16[1]);
 }
 
 int main(int argc, char **argv)
 {
-    int use_double = 0;
-    int from_hex = 0;
-    int testfloat_format = 0;
-    char *endptr = "";
-    union {
-        uint32_t uns32;
-        float float32;
-    } f;
-    union {
-        uint64_t uns64;
-        double float64;
-    } d;
-    unsigned short *sp;
-
-    progname = strrchr(*argv, '/');
-    if (progname)
+    //
+    // Get program name.
+    //
+    char *progname = strrchr(*argv, '/');
+    if (progname) {
         progname++;
-    else
+    } else {
         progname = *argv;
-
-    for (;;) {
-        switch (getopt(argc, argv, "hdt")) {
-        case EOF:
-            break;
-        case 'h':
-            ++from_hex;
-            continue;
-        case 'd':
-            ++use_double;
-            continue;
-        case 't':
-            ++testfloat_format;
-            continue;
-        default:
-            usage();
-        }
-        break;
     }
-    argc -= optind;
-    argv += optind;
+    argc--;
+    argv++;
 
-    if (argc != 1)
+    //
+    // Get options.
+    //
+    if (argc != 1) {
         usage();
+    }
 
-    if (strcmp("double", progname) == 0)
-        use_double = 1;
+    mode = detect_mode(argv[0]);
 
-    errno = 0;
-    if (use_double) {
-        if (from_hex)
-            d.uns64 = strtoull(argv[0], &endptr, 16);
-        else if (testfloat_format)
-            d.float64 = get_testfloat_double(argv[0]);
-        else
-            d.float64 = strtod(argv[0], &endptr);
-        sp = (unsigned short*) &d;
+    //
+    // Switch based on program name.
+    //
+    if (strcmp("float", progname) == 0) {
+        print_float(argv[0]);
+
+    } else if (strcmp("double", progname) == 0) {
+        print_double(argv[0]);
+
+    } else if (strcmp("bfloat16", progname) == 0) {
+        print_bfloat16(argv[0]);
+
     } else {
-        if (from_hex)
-            f.uns32 = strtoul(argv[0], &endptr, 16);
-        else if (testfloat_format)
-            f.float32 = get_testfloat(argv[0]);
-        else
-            f.float32 = strtof(argv[0], &endptr);
-        sp = (unsigned short*) &f;
-    }
-
-    if (errno != 0) {
-        perror(argv[0]);
-        return -1;
-    }
-    if (*endptr != 0) {
-        fprintf(stderr, "%s: bad format\n", argv[0]);
-        return -1;
-    }
-
-    if (use_double) {
-        printf("%.17g = %a = <%04x %04x %04x %04x>\n", d.float64, d.float64, sp[3], sp[2], sp[1], sp[0]);
-    } else {
-        printf("%.8g = %a = <%04x %04x>\n", f.float32, f.float32, sp[1], sp[0]);
+        fprintf(stderr, "%s: bad program name\n", progname);
+        exit(-1);
     }
     return 0;
 }

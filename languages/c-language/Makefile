@@ -1,4 +1,4 @@
-PROG            = fputest malloc-stress-test
+PROG            = float
 CFLAGS		= -O3 -Wall -Werror
 #CFLAGS		= -m32 -O -Wall -Werror
 #LDFLAGS		= -m32
@@ -21,7 +21,12 @@ nlopt-newuoa:   nlopt-newuoa.o
 		$(CC) $(LDFLAGS) nlopt-newuoa.o -lnlopt -lm -o $@
 
 clean:
-		rm -f $(PROG) *.o *.dis *~ a.out
+		rm -f $(PROG) *.o *.dis *~ a.out float double bfloat16
+
+float:          float.o
+		$(CC) $(LDFLAGS) $< -o $@
+		ln -s -f float double
+		ln -s -f float bfloat16
 
 float128:       float128.o
 		$(CC) $(LDFLAGS) $< -lquadmath -o $@
