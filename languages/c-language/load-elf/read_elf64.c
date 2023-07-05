@@ -1,3 +1,162 @@
+#if 0
+/* 64-bit entry. */
+typedef struct {
+    Elf64_Sxword d_tag; /* Type of entry. */
+    union {
+        Elf64_Xword d_val; /* Integer value. */
+        Elf64_Addr d_ptr;  /* Pointer value; */
+    } d_un;
+} Elf64_Dyn;
+#endif
+
+#if 0
+String dump of section '.shstrtab':
+  [     1]  .symtab
+  [     9]  .strtab
+  [    11]  .shstrtab
+  [    1b]  .hash
+  [    21]  .dynsym
+  [    29]  .dynstr
+  [    31]  .rela.plt
+  [    3b]  .text
+  [    41]  .rodata
+  [    49]  .eh_frame
+  [    53]  .dynamic
+  [    5c]  .got.plt
+  [    65]  .comment
+  [    6e]  .debug_aranges
+  [    7d]  .debug_info
+  [    89]  .debug_abbrev
+  [    97]  .debug_line
+  [    a3]  .debug_str
+  [    ae]  .debug_line_str
+#endif
+
+static void parse_elf64_dynamic(char *exec_buf, unsigned dynamic_offset, unsigned nbytes)
+{
+    // d_tag = 1,           d_val = 0xa         DT_NEEDED     0xa    = string "mylib-x86_64.so"
+    // d_tag = 2147483645,  d_val = 0x1a        DT_AUXILIARY  0x1a   = string "pie"
+    // d_tag = 4,           d_val = 0xe8        DT_HASH       0xe8   = address of section .hash
+    // d_tag = 5,           d_val = 0x148       DT_STRTAB     0x148  = address of section .dynstr - a string table
+    //                                                                  String dump of section '.dynstr':
+    //                                                                  [ 1]  main
+    //                                                                  [ 6]  say
+    //                                                                  [ a]  mylib-x86_64.so
+    //                                                                  [1a]  pie
+    // d_tag = 6,           d_val = 0x100       DT_SYMTAB     0x100  = address of section .dynsym - a symbol table
+    //                                                                  Num:    Value  Size Type    Bind   Vis      Ndx Name
+    //                                                                    0: 00000000     0 NOTYPE  LOCAL  DEFAULT  UND
+    //                                                                    1: 00000000     0 FUNC    GLOBAL DEFAULT  UND say
+    //                                                                    2: 000001a0    23 FUNC    GLOBAL DEFAULT    6 main
+    // d_tag = 10,          d_val = 0x1e        DT_STRSZ      0x1e   = 30 bytes - size of the string table
+    // d_tag = 11,          d_val = 0x18        DT_SYMENT     0x18   = 24 bytes - size of items in the symbol table
+    // d_tag = 3,           d_val = 0x1338      DT_PLTGOT     0x1338 = address of .got.plt table
+    // d_tag = 2,           d_val = 0x18        DT_PLTRELSZ   0x18   = 24 bytes - size of the relocation table entry
+    // d_tag = 20,          d_val = 0x7         DT_PLTREL     0x7    = DT_RELA - type of the PLT relocation: either Elf_Rel or Elf_Rela
+    // d_tag = 23,          d_val = 0x168       DT_JMPREL     0x168  = address of section .rela.plt - PLT relocation table
+    // d_tag = 0,           d_val = 0x0         DT_NULL
+    unsigned dynstr_nbytes = 0;
+    const char *dynstr = 0;
+    const char *dynsym = 0;
+    const char *got_plt = 0;
+    const char *rela_plt = 0;
+
+    for (char *addr = exec_buf + dynamic_offset;
+         nbytes >= sizeof(Elf64_Dyn);
+         addr += sizeof(Elf64_Dyn),
+         nbytes -= sizeof(Elf64_Dyn)) {
+
+        Elf64_Dyn *item = (Elf64_Dyn*) addr;
+        printf("d_tag = %ju, d_val = 0x%jx\n", (intmax_t)item->d_tag, (uintmax_t)item->d_un.d_val);
+
+        switch (item->d_tag) {
+        case DT_NULL:
+            // Empty record - ignore.
+            break;
+
+        case DT_NEEDED:
+            // Name of the shared object this object depends on, like "mylib-x86_64.so".
+            // Value is offset in .dynstr table.
+            // Ignore.
+            break;
+
+        case DT_AUXILIARY:
+            // String "pie" in in .dynstr table.
+            // Ignore.
+            break;
+
+        case DT_HASH:
+            // Address of .hash section.
+            // Ignore.
+            break;
+
+        case DT_STRTAB:
+            // Address of section .dynstr - a string table.
+            // For example:
+            //  [ 1]  main
+            //  [ 6]  say
+            //  [ a]  mylib-x86_64.so
+            //  [1a]  pie
+            dynstr = exec_buf + item->d_un.d_val;
+            break;
+
+        case DT_SYMTAB:
+            // Address of section .dynsym - a symbol table.
+            // For example:
+            // Num:    Value  Size Type    Bind   Vis      Ndx Name
+            //   0: 00000000     0 NOTYPE  LOCAL  DEFAULT  UND
+            //   1: 00000000     0 FUNC    GLOBAL DEFAULT  UND say
+            //   2: 000001a0    23 FUNC    GLOBAL DEFAULT    6 main
+            dynsym = exec_buf + item->d_un.d_val;
+            break;
+
+        case DT_STRSZ:
+            // Size of the string table in bytes.
+            dynstr_nbytes = item->d_un.d_val;
+            break;
+
+        case DT_SYMENT:
+            // Size of entry in the symbol table in bytes.
+	    if (item->d_un.d_val != sizeof(Elf64_Sym)) {
+                errexit(-1, ENOEXEC, "Bad size of symbol table");
+            }
+            break;
+
+        case DT_PLTGOT:
+            // Address of .got.plt table.
+            got_plt = exec_buf + item->d_un.d_val;
+            break;
+
+        case DT_PLTRELSZ:
+            // Size of the relocation table entry.
+	    if (item->d_un.d_val != sizeof(Elf64_Rela)) {
+                errexit(-1, ENOEXEC, "Bad size of relocation table entry");
+            }
+            break;
+
+        case DT_PLTREL:
+            // Type of the PLT relocation: either Elf_Rel or Elf_Rela.
+	    if (item->d_un.d_val != DT_RELA) {
+                errexit(-1, ENOEXEC, "Bad type of the PLT relocation");
+            }
+            break;
+
+        case DT_JMPREL:
+            // Address of section .rela.plt - PLT relocation table.
+            // For example:
+            // r_offset r_info       r_type            st_value st_name + r_addend
+            // 00001350 000100000007 R_X86_64_JMP_SLOT 00000000 say + 0
+            rela_plt = exec_buf + item->d_un.d_val;
+            break;
+        }
+    }
+
+    printf("dynstr = %p, size %u bytes\n", dynstr, dynstr_nbytes);
+    printf("dynsym = %p\n", dynsym);     // array of Elf64_Sym
+    printf("got_plt = %p\n", got_plt);   // array of Elf64_Addr (uint64_t)
+    printf("rela_plt = %p\n", rela_plt); // array of Elf64_Rela
+}
+
 //
 // Find total size of the ELF executable
 //
@@ -146,9 +305,10 @@ void read_elf64_file(int elf_file, const char *filename, unsigned elf_machine)
             break;
 
         case PT_DYNAMIC:
-            //TODO: parse dynamic section
+            // Parse dynamic section.
             printf("Dynamic 0x%jx-0x%jx size %ju bytes\n",
                    (uintmax_t)vaddr, (uintmax_t)(vaddr + memsz - 1), (uintmax_t)memsz);
+            parse_elf64_dynamic(exec_buf, vaddr, memsz);
             break;
 
         case PT_LOPROC + 1:
