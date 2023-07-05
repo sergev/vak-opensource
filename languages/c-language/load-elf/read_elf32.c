@@ -1,3 +1,27 @@
+//
+// Find total size of the ELF executable
+//
+#if 0
+static unsigned find_elf32_size(const Elf32_Ehdr *hdr, const Elf32_Phdr segment[])
+{
+    unsigned vaddr_min = 0, vaddr_max = 0;
+
+    for (int i = 0; i < hdr->e_phnum; i++) {
+        // Chooze loadable non-empty segments.
+        if (segment[i].p_type == PT_LOAD && segment[i].p_memsz > 0) {
+            unsigned first = segment[i].p_vaddr;
+            unsigned last  = first + segment[i].p_memsz;
+
+            if (vaddr_min > first)
+                vaddr_min = first;
+            if (vaddr_max < last)
+                vaddr_max = last;
+        }
+    }
+    return vaddr_max - vaddr_min;
+}
+#endif
+
 void read_elf32_file(int elf_file, const char *filename, unsigned elf_machine)
 {
     //
@@ -46,6 +70,19 @@ void read_elf32_file(int elf_file, const char *filename, unsigned elf_machine)
     if (read(elf_file, (char *)&segment[0], elf_header.e_phnum * sizeof(Elf32_Phdr)) != elf_header.e_phnum * sizeof(Elf32_Phdr)) {
         err(-1, "Cannot read Program header");
     }
+#if 0
+    // Total size of the executable.
+    unsigned exec_nbytes = find_elf32_size(&elf_header, segment);
+
+    // Allocate virtual memory for the executable via mmap().
+    void *exec_buf = mmap(NULL, exec_nbytes, PROT_READ | PROT_WRITE,
+                          MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
+    if (!exec_buf) {
+        err(-1, "Cannot map anonymous memory");
+    }
+
+    printf("exec_buf = %p, size %u bytes\n", exec_buf, exec_nbytes);
+#endif
 
     //
     // Read loadable segments.

@@ -6,6 +6,7 @@
 #include <fcntl.h>
 #include <errno.h>
 #include <err.h>
+#include <sys/mman.h>
 #include "elf.h"
 
 #define errexit(eval, code, ...) { \

@@ -1,3 +1,25 @@
+//
+// Find total size of the ELF executable
+//
+static uint64_t find_elf64_size(const Elf64_Ehdr *hdr, const Elf64_Phdr segment[])
+{
+    uint64_t vaddr_min = 0, vaddr_max = 0;
+
+    for (int i = 0; i < hdr->e_phnum; i++) {
+        // Chooze loadable non-empty segments.
+        if (segment[i].p_type == PT_LOAD && segment[i].p_memsz > 0) {
+            uint64_t first = segment[i].p_vaddr;
+            uint64_t last  = first + segment[i].p_memsz;
+
+            if (vaddr_min > first)
+                vaddr_min = first;
+            if (vaddr_max < last)
+                vaddr_max = last;
+        }
+    }
+    return vaddr_max - vaddr_min;
+}
+
 void read_elf64_file(int elf_file, const char *filename, unsigned elf_machine)
 {
     //
@@ -48,6 +70,17 @@ void read_elf64_file(int elf_file, const char *filename, unsigned elf_machine)
     }
 
     //
+    // Allocate virtual memory for the executable via mmap().
+    //
+    uint64_t exec_nbytes = find_elf64_size(&elf_header, segment);
+    void *exec_buf = mmap(NULL, exec_nbytes, PROT_READ | PROT_WRITE,
+                          MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
+    if (!exec_buf) {
+        err(-1, "Cannot map anonymous memory");
+    }
+    //printf("exec_buf = %p, size %ju bytes\n", exec_buf, (uintmax_t)exec_nbytes);
+
+    //
     // Read loadable segments.
     //
     for (int i = 0; i < elf_header.e_phnum; i++) {
@@ -65,40 +98,50 @@ void read_elf64_file(int elf_file, const char *filename, unsigned elf_machine)
 
             // Verbose logging.
             if (segment[i].p_flags & PF_X) {
+                //
                 // Executable code.
+                //
                 printf("Code 0x%jx-0x%jx size %ju bytes\n",
                        (uintmax_t)vaddr, (uintmax_t)(vaddr + memsz - 1), (uintmax_t)memsz);
+
+                if (vaddr != 0) {
+                    errexit(-1, ENOEXEC, "Virtual address of code segment must be 0");
+                }
+                if (segment[i].p_offset != 0) {
+                    errexit(-1, ENOEXEC, "File offset of code segment must be 0");
+                }
+
+                // Map executable code to the same address.
+                void *code_addr = mmap(exec_buf, filesz, PROT_READ | PROT_EXEC,
+                                       MAP_PRIVATE | MAP_FIXED, elf_file, 0);
+                //printf("exec_buf = %p, code_addr = %p\n", exec_buf, code_addr);
+                if (code_addr != exec_buf) {
+                    err(-1, "Cannot map executable segment");
+                }
+
             } else if (filesz > 0) {
+                //
                 // Initialized data.
+                //
                 printf("Data 0x%jx-0x%jx size %ju bytes\n",
                        (uintmax_t)vaddr, (uintmax_t)(vaddr + filesz - 1), (uintmax_t)filesz);
-                if (memsz > filesz) {
-                    // Zeroed data.
-                    printf("BSS  0x%jx-0x%jx size %ju bytes\n",
-                           (uintmax_t)(vaddr + filesz), (uintmax_t)(vaddr + memsz - 1), (uintmax_t)(memsz - filesz));
-                }
-            }
 
-            // Read data from file.
-            if (filesz > 0) {
+                // Read data from file.
                 if (lseek(elf_file, segment[i].p_offset, SEEK_SET) != segment[i].p_offset) {
                     err(-1, "Cannot seek segment #%u", i);
                 }
 
-                char buf[filesz];
-                if (read(elf_file, buf, filesz) != filesz) {
+                char *data_addr = (char*)exec_buf + vaddr;
+                if (read(elf_file, data_addr, filesz) != filesz) {
                     err(-1, "%s: Cannot read segment #%u", filename, i);
                 }
-                //TODO: write_output((uint8_t *)buf, vaddr, filesz);
-            }
 
-            // Clear BSS.
-            if (memsz > filesz) {
-                //unsigned nbytes = memsz - filesz;
-                //unsigned addr = vaddr + filesz;
-
-                //printf("Clear 0x%x-0x%x size %u bytes\n", addr, addr + nbytes - 1, nbytes);
-                //TODO: memset(addr, 0, nbytes);
+                if (memsz > filesz) {
+                    // Clear BSS.
+                    printf("BSS  0x%jx-0x%jx size %ju bytes\n",
+                           (uintmax_t)(vaddr + filesz), (uintmax_t)(vaddr + memsz - 1), (uintmax_t)(memsz - filesz));
+                    memset(data_addr + filesz, 0, memsz - filesz);
+                }
             }
             break;
 
