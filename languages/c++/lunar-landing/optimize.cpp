@@ -104,7 +104,7 @@ void optimize_variant(const std::array<unsigned, 8> &variant,
         last_score = score;
 
         for (auto const index : variant) {
-            control = optimize_control(control, 7 + index, score);
+            control = optimize_control(control, 8 + index, score);
         }
     } while (score < last_score); // Stop when no enhancement anymore
 #if 0
@@ -180,7 +180,8 @@ int main1()
 int main()
 {
     // Enable random generator.
-    std::uniform_int_distribution<std::mt19937::result_type> dist(170, 200);
+    std::uniform_int_distribution<std::mt19937::result_type> large(170, 200);
+    std::uniform_int_distribution<std::mt19937::result_type> small(8, 30);
     std::mt19937 random;
     random.seed(time(nullptr));
 
@@ -189,9 +190,10 @@ int main()
             // First, free fall for 70 seconds.
             0, 0, 0, 0, 0, 0, 0,
 
-            // Slow down for next 80 seconds.
-            dist(random), dist(random), dist(random), dist(random),
-            dist(random), dist(random), dist(random), dist(random),
+            // Slow down for next 90 seconds.
+            200,
+            large(random), large(random), large(random), large(random),
+            large(random), large(random), large(random), small(random),
         };
         double best_score;
         auto best_control = optimize_control(initial_control, best_score);
