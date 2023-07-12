@@ -52,6 +52,10 @@ void Rocket::play_interactive()
     }
 }
 
+//
+// Play game with given control.
+// Return the resulting impact velocity (in mph).
+//
 double Rocket::play_vector(const std::vector<unsigned> &control)
 {
     unsigned index = 0;
