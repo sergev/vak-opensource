@@ -25,7 +25,12 @@ private:
     const double N{ 16500 };    // N - Empty weight (lbs, Note: M - N is remaining fuel weight)
     const double Z{ 1.8 };      // Z - Thrust per pound of fuel burned
 
+    // Status
+    bool on_the_moon{};
+
     // Methods.
+    double ask_fuel_rate() const;
+    void move();
     void update_lander_state();
     void apply_thrust();
 
@@ -37,6 +42,7 @@ public:
     double get_seconds() const { return L; }
     double get_velocity() const { return V; }
     double get_fuel() const { return M - N; }
+    bool is_landed() const { return on_the_moon; }
 };
 
 static int echo_input = 0;
@@ -97,9 +103,8 @@ int main(int argc, const char **argv)
     return 0;
 }
 
-void Lunar_Module::play()
+double Lunar_Module::ask_fuel_rate() const
 {
-start_turn: // 02.10 in original FOCAL code
     printf("%7.0f%16.0f%7.0f%15.2f%12.1f      ",
            L,
            trunc(A),
@@ -107,19 +112,32 @@ start_turn: // 02.10 in original FOCAL code
            3600 * V,
            M - N);
 
-prompt_for_k:
-    fputs("K=:", stdout);
-    int is_valid_input = accept_double(&K);
-    if (!is_valid_input || K < 0 || ((0 < K) && (K < 8)) || K > 200) {
+    for (;;) {
+        // Prompt for K.
+        fputs("K=:", stdout);
+        double fuel_rate = 0;
+        int is_valid_input = accept_double(&fuel_rate);
+        if (is_valid_input && (fuel_rate == 0 || fuel_rate >= 8) && fuel_rate <= 200) {
+            return fuel_rate;
+        }
+
         fputs("NOT POSSIBLE", stdout);
         for (int x = 1; x <= 51; ++x)
             putchar('.');
-        goto prompt_for_k;
     }
+}
 
+void Lunar_Module::play()
+{
+    while (!is_landed()) { // 02.10 in original FOCAL code
+        K = ask_fuel_rate();
+        move();
+    }
+}
+
+void Lunar_Module::move()
+{
     T = 10;
-
-turn_loop:
     for (;;) { // 03.10 in original FOCAL code
 
         if (M - N < .001) { // 04.10 in original FOCAL code
@@ -127,11 +145,13 @@ turn_loop:
             S = (sqrt(V * V + 2 * A * G) - V) / G;
             V += G * S;
             L += S;
+            on_the_moon = true;
             return;
         }
 
         if (T < .001) {
-            goto start_turn;
+            // This time interval is finished.
+            return;
         }
         S = T;
 
@@ -140,9 +160,16 @@ turn_loop:
         }
         apply_thrust();
 
-        if (I <= 0) {
-            break;
+        if (I <= 0) { // 07.10 in original FOCAL code
+            while (S >= .005) {
+                S = 2 * A / (V + sqrt(V * V + 2 * A * (G - Z * K / M)));
+                apply_thrust();
+                update_lander_state();
+            }
+            on_the_moon = true;
+            return;
         }
+
         if ((V > 0) && (J < 0)) {
             for (;;) { // 08.10 in original FOCAL code
                 // FOCAL-to-C gotcha: In FOCAL, multiplication has a higher
@@ -160,21 +187,14 @@ turn_loop:
                 }
                 update_lander_state();
                 if (-J < 0) {
-                    goto turn_loop;
+                    continue;
                 }
                 if (V <= 0) {
-                    goto turn_loop;
+                    continue;
                 }
             }
         }
 
-        update_lander_state();
-    }
-
-    // 07.10 in original FOCAL code
-    while (S >= .005) {
-        S = 2 * A / (V + sqrt(V * V + 2 * A * (G - Z * K / M)));
-        apply_thrust();
         update_lander_state();
     }
 }
