@@ -180,7 +180,7 @@ int main1()
 int main()
 {
     // Enable random generator.
-    std::uniform_int_distribution<std::mt19937::result_type> dist(180, 200);
+    std::uniform_int_distribution<std::mt19937::result_type> dist(170, 200);
     std::mt19937 random;
     random.seed(time(nullptr));
 
