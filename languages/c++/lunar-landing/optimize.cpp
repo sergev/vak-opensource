@@ -135,13 +135,20 @@ std::vector<unsigned> optimize_control(const std::vector<unsigned> &initial_cont
 
     const double initial_score = play_game(initial_control);
 
+    // First pass.
     std::vector<unsigned> best_control = initial_control;
     best_score = initial_score;
-
     do {
         optimize_variant(variant, initial_control, initial_score,
                          best_control, best_score);
+    } while (std::next_permutation(variant.begin(), variant.end()));
 
+    // Second pass.
+    auto initial_control2 = best_control;
+    auto initial_score2 = best_score;
+    do {
+        optimize_variant(variant, initial_control2, initial_score2,
+                         best_control, best_score);
     } while (std::next_permutation(variant.begin(), variant.end()));
 
     return best_control;

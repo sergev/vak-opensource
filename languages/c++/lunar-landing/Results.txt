@@ -1,5 +1,6 @@
 The best score 1.51412, control { 0 0 0 0 0 0 0 186 200 186 200 186 200 192 184 }
 The best score 1.51626, control { 0 0 0 0 0 0 0 180 193 200 200 200 181 198 182 }
+The best score 1.51697, control { 0 0 0 0 0 0 0 196 182 200 186 197 192 200 181 }
 The best score 1.76611, control { 0 0 0 0 0 0 0 189 184 200 200 184 200 200 177 }
 The best score 1.86083, control { 0 0 0 0 0 0 0 200 196 200 180 180 180 200 198 }
 The best score 2.05431, control { 0 0 0 0 0 0 0 200 194 181 200 181 200 179 199 }
