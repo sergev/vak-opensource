@@ -2,108 +2,21 @@
 // <http://www.cs.brandeis.edu/~storer/LunarLander/LunarLander/LunarLanderListing.jpg>
 // by Jim Storer from FOCAL to C.
 
+#include "rocket.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
-
-class Lunar_Module {
-private:
-    // Variables
-    double A{ 120 };            // Altitude (miles)
-    double I{};                 // Intermediate altitude (miles)
-    double J{};                 // Intermediate velocity (miles/sec)
-    double K{};                 // Fuel rate (lbs/sec)
-    double L{ 0 };              // Elapsed time (sec)
-    double M{ 32500 };          // Total weight (lbs)
-    double S{};                 // Time elapsed in current 10-second turn (sec)
-    double T{};                 // Time remaining in current 10-second turn (sec)
-    double V{ 1 };              // Downward speed (miles/sec)
-
-    // Constants
-    const double G{ 0.001 };    // G - Gravity
-    const double N{ 16500 };    // N - Empty weight (lbs, Note: M - N is remaining fuel weight)
-    const double Z{ 1.8 };      // Z - Thrust per pound of fuel burned
-
-    // Status
-    bool on_the_moon{};
-
-    // Methods.
-    double ask_fuel_rate() const;
-    void move();
-    void update_lander_state();
-    void apply_thrust();
-
-public:
-    // Methods.
-    void play();
-
-    // Getters.
-    double get_seconds() const { return L; }
-    double get_velocity() const { return V; }
-    double get_fuel() const { return M - N; }
-    bool is_landed() const { return on_the_moon; }
-};
+#include <unistd.h>
 
 static int echo_input = 0;
 
 // Input routines (substitutes for FOCAL ACCEPT command)
 static int accept_double(double *value);
-static int accept_yes_or_no();
 static void accept_line(char **buffer, size_t *buffer_length);
 
-int main(int argc, const char **argv)
-{
-    if (argc > 1)
-    {
-        // If --echo is present, then write all input back to standard output.
-        // (This is useful for testing with files as redirected input.)
-        if (strcmp(argv[1], "--echo") == 0)
-            echo_input = 1;
-    }
-
-    puts("CONTROL CALLING LUNAR MODULE. MANUAL CONTROL IS NECESSARY");
-    puts("YOU MAY RESET FUEL RATE K EACH 10 SECS TO 0 OR ANY VALUE");
-    puts("BETWEEN 8 & 200 LBS/SEC. YOU'VE 16000 LBS FUEL. ESTIMATED");
-    puts("FREE FALL IMPACT TIME-120 SECS. CAPSULE WEIGHT-32500 LBS\n\n");
-
-    do // 01.20 in original FOCAL code
-    {
-        puts("FIRST RADAR CHECK COMING UP\n\n");
-        puts("COMMENCE LANDING PROCEDURE");
-        puts("TIME,SECS   ALTITUDE,MILES+FEET   VELOCITY,MPH   FUEL,LBS   FUEL RATE");
-
-        Lunar_Module game;
-        game.play();
-
-        // On the Moon: 05.10 in original FOCAL code
-        printf("ON THE MOON AT %8.2f SECS\n", game.get_seconds());
-        double impact_velocity = 3600 * game.get_velocity();
-        printf("IMPACT VELOCITY OF %8.2f M.P.H.\n", impact_velocity);
-        printf("FUEL LEFT: %8.2f LBS\n", game.get_fuel());
-        if (impact_velocity <= 1) {
-            puts("PERFECT LANDING !-(LUCKY)");
-        } else if (impact_velocity <= 10) {
-            puts("GOOD LANDING-(COULD BE BETTER)");
-        } else if (impact_velocity <= 22) {
-            puts("CONGRATULATIONS ON A POOR LANDING");
-        } else if (impact_velocity <= 40) {
-            puts("CRAFT DAMAGE. GOOD LUCK");
-        } else if (impact_velocity <= 60) {
-            puts("CRASH LANDING-YOU'VE 5 HRS OXYGEN");
-        } else {
-            puts("SORRY,BUT THERE WERE NO SURVIVORS-YOU BLEW IT!");
-            printf("IN FACT YOU BLASTED A NEW LUNAR CRATER %8.2f FT. DEEP\n", impact_velocity * .277777);
-        }
-
-        puts("\n\n\nTRY AGAIN?");
-    } while (accept_yes_or_no());
-
-    puts("CONTROL OUT\n\n");
-    return 0;
-}
-
-double Lunar_Module::ask_fuel_rate() const
+double Rocket::ask_fuel_rate() const
 {
     printf("%7.0f%16.0f%7.0f%15.2f%12.1f      ",
            L,
@@ -127,17 +40,49 @@ double Lunar_Module::ask_fuel_rate() const
     }
 }
 
-void Lunar_Module::play()
+void Rocket::play_interactive()
 {
+    // When not on a terminal, then write all input back to standard output.
+    // (This is useful for testing with files as redirected input.)
+    echo_input = !isatty(0);
+
     while (!is_landed()) { // 02.10 in original FOCAL code
         K = ask_fuel_rate();
         move();
     }
 }
 
-void Lunar_Module::move()
+double Rocket::play_vector(const std::vector<unsigned> &control)
+{
+    unsigned index = 0;
+
+    while (!is_landed()) {
+
+        if (index < control.size()) {
+            K = control[index++];
+        } else {
+            K = 0;
+        }
+
+        printf("%7.0f%16.0f%7.0f%15.2f%12.1f      K=:%.0f\n",
+               L,
+               trunc(A),
+               5280 * (A - trunc(A)),
+               3600 * V,
+               M - N,
+               K);
+
+        move();
+    }
+
+    return 3600 * V;
+}
+
+void Rocket::move()
 {
     T = 10;
+
+turn_loop:
     for (;;) { // 03.10 in original FOCAL code
 
         if (M - N < .001) { // 04.10 in original FOCAL code
@@ -160,7 +105,8 @@ void Lunar_Module::move()
         }
         apply_thrust();
 
-        if (I <= 0) { // 07.10 in original FOCAL code
+        if (I <= 0) {
+loop_until_on_the_moon: // 07.10 in original FOCAL code
             while (S >= .005) {
                 S = 2 * A / (V + sqrt(V * V + 2 * A * (G - Z * K / M)));
                 apply_thrust();
@@ -183,14 +129,15 @@ void Lunar_Module::move()
                 S = M * V / (Z * K * (w + sqrt(w * w + V / Z))) + 0.5;
                 apply_thrust();
                 if (I <= 0) {
-                    break;
+                    goto loop_until_on_the_moon;
                 }
+
                 update_lander_state();
                 if (-J < 0) {
-                    continue;
+                    goto turn_loop;
                 }
                 if (V <= 0) {
-                    continue;
+                    goto turn_loop;
                 }
             }
         }
@@ -200,7 +147,7 @@ void Lunar_Module::move()
 }
 
 // Subroutine at line 06.10 in original FOCAL code
-void Lunar_Module::update_lander_state()
+void Rocket::update_lander_state()
 {
     L += S;
     T -= S;
@@ -210,7 +157,7 @@ void Lunar_Module::update_lander_state()
 }
 
 // Subroutine at line 09.10 in original FOCAL code
-void Lunar_Module::apply_thrust()
+void Rocket::apply_thrust()
 {
     double Q = S * K / M;
     double Q_2 = pow(Q, 2);
@@ -245,7 +192,7 @@ int accept_double(double *value)
 // If input starts with none of those characters, prompt again.
 //
 // If unable to read input, calls exit(-1);
-int accept_yes_or_no()
+int Rocket::accept_yes_or_no()
 {
     int result = -1;
     do {

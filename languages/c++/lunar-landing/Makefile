@@ -1,17 +1,19 @@
-OBJS            = rocket.o
 CXXFLAGS        = -g -Wall -Werror -O -std=c++17
 LDFLAGS         = -g
 LIBS            =
 
 .PHONY:         all clean
 
-all:            rocket
+all:            rocket optimize
 
 clean:
 		rm -f *.o rocket
 
-rocket:         $(OBJS)
-		$(CXX) $(LDFLAGS) $(OBJS) $(LIBS) -o $@
+rocket:         rocket.o interactive.o
+		$(CXX) $(LDFLAGS) rocket.o interactive.o $(LIBS) -o $@
+
+optimize:       rocket.o optimize.o
+		$(CXX) $(LDFLAGS) rocket.o optimize.o $(LIBS) -o $@
 
 test:           rocket
 		./rocket --echo < solution1-2mph.txt
