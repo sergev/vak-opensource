@@ -67,7 +67,7 @@ double Rocket::play_vector(const std::vector<unsigned> &control)
         } else {
             K = 0;
         }
-
+#if 0
         printf("%7.0f%16.0f%7.0f%15.2f%12.1f      K=:%.0f\n",
                L,
                trunc(A),
@@ -75,7 +75,7 @@ double Rocket::play_vector(const std::vector<unsigned> &control)
                3600 * V,
                M - N,
                K);
-
+#endif
         move();
     }
 

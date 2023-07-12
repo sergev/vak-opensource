@@ -36,7 +36,7 @@ double play_game(const std::vector<unsigned> &control)
     Rocket game;
     double score = game.play_vector(control);
 
-    std::cout << "Impact velocity " << score << " mph, control " << control << std::endl;
+    //std::cout << "Impact velocity " << score << " mph, control " << control << std::endl;
     return score;
 }
 
@@ -54,7 +54,7 @@ std::vector<unsigned> optimize_control(std::vector<unsigned> control,
     while (control[index] < 200) {
         auto new_control = control; // make a copy
         new_control[index] += 1;
-        auto new_score = play_game(control);
+        auto new_score = play_game(new_control);
         if (new_score > score) {
             // It got worse.
             break;
@@ -72,7 +72,7 @@ std::vector<unsigned> optimize_control(std::vector<unsigned> control,
     while (control[index] > 8) {
         auto new_control = control; // make a copy
         new_control[index] -= 1;
-        auto new_score = play_game(control);
+        auto new_score = play_game(new_control);
         if (new_score > score) {
             // It got worse.
             break;
@@ -90,7 +90,9 @@ std::vector<unsigned> optimize_control(std::vector<unsigned> control,
 //
 void optimize_variant(const std::array<unsigned, 8> &variant,
                       const std::vector<unsigned> &initial_control,
-                      const double initial_score)
+                      const double initial_score,
+                      std::vector<unsigned> &best_control,
+                      double &best_score)
 {
     std::vector<unsigned> control = initial_control;
     double score = initial_score;
@@ -100,15 +102,21 @@ void optimize_variant(const std::array<unsigned, 8> &variant,
         last_score = score;
 
         for (auto const index : variant) {
-            control = optimize_control(control, 15 - index, score);
+            control = optimize_control(control, 7 + index, score);
         }
     } while (score < last_score); // Stop when no enhancement anymore
 
-    // Print the best score.
+    // Print the score.
     if (score < initial_score) {
         std::cout << "Score " << score
                   << ", control " << control
                   << ", variant " << variant << std::endl;
+    }
+
+    // Update the best score
+    if (score < best_score) {
+        best_score = score;
+        best_control = control;
     }
 }
 
@@ -121,14 +129,22 @@ int main()
 
     const std::vector<unsigned> initial_control = {
         0, 0, 0, 0, 0, 0, 0,
-        200, 200, 200, 200, 200, 200, 200, 199,
+        180, 180, 180, 180, 180, 180, 180, 180,
     };
     const double initial_score = play_game(initial_control);
+
+    std::vector<unsigned> best_control = initial_control;
+    double best_score = initial_score;
 
     do {
         //std::cout << variant[0] << ' ' << variant[1] << ' ' << variant[2] << ' ' << variant[3] << ' '
         //          << variant[4] << ' ' << variant[5] << ' ' << variant[6] << ' ' << variant[7] << '\n';
-        optimize_variant(variant, initial_control, initial_score);
+        optimize_variant(variant, initial_control, initial_score,
+                         best_control, best_score);
 
     } while (std::next_permutation(variant.begin(), variant.end()));
+
+    // Print the best score and control.
+    std::cout << "The best score " << best_score
+              << ", control " << best_control << std::endl;
 }

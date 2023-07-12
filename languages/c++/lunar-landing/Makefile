@@ -17,3 +17,7 @@ optimize:       rocket.o optimize.o
 
 test:           rocket
 		./rocket --echo < solution1-2mph.txt
+###
+interactive.o: interactive.cpp rocket.h
+optimize.o: optimize.cpp rocket.h
+rocket.o: rocket.cpp rocket.h
