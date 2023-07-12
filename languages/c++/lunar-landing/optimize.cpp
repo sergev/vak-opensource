@@ -105,14 +105,14 @@ void optimize_variant(const std::array<unsigned, 8> &variant,
             control = optimize_control(control, 7 + index, score);
         }
     } while (score < last_score); // Stop when no enhancement anymore
-
+#if 0
     // Print the score.
     if (score < initial_score) {
         std::cout << "Score " << score
                   << ", control " << control
                   << ", variant " << variant << std::endl;
     }
-
+#endif
     // Update the best score
     if (score < best_score) {
         best_score = score;
@@ -121,20 +121,20 @@ void optimize_variant(const std::array<unsigned, 8> &variant,
 }
 
 //
+// Start with a given control and optimize it's items
+// in order defined by all permutations.
 // Try all variants one by one.
+// Return the best control, and update the best score.
 //
-int main()
+std::vector<unsigned> optimize_control(const std::vector<unsigned> &initial_control,
+                                       double &best_score)
 {
     std::array<unsigned, 8> variant = { 0, 1, 2, 3, 4, 5, 6, 7 };
 
-    const std::vector<unsigned> initial_control = {
-        0, 0, 0, 0, 0, 0, 0,
-        180, 180, 180, 180, 180, 180, 180, 180,
-    };
     const double initial_score = play_game(initial_control);
 
     std::vector<unsigned> best_control = initial_control;
-    double best_score = initial_score;
+    best_score = initial_score;
 
     do {
         //std::cout << variant[0] << ' ' << variant[1] << ' ' << variant[2] << ' ' << variant[3] << ' '
@@ -143,6 +143,22 @@ int main()
                          best_control, best_score);
 
     } while (std::next_permutation(variant.begin(), variant.end()));
+
+    return best_control;
+}
+
+//
+// Start with a fixed control and optimize it.
+// Print the best score and control.
+//
+int main()
+{
+    const std::vector<unsigned> initial_control = {
+        0, 0, 0, 0, 0, 0, 0,                    // First, free fall for 70 seconds
+        180, 180, 180, 180, 180, 180, 180, 180, // Slow dowo for next 80 seconds
+    };
+    double best_score;
+    auto best_control = optimize_control(initial_control, best_score);
 
     // Print the best score and control.
     std::cout << "The best score " << best_score
