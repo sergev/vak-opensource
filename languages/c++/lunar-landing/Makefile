@@ -12,3 +12,6 @@ clean:
 
 rocket:         $(OBJS)
 		$(CXX) $(LDFLAGS) $(OBJS) $(LIBS) -o $@
+
+test:           rocket
+		./rocket --echo < solution1-2mph.txt
