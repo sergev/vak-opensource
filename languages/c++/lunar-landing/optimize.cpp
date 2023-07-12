@@ -1,4 +1,6 @@
 #include <iostream>
+#include <random>
+#include <time.h>
 #include "rocket.h"
 
 //
@@ -137,8 +139,6 @@ std::vector<unsigned> optimize_control(const std::vector<unsigned> &initial_cont
     best_score = initial_score;
 
     do {
-        //std::cout << variant[0] << ' ' << variant[1] << ' ' << variant[2] << ' ' << variant[3] << ' '
-        //          << variant[4] << ' ' << variant[5] << ' ' << variant[6] << ' ' << variant[7] << '\n';
         optimize_variant(variant, initial_control, initial_score,
                          best_control, best_score);
 
@@ -151,11 +151,11 @@ std::vector<unsigned> optimize_control(const std::vector<unsigned> &initial_cont
 // Start with a fixed control and optimize it.
 // Print the best score and control.
 //
-int main()
+int main1()
 {
     const std::vector<unsigned> initial_control = {
         0, 0, 0, 0, 0, 0, 0,                    // First, free fall for 70 seconds
-        180, 180, 180, 180, 180, 180, 180, 180, // Slow dowo for next 80 seconds
+        180, 180, 180, 180, 180, 180, 180, 180, // Slow down for next 80 seconds
     };
     double best_score;
     auto best_control = optimize_control(initial_control, best_score);
@@ -163,4 +163,35 @@ int main()
     // Print the best score and control.
     std::cout << "The best score " << best_score
               << ", control " << best_control << std::endl;
+    return 0;
+}
+
+//
+// Start with ramdom control and optimize it.
+// Print the best score and control.
+//
+int main()
+{
+    // Enable random generator.
+    std::uniform_int_distribution<std::mt19937::result_type> dist(180, 200);
+    std::mt19937 random;
+    random.seed(time(nullptr));
+
+    for (;;) {
+        const std::vector<unsigned> initial_control = {
+            // First, free fall for 70 seconds.
+            0, 0, 0, 0, 0, 0, 0,
+
+            // Slow down for next 80 seconds.
+            dist(random), dist(random), dist(random), dist(random),
+            dist(random), dist(random), dist(random), dist(random),
+        };
+        double best_score;
+        auto best_control = optimize_control(initial_control, best_score);
+
+        // Print the best score and control.
+        std::cout << "The best score " << best_score
+                  << ", control " << best_control << std::endl;
+    }
+    return 0;
 }
