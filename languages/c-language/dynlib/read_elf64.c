@@ -1,60 +1,5 @@
-#if 0
-/* 64-bit entry. */
-typedef struct {
-    Elf64_Sxword d_tag; /* Type of entry. */
-    union {
-        Elf64_Xword d_val; /* Integer value. */
-        Elf64_Addr d_ptr;  /* Pointer value; */
-    } d_un;
-} Elf64_Dyn;
-#endif
-
-#if 0
-String dump of section '.shstrtab':
-  [     1]  .symtab
-  [     9]  .strtab
-  [    11]  .shstrtab
-  [    1b]  .hash
-  [    21]  .dynsym
-  [    29]  .dynstr
-  [    31]  .rela.plt
-  [    3b]  .text
-  [    41]  .rodata
-  [    49]  .eh_frame
-  [    53]  .dynamic
-  [    5c]  .got.plt
-  [    65]  .comment
-  [    6e]  .debug_aranges
-  [    7d]  .debug_info
-  [    89]  .debug_abbrev
-  [    97]  .debug_line
-  [    a3]  .debug_str
-  [    ae]  .debug_line_str
-#endif
-
 static void parse_elf64_dynamic(char *exec_buf, unsigned dynamic_offset, unsigned nbytes)
 {
-    // d_tag = 1,           d_val = 0xa         DT_NEEDED     0xa    = string "mylib-x86_64.so"
-    // d_tag = 2147483645,  d_val = 0x1a        DT_AUXILIARY  0x1a   = string "pie"
-    // d_tag = 4,           d_val = 0xe8        DT_HASH       0xe8   = address of section .hash
-    // d_tag = 5,           d_val = 0x148       DT_STRTAB     0x148  = address of section .dynstr - a string table
-    //                                                                  String dump of section '.dynstr':
-    //                                                                  [ 1]  main
-    //                                                                  [ 6]  say
-    //                                                                  [ a]  mylib-x86_64.so
-    //                                                                  [1a]  pie
-    // d_tag = 6,           d_val = 0x100       DT_SYMTAB     0x100  = address of section .dynsym - a symbol table
-    //                                                                  Num:    Value  Size Type    Bind   Vis      Ndx Name
-    //                                                                    0: 00000000     0 NOTYPE  LOCAL  DEFAULT  UND
-    //                                                                    1: 00000000     0 FUNC    GLOBAL DEFAULT  UND say
-    //                                                                    2: 000001a0    23 FUNC    GLOBAL DEFAULT    6 main
-    // d_tag = 10,          d_val = 0x1e        DT_STRSZ      0x1e   = 30 bytes - size of the string table
-    // d_tag = 11,          d_val = 0x18        DT_SYMENT     0x18   = 24 bytes - size of items in the symbol table
-    // d_tag = 3,           d_val = 0x1338      DT_PLTGOT     0x1338 = address of .got.plt table
-    // d_tag = 2,           d_val = 0x18        DT_PLTRELSZ   0x18   = 24 bytes - size of the relocation table entry
-    // d_tag = 20,          d_val = 0x7         DT_PLTREL     0x7    = DT_RELA - type of the PLT relocation: either Elf_Rel or Elf_Rela
-    // d_tag = 23,          d_val = 0x168       DT_JMPREL     0x168  = address of section .rela.plt - PLT relocation table
-    // d_tag = 0,           d_val = 0x0         DT_NULL
     unsigned dynstr_nbytes = 0;
     const char *dynstr = 0;
     const char *dynsym = 0;
@@ -214,7 +159,13 @@ void read_elf64_file(int elf_file, const char *filename, unsigned elf_machine)
         errexit(-1, ENOEXEC, "Bad ELF Program Header offset");
     }
     if (elf_header.e_phnum == 0) {
-        errexit(-1, ENOEXEC, "Empty Program header");
+        errexit(-1, ENOEXEC, "Empty Program headers");
+    }
+    if (elf_header.e_shnum == 0) {
+        errexit(-1, ENOEXEC, "Empty Section headers");
+    }
+    if (elf_header.e_shentsize != sizeof(Elf64_Shdr)) {
+        errexit(-1, ENOEXEC, "Bad Section header size");
     }
 
     //
@@ -329,93 +280,92 @@ void read_elf64_file(int elf_file, const char *filename, unsigned elf_machine)
     //TODO: cpu.set_pc(entry_address);
 
     //
-    // Scan the symbol table.
+    // Load section headers.
     //
-    if (elf_header.e_shnum > 0) {
-        if (elf_header.e_shentsize != sizeof(Elf64_Shdr)) {
-            errexit(-1, ENOEXEC, "Bad Section header size");
-        }
+    Elf64_Shdr section_header[elf_header.e_shnum];
+    if (lseek(elf_file, elf_header.e_shoff, SEEK_SET) != elf_header.e_shoff) {
+        err(-1, "Cannot seek Section header");
+    }
+    if (read(elf_file, (char *)&section_header[0], elf_header.e_shnum * sizeof(Elf64_Shdr)) != elf_header.e_shnum * sizeof(Elf64_Shdr)) {
+        err(-1, "Cannot read Section header");
+    }
 
-        // Load section headers.
-        Elf64_Shdr section_header[elf_header.e_shnum];
-        if (lseek(elf_file, elf_header.e_shoff, SEEK_SET) != elf_header.e_shoff) {
-            err(-1, "Cannot seek Section header");
-        }
-        if (read(elf_file, (char *)&section_header[0], elf_header.e_shnum * sizeof(Elf64_Shdr)) != elf_header.e_shnum * sizeof(Elf64_Shdr)) {
-            err(-1, "Cannot read Section header");
-        }
-
-        // Load Section Header String table.
-        unsigned shstr_table_size = section_header[elf_header.e_shstrndx].sh_size;
-        char shstr_table[shstr_table_size];
-        if (shstr_table_size > 0) {
-            // Load the string table.
-            if (lseek(elf_file, section_header[elf_header.e_shstrndx].sh_offset, SEEK_SET) != section_header[elf_header.e_shstrndx].sh_offset) {
-                err(-1, "Cannot seek Section Header String table");
-            }
-            if (read(elf_file, shstr_table, shstr_table_size) != shstr_table_size) {
-                err(-1, "Cannot read Section Header String table");
-            }
-        }
-
+    //
+    // Load Section Header String table.
+    //
+    unsigned shstr_table_size = section_header[elf_header.e_shstrndx].sh_size;
+    char shstr_table[shstr_table_size];
+    if (shstr_table_size > 0) {
         // Load the string table.
-        char *string_table = 0;
-        unsigned string_table_size = 0;
-        for (unsigned i = 0; i < elf_header.e_shnum; i++) {
-            if (section_header[i].sh_type == SHT_STRTAB &&
-                section_header[i].sh_name < shstr_table_size &&
-                strcmp(".strtab", section_header[i].sh_name + shstr_table) == 0) {
+        if (lseek(elf_file, section_header[elf_header.e_shstrndx].sh_offset, SEEK_SET) != section_header[elf_header.e_shstrndx].sh_offset) {
+            err(-1, "Cannot seek Section Header String table");
+        }
+        if (read(elf_file, shstr_table, shstr_table_size) != shstr_table_size) {
+            err(-1, "Cannot read Section Header String table");
+        }
+    }
 
-                unsigned num_bytes = section_header[i].sh_size;
-                if (num_bytes > 0) {
-                    // Load the string table.
-                    string_table_size = num_bytes;
-                    string_table = alloca(num_bytes);
-                    if (string_table == 0) {
-                        errexit(-1, ENOMEM, "Cannot allocate String table");
-                    }
-                    if (lseek(elf_file, section_header[i].sh_offset, SEEK_SET) != section_header[i].sh_offset) {
-                        err(-1, "Cannot seek String table");
-                    }
-                    if (read(elf_file, string_table, num_bytes) != num_bytes) {
-                        err(-1, "Cannot read String table");
-                    }
+    //
+    // Load the string table.
+    //
+    char *string_table = 0;
+    unsigned string_table_size = 0;
+    for (unsigned i = 0; i < elf_header.e_shnum; i++) {
+        if (section_header[i].sh_type == SHT_STRTAB &&
+            section_header[i].sh_name < shstr_table_size &&
+            strcmp(".strtab", section_header[i].sh_name + shstr_table) == 0) {
+
+            unsigned num_bytes = section_header[i].sh_size;
+            if (num_bytes > 0) {
+                // Load the string table.
+                string_table_size = num_bytes;
+                string_table = alloca(num_bytes);
+                if (string_table == 0) {
+                    errexit(-1, ENOMEM, "Cannot allocate String table");
                 }
-                break;
+                if (lseek(elf_file, section_header[i].sh_offset, SEEK_SET) != section_header[i].sh_offset) {
+                    err(-1, "Cannot seek String table");
+                }
+                if (read(elf_file, string_table, num_bytes) != num_bytes) {
+                    err(-1, "Cannot read String table");
+                }
             }
+            break;
         }
-        if (string_table == 0) {
-            errexit(-1, ENOEXEC, "No String table");
-        }
+    }
+    if (string_table == 0) {
+        errexit(-1, ENOEXEC, "No String table");
+    }
 
-        // Load the symbol table.
-        for (unsigned i = 0; i < elf_header.e_shnum; i++) {
-            if (section_header[i].sh_type == SHT_SYMTAB) {
-                if (section_header[i].sh_entsize != sizeof(Elf64_Sym)) {
-                    errexit(-1, ENOEXEC, "Bad Symbol Entry size");
+    //
+    // Load the symbol table.
+    //
+    for (unsigned i = 0; i < elf_header.e_shnum; i++) {
+        if (section_header[i].sh_type == SHT_SYMTAB) {
+            if (section_header[i].sh_entsize != sizeof(Elf64_Sym)) {
+                errexit(-1, ENOEXEC, "Bad Symbol Entry size");
+            }
+
+            unsigned num_symbols = section_header[i].sh_size / section_header[i].sh_entsize;
+            if (num_symbols > 0) {
+                // Load the symbol table.
+                Elf64_Sym symbol_table[num_symbols];
+
+                if (lseek(elf_file, section_header[i].sh_offset, SEEK_SET) != section_header[i].sh_offset) {
+                    err(-1, "Cannot seek Symbol Table");
+                }
+                if (read(elf_file, (char *)&symbol_table[0], section_header[i].sh_size) != section_header[i].sh_size) {
+                    err(-1, "Cannot read Symbol Table");
                 }
 
-                unsigned num_symbols = section_header[i].sh_size / section_header[i].sh_entsize;
-                if (num_symbols > 0) {
-                    // Load the symbol table.
-                    Elf64_Sym symbol_table[num_symbols];
+                for (unsigned s = 0; s < num_symbols; s++) {
+                    if (symbol_table[s].st_name != STN_UNDEF &&
+                        symbol_table[s].st_name < string_table_size) {
+                        // Found a global untyped symbol with valid name.
+                        unsigned name_offset = symbol_table[s].st_name;
+                        const char *name = string_table + name_offset;
 
-                    if (lseek(elf_file, section_header[i].sh_offset, SEEK_SET) != section_header[i].sh_offset) {
-                        err(-1, "Cannot seek Symbol Table");
-                    }
-                    if (read(elf_file, (char *)&symbol_table[0], section_header[i].sh_size) != section_header[i].sh_size) {
-                        err(-1, "Cannot read Symbol Table");
-                    }
-
-                    for (unsigned s = 0; s < num_symbols; s++) {
-                        if (symbol_table[s].st_name != STN_UNDEF &&
-                            symbol_table[s].st_name < string_table_size) {
-                            // Found a global untyped symbol with valid name.
-                            unsigned name_offset = symbol_table[s].st_name;
-                            const char *name = string_table + name_offset;
-
-                            printf("Symbol %s = 0x%jx\n", name, (uintmax_t) symbol_table[s].st_value);
-                        }
+                        printf("Symbol %s = 0x%jx\n", name, (uintmax_t) symbol_table[s].st_value);
                     }
                 }
             }
