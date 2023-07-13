@@ -16,7 +16,7 @@ optimize:       rocket.o optimize.o
 		$(CXX) $(LDFLAGS) rocket.o optimize.o $(LIBS) -o $@
 
 test:           rocket
-		./rocket --echo < solution1-2mph.txt
+		./rocket --echo < solution-input.txt
 ###
 interactive.o: interactive.cpp rocket.h
 optimize.o: optimize.cpp rocket.h
