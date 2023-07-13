@@ -63,6 +63,11 @@ void read_elf_file(const char *filename, unsigned elf_machine)
 
 int main()
 {
+#if __aarch64__
+    read_elf_file("aarch64/hello.elf", EM_AARCH64);
+#endif
+#if __x86_64__
     read_elf_file("x86_64/hello.elf", EM_X86_64);
+#endif
     read_elf_file("arm32/hello.elf", EM_ARM);
 }

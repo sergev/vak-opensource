@@ -242,6 +242,7 @@ void read_elf64_file(int elf_file, const char *filename, unsigned elf_machine)
                 }
 
                 char *data_addr = (char*)exec_buf + vaddr;
+                //printf("read %u bytes from offset %u to vaddr 0x%x (%p)\n", (unsigned)filesz, (unsigned)segment[i].p_offset, (unsigned)vaddr, data_addr);
                 if (read(elf_file, data_addr, filesz) != filesz) {
                     err(-1, "%s: Cannot read segment #%u", filename, i);
                 }
