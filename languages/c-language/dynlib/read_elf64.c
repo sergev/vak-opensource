@@ -1,11 +1,22 @@
-static void parse_elf64_dynamic(char *exec_buf, unsigned dynamic_offset, unsigned nbytes)
-{
-    unsigned dynstr_nbytes = 0;
-    const char *dynstr = 0;
-    const char *dynsym = 0;
-    const char *got_plt = 0;
-    const char *rela_plt = 0;
+//
+// Information about dynamic object.
+//
+typedef struct {
+    const char *dynstr;     // Bytes of .dynstr section - a string table for dynamic symbols
+    unsigned dynstr_nbytes; // Size of .dynstr string table
 
+    Elf64_Sym *dynsym;      // Table of dynamic symbols
+
+    const char *got_plt;    // .got.plt table
+    const char *rela_plt;   // .rela.plt table
+} Dynamic64;
+
+//
+// Parse the PT_DYNAMIC section.
+// Obtain addresses of .dynstr and .dynsym tables.
+//
+static void parse_elf64_dynamic(Dynamic64 *dyninfo, char *exec_buf, unsigned dynamic_offset, unsigned nbytes)
+{
     for (char *addr = exec_buf + dynamic_offset;
          nbytes >= sizeof(Elf64_Dyn);
          addr += sizeof(Elf64_Dyn),
@@ -42,7 +53,7 @@ static void parse_elf64_dynamic(char *exec_buf, unsigned dynamic_offset, unsigne
             //  [ 6]  say
             //  [ a]  mylib-x86_64.so
             //  [1a]  pie
-            dynstr = exec_buf + item->d_un.d_val;
+            dyninfo->dynstr = exec_buf + item->d_un.d_val;
             break;
 
         case DT_SYMTAB:
@@ -52,12 +63,12 @@ static void parse_elf64_dynamic(char *exec_buf, unsigned dynamic_offset, unsigne
             //   0: 00000000     0 NOTYPE  LOCAL  DEFAULT  UND
             //   1: 00000000     0 FUNC    GLOBAL DEFAULT  UND say
             //   2: 000001a0    23 FUNC    GLOBAL DEFAULT    6 main
-            dynsym = exec_buf + item->d_un.d_val;
+            dyninfo->dynsym = (Elf64_Sym*) (exec_buf + item->d_un.d_val);
             break;
 
         case DT_STRSZ:
             // Size of the string table in bytes.
-            dynstr_nbytes = item->d_un.d_val;
+            dyninfo->dynstr_nbytes = item->d_un.d_val;
             break;
 
         case DT_SYMENT:
@@ -69,7 +80,7 @@ static void parse_elf64_dynamic(char *exec_buf, unsigned dynamic_offset, unsigne
 
         case DT_PLTGOT:
             // Address of .got.plt table.
-            got_plt = exec_buf + item->d_un.d_val;
+            dyninfo->got_plt = exec_buf + item->d_un.d_val;
             break;
 
         case DT_PLTRELSZ:
@@ -91,15 +102,15 @@ static void parse_elf64_dynamic(char *exec_buf, unsigned dynamic_offset, unsigne
             // For example:
             // r_offset r_info       r_type            st_value st_name + r_addend
             // 00001350 000100000007 R_X86_64_JMP_SLOT 00000000 say + 0
-            rela_plt = exec_buf + item->d_un.d_val;
+            dyninfo->rela_plt = exec_buf + item->d_un.d_val;
             break;
         }
     }
 
-    printf("dynstr = %p, size %u bytes\n", dynstr, dynstr_nbytes);
-    printf("dynsym = %p\n", dynsym);     // array of Elf64_Sym
-    printf("got_plt = %p\n", got_plt);   // array of Elf64_Addr (uint64_t)
-    printf("rela_plt = %p\n", rela_plt); // array of Elf64_Rela
+    printf("dynstr = %p, size %u bytes\n", dyninfo->dynstr, dyninfo->dynstr_nbytes);
+    printf("dynsym = %p\n", dyninfo->dynsym);     // array of Elf64_Sym
+    printf("got_plt = %p\n", dyninfo->got_plt);   // array of Elf64_Addr (uint64_t)
+    printf("rela_plt = %p\n", dyninfo->rela_plt); // array of Elf64_Rela
 }
 
 //
@@ -193,6 +204,7 @@ void read_elf64_file(int elf_file, const char *filename, unsigned elf_machine)
     //
     // Read loadable segments.
     //
+    Dynamic64 dyninfo = {0};
     for (int i = 0; i < elf_header.e_phnum; i++) {
         // Chooze loadable non-empty segments.
         uint64_t vaddr  = segment[i].p_vaddr;
@@ -260,7 +272,7 @@ void read_elf64_file(int elf_file, const char *filename, unsigned elf_machine)
             // Parse dynamic section.
             printf("Dynamic 0x%jx-0x%jx size %ju bytes\n",
                    (uintmax_t)vaddr, (uintmax_t)(vaddr + memsz - 1), (uintmax_t)memsz);
-            parse_elf64_dynamic(exec_buf, vaddr, memsz);
+            parse_elf64_dynamic(&dyninfo, exec_buf, vaddr, memsz);
             break;
 
         case PT_LOPROC + 1:
@@ -291,6 +303,7 @@ void read_elf64_file(int elf_file, const char *filename, unsigned elf_machine)
         err(-1, "Cannot read Section header");
     }
 
+#if 0
     //
     // Load Section Header String table.
     //
@@ -368,6 +381,48 @@ void read_elf64_file(int elf_file, const char *filename, unsigned elf_machine)
 
                         printf("Symbol %s = 0x%jx\n", name, (uintmax_t) symbol_table[s].st_value);
                     }
+                }
+            }
+        }
+    }
+#endif
+
+    //
+    // Parse the .rela.plt section.
+    //
+    // Name       Type  Address   Offset   Size      EntSize  Flags  Link  Info  Align
+    // .rela.plt  RELA  00000198  00000198 00000018  00000018  AI       2    10     8
+    //
+    for (unsigned i = 0; i < elf_header.e_shnum; i++) {
+        if (section_header[i].sh_type == SHT_RELA) {
+            if (section_header[i].sh_entsize != sizeof(Elf64_Rela)) {
+                errexit(-1, ENOEXEC, "Bad size of relocation table entry");
+            }
+
+            unsigned num_relocations = section_header[i].sh_size / section_header[i].sh_entsize;
+            if (num_relocations > 0) {
+                // Load the relocation table.
+                Elf64_Rela relocation_table[num_relocations];
+
+                if (lseek(elf_file, section_header[i].sh_offset, SEEK_SET) != section_header[i].sh_offset) {
+                    err(-1, "Cannot seek relocation table");
+                }
+                if (read(elf_file, (char *)&relocation_table[0], section_header[i].sh_size) != section_header[i].sh_size) {
+                    err(-1, "Cannot read relocation table");
+                }
+
+                for (unsigned r = 0; r < num_relocations; r++) {
+                    Elf64_Addr offset = relocation_table[r].r_offset; // Location (file byte offset, or program virtual addr)
+                    Elf64_Addr info   = relocation_table[r].r_info;   // Symbol table index and type of relocation to apply
+                    Elf64_Addr addend = relocation_table[r].r_addend; // Compute value for relocatable field by adding this
+
+                    unsigned sym  = ELF64_R_SYM(info);  // Index in the .dynsym table
+                    unsigned type = ELF64_R_TYPE(info); // Type like 1026=R_AARCH64_JUMP_SLOT
+
+                    const char *name = &dyninfo.dynstr[dyninfo.dynsym[sym].st_name];
+
+                    printf("Relocation offset = 0x%jx, sym = #%u '%s', type = %u, addend = %jd\n",
+                           (uintmax_t)offset, sym, name, type, (intmax_t)addend);
                 }
             }
         }
