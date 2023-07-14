@@ -8,7 +8,7 @@ typedef struct {
     Elf32_Sym *dynsym;      // Table of dynamic symbols
 
     const char *got_plt;    // .got.plt table
-    const char *rela_plt;   // .rela.plt table
+    const char *rel_plt;    // .rel.plt table
 } Dynamic32;
 
 //
@@ -85,32 +85,32 @@ static void parse_elf32_dynamic(Dynamic32 *dyninfo, char *exec_buf, unsigned dyn
 
         case DT_PLTRELSZ:
             // Size of the relocation table entry.
-	    if (item->d_un.d_val != sizeof(Elf32_Rela)) {
+	    if (item->d_un.d_val != sizeof(Elf32_Rel)) {
                 errexit(-1, ENOEXEC, "Bad size of relocation table entry");
             }
             break;
 
         case DT_PLTREL:
             // Type of the PLT relocation: either Elf_Rel or Elf_Rela.
-	    if (item->d_un.d_val != DT_RELA) {
+	    if (item->d_un.d_val != DT_REL) {
                 errexit(-1, ENOEXEC, "Bad type of the PLT relocation");
             }
             break;
 
         case DT_JMPREL:
-            // Address of section .rela.plt - PLT relocation table.
+            // Address of section .rel.plt - PLT relocation table.
             // For example:
-            // r_offset r_info       r_type            st_value st_name + r_addend
-            // 00001350 000100000007 R_X86_64_JMP_SLOT 00000000 say + 0
-            dyninfo->rela_plt = exec_buf + item->d_un.d_val;
+            //  Offset     Info    Type            Sym.Value  Sym. Name
+            // 00001224  00000216 R_ARM_JUMP_SLOT   00000000   say
+            dyninfo->rel_plt = exec_buf + item->d_un.d_val;
             break;
         }
     }
 
     printf("dynstr = %p, size %u bytes\n", dyninfo->dynstr, dyninfo->dynstr_nbytes);
-    printf("dynsym = %p\n", dyninfo->dynsym);     // array of Elf32_Sym
-    printf("got_plt = %p\n", dyninfo->got_plt);   // array of Elf32_Addr (uint32_t)
-    printf("rela_plt = %p\n", dyninfo->rela_plt); // array of Elf32_Rela
+    printf("dynsym = %p\n", dyninfo->dynsym);   // array of Elf32_Sym
+    printf("got_plt = %p\n", dyninfo->got_plt); // array of Elf32_Addr (uint32_t)
+    printf("rel_plt = %p\n", dyninfo->rel_plt); // array of Elf32_Rel
 }
 
 //
@@ -387,21 +387,21 @@ void read_elf32_file(int elf_file, const char *filename, unsigned elf_machine)
 #endif
 
     //
-    // Parse the .rela.plt section.
+    // Parse the .rel.plt section.
     //
-    // Name       Type  Address   Offset   Size      EntSize  Flags  Link  Info  Align
-    // .rela.plt  RELA  00000198  00000198 00000018  00000018  AI       2    10     8
+    // Name       Type  Addr     Off    Size   ES Flg Lk Inf Al
+    // .rel.plt   REL   00000134 000134 000008 08  AI  2  10  4
     //
     for (unsigned i = 0; i < elf_header.e_shnum; i++) {
-        if (section_header[i].sh_type == SHT_RELA) {
-            if (section_header[i].sh_entsize != sizeof(Elf32_Rela)) {
+        if (section_header[i].sh_type == SHT_REL) {
+            if (section_header[i].sh_entsize != sizeof(Elf32_Rel)) {
                 errexit(-1, ENOEXEC, "Bad size of relocation table entry");
             }
 
             unsigned num_relocations = section_header[i].sh_size / section_header[i].sh_entsize;
             if (num_relocations > 0) {
                 // Load the relocation table.
-                Elf32_Rela relocation_table[num_relocations];
+                Elf32_Rel relocation_table[num_relocations];
 
                 if (lseek(elf_file, section_header[i].sh_offset, SEEK_SET) != section_header[i].sh_offset) {
                     err(-1, "Cannot seek relocation table");
@@ -413,15 +413,14 @@ void read_elf32_file(int elf_file, const char *filename, unsigned elf_machine)
                 for (unsigned r = 0; r < num_relocations; r++) {
                     Elf32_Addr offset = relocation_table[r].r_offset; // Location (file byte offset, or program virtual addr)
                     Elf32_Addr info   = relocation_table[r].r_info;   // Symbol table index and type of relocation to apply
-                    Elf32_Addr addend = relocation_table[r].r_addend; // Compute value for relocatable field by adding this
 
                     unsigned sym  = ELF32_R_SYM(info);  // Index in the .dynsym table
-                    unsigned type = ELF32_R_TYPE(info); // Type like 1026=R_AARCH64_JUMP_SLOT
+                    unsigned type = ELF32_R_TYPE(info); // Type like 22=R_ARM_JUMP_SLOT or 23=R_ARM_RELATIVE
 
                     const char *name = &dyninfo.dynstr[dyninfo.dynsym[sym].st_name];
 
-                    printf("Relocation offset = 0x%jx, sym = #%u '%s', type = %u, addend = %jd\n",
-                           (uintmax_t)offset, sym, name, type, (intmax_t)addend);
+                    printf("Relocation offset = 0x%jx, sym = #%u '%s', type = %u\n",
+                           (uintmax_t)offset, sym, name, type);
                 }
             }
         }
