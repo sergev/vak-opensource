@@ -1,0 +1,419 @@
+#!/usr/bin/expect -f
+#
+# Play game Suspended.
+#
+# "Suspended" is an excellent game and possibly the most
+# advanced game to date for the adventurer. The story is quite
+# simple: You are the failsafe device to protect the surface world of
+# Contra should any emergency develop that would cause the planet
+# control devices to fail (these are underground in a complex where
+# you live suspended in a cryogenic tube, awaiting a disaster). Of
+# course, a disaster develops as soon as you boot up the disk.
+#
+# You are awakened to find that there has been an earthquake
+# that has damaged the cables in the Primary and Secondary Channels.
+#
+# You have six different robots at your command. These robots
+# all enjoy different skills and abilities. Each one represents a
+# different sense.
+#
+# Iris: The sense of sight
+# Waldo: The sense of touch and dexterity
+# Sensa: Perceives things magnetic and electronic
+# Poet: Perceives things electronic and can diagnose electrical flows
+# Whiz: Commands the computer and can do errands
+# Auda: The sense of hearing
+#
+# The trick to winning "Suspended" is assigning the right task
+# to the right robot. Also, the right robot has to be at the right
+# place at the right time. This is called critical path planning, and
+# is the secret of "Suspended."
+#
+# In the standard game, there are a few real-time events to be
+# aware of:
+#
+#  1) At the 15th cycle, there is another earthquake which causes
+#   an acid spill that kills, in short order, any robot that
+#   thereafter passes through the Cavernous Room (until the acid
+#   is shut off);
+#  2) At the 75th cycle, there is another quake which wrecks the
+#   hydroponics and transit equipment on the surface above.
+#   These have to be fixed quickly or the game ends swiftly due
+#   to the starving populous above;
+#  3) At the 100th cycle, humans enter the complex with the intent
+#   of turning you off because, by this time, you are clearly
+#   screwing up the assignment. These humans can be the death of
+#   you or they can help you by...well, I won't tell you yet.
+#
+set timeout -1
+
+# Remove previous log, if any.
+system rm -f "game.log"
+log_file "game.log"
+
+# Start the game.
+spawn frotz -s 123 suspended-mac-r8-s840521.z3
+match_max 100000
+
+# The following commands get you through the game in less than
+# 70 moves. As a result, they give little aid in the event that you
+# finish the game in more than that time. The game changes
+# considerably after the 75th move. There are many problems that
+# surface after that time, and these clues do nothing to help you.
+# Let's get started!
+
+#1
+expect ">"
+send "Poet, go to weather control\r"
+
+#2
+expect ">"
+send "Sensa, go to sub supply room\r"
+
+#3
+expect ">"
+send "Whiz, go to secondary channel\r"
+
+#4
+expect ">"
+send "Sensa, take ramp\r"
+
+#5
+expect ">"
+send "Sensa, go west\r"
+
+#6
+expect ">"
+send "Sensa, take container and grasper\r"
+
+#7
+expect ">"
+send "Sensa, go to hallway junction\r"
+
+#8
+expect ">"
+send "Waldo, go to hallway junction\r"
+
+#9
+expect ">"
+send "Auda, go to gamma repair\r"
+
+# The above moves set the game up. Poet is needed to turn the
+# weather control off; this minimizes deaths at the surface (your
+# primary goal). Sensa gets the ramp that is needed to allow the
+# robots to go from one level to another. Auda is sent to the Gamma
+# Repair area because she will be needed later and, without the
+# humans coming for a while, there is nothing that can be done with
+# her anyway. Waldo is sent to the Hallway Junction to meet Sensa and
+# take the container and grasper on his way to fixing Iris who is
+# reported to be out of order.
+
+# Now, enter your second set of commands:
+
+#10
+expect ">"
+send "Poet, turn second dial to 100\r"
+
+#11
+expect ">"
+send "Poet, go to hallway end\r"
+
+#12
+expect ">"
+send "Iris, go to main supply room\r"
+
+#13
+expect ">"
+send "Sensa, put ramp at dropoff\r"
+
+#14
+expect ">"
+send "Auda, listen\r"
+
+#15
+expect ">"
+send "Waldo, take container and grasper\r"
+
+#16
+expect ">"
+send "Waldo, go to main supply\r"
+
+#17
+expect ">"
+send "Waldo, install grasper\r"
+
+#18
+expect ">"
+send "Waldo, take red ic and yellow ic\r"
+
+#19
+expect ">"
+send "Sensa, go north\r"
+
+#20
+expect ">"
+send "Sensa, take ramp\r"
+
+# Once Poet got to the Weather Control, he had to reset the
+# faulty control to 100. This is only a temporary fix because if you
+# let the game go on too long, all hell will break loose with various
+# disasters and accidents occurring which you will not be able to
+# control. Poet is then sent to the Hallway End where he will be used
+# to get the TV camera needed later. Iris is sent to the Main Supply
+# Room where she can be fixed when Waldo arrives. She will also help
+# Waldo repair the machine there. Sensa, upon arriving, puts the ramp
+# in place so that Auda can get to Gamma Repair and so that she and
+# Poet can get to the other level. Waldo is handed the grasper and
+# container which he installs. This is done now to save moves later.
+
+#21
+expect ">"
+send "Sensa, go to small supply\r"
+
+#22
+expect ">"
+send "Waldo, open panel\r"
+
+#23
+expect ">"
+send "Waldo, replace rough device with rough object\r"
+
+#24
+expect ">"
+send "Waldo, close panel\r"
+
+#25
+expect ">"
+send "Poet, get in car\r"
+
+#26
+expect ">"
+send "Poet, get out of car\r"
+
+#27
+expect ">"
+send "Poet, go to biology lab\r"
+
+#28
+expect ">"
+send "Waldo, take burned and fried chip\r"
+
+#29
+expect ">"
+send "Poet, take camera\r"
+
+#30
+expect ">"
+send "Sensa, put ramp at holder\r"
+
+# This stage sets the robots to their major gathering tasks.
+# Waldo has fixed Iris, and is now set on fixing the machine and
+# salvaging its parts. Poet has arrived at the Hallway End, gotten in
+# the car, exited the car, and is now getting the camera. Sensa has
+# arrived at the Small Supply Room to take the cable cutter.
+
+#Sensa, put ramp at holder
+#Sensa, get on ramp
+#Sensa, take cutter
+#Sensa, get off ramp
+#Sensa, take ramp
+#Sensa, go to sloping corridor
+#Poet, go to vehicle debarkation
+#Waldo, put red IC in red socket
+#Waldo, put yellow IC in yellow socket
+#Poet, get in car
+#Poet, get out of car
+
+#31
+expect ">"
+send "Sensa, get on ramp\r"
+
+#32
+expect ">"
+send "Sensa, take cutter\r"
+
+#33
+expect ">"
+send "Sensa, get off ramp\r"
+
+#34
+expect ">"
+send "Sensa, take ramp\r"
+
+#35
+expect ">"
+send "Sensa, go to sloping corridor\r"
+
+#36
+expect ">"
+send "Poet, go to vehicle debarkation\r"
+
+#37
+expect ">"
+send "Waldo, put red ic in red socket\r"
+
+#38
+expect ">"
+send "Waldo, put yellow ic in yellow socket\r"
+
+#39
+expect ">"
+send "Poet, get in car\r"
+
+#40
+expect ">"
+send "Poet, get out of car\r"
+
+# Sensa has completed her task of getting the metal tool that
+# she will need shortly. Poet has gotten the camera and is now coming
+# back, and Waldo is in the midst of fixing and salvaging the machine
+# with Iris in the Main Supply Room.
+
+# You're more than half-way to your goal! Now, enter:
+
+#41
+expect ">"
+send "Poet, go to primary channel\r"
+
+#42
+expect ">"
+send "Sensa, put ramp at dropoff\r"
+
+#43
+expect ">"
+send "Sensa, go to gamma repair\r"
+
+#44
+expect ">"
+send "Waldo, push button\r"
+
+#45
+expect ">"
+send "Iris, take fuse\r"
+
+#46
+expect ">"
+send "Waldo, take cable\r"
+
+#47
+expect ">"
+send "Waldo, go to secondary channel\r"
+
+#48
+expect ">"
+send "Iris, go to middle supply room\r"
+
+#49
+expect ">"
+send "Iris, take cable\r"
+
+#50
+expect ">"
+send "Iris, go to main supply room\r"
+
+# Poet has been sent to use the camera in the Primary Channel
+# (this is a Kamikaze mission because he has to pass through the
+# Cavernous Room to get there). Sensa has gotten to the Sloping
+# Corridor and reinstalled the ramp so that she and Poet can get to
+# the lower level. Waldo and Iris have gotten the machine fixed and
+# salvaged one of the two needed cables to set the FCS in balance.
+# Waldo is now set on his mission where Whiz will be waiting to
+# install the cable needed in the Secondary Channel.
+
+#51
+expect ">"
+send "Sensa, examine object\r"
+
+#52
+expect ">"
+send "Sensa, turn flowswitch\r"
+
+#53
+expect ">"
+send "Both Sensa and Auda, move fred\r"
+
+#54
+expect ">"
+send "Sensa, cut cable with cutter\r"
+
+#55
+expect ">"
+send "Poet, plug tv1 in\r"
+
+#56
+expect ">"
+send "Poet, aim tv1 at sign\r"
+
+# Extract the important "Reset Code."
+# It's different for every game.
+expect ">"
+regsub {.*It says ([A-Z][A-Z][A-Z][A-Z][A-Z][A-Z])\..*} "$expect_out(buffer)" {\1} access_code
+set code1 [string range $access_code 0 2]
+set code2 [string range $access_code 3 5]
+
+#57
+send "Sensa, take cable\r"
+
+#58
+expect ">"
+send "Sensa, go to primary channel\r"
+
+#59
+expect ">"
+send "Iris, put cable in machine\r"
+
+#60
+expect ">"
+send "Iris, put fuse in machine\r"
+
+# Sensa and Auda salvaged the remaining needed cable to fix the
+# cable in the Primary Channel. Sensa is now on her way. Poet
+# valiantly died trying to work the camera in the Primary Channel
+# after having had corrosive acid spilled on him. Iris has fixed the
+# reset machine which is now only awaiting the installation of the
+# cables in the FCS to reset the systems to set the surface world
+# above right.
+
+#61
+expect ">"
+send "Whiz, go to waldo\r"
+
+#62
+expect ">"
+send "Whiz, take fourteen-inch cable\r"
+
+#63
+expect ">"
+send "Whiz, replace the nine-inch cable with the fourteen-inch cable\r"
+
+#64
+expect ">"
+send "Whiz, drag waldo to the east end\r"
+
+#65
+expect ">"
+send "Auda, go to sleep chamber\r"
+
+#66
+expect ">"
+send "Sensa, report\r"
+expect ">"
+send "Sensa, report\r"
+expect ">"
+send "Sensa, replace four-inch cable with twelve-inch cable\r"
+
+#67
+expect ">"
+send "Iris, press $code1 circle\r"
+
+#68
+expect ">"
+send "Iris, press $code2 circle\r"
+
+# At this point, the game is over. Only 8,000 are dead and you
+# have succeeded in your mission. It should be noted that this does
+# not answer all the questions and puzzles that are presented in the
+# game, it just tells you how to win the game in the shortest order.
+# Enjoy!!
+
+expect "]"

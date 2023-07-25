@@ -1,0 +1,477 @@
+SUSPENDED: INTERLOGIC Science Fiction
+Copyright (c) 1983 by Infocom, Inc. All rights reserved.
+SUSPENDED and INTERLOGIC are trademarks of Infocom, Inc.
+Release 8 / Serial number 840521
+
+FC ALERT! Planetside systems are deteriorating. FC imbalance detected.
+Emergency reviving systems completed. You are now in
+control of the complex.
+
+SENSA INTERRUPT: Seismic aftershock detected ten meters north of Beta FC.
+Tremor intensity 9.7. Projected damage: connecting
+cables in Primary and Secondary Channels.
+FC INTERRUPT: All Robots, report locations.
+
+IRIS: In the Weather Monitors.
+WALDO: In the Gamma Repair.
+SENSA: In the Central Chamber.
+AUDA: In the Entry Area.
+POET: In the Central Chamber.
+WHIZ: In the Advisory Peripheral.
+
+>Poet, go to weather control
+
+FC: Cryolink established to Poet.
+POET: All life's a stage, so just consider me a player. See you.
+
+>Sensa, go to sub supply room
+
+FC: Cryolink established to Sensa.
+SENSA: Order input acknowledged. Output on arrival.
+
+>Whiz, go to secondary channel
+
+FC: Cryolink established to Whiz.
+WHIZ: CLC setting coordinates. Will report in on arrival.
+SENSA INTERRUPT: Sensory mechanisms match goal directive. I am at the Sub Supply Room.
+
+>Sensa, take ramp
+
+FC: Cryolink established to Sensa.
+SENSA: Taken.
+
+>Sensa, go west
+
+FC: Cryolink already established to Sensa.
+Internal map reference -- Middle Supply Room
+I am in the Middle Supply Room.
+I perceive a small container which holds several small devices.
+The small container contains...
+A scanning object A buss object A maximized object A filtering object A polarized object
+There is a sixteen-inch cable here.
+A small object emits a weak signal, specifically oriented toward Waldo.
+
+>Sensa, take container and grasper
+
+FC: Cryolink already established to Sensa.
+(small container) Taken.
+(micro extension) Taken.
+
+>Sensa, go to hallway junction
+
+FC: Cryolink already established to Sensa.
+Order input acknowledged. Output on arrival.
+
+>Waldo, go to hallway junction
+
+FC: Cryolink established to Waldo.
+WALDO: I'm on my way. Expect a report on arrival.
+
+>Auda, go to gamma repair
+
+FC: Cryolink established to Auda.
+AUDA: I hear you loud and clear. Talk to you when I get there.
+POET INTERRUPT: As much as I can be anyplace, I'm here at the Weather Control Area.
+
+>Poet, turn second dial to 100
+
+FC: Cryolink established to Poet.
+POET: The second dial has been set to 100.
+
+>Poet, go to hallway end
+
+FC: Cryolink already established to Poet.
+All life's a stage, so just consider me a player. See you.
+
+>Iris, go to main supply room
+
+FC: Cryolink established to Iris.
+IRIS: Got it, good looking. I'll let you know when I get there.
+
+>Sensa, put ramp at dropoff
+
+FC: Cryolink established to Sensa.
+The dense wedge has been positioned at the step.
+IRIS INTERRUPT: I've reached my destination, the Main Supply Room.
+SENSA: Sensory mechanisms match goal directive. I am at the Hallway Junction.
+
+>Auda, listen
+
+FC: Cryolink established to Auda.
+AUDA: Okay. Auditory circuits activated.
+WALDO INTERRUPT: Internal mapping indicates arrival at the Hallway Junction.
+
+>Waldo, take container and grasper
+
+FC: Cryolink established to Waldo.
+(hollow container) WALDO: Taken.
+(usable extension) WALDO: Taken.
+WHIZ INTERRUPT: CLC indicates matched arrival coordinates at the Secondary Channel.
+SENSA INTERRUPT: Secondary tremor detected in lower level.
+Intensity: 7.3. Projected damage: Cooling systems for FCs in
+Maintenance Area.
+
+>Waldo, go to main supply
+
+FC: Cryolink already established to Waldo.
+I'm on my way. Expect a report on arrival.
+
+>Waldo, install grasper
+
+FC: Cryolink already established to Waldo.
+It's now being worn.
+
+>Waldo, take red ic and yellow ic
+
+FC: Cryolink already established to Waldo.
+(smooth object) Taken.
+(bumpy object) Taken.
+
+>Sensa, go north
+
+FC: Cryolink established to Sensa.
+SENSA: Internal map reference -- Sloping Corridor
+Sensory units detect a strong energy flow in the intersection to the south.
+The dense wedge is positioned by the step.
+Poet is in motion off to the north.
+
+>Sensa, take ramp
+
+FC: Cryolink already established to Sensa.
+Taken.
+
+>Sensa, go to small supply
+
+FC: Cryolink already established to Sensa.
+Order input acknowledged. Output on arrival.
+WALDO INTERRUPT: Internal mapping indicates arrival at the Main Supply Room.
+
+>Waldo, open panel
+
+FC: Cryolink established to Waldo.
+WALDO: When I open the smooth metal panel I detect a smooth device, a bumpy device, and a rough device.
+
+>Waldo, replace rough device with rough object
+
+FC: Cryolink already established to Waldo.
+Okay. It's done.
+IRIS INTERRUPT: OOOH! That felt good! Close my panel, big boy.
+AUDA INTERRUPT: From what I can hear, I've arrived at the Gamma Repair.
+
+>Waldo, close panel
+
+FC: Cryolink already established to Waldo.
+Closed.
+IRIS INTERRUPT: You never looked so good.
+POET INTERRUPT: As much as I can be anyplace, I'm here at the Hallway End.
+
+>Poet, get in car
+
+FC: Cryolink established to Poet.
+POET: I am now in the carriage.
+POET: My gyroscopic stabilizers detect motion.
+POET: Internal map reference -- Inside the carriage.
+I got my license through the mail, but that never stopped Franklin from chancing my ability.
+POET: External map reference -- Vehicle Debarkation Area
+
+>Poet, get out of car
+
+FC: Cryolink already established to Poet.
+I am on my mobile extensions again.
+
+>Poet, go to biology lab
+
+FC: Cryolink already established to Poet.
+All life's a stage, so just consider me a player. See you.
+
+>Waldo, take burned and fried chip
+
+FC: Cryolink established to Waldo.
+(disfigured device) WALDO: Taken.
+(bubbly device) WALDO: Taken.
+POET INTERRUPT: As much as I can be anyplace, I'm here at the Biological Laboratory.
+
+>Poet, take camera
+
+FC: Cryolink established to Poet.
+POET: Taken.
+SENSA INTERRUPT: Sensory mechanisms match goal directive. I am at the Small Supply Room.
+
+>Sensa, put ramp at holder
+
+FC: Cryolink established to Sensa.
+SENSA: Okay.
+
+>Sensa, get on ramp
+
+FC: Cryolink already established to Sensa.
+Okay. I'm standing on the dense wedge now.
+
+>Sensa, take cutter
+
+FC: Cryolink already established to Sensa.
+Taken.
+
+>Sensa, get off ramp
+
+FC: Cryolink already established to Sensa.
+Okay. I'm off of it now.
+
+>Sensa, take ramp
+
+FC: Cryolink already established to Sensa.
+Taken.
+
+>Sensa, go to sloping corridor
+
+FC: Cryolink already established to Sensa.
+Order input acknowledged. Output on arrival.
+
+>Poet, go to vehicle debarkation
+
+FC: Cryolink established to Poet.
+POET: All life's a stage, so just consider me a player. See you.
+
+>Waldo, put red ic in red socket
+
+FC: Cryolink established to Waldo.
+WALDO: Done.
+
+>Waldo, put yellow ic in yellow socket
+
+FC: Cryolink already established to Waldo.
+Done.
+POET INTERRUPT: As much as I can be anyplace, I'm here at the Vehicle Debarkation Area.
+
+>Poet, get in car
+
+FC: Cryolink established to Poet.
+POET: I am now in the carriage.
+POET: My gyroscopic stabilizers detect motion.
+POET: Internal map reference -- Inside the carriage.
+This path through life may be more dangerous than it looks. After all, appearances can be deceiving.
+POET: External map reference -- Hallway End
+
+>Poet, get out of car
+
+FC: Cryolink already established to Poet.
+I am on my mobile extensions again.
+
+>Poet, go to primary channel
+
+FC: Cryolink already established to Poet.
+All life's a stage, so just consider me a player. See you.
+SENSA INTERRUPT: Sensory mechanisms match goal directive. I am at the Sloping Corridor.
+
+>Sensa, put ramp at dropoff
+
+FC: Cryolink established to Sensa.
+The dense wedge has been positioned at the step.
+
+>Sensa, go to gamma repair
+
+FC: Cryolink already established to Sensa.
+Order input acknowledged. Output on arrival.
+
+>Waldo, push button
+
+FC: Cryolink established to Waldo.
+WALDO: Okay, I've pressed the raised area.
+Sonar detects a front panel has popped open.
+A fourteen-inch cable rests beside a
+small cylinder which is inside the panel, both
+of which sit side by side inside the machine.
+The front panel has eight raised circles on it.
+
+>Iris, take fuse
+
+FC: Cryolink established to Iris.
+IRIS: Taken.
+
+>Waldo, take cable
+
+FC: Cryolink established to Waldo.
+WALDO: Taken.
+
+>Waldo, go to secondary channel
+
+FC: Cryolink already established to Waldo.
+I'm on my way. Expect a report on arrival.
+
+>Iris, go to middle supply room
+
+FC: Cryolink established to Iris.
+IRIS: Got it, good looking. I'll let you know when I get there.
+
+>Iris, take cable
+
+FC: Cryolink already established to Iris.
+Taken.
+IRIS: I've reached my destination, the Middle Supply Room.
+
+>Iris, go to main supply room
+
+FC: Cryolink already established to Iris.
+Got it, good looking. I'll let you know when I get there.
+SENSA INTERRUPT: Sensory mechanisms match goal directive. I am at the Gamma Repair.
+
+>Sensa, examine object
+
+FC: Cryolink established to Sensa.
+SENSA: Concentrated on the front surface of the large object is a flowswitch.
+IRIS INTERRUPT: I've reached my destination, the Main Supply Room.
+
+>Sensa, turn flowswitch
+
+FC: Cryolink already established to Sensa.
+The flow of electrons aligns and the panel opens.
+Miles of circuitry rest within the device sitting here, though it no longer seems operational.
+POET INTERRUPT: I fear I'm about to become one with the cosmos.
+
+>Both Sensa and Auda, move fred
+
+FC: Dual-Cryolink established to Sensa and Auda.
+FC: The robots have moved it.
+FC: Cryolink established to Sensa.
+
+>Sensa, cut cable with cutter
+
+FC: Cryolink already established to Sensa.
+Done.
+POET INTERRUPT: Warning: I detect the presence of the other worlds.
+POET INTERRUPT: As much as I can be anyplace, I'm here at the Primary Channel.
+
+>Poet, plug tv1 in
+
+FC: Cryolink established to Poet.
+POET: I've plugged it in. We're on location, all systems go.
+IRIS INTERRUPT: Receiving transmissions.
+
+>Poet, aim tv1 at sign
+
+FC: Cryolink already established to Poet.
+The sender has been pointed at the signpost.
+IRIS INTERRUPT: The little sign presents me with the access code
+the machine in the Main Supply Room needs to reset the
+Filtering Computers. It says BARKLA.
+WALDO INTERRUPT: Graspers are beginning to malfunction.
+POET INTERRUPT: SYSTEM FAILURE: Farewell, sweet prince.
+Oh oh. Trouble ....
+FC: So much for that robot. Too bad.
+FC: Cryolink established to Iris.
+
+>Sensa, take cable
+
+FC: Cryolink established to Sensa.
+SENSA: Taken.
+
+>Sensa, go to primary channel
+
+FC: Cryolink already established to Sensa.
+Order input acknowledged. Output on arrival.
+WALDO INTERRUPT: Warning: Internal mechanisms failing.
+
+>Iris, put cable in machine
+
+FC: Cryolink established to Iris.
+IRIS: Done.
+
+>Iris, put fuse in machine
+
+FC: Cryolink already established to Iris.
+Done.
+WALDO INTERRUPT: SYSTEM FAILURE. Extensions frozen!
+Oh oh. Trouble ....
+FC: So much for that robot. Too bad.
+FC: Cryolink reestablished to Iris.
+
+>Whiz, go to waldo
+
+FC: Cryolink established to Whiz.
+FC: Waldo is non-functional. Last known location: Secondary Channel. Establishing path...
+WHIZ: CLC setting coordinates. Will report in on arrival.
+WHIZ: CLC indicates matched arrival coordinates at the Secondary Channel.
+
+>Whiz, take fourteen-inch cable
+
+FC: Cryolink already established to Whiz.
+Taken.
+
+>Whiz, replace the nine-inch cable with the fourteen-inch cable
+
+FC: Cryolink already established to Whiz.
+Okay. It's done.
+
+>Whiz, drag waldo to the east end
+
+FC: Cryolink already established to Whiz.
+CLC setting coordinates. Will report in on arrival.
+
+>Auda, go to sleep chamber
+
+FC: Cryolink established to Auda.
+AUDA: I hear you loud and clear. Talk to you when I get there.
+
+>Sensa, report
+
+FC: Cryolink established to Sensa.
+FC: Full report from SENSA
+SENSA: Moving through East End
+This is incredible. The amount of energy flowing around me makes it
+difficult to keep myself oriented. Directly before me is
+the entrance into the huge FC.
+SENSA: Sensors indicate I'm holding...A twelve-inch cableA metal tool
+SENSA INTERRUPT: Sensory input filters not working reliably.
+
+>Sensa, report
+
+FC: Cryolink already established to Sensa.
+FC: Full report from SENSA
+Moving through Alpha FC
+Sensory mechanisms detect a tremendous channeling and flow of
+electrical and data energy into an object surrounding me.
+Sensors detect a similar channeling to an object to the south.
+In the room with me are non-functional Waldo (being dragged) and Whiz (in motion).
+Waldo is carrying a seized device, a ruined device, a scanning device, a micro extension, and a small container.
+Whiz is carrying a nine-inch cable.
+Sensors indicate I'm holding...A twelve-inch cableA metal tool
+
+>Sensa, replace four-inch cable with twelve-inch cable
+
+FC: Cryolink already established to Sensa.
+Okay. It's done.
+SENSA INTERRUPT: Warning: Unable to process data correctly.
+FC INTERRUPT: Approaching balance between all three units.
+Attempting internal stabilization. Reset codes may be entered now
+for planetside stabilization.
+SENSA: Sensory mechanisms match goal directive. I am at the Primary Channel.
+WHIZ INTERRUPT: CLC indicates matched arrival coordinates at the East End.
+
+>Iris, press BAR circle
+
+FC: Cryolink established to Iris.
+FC: First access code accepted. Enter second access code now.
+
+>Iris, press KLA circle
+
+FC: Cryolink already established to Iris.
+FC: Second access code accepted.
+FC INTERRUPT:
+All systems returning to normal.
+Weather systems slowly approaching balance.
+Hydroponic systems working at full capacity.
+Surface life in recovery mode.
+
+Extrapolation based on current weather systems and food supplies:
+Total recovery in 0 cycles.
+Current surface casualties: 8,000
+Projected casualties during recovery: 0
+Original population: 30,172,000
+Total possible survivors: 30,164,000
+
+This score gives you the possibility of being considered for a home
+in the country and an unlimited bank account. On a scale
+of 1 (the best) to 7 (the worst), your ranking was 1.
+
+You successfully completed your task, bringing the Filtering Computers back into balance, in 69 cycles.
+[Hit any key to exit.]
