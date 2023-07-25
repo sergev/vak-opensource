@@ -55,8 +55,8 @@ log_file "game.log"
 spawn frotz -s 123 suspended-mac-r8-s840521.z3
 match_max 100000
 
-# The following commands get you through the game in less than
-# 70 moves. As a result, they give little aid in the event that you
+# The following commands get you through the game in 70 moves.
+# As a result, they give little aid in the event that you
 # finish the game in more than that time. The game changes
 # considerably after the 75th move. There are many problems that
 # surface after that time, and these clues do nothing to help you.
@@ -212,18 +212,6 @@ send "Sensa, put ramp at holder\r"
 # the car, exited the car, and is now getting the camera. Sensa has
 # arrived at the Small Supply Room to take the cable cutter.
 
-#Sensa, put ramp at holder
-#Sensa, get on ramp
-#Sensa, take cutter
-#Sensa, get off ramp
-#Sensa, take ramp
-#Sensa, go to sloping corridor
-#Poet, go to vehicle debarkation
-#Waldo, put red IC in red socket
-#Waldo, put yellow IC in yellow socket
-#Poet, get in car
-#Poet, get out of car
-
 #31
 expect ">"
 send "Sensa, get on ramp\r"
@@ -344,8 +332,9 @@ send "Poet, plug tv1 in\r"
 expect ">"
 send "Poet, aim tv1 at sign\r"
 
-# Extract the important "Reset Code."
+# Extract the important access code.
 # It's different for every game.
+# We will need it later.
 expect ">"
 regsub {.*It says ([A-Z][A-Z][A-Z][A-Z][A-Z][A-Z])\..*} "$expect_out(buffer)" {\1} access_code
 set code1 [string range $access_code 0 2]
@@ -394,7 +383,7 @@ send "Whiz, drag waldo to the east end\r"
 expect ">"
 send "Auda, go to sleep chamber\r"
 
-#66
+#66-68 - wait two cycles until Sensa gets to the primary channel
 expect ">"
 send "Sensa, report\r"
 expect ">"
@@ -402,11 +391,11 @@ send "Sensa, report\r"
 expect ">"
 send "Sensa, replace four-inch cable with twelve-inch cable\r"
 
-#67
+#69
 expect ">"
 send "Iris, press $code1 circle\r"
 
-#68
+#70
 expect ">"
 send "Iris, press $code2 circle\r"
 
