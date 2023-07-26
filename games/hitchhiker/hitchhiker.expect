@@ -24,6 +24,7 @@
 #     5. Exiting the ship
 #
 set timeout -1
+set env(TERM) ansi
 
 # Remove previous log, if any.
 system rm -f "game.log" "switch.qzl"
@@ -73,7 +74,7 @@ expect ">"; send "wait\r"
 expect ">"; send "wait\r"
 expect ">"; send "wait\r"
 
-# Ford arrived, and offers you a towel. You need to get Ford to explain.
+# Ford arrived, and offers you a towel. You need to get Ford to deal with Prosser.
 
 expect ">"; send "Ford, what about my home\r"
 expect ">"; send "wait\r"
@@ -103,10 +104,10 @@ expect ">"; send "press green button\r"
 # You are now in a dark area. Keep looking, and examine the result each time.
 # Eventually one of the senses in the list will disappear.
 
-expect ">"; send "look\r"
-expect ">"; send "look\r"
-expect ">"; send "look\r"
-expect ">"; send "look\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
 expect ">"; send "smell\r"
 expect ">"; send "examine shadow\r"
 
@@ -224,23 +225,37 @@ expect ">"; send "push switch\r"
 # disappear. With the tea substitute, you will be directed to a random location,
 # although you can later get an item that allows waiting to cycle through the choices.
 #
-# For each sense, there are two subtle differences:
+# When every thing goes dark, after four turns a sense will be missing.
+# Type in this sense and a description of where you are will follow.
+# Then you have to type something to get out of the dark and into your
+# new location.
 #
-#  * Smell: something pugent waving under the node (to Lair of the Ravenous
-#    Bugblatter beast of Traal), and something being waved under your nose (Vogon Hold)
-#  * Listen: Deep and distance sound of star drive from above (Heart of Gold),
-#    and deep and distant sound of star drive from below (War Chamber)
-#  * Sight: Something at the "front" of eyes (Country Lane), or something at
-#    the "back" of your eyes (Presidential Speedboat)
-#  * Feel: Something "cold", and wet and squishy (party), or something a bit
-#    "warm" (sperm whale)
-#  * When you are finished with each remote location, you will re-enter the dark
-#    area. Listen, and head to the aft each time.
+# Sense    What to type after description
+# ---------------------------------------
+# Feel     DRINK LIQUID
+# Hear     AFT
+# See      LOOK AT LIGHT
+# Smell    LOOK AT SHADOW
+#
+# You may have noticed that when you get Tea and press the switch, there is a
+# sense missing straight away.  In fact, every time you wait, the sense missing
+# changes.  In this way you can 'control' Dark.
+#
+# Sense    Description                                                   Location
+# ---------------------------------------------------------------------------------------
+# Feel     It feels a bit cold and wet and squishy.                 Party (As Trillian)
+# Feel     It feels a bit warm and wet and squishy.                 Inside The Sperm Whale
+# Hear     You hear the hum of a star drive coming from far above.  Heart Of Gold
+# Hear     You hear the hum of a star drive coming from  far below. War Chamber / Maze
+# See      Light stabs at the front of your eyes.                   Earth (As Ford)
+# See      Light stabs at the back of your eyes.                    Damogran (As Zaphod)
+# Smell    There's something pungent being waved under your nose.   Vogon Ship
+# Smell    There's something pungent waving under your nose.        Traal
 
-expect ">"; send "look\r"
-expect ">"; send "look\r"
-expect ">"; send "look\r"
-expect ">"; send "look\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
 expect ">"; send "smell\r"
 
 # 4.1. Ravenous Bugblatter Beast of Traal
@@ -263,10 +278,10 @@ expect ">"; send "get interface\r"
 
 expect ">"; send "wait\r"
 expect ">"; send "wait\r"
-expect ">"; send "look\r"
-expect ">"; send "look\r"
-expect ">"; send "look\r"
-expect ">"; send "look\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
 expect ">"; send "listen\r"
 expect ">"; send "south\r"
 
@@ -316,9 +331,9 @@ expect ">"; send "push generator switch\r"
 # ~~~~~~~~~~~~~~~~
 # A deep and distant hum of a star drive coming from far below.
 
-expect ">"; send "listen\r"
-expect ">"; send "listen\r"
-expect ">"; send "listen\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
 expect ">"; send "listen\r"
 expect ">"; send "south\r"
 
@@ -331,143 +346,267 @@ expect ">"; send "put awl in thing\r"
 # have to restart the game, or have Ford purchase the sandwich and give it
 # to Arthur. When they spot the dog eating the cheese sandwich, you will be
 # transported into a maze.
-#
+
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+
 # Move in any direction until you see a black particle.
-#
-#     get particle
-#
+
+expect ">"; send "north\r"
+expect ">"; send "east\r"
+expect ">"; send "south\r"
+expect ">"; send "west\r"
+expect ">"; send "get particle\r"
+
 # After returning, you can now freely get no tea without having to drop tea.
 #
 # Also, this location becomes fatal if you attempt to re-enter it. If you are
 # still using the tea substitute, remember to save the game before pressing the switch.
-#
-#
+
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "listen\r"
+expect ">"; send "south\r"
+expect ">"; send "south\r"
+expect ">"; send "up\r"
+expect ">"; send "push generator switch\r"
+
 # 4.3. Sperm Whale
 # ~~~~~~~~~~~~~~~~
 # This feels a bit warm, wet and squishy. You must be using the tea in order to reach
 # this location.
-#
-#     feel
-#     taste liquid
-#     get flowerpot
-#     put flowerpot in thing.
-#
+
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "feel\r"
+expect ">"; send "taste liquid\r"
+expect ">"; send "put all fluff in pot\r"
+expect ">"; send "get flowerpot\r"
+expect ">"; send "put flowerpot in thing\r"
+expect ">"; send "drop thing\r"
+
 # Wait until the whale crashes to the ground. All items not carried in the gown or
 # thing will be destroyed.
-#
+
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+
 # The flowerpot needs four pieces of fluff, obtained later.
-#
-#
+
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "listen\r"
+expect ">"; send "south\r"
+expect ">"; send "south\r"
+expect ">"; send "up\r"
+expect ">"; send "wait\r"
+expect ">"; send "push generator switch\r"
+
 # 4.4 Party
 # ~~~~~~~~~
 # When you feel, it feels a bit cold, wet and squishy.
-#
-#     feel
-#     taste liquid
-#
+
+expect ">"; send "feel\r"
+expect ">"; send "feel\r"
+expect ">"; send "feel\r"
+expect ">"; send "taste liquid\r"
+
 # You appear at a party, but as Trillian. You need one item from Arthur.
-#
-#     open handbag
-#     drop plate
-#     get fluff
-#     put fluff in handbag
-#     get plate
-#
+
+expect ">"; send "look at Dent\r"
+expect ">"; send "open handbag\r"
+expect ">"; send "drop plate\r"
+expect ">"; send "get fluff\r"
+expect ">"; send "put fluff in handbag\r"
+expect ">"; send "get plate\r"
+
 # Wait until Phil approaches you and brings you to a ride.
-#
+
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+
 # This fluff is needed later, when combined with the flowerpot.
-#
-#
+
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "listen\r"
+expect ">"; send "south\r"
+expect ">"; send "south\r"
+expect ">"; send "up\r"
+expect ">"; send "push generator switch\r"
+
 # 4.5. Earth
 # ~~~~~~~~~~
-#     look at darkness
-#     examine light
-#
+
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "look at darkness\r"
+expect ">"; send "examine light\r"
+
 # You are now back at earth, but as Ford rather than Arthur. The Vogons are
 # approaching, and you need to give back the towel before its too late.
-#
-#     open satchel
-#     get towel
-#     give towel to arthur
-#     idiot
-#
+
+expect ">"; send "north\r"
+expect ">"; send "open satchel\r"
+expect ">"; send "get towel\r"
+expect ">"; send "give towel to arthur\r"
+expect ">"; send "idiot\r"
+
 # Arthur wants you to deal with Prosser before you can give back the towel.
-#
-#     go to prosser
-#     prosser, lie down
-#     south
-#     west
-#
+
+expect ">"; send "go to Prosser\r"
+expect ">"; send "Prosser, lie down\r"
+expect ">"; send "south\r"
+expect ">"; send "west\r"
+
 # Note: If you haven't fed the dog at the beginning of the game, you need to have
 # Ford purchase the sandwich, and give it to Arthur.
-#
-#     purchase beer
-#     drink beer
-#     drink beer
-#
+
+expect ">"; send "purchase beer\r"
+expect ">"; send "drink beer\r"
+expect ">"; send "drink beer\r"
+
 # Arthur's house crashes down.
-#
-#     east
-#     north
-#     give satchel fluff to arthur
-#
+
+expect ">"; send "east\r"
+expect ">"; send "north\r"
+expect ">"; send "give satchel fluff to arthur\r"
+
 # The Vogons should arrive shortly. You can attempt to use the device, but it will
 # fall and roll to Arthur's feet. He will press the green button.
-#
-#
+
+expect ">"; send "kill Prosser\r"
+expect ">"; send "get device\r"
+expect ">"; send "wait\r"
+
+# Dark.
+
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "listen\r"
+expect ">"; send "aft\r"
+expect ">"; send "south\r"
+expect ">"; send "up\r"
+expect ">"; send "push generator switch\r"
+
 # 4.6. Heart of Gold theft
 # ~~~~~~~~~~~~~~~~~~~~~~~~
 # A light stabbing the back of your eyes. The boat is steering towards the narrow
 # channel, but you'll need to trigger the autopilot. loo
-#
-#     steer towards rocks
-#     look under seat
-#
+
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "look at darkness\r"
+expect ">"; send "examine light\r"
+expect ">"; send "steer towards rocks\r"
+expect ">"; send "look under seat\r"
+expect ">"; send "unlock toolbox\r"
+expect ">"; send "put all in toolbox\r"
+
 # This gives you the key (to unlock the box), and the seat cushion fluff.
-#
-#     exit
-#     north
-#
+
+expect ">"; send "get out of seat\r"
+expect ">"; send "exit\r"
+
 # Say whatever you want to the crowd, and Trillian will take you hostage.
-#
-#     guards, drop rifles
-#     trillian, shoot rifles
-#     east
-#
+
+expect ">"; send "say \"Liberte!\"\r"
+expect ">"; send "say \"Egalite!\"\r"
+expect ">"; send "say \"Fraternite!\"\r"
+expect ">"; send "say \"and beer for everyone!\"\r"
+expect ">"; send "guards, drop rifles\r"
+expect ">"; send "Trillian, shoot rifles\r"
+expect ">"; send "east\r"
+
 # The items you were carrying will be placed at the hatchway.
-#
-#
+
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "listen\r"
+expect ">"; send "aft\r"
+expect ">"; send "south\r"
+expect ">"; send "up\r"
+#expect ">"; send "push generator switch\r"
+
 # 5. Exiting the ship
 # ~~~~~~~~~~~~~~~~~~~
 # You now need to exit the ship.
 #
 # The four piece of fluff are put in the pot:
-#
-#     put all fluff in pot
-#
+
+#expect ">"; send "get thing\r"
+#expect ">"; send "get all fluff from thing\r"
+expect ">"; send "look at pot\r"
+#expect ">"; send "put all fluff in pot\r"
+expect ">"; send "enter sauna\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "get fruit\r"
+
 # Wait for the flowerpot to have a sprout poke out of it, and enter the sauna.
-#
-#     eat fruit
-#
+
+expect ">"; send "eat fruit\r"
+
 # The game randomly selects one of twelve tools in the game. If one of them is
 # inaccessible, it will be that tool, requiring you to reload an earlier save, or
 # restarting the game. Bring that tool with you.
 #
-#     get tea
-#     down. south.
-#     get no tea
-#     open door
-#
+expect ">"; send "get tea\r"
+expect ">"; send "down\r"
+expect ">"; send "south\r"
+expect ">"; send "get no tea\r"
+expect ">"; send "open door\r"
+
 # The contradiction counts as a display of intelligence, allowing you to enter
 # Marvin's Pantry.
-#
-#     drink tea
-#
+
+expect ">"; send "drink tea\r"
+
 # When you meet Marvin, ask him to open the hatch. You will have twelve turns to reach
 # the access space, with the correct tool.
-#
-#     east. down. east.
-#
+
+#expect ">"; send "port\r"
+expect ">"; send "down\r"
+expect ">"; send "remove gown\r"
+expect ">"; send "drop all\r"
+expect ">"; send "east\r"
+expect ">"; send "wait for Marvin\r"
+expect ">"; send "wait for Marvin\r"
+expect ">"; send "wait for Marvin\r"
+expect ">"; send "wait for Marvin\r"
+expect ">"; send "wait for Marvin\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait for Marvin\r"
+expect ">"; send "Marvin, open hatch\r"
+
 # Wait for Marvin to ask you for the tool, then give it to him. He will quickly
 # hotwire the hatch, allowing you to reach the surface.
 
