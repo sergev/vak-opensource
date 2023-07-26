@@ -1,0 +1,387 @@
+The Hitchhiker's Guide to the Galaxy - Walkthrough
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+https://strategywiki.org/wiki/The_Hitchhiker%27s_Guide_to_the_Galaxy/Walkthrough
+
+This game follows Arthur Dent's journey from his home, until disembarking the Heart
+of Gold on Magrathea.
+
+The game itself is considered to be cruel in its difficulty. In particular, it's
+possible to forget to collect an item early in the game and therefore deadlock
+a puzzle at the end.
+
+
+Contents
+~~~~~~~~
+    1. Earth
+    2. Vogon Hold
+    3. Heart of Gold
+    4. Probability generator
+        4.1. Ravenous Bugblatter Beast of Traal
+        4.2. War Chamber
+        4.3. Sperm Whale
+        4.4. Party
+        4.5. Earth
+        4.6. Heart of Gold theft
+    5. Exiting the ship
+
+
+1. Earth
+~~~~~~~~
+The game places Arthur Dent in his bedroom, with a simple description:
+
+You wake up. The room is spinning very gently round your head. Or at least it
+would be if you could see it which you can't. It is pitch black.
+
+This introduction doesn't give all the information about the room, requiring you
+to guess the contents of a modern room (which is mostly obvious), or reading
+the manual to identify the correct command.
+
+    LIGHT LAMP
+
+Once you do so, you can now see the surrounding room. It's a mess, with various
+items, but you're still in bed and the room is spinning. There's also a strict
+time limit as well, not giving much time for figuring things out.
+
+    STAND
+    GET GOWN
+    WEAR GOWN
+    EXAMINE POCKET
+    EAT ANALGESIC
+
+This clears your headache. A few commands (either picking up the phone or
+opening the curtains) indicate that there's a bulldozer approaching your house.
+You now need to finish your tasks in the house before the bulldozer hits.
+
+    GET SCREWDRIVER, TOOTHBRUSH
+    S
+    GET MAIL
+    S
+
+Now to confront the bulldozer, simply stall until Ford arrived.
+
+    LIE DOWN
+    WAIT (x3)
+
+Ford arrived, and offers you a towel. You need to get Ford to
+
+    FORD, WHAT ABOUT MY HOME
+    WAIT
+    S
+    W
+
+You are now at the bug, and need to "fortify" yourself, but there's a few things
+to do as well.
+
+    PURCHASE SANDWICH
+    DRINK BEER (x3)
+
+There's a distant crash, your house getting knocked down.
+
+    EAST
+    GIVE SANDWICH TO DOG
+    NORTH
+    WAIT (x3 - until Vogons arrive and Ford drops a device)
+    GET DEVICE
+    PRESS GREEN BUTTON
+
+You are now in a dark area. Keep looking, and examine the result each time.
+Eventually one of the senses in the list will disappear.
+
+    LOOK
+    SMELL
+    EXAMINE SHADOW
+
+
+2. Vogon Hold
+~~~~~~~~~~~~~
+Ford will give you some peanuts. You will also need a Babel Fish, required
+to understand the Vogons. There is both a time limit in this section, as well as
+a limit of five times you can launch the babel fish.
+
+    EAT PEANUTS
+    REMOVE GOWN
+    PUT GOWN ON HOOK
+    GET TOWEL
+    PUT TOWEL ON DRAIN
+    GET SATCHEL
+    PUT SATCHEL ON PANEL
+    PUT MAIL ON SATCHEL
+    PRESS DISPENSER BUTTON
+    PULL SWITCH
+
+Note the result of pulling the switch, it requires you to remember a specific
+word in the captain's poem (which changes from game to game.) Retrieve your
+stuff, and within a few moves, vogons will arrive ad strap you in.
+
+    ENJOY POEM
+
+Wait for the poem to finish, and note the word.
+
+    TYPE "MORPHOUSITE" (the word varies between games, and must be in quotes.)
+    GET PLOTTER
+
+Note: If your load is too heavy, try putting things in the thing your aunt gave
+you which you don't know what it is.
+
+After a few moves, the guard throws you and ford to the airlock.
+
+    PRESS GREEN BUTTON (or wait several turns)
+    LISTEN (until you hear a hum of a star drive)
+    SOUTH (narrator lies about it being to the port.)
+
+
+3. Heart of Gold
+~~~~~~~~~~~~~~~~
+You are now in the Heart of Gold, the spaceship owned by Zaphod. Waiting will
+have Ford bring you to the bridge, where you meet Zaphod and Trillian,
+and the trio will enter the Sauna. You can now explore the ship at your leisure.
+
+From the bridge:
+
+    DOWN. SOUTH. WEST.
+    PUSH PAD. GET SUBSTITUTE.
+
+The tea substitute is required later, but is not for human consumption.
+
+    EAST. SOUTH.
+
+Entering the engine room from the Aft end corridor is a bit of a chore.
+
+    SOUTH. YES. YES.
+    SOUTH. NO.
+    LOOK. LOOK.
+    GET ALL
+    NORTH. NORTH. UP.
+    DROP PLOTTER, GENERATOR, SUBSTITUTE
+
+The bridge will be your base of operations as you jump from place to place, but
+you will have to set it up first.
+
+    PLUG SMALL PLUG IN PLOTTER
+    PUT BIT IN SUBSTITUTE
+
+
+4. Probability generator
+~~~~~~~~~~~~~~~~~~~~~~~~
+Save your game, before each time you press the switch. Also, make sure you are
+at least carrying the towel and the thing.
+
+    PUSH SWITCH
+
+This brings you to the dark area. As before, look until one of the senses
+disappear. With the tea substitute, you will be directed to a random location,
+although you can later get an item that allows waiting to cycle through the choices.
+
+For each sense, there are two subtle differences:
+
+ * Smell: something pugent waving under the node (to Lair of the Ravenous
+   Bugblatter beast of Traal), and something being waved under your nose (Vogon Hold)
+ * Listen: Deep and distance sound of star drive from above (Heart of Gold),
+   and deep and distant sound of star drive from below (War Chamber)
+ * Sight: Something at the "front" of eyes (Country Lane), or something at
+   the "back" of your eyes (Presidential Speedboat)
+ * Feel: Something "cold", and wet and squishy (party), or something a bit
+   "warm" (sperm whale)
+ * When you are finished with each remote location, you will re-enter the dark
+   area. Listen, and head to the aft each time.
+
+
+4.1. Ravenous Bugblatter Beast of Traal
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+When something pungent is waving under your nose, you can make out a shadow.
+
+    EXAMINE SHADOW
+    SAY MY NAME
+    EAST
+    GET STONE
+    PUT TOWEL ON HEAD
+    CARVE MY NAME IN MEMORIAL
+    REMOVE TOWEL
+    WEST. SOUTHWEST.
+    GET INTERFACE
+
+After a while, you get captured by beast hunters, get sold into slavery and fall
+into a black hole.
+
+When you return to the Heart of Gold, you can:
+
+    SOUTH. WEST.
+    OPEN PANEL. GET BOARD. PUT INTERFACE IN PANEL. CLOSE PANEL.
+    PUSH PAD.
+
+The Nutrimat will have trouble figuring out your request, and Eddie will make
+a shipwide announcement that nuclear missiles are inbound. Time to hook up the spare
+generator to the bridge's console.
+
+    EAST. UP.
+    PLUG LARGE PLUG IN CONSOLE.
+    PUSH GENERATOR SWITCH.
+
+This transforms the missiles into a sperm whale, saving the ship.
+
+    DOWN. WEST.
+    GET TEA
+    EAST. UP.
+    DROP TEA.
+    REMOVE BIT. PUT BIT IN TEA.
+
+With the dangly bit in the tea, you can now select the destination of
+the improbability drive, simply by waiting on undesirable destinations. Also,
+you no longer need to wait a few turns before the destination.
+
+
+4.2. War Chamber
+~~~~~~~~~~~~~~~~
+A deep and distant hum of a star drive coming from far below.
+
+    LISTEN
+    SOUTH
+
+You arrive at a war chamber, where two creatures are approaching earth
+
+    GET AWL.
+    PUT AWL IN THING.
+
+Wait for the battle fleet to reach Earth. If you didn't feed the dog, you will
+have to restart the game, or have Ford purchase the sandwich and give it
+to Arthur. When they spot the dog eating the cheese sandwich, you will be
+transported into a maze.
+
+Move in any direction until you see a black particle.
+
+    GET PARTICLE
+
+After returning, you can now freely get no tea without having to drop tea.
+
+Also, this location becomes fatal if you attempt to re-enter it. If you are
+still using the tea substitute, remember to save the game before pressing the switch.
+
+
+4.3. Sperm Whale
+~~~~~~~~~~~~~~~~
+This feels a bit warm, wet and squishy. You must be using the tea in order to reach
+this location.
+
+    FEEL
+    TASTE LIQUID
+    GET FLOWERPOT
+    PUT FLOWERPOT IN THING.
+
+Wait until the whale crashes to the ground. All items not carried in the gown or
+thing will be destroyed.
+
+The flowerpot needs four pieces of fluff, obtained later.
+
+
+4.4 Party
+~~~~~~~~~
+When you feel, it feels a bit cold, wet and squishy.
+
+    FEEL
+    TASTE LIQUID
+
+You appear at a party, but as Trillian. You need one item from Arthur.
+
+    OPEN HANDBAG
+    DROP PLATE
+    GET FLUFF
+    PUT FLUFF IN HANDBAG
+    GET PLATE
+
+Wait until Phil approaches you and brings you to a ride.
+
+This fluff is needed later, when combined with the flowerpot.
+
+
+4.5. Earth
+~~~~~~~~~~
+    LOOK AT DARKNESS
+    EXAMINE LIGHT
+
+You are now back at earth, but as Ford rather than Arthur. The Vogons are
+approaching, and you need to give back the towel before its too late.
+
+    OPEN SATCHEL
+    GET TOWEL
+    GIVE TOWEL TO ARTHUR
+    IDIOT
+
+Arthur wants you to deal with Prosser before you can give back the towel.
+
+    GO TO PROSSER
+    PROSSER, LIE DOWN
+    SOUTH
+    WEST
+
+Note: If you haven't fed the dog at the beginning of the game, you need to have
+Ford purchase the sandwich, and give it to Arthur.
+
+    PURCHASE BEER
+    DRINK BEER
+    DRINK BEER
+
+Arthur's house crashes down.
+
+    EAST
+    NORTH
+    GIVE SATCHEL FLUFF TO ARTHUR
+
+The Vogons should arrive shortly. You can attempt to use the device, but it will
+fall and roll to Arthur's feet. He will press the green button.
+
+
+4.6. Heart of Gold theft
+~~~~~~~~~~~~~~~~~~~~~~~~
+A light stabbing the back of your eyes. The boat is steering towards the narrow
+channel, but you'll need to trigger the autopilot. loo
+
+    STEER TOWARDS ROCKS
+    LOOK UNDER SEAT
+
+This gives you the key (to unlock the box), and the seat cushion fluff.
+
+    EXIT
+    NORTH
+
+Say whatever you want to the crowd, and Trillian will take you hostage.
+
+    GUARDS, DROP RIFLES
+    TRILLIAN, SHOOT RIFLES
+    EAST
+
+The items you were carrying will be placed at the hatchway.
+
+
+5. Exiting the ship
+~~~~~~~~~~~~~~~~~~~
+You now need to exit the ship.
+
+The four piece of fluff are put in the pot:
+
+    PUT ALL FLUFF IN POT
+
+Wait for the flowerpot to have a sprout poke out of it, and enter the sauna.
+
+    EAT FRUIT
+
+The game randomly selects one of twelve tools in the game. If one of them is
+inaccessible, it will be that tool, requiring you to reload an earlier save, or
+restarting the game. Bring that tool with you.
+
+    GET TEA
+    DOWN. SOUTH.
+    GET NO TEA
+    OPEN DOOR
+
+The contradiction counts as a display of intelligence, allowing you to enter
+Marvin's Pantry.
+
+    DRINK TEA
+
+When you meet Marvin, ask him to open the hatch. You will have twelve turns to reach
+the access space, with the correct tool.
+
+    EAST. DOWN. EAST.
+
+Wait for Marvin to ask you for the tool, then give it to him. He will quickly
+hotwire the hatch, allowing you to reach the surface.
