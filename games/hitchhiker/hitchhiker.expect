@@ -6,15 +6,13 @@
 # https://www.neoseeker.com/hitchhikers-guide/faqs/142789-to-the-galaxy-d.html
 #
 set timeout -1
-set env(TERM) ansi
-set env(COLUMNS) 8000
 
 # Remove previous log, if any.
 system rm -f "game.log"
 log_file "game.log"
 
 # Start the game.
-spawn frotz -s 123 hitchhiker-r60-s861002.z3
+spawn dfrotz -m -s 123 hitchhiker-r60-s861002.z3
 match_max 100000
 
 # Home:

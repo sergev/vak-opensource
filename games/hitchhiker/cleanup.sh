@@ -1,17 +1,14 @@
 #!/bin/sh
 
-# Replace \r -> \n
+chmod -x game.log
+
+# Remove \r
 sed -i~ '
-s//\
-/g
+s///g
 ' game.log
 
-# Delete updates of the banner line
+# Remove extra newlines
 sed -i~ '
-/H/d
-/M/d
-s/\[[0-9]*d/\
-/g
-s/\[B//g
-s/\[0;10m//g
+/^>/{N;N;s/\n\n/\
+/;}
 ' game.log

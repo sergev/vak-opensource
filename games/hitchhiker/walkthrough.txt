@@ -1,29 +1,40 @@
+spawn dfrotz -m -s 123 hitchhiker-r60-s861002.z3
+Using normal formatting.
+Loading hitchhiker-r60-s861002.z3.
+
+
 THE HITCHHIKER'S GUIDE TO THE GALAXY
 Infocom interactive fiction - a science fiction story
 Copyright (c) 1984 by Infocom, Inc. All rights reserved.
 Release 60 / Serial number 861002
 
-You wake up. The room is spinning very gently round your head. Or at least it would be if you could see it which you can't.
+You wake up. The room is spinning very gently round your head. Or at least it
+would be if you could see it which you can't.
 
 It is pitch black.
 
 >get up
 
-Very difficult, but you manage it. The room is still spinning. It dips and sways a little.
+Very difficult, but you manage it. The room is still spinning. It dips and sways
+a little.
 
 >turn on light
 
-Good start to the day. Pity it's going to be the worst one of your life. The light is now on.
+Good start to the day. Pity it's going to be the worst one of your life. The
+light is now on.
 
 Bedroom
 The bedroom is a mess.
-It is a small bedroom with a faded carpet and old wallpaper. There is a washbasin, a chair with a tatty dressing gown slung over it, and a window with the curtains drawn. Near the exit leading south is a phone.
+It is a small bedroom with a faded carpet and old wallpaper. There is a
+washbasin, a chair with a tatty dressing gown slung over it, and a window with
+the curtains drawn. Near the exit leading south is a phone.
 There is a flathead screwdriver here.
 There is a toothbrush here.
 
 >get gown
 
-Luckily, this is large enough for you to get hold of. You notice something in the pocket.
+Luckily, this is large enough for you to get hold of. You notice something in
+the pocket.
 
 >wear gown
 
@@ -31,25 +42,32 @@ You are now wearing your gown.
 
 >look in pocket
 
-Opening your gown reveals a buffered analgesic, pocket fluff, and a thing your aunt gave you which you don't know what it is.
+Opening your gown reveals a buffered analgesic, pocket fluff, and a thing your
+aunt gave you which you don't know what it is.
 
 >take pill
 
-You swallow the tablet. After a few seconds the room begins to calm down and behave in an orderly manner. Your terrible headache goes.
+You swallow the tablet. After a few seconds the room begins to calm down and
+behave in an orderly manner. Your terrible headache goes.
 
 >get all
 
 flathead screwdriver: Taken.
-toothbrush: As you pick up the toothbrush a tree outside the window collapses. There is no causal relationship between these two events.
-telephone: You pick up the receiver. A moment later, the dialing tone is suddenly cut off. Glancing through the window you can't help but notice the large old oak tree of which you are particularly fond crashing down through the phone cable. Shouldn't you
-be taking more interest in events in the world around you? While you've got it...?
+toothbrush: As you pick up the toothbrush a tree outside the window collapses.
+There is no causal relationship between these two events.
+telephone: You pick up the receiver. A moment later, the dialing tone is
+suddenly cut off. Glancing through the window you can't help but notice the
+large old oak tree of which you are particularly fond crashing down through the
+phone cable. Shouldn't you be taking more interest in events in the world around
+you? While you've got it...?
 
 >south
 
 You make your way down to the front porch.
 
 Front Porch
-This is the enclosed front porch of your home. Your front garden lies to the south, and you can re-enter your home to the north.
+This is the enclosed front porch of your home. Your front garden lies to the
+south, and you can re-enter your home to the north.
 On the doormat is a pile of junk mail.
 
 >get junk mail
@@ -59,34 +77,47 @@ You gather up the pile of mail.
 >south
 
 Front of House
-You can enter your home to the north. A path leads around it to the northeast and northwest, and a country lane is visible to the south. All that lies between your home and the huge yellow bulldozer bearing down on it is a few yards of mud.
+You can enter your home to the north. A path leads around it to the northeast
+and northwest, and a country lane is visible to the south. All that lies between
+your home and the huge yellow bulldozer bearing down on it is a few yards of
+mud.
 
-Mr. Prosser, from the local council, is standing on the other side of the bulldozer. He seems to be wearing a digital watch. He looks startled to see you emerge, and yells at you to get out of the way.
+Mr. Prosser, from the local council, is standing on the other side of the
+bulldozer. He seems to be wearing a digital watch. He looks startled to see you
+emerge, and yells at you to get out of the way.
 The bulldozer rumbles slowly toward your home.
 
 >stop bulldozer
 
-You lie down in the path of the advancing bulldozer. Prosser yells at you to for crissake move!!!
+You lie down in the path of the advancing bulldozer. Prosser yells at you to for
+crissake move!!!
 
 >wait
 
 Time passes...
 
-The bulldozer thunders toward you. The ground is shaking beneath you as you lie in the mud.
+The bulldozer thunders toward you. The ground is shaking beneath you as you lie
+in the mud.
 
 >wait
 
 Time passes...
 
-The noise of the giant bulldozer is now so violently loud that you can't even hear Prosser yelling to warn you that you will be killed if you don't get the hell out of the way. You just see him gesticulating wildly.
+The noise of the giant bulldozer is now so violently loud that you can't even
+hear Prosser yelling to warn you that you will be killed if you don't get the
+hell out of the way. You just see him gesticulating wildly.
 
 >wait
 
 Time passes...
 
-With a terrible grinding of gears the bulldozer comes to an abrupt halt just in front of you. It shakes, shudders, and emits noxious substances all over your rose bed. Prosser is incoherent with rage.
+With a terrible grinding of gears the bulldozer comes to an abrupt halt just in
+front of you. It shakes, shudders, and emits noxious substances all over your
+rose bed. Prosser is incoherent with rage.
 
-Moments later, your friend Ford Prefect arrives. He hardly seems to notice your predicament, but keeps glancing nervously at the sky. He says "Hello, Arthur," takes a towel from his battered leather satchel, and offers it to you.
+Moments later, your friend Ford Prefect arrives. He hardly seems to notice your
+predicament, but keeps glancing nervously at the sky. He says "Hello, Arthur,"
+takes a towel from his battered leather satchel, and offers it to you.
 
 >refuse towel
 
@@ -98,18 +129,28 @@ Ford glances uncomfortably at the sky. He offers you the towel again.
 
 Not taken.
 
-Ford seems oblivious to your trouble, so you ask "Ford, what about my home?" He looks startled, then guilty. He starts to say something and stops. He starts to say something else and stops. Suddenly he seems to see the bulldozer for the first time, stops
-starting to say things and starts.
+Ford seems oblivious to your trouble, so you ask "Ford, what about my home?" He
+looks startled, then guilty. He starts to say something and stops. He starts to
+say something else and stops. Suddenly he seems to see the bulldozer for the
+first time, stops starting to say things and starts.
 
-He seems to come to a momentous decision, says he has something of Earth-shattering importance to tell you, and stresses the importance of a quick drink at the Horse 'n Groom.
+He seems to come to a momentous decision, says he has something of Earth-
+shattering importance to tell you, and stresses the importance of a quick drink
+at the Horse 'n Groom.
 
-Pointing toward Prosser, you exclaim "But that man wants to knock my house down!" Ford goes off for a quiet word with Prosser. From where you're lying, you cannot hear what's happening, although they seem deeply engrossed in conversation.
+Pointing toward Prosser, you exclaim "But that man wants to knock my house
+down!" Ford goes off for a quiet word with Prosser. From where you're lying, you
+cannot hear what's happening, although they seem deeply engrossed in
+conversation.
 
 >wait
 
 Time passes...
 
-Ford and Prosser stop talking and approach you. Ford says that Prosser has agreed to lie in your place so that the two of you can go off to the Pub. Reluctantly, Prosser steps forward and lies down in front of the bulldozer. You stand up.
+Ford and Prosser stop talking and approach you. Ford says that Prosser has
+agreed to lie in your place so that the two of you can go off to the Pub.
+Reluctantly, Prosser steps forward and lies down in front of the bulldozer. You
+stand up.
 
 >south
 
@@ -119,14 +160,20 @@ The road runs from your home, to the north, toward the village Pub, to the west.
 >west
 
 Pub
-The Pub is pleasant and cheerful and full of pleasant and cheerful people who don't know they've got about twelve minutes to live and are therefore having a spot of lunch. Some music is playing on an old jukebox. The exit is east.
+The Pub is pleasant and cheerful and full of pleasant and cheerful people who
+don't know they've got about twelve minutes to live and are therefore having a
+spot of lunch. Some music is playing on an old jukebox. The exit is east.
 There is a barman serving at the bar.
-Behind the bar is a shelf. It is full of the sort of items you find on shelves behind bars in pubs.
+Behind the bar is a shelf. It is full of the sort of items you find on shelves
+behind bars in pubs.
 
 >buy sandwich
 
-The barman gives you a cheese sandwich. The bread is like the stuff that stereos come packed in, the cheese would be great for rubbing out spelling mistakes, and margarine and pickle have performed an unedifying chemical reaction to produce something that
-shouldn't be, but is, turquoise. Since it is clearly unfit for human consumption you are grateful to be charged only a pound for it.
+The barman gives you a cheese sandwich. The bread is like the stuff that stereos
+come packed in, the cheese would be great for rubbing out spelling mistakes, and
+margarine and pickle have performed an unedifying chemical reaction to produce
+something that shouldn't be, but is, turquoise. Since it is clearly unfit for
+human consumption you are grateful to be charged only a pound for it.
 
 Ford hurries after you.
 
@@ -134,42 +181,59 @@ Ford hurries after you.
 
 Time passes...
 
-Ford buys lots of beer and offers half to you. "Muscle relaxant..." he says, impenetrably.
+Ford buys lots of beer and offers half to you. "Muscle relaxant..." he says,
+impenetrably.
 
 >drink beer
 
-It's very good beer, brewed by a small local company. You particularly like its flavour, which is why you woke up feeling so wretched this morning. You were at somebody's birthday party here in the Pub last night.
+It's very good beer, brewed by a small local company. You particularly like its
+flavour, which is why you woke up feeling so wretched this morning. You were at
+somebody's birthday party here in the Pub last night.
 
-You begin to relax and enjoy yourself, so when Ford mentions that he's from a small planet in the vicinity of Betelgeuse, not from Guildford as he usually claims, you take it in your stride, and say "Oh yes, which part?"
+You begin to relax and enjoy yourself, so when Ford mentions that he's from a
+small planet in the vicinity of Betelgeuse, not from Guildford as he usually
+claims, you take it in your stride, and say "Oh yes, which part?"
 
 >drink beer
 
-It is really very pleasant stuff, with a very good dry, nutty flavour, some light froth on top, and a deep colour. It is at exactly room temperature. You reflect that the world cannot be all bad when there are such pleasures in it.
+It is really very pleasant stuff, with a very good dry, nutty flavour, some
+light froth on top, and a deep colour. It is at exactly room temperature. You
+reflect that the world cannot be all bad when there are such pleasures in it.
 
 Ford mentions that the world is going to end in about twelve minutes.
 
 >drink beer
 
-There is a distant crash which Ford explains is nothing to worry about, probably just your house being knocked down.
+There is a distant crash which Ford explains is nothing to worry about, probably
+just your house being knocked down.
 
 >east
 
 Country Lane
-You see the huge bulldozer heaving itself among the cloud of brick dust which is all that remains of your home. As you start up the lane, a small dog runs up to you, yapping.
+You see the huge bulldozer heaving itself among the cloud of brick dust which is
+all that remains of your home. As you start up the lane, a small dog runs up to
+you, yapping.
 
 Ford hurries after you.
 
 >give sandwich to dog
 
-The dog is deeply moved. With powerful sweeps of its tail it indicates that it regards this cheese sandwich as one of the great cheese sandwiches. Nine out of ten pet owners could happen by at this point expressing any preference they pleased, but this
-dog would spurn both them and all their tins. This is a dog which has met its main sandwich. It eats with passion, and ignores a passing microscopic space fleet.
+The dog is deeply moved. With powerful sweeps of its tail it indicates that it
+regards this cheese sandwich as one of the great cheese sandwiches. Nine out of
+ten pet owners could happen by at this point expressing any preference they
+pleased, but this dog would spurn both them and all their tins. This is a dog
+which has met its main sandwich. It eats with passion, and ignores a passing
+microscopic space fleet.
 
 >north
 
-You reach the site of what was your home. It is now a pile of rubble. Mr. Prosser looks sheepishly triumphant, a trick few people can do, as it requires a lot of technically complex deltoid muscle work.
+You reach the site of what was your home. It is now a pile of rubble. Mr.
+Prosser looks sheepishly triumphant, a trick few people can do, as it requires a
+lot of technically complex deltoid muscle work.
 
 Front of House
-Mr. Prosser, from the local council, is standing on the other side of the bulldozer. He seems to be wearing a digital watch.
+Mr. Prosser, from the local council, is standing on the other side of the
+bulldozer. He seems to be wearing a digital watch.
 
 Ford hurries after you.
 
@@ -177,72 +241,95 @@ Ford hurries after you.
 
 Time passes...
 
-With a noise like a cross between Led Zeppelin's farewell concert and the eruption of Krakatoa, a huge fleet of Vogon Constructor ships flies overhead and announces that the Earth will be demolished to make way for a new hyperspace bypass in "two of your
-Earth minutes."
+With a noise like a cross between Led Zeppelin's farewell concert and the
+eruption of Krakatoa, a huge fleet of Vogon Constructor ships flies overhead and
+announces that the Earth will be demolished to make way for a new hyperspace
+bypass in "two of your Earth minutes."
 
-In all the turmoil, you drop the thing your aunt gave you which you don't know what it is and it rolls away. It is the least of your worries. Anyway, you've been trying to get rid of it for years.
+In all the turmoil, you drop the thing your aunt gave you which you don't know
+what it is and it rolls away. It is the least of your worries. Anyway, you've
+been trying to get rid of it for years.
 
 >wait
 
 Time passes...
 
-The vast yellow ships thunder across the sky, spreading waves of terror and panic in their wake. The voice of the Vogon Captain slams across the country, insisting that the planning charts and demolition orders have been available at the local planning
-office in Alpha Centauri for fifty years and it's too late to start making a fuss about it now.
+The vast yellow ships thunder across the sky, spreading waves of terror and
+panic in their wake. The voice of the Vogon Captain slams across the country,
+insisting that the planning charts and demolition orders have been available at
+the local planning office in Alpha Centauri for fifty years and it's too late to
+start making a fuss about it now.
 
-Throughout the noise, Ford is shouting at you. He removes a small black device from his satchel, but accidentally drops it at your feet.
+Throughout the noise, Ford is shouting at you. He removes a small black device
+from his satchel, but accidentally drops it at your feet.
 
 >get device
 
 Taken.
 
-Fierce gales whip across the land, and thunder bangs continuously through the air in the wake of the giant ships. Ford fights to reach you, but the wind is too fierce. Further announcements from the Vogon Captain make it clear that demolition will begin
-in just a few seconds.
+Fierce gales whip across the land, and thunder bangs continuously through the
+air in the wake of the giant ships. Ford fights to reach you, but the wind is
+too fierce. Further announcements from the Vogon Captain make it clear that
+demolition will begin in just a few seconds.
 
 Through the blinding rain, you see lights flickering on the small device.
 
 >press hitchhike
 
-Lights whirl sickeningly around your head, the ground arches away beneath your feet, and every atom of your being is scrambled, an experience you're probably going to have to get used to. You are in...
+Lights whirl sickeningly around your head, the ground arches away beneath your
+feet, and every atom of your being is scrambled, an experience you're probably
+going to have to get used to. You are in...
 
 Dark
 
 >wait
 
-You can hear nothing, smell nothing, taste nothing, see nothing, feel nothing, and are not even certain who you are.
+You can hear nothing, smell nothing, taste nothing, see nothing, feel nothing,
+and are not even certain who you are.
 
 >wait
 
-You can't hear anything, see anything, smell anything, feel anything, or taste anything, and do not even know where you are or who you are or how you got there.
+You can't hear anything, see anything, smell anything, feel anything, or taste
+anything, and do not even know where you are or who you are or how you got
+there.
 
 >wait
 
-There's nothing you can taste, nothing you can see, nothing you can hear, nothing you can feel, nothing you can smell, you do not even know who you are.
+There's nothing you can taste, nothing you can see, nothing you can hear,
+nothing you can feel, nothing you can smell, you do not even know who you are.
 
 >wait
 
-You can see nothing, feel nothing, hear nothing, taste nothing, and are not entirely certain who you are.
+You can see nothing, feel nothing, hear nothing, taste nothing, and are not
+entirely certain who you are.
 
 >smell
 
 (darkness)
-It does smell a bit. There's something pungent being waved under your nose. Your head begins to clear. You can make out a shadow moving in the dark.
+It does smell a bit. There's something pungent being waved under your nose. Your
+head begins to clear. You can make out a shadow moving in the dark.
 
 >look at shadow
 
 The shadow is vaguely Ford Prefect-shaped.
 
 Vogon Hold
-This is a squalid room filled with grubby mattresses, unwashed cups, and unidentifiable bits of smelly alien underwear. A door lies to port, and an airlock lies to starboard.
+This is a squalid room filled with grubby mattresses, unwashed cups, and
+unidentifiable bits of smelly alien underwear. A door lies to port, and an
+airlock lies to starboard.
 In the corner is a glass case with a switch and a keyboard.
 It looks like the glass case contains:
   an atomic vector plotter
 Along one wall is a tall dispensing machine.
 
-Ford removes the bottle of Santraginean Mineral Water which he's been waving under your nose. He tells you that you are aboard a Vogon spaceship, and gives you some peanuts.
+Ford removes the bottle of Santraginean Mineral Water which he's been waving
+under your nose. He tells you that you are aboard a Vogon spaceship, and gives
+you some peanuts.
 
 >eat peanuts
 
-You feel stronger as the peanuts replace some of the protein you lost in the matter transference beam.
+You feel stronger as the peanuts replace some of the protein you lost in the
+matter transference beam.
 
 >get towel
 
@@ -260,8 +347,12 @@ The gown is now hanging from the hook, covering a tiny hole.
 
 The towel completely covers the drain.
 
-Ford yawns. "Matter transference always tires me out. I'm going to take a nap." He places something on top of his satchel. "If you have any questions, here's The Hitchhiker's Guide to the Galaxy" (Footnote 14). Ford lowers his voice to a whisper. "I'm not
-supposed to tell you this, but you'll never be able to finish the game without consulting the Guide about lots of stuff." As he curls up in a corner and begins snoring, you pick up The Hitchhiker's Guide.
+Ford yawns. "Matter transference always tires me out. I'm going to take a nap."
+He places something on top of his satchel. "If you have any questions, here's
+The Hitchhiker's Guide to the Galaxy" (Footnote 14). Ford lowers his voice to a
+whisper. "I'm not supposed to tell you this, but you'll never be able to finish
+the game without consulting the Guide about lots of stuff." As he curls up in a
+corner and begins snoring, you pick up The Hitchhiker's Guide.
 
 >get satchel
 
@@ -277,9 +368,15 @@ Okay, the loose pile of junk mail is now sitting on the satchel.
 
 >press dispenser button
 
-A single babel fish shoots out of the slot. It sails across the room and hits the dressing gown. The fish slides down the sleeve of the gown and falls to the floor, landing on the towel. A split-second later, a tiny cleaning robot whizzes across the
-floor, grabs the fish, and continues its breakneck pace toward a tiny robot panel at the base of the wall. The robot plows into the satchel, sending the babel fish flying through the air in a graceful arc surrounded by a cloud of junk mail. Another robot
-flies in and begins madly collecting the cluttered plume of mail. The babel fish continues its flight, landing with a loud "squish" in your ear.
+A single babel fish shoots out of the slot. It sails across the room and hits
+the dressing gown. The fish slides down the sleeve of the gown and falls to the
+floor, landing on the towel. A split-second later, a tiny cleaning robot whizzes
+across the floor, grabs the fish, and continues its breakneck pace toward a tiny
+robot panel at the base of the wall. The robot plows into the satchel, sending
+the babel fish flying through the air in a graceful arc surrounded by a cloud of
+junk mail. Another robot flies in and begins madly collecting the cluttered
+plume of mail. The babel fish continues its flight, landing with a loud "squish"
+in your ear.
 
 >get all
 
@@ -295,42 +392,56 @@ Dropped.
 
 >press switch
 
-A recording plays: "To open the case, type in the second word from the second verse of the Captain's current favourite poem. WARNING: An incorrect input will cause the case to explode."
+A recording plays: "To open the case, type in the second word from the second
+verse of the Captain's current favourite poem. WARNING: An incorrect input will
+cause the case to explode."
 
-An announcement is coming over the ship's intercom. "This is the Captain. My instruments show that we've picked up a couple of hitchhikers. I hate freeloaders, and when my guards find you I'll have you thrown into space. On second thought, maybe I'll read
-you some of my poetry first. Repeating..."
-
->wait
-
-Time passes...
-
-An announcement is coming over the ship's intercom. "This is the Captain. My instruments show that we've picked up a couple of hitchhikers. I hate freeloaders, and when my guards find you I'll have you thrown into space. On second thought, maybe I'll read
-you some of my poetry first. Repeating..."
+An announcement is coming over the ship's intercom. "This is the Captain. My
+instruments show that we've picked up a couple of hitchhikers. I hate
+freeloaders, and when my guards find you I'll have you thrown into space. On
+second thought, maybe I'll read you some of my poetry first. Repeating..."
 
 >wait
 
 Time passes...
 
-An announcement is coming over the ship's intercom. "This is the Captain. My instruments show that we've picked up a couple of hitchhikers. I hate freeloaders, and when my guards find you I'll have you thrown into space. On second thought, maybe I'll read
-you some of my poetry first. Repeating..."
+An announcement is coming over the ship's intercom. "This is the Captain. My
+instruments show that we've picked up a couple of hitchhikers. I hate
+freeloaders, and when my guards find you I'll have you thrown into space. On
+second thought, maybe I'll read you some of my poetry first. Repeating..."
 
 >wait
 
 Time passes...
 
-Guards burst in and grab you and Ford, who comes slowly awake. They drag you down the corridor to a large cabin, where they strap you into large, menacing chairs...
+An announcement is coming over the ship's intercom. "This is the Captain. My
+instruments show that we've picked up a couple of hitchhikers. I hate
+freeloaders, and when my guards find you I'll have you thrown into space. On
+second thought, maybe I'll read you some of my poetry first. Repeating..."
+
+>wait
+
+Time passes...
+
+Guards burst in and grab you and Ford, who comes slowly awake. They drag you
+down the corridor to a large cabin, where they strap you into large, menacing
+chairs...
 
 Captain's Quarters, in the poetry appreciation chair
-This is the cabin of the Vogon Captain. You and Ford are strapped into poetry appreciation chairs.
-The Captain is indescribably hideous, indescribably blubbery, and indescribably mid-to-dark green. He is holding samples of his favourite poetry.
+This is the cabin of the Vogon Captain. You and Ford are strapped into poetry
+appreciation chairs.
+The Captain is indescribably hideous, indescribably blubbery, and indescribably
+mid-to-dark green. He is holding samples of his favourite poetry.
 
 >wait
 
 Time passes...
 
-"If he's going to read us his poetry," mutters Ford, sweating profusely, "just pray he softens us up with some cudgels first..."
+"If he's going to read us his poetry," mutters Ford, sweating profusely, "just
+pray he softens us up with some cudgels first..."
 
-"Hello, hitchhikers!" begins the Vogon Captain. "I've decided to read you a verse of my poetry!"
+"Hello, hitchhikers!" begins the Vogon Captain. "I've decided to read you a
+verse of my poetry!"
 
 >wait
 
@@ -340,7 +451,10 @@ Time passes...
 
 >enjoy poetry
 
-You realise that, although the Vogon poetry is indeed astoundingly bad, worse things happen at sea, and in fact, at school. With an effort for which Hercules himself would have patted you on the back, you grit your teeth and enjoy the stuff.
+You realise that, although the Vogon poetry is indeed astoundingly bad, worse
+things happen at sea, and in fact, at school. With an effort for which Hercules
+himself would have patted you on the back, you grit your teeth and enjoy the
+stuff.
 
 "As plurdled gabbleblotchits on a lurgid bee."
 
@@ -354,13 +468,15 @@ Time passes...
 
 Time passes...
 
-"And hooptiously drangle me with crinkly bindlewurdles, or I will rend thee in the gobberwarts with my blurglecruncheon, see if I don't!"
+"And hooptiously drangle me with crinkly bindlewurdles, or I will rend thee in
+the gobberwarts with my blurglecruncheon, see if I don't!"
 
 >wait
 
 Time passes...
 
-"You looked like you enjoyed my poem. I think...yes, I think I'll read the NEXT verse, also!"
+"You looked like you enjoyed my poem. I think...yes, I think I'll read the NEXT
+verse, also!"
 
 >wait
 
@@ -390,17 +506,23 @@ Time passes...
 
 Time passes...
 
-"Since you have somehow managed to survive two verses of my poetry, I have no choice but to space you. Guards!" A guard grabs you and Ford, and drags you toward the hold. Ford whispers, "Don't worry, I'll think of something!"
+"Since you have somehow managed to survive two verses of my poetry, I have no
+choice but to space you. Guards!" A guard grabs you and Ford, and drags you
+toward the hold. Ford whispers, "Don't worry, I'll think of something!"
 
 Vogon Hold
-This is a squalid room filled with grubby mattresses, unwashed cups, and unidentifiable bits of smelly alien underwear. A door lies to port, and an airlock lies to starboard.
+This is a squalid room filled with grubby mattresses, unwashed cups, and
+unidentifiable bits of smelly alien underwear. A door lies to port, and an
+airlock lies to starboard.
 There is a satchel here.
 In the corner is a glass case with a switch and a keyboard.
 It looks like the glass case contains:
   an atomic vector plotter
 Along one wall is a tall dispensing machine.
 
-The guard releases you and Ford and begins cycling the air in the airlock. "Hey, guard!" shouts Ford, "do you really enjoy this sort of thing? Shouting, stomping around, shooting people, is it really a fulfilling career?"
+The guard releases you and Ford and begins cycling the air in the airlock. "Hey,
+guard!" shouts Ford, "do you really enjoy this sort of thing? Shouting, stomping
+around, shooting people, is it really a fulfilling career?"
 
 >type "morphousite"
 
@@ -430,12 +552,15 @@ Ford continues trying to talk the guard into a sudden career change.
 
 Time passes...
 
-The guard says, "Well, all things considered, I guess I like being a guard. Especially the shouting. Resistance is useless!" He throws you and Ford into the airlock and closes the door.
+The guard says, "Well, all things considered, I guess I like being a guard.
+Especially the shouting. Resistance is useless!" He throws you and Ford into the
+airlock and closes the door.
 
 Airlock
 This airlock has massive doors to port and starboard.
 
-Ford points at the outer door. "In about two minutes, it will open and we'll be ejected into the vacuum of space. But don't panic, I'll think of something."
+Ford points at the outer door. "In about two minutes, it will open and we'll be
+ejected into the vacuum of space. But don't panic, I'll think of something."
 
 >wait
 
@@ -453,35 +578,49 @@ Ford produces a pencil and begins scribbling equations on the wall.
 
 Time passes...
 
-Ford's eyes light up. "Do you still have the Electronic Sub-Etha Auto Hitching Thu..." At that moment, the airlock door opens, and you and Ford are blown out into space.
+Ford's eyes light up. "Do you still have the Electronic Sub-Etha Auto Hitching
+Thu..." At that moment, the airlock door opens, and you and Ford are blown out
+into space.
 
-Your elbow must have struck some key on The Hitchhiker's Guide because it begins droning out an entry, coincidentally enough the entry on SPACE. "If you hyperventilate and then empty your lungs, you will last about thirty seconds in the vacuum of space.
-However, because space is so vastly hugely mind-bogglingly big, getting picked up by another ship within those thirty seconds is almost infinitely improbable." (Footnote 9)
+Your elbow must have struck some key on The Hitchhiker's Guide because it begins
+droning out an entry, coincidentally enough the entry on SPACE. "If you
+hyperventilate and then empty your lungs, you will last about thirty seconds in
+the vacuum of space. However, because space is so vastly hugely mind-bogglingly
+big, getting picked up by another ship within those thirty seconds is almost
+infinitely improbable." (Footnote 9)
 
-Precisely twenty-nine seconds later, you and Ford are scooped up by a passing ship. Gasping for air, you pass out...
+Precisely twenty-nine seconds later, you and Ford are scooped up by a passing
+ship. Gasping for air, you pass out...
 
 Dark
 
 >wait
 
-You can't hear anything, see anything, smell anything, feel anything, or taste anything, and do not even know where you are or who you are or how you got there.
+You can't hear anything, see anything, smell anything, feel anything, or taste
+anything, and do not even know where you are or who you are or how you got
+there.
 
 >wait
 
-You can't hear anything, see anything, smell anything, feel anything, or taste anything, and do not even know where you are or who you are or how you got there.
+You can't hear anything, see anything, smell anything, feel anything, or taste
+anything, and do not even know where you are or who you are or how you got
+there.
 
 >wait
 
-You can hear nothing, smell nothing, taste nothing, see nothing, feel nothing, and are not even certain who you are.
+You can hear nothing, smell nothing, taste nothing, see nothing, feel nothing,
+and are not even certain who you are.
 
 >wait
 
-You can't see anything, smell anything, feel anything, or taste anything, and do not even know where you are or who you are or how you got there.
+You can't see anything, smell anything, feel anything, or taste anything, and do
+not even know where you are or who you are or how you got there.
 
 >hear
 
 (darkness)
-You hear the deep and distant hum of a star drive coming from far above. There is an exit to port.
+You hear the deep and distant hum of a star drive coming from far above. There
+is an exit to port.
 
 >aft
 
@@ -491,40 +630,54 @@ Entry Bay Number Two
 This is an entry bay for the Heart of Gold. A corridor lies aft of here.
 There is a sales brochure here.
 
-"This looks like that incredible new Infinite Improbability Drive spaceship, the Heart of Gold!" says Ford, with growing excitement.
+"This looks like that incredible new Infinite Improbability Drive spaceship, the
+Heart of Gold!" says Ford, with growing excitement.
 
-"Announcement, announcement. This is Eddie (the shipboard computer). We have just picked up two hitchhikers at an improbability factor of 2 to the 21,914th power to 1 against."
+"Announcement, announcement. This is Eddie (the shipboard computer). We have
+just picked up two hitchhikers at an improbability factor of 2 to the 21,914th
+power to 1 against."
 
 >wait
 
 Time passes...
 
-"Come on, let's look for the Bridge." You follow Ford, and eventually come to the...
+"Come on, let's look for the Bridge." You follow Ford, and eventually come to
+the...
 
 Bridge
-This is the bridge of the Heart of Gold. A gangway leads down, and steam comes from an entrance to port. Next to the control console is Eddie (the shipboard computer).
+This is the bridge of the Heart of Gold. A gangway leads down, and steam comes
+from an entrance to port. Next to the control console is Eddie (the shipboard
+computer).
 
-At the controls, apparently expecting you and Ford, are a man with more than the usual number of heads (the name "Zaphod" is stitched on his shirt) and a dark-haired woman, holding a handbag. Both seem somehow familiar.
+At the controls, apparently expecting you and Ford, are a man with more than the
+usual number of heads (the name "Zaphod" is stitched on his shirt) and a dark-
+haired woman, holding a handbag. Both seem somehow familiar.
 There is a molecular hyperwave pincer here.
 
 >wait
 
 Time passes...
 
-"Hey, Zaphod, how ya doing?" says Ford. He's cool. "Not bad, Ford. Great to see you," replies Zaphod. He's cooler. You suddenly realise that the woman is Tricia MacMillan ("Call me Trillian"), whom you were trying to pick up at a party in Islington just a
-few weeks ago, and that Zaphod is the guy she eventually left the party with! Odd.
+"Hey, Zaphod, how ya doing?" says Ford. He's cool. "Not bad, Ford. Great to see
+you," replies Zaphod. He's cooler. You suddenly realise that the woman is Tricia
+MacMillan ("Call me Trillian"), whom you were trying to pick up at a party in
+Islington just a few weeks ago, and that Zaphod is the guy she eventually left
+the party with! Odd.
 
 >wait
 
 Time passes...
 
-"Like my spaceship, Ford?" Zaphod asks. "YOUR spaceship?" says Ford, losing his cool for a second. "Yeah, I stole it," Zaphod admits. "I'm gonna use it to find the legendary lost planet of Magrathea. Let's go sit in the sauna while I explain." Zaphod,
-Ford, and Trillian all head off to port.
+"Like my spaceship, Ford?" Zaphod asks. "YOUR spaceship?" says Ford, losing his
+cool for a second. "Yeah, I stole it," Zaphod admits. "I'm gonna use it to find
+the legendary lost planet of Magrathea. Let's go sit in the sauna while I
+explain." Zaphod, Ford, and Trillian all head off to port.
 
 >drop all
 
 atomic vector plotter: Dropped.
-thing your aunt gave you which you don't know what it is: It falls to the ground with a light "thunk." It doesn't do anything else at all.
+thing your aunt gave you which you don't know what it is: It falls to the ground
+with a light "thunk." It doesn't do anything else at all.
 your gown: Dropped.
 towel: Dropped.
 babel fish: You'll have to remove it first.
@@ -544,16 +697,22 @@ Taken.
 >down
 
 Corridor, Fore End
-This is one end of a short corridor that continues aft along the main deck of the Heart of Gold. Doorways lead to fore and port. In addition, a gangway leads upward.
+This is one end of a short corridor that continues aft along the main deck of
+the Heart of Gold. Doorways lead to fore and port. In addition, a gangway leads
+upward.
 
 >aft
 
 Corridor, Aft End
-This is one end of a short corridor that continues fore along the main deck of the Heart of Gold. Doorways lead to aft and port. In addition, a gangway leads downward.
+This is one end of a short corridor that continues fore along the main deck of
+the Heart of Gold. Doorways lead to aft and port. In addition, a gangway leads
+downward.
 
 >aft
 
-That entrance leads to the Infinite Improbability Drive chamber. It's supposed to be a terribly dangerous area of the ship. Are you sure you want to go in there?
+That entrance leads to the Infinite Improbability Drive chamber. It's supposed
+to be a terribly dangerous area of the ship. Are you sure you want to go in
+there?
 
 >aft
 
@@ -561,8 +720,10 @@ Absolutely sure?
 
 >aft
 
-I can tell you don't want to really. You stride away with a spring in your step, wisely leaving the Drive Chamber safely behind you. Telegrams arrive from well-wishers in all corners of the Galaxy congratulating you on your prudence and wisdom, cheering
-you up immensely.
+I can tell you don't want to really. You stride away with a spring in your step,
+wisely leaving the Drive Chamber safely behind you. Telegrams arrive from well-
+wishers in all corners of the Galaxy congratulating you on your prudence and
+wisdom, cheering you up immensely.
 
 >aft
 
@@ -571,7 +732,8 @@ What? You're joking, of course. Can I ask you to reconsider?
 >aft
 
 Engine Room
-You're in the Infinite Improbability Drive chamber. Nothing happens; there is nothing to see.
+You're in the Infinite Improbability Drive chamber. Nothing happens; there is
+nothing to see.
 
 >look
 
@@ -581,7 +743,9 @@ I mean it! There's nothing to see here!
 >look
 
 Engine Room
-Okay, okay, there are a FEW things to see here. This is the room that houses the powerful Infinite Improbability Generator that drives the Heart of Gold. An exit lies fore of here.
+Okay, okay, there are a FEW things to see here. This is the room that houses the
+powerful Infinite Improbability Generator that drives the Heart of Gold. An exit
+lies fore of here.
 Sitting in the corner is a spare, portable Improbability Generator.
 There is an ionic diffusion rasp here.
 There is a pair of hypersonic pliers here.
@@ -632,7 +796,8 @@ Dropped.
 
 Dropped.
 
-You feel a wave of depression sweep over you, and you turn to see that Marvin the robot has stalked miserably into the room.
+You feel a wave of depression sweep over you, and you turn to see that Marvin
+the robot has stalked miserably into the room.
 
 >drop fluff
 
@@ -650,12 +815,16 @@ Marvin wanders off.
 >port
 
 Galley
-You are in the Galley area of the ship, containing a machine which is the state of the art in Nutritional Technology, a Sirius Cybernetics Corporation Nutrimat. There is an exit to starboard.
+You are in the Galley area of the ship, containing a machine which is the state
+of the art in Nutritional Technology, a Sirius Cybernetics Corporation Nutrimat.
+There is an exit to starboard.
 A carton labelled "Nutrimat/Computer Interface" is sitting here.
 
 >press pad
 
-The Nutrimat makes an instant but highly detailed examination of your taste buds, a spectroscopic analysis of your metabolism and sends tiny experimental signals down your neural pathways to see what you like.
+The Nutrimat makes an instant but highly detailed examination of your taste
+buds, a spectroscopic analysis of your metabolism and sends tiny experimental
+signals down your neural pathways to see what you like.
 A cupful of Advanced Tea Substitute appears in the dispensing slot.
 
 >get tea substitue
@@ -708,61 +877,81 @@ Plugged.
 
 >press switch
 
-Like fog rolling in off the ocean, a shroud of blackness billows toward you. Unlike fog rolling in off the ocean, the blackness hits you like a sixteen-tonne truck...
+Like fog rolling in off the ocean, a shroud of blackness billows toward you.
+Unlike fog rolling in off the ocean, the blackness hits you like a sixteen-tonne
+truck...
 
 Dark
 
 >wait
 
-You can't hear anything, see anything, smell anything, feel anything, or taste anything, and do not even know where you are or who you are or how you got there.
+You can't hear anything, see anything, smell anything, feel anything, or taste
+anything, and do not even know where you are or who you are or how you got
+there.
 
 >wait
 
-There's nothing you can taste, nothing you can see, nothing you can hear, nothing you can feel, nothing you can smell, you do not even know who you are.
+There's nothing you can taste, nothing you can see, nothing you can hear,
+nothing you can feel, nothing you can smell, you do not even know who you are.
 
 >wait
 
-You can hear nothing, smell nothing, taste nothing, see nothing, feel nothing, and are not even certain who you are.
+You can hear nothing, smell nothing, taste nothing, see nothing, feel nothing,
+and are not even certain who you are.
 
 >wait
 
-There's nothing you can taste, nothing you can see, nothing you can hear, nothing you can feel, you do not even know who you are.
+There's nothing you can taste, nothing you can see, nothing you can hear,
+nothing you can feel, you do not even know who you are.
 
 >smell
 
 (darkness)
-It does smell a bit. There's something pungent waving under your nose. Your head begins to clear. You can make out a shadow moving in the dark.
+It does smell a bit. There's something pungent waving under your nose. Your head
+begins to clear. You can make out a shadow moving in the dark.
 
 >look at shadow
 
 The shadow is vaguely Bugblatter Beast-shaped.
 
 Lair
-This is the lair of the Ravenous Bugblatter Beast of Traal. There are exits east and southwest.
-The Ravenous Bugblatter Beast of Traal is here, looking particularly nasty and hungry.
+This is the lair of the Ravenous Bugblatter Beast of Traal. There are exits east
+and southwest.
+The Ravenous Bugblatter Beast of Traal is here, looking particularly nasty and
+hungry.
 
-The Beast whips its evil-smelling tail away from your nose and bellows a brain-shattering roar. By suddenly popping out of nowhere you have disturbed its train of thought. However, since its train of thought was the usual one, and in fact the only one it
-knows, which goes like this "hungry ... hungry ... hungry ... hungry ... bad-tempered ... hungry ...", it soon starts to chug along again.
+The Beast whips its evil-smelling tail away from your nose and bellows a brain-
+shattering roar. By suddenly popping out of nowhere you have disturbed its train
+of thought. However, since its train of thought was the usual one, and in fact
+the only one it knows, which goes like this "hungry ... hungry ... hungry ...
+hungry ... bad-tempered ... hungry ...", it soon starts to chug along again.
 
-You notice the Beast's Lasero-Zap eyes, its Swivel Shear Teeth, and its several dozen tungsten carbide Vast-Pain claws, forged in the sun furnaces of Zangrijad. It has skin like a motorway and breath like a 747. It advances on you, and roars out a demand
-that you say your name.
+You notice the Beast's Lasero-Zap eyes, its Swivel Shear Teeth, and its several
+dozen tungsten carbide Vast-Pain claws, forged in the sun furnaces of Zangrijad.
+It has skin like a motorway and breath like a 747. It advances on you, and roars
+out a demand that you say your name.
 
 >say Arthur
 
-The Beast roars your name with relish, and explains that once it has eaten you, your name will be added to its list of remembrance.
+The Beast roars your name with relish, and explains that once it has eaten you,
+your name will be added to its list of remembrance.
 
 >east
 
 Beast's Outer Lair
-This is a large walled courtyard. Strewn about are a profusion of gnawed bones bleaching in the sun. In case the significance of these fails to strike you, there is also a sandstone memorial in the middle of the courtyard, on which the Beast has roughly
-carved the names of all its victims.
+This is a large walled courtyard. Strewn about are a profusion of gnawed bones
+bleaching in the sun. In case the significance of these fails to strike you,
+there is also a sandstone memorial in the middle of the courtyard, on which the
+Beast has roughly carved the names of all its victims.
 Some sharp stones lie near the exit to the west.
 
 Bellowing with rage, the Beast charges after you.
 
 >put towel over head
 
-The Ravenous Bugblatter Beast of Traal is completely bewildered. It is so dim it thinks that if you can't see it, it can't see you. You have a few seconds before it realises its mistake.
+The Ravenous Bugblatter Beast of Traal is completely bewildered. It is so dim it
+thinks that if you can't see it, it can't see you. You have a few seconds before
+it realises its mistake.
 
 >get stone
 
@@ -770,18 +959,26 @@ Taken.
 
 >carve Arthur on memorial
 
-You chip away with the stone. It's not your best writing, what with your mounting sense of panic and a towel wrapped around your head. However, it suffices...
+You chip away with the stone. It's not your best writing, what with your
+mounting sense of panic and a towel wrapped around your head. However, it
+suffices...
 
-Just as the Beast is trying to work out where you've disappeared to, it suddenly sees your name freshly carved on its memorial of remembrance. Mystery solved. It realises it must have already eaten you in a fit of absent-mindedness. (Its mind is very very
-small and quite frequently absent.) It decides to give up the rest of its afternoon to the twin arts of digestion and contemplation. It settles down for a snooze.
+Just as the Beast is trying to work out where you've disappeared to, it suddenly
+sees your name freshly carved on its memorial of remembrance. Mystery solved. It
+realises it must have already eaten you in a fit of absent-mindedness. (Its mind
+is very very small and quite frequently absent.) It decides to give up the rest
+of its afternoon to the twin arts of digestion and contemplation. It settles
+down for a snooze.
 
 >remove towel
 
 You unwrap the towel from your head.
 
 Beast's Outer Lair
-This is a large walled courtyard. Strewn about are a profusion of gnawed bones bleaching in the sun. In case the significance of these fails to strike you, there is also a sandstone memorial in the middle of the courtyard, on which the Beast has roughly
-carved the names of all its victims.
+This is a large walled courtyard. Strewn about are a profusion of gnawed bones
+bleaching in the sun. In case the significance of these fails to strike you,
+there is also a sandstone memorial in the middle of the courtyard, on which the
+Beast has roughly carved the names of all its victims.
 The Beast is in the corner, sleeping peacefully (Footnote 5).
 
 >west
@@ -792,7 +989,8 @@ Lair
 
 Inner Lair
 This is the heart of the Beast's lair. The only exit leads northeast.
-The skeleton of a dead Beasthunter lies nearby, clutching something labelled "Nutrimat/Computer Interface."
+The skeleton of a dead Beasthunter lies nearby, clutching something labelled
+"Nutrimat/Computer Interface."
 
 >get interface
 
@@ -803,39 +1001,55 @@ Taken.
 Time passes...
 
 >wait
-
 Time passes...
 
-Suddenly a team of Fronurbdian Beasthunters charges in, intent on catching the Beast for their zoo. Mistaking you for the Beast, they fire stun guns at you, wrap you in nets, and install you in a lovely little lair in the Fronurbdi National Zoo.
+Suddenly a team of Fronurbdian Beasthunters charges in, intent on catching the
+Beast for their zoo. Mistaking you for the Beast, they fire stun guns at you,
+wrap you in nets, and install you in a lovely little lair in the Fronurbdi
+National Zoo.
 
-Three months later the error is discovered, but while your damage suit is pending in the Fronurbdian courts the planet is invaded by Bureaucratic Pirates from Pallidon IV. Impressed into bondage for a 16-year filing and sorting mission on the so-called
-"basement world" of Sporla in the Lesser Magellanic Cloud, you escape with the help of a tribe of nomadic asteroid painters.
+Three months later the error is discovered, but while your damage suit is
+pending in the Fronurbdian courts the planet is invaded by Bureaucratic Pirates
+from Pallidon IV. Impressed into bondage for a 16-year filing and sorting
+mission on the so-called "basement world" of Sporla in the Lesser Magellanic
+Cloud, you escape with the help of a tribe of nomadic asteroid painters.
 
-You develop a unique talent for asteroid painting, gaining considerable fame throughout the Cloud. A nickel-ore deluxe is commissioned by His Royal Gorpness Orbjfelk, the ruler of the Nine Hundred Worlds of Gorp, but while working on this new masterpiece
-your asteroid slips into a small passing black hole. Everything becomes...
+You develop a unique talent for asteroid painting, gaining considerable fame
+throughout the Cloud. A nickel-ore deluxe is commissioned by His Royal Gorpness
+Orbjfelk, the ruler of the Nine Hundred Worlds of Gorp, but while working on
+this new masterpiece your asteroid slips into a small passing black hole.
+Everything becomes...
 
 Dark
 
->wait
 
-You can see nothing, feel nothing, hear nothing, taste nothing, smell nothing, and are not entirely certain who you are.
 
 >wait
 
-You can't hear anything, see anything, smell anything, feel anything, or taste anything, and do not even know where you are or who you are or how you got there.
+You can see nothing, feel nothing, hear nothing, taste nothing, smell nothing,
+and are not entirely certain who you are.
 
 >wait
 
-There's nothing you can taste, nothing you can see, nothing you can hear, nothing you can feel, nothing you can smell, you do not even know who you are.
+You can't hear anything, see anything, smell anything, feel anything, or taste
+anything, and do not even know where you are or who you are or how you got
+there.
 
 >wait
 
-You can smell nothing, taste nothing, see nothing, feel nothing, and are not even certain who you are.
+There's nothing you can taste, nothing you can see, nothing you can hear,
+nothing you can feel, nothing you can smell, you do not even know who you are.
+
+>wait
+
+You can smell nothing, taste nothing, see nothing, feel nothing, and are not
+even certain who you are.
 
 >hear
 
 (darkness)
-You hear the deep and distant hum of a star drive coming from far above. There is an exit to port.
+You hear the deep and distant hum of a star drive coming from far above. There
+is an exit to port.
 
 >south
 
@@ -852,7 +1066,8 @@ Corridor, Fore End
 
 Bridge
 There is a nice, hot cup of Advanced Tea Substitute here.
-Lying on the deck is a plotter connected to a spare Improbability Drive. The plotter's long, dangly bit is submerged in Advanced Tea Substitute.
+Lying on the deck is a plotter connected to a spare Improbability Drive. The
+plotter's long, dangly bit is submerged in Advanced Tea Substitute.
 There is a spare Improbability Drive here.
 There is a strange gun here.
 There is pocket fluff here.
@@ -876,25 +1091,30 @@ Done.
 
 >press switch
 
-A mist spins round your head. You fall into what seems like a bottomless pit. Suddenly, you hit the bottom so hard that you wish it had been bottomless...
+A mist spins round your head. You fall into what seems like a bottomless pit.
+Suddenly, you hit the bottom so hard that you wish it had been bottomless...
 
 Dark
 
 >wait
 
-You can see nothing, feel nothing, hear nothing, taste nothing, smell nothing, and are not entirely certain who you are.
+You can see nothing, feel nothing, hear nothing, taste nothing, smell nothing,
+and are not entirely certain who you are.
 
 >wait
 
-You can see nothing, feel nothing, hear nothing, taste nothing, smell nothing, and are not entirely certain who you are.
+You can see nothing, feel nothing, hear nothing, taste nothing, smell nothing,
+and are not entirely certain who you are.
 
 >wait
 
-You can hear nothing, smell nothing, taste nothing, see nothing, feel nothing, and are not even certain who you are.
+You can hear nothing, smell nothing, taste nothing, see nothing, feel nothing,
+and are not even certain who you are.
 
 >wait
 
-You can feel nothing, hear nothing, taste nothing, smell nothing, and are not entirely certain who you are.
+You can feel nothing, hear nothing, taste nothing, smell nothing, and are not
+entirely certain who you are.
 
 >see
 
@@ -905,24 +1125,30 @@ You see a painfully bright light that stabs at the back of your eyes.
 
 The light resolves itself into the bright orange Sun of Damogran.
 
-The pain at the back of your eyes is from partying until very late last night, and both your heads are suffering the worst hangover you've ever experienced. You remember formulating a plan to steal the Heart of Gold, but you can't for the life of you
-remember any details.
+The pain at the back of your eyes is from partying until very late last night,
+and both your heads are suffering the worst hangover you've ever experienced.
+You remember formulating a plan to steal the Heart of Gold, but you can't for
+the life of you remember any details.
 
 Presidential Speedboat, in the pilot seat
-You are piloting the speedboat, which features very simple controls, toward the island of France (Footnote 3), where the dedication ceremonies for the Heart of Gold will occur. You are currently steering the boat toward a narrow channel between towering
-cliffs and a rocky spire.
+You are piloting the speedboat, which features very simple controls, toward the
+island of France (Footnote 3), where the dedication ceremonies for the Heart of
+Gold will occur. You are currently steering the boat toward a narrow channel
+between towering cliffs and a rocky spire.
 There is a tool box here. (outside the pilot seat)
 
 >look under seat
 
-You discover and pick up a small key and a piece of fluff under the seat cushion.
+You discover and pick up a small key and a piece of fluff under the seat
+cushion.
 
 You continue to steer toward the narrow channel.
 
 >unlock toolbox
 
 (with the key)
-The tool box opens revealing a magnifying glass, and a laser-assisted monkey wrench.
+The tool box opens revealing a magnifying glass, and a laser-assisted monkey
+wrench.
 
 You continue to steer toward the narrow channel.
 
@@ -958,8 +1184,12 @@ You continue to steer toward the rocky spire.
 
 Time passes...
 
-Suddenly, the autopilot leaps to life, steering the boat away from the rocky spire. The crowd gathered for the dedication oohs and aahs as the boat swerves through the narrow channel. As it reaches the base of the towering cliffs a plume of water forms
-under it, sending it higher and higher. The crowd bursts into applause as the boat reaches the top of the cliff, just south of the ceremonial dais.
+Suddenly, the autopilot leaps to life, steering the boat away from the rocky
+spire. The crowd gathered for the dedication oohs and aahs as the boat swerves
+through the narrow channel. As it reaches the base of the towering cliffs a
+plume of water forms under it, sending it higher and higher. The crowd bursts
+into applause as the boat reaches the top of the cliff, just south of the
+ceremonial dais.
 
 >stand
 
@@ -967,10 +1197,12 @@ You are now on your feet.
 
 >out
 
-As you step out of the boat, the plume of water lowers it away. The crowd, unaware of the autopilot, bursts into a round of admiring applause.
+As you step out of the boat, the plume of water lowers it away. The crowd,
+unaware of the autopilot, bursts into a round of admiring applause.
 
 Dais
-This is a platform surrounded by a crowd. Several members of the crowd are holding a huge banner. Just to the east is the Heart of Gold.
+This is a platform surrounded by a crowd. Several members of the crowd are
+holding a huge banner. Just to the east is the Heart of Gold.
 
 >wait
 
@@ -986,8 +1218,11 @@ The crowd cheers wildly! It thinks you're terrific.
 
 >wait
 
-The crowd cheers wildly! It thinks you're terrific. Suddenly, Trillian leaps out of the crowd, grabs you by the necks, and points a blaster at your left head. Guards rush up, photon rifles poised to shoot. "Stay back!" shouts Trillian. "One more step and
-the President of the Galaxy is fried meat!" The guards seem unsure, and look at you for instructions.
+The crowd cheers wildly! It thinks you're terrific. Suddenly, Trillian leaps out
+of the crowd, grabs you by the necks, and points a blaster at your left head.
+Guards rush up, photon rifles poised to shoot. "Stay back!" shouts Trillian.
+"One more step and the President of the Galaxy is fried meat!" The guards seem
+unsure, and look at you for instructions.
 
 >guards, drop rifles
 
@@ -995,35 +1230,45 @@ The guards hesitate, then toss their photon rifles into a pile in front of you.
 
 >Trillian, shoot rifles
 
-With a cloud of sparks the pile of photon rifles disintegrates. The crowd cheers wildly! It thinks you're terrific.
+With a cloud of sparks the pile of photon rifles disintegrates. The crowd cheers
+wildly! It thinks you're terrific.
 
 >east
 
-You and Trillian enter the Heart of Gold, that beautiful bauble you've been coveting ever since your decision to run for President of the Galaxy. The excitement overwhelms you (or perhaps it's just the awesome hangover from last night). Everything
-becomes...
+You and Trillian enter the Heart of Gold, that beautiful bauble you've been
+coveting ever since your decision to run for President of the Galaxy. The
+excitement overwhelms you (or perhaps it's just the awesome hangover from last
+night). Everything becomes...
 
 Dark
 
 >wait
 
-You can't hear anything, see anything, smell anything, feel anything, or taste anything, and do not even know where you are or who you are or how you got there.
+You can't hear anything, see anything, smell anything, feel anything, or taste
+anything, and do not even know where you are or who you are or how you got
+there.
 
 >wait
 
-There's nothing you can taste, nothing you can see, nothing you can hear, nothing you can feel, nothing you can smell, you do not even know who you are.
+There's nothing you can taste, nothing you can see, nothing you can hear,
+nothing you can feel, nothing you can smell, you do not even know who you are.
 
 >wait
 
-You can't hear anything, see anything, smell anything, feel anything, or taste anything, and do not even know where you are or who you are or how you got there.
+You can't hear anything, see anything, smell anything, feel anything, or taste
+anything, and do not even know where you are or who you are or how you got
+there.
 
 >wait
 
-You can't see anything, smell anything, feel anything, or taste anything, and do not even know where you are or who you are or how you got there.
+You can't see anything, smell anything, feel anything, or taste anything, and do
+not even know where you are or who you are or how you got there.
 
 >hear
 
 (darkness)
-You hear the deep and distant hum of a star drive coming from far above. There is an exit to port.
+You hear the deep and distant hum of a star drive coming from far above. There
+is an exit to port.
 
 >south
 
@@ -1043,7 +1288,8 @@ Corridor, Aft End
 >down
 
 Hatchway
-You are at the bottom of a gangway. A hatch below you is closed. There is a small access space to starboard.
+You are at the bottom of a gangway. A hatch below you is closed. There is a
+small access space to starboard.
 There is a small key here.
 There is a tool box here.
 It looks like the tool box contains:
@@ -1067,7 +1313,8 @@ Corridor, Fore End
 
 Bridge
 There is a nice, hot cup of Advanced Tea Substitute here.
-Lying on the deck is a plotter connected to a spare Improbability Drive. The plotter's long, dangly bit is submerged in Advanced Tea Substitute.
+Lying on the deck is a plotter connected to a spare Improbability Drive. The
+plotter's long, dangly bit is submerged in Advanced Tea Substitute.
 There is a spare Improbability Drive here.
 There is a strange gun here.
 There is pocket fluff here.
@@ -1105,7 +1352,8 @@ Time passes...
 
 Time passes...
 
-You feel a wave of depression sweep over you, and you turn to see that Marvin the robot has stalked miserably into the room.
+You feel a wave of depression sweep over you, and you turn to see that Marvin
+the robot has stalked miserably into the room.
 
 >wait
 
@@ -1119,25 +1367,31 @@ Time passes...
 
 >press switch
 
-A mist spins round your head. You fall into what seems like a bottomless pit. Suddenly, you hit the bottom so hard that you wish it had been bottomless...
+A mist spins round your head. You fall into what seems like a bottomless pit.
+Suddenly, you hit the bottom so hard that you wish it had been bottomless...
 
 Dark
 
 >wait
 
-You can't hear anything, see anything, smell anything, feel anything, or taste anything, and do not even know where you are or who you are or how you got there.
+You can't hear anything, see anything, smell anything, feel anything, or taste
+anything, and do not even know where you are or who you are or how you got
+there.
 
 >wait
 
-You can hear nothing, smell nothing, taste nothing, see nothing, feel nothing, and are not even certain who you are.
+You can hear nothing, smell nothing, taste nothing, see nothing, feel nothing,
+and are not even certain who you are.
 
 >wait
 
-There's nothing you can taste, nothing you can see, nothing you can hear, nothing you can feel, nothing you can smell, you do not even know who you are.
+There's nothing you can taste, nothing you can see, nothing you can hear,
+nothing you can feel, nothing you can smell, you do not even know who you are.
 
 >wait
 
-There's nothing you can taste, nothing you can hear, nothing you can feel, nothing you can smell, you do not even know who you are.
+There's nothing you can taste, nothing you can hear, nothing you can feel,
+nothing you can smell, you do not even know who you are.
 
 >see
 
@@ -1148,25 +1402,32 @@ You see a painfully bright light that stabs at the front of your eyes.
 
 The light resolves itself into the bright yellow Sun of Earth.
 
-You are hurrying up a country lane. The sky is light and clear, but you keep glancing at it with apprehension because you know that it will shortly be torn apart by Vogon ships, and that the hills and trees around you will just burn up and blow away, and
-you hope there's time for a quick drink beforehand.
+You are hurrying up a country lane. The sky is light and clear, but you keep
+glancing at it with apprehension because you know that it will shortly be torn
+apart by Vogon ships, and that the hills and trees around you will just burn up
+and blow away, and you hope there's time for a quick drink beforehand.
 
-You want to hitch a ride aboard the Vogon fleet, but are anxious because it's so long since you were through a matter transference beam.
+You want to hitch a ride aboard the Vogon fleet, but are anxious because it's so
+long since you were through a matter transference beam.
 
 Country Lane
-The road runs from Arthur's home, to the north, toward the village Pub, to the west.
+The road runs from Arthur's home, to the north, toward the village Pub, to the
+west.
 
 >north
 
 Front of House
-Before you is the house of your friend, Arthur Dent, who is lying in front of a bulldozer; you have no idea why. You have no idea about most things about Arthur, even why you regard him as a friend, but you do, and must therefore return his towel before
-you leave.
+Before you is the house of your friend, Arthur Dent, who is lying in front of a
+bulldozer; you have no idea why. You have no idea about most things about
+Arthur, even why you regard him as a friend, but you do, and must therefore
+return his towel before you leave.
 
 Nearby stands an impatient man. There seems to be a bit of an atmosphere.
 
 >open satchel
 
-Opening the satchel reveals Santraginean Mineral Water, a towel, The Hitchhiker's Guide, an electronic Sub-Etha signaling device, and satchel fluff.
+Opening the satchel reveals Santraginean Mineral Water, a towel, The
+Hitchhiker's Guide, an electronic Sub-Etha signaling device, and satchel fluff.
 
 >get towel and fluff
 
@@ -1174,29 +1435,47 @@ towel: Taken.
 satchel fluff: Taken.
 
 >offer towel to Arthur
+Inexplicably, Arthur takes no notice of the towel which, magnificently, you are
+trying to return to him. Instead, he says, "Ford, what about my home?"
 
-You start guiltily. Does he actually KNOW that the Earth is about to be destroyed? You start to ask him, then stop. If he knows, what the Zark is he doing lying here in the mud in front of...
+You start guiltily. Does he actually KNOW that the Earth is about to be
+destroyed? You start to ask him, then stop. If he knows, what the Zark is he
+doing lying here in the mud in front of...
 
-You look around. You notice the bulldozer properly for the first time. You notice Arthur's house. You notice the workmen. The penny drops. His HOUSE is about to be demolished. You feel like a complete...what's the word?
+You look around. You notice the bulldozer properly for the first time. You
+notice Arthur's house. You notice the workmen. The penny drops. His HOUSE is
+about to be demolished. You feel like a complete...what's the word?
 
 >idiot
 
 Thank you. An idiot is exactly what you feel like.
 
-In a reckless moment you go completely mad and decide that you ought to take Arthur with you. You try to tell Arthur about the importance of getting a drink, but he's rambling on about a man called Prosser.
+In a reckless moment you go completely mad and decide that you ought to take
+Arthur with you. You try to tell Arthur about the importance of getting a drink,
+but he's rambling on about a man called Prosser.
 
 >walk to Prosser
 
-You walk around the bulldozer. Prosser is standing here, looking cross and frustrated. Realising that you are a friend of Arthur's he starts to talk at you. He says that this sort of protest is all very well, but what Mr. Dent must realise is that he's
-had plenty of time to make a formal protest at the proper time and place, and that spending months going through the appropriate official channels, filling in the appropriate official forms, and going to the appropriate official public hearings is the
-right way of going about it, and lying around whimsically in the mud is not. He says that he personally hates mud and despises the sort of people who lie in it.
+You walk around the bulldozer. Prosser is standing here, looking cross and
+frustrated. Realising that you are a friend of Arthur's he starts to talk at
+you. He says that this sort of protest is all very well, but what Mr. Dent must
+realise is that he's had plenty of time to make a formal protest at the proper
+time and place, and that spending months going through the appropriate official
+channels, filling in the appropriate official forms, and going to the
+appropriate official public hearings is the right way of going about it, and
+lying around whimsically in the mud is not. He says that he personally hates mud
+and despises the sort of people who lie in it.
 
 >Prosser, lie down
 
-Prosser blinks in astonishment. "You mean, go and lie in the mud in his place...?" You explain that Arthur will only move if someone else takes over for him. Prosser shakes his head in such a manner as to suggest that he is very weary of the world, and
-you tactfully forebear from mentioning that it won't be troubling him much longer. Reluctantly, he follows you back toward Arthur.
+Prosser blinks in astonishment. "You mean, go and lie in the mud in his
+place...?" You explain that Arthur will only move if someone else takes over for
+him. Prosser shakes his head in such a manner as to suggest that he is very
+weary of the world, and you tactfully forebear from mentioning that it won't be
+troubling him much longer. Reluctantly, he follows you back toward Arthur.
 
-You rapidly conclude the business. Prosser lies in the mud. Arthur, bewildered, nevertheless stands up and appears ready to follow you to the Pub.
+You rapidly conclude the business. Prosser lies in the mud. Arthur, bewildered,
+nevertheless stands up and appears ready to follow you to the Pub.
 
 >south
 
@@ -1207,42 +1486,58 @@ Arthur follows you.
 
 Pub
 There is a barman serving at the bar.
-Behind the bar is a shelf. It is full of the sort of items you find on shelves behind bars in pubs.
+Behind the bar is a shelf. It is full of the sort of items you find on shelves
+behind bars in pubs.
 Arthur follows you.
 
 >buy beer
 
-You order six pints of bitter -- three for you, three for Arthur. According to The Hitchhiker's Guide this should cushion your system against the coming shock of the matter transference beam.
+You order six pints of bitter -- three for you, three for Arthur. According to
+The Hitchhiker's Guide this should cushion your system against the coming shock
+of the matter transference beam.
 
-As you drink the first pint, you mention to Arthur that you are from a different planet, but it makes little impression. This surprises you, because you thought it was the sort of thing that would interest people.
+As you drink the first pint, you mention to Arthur that you are from a different
+planet, but it makes little impression. This surprises you, because you thought
+it was the sort of thing that would interest people.
 
 >buy peanuts
 
-You buy some peanuts, which you'll need to replace protein loss from the matter transference beam, a tip you picked up from The Hitchhiker's Guide.
+You buy some peanuts, which you'll need to replace protein loss from the matter
+transference beam, a tip you picked up from The Hitchhiker's Guide.
 
 >drink beer
 
-It goes down well. At least they managed to get something right on this benighted planet. You decide it's time to tell Arthur that the world is about to end. You tell him. Arthur is completely unperturbed. Curious. You wonder what sort of news it would
-take to disturb him.
+It goes down well. At least they managed to get something right on this
+benighted planet. You decide it's time to tell Arthur that the world is about to
+end. You tell him. Arthur is completely unperturbed. Curious. You wonder what
+sort of news it would take to disturb him.
 
 >drink beer
 
-It goes down well. You hear a muffled crash. It's probably Arthur's little house getting knocked down, which you tell him. This DOES upset him, and he tears out the door.
+It goes down well. You hear a muffled crash. It's probably Arthur's little house
+getting knocked down, which you tell him. This DOES upset him, and he tears out
+the door.
 
-Through the window, you see him running up the lane. A small dog chases after him, yapping, and he throws it a cheese sandwich. The dog devours the sandwich with passion, and ignores a passing microscopic space fleet.
+Through the window, you see him running up the lane. A small dog chases after
+him, yapping, and he throws it a cheese sandwich. The dog devours the sandwich
+with passion, and ignores a passing microscopic space fleet.
 
 >east
 
 Country Lane
-You run up the lane after Arthur. You pass a serene dog. Fate cannot harm him, he has dined today.
+You run up the lane after Arthur. You pass a serene dog. Fate cannot harm him,
+he has dined today.
 
 >north
 
-You reach the site of what was Arthur's home. It is now a pile of rubble. Mr. Prosser looks sheepishly triumphant, a trick few people can do, as it requires a lot of technically complex deltoid muscle work.
+You reach the site of what was Arthur's home. It is now a pile of rubble. Mr.
+Prosser looks sheepishly triumphant, a trick few people can do, as it requires a
+lot of technically complex deltoid muscle work.
 
 Front of House
 Arthur Dent is here.
-Mr. Prosser, from the local council, is standing at the side of the bulldozer. He seems to be wearing a digital watch.
+Mr. Prosser, from the local council, is standing at the side of the bulldozer.
+He seems to be wearing a digital watch.
 
 >give satchel fluff to Arthur
 
@@ -1252,50 +1547,69 @@ Arthur hiccups, takes the fluff, and sticks it in his pocket.
 
 Time passes...
 
-Right on schedule (according to the news you picked up last night on your Sub-Etha Sens-O-Matic), a huge fleet of Vogon Constructor ships hurtles noisily through the sky. Time is very, very short. Storms break in the wake of the ships, the wind whips at
-you and makes it difficult to stand. You grab hold of a tree.
+Right on schedule (according to the news you picked up last night on your Sub-
+Etha Sens-O-Matic), a huge fleet of Vogon Constructor ships hurtles noisily
+through the sky. Time is very, very short. Storms break in the wake of the
+ships, the wind whips at you and makes it difficult to stand. You grab hold of a
+tree.
 
 >wait
 
 Time passes...
 
-The vast yellow ships thunder across the sky, spreading waves of terror and panic in their wake. The voice of the Vogon Captain slams across the country, insisting that the planning charts and demolition orders have been available at the local planning
-office in Alpha Centauri for fifty years and it's too late to start making a fuss about it now.
+The vast yellow ships thunder across the sky, spreading waves of terror and
+panic in their wake. The voice of the Vogon Captain slams across the country,
+insisting that the planning charts and demolition orders have been available at
+the local planning office in Alpha Centauri for fifty years and it's too late to
+start making a fuss about it now.
 
-You remove the electronic Sub-Etha signaling device from your satchel. Lights pulsate across its surface. You fumble with the Thumb as you hold onto the tree against the fierce wind. It falls to the ground near Arthur's feet. Arthur is struggling
-desperately towards you. The end of this planet is now only seconds away.
+You remove the electronic Sub-Etha signaling device from your satchel. Lights
+pulsate across its surface. You fumble with the Thumb as you hold onto the tree
+against the fierce wind. It falls to the ground near Arthur's feet. Arthur is
+struggling desperately towards you. The end of this planet is now only seconds
+away.
 
 >wait
 
 Time passes...
 
-Fierce gales whip across the land, and thunder bangs continuously through the air in the wake of the giant ships. You struggle to reach the Thumb, but the wind is too fierce and you are driven back. Fortunately, at this point, Arthur picks up the Thumb,
-and somehow manages to push the right button.
+Fierce gales whip across the land, and thunder bangs continuously through the
+air in the wake of the giant ships. You struggle to reach the Thumb, but the
+wind is too fierce and you are driven back. Fortunately, at this point, Arthur
+picks up the Thumb, and somehow manages to push the right button.
 
-However often you do it, you are still stunned by the shock of dematerialisation. The scene around is ripped away like a flimsy backcloth. Everything becomes...
+However often you do it, you are still stunned by the shock of
+dematerialisation. The scene around is ripped away like a flimsy backcloth.
+Everything becomes...
 
 Dark
 
 >wait
 
-There's nothing you can taste, nothing you can see, nothing you can hear, nothing you can feel, nothing you can smell, you do not even know who you are.
+There's nothing you can taste, nothing you can see, nothing you can hear,
+nothing you can feel, nothing you can smell, you do not even know who you are.
 
 >wait
 
-You can't hear anything, see anything, smell anything, feel anything, or taste anything, and do not even know where you are or who you are or how you got there.
+You can't hear anything, see anything, smell anything, feel anything, or taste
+anything, and do not even know where you are or who you are or how you got
+there.
 
 >wait
 
-You can hear nothing, smell nothing, taste nothing, see nothing, feel nothing, and are not even certain who you are.
+You can hear nothing, smell nothing, taste nothing, see nothing, feel nothing,
+and are not even certain who you are.
 
 >wait
 
-You can smell nothing, taste nothing, see nothing, feel nothing, and are not even certain who you are.
+You can smell nothing, taste nothing, see nothing, feel nothing, and are not
+even certain who you are.
 
 >hear
 
 (darkness)
-You hear the deep and distant hum of a star drive coming from far above. There is an exit to port.
+You hear the deep and distant hum of a star drive coming from far above. There
+is an exit to port.
 
 >south
 
@@ -1309,13 +1623,13 @@ There is a sales brochure here.
 Corridor, Fore End
 
 >up
-
 Bridge
 There is a copy of The Hitchhiker's Guide to the Galaxy here.
 There is an electronic Sub-Etha signaling device here.
 There is a satchel here.
 There is a nice, hot cup of Advanced Tea Substitute here.
-Lying on the deck is a plotter connected to a spare Improbability Drive. The plotter's long, dangly bit is submerged in Advanced Tea Substitute.
+Lying on the deck is a plotter connected to a spare Improbability Drive. The
+plotter's long, dangly bit is submerged in Advanced Tea Substitute.
 There is a spare Improbability Drive here.
 There is a tool box here.
 It looks like the tool box contains:
@@ -1330,6 +1644,9 @@ There is a toothbrush here.
 There is a handbag here.
 It looks like the handbag contains:
   seat cushion fluff
+
+
+
   a pair of tweezers
 There is a molecular hyperwave pincer here.
 
@@ -1339,47 +1656,61 @@ Time passes...
 
 >press switch
 
-A mist spins round your head. You fall into what seems like a bottomless pit. Suddenly, you hit the bottom so hard that you wish it had been bottomless...
+A mist spins round your head. You fall into what seems like a bottomless pit.
+Suddenly, you hit the bottom so hard that you wish it had been bottomless...
 
 Dark
 
 >wait
 
-You can hear nothing, smell nothing, taste nothing, see nothing, feel nothing, and are not even certain who you are.
+You can hear nothing, smell nothing, taste nothing, see nothing, feel nothing,
+and are not even certain who you are.
 
 >wait
 
-You can't hear anything, see anything, smell anything, feel anything, or taste anything, and do not even know where you are or who you are or how you got there.
+You can't hear anything, see anything, smell anything, feel anything, or taste
+anything, and do not even know where you are or who you are or how you got
+there.
 
 >wait
 
-You can hear nothing, smell nothing, taste nothing, see nothing, feel nothing, and are not even certain who you are.
+You can hear nothing, smell nothing, taste nothing, see nothing, feel nothing,
+and are not even certain who you are.
 
 >wait
 
-You can hear nothing, smell nothing, taste nothing, see nothing, and are not even certain who you are.
+You can hear nothing, smell nothing, taste nothing, see nothing, and are not
+even certain who you are.
 
 >feel
 
 (darkness)
-It does feel a bit cold and wet and squishy. There seems to be some liquid at your fingertips.
+It does feel a bit cold and wet and squishy. There seems to be some liquid at
+your fingertips.
 
 >drink liquid
 
-It tastes just like wine. In fact, you realise with growing embarrassment that your hand is sitting in a glass of white wine.
+It tastes just like wine. In fact, you realise with growing embarrassment that
+your hand is sitting in a glass of white wine.
 
-You're at a party being given by a distant and incredibly boring acquaintance. Among the people you've been introduced to are a shy, mousy fellow from the West Country named Arthur, and a flamboyant guy named Phil. You've had too many drinks already, and
-the room is beginning to buzz...
+You're at a party being given by a distant and incredibly boring acquaintance.
+Among the people you've been introduced to are a shy, mousy fellow from the West
+Country named Arthur, and a flamboyant guy named Phil. You've had too many
+drinks already, and the room is beginning to buzz...
 
 Living Room
-You are in a large Living Room. There is a party going on. Other rooms lie to the west and southwest, and the apartment's front door is south of here.
+You are in a large Living Room. There is a party going on. Other rooms lie to
+the west and southwest, and the apartment's front door is south of here.
 Phil is here.
 Arthur Dent is here.
-You notice the hostess approaching, but using several mingling couples as cover you maneuver away.
+You notice the hostess approaching, but using several mingling couples as cover
+you maneuver away.
 
 >look at Arthur
 
-Arthur seems nice and well meaning, but also terribly shy. He has tried to start a conversation with you several times, but still hasn't gotten past "Hello." He has an enormous, unsightly ball of fluff on his jacket.
+Arthur seems nice and well meaning, but also terribly shy. He has tried to start
+a conversation with you several times, but still hasn't gotten past "Hello." He
+has an enormous, unsightly ball of fluff on his jacket.
 
 >drop wine
 
@@ -1387,13 +1718,17 @@ Dropped.
 
 >get fluff
 
-You remove the jacket fluff, improving Arthur's appearance greatly. He is clearly touched, and starts happily to chat away to you. You discover that he is only slightly more interesting to talk to than an averagely interesting wall.
+You remove the jacket fluff, improving Arthur's appearance greatly. He is
+clearly touched, and starts happily to chat away to you. You discover that he is
+only slightly more interesting to talk to than an averagely interesting wall.
 
 >open handbag
 
 Opening the handbag reveals a pair of tweezers.
 
-The hostess, whom you've been avoiding all evening, scurries up with your glass of white wine. "Oh, hello Tricia, how lovely to see you, I think you dropped this, dear."
+The hostess, whom you've been avoiding all evening, scurries up with your glass
+of white wine. "Oh, hello Tricia, how lovely to see you, I think you dropped
+this, dear."
 
 Arthur tries, unsuccessfully, to interest you by talking about cricket.
 
@@ -1401,7 +1736,8 @@ Arthur tries, unsuccessfully, to interest you by talking about cricket.
 
 Done.
 
-"Tricia dear," says the hostess insistently, "don't you want your glass of white wine?"
+"Tricia dear," says the hostess insistently, "don't you want your glass of white
+wine?"
 
 Arthur tries, unsuccessfully, to interest you by talking about cricket.
 
@@ -1409,7 +1745,8 @@ Arthur tries, unsuccessfully, to interest you by talking about cricket.
 
 Taken.
 
-Arthur tries, unsuccessfully, to interest you by talking about how badly Americans make tea.
+Arthur tries, unsuccessfully, to interest you by talking about how badly
+Americans make tea.
 
 >wait
 
@@ -1421,31 +1758,40 @@ Arthur tries, unsuccessfully, to interest you by talking about computers.
 
 Time passes...
 
-Phil comes up and grips your shoulder. "Hey babe, this guy boring you? Why not come with me instead? I'm from a different planet." He takes you out to the parking lot, where his flashy inter-orbital ion scooter is parked between two Volkswagens. After
-mounting it, the scooter accelerates at such a great speed that you black out almost immediately. Everything becomes...
+Phil comes up and grips your shoulder. "Hey babe, this guy boring you? Why not
+come with me instead? I'm from a different planet." He takes you out to the
+parking lot, where his flashy inter-orbital ion scooter is parked between two
+Volkswagens. After mounting it, the scooter accelerates at such a great speed
+that you black out almost immediately. Everything becomes...
 
 Dark
 
 >wait
 
-You can hear nothing, smell nothing, taste nothing, see nothing, feel nothing, and are not even certain who you are.
+You can hear nothing, smell nothing, taste nothing, see nothing, feel nothing,
+and are not even certain who you are.
 
 >wait
 
-There's nothing you can taste, nothing you can see, nothing you can hear, nothing you can feel, nothing you can smell, you do not even know who you are.
+There's nothing you can taste, nothing you can see, nothing you can hear,
+nothing you can feel, nothing you can smell, you do not even know who you are.
 
 >wait
 
-You can't hear anything, see anything, smell anything, feel anything, or taste anything, and do not even know where you are or who you are or how you got there.
+You can't hear anything, see anything, smell anything, feel anything, or taste
+anything, and do not even know where you are or who you are or how you got
+there.
 
 >wait
 
-You can't see anything, smell anything, feel anything, or taste anything, and do not even know where you are or who you are or how you got there.
+You can't see anything, smell anything, feel anything, or taste anything, and do
+not even know where you are or who you are or how you got there.
 
 >hear
 
 (darkness)
-You hear the deep and distant hum of a star drive coming from far above. There is an exit to port.
+You hear the deep and distant hum of a star drive coming from far above. There
+is an exit to port.
 
 >south
 
@@ -1481,7 +1827,9 @@ Done.
 
 >press pad
 
-The Nutrimat is puzzled that you want something made by pouring boiling water on dead leaves and squirting stuff from a cow in it, and says that it will need some help from Eddie (the shipboard computer).
+The Nutrimat is puzzled that you want something made by pouring boiling water on
+dead leaves and squirting stuff from a cow in it, and says that it will need
+some help from Eddie (the shipboard computer).
 
 The nutrimat begins to whirr.
 
@@ -1490,7 +1838,6 @@ The nutrimat begins to whirr.
 Corridor, Fore End
 
 >up
-
 Bridge
 There is a handbag here.
 It looks like the handbag contains:
@@ -1498,7 +1845,8 @@ It looks like the handbag contains:
   a pair of tweezers
   jacket fluff
 There is a nice, hot cup of Advanced Tea Substitute here.
-Lying on the deck is a plotter connected to a spare Improbability Drive. The plotter's long, dangly bit is submerged in Advanced Tea Substitute.
+Lying on the deck is a plotter connected to a spare Improbability Drive. The
+plotter's long, dangly bit is submerged in Advanced Tea Substitute.
 There is a spare Improbability Drive here.
 There is a copy of The Hitchhiker's Guide to the Galaxy here.
 There is an electronic Sub-Etha signaling device here.
@@ -1511,6 +1859,9 @@ There is a strange gun here.
 There is pocket fluff here.
 There is a pair of hypersonic pliers here.
 There is an ionic diffusion rasp here.
+
+
+
 There is a flathead screwdriver here.
 There is a toothbrush here.
 There is a molecular hyperwave pincer here.
@@ -1523,31 +1874,44 @@ Plugged.
 
 Time passes...
 
-"Announcement, announcement. This is Eddie (the shipboard computer). Emergency situation! Nuclear missiles have just been launched at us from the approaching planet, which my data banks indicate is the legendary lost planet of Magrathea. I cannot perform
-evasive maneuvers because all circuits are currently engaged by the Nutrimat. The missiles will turn this ship into a huge atomic fireball in approximately eight turns. By the way, somebody didn't finish their spinach at dinner."
+"Announcement, announcement. This is Eddie (the shipboard computer). Emergency
+situation! Nuclear missiles have just been launched at us from the approaching
+planet, which my data banks indicate is the legendary lost planet of Magrathea.
+I cannot perform evasive maneuvers because all circuits are currently engaged by
+the Nutrimat. The missiles will turn this ship into a huge atomic fireball in
+approximately eight turns. By the way, somebody didn't finish their spinach at
+dinner."
 
 >wait
 
 Time passes...
 
-You hear distant sounds of panic: shouts of anger, cries of alarm, pounding feet.
+You hear distant sounds of panic: shouts of anger, cries of alarm, pounding
+feet.
 
 >press switch
 
-As you flip the switch, sparks fly from the large receptacle. "My new control console!" wails Eddie (the shipboard computer). "This is the thanks I get?"
+As you flip the switch, sparks fly from the large receptacle. "My new control
+console!" wails Eddie (the shipboard computer). "This is the thanks I get?"
 
 The universe goes crazy for a moment.
 
-"Announcement, announcement. This is Eddie (the shipboard computer). The missiles have turned into a sperm whale at an improbability factor of 2 to the 39,745th power to 1 against. The whale is currently plummeting toward the legendary lost planet of
-Magrathea. I hope this will teach you to listen to me when I say that legendary lost planets can be dangerous. I am proceeding with the pre-set landing instructions."
+"Announcement, announcement. This is Eddie (the shipboard computer). The
+missiles have turned into a sperm whale at an improbability factor of 2 to the
+39,745th power to 1 against. The whale is currently plummeting toward the
+legendary lost planet of Magrathea. I hope this will teach you to listen to me
+when I say that legendary lost planets can be dangerous. I am proceeding with
+the pre-set landing instructions."
 
-Ford, Zaphod, and Trillian saunter by on their way back to the sauna. "Good work, kid," says Zaphod, slamming you on the back.
+Ford, Zaphod, and Trillian saunter by on their way back to the sauna. "Good
+work, kid," says Zaphod, slamming you on the back.
 
 >down
 
 Corridor, Fore End
 
-You feel a wave of depression sweep over you, and you turn to see that Marvin the robot has stalked miserably into the room.
+You feel a wave of depression sweep over you, and you turn to see that Marvin
+the robot has stalked miserably into the room.
 
 >west
 
@@ -1563,17 +1927,18 @@ It looks like the Nutrimat contains:
 
 no tea: Dropped.
 
-You feel a wave of depression sweep over you, and you turn to see that Marvin the robot has stalked miserably into the room.
+You feel a wave of depression sweep over you, and you turn to see that Marvin
+the robot has stalked miserably into the room.
 
 >east
 
 Corridor, Fore End
 
 >up
-
 Bridge
 There is a nice, hot cup of Advanced Tea Substitute here.
-Lying on the deck is a plotter connected to a spare Improbability Drive. The plotter's long, dangly bit is submerged in Advanced Tea Substitute.
+Lying on the deck is a plotter connected to a spare Improbability Drive. The
+plotter's long, dangly bit is submerged in Advanced Tea Substitute.
 There is a spare Improbability Drive here.
 There is a handbag here.
 It looks like the handbag contains:
@@ -1591,6 +1956,9 @@ There is a strange gun here.
 There is pocket fluff here.
 There is a pair of hypersonic pliers here.
 There is an ionic diffusion rasp here.
+
+
+
 There is a flathead screwdriver here.
 There is a toothbrush here.
 There is a molecular hyperwave pincer here.
@@ -1605,40 +1973,62 @@ Done.
 
 >press switch
 
-A mist spins round your head. You fall into what seems like a bottomless pit. Suddenly, you hit the bottom so hard that you wish it had been bottomless...
+A mist spins round your head. You fall into what seems like a bottomless pit.
+Suddenly, you hit the bottom so hard that you wish it had been bottomless...
 
 Dark
 
 >wait
+You can hear nothing, smell nothing, taste nothing, feel nothing, and are not
+even certain who you are.
 
-You can hear nothing, smell nothing, taste nothing, feel nothing, and are not even certain who you are.
+It is of course well known that careless talk costs lives, but the full scale of
+the problem is not always appreciated. For instance, at the exact moment you
+said "put dangly bit in tea" a freak wormhole opened in the fabric of the space-
+time continuum and carried your words far far back in time across almost
+infinite reaches of space to a distant galaxy where strange and warlike beings
+were poised on the brink of frightful interstellar battle.
 
-It is of course well known that careless talk costs lives, but the full scale of the problem is not always appreciated. For instance, at the exact moment you said "put dangly bit in tea" a freak wormhole opened in the fabric of the space-time continuum
-and carried your words far far back in time across almost infinite reaches of space to a distant galaxy where strange and warlike beings were poised on the brink of frightful interstellar battle.
+The two opposing leaders were meeting for the last time. A dreadful silence fell
+across the conference table as the commander of the Vl'Hurgs, resplendent in his
+black jewelled battle shorts, gazed levelly at the G'Gugvunt leader squatting
+opposite him in a cloud of green, sweet-smelling steam. As a million sleek and
+horribly beweaponed star cruisers poised to unleash electric death at his single
+word of command, the Vl'Hurg challenged his vile enemy to take back what it had
+said about his mother.
 
-The two opposing leaders were meeting for the last time. A dreadful silence fell across the conference table as the commander of the Vl'Hurgs, resplendent in his black jewelled battle shorts, gazed levelly at the G'Gugvunt leader squatting opposite him in
-a cloud of green, sweet-smelling steam. As a million sleek and horribly beweaponed star cruisers poised to unleash electric death at his single word of command, the Vl'Hurg challenged his vile enemy to take back what it had said about his mother.
+The creature stirred in its sickly broiling vapour, and at that very moment the
+words "put dangly bit in tea" drifted across the conference table.
+Unfortunately, in the Vl'Hurg tongue this was the most dreadful insult
 
-The creature stirred in its sickly broiling vapour, and at that very moment the words "put dangly bit in tea" drifted across the conference table. Unfortunately, in the Vl'Hurg tongue this was the most dreadful insult imaginable, and there was nothing for
-it but to wage terrible war for centuries. Eventually the error was detected, but over two hundred and fifty thousand worlds, their peoples and cultures perished in the holocaust.
 
-You have destroyed most of a small galaxy. Please pick your words with greater care.
+
+imaginable, and there was nothing for it but to wage terrible war for centuries.
+Eventually the error was detected, but over two hundred and fifty thousand
+worlds, their peoples and cultures perished in the holocaust.
+
+You have destroyed most of a small galaxy. Please pick your words with greater
+care.
 
 >wait
 
-You can't hear anything, see anything, smell anything, or taste anything, and do not even know where you are or who you are or how you got there.
+You can't hear anything, see anything, smell anything, or taste anything, and do
+not even know where you are or who you are or how you got there.
 
 >feel
 
 (darkness)
-It does feel a bit warm and wet and squishy. There seems to be some liquid at your fingertips.
+It does feel a bit warm and wet and squishy. There seems to be some liquid at
+your fingertips.
 
 >drink liquid
 
-Yucchhh! You are jerked to your senses by the realisation that you are licking the lining of a whale's stomach.
+Yucchhh! You are jerked to your senses by the realisation that you are licking
+the lining of a whale's stomach.
 
 Inside the Sperm Whale
-You are in the stomach of a sperm whale. You can hear a distant sound of rushing wind.
+You are in the stomach of a sperm whale. You can hear a distant sound of rushing
+wind.
 There is a flowerpot here.
 
 >put all fluff in thing
@@ -1671,24 +2061,30 @@ Dark
 
 >wait
 
-You can't hear anything, see anything, smell anything, feel anything, or taste anything, and do not even know where you are or who you are or how you got there.
+You can't hear anything, see anything, smell anything, feel anything, or taste
+anything, and do not even know where you are or who you are or how you got
+there.
 
 >wait
 
-There's nothing you can taste, nothing you can see, nothing you can hear, nothing you can feel, nothing you can smell, you do not even know who you are.
+There's nothing you can taste, nothing you can see, nothing you can hear,
+nothing you can feel, nothing you can smell, you do not even know who you are.
 
 >wait
 
-You can hear nothing, smell nothing, taste nothing, see nothing, feel nothing, and are not even certain who you are.
+You can hear nothing, smell nothing, taste nothing, see nothing, feel nothing,
+and are not even certain who you are.
 
 >wait
 
-You can see nothing, feel nothing, taste nothing, smell nothing, and are not entirely certain who you are.
+You can see nothing, feel nothing, taste nothing, smell nothing, and are not
+entirely certain who you are.
 
 >hear
 
 (darkness)
-You hear the deep and distant hum of a star drive coming from far above. There is an exit to port.
+You hear the deep and distant hum of a star drive coming from far above. There
+is an exit to port.
 
 >south
 
@@ -1700,102 +2096,105 @@ There is a sales brochure here.
 >south
 
 Corridor, Fore End
->wait
-There's nothing you can taste, nothing you can see, nothing you can hear, nothing you can feel, nothing you can smell, you do not even know who you are.
-[K>wait
-You can hear nothing, smell nothing, taste nothing, see nothing, feel nothing, and are not even certain who you are.
-[K>wait
-You can see nothing, feel nothing, taste nothing, smell nothing, and are not entirely certain who you are.
-[K>hear
-(darkness)
-You hear the deep and distant hum of a star drive coming from far above. There is an exit to port.
 
->south
-(We were lying about the exit to port.) You emerge from a small doorway...
-
-Entry Bay Number Two
-There is a sales brochure here.
-
->south[K
-Corridor, Fore End
-[K>up
+>up
 Bridge
-There is a nice, hot cup of tea [123P
-Lying on the deck is a plotter connected to a spare Improbability Drive. The plotter's long, dangly bit is submerged in tea.
-There is a spare Improbability Drive here.[29;6H is a nice, hot cup of Advanced Tea Substitute he[95P
+There is a nice, hot cup of tea here.
+Lying on the deck is a plotter connected to a spare Improbability Drive. The
+plotter's long, dangly bit is submerged in tea.
+There is a spare Improbability Drive here.
+There is a nice, hot cup of Advanced Tea Substitute here.
 There is a handbag here.
 It looks like the handbag contains:
-  seat cushion fluff[K
+  seat cushion fluff
   a pair of tweezers
   jacket fluff
-There is a copy of The Hitchhiker's Guide to the Galaxy he[45P
+There is a copy of The Hitchhiker's Guide to the Galaxy here.
 There is an electronic Sub-Etha signaling device here.
 There is a satchel here.
 There is a tool box here.
-It looks like the tool box contains:[K
+It looks like the tool box contains:
   a magnifying glass
   a laser-assisted monkey wrench
-There is a strange gun here.[K
+There is a strange gun here.
 There is pocket fluff here.
-There is a pair of hypersonic pliers here.[45;11Hn ionic diffusion rasp here.
+There is a pair of hypersonic pliers here.
+
+
+
+There is an ionic diffusion rasp here.
 There is a flathead screwdriver here.
 There is a toothbrush here.
 There is a molecular hyperwave pincer here.
 
->
 >press switch
 
-You are disoriented. Blackness swims toward you like a shoal of eels who have just seen something that eels like a lot...
+You are disoriented. Blackness swims toward you like a shoal of eels who have
+just seen something that eels like a lot...
 
 Dark
 
 >wait
 
-You can't hear anything, see anything, feel anything, or taste anything, and do not even know where you are or who you are or how you got there.
+You can't hear anything, see anything, feel anything, or taste anything, and do
+not even know where you are or who you are or how you got there.
 
 >wait
 
-You can hear nothing, smell nothing, taste nothing, feel nothing, and are not even certain who you are.
+You can hear nothing, smell nothing, taste nothing, feel nothing, and are not
+even certain who you are.
 
 >wait
 
-You can see nothing, hear nothing, taste nothing, smell nothing, and are not entirely certain who you are.
+You can see nothing, hear nothing, taste nothing, smell nothing, and are not
+entirely certain who you are.
 
 >wait
 
-You can see nothing, feel nothing, taste nothing, smell nothing, and are not entirely certain who you are.
+You can see nothing, feel nothing, taste nothing, smell nothing, and are not
+entirely certain who you are.
 
 >wait
 
-You can hear nothing, taste nothing, see nothing, feel nothing, and are not even certain who you are.
+You can hear nothing, taste nothing, see nothing, feel nothing, and are not even
+certain who you are.
 
 >wait
 
-You can hear nothing, smell nothing, taste nothing, feel nothing, and are not even certain who you are.
+You can hear nothing, smell nothing, taste nothing, feel nothing, and are not
+even certain who you are.
 
 >wait
 
-You can see nothing, hear nothing, taste nothing, smell nothing, and are not entirely certain who you are.
+You can see nothing, hear nothing, taste nothing, smell nothing, and are not
+entirely certain who you are.
 
 >wait
 
-You can't see anything, smell anything, feel anything, or taste anything, and do not even know where you are or who you are or how you got there.
+You can't see anything, smell anything, feel anything, or taste anything, and do
+not even know where you are or who you are or how you got there.
 
 >hear
 
 (darkness)
-You hear the deep and distant hum of a star drive coming from far below. There is an exit to port.
+You hear the deep and distant hum of a star drive coming from far below. There
+is an exit to port.
 
 >south
 
 (We were lying about the exit to port.) You emerge from a small doorway...
 
 War Chamber
-Spread before you, astonishingly enough, is the War Chamber of a star battle cruiser. Through the domed canopy of the ship you can see a vast battle fleet flying in formation behind you through the black, glittering emptiness of space. Ahead is a star
-system towards which you are hurtling at a terrifying speed.
+Spread before you, astonishingly enough, is the War Chamber of a star battle
+cruiser. Through the domed canopy of the ship you can see a vast battle fleet
+flying in formation behind you through the black, glittering emptiness of space.
+Ahead is a star system towards which you are hurtling at a terrifying speed.
 There is an ultra-plasmic vacuum awl here.
 
-Standing near you are two creatures who are gazing at the star system with terrible hatred in their eyes. One is wearing black jewelled battle shorts, and the other is wreathed in a cloud of green, sweet-smelling steam. They are engaged in conversation.
+Standing near you are two creatures who are gazing at the star system with
+terrible hatred in their eyes. One is wearing black jewelled battle shorts, and
+the other is wreathed in a cloud of green, sweet-smelling steam. They are
+engaged in conversation.
 
 The fleet continues to hurtle sunwards.
 
@@ -1818,19 +2217,28 @@ Time passes...
 Time passes...
 
 >wait
-
 Time passes...
 
-Your simple act of kindness at a moment of great personal anxiety (you fed the dog, remember?) now brings rich rewards. The battle fleet plunges toward Earth and spots the dog (which appears to them as a gigantic monster) cheerfully tucking into a cheese
-sandwich.
+Your simple act of kindness at a moment of great personal anxiety (you fed the
+dog, remember?) now brings rich rewards. The battle fleet plunges toward Earth
+and spots the dog (which appears to them as a gigantic monster) cheerfully
+tucking into a cheese sandwich.
 
-The Vl'Hurgs and the G'Gugvunts are moved by this simple picture of happiness, compared with the furious savagery of their own lives. They think back to a day when they used to relax over an odd cheese sandwich themselves, often at sunset after a hearty
-day working in the fields back in Vl'Hurgon and G'Gugvia, and decide to return and rebuild their homes in a new spirit of harmony and cooperation.
+The Vl'Hurgs and the G'Gugvunts are moved by this simple picture of happiness,
+compared with the furious savagery of their own lives. They think back to a day
+when they used to relax over an odd cheese sandwich themselves, often at sunset
+after a hearty day working in the fields back in Vl'Hurgon and G'Gugvia, and
+decide to return and rebuild their homes in a new spirit of harmony and
+cooperation.
 
-Grateful, they offer to drop you at the Heart of Gold on the way home. After a brief 900 parsec trip, you are escorted into the Transporter Chamber of the warship. The transporter glows, and your surroundings change...
+Grateful, they offer to drop you at the Heart of Gold on the way home. After a
+brief 900 parsec trip, you are escorted into the Transporter Chamber of the
+warship. The transporter glows, and your surroundings change...
 
 Maze
 This is part of a spongy gray maze of twisty little synapses, all alike.
+
+
 
 >north
 
@@ -1854,34 +2262,44 @@ This is part of a spongy gray maze of twisty little synapses, all alike.
 
 Maze
 This is part of a spongy gray maze of twisty little synapses, all alike.
-Blocking the gap between two synapses is a large black particle. There seem to be some faint markings on it.
+Blocking the gap between two synapses is a large black particle. There seem to
+be some faint markings on it.
 
 >get particle
 
-As you remove the particle, electrical impulses begin leaping madly across the now-unblocked synaptic gap. Unfortunately, YOU were in the gap at the time. Everything becomes...
+As you remove the particle, electrical impulses begin leaping madly across the
+now-unblocked synaptic gap. Unfortunately, YOU were in the gap at the time.
+Everything becomes...
 
 Dark
 
 >wait
 
-You can see nothing, feel nothing, hear nothing, taste nothing, smell nothing, and are not entirely certain who you are.
+You can see nothing, feel nothing, hear nothing, taste nothing, smell nothing,
+and are not entirely certain who you are.
 
 >wait
 
-You can't hear anything, see anything, smell anything, feel anything, or taste anything, and do not even know where you are or who you are or how you got there.
+You can't hear anything, see anything, smell anything, feel anything, or taste
+anything, and do not even know where you are or who you are or how you got
+there.
 
 >wait
 
-You can't hear anything, see anything, smell anything, feel anything, or taste anything, and do not even know where you are or who you are or how you got there.
+You can't hear anything, see anything, smell anything, feel anything, or taste
+anything, and do not even know where you are or who you are or how you got
+there.
 
 >wait
 
-There's nothing you can taste, nothing you can see, nothing you can feel, nothing you can smell, you do not even know who you are.
+There's nothing you can taste, nothing you can see, nothing you can feel,
+nothing you can smell, you do not even know who you are.
 
 >hear
 
 (darkness)
-You hear the deep and distant hum of a star drive coming from far above. There is an exit to port.
+You hear the deep and distant hum of a star drive coming from far above. There
+is an exit to port.
 
 >south
 
@@ -1890,7 +2308,8 @@ You hear the deep and distant hum of a star drive coming from far above. There i
 Entry Bay Number Two
 There is a sales brochure here.
 
-You feel a wave of depression sweep over you, and you turn to see that Marvin the robot has stalked miserably into the room.
+You feel a wave of depression sweep over you, and you turn to see that Marvin
+the robot has stalked miserably into the room.
 
 >south
 
@@ -1899,48 +2318,37 @@ Corridor, Fore End
 >get pot
 
 Taken.
-There's nothing you can taste, nothing you can see, nothing you can feel, nothing you can smell, you do not even know who you are.
 
->hear
-(darkness)
-You hear the deep and distant hum of a star drive coming from far above. There is an exit to port.
-
->sou
-(We were lying about the exit to port.) You emerge from a small doorway...
-[KEntry Bay Number Two[K
-There is a sales brochure here.
-[KYou feel a wave of depression sweep over you, and you turn to see that Marvin the robot has stalked miserably into the room.[K
-
->south
-Corridor, Fore End
-[K>get pot[K
-Taken.
-[K>up[K
+>up
 Bridge
 There is a nice, hot cup of tea here.
-Lying on the deck is a plotter connected to a spare Improbability Drive. The plotter's long, dangly bit is submerged in tea.[K
+Lying on the deck is a plotter connected to a spare Improbability Drive. The
+plotter's long, dangly bit is submerged in tea.
 There is a spare Improbability Drive here.
-There is a nice, hot cup of Advanced Tea Substitute here.[30;6H is a handbag he[106P
+There is a nice, hot cup of Advanced Tea Substitute here.
+There is a handbag here.
 It looks like the handbag contains:
   seat cushion fluff
   a pair of tweezers
-  jacket fluff[K
+  jacket fluff
 There is a copy of The Hitchhiker's Guide to the Galaxy here.
 There is an electronic Sub-Etha signaling device here.
-There is a satchel here.[K
+There is a satchel here.
 There is a tool box here.
 It looks like the tool box contains:
-  a magnifying glass[K
+  a magnifying glass
   a laser-assisted monkey wrench
-There is a strange gun here.[K
+There is a strange gun here.
 There is pocket fluff here.
 There is a pair of hypersonic pliers here.
+
+
+
 There is an ionic diffusion rasp here.
 There is a flathead screwdriver here.
 There is a toothbrush here.
 There is a molecular hyperwave pincer here.
 
->
 >get jacket fluff
 
 Taken.
@@ -1953,8 +2361,13 @@ Taken.
 
 Taken.
 
-"Announcement, announcement. This is Eddie (the shipboard computer). We have just landed on the legendary lost planet of Magrathea. I don't want anyone going outside until I've checked the atmosphere, climatic conditions, existence of dangerous wildlife,
-airborne diseases, volcanic activity, presence of real estate agents, and more than eight thousand other possible dangers. This routine check will take 14.9 years. And don't even think about leaving until I finish, because I'm jamming the hatch."
+"Announcement, announcement. This is Eddie (the shipboard computer). We have
+just landed on the legendary lost planet of Magrathea. I don't want anyone going
+outside until I've checked the atmosphere, climatic conditions, existence of
+dangerous wildlife, airborne diseases, volcanic activity, presence of real
+estate agents, and more than eight thousand other possible dangers. This routine
+check will take 14.9 years. And don't even think about leaving until I finish,
+because I'm jamming the hatch."
 
 >get satchel fluff
 
@@ -1962,10 +2375,14 @@ Taken.
 
 >put all fluff in pot
 
-satchel fluff: You dig a small hole, gingerly place the fluff at the bottom, and cover it over.
-seat cushion fluff: You dig a small hole, gingerly place the fluff at the bottom, and cover it over.
-pocket fluff: You dig a small hole, gingerly place the fluff at the bottom, and cover it over.
-jacket fluff: You dig a small hole, gingerly place the fluff at the bottom, and cover it over.
+satchel fluff: You dig a small hole, gingerly place the fluff at the bottom, and
+cover it over.
+seat cushion fluff: You dig a small hole, gingerly place the fluff at the
+bottom, and cover it over.
+pocket fluff: You dig a small hole, gingerly place the fluff at the bottom, and
+cover it over.
+jacket fluff: You dig a small hole, gingerly place the fluff at the bottom, and
+cover it over.
 
 >wait
 
@@ -1979,18 +2396,23 @@ Time passes...
 
 Time passes...
 
-You notice a tiny movement from the flowerpot. You look closely, and see a tiny sprout poking out of the soil.
+You notice a tiny movement from the flowerpot. You look closely, and see a tiny
+sprout poking out of the soil.
 
 >enter sauna
 
-You enter the sauna. After several hours, you come out a changed man. You have with you a changed plant.
+You enter the sauna. After several hours, you come out a changed man. You have
+with you a changed plant.
 
 >eat fruit
 
-The fruit has a zesty taste, and you devour it greedily. Suddenly, your vision wavers, and you see yourself, as though from a distance, standing near Marvin, who asks you for a laser-assisted monkey wrench. Then, the image vanishes like a movie when the
-film breaks, and you find yourself still in the Bridge.
+The fruit has a zesty taste, and you devour it greedily. Suddenly, your vision
+wavers, and you see yourself, as though from a distance, standing near Marvin,
+who asks you for a laser-assisted monkey wrench. Then, the image vanishes like a
+movie when the film breaks, and you find yourself still in the Bridge.
 
-It seems that this plant is a rare horticultural phenomenon long thought to be extinct: The Tree of Foreknowledge.
+It seems that this plant is a rare horticultural phenomenon long thought to be
+extinct: The Tree of Foreknowledge.
 
 >get tea
 
@@ -2015,15 +2437,22 @@ Corridor, Aft End
 
 >open door
 
-The door is almost speechless with admiration. "Wow. Simultaneous tea and no tea. My apologies. You are clearly a heavy-duty philosopher." It opens respectfully.
+The door is almost speechless with admiration. "Wow. Simultaneous tea and no
+tea. My apologies. You are clearly a heavy-duty philosopher." It opens
+respectfully.
 
 >drink tea
 
-It is the finest tea you have ever tasted. It has almost made this entire misadventure seem worthwhile. You experience several moments of complete happiness and relaxation. The cup itself vaporises, part of the Galactic Anti-Litter Program.
+It is the finest tea you have ever tasted. It has almost made this entire
+misadventure seem worthwhile. You experience several moments of complete
+happiness and relaxation. The cup itself vaporises, part of the Galactic Anti-
+Litter Program.
 
 >west
 
-Upon entering the room, you are battered by tidal waves of depression. However, the happiness derived from your high score and that thoroughly excellent cup of tea you had recently help you to survive.
+Upon entering the room, you are battered by tidal waves of depression. However,
+the happiness derived from your high score and that thoroughly excellent cup of
+tea you had recently help you to survive.
 
 Marvin's Pantry
 This is a small closet with an exit to starboard.
@@ -2032,8 +2461,10 @@ There is a thermo-fusion chisel here.
 
 >Marvin, open hatch
 
-"Humans are so depressingly demanding. Do this. Pick up that. Unjam the opening mechanism of the other. Meet me in the hatchway Access Space in twelve turns. I suppose," he mutters, "you can count up to twelve. So hard to know with morons. And don't
-forget to bring the proper tool."
+"Humans are so depressingly demanding. Do this. Pick up that. Unjam the opening
+mechanism of the other. Meet me in the hatchway Access Space in twelve turns. I
+suppose," he mutters, "you can count up to twelve. So hard to know with morons.
+And don't forget to bring the proper tool."
 
 >east
 
@@ -2048,13 +2479,16 @@ There is a small key here.
 
 flowerpot: Dropped.
 ultra-plasmic vacuum awl: Dropped.
-thing your aunt gave you which you don't know what it is: It falls to the ground with a light "thunk." It doesn't do anything else at all.
+thing your aunt gave you which you don't know what it is: It falls to the ground
+with a light "thunk." It doesn't do anything else at all.
 babel fish: You'll have to remove it first.
 
 >east
 
 Access Space
-This tiny area, with an exit to port, is for working on the hatch mechanism, which is vastly more complicated than your rather ordinary intelligence can comprehend. The floor is an open metal mesh, like the floor of a catwalk.
+This tiny area, with an exit to port, is for working on the hatch mechanism,
+which is vastly more complicated than your rather ordinary intelligence can
+comprehend. The floor is an open metal mesh, like the floor of a catwalk.
 
 >wait
 
@@ -2076,34 +2510,50 @@ Marvin, looking bored, says "Hand me a laser-assisted monkey wrench."
 
 >give laser-assisted monkey wrench to Marvin
 
-Marvin fiddles inside the mechanism with the laser-assisted monkey wrench for about three-tenths of a second. You hear the hatchway slide open. "I don't expect you to be grateful," says Marvin, "or even interested, but that was probably more complicated
-than every single action you'll ever perform in your entire life put together." He limps away. "And me," you hear him mutter as he goes, "with this terrible pain in all the diodes down my left side."
+Marvin fiddles inside the mechanism with the laser-assisted monkey wrench for
+about three-tenths of a second. You hear the hatchway slide open. "I don't
+expect you to be grateful," says Marvin, "or even interested, but that was
+probably more complicated than every single action you'll ever perform in your
+entire life put together." He limps away. "And me," you hear him mutter as he
+goes, "with this terrible pain in all the diodes down my left side."
 
 >west
 
 Hatchway
 There is a thing your aunt gave you which you don't know what it is here.
-It looks like the thing your aunt gave you which you don't know what it is contains:
+It looks like the thing your aunt gave you which you don't know what it is
+contains:
   a number twelve asteroid paint chipper
 There is an ultra-plasmic vacuum awl here.
 There is a flowerpot here.
 There is a small key here.
 
 >down
-
-You step onto the landing ramp leading down toward the surface of the legendary lost planet of Magrathea. "Announcement, announcement. This is Eddie (the shipboard computer). Someone is leaving the ship on a strange planet without wrapping up all nice and
-warm. It'll all end in tears, I just know it..." The voice fades behind you.
+You step onto the landing ramp leading down toward the surface of the legendary
+lost planet of Magrathea. "Announcement, announcement. This is Eddie (the
+shipboard computer). Someone is leaving the ship on a strange planet without
+wrapping up all nice and warm. It'll all end in tears, I just know it..." The
+voice fades behind you.
 
 Ramp
-The wind moans. Dust drifts across the surface of the alien world. Zaphod, Ford, and Trillian appear and urge you forward.
+The wind moans. Dust drifts across the surface of the alien world. Zaphod, Ford,
+and Trillian appear and urge you forward.
 
-Slowly, nervously, you step downwards, the cold thin air rasping in your lungs. You set one single foot on the ancient dust -- and almost instantly the most incredible adventure starts which you'll have to buy the next game to find out about.
+Slowly, nervously, you step downwards, the cold thin air rasping in your lungs.
+You set one single foot on the ancient dust -- and almost instantly the most
+incredible adventure starts which you'll have to buy the next game to find out
+about.
 
 Your score is 400 of a possible 400, in 401 turns.
 
-By the way, there WAS a causal relationship between your taking the toothbrush and the tree collapsing at the very beginning of the game. We apologise for this slight inaccuracy.
+By the way, there WAS a causal relationship between your taking the toothbrush
+and the tree collapsing at the very beginning of the game. We apologise for this
+slight inaccuracy.
+
+
 
 Your score is 400 of a possible 400, in 401 turns.
 
-Would you like to start over, restore a saved position, or end this session of the game?
+Would you like to start over, restore a saved position, or end this session of
+the game?
 (Type RESTART, RESTORE, or QUIT): >
