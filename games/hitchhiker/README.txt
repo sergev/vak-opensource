@@ -7,4 +7,4 @@ Download and play the game:
     $ wget https://eblong.com/infocom/gamefiles/hitchhiker-r60-s861002.z3
     $ frotz hitchhiker-r60-s861002.z3
 
-Hints: https://strategywiki.org/wiki/The_Hitchhiker%27s_Guide_to_the_Galaxy/Walkthrough
+Hints: https://www.neoseeker.com/hitchhikers-guide/faqs/142789-to-the-galaxy-d.html

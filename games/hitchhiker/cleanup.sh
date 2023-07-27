@@ -1,16 +1,17 @@
 #!/bin/sh
 
+# Replace \r -> \n
 sed -i~ '
-s/\[[0-9]*d//g
-s/\[[0-9]*M//g
-s/\[[0-9]*G.//g
-s/\[[ABC]//g
-s/\[0;10;7m[A-Za-z0-9 ]*//g
-s/\[0;10m//g
-s/\[0;10;7m//g
-s///g
-s/\[[0-9]*;[0-9]*H//g
-s/\[?[0-9]*l//g
 s//\
 /g
+' game.log
+
+# Delete updates of the banner line
+sed -i~ '
+/H/d
+/M/d
+s/\[[0-9]*d/\
+/g
+s/\[B//g
+s/\[0;10m//g
 ' game.log
