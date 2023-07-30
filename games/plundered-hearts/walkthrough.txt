@@ -1,0 +1,1765 @@
+spawn dfrotz -m plunderedhearts-r26-s870730.z3
+Using normal formatting.
+Loading plunderedhearts-r26-s870730.z3.
+
+
+>SHOOT THE PIRATE
+Trembling, you fire the heavy arquebus. You hear its loud report over the
+roaring wind, yet the dark figure still approaches. The gun falls from your
+nerveless hands.
+   "You won't kill me," he says, stepping over the weapon. "Not when I am the
+only protection you have from Jean Lafond."
+   Chestnut hair, tousled by the wind, frames the tanned oval of his face. Lips
+curving, his eyes rake over your inadequately dressed body, the damp chemise
+clinging to your legs and heaving bosom, your gleaming hair. You are intensely
+aware of the strength of his hard seaworn body, of the deep sea blue of his
+eyes. And then his mouth is on yours, lips parted, demanding, and you arch into
+his kiss...
+   He presses you against him, head bent. "But who, my dear," he whispers into
+your hair, "will protect you from me?"
+
+[Press RETURN or ENTER to begin.]
+
+
+
+PLUNDERED HEARTS
+Infocom interactive fiction
+Copyright (c) 1987 by Infocom, Inc. All rights reserved.
+PLUNDERED HEARTS is a trademark of Infocom, Inc.
+Release 26 / Serial number 870730
+
+LATE ONE SPRING NIGHT IN THE WEST INDIES...
+
+   A crash overhead! Pirates are boarding the Lafond Deux! The first mate
+hurries you into Captain Davis's cabin.
+
+   "Good, you brought the girl," Davis smirks. "She'll keep the pirates busy.
+She was only a tool of Lafond's, anyway. Let me just find that cof--" A man on
+deck screams in agony and Davis starts. "Let's go." The captain thrusts you on
+the bed and walks out, locking the door.
+   His laugh echoes. "Best get comfortable, girl. You're likely to be there for
+the rest of your life."
+
+Cabin, on the bed
+   You are in an officer's cabin, lit by the firelight glowing through a
+porthole. A door is to starboard. Except for the built-in bed, the room seems to
+have been emptied thoroughly, if hurriedly.
+
+>get up
+
+You get out of the bed.
+
+>inventory
+
+You have your reticule (hanging from your wrist). It seems that your reticule
+contains smelling salts and a banknote. You are wearing your kid slippers, a
+linen chemise and a cotton frock.
+   "Aaieeee!" echoes a scream, followed by several grunts and thumps.
+
+>look under bed
+
+You can see a coffer under the bed.
+   You recognize a voice from far away, "Don't take that! Look in the cabin at
+the stern -- you'll find some fun there!" It sounds like Davis.
+
+>take coffer
+
+Taken.
+   "Cap'n Jamison! We've got 'em!" cries a rough voice.
+
+>examine coffer
+
+It is a small heavy chest, with a lock. It is closed.
+   With a creak and a crash, somewhere a mast falls to the deck.
+
+>x smelling salts
+
+You always carry your smelling salts, for emergencies. There is a small tag on
+one side of them.
+
+>read tag
+
+It says, "For cases of vapors, hysteria or collapse, revive persons with the
+smelling salts."
+   "The Falcon! The Falcon conquers!" yells someone.
+
+>x banknote
+
+This is the banknote that came in your game package.
+
+>look
+
+Cabin
+   You are in an officer's cabin, lit by the firelight glowing through a
+porthole. A door is to starboard. Except for the built-in bed, the room seems to
+have been emptied thoroughly, if hurriedly.
+   Crash! You whirl around to see the door shatter, kicked by a hulking man, his
+twisted visage blackened with soot and blood. "Me name's Andy Crulley, and
+ladies learn to love me," sniggers the pirate, advancing toward you.
+
+>hit andy with coffer
+
+With all your strength you whack the pirate over the head with the coffer.
+   The pirate stumbles, dizzy. "Avast me, but ain't ye a beauty," slurs the
+pirate. His breath is heavy with rum.
+
+>hit andy with coffer
+
+With all your strength you whack the pirate over the head with the coffer.
+   Stunned, Crulley collapses at your feet, his eyes rolling.
+   The door creaks slightly as a tall form bends through its smashed remains.
+"You seem to have this situation well in hand," timbers a well-bred voice. You
+catch a glimpse of the hard masculinity of his broad shoulders, the implied
+power in the scar that etches the stranger's jaw, and feel tremors course
+through your veins. Then you realize how ragged are his shirt, patched breeches
+and high boots. Intuitively, you understand -- he is the dreaded Falcon, scourge
+of the sea! Alas, your fate is sealed. Resigned, you meet his sea-blue eyes.
+
+>wait
+
+Time passes...
+   To your surprise, the stranger bows. "Well met, my lady." His accent is
+cultured, his smile vibrant. "I am Captain Nicholas Jamison, known in these
+waters as 'The Falcon'. Your father has sent me." He chuckles at your glare of
+distrust. "Yes, you are like your sire. You needn't believe me untried -- I
+carry this." He hands you a missive.
+   "Cap'n Jamison! We've got 'em!" cries a rough voice.
+
+>read missive
+
+The missive is in dear Papa's handwriting:
+
+"Dearest child,
+   You are in gravest danger! Lafond is a viper with the smile of a saint, my
+most particular enemy. I have only now learned the depth of his deception.
+Should Lafond get you in his power... It is unspeakable!
+   I have sided with Nicholas Jamison, a sea captain and a gentleman, whose
+circumstances have driven him to extreme measures, even branding him a pirate.
+Nevertheless, I trust him and so may you.
+   You will be safe -- but there is another for whom I fear! My horse is waiting
+and I ride to her rescue. Jamison will deliver this to you. Should anything
+happen to me, you must rely on him. I remain, with love, your father."
+
+   The pirate captain glances around the empty room, then notices the coffer in
+your arms. "Davis's safety box -- my men were hoping I'd find it." He takes it
+and nudges the unconscious man on the floor, "I wonder how Crulley knew you were
+here? Just his bad luck? He'll be flogged when he wakes."
+   The pirate bows. "My lady, may I offer my protection and my ship until your
+father is free?"
+
+>yes
+
+You nod tentatively.
+   He chuckles. "Brave lady, to trust a stranger -- and a pirate. Who knows,
+perhaps I forged your father's signature? Keep by my side as we go to my ship --
+few sailors respect a lady's dignity." He helps you through the door.
+
+Deck
+   The deck is an avalanche of noise and blood. Lit by roaring fires,
+silhouetted forms crash swords, dancing around the screaming wounded.
+   Out of the smoke staggers Davis, tugging a bloodied knife from the back of a
+pirate. Davis's eyes gleam white from a face blackened and bloody, his lips dark
+red as if he has been drinking blood. He turns to face you.
+
+>wait
+Time passes...
+   Davis leaps across the deck to your side, "Free me or she dies!" he yells,
+jabbing a knife up to your throat. In one smooth motion, Captain Jamison draws
+his rapier, pulls you free and stabs. Davis slumps into a bloody heap.
+   Swooning, you fall into the Falcon's arms. You are dimly aware of being
+carried to the other ship, down a short flight of stairs, and laid gently on a
+soft bed. When you gather strength to look around, the Falcon has left you in
+peace.
+   You remain confined to this room, a large cupboard blocking the door. Meals
+are brought by a peg-legged old man and eaten in silence. Of your handsome
+rescuer you see nothing. Slowly the days pass.
+
+[Press RETURN or ENTER to continue.]
+
+TWO DAYS LATER...
+
+   You blear awake from a bored nap, focusing on something shiny. You discern it
+to be a new ring, on a strong hand in the act of tying a ribbon onto a rapier.
+   The man with the rapier and the ring turns, "Sorry, I tried not to wake you."
+You sit up as if the bed had caught fire, for this is the Falcon, changed from
+his rags to a finery all red velvet and white lace -- and in your presence!
+
+Captain's Quarters, on the bed
+   You are in the captain's quarters of the Helena Louise, where you have been
+trapped these past days since your "rescue" from the Lafond Deux. The room has a
+
+
+
+masculine air, with ebony panelling, a large messy table, and a rumpled bed
+(upon which you lie). A curtain masks the forward exit and gilded woodwork
+decorates the sill of the tall window looking aft.
+
+>get up
+
+You get out of the bed.
+
+>inventory
+
+You have a missive and your reticule (hanging from your wrist). It seems that
+your reticule contains smelling salts and a banknote. You are wearing your kid
+slippers, a linen chemise and a cotton frock.
+   "We have anchored off St. Sinistra," says Captain Jamison, "and I must look
+like a guest at Lafond's dance tonight. I will find and free your father, and
+then finally wreak my revenge on Lafond." He half draws his rapier from its
+scabbard.
+
+>wait
+
+Time passes...
+   "I am sorry you have been confined down here, but I don't trust my lonely
+crew with such beauty. Crulley isn't the only man aboard with few principles."
+He smiles at you, eyes lingering, and takes your hand. You feel your color
+rising. "If anything goes wrong, turn to Cookie. He is quite deaf, but capable.
+He'll see you through."
+
+>wait
+
+Time passes...
+   His look darkens. "You should know why I hate Lafond: Some years ago, as my
+brother and his bride sailed to a new life in Virginia, pirates struck. Their
+ship was boarded, looted and burned, the women taken, never to be seen again. A
+sailor, the one survivor, watched as a man of Lafond's description shot my
+brother in the back as he tried to save the women. Lafond has now bought
+respectability, but he shall never buy peace." Jamison straightens resolutely,
+bows, and departs.
+
+>wait
+
+Time passes...
+
+>look
+
+Captain's Quarters
+   The room has a masculine air, with ebony panelling, a large messy table, and
+a rumpled bed. A curtain masks the forward exit and gilded woodwork decorates
+the sill of the tall window looking aft.
+
+>examine window
+
+Tall panes of glass are inset into the ledge.
+
+>open curtain
+
+You pull the cloth aside momentarily. Behind it, a large cupboard mostly blocks
+the doorway.
+
+>wait
+
+Time passes...
+   You hear the large cupboard scrape, and turn to see Captain Jamison. "Hello!
+I came down to give you this -- my allotment from the coffer." He nods at the
+box in his arms.
+   Jamison starts to pin a jewelled brooch on your clothes, but, "Devil take it,
+the clasp is broken. I'll have it repaired." He folds the pretty thing into your
+hand. "And I meant to reassure you that if the men suddenly abandon ship, they
+are off to help me. Rodney will stay behind with you." He drops the coffer on
+the floor, smiling in farewell, and walks swiftly away.
+
+>take coffer
+
+Taken.
+
+>open coffer
+
+Opening the coffer reveals an invitation.
+
+>take invitation
+
+Taken.
+
+>read invitation
+
+The invitation is addressed to "Davis":
+
+       In Honor of Jean Lafond,
+         recently proclaimed
+       Governor of St. Sinistra
+        A Dance at his Mansion
+      Ananas Road, St. Sinistra
+Formal Dress and Invitation Required.
+
+   A ball! You haven't been to a ball in months!
+
+>n
+
+The large cupboard is not flush against the doorsill. You squeeze through the
+opening between cupboard and wall.
+
+Landing
+   You are on the landing of a steep stairway heading up and down. A large
+cupboard against the aft wall blocks the doorway to the captain's quarters.
+
+>d
+
+Aft Hold
+   This is a gloomy, damp area at the bottom of the Helena Louise. To the fore
+there seems to be a little more light, or you can climb up some steep stairs.
+
+>n
+
+You hear a scuffling noise ahead, and scraping up near the ceiling. You would
+think it was caused by rats, but for the definite curse you heard before all the
+movement.
+
+Hold
+   Steep stairs lead up in the dimness to a canvas hatch above. Rats'
+scratchings counterpoint the lullaby of bilge water sloshing in the bulkheads,
+punctuated by footsteps slapping the deck overhead. You may move fore or aft.
+   Behind a high fence, decorated by a sign, are stacked the food and ammunition
+supplies; casks of rum, water, flour and salt meat interspersed with kegs of
+gunpowder and shot. A closed gate is the only way in.
+   You gradually notice a familiar, worrying smell, sniff, and identify it as
+smoke. A tiny glow of fire creeps across a stretch of floor -- inside the cage
+full of ammunition.
+
+>x cage
+
+The fence is made of thick, finely woven wire mesh, uncuttable and unclimbable.
+Except for a gap of about 6 inches over the closed gate, the cage is secure from
+ceiling to damp floorboards.
+
+>n
+
+Crew's Quarters
+   The crew sleeps, in shifts, in this cramped space under the forecastle. A
+breeze blows in on a moonbeam through a grate in the ceiling. A low doorsill is
+abaft.
+   This area must also serve as sickroom. Strewn about the floor are various
+powders and spills of malodorous potions. In one corner, a large blood stain
+indicates an amputation; in another is the smear of a leech, dropped off a
+bloodletting.
+   A small bottle has been dropped nearby.
+   A chipped piece of mirror sits propped on a shoulder-high timber.
+
+>take bottle
+
+Taken.
+   "I gotta let Lafond know 'e's comin'." Crulley stands on deck above, talking
+to himself, his voice floating down through a grate in the ceiling. "First, I do
+in the mates aboard-ship, with this and t'other mischief," he grunts, and you
+hear a snapping noise, like a taut rope being cut. "Now to warn the boss and
+collect me pay. Off I go, har." He dives into the sea.
+
+>take mirror
+
+Taken.
+
+>s
+
+Hold
+   A tiny glow of fire creeps across a stretch of floor -- inside the cage full
+of ammunition.
+
+>look
+
+Hold
+   Steep stairs lead up in the dimness to a canvas hatch above. Rats'
+scratchings counterpoint the lullaby of bilge water sloshing in the bulkheads,
+punctuated by footsteps slapping the deck overhead. You may move fore or aft.
+   Behind a high fence, decorated by a sign, are stacked the food and ammunition
+supplies; casks of rum, water, flour and salt meat interspersed with kegs of
+gunpowder and shot. A closed gate is the only way in.
+   A tiny glow of fire creeps across a stretch of floor -- inside the cage full
+of ammunition.
+
+>inventory
+
+You have a bit of mirror, a leather bottle, an invitation, a coffer, a jewelled
+brooch, a missive and your reticule (hanging from your wrist). It seems that
+your reticule contains smelling salts and a banknote. You are wearing your kid
+slippers, a linen chemise and a cotton frock.
+
+>s
+
+Aft Hold
+
+>u
+
+Landing
+
+>open door
+
+Opened. It is a dark messy bed, set entirely within and filling the large
+cupboard. A cabin boy must sleep here when Jamison isn't using it. Kicked into a
+far corner is a pile of clothes.
+
+>enter bed
+
+Sleeping Cupboard
+   The bed is softer than it looks, plumped up with fresh straw. A soft, if
+somewhat cramped, bunk for the tall bulk of Jamison. The cupboard opens to the
+fore.
+   Kicked into a far corner is a pile of clothes.
+
+>take clothes
+
+You pick up the pile of clothes. It separates into a pair of breeches and a
+shirt.
+
+>n
+
+Landing
+
+>s
+
+You squeeze through the opening between cupboard and wall.
+
+Captain's Quarters
+
+>x window
+
+Tall panes of glass are inset into the ledge.
+
+>throw coffer through window
+
+You hurl the coffer through the window, sending it and a shower of glass into
+the sea. The ledge now looks deep enough to sit upon.
+   The end of a rope ladder blows past the window.
+
+>undress
+
+You strip down to your chemise.
+
+>wear breeches
+
+You tuck the linen chemise into the pants. You look a little fat, but now you
+can move freely.
+   The end of a rope ladder blows past the window.
+
+>wear shirt
+
+It fits loosely, masking your figure.
+
+>grab ladder
+
+You lean over the ledge, but the ladder is too far out to reach.
+
+>s
+
+You climb onto the ledge. The ladder drifts within reach.
+
+>grab ladder
+
+You put everything in your reticule and reach out for the ladder and over-
+balance, tumbling from your perch. Your hand closes on a slimy hemp rung as you
+fly out over the waves, clinging tenuously, feet free, to the ladder.
+
+On the Ladder
+   You are clinging to a slimy ladder, tied to a rail of the poop deck above
+you. Not far from your feet, waves kiss the stern of the ship.
+
+>u
+
+You climb up the ladder.
+   All air is driven out of you as the ladder slams into the stern.
+   Your eyes are drawn to a flicker of light off the sea. Squinting, you see a
+man swimming to shore, moonlight flashing off his hook.
+
+>u
+
+You climb up the ladder, passing the halfway point.
+   Rebounding, the ladder twists you around to face the Helena Louise.
+
+>u
+
+You climb up the ladder.
+   The ladder swings back towards the Helena Louise.
+
+>u
+
+You heave yourself over the stern rail and sink breathless to the deck of the
+Helena Louise.
+
+Poop
+   From this platform deck you can see the whole of the two-masted ship, shadowy
+forms moving about here and there. A railing protects you from stepping off the
+deck in any direction but to the fore. A rope ladder is tied to the railing at
+the stern of the ship.
+   The reefs seem a little larger than you thought before.
+
+>n
+
+Quarterdeck
+   No torches are lit, or needed on this moonlit night, except in the deep
+shadows cast by the huge navigation wheel. Men move about to the fore, talking
+quietly. Under the stairs aft to the poop is a barred door.
+   The reefs seem a little larger than you thought before.
+   Abaft the wheel sits a large pyramid of casks, held in place by a heavy rope.
+   Cannon line the deck, aimed at open sea and the island.
+
+>n
+
+Main Deck
+   It is a deceptively quiet evening on the ship, the pirates singing low
+shanties as they repair cannon, twist ropes and sharpen daggers. The mainmast
+casts an inky shadow over the canvas screening the hatch. A tangled mass of
+rigging hangs down from the mast, like many rope ladders woven together.
+   The reefs seem a little larger than you thought before.
+   Two large barrels stand near the stair to the foredeck.
+
+>n
+
+Forecastle
+   Higher than all but the poop deck, this end of the ship commands a good view
+of the island; the "crow's nest," swinging above in the heights of the foremast,
+would command a better. A tangled mass of rigging hangs down from the mast, like
+many rope ladders woven together.
+   Imbedded in the deck is a grated air hole to the crew's quarters below. You
+can go aft, or forward through a break in the ubiquitous railing.
+   Odors of old grease and char waft from a little shack perched behind the
+mast.
+   The reefs seem a little larger than you thought before.
+   You can see a mooring winch here.
+
+>x winch
+
+Made of an old barrel turning on a pole, the mooring winch is used to coil in
+the anchor chain. A pair of metal teeth bite the links to prevent it from
+dragging out; a lever is connected to the teeth. Something is written on the
+lever.
+   The reefs are definitely getting larger.
+
+>read lever
+
+On the lever is written "Open Up, Close Down." You notice the lever is pointed
+down.
+
+>pull lever up
+
+The metal teeth open as you raise up the lever. The anchor, released, splashes
+down into the sea, dragging its clanking chain. After a moment, you feel the
+ship pull slightly against the current. You lower the lever to prevent any more
+chain from spooling out.
+
+>enter shack
+
+Galley
+   This tiny kitchen smells of old stew and yeast. A low door to starboard shows
+the way out.
+   A dagger is driven into the wooden floorboards.
+   An entirely bald man sits here, carving into his peg leg.
+   The man looks you over sharply, then winks an eye. "Hullo, boy -- Sam, I'll
+call you. Nervous about Cap'n? He'll come to no harm. And if there is trouble,
+he only has to signal from that seaward winder of the house -- ye can see it
+from the crow's nest -- and we'll be there in a jiffy. Me and my peg are to stay
+aboard and guard y--, the Cap'n's young lady."
+
+>take dagger
+
+Taken.
+   With a heave and creak of timbers, the Helena Louise drifts a little way back
+towards the island. The tide has turned.
+
+>out
+
+Forecastle
+   You can see a mooring winch here.
+
+>s
+
+Main Deck
+
+>look
+
+Main Deck
+   It is a deceptively quiet evening on the ship, the pirates singing low
+shanties as they repair cannon, twist ropes and sharpen daggers. The mainmast
+casts an inky shadow over the canvas screening the hatch. A tangled mass of
+rigging hangs down from the mast, like many rope ladders woven together.
+   Two large barrels stand near the stair to the foredeck.
+
+>x barrels
+
+The two open barrels contain rum and water, you can tell by the smell of each.
+They are identical but for the dark stains around the mouth of the rum barrel.
+
+>open canvas
+
+You pull a corner of canvas out of the frame. Steep stairs descend into murky
+darkness.
+
+>x frock
+
+It is your favorite old frock, looking rather bedraggled without its hoops,
+which you hadn't time to put on during the pirate attack. The worn fabric of the
+skirt often catches on things, tearing.
+
+>cut frock
+
+You cut a large rag out of the cotton frock.
+
+>put rag in water
+
+Keeping hold on the rag, you soak it with water.
+
+>d
+
+You glance around to see that no one is watching, and duck through the open
+corner of the canvas hatch.
+
+Hold
+   A tiny glow of fire creeps across a stretch of floor -- inside the cage full
+of ammunition.
+
+>throw rag at fuse
+
+You throw the rag over the gate. Luckily, it lands directly on the burning end
+of the fuse. With a sputter and a sigh, the flame dies.
+
+>u
+
+You slip lithely through the canvas hatch.
+
+Main Deck
+
+>s
+
+Quarterdeck
+   Abaft the wheel sits a large pyramid of casks, held in place by a heavy rope.
+   Cannon line the deck, aimed at open sea and the island.
+
+>enter cask
+
+You crawl into the cask, feeling a slab of something stuck on the bottom. From
+this close, you can see the line is getting frayed where it rubs against the
+cask.
+
+>cut line
+
+[with the dagger]
+The line snaps, and the pyramid collapses into dozens of tumbling casks. Your
+cask is thrust into the sea, the dagger flying from your hand.
+   Sputtering mouthfuls of salt water, you first look around several minutes
+later.
+
+Lagoon, in the cask
+   You are crouched in a cask on the lagoon of St. Sinistra. The jungle looms
+gray-green in the light of the full moon.
+   It seems that the cask contains a slab of pork.
+
+>take slab of pork
+
+You peel it off the cask.
+   The current pulls you in towards the island.
+
+>wait
+
+Time passes...
+   The current pulls you in towards the island.
+Lagoon, in the cask
+   You are crouched in a cask on the lagoon of St. Sinistra. The jungle looms
+gray-green in the light of the full moon.
+
+>wait
+
+Time passes...
+   The current pulls you in towards the island.
+
+>wait
+
+Time passes...
+   The current pulls you in towards the island. With a scrape, the cask lodges
+in the sand.
+
+Shallows, in the cask
+   You are crouched in the cask in the warm, lapping waves of the shallows. A
+white sand beach is west of you.
+   A skiff nods in the waves, its oars jerking around in the current.
+
+>get out of cask
+
+Free of your weight, the cask bobs and spins in the current, pulled out into the
+lagoon. You splash after it, but it is gone.
+
+>w
+
+Beach
+   This is a tiny beach, at the base of vine-covered cliffs. To the east, the
+Helena Louise floats serenely on the lagoon.
+   Immediately north of you, a rocky staircase is hewn into the cliff.
+
+>n
+
+Lawn
+   Jungle looms around this clipped lawn, a path meandering westward into the
+dense undergrowth. To the east is a folly entangled in blooming jasmine. The way
+to the beach is obscure, but visible to the southeast. Behind the folly a thorny
+hedge blocks the cliff view of the sea.
+   Music and voices float from the veranda to the north.
+   Two men stand whispering in the shadows. You catch an occasional word, "Davis
+dead... girl... Falcon on Sinistra." The men separate, the well-dressed one
+going into the ballroom as the other slinks into the bushes. You see his face.
+Crulley!
+
+>e
+
+Folly
+   Perfumed by the heady odor of the night-blooming jasmine entwined in the
+bamboo latticework, this folly is a cool, dark haven.
+   One bamboo slat at the back seems to be loose.
+   A bench is built into the wall, circling the folly.
+
+>move bamboo slat
+
+You twist aside the loose slat, wedging the end into the woven wall. The
+remaining hole, just above the bench, looks big enough to snake yourself
+through.
+   Captain Jamison enters the folly, stooping to avoid the flowers dangling over
+the door. "I thought I heard someone. What the devil are you doing here! Lafond
+is a dangerous man to play with!" Jamison sighs. "What an astonishing girl you
+are, my dear. And so ingeniously dressed." He plucks a flower from the tangle
+above the door, and sets it in your hair. "The beauty of this blossom is nothing
+to yours."
+
+>tell jamison about crulley
+
+"Crulley?! God's blood!"
+   Catching his breath, Jamison pulls you against him, his hands circling your
+waist, crushing the flower between you. "Darling," he whispers, leaning over
+you, "oh, my angel ..."
+
+>wait
+
+Time passes...
+   "My lovely," Jamison says huskily. His eyes burn intently, their blue like
+the sea on a summer day. A shiver of warmth flows through you, and you tremble
+at his touch. The pirate's hands, warm and exciting, caress you, searing through
+the thin linen of your chemise. His lips near yours, his breath softly scented.
+"May I kiss you?"
+
+>yes
+
+Breathless, eager, you lean into him.
+   Tender is his kiss, soft his lips as his body presses hard against you. You
+drown in the tide of your passion, swept like the sea against the rocks of the
+shore.
+
+>wait
+
+Time passes...
+   With a pent-up sigh, Nicholas forces himself away from you. "Now is not the
+time or the place to advance my suit," he says, wistfully. "But the night is
+still young and you are so beautiful! I must be gone, lest I lose my soul in
+you." With an engaging smile he bows and leaves the folly.
+
+>w
+
+Lawn
+
+>w
+
+Forest
+   Buried in the subtropical undergrowth, you lose all sense of being on
+someone's private estate; jungle seems to extend for miles on all sides of you.
+A footworn path curves from east to north here, and the vegetation lessens to
+the northeast.
+
+>n
+
+Trade Entrance
+   You are on a well-trampled lawn at the side of the house, one low doorway
+leading in to the east. Gravelled paths lead north and south into the
+undergrowth.
+
+>e
+
+Kitchen
+   A firepit in the floor smokes badly, fogging up the depths of this large
+kitchen, somehow not escaping through either the south or west doors.
+   A blond woman huddles alone by the fire, as if cold.
+   The woman smiles uncertainly, then rushes over. "Are you come from the
+village, boy? Dost know Lord Dimsford?" She sighs at your surprise. "So he sent
+you -- I am his Lucy. It's been so long since I've seen him. Lafond caught me
+eavesdropping and now I can't leave the grounds."
+
+>wait
+
+Time passes...
+   "I haven't found Lafond's papers, I'm watched too closely. Tell Dimsford that
+I -- I'm scared, and I want him to come get me. Give this to him -- he'll
+recognize it." Lucy slides a garter down her leg and holds it out to you.
+
+>take garter
+
+Taken.
+   Lucy kisses your head and returns to the fire, humming.
+
+>w
+
+"Don't forget -- tell Dimsford," Lucy calls after you.
+
+Trade Entrance
+
+>s
+
+Forest
+
+>ne
+
+Clearing
+   You are in a small clearing under the western side of the house. Heavy vines
+creep up the wall past a second floor window, open to the night air. Southwest
+is an opening in the bushes.
+
+>u
+
+You take a firm grasp on a particularly thick tendril, jerk once to secure it,
+and scamper up the wall like some huge tropical spider. It is easy to climb
+through the window.
+
+Bedroom
+   Lit only with moonlight through the open window, tonight this room is serving
+as a ladies' dressing room. An exit lies to the north.
+   Draped across the bed is a lovely cream colored watered silk gown. It looks
+about your size.
+
+>undress
+
+You strip down to your chemise.
+
+>take gown
+
+Taken.
+
+>wear gown
+
+The beautiful ball gown fits perfectly, the creamy silk bringing a glow to your
+cheeks. You comb your hair with your fingers and bite your lips to make them
+red.
+
+>n
+
+Upstairs Hall
+   You stand in a carpeted hallway, leading east to a stair landing. Rooms lie
+north and south of you.
+
+>e
+
+Stair Landing
+   The east-west hallway opens here to curve into a grand staircase sweeping
+down to the foyer.
+
+>d
+
+Foyer
+   A grandiose staircase splits and twists up to the next floor here, framing
+the entrance south to the ballroom. Long hallways lead east and west; cool night
+air drifts in through the front door, north of you.
+   The butler stands near the entrance to the ballroom.
+
+>s
+
+The butler prevents you. "Miss... your invitation?"
+
+>show invitation to butler
+
+The butler takes the invitation. "Enjoy the dance, Miss Davis."
+
+>s
+
+The sea of spectators parts to admit you, murmuring approval.
+
+Ballroom
+   Lafond's party is well attended: you can hardly move for the crush. However,
+the room is oddly silent, no talk interrupting the musical efforts of the
+musicians to the west. Despite the heat, no one ventures south to the veranda,
+nor through the opening east. The foyer is north of you.
+   Captain Jamison moves up to you, saying, "May I have this dance?" He doesn't
+await an answer, sweeping you out onto the dance floor.
+
+>wait
+
+Time passes...
+   Jamison grins down at you, a dazzling white smile.
+   The steps of the dance separate you a moment, as you twirl around and curtsey
+to another dancer. You glide back into the captain's arms.
+
+>wait
+
+Time passes...
+   "I haven't found your father. We've long suspected a passage under the
+library, but I cannot find an entrance," says Jamison.
+   Your hands linked tightly with his and held high over your heads, a line of
+dancers files between you and Jamison.
+
+>wait
+
+Time passes...
+   Nicholas's hands are smooth and cool.
+   Together you whirl around the ballroom, his arm snug around your waist,
+leading you gracefully, masterfully.
+    Nicholas's grip tenses as he nods to a bewigged man staring at you. You
+turn, and the man moves on.
+
+>wait
+
+Time passes...
+   "If there is any trouble, and I am unable to help -- a signal from an
+upstairs seaward window will bring my men. They can be here in moments," the
+Captain says.
+   The music ends with a flourish and you pirouette once more before curtseying
+to Jamison. As you move to the side of the dance floor, Nick adds, "We should
+separate -- I'm sure I am being watched. You would be safer aboard the Helena
+Louise. If you slip out the veranda doors, no one will notice you leaving." He
+touches your hand and dissolves into the crowd.
+
+>open door
+
+Opened.
+
+>s
+
+Veranda
+   Steps lead south from this white marble veranda to a clipped lawn. To the
+north a line of people blocks your view of the ballroom.
+
+>n
+
+The sea of spectators parts to admit you, murmuring approval.
+
+Ballroom
+   A fashionably bewigged man stalks up to you and bows deeply. "Will you
+dance?" he asks, with a light French accent. "Not that you have much choice. If
+you turn me down, your father dies."
+
+>yes
+
+You summon a gracious smile, "Why yes, I'd love to."
+   "I am, of course, Lafond." He laughs triumphantly and pulls you into the
+dance.
+
+>wait
+
+Time passes...
+   "So you know I am not your father's friend," Lafond says, offering a hand for
+the promenade. "Unfortunately, you are in my power, he is in my dungeon and I am
+still King of these waters." A gold ring flashes on his hand. It seems vaguely
+familiar.
+
+>examine ring
+
+It's an ancient gold band, with a curious design of gargoyles, curled tongues
+extended, on its flat face, with "Sal Sapit Omnia" engraved at the bottom.
+   Lafond's eyes rake your body. "When I am ready, the butler will summon you to
+sup with me in my room; it may be some time. We will find much in common before
+dawn, I am sure. Then I may free your father." Lafond bows as the dance ends,
+and kisses your hand. He cocks his head, curious, "You have far less spirit than
+your father credited you. He swore you would have him freed in no time at all. A
+pity, I prefer doyennes with mettle." He moves to speak with the butler, then
+drifts into the crowd.
+
+>e
+
+Supper Room
+   One long table set across the north entrance indicates that supper was served
+here earlier. West of you is the ballroom.
+
+>n
+
+You scuttle underneath the long table.
+
+East Hallway
+   The carpeted hallway turns from west to north here, extending into the east
+wing. A long table blocks the way south.
+
+>n
+
+Library
+   Everything in this private office is larger than life. A huge portrait
+decorates the north side, and black drapes mask the east wall. Bookshelves tower
+over a cherry desk, and a massive wooden globe squats in a corner. Music wafts
+distantly from the ballroom across the hall to the south.
+   An expensive hat is hanging on a knob.
+
+>take hat
+
+As you lift the hat from its knob on the wall, a low vibration tingles up your
+legs from the floor.
+
+>x books
+
+Most of the books appear unread, their pages uncut, the spines not yet creased.
+All except one, "Treatise of Power" by Sir Michael Villiers.
+
+>take treatise of power
+
+You half tip the book out of the shelf when it snaps surprisingly back into
+place. There is a mysterious scraping sound from inside the wall.
+
+>x globe
+
+The massive wooden globe, painted in greens and blues and white, describes the
+world as presently known.
+
+>press st sinistra
+
+You press the painted island, and it sinks into the wooden sea. You hear a whirr
+and a click and the portrait pops open. A draft of sea-scented air flows in from
+behind it.
+
+>n
+
+For safety's sake, you leave the hat on its knob. Best not to show that you've
+been wandering.
+   You move beyond the portrait into the flickering torchlight.
+
+Stairwell
+   Cool salt air, blowing past a torch on a spiral staircase below you, ruffles
+your hair and circles south into the library.
+
+>close portrait
+
+The portrait swings shut with a tiny snap.
+
+>d
+
+Bottom of Stairwell
+   Flickering torchlight lights the bottom of a spiral staircase. A draft blows
+from the east; a passage leads south.
+
+>e
+
+North Passage
+   A strong wet breeze blows from a low doorway to the east. A circle of light
+leads west. The passageway continues south.
+
+>e
+
+Guard's Bunkroom
+   Once a cell, now, with the door missing, made into a guard's bunkroom, this
+room is distinctly uncomfortable. Gasps of air are forced through a crack in the
+seaward wall of the room. The way out is west of you.
+   A powder horn hangs on a long strap from the wall.
+   A canvas cot is shoved against a wall. Sitting on the cot is a large key.
+
+>take horn and key
+
+powder horn: Taken.
+large key: Taken.
+
+>w
+
+North Passage
+
+>s
+
+South Passage
+   You are at the far end of a dank passageway heading north. A wooden door
+leads east.
+
+>open door
+
+Opened.
+
+>e
+
+Cell
+   This tiny cell is airless and shivering cold, entirely empty of anything but
+darkness. A wooden door leads west.
+
+>w
+
+South Passage
+
+>close door
+
+Shut.
+
+>n
+
+North Passage
+
+>w
+
+Bottom of Stairwell
+
+>s
+
+Anteroom
+   Two exits lead from this cavernous room, north and south. The walls drip with
+wet, forming a huge pool on the floor.
+   A crocodile lies half in the pool, gazing at you, with baleful eyes, jaws
+wide open. Dagger-sharp teeth glint in the torchlight.
+
+>x bottle
+
+It's a small leather bottle, with a tiny label on one side. It appears to be
+almost empty.
+
+>read label
+
+The label reads, "Laudanum drops. Squeeze into a glass of wine to sleep free of
+pain and mental anguish."
+
+>put laudanum on pork
+
+You squeeze three colorless drops onto the slab of pork. A patch of salt
+dissolves as the laudanum absorbs into the meat.
+
+>give pork to crocodile
+
+The crocodile snaps its jaws shut as the slab of pork disappears into its maw.
+
+>wait
+
+Time passes...
+   With an inaudible creak, the crocodile's mouth opens again.
+
+>wait
+
+Time passes...
+   Without warning, the crocodile relaxes, eyes closed, asleep.
+
+>s
+
+You edge past the reptile.
+
+Dungeon
+   You sense, rather than see, the rusty skeletons of old cages and torture
+devices that line the walls of this cavernous room. One flaming torch, high on a
+wall, casts mad licks of light into the darkness. Passages lead north and west.
+Set deep in the rocky floor is a closed trapdoor.
+   A pair of manacles hangs from iron chains attached high on the wall.
+
+>w
+
+Corner
+   This short passage turns from east to north to stop abruptly at an iron door.
+
+>unlock door with key
+
+Unlocked.
+
+>open door
+
+Opened.
+
+>n
+
+Cell
+   Hewn from dense rock, the cell is a stagnant burrow. Except for the tiniest
+glow of light from the torch two rooms away, it is pitch black.
+   As you enter, a tall bony man moves out of the darkness. "Papa," you cry,
+rushing into his arms.
+   "Why, hullo, my dear." He hugs you tightly. "Nick certainly took his time
+about fetching you."
+
+>wait
+
+Time passes...
+   You briefly explain the current situation to your father.
+   "I knew Falcon would do his best to rescue me, once you were safe," he
+responds. "Now to rescue Lucy -- Nicholas will have told you about her. You get
+him while I get Lucy, and the four of us will meet down at the beach. Just show
+me the way out of this maze, and we'll get started."
+
+>s
+
+Corner
+   Papa mutters something to himself. You hear an occasional "Zounds!"
+
+>e
+
+Dungeon
+   Papa enters just a few steps behind you.
+
+>n
+
+Anteroom
+   The crocodile lies half in the pool, sleeping.
+   Papa follows you.
+   Your father stops, smiling at the crocodile, "Hello, chum, how are you?" He
+bends over the creature, and scratches its bumpy snout, muttering, "Never seen
+you sleep like this before." It stirs to life as your father walks over to you
+by the north entrance. The reptile, waking, lunges after him, choking on its
+chain.
+
+>n
+
+Bottom of Stairwell
+   Papa enters just a few steps behind you.
+
+>u
+
+Stairwell
+   Papa mutters something to himself. You hear an occasional "Zounds!"
+
+>open portrait
+
+You push outwards on the wall, opening the portrait.
+
+>s
+
+You move beyond the portrait into the library.
+
+Library
+   An expensive hat is hanging on a knob.
+   Papa follows you.
+   "A window!" your father exclaims. "I shall creep out to the kitchen. Get the
+Falcon." He climbs out the window.
+
+>close portrait
+
+The portrait swings shut with a tiny snap.
+   There is a commotion from the west. A woman screams and a man yells, "Stop,
+Pirate!" You run to the foyer in time to see two dragoons dragging out the
+battered frame of Captain Jamison.
+   An officer quiets the guests, "This is the buccaneer who has been pirating
+our ships. He had the audacity to come here tonight intending to assassinate our
+dear governor. Do not worry, ladies, he was arrogant enough to come alone." The
+officer marches after his men. The dancers return to their banal conversations.
+
+Foyer
+   The butler stands near the entrance to the ballroom.
+
+>u
+
+Stair Landing
+
+>w
+
+Upstairs Hall
+
+>s
+
+Bedroom
+
+>wait
+
+Time passes...
+   The butler walks up to you. "M. Lafond requests your presence in his room
+immediately, Miss." He points to the east, bows, and leaves.
+
+>n
+
+Upstairs Hall
+
+>e
+
+Stair Landing
+
+>e
+
+Upstairs Hall
+   You stand in a carpeted hallway, leading west to a stair landing. To the
+north is an ornately carved door. From the south comes the impression of light
+and air.
+
+>open door
+
+Opened.
+
+>n
+
+"Welcome, ma petite." Lafond bows you in.
+
+Lafond's Bedroom
+   Lafond is leering, lip curled.
+   A lace-covered table crouches beside a wing-backed chair in one corner.
+Sitting on the table is a green goblet, a blue goblet and a flagon.
+   "Have some wine." Lafond pours wine into two glasses, giving a blue one to
+you. "Drink this down. We have a long night ahead of us." He drains his own.
+
+>drink wine
+
+You empty the blue goblet of wine.
+   "Good girl," he says, "Let's see more cooperation of this sort."
+   Suddenly, the door slams open. It is Jamison, coatless, sword bared, his
+shirt ripped. "Thank God I am not too late. Leave, darling, before I skewer this
+dog to his bedposts," he cries. The scar on his cheek gleams coldly.
+   With a yell, Crulley and the butler jump out of the darkness behind him.
+Nicholas struggles, but soon lies unconscious on the floor.
+   "Take him to the dungeon," Lafond says, setting down his glass. "You, butler,
+stay nearby. I do not wish to be disturbed again.
+   "Now that we are rid of that intrusion, cherie, I will change into something
+more comfortable. Pour me more wine." He crosses to the wardrobe removing his
+coat and vest, turned slightly away from you.
+
+>fill blue goblet
+
+You fill the blue goblet with wine.
+   "In private, call me Jean, or whatever endearment you choose, once I have
+approved it." Lafond is looking into the wardrobe.
+
+>put laudanum in blue
+
+You squeeze three colorless drops into the blue goblet. You sense Lafond
+hesitate, then continue primping.
+   The butler enters, laying a silver tray of cold chicken on the table. "The
+kitchen wench has gone, your grace. I took the liberty of fetching these
+myself." He bows and leaves the room.
+   "Sprinkle some spices on the fowl, ma petite," Lafond says, donning a long
+brocade robe, his back to you. "They are hot, but delicious."
+
+>put mirror in beam
+
+You roll the bit of mirror around in the beam of moonlight till it glows silver-
+white. After a moment, a flash of light responds from the Helena Louise.
+   "Tsk. The cook has gone too far. She shall be 'leaving us' tomorrow." Lafond
+adjusts the lace at his neck.
+
+>wait
+
+Time passes...
+   Lafond strolls to the table smiling slyly. "But you haven't finished pouring
+the wine." He tops off both glasses. "Which glass was mine? I seem to have
+forgotten." He points at the green goblet and smiles in a way that does not
+grant you confidence. "Is this it?"
+
+>yes
+
+You nod.
+   "Ah yes, of course." Lafond obligingly takes the green goblet.
+   He inhales deeply of the bouquet of his wine, then turns to you. "You must
+think me very naive to fall for such a trick. I saw you pour something into one
+of these glasses -- although I cannot smell it." He switches goblets, setting
+the green goblet into your nerveless grasp and taking up the other, smiling
+evilly. "Now you will drink from the cup intended for me."
+
+>drink wine
+
+You empty the green goblet of wine.
+   "Good girl," he says. Lafond takes the leather bottle and drops it out the
+window. "You shall not need this. You may suffer no headaches in my employ."
+   He lifts his glass to drink, but stops. "Your father, for all his idiotic
+meddling in other people's business, is not a fool. I doubt you are, either." He
+calls in the butler, ordering him to empty the blue goblet. The man reports no
+odd taste and returns to his post.
+
+>wait
+
+Time passes...
+   Lafond draws near, whispering indecencies. He caresses your lily white neck,
+his fingers ice-cold despite the tropic heat.
+
+>wait
+
+Time passes...
+   Lafond slides his hand up your neck and into your hair, letting it fall down
+your back in thick waves and tresses. He lays everything you carry on the floor.
+
+>wait
+
+Time passes...
+   One by one Lafond undoes your buttons. He pulls open your bodice. Your
+clothes float to the floor.
+   You hear a "thump-phoosh," like someone slumping against a wall.
+
+>take spices
+
+You take a pinch of spices between your thumb and forefinger.
+   Lafond runs his fingers down your naked spine, and compliments your body. He
+removes his dressing gown.
+
+>blow spices at Lafond
+
+You blow the spices off your fingertips, directly into Lafond's face. He
+sneezes, his eyes watering from the heat of the peppers. Reaching blindly for
+some wine, he instead upsets the table, shattering a glass. Lafond stumbles
+cursing out of the room, in search of relief. You stand up, quickly pulling on
+the linen chemise.
+
+>s
+
+You creep over the prostrate butler.
+
+Upstairs Hall
+   The butler lies on the floor, prone and snoring loudly.
+
+>n
+
+Lafond's Bedroom
+   A lace-covered table crouches beside a wing-backed chair in one corner.
+Sitting on the table is a silver tray and a flagon.
+   You can see a beautiful ball gown, breeches, a shirt, a flower, a garter, a
+powder horn, a large key, a bit of mirror and a green goblet here.
+
+>take all
+
+beautiful ball gown: Taken.
+breeches: Taken.
+shirt: Taken.
+flower: Taken.
+garter: Taken.
+powder horn: Taken.
+large key: Taken.
+bit of mirror: Taken.
+green goblet: Taken.
+silver tray: Taken.
+flagon: Taken.
+
+>s
+
+You creep over the prostrate butler.
+
+Upstairs Hall
+   The butler lies on the floor, prone and snoring loudly.
+
+>w
+
+Stair Landing
+   An eerie battle cry arises on the wind, from all sides of the house, and
+Jamison's men stream in from all directions, huddling the dancers in the middle
+of the ballroom.
+
+>d
+
+Foyer
+   Cookie rushes up to you, looking worried. "Miss, we must find the Cap'n. Have
+ye any idea where to look?"
+
+>Cookie, follow me
+
+"Foller you? Anywheres!"
+   Cookie urges you, "Think agin. Any idea?"
+
+>e
+
+East Hallway
+   Cookie pegs after you.
+   Cookie grins broadly, "I knew we could depend on you, lass. Lead on!"
+
+>n
+
+Library
+   An expensive hat is hanging on a knob.
+   Cookie pegs after you.
+
+>take hat
+
+As you lift the hat from its knob on the wall, a low vibration tingles up your
+legs from the floor.
+
+>take treatise of power
+
+You half tip the book out of the shelf when it snaps surprisingly back into
+place. There is a mysterious scraping sound from inside the wall.
+
+>push st sinistra
+
+You press the painted island, and it sinks into the wooden sea. You hear a whirr
+and a click and the portrait pops open. A draft of sea-scented air flows in from
+behind it. Cookie harrumphs, surprised.
+
+>n
+
+For safety's sake, you leave the hat on its knob. Best not to show that you've
+been wandering.
+   You move beyond the portrait into the flickering torchlight.
+
+Stairwell
+   Cookie pegs after you.
+
+>d
+
+Bottom of Stairwell
+   Cookie pegs after you.
+
+>s
+
+Anteroom
+   The crocodile lies half in the pool, gazing at you, with baleful eyes, jaws
+wide open. Dagger-sharp teeth glint in the torchlight.
+   Cookie pegs after you.
+   Cookie rushes at the crocodile, crying, "I'll take care of this monster,
+sweetheart. You run by and do what you must do." He dives headlong into the
+pool.
+
+>s
+
+A whip cracks the air. "Flogs me, will ye, Cap'n? Taste it yourself, har."
+Jamison groans, half conscious. You rush in.
+
+Dungeon
+   You sense, rather than see, the rusty skeletons of old cages and torture
+devices that line the walls of this cavernous room. One flaming torch, high on a
+wall, casts mad licks of light into the darkness. Passages lead north and west.
+Set deep in the rocky floor is an open trapdoor.
+   Nicholas is spread-eagled against the wall, shackled in the pair of manacles.
+   A rapier lies in the half-dark of a corner.
+   Crulley steps leering out of the shadows and cracks the whip near you,
+hopping you towards the open trapdoor. "Come to hit me agin, are ye?"
+
+>take rapier
+
+Taken. Crulley snorts, "Be careful, you might hurt yer dearie."
+   Crulley cracks the whip near you, hopping you towards the open trapdoor.
+"Leave yer honey be, wench. He'll join ye anon."
+
+>fight crulley with rapier
+
+Crulley seems more amazed than frightened of your attack, guessing correctly
+that you hardly know the tip from the hilt of the rapier. He steps sideways in
+surprise, so he stands at the edge of the trapdoor.
+   Crulley cracks the whip near you, hopping you towards the open trapdoor.
+"Ye're a tasty doxy to let slip, but no 'elp fer it."
+
+>fight crulley with rapier
+
+You flick the rapier across his chest, barely scratching him. He cries, "Avast
+me! Pricked by a woman!" and trips into the trapdoor.
+   You peer down the hole to find Crulley hanging in midair, his hook caught in
+the rocks a few yards down. He curses and starts to climb up the sheer slimy
+walls of the well.
+
+>close trapdoor
+
+Shut.
+   Sounds of scraping hook against stone and curses echo out of the well,
+muffled by the trapdoor.
+
+>give smelling salts to jamison
+
+You wave the smelling salts under Nicholas's nose. He stirs, sneezes and looks
+at you blearily. "How --?" he says, bewildered. "Lafond, did he --?" He looks at
+you in growing horror, glancing from your chemise to your face, and straightens.
+"Darling, you are an angel, to have gone through all this and then rescue me.
+Your ravisher will not go unpunished." He squares his shoulders. "For my
+brother, his wife, and your honor, I will kill Jean Lafond."
+   He tugs at his chains with a wry smile. "But I must get free first. Have you
+the key?"
+   Sounds of scraping hook against stone and curses echo out of the well,
+muffled by the trapdoor.
+
+>unlock chains with brooch
+
+You twist the pin of the jewelled brooch in the locks, quickly freeing Nicholas.
+   Nick kisses you briefly, a butterfly touching your lips, then seizes his
+rapier and runs off to the north. Cookie calls a breathless "Hullo, Cap'n" to
+him as he races past.
+   Sounds of scraping hook against stone and curses echo out of the well,
+muffled by the trapdoor.
+
+>n
+
+Anteroom
+   The pool is roily with the writhing bodies of Cookie and the crocodile.
+
+>n
+
+"I ain't goin' to fight this beast if you're headin' back upstairs." Cookie
+follows you.
+
+Bottom of Stairwell
+   Cookie pegs after you.
+
+>u
+
+Stairwell
+   Cookie pegs after you.
+
+>s
+
+You move beyond the portrait into the library.
+
+Library
+   An expensive hat is hanging on a knob.
+   Cookie pegs after you.
+   Cookie cocks his head. "What is that noise? Is Cap'n duelling Lafond? There's
+no chance he could win as beaten as he is!" Cookie races out towards the
+ballroom.
+   Lafond's voice is cold, lazy, "You will die, you know, Jamison."
+
+>s
+
+East Hallway
+   You hear a duellist leap forward, and swords clash, parrying.
+
+>w
+
+Foyer
+   Rapiers click and slide. "Bad parry, Captain," Lafond says.
+
+>u
+
+Stair Landing
+   "You must ... pay ... for your actions!" Nicholas gasps.
+
+>e
+
+Upstairs Hall
+   The butler lies on the floor, prone and snoring loudly.
+   You hear a piece of furniture being knocked over.
+
+>s
+
+Gallery
+   You are on a wide balcony overlooking the ballroom. A hallway lies to the
+north.
+   Down on the dance floor the dancers are pressed in a wide circle around
+Nicholas and Lafond. Cookie stands anxiously in the door to the veranda, near
+your father and Lucy.
+   A chandelier is held above the dance floor by a rope and pulley system, so
+that the servants can lower it to light and snuff its candles. Several feet of
+rope hang down from the pulley, the excess tied around the railing.
+   Nicholas and Lafond circle each other intently, the one breathing hard, the
+other casual, sword tips almost touching. Jamison has lost copious amounts of
+blood and is no match for Lafond, cool and competent.
+Swords engage and disengage.
+
+>untie rope
+
+Untied. The chandelier swings slightly, dribs of hot wax spilling to the floor.
+   Nicholas and Lafond circle each other intently, the one breathing hard, the
+other casual, sword tips almost touching. Jamison has lost copious amounts of
+blood and is no match for Lafond, cool and competent.
+You hear metal scrape metal. A woman gasps.
+
+>take rope
+
+Pray describe what you intend to do with the rope.
+   Someone calls out, "We've got the Dimsford girl, Governor" -- lying, of
+course, since you're obviously free. But Nick glances towards the voice,
+missteps, and slips in his own blood, falling backwards to the floor, his rapier
+skittering aside.
+
+>go down with rope
+"Aaieeee!" The cry comes uncalled to your lips as you swoop down from the
+balcony, petticoats flying, on the end of the rope.
+   Your timing is perfect: you slam into Lafond just as he steps into his lunge.
+His rapier stabs wildly, piercing Nicholas's shoulder, missing his heart. You
+and Lafond roll into a snowball of petticoats and brocade, dropping everything
+between you.
+
+   Nicholas shouts, from far away, "Let me go! Let me deliver Lafond to a
+
+
+
+'better' world."
+   "A gentleman can't kill an unconscious man!" That is Papa's voice. "And
+you're in no shape to continue, Nicholas. Rodney -- help my daughter. I'll take
+Nick."
+   Cookie leans over you. "We must get back to the ship, Miss. Dragoons surround
+the house." Nicholas, injured but still arguing, is already on the veranda,
+half-forced, half-supported by your father, shadowed by Lucy. Cookie helps you
+to your feet and rushes after them, expecting you to follow. Lafond lies nearby,
+apparently unconscious.
+
+Ballroom
+   Lafond, his wig awry, sprawls across the parquet floor.
+   You can see a beautiful ball gown, breeches, a shirt, a flower, a garter, a
+powder horn, a large key, a bit of mirror, a silver tray and a flagon here.
+
+>take all
+
+beautiful ball gown: Taken.
+breeches: Taken.
+shirt: Taken.
+flower: Taken.
+garter: Taken.
+powder horn: Taken.
+large key: Taken.
+bit of mirror: Taken.
+silver tray: Taken.
+flagon: Taken.
+
+>s
+
+Veranda
+
+>s
+
+Lawn
+
+>s
+
+Beach
+   Cookie, Lucy and your father are moving towards the skiff.
+   Nicholas stands alone at one edge of the beach. He has a rapier.
+   You splash into the rising surf and pain needles up your leg. Blood swirls
+out from your shoe in the shallow water, flowing over a small pointed stone.
+
+>take stone
+
+Taken.
+   A shot rings out over the roar of the surf. Turning, you see that Lafond
+stands at the top of the cliff, a pistol in each hand. "Trying to sneak out the
+back, cowards? You will die like your brother, Falcon. Snivelling for mercy." He
+hands one gun to Crulley, standing nearby, and levels the other at Jamison.
+
+>x stone
+
+It is a pretty little stone.
+   As the gun fires, Cookie throws himself before his captain. He cries out,
+blood blossoming on his shoulder, and falls face first into the sand. Lucy runs
+to him.
+   Jamison yells up the cliff, brandishing his sword. "Fight like a man, Lafond.
+You have drawn my blood once tonight -- let me draw yours."
+   Lafond sneers. "On one condition. If I win, your lady comes to me. You will
+have no need of her when you are dead."
+   Nicholas stiffens, glances at the dragoons on the cliff above, and turns
+slowly to you. He says nothing, his face hard, but his eyes tell you what you
+want to know. "Answer, my darling. Yes or no?"
+
+>yes
+
+You have no breath to speak. You nod once, never taking your eyes off Nicholas
+Jamison.
+   Nicholas looks determined. "I accept. So long as my people go free if I win.
+Order your dragoons to obey us, then." In answer, Lafond jumps off the cliff
+like a huge brocaded bat to land in front of Captain Jamison. "Die then, fool!"
+   The pistol, spinning from Lafond's grip, drops to the sand nearby.
+
+>take pistol
+
+Taken.
+   Lafond immediately takes the advantage, forcing Nicholas in a retreat towards
+the foaming surf. But Nicholas fights hard, jaw set, ignoring his wounds. Lafond
+finally loses his smile.
+   Behind the duellists, far away atop the cliff, you notice Crulley madly
+reloading the pistol.
+
+>load pistol
+
+You pour a lumpy stream of gunpowder mixture into the barrel of the pistol
+tamping it as best you can.
+   Suddenly the force of the duel turns, Nicholas advancing against Lafond's
+retreat. Their blades silently flash in the moonlight. Lafond is pressed back
+into the shadow of the cliff, sweat beading on his forehead. Abruptly, Jamison
+leaps forward, metal scrapes, and his rapier licks neatly into Lafond's ribs,
+like a snake slipping into its burrow. The body of the governor of St. Sinistra
+convulses, as in amazement, then sags dead on the sword.
+   Nicholas removes a gold ring from the dead man's finger, throwing his own
+cheap copy into the surf.
+   Far above him, Crulley moves down the stairs.
+
+>wait
+
+Time passes...
+   Crulley is levelling the pistol, feet apart, braced by the cliff wall.
+
+>shoot crulley
+Trembling, you fire the heavy pistol. You hear its loud report over roaring
+surf. Crulley staggers, hit, and falls from the cliff. The gun falls from your
+nerveless hands.
+   Time stops as you and Nicholas gaze at one another, adoring and amazed.
+Slowly he bows and offers his hand.
+   Chestnut hair, tousled by the wind, frames the tanned oval of his face. His
+eyes, twin seas of blue, devour you with a love deep and true-hearted, and you
+are pulled into his embrace, your mouth on his, lips parted, thirsting, arching
+into his kiss...
+
+
+
+Forecastle
+   As dawn breaks over the eastern seas, you stand with Nicholas on his ship,
+looking north. "I have nothing left in England," he says. "There I am but a
+destitute gentleman, wanted for piracy. Here -- this isle holds too many
+memories; your father may have it. Mayhap my brother's wife yet lives. I must
+try to find her, either way." He takes you into his arms. "Come with me, my
+love? To America -- they tell of endless fertile fields and strange beasts in
+that wild land. It won't be easy, but we will have each other. Together, shall
+we carve a kingdom blessed with fair children and freedom?"
+   You wrap your arms about his waist and lean into him, and smile at the rising
+sun.
+
+   In 235 turns, you have achieved a score of 25 out of 25 points.
+   Thus you have finished the story of PLUNDERED HEARTS, earning the title,
+"Happily Ever After."
+   You may start over, restore a saved position, or end this session of the
+game. (Type RESTART, RESTORE, or QUIT):
