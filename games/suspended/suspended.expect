@@ -62,41 +62,16 @@ match_max 100000
 # surface after that time, and these clues do nothing to help you.
 # Let's get started!
 
-#1
-expect ">"
-send "Poet, go to weather control\r"
-
-#2
-expect ">"
-send "Sensa, go to sub supply room\r"
-
-#3
-expect ">"
-send "Whiz, go to secondary channel\r"
-
-#4
-expect ">"
-send "Sensa, take ramp\r"
-
-#5
-expect ">"
-send "Sensa, go west\r"
-
-#6
-expect ">"
-send "Sensa, take container and grasper\r"
-
-#7
-expect ">"
-send "Sensa, go to hallway junction\r"
-
-#8
-expect ">"
-send "Waldo, go to hallway junction\r"
-
-#9
-expect ">"
-send "Auda, go to gamma repair\r"
+# 1-9
+expect ">"; send "Poet, go to weather control\r"
+expect ">"; send "Sensa, go to sub supply room\r"
+expect ">"; send "Whiz, go to secondary channel\r"
+expect ">"; send "Sensa, take ramp\r"
+expect ">"; send "Sensa, go west\r"
+expect ">"; send "Sensa, take container and grasper\r"
+expect ">"; send "Sensa, go to hallway junction\r"
+expect ">"; send "Waldo, go to hallway junction\r"
+expect ">"; send "Auda, go to gamma repair\r"
 
 # The above moves set the game up. Poet is needed to turn the
 # weather control off; this minimizes deaths at the surface (your
@@ -110,49 +85,18 @@ send "Auda, go to gamma repair\r"
 
 # Now, enter your second set of commands:
 
-#10
-expect ">"
-send "Poet, turn second dial to 100\r"
-
-#11
-expect ">"
-send "Poet, go to hallway end\r"
-
-#12
-expect ">"
-send "Iris, go to main supply room\r"
-
-#13
-expect ">"
-send "Sensa, put ramp at dropoff\r"
-
-#14
-expect ">"
-send "Auda, listen\r"
-
-#15
-expect ">"
-send "Waldo, take container and grasper\r"
-
-#16
-expect ">"
-send "Waldo, go to main supply\r"
-
-#17
-expect ">"
-send "Waldo, install grasper\r"
-
-#18
-expect ">"
-send "Waldo, take red ic and yellow ic\r"
-
-#19
-expect ">"
-send "Sensa, go north\r"
-
-#20
-expect ">"
-send "Sensa, take ramp\r"
+# 10-20
+expect ">"; send "Poet, turn second dial to 100\r"
+expect ">"; send "Poet, go to hallway end\r"
+expect ">"; send "Iris, go to main supply room\r"
+expect ">"; send "Sensa, put ramp at dropoff\r"
+expect ">"; send "Auda, listen\r"
+expect ">"; send "Waldo, take container and grasper\r"
+expect ">"; send "Waldo, go to main supply\r"
+expect ">"; send "Waldo, install grasper\r"
+expect ">"; send "Waldo, take red ic and yellow ic\r"
+expect ">"; send "Sensa, go north\r"
+expect ">"; send "Sensa, take ramp\r"
 
 # Once Poet got to the Weather Control, he had to reset the
 # faulty control to 100. This is only a temporary fix because if you
@@ -166,45 +110,17 @@ send "Sensa, take ramp\r"
 # Poet can get to the other level. Waldo is handed the grasper and
 # container which he installs. This is done now to save moves later.
 
-#21
-expect ">"
-send "Sensa, go to small supply\r"
-
-#22
-expect ">"
-send "Waldo, open panel\r"
-
-#23
-expect ">"
-send "Waldo, replace rough device with rough object\r"
-
-#24
-expect ">"
-send "Waldo, close panel\r"
-
-#25
-expect ">"
-send "Poet, get in car\r"
-
-#26
-expect ">"
-send "Poet, get out of car\r"
-
-#27
-expect ">"
-send "Poet, go to biology lab\r"
-
-#28
-expect ">"
-send "Waldo, take burned and fried chip\r"
-
-#29
-expect ">"
-send "Poet, take camera\r"
-
-#30
-expect ">"
-send "Sensa, put ramp at holder\r"
+# 21-30
+expect ">"; send "Sensa, go to small supply\r"
+expect ">"; send "Waldo, open panel\r"
+expect ">"; send "Waldo, replace rough device with rough object\r"
+expect ">"; send "Waldo, close panel\r"
+expect ">"; send "Poet, get in car\r"
+expect ">"; send "Poet, get out of car\r"
+expect ">"; send "Poet, go to biology lab\r"
+expect ">"; send "Waldo, take burned and fried chip\r"
+expect ">"; send "Poet, take camera\r"
+expect ">"; send "Sensa, put ramp at holder\r"
 
 # This stage sets the robots to their major gathering tasks.
 # Waldo has fixed Iris, and is now set on fixing the machine and
@@ -212,45 +128,17 @@ send "Sensa, put ramp at holder\r"
 # the car, exited the car, and is now getting the camera. Sensa has
 # arrived at the Small Supply Room to take the cable cutter.
 
-#31
-expect ">"
-send "Sensa, get on ramp\r"
-
-#32
-expect ">"
-send "Sensa, take cutter\r"
-
-#33
-expect ">"
-send "Sensa, get off ramp\r"
-
-#34
-expect ">"
-send "Sensa, take ramp\r"
-
-#35
-expect ">"
-send "Sensa, go to sloping corridor\r"
-
-#36
-expect ">"
-send "Poet, go to vehicle debarkation\r"
-
-#37
-expect ">"
-send "Waldo, put red ic in red socket\r"
-
-#38
-expect ">"
-send "Waldo, put yellow ic in yellow socket\r"
-
-#39
-expect ">"
-send "Poet, get in car\r"
-
-#40
-expect ">"
-send "Poet, get out of car\r"
+# 31-40
+expect ">"; send "Sensa, get on ramp\r"
+expect ">"; send "Sensa, take cutter\r"
+expect ">"; send "Sensa, get off ramp\r"
+expect ">"; send "Sensa, take ramp\r"
+expect ">"; send "Sensa, go to sloping corridor\r"
+expect ">"; send "Poet, go to vehicle debarkation\r"
+expect ">"; send "Waldo, put red ic in red socket\r"
+expect ">"; send "Waldo, put yellow ic in yellow socket\r"
+expect ">"; send "Poet, get in car\r"
+expect ">"; send "Poet, get out of car\r"
 
 # Sensa has completed her task of getting the metal tool that
 # she will need shortly. Poet has gotten the camera and is now coming
@@ -259,45 +147,17 @@ send "Poet, get out of car\r"
 
 # You're more than half-way to your goal! Now, enter:
 
-#41
-expect ">"
-send "Poet, go to primary channel\r"
-
-#42
-expect ">"
-send "Sensa, put ramp at dropoff\r"
-
-#43
-expect ">"
-send "Sensa, go to gamma repair\r"
-
-#44
-expect ">"
-send "Waldo, push button\r"
-
-#45
-expect ">"
-send "Iris, take fuse\r"
-
-#46
-expect ">"
-send "Waldo, take cable\r"
-
-#47
-expect ">"
-send "Waldo, go to secondary channel\r"
-
-#48
-expect ">"
-send "Iris, go to middle supply room\r"
-
-#49
-expect ">"
-send "Iris, take cable\r"
-
-#50
-expect ">"
-send "Iris, go to main supply room\r"
+# 41-50
+expect ">"; send "Poet, go to primary channel\r"
+expect ">"; send "Sensa, put ramp at dropoff\r"
+expect ">"; send "Sensa, go to gamma repair\r"
+expect ">"; send "Waldo, push button\r"
+expect ">"; send "Iris, take fuse\r"
+expect ">"; send "Waldo, take cable\r"
+expect ">"; send "Waldo, go to secondary channel\r"
+expect ">"; send "Iris, go to middle supply room\r"
+expect ">"; send "Iris, take cable\r"
+expect ">"; send "Iris, go to main supply room\r"
 
 # Poet has been sent to use the camera in the Primary Channel
 # (this is a Kamikaze mission because he has to pass through the
@@ -308,29 +168,13 @@ send "Iris, go to main supply room\r"
 # Waldo is now set on his mission where Whiz will be waiting to
 # install the cable needed in the Secondary Channel.
 
-#51
-expect ">"
-send "Sensa, examine object\r"
-
-#52
-expect ">"
-send "Sensa, turn flowswitch\r"
-
-#53
-expect ">"
-send "Both Sensa and Auda, move fred\r"
-
-#54
-expect ">"
-send "Sensa, cut cable with cutter\r"
-
-#55
-expect ">"
-send "Poet, plug tv1 in\r"
-
-#56
-expect ">"
-send "Poet, aim tv1 at sign\r"
+# 51-60
+expect ">"; send "Sensa, examine object\r"
+expect ">"; send "Sensa, turn flowswitch\r"
+expect ">"; send "Both Sensa and Auda, move fred\r"
+expect ">"; send "Sensa, cut cable with cutter\r"
+expect ">"; send "Poet, plug tv1 in\r"
+expect ">"; send "Poet, aim tv1 at sign\r"
 
 # Extract the important access code.
 # It's different for every game.
@@ -339,21 +183,11 @@ expect ">"
 regsub {.*It says ([A-Z][A-Z][A-Z][A-Z][A-Z][A-Z])\..*} "$expect_out(buffer)" {\1} access_code
 set code1 [string range $access_code 0 2]
 set code2 [string range $access_code 3 5]
-
-#57
 send "Sensa, take cable\r"
 
-#58
-expect ">"
-send "Sensa, go to primary channel\r"
-
-#59
-expect ">"
-send "Iris, put cable in machine\r"
-
-#60
-expect ">"
-send "Iris, put fuse in machine\r"
+expect ">"; send "Sensa, go to primary channel\r"
+expect ">"; send "Iris, put cable in machine\r"
+expect ">"; send "Iris, put fuse in machine\r"
 
 # Sensa and Auda salvaged the remaining needed cable to fix the
 # cable in the Primary Channel. Sensa is now on her way. Poet
@@ -363,41 +197,17 @@ send "Iris, put fuse in machine\r"
 # cables in the FCS to reset the systems to set the surface world
 # above right.
 
-#61
-expect ">"
-send "Whiz, go to waldo\r"
-
-#62
-expect ">"
-send "Whiz, take fourteen-inch cable\r"
-
-#63
-expect ">"
-send "Whiz, replace the nine-inch cable with the fourteen-inch cable\r"
-
-#64
-expect ">"
-send "Whiz, drag waldo to the east end\r"
-
-#65
-expect ">"
-send "Auda, go to sleep chamber\r"
-
-#66-68 - wait two cycles until Sensa gets to the primary channel
-expect ">"
-send "Sensa, report\r"
-expect ">"
-send "Sensa, report\r"
-expect ">"
-send "Sensa, replace four-inch cable with twelve-inch cable\r"
-
-#69
-expect ">"
-send "Iris, press $code1 circle\r"
-
-#70
-expect ">"
-send "Iris, press $code2 circle\r"
+# 61-70
+expect ">"; send "Whiz, go to waldo\r"
+expect ">"; send "Whiz, take fourteen-inch cable\r"
+expect ">"; send "Whiz, replace the nine-inch cable with the fourteen-inch cable\r"
+expect ">"; send "Whiz, drag waldo to the east end\r"
+expect ">"; send "Auda, go to sleep chamber\r"
+expect ">"; send "Sensa, report\r"; # wait two cycles until Sensa gets to the primary channel
+expect ">"; send "Sensa, report\r"
+expect ">"; send "Sensa, replace four-inch cable with twelve-inch cable\r"
+expect ">"; send "Iris, press $code1 circle\r"
+expect ">"; send "Iris, press $code2 circle\r"
 
 # At this point, the game is over. Only 8,000 are dead and you
 # have succeeded in your mission. It should be noted that this does
