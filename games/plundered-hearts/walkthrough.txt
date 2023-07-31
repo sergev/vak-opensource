@@ -1,4 +1,4 @@
-spawn dfrotz -m plunderedhearts-r26-s870730.z3
+spawn dfrotz -m -s 123 plunderedhearts-r26-s870730.z3
 Using normal formatting.
 Loading plunderedhearts-r26-s870730.z3.
 
@@ -48,42 +48,41 @@ have been emptied thoroughly, if hurriedly.
 >get up
 
 You get out of the bed.
+   With a creak and a crash, somewhere a mast falls to the deck.
 
 >inventory
 
 You have your reticule (hanging from your wrist). It seems that your reticule
 contains smelling salts and a banknote. You are wearing your kid slippers, a
 linen chemise and a cotton frock.
-   "Aaieeee!" echoes a scream, followed by several grunts and thumps.
 
 >look under bed
 
 You can see a coffer under the bed.
-   You recognize a voice from far away, "Don't take that! Look in the cabin at
-the stern -- you'll find some fun there!" It sounds like Davis.
+   "Cap'n Jamison! We've got 'em!" cries a rough voice.
 
 >take coffer
 
 Taken.
-   "Cap'n Jamison! We've got 'em!" cries a rough voice.
+   You recognize a voice from far away, "Don't take that! Look in the cabin at
+the stern -- you'll find some fun there!" It sounds like Davis.
 
 >examine coffer
 
 It is a small heavy chest, with a lock. It is closed.
-   With a creak and a crash, somewhere a mast falls to the deck.
 
->x smelling salts
+>examine smelling salts
 
 You always carry your smelling salts, for emergencies. There is a small tag on
 one side of them.
+   "The Falcon! The Falcon conquers!" yells someone.
 
 >read tag
 
 It says, "For cases of vapors, hysteria or collapse, revive persons with the
 smelling salts."
-   "The Falcon! The Falcon conquers!" yells someone.
 
->x banknote
+>examine banknote
 
 This is the banknote that came in your game package.
 
@@ -95,7 +94,8 @@ porthole. A door is to starboard. Except for the built-in bed, the room seems to
 have been emptied thoroughly, if hurriedly.
    Crash! You whirl around to see the door shatter, kicked by a hulking man, his
 twisted visage blackened with soot and blood. "Me name's Andy Crulley, and
-ladies learn to love me," sniggers the pirate, advancing toward you.
+ladies learn to love me," sniggers the pirate.
+   "Aaieeee!" echoes a scream, followed by several grunts and thumps.
 
 >hit andy with coffer
 
@@ -114,6 +114,7 @@ power in the scar that etches the stranger's jaw, and feel tremors course
 through your veins. Then you realize how ragged are his shirt, patched breeches
 and high boots. Intuitively, you understand -- he is the dreaded Falcon, scourge
 of the sea! Alas, your fate is sealed. Resigned, you meet his sea-blue eyes.
+   With a creak and a crash, somewhere a mast falls to the deck.
 
 >wait
 
@@ -123,10 +124,8 @@ cultured, his smile vibrant. "I am Captain Nicholas Jamison, known in these
 waters as 'The Falcon'. Your father has sent me." He chuckles at your glare of
 distrust. "Yes, you are like your sire. You needn't believe me untried -- I
 carry this." He hands you a missive.
-   "Cap'n Jamison! We've got 'em!" cries a rough voice.
 
 >read missive
-
 The missive is in dear Papa's handwriting:
 
 "Dearest child,
@@ -146,6 +145,10 @@ and nudges the unconscious man on the floor, "I wonder how Crulley knew you were
 here? Just his bad luck? He'll be flogged when he wakes."
    The pirate bows. "My lady, may I offer my protection and my ship until your
 father is free?"
+   You recognize a voice from far away, "Don't take that! Look in the cabin at
+the stern -- you'll find some fun there!" It sounds like Davis.
+
+
 
 >yes
 
@@ -285,7 +288,7 @@ Formal Dress and Invitation Required.
 
    A ball! You haven't been to a ball in months!
 
->n
+>north
 
 The large cupboard is not flush against the doorsill. You squeeze through the
 opening between cupboard and wall.
@@ -294,13 +297,13 @@ Landing
    You are on the landing of a steep stairway heading up and down. A large
 cupboard against the aft wall blocks the doorway to the captain's quarters.
 
->d
+>down
 
 Aft Hold
    This is a gloomy, damp area at the bottom of the Helena Louise. To the fore
 there seems to be a little more light, or you can climb up some steep stairs.
 
->n
+>north
 
 You hear a scuffling noise ahead, and scraping up near the ceiling. You would
 think it was caused by rats, but for the definite curse you heard before all the
@@ -317,13 +320,13 @@ gunpowder and shot. A closed gate is the only way in.
 smoke. A tiny glow of fire creeps across a stretch of floor -- inside the cage
 full of ammunition.
 
->x cage
+>examine cage
 
 The fence is made of thick, finely woven wire mesh, uncuttable and unclimbable.
 Except for a gap of about 6 inches over the closed gate, the cage is secure from
 ceiling to damp floorboards.
 
->n
+>north
 
 Crew's Quarters
    The crew sleeps, in shifts, in this cramped space under the forecastle. A
@@ -349,7 +352,7 @@ collect me pay. Off I go, har." He dives into the sea.
 
 Taken.
 
->s
+>south
 
 Hold
    A tiny glow of fire creeps across a stretch of floor -- inside the cage full
@@ -374,11 +377,11 @@ brooch, a missive and your reticule (hanging from your wrist). It seems that
 your reticule contains smelling salts and a banknote. You are wearing your kid
 slippers, a linen chemise and a cotton frock.
 
->s
+>south
 
 Aft Hold
 
->u
+>up
 
 Landing
 
@@ -401,19 +404,21 @@ fore.
 You pick up the pile of clothes. It separates into a pair of breeches and a
 shirt.
 
->n
+>north
 
 Landing
 
->s
+>south
 
 You squeeze through the opening between cupboard and wall.
 
 Captain's Quarters
+   The end of a rope ladder blows past the window.
 
->x window
+>examine window
 
 Tall panes of glass are inset into the ledge.
+   The end of a rope ladder blows past the window.
 
 >throw coffer through window
 
@@ -424,12 +429,12 @@ the sea. The ledge now looks deep enough to sit upon.
 >undress
 
 You strip down to your chemise.
+   The end of a rope ladder blows past the window.
 
 >wear breeches
 
 You tuck the linen chemise into the pants. You look a little fat, but now you
 can move freely.
-   The end of a rope ladder blows past the window.
 
 >wear shirt
 
@@ -439,7 +444,7 @@ It fits loosely, masking your figure.
 
 You lean over the ledge, but the ladder is too far out to reach.
 
->s
+>south
 
 You climb onto the ledge. The ladder drifts within reach.
 
@@ -453,24 +458,24 @@ On the Ladder
    You are clinging to a slimy ladder, tied to a rail of the poop deck above
 you. Not far from your feet, waves kiss the stern of the ship.
 
->u
+>up
 
 You climb up the ladder.
    All air is driven out of you as the ladder slams into the stern.
    Your eyes are drawn to a flicker of light off the sea. Squinting, you see a
 man swimming to shore, moonlight flashing off his hook.
 
->u
+>up
 
 You climb up the ladder, passing the halfway point.
    Rebounding, the ladder twists you around to face the Helena Louise.
 
->u
+>up
 
 You climb up the ladder.
    The ladder swings back towards the Helena Louise.
 
->u
+>up
 
 You heave yourself over the stern rail and sink breathless to the deck of the
 Helena Louise.
@@ -482,7 +487,7 @@ deck in any direction but to the fore. A rope ladder is tied to the railing at
 the stern of the ship.
    The reefs seem a little larger than you thought before.
 
->n
+>north
 
 Quarterdeck
    No torches are lit, or needed on this moonlit night, except in the deep
@@ -492,7 +497,7 @@ quietly. Under the stairs aft to the poop is a barred door.
    Abaft the wheel sits a large pyramid of casks, held in place by a heavy rope.
    Cannon line the deck, aimed at open sea and the island.
 
->n
+>north
 
 Main Deck
    It is a deceptively quiet evening on the ship, the pirates singing low
@@ -502,7 +507,7 @@ rigging hangs down from the mast, like many rope ladders woven together.
    The reefs seem a little larger than you thought before.
    Two large barrels stand near the stair to the foredeck.
 
->n
+>north
 
 Forecastle
    Higher than all but the poop deck, this end of the ship commands a good view
@@ -516,7 +521,7 @@ mast.
    The reefs seem a little larger than you thought before.
    You can see a mooring winch here.
 
->x winch
+>examine winch
 
 Made of an old barrel turning on a pole, the mooring winch is used to coil in
 the anchor chain. A pair of metal teeth bite the links to prevent it from
@@ -560,7 +565,7 @@ towards the island. The tide has turned.
 Forecastle
    You can see a mooring winch here.
 
->s
+>south
 
 Main Deck
 
@@ -573,7 +578,7 @@ casts an inky shadow over the canvas screening the hatch. A tangled mass of
 rigging hangs down from the mast, like many rope ladders woven together.
    Two large barrels stand near the stair to the foredeck.
 
->x barrels
+>examine barrels
 
 The two open barrels contain rum and water, you can tell by the smell of each.
 They are identical but for the dark stains around the mouth of the rum barrel.
@@ -583,7 +588,7 @@ They are identical but for the dark stains around the mouth of the rum barrel.
 You pull a corner of canvas out of the frame. Steep stairs descend into murky
 darkness.
 
->x frock
+>examine frock
 
 It is your favorite old frock, looking rather bedraggled without its hoops,
 which you hadn't time to put on during the pirate attack. The worn fabric of the
@@ -597,7 +602,7 @@ You cut a large rag out of the cotton frock.
 
 Keeping hold on the rag, you soak it with water.
 
->d
+>down
 
 You glance around to see that no one is watching, and duck through the open
 corner of the canvas hatch.
@@ -611,13 +616,13 @@ of ammunition.
 You throw the rag over the gate. Luckily, it lands directly on the burning end
 of the fuse. With a sputter and a sigh, the flame dies.
 
->u
+>up
 
 You slip lithely through the canvas hatch.
 
 Main Deck
 
->s
+>south
 
 Quarterdeck
    Abaft the wheel sits a large pyramid of casks, held in place by a heavy rope.
@@ -676,14 +681,14 @@ white sand beach is west of you.
 Free of your weight, the cask bobs and spins in the current, pulled out into the
 lagoon. You splash after it, but it is gone.
 
->w
+>west
 
 Beach
    This is a tiny beach, at the base of vine-covered cliffs. To the east, the
 Helena Louise floats serenely on the lagoon.
    Immediately north of you, a rocky staircase is hewn into the cliff.
 
->n
+>north
 
 Lawn
    Jungle looms around this clipped lawn, a path meandering westward into the
@@ -696,7 +701,7 @@ dead... girl... Falcon on Sinistra." The men separate, the well-dressed one
 going into the ballroom as the other slinks into the bushes. You see his face.
 Crulley!
 
->e
+>east
 
 Folly
    Perfumed by the heady odor of the night-blooming jasmine entwined in the
@@ -747,11 +752,11 @@ time or the place to advance my suit," he says, wistfully. "But the night is
 still young and you are so beautiful! I must be gone, lest I lose my soul in
 you." With an engaging smile he bows and leaves the folly.
 
->w
+>west
 
 Lawn
 
->w
+>west
 
 Forest
    Buried in the subtropical undergrowth, you lose all sense of being on
@@ -759,14 +764,14 @@ someone's private estate; jungle seems to extend for miles on all sides of you.
 A footworn path curves from east to north here, and the vegetation lessens to
 the northeast.
 
->n
+>north
 
 Trade Entrance
    You are on a well-trampled lawn at the side of the house, one low doorway
 leading in to the east. Gravelled paths lead north and south into the
 undergrowth.
 
->e
+>east
 
 Kitchen
    A firepit in the floor smokes badly, fogging up the depths of this large
@@ -789,13 +794,13 @@ recognize it." Lucy slides a garter down her leg and holds it out to you.
 Taken.
    Lucy kisses your head and returns to the fire, humming.
 
->w
+>west
 
 "Don't forget -- tell Dimsford," Lucy calls after you.
 
 Trade Entrance
 
->s
+>south
 
 Forest
 
@@ -806,7 +811,7 @@ Clearing
 creep up the wall past a second floor window, open to the night air. Southwest
 is an opening in the bushes.
 
->u
+>up
 
 You take a firm grasp on a particularly thick tendril, jerk once to secure it,
 and scamper up the wall like some huge tropical spider. It is easy to climb
@@ -832,19 +837,19 @@ The beautiful ball gown fits perfectly, the creamy silk bringing a glow to your
 cheeks. You comb your hair with your fingers and bite your lips to make them
 red.
 
->n
+>north
 
 Upstairs Hall
    You stand in a carpeted hallway, leading east to a stair landing. Rooms lie
 north and south of you.
 
->e
+>east
 
 Stair Landing
    The east-west hallway opens here to curve into a grand staircase sweeping
 down to the foyer.
 
->d
+>down
 
 Foyer
    A grandiose staircase splits and twists up to the next floor here, framing
@@ -852,7 +857,7 @@ the entrance south to the ballroom. Long hallways lead east and west; cool night
 air drifts in through the front door, north of you.
    The butler stands near the entrance to the ballroom.
 
->s
+>south
 
 The butler prevents you. "Miss... your invitation?"
 
@@ -860,7 +865,7 @@ The butler prevents you. "Miss... your invitation?"
 
 The butler takes the invitation. "Enjoy the dance, Miss Davis."
 
->s
+>south
 
 The sea of spectators parts to admit you, murmuring approval.
 
@@ -875,22 +880,24 @@ await an answer, sweeping you out onto the dance floor.
 >wait
 
 Time passes...
-   Jamison grins down at you, a dazzling white smile.
+   "I haven't found your father. We've long suspected a passage under the
+library, but I cannot find an entrance," says Jamison.
    The steps of the dance separate you a moment, as you twirl around and curtsey
 to another dancer. You glide back into the captain's arms.
 
 >wait
 
 Time passes...
-   "I haven't found your father. We've long suspected a passage under the
-library, but I cannot find an entrance," says Jamison.
+   "If there is any trouble, and I am unable to help -- a signal from an
+upstairs seaward window will bring my men. They can be here in moments," the
+Captain says.
    Your hands linked tightly with his and held high over your heads, a line of
 dancers files between you and Jamison.
 
 >wait
 
 Time passes...
-   Nicholas's hands are smooth and cool.
+   Jamison touches your hair softly.
    Together you whirl around the ballroom, his arm snug around your waist,
 leading you gracefully, masterfully.
     Nicholas's grip tenses as he nods to a bewigged man staring at you. You
@@ -899,9 +906,7 @@ turn, and the man moves on.
 >wait
 
 Time passes...
-   "If there is any trouble, and I am unable to help -- a signal from an
-upstairs seaward window will bring my men. They can be here in moments," the
-Captain says.
+   His eyes twinkle, like moonlight on the sea.
    The music ends with a flourish and you pirouette once more before curtseying
 to Jamison. As you move to the side of the dance floor, Nick adds, "We should
 separate -- I'm sure I am being watched. You would be safer aboard the Helena
@@ -912,13 +917,13 @@ touches your hand and dissolves into the crowd.
 
 Opened.
 
->s
+>south
 
 Veranda
    Steps lead south from this white marble veranda to a clipped lawn. To the
 north a line of people blocks your view of the ballroom.
 
->n
+>north
 
 The sea of spectators parts to admit you, murmuring approval.
 
@@ -953,13 +958,13 @@ your father credited you. He swore you would have him freed in no time at all. A
 pity, I prefer doyennes with mettle." He moves to speak with the butler, then
 drifts into the crowd.
 
->e
+>east
 
 Supper Room
    One long table set across the north entrance indicates that supper was served
 here earlier. West of you is the ballroom.
 
->n
+>north
 
 You scuttle underneath the long table.
 
@@ -967,7 +972,7 @@ East Hallway
    The carpeted hallway turns from west to north here, extending into the east
 wing. A long table blocks the way south.
 
->n
+>north
 
 Library
    Everything in this private office is larger than life. A huge portrait
@@ -981,7 +986,7 @@ distantly from the ballroom across the hall to the south.
 As you lift the hat from its knob on the wall, a low vibration tingles up your
 legs from the floor.
 
->x books
+>examine books
 
 Most of the books appear unread, their pages uncut, the spines not yet creased.
 All except one, "Treatise of Power" by Sir Michael Villiers.
@@ -991,7 +996,7 @@ All except one, "Treatise of Power" by Sir Michael Villiers.
 You half tip the book out of the shelf when it snaps surprisingly back into
 place. There is a mysterious scraping sound from inside the wall.
 
->x globe
+>examine globe
 
 The massive wooden globe, painted in greens and blues and white, describes the
 world as presently known.
@@ -1002,7 +1007,7 @@ You press the painted island, and it sinks into the wooden sea. You hear a whirr
 and a click and the portrait pops open. A draft of sea-scented air flows in from
 behind it.
 
->n
+>north
 
 For safety's sake, you leave the hat on its knob. Best not to show that you've
 been wandering.
@@ -1016,19 +1021,19 @@ your hair and circles south into the library.
 
 The portrait swings shut with a tiny snap.
 
->d
+>down
 
 Bottom of Stairwell
    Flickering torchlight lights the bottom of a spiral staircase. A draft blows
 from the east; a passage leads south.
 
->e
+>east
 
 North Passage
    A strong wet breeze blows from a low doorway to the east. A circle of light
 leads west. The passageway continues south.
 
->e
+>east
 
 Guard's Bunkroom
    Once a cell, now, with the door missing, made into a guard's bunkroom, this
@@ -1042,11 +1047,11 @@ seaward wall of the room. The way out is west of you.
 powder horn: Taken.
 large key: Taken.
 
->w
+>west
 
 North Passage
 
->s
+>south
 
 South Passage
    You are at the far end of a dank passageway heading north. A wooden door
@@ -1056,13 +1061,13 @@ leads east.
 
 Opened.
 
->e
+>east
 
 Cell
    This tiny cell is airless and shivering cold, entirely empty of anything but
 darkness. A wooden door leads west.
 
->w
+>west
 
 South Passage
 
@@ -1070,15 +1075,15 @@ South Passage
 
 Shut.
 
->n
+>north
 
 North Passage
 
->w
+>west
 
 Bottom of Stairwell
 
->s
+>south
 
 Anteroom
    Two exits lead from this cavernous room, north and south. The walls drip with
@@ -1086,7 +1091,7 @@ wet, forming a huge pool on the floor.
    A crocodile lies half in the pool, gazing at you, with baleful eyes, jaws
 wide open. Dagger-sharp teeth glint in the torchlight.
 
->x bottle
+>examine bottle
 
 It's a small leather bottle, with a tiny label on one side. It appears to be
 almost empty.
@@ -1115,7 +1120,7 @@ Time passes...
 Time passes...
    Without warning, the crocodile relaxes, eyes closed, asleep.
 
->s
+>south
 
 You edge past the reptile.
 
@@ -1126,7 +1131,7 @@ wall, casts mad licks of light into the darkness. Passages lead north and west.
 Set deep in the rocky floor is a closed trapdoor.
    A pair of manacles hangs from iron chains attached high on the wall.
 
->w
+>west
 
 Corner
    This short passage turns from east to north to stop abruptly at an iron door.
@@ -1139,7 +1144,7 @@ Unlocked.
 
 Opened.
 
->n
+>north
 
 Cell
    Hewn from dense rock, the cell is a stagnant burrow. Except for the tiniest
@@ -1158,17 +1163,17 @@ responds. "Now to rescue Lucy -- Nicholas will have told you about her. You get
 him while I get Lucy, and the four of us will meet down at the beach. Just show
 me the way out of this maze, and we'll get started."
 
->s
+>south
 
 Corner
-   Papa mutters something to himself. You hear an occasional "Zounds!"
-
->e
-
-Dungeon
    Papa enters just a few steps behind you.
 
->n
+>east
+
+Dungeon
+   Papa mutters something to himself. You hear an occasional "Zounds!"
+
+>north
 
 Anteroom
    The crocodile lies half in the pool, sleeping.
@@ -1179,27 +1184,27 @@ you sleep like this before." It stirs to life as your father walks over to you
 by the north entrance. The reptile, waking, lunges after him, choking on its
 chain.
 
->n
+>north
 
 Bottom of Stairwell
    Papa enters just a few steps behind you.
 
->u
+>up
 
 Stairwell
-   Papa mutters something to himself. You hear an occasional "Zounds!"
+   Papa follows you.
 
 >open portrait
 
 You push outwards on the wall, opening the portrait.
 
->s
+>south
 
 You move beyond the portrait into the library.
 
 Library
    An expensive hat is hanging on a knob.
-   Papa follows you.
+   Papa mutters something to himself. You hear an occasional "Zounds!"
    "A window!" your father exclaims. "I shall creep out to the kitchen. Get the
 Falcon." He climbs out the window.
 
@@ -1217,15 +1222,15 @@ officer marches after his men. The dancers return to their banal conversations.
 Foyer
    The butler stands near the entrance to the ballroom.
 
->u
+>up
 
 Stair Landing
 
->w
+>west
 
 Upstairs Hall
 
->s
+>south
 
 Bedroom
 
@@ -1235,15 +1240,15 @@ Time passes...
    The butler walks up to you. "M. Lafond requests your presence in his room
 immediately, Miss." He points to the east, bows, and leaves.
 
->n
+>north
 
 Upstairs Hall
 
->e
+>east
 
 Stair Landing
 
->e
+>east
 
 Upstairs Hall
    You stand in a carpeted hallway, leading west to a stair landing. To the
@@ -1254,7 +1259,7 @@ and air.
 
 Opened.
 
->n
+>north
 
 "Welcome, ma petite." Lafond bows you in.
 
@@ -1364,14 +1369,14 @@ some wine, he instead upsets the table, shattering a glass. Lafond stumbles
 cursing out of the room, in search of relief. You stand up, quickly pulling on
 the linen chemise.
 
->s
+>south
 
 You creep over the prostrate butler.
 
 Upstairs Hall
    The butler lies on the floor, prone and snoring loudly.
 
->n
+>north
 
 Lafond's Bedroom
    A lace-covered table crouches beside a wing-backed chair in one corner.
@@ -1393,21 +1398,21 @@ green goblet: Taken.
 silver tray: Taken.
 flagon: Taken.
 
->s
+>south
 
 You creep over the prostrate butler.
 
 Upstairs Hall
    The butler lies on the floor, prone and snoring loudly.
 
->w
+>west
 
 Stair Landing
    An eerie battle cry arises on the wind, from all sides of the house, and
 Jamison's men stream in from all directions, huddling the dancers in the middle
 of the ballroom.
 
->d
+>down
 
 Foyer
    Cookie rushes up to you, looking worried. "Miss, we must find the Cap'n. Have
@@ -1418,13 +1423,13 @@ ye any idea where to look?"
 "Foller you? Anywheres!"
    Cookie urges you, "Think agin. Any idea?"
 
->e
+>east
 
 East Hallway
    Cookie pegs after you.
    Cookie grins broadly, "I knew we could depend on you, lass. Lead on!"
 
->n
+>north
 
 Library
    An expensive hat is hanging on a knob.
@@ -1446,7 +1451,7 @@ You press the painted island, and it sinks into the wooden sea. You hear a whirr
 and a click and the portrait pops open. A draft of sea-scented air flows in from
 behind it. Cookie harrumphs, surprised.
 
->n
+>north
 
 For safety's sake, you leave the hat on its knob. Best not to show that you've
 been wandering.
@@ -1455,12 +1460,12 @@ been wandering.
 Stairwell
    Cookie pegs after you.
 
->d
+>down
 
 Bottom of Stairwell
    Cookie pegs after you.
 
->s
+>south
 
 Anteroom
    The crocodile lies half in the pool, gazing at you, with baleful eyes, jaws
@@ -1470,7 +1475,7 @@ wide open. Dagger-sharp teeth glint in the torchlight.
 sweetheart. You run by and do what you must do." He dives headlong into the
 pool.
 
->s
+>south
 
 A whip cracks the air. "Flogs me, will ye, Cap'n? Taste it yourself, har."
 Jamison groans, half conscious. You rush in.
@@ -1489,7 +1494,7 @@ hopping you towards the open trapdoor. "Come to hit me agin, are ye?"
 
 Taken. Crulley snorts, "Be careful, you might hurt yer dearie."
    Crulley cracks the whip near you, hopping you towards the open trapdoor.
-"Leave yer honey be, wench. He'll join ye anon."
+"Ye're a tasty doxy to let slip, but no 'elp fer it."
 
 >fight crulley with rapier
 
@@ -1497,7 +1502,7 @@ Crulley seems more amazed than frightened of your attack, guessing correctly
 that you hardly know the tip from the hilt of the rapier. He steps sideways in
 surprise, so he stands at the edge of the trapdoor.
    Crulley cracks the whip near you, hopping you towards the open trapdoor.
-"Ye're a tasty doxy to let slip, but no 'elp fer it."
+"Would yer like a taste o' water?"
 
 >fight crulley with rapier
 
@@ -1510,8 +1515,6 @@ walls of the well.
 >close trapdoor
 
 Shut.
-   Sounds of scraping hook against stone and curses echo out of the well,
-muffled by the trapdoor.
 
 >give smelling salts to jamison
 
@@ -1532,15 +1535,13 @@ You twist the pin of the jewelled brooch in the locks, quickly freeing Nicholas.
    Nick kisses you briefly, a butterfly touching your lips, then seizes his
 rapier and runs off to the north. Cookie calls a breathless "Hullo, Cap'n" to
 him as he races past.
-   Sounds of scraping hook against stone and curses echo out of the well,
-muffled by the trapdoor.
 
->n
+>north
 
 Anteroom
    The pool is roily with the writhing bodies of Cookie and the crocodile.
 
->n
+>north
 
 "I ain't goin' to fight this beast if you're headin' back upstairs." Cookie
 follows you.
@@ -1548,12 +1549,12 @@ follows you.
 Bottom of Stairwell
    Cookie pegs after you.
 
->u
+>up
 
 Stairwell
    Cookie pegs after you.
 
->s
+>south
 
 You move beyond the portrait into the library.
 
@@ -1563,30 +1564,30 @@ Library
    Cookie cocks his head. "What is that noise? Is Cap'n duelling Lafond? There's
 no chance he could win as beaten as he is!" Cookie races out towards the
 ballroom.
-   Lafond's voice is cold, lazy, "You will die, you know, Jamison."
+   "You must ... pay ... for your actions!" Nicholas gasps.
 
->s
+>south
 
 East Hallway
-   You hear a duellist leap forward, and swords clash, parrying.
+   Lafond's voice is cold, lazy, "You will die, you know, Jamison."
 
->w
+>west
 
 Foyer
    Rapiers click and slide. "Bad parry, Captain," Lafond says.
 
->u
+>up
 
 Stair Landing
-   "You must ... pay ... for your actions!" Nicholas gasps.
+   You hear metal scrape metal. A woman gasps.
 
->e
+>east
 
 Upstairs Hall
    The butler lies on the floor, prone and snoring loudly.
    You hear a piece of furniture being knocked over.
 
->s
+>south
 
 Gallery
    You are on a wide balcony overlooking the ballroom. A hallway lies to the
@@ -1600,7 +1601,7 @@ rope hang down from the pulley, the excess tied around the railing.
    Nicholas and Lafond circle each other intently, the one breathing hard, the
 other casual, sword tips almost touching. Jamison has lost copious amounts of
 blood and is no match for Lafond, cool and competent.
-Swords engage and disengage.
+You hear a duellist leap forward, and swords clash, parrying.
 
 >untie rope
 
@@ -1608,7 +1609,7 @@ Untied. The chandelier swings slightly, dribs of hot wax spilling to the floor.
    Nicholas and Lafond circle each other intently, the one breathing hard, the
 other casual, sword tips almost touching. Jamison has lost copious amounts of
 blood and is no match for Lafond, cool and competent.
-You hear metal scrape metal. A woman gasps.
+Swords engage and disengage.
 
 >take rope
 
@@ -1658,15 +1659,15 @@ bit of mirror: Taken.
 silver tray: Taken.
 flagon: Taken.
 
->s
+>south
 
 Veranda
 
->s
+>south
 
 Lawn
 
->s
+>south
 
 Beach
    Cookie, Lucy and your father are moving towards the skiff.
@@ -1682,7 +1683,7 @@ stands at the top of the cliff, a pistol in each hand. "Trying to sneak out the
 back, cowards? You will die like your brother, Falcon. Snivelling for mercy." He
 hands one gun to Crulley, standing nearby, and levels the other at Jamison.
 
->x stone
+>examine stone
 
 It is a pretty little stone.
    As the gun fires, Cookie throws himself before his captain. He cries out,

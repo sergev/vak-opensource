@@ -12,7 +12,7 @@ system rm -f "game.log"
 log_file "game.log"
 
 # Start the game.
-spawn dfrotz -m plunderedhearts-r26-s870730.z3
+spawn dfrotz -m -s 123 plunderedhearts-r26-s870730.z3
 match_max 100000
 
 # Home:
@@ -23,9 +23,9 @@ expect ">"; send "inventory\r"
 expect ">"; send "look under bed\r"
 expect ">"; send "take coffer\r"
 expect ">"; send "examine coffer\r"
-expect ">"; send "x smelling salts\r"
+expect ">"; send "examine smelling salts\r"
 expect ">"; send "read tag\r"
-expect ">"; send "x banknote\r"
+expect ">"; send "examine banknote\r"
 expect ">"; send "look\r"
 
 # Andy Crulley arrives
@@ -66,30 +66,30 @@ expect ">"; send "read invitation\r"
 
 # Lafond, governer of St Sinistra
 
-expect ">"; send "n\r"
-expect ">"; send "d\r"
-expect ">"; send "n\r"
+expect ">"; send "north\r"
+expect ">"; send "down\r"
+expect ">"; send "north\r"
 
 # notice the fuse!
 
-expect ">"; send "x cage\r"; # gap of 6 inches
-expect ">"; send "n\r"
+expect ">"; send "examine cage\r"; # gap of 6 inches
+expect ">"; send "north\r"
 expect ">"; send "take bottle\r"; # [1pts]
 
 # hear Crulley and his plan
 
 expect ">"; send "take mirror\r"
-expect ">"; send "s\r"
+expect ">"; send "south\r"
 expect ">"; send "look\r"
 expect ">"; send "inventory\r"; # notice the canvas hatch
-expect ">"; send "s\r"
-expect ">"; send "u\r"
+expect ">"; send "south\r"
+expect ">"; send "up\r"
 expect ">"; send "open door\r"
 expect ">"; send "enter bed\r"
 expect ">"; send "take clothes\r"; # breeches and shirt [1pts]
-expect ">"; send "n\r"
-expect ">"; send "s\r"
-expect ">"; send "x window\r"
+expect ">"; send "north\r"
+expect ">"; send "south\r"
+expect ">"; send "examine window\r"
 
 # ladder!
 
@@ -98,16 +98,16 @@ expect ">"; send "undress\r"
 expect ">"; send "wear breeches\r"
 expect ">"; send "wear shirt\r"
 expect ">"; send "grab ladder\r"
-expect ">"; send "s\r"
+expect ">"; send "south\r"
 expect ">"; send "grab ladder\r"
-expect ">"; send "u\r"; # 4x
-expect ">"; send "u\r"
-expect ">"; send "u\r"
-expect ">"; send "u\r"; # [1pts]
-expect ">"; send "n\r"
-expect ">"; send "n\r"
-expect ">"; send "n\r"
-expect ">"; send "x winch\r"
+expect ">"; send "up\r"; # 4x
+expect ">"; send "up\r"
+expect ">"; send "up\r"
+expect ">"; send "up\r"; # [1pts]
+expect ">"; send "north\r"
+expect ">"; send "north\r"
+expect ">"; send "north\r"
+expect ">"; send "examine winch\r"
 expect ">"; send "read lever\r"
 expect ">"; send "pull lever up\r"; # [1pts]
 expect ">"; send "enter shack\r"
@@ -116,20 +116,20 @@ expect ">"; send "enter shack\r"
 
 expect ">"; send "take dagger\r"
 expect ">"; send "out\r"
-expect ">"; send "s\r"
+expect ">"; send "south\r"
 expect ">"; send "look\r"
-expect ">"; send "x barrels\r"
+expect ">"; send "examine barrels\r"
 expect ">"; send "open canvas\r"
-expect ">"; send "x frock\r"
+expect ">"; send "examine frock\r"
 
 # ..."often tearing"; will happen later if you don't do it yourself, which is a good hint!
 
 expect ">"; send "cut frock\r"
 expect ">"; send "put rag in water\r"
-expect ">"; send "d\r"
+expect ">"; send "down\r"
 expect ">"; send "throw rag at fuse\r"; # [1pts]
-expect ">"; send "u\r"
-expect ">"; send "s\r"
+expect ">"; send "up\r"
+expect ">"; send "south\r"
 expect ">"; send "enter cask\r"
 expect ">"; send "cut line\r"; # [1pts]
 expect ">"; send "take slab of pork\r"
@@ -137,36 +137,36 @@ expect ">"; send "wait\r"; # 3x
 expect ">"; send "wait\r"
 expect ">"; send "wait\r";
 expect ">"; send "get out of cask\r"
-expect ">"; send "w\r"
+expect ">"; send "west\r"
 
 # Helena Louise to the east
 
-expect ">"; send "n\r"
-expect ">"; send "e\r"
+expect ">"; send "north\r"
+expect ">"; send "east\r"
 expect ">"; send "move bamboo slat\r"
 expect ">"; send "tell jamison about crulley\r"
 expect ">"; send "wait\r"
 expect ">"; send "yes\r"
 expect ">"; send "wait\r"
-expect ">"; send "w\r"
-expect ">"; send "w\r"
-expect ">"; send "n\r"
-expect ">"; send "e\r"
+expect ">"; send "west\r"
+expect ">"; send "west\r"
+expect ">"; send "north\r"
+expect ">"; send "east\r"
 expect ">"; send "wait\r"
 expect ">"; send "take garter\r"
-expect ">"; send "w\r"
-expect ">"; send "s\r"
+expect ">"; send "west\r"
+expect ">"; send "south\r"
 expect ">"; send "ne\r"
-expect ">"; send "u\r"
+expect ">"; send "up\r"
 expect ">"; send "undress\r"
 expect ">"; send "take gown\r"
 expect ">"; send "wear gown\r"; # [1pts]
-expect ">"; send "n\r"
-expect ">"; send "e\r"
-expect ">"; send "d\r"
-expect ">"; send "s\r"
+expect ">"; send "north\r"
+expect ">"; send "east\r"
+expect ">"; send "down\r"
+expect ">"; send "south\r"
 expect ">"; send "show invitation to butler\r"; # [1pts]
-expect ">"; send "s\r"
+expect ">"; send "south\r"
 expect ">"; send "wait\r"
 
 # library; passage?
@@ -181,8 +181,8 @@ expect ">"; send "wait\r"
 
 expect ">"; send "wait\r"
 expect ">"; send "open door\r"
-expect ">"; send "s\r"
-expect ">"; send "n\r"
+expect ">"; send "south\r"
+expect ">"; send "north\r"
 expect ">"; send "yes\r"
 
 # Lafond
@@ -192,67 +192,67 @@ expect ">"; send "examine ring\r"
 
 # Butler will summon you! [1pts]
 
-expect ">"; send "e\r"
-expect ">"; send "n\r"
-expect ">"; send "n\r"
+expect ">"; send "east\r"
+expect ">"; send "north\r"
+expect ">"; send "north\r"
 expect ">"; send "take hat\r"
-expect ">"; send "x books\r"
+expect ">"; send "examine books\r"
 expect ">"; send "take treatise of power\r"; # [1pts]
-expect ">"; send "x globe\r"
+expect ">"; send "examine globe\r"
 expect ">"; send "press st sinistra\r"; # [1pts]
-expect ">"; send "n\r"
+expect ">"; send "north\r"
 expect ">"; send "close portrait\r"
-expect ">"; send "d\r"
-expect ">"; send "e\r"
-expect ">"; send "e\r"
+expect ">"; send "down\r"
+expect ">"; send "east\r"
+expect ">"; send "east\r"
 expect ">"; send "take horn and key\r"; # [1pts]
-expect ">"; send "w\r"
-expect ">"; send "s\r"
+expect ">"; send "west\r"
+expect ">"; send "south\r"
 expect ">"; send "open door\r"
-expect ">"; send "e\r"
-expect ">"; send "w\r"
+expect ">"; send "east\r"
+expect ">"; send "west\r"
 expect ">"; send "close door\r"
-expect ">"; send "n\r"
-expect ">"; send "w\r"
-expect ">"; send "s\r"
-expect ">"; send "x bottle\r"
+expect ">"; send "north\r"
+expect ">"; send "west\r"
+expect ">"; send "south\r"
+expect ">"; send "examine bottle\r"
 expect ">"; send "read label\r"
 expect ">"; send "put laudanum on pork\r"
 expect ">"; send "give pork to crocodile\r"
 expect ">"; send "wait\r"; # 2x
 expect ">"; send "wait\r"; # [1pts]
-expect ">"; send "s\r"
-expect ">"; send "w\r"
+expect ">"; send "south\r"
+expect ">"; send "west\r"
 expect ">"; send "unlock door with key\r"
 expect ">"; send "open door\r"
-expect ">"; send "n\r"; # [1pts]
+expect ">"; send "north\r"; # [1pts]
 expect ">"; send "wait\r"
 
 # meet at beach
 
-expect ">"; send "s\r"
-expect ">"; send "e\r"
-expect ">"; send "n\r"
-expect ">"; send "n\r"
-expect ">"; send "u\r"
+expect ">"; send "south\r"
+expect ">"; send "east\r"
+expect ">"; send "north\r"
+expect ">"; send "north\r"
+expect ">"; send "up\r"
 expect ">"; send "open portrait\r"
-expect ">"; send "s\r"
+expect ">"; send "south\r"
 expect ">"; send "close portrait\r"
 
 # Jamison caught....
 
-expect ">"; send "u\r"
-expect ">"; send "w\r"
-expect ">"; send "s\r"
+expect ">"; send "up\r"
+expect ">"; send "west\r"
+expect ">"; send "south\r"
 expect ">"; send "wait\r"
 
 # butler shows you!
 
-expect ">"; send "n\r"
-expect ">"; send "e\r"
-expect ">"; send "e\r"
+expect ">"; send "north\r"
+expect ">"; send "east\r"
+expect ">"; send "east\r"
 expect ">"; send "open door\r"
-expect ">"; send "n\r"; # [1pts]
+expect ">"; send "north\r"; # [1pts]
 
 # blue goblet for your....
 
@@ -280,37 +280,37 @@ expect ">"; send "wait\r"
 expect ">"; send "wait\r"; # thump-phoosh [1pts]
 expect ">"; send "take spices\r"
 expect ">"; send "blow spices at Lafond\r"; # [1 pts]
-expect ">"; send "s\r"
-expect ">"; send "n\r"
+expect ">"; send "south\r"
+expect ">"; send "north\r"
 expect ">"; send "take all\r"
-expect ">"; send "s\r"
-expect ">"; send "w\r"
-expect ">"; send "d\r"
+expect ">"; send "south\r"
+expect ">"; send "west\r"
+expect ">"; send "down\r"
 expect ">"; send "Cookie, follow me\r"
-expect ">"; send "e\r"
-expect ">"; send "n\r"
+expect ">"; send "east\r"
+expect ">"; send "north\r"
 expect ">"; send "take hat\r"
 expect ">"; send "take treatise of power\r"
 expect ">"; send "push st sinistra\r"
-expect ">"; send "n\r"
-expect ">"; send "d\r"
-expect ">"; send "s\r"
-expect ">"; send "s\r"
+expect ">"; send "north\r"
+expect ">"; send "down\r"
+expect ">"; send "south\r"
+expect ">"; send "south\r"
 expect ">"; send "take rapier\r"
 expect ">"; send "fight crulley with rapier\r"; # 2x
 expect ">"; send "fight crulley with rapier\r"; # [1pts]
 expect ">"; send "close trapdoor\r"
 expect ">"; send "give smelling salts to jamison\r"; # [1pts]
 expect ">"; send "unlock chains with brooch\r"; # [1pts]
-expect ">"; send "n\r"
-expect ">"; send "n\r"
-expect ">"; send "u\r"
-expect ">"; send "s\r"
-expect ">"; send "s\r"
-expect ">"; send "w\r"
-expect ">"; send "u\r"
-expect ">"; send "e\r"
-expect ">"; send "s\r"
+expect ">"; send "north\r"
+expect ">"; send "north\r"
+expect ">"; send "up\r"
+expect ">"; send "south\r"
+expect ">"; send "south\r"
+expect ">"; send "west\r"
+expect ">"; send "up\r"
+expect ">"; send "east\r"
+expect ">"; send "south\r"
 expect ">"; send "untie rope\r"
 expect ">"; send "take rope\r";
 
@@ -318,11 +318,11 @@ expect ">"; send "take rope\r";
 
 expect ">"; send "go down with rope\r"; # [1pts]
 expect ">"; send "take all\r"
-expect ">"; send "s\r"
-expect ">"; send "s\r"
-expect ">"; send "s\r"
+expect ">"; send "south\r"
+expect ">"; send "south\r"
+expect ">"; send "south\r"
 expect ">"; send "take stone\r"
-expect ">"; send "x stone\r"
+expect ">"; send "examine stone\r"
 expect ">"; send "yes\r"
 expect ">"; send "take pistol\r"
 expect ">"; send "load pistol\r"; # [1pts]
