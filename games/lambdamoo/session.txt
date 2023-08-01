@@ -1,0 +1,154 @@
+spawn telnet lambda.moo.mud.org 8888
+Trying 209.181.94.35...
+Connected to lambda.moo.mud.org.
+Escape character is '^]'.
+                          ***************************
+                          *  Welcome to LambdaMOO!  *
+                          ***************************
+                                       
+                     Running Version 1.8.3+47 of LambdaMOO
+
+PLEASE NOTE:
+   LambdaMOO is a new kind of society, where thousands of people voluntarily
+come together from all over the world.  What these people say or do may not
+always be to your liking; as when visiting any international city, it is wise
+to be careful who you associate with and what you say.
+   The operators of LambdaMOO have provided the materials for the buildings of
+this community, but are not responsible for what is said or done in them.  In
+particular, you must assume responsibility if you permit minors or others to
+access LambdaMOO through your facilities.  The statements and viewpoints
+expressed here are not necessarily those of the wizards, Pavel Curtis,
+or Roger Crew, and those parties disclaim any responsibility for them.
+
+NOTICE FOR JOURNALISTS AND RESEARCHERS:
+  The citizens of LambdaMOO request that you ask for permission from all
+direct participants before quoting any material collected here.
+
+For assistance either now or later, type `help'.
+The lag is low; there are 45 connected.
+connect guest
+
+
+     Guests at LambdaMOO are warned that they are accountable for
+     their actions here. In particular, Guests are warned that any
+     mail or other form of communication sent to individual characters
+     here, may be traced back to the site from which you are logged
+     in; this information may be used in the event of a complaint
+     against you and may be made available to someone acting in an
+     official capacity.  Logging into LambdaMOO as a Guest implies
+     that you have read and understood this warning and that you
+     accept these facts - and that in the event of any need to use
+     your site information in the aforementioned manner, you agree to
+     its use.
+
+Having read the above text, do you wish to connect?  [YES/NO]
+yes
+*** Connected ***
+The Coat Closet
+The closet is a dark, cramped space.  It appears  to be very crowded in here;
+ you keep bumping into what feels like coats,  boots, and other people
+ (apparently sleeping).  One useful thing that you've  discovered in your
+ bumbling about is a metal doorknob set at waist level into  what might be a
+ door.  Next to it is a spring lever labeled 'QUIET!'.  
+There is new news.  Type `news' to read all news or `news new' to read just
+ new news.
+Type `@tutorial' for an introduction to basic MOOing.  If you have not already
+ done so, please type `help manners' and read the text carefully.  It outlines
+ the community standard of conduct, which each player is expected to follow
+ while in LambdaMOO.
+help
+Help is available on the following general topics:
+
+introduction -- what's going on here and some basic commands
+index -- index into the help system
+
+players -- setting characteristics of yourself
+movement -- moving yourself between rooms
+communication -- communicating with other players
+manipulation -- moving or using other objects
+miscellaneous -- commands that don't fit anywhere else
+
+building -- extending the MOO
+programming -- writing code in the MOO programming language
+editors -- editing text and code in the MOO
+
+@pagelength -- what to do if lines scroll off your screen too fast
+@linelength -- what to do if lines are truncated
+tinymud -- a list of equivalences between MOO and TinyMUD concepts/commands
+
+LambdaMOO -- the `theme' of LambdaMOO, what new building should be like
+manners -- the commonly-accepted rules of behavior on this MUD
+wizard-list -- current list of LambdaMOO wizards
+defense -- how to protect yourself from nasty users
+geography -- a map of the main part of the house
+
+Type 'help <topic>' for information on a particular topic.
+
+@who
+Player name                     Connected    Idle time    Location
+-----------                     ---------    ---------    --------
+Guest (#5704)                   0 seconds    0 seconds    The Coat Closet
+m0n0r4il (#120347)              11 days      4 seconds    FunkyTown
+Krate (#47498)                  20 seconds   20 seconds   La Cantina de los Pro
+Firdarrig (#97792)              4 days       a minute     Trane's Hamlet
+AcidHorse (#6924)               8 days       13 minutes   Deepthought's Lair
+Ox (#54875)                     a day        an hour      Home
+Mack (#47551)                   2 hours      2 hours      La Cantina de los Pro
+crouton (#93202)                11 days      2 hours      The space between
+DistantOrigin (#123332)         151 days     2 hours      Void
+Nosredna (#2487)                a day        3 hours      Bookcase
+Kagan (#102427)                 20 days      3 hours      Den
+Mordred (#116359)               135 days     4 hours      La Cantina de los Pro
+Gator (#125312)                 5 hours      5 hours      Gator's Flying Cloud
+Fox-In-Sox (#116440)            5 days       5 hours      floating eye
+Kephalos (#77355)               4 days       6 hours      La Cantina de los Pro
+Anxis (#110891)                 159 days     7 hours      La Cantina de los Pro
+ACW (#116789)                   11 days      8 hours      Linguistics Departmen
+elsa (#125418)                  2 days       10 hours     ice lingerie
+hhsb (#115393)                  a day        10 hours     Squat
+ring (#116291)                  15 days      15 hours     Bedroom #2
+Loorimar (#97547)               15 hours     15 hours     Dyrsan's Place
+brick (#59240)                  6 days       18 hours     Nowhere
+imogene (#125450)               2 days       19 hours     %imogene
+Rydia (#106587)                 a day        a day        Den
+Shaddack_the_Dragon (#113663)   58 days      a day        Shaddack's Lab
+kazemi (#121063)                158 days     2 days       A tiny house
+Karl (#49702)                   2 days       2 days       Spacepad-Remote Hq.
+J.P. (#123403)                  7 days       3 days       J.P.'s Room
+Puff (#1449)                    10 days      4 days       The space between
+lisdude (#119415)               4 days       4 days       The Living Room
+Eclipse (#49921)                4 days       4 days       Japanese Garden
+MichaelG (#55090)               7 days       4 days       The MOOniversal Life 
+Dylan (#104059)                 160 days     5 days       Dylan's Den
+neuro (#82254)                  13 days      12 days      Neuromancer's Abode
+xenos (#84490)                  125 days     13 days      Alien's Alcove!
+mccloud (#125498)               14 days      14 days      The Living Room
+Rog (#4292)                     109 days     25 days      Rog's Apartment
+thwarted (#69976)               28 days      28 days      A fist full of Guest 
+cyberat (#102799)               41 days      41 days      Cyberats lair
+Llyrica (#86080)                61 days      56 days      Possibilities (310 po
+stucky (#108696)                61 days      61 days      Zombieland
+Kenny (#53595)                  88 days      71 days      Golden Eagle
+craque (#112500)                77 days      77 days      La Cantina de los Pro
+Green_Bird (#112973)            91 days      91 days      A usually empty room
+Daiverd (#125195)               116 days     109 days     A tiny house
+GrendelFish (#88093)            119 days     117 days     Tammany hall
+
+Total: 46 players, 4 of whom have been active recently.
+open door
+You open the closet door and leave the darkness for the living room, closing
+ the door behind you so as not to wake the sleeping people inside.
+The Living Room
+It is very bright, open, and airy here, with large plate-glass windows looking
+ southward over the pool to the gardens beyond.  On the north wall, there is a
+ rough stonework fireplace.  The east and west walls are almost completely
+ covered with large, well-stocked bookcases.  An exit in the northwest corner
+ leads to the kitchen and, in a more northerly direction, to the entrance
+ hall.  The door into the coat closet is at the north end of the east wall,
+ and at the south end is a sliding glass door leading out onto a wooden deck. 
+ There are two sets of couches, one clustered around the fireplace and one
+ with a view out the windows.
+You see Welcome Poster, a fireplace, the living room couch, Statue, a map of
+ LambdaHouse, Helpful Person Finder, The Birthday Machine, Cockatoo, and lag
+ meter here.
+mccloud and lisdude (out on his feet) are here.

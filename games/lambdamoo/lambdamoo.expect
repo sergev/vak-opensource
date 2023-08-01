@@ -1,0 +1,31 @@
+#!/usr/bin/expect -f
+#
+# Play game Plundered Hearts.
+#
+# Based on Erik Futtrup's and Twan Lintermans's guide:
+# https://gamefaqs.gamespot.com/pc/564474-plundered-hearts/faqs/1624
+#
+set timeout -1
+
+# Remove previous log, if any.
+system rm -f "game.log"
+log_file "game.log"
+
+# Start the game.
+spawn telnet lambda.moo.mud.org 8888
+match_max 100000
+
+# Home:
+
+expect "connected."; send "connect guest\r"
+expect "YES/NO"; send "yes\r"
+expect "The Coat Closet"; send "help\r"
+expect "topic."; send "@who\r"
+expect "recently."; send "open door\r"
+expect "here."; send "@quit\r"
+puts ""
+exit
+
+#expect "\n"; send "help manners\r"
+#expect "\n"; send "@tutorial\r"
+#expect "\n"; send "news\r"
