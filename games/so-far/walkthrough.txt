@@ -19,11 +19,9 @@ Copyright 1996 by Andrew Plotkin.
 (First-time players should type "about".)
 Release 6 / Serial number 961218 / Inform v1502 Library 5/12
 Standard interpreter 1.1
-occurrences)
 
 
 
-occurrences)
 
  (on the bench)
 If nothing else, you have a good seat. The stage is only a few rows to the
@@ -130,7 +128,6 @@ You push through the crowd...
 You are adrift in a sea of knees. People squirm to give you room, glowering
 politely around you as they try to watch the play. The aisle is nearby, west,
 and your seat is far in to the east.
-occurrences)
 
 Imita turns and pleads her dilemma to the audience: "What scourge, what scourge
 I bear, from what red star / So near to happiness, and yet so far?" She is in

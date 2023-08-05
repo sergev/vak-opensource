@@ -12,4 +12,5 @@ sed -i~ '
 /^>/{N;N;s/\n\n/\
 /;}
 /Warning:/d
+/^occurrences)/d
 ' game.log
