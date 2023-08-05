@@ -11,4 +11,5 @@ s///g
 sed -i~ '
 /^>/{N;N;s/\n\n/\
 /;}
+/Warning:/d
 ' game.log

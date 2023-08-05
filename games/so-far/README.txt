@@ -7,6 +7,8 @@ Download and play the game:
     $ wget https://eblong.com/zarf/ftp/SoFar.z8
     $ frotz SoFar.z8
 
+Play online: https://eblong.com/zarf/zweb/sofar/
+
 Hints: https://ifarchive.org/if-archive/solutions/SoFar.step
 
 Sources: https://eblong.com/zarf/ftp/sofar-src.tar.gz

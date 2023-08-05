@@ -19,9 +19,7 @@ Copyright 1996 by Andrew Plotkin.
 (First-time players should type "about".)
 Release 6 / Serial number 961218 / Inform v1502 Library 5/12
 Standard interpreter 1.1
-Warning: @get_prop_addr called with object 0 (PC = d90c) (will ignore further
 occurrences)
-Warning: @get_parent called with object 0 (PC = d90f) (will ignore further
 
 
 
@@ -132,7 +130,6 @@ You push through the crowd...
 You are adrift in a sea of knees. People squirm to give you room, glowering
 politely around you as they try to watch the play. The aisle is nearby, west,
 and your seat is far in to the east.
-Warning: @get_child called with object 0 (PC = f983) (will ignore further
 occurrences)
 
 Imita turns and pleads her dilemma to the audience: "What scourge, what scourge
