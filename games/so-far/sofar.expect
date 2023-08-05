@@ -1,0 +1,479 @@
+#!/usr/bin/expect -f
+#
+# Play game So Far.
+#
+# Based on walkthrough: https://ifarchive.org/if-archive/solutions/SoFar.step
+#
+set timeout -1
+
+# Remove previous log, if any.
+system rm -f "game.log"
+log_file "game.log"
+
+# Start the game.
+spawn dfrotz -m -s 123 SoFar.z8
+match_max 100000
+
+expect ">"; send "about\r"
+
+# What to do in the different sections in the game:
+# (hot, sticky):
+#
+# You have to find your way to the first shadow. Did you feel the breeze of
+# air inside the theatre? There is another one outside the theater. Explore
+# it and you will find a doorway behind the shrubs. Behind it you will find a
+# cupboard, inside which rests a box. Take it. Did you examine the cupboard?
+# Did you have a look at the shadow? Enter it and you will be in (autumn,
+# cool, smoky).
+
+expect ">"; send "stand up\r"
+expect ">"; send "west\r"
+expect ">"; send "west\r"
+expect ">"; send "west\r"
+expect ">"; send "west\r"
+expect ">"; send "south\r"
+expect ">"; send "south\r"
+expect ">"; send "feel air\r"
+expect ">"; send "south\r"
+expect ">"; send "south\r"
+expect ">"; send "west\r"
+expect ">"; send "feel air\r"
+expect ">"; send "examine shrubs\r"
+expect ">"; send "north\r"
+expect ">"; send "feel air\r"
+expect ">"; send "north\r"
+expect ">"; send "west\r"
+expect ">"; send "open cupboard\r"
+expect ">"; send "examine it\r"
+expect ">"; send "get box\r"
+expect ">"; send "examine shadow\r"
+expect ">"; send "enter it\r"
+expect "]"; send "\r"
+
+# (autumn, cool, smoky):
+#
+# You will have to open the gate. West of the chimney you can find something,
+# which will help you opening the hatches of the pillars. You should open the
+# hatch on the western pillar first, because there are 3 more pods in it.
+# Have you tried pushing the western pillar (save your game first)? Now think
+# what you can do, to open the gate. You have to oil the wheel in the eastern
+# pillar and push the western after it. Voila, the gate is open. Next, you
+# will have to turn on the generator in the dome. If you die after you have
+# been in the small chamber inside the dome, you should examine the plants.
+# If you touch them and smell the vapor, you will be save for a few turns.
+# Now what to do with the blocks? Try moving them. But only as close as you
+# have to. Listen carefully! If you managed that, you can pull the western
+# lever at the castle to gain entrance to the balcony. The shadow here leads
+# to (bright, bitter, wind), but you need something from (warm, arid, dusty)
+# before you enter it.
+
+expect ">"; send "north\r"
+expect ">"; send "west\r"
+expect ">"; send "examine vine\r"
+expect ">"; send "get pod\r"
+expect ">"; send "east\r"
+expect ">"; send "examine chimney\r"
+expect ">"; send "examine shadow\r"
+expect ">"; send "north\r"
+expect ">"; send "west\r"
+expect ">"; send "examine pillar\r"
+expect ">"; send "squeeze pod on hatch\r"
+expect ">"; send "open hatch\r"
+expect ">"; send "wait\r"
+expect ">"; send "enter pillar\r"
+expect ">"; send "up\r"
+expect ">"; send "get pods\r"
+expect ">"; send "down\r"
+expect ">"; send "out\r"
+expect ">"; send "east\r"
+expect ">"; send "east\r"
+expect ">"; send "squeeze pod on hatch\r"
+expect ">"; send "open hatch\r"
+expect ">"; send "enter pillar\r"
+expect ">"; send "up\r"
+expect ">"; send "squeeze pod on wheel\r"
+expect ">"; send "down\r"
+expect ">"; send "out\r"
+expect ">"; send "west\r"
+expect ">"; send "west\r"
+expect ">"; send "push pillar\r"
+expect ">"; send "east\r"
+expect ">"; send "north\r"
+expect ">"; send "north\r"
+expect ">"; send "nw\r"
+expect ">"; send "west\r"
+expect ">"; send "open hatch\r"
+expect ">"; send "touch plant\r"
+expect ">"; send "breathe vapor\r"
+expect ">"; send "west\r"
+expect ">"; send "move left block\r"
+expect ">"; send "again\r"
+expect ">"; send "again\r"
+expect ">"; send "again\r"
+expect ">"; send "again\r"
+expect ">"; send "east\r"
+expect ">"; send "east\r"
+expect ">"; send "ne\r"
+expect ">"; send "pull lever\r"
+expect ">"; send "south\r"
+expect ">"; send "south\r"
+expect ">"; send "south\r"
+expect ">"; send "south\r"
+expect ">"; send "south\r"
+expect ">"; send "enter shadow\r"
+expect "]"; send "\r"
+
+# (mild spring, quiet):
+#
+# When you are here for the first time, there is not much you can do. So
+# search for another shadow. You will find it east from the center of the
+# mall. You can only go east from the mall, if there is just one "guard"
+# standing around. You will need the ceramic square. A boy will eventually
+# drop it in the mall. The shadow will lead you to (warm, arid, dusty).
+#
+# If you solved (autumn, cool, smoky), (warm, arid, dusty), (bright, bitter,
+# wind), (bitter reek) and (formless) you can have a look at the animals. You
+# will need a saddle and a knife. The saddle can be found in the arena, north
+# of the dusty yard. You have to get it, when three people are cleaning the
+# arena. What to do with the animals? Did you try freeing the violet or green
+# one (save your game first)? What if the crested one was not tied to the
+# wall? So you now have to choose the right one to ride. The green one does
+# not like water, so put the saddle (orange thing) on the violet creature and
+# enter and untie it. Whee, ok, the shadow at the flagpole leads you to
+# (dank, black).
+
+expect ">"; send "west\r"
+expect ">"; send "sw\r"
+expect ">"; send "east\r"
+expect ">"; send "south\r"
+# [wait until there is only one person here]
+expect ">"; send "east\r"
+expect ">"; send "enter shadow\r"
+expect "]"; send "\r"
+
+# (warm, arid, dusty):
+#
+# You will have to get some things from the tents. You must be careful not to
+# disturb the people. Use the flattened path as it muffles your steps. Which
+# things to get from the man? You will need the jar and the knife. After you
+# take the second thing from the man you have to get as quickly as possible
+# to the shadow. Walk SE 2 times. There you are. Enter the shadow, then come
+# back. The angry people have disappeared and you can fill your jar with
+# water now.
+
+expect ">"; send "south\r"
+expect ">"; send "west\r"
+expect ">"; send "north\r"
+expect ">"; send "north\r"
+expect ">"; send "north\r"
+expect ">"; send "get knife\r"
+expect ">"; send "get jar\r"
+expect ">"; send "se\r"
+expect ">"; send "se\r"
+expect ">"; send "enter shadow\r"
+expect "]"; send "\r"
+
+# (mild spring, quiet)
+
+expect ">"; send "enter shadow\r"
+expect "]"; send "\r"
+
+# (warm, arid, dusty)
+
+expect ">"; send "south\r"
+expect ">"; send "west\r"
+expect ">"; send "fill jar\r"
+expect ">"; send "north\r"
+expect ">"; send "east\r"
+expect ">"; send "enter shadow\r"
+expect "]"; send "\r"
+
+# (mild spring, quiet)
+
+expect ">"; send "west\r"
+expect ">"; send "wait\r"; # [if the ceramic square is not here, wait a while and look for the boy, who drops it eventually]
+expect ">"; send "get square\r"
+expect ">"; send "north\r"
+expect ">"; send "west\r"
+expect ">"; send "ne\r"
+expect ">"; send "east\r"
+expect ">"; send "enter shadow\r"
+expect "]"; send "\r"
+
+# (autumn, cool, smoky)
+
+expect ">"; send "north\r"
+expect ">"; send "north\r"
+expect ">"; send "north\r"
+expect ">"; send "north\r"
+expect ">"; send "west\r"
+expect ">"; send "east\r"
+expect ">"; send "enter shadow\r"
+expect "]"; send "\r"
+
+# (bright, bitter wind):
+#
+# First, find something to protect you from the cold. You can wear the
+# blanket, lying at the pole. You should not lick the pole, because you can
+# only get your tongue off again, when you light it, and you have better uses
+# for your light. How to come in the cave? Perhaps if you break something off
+# the cliff you could reach it. Noticed that crack? Try to pour your water
+# in. After the cliff has collapsed you can enter the cave. You will find a
+# shadow leading to (bitter reek).
+
+expect ">"; send "south\r"
+expect ">"; send "get blanket\r"
+expect ">"; send "wear it\r"
+expect ">"; send "west\r"
+expect ">"; send "nw\r"
+expect ">"; send "south\r"
+expect ">"; send "pour water in crack\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "north\r"
+expect ">"; send "se\r"
+expect ">"; send "sw\r"
+expect ">"; send "enter rubble\r"
+expect ">"; send "west\r"
+expect ">"; send "west\r"
+expect ">"; send "remove blanket\r"
+expect ">"; send "examine shadow\r"
+expect ">"; send "enter it\r"
+expect "]"; send "\r"
+
+# (bitter reek):
+#
+# There is nothing to do here, just find the shadow on the west side, which
+# will lead you to (formless).
+
+expect ">"; send "nw\r"
+expect ">"; send "examine dome\r"
+expect ">"; send "examine shadow\r"
+expect ">"; send "enter it\r"
+expect "]"; send "\r"
+
+# (formless):
+#
+# Pay attention to the messages, which appear when you move. You will have to
+# go the way, where it says that you feel a faint resistance. When you get
+# another message use undo and try a different direction. You will then come
+# to a place where you feel an intense resistance in every direction. Wait
+# for the shadows to form a ring and enter it. It leads you back to (bitter
+# reek) where you now find a sphere. Notice that the sphere will change its
+# form depending in which area you are!
+
+expect ">"; send "west\r"
+expect ">"; send "north\r"
+expect ">"; send "north\r"
+expect ">"; send "north\r";              # You always have to go in the direction where
+expect ">"; send "sw\r";                 # it says "..faint resistance..", use undo if
+expect ">"; send "north\r";              # you went the wrong way]
+expect ">"; send "sw\r"
+expect ">"; send "north\r"
+expect ">"; send "sw\r"
+expect ">"; send "north\r"
+expect ">"; send "sw\r"
+expect ">"; send "north\r"
+expect ">"; send "sw\r"
+expect ">"; send "north\r"
+expect ">"; send "west\r"
+expect ">"; send "north\r"
+
+# [You will then come to a place, where you cannot move in any direction:]
+
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "examine ring\r"
+expect ">"; send "enter it\r"
+expect ">"; send "examine shadow\r"
+expect ">"; send "enter it\r"
+expect "]"; send "\r"
+
+# (bitter reek)
+
+expect ">"; send "get sphere\r"
+expect ">"; send "se\r"
+expect ">"; send "enter shadow\r"
+expect "]"; send "\r"
+
+# (bright, bitter wind)
+
+# [notice that your sphere has transformed into a plaque]
+
+expect ">"; send "east\r"
+expect ">"; send "east\r"
+expect ">"; send "east\r"
+expect ">"; send "ne\r"
+expect ">"; send "east\r"
+expect ">"; send "north\r"
+expect ">"; send "enter shadow\r"
+expect "]"; send "\r"
+
+# (autumn, cool, smoky)
+
+# [notice that your plaque has transformed into a book]
+
+expect ">"; send "west\r"
+expect ">"; send "south\r"
+expect ">"; send "south\r"
+expect ">"; send "south\r"
+expect ">"; send "south\r"
+expect ">"; send "south\r"
+expect ">"; send "enter shadow\r"
+expect "]"; send "\r"
+
+# (mild spring, quiet)
+
+# [notice that your book has transformed into a casket]
+
+expect ">"; send "west\r"
+expect ">"; send "sw\r"
+expect ">"; send "wait\r"; # [wait until three people appear and open the northern gate]
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "north\r"
+expect ">"; send "get orange\r"
+expect ">"; send "south\r"
+expect ">"; send "cut tether with knife\r"
+expect ">"; send "south\r"
+expect ">"; send "put orange on violet\r"
+expect ">"; send "enter violet\r"
+expect ">"; send "untie it\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "examine flagpole\r"
+expect ">"; send "examine shadow\r"
+expect ">"; send "enter shadow\r"
+expect "]"; send "\r"
+
+# (dank black):
+#
+# You will have to use your ears here. Notice that you can "take" some sounds
+# here, which will allow you to move in directions you could not, when you
+# were not "holding" the sound. Note: You can also take the "low plooping"
+# sound, although it is not listed like the other ones. You will find a place
+# of silence which you can enter. It leads to (cramped, crawling).
+
+# [notice that your casket has transformed into a mass]
+
+expect ">"; send "south\r"
+expect ">"; send "sw\r"
+expect ">"; send "get thudding\r"
+expect ">"; send "ne\r"
+expect ">"; send "sing to box\r"; # [when you hear the chord use "sing to box"]
+expect ">"; send "north\r"
+expect ">"; send "west\r"
+expect ">"; send "north\r"
+expect ">"; send "drop thudding\r"
+expect ">"; send "get low plooping\r"
+expect ">"; send "south\r"
+expect ">"; send "get thudding\r"
+expect ">"; send "ne\r"
+expect ">"; send "east\r"
+expect ">"; send "south\r"
+expect ">"; send "se\r"
+expect ">"; send "examine silence\r"
+expect ">"; send "enter it\r"
+expect "]"; send "\r"
+
+# (cramped, crawling):
+#
+# You will need a light source here. Therefore examine your jar. You have
+# something, which will make it into a light source. Right, your leftover
+# pod. Squeeze it in the jar. Now you need something to light it. Have you
+# examined the square? Break it. Do not light the whole oil at once! Wait a
+# moment and you notice a trickle of oil coming out of the jar. Light this
+# and you will have a light source. Then you have to find out how to use the
+# pipes. You have to hit them. You will eventually find a boy here and you
+# should have a thick pipe left when you find him. If you have not, try to
+# hit the pipes in another order. When you find the shadow, drop the jar and
+# the shadow will lead you to (meaningless).
+
+# [notice that your mass has transformed into a block of wood]
+
+expect ">"; send "get all\r"
+expect ">"; send "hit thick\r"
+expect ">"; send "get all\r"
+expect ">"; send "hit thin\r"
+expect ">"; send "hit thin\r"
+expect ">"; send "hit thin\r"
+expect ">"; send "get all\r"
+expect ">"; send "squeeze pod in jar\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "break square\r"
+expect ">"; send "light trickle\r"
+expect ">"; send "hit thick\r"
+expect ">"; send "get all\r"
+expect ">"; send "hit thick\r"
+expect ">"; send "hit thick\r"
+expect ">"; send "hit thick\r"
+expect ">"; send "get thick\r"
+expect ">"; send "wait\r"
+expect ">"; send "ask boy for pipe\r"
+expect ">"; send "get thick\r"
+expect ">"; send "hit it\r"
+expect ">"; send "examine shadow\r"
+expect ">"; send "drop jar\r"
+expect ">"; send "enter shadow\r"
+expect "]"; send "\r"
+
+# (meaningless):
+#
+# When you check your inventory you will notice that your sphere has changed
+# into a ridged brown cube. You have to make it a regular colorless cube.
+# When you move the cube you get information about what happens with the
+# cube, when you move in certain directions. Take the right way and your cube
+# will lose its color. There you will see a ring like in (formless). You have
+# to enter it (twice) and answer the question. That's it.
+
+# (meaningless)
+
+# [notice that your block of wood has transformed into a ridged brown cube]
+
+expect ">"; send "move brown cube\r"
+expect ">"; send "move it\r"
+
+# [it says you what the cube looks like in different directions, you have to
+# choose the one, where it looks more regular/smoother/paler/fainter]
+
+expect ">"; send "nw\r"
+expect ">"; send "move brown cube\r"
+expect ">"; send "west\r"
+expect ">"; send "move brown cube\r"
+expect ">"; send "se\r"
+expect ">"; send "move brown cube\r"
+expect ">"; send "sw\r"
+expect ">"; send "move brown cube\r"
+
+# [repeat until your cube switches his color to tan]
+
+expect ">"; send "move tan cube\r"
+expect ">"; send "ne\r"
+
+# [the color of the cube should have faded now]
+
+expect ">"; send "examine ring\r"
+expect ">"; send "enter it\r"
+expect ">"; send "enter it\r"
+expect ">"; send "no\r"
+expect "]"; send "\r"
+
+# Quit
+expect ">"; send "quit\r"
+puts ""
+exit

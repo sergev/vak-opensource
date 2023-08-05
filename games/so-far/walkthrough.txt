@@ -1,0 +1,3207 @@
+spawn dfrotz -m -s 123 SoFar.z8
+Using normal formatting.
+Loading SoFar.z8.
+Hot, foul, and dark. How did indoor theater become so fashionable? Well enough
+in spring rain or winter, but not in the thick, dead afternoon of high summer.
+And though  looks very fine, shining with electric moonslight in
+the enclosed gloom, you're much more aware of being crammed in neck-by-neck with
+your sweaty fellow citizens.
+
+Damn the crowd, in truth: your mood was hot, foul, and dark when you sat down.
+Aessa was supposed to meet you here. She's made excuses before, and you don't
+think about what it might mean. Try not to think, rather. Just watch the story.
+One of your favorites. But it's miserably hot, and you just aren't caught up in
+the play...
+
+
+An Interactive Catharsis
+Copyright 1996 by Andrew Plotkin.
+(First-time players should type "about".)
+Release 6 / Serial number 961218 / Inform v1502 Library 5/12
+Standard interpreter 1.1
+Warning: @get_prop_addr called with object 0 (PC = d90c) (will ignore further
+occurrences)
+Warning: @get_parent called with object 0 (PC = d90f) (will ignore further
+
+
+
+occurrences)
+
+ (on the bench)
+If nothing else, you have a good seat. The stage is only a few rows to the
+north. People are jammed on benches in every direction; you think the aisle is
+somewhere to the west.
+
+The play is into the final act. Rito has finally found out about Imita's affair,
+and he stalks the stage, whipping voice and hands about himself. A footfall
+behind him; he turns, and sees Imita. She backs a step at the force of his gaze.
+
+>about
+ is copyright 1996 by Andrew Plotkin. It may be copied, distributed, and
+played freely.
+
+This is a shortish-to-medium-sized game. More than a short story, less than a
+full-length novel. Its rating is "cruel." It is possible to make mistakes which
+will prevent you from winning. Sometimes common sense will serve to avoid such
+mistakes; sometimes insight is necessary; sometimes neither will help. Save
+often, and keep your old saved games.
+
+Do not expect  to be anything like  It's not.
+
+This game was created using the Inform adventure development system, which was
+created by Graham Nelson. You can get Inform, as well as other text adventures,
+from the Interactive Fiction archive:
+   ftp://ftp.gmd.de/if-archive/
+
+This game is free. But if you feel like sending me money, I won't refuse. If you
+feel like sending me comments or bug reports, I'll be ecstatic. As of the end of
+1996, I am at
+
+   erkyrath@netcom.com
+
+   Andrew Plotkin
+   7529 Murray Hill Rd. #322
+   Columbia, MD 21046
+   USA
+
+Further acknowledgements:
+
+   Beta testing: Michael "The Inescapable" Kinyon, C. E. Forman, Neil Demause,
+Jools Arnold, Magnus Olsson, Gareth Rees.
+   Omega testing: Kai Hesse, Lucian Smith, Jon Conrad, Mike Phillips, Matthew
+MacKenzie, Paul C. Trauth, David Auerbach, Michael Haralambous, Stephen Granade,
+Dylan Thurston, Dan Shiovitz, Admiral Jota, Mikko Vuorinen, Dylan O'Donnell,
+Robert Rendell, Joe Mason, Marnix Klooster, Avrom Faderman.
+   Extra ideas: My brain. (Honest, it comes up with stuff all on its own.
+Sometimes it doesn't tell me the reasons until days later. Then I scream.)
+   Dinners of some relevance: Nikki, Jen, Aleecia, Jody.
+   Surreal confidence: Tom.
+   DJ'ing folk music on the radio for five hours every Saturday night, thus
+providing me with prime working atmosphere: Mary Cliff.
+   Playing incredibly funny folk music, both on the radio and live: The Foremen.
+
+
+
+This game is dedicated. (For real.)
+
+>stand up
+You push yourself to your feet. Naturally, your spot on the bench instantly
+vanishes in the crush.
+
+The players continue....
+
+   
+   How come you, harlot? Dare you come this way,
+   your skin yet dark with Tato's shadow's stain?
+
+   
+   Young lord, I will not kneel. And shadowed dark,
+   or white with rays of moon or sun or moon,
+   my flesh is mine. Or nearly so; I find --
+
+   
+   Say on! What more has hated Tato done?
+
+You shake your head, trying to net your straying thoughts, and catch a flash of
+copper hair. A few rows back, by the aisle -- Aessa couldn't have shown up and
+ seen you, could she? She wouldn't be avoiding you.
+
+
+
+>west
+
+As you start to push through the crowd, you find a knee jammed unpleasantly in
+your path. You manage not to trip. The owner of the knee mumbles pungently, jams
+it out of your way (into someone else's), and curtly gestures you to pass.
+
+   
+   Oh, do not hate. For dazzled though she was,
+   Imita's put him by; he's naught and gone --
+   But nearly, for she carries Tato's son.
+
+   
+   She -- you -- you say -- aah!
+
+   (He rushes from the stage.)
+
+>west
+
+You push through the crowd...
+
+
+You are adrift in a sea of knees. People squirm to give you room, glowering
+politely around you as they try to watch the play. The aisle is nearby, west,
+and your seat is far in to the east.
+Warning: @get_child called with object 0 (PC = f983) (will ignore further
+occurrences)
+
+Imita turns and pleads her dilemma to the audience: "What scourge, what scourge
+I bear, from what red star / So near to happiness, and yet so far?" She is in
+despair; but this whispered soliloquy is soon interrupted by voices rising in
+the wings. Rito, in a fury, backs Tato onto the stage.
+
+You can no longer see Aessa, if you did at all. "Shorten it, fat-ass," says
+someone behind you, sullenly.
+
+>west
+
+As you start to push through the crowd, someone pushes through even harder in
+the opposite direction.
+
+   
+   Stench of the grave on the day of your birth
+   Shadows the shape first your eyes ever saw
+   Curdled with gall was the milk on your lips
+   Foul luck...
+
+   
+                Enough!
+
+   
+                        It is blood I will have,
+   Good red to flood the black ebb of your luck.
+
+>west
+You push through the crowd...
+
+
+It's actually harder to navigate here in the aisle. People are sitting on the
+steps, leaning up against the wall, and in some places perched on the gas-
+lights. The aisle extends north and south from here, but towards the stage it's
+even more crowded. Your seat is somewhere deep in the benches to the east.
+
+   
+   I did not look to draw this moment here;
+   Imita's choice has whipped my tongue and soul;
+   I would withdraw. But if my mistress' word
+   Would leash me, yet the wolfish howl will stir
+   The blood of any hound. Attend thy sword!
+
+   
+   Cease you this play --
+
+   
+                            In the poisonous marl
+   And the tangling thorn fell the step you first took...
+
+
+
+   (Rito draws as well, and Tato begins circling him, still intoning the
+ritual.)
+
+"Shorten it, fat-ass," grumbles someone behind you, grouchily.
+
+>south
+
+As you start to push through the crowd, a child darts unrepentantly under your
+feet.
+
+ The pure tone of steel against steel. It comes again, and again faster;
+and then Rito and Tato rush at each other in a fury of chimes, in harmony. The
+sounds come from off-stage, of course, not from the swords. That's the way it's
+done. Melody weaves into the ringing, counterpoint to the flow of the fight --
+falter, recover, the upper hand lost and gained -- and two men and two swords
+flicker in electric light.
+
+>south
+You push through the crowd...
+
+
+You're halfway up the aisle on the west side of the theater. It's still full of
+people, but you can maneuver north and south.
+
+Rito gains enough breath between attacks to declaim an insult or three. "War-
+rat, peace-pup / Love's-fool / Bright-tongue, limp slug..." Tato leaps for him
+again, another bell-jangle of motion. Dancing, even yet, Rito falls back.
+
+   
+   Love's-fool? You think I'd spare my heart
+   To she whose glance you melt to see?
+   I touched her but to touch your throat,
+   Your softer foot that I could sting --
+
+Rito cannot even speak; the pain and horror are all in his eyes. And then they
+are in Tato's eyes too, and the spear that jerks in Tato's back is barely an
+afterthought. He jolts forward a step, tries to catch himself on Rito's wrapped
+velvets. But Rito backs, still silent, and Tato lands on his knees; reaches
+again; and falls.
+
+
+
+Imita, spear-hand still outflung, is on her knees as well.
+
+"Shorten it, long-muck," grumbles someone behind you, grouchily.
+
+You feel the faintest cool breath of air.
+
+>feel air
+
+It's gone, and there it is again -- a touch of cool air. You turn your head from
+side to side, feeling... it seems to be coming from a crack in the west wall.
+
+Wait. Wait. What's ever cool in this suffocating summer heat? It comes again,
+slight, smoky, deep with autumn. Impossible.
+
+Rito moves forward, slowly, around the shape that lies before him. He draws
+Imita to her feet. She gazes at his face, with not a flicker at the dark wet
+that stains his velvets. (And you don't even wonder at the players'-craft that
+makes it so. The stage is gone; their faces are the moment.)
+
+   
+   Ah, my love. Can you forgive me?
+
+   
+   How can I deny you? There is nothing to forgive.
+
+>south
+
+You push through the crowd...
+
+
+You've struggled your way to the top of the aisle; the theater stretches away to
+the north and east. Everything east is a solid mass of benches and people, of
+course, and more playgoers are lined up along the back wall. Wide doors to the
+south lead outside.
+
+The audience sighs, released. The rest of the play is accomplished with
+commendable speed: wedding flowers, declarations of passion, bells and drums.
+Tato's corpse is carried reverently away; and the procession follows.
+
+As the stage empties, someone behind you begins to clap.
+
+"Out of the light, dug-shadow," growls someone behind you, angrily.
+
+>south
+
+You escape into the searing light of the high summer afternoon. The air is still
+oppressively hot, but at least it's fresh, and the theater portico gives a bit
+of shade.
+
+
+People flock here, in the shade of the colonaded portico, talking and drinking
+sharp beer. The main entrance to the theater is back north; the street runs
+bright and dusty to the south, and the crowded portico continues to the west.
+
+>west
+
+
+More people are relaxing here, perhaps because of the kegman who sells his beer
+under the theater portico. The main street bakes in sunlight to the south; the
+front of the theater continues to the north, adorned by some decorative potted
+shrubs.
+
+You feel the faintest cool breath of air.
+
+>feel air
+
+It's gone, and there it is again -- a touch of cool air. You turn your head from
+side to side, feeling... it seems to be coming from the direction of the potted
+shrubs.
+
+>examine shrubs
+
+You know nothing about gardening. Whatever the shrubs are, they're tall, leafy,
+and not quite dead of the heat.
+
+You notice a doorway, half-hidden behind the shrubs.
+
+A couple of people nearby are discussing the moons. That's right; tonight is the
+night that the astronomers have been going on about. You'll have to be sure to
+watch. Snuggled in a blanket, ideally... if you ever find Aessa.
+
+Again, you feel that cool thread of air across your face.
+
+>north
+
+Ignoring the sign, you slip inside.
+
+
+This is obviously a service hallway for the theater. You are surrounded by
+crates and arbitrary stacks of paper, and pieces of scenery lean against the
+rough planking walls of the hallway to the north. Light glares in from the
+south.
+
+The coolness touches your face again.
+
+>feel air
+
+The cool air is definitely coming from the north, up the hallway.
+
+>north
+
+
+The hallway ends at a heavy door to the north, and a storage room opens west.
+The wooden planking of the walls is old and unpainted; you notice a narrow crack
+to the east. The heavy door is closed.
+
+Sharp voices filter out through the door. They are too muffled to make out more
+than the tone of anger.
+
+>west
+
+
+Or perhaps ex-storage, since the room is almost bare. A small dirty window to
+the west admits bright beams, but they fall across only the floor and a battered
+cabinet against the north wall. The doorway lies to the east.
+
+The air here is rich with autumn, brisk and cool. It's impossible, absurd.
+
+>open cupboard
+
+You swing open the door. The cabinet is mostly empty; bare shelves and hooks and
+a scatter of dust. But on the top shelf rests an unusual, off-square wooden box,
+its rich polish at odds with the battered panels that surround it.
+
+>examine it
+
+A cabinet, chipped and stained, stands against the wall. Sunlight brings a
+tattered, hopeful glow out of the old wood, but shadow falls behind. The cabinet
+stands open; an unusual wooden box rests on the top shelf.
+
+>get box
+
+Taken.
+
+The air swirls briskly around you.
+
+>examine shadow
+
+Blackness lies behind the cabinet. Opaque... in this brightly lit room, no
+shadow should be so thick.
+
+As you step back from the cabinet, the shadow  A sunbeam might shine off
+crystal to paint the whole world white for one angle of an instant; so this
+shadow widens into a gulf beneath black and wider than everything. Then you move
+a fraction farther, and it is only a line of too-black behind chipped wood.
+
+>enter it
+The shadow  again as you set foot to it. The cabinet is to your left and
+the wall to your right, never mind the space that isn't there between them, and
+then never mind anything because blackness has taken the world, never mind,
+never world, not even you, never you --
+
+[Hit any key.]
+
+
+-- And then daylight smacks you in the behind, ordinary as a dirt road.
+
+
+The sky is almost violet, infinitely distant -- you've never seen such a sky,
+and without the haze of metallic heat that summer should have. But the wind is
+sharp and chilly, and the trees nearby are a quilt of orange, red, and gold.
+
+Beneath you the road is old, filled with weeds and ragged moss; dirt shows only
+in patches. To the south, the track is choked with trees, as it runs into the
+fringes of an autumn forest. It continues the other way, though, towards an
+immense stone wall that hems the northern horizon.
+
+>north
+
+You stroll for a while towards the wall.
+
+
+A worn stub of brick juts up here, by the road. It's no more than twice your
+height; but scattered bricks in the weeds attest to an imposing chimney in time
+past. Whatever building the chimney served is now just rotted scraps of wood and
+a few stony ridges, and some mounds off to the west. The road continues towards
+the wall north, and the distant forest south.
+
+>west
+
+
+This was probably a building once. Those ridges lie straight and at right
+angles; the rotted logs are tumbled too close to be natural. Nothing but field,
+now. A few mounds by the foundation were probably something once; although a
+bright vine on one catches your notice. The broken chimney to the east marks the
+old road.
+
+>examine vine
+
+The vine is actually a muddy color, but the leaves are broad and streaked with
+bright yellow. Uncounted fine tendrils root deeply into the mound. A single fat
+red pod, about the size of your fist, clings to the vine at one point.
+
+>get pod
+
+The pod gives ripely when you touch it. It snaps free, and a drop of oily fluid
+leaks from the stem.
+
+>east
+
+
+A worn stub of brick juts up here, by the road. It's no more than twice your
+height; but scattered bricks in the weeds attest to an imposing chimney in time
+past. Whatever building the chimney served is now just rotted scraps of wood and
+a few stony ridges, and some mounds off to the west. The road continues towards
+the wall north, and the distant forest south.
+
+>examine chimney
+
+Most of the chimney is fallen; only a ragged angle remains, casting its shadow
+far out into the afternoon weeds. Weathered bricks lie uncaring in the grass
+below. They've been there a while, and they're not moving soon.
+
+>examine shadow
+
+The chimney's shadow is thick as black silk. Suspicious, you shift your line of
+vision, and watch the darkness deepen into a gulf, and narrow again to lie
+calmly on the grass.
+
+>north
+
+You stroll for a while, up to the wall.
+
+
+The wall looms here, streaked gold with sideways sunlight. The finely-etched
+stone blocks are each wider than you can reach; they file at least forty feet
+above you. The gate... would be huge anywhere else. It's a square of dark wood
+half the wall's height, sealing the road. The road runs from the gate towards
+the distant forest in the south.
+
+On either side of the gate, only a few feet from the wall, stands a massive
+metal pillar. Each is almost as wide as you are tall, and they reach nearly to
+the top of the wall.
+
+>west
+
+You approach the base of the west pillar.
+
+
+You are at the foot of the west pillar; it and the wall lean dangerously against
+the violet sky. The road and the closed gate lie east.
+
+>examine pillar
+
+(the west pillar)
+The pillar is almost as wide as you are tall, and reaches nearly to the top of
+the wall. It's badly streaked and patched with corrosion. You can even see
+yellowish vines near the top, crawling down the sides and out along the cable
+which runs to the gate-track. There's a small hatch outlined in rust at the
+pillar's base.
+
+>squeeze pod on hatch
+
+You crush the pod; oil soaks down over the rusty hinges. It seems to evaporate
+almost instantly, but a slight glistening remains which bodes well.
+
+>open hatch
+
+More rust flakes down, and the hinges sound like they're grinding your bones,
+but you manage to lever the hatch open.
+
+The pillar sways just a bit. It must be even more corroded than it looks. And
+then you hear a faint snap, followed by a rumbling high above.
+
+The rumbling noise rapidly grows louder.
+
+>wait
+
+Time passes.
+
+There is a concussive  within the pillar. Then -- silence, broken only a
+faint rattling which rapidly dies away.
+
+>enter pillar
+
+(the west pillar)
+
+
+The pillar rises through hollow dimness, lit only by the daylight pouring
+through the hatch at your feet. Far above, a few needles of light show that the
+top of the pillar is decaying as badly as the rust-eaten walls around you. A set
+of narrow rungs ascends.
+
+A dull metal slab rests on the ground in the shaft, making this an uncomfortable
+squeeze. It's almost as broad as the shaft, and taller than you.
+
+>up
+
+You scurry easily up the ladder. The pillar sways slightly to your movement.
+
+
+You cling to the rungs at the top of the metal shaft. The walls are miserably
+corroded, and there are several rust-edged holes around you. The roof above you
+is solid, but it is not metal; it's an odd black substance. It's also heavily
+overgrown with yellowish vines that crawl in and out of the pillar.
+
+A large metal pulley is suspended here, on an axle that runs across the pillar
+just below the ceiling. A cable runs into the pillar, around the pulley, and
+descends a few feet to a frayed end.
+
+>get pods
+
+Carefully, you pull all three pods from the vine.
+
+>down
+
+You scurry easily down the ladder.
+
+
+The pillar rises through hollow dimness, lit only by the daylight pouring
+through the hatch at your feet. Far above, a few needles of light show that the
+top of the pillar is decaying as badly as the rust-eaten walls around you. A set
+of narrow rungs ascends.
+
+A dull metal slab rests on the ground in the shaft, making this an uncomfortable
+squeeze. It's almost as broad as the shaft, and taller than you.
+
+>out
+
+You worm your way out to sunlight.
+
+
+You are at the foot of the west pillar; it and the wall lean dangerously against
+the violet sky. The road and the closed gate lie east.
+
+A small hatch stands open at the pillar's base.
+
+>east
+
+
+The wall looms here, streaked gold with sideways sunlight. The finely-etched
+stone blocks are each wider than you can reach; they file at least forty feet
+above you. The gate... would be huge anywhere else. It's a square of dark wood
+half the wall's height, sealing the road. The road runs from the gate towards
+the distant forest in the south.
+
+On either side of the gate, only a few feet from the wall, stands a massive
+metal pillar. Each is almost as wide as you are tall, and they reach nearly to
+the top of the wall.
+
+>east
+
+You approach the base of the east pillar.
+
+
+You are at the foot of the east pillar; it and the wall lean dangerously against
+the violet sky. The road and the closed gate lie west.
+
+>squeeze pod on hatch
+
+You crush the pod; oil soaks down over the rusty hinges. It seems to evaporate
+almost instantly, but a slight glistening remains which bodes well.
+
+>open hatch
+
+More rust flakes down, and the hinges sound like they're grinding your bones,
+but you manage to lever the hatch open.
+
+>enter pillar
+
+(the east pillar)
+
+
+The pillar rises through hollow dimness, lit only by the daylight pouring
+through the hatch at your feet. A set of narrow rungs ascends the rust-touched
+wall of the shaft.
+
+>up
+
+You climb quickly up the ladder. As you approach the top, you find that you must
+squeeze around a solid metal shape that hangs in the shaft.
+
+
+You cling to the rungs at the top of the metal shaft. The walls are somewhat
+corroded, mostly beneath a small hole in the north side of the pillar. The roof
+above you is solid, but it is not metal; it's an odd black substance.
+
+A large metal pulley is suspended here, on an axle that runs across the pillar
+just below the ceiling. A cable runs into the pillar, around the pulley, and
+descends to a dull slab of metal which fills much of the shaft just below you.
+
+>squeeze pod on wheel
+
+You crush the pod; oil soaks down over the pulley. It seems to evaporate almost
+instantly, but the joint and axle now glisten slightly in the dim light.
+
+>down
+
+You climb quickly down the ladder.
+
+
+The pillar rises through hollow dimness, lit only by the daylight pouring
+through the hatch at your feet. A set of narrow rungs ascends the rust-touched
+wall of the shaft.
+
+>out
+
+You worm your way out to sunlight.
+
+
+You are at the foot of the east pillar; it and the wall lean dangerously against
+the violet sky. The road and the closed gate lie west.
+
+A small hatch stands open at the pillar's base.
+
+>west
+
+
+The wall looms here, streaked gold with sideways sunlight. The finely-etched
+stone blocks are each wider than you can reach; they file at least forty feet
+above you. The gate... would be huge anywhere else. It's a square of dark wood
+half the wall's height, sealing the road. The road runs from the gate towards
+the distant forest in the south.
+
+On either side of the gate, only a few feet from the wall, stands a massive
+metal pillar. Each is almost as wide as you are tall, and they reach nearly to
+the top of the wall.
+
+>west
+
+You approach the base of the west pillar.
+
+
+You are at the foot of the west pillar; it and the wall lean dangerously against
+the violet sky. The road and the closed gate lie east.
+
+A small hatch stands open at the pillar's base.
+
+>push pillar
+
+(the west pillar)
+You heave at the pillar; a faint sway encourages you. You lean your full weight.
+It gives more... and, with a terrible howl, begins to buckle. Rusty shards spray
+from the ancient metal.
+
+The pillar, slowly, leans.
+
+Then it is swinging around; the pillar is caught by the cable that runs from its
+top to the gate-track. Below, the gate twitches. You stare as the west corner of
+the gate jerks up, just a thread. Then the east side rises as well. The pillar
+slams into the wall, and scrapes; it is still leaning.
+
+The gate rises, rises, as the west pillar falls. The cables whine and hum. But
+they hold; and the pillar slows, approaching its mate to the east.
+
+A final creak. Stillness. The west pillar hangs suspended, leaning towards the
+east pillar which stands still straight; nearly reaching it; not quite touching.
+The gate is open.
+
+>east
+
+
+The wall looms here, streaked gold with sideways sunlight. The finely-etched
+stone blocks are each wider than you can reach; they file at least forty feet
+above you. The gate... would be huge anywhere else. It's a square of dark wood
+half the wall's height, suspended above the road. The road runs from the gate
+towards the distant forest in the south.
+
+The pillar to the east still stands, but the western one tilts wildly over your
+head. It leans toward its partner as if it had a secret to impart. But bright
+sky slices thin between the two dark shapes.
+
+>north
+
+Wide as it is, the gateway presses briefly around you with its sensation of
+weighty stone; but sunlit hills are beyond.
+
+
+The wall stands, massive and unyielding, to the south. The road issues from its
+open gate, though, and leaps merrily over a rise to the north, and beyond it.
+Ivy-wound towers are visible, somewhere at the road's end.
+
+>north
+
+
+A dawn-tale, ivory castle stands far to the north, heavily strung with ivy and
+reddening sunlight. The road runs towards it, and back to the south, over a hill
+that hides the stone wall. A branch of the road also leads northwest, towards a
+dome, which seems to float in a magenta lake.
+
+A large pile of pipes and cable is sprawled untidily by the road.
+
+>nw
+
+The magenta lake resolves into a broad growth of lichen that spreads raggedly
+around the dome.
+
+
+The dome rises to the west, without looming; its curve is gentle. A rough arch
+leads within. The dome's surface is a polished brown-grey, a bit mottled, and
+the whole structure is very slightly irregular; a homey, reassuring effect. The
+ground beneath you is a shocking contrast. Bright lichen covers everything with
+magenta tufts; there's not a blade of grass or stick of shrubbery within fifty
+yards of the dome. The olive-mossed roads are the only relief; they run
+northeast, towards the castle, and southeast.
+
+>west
+
+You pause for a moment, as sun-dazzle fades from the dim interior.
+
+
+This dim space curves to fill the east edge of the dome. The only light comes
+from the bright archway to the east. The west wall curves as well, but toward
+you, obviously outlining a chamber in the dome's center; a closed hatch lies
+that way. Closed doors lead northwest and southwest, around the dome's
+perimeter. A pull-cord hangs above a tiled depression by the eastern exit;
+several potted plants sit in corners of the chamber, but broad patches of the
+magenta lichen show that this place has gone long untended.
+
+>open hatch
+
+You set your feet and pull. Dust sifts down from the rim as you haul the hatch
+cover open.
+
+>touch plant
+
+A cloud of vapor jets from the flower, in the instant that you touch it. You
+jerk back, but you still catch a whiff of herbal scent which chills your throat.
+
+>breathe vapor
+
+You lean into the cloud. The chill herbal scent drowns you, an icy blast which
+sweeps your senses aside. You shake your head, trying to clear it. Even the
+light seems ice-blue.
+
+The vapor begins to disperse.
+
+>west
+
+
+You are in a room which is round, high, and nearly empty. An open hatch leads
+east. A faint, dust-grey light falls from a ring on the domed ceiling.
+
+In the center of the floor are two identical blocks of dull metal, each about
+the size of your head.
+
+The herbal aroma clings in your lungs, cool and powerful.
+
+>move left block
+
+The position is awkward; you are leaning practically flat and scrabbling your
+toes on the floor for purchase. But you manage to shift the left block a bare
+inch.
+
+>again
+
+You shove the left block a bit closer to its partner. They are now lying four
+inches from each other.
+
+The room seems brighter.
+
+The herbal aroma clings in your lungs, cool and powerful.
+
+>again
+
+You shove the left block a bit closer to its partner. They are now lying three
+inches from each other.
+
+You notice faint reddish stains on the floor, by your feet. In fact, the patches
+seem to be shaped like your footprints.
+
+>again
+
+You shove the left block a bit closer to its partner. They are now lying two
+inches from each other.
+
+The room is definitely brighter.
+
+The icy, herbal aroma still lingers in the back of your throat.
+
+>again
+
+You shove the left block a bit closer to its partner. They are now lying only an
+inch apart.
+
+The ring overhead burns with a stark white light. A faint hum has begun,
+somewhere below you.
+
+The red stuff is growing visibly now, like thick blood boiling up.
+
+The reddish patches are growing, and darkening. They seem slightly rough.
+
+A subliminal hum is coming from somewhere in the dome.
+
+>east
+
+
+This dim space curves to fill the east edge of the dome. The only light comes
+from the bright archway to the east. The west wall curves as well, but toward
+you, obviously outlining a chamber in the dome's center; a open hatch lies that
+way. Closed doors lead northwest and southwest, around the dome's perimeter. A
+pull-cord hangs above a tiled depression by the eastern exit; several potted
+plants sit in corners of the chamber, but broad patches of the magenta lichen
+show that this place has gone long untended.
+
+The icy, herbal aroma still lingers in the back of your throat.
+
+>east
+
+The bright violet sky glares, and you blink painfully for a moment.
+
+
+The dome rises to the west, without looming; its curve is gentle. A rough arch
+leads within. The dome's surface is a polished brown-grey, a bit mottled, and
+the whole structure is very slightly irregular; a homey, reassuring effect. The
+ground beneath you is a shocking contrast. Bright lichen covers everything with
+magenta tufts; there's not a blade of grass or stick of shrubbery within fifty
+yards of the dome. The olive-mossed roads are the only relief; they run
+northeast, towards the castle, and southeast.
+
+The icy scent is fading from your palate.
+
+>ne
+
+The lichen gives way to more normal meadow weeds as you approach the castle.
+
+
+The road curves around the west side of the castle, edging the trench. To the
+north, it falls into the shade of trees; forest has grown down to the castle's
+north edge. A smaller road branches off towards a dome that squats to the
+southwest.
+
+A neat stack of pipes and cable sits by the edge of the trench. Close by, a
+plain brass lever juts from the stonework.
+
+You can no longer taste the herbal odor.
+
+>pull lever
+
+The lever clunks solidly, and springs back. A loud hum begins... and the pile of
+pipes trembles. The topmost pipe begins to rise into the air. Cables pull taut
+-- you see some actually being drawn into their anchorage in the ground -- but
+somehow this extends the entire pile into the air. It telescopes, pipes hanging
+crazily in their web of cables, and then begins to curve over the moat....
+
+With a final twang, the tip of the web touches the castle balcony.
+
+>south
+
+The road curves east as it circles the castle.
+
+
+The main road ends here, at the edge of a deep dry moat. Or nearly dry; a
+trickle of dark water crawls past jagged rusty edges of iron, far below. A broad
+stone arch spans the trench, up to the ivy-choked facade of the castle. A
+smaller road follows the moat's curve, east and west.
+
+>south
+
+
+A dawn-tale, ivory castle stands far to the north, heavily strung with ivy and
+reddening sunlight. The road runs towards it, and back to the south, over a hill
+that hides the stone wall. A branch of the road also leads northwest, towards a
+dome, which seems to float in a magenta lake.
+
+A large pile of pipes and cable is sprawled untidily by the road.
+
+>south
+
+
+The wall stands, massive and unyielding, to the south. The road issues from its
+open gate, though, and leaps merrily over a rise to the north, and beyond it.
+Ivy-wound towers are visible, somewhere at the road's end.
+
+>south
+
+You duck, quite unnecessarily, as you pass under the massive hanging gate.
+
+
+The wall looms here, streaked gold with sideways sunlight. The finely-etched
+stone blocks are each wider than you can reach; they file at least forty feet
+above you. The gate... would be huge anywhere else. It's a square of dark wood
+half the wall's height, suspended above the road. The road runs from the gate
+towards the distant forest in the south.
+
+The pillar to the east still stands, but the western one tilts wildly over your
+head. It leans toward its partner as if it had a secret to impart. But bright
+sky slices thin between the two dark shapes.
+
+>south
+
+You stroll for a while, back to the ruined chimney.
+
+
+A worn stub of brick juts up here, by the road. It's no more than twice your
+height; but scattered bricks in the weeds attest to an imposing chimney in time
+past. Whatever building the chimney served is now just rotted scraps of wood and
+a few stony ridges, and some mounds off to the west. The road continues towards
+the wall north, and the distant forest south.
+
+>enter shadow
+The shadow  as you set foot to it. The old brick of the chimney looms
+impossibly above you, blotting out the sun, the sky, the darkness before you,
+your name --
+
+[Hit any key.]
+
+
+-- Everything drops silently into place again. You are staring at a bale of hay.
+
+
+You are alone to the east of a long wooden platform. This must be the back, for
+a slat fence runs around this small field, enclosing you, assorted rolls of
+canvas, and a small mountain of hay bales. A small closed gate breaks the fence
+to the north. The sun is bright, but the air is mild and fertile-scented.
+
+You see motion up on the platform -- people, though they're facing the other
+way.
+
+>west
+
+You pull yourself up the ladder. No heads turn.
+
+
+The platform sweeps gently down to the west, in a series of low, wide, sunny
+steps. And the steps are filled with people. Quiet people; they sit and gaze
+intently out to the west. A long oval of earth is spread out below you in that
+direction. Clearly this is a cyclia of some kind. The platform is mostly fenced,
+but a broad path leads southwest, and a ladder drops down the east side.
+
+The platform is now crowded with people. Slowly they stop looking at each other,
+and begin watching the arena below.
+
+>sw
+You make your way down the steps.
+
+
+This broad yard is the center of the compound, if the worn and cross-tracked
+earth is any sign. A road runs east under a brick arch; a path leads northeast
+to the seating platform; a wide gate stands open in the fence to the north; and
+unpainted wooden buildings stand west and south. The west building's door is
+closed, and the south door is open.
+
+An odd creature with a bony crest stands at one edge of the yard. A tether is
+looped around its neck and tied to a post near the west building.
+
+Two men, one in yellow and one in blue, enter from the east. Without speaking,
+they nod formally to each other, and then pull open the large gate to the north.
+They take up position at either side of the gate, waiting... and then a stream
+of animals and people pours across the yard, from the south building, through
+the gate.
+
+A woman in bright checkered cloth untethers the crested animal, and they join
+the procession.
+
+
+
+>east
+
+
+A busy crowd surrounds you, here in the sun. Spacious brick buildings line the
+square; a road runs east, a path leads west under a wide arch; and to the south
+the plaza continues, a stream of cobblestone, trees, grass-cuts, and lively
+people. Lively, but... quiet. Feet moving, smiles, waving hands, but not one
+voice. It feels too normal to feel odd. In the center of the cobble circle that
+forms this end of the mall, a statue rises from sprawled shrubbery.
+
+There is a stout dark-haired woman here, in yellow silk.
+
+A stumpy old woman wearing blue silk stands here.
+
+The stout woman in yellow walks away south.
+
+>south
+
+
+The crowded mall stretches north and south, a cheerful bustle of people, trees,
+benches, and grass. The hush of the crowd is merely restful. Ornamental building
+facades stand along the sides of the plaza, although a dark and narrow alley
+slips between brick walls to the east.
+
+There is a stout dark-haired woman here, in yellow silk.
+
+A tall, muscular man in blue silk stands here.
+
+The muscular man in blue walks away north. A tall young man in blue paces toward
+you from the south. The stout woman in yellow walks away south.
+
+>east
+
+As you approach the alley, the tall young man in blue frowns. He glances around,
+tense. But his search seems to be in vain, and he makes no move towards you.
+
+
+Blank walls stand close, all ways but west. The sun, hovering low over the west
+horizon, shines almost directly into this alley; the brick walls are streaked
+with the vivid scratchy shadows of their own roughness.
+
+A lumpy chunk of granite stands here, embedded end-on in the cobblestones. It's
+taller than you... and then the curves click, and you are looking at an
+abstracted human figure. A woman, you think. Its shadow is black syrup poured
+down the alley and up the east wall.
+
+The back of your neck itches. You glance and see a wiry woman in yellow in the
+plaza behind you. She is angrily tight-lipped, but after a moment, she shakes
+her head and passes beyond your view.
+
+>enter shadow
+The shadow  in every direction as you dash into it. Sudden hurried
+footsteps behind you become muffled, then merge into the faint rustle of a
+thousand silent people in a crowd that stares at you, invisible, inaudible, not
+there at all --
+
+[Hit any key.]
+
+
+-- And the wind ruffles you, and you are merely alone, beneath vast sky.
+
+
+Not a flat tame greensward, mind you; you are surrounded by wild, waist-high,
+reed-yellow growth that hisses and rattles in the dry breeze. The grasses roll
+to every cloudless horizon. Above you towers an immense tree -- the only one
+visible anywhere in this prairie world -- and its shadow slices blackness past
+your feet. A path of flat, trampled grass cuts south down the hill.
+
+You can see a muddle of tents down at the base of the hill, spreading around
+most of the west side.
+
+You hear the sound of dripping water, from somewhere to the west.
+
+>south
+
+The crushed grass muffles your footsteps.
+
+
+You are on the south flank of the grassy hill. The flattened path runs up the
+hill to the north, towards the towering tree, and also leads west. The
+unconstrained grass spreads everywhere else.
+
+The sound continues, precise... you're not sure it's water now. The sound is too
+rich; it almost echoes.
+
+>west
+
+The crushed grass muffles your footsteps.
+
+
+You are on the southwest edge of the grassy hill. The path hugs the base of the
+hill, running east and north from here. A tiny clear rivulet burbles from a
+crack in the earth, just off the path; it trickles away through the grass to the
+west.
+
+A disorderly cluster of tents runs along the west side of the hill. Twenty yards
+or so of tall grass separate the path from the encampment. There is a large
+cleared area among the tents, some way north; it is surrounded by motionless
+figures.
+
+A second tapping noise begins, off-stepped from the first, at an odd angle of
+harmony.
+
+>north
+
+The crushed grass muffles your footsteps.
+
+
+You are on the western face of the hill. It leans serenely above you, with the
+sunlit tree alert at its crest. The flattened path runs north and south.
+
+A disorderly cluster of tents runs along the west side of the hill. Twenty yards
+or so of tall grass separate the path from the encampment. There is a large
+cleared area among the tents, directly across from you; it is surrounded by
+motionless figures.
+
+The rhythms speed, glancing up and down an unfamiliar chord. Under-steps and
+syncopations are creeping in.
+
+>north
+
+The crushed grass muffles your footsteps.
+
+
+You are on the northwest side of the hill. The path runs south along the
+hillside, but continues north into the open grassland.
+
+A disorderly cluster of tents runs along the west side of the hill. Twenty yards
+or so of tall grass separate the path from the encampment. There is a large
+cleared area among the tents, some way south; it is surrounded by motionless
+figures.
+
+A deep wail splits the wind; the harmonic rhythms fall into support. The wail is
+unearthly, a powerful resonance that nonetheless has the shape of a human voice.
+
+A man leaps into the cleared area, whirling in dance. His face is painted with a
+narrow black mask; and as he turns, a woman spins in, balancing his movements
+from behind white mask-paint.
+
+>north
+The crushed grass muffles your footsteps.
+
+
+The grass is trampled down in a circle here, a few yards wide. A flattened path
+runs towards the hillside to the south, and another leads southwest to the
+encampment.
+
+A disorderly cluster of tents runs along the west side of the hill. Twenty yards
+or so of tall grass separate the path from the encampment. There is a large
+cleared area among the tents, some way south; it is surrounded by motionless
+figures.
+
+A man and woman circle each other in an intense dance, in the cleared area to
+the west. His eyes are painted across a black stripe; hers with white.
+
+A youngish man is sitting in the circle's center, slumped sideways, clearly
+asleep. A spear rests laxly in his hand.
+
+Lying very near the man are a steel knife, a clay jar and a green crystal rod.
+
+More voices join, higher and lower, all with that shimmering strength. The
+
+
+
+beating rhythms surge.
+
+The dancers leap into an intricate series of turns, forward and backward around
+each other's motion.
+
+>get knife
+
+You gently lift the steel knife from the ground. The man snorfles slightly, but
+does not stir.
+
+The wailing harmonies rise and fall.
+
+The man drops forward; the woman takes one final leap towards him, and is borne
+upwards, as he extends and launches her out of the circle entirely. But without
+a pause, another woman whirls into view. Her garb is identical to the first
+woman's; but her mask-paint is grey, and she is roundly pregnant (or so her
+costume's shape suggests).
+
+>get jar
+
+You gently lift the clay jar from the ground. The man snorfles slightly, blinks
+sleepily at you... and then snatches at his spear and dashes off to the
+southwest.
+
+The music cuts off instantly.
+
+A wave of people -- men and women -- pour out of the tents to the west. They are
+all holding spears or knives. Holding, not brandishing or waving them; they look
+very businesslike. They are running through the grass towards you, needless to
+say.
+
+>se
+
+The grass crunches and crackles as you wade through it.
+
+
+You are on the slope of the hill. The tree stands on the hilltop, immediately to
+the south.
+
+A few shouts ring over the noise of the mob, which is crashing through the grass
+towards you, from the west.
+
+>se
+
+You wade through the tall crackling grass.
+
+
+You are on the slope of the hill. The tree stands on the hilltop, immediately to
+the west; the sun hovers low behind the branches and turns them to white fire.
+
+A bar of blackness falls across the grass, lying east-west.
+
+A few shouts ring over the noise of the mob, which is crashing through the grass
+towards you, from the west.
+
+>enter shadow
+The shadow  with a claustrophobic sensation, as if the tree is falling
+towards you, or on you, while the ground falls up and the black sky falls down
+--
+
+[Hit any key.]
+
+
+-- You slump against cool brick.
+
+
+Blank walls stand close, all ways but west. The sun, hovering low over the west
+horizon, shines almost directly into this alley; the brick walls are streaked
+with the vivid scratchy shadows of their own roughness.
+
+A lumpy chunk of granite stands here, embedded end-on in the cobblestones. It's
+taller than you... and then the curves click, and you are looking at an
+abstracted human figure. A woman, you think. Its shadow is black syrup poured
+down the alley and up the east wall.
+
+You see a wrinkled woman in yellow and a stumpy woman in blue in the plaza to
+the west; they pass by the alley without a glance.
+
+>enter shadow
+The shadow  in every direction as you dash into it. Sudden hurried
+footsteps behind you become muffled, then merge into the faint rustle of a
+thousand silent people in a crowd that stares at you, invisible, inaudible, not
+there at all --
+
+[Hit any key.]
+
+
+-- And the wind ruffles you, and you are merely alone, beneath vast sky.
+
+
+Not a flat tame greensward, mind you; you are surrounded by wild, waist-high,
+reed-yellow growth that hisses and rattles in the dry breeze. The grasses roll
+to every cloudless horizon. Above you towers an immense tree -- the only one
+visible anywhere in this prairie world -- and its shadow slices blackness past
+your feet. A path of flat, trampled grass cuts south down the hill.
+
+>south
+
+The crushed grass muffles your footsteps.
+
+
+You are on the south flank of the grassy hill. The flattened path runs up the
+hill to the north, towards the towering tree, and also leads west. The
+unconstrained grass spreads everywhere else.
+
+>west
+
+The crushed grass muffles your footsteps.
+
+
+You are on the southwest edge of the grassy hill. The path hugs the base of the
+hill, running east and north from here. A tiny clear rivulet burbles from a
+crack in the earth, just off the path; it trickles away through the grass to the
+west.
+
+>fill jar
+
+(with water from the tiny spring)
+You dunk the jar and let water bubble in.
+
+>north
+
+The crushed grass muffles your footsteps.
+
+
+You are on the western face of the hill. It leans serenely above you, with the
+sunlit tree alert at its crest. The flattened path runs north and south.
+
+>east
+
+The grass crunches and crackles as you wade through it.
+
+
+Not a flat tame greensward, mind you; you are surrounded by wild, waist-high,
+reed-yellow growth that hisses and rattles in the dry breeze. The grasses roll
+to every cloudless horizon. Above you towers an immense tree -- the only one
+visible anywhere in this prairie world -- and its shadow slices blackness past
+your feet. A path of flat, trampled grass cuts south down the hill.
+
+A drop of water falls on your leg.
+
+>enter shadow
+The shadow  with a claustrophobic sensation, as if the tree is falling
+towards you, or on you, while the ground falls up and the black sky falls down
+--
+
+[Hit any key.]
+
+
+-- You slump against cool brick.
+
+
+Blank walls stand close, all ways but west. The sun, hovering low over the west
+horizon, shines almost directly into this alley; the brick walls are streaked
+with the vivid scratchy shadows of their own roughness.
+
+A lumpy chunk of granite stands here, embedded end-on in the cobblestones. It's
+taller than you... and then the curves click, and you are looking at an
+abstracted human figure. A woman, you think. Its shadow is black syrup poured
+down the alley and up the east wall.
+
+You see a muscular man in blue in the plaza to the west; he passes by the alley
+without a glance.
+
+>west
+
+
+The crowded mall stretches north and south, a cheerful bustle of people, trees,
+benches, and grass. The hush of the crowd is merely restful. Ornamental building
+facades stand along the sides of the plaza, although a dark and narrow alley
+slips between brick walls to the east.
+
+A tall, muscular man in blue silk stands here.
+
+Water is trickling across your fingers. You glance down. The jar isn't tilted,
+or cracked; the trickle seems to be oozing straight from the clay, just above
+the smudge.
+
+The muscular man in blue walks away north. A stout woman in yellow walks toward
+you from the north.
+
+A slender man lifts a smoking tube to his lips.
+
+>wait
+
+Time passes.
+
+A tall young man in blue paces toward you from the south. The stout woman in
+yellow walks away south. A wiry woman in yellow walks toward you from the north.
+
+A young girl lifts a smoking tube to her lips. As she vanishes into the crowd,
+something tiny drops from her sleeve to the cobblestones.
+
+>get square
+
+Taken.
+
+The tall young man in blue walks away north. A stumpy woman in blue paces toward
+you from the south. The wiry woman in yellow walks away south.
+
+A slender boy lifts a smoking tube to his lips.
+
+>north
+A busy crowd surrounds you, here in the sun. Spacious brick buildings line the
+square; a road runs east, a path leads west under a wide arch; and to the south
+the plaza continues, a stream of cobblestone, trees, grass-cuts, and lively
+people. Lively, but... quiet. Feet moving, smiles, waving hands, but not one
+voice. It feels too normal to feel odd. In the center of the cobble circle that
+forms this end of the mall, a statue rises from sprawled shrubbery.
+
+There is a lean, wrinkled woman here, in yellow silk.
+
+A tall, peculiar-looking young man in blue silk stands here.
+
+A stumpy woman in blue walks up from the south. She paces formally up to the
+tall young man in blue; they bow slightly, and the tall young man in blue
+vanishes into a building. The wrinkled woman in yellow walks away south. A stout
+woman in yellow appears from a building's doorway.
+
+Copper hair swings through the crowd, familiar for an instant, then gone. You
+search the many faces around you -- Aessa couldn't be in this strange place,
+could she? You do not see her now. If ever.
+
+
+
+>west
+
+
+This broad yard is the center of the compound, if the worn and cross-tracked
+earth is any sign. A road runs east under a brick arch; a path leads northeast
+to the seating platform; a wide gate stands open in the fence to the north; and
+unpainted wooden buildings stand west and south. The west building's door is
+closed, and the south door is open.
+
+Two men flank the open gate. The tall one is wearing blue silk and the fat one
+yellow, in identical styles; but you'd guessed they have some formal function
+just from the way they stand.
+
+>ne
+
+
+The platform sweeps gently down to the west, in a series of low, wide, sunny
+steps. And the steps are filled with people. Quiet people; they sit and gaze
+intently out to the west. A long oval of earth is spread out below you in that
+direction. Clearly this is a cyclia of some kind. The platform is mostly fenced,
+but a broad path leads southwest, and a ladder drops down the east side.
+
+Two animals are lying in the arena, with the rest leaping over both of them.
+Then two, and now three; the leaps grow longer.
+
+The people around you wave their chains harder.
+
+>east
+
+You let your eyes wander east, and let your body absently follow, until you
+reach the ladder. Unnoticed, you descend.
+
+
+You are alone to the east of a long wooden platform. This must be the back, for
+a slat fence runs around this small field, enclosing you, assorted rolls of
+canvas, and a small mountain of hay bales. A small closed gate breaks the fence
+to the north. The sun is bright, but the air is mild and fertile-scented.
+
+>enter shadow
+The shadow  in the way you are coming almost to understand. Again the
+blackness falls upon you, and your thoughts, scattering and wearing them down
+into their own ends --
+
+[Hit any key.]
+
+
+-- And the world begins again in the rich autumn wind.
+
+
+A worn stub of brick juts up here, by the road. It's no more than twice your
+height; but scattered bricks in the weeds attest to an imposing chimney in time
+past. Whatever building the chimney served is now just rotted scraps of wood and
+a few stony ridges, and some mounds off to the west. The road continues towards
+the wall north, and the distant forest south.
+
+>north
+
+You stroll for a while, up to the wall.
+
+
+The wall looms here, streaked gold with sideways sunlight. The finely-etched
+stone blocks are each wider than you can reach; they file at least forty feet
+above you. The gate... would be huge anywhere else. It's a square of dark wood
+half the wall's height, suspended above the road. The road runs from the gate
+towards the distant forest in the south.
+
+The pillar to the east still stands, but the western one tilts wildly over your
+head. It leans toward its partner as if it had a secret to impart. But bright
+sky slices thin between the two dark shapes.
+
+>north
+
+Wide as it is, the gateway presses briefly around you with its sensation of
+weighty stone; but sunlit hills are beyond.
+
+
+The wall stands, massive and unyielding, to the south. The road issues from its
+open gate, though, and leaps merrily over a rise to the north, and beyond it.
+Ivy-wound towers are visible, somewhere at the road's end.
+
+>north
+
+
+A dawn-tale, ivory castle stands far to the north, heavily strung with ivy and
+reddening sunlight. The road runs towards it, and back to the south, over a hill
+that hides the stone wall. A branch of the road also leads northwest, towards a
+dome, which seems to float in a magenta lake.
+
+A large pile of pipes and cable is sprawled untidily by the road.
+
+>north
+
+
+The main road ends here, at the edge of a deep dry moat. Or nearly dry; a
+trickle of dark water crawls past jagged rusty edges of iron, far below. A broad
+stone arch spans the trench, up to the ivy-choked facade of the castle. A
+smaller road follows the moat's curve, east and west.
+
+A subliminal hum is coming from somewhere below.
+
+>west
+
+The road curves north as it circles the castle.
+
+
+The road curves around the west side of the castle, edging the trench. To the
+north, it falls into the shade of trees; forest has grown down to the castle's
+north edge. A smaller road branches off towards a dome that squats to the
+southwest.
+
+An airy web of pipes and cables arches neatly over the moat, touching the
+balcony. The lever juts from the stonework near its base.
+
+>east
+
+You step gingerly onto the bridge. For all its delicacy, it barely sways, and
+you climb easily across the gaping moat.
+
+
+The mosaic paving is every shade of scarlet and grey, a shocking contrast to the
+castle walls, the ivory stone which was all that was visible from the ground
+beyond the moat. Even the ivy that chokes the walls above and below you does not
+venture far onto the colored tiles. A small arch would lead east into the
+castle, were it not entirely filled with vines. To the west, wild ruffling
+meadows spread under the violet sky; the dome is visible to the southwest, in
+its magenta stain of lichen.
+
+An airy web of pipes and cables arches neatly over the moat, just touching the
+balcony, casting a pool of shadow across the mosaic tiles.
+
+>enter shadow
+The shadow  across everything, dimming the vines, the darkened mosaic, the
+black sky --
+
+[Hit any key.]
+
+
+-- Deathly cold strikes like a soundless slap; you are dazzled by sun-glaring
+snow.
+
+
+Blue sky glares above you, to the dead-white horizon, and between them is
+nothing but wind and the cold. Snow crunches gently beneath your feet. Above
+your head, a wind-sculpted spire of ice twists fantastically, and its shadow
+lies as strange and utterly black against the glittering snow. You can make out
+something dark to the south, a pole or column of some sort.
+
+>south
+
+Your feet scrape numbly through the snow, for a time.
+
+
+The air slices you without remorse. The horizon is an irregular wall of dirty
+white against blue, and the snow beneath you is marked only by a few pawprints.
+To the east and southeast, though, the ice falls away into an abrupt, shadowy
+crevasse.
+
+A metal pole sticks out from the snow. At its foot sits a red, fuzzy bundle,
+neatly folded and quite outrageous in this chilly-white world.
+
+>get blanket
+
+Taken.
+
+You are shivering violently.
+
+Needles of ice are forming in the jar of water.
+
+>wear it
+
+You wrap the blanket awkwardly around yourself. A bit of warmth begins to creep
+back.
+
+The wind slackens, then blasts again.
+
+>west
+
+The horizon darkens as you walk. After a while, you can make out the face of a
+low cliff ahead. It rises, until -- still distant -- it blots out the sun; you
+pass into shadow.
+
+
+The unbounded and bitter ice is broken, to the west; a low cliff rears up all
+along that curve of the horizon. The sun is hidden behind the stony wall, but
+soft beams of light seem to radiate from the cliff-edge, across the sky and over
+your head. Pawprints track through the snow nearby.
+
+>nw
+
+Your feet crunch softly in the snow and cold. Eventually the ground slopes up,
+as you reach the steep slope that is the northern extremity of the cliff.
+
+
+You stand on a steep angle, digging your feet carefully in the snow, trying not
+to slip. The crest of this ridge rises to the west; the sun is hidden behind it.
+To the south, the slope steepens.
+
+There's a gleam of metal in the snow -- a twisted bit of rod, pronged; perhaps a
+key of some sort.
+
+The water in the jar has a thin skin of ice on it.
+
+A knife of icy wind seems to lay open your bones.
+
+>south
+
+You move across the face of the slope, slowly upward. As you rise, the snow
+thins; after a time, you move across bare chill stone.
+
+
+You stand on the edge of a cliff, a silent wave of weathered stone; it stares
+out over the equally silent sea of ice that lies to the east, and below. The
+stark edge gentles and descends to the north, and the cliff steepens to the
+south.
+
+A narrow crack runs through the rock, a few feet from the edge.
+
+You thought the wind was deadly on the plain below... this stone is thrust like
+a challenge into the bitter sky, and the sky assaults it. A constant roar of ice
+blasts across you from the west. You would not care to climb higher.
+
+>pour water in crack
+
+(the quantity of freezing water in the narrow crack)
+You crack away the layer of ice, and upend the jar. The water fills the crack
+neatly. The stone must be whole, beneath, for the level isn't sinking.
+
+>wait
+
+Time passes.
+
+Delicate crystals of frost are forming in the crack.
+
+>wait
+
+Time passes.
+
+>wait
+
+Time passes.
+
+The gale tears at your blanket. Your hands and feet are becoming numb.
+
+The water in the crack is nearly frozen over.
+
+>wait
+
+Time passes.
+
+There is a faint pop from the ice in the crack. Another.
+
+>wait
+
+Time passes.
+
+
+
+You look down, just in time to see the lip of the cliff slide away towards the
+distant snow. Shards of ice follow, a glittering shower from the crack that is
+now the cliff's new edge. The rumble fades below.
+
+>north
+
+Ice traces the stones as you descend, then spreads.
+
+
+You stand on a steep angle, digging your feet carefully in the snow, trying not
+to slip. The crest of this ridge rises to the west; the sun is hidden behind it.
+To the south, the slope steepens.
+
+There's a gleam of metal in the snow -- a twisted bit of rod, pronged; perhaps a
+key of some sort.
+
+>se
+
+You slither down the slope, and then set off across the icy plain.
+
+
+The unbounded and bitter ice is broken, to the west; a low cliff rears up all
+along that curve of the horizon. The sun is hidden behind the stony wall, but
+soft beams of light seem to radiate from the cliff-edge, across the sky and over
+your head. Pawprints track through the snow nearby.
+
+>sw
+
+You trudge through the shadow of the cliff, which gradually looms.
+
+
+The snow ends here; to the west rises a massive, worn wall of stone. It seems to
+press against you, even without touching, and against the unbounded white world
+that stretches east. But it does little against the wind.
+
+There is a cave in the cliff's face, a dark hole several feet above your head.
+Rubble is mounded against the cliff, directly below the cave.
+
+>enter rubble
+
+You scramble up onto the rubble, and stretch... there, a hand on the lip of the
+cave. Several moments of strenuous exercise, and you are inside.
+
+
+The tunnel is round, as you saw from the outside, and the walls are smooth; a
+hint of groove curves around them. The passage recedes west, dimly, though you
+can make out a hint of glow in the distance. A blinding blue and white circle of
+outer world glares at you from the east. Somehow, the wind is not blowing in, so
+the air is icily still.
+
+>west
+
+As you move deeper into the tunnel, you feel the floor rising, very slightly.
+
+
+The tunnel is very straight. You can tell that it's not quite east-west, though;
+the distant bright spot of outside snow is more east-northeast, and a strange
+watery glow is visible west-southwest.
+
+>west
+
+You walk towards the glow. The walls change, abruptly, from smooth carved stone
+to milky blue ice.
+
+
+The shape of the tunnel is the same, but you are surrounded by translucent ice,
+here at the end. To the east the passage returns to the dimness of stone. The
+west wall is an irregular sweep of ice; and it glows, with what must be the
+setting rays of the sun, somewhere to the west. Ripples of gold light fall
+through milky blue veils, turning this space into a small still cathedral.
+
+Caught within the western ice is a dark, indistinct form. The glow behind it
+casts a night-black shadow across the tunnel's floor.
+
+>remove blanket
+
+You unwrap yourself from the blanket. The dim chill pours down your skin.
+
+The cold is a vague ache through your blood, and it is hard to move.
+
+You hear a distant, muted rush, more with your bones than your ears.
+
+>examine shadow
+
+The edges of the shadow are indistinct, though still somehow impenetrably dark.
+
+>enter it
+The shadow  devouring the milky ice-light around you, then the world, then
+you --
+
+[Hit any key.]
+
+
+-- Air scalds your face, and then is merely tepid, with a bitter burning scent.
+The world is still dim, but with a strange glare --
+
+
+You stand on the east side of a wide circle of grey, glittering sand. The sky is
+black; but it is not night, for the sun hangs above the western horizon, a
+strange, fierce white dot that does not dim the stars around it or the moons
+above. A familiar sky-black shadow lies at your feet, cast in dim sunlight from
+a waist-high dome which stands at the center of the circle. The sand is
+surrounded by a fence of sorts -- tall silver bars rise around you, a roofless
+cage. And beyond that is nothing but endless barren plain.
+
+Beyond the bars, something shifts. You spin; a hooded white outline watches you,
+peering between the silver posts. Or at least it seems to. You can make out no
+detail of face or feature in that indistinct figure. Nor in the one next to it.
+You turn again; the circle is surrounded by a crowd of pale shapes.
+
+>nw
+
+You circle the dome. The white figures seem to become more intent, drawing a
+little closer to the bars.
+
+
+The west side of the circle is no different. Silver posts march around the
+perimeter of the sand, beneath the impossible starry, sun-lit night sky. The low
+dome rises to the east, at the circle's center.
+
+A crowd of white shapes moves in slow turmoil beyond the bars.
+
+Low tones grate through you, and you look up to see several of the white shapes
+moving animatedly to the west, beyond the bars. There is something about their
+motions -- are they gesturing to something behind you?
+
+>examine dome
+
+The dome is a perfect hemisphere, of some glossy white substance. It dimly
+reflects the sun and moons, but it has no other detail, or even texture. There
+is a narrow edge of black shadow along the west arc of the dome. What? Ah -- the
+moon Amwal, though nearly at zenith, is just low enough yet to cast it.
+
+>examine shadow
+
+The moon Amwal is high and rising. But it is yet low enough to cast a knife-thin
+edge of shadow, on the west side of the dome. You notice a current of motion
+among the white figures as you turn towards the shadow.
+
+The chill is fading from your blood.
+
+>enter it
+The white figures are whirling around the circle, echoing with harsh grating
+tones. You ignore them -- are they  -- and set foot to the darkness. The
+shadow seems far too narrow to enter; but it  across the sand, without
+seeming to change. The silver bars flicker away into the black sky, one by one,
+and then the stars --
+
+[Hit any key.]
+
+
+-- There is nothing beneath your feet. You flail convulsively for a moment,
+before you realize that you are not falling.
+
+
+You hang without support, and the depths below swirl with mist. Above you, the
+sky is flat and grey. Shapes move slowly across it.
+
+The formless shadows above you resolve for a moment, into two silhouettes
+walking slowly across a sunny park. Other shapes play some game in the distance,
+but the pair pay no attention. They stop by a low stone wall. A bird darts down,
+and lands on it, and eyes them fearlessly.
+
+>west
+
+Though there is nothing beneath you to move across, you consider motion, and
+something happens. Nothing changes; but there is a faint resistance, a sense of
+effort, like a dream of flying into the wind.
+
+
+You hang without support, and the depths below swirl with mist. Above you, the
+sky is flat and grey. Shapes move slowly across it.
+
+The formless shadows above you resolve for a moment, into a silhouette standing
+in a small room -- a kitchen, full of jars and untidy sacks. The figure mixes
+furiously, tastes from his bowl, shakes a bottle over it, taps again to be sure.
+Peelings and shells pile up on the counter.
+
+>north
+
+There is motion, and a faint sense of resistance to it.
+
+
+You hang without support, and the depths below swirl with mist. Above you, the
+sky is flat and grey. Shapes move slowly across it.
+
+The formless shadows above you resolve for a moment, into a dim figure sitting
+over a desk, pen in hand. It shuffles through one sheaf of papers, then another;
+it picks up a book that is lying on the floor. A few lines are scratched. The
+figure jumps up and walks in a tight circle, waving its arms. Then it sits,
+writes another line or two, and so it continues.
+
+>north
+
+There is motion, and a faint sense of resistance to it.
+
+
+You hang without support, and the depths below swirl with mist. Above you, the
+sky is flat and grey. Shapes move slowly across it.
+
+The formless shadows above you resolve for a moment, into several figures lying
+on trim grass, staring up into the sky. The sunlight is somehow dim. One
+silhouette sits up, and seems to laugh, and points at its own shadow.
+
+>north
+
+There is motion, and a faint sense of resistance to it.
+
+
+You hang without support, and the depths below swirl with mist. Above you, the
+sky is flat and grey. Shapes move slowly across it.
+
+The shadows above you change. Again you see the figure in a kitchen.
+
+>sw
+
+There is motion, and a faint sense of resistance to it.
+
+
+You hang without support, and the depths below swirl with mist. Above you, the
+sky is flat and grey. Shapes move slowly across it.
+
+The shadows above you change. Again you see the figure hard at work at a desk.
+
+>north
+
+There is motion, and a faint sense of resistance to it.
+
+
+You hang without support, and the depths below swirl with mist. Above you, the
+sky is flat and grey. Shapes move slowly across it.
+
+The shadows above you change. Again you see the figures lying under strange
+sunlight.
+
+>sw
+
+There is motion, and a faint sense of resistance to it.
+
+
+You hang without support, and the depths below swirl with mist. Above you, the
+sky is flat and grey. Shapes move slowly across it.
+
+The formless shadows above you resolve for a moment, into six silhouettes
+sitting in a circle, in a plush room. One is reading out loud, from a book. It
+turns a page and passes the book to its right, and that figure continues the
+reading. There is a distant air of solemnity, until one reader grimaces, and
+seems to laugh ruefully. It begins again.
+
+>north
+
+There is motion, and a faint sense of resistance to it.
+
+
+You hang without support, and the depths below swirl with mist. Above you, the
+sky is flat and grey. Shapes move slowly across it.
+
+The formless shadows above you resolve for a moment, into three figures kneeling
+on pavement, around an arrangement of cards and small shapes. One silhouette
+lays down another card and moves an angular shape onto it. The other two sit
+back, frowning. One gropes for a jar and sips from it.
+
+>sw
+
+There is motion, and a faint sense of resistance to it.
+
+
+You hang without support, and the depths below swirl with mist. Above you, the
+sky is flat and grey. Shapes move slowly across it.
+
+The formless shadows above you resolve for a moment, into two silhouettes
+standing in a room; many others sit around them. The two mouths are moving,
+soundlessly, and you see a stray foot tapping. The audience is relaxed,
+laughing.
+
+>north
+
+There is motion, and a faint sense of resistance to it.
+
+
+You hang without support, and the depths below swirl with mist. Above you, the
+sky is flat and grey. Shapes move slowly across it.
+
+The shadows above you change. Again you see the six figures sitting in a circle,
+reading.
+
+>sw
+
+There is motion, and a faint sense of resistance to it.
+
+
+You hang without support, and the depths below swirl with mist. Above you, the
+sky is flat and grey. Shapes move slowly across it.
+
+The shadows above you change. Again you see the three figures kneeling around
+their cards.
+
+>north
+
+There is motion, and a faint sense of resistance to it.
+
+
+You hang without support, and the depths below swirl with mist. Above you, the
+sky is flat and grey. Shapes move slowly across it.
+
+The shadows above you change. Again you see the two figures performing.
+
+>sw
+
+There is motion. Nothing changes; but there is a faint acceleration, a sense of
+ease, like a dream of sinking through still water.
+
+
+You hang without support, and the depths below swirl with mist. Above you, the
+sky is flat and grey. Shapes move slowly across it.
+
+The formless shadows above you resolve for a moment, into one silhouette walking
+slowly in a sunny park. It takes a side path, and then another, seemingly
+without aim or direction. A dry tree branch tosses idly in one hand; the figure
+does not speak.
+
+>north
+
+There is motion, and a faint sense of resistance to it.
+
+
+You hang without support, and the depths below swirl with mist. Above you, the
+sky is flat and grey. Shapes move slowly across it.
+
+The formless shadows above you resolve for a moment, into two silhouettes
+standing on a dark porch. They are talking, but they are huddled somehow away
+from each other, and one will not look the other in the eye. A third shape steps
+out for a moment nearby, and the two freeze, until the third moves away.
+
+>west
+
+There is motion, and a faint sense of resistance to it.
+
+
+You hang without support, and the depths below swirl with mist. Above you, the
+sky is flat and grey. Shapes move slowly across it.
+
+The shadows above you change. Again you see the two figures performing.
+
+>north
+
+There is motion; and a sense of resistance which becomes suddenly powerful,
+seizing your progress.
+
+
+You hang without support, and the depths below swirl with mist. Above you, the
+sky is flat and grey. Shapes move slowly across it.
+
+The shadows above you change. Again you see the lone figure walking in a sunny
+park.
+
+>wait
+
+Time passes.
+
+The shadows above you change. Again you see the two figures standing stiffly on
+a dark porch.
+
+>wait
+
+Time passes.
+
+The formless shadows above you resolve for a moment, into a dark figure standing
+in an empty room. Its lips move, silently: Will you forgive me?
+
+>wait
+
+Time passes.
+
+The shapes in the sky fade. No, they are around you -- a ring of dimness that
+sweeps in from every direction, shrinking, coalescing before you. The words echo
+this time: "Will you forgive me?"
+
+>examine ring
+
+A ring of translucent darkness hangs before you, horizontal, no broader than
+your circled arms would be. A thousand fragmentary shapes might flicker within
+the shadowy band; but they are all quite still.
+
+>enter it
+
+Straining against intangible resistance, you cross the boundary of the ring. It
+writhes suddenly and collapses inward --
+
+ The silence is not broken, but it seems tuned to a higher pitch; echoes
+of something fade reluctantly from your thoughts. Echoes of... you're not sure.
+But for a moment, you saw 
+
+Something swoops past your head.
+
+>examine shadow
+
+At this distance, it's a mere spot. But it has the same night's-blood darkness
+which has brought you this strange, far way.
+
+Something else catches your eye: there is a shadow upon the mist, far below.
+
+>enter it
+Once again, the thought of motion becomes motion; you slide downward. The
+glowing sphere follows, circling your head quietly, even as your descent speeds,
+becomes a plummet.... Mist whips past you; the wind roars; you cannot breathe
+for it, and then the blackness swallows you, leaving silence and the single
+light of the orbiting sphere --
+
+[Hit any key.]
+
+
+-- Foul air chokes you.
+
+
+The west side of the circle is no different. Silver posts march around the
+perimeter of the sand, beneath the impossible starry, sun-lit night sky. The low
+dome rises to the east, at the circle's center.
+
+Something thuds into the sand at your feet.
+
+>get sphere
+
+Taken. It's surprisingly heavy.
+
+>se
+
+You circle the dome.
+
+
+You stand on the east side of a wide circle of grey, glittering sand. The sky is
+black; but it is not night, for the sun hangs above the western horizon, a
+strange, fierce white dot that does not dim the stars around it or the moons
+above. A familiar sky-black shadow lies at your feet, cast in dim sunlight from
+a waist-high dome which stands at the center of the circle. The sand is
+surrounded by a fence of sorts -- tall silver bars rise around you, a roofless
+cage. And beyond that is nothing but endless barren plain.
+
+>enter shadow
+The shadow  across the sand; the silver bars flicker away into the black
+sky, one by one, and then the stars --
+
+[Hit any key.]
+
+
+-- Clean cold air snaps you back to awareness, in the soft and layered glow of
+the ice.
+
+Something in your hand feels less weighty.
+
+
+The shape of the tunnel is the same, but you are surrounded by translucent ice,
+here at the end. To the east the passage returns to the dimness of stone. The
+west wall is an irregular sweep of ice; and it glows, with what must be the
+setting rays of the sun, somewhere to the west. Ripples of gold light fall
+through milky blue veils, turning this space into a small still cathedral.
+
+Caught within the western ice is a dark, indistinct form. The glow behind it
+casts a night-black shadow across the tunnel's floor.
+
+>east
+
+You leave, feeling again the faint downward and northward angle of the tunnel.
+Stone surrounds you again.
+
+
+The tunnel is very straight. You can tell that it's not quite east-west, though;
+the distant bright spot of outside snow is more east-northeast, and a strange
+watery glow is visible west-southwest.
+
+>east
+
+You walk towards the light.
+
+
+The tunnel is round, as you saw from the outside, and the walls are smooth; a
+hint of groove curves around them. The passage recedes west, dimly, though you
+can make out a hint of glow in the distance. A blinding blue and white circle of
+outer world glares at you from the east. Somehow, the wind is not blowing in, so
+the air is icily still.
+
+You are shivering violently.
+
+>east
+
+You sit on the lip of the tunnel, turn, and carefully lower yourself to the
+rubble below. A chunk of stone slides, but you manage to wobble your way off
+with only a slight wrench to your ankle.
+
+
+The snow ends here; to the west rises a massive, worn wall of stone. It seems to
+press against you, even without touching, and against the unbounded white world
+that stretches east. But it does little against the wind.
+
+There is a cave in the cliff's face, a dark hole several feet above your head.
+Rubble is mounded against the cliff, directly below the cave.
+
+>ne
+
+You move out, shivering, into the endless snow.
+
+
+The unbounded and bitter ice is broken, to the west; a low cliff rears up all
+along that curve of the horizon. The sun is hidden behind the stony wall, but
+soft beams of light seem to radiate from the cliff-edge, across the sky and over
+your head. Pawprints track through the snow nearby.
+
+The wind shrieks.
+
+>east
+
+A faint shadow on the ice ahead slowly widens, until you reach the lip of an
+unfathomable crevasse.
+
+
+The air slices you without remorse. The horizon is an irregular wall of dirty
+white against blue, and the snow beneath you is marked only by a few pawprints.
+To the east and southeast, though, the ice falls away into an abrupt, shadowy
+crevasse.
+
+A metal pole sticks out from the snow.
+
+Your hands and feet are becoming numb.
+
+>north
+
+Light gleams on the spire ahead as you push through bitter wind.
+
+
+Blue sky glares above you, to the dead-white horizon, and between them is
+nothing but wind and the cold. Snow crunches gently beneath your feet. Above
+your head, a wind-sculpted spire of ice twists fantastically, and its shadow
+lies as strange and utterly black against the glittering snow. You can make out
+something dark to the south, a pole or column of some sort.
+
+>enter shadow
+The shadow  whirling between you and the glaring white landscape; the
+bitter cold fades to no feeling at all --
+
+[Hit any key.]
+
+
+-- Air scalds your face, and then is merely tepid; you slowly adjust again to
+the brisk autumn breeze.
+
+
+The mosaic paving is every shade of scarlet and grey, a shocking contrast to the
+castle walls, the ivory stone which was all that was visible from the ground
+beyond the moat. Even the ivy that chokes the walls above and below you does not
+venture far onto the colored tiles. A small arch would lead east into the
+castle, were it not entirely filled with vines. To the west, wild ruffling
+meadows spread under the violet sky; the dome is visible to the southwest, in
+its magenta stain of lichen.
+
+An airy web of pipes and cables arches neatly over the moat, just touching the
+balcony, casting a pool of shadow across the mosaic tiles.
+
+The chill is fading from your blood.
+
+>west
+
+You step up on the bridge, and pass over the moat.
+
+
+The road curves around the west side of the castle, edging the trench. To the
+north, it falls into the shade of trees; forest has grown down to the castle's
+north edge. A smaller road branches off towards a dome that squats to the
+southwest.
+
+An airy web of pipes and cables arches neatly over the moat, touching the
+balcony. The lever juts from the stonework near its base.
+
+>south
+
+The road curves east as it circles the castle.
+
+
+The main road ends here, at the edge of a deep dry moat. Or nearly dry; a
+trickle of dark water crawls past jagged rusty edges of iron, far below. A broad
+stone arch spans the trench, up to the ivy-choked facade of the castle. A
+smaller road follows the moat's curve, east and west.
+
+>south
+
+
+A dawn-tale, ivory castle stands far to the north, heavily strung with ivy and
+reddening sunlight. The road runs towards it, and back to the south, over a hill
+that hides the stone wall. A branch of the road also leads northwest, towards a
+dome, which seems to float in a magenta lake.
+
+A large pile of pipes and cable is sprawled untidily by the road.
+
+>south
+
+
+The wall stands, massive and unyielding, to the south. The road issues from its
+open gate, though, and leaps merrily over a rise to the north, and beyond it.
+Ivy-wound towers are visible, somewhere at the road's end.
+
+>south
+
+You duck, quite unnecessarily, as you pass under the massive hanging gate.
+
+
+The wall looms here, streaked gold with sideways sunlight. The finely-etched
+stone blocks are each wider than you can reach; they file at least forty feet
+above you. The gate... would be huge anywhere else. It's a square of dark wood
+half the wall's height, suspended above the road. The road runs from the gate
+towards the distant forest in the south.
+
+The pillar to the east still stands, but the western one tilts wildly over your
+head. It leans toward its partner as if it had a secret to impart. But bright
+sky slices thin between the two dark shapes.
+
+>south
+
+You stroll for a while, back to the ruined chimney.
+
+
+A worn stub of brick juts up here, by the road. It's no more than twice your
+height; but scattered bricks in the weeds attest to an imposing chimney in time
+past. Whatever building the chimney served is now just rotted scraps of wood and
+a few stony ridges, and some mounds off to the west. The road continues towards
+the wall north, and the distant forest south.
+
+>enter shadow
+The shadow  as you set foot to it. The old brick of the chimney looms
+impossibly above you, blotting out the sun, the sky, the darkness before you,
+your name --
+
+[Hit any key.]
+
+
+-- Everything drops silently into place again. You are staring at a bale of hay.
+
+
+You are alone to the east of a long wooden platform. This must be the back, for
+a slat fence runs around this small field, enclosing you, assorted rolls of
+canvas, and a small mountain of hay bales. A small closed gate breaks the fence
+to the north. The sun is bright, but the air is mild and fertile-scented.
+
+You can see the people on the platform have risen to their feet, waving their
+sparkling hands madly.
+
+>west
+
+You pull yourself up the ladder. No heads turn.
+
+
+The platform sweeps gently down to the west, in a series of low, wide, sunny
+steps. And the steps are filled with people. Quiet people; they sit and gaze
+intently out to the west. A long oval of earth is spread out below you in that
+direction. Clearly this is a cyclia of some kind. The platform is mostly fenced,
+but a broad path leads southwest, and a ladder drops down the east side.
+
+All the animals in the arena rise, and parade slowly around.
+
+>sw
+
+You make your way down the steps.
+
+
+This broad yard is the center of the compound, if the worn and cross-tracked
+earth is any sign. A road runs east under a brick arch; a path leads northeast
+to the seating platform; a wide gate stands open in the fence to the north; and
+unpainted wooden buildings stand west and south. The west building's door is
+closed, and the south door is open.
+
+Two men flank the open gate. The tall one is wearing blue silk and the fat one
+yellow, in identical styles; but you'd guessed they have some formal function
+just from the way they stand.
+
+People and strange animals begin filing out of the gate. They stream through the
+yard, into the building to the south.
+
+You notice one creature hooting distressedly, balking at the southern doorway.
+After a moment, its trainer shakes her head and tethers it to a post in the
+yard.
+
+>wait
+
+Time passes.
+
+The last few animals dart through the northern gate, and are led to the south.
+The men in blue and yellow nod formally to each other, slide the gate shut, nod
+again, and vanish still silent through the arch.
+
+>wait
+
+Time passes.
+
+>wait
+
+Time passes.
+
+People are walking down from the platform, and moving through the arch, and
+away.
+
+>wait
+
+Time passes.
+
+The yard empties as the last of the crowd leaves to the east.
+
+>wait
+
+Time passes.
+
+The crested animal chews thoughtfully.
+
+>wait
+
+Time passes.
+
+>wait
+
+Time passes.
+
+>wait
+
+Time passes.
+
+>wait
+
+Time passes.
+
+The crested animal noses around the edge of the yard, to the limit of its
+tether, and crops some grass with its bill.
+
+>wait
+
+Time passes.
+
+Three people in dull clothing enter from the arch. They drag open the northern
+gate, and disappear through it.
+
+The crested animal chews thoughtfully.
+
+>north
+
+
+You stand in a long arena of soft, dry earth. The ground is scarred with tracks,
+both of claws and hooves and booted feet; a musty smell rises around you, but
+the arena is quiet and still. A railing surrounds you, with a wide gate to the
+south, which lies open.
+
+Three people are working here, sweeping and cleaning the ground, and gathering
+scraps and trash. They move methodically and don't seem to notice you at all.
+
+You notice a length of brighter color, something orange, lying along the edge of
+the arena.
+
+The people here continue sweeping and picking up scraps.
+
+>get orange
+
+You pick it up, and try to shake it out. It's a crumpled length of heavy
+leather, at least six feet long, and oddly shaped.
+
+The three people reach the north end of the arena, and begin making their way
+back, sweeping industriously.
+
+>south
+
+You silently slip through the gate.
+
+
+This broad yard is the center of the compound, if the worn and cross-tracked
+earth is any sign. A road runs east under a brick arch; a path leads northeast
+to the seating platform; a wide gate stands open in the fence to the north; and
+unpainted wooden buildings stand west and south. The west building's door is
+closed, and the south door is open.
+
+An odd creature with a bony crest stands at one edge of the yard. A tether is
+looped around its neck and tied to a post near the west building.
+
+Three people in nondescript clothing come through the gate, pulling it shut
+behind them. They walk away to the east without a word or glance.
+
+>cut tether with knife
+
+A few moments of determined sawing, and the tether dangles free.
+
+>south
+
+
+The building is dim and slightly damp, lit only by narrow windows and the open
+door to the north. Another, smaller door stands closed in the south wall. This
+room is divided by several low partitions; the sections are open to each other,
+and floored with soft earth.
+
+A pair of large, evil-looking creatures are tethered to one side. They sport
+astonishingly long tails, and an astonishing assortment of claws. The claws of
+one are stained green, matching the dyed leather of its harness; the other's
+claws and tack are violet.
+
+The violet clawed creature digs idly at a post with one claw, raising splinters.
+
+>put orange on violet
+
+(the violet clawed creature)
+You fit the leather over the animal's back. The ends hang neatly in front of its
+legs.
+
+>enter violet
+
+(the violet clawed creature)
+You clamber up the violet clawed creature's back. It hisses and rears -- not
+angrily, just stretching -- and you grab for support, trying not to slide down
+the nearly vertical spine. The orange leather gives your legs purchase, though,
+and you steady yourself with some convenient straps.
+
+The violet clawed creature arches its back under you.
+
+>untie it
+The moment the harness is unhooked, the violet clawed creature emits a piercing
+shriek. There is a white glint in its eye which must have been there all
+along... and then the long legs bunch.
+
+There is a tremendous  You find yourself lying flat on the creature's
+neck, your feet caught in some orange straps -- no, maybe they're supposed to be
+there, at least you're not falling off -- and the creature is into another
+tremendous flat leap, the door lintel nearly shears your head off, and
+
+
+You cling to straps as the ground blurs.
+
+ (on the violet clawed creature)
+This broad yard is the center of the compound, if the worn and cross-tracked
+earth is any sign. A road runs east under a brick arch; a path leads northeast
+to the seating platform; a wide gate stands closed in the fence to the north;
+and unpainted wooden buildings stand west and south. The west building's door is
+closed, and the south door is open.
+
+An odd creature with a bony crest stands at one edge of the yard. A tether is
+looped around its neck and hangs loosely to the ground.
+
+
+
+The crested creature shrieks as you come into view. It leaps for the arch, eyes
+darting back at your mount.
+
+>wait
+
+Time passes.
+
+You cling to straps as the ground blurs.
+
+ (on the violet clawed creature)
+A busy crowd surrounds you, here in the sun. Spacious brick buildings line the
+square; a road runs east, a path leads west under a wide arch; and to the south
+the plaza continues, a stream of cobblestone, trees, grass-cuts, and lively
+people. Lively, but... quiet. Feet moving, smiles, waving hands, but not one
+voice. It feels too normal to feel odd. In the center of the cobble circle that
+forms this end of the mall, a statue rises from sprawled shrubbery.
+
+A tall, muscular man in blue silk stands here.
+
+The crested creature swerves south, dashing down the mall.
+
+>wait
+
+Time passes.
+
+You cling to straps as the ground blurs. A couple walking hand-in-hand are
+knocked aside as your mount darts between them.
+
+ (on the violet clawed creature)
+The crowded mall stretches north and south, a cheerful bustle of people, trees,
+benches, and grass. The hush of the crowd is merely restful. Ornamental building
+facades stand along the sides of the plaza, although a dark and narrow alley
+slips between brick walls to the east.
+
+A stumpy old woman wearing blue silk stands here.
+
+The crested creature is just a few yards ahead of you.
+
+>wait
+
+Time passes.
+
+You cling to straps as the ground blurs.
+
+ (on the violet clawed creature)
+The cobble way from the north ends here, at a broad tree-lined square which runs
+down to a gentle river. Smaller roads runs east and west, along the water's
+edge. In the center of the square is a marble pedestal. Silent people stand and
+flow around the mall, animated or relaxed.
+
+A tall, muscular man in blue silk stands here.
+
+There is a wiry woman here, in yellow silk.
+
+The crested creature is heading straight at the river!
+
+>wait
+
+Time passes.
+
+With the power of desperation, the crested creature launches itself over the
+water. It hangs for a moment in the light -- and then your own mount gathers
+itself, and the world is momentarily as distant as the sky --
+
+Clawed feet  into dry earth, and your abused fingers finally slip. The
+ground smacks you hard. By the time you pull yourself to your feet, both animals
+are gone.
+
+
+The space is cool and half-shaded by frequent trees. Shaggy bushes, untrimmed,
+surround the park, casting the aura of unspoiled wilderness. A river peeps
+through shyly to the north, and a wider gap in the irregular rhythm of hedges
+leads your eye west. In the center of the space rises a bare flagpole. A few
+people stroll here, chatting quietly or simply walking.
+
+>examine flagpole
+
+Perhaps it's silly to assume it's a flagpole, given the absence of flag at the
+top. It's just a pole; a single bole of polished blonde wood, narrow enough to
+encircle with your two hands. The unadorned top rises higher than the trees, and
+it casts a line of inky shadow across the grass and the more mundane shadows of
+the trees.
+
+Something rushes through the hedges, just beyond sight -- no, two things, one on
+the other's heels.
+
+>examine shadow
+
+The shadow is a narrow and eye-aching dark.
+
+>enter shadow
+The shadow seems too narrow to cover you, but you pass towards it, and through
+it, and the darkness does not end, everything beyond is beyond reach and miles
+away and dark --
+
+[Hit any key.]
+
+
+-- And the darkness remains. You jerk around wildly, panicked -- lost in shadow?
+No; you are real again, at least, and there's solid ground underfoot.
+
+
+It is too dark to see.
+
+A sharp, irregular rapping comes from somewhere nearby. Farther away, to the
+west, is a jangle of bells; and a thin wailing drifts from the south.
+
+It sounds like something is bubbling merrily on the ground nearby.
+
+>south
+
+You advance through the blind dark.
+
+
+It is too dark to see.
+
+You are surrounded by a thin, high wailing sound; it wavers up and down, setting
+your ears on edge. A rattling hiss is audible to the southeast, a much deeper
+rumble to the southwest, and there is an occasional echoing rap from the north.
+
+>sw
+
+You advance through the blind dark.
+
+
+It is too dark to see.
+
+A steady, deep, and powerful rumble burns just below the surface of this spot.
+You feel it more than hear it -- a colorless vibration behind your ears and in
+your bones. A much higher, keening wail is audible far to the northeast, and
+from the east comes a rushing hiss.
+
+A gentle, irregular thudding sound comes from the dark air.
+
+You can hear something moving overhead, slowly, with a sound of heavy beating
+wings.
+
+>get thudding
+
+You turn your head slowly, concentrating on the gentle thudding. There. A
+step... the sound surrounds you, seemingly everywhere. You've got it, or it's
+got you, or something.
+
+A thing flaps slowly away into the silent dark.
+
+>ne
+
+You advance through the blind dark. The gentle thudding seems to keep pace about
+you.
+
+
+It is too dark to see.
+
+You are surrounded by a thin, high wailing sound; it wavers up and down, setting
+your ears on edge. A rattling hiss is audible to the southeast, a much deeper
+rumble to the southwest, and there is an occasional echoing rap from the north.
+
+A gentle, irregular thudding sound envelops you.
+
+You become aware of something thrumming; a bare high tone that thrusts
+delicately behind your eyes. You shake your head, but it strengthens, becoming a
+vibrating chord somewhere overhead.
+
+>sing to box
+
+You essay a few notes, holding the box close to your mouth. The sound is
+immense: a resonant thrum, echoing you in harmonics that shift subtly with your
+voice.
+
+Above you, the chord  in harmony with your note. A white pain flashes
+across your eyes, and then the chord is gone.
+
+>north
+
+You advance through the blind dark. The gentle thudding seems to keep pace about
+you.
+
+
+It is too dark to see.
+
+A sharp, irregular rapping comes from somewhere nearby. Farther away, to the
+west, is a jangle of bells; and a thin wailing drifts from the south.
+
+It sounds like something is bubbling merrily on the ground nearby.
+
+A gentle, irregular thudding sound envelops you.
+
+>west
+
+You advance through the blind dark. The gentle thudding seems to keep pace about
+you.
+
+
+It is too dark to see.
+
+You are nearly deafened by unseen clangor. A thousand bells might be roiling a
+foot above your head. The noise is dampened to the east, where you can hear an
+occasional sharp rap, and to the north, where a echoing plipping noise gives the
+impression of dripping water.
+
+You can hear something moving overhead, slowly, with a sound of heavy beating
+wings.
+
+A gentle, irregular thudding sound envelops you.
+
+A thing flaps slowly away into the silent dark.
+
+>north
+
+You advance through the blind dark. The gentle thudding seems to keep pace about
+you.
+
+
+It is too dark to see.
+
+A metallic plopping sound resonates here, over and over again, in several
+pitches and at several rates. You could easily believe that you were surrounded
+by dripping fountains, although the ground underfoot seems to be no damper than
+usual for this place. Bells jangle somewhere to the south, and the plipping
+grows more intense to the northeast.
+
+A gentle, irregular thudding sound envelops you.
+
+>drop thudding
+
+You step quickly to one side, leaving the gentle thudding behind.
+
+>get low plooping
+
+You turn your head slowly, concentrating on the low plooping. There. A step...
+the sound surrounds you, seemingly everywhere. You've got it, or it's got you,
+or something.
+
+>south
+
+You begin to move through the blind dark, towards the bells. The low plooping
+sound keeps pace with you... and as you move, something  behind you. You
+whirl, as a cascade of dripping sounds rolls over you from the northeast. For a
+moment you're nearly certain of drowning... but nothing touches you; and then
+much of the plipping is gone, including your lowest note. A murmur of human
+voices now drifts from the northeast.
+
+>get thudding
+
+You turn your head slowly, concentrating on the gentle thudding. There. A
+step... the sound surrounds you, seemingly everywhere. You've got it, or it's
+got you, or something.
+
+>ne
+
+You advance through the blind dark. The gentle thudding seems to keep pace about
+you.
+
+
+It is too dark to see.
+
+Voices seem to surround you, but you cannot make out the words, or even
+determine whether the language is one you understand. A rapid sound of dripping
+water comes from the southwest, and there are constant violent crashes to the
+east.
+
+A gentle, irregular thudding sound envelops you.
+
+>east
+
+You advance through the blind dark. The gentle thudding seems to keep pace about
+you.
+
+
+It is too dark to see.
+
+The crash of shattering glass jars you, over and over, from somewhere near here.
+Farther to the west you hear voices, apparently unconcerned; to the south pulses
+an irregular thudding.
+
+A gentle, irregular thudding sound envelops you.
+
+>south
+
+You move towards the distant thudding sound. The gentle thudding around you
+keeps pace, and the two rhythms blend imperceptibly.
+
+
+It is too dark to see.
+
+The thudding that envelops you is quiet and very, very regular. Beyond the
+pulse, dimly, you can make out smashing glass somewhere to the north. To the
+southeast is a more immediate cacophony of squeals and blares.
+
+>se
+
+You advance through the blind dark.
+
+
+It is too dark to see.
+
+You are surrounded by the shrieks of the damned. Or something worse; who knows
+what might lurk in this chain of worlds? Blares, squeals, and soft snarling
+calls: all tear at your ears without respite. Infinitely more gentle is the
+thudding sound far to the northwest, and a rattling, blowing hiss comes from the
+southwest. And in the center of the noise, beside you, is a small area of utter
+silence.
+
+>examine silence
+
+It's exactly that -- a spot from which no sound comes, whatsoever. As you move
+your head, the silence seems to press at you, unnervingly, and then contract
+again.
+
+>enter it
+The silence  as you move into it. Now all sound is gone from the world,
+the black world, and the ground is gone, and your voice and your breath and you
+--
+
+[Hit any key.]
+
+
+-- Out of nothing, you are struck, hard, in the back and neck and knees. There
+is no down, but a moment of dizzying instability rushes past you. Then you are
+struck again, by a metal floor which jars your forearms painfully; you flung up
+your hands just in time.
+
+You lie there for a moment, then push yourself up -- and crack your head on the
+ceiling. Ohh. You curl around more carefully.
+
+
+You sit hunched between parallel metal planes. Your chin is tucked down and your
+head still pressed uncomfortably against the ceiling. Dim-glowing traces on the
+floor stretch into the distance, however; low as it is, this space seems vastly
+wide.
+
+Two objects are resting on the ground here: two short lengths of silver pipe, it
+seems, one wider than the other. Each has a bone handle protruding from its
+side, near one end.
+
+>get all
+
+length of thin pipe: Taken.
+length of thick pipe: Taken.
+
+>hit thick
+
+ The pipe blurs, and for a moment it seems to extend, vertically,
+forever. You cannot breathe for the sound. The bounded world blurs vertically as
+well, and the metal ceiling recedes into the distance...
+
+
+The space between these plates is, if anything, fractionally lower than the
+first one you fell into. A dim phosphorescent grid is traced out across the
+ceiling, marking silent distance in all directions.
+
+There are three more lengths of silver pipe here, just like the ones you found
+earlier. Two are narrow; one is wide.
+
+The sound, and the pipe you struck, are gone.
+
+>get all
+
+length of thin pipe: Taken.
+length of thick pipe: Taken.
+length of thin pipe: Taken.
+
+>hit thin
+
+ The pipe blurs, and for a moment it seems to extend, vertically,
+forever. You cannot breathe for the sound. The bounded world blurs vertically as
+well, and the metal floor recedes into the distance...
+
+
+You sit hunched between parallel metal planes. Your chin is tucked down and your
+head still pressed uncomfortably against the ceiling. Dim-glowing traces on the
+floor stretch into the distance, however; low as it is, this space seems vastly
+wide.
+
+The sound, and the pipe you struck, are gone.
+
+>hit thin
+
+ The pipe blurs, and for a moment it seems to extend, vertically,
+forever. You cannot breathe for the sound. The bounded world blurs vertically as
+well, and the metal floor recedes into the distance...
+
+
+It is too dark to see. The ceiling is still there, low and massively solid,
+nonetheless.
+
+The sound, and the pipe you struck, are gone.
+
+>hit thin
+
+ The pipe blurs, and for a moment it seems to extend, vertically,
+forever. You cannot breathe for the sound. The bounded world blurs vertically as
+well, and the metal floor recedes into the distance...
+
+
+The metal floor and ceiling seem a bit farther apart here -- at least, you can
+nearly straighten your neck, from where you sit. The floor is scarred by thin
+parallel grooves.
+
+Two spots of light shine palely on the ceiling.
+
+Three of the familiar wide lengths of pipe lie nearby.
+
+The sound, and the pipe you struck, are gone.
+
+The stillness of this place is getting to you. You feel... stretched.
+
+>get all
+
+pair of bright spots: That appears to be part of the ceiling.
+length of thick pipe: Taken.
+length of thick pipe: Taken.
+length of thick pipe: Taken.
+
+>squeeze pod in jar
+
+The pod ruptures easily, and an acrid oil splashes into the jar.
+
+>wait
+
+Time passes.
+
+>wait
+
+Time passes.
+
+A drop of oil falls on your leg.
+
+>wait
+
+Time passes.
+
+>break square
+
+The corner breaks off easily along the groove. The snap is followed by a faint
+hiss; and then you jerk your fingers quickly away, for a tiny, blue-hot jet of
+flame has begun to shoot from the broken edge.
+
+Oil is trickling across your fingers. You glance down. The jar isn't tilted, or
+cracked; the trickle seems to be oozing straight from the clay, just above the
+smudge.
+
+>light trickle
+
+(with the blue flame)
+The trickle of oil flares, then settles to a tiny flame dancing just below the
+jar's lip. There is just enough oil flowing to burn, it seems, for nothing drips
+farther down the side.
+
+The blue flame is weakening.
+
+>hit thick
+
+ The pipe blurs, and for a moment it seems to extend, vertically,
+forever. You cannot breathe for the sound. The bounded world blurs vertically as
+well, and the metal ceiling recedes into the distance...
+
+
+You are still kneeling between unyielding surfaces, much too close above and
+below. Long parallel ridges cross the ceiling, perhaps an arm's-length apart,
+and disappear into the darkness around you.
+
+Another piece of pipe, a wide one, rests on the floor.
+
+The sound, and the pipe you struck, are gone.
+
+The blue flame is flickering badly.
+
+>get all
+
+length of thick pipe: Taken.
+
+The blue flame sputters out.
+
+>hit thick
+
+ The pipe blurs, and for a moment it seems to extend, vertically,
+forever. You cannot breathe for the sound. The bounded world blurs vertically as
+well, and the metal ceiling recedes into the distance...
+
+
+You sit hunched between parallel metal planes. Your chin is tucked down and your
+head still pressed uncomfortably against the ceiling. Dim-glowing traces on the
+floor stretch into the distance, however; low as it is, this space seems vastly
+wide.
+
+The sound, and the pipe you struck, are gone.
+
+>hit thick
+
+ The pipe blurs, and for a moment it seems to extend, vertically,
+forever. You cannot breathe for the sound. The bounded world blurs vertically as
+well, and the metal ceiling recedes into the distance...
+
+
+The space between these plates is, if anything, fractionally lower than the
+first one you fell into. A dim phosphorescent grid is traced out across the
+ceiling, marking silent distance in all directions.
+
+The sound, and the pipe you struck, are gone.
+
+>hit thick
+
+ The pipe blurs, and for a moment it seems to extend, vertically,
+forever. You cannot breathe for the sound. The bounded world blurs vertically as
+well, and the metal ceiling recedes into the distance...
+
+
+The metal overhead bends you nearly double, even sitting, as you are. Both floor
+and ceiling seem more heavily rusted here; small clumps of phosphorescent moss
+cling here and there.
+
+A figure sprawls indifferently on its back a few feet away. His back; it's a
+boy, raggedly dressed; young, you think, although it's oddly uncertain a guess.
+He breathes steadily in sleep.
+
+The sound, and the pipe you struck, are gone.
+
+Your knee slips abruptly on moss; you jerk a hand out to catch yourself. The
+length of thick pipe flies from you and hits the ground with a muffled clank.
+The boy slips a syllable of protest, turns on his side, and huddles, still
+asleep.
+
+>get thick
+
+You extend a hand towards the length of thick pipe and freeze. Perhaps it was
+only the stirring of the air; the child is awake. A thin hand darts out and
+snatches the length of thick pipe. The boy clutches the metal to his chest,
+staring at you wildly.
+
+>wait
+
+Time passes.
+
+The boy shakes himself out of immobility, and darts a glance down at the length
+of thick pipe he holds. He stares for a moment; his eyes are wondering.
+
+>ask boy for pipe
+
+He twitches violently. Wrapping his hands around the pipe, the boy turns away,
+shaking, hiding the silver metal with his body.
+
+Then he straightens, slowly. His eyes search yours, pressing at the wall of
+understanding between you; they drop to the length of pipe, and rise again.
+Moss-light shivers on the polished surface. And -- very softly -- he lays the
+pipe down before you.
+
+>get thick
+
+The boy's hand clenches as you pick up the length of pipe. But his face does not
+change.
+
+>hit it
+
+ The pipe blurs, and for a moment it seems to extend, vertically,
+forever. You cannot breathe for the sound. The bounded world blurs vertically as
+well, and the metal ceiling recedes into the distance...
+
+The boy's eyes seem to fade last of all. They watch you, full of something you
+may never see again.
+
+
+You are lying full length on scarred, rusted metal. Your raised head brushes the
+ceiling. Is it harder to breathe here? Don't think about it.
+
+A black outline stretches across the metal -- a shadow, cast by the light of
+your flickering flame, from... nothing that you can see.
+
+The sound, and the pipe you struck, are gone.
+
+>examine shadow
+
+The abyss-dark shadow does not reveal a form. It reaches far ahead of you,
+shifting as the oil flame moves, but the spot it reaches from is empty.
+
+>drop jar
+
+Dropped.
+
+>enter shadow
+The shadow remains steady as you move towards it, the light at your back. The
+dark  things begin to drop away. The confining metal planes recede, and
+you expand in vast relief, and expand and dissipate and fade --
+
+[Hit any key.]
+
+
+-- You are aware of a hard grey surface beneath your feet.
+
+
+You stand on a hard grey plane; it stretches without variation around you. The
+sky above swirls with distant mist.
+
+You can see a red pyramid and a yellow cube here.
+
+>move brown cube
+
+Something seems subtly different about the cube, as it moves.
+
+>move it
+
+You turn the cube slowly back and forth; and, yes, it changes very slightly as
+it moves. Its ridges become more regular as you move it towards the northwest
+and more irregular towards the southeast.
+
+>nw
+
+You walk for a while. The ridges on the cube slowly shift, becoming more
+regular.
+
+
+You stand on a hard grey plane; it stretches without variation around you. The
+sky above swirls with distant mist.
+
+You can see a blue sphere here.
+
+>move brown cube
+
+You turn the cube slowly back and forth. Its ridges become more irregular as you
+move it towards the east and shallower towards the west.
+
+>west
+
+You walk for a while. The ridges on the cube slowly flatten away, leaving smooth
+shaded stripes.
+
+
+You stand on a hard grey plane; it stretches without variation around you. The
+sky above swirls with distant mist.
+
+You can see a blue cube and a yellow cone here.
+
+>move brown cube
+
+You turn the cube slowly back and forth. Its stripes become fainter as you move
+it towards the southeast and slightly bumpy towards the northwest.
+
+>se
+
+You walk for a while. The stripes on the cube slowly fade to a uniform brown.
+
+
+You stand on a hard grey plane; it stretches without variation around you. The
+sky above swirls with distant mist.
+
+You can see two green pyramids here.
+
+>move brown cube
+
+You turn the cube slowly back and forth. Its coloring becomes somewhat banded as
+you move it towards the northeast and paler towards the southwest.
+
+>sw
+
+You walk for a while. The cube's brown color slowly pales to tan.
+
+
+You stand on a hard grey plane; it stretches without variation around you. The
+sky above swirls with distant mist.
+
+You can see a red pyramid and a yellow cube here.
+
+>move brown cube
+
+You can't see any such thing.
+
+>move tan cube
+
+You turn the cube slowly back and forth. Its coloring becomes more intense as
+you move it towards the southwest and paler towards the northeast.
+
+>ne
+
+You walk for a while. The last trace of color fades from the cube; and you
+notice, a moment later, that no new objects are breaking the grey monotony.
+
+
+You stand on a hard grey plane; it stretches without variation around you. The
+sky above swirls with distant mist.
+
+Light sweeps in from all around, condensing, brightening into a ring which
+hovers before you.
+
+>examine ring
+
+A ring of translucent brightness hangs before you, horizontal, twin to the dark
+ring you saw elsewhere. Edges seem to glitter within it in crystalline array;
+you can make no sense of them.
+
+>enter it
+
+You step forward, against some invisible resistance. But the white cube in your
+hands is pulled forward, instead; it jerks from your grasp. The white cube
+swings into a slow midair oscillation before the ring.
+
+Strange, distorted sounds echo from the cube as it moves.
+
+>enter it
+
+Bracing against a sudden invisible attraction, you cross the boundary of the
+ring. It writhes suddenly and collapses inward --
+
+
+
+Moments later, you are pulling yourself to your feet; pulling together shreds of
+your thoughts; grasping frantically for speech and language, for the distorted
+words of the white cube have come into focus at last...
+
+The words are what they have been from the beginning (and you feel every shape
+in the world shift in its balance):
+
+
+
+>no
+(to the white cube)
+Your simple refusal is overborne by a voice that echoes from you like weary
+stone:
+
+
+
+The cube shivers to silent dust. The band of light spreads out, away from you,
+fading back into the eternal grey. And a distant darkness recedes into the
+swirling mists. You gaze up into those mists -- every breath is an ache in your
+chest -- and wait for a glimpse of the distant, simple lights of home --
+
+[Hit any key.]
+
+
+The sun's glow has faded in the west of the sky. The crowd outside the theater
+shifts, murmuring; you push a little forward, out from under the theater
+portico. A hot, crowded evening to a hotter, crowded day. But is that the start
+of a breeze? You fan yourself hopefully with the paper in your hand -- a
+playbill for  that you must have latched onto in the dark.
+
+Never mind. It's the moment of the almost-conjunction. People gasp, or sigh. The
+two moons are swinging past each other, seeming to glow in each other's light;
+closer, closer, not quite touching... and away again. So near, yet --
+
+Someone is standing there, a few paces ahead, rapt in the sky. Curve of chin.
+Long hair, black in the moonslight. To hell with the theater. Dawn is distant
+yet, so you move nearer to her, into the first cool smoky breeze of autumn.
+
+    
+
+Would you like to RESTART, RESTORE a saved game, see the AFTERWORD, or QUIT?

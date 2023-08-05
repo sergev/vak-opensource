@@ -1,0 +1,461 @@
+Solution and Walkthrough for SoFar
+
+send feedback to S.Dube@tu-bs.de
+        or stefan@srose.mcnet.de
+==================================
+
+     First some hints for the different sections, the walkthrough is at the  end
+     of this document.
+
+
+What to do in the different sections in the game:
+
+(hot, sticky):
+
+     You have to find your way to the first shadow. Did you feel the  breeze  of
+     air  inside  the theatre? There is another one outside the theater. Explore
+     it and you will find a doorway behind the shrubs. Behind it you will find a
+     cupboard,  inside which rests a box. Take it. Did you examine the cupboard?
+     Did you have a look at the shadow? Enter it and you will be in (autumn,
+     cool, smoky).
+
+(autumn, cool, smoky):
+
+     You will have to open the gate. West of the chimney you can find something,
+     which will help you opening the hatches of the pillars. You should open the
+     hatch on the western pillar first, because there are 3  more  pods  in  it.
+     Have you tried pushing the western pillar (save your game first)? Now think
+     what you can do, to open the gate. You have to oil the wheel in the eastern
+     pillar  and  push  the western after it. Voila, the gate is open. Next, you
+     will have to turn on the generator in the dome. If you die after  you  have
+     been  in  the small chamber inside the dome, you should examine the plants.
+     If you touch them and smell the vapor, you will be save for  a  few  turns.
+     Now  what  to do with the blocks? Try moving them. But only as close as you
+     have to. Listen carefully! If you managed that, you can  pull  the  western
+     lever  at the castle to gain entrance to the balcony. The shadow here leads
+     to (bright, bitter, wind), but you need something from (warm, arid,  dusty)
+     before you enter it.
+
+(mild spring, quiet):
+
+     When you are here for the first time, there is not  much  you  can  do.  So
+     search  for  another  shadow.  You will find it east from the center of the
+     mall. You can only go east from the mall, if  there  is  just  one  "guard"
+     standing  around.  You  will need the ceramic square. A boy will eventually
+     drop it in the mall. The shadow will lead you to (warm, arid, dusty).
+
+     If you solved (autumn, cool, smoky), (warm, arid, dusty), (bright,  bitter,
+     wind), (bitter reek) and (formless) you can have a look at the animals. You
+     will need a saddle and a knife. The saddle can be found in the arena, north
+     of  the  dusty yard. You have to get it, when three people are cleaning the
+     arena. What to do with the animals? Did you try freeing the violet or green
+     one  (save  your  game  first)? What if the crested one was not tied to the
+     wall? So you now have to choose the right one to ride. The green  one  does
+     not like water, so put the saddle (orange thing) on the violet creature and
+     enter and untie it. Whee, ok, the shadow  at  the  flagpole  leads  you  to
+     (dank, black).
+
+(warm, arid, dusty):
+
+     You will have to get some things from the tents. You must be careful not to
+     disturb  the people. Use the flattened path as it muffles your steps. Which
+     things to get from the man? You will need the jar and the knife. After  you
+     take  the  second thing from the man you have to get as quickly as possible
+     to the shadow. Walk SE 2 times. There you are. Enter the shadow, then  come
+     back.  The  angry  people  have  disappeared and you can fill your jar with
+     water now.
+
+(bright, bitter wind):
+
+     First, find something to protect you  from  the  cold.  You  can  wear  the
+     blanket,  lying  at the pole. You should not lick the pole, because you can
+     only get your tongue off again, when you light it, and you have better uses
+     for your light. How to come in the cave? Perhaps if you break something off
+     the cliff you could reach it. Noticed that crack? Try to  pour  your  water
+     in.  After  the cliff has collapsed you can enter the cave. You will find a
+     shadow leading to (bitter reek).
+
+(bitter reek):
+
+     There is nothing to do here, just find the shadow on the west side, which
+     will lead you to (formless).
+
+(formless):
+
+     Pay attention to the messages, which appear when you move. You will have to
+     go  the  way,  where it says that you feel a faint resistance. When you get
+     another message use undo and try a different direction. You will then  come
+     to  a  place  where you feel an intense resistance in every direction. Wait
+     for the shadows to form a ring and enter it. It leads you back  to  (bitter
+     reek)  where  you now find a sphere. Notice that the sphere will change its
+     form depending in which area you are!
+
+(dank black):
+
+     You will have to use your ears here. Notice that you can "take" some sounds
+     here,  which  will  allow you to move in directions you could not, when you
+     were not "holding" the sound. Note: You can also take  the  "low  plooping"
+     sound, although it is not listed like the other ones. You will find a place
+     of silence which you can enter. It leads to (cramped, crawling).
+
+(cramped, crawling):
+
+     You will need a light source here. Therefore examine  your  jar.  You  have
+     something,  which  will  make  it into a light source. Right, your leftover
+     pod. Squeeze it in the jar. Now you need something to light  it.  Have  you
+     examined  the  square? Break it. Do not light the whole oil at once! Wait a
+     moment and you notice a trickle of oil coming out of the  jar.  Light  this
+     and  you will have a light source. Then you have to find out how to use the
+     pipes. You have to hit them. You will eventually find a boy  here  and  you
+     should  have  a  thick pipe left when you find him. If you have not, try to
+     hit the pipes in another order. When you find the shadow, drop the jar  and
+     the shadow will lead you to (meaningless).
+
+(meaningless):
+
+     When you check your inventory you will notice that your sphere has  changed
+     into  a  ridged  brown  cube. You have to make it a regular colorless cube.
+     When you move the cube you get information  about  what  happens  with  the
+     cube, when you move in certain directions. Take the right way and your cube
+     will lose its color. There you will see a ring like in (formless). You have
+     to enter it (twice) and answer the question. That's it.
+
+
+
+
+Now, for the walkthrough:
+
+
+
+
+(hot, sticky)
+
+>stand up
+>west
+>west
+>west
+>west
+>south
+>south
+>feel air
+>south
+>south
+>west
+>feel air
+>examine shrubs
+>north
+>feel air
+>north
+>west
+>open cupboard
+>examine it
+>get box
+>examine shadow
+>enter it
+
+(autumn, cool, smoky)
+
+>north
+>west
+>examine vine
+>get pod
+>east
+>examine chimney
+>examine shadow
+>north
+>west
+>examine pillar
+>squeeze pod on hatch
+>open hatch
+>z
+>enter pillar
+>u
+>get pods
+>d
+>out
+>east
+>east
+>squeeze pod on hatch
+>open hatch
+>enter pillar
+>u
+>squeeze pod on wheel
+>d
+>out
+>west
+>west
+>push pillar
+>east
+>north
+>north
+>nw
+>west
+>open hatch
+>touch plant
+>breathe vapor
+>west
+>move left block
+>g
+>g
+>g
+>g
+>east
+>east
+>ne
+>pull lever
+>south
+>south
+>south
+>south
+>south
+>enter shadow
+
+(mild spring, quiet)
+
+>west
+>sw
+>east
+>south
+[wait until there is only one person here]
+>east
+>enter shadow
+
+(warm, arid, dusty)
+
+>south
+>west
+>north
+>north
+>north
+>get knife
+>get jar
+>se
+>se
+>enter shadow
+
+(mild spring, quiet)
+
+>enter shadow
+
+(warm, arid, dusty)
+
+>south
+>west
+>fill jar
+>north
+>east
+>enter shadow
+
+(mild spring, quiet)
+
+>west
+[if the ceramic square is not here, wait a while
+and look for the boy, who drops it eventually]
+>get square
+>north
+>west
+>ne
+>east
+>enter shadow
+
+(autumn, cool, smoky)
+
+>north
+>north
+>north
+>north
+>west
+>east
+>enter shadow
+
+(bright, bitter wind)
+
+>south
+>get blanket
+>wear it
+>west
+>nw
+>south
+>pour water in crack
+>z
+>z
+>z
+>z
+>z
+>north
+>se
+>sw
+>enter rubble
+>west
+>west
+>remove blanket
+>examine shadow
+>enter it
+
+(bitter reek)
+
+>nw
+>examine dome
+>examine shadow
+>enter it
+
+(formless)
+
+>west
+>north
+>north
+>north              [You always have to go in the direction where
+>sw             it says "..faint resistance..", use undo if
+>north              you went the wrong way]
+>sw
+>north
+>sw
+>north
+>sw
+>north
+>sw
+>north
+>west
+>north
+
+[You will then come to a place, where you cannot move in any direction:]
+
+>z
+>z
+>z
+>examine ring
+>enter it
+>examine shadow
+>enter it
+
+(bitter reek)
+
+>get sphere
+>se
+>enter shadow
+
+(bright, bitter wind)
+
+[notice that your sphere has transformed into a plaque]
+
+>east
+>east
+>east
+>ne
+>east
+>north
+>enter shadow
+
+(autumn, cool, smoky)
+
+[notice that your plaque has transformed into a book]
+
+>west
+>south
+>south
+>south
+>south
+>south
+>enter shadow
+
+(mild spring, quiet)
+
+[notice that your book has transformed into a casket]
+
+>west
+>sw
+[wait until three people appear and open the northern gate]
+>north
+>get orange
+>south
+>cut tether with knife
+>south
+>put orange on violet
+>enter violet
+>untie it
+>z
+>z
+>z
+>z
+>examine flagpole
+>examine shadow
+>enter it
+
+(dank black)
+
+[notice that your casket has transformed into a mass]
+
+>south
+>sw
+>get thudding
+>ne
+>north
+>west
+[when you hear the chord use "sing to box"]
+>north
+>drop thudding
+>get low plooping
+>south
+>get thudding
+>ne
+>east
+>south
+>se
+>examine silence
+>enter it
+
+(cramped, crawling)
+
+[notice that your mass has transformed into a block of wood]
+
+>get all
+>hit thick
+>get all
+>hit thin
+>hit thin
+>hit thin
+>get all
+>squeeze pod in jar
+>z
+>z
+>z
+>break square
+>light trickle
+>hit thick
+>get all
+>hit thick
+>hit thick
+>hit thick
+>get thick
+>z
+>ask boy for pipe
+>get thick
+>hit it
+>examine shadow
+>drop jar
+>enter shadow
+
+(meaningless)
+
+[notice that your block of wood has transformed into a ridged brown cube]
+
+>move brown cube
+>move it
+
+[it says you what the cube looks like in different directions, you have to
+choose the one, where it looks more regular/smoother/paler/fainter]
+
+>walk in right direction
+>move brown cube
+
+[repeat until your cube switches his color to tan]
+
+>move tan cube
+>walk in direction where the cube becomes paler
+
+[the color of the cube should have faded now]
+
+>examine ring
+>enter it
+>enter it
+>no
