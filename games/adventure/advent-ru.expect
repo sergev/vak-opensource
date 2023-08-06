@@ -1,0 +1,458 @@
+#!/usr/bin/expect -f
+#
+# Проходим игру "Пещера".
+#
+set timeout -1
+
+# Remove previous log, if any.
+system rm -f "game-ru.log"
+log_file "game-ru.log"
+
+# Start the game.
+spawn dfrotz -m -s 123 AdventR.z5
+match_max 100000
+
+#
+# Первый поход
+# ~~~~~~~~~~~~
+
+# Вы находитесь у самого конца дороги недалеко от небольшого кирпичного строения.
+# Со всех сторон Вас окружает густой лес. Небольшой ручей, вытекающий из строения,
+# продолжает свой путь вниз по оврагу.
+
+expect ">"; send "восток\r"
+expect ">"; send "взять ключи\r"
+expect ">"; send "взять лампу\r"
+expect ">"; send "запад\r"
+expect ">"; send "юг\r"
+expect ">"; send "юг\r"
+expect ">"; send "юг\r"
+expect ">"; send "открыть решетку ключами\r"
+expect ">"; send "вниз\r"
+expect ">"; send "запад\r"
+expect ">"; send "зажечь лампу\r"
+expect ">"; send "взять клетку\r"
+expect ">"; send "запад\r"
+
+# Надпись на стене сообщает Вам, что "Волшебное слово -- XYZZY."
+
+expect ">"; send "запад\r"
+expect ">"; send "запад\r"
+expect ">"; send "взять птичку\r"
+expect ">"; send "запад\r"
+expect ">"; send "вниз\r"
+expect ">"; send "юг\r"
+expect ">"; send "взять золото\r"
+expect ">"; send "север\r"
+
+# Гном швырнул в Вас маленький острый топор, промахнулся, злобно выругался, и
+# растворился во тьме.
+
+expect ">"; send "взять топор\r"
+expect ">"; send "бросить топор в гнома\r"
+expect ">"; send "взять топор\r"
+expect ">"; send "север\r"
+
+# Вы находитесь в Зале Горного Короля.
+
+expect ">"; send "открыть клетку\r"
+expect ">"; send "положить клетку\r"
+expect ">"; send "положить ключи\r"
+expect ">"; send "юг\r"
+expect ">"; send "взять драгоценности\r"
+expect ">"; send "север\r"
+expect ">"; send "юго-запад\r"
+expect ">"; send "запад\r"
+
+# Гигантский свирепый зеленый дракон преграждает Вам путь!
+
+expect ">"; send "убить дракона\r"
+expect ">"; send "да\r"
+expect ">"; send "взять ковер\r"
+expect ">"; send "восток\r"
+expect ">"; send "восток\r"
+expect ">"; send "запад\r"
+
+# Маленький злобный гном появился из темноты!
+
+expect ">"; send "взять монеты\r"
+expect ">"; send "бросить топор в гнома\r"
+expect ">"; send "взять топор\r"
+expect ">"; send "восток\r"
+expect ">"; send "север\r"
+expect ">"; send "взять серебро\r"
+expect ">"; send "север\r"
+
+# Голос ниоткуда произнес: "Plugh."
+
+expect ">"; send "выключить лампу\r"
+expect ">"; send "plugh\r"
+
+# Вы внутри белого дома, из которого вытекает ручей.
+
+expect ">"; send "положить все\r"
+
+# К этому моменту Вы набрали 125 очков (из 350 возможных) за 49 ходов, что дает
+# Вам квалификацию опытного спелеолога.
+
+expect ">"; send "счет\r"
+
+#
+# Второй поход
+# ~~~~~~~~~~~~
+
+# Отныне будем заходить и выходить с помощью волшебных команд.
+
+expect ">"; send "взять бутылку\r"
+expect ">"; send "взять воду\r"
+expect ">"; send "взять лампу\r"
+expect ">"; send "взять топор\r"
+expect ">"; send "plugh\r"
+
+# Вы в большой комнате.
+
+expect ">"; send "зажечь лампу\r"
+expect ">"; send "юг\r"
+expect ">"; send "юг\r"
+expect ">"; send "юго-запад\r"
+expect ">"; send "запад\r"
+expect ">"; send "север\r"
+expect ">"; send "вниз\r"
+expect ">"; send "юг\r"
+expect ">"; send "вниз\r"
+
+# В колодце из пола растет маленькое растение. Оно тихонько шепчет: "Воды мне, воды..."
+
+expect ">"; send "полить водой\r"
+expect ">"; send "вверх\r"
+expect ">"; send "запад\r"
+expect ">"; send "вверх\r"
+expect ">"; send "север\r"
+expect ">"; send "север\r"
+
+# Вы стоите у края большого подземного бассейна.
+
+expect ">"; send "взять воду\r"
+expect ">"; send "юг\r"
+expect ">"; send "юг\r"
+expect ">"; send "вниз\r"
+expect ">"; send "юг\r"
+expect ">"; send "вниз\r"
+expect ">"; send "полить водой\r"
+expect ">"; send "вверх\r"
+expect ">"; send "восток\r"
+expect ">"; send "вниз\r"
+expect ">"; send "взять масло\r"
+expect ">"; send "вверх\r"
+expect ">"; send "запад\r"
+expect ">"; send "вниз\r"
+expect ">"; send "влезть на растение\r"
+expect ">"; send "запад\r"
+
+# Здесь лежит большое золотое гнездо, полное золотых яиц!
+
+expect ">"; send "взять яйца\r"
+expect ">"; send "север\r"
+expect ">"; send "полить маслом\r"
+expect ">"; send "положить бутылку\r"
+expect ">"; send "север\r"
+expect ">"; send "взять трезубец\r"
+expect ">"; send "запад\r"
+expect ">"; send "вниз\r"
+expect ">"; send "юго-восток\r"
+expect ">"; send "север\r"
+expect ">"; send "запад\r"
+expect ">"; send "положить все\r"
+expect ">"; send "восток\r"
+
+# Здесь лежит изумруд размером с яйцо ржанки!
+# Пока не берём изумруд, чтобы пират не отнял.
+
+expect ">"; send "взять изумруд\r"
+
+expect ">"; send "запад\r"
+expect ">"; send "взять все\r"
+expect ">"; send "сз\r"
+expect ">"; send "юг\r"
+expect ">"; send "взять вазу\r"
+expect ">"; send "юго-восток\r"
+expect ">"; send "восток\r"
+expect ">"; send "взять подушку\r"
+expect ">"; send "запад\r"
+expect ">"; send "св\r"
+expect ">"; send "восток\r"
+expect ">"; send "север\r"
+
+# Здесь лежит огромный моллюск (створки раковины плотно закрыты).
+
+expect ">"; send "открыть моллюск трезубцем\r"
+
+# Откуда-то из теней за Вашей спиной беззвучно появился бородатый пират! "Ха, ха"
+# -- хмыкнул он. -- "А возьму-ка эти ценности, и спрячу у себя сундуке. Там они
+# целее будут!" Он ловко хапнул Вашу добычу, и растворился с нею во мраке.
+
+expect ">"; send "вниз\r"
+expect ">"; send "вниз\r"
+expect ">"; send "взять жемчужину\r"
+expect ">"; send "вверх\r"
+expect ">"; send "вверх\r"
+expect ">"; send "юг\r"
+expect ">"; send "вверх\r"
+expect ">"; send "восток\r"
+expect ">"; send "вверх\r"
+expect ">"; send "север\r"
+expect ">"; send "выключить лампу\r"
+expect ">"; send "plugh\r"
+
+# Вы внутри белого дома, из которого вытекает ручей.
+
+expect ">"; send "положить все\r"
+expect ">"; send "взять лампу\r"
+expect ">"; send "взять топор\r"
+expect ">"; send "plugh\r"
+
+# Вы в большой комнате.
+
+expect ">"; send "зажечь лампу\r"
+expect ">"; send "ржанка\r"
+
+# Вы в маленькой камере, освещенной мрачным зеленым светом.
+
+expect ">"; send "св\r"
+expect ">"; send "взять пирамиду\r"
+expect ">"; send "юг\r"
+expect ">"; send "ржанка\r"
+
+# Вы в большой комнате.
+
+expect ">"; send "выключить лампу\r"
+expect ">"; send "plugh\r"
+
+# Вы внутри белого дома, из которого вытекает ручей.
+
+expect ">"; send "положить пирамиду\r"
+
+# К этому моменту вы набрали 205 очков (из 350 возможных) за 138 ходов, что дает
+# Вам квалификацию мастера-юниора приключений.
+
+expect ">"; send "счет\r"
+
+#
+# Третий поход
+# ~~~~~~~~~~~~
+
+expect ">"; send "взять еду\r"
+expect ">"; send "plugh\r"
+expect ">"; send "зажечь лампу\r"
+expect ">"; send "юг\r"
+expect ">"; send "юг\r"
+expect ">"; send "взять ключи\r"
+expect ">"; send "юго-запад\r"
+expect ">"; send "запад\r"
+expect ">"; send "север\r"
+expect ">"; send "вниз\r"
+expect ">"; send "юг\r"
+expect ">"; send "вниз\r"
+expect ">"; send "лезть на растение\r"
+expect ">"; send "запад\r"
+expect ">"; send "fee, fie, foe, fuu\r"
+
+# Огромное гнездо, полное золотых яиц, появилось из ниоткуда!
+
+expect ">"; send "взять яйца\r"
+expect ">"; send "север\r"
+expect ">"; send "север\r"
+expect ">"; send "запад\r"
+expect ">"; send "вниз\r"
+expect ">"; send "юго-запад\r"
+expect ">"; send "вверх\r"
+expect ">"; send "св\r"
+
+# Из-за моста появился здоровенный тролль, и молча преградил Вам путь.
+
+expect ">"; send "дать яйца\r"
+expect ">"; send "св\r"
+expect ">"; send "св\r"
+expect ">"; send "восток\r"
+expect ">"; send "св\r"
+expect ">"; send "восток\r"
+expect ">"; send "взять пряности\r"
+expect ">"; send "запад\r"
+expect ">"; send "юг\r"
+expect ">"; send "юго-восток\r"
+expect ">"; send "юг\r"
+expect ">"; send "восток\r"
+
+# Пещерный медведь свирепо уставился на Вас из дальнего угла комнаты!
+# Цепь приковывает к стене пещерного медведя.
+
+expect ">"; send "дать еду\r"
+expect ">"; send "открыть цепь ключами\r"
+expect ">"; send "положить ключи\r"
+expect ">"; send "взять цепь\r"
+expect ">"; send "взять медведя\r"
+expect ">"; send "запад\r"
+expect ">"; send "запад\r"
+expect ">"; send "север\r"
+expect ">"; send "запад\r"
+expect ">"; send "запад\r"
+expect ">"; send "юго-запад\r"
+
+# Из-за моста появился здоровенный тролль, и молча преградил Вам путь.
+
+expect ">"; send "отпустить медведя\r"
+expect ">"; send "юго-запад\r"
+expect ">"; send "юго-запад\r"
+expect ">"; send "вниз\r"
+expect ">"; send "юго-восток\r"
+expect ">"; send "юго-восток\r"
+expect ">"; send "запад\r"
+expect ">"; send "запад\r"
+expect ">"; send "вниз\r"
+expect ">"; send "влезть на растение\r"
+expect ">"; send "запад\r"
+expect ">"; send "fee, fie, foe, fuu\r"
+
+# Огромное гнездо, полное золотых яиц, появилось из ниоткуда!
+
+expect ">"; send "взять яйца\r"
+expect ">"; send "юг\r"
+expect ">"; send "вниз\r"
+expect ">"; send "вверх\r"
+expect ">"; send "запад\r"
+expect ">"; send "вверх\r"
+expect ">"; send "юг\r"
+expect ">"; send "восток\r"
+expect ">"; send "восток\r"
+expect ">"; send "запад\r"
+expect ">"; send "запад\r"
+expect ">"; send "запад\r"
+expect ">"; send "восток\r"
+expect ">"; send "восток\r"
+expect ">"; send "взять бриллианты\r"
+expect ">"; send "запад\r"
+expect ">"; send "юг\r"
+expect ">"; send "восток\r"
+expect ">"; send "юг\r"
+expect ">"; send "север\r"
+
+# Вы обнаружили пиратский сундук с сокровищами!
+
+expect ">"; send "взять все\r"
+expect ">"; send "юго-восток\r"
+expect ">"; send "север\r"
+expect ">"; send "вниз\r"
+expect ">"; send "восток\r"
+expect ">"; send "восток\r"
+expect ">"; send "выключить лампу\r"
+expect ">"; send "xyzzy\r"
+expect ">"; send "положить все\r"
+
+# К этому моменту вы набрали 237 очков (из 350 возможных) за 230 ходов, что дает
+# Вам квалификацию мастера-юниора приключений.
+
+expect ">"; send "счет\r"
+
+#
+# Четвёртый поход
+# ~~~~~~~~~~~~~~~
+
+# Заглянем в логово пирата и заберём оставшиеся сокровища.
+
+expect ">"; send "взять лампу\r"
+expect ">"; send "взять топор\r"
+expect ">"; send "xyzzy\r"
+expect ">"; send "зажечь лампу\r"
+expect ">"; send "взять жезл\r"
+expect ">"; send "запад\r"
+expect ">"; send "запад\r"
+expect ">"; send "запад\r"
+expect ">"; send "вниз\r"
+expect ">"; send "запад\r"
+expect ">"; send "взмахнуть жезлом\r"
+
+# Теперь ущелье пересекает хрустальный мост!
+
+expect ">"; send "положить жезл\r"
+expect ">"; send "запад\r"
+expect ">"; send "запад\r"
+expect ">"; send "юг\r"
+expect ">"; send "восток\r"
+expect ">"; send "юг\r"
+expect ">"; send "юг\r"
+expect ">"; send "юг\r"
+expect ">"; send "север\r"
+expect ">"; send "север\r"
+expect ">"; send "восток\r"
+expect ">"; send "восток\r"
+expect ">"; send "сз\r"
+expect ">"; send "взять все\r"
+
+# Тишину нарушил замогильный голос, отражающийся эхом от стен пещеры: "ВНИМАНИЕ!
+# Пещера скоро закрывается! Всем искателям приключений -- немедленно покинуть ее
+# через главный офис!"
+
+expect ">"; send "юго-восток\r"
+expect ">"; send "север\r"
+expect ">"; send "вниз\r"
+expect ">"; send "восток\r"
+expect ">"; send "восток\r"
+expect ">"; send "выключить лампу\r"
+expect ">"; send "xyzzy\r"
+expect ">"; send "положить все\r"
+
+# К этому моменту вы набрали 304 очка (из 350 возможных) за 263 хода, что дает Вам
+# квалификацию мастера приключений второго класса.
+
+expect ">"; send "счет\r"
+
+#
+# Завершение игры
+# ~~~~~~~~~~~~~~~
+
+expect ">"; send "взять лампу\r"
+expect ">"; send "взять топор\r"
+expect ">"; send "plugh\r"
+expect ">"; send "зажечь лампу\r"
+expect ">"; send "юг\r"
+expect ">"; send "вниз\r"
+expect ">"; send "запад\r"
+expect ">"; send "вниз\r"
+expect ">"; send "восток\r"
+
+# Над Вашей головой висит знак с надписью: "За этой комнатой пещера еще не
+# достроена. Идти дальше не советуем! [Строительная компания]"
+
+expect ">"; send "взять ежедневник\r"
+expect ">"; send "восток\r"
+expect ">"; send "положить ежедневник\r"
+
+# Бродим туда-сюда, пока пещера не закроется.
+
+expect ">"; send "запад\r"
+expect ">"; send "восток\r"
+expect ">"; send "вверх\r"
+expect ">"; send "восток\r"
+expect ">"; send "вверх\r"
+expect ">"; send "ждать\r"
+
+# Замогильный голос громко объявил: "Пещера закрыта!" Когда утихло эхо,
+# последовала вспышка яркого света (в сопровождении клубов оранжевого дыма)...
+# Вы находитесь в северо-восточном конце громадной комнаты (которая даже больше,
+# чем "Гигантская комната"). Похоже, что это -- главное хранилище реквизита для
+# игры "ПРИКЛЮЧЕНИЕ".
+
+expect ">"; send "юго-запад\r"
+expect ">"; send "взять жезл\r"
+expect ">"; send "св\r"
+expect ">"; send "положить жезл\r"
+expect ">"; send "юго-запад\r"
+expect ">"; send "взрыв\r"
+
+# В эту попытку вы набрали 350 очков (из 350 возможных) за 287 ходов, что дает Вам
+# квалификацию гроссмейстера приключений!
+
+# Quit
+expect ">"; send "quit\r"
+puts "quit"
+exit

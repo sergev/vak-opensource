@@ -19,7 +19,7 @@ is a forest. A small stream flows out of the building and down a gully.
 
 
 
->e
+>east
 
 
 You are inside a building, a well house for a large spring.
@@ -40,22 +40,22 @@ Taken.
 
 Taken.
 
->w
+>west
 
 
 
->s
+>south
 
 
 You are in a valley in the forest beside a stream tumbling along a rocky bed.
 
->s
+>south
 
 
 At your feet all the water of the stream splashes into a 2-inch slit in the
 rock. Downstream the streambed is bare rock.
 
->s
+>south
 
 
 You are in a 20-foot depression floored with bare dirt. Set into the dirt is a
@@ -66,7 +66,7 @@ depression.
 
 You unlock the steel grate.
 
->d
+>down
 
 (first opening the grate)
 
@@ -76,7 +76,7 @@ over cobbles leads inward to the west.
 
 The grate stands open.
 
->w
+>west
 
 
 You are crawling over cobbles in a low passage. There is a dim light at the east
@@ -92,7 +92,7 @@ You switch the brass lantern on.
 
 Taken.
 
->w
+>west
 
 
 You are in a debris room filled with stuff washed in from the surface. A low
@@ -103,12 +103,12 @@ A note on the wall says, "Magic word XYZZY."
 
 A three foot black rod with a rusty star on one end lies nearby.
 
->w
+>west
 
 
 You are in an awkward sloping east/west canyon.
 
->w
+>west
 
 
 You are in a splendid chamber thirty feet high. The walls are frozen rivers of
@@ -121,7 +121,7 @@ A cheerful little bird is sitting here singing.
 
 You catch the bird in the wicker cage.
 
->w
+>west
 
 
 At your feet is a small pit breathing traces of white mist. A west passage ends
@@ -129,7 +129,7 @@ here except for a small crack leading on.
 
 Rough stone steps lead down the pit.
 
->d
+>down
 
 
 You are at one end of a vast hall stretching forward out of sight to the west.
@@ -142,7 +142,7 @@ Rough stone steps lead up the dome.
 
 [Your score has just gone up by twenty-five points.]
 
->s
+>south
 
 
 This is a low room with a crude note on the wall:
@@ -159,7 +159,7 @@ A threatening little dwarf comes out of the shadows!
 
 [Your score has just gone up by seven points.]
 
->n
+>north
 
 
 
@@ -181,7 +181,7 @@ You killed a little dwarf! The body vanishes in a cloud of greasy black smoke.
 
 Taken.
 
->n
+>north
 
 
 You are in the hall of the mountain king, with passages off in all directions.
@@ -203,7 +203,7 @@ Dropped.
 
 Dropped.
 
->s
+>south
 
 
 You are in the south side chamber.
@@ -216,7 +216,7 @@ Taken!
 
 [Your score has just gone up by seven points.]
 
->n
+>north
 
 
 
@@ -230,7 +230,7 @@ You can also see a set of keys and a wicker cage (which is empty) here.
 You are in a secret canyon which here runs E/W. It crosses over a very tight
 canyon 15 feet below. If you go down you may not be able to get back up.
 
->w
+>west
 
 
 You are in a secret canyon which exits to the north and east.
@@ -253,11 +253,11 @@ Taken!
 
 [Your score has just gone up by seven points.]
 
->e
+>east
 
 
 
->e
+>east
 
 
 
@@ -265,7 +265,7 @@ A cheerful little bird is sitting here singing.
 
 You can also see a set of keys and a wicker cage (which is empty) here.
 
->w
+>west
 
 
 You are in the west side chamber of the hall of the mountain king. A passage
@@ -291,7 +291,7 @@ You killed a little dwarf! The body vanishes in a cloud of greasy black smoke.
 
 Taken.
 
->e
+>east
 
 
 
@@ -299,7 +299,7 @@ A cheerful little bird is sitting here singing.
 
 You can also see a set of keys and a wicker cage (which is empty) here.
 
->n
+>north
 
 
 You are in a low N/S passage at a hole in the floor. The hole goes down to an
@@ -313,7 +313,7 @@ Taken!
 
 [Your score has just gone up by seven points.]
 
->n
+>north
 
 
 You are in a large room, with a passage to the south, a passage to the west, and
@@ -384,11 +384,11 @@ You are in a large room, with a passage to the south, a passage to the west, and
 a wall of broken rock to the east. There is a large "Y2" on a rock in the room's
 center.
 
->s
+>south
 
 
 
->s
+>south
 
 
 
@@ -400,18 +400,18 @@ You can also see a set of keys and a wicker cage (which is empty) here.
 
 
 
->w
+>west
 
 
 
 The body of a huge green dead dragon is lying off to one side.
 
->n
+>north
 
 
 You are in a secret N/S canyon above a large room.
 
->d
+>down
 
 
 You are in a large low circular chamber whose floor is an immense slab fallen
@@ -419,13 +419,13 @@ from the ceiling (slab room). East and west there once were large passages, but
 they are now filled with boulders. Low small passages go north and south, and
 the south one quickly bends west around the boulders.
 
->s
+>south
 
 
 You are at the west end of the twopit room. There is a large hole in the wall
 above the pit at this end of the room.
 
->d
+>down
 
 
 You are at the bottom of the western pit in the twopit room. There is a large
@@ -440,20 +440,20 @@ The plant spurts into furious growth for a few seconds.
 There is a 12-foot-tall beanstalk stretching up out of the pit, bellowing
 "Water!! Water!!"
 
->u
+>up
 
 
 The top of a 12-foot-tall beanstalk is poking out of the west pit.
 
->w
+>west
 
 
 
->u
+>up
 
 
 
->n
+>north
 
 
 You are in a north/south canyon about 25 feet across. The floor is covered by
@@ -466,7 +466,7 @@ A small window can be seen in either wall, some fifty feet up.
 The mirror is obviously provided for the use of the dwarves, who as you know,
 are extremely vain.
 
->n
+>north
 
 
 You are at the edge of a large underground reservoir. An opaque cloud of white
@@ -479,14 +479,14 @@ south.
 
 The bottle is now full of water.
 
->s
+>south
 
 
 
 The mirror is obviously provided for the use of the dwarves, who as you know,
 are extremely vain.
 
->s
+>south
 
 
 
@@ -498,16 +498,16 @@ the maze to hide me chest!"
 
 With that, he vanishes into the gloom.
 
->d
+>down
 
 
 
->s
+>south
 
 
 The top of a 12-foot-tall beanstalk is poking out of the west pit.
 
->d
+>down
 
 
 There is a 12-foot-tall beanstalk stretching up out of the pit, bellowing
@@ -520,12 +520,12 @@ The plant grows explosively, almost filling the bottom of the pit.
 
 There is a gigantic beanstalk stretching all the way up to the hole.
 
->u
+>up
 
 
 There is a huge beanstalk growing out of the west pit up to the hole.
 
->e
+>east
 
 
 You are at the east end of the twopit room. The floor here is littered with thin
@@ -535,7 +535,7 @@ over, but the only big one is on the wall directly over the west pit where you
 can't get to it.
 There is a huge beanstalk growing out of the west pit up to the hole.
 
->d
+>down
 
 
 You are at the bottom of the eastern pit in the twopit room. There is a small
@@ -545,17 +545,17 @@ pool of oil in one corner of the pit.
 
 The bottle is now full of oil.
 
->u
+>up
 
 
 There is a huge beanstalk growing out of the west pit up to the hole.
 
->w
+>west
 
 
 There is a huge beanstalk growing out of the west pit up to the hole.
 
->d
+>down
 
 
 There is a gigantic beanstalk stretching all the way up to the hole.
@@ -568,7 +568,7 @@ You clamber up the plant and scurry through the hole at the top.
 You are in a long, narrow corridor stretching out of sight to the west. At the
 eastern end is a hole through which you can see a profusion of leaves.
 
->w
+>west
 
 
 You are in the giant room. The ceiling here is too high up for your lamp to show
@@ -577,7 +577,7 @@ the inscription, "Fee fie foe foo" [sic].
 
 There is a large nest here, full of golden eggs!
 
->n
+>north
 
 
 You are at one end of an immense north/south passage.
@@ -593,7 +593,7 @@ requires some effort.
 
 Dropped.
 
->n
+>north
 
 (first wrenching the door open)
 
@@ -610,14 +610,14 @@ Taken!
 
 [Your score has just gone up by seven points.]
 
->w
+>west
 
 
 You are at the top of a steep incline above a large room. You could climb down
 here, but you would not be able to climb up. There is a passage leading back to
 the north.
 
->d
+>down
 
 
 You are in a large low room. Crawls lead north, se, and sw.
@@ -631,7 +631,7 @@ a hands and knees crawl leads west.
 
 You can see a ming vase here.
 
->n
+>north
 
 
 You are following a wide path around the outer edge of a large cavern. Far
@@ -639,7 +639,7 @@ below, through a heavy white mist, strange splashing noises can be heard. The
 mist rises up through a fissure in the ceiling. The path exits to the south and
 west.
 
->w
+>west
 
 
 You are in an alcove. A small northwest path seems to widen after a short
@@ -654,7 +654,7 @@ brass lantern: Dropped.
 
 [Your score has just gone down by five points.]
 
->e
+>east
 
 
 You're in a small chamber lit by an eerie green light. An extremely narrow
@@ -668,7 +668,7 @@ Taken!
 
 [Your score has just gone up by seven points.]
 
->w
+>west
 
 
 
@@ -688,7 +688,7 @@ jeweled trident: Taken!
 
 
 
->s
+>south
 
 
 
@@ -706,7 +706,7 @@ Taken!
 You are in a room whose walls resemble swiss cheese. Obvious passages go west,
 east, ne, and nw. Part of the room is occupied by a large bedrock block.
 
->e
+>east
 
 
 You are in the soft room. The walls are covered with heavy curtains, the floor
@@ -718,7 +718,7 @@ A small velvet pillow lies on the floor.
 
 Taken.
 
->w
+>west
 
 
 
@@ -728,14 +728,14 @@ Taken.
 You are in bedquilt, a long east/west passage with holes everywhere. To explore
 at random select north, south, up, or down.
 
->e
+>east
 
 
 You are at a complex junction. A low hands and knees passage from the north
 joins a higher crawl from the east to make a walking passage going west. There
 is also a large room above. The air is damp here.
 
->n
+>north
 
 
 You're in a large room carved out of sedimentary rock. The floor and walls are
@@ -750,7 +750,7 @@ A glistening pearl falls out of the clam and rolls away. Goodness, this must
 really be an oyster. (I never was very good at identifying bivalves.) Whatever
 it is, it has now snapped shut again.
 
->d
+>down
 
 
 You are in a long sloping corridor with ragged sharp walls.
@@ -761,7 +761,7 @@ the maze!" He snatches your treasure and vanishes into the gloom.
 
 [Your score has just gone down by fifteen points.]
 
->d
+>down
 
 
 You are in a cul-de-sac about eight feet across.
@@ -774,36 +774,36 @@ Taken!
 
 [Your score has just gone up by seven points.]
 
->u
+>up
 
 
 
->u
+>up
 
 
 There is an enormous oyster here with its shell tightly closed.
 
->s
+>south
 
 
 
->u
+>up
 
 
 You are in a large room full of dusty rocks. There is a big hole in the floor.
 There are cracks everywhere, and a passage leading east.
 
->e
+>east
 
 
 You are in a dirty broken passage. To the east is a crawl. To the west is a
 large passage. Above you is a hole to another passage.
 
->u
+>up
 
 
 
->n
+>north
 
 
 
@@ -884,7 +884,7 @@ Taken!
 
 [Your score has just gone up by seven points.]
 
->s
+>south
 
 
 
@@ -943,7 +943,7 @@ You are in a large room, with a passage to the south, a passage to the west, and
 a wall of broken rock to the east. There is a large "Y2" on a rock in the room's
 center.
 
->s
+>south
 
 
 
@@ -957,7 +957,7 @@ You killed a little dwarf! The body vanishes in a cloud of greasy black smoke.
 
 Taken.
 
->s
+>south
 
 
 
@@ -973,26 +973,26 @@ Taken.
 
 
 
->w
+>west
 
 
 
 The body of a huge green dead dragon is lying off to one side.
 
->n
+>north
 
 
 
->d
+>down
 
 
 
->s
+>south
 
 
 There is a huge beanstalk growing out of the west pit up to the hole.
 
->d
+>down
 
 
 There is a gigantic beanstalk stretching all the way up to the hole.
@@ -1005,7 +1005,7 @@ You clamber up the plant and scurry through the hole at the top.
 You are in a long, narrow corridor stretching out of sight to the west. At the
 eastern end is a hole through which you can see a profusion of leaves.
 
->w
+>west
 
 
 
@@ -1017,7 +1017,7 @@ Taken!
 
 [Your score has just gone up by seven points.]
 
->n
+>north
 
 
 
@@ -1025,15 +1025,15 @@ The way north leads through a massive, rusty, iron door.
 
 You can also see a small bottle (which is empty) here.
 
->n
+>north
 
 
 
->w
+>west
 
 
 
->d
+>down
 
 
 
@@ -1042,7 +1042,7 @@ You can also see a small bottle (which is empty) here.
 
 You are in a long winding corridor sloping out of sight in both directions.
 
->u
+>up
 
 
 You are on one side of a large, deep chasm. A heavy white mist rising up from
@@ -1080,7 +1080,7 @@ The troll is nowhere to be seen.
 You're in a long east/west corridor. A faint rumbling noise can be heard in the
 distance.
 
->e
+>east
 
 
 The path forks here. The left fork leads northeast. A dull rumbling seems to get
@@ -1094,7 +1094,7 @@ The walls are quite warm here. From the north can be heard a steady roar, so
 loud that the entire cave seems to be trembling. Another passage leads south,
 and a low crawl goes east.
 
->e
+>east
 
 
 You are in a small chamber filled with large boulders. The walls are very warm,
@@ -1109,11 +1109,11 @@ Taken!
 
 [Your score has just gone up by seven points.]
 
->w
+>west
 
 
 
->s
+>south
 
 
 
@@ -1123,13 +1123,13 @@ Taken!
 You are walking along a gently sloping north/south passage lined with oddly
 shaped limestone formations.
 
->s
+>south
 
 
 You are standing at the entrance to a large, barren room. A sign posted above
 the entrance reads: "Caution! Bear in room!"
 
->e
+>east
 
 
 You are inside a barren room. The center of the room is completely empty except
@@ -1162,31 +1162,31 @@ Taken!
 
 Ok, the bear's now following you around.
 
->w
+>west
 
 
 
 The bear lumbers along behind you.
 
->w
+>west
 
 
 
 The bear lumbers along behind you.
 
->n
+>north
 
 
 
 The bear lumbers along behind you.
 
->w
+>west
 
 
 
 The bear lumbers along behind you.
 
->w
+>west
 
 
 A rickety wooden bridge extends across the chasm, vanishing into the mist.
@@ -1217,7 +1217,7 @@ The troll is nowhere to be seen.
 
 
 
->d
+>down
 
 
 
@@ -1229,17 +1229,17 @@ The troll is nowhere to be seen.
 
 
 
->w
+>west
 
 
 There is a huge beanstalk growing out of the west pit up to the hole.
 
->w
+>west
 
 
 There is a huge beanstalk growing out of the west pit up to the hole.
 
->d
+>down
 
 
 There is a gigantic beanstalk stretching all the way up to the hole.
@@ -1252,7 +1252,7 @@ You clamber up the plant and scurry through the hole at the top.
 You are in a long, narrow corridor stretching out of sight to the west. At the
 eastern end is a hole through which you can see a profusion of leaves.
 
->w
+>west
 
 
 
@@ -1280,39 +1280,39 @@ Taken!
 
 [Your score has just gone up by five points.]
 
->s
+>south
 
 
 
->d
+>down
 
 
 There is a gigantic beanstalk stretching all the way up to the hole.
 
->u
+>up
 
 
 There is a huge beanstalk growing out of the west pit up to the hole.
 
->w
+>west
 
 
 
->u
+>up
 
 
 
->s
+>south
 
 
 
 The body of a huge green dead dragon is lying off to one side.
 
->e
+>east
 
 
 
->e
+>east
 
 
 
@@ -1320,29 +1320,29 @@ A cheerful little bird is sitting here singing.
 
 You can also see a wicker cage (which is empty) here.
 
->w
+>west
 
 
 
->w
+>west
 
 
 You are at a crossover of a high N/S passage and a low E/W one.
 
->w
+>west
 
 
 You are at the east end of a very long hall apparently without side chambers. To
 the east a low wide crawl slants up. To the north a round two foot hole slants
 down.
 
->e
+>east
 
 
 You are at the west end of the hall of mists. A low wide crawl continues west
 and another goes north. To the south is a little passage 6 feet off the floor.
 
->e
+>east
 
 
 You are on the west side of the fissure in the hall of mists.
@@ -1355,48 +1355,48 @@ Taken!
 
 [Your score has just gone up by seven points.]
 
->w
+>west
 
 
 
->s
-
-
-You are in a maze of twisty little passages, all alike.
-
->e
+>south
 
 
 You are in a maze of twisty little passages, all alike.
 
->s
+>east
 
 
 You are in a maze of twisty little passages, all alike.
 
->s
+>south
 
 
 You are in a maze of twisty little passages, all alike.
 
->s
+>south
 
 
 You are in a maze of twisty little passages, all alike.
 
->n
+>south
 
 
 You are in a maze of twisty little passages, all alike.
 
->e
+>north
+
+
+You are in a maze of twisty little passages, all alike.
+
+>east
 
 
 You are on the brink of a thirty foot pit with a massive orange column down one
 wall. You could climb down here but you could not get back up. The maze
 continues at this level.
 
->e
+>east
 
 
 You are in a maze of twisty little passages, all alike.
@@ -1426,19 +1426,19 @@ treasure chest: You're carrying too many things already.
 
 
 
->n
+>north
 
 
 
->d
+>down
 
 
 
->e
+>east
 
 
 
->e
+>east
 
 
 
@@ -1507,23 +1507,23 @@ A three foot black rod with a rusty star on one end lies nearby.
 
 Taken.
 
->w
+>west
 
 
 
->w
+>west
 
 
 
->w
+>west
 
 
 
->d
+>down
 
 
 
->w
+>west
 
 
 You are on the east bank of a fissure slicing clear across the hall. The mist is
@@ -1537,49 +1537,49 @@ A crystal bridge now spans the fissure.
 
 Dropped.
 
->w
+>west
 
 
 
 A crystal bridge now spans the fissure.
 
->w
+>west
 
 
 
->s
+>south
 
 
 
->e
+>east
 
 
 
->s
+>south
 
 
 
->s
+>south
 
 
 
->s
+>south
 
 
 
->n
+>north
 
 
 
->n
+>north
 
 
 
->e
+>east
 
 
 
->e
+>east
 
 
 
@@ -1608,19 +1608,19 @@ adventurers exit immediately through main office."
 
 
 
->n
+>north
 
 
 
->d
+>down
 
 
 
->e
+>east
 
 
 
->e
+>east
 
 
 
@@ -1684,23 +1684,23 @@ center.
 
 A hollow voice says, "Plugh."
 
->s
+>south
 
 
 
->d
+>down
 
 
 
->w
+>west
 
 
 
->d
+>down
 
 
 
->e
+>east
 
 
 You are in an anteroom leading to a large passage to the east. Small passages go
@@ -1715,7 +1715,7 @@ There are a few recent issues of "Spelunker Today" magazine here.
 
 Taken.
 
->e
+>east
 
 
 You are at Witt's End. Passages lead off in *all* directions.
@@ -1726,7 +1726,7 @@ You really are at wit's end.
 
 [Your score has just gone up by one point.]
 
->w
+>west
 
 
 You are in an anteroom leading to a large passage to the east. Small passages go
@@ -1735,23 +1735,23 @@ west and up. The remnants of recent digging are evident.
 A sign in midair here says "Cave under construction beyond this point. Proceed
 at own risk. [Witt Construction Company]"
 
->e
+>east
 
 
 
 You can see a few recent issues of "Spelunker Today" here.
 
->u
+>up
 
 You have crawled around in some little holes and wound up back in the main
 passage.
 
->e
+>east
 
 You have crawled around in some little holes and wound up back in the main
 passage.
 
->u
+>up
 
 
 You are in an anteroom leading to a large passage to the east. Small passages go
