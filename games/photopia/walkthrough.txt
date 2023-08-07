@@ -1,0 +1,104 @@
+Solution to photopia
+By Graham Pearce
+
+About Photopia
+
+Photopia is a text adventure similar to zork. I'm not going to tell you
+what the real story line to this adventure is -- it will spoil the fun of
+finding it!
+
+There are two main differences between Photopia and a traditional adventure
+like zork. And you need to know them to solve the game!
+
+1. In photopia, the verbs ask and tell have been replaced by the command
+   talk to. An example of the syntax of this command is talk to
+   salesperson. After you have written the command talk to, you will be
+   presented with a menu of things you can say -- for example, ask
+   salesperson about shop.
+2. If you try to move around and the game responds "you are not carrying a
+   compass", you can still move around with the command exit.
+
+In the car with Rob
+
+For this scene, just wait around. You can talk to Rob if you want, but I
+wouldn't recomend this for children because it contains strong
+language. (I did talk to Rob once just to see what would happen, and I'm
+only twelve years old)!
+
+On the red planet
+
+Well, the solution to this is extraordinarily easy as well. Just go down
+from the spacecraft, and go any direction you want until you get to the
+greenhouse. I recommend you keep your directions simple, because you'll
+have to go back with the opposite directions. For example, if you went
+northwest, north, northeast, southwest, south then southeast, for example,
+you will have to go back back southeast, south, southwest, northeast, north
+then northwest. Oh, buy the way, to get the container type get undamaged
+container or get unbroken container, I've forgotten which it is, now. Once
+you've gotten back to the landing site, just go up to the spaceship and
+you've finished this section of the game!
+
+Saving Allety's life
+
+Just exit twice, get in the pool, and follow Gabby's instructions!
+
+When you are evacuating from the space ship
+
+Just press the blue button and go down.
+
+In the Undersea castle
+
+Now the sollution to this section of the game is quite tricky and I only
+got it by accident. Just explore the casttle for a bit and then you'll find
+the throne room. Get the pickaxe and the shovel. Read the description
+carefully when you try to get the pickaxe -- it's a hint on how to get out
+of the castle. Now, how do you get out, I hear you ask. Now rumbling coming
+from the keep sounded suspicious. In fact, it was the roof of the castle
+falling off! So head to the keep and go up the stairs. And while you're at
+it, read the vivid descriptions of you being pulled out by the waves, and
+your tenacious strugggle to get to the shore.
+
+IN the dark
+
+Just wait around. This is not the sequel to The Hitch Hiker's Guide to the
+Galaxy!
+
+The golden beach
+
+First of all, the obvious thing to do is get up. Get your seed pod and
+your shovel. Then get a gold coin. You can try getting the nuggets or the
+rings -- although it won't work, It's actually quite ammusing! Go north and
+then dig with the shovel. The shovel might have broken, but now you can get
+a treasure chest! Go north again, (you can't take the platinum seashell)
+and go northwest, and you've finished the gold scene.
+
+In the garage
+Just exit, tell Alley to come inside, tell her about astronaut selection
+then tell her about space camp!
+
+Sky blue
+
+Take off your spacesuit, go up twice and go down twice.
+
+Queensport Middle School Gym
+
+Turn off the spotlight and ask Alley if she can come to the dance on
+Friday.
+
+In the car
+Just wait around, or, to enhance the flavour of the story somewhat, talk to
+Alley.
+
+The forest
+
+Examine the trees, wait till the wolf starts wimpering, open the tresure
+chest, get dirt then drop it, ask the weather man for some rain, and give
+the coin to the weather man.
+
+In Alley's bedroom
+Ask Alley where she gets her ideas from. After the long transcript, just
+turn off the light.
+
+In Alley's nursery
+
+Just follow instructions!

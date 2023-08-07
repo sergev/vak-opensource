@@ -1,0 +1,197 @@
+#!/usr/bin/expect -f
+#
+# Проходим игру "Фотопия".
+#
+set timeout -1
+
+# Remove previous log, if any.
+system rm -f "game-ru.log"
+log_file "game-ru.log"
+
+# Start the game.
+spawn dfrotz -m -s 123 PhotopiaR.z8
+match_max 100000
+
+expect "цвета?"; send "нет\r"
+expect "инструкции?"; send "нет\r"
+expect "о переводе?"; send "да\r"
+expect "]"; send "\r"
+expect "]"; send "\r"
+
+# Пролетая по Бульвару Монтгомери
+
+expect ">"; send "ждать\r"
+expect ">"; send "ждать\r"
+expect "]"; send "\r"
+
+# Красный
+# ~~~~~~~
+expect "]"; send "\r"
+
+# Тебя зовут Вэнди Маккай и ты первая девочка на красной планете.
+
+expect ">"; send "север\r"
+expect ">"; send "север\r"
+expect ">"; send "север\r"
+expect ">"; send "север\r"
+expect ">"; send "север\r"
+expect ">"; send "взять неповрежденный контейнер\r"
+expect ">"; send "юг\r"
+expect ">"; send "юг\r"
+expect ">"; send "юг\r"
+expect ">"; send "юг\r"
+expect ">"; send "юг\r"
+expect ">"; send "вверх\r"
+expect "]"; send "\r"
+
+# Дома, в кабинете
+
+expect ">"; send "выйти\r"
+expect ">"; send "выйти\r"
+expect ">"; send "войти в бассейн\r"
+expect ">"; send "запрокинуть голову\r"
+expect ">"; send "выдохнуть в рот\r"
+expect ">"; send "надавить на грудную клетку\r"
+expect "]"; send "\r"
+
+# Лазурный
+# ~~~~~~~~
+expect "]"; send "\r"
+
+# Твой корабль легко перенёс крушение и последущее падение в океан -- ты едва
+# почувствовала толчок.
+
+expect ">"; send "нажать кнопку\r"
+expect ">"; send "север\r"
+expect ">"; send "юг\r"
+expect ">"; send "юг\r"
+expect ">"; send "юг\r"
+expect ">"; send "взять кирку\r"
+expect ">"; send "взять лопату\r"
+expect ">"; send "север\r"
+expect ">"; send "север\r"
+expect ">"; send "север\r"
+expect ">"; send "вверх\r"
+expect "]"; send "\r"
+
+# Вокруг темнота. Как бы сильно ты не напрягал взгляд, не можешь разглядеть и
+# намёка на свет. Но границы твоего слуха щекочут шепчущие голоса.
+
+expect ">"; send "ждать\r"
+expect ">"; send "ждать\r"
+expect ">"; send "ждать\r"
+expect ">"; send "ждать\r"
+expect ">"; send "ждать\r"
+expect ">"; send "ждать\r"
+expect "]"; send "\r"
+
+# Золотой
+# ~~~~~~~
+expect "]"; send "\r"
+
+# На золотом пляже
+
+expect ">"; send "ждать\r"
+expect ">"; send "взять росток\r"
+expect ">"; send "взять лопату\r"
+expect ">"; send "взять монету\r"
+expect ">"; send "север\r"
+expect ">"; send "копать\r"
+expect ">"; send "взять сундук\r"
+expect ">"; send "север\r"
+expect ">"; send "взять ракушку\r"
+expect ">"; send "северозапад\r"
+expect "]"; send "\r"
+
+# Гараж
+
+expect ">"; send "выйти\r"
+expect ">"; send "говорить с Элли\r"
+expect ">>"; send "3\r"
+expect ">"; send "говорить с Элли\r"
+expect ">>"; send "1\r"
+expect ">"; send "говорить с Элли\r"
+expect ">>"; send "2\r"
+expect "]"; send "\r"
+
+# Небесно-голубой
+# ~~~~~~~~~~~~~~~
+expect "]"; send "\r"
+
+# Перед хрустальным лабиринтом
+
+expect ">"; send "снять скафандр\r"
+expect ">"; send "вверх\r"
+expect ">"; send "вверх\r"
+expect ">"; send "запад\r"
+expect "]"; send "\r"
+
+# Спортзал средней школы Квинспорта
+
+expect ">"; send "выключить прожектор\r"
+expect ">"; send "говорить с Элли\r"
+expect ">>"; send "4\r"
+expect "]"; send "\r"
+
+# Проезжая по Бартлетт Хилл Роуд
+
+expect ">"; send "говорить с Элли\r"
+expect ">>"; send "1\r"
+expect ">"; send "говорить с Элли\r"
+expect ">>"; send "1\r"
+expect ">"; send "говорить с Элли\r"
+expect ">>"; send "1\r"
+expect ">"; send "говорить с Элли\r"
+expect ">>"; send "1\r"
+expect ">"; send "ждать\r"
+expect ">"; send "ждать\r"
+expect ">"; send "ждать\r"
+expect "]"; send "\r"
+
+# Зелёный
+# ~~~~~~~
+expect "]"; send "\r"
+
+# В лесу
+
+expect ">"; send "смотреть деревья\r"
+expect ">"; send "открыть сундук\r"
+expect ">"; send "взять почву\r"
+expect ">"; send "положить почву\r"
+expect ">"; send "посадить росток\r"
+expect ">"; send "дать монету продавцу\r"
+expect "]"; send "\r"
+
+# В твоей спальне
+
+expect ">"; send "говорить с Элли\r"
+expect ">>"; send "3\r"
+expect "]"; send "\r"
+
+# Пурпурный
+# ~~~~~~~~~
+expect "]"; send "\r"
+
+# В тёмном месте
+
+expect "]"; send "\r"
+expect "]"; send "\r"
+expect "]"; send "\r"
+expect "]"; send "\r"
+expect "]"; send "\r"
+expect "]"; send "\r"
+expect "]"; send "\r"
+expect ">"; send "ждать\r"
+expect "]"; send "\r"
+
+# В детской Элли
+
+expect ">"; send "нажать кнопку\r"
+expect ">"; send "нажать кнопку\r"
+expect ">"; send "выключить свет\r"
+expect "]"; send "\r"
+
+# Quit
+expect "]"; send "\r"
+puts "quit"
+exit

@@ -4,7 +4,7 @@ About the game: https://ifdb.org/viewgame?id=fft6pu91j85y4acv
 
 Download and play the game:
 
-    $ wget wget https://ifarchive.org/if-archive/games/zcode/Advent.z5
+    $ wget https://ifarchive.org/if-archive/games/zcode/Advent.z5
     $ frotz Advent.z5
 
 Russian version:
