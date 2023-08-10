@@ -1,0 +1,227 @@
+spawn dfrotz -m -s 123 ZORK1.DAT
+Using normal formatting.
+Loading ZORK1.DAT.
+
+
+ZORK I: The Great Underground Empire
+Copyright (c) 1981, 1982, 1983 Infocom, Inc. All rights reserved.
+ZORK is a registered trademark of Infocom, Inc.
+Revision 88 / Serial number 840726
+
+West of House
+You are standing in an open field west of a white house, with a boarded front
+door.
+There is a small mailbox here.
+
+>inventory
+
+You are empty-handed.
+
+>open mailbox
+
+Opening the small mailbox reveals a leaflet.
+
+>read leaflet
+
+(Taken)
+"WELCOME TO ZORK!
+
+ZORK is a game of adventure, danger, and low cunning. In it you will explore
+some of the most amazing territory ever seen by mortals. No computer should be
+without one!"
+
+>drop leaflet
+
+Dropped.
+
+>go south
+
+South of House
+You are facing the south side of a white house. There is no door here, and all
+the windows are boarded.
+
+>go east
+
+Behind House
+You are behind the white house. A path leads into the forest to the east. In one
+corner of the house there is a small window which is slightly ajar.
+
+>open window
+
+With great effort, you open the window far enough to allow entry.
+
+>enter house
+
+Kitchen
+You are in the kitchen of the white house. A table seems to have been used
+recently for the preparation of food. A passage leads to the west and a dark
+staircase can be seen leading upward. A dark chimney leads down and to the east
+is a small window which is open.
+On the table is an elongated brown sack, smelling of hot peppers.
+A bottle is sitting on the table.
+The glass bottle contains:
+  A quantity of water
+
+>go west
+
+Living Room
+You are in the living room. There is a doorway to the east, a wooden door with
+strange gothic lettering to the west, which appears to be nailed shut, a trophy
+case, and a large oriental rug in the center of the room.
+Above the trophy case hangs an elvish sword of great antiquity.
+A battery-powered brass lantern is on the trophy case.
+
+>take lamp
+
+Taken.
+
+>move rug
+
+With a great effort, the rug is moved to one side of the room, revealing the
+dusty cover of a closed trap door.
+
+>open trap door
+
+The door reluctantly opens to reveal a rickety staircase descending into
+darkness.
+
+>turn on lamp
+
+The brass lantern is now on.
+
+>go down
+
+The trap door crashes shut, and you hear someone barring it.
+
+Cellar
+You are in a dark and damp cellar with a narrow passageway leading north, and a
+crawlway to the south. On the west is the bottom of a steep metal ramp which is
+unclimbable.
+
+>go south
+
+East of Chasm
+You are on the east edge of a chasm, the bottom of which cannot be seen. A
+narrow passage goes north, and the path you are on continues to the east.
+
+>go east
+
+Gallery
+This is an art gallery. Most of the paintings have been stolen by vandals with
+exceptional taste. The vandals left through either the north or west exits.
+Fortunately, there is still one chance for you to be a vandal, for on the far
+wall is a painting of unparalleled beauty.
+
+>take painting
+
+Taken.
+
+>go north
+
+Studio
+This appears to have been an artist's studio. The walls and floors are
+splattered with paints of 69 different colors. Strangely enough, nothing of
+value is hanging here. At the south end of the room is an open door (also
+covered with paint). A dark and narrow chimney leads up from a fireplace;
+although you might be able to get up it, it seems unlikely you could get back
+down.
+Loosely attached to a wall is a small piece of paper.
+
+>go up chimney
+
+Kitchen
+On the table is an elongated brown sack, smelling of hot peppers.
+A bottle is sitting on the table.
+The glass bottle contains:
+  A quantity of water
+
+>go up
+
+Attic
+This is the attic. The only exit is a stairway leading down.
+A large coil of rope is lying in the corner.
+On a table is a nasty-looking knife.
+
+>take knife
+
+Taken.
+
+>take rope
+
+Taken.
+
+>go down
+
+Kitchen
+On the table is an elongated brown sack, smelling of hot peppers.
+A bottle is sitting on the table.
+The glass bottle contains:
+  A quantity of water
+
+>go west
+
+Living Room
+Above the trophy case hangs an elvish sword of great antiquity.
+
+>open case
+
+Opened.
+
+>put painting inside case
+
+Done.
+
+>drop knife
+
+Dropped.
+
+>take sword
+
+Taken.
+
+>open trap door
+
+The door reluctantly opens to reveal a rickety staircase descending into
+darkness.
+
+>go down
+
+The trap door crashes shut, and you hear someone barring it.
+
+Cellar
+Your sword is glowing with a faint blue glow.
+
+>go north
+
+The Troll Room
+This is a small room with passages to the east and south and a forbidding hole
+leading west. Bloodstains and deep scratches (perhaps made by an axe) mar the
+walls.
+A nasty-looking troll, brandishing a bloody axe, blocks all passages out of the
+room.
+Your sword has begun to glow very brightly.
+The axe crashes against the rock, throwing sparks!
+
+>kill troll with sword
+
+The fatal blow strikes the troll square in the heart:  He dies.
+Almost as soon as the troll breathes his last breath, a cloud of sinister black
+fog envelops him, and when the fog lifts, the carcass has disappeared.
+Your sword is no longer glowing.
+
+>drop sword
+
+Dropped.
+
+>go east
+
+East-West Passage
+This is a narrow east-west passageway. There is a narrow stairway leading down
+at the north end of the room.
+
+>go east
+
+Round Room
+This is a circular stone room with passages in all directions. Several of them
+have unfortunately been blocked by cave-ins.
+

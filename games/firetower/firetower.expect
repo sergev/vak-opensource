@@ -27,6 +27,8 @@ expect ">"; send "look\r"
 expect ">"; send "smell flowers\r"
 expect ">"; send "listen\r"
 expect ">"; send "touch flowers\r"
+#expect ">"; send "x signs\r"
+expect "\012\012>"; send "rotate signs\r"
 
 # Quit
 expect ">"; send "quit\r"
