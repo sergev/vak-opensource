@@ -1,0 +1,153 @@
+spawn dfrotz -m -s 123 firetower.z8
+Using normal formatting.
+Loading firetower.z8.
+"You're certain that you'll be okay on your own?" he asks.
+
+You smile at him, tightening the pack around your waist. A slight laugh creeps
+into your voice - it's not as if you haven't done this before. "Yes, dear. I'll
+be fine. It's nothing personal, I just..." You take in the concerned expression
+on his face and your voice softens slightly. "I just need a break. Not from you,
+necessarily, but from everything: work, responsibilities, friends. I just need a
+day to myself, you know?"
+
+He nods. "Yeah. Yeah, I guess I do. No worries; I get like that myself
+sometimes. Just in case something happens, what route do you plan to take? Your
+usual?"
+
+You nod. "Yeah. I'll head up the long way, on the Lower Mt. Cammerer trail, hit
+the Appalachian trail to get to the tower, then descend by going further down
+the AT towards Low Gap. I'll take the Low Gap trail back to the campground."
+
+He smiles at you. "Like I said, 'Your usual.'  Listen, I'll be back to pick you
+up about... Hm, what time?"
+
+"Well, if I were just hiking, I could be out by mid-afternoon, but I really want
+
+to take my time and enjoy things. I guess it gets dark about... what? Half past
+nine these days?" He nods. "I should be out by then. I'll meet you right back
+here at nine-thirty, okay?" you offer up your most reassuring smile.
+
+"Sure," he says. "I love you. Be careful, and have a great hike."
+
+With that, he kisses you lightly on the lips and gets back in the car. He waves
+out the driver's side window and heads off toward the north end of the parking
+lot, towards home. Soon, the car is out of sight entirely.
+
+[Press any key...]
+
+A virtual summer hike
+Copyright (c) 2004 by Jacqueline A. Lott
+Submitted as a Landscape Entry to the 2004 IF Art Show
+For hints and information, type "about."
+
+Enjoy your walk, and thank you for playing.
+
+Release 1 / Serial number 040528 / Inform v6.30 Library 6/10
+
+
+Standing alone at the edge of the deserted parking lot, you take in a deep
+breath of fresh air and glance about. An inviting trail beckons from the forest
+to the east; that path quickly curves among the hemlocks and out of sight. Two
+roads depart from the parking lot: one leads north, towards home, the other
+south, toward the campground not quite half a mile distant.
+
+Today's hike is one you've done many times before, and you're intimately
+familiar with the ground you'll cover. You know without the aid of a map that
+you can proceed either east or south, and that either route will bring you
+toward the Lower Mt. Cammerer trail. From there it's a slow and steady climb to
+
+
+
+the fire tower.
+
+>inventory
+
+You are carrying:
+  some socks (being worn)
+  some hiking shorts (being worn)
+  a shirt (being worn)
+  some hiking boots (being worn)
+  a hip pack (being worn and closed)
+  a watch (being worn)
+
+>look
+
+
+The hiker parking area is where people generally leave their cars while
+exploring the nearby trail system in the national park, but this morning it's
+devoid of vehicles. A grassy hill, recently mown, lines the western edge of the
+parking lot, while a forest abuts it to the east. From the parking lot there are
+two roads: one departing north, toward the park exit, and one leading south
+toward the campground just under half a mile away. A trail enters the woods to
+the east, quickly disappearing amongst the hemlocks.
+
+For your hike, you can proceed either east or south. Either route will take you
+to the Lower Mt. Cammerer trail.
+
+>smell
+
+The air smells of life, of greenery and nearby streams. Lovely.
+
+>examine sky
+
+The sky is a rich, warm blue, and the sun is climbing in the east.
+
+>x forest
+
+A forest of towering hemlock hugs the eastern margin of the parking lot, and a
+trail enters the woods due east.
+
+A slight breeze blows out of the east.
+
+>x watch
+
+You glance down at your watch, a rather chunky and unstylish accoutrement
+purchased for fifteen dollars at the drugstore. Fashion critiques aside, it's a
+functional, water-resistant, glow in the dark timepiece.
+
+At present, it indicates that the time is 7:05 AM.
+
+>x pack
+
+You don't know what you'd do without your wonderful hip pack on day hikes like
+this. It's compact, it's capable of carrying everything you could really need
+(even in an emergency), it holds a water bottle, and it's your favorite color
+(green!).
+
+>east
+
+You decide it's best to leave the pavement as quickly as possible, and opt for
+the trail into the woods. The path, lined with wildflowers, curves south, then
+southeast, before joining with the Lower Mt. Cammerer trail.
+
+
+You're standing at the junction of two trails, and two signs are nailed to a
+single post here to orient you. The Lower Mt. Cammerer trail heads northeast,
+toward the Sutton Ridge Overlook and, eventually, to the Appalachian Trail.
+Alternately, the trail continues southwest toward the campground, about two
+tenths of a mile away. A second trail, unnamed, runs northwest, toward the
+parking area where you began, or southeast, toward the Low Gap Trail.
+
+A patch of yellow flowers is growing at the base of the signpost.
+
+>look
+
+
+You're standing at the junction of two trails, one running northwest-southeast,
+the other running northeast-southwest. At the north corner of the junction, two
+signs are nailed to a single post indicating where each trail leads.
+
+>smell flowers
+
+Hm... you can't really detect much of a scent from these flowers. Their delicate
+beauty makes up for the lack of scent.
+
+>listen
+
+Somewhere out of sight, a crow caws.
+
+>touch flowers
+
+You carefully grasp one of the jewelweed stems between your fingers so that you
+can examine it better, then carefully release it again.
+

@@ -1,0 +1,34 @@
+#!/usr/bin/expect -f
+#
+# Play game The Fire Tower.
+#
+set timeout -1
+
+# Remove previous log, if any.
+system rm -f "game.log"
+log_file "game.log"
+
+# Start the game.
+spawn dfrotz -m -s 123 firetower.z8
+match_max 100000
+
+expect "]"; send "\r"
+
+expect ">"; send "inventory\r"
+expect ">"; send "look\r"
+expect ">"; send "smell\r"
+expect ">"; send "examine sky\r"
+expect ">"; send "x forest\r"
+expect ">"; send "x watch\r"
+expect ">"; send "x pack\r"
+expect ">"; send "east\r"
+
+expect ">"; send "look\r"
+expect ">"; send "smell flowers\r"
+expect ">"; send "listen\r"
+expect ">"; send "touch flowers\r"
+
+# Quit
+expect ">"; send "quit\r"
+puts ""
+exit
