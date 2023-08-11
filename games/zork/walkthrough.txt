@@ -13,34 +13,13 @@ You are standing in an open field west of a white house, with a boarded front
 door.
 There is a small mailbox here.
 
->inventory
-
-You are empty-handed.
-
->open mailbox
-
-Opening the small mailbox reveals a leaflet.
-
->read leaflet
-
-(Taken)
-"WELCOME TO ZORK!
-
-ZORK is a game of adventure, danger, and low cunning. In it you will explore
-some of the most amazing territory ever seen by mortals. No computer should be
-without one!"
-
->drop leaflet
-
-Dropped.
-
->go south
+>south
 
 South of House
 You are facing the south side of a white house. There is no door here, and all
 the windows are boarded.
 
->go east
+>east
 
 Behind House
 You are behind the white house. A path leads into the forest to the east. In one
@@ -62,7 +41,7 @@ A bottle is sitting on the table.
 The glass bottle contains:
   A quantity of water
 
->go west
+>west
 
 Living Room
 You are in the living room. There is a doorway to the east, a wooden door with
@@ -71,7 +50,7 @@ case, and a large oriental rug in the center of the room.
 Above the trophy case hangs an elvish sword of great antiquity.
 A battery-powered brass lantern is on the trophy case.
 
->take lamp
+>get lamp
 
 Taken.
 
@@ -85,11 +64,11 @@ dusty cover of a closed trap door.
 The door reluctantly opens to reveal a rickety staircase descending into
 darkness.
 
->turn on lamp
+>turn on the lamp
 
 The brass lantern is now on.
 
->go down
+>down
 
 The trap door crashes shut, and you hear someone barring it.
 
@@ -98,13 +77,13 @@ You are in a dark and damp cellar with a narrow passageway leading north, and a
 crawlway to the south. On the west is the bottom of a steep metal ramp which is
 unclimbable.
 
->go south
+>south
 
 East of Chasm
 You are on the east edge of a chasm, the bottom of which cannot be seen. A
 narrow passage goes north, and the path you are on continues to the east.
 
->go east
+>east
 
 Gallery
 This is an art gallery. Most of the paintings have been stolen by vandals with
@@ -112,11 +91,11 @@ exceptional taste. The vandals left through either the north or west exits.
 Fortunately, there is still one chance for you to be a vandal, for on the far
 wall is a painting of unparalleled beauty.
 
->take painting
+>get painting
 
 Taken.
 
->go north
+>north
 
 Studio
 This appears to have been an artist's studio. The walls and floors are
@@ -127,7 +106,7 @@ although you might be able to get up it, it seems unlikely you could get back
 down.
 Loosely attached to a wall is a small piece of paper.
 
->go up chimney
+>up
 
 Kitchen
 On the table is an elongated brown sack, smelling of hot peppers.
@@ -135,22 +114,19 @@ A bottle is sitting on the table.
 The glass bottle contains:
   A quantity of water
 
->go up
+>up
 
 Attic
 This is the attic. The only exit is a stairway leading down.
 A large coil of rope is lying in the corner.
 On a table is a nasty-looking knife.
 
->take knife
+>get knife and rope
 
-Taken.
+nasty knife: Taken.
+rope: Taken.
 
->take rope
-
-Taken.
-
->go down
+>down
 
 Kitchen
 On the table is an elongated brown sack, smelling of hot peppers.
@@ -158,7 +134,7 @@ A bottle is sitting on the table.
 The glass bottle contains:
   A quantity of water
 
->go west
+>west
 
 Living Room
 Above the trophy case hangs an elvish sword of great antiquity.
@@ -167,7 +143,7 @@ Above the trophy case hangs an elvish sword of great antiquity.
 
 Opened.
 
->put painting inside case
+>put painting in case
 
 Done.
 
@@ -175,7 +151,7 @@ Done.
 
 Dropped.
 
->take sword
+>get sword
 
 Taken.
 
@@ -184,14 +160,14 @@ Taken.
 The door reluctantly opens to reveal a rickety staircase descending into
 darkness.
 
->go down
+>down
 
 The trap door crashes shut, and you hear someone barring it.
 
 Cellar
 Your sword is glowing with a faint blue glow.
 
->go north
+>north
 
 The Troll Room
 This is a small room with passages to the east and south and a forbidding hole
@@ -213,25 +189,25 @@ Your sword is no longer glowing.
 
 Dropped.
 
->go east
+>east
 
 East-West Passage
 This is a narrow east-west passageway. There is a narrow stairway leading down
 at the north end of the room.
 
->go east
+>east
 
 Round Room
 This is a circular stone room with passages in all directions. Several of them
 have unfortunately been blocked by cave-ins.
 
->go southeast
+>se
 
 Engravings Cave
 You have entered a low cave with passages leading northwest and east.
 There are old engravings on the walls here.
 
->go east
+>east
 
 Dome Room
 You are at the periphery of a large dome, which forms the ceiling of another
@@ -242,7 +218,7 @@ circles the dome.
 
 The rope drops over the side and comes within ten feet of the floor.
 
->go down
+>climb down rope
 
 Torch Room
 This is a large room with a prominent doorway leading to a down staircase. Above
@@ -252,7 +228,7 @@ A piece of rope descends from the railing above, ending some five feet above
 your head.
 Sitting on the pedestal is a flaming torch, made of ivory.
 
->go south
+>south
 
 Temple
 This is the north end of a large temple. On the east wall is an ancient
@@ -261,23 +237,23 @@ a staircase leading down. The west wall is solid granite. The exit to the north
 end of the room is through huge marble pillars.
 There is a brass bell here.
 
->go east
+>east
 
 Egyptian Room
 This is a room which looks like an Egyptian tomb. There is an ascending
 staircase to the west.
 The solid-gold coffin used for the burial of Ramses II is here.
 
->take coffin
+>get coffin
 
 Taken.
 
->go west
+>west
 
 Temple
 There is a brass bell here.
 
->go south
+>south
 
 Altar
 This is the south end of a large temple. In front of you is what appears to be
@@ -292,23 +268,23 @@ Forest
 This is a forest, with trees in all directions. To the east, there appears to be
 sunlight.
 
->turn off lamp
+>turn off the lamp
 
 The brass lantern is now off.
 
->go south
+>south
 
 Forest
 This is a dimly lit forest, with large trees all around.
 You hear in the distance the chirping of a song bird.
 
->go north
+>north
 
 Clearing
 You are in a small clearing in a well marked forest path that extends to the
 east and west.
 
->go east
+>east
 
 Canyon View
 You are at the top of the Great Canyon on its west wall. From here there is a
@@ -320,7 +296,7 @@ great dark cavern. To the west and south can be seen an immense forest,
 stretching for miles around. A path leads northwest. It is possible to climb
 down into the canyon from here.
 
->go down
+>down
 
 Rocky Ledge
 You are on a ledge about halfway up the wall of the river canyon. You can see
@@ -328,14 +304,14 @@ from here that the main flow from Aragain Falls twists along a passage which it
 is impossible for you to enter. Below you is the canyon bottom. Above you is
 more cliff, which appears climbable.
 
->go down
+>down
 
 Canyon Bottom
 You are beneath the walls of the river canyon which may be climbable here. The
 lesser part of the runoff of Aragain Falls flows by below. To the north is a
 narrow path.
 
->go north
+>north
 
 End of Rainbow
 You are on a small, rocky beach on the continuation of the Frigid River past the
@@ -353,7 +329,7 @@ The gold coffin opens.
 A sceptre, possibly that of ancient Egypt itself, is in the coffin. The sceptre
 is ornamented with colored enamel, and tapers to a sharp point.
 
->take sceptre
+>get sceptre
 
 Taken.
 
@@ -363,31 +339,38 @@ Suddenly, the rainbow appears to become solid and, I venture, walkable (I think
 the giveaway was the stairs and bannister).
 A shimmering pot of gold appears at the end of the rainbow.
 
->take gold
+>look
 
-You can't see any gold here!
+End of Rainbow
+You are on a small, rocky beach on the continuation of the Frigid River past the
+Falls. The beach is narrow due to the presence of the White Cliffs. The river
+canyon opens here and sunlight shines in from above. A rainbow crosses over the
+falls to the east and a narrow path continues to the southwest.
+At the end of the rainbow is a pot of gold.
+The solid-gold coffin used for the burial of Ramses II is here.
 
->take coffin
+>get gold and coffin
 
-Taken.
+pot of gold: Taken.
+gold coffin: Taken.
 
->go southwest
+>sw
 
 Canyon Bottom
 
->go up
+>up
 
 Rocky Ledge
 
->go up
+>up
 
 Canyon View
 
->go northwest
+>nw
 
 Clearing
 
->go west
+>west
 
 Behind House
 
@@ -403,25 +386,26 @@ The glass bottle contains:
 
 Opening the brown sack reveals a lunch, and a clove of garlic.
 
->take garlic
+>get garlic
 
 Taken.
 
->go west
+>west
 
 Living Room
 There is a nasty knife here.
 Your collection of treasures consists of:
     A painting
 
->put coffin in case
+>put coffin into case
 
 Done.
 
->put gold in case
-You don't have that!
+>put sceptre into case
 
->put sceptre in case
+Done.
+
+>put gold into case
 
 Done.
 
@@ -434,27 +418,27 @@ darkness.
 
 The brass lantern is now on.
 
->go down
+>down
 
 Cellar
 
->go north
+>north
 
 The Troll Room
 There is a sword here.
 There is a bloody axe here.
 
->go east
+>east
 
 East-West Passage
 
->go north
+>north
 
 Chasm
 A chasm runs southwest to northeast and the path follows it. You are on the
 south side of the chasm, where a crack opens into a passage.
 
->go northeast
+>ne
 
 Reservoir South
 You are in a long room on the south shore of a large lake, far too deep and wide
@@ -463,7 +447,7 @@ There is a path along the stream to the east or west, a steep pathway climbing
 southwest along the edge of a chasm, and a path leading into a canyon to the
 southeast.
 
->go east
+>east
 
 Dam
 You are standing on the top of the Flood Control Dam #3, which was quite a
@@ -474,7 +458,7 @@ reservoir. Water is pouring over the top of the now abandoned dam.
 There is a control panel here, on which a large metal bolt is mounted. Directly
 above the bolt is a small green plastic bubble.
 
->go north
+>north
 
 Dam Lobby
 This room appears to have been the waiting room for groups touring the dam.
@@ -483,11 +467,11 @@ is a path leading south over the top of the dam.
 Some guidebooks entitled "Flood Control Dam #3" are on the reception desk.
 There is a matchbook whose cover says "Visit Beautiful FCD#3" here.
 
->take matches
+>get matches
 
 Taken.
 
->go north
+>north
 
 Maintenance Room
 This is what appears to have been the maintenance room for Flood Control Dam #3.
@@ -499,24 +483,21 @@ There is a wrench here.
 There is an object which looks like a tube of toothpaste here.
 There is a screwdriver here.
 
->take wrench
+>get wrench and screwdriver
 
-Taken.
-
->take screwdriver
-
-Taken.
+wrench: Taken.
+screwdriver: Taken.
 
 >push yellow button
 
 Click.
 
->go south
+>south
 
 Dam Lobby
 Some guidebooks entitled "Flood Control Dam #3" are on the reception desk.
 
->go south
+>south
 
 Dam
 You are standing on the top of the Flood Control Dam #3, which was quite a
@@ -527,7 +508,7 @@ reservoir. Water is pouring over the top of the now abandoned dam.
 There is a control panel here, on which a large metal bolt is mounted. Directly
 above the bolt is a small green plastic bubble which is glowing serenely.
 
->turn bolt with wrench
+>turn the bolt with the wrench
 
 The sluice gates open and water pours through the dam.
 
@@ -535,14 +516,14 @@ The sluice gates open and water pours through the dam.
 
 Dropped.
 
->go south
+>south
 
 Deep Canyon
 You are on the south edge of a deep canyon. Passages lead off to the east,
 northwest and southwest. A stairway leads down. You can hear a loud roaring
 sound, like that of rushing water, from below.
 
->go down
+>down
 
 Loud Room
 This is a large room with a ceiling which cannot be detected from the ground.
@@ -554,23 +535,45 @@ It is unbearably loud here, with an ear-splitting roar seeming to come from all
 around you. There is a pounding in your head which won't stop. With a tremendous
 effort, you scramble out of the room.
 
+Deep Canyon
+
+>down
+
+Loud Room
+On the ground is a large platinum bar.
+It is unbearably loud here, with an ear-splitting roar seeming to come from all
+around you. There is a pounding in your head which won't stop. With a tremendous
+effort, you scramble out of the room.
+
+Damp Cave
+This cave has exits to the west and east, and narrows to a crack toward the
+south. The earth is particularly damp here.
+
+>west
+
+Loud Room
+On the ground is a large platinum bar.
+It is unbearably loud here, with an ear-splitting roar seeming to come from all
+around you. There is a pounding in your head which won't stop. With a tremendous
+effort, you scramble out of the room.
+
 Round Room
 
->go southeast
+>se
 
 Engravings Cave
 There are old engravings on the walls here.
 
->go east
+>east
 
 Dome Room
 
->go down
+>climb down rope
 
 Torch Room
 Sitting on the pedestal is a flaming torch, made of ivory.
 
->take torch
+>get torch
 
 Taken.
 
@@ -578,12 +581,12 @@ Taken.
 
 The brass lantern is now off.
 
->go south
+>south
 
 Temple
 There is a brass bell here.
 
->take bell
+>get bell
 
 Taken.
 
@@ -593,22 +596,19 @@ Altar
 On the two ends of the altar are burning candles.
 On the altar is a large black book, open to page 569.
 
->take candles
+>get book and candles
 
-Taken.
+black book: Taken.
+pair of candles: Taken.
 
->take book
-
-Taken.
-
->go down
+>down
 
 Cave
 This is a tiny cave with entrances west and north, and a dark, forbidding
 staircase leading down.
 A gust of wind blows out your candles!
 
->go down
+>down
 
 Entrance to Hades
 You are outside a large gateway, on which is inscribed
@@ -621,7 +621,7 @@ heard.
 The way through the gate is barred by evil spirits, who jeer at your attempts to
 pass.
 
->ring bell
+>ring the bell
 
 The bell suddenly becomes red hot and falls to the ground. The wraiths, as if
 paralyzed, stop their jeering and slowly turn to face you. On their ashen faces,
@@ -636,7 +636,7 @@ Taken.
 
 One of the matches starts to burn.
 
->light candles with match
+>light the candles with the match
 
 The candles are lit.
 The flames flicker wildly and appear to dance. The earth beneath your feet
@@ -644,7 +644,7 @@ trembles, and your legs nearly buckle beneath you. The spirits cower at your
 unearthly power.
 The match has gone out.
 
->read book
+>read the book
 
 Each word of the prayer reverberates through the hall in a deafening confusion.
 As the last word fades, a voice, loud and commanding, speaks: "Begone, fiends!"
@@ -655,7 +655,7 @@ power, flee through the walls.
 
 Dropped.
 
->go south
+>south
 
 Land of the Dead
 You have entered the Land of the Living Dead. Thousands of lost souls can be
@@ -664,39 +664,42 @@ previous adventurers less fortunate than yourself. A passage exits to the north.
 Lying in one corner of the room is a beautifully carved crystal skull. It
 appears to be grinning at you rather nastily.
 
->take skull
+>get skull
 
 Taken.
 
->go north
+>north
 
 Entrance to Hades
 There is a black book here.
 On the ground is a red hot bell.
 
->go up
+>up
 
 Cave
-A gust of wind blows out your candles!
 
->go north
+>north
 
 Mirror Room
 You are in a large square room with tall ceilings. On the south wall is an
 enormous mirror which fills the entire wall. There are exits on the other three
 sides of the room.
 
+>drop candles
+
+Dropped.
+
 >rub mirror
 
 There is a rumble from deep within the earth and the room shakes.
 
->go north
+>north
 
 Cold Passage
 This is a cold and damp corridor where a long east-west passageway turns into a
 southward path.
 
->go west
+>west
 
 Slide Room
 This is a small chamber, which appears to have been part of a coal mine. On the
@@ -704,30 +707,19 @@ south wall of the chamber the letters "Granite Wall" are etched in the rock. To
 the east is a long passage, and there is a steep metal slide twisting downward.
 To the north is a small opening.
 
->go north
+>north
 
 Mine Entrance
 You are standing at the entrance of what might have been a coal mine. The shaft
 enters the west wall, and there is another exit on the south end of the room.
 
->go west
+>west
 
 Squeaky Room
 You are in a small room. Strange squeaky sounds may be heard coming from the
 passage at the north end. You may also escape to the east.
 
->inventory
-
-You are carrying:
-  A crystal skull
-  A pair of candles
-  A torch (providing light)
-  A screwdriver
-  A matchbook
-  A clove of garlic
-  A brass lantern
-
->go north
+>north
 
 Bat Room
 You are in a small room which has doors only to the east and south.
@@ -735,7 +727,7 @@ In the corner of the room on the ceiling is a large vampire bat who is obviously
 deranged and holding his nose.
 There is an exquisite jade figurine here.
 
->go east
+>east
 
 Shaft Room
 This is a large room, in the middle of which is a small shaft descending through
@@ -748,159 +740,149 @@ At the end of the chain is a basket.
 
 Done.
 
->put screwdriver in basket
-
-Done.
-
 >turn on lamp
 
 The brass lantern is now on.
-A seedy-looking individual with a large bag just wandered through the room. On
-the way through, he quietly abstracted some valuables from the room and from
-your possession, mumbling something about "Doing unto others before..."
 
->go north
+>north
 
 Smelly Room
 This is a small non-descript room. However, from the direction of a small
 descending staircase a foul odor can be detected. To the south is a narrow
 tunnel.
 
->go down
+>down
 
 Gas Room
 This is a small room which smells strongly of coal gas. There is a short climb
 up some stairs and a narrow tunnel leading east.
 There is a sapphire-encrusted bracelet here.
 
->go east
+>east
 
 Coal Mine
 This is a non-descript part of a coal mine.
 
->go northeast
+>ne
 
 Coal Mine
 This is a non-descript part of a coal mine.
 
->go southeast
-
-Coal Mine
-This is a non-descript part of a coal mine.
-There is a sword here.
-
->go southwest
+>se
 
 Coal Mine
 This is a non-descript part of a coal mine.
 
->go down
+>sw
+
+Coal Mine
+This is a non-descript part of a coal mine.
+
+>down
 
 Ladder Top
 This is a very small room. In the corner is a rickety wooden ladder, leading
 downward. It might be safe to descend. There is also a staircase leading upward.
 
->go down
+>down
 
 Ladder Bottom
 This is a rather wide room. On one side is the bottom of a narrow wooden ladder.
 To the west and the south are passages leaving the room.
 
->go south
+>south
 
 Dead End
 You have come to a dead end in the mine.
 There is a small pile of coal here.
 
->take coal
+>get coal
 
 Taken.
 
->go north
+>north
 
 Ladder Bottom
 
->go up
+>up
 
 Ladder Top
 
->go up
+>up
 
 Coal Mine
 
->go north
-
-Coal Mine
-There is a sword here.
-
->go east
+>north
 
 Coal Mine
 
->go south
+>east
 
 Coal Mine
 
->go north
+>south
+
+Coal Mine
+
+>north
 
 Gas Room
 There is a sapphire-encrusted bracelet here.
 
->go up
+>up
 
 Smelly Room
 
->go south
+>south
 
 Shaft Room
 At the end of the chain is a basket.
 The basket contains:
-  A screwdriver
   A torch (providing light)
 
->put coal in basket
+>put coal and screwdriver in basket
 
-Done.
+small pile of coal: Done.
+screwdriver: Done.
 
 >lower basket
 
 The basket is lowered to the bottom of the shaft.
 
->go north
+>north
 
 Smelly Room
 
->go down
+>down
 
 Gas Room
 There is a sapphire-encrusted bracelet here.
 
->go east
+>east
 
 Coal Mine
 
->go northeast
+>ne
 
 Coal Mine
 
->go southeast
-
-Coal Mine
-There is a sword here.
-
->go southwest
+>se
 
 Coal Mine
 
->go down
+>sw
+
+Coal Mine
+
+>down
 
 Ladder Top
 
->go down
+>down
 
 Ladder Bottom
 
->go west
+>west
 
 Timber Room
 This is a long and narrow passage, which is cluttered with broken timbers. A
@@ -908,12 +890,9 @@ wide passage comes from the east and turns at the west end of the room into a
 very narrow passageway. From the west comes a strong draft.
 There is a broken timber here.
 
->drop skull
-You don't have that!
-
 >drop all
 
-pair of candles: Dropped.
+crystal skull: Dropped.
 matchbook: Dropped.
 clove of garlic: Dropped.
 brass lantern: Dropped.
@@ -926,23 +905,20 @@ is a passageway and to the east a very narrow passage. In the shaft can be seen
 a heavy iron chain.
 At the end of the chain is a basket.
 The basket contains:
-  A small pile of coal
   A screwdriver
+  A small pile of coal
   A torch (providing light)
 
->take coal
+>get coal and torch
+
+small pile of coal: Taken.
+torch: Taken.
+
+>get screwdriver
 
 Taken.
 
->take screwdriver
-
-Taken.
-
->take torch
-
-Taken.
-
->go south
+>south
 
 Machine Room
 This is a large, cold room whose sole exit is to the north. In one corner there
@@ -951,15 +927,15 @@ which is labelled "START". The switch does not appear to be manipulable by any
 human hand (unless the fingers are about 1/16 by 1/4 inch). On the front of the
 machine is a large lid, which is closed.
 
->open lid
+>open the lid
 
 The lid opens.
 
->put coal in machine
+>put coal into machine
 
 Done.
 
->close lid
+>close the lid
 
 The lid closes.
 
@@ -968,91 +944,84 @@ The lid closes.
 The machine comes to life (figuratively) with a dazzling display of colored
 lights and bizarre noises. After a few moments, the excitement abates.
 
+>open the lid
+
+The lid opens, revealing a huge diamond.
+
+>get diamond
+
+Taken.
+
 >drop screwdriver
 
 Dropped.
 
->open lid
-
-The lid opens, revealing a huge diamond.
-
->take diamond
-
-Taken.
-
->go north
+>north
 
 Drafty Room
 At the end of the chain is a basket.
 
->put torch in basket
+>put torch and diamond in the basket
 
-Done.
+torch: Done.
+huge diamond: Done.
 
->put diamond in basket
-
-Done.
-
->take skull
-
-You can't see any skull here!
-
->go east
+>east
 
 Timber Room
 There is a brass lantern (battery-powered) here.
 There is a clove of garlic here.
 There is a matchbook whose cover says "Visit Beautiful FCD#3" here.
-There is a pair of candles here.
+There is a crystal skull here.
 There is a broken timber here.
 
->take lamp
+>get skull and lamp
+
+crystal skull: Taken.
+brass lantern: Taken.
+
+>get garlic
 
 Taken.
 
->take garlic
-
-Taken.
-
->go east
+>east
 
 Ladder Bottom
 
->go up
+>up
 
 Ladder Top
 
->go up
+>up
 
 Coal Mine
 
->go north
-
-Coal Mine
-There is a sword here.
-
->go east
+>north
 
 Coal Mine
 
->go south
+>east
 
 Coal Mine
 
->go north
+>south
+
+Coal Mine
+
+>north
 
 Gas Room
 There is a sapphire-encrusted bracelet here.
 
->take bracelet
+>get bracelet
 
 Taken.
 
->go up
+>up
 
 Smelly Room
 
->go south
+>south
 
 Shaft Room
 From the chain is suspended a basket.
@@ -1061,77 +1030,62 @@ From the chain is suspended a basket.
 
 The basket is raised to the top of the shaft.
 
->look in basket
+>get torch and diamond
 
-The basket contains:
-  A huge diamond
-  A torch (providing light)
-
->take diamond
-
-Taken.
-
->take torch
-
-Taken.
+torch: Taken.
+huge diamond: Taken.
 
 >turn off lamp
 
 The brass lantern is now off.
 
->go west
+>west
 
 Bat Room
 In the corner of the room on the ceiling is a large vampire bat who is obviously
 deranged and holding his nose.
 There is an exquisite jade figurine here.
 
->take jade
+>get jade
 
 Taken.
 
->go south
+>south
 
 Squeaky Room
 
->go east
+>east
 
 Mine Entrance
 
->go south
+>south
 
 Slide Room
+There is a bloody axe here.
 
 >go down
 
 Cellar
 
->go up
+>up
 
 Living Room
 There is a nasty knife here.
 Your collection of treasures consists of:
+    A pot of gold
     A sceptre
     A gold coffin
     A painting
 
->inventory
+>put diamond and jade in case
 
-You are carrying:
-  A jade figurine
-  A torch (providing light)
-  A huge diamond
-  A sapphire-encrusted bracelet
-  A clove of garlic
-  A brass lantern
+huge diamond: Done.
+jade figurine: Done.
 
->put jade in case
+>put bracelet and torch in case
 
-Done.
-
->put diamond in case
-
-Done.
+sapphire-encrusted bracelet: Done.
+torch: Done.
 
 >drop garlic
 
@@ -1141,24 +1095,24 @@ Dropped.
 
 The brass lantern is now on.
 
->go down
+>down
 
 Cellar
 
->go north
+>north
 
 The Troll Room
-There is a bloody axe here.
+There is a sword here.
 
->go east
+>east
 
 East-West Passage
 
->go north
+>north
 
 Chasm
 
->go northeast
+>ne
 
 Reservoir South
 You are in a long room, to the north of which was formerly a lake. However, with
@@ -1168,18 +1122,18 @@ There is a path along the stream to the east or west, a steep pathway climbing
 southwest along the edge of a chasm, and a path leading into a canyon to the
 southeast.
 
->go north
+>north
 
 Reservoir
 You are on what used to be a large lake, but which is now a large mud pile.
 There are "shores" to the north and south.
 Lying half buried in the mud is an old trunk, bulging with jewels.
 
->take trunk
+>get trunk
 
 Taken.
 
->go north
+>north
 
 Reservoir North
 You are in a large cavernous room, the south of which was formerly a lake.
@@ -1188,55 +1142,39 @@ through there.
 There is a slimy stairway leaving the room to the north.
 There is a hand-held air pump here.
 
->take pump
+>get pump
 
 Taken.
 
->go north
+>north
 
 Atlantis Room
 This is an ancient room, long under water. There is an exit to the south and a
 staircase leading up.
 On the shore lies Poseidon's own crystal trident.
 
->take trident
-
-Your load is too heavy.
-
->inventory
-
-You are carrying:
-  A hand-held air pump
-  A trunk of jewels
-  A torch (providing light)
-  A sapphire-encrusted bracelet
-  A brass lantern (providing light)
-
->drop torch
-
-Dropped.
-
->take trident
+>get trident
 
 Taken.
 
->go south
+>south
 
 Reservoir North
 
->go south
+>south
 
 Reservoir
 
->go south
+>south
 
 Reservoir South
 
->go east
+>east
 
 Dam
+There is a wrench here.
 
->go east
+>east
 
 Dam Base
 You are at the base of Flood Control Dam #3, which looms above you and to the
@@ -1245,7 +1183,7 @@ which seem to form giant walls stretching from north to south along the shores
 of the river as it winds its way downstream.
 There is a folded pile of plastic here which has a small valve attached.
 
->inflate plastic with pump
+>inflate boat with pump
 
 The boat inflates and appears seaworthy.
 A tan label is lying inside the boat.
@@ -1254,7 +1192,7 @@ A tan label is lying inside the boat.
 
 Dropped.
 
->go inside boat
+>get in boat
 
 You are now in the magic boat.
 
@@ -1306,11 +1244,11 @@ There is a red buoy here (probably a warning).
 The magic boat contains:
   A tan label
 
->take buoy
+>get buoy
 
 Taken.
 
->go east
+>east
 
 The magic boat comes to a rest on the shore.
 
@@ -1322,7 +1260,7 @@ There is a shovel here. (outside the magic boat)
   The magic boat contains:
     A tan label
 
->leave boat
+>get out of boat
 
 You are on your own feet again.
 
@@ -1330,11 +1268,11 @@ You are on your own feet again.
 
 Dropped.
 
->take shovel
+>get shovel
 
 Taken.
 
->go northeast
+>ne
 
 Sandy Cave
 This is a sand-filled cave whose exit is to the southwest.
@@ -1363,11 +1301,11 @@ You can see a scarab here in the sand.
 
 Dropped.
 
->take scarab
+>get scarab
 
 Taken.
 
->go southwest
+>sw
 
 Sandy Beach
 There is a red buoy here.
@@ -1379,18 +1317,18 @@ The magic boat contains:
 
 Opening the red buoy reveals a large emerald.
 
->take emerald
+>get emerald
 
 Taken.
 
->go south
+>south
 
 Shore
 You are on the east shore of the river. The water here seems somewhat
 treacherous. A path travels from north to south here, the south end quickly
 turning around a sharp corner.
 
->go south
+>south
 
 Aragain Falls
 You are at the top of Aragain Falls, an enormous waterfall with a drop of about
@@ -1405,23 +1343,23 @@ End of Rainbow
 
 The brass lantern is now off.
 
->go southwest
+>sw
 
 Canyon Bottom
 
->go up
+>up
 
 Rocky Ledge
 
->go up
+>up
 
 Canyon View
 
->go northwest
+>nw
 
 Clearing
 
->go west
+>west
 
 Behind House
 
@@ -1435,45 +1373,32 @@ There is a brown sack here.
 The brown sack contains:
   A lunch
 
->go west
+>west
 
 Living Room
 There is a clove of garlic here.
 There is a nasty knife here.
 Your collection of treasures consists of:
-    A huge diamond
+    A torch (providing light)
+    A sapphire-encrusted bracelet
     A jade figurine
+    A huge diamond
+    A pot of gold
     A sceptre
     A gold coffin
     A painting
 
->inventory
+>put scarab and emerald in case
 
-You are carrying:
-  A large emerald
-  A beautiful jeweled scarab
-  A crystal trident
-  A trunk of jewels
-  A sapphire-encrusted bracelet
-  A brass lantern
+beautiful jeweled scarab: Done.
+large emerald: Done.
 
->put emerald in case
+>put chest and trident in case
 
-Done.
+trunk of jewels: Done.
+crystal trident: Done.
 
->put scarab in case
-
-Done.
-
->put trident in case
-
-Done.
-
->put jewels in case
-
-Done.
-
->go east
+>east
 
 Kitchen
 A bottle is sitting on the table.
@@ -1483,24 +1408,24 @@ There is a brown sack here.
 The brown sack contains:
   A lunch
 
->go east
+>east
 
 Behind House
 
->go north
+>north
 
 North of House
 You are facing the north side of a white house. There is no door here, and all
 the windows are boarded up. To the north a narrow path winds through the trees.
 
->go north
+>north
 
 Forest Path
 This is a path winding through a dimly lit forest. The path heads north-south
 here. One particularly large tree with some low branches stands at the edge of
 the path.
 
->climb tree
+>climb up tree
 
 Up a Tree
 You are about 10 feet above the ground nestled among some large branches. The
@@ -1512,7 +1437,7 @@ ornamented in lapis lazuli and mother-of-pearl. Unlike most eggs, this one is
 hinged and closed with a delicate looking clasp. The egg appears extremely
 fragile.
 
->take egg
+>get egg
 
 Taken.
 
@@ -1521,11 +1446,11 @@ Taken.
 (down the tree)
 Forest Path
 
->go south
+>south
 
 North of House
 
->go east
+>east
 
 Behind House
 
@@ -1539,18 +1464,21 @@ There is a brown sack here.
 The brown sack contains:
   A lunch
 
->go west
+>west
 
 Living Room
 There is a clove of garlic here.
 There is a nasty knife here.
 Your collection of treasures consists of:
-    A trunk of jewels
     A crystal trident
-    A beautiful jeweled scarab
+    A trunk of jewels
     A large emerald
-    A huge diamond
+    A beautiful jeweled scarab
+    A torch (providing light)
+    A sapphire-encrusted bracelet
     A jade figurine
+    A huge diamond
+    A pot of gold
     A sceptre
     A gold coffin
     A painting
@@ -1559,31 +1487,31 @@ Your collection of treasures consists of:
 
 The brass lantern is now on.
 
->go down
+>down
 
 Cellar
 
->go north
+>north
 
 The Troll Room
-There is a bloody axe here.
+There is a sword here.
 
->go west
-
-Maze
-This is part of a maze of twisty little passages, all alike.
-
->go south
+>west
 
 Maze
 This is part of a maze of twisty little passages, all alike.
 
->go east
+>south
 
 Maze
 This is part of a maze of twisty little passages, all alike.
 
->go up
+>east
+
+Maze
+This is part of a maze of twisty little passages, all alike.
+
+>up
 
 Maze
 This is part of a maze of twisty little passages, all alike. A skeleton,
@@ -1593,30 +1521,27 @@ The deceased adventurer's useless lantern is here.
 There is a skeleton key here.
 An old leather bag, bulging with coins, is here.
 
->take coins
+>take coins and key
 
-Taken.
+leather bag of coins: Taken.
+skeleton key: Taken.
 
->take key
-
-Taken.
-
->go southwest
+>sw
 
 Maze
 This is part of a maze of twisty little passages, all alike.
 
->go east
+>east
 
 Maze
 This is part of a maze of twisty little passages, all alike.
 
->go south
+>south
 
 Maze
 This is part of a maze of twisty little passages, all alike.
 
->go southeast
+>se
 
 Cyclops Room
 This room has an exit on the northwest, and a staircase leading up.
@@ -1624,12 +1549,12 @@ A cyclops, who looks prepared to eat horses (much less mere adventurers), blocks
 the staircase. From his state of health, and the bloodstains on the walls, you
 gather that he is not very friendly, though he likes people.
 
->Ulysses
+>ulysses
 
 The cyclops, hearing the name of his father's deadly nemesis, flees the room by
 knocking down the wall on the east of the room.
 
->go up
+>up
 
 You hear a scream of anguish as you violate the robber's hideaway. Using
 passages unknown to you, he rushes to its defense.
@@ -1642,18 +1567,19 @@ exit down a staircase.
 There is a suspicious-looking individual, holding a large bag, leaning against
 one wall. He is armed with a deadly stiletto.
 There is a silver chalice, intricately engraved, here.
-The butt of his stiletto cracks you on the skull, and you stagger back.
+The thief rams the haft of his blade into your stomach, leaving you out of
+breath.
 
 >give egg to thief
 
 The thief is taken aback by your unexpected generosity, but accepts the jewel-
 encrusted egg and stops to admire its beauty.
 
->go down
+>down
 
 Cyclops Room
 
->go east
+>east
 
 Strange Passage
 This is a long passage. To the west is one entrance. On the east there is an old
@@ -1662,38 +1588,38 @@ A seedy-looking individual with a large bag just wandered through the room. On
 the way through, he quietly abstracted some valuables from the room and from
 your possession, mumbling something about "Doing unto others before..."
 
->go east
+>east
 
 Living Room
 There is a clove of garlic here.
 There is a nasty knife here.
 Your collection of treasures consists of:
-    A trunk of jewels
     A crystal trident
-    A beautiful jeweled scarab
+    A trunk of jewels
     A large emerald
-    A huge diamond
+    A beautiful jeweled scarab
+    A torch (providing light)
+    A sapphire-encrusted bracelet
     A jade figurine
+    A huge diamond
+    A pot of gold
     A sceptre
     A gold coffin
     A painting
 
->put coins in case
-You don't have that!
-
->take knife
+>get knife
 
 Taken.
 
->go west
+>west
 
 Strange Passage
 
->go west
+>west
 
 Cyclops Room
 
->go up
+>up
 
 You hear a scream of anguish as you violate the robber's hideaway. Using
 passages unknown to you, he rushes to its defense.
@@ -1703,89 +1629,90 @@ Treasure Room
 There is a suspicious-looking individual, holding a large bag, leaning against
 one wall. He is armed with a deadly stiletto.
 There is a silver chalice, intricately engraved, here.
+The thief tries to sneak past your guard, but you twist away.
+
+>kill thief with knife
+
+Your stroke lands, but it was only the flat of the blade.
 The thief rams the haft of his blade into your stomach, leaving you out of
 breath.
 
 >kill thief with knife
 
 You are still recovering from that last blow, so your attack is ineffective.
-The thief tries to sneak past your guard, but you twist away.
+You dodge as the thief comes in low.
 
 >kill thief with knife
 
-The quickness of your thrust knocks the thief back, stunned.
-The thief slowly regains his feet.
+Clang! Crash! The thief parries.
+The thief slowly approaches, strikes like a snake, and leaves you wounded.
 
 >kill thief with knife
 
-A good stroke, but it's too slow; the thief dodges.
-The thief tries to sneak past your guard, but you twist away.
+A good slash, but it misses the thief by a mile.
+A long, theatrical slash. You catch it on your nasty knife, but the thief twists
+his knife, and the nasty knife goes flying.
+
+>get knife
+
+Taken.
+The thief attacks, and you fall back desperately.
 
 >kill thief with knife
 
-The thief is struck on the arm; blood begins to trickle down.
-The lamp appears a bit dimmer.
-The thief stabs nonchalantly with his stiletto and misses.
+You are still recovering from that last blow, so your attack is ineffective.
+You dodge as the thief comes in low.
 
 >kill thief with knife
 
-The fatal blow strikes the thief square in the heart:  He dies.
+Your nasty knife crashes down, knocking the thief into dreamland.
+
+>kill thief with knife
+
+The unarmed thief cannot defend himself: He dies.
 Almost as soon as the thief breathes his last breath, a cloud of sinister black
 fog envelops him, and when the fog lifts, the carcass has disappeared.
 As the thief dies, the power of his magic decreases, and his treasures reappear:
   A leather bag of coins
-  A sapphire-encrusted bracelet
+  A crystal skull
   A stiletto
   A jewel-encrusted egg, with a golden clockwork canary
-  A torch
-  A crystal skull
-  A pot of gold
 The chalice is now safe to take.
 
->take all
+>get all
 
 leather bag of coins: Taken.
-sapphire-encrusted bracelet: Taken.
+crystal skull: Taken.
 stiletto: Taken.
 jewel-encrusted egg: Taken.
-torch: Taken.
-crystal skull: Your load is too heavy.
-pot of gold: Your load is too heavy.
-chalice: Your load is too heavy.
+chalice: Taken.
 
->drop stiletto
-
-Dropped.
-
->take chalice
-
-Taken.
-
->go down
+>down
 
 Cyclops Room
 
->go northwest
+>nw
 
 Maze
 This is part of a maze of twisty little passages, all alike.
 
->go south
+>south
 
 Maze
 This is part of a maze of twisty little passages, all alike.
 
->go west
+>west
+
+Maze
+This is part of a maze of twisty little passages, all alike.
+The lamp appears a bit dimmer.
+
+>up
 
 Maze
 This is part of a maze of twisty little passages, all alike.
 
->go up
-
-Maze
-This is part of a maze of twisty little passages, all alike.
-
->go down
+>down
 
 You won't be able to get back up to the tunnel you are going through when it
 gets to the next room.
@@ -1793,7 +1720,7 @@ gets to the next room.
 Maze
 This is part of a maze of twisty little passages, all alike.
 
->go northeast
+>ne
 
 Grating Room
 You are in a small room near the maze. There are twisty passages in the
@@ -1810,14 +1737,14 @@ The grate is unlocked.
 The grating opens to reveal trees above you.
 A pile of leaves falls onto your head and to the ground.
 
->go up
+>up
 
 Clearing
 You are in a clearing, with a forest surrounding you on all sides. A path leads
 south.
 There is an open grating, descending into darkness.
 
->go south
+>south
 
 Forest Path
 
@@ -1825,6 +1752,7 @@ Forest Path
 
 Up a Tree
 Beside you on the branch is a small bird's nest.
+You hear in the distance the chirping of a song bird.
 
 >wind up canary
 
@@ -1834,28 +1762,27 @@ and opens its beak to sing. As it does so a beautiful brass bauble drops from
 its mouth, bounces off the top of your head, and lands glimmering in the grass.
 As the canary winds down, the songbird flies away.
 
->go down
+>climb down
 
+(down the tree)
 Forest Path
 There is a beautiful brass bauble here.
 
->take bauble
+>drop knife and key
 
-Your load is too heavy.
+nasty knife: Dropped.
+skeleton key: Dropped.
 
->drop knife
-
-Dropped.
-
->take bauble
+>get bauble
 
 Taken.
+You hear in the distance the chirping of a song bird.
 
->go south
+>south
 
 North of House
 
->go east
+>east
 
 Behind House
 
@@ -1869,66 +1796,56 @@ There is a brown sack here.
 The brown sack contains:
   A lunch
 
->go west
+>west
 
 Living Room
 There is a clove of garlic here.
 Your collection of treasures consists of:
-    A trunk of jewels
     A crystal trident
-    A beautiful jeweled scarab
+    A trunk of jewels
     A large emerald
-    A huge diamond
+    A beautiful jeweled scarab
+    A torch (providing light)
+    A sapphire-encrusted bracelet
     A jade figurine
+    A huge diamond
+    A pot of gold
     A sceptre
     A gold coffin
     A painting
 
->put bauble in case
-
-Done.
-
->put chalice in case
-
-Done.
-
->take canary from egg
+>remove canary from egg
 
 Taken.
 
->put canary in case
+>put egg and canary in case
 
-Done.
+jewel-encrusted egg: Done.
+golden clockwork canary: Done.
 
->put egg in case
+>put bauble and stiletto in case
 
-Done.
+beautiful brass bauble: Done.
+stiletto: Done.
 
->put bracelet in case
-
-Done.
-
->put skull in case
-You don't have that!
-
->go down
+>down
 
 Cellar
 
->go north
+>north
 
 The Troll Room
-There is a bloody axe here.
+There is a sword here.
 
->go east
+>east
 
 East-West Passage
 
->go east
+>east
 
 Round Room
 
->go east
+>east
 
 Loud Room
 This is a large room with a ceiling which cannot be detected from the ground.
@@ -1944,52 +1861,106 @@ The acoustics of the room change subtly.
 Loud Room
 On the ground is a large platinum bar.
 
->take bar
+>get bar
 
 Taken.
 
->go west
+>west
 
 Round Room
 
->go west
+>west
 
 East-West Passage
 
->go west
+>west
 
 The Troll Room
-There is a bloody axe here.
+There is a sword here.
 
->go south
+>south
 
 Cellar
 
->go up
+>up
 
 Living Room
 There is a clove of garlic here.
 Your collection of treasures consists of:
-    A sapphire-encrusted bracelet
-    A jewel-encrusted egg
-    A golden clockwork canary
-    A chalice
+    A stiletto
     A beautiful brass bauble
-    A trunk of jewels
+    A golden clockwork canary
+    A jewel-encrusted egg
     A crystal trident
-    A beautiful jeweled scarab
+    A trunk of jewels
     A large emerald
-    A huge diamond
+    A beautiful jeweled scarab
+    A torch (providing light)
+    A sapphire-encrusted bracelet
     A jade figurine
+    A huge diamond
+    A pot of gold
     A sceptre
     A gold coffin
     A painting
 
->put bar in case
+>put all except lamp into case
 
-Done.
+platinum bar: Done.
+chalice: Done.
+crystal skull: Done.
+leather bag of coins: Done.
+An almost inaudible voice whispers in your ear, "Look to your treasures for the
+final secret."
 
->score
-Your score is 309 (total of 350 points), in 345 moves.
-This gives you the rank of Master.
+>get map
 
+Taken.
+
+>east
+
+Kitchen
+A bottle is sitting on the table.
+The glass bottle contains:
+  A quantity of water
+There is a brown sack here.
+The brown sack contains:
+  A lunch
+
+>east
+
+Behind House
+
+>south
+
+South of House
+
+>west
+
+West of House
+You are standing in an open field west of a white house, with a boarded front
+door. A secret path leads southwest into the forest.
+There is a small mailbox here.
+
+>sw
+
+Stone Barrow
+You are standing in front of a massive barrow of stone. In the east face is a
+huge stone door which is open. You cannot see into the dark of the tomb.
+
+>west
+Inside the Barrow
+As you enter the barrow, the door closes inexorably behind you. Around you it is
+dark, but ahead is an enormous cavern, brightly lit. Through its center runs a
+wide stream. Spanning the stream is a small wooden footbridge, and beyond a path
+leads into a dark tunnel. Above the bridge, floating in the air, is a large
+sign. It reads:  All ye who stand before this bridge have completed a great and
+perilous adventure which has tested your wit and courage. You have mastered the
+first part of the ZORK trilogy. Those who pass over this bridge must be prepared
+to undertake an even greater adventure that will severely test your skill and
+bravery!
+
+The ZORK trilogy continues with "ZORK II: The Wizard of Frobozz" and is
+completed in "ZORK III: The Dungeon Master."
+Your score is 350 (total of 350 points), in 330 moves.
+This gives you the rank of Master Adventurer.

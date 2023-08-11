@@ -11,4 +11,4 @@ Play online:
 
     http://iplayif.com/?story=https://ifarchive.org/if-archive/games/zcode/zdungeon.z5
 
-Map: https://ifarchive.org/if-archive/solutions/dungeon.ps
+Map: https://mocagh.org/infocom/zork-map-front.pdf

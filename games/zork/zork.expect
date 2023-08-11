@@ -2,6 +2,8 @@
 #
 # Play game Zork.
 #
+# Based on https://adventuregamers.com/walkthrough/full/zork-i-the-great-underground-empire
+#
 set timeout -1
 
 # Remove previous log, if any.
@@ -12,743 +14,374 @@ log_file "game.log"
 spawn dfrotz -m -s 123 ZORK1.DAT
 match_max 100000
 
-# West of House
-expect ">"; send "inventory\r"
-expect ">"; send "open mailbox\r"
-expect ">"; send "read leaflet\r"
-expect ">"; send "drop leaflet\r"
-expect ">"; send "go south\r"
-
-# South of House
-expect ">"; send "go east\r"
-
-# Behind House
+#
+# Start: West of House
+#
+expect ">"; send "south\r";             # South of House
+expect ">"; send "east\r";              # Behind House
 expect ">"; send "open window\r"
-expect ">"; send "enter house\r"
-
-# Kitchen
-expect ">"; send "go west\r"
-
-# Living Room
-expect ">"; send "take lamp\r"
+expect ">"; send "enter house\r";       # Kitchen
+expect ">"; send "west\r";              # Living Room
+expect ">"; send "get lamp\r"
 expect ">"; send "move rug\r"
 expect ">"; send "open trap door\r"
-expect ">"; send "turn on lamp\r"
-expect ">"; send "go down\r"
-
-# Cellar
-expect ">"; send "go south\r"
-
-# East of Chasm
-expect ">"; send "go east\r"
-
-# Gallery
-expect ">"; send "take painting\r"
-expect ">"; send "go north\r"
-
-# Studio
-expect ">"; send "go up chimney\r"
-
-# Kitchen
-expect ">"; send "go up\r"
-
-# Attic
-expect ">"; send "take knife\r"
-expect ">"; send "take rope\r"
-expect ">"; send "go down\r"
-
-# Kitchen
-expect ">"; send "go west\r"
-
-# Living Room
+expect ">"; send "turn on the lamp\r"
+expect ">"; send "down\r";              # Cellar
+expect ">"; send "south\r";             # East of Chasm
+expect ">"; send "east\r";              # Gallery
+expect ">"; send "get painting\r"
+expect ">"; send "north\r";             # Studio
+expect ">"; send "up\r";                # Kitchen
+expect ">"; send "up\r";                # Attic
+expect ">"; send "get knife and rope\r"
+expect ">"; send "down\r";              # Kitchen
+expect ">"; send "west\r";              # Living Room
 expect ">"; send "open case\r"
-expect ">"; send "put painting inside case\r"
+expect ">"; send "put painting in case\r"
 expect ">"; send "drop knife\r"
-expect ">"; send "take sword\r"
+expect ">"; send "get sword\r"
 expect ">"; send "open trap door\r"
-expect ">"; send "go down\r"
+expect ">"; send "down\r";              # Cellar
 
-# Cellar
-expect ">"; send "go north\r"
-
-# The Troll Room
+#
+# Checkpoint 1: Cellar
+#
+expect ">"; send "north\r";             # The Troll Room
 expect ">"; send "kill troll with sword\r"
 expect ">"; send "drop sword\r"
-expect ">"; send "go east\r"
-
-# East-West Passage
-expect ">"; send "go east\r"
-
-# Round Room
-expect ">"; send "go southeast\r"
-
-# Engravings Cave
-expect ">"; send "go east\r"
-
-# Dome Room
+expect ">"; send "east\r";              # East-West Passage
+expect ">"; send "east\r";              # Round Room
+expect ">"; send "se\r";                # Engravings Cave
+expect ">"; send "east\r";              # Dome Room
 expect ">"; send "tie rope to railing\r"
-expect ">"; send "go down\r"
-
-# Torch Room
-expect ">"; send "go south\r"
-
-# Temple
-expect ">"; send "go east\r"
-
-# Egyptian Room
-expect ">"; send "take coffin\r"
-expect ">"; send "go west\r"
-
-# Temple
-expect ">"; send "go south\r"
-
-# Altar
-expect ">"; send "pray\r"
-
-# Forest 1
-expect ">"; send "turn off lamp\r"
-expect ">"; send "go south\r"
-
-# Forest 3
-expect ">"; send "go north\r"
-
-# Clearing
-expect ">"; send "go east\r"
-
-# Canyon View
-expect ">"; send "go down\r"
-
-# Rocky Ledge
-expect ">"; send "go down\r"
-
-# Canyon Bottom
-expect ">"; send "go north\r"
-
-# End of Rainbow
+expect ">"; send "climb down rope\r";   # Torch Room
+expect ">"; send "south\r";             # Temple
+expect ">"; send "east\r";              # Egyptian Room
+expect ">"; send "get coffin\r"
+expect ">"; send "west\r";              # Temple
+expect ">"; send "south\r";             # Altar
+expect ">"; send "pray\r";              # Forest
+expect ">"; send "turn off the lamp\r"
+expect ">"; send "south\r";             # Forest
+expect ">"; send "north\r";             # Clearing
+expect ">"; send "east\r";              # Canyon View
+expect ">"; send "down\r";              # Rocky Ledge
+expect ">"; send "down\r";              # Canyon Bottom
+expect ">"; send "north\r";             # End of Rainbow
 expect ">"; send "drop coffin\r"
 expect ">"; send "open coffin\r"
-expect ">"; send "take sceptre\r"
-expect ">"; send "wave sceptre\r"; # A shimmering pot of gold appears at the end of the rainbow.
-expect ">"; send "take gold\r"; # You can't see any gold here!
-expect ">"; send "take coffin\r"
-expect ">"; send "go southwest\r"
-
-# Canyon Bottom
-expect ">"; send "go up\r"
-
-# Rocky Ledge
-expect ">"; send "go up\r"
-
-# Canyon View
-expect ">"; send "go northwest\r"
-
-# Clearing
-expect ">"; send "go west\r"
-
-# Behind House
-expect ">"; send "enter house\r"
-
-# Kitchen
+expect ">"; send "get sceptre\r"
+expect ">"; send "wave sceptre\r"
+expect ">"; send "look\r";              # End of Rainbow
+expect ">"; send "get gold and coffin\r"
+expect ">"; send "sw\r";                # Canyon Bottom
+expect ">"; send "up\r";                # Rocky Ledge
+expect ">"; send "up\r";                # Canyon View
+expect ">"; send "nw\r";                # Clearing
+expect ">"; send "west\r";              # Behind House
+expect ">"; send "enter house\r";       # Kitchen
 expect ">"; send "open bag\r"
-expect ">"; send "take garlic\r"
-expect ">"; send "go west\r"
+expect ">"; send "get garlic\r"
+expect ">"; send "west\r";              # Living Room
+expect ">"; send "put coffin into case\r"
+expect ">"; send "put sceptre into case\r"
+expect ">"; send "put gold into case\r"
 
-# Living Room
-expect ">"; send "put coffin in case\r"
-expect ">"; send "put gold in case\r"; # You don't have that!
-expect ">"; send "put sceptre in case\r"
+#
+# Checkpoint 2: Living Room
+#
 expect ">"; send "open trap door\r"
 expect ">"; send "turn on lamp\r"
-expect ">"; send "go down\r"
-
-# Cellar
-expect ">"; send "go north\r"
-
-# The Troll Room
-expect ">"; send "go east\r"
-
-# East-West Passage
-expect ">"; send "go north\r"
-
-# Chasm
-expect ">"; send "go northeast\r"
-
-# Reservoir South
-expect ">"; send "go east\r"
-
-# Dam
-expect ">"; send "go north\r"
-
-# Dam Lobby
-expect ">"; send "take matches\r"
-expect ">"; send "go north\r"
-
-# Maintenance Room
-expect ">"; send "take wrench\r"
-expect ">"; send "take screwdriver\r"
+expect ">"; send "down\r";              # Cellar
+expect ">"; send "north\r";             # The Troll Room
+expect ">"; send "east\r";              # East-West Passage
+expect ">"; send "north\r";             # Chasm
+expect ">"; send "ne\r";                # Reservoir South
+expect ">"; send "east\r";              # Dam
+expect ">"; send "north\r";             # Dam Lobby
+expect ">"; send "get matches\r"
+expect ">"; send "north\r";             # Maintenance Room
+expect ">"; send "get wrench and screwdriver\r"
 expect ">"; send "push yellow button\r"
-expect ">"; send "go south\r"
-
-# Dam Lobby
-expect ">"; send "go south\r"
-
-# Dam
-expect ">"; send "turn bolt with wrench\r"
+expect ">"; send "south\r";             # Dam Lobby
+expect ">"; send "south\r";             # Dam
+expect ">"; send "turn the bolt with the wrench\r"
 expect ">"; send "drop wrench\r"
-expect ">"; send "go south\r"
-
-# Deep Canyon
-expect ">"; send "go down\r"
-
-# Loud Room
-# With a tremendous effort, you scramble out of the room.
-
-# Round Room
-expect ">"; send "go southeast\r"
-
-# Engravings Cave
-expect ">"; send "go east\r"
-
-# Dome Room
-expect ">"; send "go down\r"
-
-# Torch Room
-expect ">"; send "take torch\r"
+expect ">"; send "south\r";             # Deep Canyon
+expect ">"; send "down\r";              # Loud Room; scramble out to Deep Canyon
+expect ">"; send "down\r";              # Loud Room; scramble out to Damp Cave
+expect ">"; send "west\r";              # Loud Room; scramble out to Round Room
+expect ">"; send "se\r";                # Engravings Cave
+expect ">"; send "east\r";              # Dome Room
+expect ">"; send "climb down rope\r";   # Torch Room
+expect ">"; send "get torch\r"
 expect ">"; send "turn off lamp\r"
-expect ">"; send "go south\r"
-
-# Temple
-expect ">"; send "take bell\r"
-expect ">"; send "go south\r"
-
-# Altar
-expect ">"; send "take candles\r"
-expect ">"; send "take book\r"
-expect ">"; send "go down\r"
-
-# Cave
-expect ">"; send "go down\r"
-
-# Entrance to Hades
-expect ">"; send "ring bell\r"
+expect ">"; send "south\r";             # Temple
+expect ">"; send "get bell\r"
+expect ">"; send "go south\r";          # Altar
+expect ">"; send "get book and candles\r"
+expect ">"; send "down\r";              # Cave
+expect ">"; send "down\r";              # Entrance to Hades
+expect ">"; send "ring the bell\r"
 expect ">"; send "take candles\r"
 expect ">"; send "light match\r"
-expect ">"; send "light candles with match\r"
-expect ">"; send "read book\r"
+expect ">"; send "light the candles with the match\r"
+expect ">"; send "read the book\r"
 expect ">"; send "drop book\r"
-expect ">"; send "go south\r"
-
-# Land of the Dead
-expect ">"; send "take skull\r"
-expect ">"; send "go north\r"
-
-# Entrance to Hades
-expect ">"; send "go up\r"
-
-# Cave
-expect ">"; send "go north\r"
-
-# Mirror Room
+expect ">"; send "south\r";             # Land of the Dead
+expect ">"; send "get skull\r"
+expect ">"; send "north\r";             # Entrance to Hades
+expect ">"; send "up\r";                # Cave
+expect ">"; send "north\r";             # Mirror Room
+expect ">"; send "drop candles\r"
 expect ">"; send "rub mirror\r"
-expect ">"; send "go north\r"
-
-# Cold Passage
-expect ">"; send "go west\r"
-
-# Slide Room
-expect ">"; send "go north\r"
-
-# Mine Entrance
-expect ">"; send "go west\r"
-
-# Squeaky Room
-expect ">"; send "inventory\r"
-expect ">"; send "go north\r"
-
-# Bat Room
-expect ">"; send "go east\r"
-
-# Shaft Room
-#expect ">"; send "put skull in basket\r"
+expect ">"; send "north\r";             # Cold Passage
+expect ">"; send "west\r";              # Slide Room
+expect ">"; send "north\r";             # Mine Entrance
+expect ">"; send "west\r";              # Squeaky Room
+expect ">"; send "north\r";             # Bat Room
+expect ">"; send "east\r";              # Shaft Room
 expect ">"; send "put torch in basket\r"
-expect ">"; send "put screwdriver in basket\r"
 expect ">"; send "turn on lamp\r"
-expect ">"; send "go north\r"
+expect ">"; send "north\r";             # Smelly Room
+expect ">"; send "down\r";              # Gas Room
 
-# Smelly Room
-expect ">"; send "go down\r"
-
-# Gas Room
-expect ">"; send "go east\r"
-
-# Coal Mine 1
-expect ">"; send "go northeast\r"
-
-# Coal Mine 2
-expect ">"; send "go southeast\r"
-
-# Coal Mine 3
-expect ">"; send "go southwest\r"
-
-# Coal Mine 4
-expect ">"; send "go down\r"
-
-# Ladder Top
-expect ">"; send "go down\r"
-
-# Ladder Bottom
-expect ">"; send "go south\r"
-
-# Dead End
-expect ">"; send "take coal\r"
-expect ">"; send "go north\r"
-
-# Ladder Bottom
-expect ">"; send "go up\r"
-
-# Ladder Top
-expect ">"; send "go up\r"
-
-# Coal Mine 4
-expect ">"; send "go north\r"
-
-# Coal Mine 3
-expect ">"; send "go east\r"
-
-# Coal Mine 2
-expect ">"; send "go south\r"
-
-# Coal Mine 1
-expect ">"; send "go north\r"
-
-# Gas Room
-expect ">"; send "go up\r"
-
-# Smelly Room
-expect ">"; send "go south\r"
-
-# Shaft Room
-expect ">"; send "put coal in basket\r"
+#
+# Checkpoint 3: Gas Room
+#
+expect ">"; send "east\r";              # Coal Mine 1
+expect ">"; send "ne\r";                # Coal Mine 2
+expect ">"; send "se\r";                # Coal Mine 3
+expect ">"; send "sw\r";                # Coal Mine 4
+expect ">"; send "down\r";              # Ladder Top
+expect ">"; send "down\r";              # Ladder Bottom
+expect ">"; send "south\r";             # Dead End
+expect ">"; send "get coal\r"
+expect ">"; send "north\r";             # Ladder Bottom
+expect ">"; send "up\r";                # Ladder Top
+expect ">"; send "up\r";                # Coal Mine 4
+expect ">"; send "north\r";             # Coal Mine 3
+expect ">"; send "east\r";              # Coal Mine 2
+expect ">"; send "south\r";             # Coal Mine 1
+expect ">"; send "north\r";             # Gas Room
+expect ">"; send "up\r";                # Smelly Room
+expect ">"; send "south\r";             # Shaft Room
+expect ">"; send "put coal and screwdriver in basket\r"
 expect ">"; send "lower basket\r"
-expect ">"; send "go north\r"
-
-# Smelly Room
-expect ">"; send "go down\r"
-
-# Gas Room
-expect ">"; send "go east\r"
-
-# Coal Mine 1
-expect ">"; send "go northeast\r"
-
-# Coal Mine 2
-expect ">"; send "go southeast\r"
-
-# Coal Mine 3
-expect ">"; send "go southwest\r"
-
-# Coal Mine 4
-expect ">"; send "go down\r"
-
-# Ladder Top
-expect ">"; send "go down\r"
-
-# Ladder Bottom
-expect ">"; send "go west\r"
-
-# Timber Room
-expect ">"; send "drop skull\r"
+expect ">"; send "north\r";             # Smelly Room
+expect ">"; send "down\r";              # Gas Room
+expect ">"; send "east\r";              # Coal Mine 1
+expect ">"; send "ne\r";                # Coal Mine 2
+expect ">"; send "se\r";                # Coal Mine 3
+expect ">"; send "sw\r";                # Coal Mine 4
+expect ">"; send "down\r";              # Ladder Top
+expect ">"; send "down\r";              # Ladder Bottom
+expect ">"; send "west\r";              # Timber Room
 expect ">"; send "drop all\r"
-expect ">"; send "go west\r"
-
-# Drafty Room
-expect ">"; send "take coal\r"
-expect ">"; send "take screwdriver\r"
-expect ">"; send "take torch\r"
-expect ">"; send "go south\r"
-
-# Machine Room
-expect ">"; send "open lid\r"
-expect ">"; send "put coal in machine\r"
-expect ">"; send "close lid\r"
+expect ">"; send "go west\r";           # Drafty Room
+expect ">"; send "get coal and torch\r"
+expect ">"; send "get screwdriver\r"
+expect ">"; send "south\r";             # Machine Room
+expect ">"; send "open the lid\r"
+expect ">"; send "put coal into machine\r"
+expect ">"; send "close the lid\r"
 expect ">"; send "turn switch with screwdriver\r"
+expect ">"; send "open the lid\r"
+expect ">"; send "get diamond\r"
 expect ">"; send "drop screwdriver\r"
-expect ">"; send "open lid\r"
-expect ">"; send "take diamond\r"
-expect ">"; send "go north\r"
-
-# Drafty Room
-expect ">"; send "put torch in basket\r"
-expect ">"; send "put diamond in basket\r"
-expect ">"; send "take skull\r"; # You can't see any skull here!
-expect ">"; send "go east\r"
-
-# Timber Room
-expect ">"; send "take lamp\r"
-expect ">"; send "take garlic\r"
-expect ">"; send "go east\r"
-
-# Ladder Bottom
-expect ">"; send "go up\r"
-
-# Ladder Top
-expect ">"; send "go up\r"
-
-# Coal Mine 4
-expect ">"; send "go north\r"
-
-# Coal Mine 3
-expect ">"; send "go east\r"
-
-# Coal Mine 2
-expect ">"; send "go south\r"
-
-# Coal Mine 1
-expect ">"; send "go north\r"
-
-# Gas Room
-expect ">"; send "take bracelet\r"
-expect ">"; send "go up\r"
-
-# Smelly Room
-expect ">"; send "go south\r"
-
-# Shaft Room
+expect ">"; send "north\r";             # Drafty Room
+expect ">"; send "put torch and diamond in the basket\r"
+expect ">"; send "east\r";              # Timber Room
+expect ">"; send "get skull and lamp\r"
+expect ">"; send "get garlic\r"
+expect ">"; send "east\r";              # Ladder Bottom
+expect ">"; send "up\r";                # Ladder Top
+expect ">"; send "up\r";                # Coal Mine 4
+expect ">"; send "north\r";             # Coal Mine 3
+expect ">"; send "east\r";              # Coal Mine 2
+expect ">"; send "south\r";             # Coal Mine 1
+expect ">"; send "north\r";             # Gas Room
+expect ">"; send "get bracelet\r"
+expect ">"; send "up\r";                # Smelly Room
+expect ">"; send "south\r";             # Shaft Room
 expect ">"; send "raise basket\r"
-expect ">"; send "look in basket\r"
-expect ">"; send "take diamond\r"
-expect ">"; send "take torch\r"
+expect ">"; send "get torch and diamond\r"
 expect ">"; send "turn off lamp\r"
-expect ">"; send "go west\r"
-
-# Bat Room
-expect ">"; send "take jade\r"
-expect ">"; send "go south\r"
-
-# Squeaky Room
-expect ">"; send "go east\r"
-
-# Mine Entrance
-expect ">"; send "go south\r"
-
-# Slide Room
-expect ">"; send "go down\r"
-
-# Cellar
-expect ">"; send "go up\r"
-
-# Living Room
-expect ">"; send "inventory\r"
-expect ">"; send "put jade in case\r"
-expect ">"; send "put diamond in case\r"
+expect ">"; send "west\r";              # Bat Room
+expect ">"; send "get jade\r"
+expect ">"; send "south\r";             # Squeaky Room
+expect ">"; send "east\r";              # Mine Entrance
+expect ">"; send "south\r";             # Slide Room
+expect ">"; send "go down\r";           # Cellar
+expect ">"; send "up\r";                # Living Room
+expect ">"; send "put diamond and jade in case\r"
+expect ">"; send "put bracelet and torch in case\r"
 expect ">"; send "drop garlic\r"
+
+#
+# Checkpoint 4: Living Room
+#
 expect ">"; send "turn on lamp\r"
-expect ">"; send "go down\r"
-
-# Cellar
-expect ">"; send "go north\r"
-
-# The Troll Room
-expect ">"; send "go east\r"
-
-# East-West Passage
-expect ">"; send "go north\r"
-
-# Chasm
-expect ">"; send "go northeast\r"
-
-# Reservoir South
-expect ">"; send "go north\r"
-
-# Reservoir
-expect ">"; send "take trunk\r"
-expect ">"; send "go north\r"
-
-# Reservoir North
-expect ">"; send "take pump\r"
-expect ">"; send "go north\r"
-
-# Atlantis Room
-expect ">"; send "take trident\r"
-expect ">"; send "inventory\r"
-expect ">"; send "drop torch\r"
-expect ">"; send "take trident\r"
-expect ">"; send "go south\r"
-
-# Reservoir North
-expect ">"; send "go south\r"
-
-# Reservoir
-expect ">"; send "go south\r"
-
-# Reservoir South
-expect ">"; send "go east\r"
-
-# Dam
-expect ">"; send "go east\r"
-
-# Dam Base
-expect ">"; send "inflate plastic with pump\r"
+expect ">"; send "down\r";              # Cellar
+expect ">"; send "north\r";             # The Troll Room
+expect ">"; send "east\r";              # East-West Passage
+expect ">"; send "north\r";             # Chasm
+expect ">"; send "ne\r";                # Reservoir South
+expect ">"; send "north\r";             # Reservoir
+expect ">"; send "get trunk\r"
+expect ">"; send "north\r";             # Reservoir North
+expect ">"; send "get pump\r"
+expect ">"; send "north\r";             # Atlantis Room
+expect ">"; send "get trident\r"
+expect ">"; send "south\r";             # Reservoir North
+expect ">"; send "south\r";             # Reservoir
+expect ">"; send "south\r";             # Reservoir South
+expect ">"; send "east\r";              # Dam
+expect ">"; send "east\r";              # Dam Base
+expect ">"; send "inflate boat with pump\r"
 expect ">"; send "drop pump\r"
-expect ">"; send "go inside boat\r"
-expect ">"; send "launch\r"
+expect ">"; send "get in boat\r"
+expect ">"; send "launch\r";            # Frigid River 1, in the magic boat
 
-# Frigid River, in the magic boat
+#
+# Checkpoint 5: Frigid River, in the magic boat
+#
 expect ">"; send "wait\r"
 expect ">"; send "wait\r"
 expect ">"; send "wait\r"
 expect ">"; send "wait\r"
-expect ">"; send "take buoy\r"
-#expect ">"; send "inventory\r"
-expect ">"; send "go east\r"
-
-# Sandy Beach, in the magic boat
-expect ">"; send "leave boat\r"
+expect ">"; send "get buoy\r"
+expect ">"; send "east\r";              # Sandy Beach, in the magic boat
+expect ">"; send "get out of boat\r"
 expect ">"; send "drop buoy\r"
-expect ">"; send "take shovel\r"
-expect ">"; send "go northeast\r"
+expect ">"; send "get shovel\r"
+expect ">"; send "ne\r";                # Sandy Cave
 
-# Sandy Cave
+#
+# Checkpoint 6: Sandy Cave
+#
 expect ">"; send "dig sand\r"
 expect ">"; send "dig sand\r"
 expect ">"; send "dig sand\r"
 expect ">"; send "dig sand\r"
 expect ">"; send "drop shovel\r"
-expect ">"; send "take scarab\r"
-expect ">"; send "go southwest\r"
-
-# Sandy Beach
+expect ">"; send "get scarab\r"
+expect ">"; send "sw\r";                # Sandy Beach
 expect ">"; send "open buoy\r"
-expect ">"; send "take emerald\r"
-#expect ">"; send "take garlic\r"
-expect ">"; send "go south\r"
-
-# Shore
-expect ">"; send "go south\r"
-
-# Aragain Falls
-expect ">"; send "cross rainbow\r"
-
-# End of Rainbow
+expect ">"; send "get emerald\r"
+expect ">"; send "south\r";             # Shore
+expect ">"; send "south\r";             # Aragain Falls
+expect ">"; send "cross rainbow\r";     # End of Rainbow
 expect ">"; send "turn off lamp\r"
-expect ">"; send "go southwest\r"
-
-# Canyon Bottom
-expect ">"; send "go up\r"
-
-# Rocky Ledge
-expect ">"; send "go up\r"
-
-# Canyon View
-expect ">"; send "go northwest\r"
-
-# Clearing
-expect ">"; send "go west\r"
-
-# Behind House
-expect ">"; send "enter house\r"
-
-# Kitchen
-expect ">"; send "go west\r"
-
-# Living Room
-expect ">"; send "inventory\r"
-expect ">"; send "put emerald in case\r"
-expect ">"; send "put scarab in case\r"
-expect ">"; send "put trident in case\r"
-expect ">"; send "put jewels in case\r"
-expect ">"; send "go east\r"
-
-# Kitchen
-expect ">"; send "go east\r"
-
-# Behind House
-expect ">"; send "go north\r"
-
-# North of House
-expect ">"; send "go north\r"
-
-# Forest Path
-expect ">"; send "climb tree\r"
-
-# Up a Tree
-expect ">"; send "take egg\r"
-expect ">"; send "climb down\r"
-
-# Forest Path
-expect ">"; send "go south\r"
-
-# North of House
-expect ">"; send "go east\r"
-
-# Behind House
-expect ">"; send "enter house\r"
-
-# Kitchen
-expect ">"; send "go west\r"
-
-# Living Room
+expect ">"; send "sw\r";                # Canyon Bottom
+expect ">"; send "up\r";                # Rocky Ledge
+expect ">"; send "up\r";                # Canyon View
+expect ">"; send "nw\r";                # Clearing
+expect ">"; send "west\r";              # Behind House
+expect ">"; send "enter house\r";       # Kitchen
+expect ">"; send "west\r";              # Living Room
+expect ">"; send "put scarab and emerald in case\r"
+expect ">"; send "put chest and trident in case\r"
+expect ">"; send "east\r";              # Kitchen
+expect ">"; send "east\r";              # Behind House
+expect ">"; send "north\r";             # North of House
+expect ">"; send "north\r";             # Forest Path
+expect ">"; send "climb up tree\r";     # Up a Tree
+expect ">"; send "get egg\r"
+expect ">"; send "climb down\r";        # Forest Path
+expect ">"; send "south\r";             # North of House
+expect ">"; send "east\r";              # Behind House
+expect ">"; send "enter house\r";       # Kitchen
+expect ">"; send "west\r";              # Living Room
 expect ">"; send "turn on lamp\r"
-expect ">"; send "go down\r"
+expect ">"; send "down\r";              # Cellar
+expect ">"; send "north\r";             # The Troll Room
 
-# Cellar
-expect ">"; send "go north\r"
-
-# The Troll Room
-expect ">"; send "go west\r"
-
-# Maze 1
-expect ">"; send "go south\r"
-
-# Maze 2
-expect ">"; send "go east\r"
-
-# Maze 3
-expect ">"; send "go up\r"
-
-# Maze 5
-expect ">"; send "take coins\r"
-expect ">"; send "take key\r"
-expect ">"; send "go southwest\r"
-
-# Maze 6
-expect ">"; send "go east\r"
-
-# Maze 7
-expect ">"; send "go south\r"
-
-# Maze 15
-expect ">"; send "go southeast\r"
-
-# Cyclops Room
-expect ">"; send "Ulysses\r"
-#expect ">"; send "go east\r"
-expect ">"; send "go up\r"
-
-# Treasure Room
+#
+# Checkpoint 7: The Troll Room
+#
+expect ">"; send "west\r";              # Maze 1
+expect ">"; send "south\r";             # Maze 2
+expect ">"; send "east\r";              # Maze 3
+expect ">"; send "up\r";                # Maze 5
+expect ">"; send "take coins and key\r"
+expect ">"; send "sw\r";                # Maze 6
+expect ">"; send "east\r";              # Maze 7
+expect ">"; send "south\r";             # Maze 15
+expect ">"; send "se\r";                # Cyclops Room
+expect ">"; send "ulysses\r"
+expect ">"; send "up\r";                # Treasure Room
 expect ">"; send "give egg to thief\r"
-expect ">"; send "go down\r"
+expect ">"; send "down\r";              # Cyclops Room
+expect ">"; send "east\r";              # Strange Passage
+expect ">"; send "east\r";              # Living Room
+expect ">"; send "get knife\r"
+expect ">"; send "west\r";              # Strange Passage
 
-# Cyclops Room
-expect ">"; send "go east\r"
-
-# Strange Passage
-expect ">"; send "go east\r"
-
-# Living Room
-expect ">"; send "put coins in case\r"; # You don't have that!
-expect ">"; send "take knife\r"
-expect ">"; send "go west\r"
-
-# Strange Passage
-expect ">"; send "go west\r"
-
-# Cyclops Room
-expect ">"; send "go up\r"
-
-# Treasure Room
+#
+# Checkpoint 8: Strange Passage
+#
+expect ">"; send "west\r";              # Cyclops Room
+expect ">"; send "up\r";                # Treasure Room
 expect ">"; send "kill thief with knife\r"
 expect ">"; send "kill thief with knife\r"
 expect ">"; send "kill thief with knife\r"
 expect ">"; send "kill thief with knife\r"
+expect ">"; send "get knife\r"
 expect ">"; send "kill thief with knife\r"
-expect ">"; send "take all\r"
-expect ">"; send "drop stiletto\r"
-expect ">"; send "take chalice\r"
-expect ">"; send "go down\r"
-
-# Cyclops Room
-expect ">"; send "go northwest\r"
-
-# Maze 15
-expect ">"; send "go south\r"
-
-# Maze 7
-expect ">"; send "go west\r"
-
-# Maze 6
-expect ">"; send "go up\r"
-
-# Maze 9
-expect ">"; send "go down\r"
-
-# Maze 11
-expect ">"; send "go northeast\r"
-
-# Grating Room
+expect ">"; send "kill thief with knife\r"
+expect ">"; send "kill thief with knife\r"
+expect ">"; send "get all\r"
+expect ">"; send "down\r";              # Cyclops Room
+expect ">"; send "nw\r";                # Maze 15
+expect ">"; send "south\r";             # Maze 7
+expect ">"; send "west\r";              # Maze 6
+expect ">"; send "up\r";                # Maze 9
+expect ">"; send "down\r";              # Maze 11
+expect ">"; send "ne\r";                # Grating Room
 expect ">"; send "unlock grate\r"
 expect ">"; send "open grate\r"
-expect ">"; send "go up\r"
-
-# Clearing
-expect ">"; send "go south\r"
-
-# Forest Path
-expect ">"; send "climb tree\r"
-
-# Up a Tree
+expect ">"; send "up\r";                # Clearing
+expect ">"; send "south\r";             # Forest Path
+expect ">"; send "climb tree\r";        # Up a Tree
 expect ">"; send "wind up canary\r"
-expect ">"; send "go down\r"
-
-# Forest Path
-expect ">"; send "take bauble\r"
-expect ">"; send "drop knife\r"
-expect ">"; send "take bauble\r"
-expect ">"; send "go south\r"
-
-# North of House
-expect ">"; send "go east\r"
-
-# Behind House
-expect ">"; send "enter house\r"
-
-# Kitchen
-expect ">"; send "go west\r"
-
-# Living Room
-expect ">"; send "put bauble in case\r"
-expect ">"; send "put chalice in case\r"
-expect ">"; send "take canary from egg\r"
-expect ">"; send "put canary in case\r"
-expect ">"; send "put egg in case\r"
-expect ">"; send "put bracelet in case\r"
-expect ">"; send "put skull in case\r"; # You don't have that!
-expect ">"; send "go down\r"
-
-# Cellar
-expect ">"; send "go north\r"
-
-# The Troll Room
-expect ">"; send "go east\r"
-
-# East-West Passage
-expect ">"; send "go east\r"
-
-# Round Room
-expect ">"; send "go east\r"
-
-# Loud Room
+expect ">"; send "climb down\r";        # Forest Path
+expect ">"; send "drop knife and key\r"
+expect ">"; send "get bauble\r";
+expect ">"; send "south\r";             # North of House
+expect ">"; send "east\r";              # Behind House
+expect ">"; send "enter house\r";       # Kitchen
+expect ">"; send "west\r";              # Living Room
+expect ">"; send "remove canary from egg\r"
+expect ">"; send "put egg and canary in case\r"
+expect ">"; send "put bauble and stiletto in case\r"
+expect ">"; send "down\r";              # Cellar
+expect ">"; send "north\r";             # The Troll Room
+expect ">"; send "east\r";              # East-West Passage
+expect ">"; send "east\r";              # Round Room
+expect ">"; send "east\r";              # Loud Room
 expect ">"; send "echo\r"
-expect ">"; send "take bar\r"
-expect ">"; send "go west\r"
+expect ">"; send "get bar\r"
+expect ">"; send "west\r";              # Round Room
+expect ">"; send "west\r";              # East-West Passage
+expect ">"; send "west\r";              # The Troll Room
+expect ">"; send "south\r";             # Cellar
+expect ">"; send "up\r";                # Living Room
+expect ">"; send "put all except lamp into case\r"
 
-# Round Room
-expect ">"; send "go west\r"
+# An almost inaudible voice whispers in your ear,
+# "Look to your treasures for the final secret."
 
-# East-West Passage
-expect ">"; send "go west\r"
+expect ">"; send "get map\r"
+expect ">"; send "east\r";              # Kitchen
+expect ">"; send "east\r";              # Behind House
+expect ">"; send "south\r";             # South of House
+expect ">"; send "west\r";              # West of House
+expect ">"; send "sw\r";                # Stone Barrow
+expect ">"; send "west\r";              # West of House
 
-# The Troll Room
-expect ">"; send "go south\r"
+# Your score is 350 (total of 350 points), in 330 moves.
+# This gives you the rank of Master Adventurer.
 
-# Cellar
-expect ">"; send "go up\r"
-
-# Living Room
-expect ">"; send "put bar in case\r"
-expect ">"; send "score\r"
-
-# Quit
-expect ">"; send "quit\r"
-puts ""
+expect "Master Adventurer."
 exit
