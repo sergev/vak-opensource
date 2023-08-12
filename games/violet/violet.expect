@@ -1,0 +1,177 @@
+#!/usr/bin/expect -f
+#
+# Play game Violet.
+#
+# Based on https://ifarchive.org/if-archive/games/competition2008/zcode/violet/solution.txt
+#
+set timeout -1
+
+# Remove previous log, if any.
+system rm -f "game.log"
+log_file "game.log"
+
+# Start the game.
+spawn dfrotz -m -s 123 Violet.zblorb
+match_max 100000
+
+expect "noon."; send "\r"
+
+#
+# Milestone #1: drink energizer
+#
+expect ">"; send "inventory\r"
+expect ">"; send "write\r"
+expect ">"; send "sit\r"
+expect ">"; send "write\r"
+expect ">"; send "examine computer\r"
+expect ">"; send "open word processor\r"
+expect ">"; send "examine tattoo\r"
+expect ">"; send "write\r"
+expect ">"; send "write\r"
+expect ">"; send "look\r"
+expect ">"; send "examine desk\r"
+expect ">"; send "open drawer\r"
+expect ">"; send "examine notebook\r"
+expect ">"; send "get key\r"
+expect ">"; send "examine cabinet\r"
+expect ">"; send "open cabinet\r"
+expect ">"; send "examine bottle\r"
+expect ">"; send "get bottle\r"
+expect ">"; send "drink liquid\r"
+
+#
+# Milestone #2: disable internet
+#
+expect ">"; send "write\r"
+expect ">"; send "unplug cable\r"
+expect ">"; send "write\r"
+expect ">"; send "unplug cable\r"
+expect ">"; send "get balloon\r"
+expect ">"; send "put cable in cabinet\r"
+expect ">"; send "lock cabinet\r"
+expect ">"; send "write\r"
+expect ">"; send "examine stool\r"
+expect ">"; send "get on stool\r"
+expect ">"; send "put key on top of bookcase\r"
+expect ">"; send "get off stool\r"
+expect ">"; send "break stool\r"
+
+#
+# Milestone #3: block Julia noise
+#
+expect ">"; send "write\r"
+expect ">"; send "examine balloon\r"
+expect ">"; send "pull tab\r"
+expect ">"; send "examine message\r"
+expect ">"; send "examine device\r"
+expect ">"; send "charge platypod\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wear platypod\r"
+expect ">"; send "scrunch brow\r"
+expect ">"; send "jiggle head clockwise\r"
+expect ">"; send "write\r"
+expect ">"; send "examine wastebasket\r"
+expect ">"; send "examine gum\r"
+expect ">"; send "get gum\r"
+expect ">"; send "chew gum\r"
+expect ">"; send "remove platypod\r"
+expect ">"; send "put gum in ears\r"
+expect ">"; send "wear platypod\r"
+expect ">"; send "scrunch brow\r"
+expect ">"; send "jiggle head clockwise\r"
+
+#
+# Milestone #4: block Julia perfume
+#
+expect ">"; send "write\r"
+expect ">"; send "examine beauty\r"
+expect ">"; send "examine frame\r"
+expect ">"; send "break frame\r"
+expect "?\""; send "\r"
+expect "it:"; send "\r"
+expect ">"; send "get clamp\r"
+expect ">"; send "put clamp on nose\r"
+expect ">"; send "write\r"
+
+#
+# Milestone #5: block window view
+#
+expect ">"; send "raise left eyebrow\r"
+expect ">"; send "raise left eyebrow\r"
+expect ">"; send "write\r"
+expect ">"; send "examine window\r"
+expect ">"; send "examine blind\r"
+expect ">"; send "pull cord\r"
+expect ">"; send "get on desk\r"
+expect ">"; send "examine blind\r"
+expect ">"; send "fix whatever\r"
+expect ">"; send "pull cord\r"
+expect ">"; send "get off desk\r"
+expect ">"; send "examine cabinet\r"
+expect ">"; send "examine trophy\r"
+expect ">"; send "get trophy\r"
+expect ">"; send "unfold trophy\r"
+expect "serious."; send "\r"
+expect "be \""; send "\r"
+expect ">"; send "examine sign\r"
+expect ">"; send "cover window with sign\r"
+
+#
+# Milestone #6: destroy book
+#
+expect ">"; send "write\r"
+expect ">"; send "examine bookcase\r"
+expect ">"; send "examine book\r"
+expect ">"; send "get book\r"
+expect ">"; send "examine lighter\r"
+expect ">"; send "get lighter\r"
+expect ">"; send "burn book\r"
+expect ">"; send "burn book\r"
+
+#
+# Milestone #7: get pen
+#
+expect ">"; send "write\r"
+expect ">"; send "examine cactus\r"
+expect ">"; send "examine pipe\r"
+expect ">"; send "examine sprinkler\r"
+expect ">"; send "examine pen\r"
+expect ">"; send "examine mess\r"
+expect ">"; send "tidy mess\r"
+expect ">"; send "examine square\r"
+expect ">"; send "remove chip from pouch\r"
+expect ">"; send "put tater tot in pouch\r"
+expect ">"; send "shoot pen\r"
+expect ">"; send "examine globe\r"
+expect ">"; send "get globe\r"
+expect ">"; send "shake globe\r"
+expect ">"; send "examine globe\r"
+expect ">"; send "throw globe at pen\r"
+expect ">"; send "throw globe at pen\r"
+expect ">"; send "get figurine\r"
+expect ">"; send "put figurine in pouch\r"
+expect ">"; send "shoot pen\r"
+expect ">"; send "get pen\r"
+expect ">"; send "write\r"
+
+#
+# Milestone #8: go pee
+#
+expect ">"; send "write\r"
+expect ">"; send "remove clothes\r"
+expect ">"; send "write\r"
+expect "realise:"; send "\r"
+expect ">"; send "pee in wastebasket\r"
+expect ">"; send "write\r"
+expect "door:"; send "\r"
+expect "there."; send "\r"
+expect "yours.\""; send "\r"
+expect "you.\""; send "\r"
+expect "* * *"; send "\r"
+
+# Quit
+expect ">"; send "quit\r"
+puts ""
+exit

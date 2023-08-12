@@ -1,0 +1,38 @@
+#!/usr/bin/expect -f
+#
+# Play game Zork.
+#
+# Based on https://adventuregamers.com/walkthrough/full/zork-i-the-great-underground-empire
+#
+set timeout -1
+
+# Remove previous log, if any.
+system rm -f "game.log"
+log_file "game.log"
+
+# Start the game.
+spawn dfrotz -m -s 123 zdungeon_r10.z5
+match_max 100000
+
+#
+# Start: West of House
+#
+expect ">"; send "south\r";             # South of House
+expect ">"; send "east\r";              # Behind House
+expect ">"; send "open window\r"
+expect ">"; send "enter house\r";       # Kitchen
+expect ">"; send "west\r";              # Living Room
+expect ">"; send "get lamp\r"
+expect ">"; send "move rug\r"
+expect ">"; send "open trap door\r"
+expect ">"; send "turn on the lamp\r"
+expect ">"; send "down\r";              # Cellar
+expect ">"; send "south\r";             # East of Chasm
+expect ">"; send "east\r";              # FAILED!
+
+# TODO
+
+# Quit
+expect ">"; send "quit\r"
+puts ""
+exit

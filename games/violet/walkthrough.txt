@@ -1,0 +1,1282 @@
+spawn dfrotz -m -s 123 Violet.zblorb
+Using normal formatting.
+Loading Violet.zblorb.
+Found zcode chunk in Blorb file.
+Calm down.  All you have to do is write a thousand words and everything will be
+fine.  And you have all day, except it's already noon.
+
+
+
+
+A Distraction by Jeremy Freese
+Release 3, November 2008
+(New readers type ABOUT; HINTS available)
+
+You told me you were making progress.  Then I find out you haven't finished a
+paragraph in five months.  What did you expect?
+
+So now here you are, up in your office.  I am sorry that today is a Saturday.  I
+am especially sorry that today is your thirtieth birthday.  We had all kinds of
+adventures planned.  I refuse to feel guilty.
+
+Of course I am still upset.  I will try to set that aside and be encouraging.  I
+really do want you to succeed today.
+
+Please just write.
+
+>inventory
+
+You're carrying nothing.
+
+You've a tattoo on the back of your hand.
+
+>write
+
+
+You're standing.  You've been pacing most of the morning, stewing about our
+fight last night.
+
+I don't myself see why one can't type just as easily standing up as sitting
+down, but you are adamant that you can only focus enough to write seriously if
+you are seated.
+
+>sit
+
+
+Okay.  You are seated at your desk and ready to go.  Just write!
+
+>write
+
+
+Unfortunately, with all the pacing about and ruminating, you've been here over
+two hours but haven't actually opened your word processor yet.
+
+>examine computer
+
+
+The desktop PC is old but perfectly fine for writing.  In addition to your word
+processor, applications you can OPEN include a browser, chat and e-mail.
+
+The computer has a USB port in the front and is connected to the Internet with a
+cable in back.
+
+Somebody is coming up the stairs.  I thought you said no one ever comes in on
+the weekend?
+
+>open word processor
+
+
+As you move your hand to open the word processor, you look briefly at the tattoo
+on the back of your hand.
+
+Open.  Chapter 3 of your dissertation awaits.  You can do it!
+
+>examine tattoo
+
+
+"Tattoo" isn't right.  You scrawled "TYVTWD" on the back of your hand before
+leaving this morning.  It stands for Take Your Violet To Work Day.  This is your
+plan: you are going to get through today by pretending I'm here with you.
+
+Just so we're clear: you are actually alone, and presumably I am back at our
+apartment, packing and crying.
+
+>write
+
+
+You start trying to focus on the screen and type, but you are very tired.   I
+realise that you hardly slept last night between being all worked up from our
+fight and then being banished to the dodgy futon in our living room.
+
+Still.  I know you won't let a little grogginess stop you.  You are determined.
+For us!
+
+>write
+
+
+You are trying, I can tell.  But each time you begin to think through the
+opening sentence you get this dull cloudy tired pain right behind your eyes.
+
+Okay.  You want to write.  You just need to get yourself more awake first.
+
+Two voices in the hallway: a man and Julia.  Julia hasn't been in her office in
+weeks.  She shows up on a Saturday?
+
+>look
+
+
+When Wisconsin was recruiting your advisor they promised her space for graduate
+students.  You're in a decrepit building but otherwise it's not bad.
+
+You've a great big desk in front of a window, a resplendent yellow chair, a
+cabinet in one corner, a giant cactus in another, and a tall bookcase on the
+back wall with an incredibly cute stool in front of it.  The door is west.
+
+>examine desk
+
+
+Of course the big oak desk is unusually posh for a graduate student office.  It
+belonged to a professor who had a stroke at his computer and none of the other
+faculty wanted a desk on which once rested the head of a dead colleague.
+
+On top of the desk are your computer, my itinerary, a framed darling and a pile
+you cannot even contemplate right now.
+
+The desk's drawer is closed.  A wastebasket is on the floor to the left.
+
+>open drawer
+
+
+You open the drawer and there's a shiny little key and your notebook.
+
+Although you write on your computer, you still like to keep a pen and notebook
+handy because it sometimes helps to work out more complicated sentences in
+longhand before typing them in.  You've several pens in your bag.
+
+Hey, budgie: where's your bag?
+
+>examine notebook
+
+
+It's a smallish notebook, about 10x15 centimetres.  The cover is lenticular.
+From this angle, it's a drawing of the comic book hero Professor Detective
+telling one of his graduate students, "You carry the heaviest of all burdens:
+POTENTIAL."
+
+Several pages inside the notebook have writing on them.
+
+Ugh.  You were so distracted this morning that you left your bag back at our
+apartment.  I am a gentle girlfriend and will refrain from marvelling at how
+it's past noon and you are only realising this now.
+
+You cannot go get your bag.  You know you are doomed to an afternoon of
+meandering distraction if you leave this office.
+
+>get key
+
+
+Yours, wallaroo.
+
+Julia is here to sabotage you.  I'm sure of it.  She's in her office across the
+hall now, talking loudly with her door open.
+
+>examine cabinet
+
+
+(standing up first)
+It's University Drab, about a metre high with a silly fake wood front.  It's
+closed and locked.
+
+On top of the cabinet is the opposite of drab: a spectacularly intricate origami
+trophy.
+
+>open cabinet
+
+
+
+"I want you to have your birthday present regardless."
+"Violet, I'll write the thousand words."
+"I planned a treasure hunt for you.  I wrote clues!  It was going to end in your
+office."
+"I am going to write tomorrow.  I promise."
+"Look in that cabinet you never use.  You'll like how I wrapped it."
+
+You unlock the cabinet with the key and open it.
+
+Inside the cabinet are a very odd balloon and a plastic bottle filled with a
+fluorescent pink liquid.
+
+>examine bottle
+
+
+The bottle is dusty.  Is this even yours, or is it left over from Marty?
+
+The label has several large characters of what looks like a cross of Chinese,
+Cyrillic, and cuneiform.  Small type beneath says  "Divine Soda Mega Energy".
+The label also has a drawing of a devil poking a man in the [bother]* with an
+electrified pitchfork.  The man's eyes bulge and his mouth rounds into a scream.
+
+The bottle is filled with a fluorescent pink liquid.
+
+(BTW: I've decided I'm just going to "*" whenever I have an aside. ASIDE or *
+and I'll tell you.)
+
+>get bottle
+
+
+Yours, dundeecake.
+
+The dude with Julia sounds like the one she was flirting with at Lucy's party.
+Remember?  He was scrawny and said his parents owned a hotel in Milwaukee called
+"The Historic Pfister."
+
+>drink liquid
+
+
+Holy [bother] is that strong!  You feel like your brain is now a giant sparkler.
+You feel invincible.  You feel like buying a circus.  You feel like moving to
+South America and starting a revolution.
+
+Dissertation?  You feel like writing a trilogy.  And an opera.  You feel like
+fathering roomfuls of monkeys to type randomly until they write your
+dissertation for you.
+
+Whatever else, you're now plenty alert.  (I'm e-mailing Marty to find out where
+I can get some of that.)
+
+>write
+
+
+(first sitting on chair)
+Completely, unblinkingly alert, you start thinking again about the first
+sentence.  "Previous scholarship has typically conceptualized..."  Six seconds
+later you check your e-mail.  You switch back to your word processor for a bit,
+but then you start reading some blogs.  You check your e-mail again.  Then back
+to blogs.
+
+I suspect this is much of how the past several months in your office have gone.
+
+>unplug cable
+
+
+You unplug the ethernet cable.  Good!  It has to be easier to write if you can't
+chat, check e-mail, and surf the web whenever you want.
+
+>write
+
+
+You resume thinking about the first sentence.  You fidget.  Your hands tremble a
+bit.  You want to check your e-mail.  You want to read blogs.  And then: you
+retrieve the cable and plug it back into the computer.
+
+Ugh.  I didn't know it was this bad, vegemite.  I don't know what to say.
+
+I don't know why I confided in Lucy about our problems.  I should have known she
+would tell Julia.
+
+>unplug cable
+
+
+Done, lorikeet.  You're now holding the ethernet cable.
+
+>get balloon
+
+
+(standing up first)
+Yours, muttonplum.
+
+You look out the window for a moment, at the wonderfully serene park across the
+street.  We could be frolicking right now.  We could be canoodling in the
+shrubbery.  Please just write.
+
+>put cable in cabinet
+
+
+You put the blue ethernet cable into the cabinet.
+
+>lock cabinet
+
+
+You close the cabinet and lock it.  Clever little wallaroo.
+
+>write
+
+
+(first sitting on chair)
+You try again.  Two minutes later you unlock the cabinet and take out the cable.
+You plug it back into the computer and start idly googlestalking friends from
+primary school.
+
+Ugh.  We're not going to to be able to work out your "internet addiction" issues
+today, little numbat.  We need to move forward anyway.
+
+Gamely, you unplug the cable and lock it in the cabinet again.
+
+>examine stool
+
+
+
+"Look what I found in the dumpster!  Just what you need!"
+"Do you think it will collapse if I stand on it?"
+"Not immediately.  Just be careful."
+"I can't believe the secretary said I was 'undeserving' when I asked if I could
+have a stool."
+"This stool is better, anyway.  Maybe I'll paint it!"
+
+>get on stool
+
+
+The stool creaks as you climb onto it.
+
+You are distracted by Julia laughing inauthentically and telling Historic
+Pfister "You are so clever."
+
+>put key on top of bookcase
+
+
+Curious, sticky pudding.  Done.
+
+>get off stool
+
+
+You get off the stool.
+
+>break stool
+
+
+Gently, but irreparably, you break the stool.
+
+Ugh.  I know it was practically broken already, but I loved that stool.  I
+realise you are desperate because you don't want me to leave.  You can do this.
+I am cheering for you.
+
+>write
+
+
+(first sitting on chair)
+You try again.  Within a few seconds you start wondering what the fear of
+writing is called.    You go to look it up online.
+You can't.  You itch to check your e-mail.  You can't.
+
+So you start thinking about Chapter 3 again.     The train of ideas is
+finally pulling into keyboard station.  I can see the first sentence now.
+
+But then you hear another loud fake laugh from Julia and everything derails.
+Ugh.  I didn't think I could possibly hate Julia any worse than after she posted
+my cell phone # on those marsupial fetish listservs.  You cannot let her win.
+
+>examine balloon
+
+
+It's about 25 centimetres across, milky white rubber decorated with purple ink
+swirls.  A strange furry thing is inside, its three long legs pressing against
+the sides.  At the bottom of the balloon is a bright yellow tab on which I've
+written "Pull me!"
+
+You're looking out the window again.  Today in the park, a laughing couple that
+could have been us toss a frisbee back and forth, and an older gentleman is
+walking his malamute.
+
+>pull tab
+
+
+You pull the tab and the balloon deflates with a pop and whoosh.  You hear me
+shout "Happy birthday!" and zestily toot a kazoo.
+
+What's left is a white rubber square with a message written on it.  You are also
+holding the three-legged furry thing, which you now realise is an electronic
+device.
+
+>examine message
+
+
+You stretch the rubber square so that you can read what I've written:
+
+Happy birthday!  I know you wanted a boring ordinary music player, but I got my
+brother to send the latest piece of consumer electronics GENIUS from the
+kangaroo corridor.
+
+Behold: the platyPod!    The middle one attaches by suction
+to your forehead for complete hands-free and display-free control.  Not to
+mention kick-[bother] extra bass.    Don't ask me: Melbourne is
+in the throes of an epic fake-fur fad I don't understand.  But this is going to
+be a HUGE hit, and not just among the armless blind.
+
+Charge it with your computer.  Then SCRUNCH YOUR BROW to turn it on.  I've
+already put some bonus presents on it.
+
+You are my FAVOURITE!
+Violet
+
+>examine device
+
+
+It looks like a set of over-the-head headphones, except there is a third one and
+it's covered with short, brown fur.  There's a little plug that allows it to
+connect to the USB port of a computer.  Tiny letters on the plug say "platyPod."
+
+You glance over at your bookcase, at the book on your second shelf.  I can see
+you fidgeting.  Please tell me you aren't getting antsy because you feel like
+you should read it before you can write.
+
+>charge platypod
+
+
+You plug in the platyPod.  It will beep when it is fully charged.
+
+>wait
+
+
+Hmph.  Not to be cross, but waiting is what I've been doing the last two years.
+
+You start looking toward the door with an irksome dreaminess.  Whatever else
+about Julia, the woman knows how to choose perfume.  Of course, I'm not sure how
+much she's poured on herself that you can smell it this far away.
+
+>wait
+
+
+I have goals of my own, you know.  I don't want to waste any more time.
+
+You are distracted by Julia talking about her abs.
+
+>wait
+
+
+Sometimes I feel like you are not even trying.
+
+  The platyPod is fully charged.  You retrieve it and return to
+what you were doing.
+
+>wear platypod
+
+
+The platyPod fits nicely in your ears and against your forehead.  It is switched
+off.
+
+You look toward the door: the perfume again.  I agree that it's really
+appealing.  But, still, this is Julia!*
+
+>scrunch brow
+
+
+My voice: "Look, it even lets you record a start-up message!  How the platyPod
+works: You cycle through the different playlists by RAISING your left or right
+eyebrow.   NOD to skip to the next track.  JIGGLE your head clockwise to turn
+the volume up, and jiggle it anticlockwise to turn it down."
+
+The platyPod turns on.  A mechanical Aussie voice announces, "Now playing 'MC
+Dingo: Straight Outta Down Under'" You groan, because you are like every other
+parochial American who refuses to give Australian hip-hop a proper chance.
+
+The volume is low.  You can still sometimes hear Julia and Historic Pfister
+across the hall.
+
+>jiggle head clockwise
+
+
+You move your head in cute little clockwise circles.  The volume is now so loud
+that you cannot hear Julia and Historic Pfister at all.
+
+You're looking out the window again.  A blond-haired father and even-blonder son
+are walking into the park from the east, and entering your view from the west is
+a zombie.
+
+>write
+
+
+I'm so glad we are done having to listen to Julia and Historic Pfister.  You
+start back on the first sentence.  "Among the most confounding aspects of
+contemporary..."  "Among the most confounding..."  Ugh.  The music is SO LOUD.
+It's like trying to write while sitting next to the amps at a hip-hop concert.
+
+>examine wastebasket
+
+
+(standing up first)
+It's the standard issue University Dreary--sullen cousin of University Drab--
+metal wastebasket.
+
+A wad of gum is stuck to the wastebasket's rim.
+
+You are thinking about your bag.  Sure, it's unfortunate, but there's nothing
+you can do.  So just forget about it.
+
+>examine gum
+
+
+I'd recognise those brown specks anywhere.  This is Two Bob Slobber bubble gum!
+Is this the piece I gave you to try ages ago?  Has it been stuck to the rim all
+that time?
+
+>get gum
+
+
+You pull the gum off the wastebasket's rim.  Ick.  Two Bob Slobber is the only
+bubble gum in the world that has bits of dried lamb jerky in it.
+
+MC Dingo contends that you're not a real gangsta unless you come from a country
+originally founded as a gangsta colony.
+
+>chew gum
+
+
+When I made you try it before, you said that it tastes sort of like American
+bubble gum, only if one added soy sauce, pieces of pickled meat, and a bit of
+blood.
+
+And add to that now a strong mildew taste.  Yuck.  You gag and spit the gum back
+out.
+
+>remove platypod
+
+
+The platyPod automatically turns off when you remove it.
+
+You look over at the book and fret.  Budgie, you've had the book for at least
+two weeks, and it's only today, when you really must write, that you start
+feeling it's urgent for you to read.
+
+>put gum in ears
+
+
+You are marvellous.  The gum does not block out all sound, but some.   You can
+still hear Julia and Historic Pfister when they are being especially loud.
+
+>wear platypod
+
+
+The platyPod still fits well, as the earpieces nestle nicely into the gum.  The
+platyPod is switched off.
+
+You are distracted by Julia saying especially loudly "...You could use mine to
+calculate pi..."*
+
+>scrunch brow
+
+
+My voice: "Look, it even lets you record a start-up message!  How the platyPod
+works: You cycle through the different playlists by RAISING your left or right
+eyebrow.   NOD to skip to the next track.  JIGGLE your head clockwise to turn
+the volume up, and jiggle it anticlockwise to turn it down."
+
+The platyPod turns on.  The platyPod clicks and the oz-hop you fail to properly
+appreciate resumes.
+
+The volume is on low, and it's even lower with the gum in your ears.
+Nonetheless, you can still sometimes faintly hear Julia and Historic Pfister
+across the hall.
+
+>jiggle head clockwise
+
+
+You move your head in adorable little clockwise circles.  The volume is still
+not that loud given the gum in your ears, but you can no longer hear Julia and
+Historic Pfister at all.  Hee.  Take that, Julia!
+
+You're looking out the window again.  The zombie in the park is dressed like an
+investment banker, but you recognise him as a zombie because of the pasty skin,
+blood dripping from his mouth, and lurching gait.  He pauses to look at his
+watch.
+
+>write
+
+
+(first sitting on chair)
+You try again.  "Perhaps the greatest theoretical challenge for extant..."  Then
+you look toward the door and inhale deeply.  I know that look.  Lust!  The
+perfume!
+
+I agree Julia has some great perfume, but so much so as to keep you from being
+able to construct a coherent sentence?  Ugh.  I think it's wishful to imagine
+that I would actually be so sanguine about this.
+
+>examine beauty
+
+
+Why you chose this photo of me, I don't know.  It's from a party last summer.
+I've an enormous foam lobster on my head and whipped cream all over my right
+cheek.  I'm smiling manically and look like I may be so tipsy that I don't know
+what continent I'm on.
+
+Permit me two moments of immodesty:
+
+1.  Even in a picture where I'm not at my best, I am still clearly worth a
+thousand words.
+
+2.  The frame itself is very cleverly done.
+
+>examine frame
+
+
+I took the concert flier from our first "date" and made it into a hard plastic
+laminate--you know, like a Shrinky Dink.  I made a clear plastic sheet the same
+size to go over the front of the photograph.  Then I fused a sturdy binder clip
+to the two pieces to hold everything in place.
+
+MC Dingo boasts of his sexual prowess over a sample of "Waltzing Matilda."
+
+>break frame
+You try to break the frame gently.  I fused the binder clip well, however, so
+you end up having to pull and twist to get it apart.  When you do, the front and
+back each break into several pieces, and so what is now on the desk along with
+the binder clip and photograph are some pitiful little plastic shards.
+
+Obviously I won't be able to repair it.
+
+I loved that frame.  I'm not sure what you are expecting me to say.  Hooray?
+
+  Your response: "So I have
+tomorrow.  What do I need to do?"
+
+"Please," I told you, "I don't want yet another promise."
+"I will write tomorrow. I will write every day until it is done."
+"You won't.  You'll have reasons, excuses.  Maybe more lies.  I can't believe
+you've been --"
+"Violet, I will write one thousand words tomorrow.  I will bring the pages to
+you as proof.  I will do this every day."
+
+Then I covered my face with my hands because otherwise I wouldn't have been able
+to say it:
+
+
+
+"You won't.  I know you believe that you will.  But you won't actually do it."
+"Of course I will, Violet.  I have to."
+"And yet you won't.  That's how we're stuck.  I can't keep waiting and
+pretending.  Budgie, you won't even do it "
+"I will.  One thousand words.  Nothing will stop me."
+
+I need for you to write today.  I wish you could just sit and type.  I realise
+you can't.  Of course it hurts to watch you destroy things I spent days making
+for you.  But do whatever you must.  I don't want to leave you.
+
+>get clamp
+
+
+Yours, gumnut.
+
+>put clamp on nose
+
+
+You've put the binder clip on your nose.
+
+You glance over at the book again and actually whinge out loud, "But I'll keep
+wondering if I'm missing something if I don't read it."
+
+>write
+
+
+You try again.  But then you hear MC Dingo rhyme "casino" and "albino" and it
+breaks your concentration entirely.  When I put oz-hop on your platyPod, I
+wasn't really thinking of it as writing music.
+
+>raise left eyebrow
+
+
+A mechanical Aussie voice announces, "Now playing 
+" (Hooray!  Our favourite!)
+
+>raise left eyebrow
+
+
+A mechanical Oz voice announces, "Now playing Primrose Meanwell." She's the
+friend from uni I was telling you about.   Absolutely the shyest person--then
+last week I get an e-mail announcing she's recorded an album!
+
+>write
+
+
+Primrose's singing doesn't distract you at all.  At uni she told me that she
+liked wearing clothes the same colour as the dining hall walls so that she was
+maximally inconspicuous.
+
+Unfortunately, however, within a few minutes you are distracted by the scene out
+your window.  A second zombie enters the park from the east, holding a sign.
+The first zombie looks relieved.
+
+>examine window
+
+
+(standing up first)
+Your window is immediately behind your desk, about two metres high and one wide.
+It has an old grey blind, which is raised.
+
+On the sill I am a bit surprised to see a lighter.
+
+You look out the window.  The sign held by the zombie says "Zombies Was People
+Too".  Another pair of people dressed up as zombies enter the park.  One holds a
+sign saying "Undead and Proud!"
+
+Primrose sings about how she likes to write in her journal.
+
+>examine blind
+
+
+I wish the blind was more colourful.  It's raised.  There's a cord.
+
+>pull cord
+
+
+You pull the cord and nothing happens.  You complained to me about this weeks
+ago and I explained what the problem likely was and how to fix it.  Remember?
+
+>get on desk
+
+
+You climb onto your desk.  Be careful, weet-bix.
+
+You're looking out the window again.  There are maybe a dozen zombies in the
+park now, lurching and milling about.  Two unfurl a blood-spattered banner that
+says, "What do we want?  Brains!  When do we want them?  Brains!"
+
+>examine blind
+
+
+You can see what's wrong with the blind now.  The little whatever is stuck.*
+This is easy: you can just FIX it.
+
+>fix whatever
+
+
+You squint at the whatever for awhile and fiddle.  Squint, fiddle, still stuck.
+I think when I said you could easily fix it what I really meant was that, if I
+were there, I could easily fix it.
+
+Squint, fiddle, SNAP.  You did it!  Or, wait, maybe you broke it.
+
+Looking closer, you've definitely broken the whatever.  Perhaps you've also
+fixed it.  I can't tell.
+
+>pull cord
+
+
+You pull the cord and the blind lowers halfway, then stops.
+
+You are thinking about your bag again.  "Why am I always so forgetful?" you say
+aloud.  "Why am always I so disorganized?"  Lorikeet, dwelling on it won't help.
+"I know!" you exclaim.  "Why do I always dwell on everything?"
+
+>get off desk
+
+
+You do, wallaroo.
+
+On the desk are some pitiful little plastic shards, a photograph, your computer,
+my itinerary and a pile you cannot even contemplate.  A stupendously intricate
+origami trophy sits on top of the cabinet.  A wastebasket is on the floor.
+
+>examine cabinet
+
+
+It's University Drab, about a metre high with a silly fake wood front.  It's
+closed and locked.
+
+On top of the cabinet is still a spectacularly intricate origami trophy.
+
+>examine trophy
+
+
+You trained for months and had to run the entire race in the rain.  A chintzy
+little medal after all that?  You deserve better!  So afterwards I took the big
+sign I'd held up for you and spent two days folding it into a proper trophy.
+
+Primrose sings about how she has a special purple pen that she uses when she
+writes about boys.  I'm not sure I've ever heard a lead singer whose voice is so
+inconspicuous.
+
+>get trophy
+
+
+Yours, fruit cup.  I have to confess, I think the trophy is absolutely sublime.
+
+>unfold trophy
+You take the trophy I made for you and methodically unfold it.  I cannot decide
+whether to be exasperated or moved by how you are so careful not to tear it.
+You're now holding a crumply sign, about a metre square.
+
+Unbelievable.  Un-be-[bother]ing-lievable.
+
+  That night sitting on the swings, shortly after we started dating?  I
+was emphatic that we had to end this before we got serious.
+
+"But, Violet," you said, "I'm already serious."
+"Coming to Wisconsin was supposed to be a great adventure.  I didn't know it was
+so cold.  I thought Madison was bigger.  I miss my family.  My friends are all
+leaving when they finish their MFAs.  Mine is already done.  We only have a
+future if I stay.  And if I stay, I would just be "
+
+
+
+
+
+We had that conversation the day after you turned 28, because I was determined
+to break up with you and thought only a cretin would dump someone on their
+birthday.
+
+You convinced me to stay.  You said you would be done in a year, a year and a
+half at the most.   Instead: two years now.    And this is what you
+need to do because you can't just sit your [bother] down and write?
+
+I know you aren't doing this to hurt me.  I'll try go back to being Your Upbeat
+Aussie Girlfriend.  But, honestly: what am I supposed to think here?  How am I
+supposed to feel?
+
+>examine sign
+
+
+It's all crumply now.  The bright fuchsia letters say:
+
+You are my
+FAVOURITE!
+
+You look over at the book again.  You know you don't actually need to read it
+today.
+
+>cover window with sign
+
+
+(putting the crumply sign on the sill)
+You put the sign on the sill.  The sign and the blind together now block the
+view out your window entirely.
+
+>write
+
+
+(first sitting on chair)
+You start typing!  "Arguably the most compelling theory of..."  You frown.  You
+change "compelling" to "cogent."  You change it back.  You change "arguably" to
+"inarguably."  You change it back.
+
+You're stalling.  You look fretfully over at the book.  You're thinking about
+how you need to read it, aren't you?  Ugh.
+
+>examine bookcase
+
+
+(standing up first)
+Primrose makes me feel dreary.  If we're getting up again, let's listen to
+Warren.  I'll switch us back before you write.
+
+
+"Violet.  Take this.  Do not give it back to me for a month."
+"Is this your car key?"
+"Just the trunk.  The .  I put all the books from my office in there."
+"You said you just needed to read one more book and then you were ready to
+write."
+"And you pointed out that I've said that several times before.  You're right.
+I've read enough.  I just need to get what's in my head onto the computer."
+
+Of course I'm so used to seeing your bookcase full that it's strange now to see
+it nearly empty.
+
+On the second shelf is a book.  On the bottom shelf is a smartly-done snowglobe.
+
+>examine book
+
+
+This is the latest "last book you really must read before you are able to write
+your dissertation without a nagging feeling that there is one more book you
+really must read."  If you start reading it now, hours will go by, and you won't
+write your thousand words.
+
+Warren Tim Harried is playing "Please Don't (My Grandma Gave Me That)" from 
+, recorded when he was fourteen years old.
+
+>get book
+
+
+Why did you pick up the book?  If you start reading it, you won't stop, and
+holding it in your hands is just going to make you want to read it even more.
+
+>examine lighter
+
+
+The lighter is promoting some race car driver whose car is #67.  Our Number.
+
+I was tipsy at a party and you were one of four random dudes trying to talk to
+me at once.  I interrupted to tell my favourite joke.  "Why is six afraid of
+seven?"
+"Because seven eight--"
+"No!" I shouted, "Because seven [the sickest thing I could come up with at the
+moment] nine."
+
+The other men chuckled uncomfortably.  You laughed so hard you spit Guinness on
+my face.  That was when I decided I liked you.
+
+I see the way you are looking down at the book.  You want to read it.  You need
+to resist.
+
+>get lighter
+
+
+Yours, berry smush.  It's hard for me to be enthusiastic about lighters as a
+woman who owns her own blowtorch.
+
+You fiddle with the cover of the book.  You're thinking that you could just read
+the Table of Contents.  And maybe the Acknowledgements.
+
+>burn book
+
+
+Gee, budgie.  Far be it from me to be the moral conscience when fire is
+involved, but that's a .  There's bound to be a hefty fine.  And it
+seems a little insane.  If you really want to, we can, but it shouldn't be a
+rash decision.
+
+>burn book
+
+
+I was secretly hoping you would.  You light the book on fire and it burns
+magnificently!  Yay!  That was epic to watch, and now we don't have to deal with
+you being tempted anymore to read.
+
+The coughing and light smoke damage are well worth it.   I'll go halfsies on the
+library fine.
+
+As for the sprinkler: nothing.  Not one drop.  Don't even pretend to be
+surprised to learn that the University gives graduate students offices in a
+death-trap.
+
+>write
+
+
+(first switching platyPod back to Primrose)
+(then sitting on chair)
+You type a sentence, just like that.  Then another!  But the third sentence is
+tricky; it includes a semicolon.  Now you are just shuffling words around with
+cut and paste.
+
+I know, this is why you like having a pen and paper when you write, to work out
+the phrasing of tougher sentences.  You try tracing your finger on the desk but
+it doesn't help.
+
+>examine cactus
+
+
+(standing up first)
+Okay, but I'm switching to Professor Detective instead of Primrose.  I'll switch
+us back again when you are ready to write.
+
+Supposedly the cactus belonged to a business school professor who left Madison
+for another university in a snit.  An accidental transposition of numbers on a
+form caused it to be moved in here instead of University Botanical Disposal, and
+your department won't pay to move it again so it's been here for years.
+
+Obtrusive, sure, but at least it hides that ugly pipe leading up to the
+sprinkler on your wall.  Plus plants are cheery.  I'm glad the pot is too heavy
+for you to be able to move it yourself.
+
+>examine pipe
+
+
+The garish chrome pipe was obviously added sometime after the building was
+built, in response to some amendment to the fire code.  It is flush against the
+wall and runs all the way up to a sprinkler that is only a few inches from the
+ceiling.
+
+Professor Detective explains to Undergraduate Constable Duffy that a murderer
+who escapes justice will invariably kill again, and the same logic applies to
+plagiarists.
+
+>examine sprinkler
+
+
+
+"Hey, wallaroo, why is there a pen between the sprinkler and the ceiling?"
+"It's been there since I moved in."
+"How could somebody even wedge a pen up in there like that?"
+"It's even more mysterious considering that the previous occupant of this office
+was a dwarf."
+"Marty! He was hilarious! Remember the prank with the disappearing ink toner
+cartridge?"
+"That was mostly you, dear.  All Marty did was slip it in Julia's printer before
+her big presentation."
+
+>examine pen
+
+
+It's a bright lavender tube, like the brand of gel-ink pen that Marty used to
+use.  There are some scratchings on the side that look like letters, but from
+here you cannot read what it says.
+
+>examine mess
+
+
+It's detritus from teaching, a couple unfinished side projects, and the earlier
+dissertation topic that you asked We Never Speak Of Again.  It's been
+accumulating and now makes you feel too overwhelmed even to contemplate.
+
+Except today, when you absolutely must write, you are feeling an overwhelming
+urge to tidy it.
+
+(BTW: you know full well that Marty is not a dwarf.  He isn't even especially
+short.*)
+
+>tidy mess
+
+
+You pick up one thing, then put it back down.  You pick up another then put that
+down.  You start thinking that what you really need is comprehensive office-
+straightening solution.  You're thinking about making a diagram, maybe a
+spreadsheet.
+
+STOP.  This is not what you should be doing today.
+
+Out of the pile, however, you do pick up a potato gem.
+
+>examine square
+
+
+It's about 10 centimetres square and has a message handwritten in purple on it.
+One corner is a double piece stitched over so that it is like a tiny pouch.
+
+In the "pouch" is a small chip.
+
+You are thinking about your bag again.  Honestly, you probably don't even really
+need a pen, except now you're obsessing about how you'd have a pen if only you
+hadn't forgotten your bag.
+
+>remove chip from pouch
+
+
+Yours, spongemuffin.
+
+(The rubber is really strong and stretchy for how thin it is, isn't it?  I got
+it from a company that makes weapons-grade slingshots.)
+
+>put tater tot in pouch
+
+
+(I always forget they aren't called potato gems here.  Just like I can never
+remember that it's "cotton candy" instead of "fairy floss.")
+
+As strong and stretchy as the rubber is, you basically have a slingshot now that
+something is in the pouch.  You could SHOOT SOMETHING.  If I'm going to patent
+this, I should think about whether this unanticipated functionality exposes me
+to any legal risk.
+
+>shoot pen
+
+
+You're a very good shot.  I guess you were serious about that spooky bowhunting
+uncle.  The tater tot misses the pen by less than half an inch and hits the
+wall, where it shatters.
+
+I think you've the right idea, though.  One more shot and I bet you'll hit it.
+
+>examine globe
+
+
+It's a glass globe with a plain wooden bottom.  Inside is a happy winter scene,
+with a paunchy, smiling figurine in a white outfit and snow up to his ankles.
+His hands look like they are covered with chocolate.
+
+>get globe
+
+
+Yours, nutter butter.  I still can't believe I stayed up two nights straight
+making it.
+
+Professor Detective is doing a crossword during a faculty meeting when suddenly
+the lights go out and a woman screams.
+
+>shake globe
+
+
+You shake the globe vigorously.  The snow starts swirling around the globe,
+turning pink and then red.
+
+
+"The Saskatoon Strangler.  He killed six people before being arrested by the
+mounties in 1986."
+"A documentary about a serial killer at bedtime?"
+"Only six people, Violet.  Plus, he worked as a confectioner!"
+"If I can't sleep, you can't complain about the noise when I start working on
+something."
+
+>examine globe
+
+
+The snow is now a blood red blizzard roiling around the figurine in the middle,
+whose eyes now gleam sinister and whose hands now look like they are covered in
+blood instead of chocolate.
+
+>throw globe at pen
+
+
+I love that globe.  I let you have it because you kept saying it was brilliant.
+
+I understand that it is probably the object here you can throw most accurately.
+But, of course it's going to shatter.  If you really think you need that pen in
+order to write today--ugh.  Just don't miss, okay?
+
+>throw globe at pen
+
+
+You aim carefully and throw.  The globe hits the side of the sprinkler and
+shatters.  That wasn't even especially close.  I guess your crazy stories of
+Little League trauma weren't exaggerations.
+
+At least the figurine looks undamaged.  And you recognise now that the wooden
+base of the snowglobe was just a coaster of yours that I stole.
+
+>get figurine
+
+
+Yours, lemon squidgie.  Be careful with it.
+
+The Confounder has Professor Detective tied up in his secret hideout next to the
+cyclotron.   The Confounder cackles and taunts, "Let's see if tenure will save
+you now."
+
+>put figurine in pouch
+
+
+Done.  I'm not sure I like this.
+
+>shoot pen
+
+
+The Saskastoon Strangler sails through the air and hits the pen headfirst,
+knocking it loose.  The pen falls to the floor. The figurine careens ahead into
+the wall and shatters.
+
+I spent thirty-seven hours straight working on that figurine.  I know I said to
+do "whatever you must."  It still hurts to watch what that "must" is taking from
+us.
+
+Ultimately, yes, I understand.  Then again, I'm speaking just as your imaginary
+rendition of me.  Actual-Me was already fed up enough to buy a plane ticket; I'm
+not sure how you expect to explain this.
+
+>get pen
+
+
+Yours, chocolate crackle.
+
+>write
+
+
+(first switching platyPod back to Primrose)
+(then sitting on chair)
+You are ready.  But when you take the cap off the pen, purple gunk sprays out
+and all over your clothes.
+
+Marty!  I don't know how he rigged that.  I also don't know why men conclude
+that the best way of expressing anguish over me is through some display of
+mechanical cleverness.  Remember Colin and the 50-foot aluminium peacock?
+
+The pen itself actually works.  Of course, your clothes are ruined.  Worse, you
+are starting to itch.
+
+>write
+
+
+You are scratching yourself as soon as you start trying to type.  You itch all
+over.  It's just getting worse as the purple gunk soaks in.
+
+>remove clothes
+
+
+(first standing up)
+You place your clothes neatly next to the cactus.
+
+So now you're standing in your office naked, with a red binder clip on your nose
+and what looks like a furry three-legged space creature on your head.  You also
+have a rancid-meaty bubble-gummy taste in your mouth, some smoke damage to your
+walls, and a lot to explain to Actual-Me.
+
+You are ready to write now.  I can feel it.
+
+>write
+(first sitting on chair)
+You write two more sentences.  I can tell you're feeling more confident.  I knew
+you could do this.  You conclude the first paragraph with an especially
+provocative participle.  Then you hit enter and realise:
+
+
+
+You have to pee.
+
+Unbelievable.  This must be an anxiety thing.  You are killing me.
+
+>pee in wastebasket
+
+
+(standing up first)
+Done, ick.  I hope you don't make the nice custodian take care of that.
+
+>write
+
+
+(first sitting on chair)
+You write a second paragraph.  Then a third.  You're past a thousand words
+within a few hours.  You decide you want to finish the entire section.  You do.
+Not your best prose, but that isn't the point.  Julia and the zombies have long
+gone when you finish, which you are thankful for when you need to run naked out
+to the car.
+
+You rehearse what you want to tell me all the way home.  Instead, there's a note
+on the door:
+
+
+
+
+
+   Gone.  Sorry.
+
+   Violet
+
+You had to have known I was going to leave you anyway.  All the clues were
+there.
+
+
+
+
+
+ thirty people jump up and shout when you open the door.  Good thing
+you were covering your [bother] with the pages you wrote.
+
+One hour and three drinks later, you aren't even that embarrassed.  I pull you
+into the kitchen and kiss you.
+
+"You said you wanted something twisted for your birthday."
+"I was thinking more along the lines of you in peculiar lingerie."
+"I spent much of today hyperventilating thinking it was too cruel."
+"I figured out some important things today.  So, at worst, it was an extremely
+instructive cruel."
+"I'll still understand if you're angry."
+"You're the one who's going to be angry.  I have to tell you something about the
+snowglobe.  And the origami trophy.  And--"
+
+I put my hand on your chest to stop you.  "I've a confession that supersedes
+yours."
+
+
+
+
+I open up my laptop and show you.  On my screen is your office, as seen from the
+vent above the door.
+
+Of course you're bewildered.  I explain: "When I was hiding your birthday
+present, I rigged a camera up there.  Not to spy!  Or, not to spy like . I
+needed to know when you were coming home for the party.  I thought it would just
+be you at your computer.  I didn't know you'd end up naked and peeing in a
+wastebasket."
+
+"I spent the entire day imagining that you were watching me," you say.  "Maybe
+it only worked because you actually were."
+"Watching you break everything was ," I tell you, "but I'm still here.
+I understand, even.  Sort of.  So long as you understand that you're only
+getting store-bought presents for a while."
+
+We've reached the hard part.  "I'm committed to this, budgie.  But I don't know
+what we're going to do with you."
+
+
+
+
+"No, Violet.  What are we going to do with ?  My turn is done.  It's the only
+fair thing."
+"You've been miserable.  You'll be happier this way."
+"I'm already happier.  Today made it so clear.  
+  I know, I've spent six years in graduate school, I should
+be crying right now.  Instead I feel wonderful.  I love you so much."
+
+Me too, wallaroo.
+
+Three weeks later we are holding hands in the supereconomy section of a flight
+to Australia.  My brother is lending me money to open a curiosities shop.  He's
+found you a job at a comic book shop until you decide what's next.
+
+* * *
+
+
+
+I know it's not precisely Plan A, but we are happy and unstuck.  This is
+winning.  What now?  I understand if you just want to QUIT now that the merry
+glow of victory is upon us.  But you can also UNDO the last turn, RESTART,
+RESTORE a saved game, or (bonus!) view some of the so-called AMUSING things you
+might've missed.
+
