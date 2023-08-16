@@ -1,0 +1,98 @@
+spawn ./glulxe Alabaster.gblorb
+Welcome to the Cheap Glk Implementation, library version 1.0.6.
+
+
+
+
+It is the bitterest night you can remember since the dwarrows last marched against men. The sky is too cold, the village too still. There is smoke in the air but no voices from the doorways. The Queen's light burns in the tower window behind you. She is watching, as far as she can.
+
+You and the girl move through the narrow lanes without speaking, past the muted inns and shuttered bakeries, until you reach the narrowing path beyond the churchyard.
+
+Pass in silence the graves of veterans and goodwives, and then at the outskirts the graves of suicides, which are granted no markers. Come to the place where the village ends and the trees begin to grow.
+
+Enter the forest like two spies, one sent to kill the other.
+
+Walk for hours.
+
+
+Alabaster
+An Interactive Experiment by John Cater, Rob Dubbin, Eric Eve, Elizabeth Heller, Jayzee, Kazuki Mishima, Sarah Morayati, Mark Musante, Emily Short, Adam Thornton, and Ziv Wities
+Illustrations by Daniel Allington-Krzysztofiak
+Release 3 / Serial number 090609 / Inform 7 build 5Z71 (I6/v6.31 lib 6/12N) 
+
+Dark Woods
+It is a moonless night. The lantern light does not reach far. You are seldom frightened in these woods, but tonight is unusual.
+
+Snow White is with you. Her wrists are bound behind her back. She has made as much of a nuisance of herself as she could, deliberately stumbling over every root in the dark, until you had to half-carry her this far.
+
+Earlier, you killed a hart and left it here. It was a preparation: you didn't want to have to hunt such an animal in the darkness.
+
+Now, you can't help wondering whether you should have spared the noble beast.
+
+> wait
+Both of you are silent.
+
+She takes a deep breath, just as her stepmother does when about to give a command. "We had a deal," she says. "I have made a safe resting place. You promised to take me there if the Queen turned against me."
+
+
+
+Your instinct is to put her off. You consider explanations for your stop: say that the safe haven is too far away to reach tonight? explain that you must stop here to collect the hart's heart?
+
+> ask haven
+"It is too far away to reach tonight." The Queen sent you out long after midnight. There are probably only a few hours remaining before dawn.
+
+She shivers. "I suppose the Queen will expect you to return quickly." You do not say anything, which is a kind of answer. 
+
+Both of you are silent.
+
+"Untie me, and I'll go on alone."
+
+
+
+> no
+"I don't mean to untie you quite yet. I don't know you won't bite."
+
+"I'm tired," she says. "My feet hurt. My wrists hurt. I am a third your size. Do you really think there is any harm I could do to you?"
+
+
+
+> no
+"Probably not." She is a small thing, after all. Delicate, like chicken bones. Funny how when you think of her you always think of blood and bones and dead parts of things.
+
+"I am not taking chances, all the same," you add.
+
+She grimaces. "The Queen must have been very persuasive."
+
+
+
+> ask where
+"You told me before that the safe haven would take about an hour to reach, but you never said which way to go."
+
+"North. Safety is to the north, and the sooner we start, the better."
+
+> south
+If you go on from here, it should be to Snow White's haven - the tiny house she has had fitted, and the servants she hired, and the sealed coffin-bed that she had made for herself (for protection, she said, from the vision of the mirror). And that lies to the north, she says.
+
+It would be dangerous to return to the castle while Snow White is still with you.
+
+> south
+If you are really going to leave, you will have to decide: do you set Snow White free? If not, she will have to come back with you, still chained, to face the Queen again. >>no
+You harden your heart.
+
+"We're going back to the castle," you announce, making up your mind. "You're coming with me."
+
+Snow White tries to run away in order to avoid being dragged back, but you catch her and carry her along. The Queen will just have to be faced, you tell yourself, though it is possible that the balance of your judgment has been upset by the long journey.
+
+But the Queen, it seems, is very determined not to have her stepdaughter back again: as soon as the two of you emerge from the woods, and in the bleak light of dawn approach the castle, archers appear on the battlements. Their expressions are grim, but they shoot you without compunction.
+
+You drop Snow White and the chains break: she scampers away into the woods again with a fleetness that seems not quite human - if you didn't know better you might even think that she developed wings. But this strange sight is your last on earth, and you die without knowing for certain whether the Queen is able to recapture her, or whether the princess escapes after all.
+
+
+
+    *** You have died ***
+
+
+
+
+Would you like to RESTART, RESTORE a saved game, QUIT, or review the ENDINGS you've seen so far?
+> 

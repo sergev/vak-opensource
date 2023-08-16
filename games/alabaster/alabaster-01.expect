@@ -1,0 +1,35 @@
+#!/usr/bin/expect -f
+#
+# Play game Alabaster.
+#
+# Based on https://ifarchive.org/if-archive/solutions/Alabaster_walkthroughs.pdf
+#
+set timeout -1
+
+# Remove previous log, if any.
+system rm -f "game.log"
+log_file "game.log"
+
+# Start the game.
+spawn ./glulxe Alabaster.gblorb
+match_max 100000
+
+expect "hours."; send "\r"
+
+#
+# Ending #1.
+# You return with her in chains to the castle without having accomplished anything much.
+#
+expect ">"; send "wait\r"
+expect ">"; send "ask haven\r"
+expect ">"; send "no\r"
+expect ">"; send "no\r"
+expect ">"; send "ask where\r"
+expect ">"; send "south\r"
+expect ">"; send "south\r"
+expect ">>"; send "no\r"
+
+# Quit
+expect ">"; send "quit\r"
+puts ""
+exit

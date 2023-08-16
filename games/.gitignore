@@ -1,6 +1,9 @@
 *.z[3-9]
 *.zblorb
+*.gblorb
 *.log
 *.log~
 *.qzl
 *.DAT
+glulxe
+alabconc.glkdata

@@ -1,0 +1,96 @@
+Walkthrough to all major endings for Alabaster
+
+The following is a complete set of the ways to reach endings in Alabaster.
+Reading even the headings is itself a bit spoilery, however, so be warned — it
+is probably more enjoyable to play the game in full a few times before even
+glancing through the list.
+
+1. You return with her in chains to the castle without having accomplished
+   anything much.
+
+    z / a haven / no / no / a where / s / s / no
+
+2. You free her and return with the heart.
+
+    take heart / put heart in box / z / a haven / no / no / a where / s / s / yes
+
+3. You free her and return without the heart.
+
+    z / a haven / no / no / a where / s / s / yes
+
+4. You find out that she is definitely a vampire, then kill her.
+
+    cut hart / ask Snow White about what she was doing / wake hart / ask why
+    / no / z / smile / a how / a cosmic / yes / yes / yes / a name / a snow white / a whether snow white is a vampire / yes / z / no / z / kill Snow White
+
+5. You provoke her into killing you.
+
+    cut hart / ask Snow White about what she was doing / wake hart / ask why
+    / no / z / smile / a how / a cosmic / yes / yes / yes / a name / a snow white / a whether snow white is a vampire / yes / z / no / z / a what she knows about vampires / a how vampires came to be
+
+6. You try to burn her with the lantern.
+
+    burn snow white / g
+
+7. You remove Lilith then force her to return to the palace with you.
+
+    cut hart / ask Snow White about what she was doing / wake hart / ask why
+    / no / z / smile / a how / a cosmic / yes / yes / yes / a name / a snow white / a whether snow white is a vampire / yes / z / no / z / put heart in the box / burn the box / a where haven is / s / s / no
+
+8. You remove Lilith and scatter the ashes, then leave without Snow White.
+
+    cut hart / ask Snow White about what she was doing / wake hart / ask why
+    / no / z / smile / a how / a cosmic / yes / yes / yes / a name / a snow white / a whether snow white is a vampire / yes / z / no / z / put heart in the box / burn the box / get ashes / scatter ashes / a where haven is / s / s / yes
+
+9. You remove Lilith, then leave without Snow White and without honoring your
+   pact with the hart.
+
+    cut hart / ask Snow White about what she was doing / wake hart / ask why
+    / no / z / smile / a how / a cosmic / yes / yes / yes / a name / a snow white / a whether snow white is a vampire / yes / z / no / z / put heart in the box / burn the box / a where haven is / s / s / yes
+
+10. You find out about how to put Happy in the mirror; remove Lilith, then
+    collect the ashes and return to the Queen without Snow White.
+
+    cut hart / ask Snow White about what she was doing / wake hart / ask why
+    / no / z / smile / a how / a cosmic / yes / yes / yes / a mirror / g / g / yes / yes / a snow white vampire / yes / ask what will happen / z / z / z / z / put heart in box / burn box / get ashes / s / a haven / s / s / yes
+
+11. Free her and go with her before knowing much.
+
+    z / a haven / no / no / a where / get heart / n / n / n / yes
+
+12. Keep her tied and go with her before knowing much.
+
+    z / a haven / no / no / a where / get heart / n / n / n / no
+
+13. Remove Lilith and then accompany Snow White away to the north.
+
+    cut hart / ask Snow White about what she was doing / wake hart / ask why
+    / no / z / smile / a how / a cosmic / yes / yes / yes / a name / a snow white / a whether snow white is a vampire / yes / z / no / z / put heart in the box / burn the box / a where haven is / n / n / yes
+
+14. Encounter Lilith and agree to be her consort.
+
+    z / z / explain / t roots / say she is delaying / ask her about delay / no / a
+    lilith / a adam / t apple / a apple / a mortals / a if queen is a witch / ask what powers / a demons / a queen is possessed / ask how / ask what bargain / ask what demons / a lilith / ask where lilith is now / ask whether lilith likes / t explain / yes / ask what lilith wants / ask what lilith wants / a adam / t me / yes / untie Snow White
+
+15. Encounter Lilith, agree to go with her, but then fail to untie her when she
+    demands it.
+
+    z / z / explain / t roots / say she is delaying / ask her about delay / no / a
+    lilith / a adam / t apple / a apple / a mortals / a if queen is a witch / ask what powers / a demons / a queen is possessed / ask how / ask what bargain / ask what demons / a lilith / ask where lilith is now / ask whether lilith likes / t explain / yes / ask what lilith wants / ask what lilith wants / a adam / t me / yes / z / z / z / z / z
+
+16. Get the truth from the hart, then find out who Lilith is, then offer
+    yourself and tell her your history.
+
+    cut hart / ask Snow White about what she was doing / wake hart / ask why
+    / no / z / smile / a how / a cosmic / yes / yes / yes / a king / a repeat / ask what
+    happened / a who performed / a current peace / z / z / z / t roots / say she is delaying / ask her about delay / no / a lilith / a adam / t apple / a apple / a mortals / ask if the queen is a witch / ask what powers / ask what demons / a queen is possessed / a how / a bargain / a victim / ask what lilith wants / g / z / t me / t king / yes
+
+17. Get the truth from the hart, then burn the box.
+
+    cut hart / ask Snow White about what she was doing / wake hart / ask why
+    / no / z / smile / a how / a cosmic / yes / yes / yes / a king / a repeat / ask what happened / a who performed / a current peace / z / t I am king / g / g / g / t king was blood-sundered / say I remember / ask whether the king could be restored / ask how the blood-sundering could be undone / cut me / g / put blood in box / burn box
+
+18. Remove Lilith and then pester Snow White until she goes insane.
+
+    cut hart / ask Snow White about what she was doing / wake hart / ask why
+    / no / z / smile / a how / a cosmic / yes / yes / yes / a name / a snow white / a whether snow white is a vampire / yes / z / no / z / put heart in the box / burn the box / a what lilith wanted / a why exorcism succeeded / a powers besides lilith / a box was for / a teeth / g
