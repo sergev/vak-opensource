@@ -17,17 +17,11 @@ match_max 100000
 expect "hours."; send "\r"
 
 #
-# Ending #1.
-# You return with Snow White in chains to the castle without having accomplished anything much.
+# Ending #6.
+# You try to burn Snow White with the lantern.
 #
-expect ">"; send "wait\r"
-expect ">"; send "ask haven\r"
-expect ">"; send "no\r"
-expect ">"; send "no\r"
-expect ">"; send "ask where\r"
-expect ">"; send "south\r"
-expect ">"; send "south\r"
-expect ">>"; send "no\r"
+expect ">"; send "burn snow white\r"
+expect ">"; send "g\r"
 
 # Quit
 expect ">"; send "quit\r"

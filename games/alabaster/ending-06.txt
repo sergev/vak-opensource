@@ -1,0 +1,51 @@
+spawn ./glulxe Alabaster.gblorb
+Welcome to the Cheap Glk Implementation, library version 1.0.6.
+
+
+
+
+It is the bitterest night you can remember since the dwarrows last marched against men. The sky is too cold, the village too still. There is smoke in the air but no voices from the doorways. The Queen's light burns in the tower window behind you. She is watching, as far as she can.
+
+You and the girl move through the narrow lanes without speaking, past the muted inns and shuttered bakeries, until you reach the narrowing path beyond the churchyard.
+
+Pass in silence the graves of veterans and goodwives, and then at the outskirts the graves of suicides, which are granted no markers. Come to the place where the village ends and the trees begin to grow.
+
+Enter the forest like two spies, one sent to kill the other.
+
+Walk for hours.
+
+
+Alabaster
+An Interactive Experiment by John Cater, Rob Dubbin, Eric Eve, Elizabeth Heller, Jayzee, Kazuki Mishima, Sarah Morayati, Mark Musante, Emily Short, Adam Thornton, and Ziv Wities
+Illustrations by Daniel Allington-Krzysztofiak
+Release 3 / Serial number 090609 / Inform 7 build 5Z71 (I6/v6.31 lib 6/12N) 
+
+Dark Woods
+It is a moonless night. The lantern light does not reach far. You are seldom frightened in these woods, but tonight is unusual.
+
+Snow White is with you. Her wrists are bound behind her back. She has made as much of a nuisance of herself as she could, deliberately stumbling over every root in the dark, until you had to half-carry her this far.
+
+Earlier, you killed a hart and left it here. It was a preparation: you didn't want to have to hunt such an animal in the darkness.
+
+Now, you can't help wondering whether you should have spared the noble beast.
+
+> burn snow white
+(with the lantern)
+As Snow White shies away from the lantern, the glare she gives you seems almost enough to extinguish it.
+
+"I could put your lantern out if I wanted," she says. "You may fear the dark, but I have no reason to."
+
+> g
+(with the lantern)
+As you approach with the lantern, Snow White speaks a strange word. The flame in the lantern leaps up in response - as though in joy - and then it vanishes entirely. 
+
+"Goodbye, huntsman," she says. "Explain to the Queen as well as you can!" And from the nimble footsteps, you guess that her earlier trouble walking was all performed for your benefit. Soon you cannot even hear her moving.
+
+
+
+    *** You are alone in the dark ***
+
+
+
+Would you like to RESTART, RESTORE a saved game, QUIT, or review the ENDINGS you've seen so far?
+> 

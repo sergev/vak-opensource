@@ -1,0 +1,182 @@
+spawn ./glulxe Alabaster.gblorb
+Welcome to the Cheap Glk Implementation, library version 1.0.6.
+
+
+
+
+It is the bitterest night you can remember since the dwarrows last marched against men. The sky is too cold, the village too still. There is smoke in the air but no voices from the doorways. The Queen's light burns in the tower window behind you. She is watching, as far as she can.
+
+You and the girl move through the narrow lanes without speaking, past the muted inns and shuttered bakeries, until you reach the narrowing path beyond the churchyard.
+
+Pass in silence the graves of veterans and goodwives, and then at the outskirts the graves of suicides, which are granted no markers. Come to the place where the village ends and the trees begin to grow.
+
+Enter the forest like two spies, one sent to kill the other.
+
+Walk for hours.
+
+
+Alabaster
+An Interactive Experiment by John Cater, Rob Dubbin, Eric Eve, Elizabeth Heller, Jayzee, Kazuki Mishima, Sarah Morayati, Mark Musante, Emily Short, Adam Thornton, and Ziv Wities
+Illustrations by Daniel Allington-Krzysztofiak
+Release 3 / Serial number 090609 / Inform 7 build 5Z71 (I6/v6.31 lib 6/12N) 
+
+Dark Woods
+It is a moonless night. The lantern light does not reach far. You are seldom frightened in these woods, but tonight is unusual.
+
+Snow White is with you. Her wrists are bound behind her back. She has made as much of a nuisance of herself as she could, deliberately stumbling over every root in the dark, until you had to half-carry her this far.
+
+Earlier, you killed a hart and left it here. It was a preparation: you didn't want to have to hunt such an animal in the darkness.
+
+Now, you can't help wondering whether you should have spared the noble beast.
+
+> take heart
+You slice the heart out of the dead animal. It is cold now, just like any ordinary sort of meat.
+
+She goes awkwardly over to the corpse and goes to one knee beside it. "Thank you," she whispers - to it, not to you. Then she leans down and- what, exactly? You can't see. Maybe she kisses it. Maybe she licks its blood. Maybe neither.
+
+When she's done she struggles back to her feet and looks at you defiantly.
+
+Of course you could ask what she was doing, but who is to say that she would answer?
+
+> put heart in box
+(the hart's heart in the heart-sized box)
+The lid is stiff on its hinges, but you get it open with a little effort. You tuck in the heart.
+
+Snow White watches the way a child watches fresh cakes being taken from the oven.
+
+> z
+A breeze stirs the aspens, sending down a few more leaves.
+
+She takes a deep breath, just as her stepmother does when about to give a command. "We had a deal," she says. "I have made a safe resting place. You promised to take me there if the Queen turned against me."
+
+
+
+Only one explanation comes to mind: you could say that the safe haven is too far away to reach tonight.
+
+> a haven
+"It is too far away to reach tonight." The Queen sent you out long after midnight. There are probably only a few hours remaining before dawn.
+
+She shivers. "I suppose the Queen will expect you to return quickly." You do not say anything, which is a kind of answer. 
+
+Very little time passes.
+
+"Untie me, and I'll go on alone."
+
+
+
+> no
+"I don't mean to untie you quite yet. I don't know you won't bite."
+
+"I'm tired," she says. "My feet hurt. My wrists hurt. I am a third your size. Do you really think there is any harm I could do to you?"
+
+
+
+> no
+"Probably not." She is a small thing, after all. Delicate, like chicken bones. Funny how when you think of her you always think of blood and bones and dead parts of things.
+
+"I am not taking chances, all the same," you add.
+
+She grimaces. "The Queen must have been very persuasive."
+
+
+
+> a where
+"You told me before that the safe haven would take about an hour to reach, but you never said which way to go."
+
+"North. Safety is to the north, and the sooner we start, the better."
+
+She squints up through the branches as though looking for stars; but of course none are visible. It might be just a trick of the light, but it almost looks as though the hart moved.
+
+Of course you could ask what she did to the hart, but who is to say that she would answer?
+
+> s
+If you go on from here, it should be to Snow White's haven - the tiny house she has had fitted, and the servants she hired, and the sealed coffin-bed that she had made for herself (for protection, she said, from the vision of the mirror). And that lies to the north, she says.
+
+It would be dangerous to return to the castle while Snow White is still with you.
+
+Of course you could ask what she did to the hart, but who is to say that she would answer?
+
+> s
+If you are really going to leave, you will have to decide: do you set Snow White free? If not, she will have to come back with you, still chained, to face the Queen again. >>yes
+You take off the chain, and it vanishes as soon as it is removed. No ordinary silver, that.
+
+"I'm going back now," you tell her. "You can go on on your own; I'll take my chances lying about this matter to the Queen." 
+
+"I wish you luck," she says. "My life depends on your lie, as well as your own."
+
+
+You part ways. She is quickly gone to the north, her footsteps no longer audible. You make your way through a growing dawn back to the palace, where you present the Queen immediately with the heart in its box.
+
+You expect her to take it before the mirror for verification, but she does not: not immediately. Instead she opens the box and looks at the heart-flesh inside, and commands you to leave her.
+
+
+Please press SPACE to continue.
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+After a day or two of waiting, you decide that the Queen has accepted the ruse. 
+
+Please press SPACE to continue.
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+For a time, everything is quiet. The mirror is heard less often in the halls. The Queen almost seems at peace. The servants begin to relax. The winter solstice feasts are celebrated as gaily as you can remember.
+
+And then - after the frosts pass - there begin to be new rumors of trouble among the dwarrows. After their difficult pacification, they are growing restless again, angry, dangerous. You had very little part in the last war, but the news fills you with a nameless dread. Somehow this is her fault. The escaped princess is taking revenge, not only on her stepmother but on all the realm of men and dwarrows. But you cannot escape the feeling that whatever evil task she has come to, she did not wholly want it, or why would she have caused so much delay, there in the woods? She had some secret.
+
+The Queen sickens, and her famous beauty fades a little. She spends many hours closeted again with the mirror. Sometimes she even asks you to give her advice - though, of course, you have none of significance to offer. She seems to know that the princess must be alive, though she does not charge you with betrayal. The silence between you is full of secrets not spoken or even admitted in thought. Around you she wears her hair immodestly unbound, and does not cinch her robe, and though she knows she is torturing you a little, no one says anything about it. Even the servants do not find it strange.
+
+And so for most of the spring she stands in her tower looking down in thought, as the orchards fill with apple blossom.
+
+
+
+    *** You survive - for the time being. ***
+
+
+
+Would you like to RESTART, RESTORE a saved game, QUIT, or review the ENDINGS you've seen so far?
+> 

@@ -17,17 +17,18 @@ match_max 100000
 expect "hours."; send "\r"
 
 #
-# Ending #1.
-# You return with Snow White in chains to the castle without having accomplished anything much.
+# Ending #3.
+# You free Snow White and return without the heart.
 #
-expect ">"; send "wait\r"
-expect ">"; send "ask haven\r"
+expect ">"; send "z\r"
+expect ">"; send "a haven\r"
 expect ">"; send "no\r"
 expect ">"; send "no\r"
-expect ">"; send "ask where\r"
-expect ">"; send "south\r"
-expect ">"; send "south\r"
-expect ">>"; send "no\r"
+expect ">"; send "a where\r"
+expect ">"; send "s\r"
+expect ">"; send "s\r"
+expect ">>"; send "yes\r"
+expect "continue."; send " \r"
 
 # Quit
 expect ">"; send "quit\r"

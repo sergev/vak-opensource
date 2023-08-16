@@ -1,0 +1,62 @@
+#!/usr/bin/expect -f
+#
+# Play game Alabaster.
+#
+# Based on https://ifarchive.org/if-archive/solutions/Alabaster_walkthroughs.pdf
+#
+set timeout -1
+
+# Remove previous log, if any.
+system rm -f "game.log"
+log_file "game.log"
+
+# Start the game.
+spawn ./glulxe Alabaster.gblorb
+match_max 100000
+
+expect "hours."; send "\r"
+
+#
+# Ending #10.
+# You find out about how to put Happy in the mirror; remove Lilith, then
+# collect the ashes and return to the Queen without Snow White.
+#
+expect ">"; send "cut hart\r"
+expect ">"; send "ask Snow White about what she was doing\r"
+expect ">"; send "wake hart\r"
+expect ">"; send "ask why\r"
+expect ">"; send "no\r"
+expect ">"; send "z\r"
+expect ">"; send "smile\r"
+expect ">"; send "a how\r"
+expect ">"; send "a cosmic\r"
+expect ">"; send "yes\r"
+expect ">"; send "yes\r"
+expect ">"; send "yes\r"
+expect ">"; send "a mirror\r"
+expect ">"; send "g\r"
+expect ">"; send "g\r"
+expect ">"; send "yes\r"
+expect ">"; send "yes\r"
+expect ">"; send "a snow white vampire\r"
+expect ">"; send "yes\r"
+expect ">"; send "ask what will happen\r"
+expect ">"; send "z\r"
+expect ">"; send "z\r"
+expect ">"; send "z\r"
+expect ">"; send "z\r"
+expect ">"; send "put heart in box\r"
+expect ">"; send "burn box\r"
+expect ">"; send "get ashes\r"
+expect ">"; send "s\r"
+expect ">"; send "a haven\r"
+expect ">"; send "s\r"
+expect ">"; send "s\r"
+expect ">>"; send "yes\r"
+expect "continue."; send " \r"
+expect "continue."; send " \r"
+
+# Quit
+expect ">"; send "quit\r"
+puts ""
+exit

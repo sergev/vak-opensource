@@ -1,0 +1,367 @@
+spawn ./glulxe Alabaster.gblorb
+Welcome to the Cheap Glk Implementation, library version 1.0.6.
+
+
+
+
+It is the bitterest night you can remember since the dwarrows last marched against men. The sky is too cold, the village too still. There is smoke in the air but no voices from the doorways. The Queen's light burns in the tower window behind you. She is watching, as far as she can.
+
+You and the girl move through the narrow lanes without speaking, past the muted inns and shuttered bakeries, until you reach the narrowing path beyond the churchyard.
+
+Pass in silence the graves of veterans and goodwives, and then at the outskirts the graves of suicides, which are granted no markers. Come to the place where the village ends and the trees begin to grow.
+
+Enter the forest like two spies, one sent to kill the other.
+
+Walk for hours.
+
+
+Alabaster
+An Interactive Experiment by John Cater, Rob Dubbin, Eric Eve, Elizabeth Heller, Jayzee, Kazuki Mishima, Sarah Morayati, Mark Musante, Emily Short, Adam Thornton, and Ziv Wities
+Illustrations by Daniel Allington-Krzysztofiak
+Release 3 / Serial number 090609 / Inform 7 build 5Z71 (I6/v6.31 lib 6/12N) 
+
+Dark Woods
+It is a moonless night. The lantern light does not reach far. You are seldom frightened in these woods, but tonight is unusual.
+
+Snow White is with you. Her wrists are bound behind her back. She has made as much of a nuisance of herself as she could, deliberately stumbling over every root in the dark, until you had to half-carry her this far.
+
+Earlier, you killed a hart and left it here. It was a preparation: you didn't want to have to hunt such an animal in the darkness.
+
+Now, you can't help wondering whether you should have spared the noble beast.
+
+> cut hart
+You slice the heart out of the dead animal. It is cold now, just like any ordinary sort of meat.
+
+She goes awkwardly over to the corpse and goes to one knee beside it. "Thank you," she whispers - to it, not to you. Then she leans down and- what, exactly? You can't see. Maybe she kisses it. Maybe she licks its blood. Maybe neither.
+
+When she's done she struggles back to her feet and looks at you defiantly.
+
+Of course you could ask what she was doing, but who is to say that she would answer?
+
+> ask Snow White about what she was doing
+"What was that?" you ask. "What did you do to the hart?"
+
+"It died for my sake; I repaid a little of the debt." Her lips look dark, almost black.
+
+> wake hart
+You wait for Snow White to become tired of glaring at you and after a few moments she obliges, turning toward a scurrying sound in the underbrush with a hungry glint in her eye.
+
+Seizing the opportunity, you kneel before the heartless hart and ask, "Hello?"
+
+Several things happen at once. Firstly, Snow White whirls toward you, her face livid. "YOU CAN'T -"
+
+But before she can finish her sentence, in point of fact as she's starting it, the once-dark forest flashes with frantic, ice-blue energy, the air fills with a steady, ethereal hum, and you see the pallid princess lifted before you, suspended in the thick, vibrating air, her rage caught in her throat.
+
+The immediate impulse is to taunt your suddenly riposte-incapable companion, but petty vengeance quickly dissolves in the face of a final sudden development.
+
+Namely, the hart - which now stands proudly upright, its eyes and empty chest cavity glowing an incongruous silver.
+
+It has what can only be described as a wry expression on its face. "I suppose I should begin by thanking you."
+
+You might ask why he thanks you, say that he's welcome, or ask what his name is.
+
+> ask why
+You've hunted and bested many harts through the years, but this is the first to comment on the exchange afterward. Awestruck, you manage to stammer "Th-thanking me?"
+
+The decomposing hart corpse glances into the canyon that used to power its circulatory system. "You've been through a lot. Please forgive my sarcasm."
+
+The decomposing hart corpse peers at you sardonically. "Before we go any further, is there anything else you'd like to carve out of what's left of my body?"
+
+> no
+"No," you reply sheepishly.
+
+"Very well," says the hart corpse, "then let us get down to business."
+
+The woods are eerily silent. "I will tell you exactly what just happened, and indeed provide enough information to turn the tables on your know-it-all prisoner over there, if you agree to my terms."
+
+> z
+No time passes at all.
+
+As though to add to the disturbing qualities of the moment, the hart gives you something that might be intended as a reassuring smile.
+
+> smile
+You try smiling back, but it doesn't feel at all sincere.
+
+The hart corpse paws the ground innocently. "It's very simple, really. I want my heart back."
+
+It's hard to imagine how that would be possible.
+
+> a how
+For what you realize is, incredibly, the first time, you feel disgusted. "Back... in there?" you ask, gesturing at the decomposing hart corpse's glowing rib cage.
+
+The hart corpse rears upward, clattering back to the ground with enough force to jar a few loose gobbets from its body cavity. "Don't be grotesque. I mean that I want it back in a more cosmic sense."
+
+Which raises the obvious question of what he means by "cosmic".
+
+> a cosmic
+"What exactly do you mean, 'in a more cosmic sense?'" You can't believe you're negotiating with a decomposing hart corpse.
+
+The hart blinks, heedless of the fact that silver light continues to escape from its torn left eyelid. "Unfortunately, I can't answer that question without revealing too much of my hand, such as it is. I am proposing you a pact. Do you say yes or do you say no?"
+
+> yes
+You figure there's no harm in collecting pacts. "I accept," you intone solemnly.
+
+The decomposing hart corpse clatters excitedly, and its silver glow momentarily surges while the urgent blue prison surrounding Snow White flickers and dulls. "Excellent. It is done. I believe you are in possession of a small wooden box?"
+
+> yes
+"Yes, I have such a box," you admit.
+
+"Very well," says the undead hart, "Then you must burn the box with my heart inside, and scatter the ashes round this spot."
+
+The light from your lantern casts an unusually steady glow over the scene. "Only that way can I be made whole - and set free," he tells you, "So, will you do that for me?"
+
+> yes
+"Very well, if that is what you wish," you agree.
+
+"Good," the hart replies, "And in return, I will aid you against your prisoner. But do not delay, the deed must be done 'ere the night is o'er."
+
+You are less cold than you were earlier.
+
+"I should have introduced myself. The name's Happy Blue, professional juggler and itinerant dwarf-about-town," declares the hart corpse proudly, crooking a fractured forelimb and dipping its matted shoulder in salute.
+
+
+
+You could now ask where its name came from or ask whether he was a servant of Snow White.
+
+> a mirror
+"Is the Queen a danger to me?"
+
+"You know she is," Happy responds. "She is a witch - and that magic mirror is dreadfully powerful. She made that, you know - placed the soul of one of her waiting women into it, and now she goes on listening to the lady's insane bitter advice. Things might have gone better if she'd got some good soul into the mirror instead... but it was to be expected, when all that she does, she does with the help of demons."
+
+
+
+You might ask where its name came from, ask whether he was a servant of Snow White, or ask what would happen if the mirror contained a better soul.
+
+> g
+"What would happen if the mirror contained a good soul?"
+
+"Its advice would be better; its view of the world would be less warped. The waiting woman trapped there now... well, she's always thought of people as her enemies. Everything anyone does, she views through a distortion of jealousy and contempt. I doubt the Queen herself understands how much she's been changed by looking into that mirror so often."
+
+
+
+You could now ask whether a good soul could be put into the mirror.
+
+> g
+"Would it be possible to... repair the mirror?" you suggest. You only half understand these matters, but he might. "Could we put a different soul into it?"
+
+A keen light comes into his eyes. "For instance, mine?" he suggests.
+
+
+
+> yes
+"Certainly - why not? Your life was cut short, and this body does not suit you..."
+
+"It could be done," he says. "Best to do it without the Queen's knowledge, though." He stamps his back leg, relishing the idea of tricking the Queen. "Burn the box as we agreed, so that I am free of this hart, but then return to the castle with the ashes. The Queen will go before the mirror to consult about whether the ashes you brought are truly the ashes of Snow White's heart. And then I believe I could perform the exchange... but it must be quickly done, before I fade from this world and into the next."
+
+
+
+> yes
+"I will do it." It could hardly make matters worse, after all.
+
+His eyes gleam in triumph. He bows his antlers.
+
+The woods are eerily silent. "Now our pact is made, you may ask me whatever you like in exchange. Those who have died have access to all knowledge, and you look as though you could use some."
+
+
+
+> a snow white vampire
+"Tell me, then: is Snow White a vampire?"
+
+Happy pauses. "Knowing the answer to that question is going to change things for you, huntsman. Snow White cannot know that you've learned what you are about to learn. Are you sure you want to know the answer to that question?"
+
+
+
+> yes
+You steel yourself, certain that you will be better off with this knowledge than without it. "Yes, I'm sure. Tell me the truth."
+
+He blinks. "Yes, of course she's a vampire. A deuced dangerous one, as a matter of fact. I'd avoid any further mention of her condition if I were you - she'll be able to discern the surety behind your question in an instant."
+
+
+
+You could ask what will happen if she knows you know she's a vampire.
+
+> ask what will happen
+"And if she does... discern the surety?" You repeat the corpse's words back to him, unwilling even to picture the scenario.
+
+"Well, you know how vampires are. They anger easily and don't like to leave much behind. Since I got here I've heard all kinds of tales. There was Count Anthrax, a horribly cursed being who enjoyed puncturing his victims' arms slowly, because for him it was less about drinking the blood than it was about witnessing the transition. Oh, and there was this one vampire who possessed the body of a vagrant, actually not too far from here, who would sneak into open windows at night and nibble the feet of infants, because he liked the way they would turn against their parents the next morning, and suddenly there would be a whole family of vampires. Then there was -"
+
+
+
+You want to tell him to stop it.
+
+> z
+No time passes at all.
+
+"- Don't eat my ears! I need those! But the vampire ate them anyway. And you haven't lived until you've seen the spirit imprint of a canine vampire attack. I swear to you, huntsman, it's like nothing I've ever seen. Mauled Beyond Recognition is an understatement."
+
+
+
+You can say seriously please stop telling me these things.
+
+> z
+No time passes at all.
+
+"They say that if the vampires become common in the area, all the animals of the forest turn vampire as well, and devour any traveler fool enough to pass through. Only their dried white corpses are found afterward, all twisted and wrung-out."
+
+
+
+> z
+No time passes at all.
+
+The silver glow surrounding the hart begins to fade. "Alas, I can stay no longer," he tells you, "Farewell - and beware!"
+
+He sinks to the ground, a final sigh escaping his decaying throat, "Do not delay - box - heart - burn."
+
+Then the glow is gone, and the hart is still once more, with nothing to show he ever moved..
+
+
+
+Snow White returns to earth. She looks around her, blinking: she seems a little confused. Perhaps she does not remember you speaking to the hart.
+
+> z
+A bat flits into the lamplight and just as quickly out of it.
+
+> put heart in box
+(the hart's heart in the heart-sized box)
+The lid is stiff on its hinges, but you get it open with a little effort. You tuck in the heart.
+
+Snow White watches the way a child watches fresh cakes being taken from the oven.
+
+> burn box
+(with the lantern)
+The box begins to smoulder, and then to burn. 
+
+As the heart within catches fire, it emits clouds of foul-smelling fumes, causing you to choke. But their effect on Snow White is even more dramatic: she tries to back away, but seemingly loses control of her limbs, flailing around like one demented.
+
+Suddenly, she lets out a loud scream that pierces the night like a screech of a thousand owls. A moment later a small cloud of black, oily smoke boils out of her mouth, and then dissipates into the fumes of the burning heart.
+
+For a moment Snow White looks on the point of fainting, then she recovers herself, swaying on her feet and staring around her like someone just woken from a long sleep. She staggers towards you and then falls sobbing into your arms, a lost, frightened girl. Instinctively, you wrap your arms protectively around her. "It's all right, now," you assure her.
+
+"Lilith is gone," she says. "I'm free."
+
+
+
+> get ashes
+You scoop up a grubby handful of ashes.
+
+"Let us go," she says. "It is growing cold here."
+
+
+
+> s
+She hasn't ever told you the exact direction to the safe haven: before you go on from here, you should get directions. And then, of course, you'll have to be sure whether you want to take her there...
+
+
+
+> a haven
+"Where is your safe haven?" you ask. "You never told me."
+
+"North," she says numbly. "We- I put it to the north, among the dwarrows. That might not have been the wisest choice, but she seemed to know how to control them. It was easy for her to make them do her bidding."
+
+You could now ask how Lilith manipulated the dwarrows.
+
+> s
+If you go on from here, it should be to Snow White's haven - the tiny house she has had fitted, and the servants she hired, and the sealed coffin-bed that she had made for herself (for protection, she said, from the vision of the mirror). And that lies to the north, she says.
+
+It would be dangerous to return to the castle while Snow White is still with you.
+
+You might ask how Lilith manipulated the dwarrows.
+
+> s
+If you are really going to leave, you will have to decide: do you set Snow White free? If not, she will have to come back with you, still chained, to face the Queen again. >>yes
+You take off the chain, and it vanishes as soon as it is removed. No ordinary silver, that.
+
+"You'd better go ahead," you say. "You're free now; you should be able to find your way to the haven you prepared. I must return to the Queen, and as quickly as possible: there is something more I must accomplish, for the good of the kingdom."
+
+"But -"
+
+"I'll come back for you, if I can - if things become safe," you say. You can only hope that Happy's prediction was correct and that he will be able to possess the mirror and use it to neutralize the Queen's evil influence.
+
+"Now go!" You give her a little push in the small of her back. "Remember whatever it was you did while Lilith possessed you, and use that knowledge to save yourself. And I will do likewise."
+
+You turn and begin walking quickly back in the direction of the palace; already rehearsing in your mind what you will say to account for the absence of the box.
+
+
+Please press SPACE to continue.
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Your interview with the Queen is a difficult one - you are not a practiced liar. Even more terrible is the interlude afterward, when she has you put under guard for the time being, and takes the handful of ashes you brought back... and disappears with them into her own chamber. The shrieking conversation of the mirror is audible but incomprehensible from several rooms away.
+
+And then, abruptly, it goes silent. When it begins again, it is in a different key: Happy's voice mimicking the voice of the errant serving woman. The change is so obvious to you even at a distance that you imagine the game must be up. Surely the Queen realizes?
+
+But she does not emerge from her room for the rest of the day; nor for the next. It is only on the third day that she is seen in the halls again. She is pale, her voice unsteady, and yet it is like someone whose fever is broken. Her eyes do not look glassy.
+
+She bathes only in cold water, and eats only fresh fruit. These changes are reported among the servants.
+
+
+Please press SPACE to continue.
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+It is not until nearly three weeks have elapsed that she remembers you. She comes to your guarded room one afternoon, and asks you to tell her the true story of what happened in the forest. And you oblige - extraordinary as the story is.
+
+"I feared it would not deceive you," you say at the end.
+
+The Queen lays down the core of the apple she was eating, and looks at you. "I was not deceived." She closes her eyes and frowns. "No: let's say, I chose to permit myself to be deceived. The whole world had gone rotten and sickly, as the mirror showed it to me. I could scarcely bear to look into it; I could not look away."
+
+Her eyes open and you see some glimmer of the old Queen behind them. "Nonetheless," she says, "I could go back to what I was. It needs only to blood the mirror once more. The task is not difficult."
+
+She puts her hand over yours: the first physical contact you have ever had. Her hair is loose around her face and she is sleepy-eyed and you want what you should not want. She knows, of course.
+
+"Don't mistake: this now is only an idyll of sanity. The other mood will come again. If you are loyal," she says, "you will fetch home the King; and quickly."
+
+But this - this proves to be very difficult, for he is nowhere to be found. And day by day her sanity ebbs.
+
+
+
+    *** Time is slipping away from you ***
+
+
+
+Would you like to RESTART, RESTORE a saved game, QUIT, or review the ENDINGS you've seen so far?
+> 
