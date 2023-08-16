@@ -1,0 +1,308 @@
+spawn ./glulxe Alabaster.gblorb
+Welcome to the Cheap Glk Implementation, library version 1.0.6.
+
+
+
+
+It is the bitterest night you can remember since the dwarrows last marched against men. The sky is too cold, the village too still. There is smoke in the air but no voices from the doorways. The Queen's light burns in the tower window behind you. She is watching, as far as she can.
+
+You and the girl move through the narrow lanes without speaking, past the muted inns and shuttered bakeries, until you reach the narrowing path beyond the churchyard.
+
+Pass in silence the graves of veterans and goodwives, and then at the outskirts the graves of suicides, which are granted no markers. Come to the place where the village ends and the trees begin to grow.
+
+Enter the forest like two spies, one sent to kill the other.
+
+Walk for hours.
+
+
+Alabaster
+An Interactive Experiment by John Cater, Rob Dubbin, Eric Eve, Elizabeth Heller, Jayzee, Kazuki Mishima, Sarah Morayati, Mark Musante, Emily Short, Adam Thornton, and Ziv Wities
+Illustrations by Daniel Allington-Krzysztofiak
+Release 3 / Serial number 090609 / Inform 7 build 5Z71 (I6/v6.31 lib 6/12N) 
+
+Dark Woods
+It is a moonless night. The lantern light does not reach far. You are seldom frightened in these woods, but tonight is unusual.
+
+Snow White is with you. Her wrists are bound behind her back. She has made as much of a nuisance of herself as she could, deliberately stumbling over every root in the dark, until you had to half-carry her this far.
+
+Earlier, you killed a hart and left it here. It was a preparation: you didn't want to have to hunt such an animal in the darkness.
+
+Now, you can't help wondering whether you should have spared the noble beast.
+
+> z
+Both of you are silent.
+
+She paces around to where she has the upper ground and can face you eye-to-eye - very much like her stepmother. "We had a deal," she says. "I have made a safe resting place. You promised to take me there if the Queen turned against me."
+
+
+
+Your instinct is to put her off. You consider explanations for your stop: say that the safe haven is too far away to reach tonight? explain that you must stop here to collect the hart's heart?
+
+> z
+It is getting colder.
+
+
+
+You consider explanations for your stop: say that the safe haven is too far away to reach tonight? explain that you must stop here to collect the hart's heart?
+
+> explain
+"We are stopping to collect the hart's heart. I cannot return to the Queen empty-handed." In fact you have some doubts as to whether this scheme will work. Surely the magic mirror will know that the heart is a fraud? But you could think of no better way. You will just have to take comfort in the fact that the mirror doesn't seem to know about anything that hasn't been reflected in its surface.
+
+She nods curtly.
+
+
+
+> t roots
+"I meant to mention earlier," you say, "you're going to have to start doing your walking on your own, princess, and start watching where you're going. You may be willing to risk your own neck with this deliberate clumsiness, but I assure you, I'm not risking mine."
+
+Snow White gazes at you coldly. "I see. You think I'm being difficult on purpose.
+
+"It didn't occur to you that the Queen might have wounded me, or wearied me with her spells. Nor have you considered that a palace girl with her hands bound might have difficulty making her way through the forest at night. No; it's quite clear that I'm intentionally delaying, risking my only chance to escape, isn't it now.
+
+"Be honest now, huntsman: which of these sounds most likely to you?"
+
+
+
+It galls you to admit to yourself, but it is possible that the Queen hurt her or that she is having understandable trouble walking (though you could ask). You'd prefer to assume she is delaying on purpose.
+
+> say she is delaying
+"The last one," you say darkly. "I'll be damned if I know why, but you're deliberately slowing us down every step of the way."
+
+For the first time, she smiles. Her eyes glitter in the lamplight. "Correct," she says. "You are learning, woodsman. I do nothing that is not deliberate, mark my words."
+
+
+
+> ask her about delay
+"Am I permitted to know, princess, why it is you're so carefully tripping over roots instead of fleeing for your life?"
+
+She considers before speaking. Then, "I am searching for something," she says, "which is as necessary to my safety as reaching my haven. I'd hoped, though, to make my find far earlier, before you noticed."
+
+She muses for a moment. "I should not tell you. But you would hardly let me stay silent, would you?"
+
+
+
+> no
+"No, I wouldn't. I'd be a fool to, and well you know it."
+
+"Fair enough. Since we have no bond, though, I cannot tell you directly. A riddle, then:
+
+"Red and sweet - the perfect meal;
+Sustenance with such appeal
+With a bite release its charm
+Thus shall ye be safe from harm
+Lilith had none, yet her man
+Could not share his - no one can."
+
+
+
+Tempting to refuse to guess.
+
+> a lilith
+"Who was Lilith?"
+
+"You don't care to guess the answer to my riddle, then?" 
+
+"Not now," you reply.
+
+"Lilith," she repeats, sing-song. "The first wife of Adam, before the milkmaid Eve came to the garden. She was formed from fire as Adam was formed from earth: she was his equal, and said so, and so he cast her out."
+
+
+
+> a adam
+"Why did you mention Adam?"
+
+"All men are like Adam." She looks you over, then adds, "...though some less than others."
+
+
+
+> t apple
+"Is the answer to your riddle an apple? If so, you have the wrong sort of woods - the trees here are pine and aspen."
+
+"You answer right, and yet you don't understand." Her expression, dimly seen in the lantern light, is almost frustrated, as though there is something she wishes to tell you, but cannot.
+
+
+
+But it's not clear how an apple would help her.
+
+> a apple
+"What good would an apple do you?" It seems more and more that you are humoring the mad.
+
+"It is the food of mortals," she says. (Wistfully, you might think.) "Those who eat, die; those who die, live beforehand."
+
+
+
+> a mortals
+"And you are immortal?"
+
+"Partly." She walks away from you, around a tree, out of sight, and then circles back into view. "It grows tiring. Under the proper conditions, I would change my situation."
+
+You are still.
+
+"Perhaps we should begin with the Queen. Her magic is to blame for all our situations."
+
+
+
+You could ask if she is a witch, ask whether the Queen herself made the magic mirror, or ask if the Queen is a witch.
+
+> a if queen is a witch
+"Is the Queen a witch?" you ask.
+
+"She may fancy herself as one," Snow White sneers. "In truth she dabbles with powers she does not comprehend."
+
+
+
+You might ask what powers the Queen dabbles with.
+
+> ask what powers
+"What are these powers the Queen dabbles with?" you want to know.
+
+She gives you a pitying look that sends ice down your spine. "Even for a huntsman your ignorance is remarkable. All sorcery involves the manipulation of demons. I thought everyone knew that."
+
+
+
+You can ask if the Queen is possessed or ask what demons the Queen invoked.
+
+> a demons
+What would you like to discuss: if the Queen is possessed or what demons the Queen invoked?
+
+> a queen is possessed
+"Is the Queen demon-possessed?" you ask.
+
+You brace as Snow White inflicts another smile upon you. "No, she managed to avoid that."
+
+
+
+You can ask how the Queen avoided possession or ask what demons the Queen invoked.
+
+> ask how
+"How did the Queen avoid possession?" you inquire.
+
+"By making a bargain with the demon that wishes to possess her, of course," she replies.
+
+
+
+You could now ask what bargain the Queen made.
+
+> ask what bargain
+"What manner of bargain did the Queen make to avoid possession?" you ask.
+
+"She provided another victim," she shrugs.
+
+
+
+The conversation could turn to the Queen, witchcraft, the deal, or the demons.
+
+> ask what demons
+"So, what demons did the Queen try to invoke for her witchcraft?" you ask.
+
+"The Queen called on Lilith," she tells you, "She wanted great beauty, and foolishly thought Lilith could endow it."
+
+
+
+You could ask whether Lilith made the Queen beautiful.
+
+> a lilith
+"And did Lilith make the Queen more beautiful?" you wonder.
+
+"No, it didn't work like that," Snow White tells you. "The Queen was unwilling to pay the price demanded. Besides, as well you know the Queen has beauty enough already. So they came to another arrangement - hindering the competition, you could say."
+
+
+
+You could now ask where Lilith is now.
+
+> ask where lilith is now
+"So where is Lilith now?" you ask.
+
+She purses her lips, as if pondering a deeply puzzling question. "I can't imagine," she finally replies, "It's not as if the Queen would tell me such things."
+
+
+
+You might ask whether Lilith likes drinking blood.
+
+> ask whether lilith likes
+"Does Lilith like drinking blood?" you ask.
+
+"Whatever gave you that idea?" she demands sharply. "Lilith is a night-demon; why should you suppose she's a vampire?"
+
+
+
+Certainly it would explain a few things.
+
+> t explain
+"It would explain a few things, like other acts of vampirism I suspect," you tell her.
+
+"I see," she replies, "You think I am Lilith - is that it?"
+
+
+
+> yes
+"Yes, that's precisely what I think," you declare, "Come out of her, Lilith! Leave poor Snow White alone!"
+
+Snow White gives a chilling laugh. "If I were Lilith you'd have to do better than that, hunter! So you'd better pray that I'm not." Something - not her words alone, nor just her tone of voice, nor even the cold glare in her eye, but perhaps all three taken together - convinces you that you have hit upon the truth.
+
+You can ask what Lilith wants, ask whether Snow White wishes to be rid of Lilith, or ask whether Lilith wishes to remain in Snow White.
+
+> ask what lilith wants
+"What do you - Lilith - want?"
+
+"I kill boy-children: did you know? I suck out their lives and leave them to die. It is punishment for all the children of my own that Adam stole from me, when he cast me out of Eden, when he rejected me and sent me away."
+
+But it does not seem to you that you have heard what she wants.
+
+> ask what lilith wants
+"But is that what you want?"
+
+She looks up at you and her eyes are filled with grief beyond tears. "I want Adam," she says. "And he wanted me. When he had Eve, that docile witless blonde, he saw the bargain he had made and he wanted to take it back, and at night it was my body he dreamed and my name he called. But it was too late. And I was cast out into the storm and the desert and I had no equal on earth." 
+
+> a adam
+"Forgive me, but surely Adam is long dead."
+
+She bows her head and her dark hair hides her cheek like a curtain of silk. There is a strange, horrible sound, like a wounded animal or the wail of rising wind. It does not come from her mouth: rather, she summoned it out of the woods. But it is no less a scream of grief for all that. 
+
+"Yes, he is dead," she says. "For he was made mortal, but I was not. That was his punishment and also mine. God -" She says the name in syllables you have not heard before but you know whose name it is- "God is very efficient in his methods. 
+
+"But to what purpose did he make me? I have been a plague to men for generations, and for generations a giver of dangerous gifts. That is how the Queen knew me, and how she used me: merely a demon, a power for her witchcraft, to make her more beautiful than anyone else."
+
+You edge a little further away from her. "You ask what I want," she says slowly. "I want what Adam should have been, if he had chosen differently. I want a man who is my match, who is clever and private and wise; one who likes the wasteland and the night-time and the open sea rather than the daylight crowd of Eve's feckless brood. With such a man, I would be mortal, live my days, and die, not cursed but reconciled."
+
+You yourself prefer the wasteland and the open places.
+
+> t me
+"I prefer the wasteland and the night-time."
+
+Speaking this is like the moment a bit of metal, coming too close to a lodestone, snaps to its side.
+
+She is no less terrifying, and yet you know her as clearly as you have ever known anyone. You also know yourself. You have no desires that you would need to hide from her; no secrets that she could not know; there is nothing in the beauty of the forest or in the joy of the bloody hunt that would shame you in her eyes. All the restlessness of your life, your failure to take a wife, your discomfort in company, your awkward otherness - all that is translated from disorder into function, as she sees it.
+
+She frowns, and her eyes search yours. "You are no one. An ordinary man."
+
+But only ordinary men now populate the earth.
+
+> yes
+"Perhaps Adam also feared you," you say. How strange that Lilith should appear to you vulnerable and dear. "He acted in that fear. I choose not to. If you would have accepted his choice of you, then accept mine: this is what I want."
+
+She considers you for a long time, as though she is rummaging in your thoughts and testing them for adequacy. "Clever and wise," she requested; can you live up to that? A demon with many thousand years' experience might be seeking more knowledge and wisdom than you can provide. 
+
+"Untie me," she says finally. "Let me let the princess' body go."
+
+> untie Snow White
+With trembling fingers you unwind the silver chain.
+
+She brings her hands around and chafes her wrists. "There is a pain between my shoulder blades as well," she remarks. "That is a cruel way to bind a person for long- but I suppose it will be Snow White's discomfort alone."
+
+Then she blurs, and steps beside herself, so that you are faced with two women. One is the princess (still beautiful but less fey, with roses in her cheeks and lips such as any girl might have). The other is Lilith of the nut brown hair, and her shadow-wings envelop her so that she is not precisely naked.
+
+Lilith turns (gracefully, as a flame is lithe) to the princess. "You will have to make the rest of the journey alone," she says, neither kindly nor unkindly.
+
+The princess nods. She looks numb with shock.
+
+Then Lilith holds out her hand to you. "Come with me," she says. "I have a cavern in the dunes on the far side of the world, and there we will rest and speak and consider; and after sunset the air will be so warm that we can lie outside unclothed. Then I will tell you all the names of the stars in that part of the sky, and how they used to look when creation was new."
+
+
+
+    *** You are Lilith's consort now. ***
+
+
+
+Would you like to RESTART, RESTORE a saved game, QUIT, or review the ENDINGS you've seen so far?
+> 

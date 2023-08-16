@@ -1,0 +1,148 @@
+spawn ./glulxe Alabaster.gblorb
+Welcome to the Cheap Glk Implementation, library version 1.0.6.
+
+
+
+
+It is the bitterest night you can remember since the dwarrows last marched against men. The sky is too cold, the village too still. There is smoke in the air but no voices from the doorways. The Queen's light burns in the tower window behind you. She is watching, as far as she can.
+
+You and the girl move through the narrow lanes without speaking, past the muted inns and shuttered bakeries, until you reach the narrowing path beyond the churchyard.
+
+Pass in silence the graves of veterans and goodwives, and then at the outskirts the graves of suicides, which are granted no markers. Come to the place where the village ends and the trees begin to grow.
+
+Enter the forest like two spies, one sent to kill the other.
+
+Walk for hours.
+
+
+Alabaster
+An Interactive Experiment by John Cater, Rob Dubbin, Eric Eve, Elizabeth Heller, Jayzee, Kazuki Mishima, Sarah Morayati, Mark Musante, Emily Short, Adam Thornton, and Ziv Wities
+Illustrations by Daniel Allington-Krzysztofiak
+Release 3 / Serial number 090609 / Inform 7 build 5Z71 (I6/v6.31 lib 6/12N) 
+
+Dark Woods
+It is a moonless night. The lantern light does not reach far. You are seldom frightened in these woods, but tonight is unusual.
+
+Snow White is with you. Her wrists are bound behind her back. She has made as much of a nuisance of herself as she could, deliberately stumbling over every root in the dark, until you had to half-carry her this far.
+
+Earlier, you killed a hart and left it here. It was a preparation: you didn't want to have to hunt such an animal in the darkness.
+
+Now, you can't help wondering whether you should have spared the noble beast.
+
+> z
+The branches nearby rustle.
+
+She takes a deep breath, just as her stepmother does when about to give a command. "We had a deal," she says. "I have made a safe resting place. You promised to take me there if the Queen turned against me."
+
+
+
+Your instinct is to put her off. You consider explanations for your stop: say that the safe haven is too far away to reach tonight? explain that you must stop here to collect the hart's heart?
+
+> a haven
+"It is too far away to reach tonight." The Queen sent you out long after midnight. There are probably only a few hours remaining before dawn.
+
+She shivers. "I suppose the Queen will expect you to return quickly." You do not say anything, which is a kind of answer. 
+
+She shifts her weight, breaking a twig.
+
+"Untie me, and I'll go on alone."
+
+
+
+> no
+"I don't mean to untie you quite yet. I don't know you won't bite."
+
+"I'm tired," she says. "My feet hurt. My wrists hurt. I am a third your size. Do you really think there is any harm I could do to you?"
+
+
+
+> no
+"Probably not." She is a small thing, after all. Delicate, like chicken bones. Funny how when you think of her you always think of blood and bones and dead parts of things.
+
+"I am not taking chances, all the same," you add.
+
+She grimaces. "The Queen must have been very persuasive."
+
+
+
+> a where
+"You told me before that the safe haven would take about an hour to reach, but you never said which way to go."
+
+"North. Safety is to the north, and the sooner we start, the better."
+
+> get heart
+You slice the heart out of the dead animal. It is cold now, just like any ordinary sort of meat.
+
+She goes awkwardly over to the corpse and goes to one knee beside it. "Thank you," she whispers - to it, not to you. Then she leans down and- what, exactly? You can't see. Maybe she kisses it. Maybe she licks its blood. Maybe neither.
+
+When she's done she struggles back to her feet and looks at you defiantly.
+
+Of course you could ask what she was doing, but who is to say that she would answer?
+
+> n
+You nudge Snow White onward, but you don't get two steps before she makes a show of falling over the roots yet again.
+
+"Ow!" She half-falls against a tree. When she rights herself, she gives you a look as though her clumsiness were your fault.
+
+Perhaps you could say to walk properly; or perhaps you should ask why she is trying to delay the escape.
+
+> n
+You could go on, take Snow White to safety, and return alone. But afterward, you will have to lie to the Queen - perhaps for the rest of your life. It is not something to undertake unless you are certain.
+
+But you will have to make a choice sooner or later. Perhaps now is the right time after all.
+
+It might be just a trick of the light, but it almost looks as though the hart moved.
+
+Of course you could ask what she did to the hart, but who is to say that she would answer?
+
+> n
+If you are really going to leave, you will have to decide: do you set Snow White free? If not, you'll be dragging her chained through the woods to the haven. >>no
+You harden your heart.
+
+"We go on," you say. "I'm going with you to your safe haven."
+
+She pouts and fusses some about being forced through the woods in the current circumstances, but there is not much that she can do about it. Presently (because what else can she do?) she gives you more precise directions to finding the cottage. It is well into the territory of the dwarrows, away from the land that your people inhabit: the paths are narrower, the turns sharper.
+
+
+Please press SPACE to continue.
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+When you arrive, she shouts for the dwarrows, and they boil out of their little cottage and across the silty river to meet you. They are small, but there are many more of them: they quickly get her away from you and take off the chain that ties her wrists.
+
+"Is he friend or foe?" they ask her. They are carrying axes and daggers and small brutal hammers.
+
+She puts a hand on the shoulder of one of them. In the improving light you can see the trace of blood, real blood, on her mouth - what did she do to the hart?
+
+She smiles nastily at you. "He hasn't decided," she says archly. "Let him live for a few days, at least, while he considers it."
+
+
+
+    *** Your position is rather precarious ***
+
+
+
+Would you like to RESTART, RESTORE a saved game, QUIT, or review the ENDINGS you've seen so far?
+> 

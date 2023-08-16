@@ -1,0 +1,57 @@
+#!/usr/bin/expect -f
+#
+# Play game Alabaster.
+#
+# Based on https://ifarchive.org/if-archive/solutions/Alabaster_walkthroughs.pdf
+#
+set timeout -1
+
+# Remove previous log, if any.
+system rm -f "game.log"
+log_file "game.log"
+
+# Start the game.
+spawn ./glulxe Alabaster.gblorb
+match_max 100000
+
+expect "hours."; send "\r"
+
+#
+# Ending #14.
+# Encounter Lilith and agree to be her consort.
+#
+expect ">"; send "z\r"
+expect ">"; send "z\r"
+expect ">"; send "explain\r"
+expect ">"; send "t roots\r"
+expect ">"; send "say she is delaying\r"
+expect ">"; send "ask her about delay\r"
+expect ">"; send "no\r"
+expect ">"; send "a lilith\r"
+expect ">"; send "a adam\r"
+expect ">"; send "t apple\r"
+expect ">"; send "a apple\r"
+expect ">"; send "a mortals\r"
+expect ">"; send "a if queen is a witch\r"
+expect ">"; send "ask what powers\r"
+expect ">"; send "a demons\r"
+expect ">"; send "a queen is possessed\r"
+expect ">"; send "ask how\r"
+expect ">"; send "ask what bargain\r"
+expect ">"; send "ask what demons\r"
+expect ">"; send "a lilith\r"
+expect ">"; send "ask where lilith is now\r"
+expect ">"; send "ask whether lilith likes\r"
+expect ">"; send "t explain\r"
+expect ">"; send "yes\r"
+expect ">"; send "ask what lilith wants\r"
+expect ">"; send "ask what lilith wants\r"
+expect ">"; send "a adam\r"
+expect ">"; send "t me\r"
+expect ">"; send "yes\r"
+expect ">"; send "untie Snow White\r"
+
+# Quit
+expect ">"; send "quit\r"
+puts ""
+exit

@@ -1,0 +1,39 @@
+#!/usr/bin/expect -f
+#
+# Play game Alabaster.
+#
+# Based on https://ifarchive.org/if-archive/solutions/Alabaster_walkthroughs.pdf
+#
+set timeout -1
+
+# Remove previous log, if any.
+system rm -f "game.log"
+log_file "game.log"
+
+# Start the game.
+spawn ./glulxe Alabaster.gblorb
+match_max 100000
+
+expect "hours."; send "\r"
+
+#
+# Ending #11.
+# Free Snow White and go with her before knowing much.
+#
+expect ">"; send "z\r"
+expect ">"; send "a haven\r"
+expect ">"; send "no\r"
+expect ">"; send "no\r"
+expect ">"; send "a where\r"
+expect ">"; send "get heart\r"
+expect ">"; send "n\r"
+expect ">"; send "n\r"
+expect ">"; send "n\r"
+expect ">>"; send "yes\r"
+expect "continue."; send " \r"
+expect "continue."; send " \r"
+
+# Quit
+expect ">"; send "quit\r"
+puts ""
+exit

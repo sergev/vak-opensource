@@ -4,8 +4,8 @@ About the game: https://ifdb.org/viewgame?id=b2g8je1xxtqzei4u
 
 Download and play the game:
 
-    $ wget https://ifarchive.org/if-archive/games/glulx/Alabaster.gblorb
-    $ frotz Alabaster.gblorb
+    wget https://ifarchive.org/if-archive/games/glulx/Alabaster.gblorb
+    glulxe Alabaster.gblorb
 
 Play online:
 

@@ -1,0 +1,56 @@
+#!/usr/bin/expect -f
+#
+# Play game Alabaster.
+#
+# Based on https://ifarchive.org/if-archive/solutions/Alabaster_walkthroughs.pdf
+#
+set timeout -1
+
+# Remove previous log, if any.
+system rm -f "game.log"
+log_file "game.log"
+
+# Start the game.
+spawn ./glulxe Alabaster.gblorb
+match_max 100000
+
+expect "hours."; send "\r"
+
+#
+# Ending #18.
+# Remove Lilith and then pester Snow White until she goes insane.
+#
+expect ">"; send "cut hart\r"
+expect ">"; send "ask Snow White about what she was doing\r"
+expect ">"; send "wake hart\r"
+expect ">"; send "ask why\r"
+expect ">"; send "no\r"
+expect ">"; send "z\r"
+expect ">"; send "smile\r"
+expect ">"; send "a how\r"
+expect ">"; send "a cosmic\r"
+expect ">"; send "yes\r"
+expect ">"; send "yes\r"
+expect ">"; send "yes\r"
+expect ">"; send "a name\r"
+expect ">"; send "a snow white\r"
+expect ">"; send "a whether snow white is a vampire\r"
+expect ">"; send "yes\r"
+expect ">"; send "z\r"
+expect ">"; send "no\r"
+expect ">"; send "z\r"
+expect ">"; send "put heart in the box\r"
+expect ">"; send "burn the box\r"
+expect ">"; send "a what lilith wanted\r"
+expect ">"; send "a why exorcism succeeded\r"
+expect ">"; send "a powers besides lilith\r"
+expect ">"; send "a box was for\r"
+expect ">"; send "a teeth\r"
+expect ">"; send "g\r"
+expect "Hungry."; send "\r"
+expect "screaming."; send "\r"
+
+# Quit
+expect ">"; send "quit\r"
+puts ""
+exit
