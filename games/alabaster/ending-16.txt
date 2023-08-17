@@ -58,14 +58,12 @@ Namely, the hart - which now stands proudly upright, its eyes and empty chest ca
 
 It has what can only be described as a wry expression on its face. "I suppose I should begin by thanking you."
 
-You could now ask why he thanks you, say that he's welcome, or ask what his name is.
+You might ask why he thanks you, say that he's welcome, or ask what his name is.
 
 > ask why
 You've hunted and bested many harts through the years, but this is the first to comment on the exchange afterward. Awestruck, you manage to stammer "Th-thanking me?"
 
 The decomposing hart corpse glances into the canyon that used to power its circulatory system. "You've been through a lot. Please forgive my sarcasm."
-
-Even the clouds seem to have stopped.
 
 The decomposing hart corpse peers at you sardonically. "Before we go any further, is there anything else you'd like to carve out of what's left of my body?"
 
@@ -74,9 +72,11 @@ The decomposing hart corpse peers at you sardonically. "Before we go any further
 
 "Very well," says the hart corpse, "then let us get down to business."
 
-No one speaks, though only the two of you experience any pause. "I will tell you exactly what just happened, and indeed provide enough information to turn the tables on your know-it-all prisoner over there, if you agree to my terms."
+You are less cold than you were earlier.
 
-> z
+"I will tell you exactly what just happened, and indeed provide enough information to turn the tables on your know-it-all prisoner over there, if you agree to my terms."
+
+> wait
 No time passes at all.
 
 As though to add to the disturbing qualities of the moment, the hart gives you something that might be intended as a reassuring smile.
@@ -88,14 +88,14 @@ The hart corpse paws the ground innocently. "It's very simple, really. I want my
 
 It's hard to imagine how that would be possible.
 
-> a how
+> ask how
 For what you realize is, incredibly, the first time, you feel disgusted. "Back... in there?" you ask, gesturing at the decomposing hart corpse's glowing rib cage.
 
 The hart corpse rears upward, clattering back to the ground with enough force to jar a few loose gobbets from its body cavity. "Don't be grotesque. I mean that I want it back in a more cosmic sense."
 
 Which raises the obvious question of what he means by "cosmic".
 
-> a cosmic
+> ask cosmic
 "What exactly do you mean, 'in a more cosmic sense?'" You can't believe you're negotiating with a decomposing hart corpse.
 
 The hart blinks, heedless of the fact that silver light continues to escape from its torn left eyelid. "Unfortunately, I can't answer that question without revealing too much of my hand, such as it is. I am proposing you a pact. Do you say yes or do you say no?"
@@ -110,27 +110,27 @@ The decomposing hart corpse clatters excitedly, and its silver glow momentarily 
 
 "Very well," says the undead hart, "Then you must burn the box with my heart inside, and scatter the ashes round this spot."
 
-Even the clouds seem to have stopped. "Only that way can I be made whole - and set free," he tells you, "So, will you do that for me?"
+The woods are eerily silent. "Only that way can I be made whole - and set free," he tells you, "So, will you do that for me?"
 
 > yes
 "Very well, if that is what you wish," you agree.
 
 "Good," the hart replies, "And in return, I will aid you against your prisoner. But do not delay, the deed must be done 'ere the night is o'er."
 
-The woods are eerily silent. "I should have introduced myself. The name's Happy Blue, professional juggler and itinerant dwarf-about-town," declares the hart corpse proudly, crooking a fractured forelimb and dipping its matted shoulder in salute.
+No one speaks, though only the two of you experience any pause. "I should have introduced myself. The name's Happy Blue, professional juggler and itinerant dwarf-about-town," declares the hart corpse proudly, crooking a fractured forelimb and dipping its matted shoulder in salute.
 
 
 
-You can ask where its name came from or ask whether he was a servant of Snow White.
+You might ask where its name came from or ask whether he was a servant of Snow White.
 
-> a king
+> ask king
 "Where is the King?" You lean towards him eagerly. "He vanished, but where did he go? Did the Queen kill him?"
 
 His laughter is sharp. "You are the King."
 
 You might request that he repeat himself.
 
-> a repeat
+> ask repeat
 "I'm sorry - what did you just say?"
 
 "This is fun," he says. "I could do this all day. I said that you are the King. Not that you'll find it easy to retain that information. Try to hold onto it, or it will slip out of your head again."
@@ -142,27 +142,27 @@ You could always ask what happened to you.
 
 "Probably has cousins in the village as well, considering the way his father and grandfather behaved while they were alive," says Happy dryly. "But you wouldn't remember."
 
-You are less cold than you were earlier. "You've been blood-sundered. It is a magic that unmakes families, destroys the connections between people, and in so doing yields great power that can be used for other purposes."
+The wind has dropped completely. "You've been blood-sundered. It is a magic that unmakes families, destroys the connections between people, and in so doing yields great power that can be used for other purposes."
 
-You could ask who performed the magic.
+You might ask who performed the magic.
 
-> a who performed
+> ask who performed
 "But - who would have done such a thing to me?
 
 "As King, you were not kind to the dwarrows," he says, his voice harder than you have heard ever before. "You provoked us. You gave plain preference to your own kind, allowing them to mistreat us, upsetting the balance that your father had - with great difficulty - established. There was suffering and war."
 
-You might ask how the current peace came about.
+You can ask how the current peace came about.
 
-> a current peace
+> ask current peace
 "I don't understand." This makes less and less sense as you go. "If I provoked the dwarrows - if I was such a bad King -" (and how could you have been the King at all?) "- then how is it that there is peace now?"
 
 "When you saw what you had done, you felt- you regretted it." He tilts his head at you. "You decided to create a peace. But that is very difficult work, and it is not the usual use of magic." He smirks, if an animal's face can be said to hold such an expression. "Demons arrange magic, and as a rule they prefer to do more harm than good. So you were forced to sacrifice yourself, your family, and lose your throne, and dwindle into no one. In exchange for this, we have had this- ragged sort of calm.
 
-The woods are eerily silent.
+The light from your lantern casts an unusually steady glow over the scene.
 
 "Don't mistake me," he adds. "A poor peace is better than none. I appreciate the gift - though I doubt that anyone else does. It cannot be known what you did, you see. So the dwarrows still hate your name."
 
-> z
+> wait
 No time passes at all.
 
 The silver glow surrounding the hart begins to fade. "Alas, I can stay no longer," he tells you, "Farewell - and beware!"
@@ -173,13 +173,13 @@ Then the glow is gone, and the hart is still once more, with nothing to show he 
 
 Snow White returns to earth. She looks around her, blinking: she seems a little confused. Perhaps she does not remember you speaking to the hart.
 
-> z
-You cannot be all night about this.
+> wait
+It is getting colder.
 
-> z
-A bat flits into the lamplight and just as quickly out of it.
+> wait
+You would be warmer if only you were still moving.
 
-> t roots
+> talk roots
 "I meant to mention earlier," you say, "you're going to have to start doing your walking on your own, your royal highness, and start watching where you're going. You may be willing to risk your own neck with this deliberate clumsiness, but I assure you, I'm not risking mine."
 
 Snow White gazes at you coldly. "I see. You think I'm being difficult on purpose.
@@ -193,10 +193,10 @@ It seems unlikely that the Queen hurt her or that a creature like her is having 
 > say she is delaying
 "The last one," you say darkly. "I'll be damned if I know why, but you're deliberately slowing us down every step of the way."
 
-For the first time, Snow White smiles. The expression is not encouraging; in fact, the temperature seems to dive and your lantern nearly extinguishes itself. "Correct," she says. "You are learning, man. I do nothing that is not deliberate, mark my words."
+For the first time, Snow White smiles. The expression is not encouraging; in fact, the temperature seems to dive and your lantern nearly extinguishes itself. "Correct," she says. "You are learning, huntsman. I do nothing that is not deliberate, mark my words."
 
 > ask her about delay
-"Am I permitted to know, princess, why it is you're so carefully tripping over roots instead of fleeing for your life?"
+"Am I permitted to know, your highness, why it is you're so carefully tripping over roots instead of fleeing for your life?"
 
 She considers before speaking. Then, "I am searching for something," she says, "which is as necessary to my safety as reaching my haven. I'd hoped, though, to make my find far earlier, before you noticed."
 
@@ -216,7 +216,7 @@ Could not share his - no one can."
 
 Tempting to refuse to guess.
 
-> a lilith
+> ask lilith
 "Who was Lilith?"
 
 "You don't care to guess the answer to my riddle, then?" 
@@ -225,35 +225,33 @@ Tempting to refuse to guess.
 
 "Lilith," she repeats, sing-song. "The first wife of Adam, before the milkmaid Eve came to the garden. She was formed from fire as Adam was formed from earth: she was his equal, and said so, and so he cast her out."
 
-> a adam
+> ask adam
 "Why did you mention Adam?"
 
 "All men are like Adam." She looks you over, then adds, "...though some less than others."
 
-> t apple
+> talk apple
 "Is the answer to your riddle an apple? If so, you have the wrong sort of woods - the trees here are pine and aspen."
 
 "You answer right, and yet you don't understand." Her expression, dimly seen in the lantern light, is almost frustrated, as though there is something she wishes to tell you, but cannot.
 
 But it's not clear how an apple would help her.
 
-> a apple
+> ask apple
 "What good would an apple do you?" It seems more and more that you are humoring the mad.
 
 "It is the food of mortals," she says. (Wistfully, you might think.) "Those who eat, die; those who die, live beforehand."
 
-> a mortals
+> ask mortals
 "And you are immortal?"
 
 "Partly." She walks away from you, around a tree, out of sight, and then circles back into view. "It grows tiring. Under the proper conditions, I would change my situation."
 
-You edge a little further away from her.
-
-"Perhaps we should begin with the Queen. Her magic is to blame for all our situations."
+You wait, out of reach. "Perhaps we should begin with the Queen. Her magic is to blame for all our situations."
 
 
 
-You could always ask if she is a witch, ask whether the Queen herself made the magic mirror, or ask if the Queen is a witch.
+You might ask if she is a witch, ask whether the Queen herself made the magic mirror, or ask if the Queen is a witch.
 
 > ask if the queen is a witch
 "Is the Queen a witch?" you ask.
@@ -262,7 +260,7 @@ You could always ask if she is a witch, ask whether the Queen herself made the m
 
 
 
-You could ask what powers the Queen dabbles with.
+You might ask what powers the Queen dabbles with.
 
 > ask what powers
 "What are these powers the Queen dabbles with?" you want to know.
@@ -271,7 +269,7 @@ She kicks with irritable energy at the base of the nearest aspen. "Even for a hu
 
 
 
-You could now ask if the Queen is possessed or ask what demons the Queen invoked.
+You could always ask if the Queen is possessed or ask what demons the Queen invoked.
 
 > ask what demons
 "So, what demons did the Queen try to invoke for her witchcraft?" you ask.
@@ -280,27 +278,27 @@ You could now ask if the Queen is possessed or ask what demons the Queen invoked
 
 
 
-You could ask if the Queen is possessed or ask whether Lilith made the Queen beautiful.
+You could now ask if the Queen is possessed or ask whether Lilith made the Queen beautiful.
 
-> a queen is possessed
+> ask queen is possessed
 "Is the Queen demon-possessed?" you ask.
 
 You brace as Snow White inflicts another smile upon you. "No, she managed to avoid that."
 
 
 
-You could always ask how the Queen avoided possession or ask whether Lilith made the Queen beautiful.
+You could ask how the Queen avoided possession or ask whether Lilith made the Queen beautiful.
 
-> a how
+> ask how
 "How did the Queen avoid possession?" you inquire.
 
 "By making a bargain with the demon that wishes to possess her, of course," she replies.
 
 
 
-You could now ask what bargain the Queen made.
+You can ask what bargain the Queen made.
 
-> a bargain
+> ask bargain
 "What manner of bargain did the Queen make to avoid possession?" you ask.
 
 "She provided another victim," she shrugs.
@@ -309,12 +307,12 @@ You could now ask what bargain the Queen made.
 
 The conversation could turn to the Queen, witchcraft, or the demons.
 
-> a victim
+> ask victim
 "Is that it?" you ask, with a flash of terrifying insight. "Are you possessed? Is that why you have developed this taste for blood, and why..."
 
 Snow White's glance suffices to silence your babbling, but the look she gives you convinces you that you have hit upon the truth of the matter. So that's where the demoness Lilith went.
 
-You might ask whether the Queen herself made the magic mirror or ask whether Lilith likes drinking blood.
+You could ask whether the Queen herself made the magic mirror or ask whether Lilith likes drinking blood.
 
 > ask what lilith wants
 "What do you - Lilith - want?"
@@ -323,19 +321,19 @@ You might ask whether the Queen herself made the magic mirror or ask whether Lil
 
 But it does not seem to you that you have heard what she wants.
 
-> g
+> again
 "But is that what you want?"
 
 She looks up at you and her eyes are filled with grief beyond tears. "I want Adam," she says. "And he wanted me. When he had Eve, that docile witless blonde, he saw the bargain he had made and he wanted to take it back, and at night it was my body he dreamed and my name he called. But it was too late. And I was cast out into the storm and the desert and I had no equal on earth." 
 
-> z
-The lantern flickers.
+> wait
+Your ears are growing numb.
 
 "You ask what I want," she says slowly. "I want what Adam should have been, if he had chosen differently. I want a man who is my match, who is clever and private and wise; one who likes the wasteland and the night-time and the open sea rather than the daylight crowd of Eve's feckless brood. With such a man, I would be mortal, live my days, and die, not cursed but reconciled."
 
 You yourself prefer the wasteland and the open places.
 
-> t me
+> talk me
 "I prefer the wasteland and the night-time."
 
 Speaking this is like the moment a bit of metal, coming too close to a lodestone, snaps to its side.
@@ -346,7 +344,7 @@ She frowns, and her eyes search yours. "You are no one. An ordinary man."
 
 But only ordinary men now populate the earth.
 
-> t king
+> talk king
 "I was once the King," you tell her. "I performed a blood-sundering in order to reconcile my kingdom with the dwarfs. The Queen's magic is nothing to that which I performed, but mine was an act of expiation."
 
 Her mouth opens. You have surprised Lilith.

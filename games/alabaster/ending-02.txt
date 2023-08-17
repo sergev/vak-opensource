@@ -44,21 +44,21 @@ The lid is stiff on its hinges, but you get it open with a little effort. You tu
 
 Snow White watches the way a child watches fresh cakes being taken from the oven.
 
-> z
-A breeze stirs the aspens, sending down a few more leaves.
+> wait
+The lantern flickers.
 
-She takes a deep breath, just as her stepmother does when about to give a command. "We had a deal," she says. "I have made a safe resting place. You promised to take me there if the Queen turned against me."
+She paces around to where she has the upper ground and can face you eye-to-eye - very much like her stepmother. "We had a deal," she says. "I have made a safe resting place. You promised to take me there if the Queen turned against me."
 
 
 
 Only one explanation comes to mind: you could say that the safe haven is too far away to reach tonight.
 
-> a haven
+> ask haven
 "It is too far away to reach tonight." The Queen sent you out long after midnight. There are probably only a few hours remaining before dawn.
 
 She shivers. "I suppose the Queen will expect you to return quickly." You do not say anything, which is a kind of answer. 
 
-Very little time passes.
+The lantern dims.
 
 "Untie me, and I'll go on alone."
 
@@ -80,23 +80,23 @@ She grimaces. "The Queen must have been very persuasive."
 
 
 
-> a where
+> ask where
 "You told me before that the safe haven would take about an hour to reach, but you never said which way to go."
 
 "North. Safety is to the north, and the sooner we start, the better."
 
-She squints up through the branches as though looking for stars; but of course none are visible. It might be just a trick of the light, but it almost looks as though the hart moved.
+Both of you are silent. It might be just a trick of the light, but it almost looks as though the hart moved.
 
 Of course you could ask what she did to the hart, but who is to say that she would answer?
 
-> s
+> south
 If you go on from here, it should be to Snow White's haven - the tiny house she has had fitted, and the servants she hired, and the sealed coffin-bed that she had made for herself (for protection, she said, from the vision of the mirror). And that lies to the north, she says.
 
 It would be dangerous to return to the castle while Snow White is still with you.
 
 Of course you could ask what she did to the hart, but who is to say that she would answer?
 
-> s
+> south
 If you are really going to leave, you will have to decide: do you set Snow White free? If not, she will have to come back with you, still chained, to face the Queen again. >>yes
 You take off the chain, and it vanishes as soon as it is removed. No ordinary silver, that.
 
