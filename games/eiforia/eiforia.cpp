@@ -1,11 +1,36 @@
-#include <conio.h>
-#include <dos.h>
+/*
+ *      █   █ ▄▀▀▀▄ █▀▀▀▄ ▄▀▀▀▄   ▄▀█ █▀▀▀█ █▀▀▀▄ ▄▀▀▀▄ ▀▀█▀▀ █▀▀▀▄ ▄▀▀▀▄
+ *      █ ▄▀  █   █ █   █ █   █ ▄▀  █ █     █   █ █   ▀   █   █   █ █   █
+ *      █▀▄   █   █ █▄▄▄▀ █   █ █   █ █▀▀   █▀▀▀▄ █       █   █▀▀▀▄ █   █
+ *      █  █  █   █ █     █   █ █   █ █     █   █ █   ▄   █   █   █ █   █
+ *      █   █ ▀▄▄▄▀ █     ▀▄▄▄▀ █   █ █▄▄▄█ █▄▄▄▀ ▀▄▄▄▀   █   █▄▄▄▀ ▀▄▄▄▀
+ *
+ *      ▄   ▄  ▄▄▄  ▄▄▄▄   ▄▄▄     ▄▄ ▄▄▄▄▄ ▄▄▄▄   ▄▄▄  ▄▄▄▄▄ ▄▄▄▄   ▄▄▄
+ *      █  ▄▀ █   █ █   █ █   █  ▄▀ █ █   ▀ █   █ █   █   █   █   █ █   █
+ *      █▄▀   █   █ █   █ █   █ █   █ █▄▄   █▄▄▄▀ █       █   █▄▄▄▀ █   █
+ *      █ ▀▄  █   █ █▀▀▀  █   █ █   █ █     █   █ █       █   █   █ █   █
+ *      █  ▀▄ █   █ █     █   █ █   █ █   ▄ █   █ █   █   █   █   █ █   █
+ *      ▀   ▀  ▀▀▀  ▀      ▀▀▀  ▀   ▀ ▀▀▀▀▀ ▀▀▀▀   ▀▀▀    ▀   ▀▀▀▀   ▀▀▀
+ *
+ *                      ▄
+ *            ▄▀▀▀▄  █     █ ▄▀▀█▀▀▄ ▄▀▀▀▀▀▄ █▀▀▀▀▀▄ █     █ ▄▀▀▀▀▀█
+ *           ▀     █ █   ▄██ █  █  █ █     █ █     █ █   ▄██ █     █
+ *              ▄▄▄█ █ ▄█▀ █ ▀▄▄█▄▄▀ █     █ █▄▄▄▄▄▀ █ ▄█▀ █ ▀▄▄▄▄▄█
+ *           ▄     █ ██▀   █    █    █     █ █       ██▀   █   ▄▀  █
+ *            ▀▄▄▄▀  █     █    █    ▀▄▄▄▄▄▀ █       █     █ ▄▀    █
+ *
+ *             ▄▄▄   ▄  ▀  ▄  ▄▄▄▄▄   ▄▄▄▄▄  ▄▄▄▄▄▄  ▄     ▄  ▄▄▄▄▄▄
+ *           ▄▀   ▀▄ █    ▄█ █  █  █ █     █ █     █ █    ▄█ █     █
+ *                 █ █  ▄█▀█ █  █  █ █     █ █     █ █  ▄█▀█ █     █
+ *              ▀▀▀█ █▄█▀  █  ▀▀█▀▀  █     █ █▀▀▀▀▀  █▄█▀  █  ▀▀█▀▀█
+ *           ▀▄   ▄▀ █▀    █    █    █     █ █       █▀    █  ▄▀   █
+ *             ▀▀▀   ▀     ▀    ▀     ▀▀▀▀▀  ▀       ▀     ▀ ▀     ▀
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-#include "help.h"
-#include "intro.h"
+#include <time.h>
+#include <conio.h>
 
 /* описание возможных ресурсов */
 /* и их начальные значения */
@@ -66,10 +91,8 @@ long fl_vis;     // флаг визиря
 long fl_mar_war; // флаг войны из-за отказа
 long fl_block;   // флаг экономичкеской блокады
 
-void intro();
 void prn_sost(long god);
 void new_game();
-void prn_rule();
 
 void beg_init()
 {
@@ -111,7 +134,7 @@ long menu(long c, const char *s, int x, int y)
     }
     for (i = 0; i < c; i++) {
         gotoxy(x, y + i);
-        printf("%i. %s.", i + 1, ss[i]);
+        printf("%d. %s.", i + 1, ss[i]);
     }
     do {
         ch = getch();
@@ -119,12 +142,226 @@ long menu(long c, const char *s, int x, int y)
     return ch - 48;
 }
 
+void randomize(void)
+{
+    srand(time(NULL));
+}
+
+unsigned random(unsigned limit)
+{
+    return rand() % limit;
+}
+
+void delay(unsigned msec)
+{
+    usleep(msec * 1000L);
+}
+
+void intro()
+{
+    char s[255];
+    int i, j;
+    textcolor(7);
+    clrscr();
+    for (i = -10; i < 12; i++) {
+        for (j = 0; j < (i + 1) / 2; j++) {
+            gotoxy(1, j + 1);
+            cprintf("                                                                        ");
+        }
+        if (i / 2 >= 0) {
+            gotoxy(1, (i) / 2 + 1);
+            if (i % 2 != 0) {
+                if (i > 0)
+                    gotoxy(1, (i) / 2 + 2);
+                printf("        █   █ ▄▀▀▀▄ █▀▀▀▄ ▄▀▀▀▄   ▄▀█ █▀▀▀█ █▀▀▀▄ ▄▀▀▀▄ ▀▀█▀▀ █▀▀▀▄ ▄▀▀▀▄");
+            } else
+                printf("        ▄   ▄  ▄▄▄  ▄▄▄▄   ▄▄▄     ▄▄ ▄▄▄▄▄ ▄▄▄▄   ▄▄▄  ▄▄▄▄▄ ▄▄▄▄   ▄▄▄ ");
+        }
+        if (i / 2 >= -1) {
+            gotoxy(1, (i) / 2 + 2);
+            if (i % 2 != 0) {
+                if (i > 0)
+                    gotoxy(1, (i) / 2 + 3);
+                printf("        █ ▄▀  █   █ █   █ █   █ ▄▀  █ █     █   █ █   ▀   █   █   █ █   █");
+            } else
+                printf("        █  ▄▀ █   █ █   █ █   █  ▄▀ █ █   ▀ █   █ █   █   █   █   █ █   █");
+        }
+        if (i / 2 >= -2) {
+            gotoxy(1, i / 2 + 3);
+            if (i % 2 != 0) {
+                if (i > 0)
+                    gotoxy(1, i / 2 + 4);
+                printf("        █▀▄   █   █ █▄▄▄▀ █   █ █   █ █▀▀   █▀▀▀▄ █       █   █▀▀▀▄ █   █");
+            } else
+                printf("        █▄▀   █   █ █   █ █   █ █   █ █▄▄   █▄▄▄▀ █       █   █▄▄▄▀ █   █");
+        }
+        if (i / 2 >= -3) {
+            gotoxy(1, i / 2 + 4);
+            if (i % 2 != 0) {
+                if (i > 0)
+                    gotoxy(1, i / 2 + 5);
+                printf("        █  █  █   █ █     █   █ █   █ █     █   █ █   ▄   █   █   █ █   █");
+            } else
+                printf("        █ ▀▄  █   █ █▀▀▀  █   █ █   █ █     █   █ █       █   █   █ █   █");
+        }
+        if (i / 2 >= -4) {
+            gotoxy(1, i / 2 + 5);
+            if (i % 2 != 0) {
+                if (i > 0)
+                    gotoxy(1, i / 2 + 6);
+                printf("        █   █ ▀▄▄▄▀ █     ▀▄▄▄▀ █   █ █▄▄▄█ █▄▄▄▀ ▀▄▄▄▀   █   █▄▄▄▀ ▀▄▄▄▀");
+            } else
+                printf("        █  ▀▄ █   █ █     █   █ █   █ █   ▄ █   █ █   █   █   █   █ █   █");
+        }
+        if (i / 2 >= -5) {
+            gotoxy(1, i / 2 + 6);
+            if (i % 2 != 0) {
+                if (i > 0)
+                    gotoxy(1, i / 2 + 7);
+                printf("                                                                         ");
+            } else
+                printf("        ▀   ▀  ▀▀▀  ▀      ▀▀▀  ▀   ▀ ▀▀▀▀▀ ▀▀▀▀   ▀▀▀    ▀   ▀▀▀▀   ▀▀▀ ");
+        }
+        delay(20);
+    }
+    for (i = 50; i > 24; i--) {
+        if (i / 2 <= 25) {
+            gotoxy(1, i / 2);
+            if (i % 2 == 0)
+                printf("                        ▄                                           ");
+            else
+                printf("                                                                    ");
+        }
+        if (i / 2 + 1 <= 25) {
+            gotoxy(1, i / 2 + 1);
+            if (i % 2 == 0)
+                printf("              ▄▀▀▀▄  █     █ ▄▀▀█▀▀▄ ▄▀▀▀▀▀▄ █▀▀▀▀▀▄ █     █ ▄▀▀▀▀▀█");
+            else
+                printf("               ▄▄▄   ▄  ▀  ▄  ▄▄▄▄▄   ▄▄▄▄▄  ▄▄▄▄▄▄  ▄     ▄  ▄▄▄▄▄▄");
+        }
+        if (i / 2 + 2 <= 25) {
+            gotoxy(1, i / 2 + 2);
+            if (i % 2 == 0)
+                printf("             ▀     █ █   ▄██ █  █  █ █     █ █     █ █   ▄██ █     █");
+            else
+                printf("             ▄▀   ▀▄ █    ▄█ █  █  █ █     █ █     █ █    ▄█ █     █");
+        }
+        if (i / 2 + 3 <= 25) {
+            gotoxy(1, i / 2 + 3);
+            if (i % 2 == 0)
+                printf("                ▄▄▄█ █ ▄█▀ █ ▀▄▄█▄▄▀ █     █ █▄▄▄▄▄▀ █ ▄█▀ █ ▀▄▄▄▄▄█");
+            else
+                printf("                   █ █  ▄█▀█ █  █  █ █     █ █     █ █  ▄█▀█ █     █");
+        }
+        if (i / 2 + 4 <= 25) {
+            gotoxy(1, i / 2 + 4);
+            if (i % 2 == 0)
+                printf("             ▄     █ ██▀   █    █    █     █ █       ██▀   █   ▄▀  █");
+            else
+                printf("                ▀▀▀█ █▄█▀  █  ▀▀█▀▀  █     █ █▀▀▀▀▀  █▄█▀  █  ▀▀█▀▀█");
+        }
+        if (i / 2 + 5 <= 25) {
+            gotoxy(1, i / 2 + 5);
+            if (i % 2 == 0)
+                printf("              ▀▄▄▄▀  █     █    █    ▀▄▄▄▄▄▀ █       █     █ ▄▀    █");
+            else
+                printf("             ▀▄   ▄▀ █▀    █    █    █     █ █       █▀    █  ▄▀   █");
+        }
+        if (i / 2 + 6 <= 25) {
+            gotoxy(1, i / 2 + 6);
+            if (i % 2 == 0)
+                printf("                                                                    ");
+            else
+                printf("               ▀▀▀   ▀     ▀    ▀     ▀▀▀▀▀  ▀       ▀     ▀ ▀     ▀");
+        }
+        for (j = i / 2 + 7; j < 26; j++) {
+            gotoxy(1, j);
+            printf("                                                                     ");
+        }
+        delay(20);
+    }
+    strcpy(s, "В Е Р С И Я  1.2");
+    gotoxy(33, 20);
+    for (i = 0; i < strlen(s); i++) {
+        cprintf("%c", s[i]);
+        delay(12);
+    }
+    strcpy(s, "Copyright (c) Ponpa Dmitriy, 41PDM. 1998.");
+    gotoxy(21, 22);
+    for (i = 0; i < strlen(s); i++) {
+        cprintf("%c", s[i]);
+        delay(12);
+    }
+    gotoxy(1, 1);
+    getch();
+}
+
+void prn_rule()
+{
+    char ch;
+    clrscr();
+    printf("      Нехитрые правила игры (рекомендую немного поиграть, а потом читать).\n");
+    printf("   Первое, вашим подданным нужно кушать . На каждого человека - крестьянина или\n");
+    printf("гвардейца - нужно в год 3 тонны зерна (стандартная норма) . Если дадите меньше,\n");
+    printf("то может быть 3 варианта последствий: 1) дадите от 70%% до 99%% . Вас немного по-\n");
+    printf("журят и напомнят, что народ нужно кормить . 2) дадите от 40%% до 69%% . С вероят-\n");
+    printf("ностью, обратно пропорциональной выделенной норме, может произойти революция, и\n");
+    printf("Вас свергнут. А может и не произойти. 3) дадите < 40%% . Гарантированно произой-\n");
+    printf("дет революция, и Вас свергнут.\n");
+    printf("   Так что перед тем, как купить огромную армию крестьян или солдат, посмотрите\n");
+    printf("- а сможете ли Вы ее прокормить.\n");
+    printf("   Второе, солдатам нужно ежегодно платить жалование. По 10 руб. за год каждому\n");
+    printf("солдату. Плюс еще 10 р. начальнику стражи, который всегда на службе , даже если\n");
+    printf("под его началом - ни одного гвардейца. Если в казне не хватает денег на выплату\n");
+    printf("жалованья, то Ваша верная гвардия может просто-напросто дезертировать...\n");
+    printf("   Третье, крестьянам для работы нужна земля. Если земли больше , чем крестьян,\n");
+    printf("то крестьяне обрабатывают ровно столько земли , сколько их самих. Если крестьян\n");
+    printf("больше, чем земли, то они обрабатывают всю землю, а 'лишние', те, которым земли\n");
+    printf("не хватило, могут сбежать от Вас. Сбегает обычно часть 'лишних' крестьян.\n");
+    printf("   Учтите, что урожай может быть получен только с обрабатываемых земель. Каждый\n");
+    printf("гектар пашни требует для посева 1 тонну зерна. Дадите меньше, чем обрабатывает-\n");
+    printf("ся земли, следовательно, засеете не всю возможную площадь, и часть обрабатывае-\n");
+    printf("мой земли простоит год впустую. Дадите больше, чем обрабатывается земли - прос-\n");
+    printf("то потратите впустую зерно, так как посеется все равно только необходимое коли-\n");
+    printf("чество зерна, а остальное, выделенное для посева, пропадет впустую. Так что мой\n");
+    printf("Вам совет - выделяйте на посев именно столько зерна, сколько нужно.");
+    ch = getch();
+    if (ch == 0)
+        ch = getch();
+    clrscr();
+    printf("   Описывать работу с биржей и всякую дипломатию не имеет смысла - там все эле-\n");
+    printf("ментарно. Два слова можно сказать о караванах.\n");
+    printf("   Караван  -  достаточно редкая возможность быстро разбогатеть, если Вы готовы\n");
+    printf("рискнуть. Вложенные в караван деньги приносят прибыль x6. Но не радуйтесь рань-\n");
+    printf("ше времени  -  не все так просто.. Ваш караван могут запросто ограбить бандиты,\n");
+    printf("отняв у Вас изрядный кусок прибыли. А могут и не просто ограбить , а разграбить\n");
+    printf("полностью... И тогда плакали Ваши денежки.\n");
+    printf("   Не жадничайте, давайте на храм митрополиту - ведь это богоугодное дело. Гля-\n");
+    printf("дишь, и действительно новый храм отгрохают... \n");
+    printf("   Да, и народу на Новый год выделяйте иногда - пусть повеселится...\n");
+    printf("   Пара слов насчет войны. Разведка сообщает не точную информацию о численности\n");
+    printf("противника, а приблизительную, с ошибкой -25%% - +25%%. Учитывайте это...\n");
+    printf("   Война может возникнуть в двух случаях: 1) у Вас мало солдат. Чем малочислен-\n");
+    printf("нее Ваша гвардия, тем чаще будут нападать нахальные соседи. 2) Вы оскорбили ка-\n");
+    printf("кого-либо соседа отказом жениться на его дочке . Оскорбленный сосед обязательно\n");
+    printf("покатит на Вас бочку (то бишь пойдет войной). Хотя, с другой стороны, согласив-\n");
+    printf("шись на брак, Вы потратите кучу денег на свадебный пир, а там еще , может быть,\n");
+    printf("и на день рождения сына, и на похороны королевы... Решайте сами, что Вам выгод-\n");
+    printf("ней...\n");
+    printf("\n");
+    printf("\n");
+    printf("                                         Written by Ponpa Dmitriy, 41PDM. 1998.");
+    ch = getch();
+    if (ch == 0)
+        ch = getch();
+}
+
 int main(int argc, char *argv[])
 {
     long n;
     randomize();
     textcolor(7);
-    if ((argc <= 1) || (stricmp(argv[1], "no") != 0))
+    if ((argc <= 1) || (strcasecmp(argv[1], "no") != 0))
         intro();
     do {
         clrscr();
@@ -140,10 +377,10 @@ int main(int argc, char *argv[])
 void prn_sost(long god)
 {
     if (fl_end == 1)
-        printf("\n                   Состояние Ваших дел после %i лет правления.", god);
+        printf("\n                   Состояние Ваших дел после %ld лет правления.", god);
     else
-        printf("\n                   Состояние Ваших дел на %i-й год правления.", god);
-    printf("\nНаличность в казне: %li руб.", cur_money);
+        printf("\n                   Состояние Ваших дел на %ld-й год правления.", god);
+    printf("\nНаличность в казне: %ld руб.", cur_money);
     printf("\n╔════════════════╤════════════╗");
     printf("\n║    Название    │   Запасы   ║");
     printf("\n╠════════════════╪════════════╣");
@@ -195,41 +432,41 @@ void visir_message()
 {
     printf("\n\nВаше Величество, прибыл Главный Визирь с докладом.");
     printf("\nВизирь сообщает:");
-    printf("\nЖалованье гвардии за прошлый год составило %li рублей.", abs_sod_guard);
+    printf("\nЖалованье гвардии за прошлый год составило %ld рублей.", abs_sod_guard);
     switch (fl_urog) {
     case 0:
         printf("\nСтрашная засуха поразила посевы. Очень неурожайный год.");
-        printf("\nСобрано всего %li тонн зерна.", add_zerno);
+        printf("\nСобрано всего %ld тонн зерна.", add_zerno);
         break;
     case 1:
-        printf("\nУрожайность была низкая. Собрано %li тонн зерна.", add_zerno);
+        printf("\nУрожайность была низкая. Собрано %ld тонн зерна.", add_zerno);
         break;
     case 2:
         printf("\nСредний по урожайности год.");
-        printf("\nНаши крестьяне собрали %li тонн зерна.", add_zerno);
+        printf("\nНаши крестьяне собрали %ld тонн зерна.", add_zerno);
         break;
     case 3:
-        printf("\nУрожайный год. Собрано %li тонн зерна.", add_zerno);
+        printf("\nУрожайный год. Собрано %ld тонн зерна.", add_zerno);
         break;
     case 4:
         printf("\nПролившиеся вовремя дожди обеспечили невиданно высокий урожай.");
-        printf("\nАмбары ломятся от зерна - собрано %li тонн!", add_zerno);
+        printf("\nАмбары ломятся от зерна - собрано %ld тонн!", add_zerno);
         break;
     }
     if (eat_rat > 0)
-        printf("\nПреступная халатность! Крысы сожрали %li тонн зерна!", eat_rat);
+        printf("\nПреступная халатность! Крысы сожрали %ld тонн зерна!", eat_rat);
     if (add_krest > 0)
-        printf("\nЧисло Ваших подданных увеличилось. Родилось %li детей.", add_krest);
+        printf("\nЧисло Ваших подданных увеличилось. Родилось %ld детей.", add_krest);
     if (run_krest != -1)
-        printf("\nВашим крестьянам не хватает земли. Сбежало %li человек.", run_krest);
+        printf("\nВашим крестьянам не хватает земли. Сбежало %ld человек.", run_krest);
     if (run_guard != -1) {
         printf("\nНе хватило денег на выплату денежного довольствия Вашей гвардии.");
-        printf("\nДезертировало %li солдат.", run_guard);
+        printf("\nДезертировало %ld солдат.", run_guard);
     }
     if (grab_gold > 0)
-        printf("\nСкандал! Из сокровищницы похищено %li кг золота!", grab_gold);
+        printf("\nСкандал! Из сокровищницы похищено %ld кг золота!", grab_gold);
     if (grab_money > 0)
-        printf("\nКража! Визирь похитил %li руб. и скрылся!..", grab_money);
+        printf("\nКража! Визирь похитил %ld руб. и скрылся!..", grab_money);
 }
 
 void make_price()
@@ -244,7 +481,7 @@ void make_price()
 void prn_birge()
 {
     double f;
-    printf("Наличность в казне: %li руб.", cur_money);
+    printf("Наличность в казне: %ld руб.", cur_money);
     printf("\n╔════════════════╤══════════════╤══════════════╤══════════════╗");
     printf("\n║    Название    │    Запасы    │ Текущая цена │ Текущий курс ║");
     printf("\n╠════════════════╪══════════════╪══════════════╪══════════════╣");
@@ -263,7 +500,7 @@ void prn_birge()
 
 void torgovla()
 {
-    long n, nn, nn2;
+    long nn, nn2;
     long cur;
     char ch;
     make_price();
@@ -414,9 +651,9 @@ void choice_zerno()
         for_posev = min(cur_land, cur_krest) * ed_posev;
         if ((for_eat + for_posev) <= cur_zerno) {
             cur_zerno = cur_zerno - for_eat - for_posev;
-            printf("\n\nВыделено зерна: на еду - %li тонн, на посев - %li тонн.", for_eat,
+            printf("\n\nВыделено зерна: на еду - %ld тонн, на посев - %ld тонн.", for_eat,
                    for_posev);
-            printf("\nОставшийся запас в амбарах: %li тонн.", cur_zerno);
+            printf("\nОставшийся запас в амбарах: %ld тонн.", cur_zerno);
         } else {
             printf("\n\nНе могу самостоятельно распределить зерно.");
             printf("\nНе хватает зерна на посев и еду по полной норме.");
@@ -426,9 +663,9 @@ void choice_zerno()
     }
     if (n == 1) {
         printf("\nНапоминаю, Ваше состояние сейчас составляет:");
-        printf("\nЗемля - %li га, крестьяне - %li душ, гвардия - %li чел.", cur_land, cur_krest,
+        printf("\nЗемля - %ld га, крестьяне - %ld душ, гвардия - %ld чел.", cur_land, cur_krest,
                cur_guard);
-        printf("\nЗапас зерна в амбарах - %li тонн.", cur_zerno);
+        printf("\nЗапас зерна в амбарах - %ld тонн.", cur_zerno);
         printf("\n\nУкажите расход зерна на еду: ");
         cur = get_chislo();
         cur = check_enter(cur_zerno, cur);
@@ -439,7 +676,7 @@ void choice_zerno()
         cur = check_enter(cur_zerno, cur);
         for_posev = cur;
         cur_zerno -= cur;
-        printf("\nОставшийся запас в амбарах: %li тонн.", cur_zerno);
+        printf("\nОставшийся запас в амбарах: %ld тонн.", cur_zerno);
     }
 }
 
@@ -540,14 +777,14 @@ long make_turn()
 
 void prn_ochki(long i)
 {
-    printf("\nДеньги - %li; ", cur_money / 1000);
-    printf("золото - %li; ", cur_gold * 2);
-    printf("земля - %li; ", cur_land / 5);
-    printf("зерно - %li; ", cur_zerno / 100);
-    printf("\nкрестьяне - %li; ", cur_krest / 20);
-    printf("гвардия - %li; ", cur_guard / 10);
-    printf("новые храмы - %li; ", build_xram * 200);
-    printf("время правления - %i.", i * 10);
+    printf("\nДеньги - %ld; ", cur_money / 1000);
+    printf("золото - %ld; ", cur_gold * 2);
+    printf("земля - %ld; ", cur_land / 5);
+    printf("зерно - %ld; ", cur_zerno / 100);
+    printf("\nкрестьяне - %ld; ", cur_krest / 20);
+    printf("гвардия - %ld; ", cur_guard / 10);
+    printf("новые храмы - %ld; ", build_xram * 200);
+    printf("время правления - %ld.", i * 10);
 }
 
 long make_ochki(long i)
@@ -572,7 +809,7 @@ long snarad_kar()
     n = get_choice();
     if (n == 0)
         return 0;
-    printf("\nВ казне - %li руб, сколько на караван: ", cur_money);
+    printf("\nВ казне - %ld руб, сколько на караван: ", cur_money);
     cur = get_chislo();
     cur = check_enter(cur_money, cur);
     printf("Караван отправился за три-девять земель...");
@@ -592,7 +829,7 @@ void grabeg_kar()
     } else {
         n = random(40);
         grab = (for_kar * n) / 100;
-        printf("\n\nВнимание, ЧП! Ваш караван ограблен бандитами на сумму %li руб.!!!", grab);
+        printf("\n\nВнимание, ЧП! Ваш караван ограблен бандитами на сумму %ld руб.!!!", grab);
         for_kar -= grab;
     }
 }
@@ -601,7 +838,7 @@ void pribil_kar()
 {
     long prib;
     prib = for_kar * 6;
-    printf("\n\nВернулся Ваш караван! Получено прибыли на сумму %li руб.!", prib);
+    printf("\n\nВернулся Ваш караван! Получено прибыли на сумму %ld руб.!", prib);
     cur_money += prib;
 }
 
@@ -610,7 +847,7 @@ void mitropolit()
     long cur, nn;
     double f, f1, f2;
     printf("\n\nМитрополит Вашего государства просит денег на новый храм.");
-    printf("\nСколько выделяте (в казне %li руб.): ", cur_money);
+    printf("\nСколько выделяте (в казне %ld руб.): ", cur_money);
     cur = get_chislo();
     cur = check_enter(cur_money, cur);
     for_xram += cur;
@@ -638,9 +875,9 @@ void mitropolit()
         if (nn == 1)
             printf("\nВоздвигнут новый храм.");
         if ((nn >= 2) && (nn <= 4))
-            printf("\nВоздвигнуто %li новых храма.", nn);
+            printf("\nВоздвигнуто %ld новых храма.", nn);
         if (nn >= 5)
-            printf("\nВоздвигнуто %li новых храмов.", nn);
+            printf("\nВоздвигнуто %ld новых храмов.", nn);
     }
 }
 
@@ -652,27 +889,27 @@ void nasledstvo()
     n = random(90) + 10;
     cur = cur_money * n / 100;
     cur_money += cur;
-    printf("\nДеньги - %li руб.", cur);
+    printf("\nДеньги - %ld руб.", cur);
     n = random(90) + 10;
     cur = cur_gold * n / 100;
     cur_gold += cur;
-    printf("\nЗолото - %li кг.", cur);
+    printf("\nЗолото - %ld кг.", cur);
     n = random(90) + 10;
     cur = cur_land * n / 100;
     cur_land += cur;
-    printf("\nЗемля - %li га.", cur);
+    printf("\nЗемля - %ld га.", cur);
     n = random(90) + 10;
     cur = cur_zerno * n / 100;
     cur_zerno += cur;
-    printf("\nЗерно - %li тонн.", cur);
+    printf("\nЗерно - %ld тонн.", cur);
     n = random(90) + 10;
     cur = cur_krest * n / 100;
     cur_krest += cur;
-    printf("\nКрестьяне - %li душ.", cur);
+    printf("\nКрестьяне - %ld душ.", cur);
     n = random(90) + 10;
     cur = cur_guard * n / 100;
     cur_guard += cur;
-    printf("\nСолдаты - %li чел.", cur);
+    printf("\nСолдаты - %ld чел.", cur);
 }
 
 void poimali_visir()
@@ -681,7 +918,7 @@ void poimali_visir()
     printf("\n\nВаша полиция поймала сбежавшего визиря!");
     printf("\nУ него конфисковано все имущество, а его самого посадили на кол!");
     cur = (random(50) + 50) * grab_money2 / 100;
-    printf("\nВ казну возвращено %li руб.", cur);
+    printf("\nВ казну возвращено %ld руб.", cur);
     cur_money += cur;
     fl_vis = 0;
 }
@@ -696,32 +933,32 @@ void sosed_marry()
     n = random(90) + 10;
     cur = cur_money * n / 100;
     prid_money = cur;
-    printf("\nДеньги - %li руб.", cur);
+    printf("\nДеньги - %ld руб.", cur);
     n = random(90) + 10;
     cur = cur_gold * n / 100;
     prid_gold = cur;
-    printf("\nЗолото - %li кг.", cur);
+    printf("\nЗолото - %ld кг.", cur);
     n = random(90) + 10;
     cur = cur_land * n / 100;
     prid_land = cur;
-    printf("\nЗемля - %li га.", cur);
+    printf("\nЗемля - %ld га.", cur);
     n = random(90) + 10;
     cur = cur_zerno * n / 100;
     prid_zerno = cur;
-    printf("\nЗерно - %li тонн.", cur);
+    printf("\nЗерно - %ld тонн.", cur);
     n = random(90) + 10;
     cur = cur_krest * n / 100;
     prid_krest = cur;
-    printf("\nКрестьяне - %li душ.", cur);
+    printf("\nКрестьяне - %ld душ.", cur);
     n = random(90) + 10;
     cur = cur_guard * n / 100;
     prid_guard = cur;
-    printf("\nСолдаты - %li чел.", cur);
+    printf("\nСолдаты - %ld чел.", cur);
     printf("\n\nВы согласны (y/n): ");
     n = get_choice();
     if (n == 1) {
         cur = (random(40) + 20) * cur_money / 100;
-        printf("\n\nПоздравляю. На свадебный пир потрачено %li руб.", cur);
+        printf("\n\nПоздравляю. На свадебный пир потрачено %ld руб.", cur);
         cur_money -= cur;
         cur_money += prid_money;
         cur_gold += prid_gold;
@@ -731,7 +968,7 @@ void sosed_marry()
         cur_guard += prid_guard;
         fl_marry = 1;
     } else {
-        printf("\n\nАх так?!! Вы пренебрегаете моим предложением??! Готовьтесь к ВОЙНЕ!");
+        printf("\n\nАх так? Вы пренебрегаете моим предложением? Готовьтесь к ВОЙНЕ!");
         fl_mar_war = 1;
     }
 }
@@ -746,27 +983,27 @@ void begin_war()
     enemy_men = cur;
     your_men = cur_guard;
     ras = cur - (50 * cur / 100) + random(cur);
-    printf("\nРазведка доносит о предполагаемой численности войск врага: %li солдат.", ras);
-    printf("\nВаши силы: %li солдат. Объявляете мобилизацию крестьян (y/n)? ", your_men);
+    printf("\nРазведка доносит о предполагаемой численности войск врага: %ld солдат.", ras);
+    printf("\nВаши силы: %ld солдат. Объявляете мобилизацию крестьян (y/n)? ", your_men);
     n = get_choice();
     if (n == 1) {
         cur = (random(50) + 50) * cur_krest / 100;
-        printf("\nМобилизовано %li человек. В народе растет недовольство!", cur);
+        printf("\nМобилизовано %ld человек. В народе растет недовольство!", cur);
         your_men += cur;
     }
     printf("\nЕсть возможность завербовать наемников на время этой войны.");
     printf("\nОдин наемник стоит 100 рублей. Будете вербовать (y/n)? ");
     n = get_choice();
     if (n == 1) {
-        printf("\nСколько наемников хотите нанять (в казне - %li руб.): ", cur_money);
+        printf("\nСколько наемников хотите нанять (в казне - %ld руб.): ", cur_money);
         cur = get_chislo();
         cur = check_enter(cur_money / 100, cur);
         your_men += cur;
         cur_money -= cur * 100;
     } else
         printf("\n");
-    printf("\nПеред битвой выяснилось точное число войск противника: %li солдат.", enemy_men);
-    printf("\nВаши войска составляют %li солдат.", your_men);
+    printf("\nПеред битвой выяснилось точное число войск противника: %ld солдат.", enemy_men);
+    printf("\nВаши войска составляют %ld солдат.", your_men);
     printf("\nНажмите любую клавишу для начала сражения...");
     ch = getch();
     if (ch == 0)
@@ -780,49 +1017,49 @@ void begin_war()
         n = random(90) + 10;
         cur = cur_money * n / 100;
         cur_money += cur;
-        printf("\nДеньги - %li руб.", cur);
+        printf("\nДеньги - %ld руб.", cur);
         n = random(90) + 10;
         cur = cur_gold * n / 100;
         cur_gold += cur;
-        printf("\nЗолото - %li кг.", cur);
+        printf("\nЗолото - %ld кг.", cur);
         n = random(90) + 10;
         cur = cur_land * n / 100;
         cur_land += cur;
-        printf("\nЗемля - %li га.", cur);
+        printf("\nЗемля - %ld га.", cur);
         n = random(90) + 10;
         cur = cur_zerno * n / 100;
         cur_zerno += cur;
-        printf("\nЗерно - %li тонн.", cur);
+        printf("\nЗерно - %ld тонн.", cur);
         n = random(90) + 10;
         cur = cur_krest * n / 100;
         cur_krest += cur;
-        printf("\nКрестьяне - %li душ.", cur);
+        printf("\nКрестьяне - %ld душ.", cur);
     } else {
         printf("\n\nВы проиграли... Ваши потери в этой войне:");
         n = random(90) + 10;
         cur = cur_money * n / 100;
         cur_money -= cur;
-        printf("\nДеньги - %li руб.", cur);
+        printf("\nДеньги - %ld руб.", cur);
         n = random(90) + 10;
         cur = cur_gold * n / 100;
         cur_gold -= cur;
-        printf("\nЗолото - %li кг.", cur);
+        printf("\nЗолото - %ld кг.", cur);
         n = random(90) + 10;
         cur = cur_land * n / 100;
         cur_land -= cur;
-        printf("\nЗемля - %li га.", cur);
+        printf("\nЗемля - %ld га.", cur);
         n = random(90) + 10;
         cur = cur_zerno * n / 100;
         cur_zerno -= cur;
-        printf("\nЗерно - %li тонн.", cur);
+        printf("\nЗерно - %ld тонн.", cur);
         n = random(90) + 10;
         cur = cur_krest * n / 100;
         cur_krest -= cur;
-        printf("\nКрестьяне - %li душ.", cur);
+        printf("\nКрестьяне - %ld душ.", cur);
         n = random(90) + 10;
         cur = cur_guard * n / 100;
         cur_guard -= cur;
-        printf("\nСолдаты - %li чел.", cur);
+        printf("\nСолдаты - %ld чел.", cur);
     }
 }
 
@@ -831,7 +1068,7 @@ void rodilsa_sin()
     long cur;
     printf("\n\nУ Вас родился сын! Поздравляю! Ваша династия не угаснет в веках!");
     cur = (random(40) + 20) * cur_money / 100;
-    printf("\nНа праздничный банкет по случаю рождения сына потрачено %li руб.");
+    printf("\nНа праздничный банкет по случаю рождения сына потрачено %ld руб.", cur);
     cur_money -= cur;
 }
 
@@ -845,7 +1082,7 @@ void dead_wife()
         printf("\nХоть Вы и не приняли гонца, но печальная весть все равно дошла до Вас.");
     printf("\nВеликое несчастье! Умерла королева! Овдовевший монарх безутешен!");
     cur = (random(40) + 20) * cur_money / 100;
-    printf("\nНа похороны королевы потрачено %li руб.", cur);
+    printf("\nНа похороны королевы потрачено %ld руб.", cur);
     cur_money -= cur;
     fl_marry = 0;
 }
@@ -861,7 +1098,7 @@ void koroleva_prosit()
         if (n == 0)
             return;
         cur = (random(30) + 1) * cur_money / 100;
-        printf("\nКоролева просит %li руб. на новое платье. Выделить средства (y/n)? ", cur);
+        printf("\nКоролева просит %ld руб. на новое платье. Выделить средства (y/n)? ", cur);
         n = get_choice();
         if (n == 1) {
             printf("\nКоролева благодарит Вас /лично и ОЧЕНЬ горячо... :-) /");
@@ -880,7 +1117,7 @@ void koroleva_prosit()
             if (n == 0)
                 return;
             cur = (random(30) + 1) * cur_money / 100;
-            printf("\n\nКоролева просит %li руб., чтобы устроить бал. Выделить средства (y/n)? ",
+            printf("\n\nКоролева просит %ld руб., чтобы устроить бал. Выделить средства (y/n)? ",
                    cur);
             n = get_choice();
             if (n == 1) {
@@ -900,8 +1137,9 @@ long shaman()
 {
     long cur, n, n2, fl;
     printf("\nМестный шаман берется вылечить Вас (с вероятностью 20%%...)");
+    n = (random(5) == 0);
     cur = (random(40) + 1) * cur_money / 100;
-    printf("\nНо за это он требует половину Вашего золота и %li руб.", cur);
+    printf("\nНо за это он требует половину Вашего золота и %ld руб.", cur);
     printf("\nВы согласны (y/n)? ");
     if (n == 1) {
         cur_money -= cur;
@@ -931,7 +1169,7 @@ long korol_bolen(long i)
 {
     long fl, n, n2, cur;
     cur = (random(30) + 1) * cur_money / 100;
-    printf("\n\nВы заболели! За лечение лекарь просит %li рублей.", cur);
+    printf("\n\nВы заболели! За лечение лекарь просит %ld рублей.", cur);
     printf("\nВы можете выздороветь сами, но можете и не выздороветь...");
     printf("\nБудете лечиться (y/n)? ");
     n = get_choice();
@@ -1150,7 +1388,7 @@ void new_game()
         printf("\n\nБудете устраивать Новогодний Бал (y/n)? ");
         n = get_choice();
         if (n == 1) {
-            printf("\nСколько даете на бал (в казне - %li руб.): ", cur_money);
+            printf("\nСколько даете на бал (в казне - %ld руб.): ", cur_money);
             cur = get_chislo();
             cur = check_enter(cur_money, cur);
             cur_money -= cur;
@@ -1187,7 +1425,7 @@ void new_game()
     printf("\n\nЗа ваше состояние Вам даются следующее количество очков:");
     ochki = make_ochki(i);
     prn_ochki(i);
-    printf("\nОбщая сумма Ваших очков: %li", ochki);
+    printf("\nОбщая сумма Ваших очков: %ld", ochki);
     printf("\n\nНу что ж... Поздравляю с успешным (?) окончанием игры.");
     if ((ochki >= 0) && (ochki <= 100))
         printf("\nP.S. Вам бы лучше гусей пасти... Вместо Ваших крестьян...");
