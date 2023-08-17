@@ -30,7 +30,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-#include <conio.h>
+#include <unistd.h>
+#include "conio.h"
 
 /* описание возможных ресурсов */
 /* и их начальные значения */
@@ -147,7 +148,7 @@ void randomize(void)
     srand(time(NULL));
 }
 
-unsigned random(unsigned limit)
+unsigned urandom(unsigned limit)
 {
     return rand() % limit;
 }
@@ -471,11 +472,11 @@ void visir_message()
 
 void make_price()
 {
-    cur_pr_gold = ((pr_gold * 75) / 100) + (random(50) * pr_gold / 100);
-    cur_pr_land = ((pr_land * 75) / 100) + (random(50) * pr_land / 100);
-    cur_pr_zerno = ((pr_zerno * 75) / 100) + (random(50) * pr_zerno / 100);
-    cur_pr_krest = ((pr_krest * 75) / 100) + (random(50) * pr_krest / 100);
-    cur_pr_guard = ((pr_guard * 75) / 100) + (random(50) * pr_guard / 100);
+    cur_pr_gold = ((pr_gold * 75) / 100) + (urandom(50) * pr_gold / 100);
+    cur_pr_land = ((pr_land * 75) / 100) + (urandom(50) * pr_land / 100);
+    cur_pr_zerno = ((pr_zerno * 75) / 100) + (urandom(50) * pr_zerno / 100);
+    cur_pr_krest = ((pr_krest * 75) / 100) + (urandom(50) * pr_krest / 100);
+    cur_pr_guard = ((pr_guard * 75) / 100) + (urandom(50) * pr_guard / 100);
 }
 
 void prn_birge()
@@ -699,7 +700,7 @@ long make_turn()
     if ((f < 1.) && (f >= 0.7))
         printf("\nКормите народ получше, не то получите РЕВОЛЮЦИЮ...");
     if ((f < 0.7) && (f >= 0.4)) {
-        n = random(100);
+        n = urandom(100);
         if (n < 100 - (f * 100)) {
             printf("\nВы доигрались... Народ не стал терпеть такие унижения и сверг Вас!!!");
             printf("\nНе доводите больше свой народ до РЕВОЛЮЦИИ!!!");
@@ -717,31 +718,31 @@ long make_turn()
         return 1;
     }
     // обработка урожая
-    fl_urog = random(5);
+    fl_urog = urandom(5);
     a = min(cur_krest, cur_land);
     b = min(a, for_posev);
     add_zerno = (fl_urog * 2 + 3) * b;
     cur_zerno += add_zerno;
     // обработка крыс
-    n = random(100);
+    n = urandom(100);
     if (n < 20) {
-        eat_rat = (random(20) * cur_zerno) / 100;
+        eat_rat = (urandom(20) * cur_zerno) / 100;
         cur_zerno -= eat_rat;
     } else
         eat_rat = -1;
     // обработка земля - крестьяне
     if (cur_krest > cur_land) {
-        run_krest = random(cur_krest - cur_land);
+        run_krest = urandom(cur_krest - cur_land);
         cur_krest -= run_krest;
     } else
         run_krest = -1;
-    n = random(10) + 6;
+    n = urandom(10) + 6;
     add_krest = (cur_krest * n) / 100;
     cur_krest += add_krest;
     // обработка гвардия - деньги
     abs_sod_guard = (cur_guard + 1) * sod_guard;
     if (abs_sod_guard > cur_money) {
-        n = random(10) + 6;
+        n = urandom(10) + 6;
         run_guard = (cur_guard * n) / 100;
         cur_guard -= run_guard;
         abs_sod_guard = (cur_guard + 1) * sod_guard;
@@ -752,9 +753,9 @@ long make_turn()
     cur_money -= abs_sod_guard;
     // обработка похищения золота
     if (cur_gold > 0) {
-        n = random(100);
+        n = urandom(100);
         if (n < 20) {
-            grab_gold = (random(25) * cur_gold) / 100;
+            grab_gold = (urandom(25) * cur_gold) / 100;
             cur_gold -= grab_gold;
         } else
             grab_gold = -1;
@@ -762,9 +763,9 @@ long make_turn()
         grab_gold = -1;
     // обработка визирь - деньги
     if (cur_money > 0) {
-        n = random(100);
+        n = urandom(100);
         if (n < 10) {
-            grab_money = (random(25) * cur_money) / 100;
+            grab_money = (urandom(25) * cur_money) / 100;
             grab_money2 = grab_money;
             cur_money -= grab_money;
             fl_vis = 1;
@@ -821,13 +822,13 @@ long snarad_kar()
 void grabeg_kar()
 {
     long n, grab;
-    n = random(100);
+    n = urandom(100);
     if (n < 5) {
         printf("\n\nПроизошло ЧП! Ваш караван полностью разграблен бандитами!!!");
         fl_kar = 0;
         for_kar = 0;
     } else {
-        n = random(40);
+        n = urandom(40);
         grab = (for_kar * n) / 100;
         printf("\n\nВнимание, ЧП! Ваш караван ограблен бандитами на сумму %ld руб.!!!", grab);
         for_kar -= grab;
@@ -886,27 +887,27 @@ void nasledstvo()
     long cur;
     long n;
     printf("\n\nУмер Ваш дальний родственник. Вы получили наследство в размере:");
-    n = random(90) + 10;
+    n = urandom(90) + 10;
     cur = cur_money * n / 100;
     cur_money += cur;
     printf("\nДеньги - %ld руб.", cur);
-    n = random(90) + 10;
+    n = urandom(90) + 10;
     cur = cur_gold * n / 100;
     cur_gold += cur;
     printf("\nЗолото - %ld кг.", cur);
-    n = random(90) + 10;
+    n = urandom(90) + 10;
     cur = cur_land * n / 100;
     cur_land += cur;
     printf("\nЗемля - %ld га.", cur);
-    n = random(90) + 10;
+    n = urandom(90) + 10;
     cur = cur_zerno * n / 100;
     cur_zerno += cur;
     printf("\nЗерно - %ld тонн.", cur);
-    n = random(90) + 10;
+    n = urandom(90) + 10;
     cur = cur_krest * n / 100;
     cur_krest += cur;
     printf("\nКрестьяне - %ld душ.", cur);
-    n = random(90) + 10;
+    n = urandom(90) + 10;
     cur = cur_guard * n / 100;
     cur_guard += cur;
     printf("\nСолдаты - %ld чел.", cur);
@@ -917,7 +918,7 @@ void poimali_visir()
     long cur;
     printf("\n\nВаша полиция поймала сбежавшего визиря!");
     printf("\nУ него конфисковано все имущество, а его самого посадили на кол!");
-    cur = (random(50) + 50) * grab_money2 / 100;
+    cur = (urandom(50) + 50) * grab_money2 / 100;
     printf("\nВ казну возвращено %ld руб.", cur);
     cur_money += cur;
     fl_vis = 0;
@@ -930,34 +931,34 @@ void sosed_marry()
     long prid_money, prid_gold, prid_land, prid_zerno, prid_krest, prid_guard;
     printf("\n\nСоседний король сватает за Вас свою дочку.");
     printf("\nВ приданное он предлагает:");
-    n = random(90) + 10;
+    n = urandom(90) + 10;
     cur = cur_money * n / 100;
     prid_money = cur;
     printf("\nДеньги - %ld руб.", cur);
-    n = random(90) + 10;
+    n = urandom(90) + 10;
     cur = cur_gold * n / 100;
     prid_gold = cur;
     printf("\nЗолото - %ld кг.", cur);
-    n = random(90) + 10;
+    n = urandom(90) + 10;
     cur = cur_land * n / 100;
     prid_land = cur;
     printf("\nЗемля - %ld га.", cur);
-    n = random(90) + 10;
+    n = urandom(90) + 10;
     cur = cur_zerno * n / 100;
     prid_zerno = cur;
     printf("\nЗерно - %ld тонн.", cur);
-    n = random(90) + 10;
+    n = urandom(90) + 10;
     cur = cur_krest * n / 100;
     prid_krest = cur;
     printf("\nКрестьяне - %ld душ.", cur);
-    n = random(90) + 10;
+    n = urandom(90) + 10;
     cur = cur_guard * n / 100;
     prid_guard = cur;
     printf("\nСолдаты - %ld чел.", cur);
     printf("\n\nВы согласны (y/n): ");
     n = get_choice();
     if (n == 1) {
-        cur = (random(40) + 20) * cur_money / 100;
+        cur = (urandom(40) + 20) * cur_money / 100;
         printf("\n\nПоздравляю. На свадебный пир потрачено %ld руб.", cur);
         cur_money -= cur;
         cur_money += prid_money;
@@ -979,15 +980,15 @@ void begin_war()
     long cur, ras;
     long your_men, enemy_men;
     long n, victory;
-    cur = random((cur_guard + cur_krest) * 2);
+    cur = urandom((cur_guard + cur_krest) * 2);
     enemy_men = cur;
     your_men = cur_guard;
-    ras = cur - (50 * cur / 100) + random(cur);
+    ras = cur - (50 * cur / 100) + urandom(cur);
     printf("\nРазведка доносит о предполагаемой численности войск врага: %ld солдат.", ras);
     printf("\nВаши силы: %ld солдат. Объявляете мобилизацию крестьян (y/n)? ", your_men);
     n = get_choice();
     if (n == 1) {
-        cur = (random(50) + 50) * cur_krest / 100;
+        cur = (urandom(50) + 50) * cur_krest / 100;
         printf("\nМобилизовано %ld человек. В народе растет недовольство!", cur);
         your_men += cur;
     }
@@ -1009,54 +1010,54 @@ void begin_war()
     if (ch == 0)
         ch = getch();
     victory = 0;
-    n = random(enemy_men + your_men * 2);
+    n = urandom(enemy_men + your_men * 2);
     if (n <= your_men * 2)
         victory = 1;
     if (victory == 1) {
         printf("\n\nВы победили! Ваша армия захватила трофеи:");
-        n = random(90) + 10;
+        n = urandom(90) + 10;
         cur = cur_money * n / 100;
         cur_money += cur;
         printf("\nДеньги - %ld руб.", cur);
-        n = random(90) + 10;
+        n = urandom(90) + 10;
         cur = cur_gold * n / 100;
         cur_gold += cur;
         printf("\nЗолото - %ld кг.", cur);
-        n = random(90) + 10;
+        n = urandom(90) + 10;
         cur = cur_land * n / 100;
         cur_land += cur;
         printf("\nЗемля - %ld га.", cur);
-        n = random(90) + 10;
+        n = urandom(90) + 10;
         cur = cur_zerno * n / 100;
         cur_zerno += cur;
         printf("\nЗерно - %ld тонн.", cur);
-        n = random(90) + 10;
+        n = urandom(90) + 10;
         cur = cur_krest * n / 100;
         cur_krest += cur;
         printf("\nКрестьяне - %ld душ.", cur);
     } else {
         printf("\n\nВы проиграли... Ваши потери в этой войне:");
-        n = random(90) + 10;
+        n = urandom(90) + 10;
         cur = cur_money * n / 100;
         cur_money -= cur;
         printf("\nДеньги - %ld руб.", cur);
-        n = random(90) + 10;
+        n = urandom(90) + 10;
         cur = cur_gold * n / 100;
         cur_gold -= cur;
         printf("\nЗолото - %ld кг.", cur);
-        n = random(90) + 10;
+        n = urandom(90) + 10;
         cur = cur_land * n / 100;
         cur_land -= cur;
         printf("\nЗемля - %ld га.", cur);
-        n = random(90) + 10;
+        n = urandom(90) + 10;
         cur = cur_zerno * n / 100;
         cur_zerno -= cur;
         printf("\nЗерно - %ld тонн.", cur);
-        n = random(90) + 10;
+        n = urandom(90) + 10;
         cur = cur_krest * n / 100;
         cur_krest -= cur;
         printf("\nКрестьяне - %ld душ.", cur);
-        n = random(90) + 10;
+        n = urandom(90) + 10;
         cur = cur_guard * n / 100;
         cur_guard -= cur;
         printf("\nСолдаты - %ld чел.", cur);
@@ -1067,7 +1068,7 @@ void rodilsa_sin()
 {
     long cur;
     printf("\n\nУ Вас родился сын! Поздравляю! Ваша династия не угаснет в веках!");
-    cur = (random(40) + 20) * cur_money / 100;
+    cur = (urandom(40) + 20) * cur_money / 100;
     printf("\nНа праздничный банкет по случаю рождения сына потрачено %ld руб.", cur);
     cur_money -= cur;
 }
@@ -1081,7 +1082,7 @@ void dead_wife()
     if (n == 0)
         printf("\nХоть Вы и не приняли гонца, но печальная весть все равно дошла до Вас.");
     printf("\nВеликое несчастье! Умерла королева! Овдовевший монарх безутешен!");
-    cur = (random(40) + 20) * cur_money / 100;
+    cur = (urandom(40) + 20) * cur_money / 100;
     printf("\nНа похороны королевы потрачено %ld руб.", cur);
     cur_money -= cur;
     fl_marry = 0;
@@ -1091,13 +1092,13 @@ void koroleva_prosit()
 {
     long n, cur;
     char ch;
-    n = random(100);
+    n = urandom(100);
     if (n < 15) {
         printf("\n\nПрибыл гонец от королевы. Впустить (y/n)? ");
         n = get_choice();
         if (n == 0)
             return;
-        cur = (random(30) + 1) * cur_money / 100;
+        cur = (urandom(30) + 1) * cur_money / 100;
         printf("\nКоролева просит %ld руб. на новое платье. Выделить средства (y/n)? ", cur);
         n = get_choice();
         if (n == 1) {
@@ -1110,13 +1111,13 @@ void koroleva_prosit()
         if (ch == 0)
             ch = getch();
     } else {
-        n = random(100);
+        n = urandom(100);
         if (n < 15) {
             printf("\n\nПрибыл гонец от королевы. Впустить (y/n)? ");
             n = get_choice();
             if (n == 0)
                 return;
-            cur = (random(30) + 1) * cur_money / 100;
+            cur = (urandom(30) + 1) * cur_money / 100;
             printf("\n\nКоролева просит %ld руб., чтобы устроить бал. Выделить средства (y/n)? ",
                    cur);
             n = get_choice();
@@ -1137,14 +1138,14 @@ long shaman()
 {
     long cur, n, n2, fl;
     printf("\nМестный шаман берется вылечить Вас (с вероятностью 20%%...)");
-    n = (random(5) == 0);
-    cur = (random(40) + 1) * cur_money / 100;
+    n = (urandom(5) == 0);
+    cur = (urandom(40) + 1) * cur_money / 100;
     printf("\nНо за это он требует половину Вашего золота и %ld руб.", cur);
     printf("\nВы согласны (y/n)? ");
     if (n == 1) {
         cur_money -= cur;
         cur_gold -= cur_gold / 2;
-        n2 = random(100);
+        n2 = urandom(100);
         if (n2 < 20) {
             printf("\n\nКолдовство шамана помогло! Вы выздоровели!");
             fl = 0;
@@ -1153,7 +1154,7 @@ long shaman()
             fl = 1;
         }
     } else {
-        n2 = random(100);
+        n2 = urandom(100);
         if (n2 < 5) {
             printf("\n\nСлучилось ЧУДО! Вы победили болезнь и встали со смертного одра!");
             fl = 0;
@@ -1168,14 +1169,14 @@ long shaman()
 long korol_bolen(long i)
 {
     long fl, n, n2, cur;
-    cur = (random(30) + 1) * cur_money / 100;
+    cur = (urandom(30) + 1) * cur_money / 100;
     printf("\n\nВы заболели! За лечение лекарь просит %ld рублей.", cur);
     printf("\nВы можете выздороветь сами, но можете и не выздороветь...");
     printf("\nБудете лечиться (y/n)? ");
     n = get_choice();
     if (n == 1) {
         cur_money -= cur;
-        n2 = random(100);
+        n2 = urandom(100);
         if (n2 < 5) {
             printf("\nЛечение не дало результатов. Вы присмерти...");
             fl = shaman();
@@ -1184,7 +1185,7 @@ long korol_bolen(long i)
             fl = 0;
         }
     } else {
-        n2 = random(100);
+        n2 = urandom(100);
         if (n2 < i * 2) {
             printf("\nЯ же Вас предупреждал! Болезнь обострилась, Вы присмерти!");
             fl = shaman();
@@ -1223,7 +1224,7 @@ void new_game()
             fl_kar = 0;
         }
 
-        n = random(100);
+        n = urandom(100);
         if (n < 25) {
             printf("\n\nМеждународный кризис! Торговля невозможна!");
             printf("\nВашему государству объявлена экономическая блокада!");
@@ -1241,13 +1242,13 @@ void new_game()
         }
 
         if (fl_kar == 0) {
-            n = random(100);
+            n = urandom(100);
             if (n < 25)
                 fl_kar = snarad_kar();
         }
 
         if (fl_kar > 1) {
-            n = random(100);
+            n = urandom(100);
             if (n < 20)
                 grabeg_kar();
         }
@@ -1255,7 +1256,7 @@ void new_game()
         if (fl_kar > 0)
             fl_kar++;
 
-        n = random(100);
+        n = urandom(100);
         if (n < 20) {
             mitropolit();
             printf("\n\nНажмите любую клавишу...");
@@ -1275,7 +1276,7 @@ void new_game()
         }
 
         if (cur_guard < 100) {
-            n = random(100);
+            n = urandom(100);
             if (n > cur_guard) {
                 printf(
                     "\n\nСоседние короли, видя малочисленность Ваших войск, объявили Вам ВОЙНУ!");
@@ -1286,7 +1287,7 @@ void new_game()
                     ch = getch();
             }
         } else {
-            n = random(100);
+            n = urandom(100);
             if (n < 30) {
                 printf("\n\nЕсть возможность объявить войну одному из соседей. Объявляете? ");
                 n = get_choice();
@@ -1301,7 +1302,7 @@ void new_game()
         }
 
         if (fl_vis == 1) {
-            n = random(100);
+            n = urandom(100);
             if (n < 15) {
                 poimali_visir();
                 printf("\n\nНажмите любую клавишу...");
@@ -1311,7 +1312,7 @@ void new_game()
             }
         }
 
-        n = random(100);
+        n = urandom(100);
         if (n < 10) {
             nasledstvo();
             printf("\n\nНажмите любую клавишу...");
@@ -1321,7 +1322,7 @@ void new_game()
         }
 
         if (fl_marry == 1) {
-            n = random(100);
+            n = urandom(100);
             if (n < 10) {
                 rodilsa_sin();
                 printf("\n\nНажмите любую клавишу...");
@@ -1332,7 +1333,7 @@ void new_game()
         }
 
         if (fl_marry == 0) {
-            n = random(100);
+            n = urandom(100);
             if (n < 15) {
                 sosed_marry();
                 printf("\n\nНажмите любую клавишу...");
@@ -1343,7 +1344,7 @@ void new_game()
         }
 
         if (fl_marry == 1) {
-            n = random(100);
+            n = urandom(100);
             if (n < 10) {
                 dead_wife();
                 printf("\n\nНажмите любую клавишу...");
@@ -1356,7 +1357,7 @@ void new_game()
         if (fl_marry == 1)
             koroleva_prosit();
 
-        n = random(100);
+        n = urandom(100);
         if (n < i * 2) {
             fl_end = korol_bolen(i);
             printf("\n\nНажмите любую клавишу...");

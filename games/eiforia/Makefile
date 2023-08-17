@@ -1,6 +1,6 @@
 PROG            = eiforia
-CXXFLAGS        = -O -g -I. -Wall -Werror
-OBJ             = eiforia.o
+CFLAGS          = -O -g -I. -Wall -Werror
+OBJ             = eiforia.o conio.o
 
 all:		$(PROG)
 
