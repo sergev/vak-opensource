@@ -4,9 +4,16 @@
 void clrscr(void);
 void gotoxy(int x, int y);
 void textcolor(int color);
+void textbackground(int color);
 int getch(void);
 int getche(void);
 int ungetch(int ch);
+int wherexy(int *x, int *y);
+int wherex(void);
+int wherey(void);
+int kbhit(void);
+int putch(char c);
+int cputs(const char *str);
 
 #define cprintf printf
 

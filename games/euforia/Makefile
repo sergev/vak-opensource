@@ -1,6 +1,6 @@
-PROG            = eiforia
+PROG            = euforia
 CFLAGS          = -O -g -I. -Wall -Werror
-OBJ             = eiforia.o conio.o
+OBJ             = euforia.o conio.o
 
 all:		$(PROG)
 

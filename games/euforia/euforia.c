@@ -145,16 +145,19 @@ long menu(long c, const char *s, int x, int y)
 
 void randomize(void)
 {
-    srand(time(NULL));
+    unsigned seed = time(NULL);
+
+    srandom(seed);
 }
 
 unsigned urandom(unsigned limit)
 {
-    return rand() % limit;
+    return random() % limit;
 }
 
 void delay(unsigned msec)
 {
+    fflush(stdout);
     usleep(msec * 1000L);
 }
 
