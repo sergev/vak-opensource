@@ -14,23 +14,126 @@ match_max 100000
 
 expect "]"; send "\r"
 
+# Hiker Parking
 expect ">"; send "inventory\r"
 expect ">"; send "look\r"
 expect ">"; send "smell\r"
-expect ">"; send "examine sky\r"
+expect ">"; send "examine me\r"
+expect ">"; send "x sky\r"
 expect ">"; send "x forest\r"
 expect ">"; send "x watch\r"
 expect ">"; send "x pack\r"
+expect ">"; send "jump\r"
 expect ">"; send "east\r"
 
+# Trail Junction (Lower Mt. Cammerer & Access trails)
 expect ">"; send "look\r"
 expect ">"; send "smell flowers\r"
 expect ">"; send "listen\r"
 expect ">"; send "touch flowers\r"
-#expect ">"; send "x signs\r"
-expect "\012\012>"; send "rotate signs\r"
+expect ">"; send "pick flowers\r"; # just kidding
+expect ">"; send "x sign\r";
+expect "Hiker Parking"
+expect ">"; send "rotate sign\r"; # just kidding
+expect ">"; send "ne\r"
+
+# Tom's Creek
+expect ">"; send "x stream\r"
+expect ">"; send "taste stream\r"
+expect ">"; send "enter stream\r"
+expect ">"; send "look\r"
+expect ">"; send "x log\r"
+expect ">"; send "ne\r"
+
+# Spur Trail to Sutton Ridge
+expect ">"; send "se\r"
+
+# Sutton Ridge Overlook
+expect ">"; send "x valley\r"
+expect ">"; send "x galax\r"
+expect ">"; send "stand\r"
+expect ">"; send "x ground\r"
+expect ">"; send "down\r"
+
+# Spur Trail to Sutton Ridge
+expect ">"; send "e\r"
+
+# Riding Fork Creek
+expect ">"; send "x waterfall\r"
+expect ">"; send "think\r"
+expect ">"; send "e\r"
+expect ">"; send "n\r"
+
+# Trail Junction (Lower Mt Cammerer and Appalachian trails)
+expect ">"; send "stand\r"
+expect ">"; send "look\r"
+expect ">"; send "x sign\r";
+expect "Cosby Campground"
+expect ">"; send "w\r"
+
+# Trail Junction (Appalachian and Mt. Cammerer Trails)
+expect ">"; send "n\r"
+
+# Mt. Cammerer, Outside the Fire Tower
+expect ">"; send "x hawk\r"
+expect ">"; send "fly\r"
+expect ">"; send "down\r"
+expect ">"; send "s\r"
+expect ">"; send "look\r"
+expect ">"; send "x mountains\r"
+expect ">"; send "enter\r"
+
+# Within the Fire Tower
+expect ">"; send "look through window\r"
+expect ">"; send "x mountain\r"
+expect ">"; send "look\r"
+expect ">"; send "inventory\r"
+expect ">"; send "take off pack\r"
+expect ">"; send "open pack\r"
+expect ">"; send "look in pack\r"
+expect ">"; send "eat trail mix\r"
+expect ">"; send "smell it\r"
+expect ">"; send "put it in pack\r"
+expect ">"; send "close pack\r"
+expect ">"; send "stretch calves\r"
+expect ">"; send "x socks\r"
+expect ">"; send "smell feet\r"
+expect ">"; send "x shirt\r"
+expect ">"; send "smell shirt\r"
+expect ">"; send "out\r"
+
+# Mt. Cammerer, Outside the Fire Tower
+expect ">"; send "sw\r"
+
+# Trail Junction (Appalachian and Mt. Cammerer Trails)
+expect ">"; send "stretch legs\r"
+expect ">"; send "look\r"
+expect ">"; send "sw\r"
+
+# Trail Junction (Appalachian and Low Gap trails)
+expect ">"; send "x sign\r";
+expect "Cosby Campground"
+expect ">"; send "remove boots\r"
+expect ">"; send "x boots\r"
+expect ">"; send "x watch\r"
+expect ">"; send "look\r"
+expect ">"; send "stand\r"
+expect ">"; send "xyzzy\r"
+expect ">"; send "nw\r"
+expect "Less than half a mile to the campground"
+
+# Trail Junction (Low Gap & Access trails)
+expect ">"; send "n\r"
+
+# Trail Junction (Lower Mt. Cammerer & Access trails)
+expect ">"; send "sw\r"
+
+# Lower Mt. Cammerer Trailhead
+expect ">"; send "nw\r"
+
+# Hiker Parking
 
 # Quit
 expect ">"; send "quit\r"
-puts ""
+puts "quit"
 exit

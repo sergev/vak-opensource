@@ -3,7 +3,9 @@
 *.gblorb
 *.log
 *.log~
+*.txt-
 *.qzl
 *.DAT
 glulxe
+dfrotz
 alabconc.glkdata

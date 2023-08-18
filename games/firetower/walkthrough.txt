@@ -88,16 +88,34 @@ to the Lower Mt. Cammerer trail.
 
 The air smells of life, of greenery and nearby streams. Lovely.
 
->examine sky
+>examine me
+
+You glance down and the first thing you see are your hiking boots. They're
+serious hiking boots - eight inches high, all leather exterior with Gore-Tex
+lining; so long as you don't walk through water more than, say, seven or seven
+and a half inches deep, your feet will stay dry. These boots consume most of
+your lower calves in a rather unladylike but not altogether unattractive way,
+and bits of your thick Thorlo socks are just visible.
+
+Your legs, feminine but muscular, are revealed to the world because you're
+wearing shorts, which, let's be honest, is probably silly, because you'll no
+doubt end up covered in bug bites and scratches, but it's sooo warm and you
+simply couldn't resist - it will give you something to complain about tomorrow,
+but only to the people who won't say, "Why didn't you wear pants?"
+
+At any rate, a long sleeved t-shirt rounds out the ensemble. You're comfortable,
+and you're ready to hike.
+
+>x sky
 
 The sky is a rich, warm blue, and the sun is climbing in the east.
+
+A slight breeze blows out of the east.
 
 >x forest
 
 A forest of towering hemlock hugs the eastern margin of the parking lot, and a
 trail enters the woods due east.
-
-A slight breeze blows out of the east.
 
 >x watch
 
@@ -105,7 +123,7 @@ You glance down at your watch, a rather chunky and unstylish accoutrement
 purchased for fifteen dollars at the drugstore. Fashion critiques aside, it's a
 functional, water-resistant, glow in the dark timepiece.
 
-At present, it indicates that the time is 7:05 AM.
+At present, it indicates that the time is 7:06 AM.
 
 >x pack
 
@@ -113,6 +131,11 @@ You don't know what you'd do without your wonderful hip pack on day hikes like
 this. It's compact, it's capable of carrying everything you could really need
 (even in an emergency), it holds a water bottle, and it's your favorite color
 (green!).
+
+>jump
+
+You jump up and down, but the weight of your pack banging around on your hips is
+rather uncomfortable, so you quickly cease your hopping.
 
 >east
 
@@ -146,8 +169,726 @@ beauty makes up for the lack of scent.
 
 Somewhere out of sight, a crow caws.
 
+An insect lights upon your ear, but a wave of your hand sends it away.
+
 >touch flowers
 
 You carefully grasp one of the jewelweed stems between your fingers so that you
 can examine it better, then carefully release it again.
 
+>pick flowers
+
+As much as you might love to pick some of the flowers, you'd prefer to leave
+them for the next hiker to enjoy. And besides, this is a National Park; things
+should be left untouched and in their natural state so that everyone can enjoy
+the beauty. There are flowers to pick in the garden back home.
+
+>x sign
+
+There are two signs on the post. The uppermost sign faces southeast, and is
+oriented so that you know it pertains to the trail that runs northeast-
+southwest; it reads:
+
+LOWER MOUNT CAMMERER TRAIL
+Sutton Ridge Overlook 1.2 >
+Appalachian Trail 7.3 >
+< Cosby Campground 0.2
+
+The other sign faces southwest and pertains to the access trail from the parking
+lot, which has no name; the sign reads:
+
+Low Gap Trail 0.4 ->
+<- Hiker Parking 0.4
+
+>rotate sign
+
+Ooh. Aren't you evil. No. That would get people lost in the wilderness and then
+they might die and you could never live with that horrible, terrible, burning
+guilt.
+
+>ne
+
+You head northeast. A quarter mile or so down the path you encounter a shallow
+stream, easily crossed by hopping from one rock to the next without getting your
+boots wet.
+
+Before long, the trail narrows from a road to a trail. The vegetation closes in
+on each side as well as overhead, forming a darkened tunnel of rhododendron.
+It's a pleasant stroll along this section, quiet, with only the smallest shafts
+of sunlight penetrating the thick canopy, but you're evidently the first person
+to break trail today and you keep hitting unseen strands of spider web.
+Eventually the tunnel disappears, the canopy opens up, and as you pick the last
+wispy cob web from your hiking shorts, you notice that you've arrived at the
+footbridge.
+
+
+Sunlight pours forth into a large opening in the trees here, illuminating bits
+of pollen floating in the air and sparkling on the surface of Tom's Creek. The
+stream flows northwest, gurgling beneath a rustic but sturdy log footbridge.
+
+You hear the distinctive sound of a woodpecker in the distance.
+
+>x stream
+
+Tom's Creek is wide, perhaps thirty feet across, and sufficiently deep enough to
+merit the presence of a foot bridge. The water slides over rocks, slips over
+semi-submerged boulders into small white cascades, pauses near the bank in tiny
+eddies, and seemingly stops in darkened pools. Eventually, it flows off to the
+northwest, giggling and whispering its secrets to the forest as it goes.
+
+>taste stream
+
+You're sure the cold, clear water would taste fantastic, but you also know that
+it might make you sick. Looks are deceiving, and despite its clarity there might
+be bacteria present. You've no filter, no way to boil it, and besides all that,
+you have some perfectly acceptable water in your water bottle.
+
+>enter stream
+
+You splash your boots about at the edge of the stream, but ultimately decide to
+stand on the bank so as to keep from accidentally getting your socks wet. You
+forgot to bring a spare pair. You forgot a few things in your rush to get out
+the door. Oh well.
+
+>look
+
+
+Tom's Creek flows across the path here, beneath a sturdy log footbridge. The
+path continues on the other side of the bridge, to the northeast.
+
+>x log
+
+The stream is fairly wide and a bit too deep to cross without getting your socks
+wet, and so a foot bridge has been installed. It's a simple structure, half of a
+log with its flat side facing up for a walking surface. A hand rail affixed to
+one side allows will help you maintain your balance as you cross. It's
+functional, yet blends in well with the natural surroundings.
+
+>ne
+
+You climb onto the footbridge over Tom's Creek, walk halfway across, and pause.
+One hand on the railing for balance, you close your eyes, feel the coolness of
+the water running beneath you, and concentrate on the sound of the water as it
+ripples along over unseen rocks. You stand there for perhaps two minutes,
+enjoying the water's song, but eventually the cool air coming off the creek is
+too much for your uncovered legs and you decide to continue up the trail.
+
+After walking about a third of a mile, you come to a trail junction.
+
+
+The trail crests the first of many ridges along the northern side of Mt.
+Cammerer here. Sutton Ridge, as it's called, is dry and exposed - perhaps not
+the loveliest spot for a rest break. But from here, a tiny spur trial scrambles
+up the ridge to the southeast, and the clearing at the top generally provides an
+lovely view of the surrounding mountains.
+
+You pause to contemplate whether you'd like to check out the spur trail, or to
+simply continue east, toward the fire tower.
+
+>se
+
+You decide to make the scramble up to the overlook. It's only two-hundred yards,
+but the climb is steep and leaves you winded once you reach the top.
+
+
+The Sutton Ridge Overlook is a very formal name for a very informal clearing on
+the side of a hill. The ground here remains bare from people such as yourself
+coming up here to take in the view; evenings in particular are a great time to
+visit, because this is a wonderful vantage point from which to take in the
+sunset over Gabes Mountain, across the valley to the west. Though perhaps not
+quite so stunning as at sunset, the clearing is still quite beautiful during the
+day. To the north, the Cosby Valley stretches out lush and green, and mountain
+laurel dots the surrounding hillsides, pink and in full bloom. Galax and arbutus
+line the edges of the clearing at ground level.
+
+You sit down on the ground in the clearing to catch your breath and take in the
+view.
+
+>x valley
+
+The Cosby Valley rests between Mt. Cammerer and Gabes Mountain, lush and green.
+Though you can't see within its depths, you know that the Pigeon River courses
+along its floor, far below you.
+
+>x galax
+
+The galax is a lovely shade of green with round, waxy leaves. They stay green
+all winter.
+
+>stand
+
+You get back up and brush off your clothes. Break's over.
+
+>x ground
+
+The ground, where it lacks vegetation, is brown and dry.
+
+>down
+
+You work your way carefully down the steep spur trail.
+
+
+You're standing at a bend in the trail on the crest of Sutton Ridge. The trail
+turns from south to east here, and a spur trail scrambles through the arbutus
+and galax to the southeast.
+
+>e
+
+You leave the spur trail behind and head down the eastern side of the ridge. The
+path is a long, narrow straightaway, and the walking is easy. After less than a
+quarter mile you come to a lovely little waterfall, and pause to admire its
+beauty.
+
+
+Whereas Sutton Ridge was a high spot, dry and exposed, this is a tiny creek draw
+between two ridges. Riding Fork Creek cascades down a series of mossy dark gray
+rocks here, southeast of the trail. You can continue on toward the fire tower by
+hopping across the creek to the north.
+
+A gentle breeze brushes your skin.
+
+>x waterfall
+
+Riding Fork Creek may be small, but that doesn't make it any less majestic: a
+narrow stream of water tumbles down over a series of chiseled, squarish, dark
+grey rocks, almost like a contrived fountain, and yet it's natural.
+
+You feel the coolness coming off the water and close your eyes. A smile touches
+your lips, and you breathe in the refreshingly chilled air. You take a moment to
+contemplate how even in the driest of years this tiny stream persists, flowing
+ever on, regardless of who's here to admire its beauty. You think like that
+sometimes... wondering about purpose, about process. About the way in which
+everything moves on regardless of your presence or concerns.
+
+>think
+
+You take a moment to consider your next move.
+
+>e
+
+The ridge climbs sharply upward in that direction, with no path. You'd tear up a
+great deal of vegetation trying to make the climb. It would be better, perhaps,
+to remain on the trail. From here, you can go north.
+
+>n
+You cross Riding Fork Creek and continue weaving over and between ridges, making
+the long, slow climb along the northern face of Mt. Cammerer.
+
+After a mile and a half or so, you come to Campsite 35, the only developed
+backcountry campsite along the trail today. There's no one present, so you rest
+at one of the scorched fire rings, nibble on some trail mix, and watch a
+squirrel as he goes about his business.
+
+After a pleasant break, you continue on toward the tower. The gradual nature of
+the climb gives way to a steeper ascent, and after an additional two and three-
+quarter miles, you reach the next landmark of today's hike.
+
+
+The Lower Mt. Cammerer trail ends here at a junction with the famous Appalachian
+Trail. Commonly referred to simply as the "AT," the trail covers nearly the
+entire length of the Appalachian Mountains, from Maine to Georgia - a distance
+of over two thousand miles. You wish that you'd taken a summer off during
+college to hike the length of it, but there's no point in regretting that now.
+There's always retirement to look forward to, right? You sigh wistfully at the
+thought and plop down onto the ground among the roots of a large tulip poplar
+growing in the center of the junction.
+
+
+
+The AT runs east-west here. According to the sign, it's only another three miles
+to the tower.
+
+A gentle breeze caresses your skin.
+
+>stand
+
+You get back up and brush off your clothes. Break's over.
+
+>look
+
+
+The AT climbs from east to west here, ascending toward the peak of the mountain
+and the fire tower. The Lower Mt. Cammerer trail, from which you accessed the
+AT, descends out of the junction to the northwest.
+
+>x sign
+
+There are two signs on the post. The uppermost sign faces south, and is oriented
+so that you know it pertains to the trail that runs east-west; it reads:
+
+APPALACHIAN TRAIL
+Davenport Gap 2.8 ->
+<- Mt Cammerer Fire Tower 2.9
+<- Low Gap 4.4
+
+The other sign faces west and reads:
+
+LOWER MT CAMMERER TRAIL
+<- Cosby Campground 7.5
+
+Seven and a half miles back to the campground and parking area... you've already
+come quite a way!
+
+>w
+
+You look uphill at the rather intimidating stretch of steep trail, tighten your
+pack about your waist, and let out a long, slow breath. You've done this stretch
+many, many times, but no matter how in shape you get it always tends to kick
+your ass. Oh well, half begun is half done (or some stupid cliché).
+
+The trail is a steep mess of tree roots and rock, and for the next two and a
+half miles you feel as if you're working out on a gigantic natural stairmaster,
+dragging your heavy feet up one step at a time. You plow along like that with
+your head down for over an hour, your gaze rarely if ever straying from your
+boots to prevent tripping. Mercifully, you reach the next trail junction.
+
+
+The trail is wide here, with lots of bare ground from so many hikers having
+rested in this location before you. There's little to see here, really, save for
+the trail sign that benevolently announces that you're very close to your goal.
+
+The wind picks up for a moment, cooling your skin in the growing heat of the
+day.
+
+>n
+
+You set off toward the fire tower. The trail runs along the top of a rocky
+ridge, but it's well-used and, for the most part, easily walked. The last few
+feet are a bit of a scramble, but you effortlessly manage the boulders and find
+yourself standing triumphantly on the porch of the fire tower.
+
+
+The Mt. Cammerer fire tower sits atop a jagged, rocky peak with a commanding
+view of the surrounding mountains. It's a fantastic location for such a
+structure, really, because you can see for miles in every direction and it would
+be easy to spot a plume of smoke, particularly if you used binoculars.
+
+You lean against the railing and take in the landscape. Gorgeous, and so worth
+the effort.
+
+A hawk cries in the sky above you, momentarily drawing your attention.
+
+>x hawk
+
+The hawk circles high overhead, seemingly without effort.
+
+>fly
+
+You wish to have the freedom of a bird. Why not settle for the freedom of your
+feet?
+
+>down
+
+You take a quick peek over the edge of the railing and decide that falling to
+the rocks below might be bad for your health.
+
+>s
+
+Fortunately, the railing prevents you from toppling over the edge toward certain
+injury and possible death. You can leave the tower by going southwest.
+
+>look
+
+
+The fire tower has a commanding view of the surrounding mountains. You can enter
+the tower or simply return back the way you came. The trail departs to the
+southwest.
+
+>x mountains
+
+You walk to the railing, lean against it, and take in the view. It's a
+wonderfully clear day, and it feels as if you're able to see the entire world
+from here - mountain after mountain, sprawling to the horizon. You can see Webb
+Mountain to the north, where your house is nestled somewhere in the trees.
+Beyond is Bays Mountain and, further still and slightly west, Clinch Mountain.
+
+You walk around the tower and look to the east. Snowbird Mountain lies just the
+other side of the Pigeon River gorge. Beyond that, the Unakas and, further
+still, the Blue Ridge.
+
+Traversing the porch to the south, you see the Mt. Sterling Lookout on a distant
+ridge, barely visible without binoculars.
+
+Finally, you step to the western railing and look out onto peaks of whose names
+you are not certain. The names aren't important, really, merely random
+designations of natural landmarks. First the Cherokee gave them names, then the
+Europeans, and perhaps someday someone else will call them something new. But
+the mountains will endure regardless. Or so you hope.
+
+>enter
+
+You open the door to the fire tower and walk inside, closing it behind you.
+
+
+The interior of the fire tower is simple and unadorned. A plain wooden floor
+stretches from wall to wall, and windows stretch from about waist high to just
+short of the ceiling. Despite the sun, the warmth of the day, and the large
+windows that allow a 360-degree view of the surrounding landscape, the air is
+surprisingly cool inside the tower, no doubt due to the stone foundation you saw
+outside. You're thankful for the break from the heat.
+
+>look through window
+
+You walk to the edge of the room, lean gently against the window, and take in
+the view. It's a wonderfully clear day, and it feels as if you're able to see
+the entire world from here - mountain after mountain, sprawling to the horizon.
+You can see Webb Mountain to the north, where your house is nestled somewhere in
+the trees. Beyond is Bays Mountain and, further still and slightly west, Clinch
+Mountain.
+
+You turn and walk across the room a bit, and look to the east. Snowbird Mountain
+lies just the other side of the Pigeon River gorge. Beyond that, the Unakas and,
+further still, the Blue Ridge.
+
+Turning south, you see the Mt. Sterling Lookout on a distant ridge, barely
+visible without binoculars.
+
+Finally, you step to the western portion of the room and look out onto peaks of
+whose names you are not certain. The names aren't important, really, merely
+random designations of natural landmarks. First the Cherokee gave them names,
+then the Europeans, and perhaps someday someone else will call them something
+new. But the mountains will endure regardless. Or so you hope.
+
+>x mountain
+
+The mountain is a sea of trees, dark green waves rolling over a weathered
+landscape. These mountains are considered by some to be less majestic than the
+Rockies or other, younger, unweathered mountain chains, but you think of them as
+wise and old, containing secrets.
+
+>look
+
+
+The interior of the fire tower is simple and unadorned. A plain wooden floor
+stretches from wall to wall, and windows stretch from about waist high to just
+short of the ceiling. Despite the sun, the warmth of the day, and the large
+windows that allow a 360-degree view of the surrounding landscape, the air is
+surprisingly cool inside the tower, no doubt due to the stone foundation you saw
+outside. You're thankful for the break from the heat.
+
+>inventory
+
+You are carrying:
+  some socks (being worn)
+  some hiking shorts (being worn)
+  a shirt (being worn)
+  some hiking boots (being worn)
+  a hip pack (being worn and closed)
+  a watch (being worn)
+
+>take off pack
+
+You take off the hip pack.
+
+>open pack
+
+You unzip the pack.
+
+>look in pack
+
+In the hip pack are a headlamp, a first aid kit, a water bottle and a massive
+bag of trail mix.
+
+>eat trail mix
+
+(first taking the massive bag of trail mix)
+Mmmm... excellent. A bit of trail mix makes you feel better, and you're ready to
+hike some more.
+
+>smell it
+
+The bag emits an aroma of yummy nutty goodness. Mmmm.
+
+>put it in pack
+
+You seal the bag of trail mix and tuck it neatly away in your pack.
+
+>close pack
+
+You zip the pack closed.
+
+>stretch calves
+
+Your calves feel a bit tight, so you walk over to a nearby tree and place your
+palms against the bark, enjoying the rough texture beneath your hands. You bend
+your left leg in a lunge and step back with your right foot, leg straight.
+Closing your eyes, you take a pleasantly deep breath and wait for some of the
+tension to subside in your calf, which it does.
+
+After stretching both legs a couple of times, you decide it's probably time to
+move on down the trail.
+
+>x socks
+
+Your Thorlos are designed specifically for hiking, with extra padding beneath
+the heel and ball of your foot for comfort. This particular pair of Thorlos are
+white; just the very tops of them are visible.
+
+>smell feet
+
+The exterior off the boots smell like leather. You'd rather not smell in the
+inside of the boots.
+
+>x shirt
+
+You're wearing a dark brown long-sleeved t-shirt, the color of chocolate. It's
+cotton, which isn't always a wise thing to wear when hiking - fantastic when
+it's hot, but is miserable in the rain - however there's a brilliant blue sky
+and a favorable forecast, so you're risking it.
+
+>smell shirt
+
+You glance at the sun climbing in the sky, then lift your arm and take a sniff
+of your arm pit. Not too bad... yet.
+
+>out
+
+You strap your pack about your hips once again. It's easier to carry everything
+that way.
+
+You open the door to the fire tower and walk out onto the porch, closing it
+behind you.
+
+
+The fire tower has a commanding view of the surrounding mountains. You can enter
+the tower or simply return back the way you came. The trail departs to the
+southwest.
+
+A tiny chipmunk climbs to the top of a nearby rock, chatters in your general
+direction, then bounces away.
+
+>sw
+
+Having enjoyed a pleasant break in the company of an amazing view, you decide to
+start back toward home.
+
+
+The AT runs from northeast to southwest here, continuing on toward Low Gap. A
+trail sign announces that the Mt. Cammerer fire tower is located just over half
+a mile to the north.
+
+>stretch legs
+
+Your calves feel a bit tight, so you walk over to a nearby tree and place your
+palms against the bark, enjoying the rough texture beneath your hands. You bend
+your left leg in a lunge and step back with your right foot, leg straight.
+Closing your eyes, you take a pleasantly deep breath and wait for some of the
+tension to subside in your calf, which it does.
+
+After stretching both legs a couple of times, you decide it's probably time to
+move on down the trail.
+
+>look
+
+
+The AT runs from northeast to southwest here, continuing on toward Low Gap. A
+trail sign announces that the Mt. Cammerer fire tower is located just over half
+a mile to the north.
+
+>sw
+You recommence climbing the Appalachian Trail. Just as with the previous
+stretch, it's littered with roots and rocks and excessive steepness, and makes
+you not such a happy hiker. "Oh well," you think to yourself, "it's making me
+stronger. Stronger. Yes. Stronger."  You continue this rather ineffective little
+pep talk for about a half a mile, at which point the trail graciously levels out
+along the crest of a ridge.
+
+You find an easy, confident pace, and begin to notice how effortlessly your legs
+move on this type of terrain. The lack of obstructions in the trail allows you
+to take in the view as you hike, and incredible mountain vistas are present on
+both sides of the trail for a short while - successive waves of blue, smoky
+ridges trailing off into the distance.
+
+After a bit, the trail begins to descend off the ridge and into the trees...
+gradually at first, then steeper, and your pace finds a decrescendo as you
+carefully navigate the slope. Many people prefer a strenuous uphill to this,
+because descending can be fairly hard on your knees and ankles, but after the
+beating your lungs and legs took on the AT earlier, you are inclined to
+respectfully disagree.
+
+After a total walk of just over two miles, you encounter another trail junction.
+
+
+
+
+Two trails cross here, in the center of what's called Low Gap, so named because
+it's the lowest pass through the mountains for over fifty miles if you were
+traveling along the Appalachian Trail headed north. The AT runs from northeast
+to southwest here, climbing toward Cosby Knob and beyond - all the way to
+Georgia. The Low Gap trail crosses perpendicular to the AT, descending in both
+directions: southeast, toward Walnut Bottoms and Big Creek, or northwest, toward
+the Cosby Campground and, for you, home.
+
+A sign at one side of the junction points the way and provides the mileage to
+nearby landmarks.
+
+Your socks have shifted uncomfortably in your boots, so you take a seat in the
+clearing to readjust them. Once you're finished, you decide the ground feels
+good enough to simply rest there for a bit.
+
+A cool breeze builds momentarily from the east, cooling your skin.
+
+>x sign
+
+There are two signs on the post. The uppermost sign faces southeast, and is
+oriented so that you know it pertains to the trail that runs northeast-
+southwest; it reads:
+
+APPALACHIAN TRAIL
+Mt Cammerer 2.1 ->
+Lwr Mt Cammerer Trail 4.4 ->
+<- Cosby Knob Shelter 0.8
+
+The other sign faces southwest and reads:
+
+LOW GAP TRAIL
+Walnut Bottoms 2.5 ->
+<- Cosby Campground 2.9
+
+A gnat bounces against your forehead, and you quickly swat the annoyance away.
+
+>remove boots
+
+You take your boots off and remove your socks. It feels great to get some air on
+your feet, but after a bit of a rest you decide it's best to get going again.
+You put your socks and boots back on, tie the laces securely.
+
+>x boots
+
+Wonderfully durable boots, size seven narrow. Their heavy leather exterior
+protects your feet from rocks and roots, they're tall for proper ankle support
+over rough terrain, the soles tend to keep you from slipping even on slick
+rocks, and they're lined with Gore-Tex to keep you dry. Your only complaint is
+that the company claims that the boots 'breathe,' when in fact they seem to keep
+your feet hot in the summer, freezing cold in the winter. So far, though,
+they're the best boots you've ever owned.
+
+>x watch
+
+You glance down at your watch. It reads 2:17 PM.
+
+>look
+
+ (on the ground)
+You stand in the center of Low Gap, where two trails intersect. For the
+Appalachian Trail, this is a low spot, and the trail climbs both to the
+southwest, toward Cosby Knob, and northeast, back toward the fire tower.
+Conversely, this is high spot on the Low Gap trail, which descends into Walnut
+Bottoms to the southeast and, to the northwest, toward home.
+
+>stand
+
+You get back up and brush off your clothes. Break's over.
+
+>xyzzy
+
+If that actually could work, you'd certainly miss out on some beautiful scenery.
+
+>nw
+With a lightness in your heart at the realization that you're on the downhill
+stretch, you set off toward the campground. At first, the going is rather steep,
+but the trail soon begins to switchback upon itself, snaking slowly downhill
+toward flatter ground. Though the tight switchbacks reduce the angle of descent,
+they also make the trail longer and limit the space for trees. There seems to be
+little or no shade, and the sun beats down relentlessly upon you as you descend
+the west-facing ridge. It's tempting to simply cut off-trail and travel
+crosscountry to save time, but you realize that if everyone did that the erosion
+along this ridge would be terrible.
+
+After about two miles, the switchbacks disappear and you find yourself comforted
+by the shade of the woods once again. The air is cool here, chilled further by
+the presence of Cosby Creek, which flows parallel to the path for a quarter mile
+or so. Larger than the other streams you've encountered today, Cosby Creek is
+full of white-foamed cascades and deep, dark pools. The water of the stream
+feeds life into the forest, and everything along this stretch is green and moist
+and mossy. From time to time the landscape seems rather surreal, as if you're
+strolling through a fairytale rather than a real place. After a time, the stream
+flows off into the forest, out of sight, and you're somewhat sad to see it go.
+No matter, this means you're even closer to home.
+
+
+
+The trail begins to widen, from a path to a road, and you come to another
+junction.
+
+
+You smile as you enter the junction and see the sign in the northeast corner of
+the clearing:
+
+LOW GAP TRAIL
+<- Cosby Campground 0.4
+Low Gap 2.5 ->
+
+Less than half a mile to the campground! Of course, the parking area's another
+half mile beyond that, but that's of little consequence... you're very close to
+home now.
+
+A previously unseen skink on a nearby log is startled by your presence and
+skitters under the bark.
+
+>n
+
+You decide to take the access trail back, seeing as how it's a slightly shorter
+walk in that direction. This portion of the access trail isn't very heavily used
+and is slightly overgrown; grass brushes against your legs as you walk. After
+not quite half a mile, you find yourself back in the same clearing you passed
+through earlier today.
+
+
+You're standing at the junction of two trails, one running northwest-southeast,
+the other running northeast-southwest. At the north corner of the junction, two
+signs are nailed to a single post indicating where each trail leads.
+
+A cardinal glides across the path, just above the trees, and is gone.
+
+>sw
+
+That's the longer route back. Not that it matters, really - your feet are up for
+an extra quarter of a mile. You head down the wide trail (it's more of a road
+than a trail, really), and quickly find yourself in the campground.
+
+
+You're standing at the edge of the road on the eastern edge of the Cosby
+Campground. A familiar wooden sign, painted brown with bright white lettering
+stands here, just off the pavement and to the left of the trail. As with all of
+the National Park Service's trail signs, it gives you the name of the trail and
+the distance to the nearest important junctions. This one reads:
+
+LOWER MOUNT CAMMERER TRAIL
+Low Gap Trail 0.2
+Sutton Ridge Overlook 1.4
+Appalachian Trail 7.5
+
+The dirt trail is wide enough here to accommodate a full-size vehicle, and
+begins behind a locked gate.
+
+>nw
+You continue walking northwest, through the campground. Parents at a nearby site
+are setting up their tents for the evening, one for them, and a smaller one for
+their children. A young boy and girl are laughing and throwing a frisbee (and
+not throwing it very well) nearby. Suddenly, the frisbee comes flying right
+toward you! Fortunately, you see it coming and deftly toss it to the little
+girl, who thanks you and runs back to play with her brother. Another quarter
+mile finds you back in the parking lot.
+
+
+You stroll into the parking lot, light on your feet despite the sixteen miles
+behind you, and glance at your watch. It reads three thirty-eight in the
+afternoon. Not bad time, really, considering all the stops along the way to
+check things out. You take off your pack and plop down on a grassy hill at the
+western edge of the parking lot. Lying back, angled with your head uphill of
+your feet, you watch the clouds that are gathering overhead. One of them reminds
+you of a galax leaf. You smile to yourself, thinking of the wonderful day you've
+had, close your eyes, listen to the birds the nearby woods, and eventually drift
+off to sleep in the grass. What a fantastic day.
+
+As darkness falls, the serenity is broken by the sound of an approaching car,
+and you open your eyes to see your ride pulling into the parking lot, right on
+
+
+
+time.
+
+    
+
+Would you like to RESTART, RESTORE a saved game or QUIT?
