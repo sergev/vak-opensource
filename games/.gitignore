@@ -6,6 +6,7 @@
 *.txt-
 *.qzl
 *.DAT
+*.glkdata
 glulxe
 dfrotz
 alabconc.glkdata

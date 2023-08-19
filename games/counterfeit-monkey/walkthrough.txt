@@ -1,0 +1,163 @@
+spawn ./glulxe CounterfeitMonkey-11.gblorb
+Welcome to the Cheap Glk Implementation, library version 1.0.6.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Can you hear me? >> y
+
+Good, you're conscious. We're conscious. I've heard urban legends about synthesis going wrong, one half person getting lost.
+
+Do you remember our name?
+
+>no
+To review, we're Alexandra now. I was Alex, before the synthesis. You were...
+
+>wait
+...oh boy. Okay. Okay. I need you on form here. This is going to be hard if you don't remember being Andra. Not panicking. As far as I can tell, the operation was a success. We're meant to be one person now, unrecognizable to anyone who knew us before.
+
+
+Counterfeit Monkey
+A Removal by Emily Short
+Release 11 / Serial number 230220 / Inform 7 build 6M62 (I6/v6.41 lib 6/12N) 
+
+
+Let's try to get a look around. I haven't been able to run our body without your help, but maybe now you're awake, it'll work better.
+
+To get a look around, type LOOK and press return. If you do not want help getting started, type TUTORIAL OFF.
+>look
+Back Alley
+This isn't much, is it? Just the back sides of a couple of buildings, some peeling yellow paint, and not even much by way of windows to look in through. I think the place where we had the procedure done is just a block or two away, but I've already lost the door. I imagine they change it. 
+
+This alley runs north to the open street, towards the town square. That's the way we'll want to go first.
+
+You can find out more if you LOOK AT THE YELLOW BUILDINGS (or shorten it to L YELLOW BUILDINGS).
+>look yellow building
+The buildings are no doubt due for renovation, but haven't received it yet. There are no windows facing this way.
+
+You are reminded of how we got here.
+
+[MEMORIES will list your currently active memories]
+There are other things around here that you can look at too, if you like. You can check out other things in your surroundings, or LOOK AT ME to see yourself.
+>look at me
+This body is more you than me  well, it would be, since we came out a girl. Still, I feel a bit odd inspecting us too closely. It feels like invading your privacy.
+
+Feel free to look around some more. When you're ready to move on from here, try NORTH.
+>memories
+Currently on your mind is how we got here. 
+
+[REMEMBER any memory to review it.]
+>look at me
+I don't think anything about us looks out of place. We are female, though a little taller and leaner than average, and with slightly boyish facial features. It's nothing that would attract attention, though.
+
+>remember how we got here
+Cluttered Industrial Room
+The synthesizer was right at the center of the room, and we were inside it. An unshaven man in a blue jumper was prodding us with his foot. "Wake up! Wake up!"
+
+But we couldn't move, even though you were half-conscious. So he panicked. We'd paid him to let us recover in comfort, but he wasn't about to risk having a corpse on his hands, even an unidentified one. He picked us up and dumped our body in the Back Alley and left.
+
+Then we're back in the present.
+
+>north
+
+Sigil Street
+The buildings here are two and three stories, with shops at ground level and elderly apartments above. The shops are closed for the holiday: a typographer's office, tourist boutiques of colorful skirts and ethnic bodices (rarely if ever worn by natives) and t-shirts covered with font designs.
+
+Passing by the reflective window we catch the sight of our single blended body, and it creeps me out.
+
+A narrow alley runs between buildings to the south, while the street continues east.
+
+Now we're in a new area, there are new things to see. Try LOOK AT THE SHOPS or L SHOPS.
+>look shops
+We peruse the offerings: colorful skirts, font t-shirts, ethnic bodices, and a mourning dress.
+
+I gather from your thoughts that you actually like some of the skirts, but I'd prefer that we skip the cross-dressing for now. Our synthesized body may be female but I'm still getting used to that.
+
+Sometimes the things we examine have parts that we might also want to look at. That mourning dress, for instance.
+>look mourning dress
+A black vintage gown trimmed with much lace and dripping with jet beads.
+
+There's more we can do than just looking around. To check what you're holding at the moment, try typing INVENTORY, or I for short.
+>inventory
+You insisted that we bring almost nothing into the synthesis room, so the criminal who was performing the synthesis couldn't rob us. I had hoped there was more honor among thieves, but you said no, there isn't.
+
+We are equipped with your R-remover  an essential we mustn't part with. 
+
+That looks interesting. Try looking at that R-remover.
+>look r-remover
+It is a blunt-nosed plastic device, about the size of a laser pointer, that can be waved at things to remove excess Rs. It is not very powerful, and often fails against large items. On the other hand, it has a wide range of action: it can be set to any letter we choose.
+
+These are, if not exactly cheap, hardly unknown in Atlantis.
+
+It can be set to any letter we choose, hm? That sounds like a hint. Try SET THE R-REMOVER TO U.
+>set the r-remover to u
+You flick our thumb over the small knob: we now have a U-remover.
+
+That letter-remover is going to be very important as we try to escape here. To test it out, try WAVE U-REMOVER AT MOURNING DRESS.
+>wave u-remover at mourning dress
+In fact, to make life easier, we don't even have to SET the letter-remover every time we use it. We can just type (say) WAVE P-REMOVER AT PRAM (or REMOVE P FROM PRAM), and the remover will automatically set itself to P.
+
+Now, let's see what happened as a result...
+
+There is a flash of blue light, and the mourning dress turns into a morning dress. An outfit of striped trousers and fancy coat, such as men sometimes wear to fancy weddings in the morning.
+
+[Your score has gone up by one point.]
+
+Something we did has just raised our score! We must be on the right track. To find out what exactly we did right, type SCORE.
+>score
+You have earned 1 point:
+  1 point for using the letter-remover
+
+You have not yet removed a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, v, w, x, y, or z from anything.
+
+You can spend some more time looking around or checking out your inventory to see what you've changed in this location. When you're ready to move on, you can head EAST.
+>look
+Sigil Street
+The buildings here are two and three stories, with shops at ground level and elderly apartments above. The shops are closed for the holiday: a typographer's office, tourist boutiques of colorful skirts and ethnic bodices (rarely if ever worn by natives) and t-shirts covered with font designs.
+
+The reflective window of a closed shop reflects our synthesized self.
+
+A narrow alley runs between buildings to the south, while the street continues east.
+
+>look window
+I have not gotten used to what we look like since we were synthesized into a single female body. The face that looks back is deeply scary. It's not me. And it's not you either. It's more like one of those computer composites you can have done to envision future offspring: if you and I were to have a somewhat androgynous daughter she might look like this.
+
+But I am uncomfortable sharing a body, and uncomfortable looking into a mirror and seeing something other than my own face looking out.
+
+You seem calmer about it: perhaps you've just had more time to reflect, or perhaps somehow you're filtering those emotions out for me. But I think we'll both be happier when we're split back into our own respective bodies.
+
+>east
+Unless you're playing this game in text-only mode, you should see a little blue and white compass on the side of the screen. That compass will always show you which directions you can go next. Directions in blue lead to areas you haven't visited before. Directions in white lead to places you've already been.
+
+Ampersand Bend
+A bend in the street, which runs west and north. This district combines the old and the new: a small museum in an ancient stone building to the east, a shiny real estate office south. The window of the museum is currently displaying one of its exhibits, a codex.
+
+A temporary barrier blocks this empty street from the busy fair to the north, though there is a door that could be opened with the correct code. From here the gaiety and excitement of the holiday are fairly loud. 
+
+Navigating with compass directions works, but we can also type GO TO... to travel to a named place. GO TO BACK ALLEY will take us back where we started, for instance.
+>

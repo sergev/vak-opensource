@@ -1,0 +1,49 @@
+#!/usr/bin/expect -f
+#
+# Play game Alabaster.
+#
+# Based on https://intfiction.org/t/counterfeit-monkey-invisiclues/44257
+#
+set timeout -1
+
+# Remove previous log, if any.
+system rm -f "game.log"
+log_file "game.log"
+
+# Start the game.
+spawn ./glulxe CounterfeitMonkey-11.gblorb
+match_max 100000
+
+# Introduction
+expect ">>"; send "y\r"
+expect ">"; send "no\r"
+expect ">"; send "wait\r"
+expect "before."; send "\r"
+
+# Back Alley
+expect ">"; send "look\r"
+expect ">"; send "look yellow building\r"
+expect ">"; send "look at me\r"
+expect ">"; send "memories\r"
+expect ">"; send "look at me\r"
+expect ">"; send "remember how we got here\r"; # Cluttered Industrial Room
+expect ">"; send "north\r"
+
+# Sigil Street
+expect ">"; send "look shops\r"
+expect ">"; send "look mourning dress\r"
+expect ">"; send "inventory\r"
+expect ">"; send "look r-remover\r"
+expect ">"; send "set the r-remover to u\r"
+expect ">"; send "wave u-remover at mourning dress\r"; # or remove u from mourning dress
+expect ">"; send "score\r"
+expect ">"; send "look\r"
+expect ">"; send "look window\r"
+expect ">"; send "east\r"
+
+# Ampersand Bend
+
+# Quit
+expect ">"; send "quit\r"
+puts ""
+exit
