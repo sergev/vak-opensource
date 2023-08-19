@@ -1,0 +1,25 @@
+#
+# Compile to glulx
+#
+CONTENTS        = /Applications/Inform.app/Contents
+NI              = $(CONTENTS)/MacOS/ni
+INFORM6         = $(CONTENTS)/MacOS/inform6
+NIFLAGS         = -internal $(CONTENTS)/Resources/Internal #-release
+
+# Testing
+INF6FLAGS       = -E2wSDG
+
+# Release
+INF6FLAGS       = -E2w~S~DG
+
+
+all:            story.ulx
+
+clean:
+		rm -f story.i6 story.ulx
+
+story.i6:       story.ni
+		$(NI) $(NIFLAGS) -source $<
+
+story.ulx:      story.i6
+		$(INFORM6) $(INF6FLAGS) $<
