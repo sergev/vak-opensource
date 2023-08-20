@@ -5,6 +5,7 @@ chmod -x game.log
 # Remove \r
 sed -i~ '
 s///g
+s//--/g
 ' game.log
 
 sed -i~ '

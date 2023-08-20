@@ -50,31 +50,41 @@ Release 11 / Serial number 230220 / Inform 7 build 6M62 (I6/v6.41 lib 6/12N)
 Let's try to get a look around. I haven't been able to run our body without your help, but maybe now you're awake, it'll work better.
 
 To get a look around, type LOOK and press return. If you do not want help getting started, type TUTORIAL OFF.
+>tutorial off
+Tutorial mode is now off.
+
+>map on
+[This interpreter does not support displaying graphics.]
+
+>highlighting on
+Highlighting of object names is now on.
+
+>goals
+Here's what we think we need to do: 
+  Get out of these back streets
+
 >look
 Back Alley
 This isn't much, is it? Just the back sides of a couple of buildings, some peeling yellow paint, and not even much by way of windows to look in through. I think the place where we had the procedure done is just a block or two away, but I've already lost the door. I imagine they change it. 
 
 This alley runs north to the open street, towards the town square. That's the way we'll want to go first.
 
-You can find out more if you LOOK AT THE YELLOW BUILDINGS (or shorten it to L YELLOW BUILDINGS).
 >look yellow building
 The buildings are no doubt due for renovation, but haven't received it yet. There are no windows facing this way.
 
-You are reminded of how we got here.
+Something makes you think of how we got here.
 
 [MEMORIES will list your currently active memories]
-There are other things around here that you can look at too, if you like. You can check out other things in your surroundings, or LOOK AT ME to see yourself.
 >look at me
-This body is more you than me  well, it would be, since we came out a girl. Still, I feel a bit odd inspecting us too closely. It feels like invading your privacy.
+This body is more you than me -- well, it would be, since we came out a girl. Still, I feel a bit odd inspecting us too closely. It feels like invading your privacy.
 
-Feel free to look around some more. When you're ready to move on from here, try NORTH.
+>look at me
+I don't think anything about us looks out of place. We are female, though a little taller and leaner than average, and with slightly boyish facial features. It's nothing that would attract attention, though.
+
 >memories
 Currently on your mind is how we got here. 
 
 [REMEMBER any memory to review it.]
->look at me
-I don't think anything about us looks out of place. We are female, though a little taller and leaner than average, and with slightly boyish facial features. It's nothing that would attract attention, though.
-
 >remember how we got here
 Cluttered Industrial Room
 The synthesizer was right at the center of the room, and we were inside it. An unshaven man in a blue jumper was prodding us with his foot. "Wake up! Wake up!"
@@ -92,50 +102,38 @@ Passing by the reflective window we catch the sight of our single blended body, 
 
 A narrow alley runs between buildings to the south, while the street continues east.
 
-Now we're in a new area, there are new things to see. Try LOOK AT THE SHOPS or L SHOPS.
 >look shops
 We peruse the offerings: colorful skirts, font t-shirts, ethnic bodices, and a mourning dress.
 
 I gather from your thoughts that you actually like some of the skirts, but I'd prefer that we skip the cross-dressing for now. Our synthesized body may be female but I'm still getting used to that.
 
-Sometimes the things we examine have parts that we might also want to look at. That mourning dress, for instance.
 >look mourning dress
 A black vintage gown trimmed with much lace and dripping with jet beads.
 
-There's more we can do than just looking around. To check what you're holding at the moment, try typing INVENTORY, or I for short.
 >inventory
 You insisted that we bring almost nothing into the synthesis room, so the criminal who was performing the synthesis couldn't rob us. I had hoped there was more honor among thieves, but you said no, there isn't.
 
-We are equipped with your R-remover  an essential we mustn't part with. 
+We are equipped with your R-remover -- an essential we mustn't part with. 
 
-That looks interesting. Try looking at that R-remover.
 >look r-remover
 It is a blunt-nosed plastic device, about the size of a laser pointer, that can be waved at things to remove excess Rs. It is not very powerful, and often fails against large items. On the other hand, it has a wide range of action: it can be set to any letter we choose.
 
 These are, if not exactly cheap, hardly unknown in Atlantis.
 
-It can be set to any letter we choose, hm? That sounds like a hint. Try SET THE R-REMOVER TO U.
 >set the r-remover to u
 You flick our thumb over the small knob: we now have a U-remover.
 
-That letter-remover is going to be very important as we try to escape here. To test it out, try WAVE U-REMOVER AT MOURNING DRESS.
 >wave u-remover at mourning dress
-In fact, to make life easier, we don't even have to SET the letter-remover every time we use it. We can just type (say) WAVE P-REMOVER AT PRAM (or REMOVE P FROM PRAM), and the remover will automatically set itself to P.
-
-Now, let's see what happened as a result...
-
 There is a flash of blue light, and the mourning dress turns into a morning dress. An outfit of striped trousers and fancy coat, such as men sometimes wear to fancy weddings in the morning.
 
 [Your score has gone up by one point.]
 
-Something we did has just raised our score! We must be on the right track. To find out what exactly we did right, type SCORE.
 >score
 You have earned 1 point:
   1 point for using the letter-remover
 
 You have not yet removed a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, v, w, x, y, or z from anything.
 
-You can spend some more time looking around or checking out your inventory to see what you've changed in this location. When you're ready to move on, you can head EAST.
 >look
 Sigil Street
 The buildings here are two and three stories, with shops at ground level and elderly apartments above. The shops are closed for the holiday: a typographer's office, tourist boutiques of colorful skirts and ethnic bodices (rarely if ever worn by natives) and t-shirts covered with font designs.
@@ -152,12 +150,502 @@ But I am uncomfortable sharing a body, and uncomfortable looking into a mirror a
 You seem calmer about it: perhaps you've just had more time to reflect, or perhaps somehow you're filtering those emotions out for me. But I think we'll both be happier when we're split back into our own respective bodies.
 
 >east
-Unless you're playing this game in text-only mode, you should see a little blue and white compass on the side of the screen. That compass will always show you which directions you can go next. Directions in blue lead to areas you haven't visited before. Directions in white lead to places you've already been.
 
 Ampersand Bend
 A bend in the street, which runs west and north. This district combines the old and the new: a small museum in an ancient stone building to the east, a shiny real estate office south. The window of the museum is currently displaying one of its exhibits, a codex.
 
 A temporary barrier blocks this empty street from the busy fair to the north, though there is a door that could be opened with the correct code. From here the gaiety and excitement of the holiday are fairly loud. 
 
-Navigating with compass directions works, but we can also type GO TO... to travel to a named place. GO TO BACK ALLEY will take us back where we started, for instance.
+>look barrier
+It's a high metal fence, supported by sturdy poles. It's designed to contain the chaos a little, and keep people who have come in for the Fair from wandering off down the side streets and causing trouble in unpoliced areas of town. It has a code-lock that opens the inset door.
+
+>look code-lock
+The kind of lock that can be set to a three-digit code, assuming one knows what the code is.
+
+>remove x from codex
+We smoothly, and almost without thinking about it, reset your device to be an X-remover. There is a smell of anise, and the codex turns into a code. A bit of paper on which is written "305."
+
+>open code-lock
+We set the wheels of the code-lock to 305.
+
+Click! The barrier door unlocks.
+
+>north
+We open the temporary barrier.
+
+Fair
+Today is Serial Comma Day, one of the biggest holidays on the island, and a time when half the police force is off duty while the other half is over-extended. The perfect day to make an escape. The square at the center of town is therefore crowded with people, and there's an overpowering smell of artificial butter and spun sugar.
+
+We are surrounded by kiosks for spell-offs, face-painting, a wheel to spin for prizes, and other activities best for small children or the very easily amused. 
+
+The Fair continues with a selection of carnival games to the west, and with open park to the north and east.
+
+[Your score has gone up by three points and is now four.]
+
+>look kiosks
+They're the usual tacky affairs of brightly painted fiberboard and cheap prizes. I don't see any likely to help us today, however.
+
+>look wheel
+It's the sort of game where you spin the wheel for a prize. No one seems to be manning or using it any more, though; perhaps the supply of prizes has run out.
+
+>spin wheel
+We give the wheel a strong spin. The pointer lands on FREE POSTCARD. Sadly, no one is around to award this prize (which is probably why we were allowed to spin it without having some sort of ticket first).
+
+>west
+
+Midway
+Here in front of the pharmacy in the southwestern corner of the town square, various contests have been set up -- a strong-man hammering contest, a contest to see who can burst the most balloons using a styrofoam dart-plane, and so on.
+
+I assume you've noticed, though, the word-balance, which comes up as high as our hip. On the right pan is an apple and on the left a pear.  
+
+Beside the word-balance is a barker in a blue suit, the same regulation blue used by the Bureau of Orthography. The barker is also carrying a tube. 
+
+"Step up and try your hand at the fabulous word-balance!" calls the barker appealingly.
+
+We could ask what the gel is worth, ask whether the game is rigged, or ask whether anyone ever wins.
+
+>look contest
+It's one of those contests where you have to hammer something so that something else flies up and rings a bell. I don't have time for that kind of silly macho display.
+
+>look styrofoam
+Ridiculous little styrofoam gliders with dart-noses. No use to us, anyway.
+
+>look word-balance
+The beam is balanced. On the right pan is an apple and on the left a pear. 
+
+>look barker
+He is dapper in his suit, as though he might belong to an especially vivid barber-shop quartet.
+
+>look tube
+We can't get a good look at the tube from this position, but it definitely appears to be authentic restoration gel -- valuable stuff, I recall you saying. (Or were you just trying to impress me?)
+
+>remove p from apple
+We run our thumb over the dial, setting the device to a P-remover. There's a smell of fermenting apple, then cider, then something more malty. In the apple's place there is now a glass of nutbrown ale.
+
+There is a cheer from the spectators. The word-balance tilts slowly but inexorably.
+
+The barker looks astonished and displeased, except for a fraction of a second when he just noticeably winks. With exaggerated bad grace hands us some restoration gel. "There's your prize. And now this contest is over."
+
+He stalks away.
+
+[Your score has gone up by three points and is now seven.]
+
+>n
+
+Church Forecourt
+This corner of the park, in the lee of the church, has been left free of kiosks and booths. Contrary to the usual rules of cathedral layout, the New Church is oriented toward the north, so we are standing by the flank of the building, though there is an entrance on this side. 
+
+South and east lead to more of the park; there is a small cinema (where I left my pack) to the north, and the entrance to the New Church is west.
+
+>w
+
+New Church
+Not a Gothic cathedral from the era when the church was wealthy and secure, but a gallant Neo-classical response to the turmoil of the 18th century, when the power of language was just beginning to be evident, and instead of an immutable cosmology, we suddenly had observer-consensus reality. What is the need or use of God, if it turns out that He gave all the power of creation to Adam when He let him name the animals?
+
+An inscription above the altar, picked out in gold paint, reads ½  ÁÇÇ &½ A »y³¿Â. 
+
+My mother volunteers here: I think I should warn you. She is not quite religious, but believes in the cultural value of the building, and in having some sort of place where people can go for spiritual respite. She also, I suspect, likes having those great gold letters, defiantly foreign and arcane in the heart of the old city.
+
+There are side exits both east and west; and a gift shop occupies the narthex at the south end.
+
+>w
+
+Church Garden
+One might expect a graveyard, but burial inside the city walls has been forbidden for sanitation reasons since well before the New Church was built. Instead, there is a small meditation garden, which was once designed as an intricate knotwork of shrubs.
+
+The knotwork has since grown into a thicket. 
+
+>look thicket
+Densely-grown: the church hasn't been able to afford a real groundskeeper for some time.
+
+>remove h from thicket
+We reset the device to h. The thicket abruptly shrivels and flattens itself, and in its place a ticket flutters to earth.
+
+>get ticket
+We take the ticket. It reads ADMIT ONE in large black letters.
+
+>e
+
+New Church
+Not a Gothic cathedral from the era when the church was wealthy and secure, but a gallant Neo-classical response to the turmoil of the 18th century, when the power of language was just beginning to be evident, and instead of an immutable cosmology, we suddenly had observer-consensus reality. 
+
+An inscription above the altar, picked out in gold paint, reads ½  ÁÇÇ &½ A »y³¿Â. 
+
+There are side exits both east and west; and a gift shop occupies the narthex at the south end.
+
+>look altar
+It is simple and bare of cloth or flowers.
+
+>look inscription
+It means, In the Beginning was the Word.
+
+A patchy attempt to make theology align with scientific and linguistic reality, but it still has power. And despite the Bureau's depredations of foreign language writings everywhere else, they have never quite had the nerve to deface this.
+
+>e
+
+Church Forecourt
+This corner of the park, in the lee of the church, has been left free of kiosks and booths. Contrary to the usual rules of cathedral layout, the New Church is oriented toward the north, so we are standing by the flank of the building, though there is an entrance on this side. 
+
+South and east lead to more of the park; there is a small cinema (where I left my pack) to the north, and the entrance to the New Church is west.
+
+>look new church
+It manages to be austere without seeming in the least modern: the walls are white and the windows clear, but the proportions, the texture of the plaster, the irregular leading between the panes of glass, all come of the age of handmade things.
+
+>look cinema
+Large red letters on the marquee announce the latest film from Cannes.
+
+>n
+
+Cinema Lobby
+This is a small, one-screen theater. The seats are not comfortable and the screen is not large. The projector is old. The management is lazy. No food is served.
+
+On two occasions, the film I was watching burst into flames while it was being shown.
+
+Despite these handicaps, it maintains an active and interested clientele simply by virtue of content: a wide variety of foreign films that, though meticulously dubbed into flawless California-accented English, nonetheless carry that slight tang of the forbidden.
+
+Evidently the next showing is not for a little while yet, because there are no patrons in sight.
+
+"Ticket," says the ticket-taker automatically.
+
+>give ticket
+"Here, have a ticket," we say.
+
+The ticket-taker frowns slightly as he takes the ticket. He turns it over front and back; looks at us in confusion; looks at the ticket again. Then he goes to the phone and makes a call.
+
+I'm nervous. It's evident that he's talking to his manager. He doesn't take his eyes off us for a moment. He puts his hand over the mouth of the receiver so that we can't hear the whole conversation clearly, but the gist is still obvious: "...be fake... but... a TRICKET maybe? or, like, a STICKET? ...oh, all right."
+
+Finally he hangs up.
+
+"Sorry for the inconvenience," he says. "Your ticket looks a little different from our usual ones, but I guess the printing has been changed."
+
+He tears the ticket briskly into confetti, destroying all evidence of our crime, and points off to the west. "The screening room is that way. Thank you and enjoy the show. It's not for a while, though."
+
+>w
+
+Screening Room
+Whatever is scheduled for later showing has not started yet, and is probably not destined to start for some time; at any rate, the screen is blank and no audience has yet assembled.
+
+My backpack is stowed under a seat in the third row from the back. I figured that it would be undisturbed there for a couple of hours, in the dark and out of sight, and if anyone found it they would probably turn it in to Lost and Found. But it is a big relief to find it still there.
+
+The backpack contains a flash drive and a monocle. 
+
+We can go north and east to the Cinema Lobby from here.
+
+>look screen
+The screen is empty: nothing is yet being shown. It is also very very small by modern cinema standards.
+
+>look backpack
+Mine: a little bit worn, but capacious. It doesn't have any identifying marks on it, and I thought a brand-new bag would look more suspicious. It's closed.
+
+In the backpack are a flash drive and a monocle.
+
+>take backpack
+We get the backpack.
+
+[Your score has gone up by three points and is now ten.]
+
+>look flash drive
+This is it: all my notes; the syllable-and word-generating programs from which I built my language vocabulary; the lexicon and pronunciation guide and grammatical descriptions.
+
+And then there's the research to support the product: citations; copies of journal articles and scans from books; contact information for people in the outside world I think could help me.
+
+It's everything I've been working on for the last three years.
+
+>look monocle
+This is no mere fashion accessory. It is the very top grade of authentication scope, designed for people who have to use them all day, and normally available only to employees of the Bureau of Orthography. If we look through the monocle at something, we can see its true nature, regardless of spelling changes.
+
+You like that? I thought you might be impressed. My father got it for me. "For research," he said, but I think he knew I just coveted them. At any rate, you're not the only one with equipment.
+
+>n
+
+Projection Booth
+The booth is small and lined with grey carpet. It smells faintly of hot dogs.
+
+A jotter is propped up next to the projector.
+
+>use monocle
+(first taking the monocle)
+(opening the backpack)
+Everything turns computer-monitor green when viewed through our right eye. And staring fixedly at anything will turn up its authenticity status.
+
+>look projector
+It's an old-fashioned film projector, with a spot to hold a reel of film. The lens points at the screen.
+
+The monocle pings happily as we sight the projector with the crosshairs.
+
+>look jotter
+It's a little spiral-bound notebook, the kind reporters in old movies carry. It's full of notes: running times of movies. Numbers of people in the audience. Who clapped during potentially subversive scenes. Who arrived in a group of more than three.
+
+On the jotter is written "Red: audience 14. FM couple. MM couple. M in raincoat. FFFFF group. F. MF. M."
+
+The monocle pings happily as we sight the jotter with the crosshairs.
+
+>take jotter
+We take the jotter.
+
+>s
+
+Screening Room
+Whatever is scheduled for later showing has not started yet, and is probably not destined to start for some time; at any rate, the screen is blank and no audience has yet assembled.
+
+We can go north to the Projection Booth and east to the Cinema Lobby from here.
+
+>e
+
+Cinema Lobby
+This is a small, one-screen theater. Evidently the next showing is not for a little while yet, because there are no patrons in sight.
+
+"Yo," says the ticket-taker as we come in.
+
+>s
+
+Church Forecourt
+This corner of the park, in the lee of the church, has been left free of kiosks and booths. Contrary to the usual rules of cathedral layout, the New Church is oriented toward the north, so we are standing by the flank of the building, though there is an entrance on this side. 
+
+South and east lead to more of the park; there is a small cinema to the north, and the entrance to the New Church is west.
+
+>se
+
+Fair
+The square at the center of town is crowded with people, and there's an overpowering smell of artificial butter and spun sugar.
+
+We are surrounded by kiosks for spell-offs, face-painting, a wheel to spin for prizes, and other activities best for small children or the very easily amused. 
+
+The Fair continues with a selection of carnival games to the west, and with open park to the north and east.
+
+>e
+
+Heritage Corner
+This patch of the town square has been paved over in octagonal bricks and is commonly used for displays of traditional dancing: over-50 women in home-made embroidered aprons, skipping arm-in-arm and jumping over broomsticks.
+
+No, there aren't any here now. But trust me. It's an unforgettable sight.
+
+Under a bit of shelter in the corner, a diorama table shows scenes from local history, rotated out each week. This week's diorama represents the first sitting of the Committee for the New Orthodox Orthography. 
+
+The park continues to the north and west; to the east is a backpackers' hostel where you've stayed recently and where you stowed the rest of your important possessions.
+
+>look bricks
+It's a narrow brick townhouse with only one or two rooms on each floor, and silly ornamental brickwork up near the skyline. The label over the entrance merely announces a generic hostel, without the dignity of a name.
+
+The monocle pings happily as we sight the hostel with the crosshairs.
+
+>look shelter
+The patriotic scene is set against the backdrop of the Bureau's buildings ca. 1895, where the committee first met, but the historians have included a bit of the building exterior to show that the meetings were conducted under army guard. The writing of dictionaries has not always been bloodless.
+
+The members and the army are movable, but the rest of the scenery appears to have been hot-glued in place.
+
+The monocle pings happily as we sight the diorama table with the crosshairs.
+
+>look members
+Mostly men and a few women, sternly dressed and with solemn expressions.
+
+The monocle pings happily as we sight the members with the crosshairs.
+
+>look army
+A collection of soldier figurines in blue uniforms.
+
+The monocle pings happily as we sight the army with the crosshairs.
+
+>remove y from army
+We reset the device to y. We wave the Y-remover at the army and produce an arm, severed (because after all it would be beyond the parameters of the change to generate the person whose body part it is). It is only moderately gory, and most locals get used to seeing this kind of thing as a prank from six-year-olds every halloween. Still, it might startle a tourist.
+
+>take arm
+We take the arm. A girl's arm, by the look of it, amputated neatly at the shoulder joint. The fingernails are painted shell-pink.
+
+>e
+
+Hostel
+I take it this is where you stayed from the time you got to town until our operation. I would have expected that someone with your credentials would have been able to afford something better: The Fleur d'Or, maybe? But maybe you thought this was lower-profile. At least it's clean and doesn't smell funny.
+
+The desk attendant is sort of eying us. She doesn't recognize you -- us -- but that's a good thing, I think.
+
+Discarded in one corner is Guidebook to Anglophone Atlantis. 
+
+There's a spiral staircase that leads up to the dormitory rooms.
+
+>look attendant
+She's dressed in a kind of casual-hippy way: nose ring, poofy blouse that doesn't fit quite right.
+
+The monocle pings happily as we sight the desk attendant with the crosshairs. "Do you mind?" she asks. "That's kind of rude."
+
+>look blouse
+White cotton with little ribbons on it. I hate that kind of frilly nonsense.
+
+The monocle pings happily as we sight the blouse with the crosshairs. She sighs pointedly.
+
+>talk to attendant
+We wave at the desk attendant.
+
+"Yeah, I see you," she says.
+
+I'd like to ask whether we can keep the guidebook.
+
+>ask keep guidebook
+"Hey, does this guidebook belong to the hostel, or can I keep it?"
+
+"Sure, whatever," she says. "People take and leave stuff all the time. It's no big deal."
+
+>ask how unlock lockers
+If you're trying to converse with other characters, the suggestions in the text provide possible phrasings; so if you read "I might ask about lentils.", you might phrase your command ASK ABOUT LENTILS. Introducing other words or variant phrasings that weren't part of the suggestion may confuse the game.
+
+Alternatively, if you just want to take an action in the game world, try giving a direct command, such as EXAMINE THE ASP or WAVE THE P-REMOVER AT THE PHONEY.
+
+>up
+
+Dormitory Room
+Painted off-white, with hard wood floors under many layers of protective gloss coating: there are no surfaces in this room that would take a stain. Four dorm beds are lined up against the wall.
+
+The locker you identify as your own sits near one of the beds, still locked with its dial lock.  
+
+A girl of about 19 is standing in the middle of the room, looking around as though she can't quite believe where she landed or what she's doing here. She is carrying a heavy pack and wearing a pink t-shirt. 
+
+"Hey," says the girl. "Do you think this place is safe?" she asks conspiratorially.
+
+I must look blank, because she goes on, "I saw this documentary once, right, about a serial killer who went from youth hostel to youth hostel, grooming girls and killing them. And then he'd chop up the bodies and put the body parts into the lockers. And no one would find out until he'd gone away again."
+
+Nothing like that has happened around here, but she seems to get a charge out of scaring herself with this story.
+
+We could ask for privacy.
+
+>look floors
+The floors are designed to be scrubbed clean every single day, leaving no trace of what might have come or gone.
+
+The monocle pings happily as we sight the hard wood floors with the crosshairs.
+
+>look beds
+At this time of day, since everyone is checked out, the beds are all stripped down to bare mattress. Linens may be rented at the front desk -- but we're not staying here tonight, so there's no need to experience the thinning sheets and the pilled woolen blankets. Your memory is enough for both of us.
+
+The monocle pings happily as we sight the dorm bed with the crosshairs.
+
+You are reminded of how it started with Brock.
+
+>remember how it started with Brock
+Brock's Stateroom
+It was early morning, almost a year ago now. A dim light came through the portholes. A four-thousand dollar mink blanket covered your hip.
+
+You sat up and started fishing around beside the bed, in the dove-grey shadows, for your bra.
+
+Brock put a hand on your thigh. It seems you woke him.
+
+"That wasn't your first time," he said.
+
+"No." You were still feeling for the underpants and the shirt, not looking at him.
+
+"Well. You're made of human after all." Brock stretched, grinned. "After breakfast I'll clear you some drawer space."
+
+"This was a one-night event," you said. "You're familiar with the concept."
+
+He got very still. Then he got out of bed. Without looking at you, he got his trunks out of his drawer. "I'm going for a swim."
+
+Then we're back in the present.
+
+>look locker
+A standard metal locker for travelers to leave their valuable possessions in when they go out -- or while they sleep, since one's bunkmates are not always to be trusted. It is of the kind that requires the traveler to bring his own lock, and in fact someone (such as yourself) has put a lock on this one.
+
+The monocle pings happily as we sight the locker with the crosshairs.
+
+>look lock
+It's curious, now you look at it: it's a combination lock with a dial face, but no one has bothered putting any numerals onto the dial.
+
+There is a dismissive blatt from the monocle, and transposed over the lock is a faint, greenish image of a clock.
+
+You have a fleeting thought of making your lock.
+
+>remember making your lock
+Galley
+You were going through the galley cupboards on the yacht. "If you're looking for coffee, Slango forgot to resupply," Brock said, descending the galley staircase in a wet Speedo.
+
+"No, the first-letter razor," you replied, holding up a portable clock. "I need a lock that responds to restoration gel but nothing else."
+
+"Ah." Brock toweled his hair. "It's in my bunk, sorry. Want to come look for it?"
+
+You smiled -- a give-away smile. "Wish I could, but we're on a deadline. Go put some pants on. And bring me the razor."
+
+Then we're back in the present.
+
+>look girl
+She is just the sort of tourist who most annoys the locals, but actually I find her type a little endearing: she may not be very sophisticated yet, but she wants to expand her horizons, and that's more than you can say for most of the friends she probably left back at home.
+
+The monocle pings happily as we sight the backpacking girl with the crosshairs.
+
+>look t-shirt
+It is somewhat too tight and bears the word JUICY in rhinestones across the bust.
+
+The monocle pings happily as we sight the pink t-shirt with the crosshairs.
+
+>look pack
+Mine: a little bit worn, but capacious. It doesn't have any identifying marks on it, and I thought a brand-new bag would look more suspicious. It currently gapes open.
+
+In the backpack is a flash drive.
+
+The monocle pings happily as we sight the backpack with the crosshairs.
+
+>ask for privacy
+"This will just take a moment, but you would you mind giving me the room to myself?" we say.
+
+She waves a hand generously. "Don't worry about it, do whatever you've got to do, I don't care," she says. "I'm so tired I couldn't move a muscle, but I've seen everything. I have three brothers and two sisters and I'm in women's rugby so I'm pretty hard to shock."
+
+With a grunt, she shrugs off her pack and puts it on the ground near one of the beds. "Wish I hadn't remembered that serial killer thing," the girl remarks, half to herself. "Now it's going to keep me up later. Picturing someone with a saw hacking me up."
+
+>show arm
+"Check this out," we say, holding out the arm for inspection.
+
+The backpacking girl turns white. After a moment to regain her composure, she flees the vicinity.
+
+>remove e from tube
+We reset the device to e. There is a flash of yellow light, and the tube turns into a tub. Now a handsome, giant-sized tub with RESTORATION GEL prominently emblazoned on the front.
+
+The monocle shows the residual form of the tube.
+
+>put gel on lock
+We dip out a pea-sized quantity of gel and rub it gently onto the lock. With an audible SPLORT, the lock becomes a clock and falls to the floor. It appears to be one of those archetypal alarm clocks that crows at sunrise and generally makes a nuisance of itself. It shows the time to be about twenty to ten.
+
+I'm starting to understand how you got into all the places you got into. Not that I judge you or your line of work, of course.
+
+[Your score has gone up by one point and is now eleven.]
+
+>get clock
+We get the clock.
+
+>open locker
+Now that the lock has been removed, the locker swings easily open, revealing a roll, a letter, and some plans.
+
+[Your score has gone up by three points and is now fourteen.]
+
+>look roll
+Now that is more like it: you've got us a tidy little stash of euros here.
+
+The monocle pings happily as we sight the roll with the crosshairs.
+
+>look letter
+It's a letter from your brother, printed off anonymously from an untraceable email account that you accessed in town. Nothing that could be followed back to Slango and the yacht.
+
+Sis,
+
+I'm keeping your wire transfer funds. I want to try for Stanford.
+
+I'd say thank you except that, one, you didn't get it legally (I saw this documentary about teen prostitutes -- if that's where it came from then EW) and, two, honestly? You owe for what you put us through after you ran away. Mom and Dad were humiliated that you turned into the prodigal daughter. Your face got on milk cartons. Pastor Hughes GAVE A SERMON ABOUT IT.
+
+Mom spent all that time coaching you through spelling practice, you know she doesn't enjoy getting up at 4 AM, right? You totally threw that in their faces.
+
+If you want to come home sometime, fine, but don't come to just see me. If you want to see me you have to see Mom and Dad too.
+
+Nate.
+
+The monocle pings happily as we sight the letter with the crosshairs.
+
+>look plans
+The plans are rolled up and stuck shut with a label that reads "PROPERTY OF DENTAL CONSONANTS LIMITED -- UNAUTHORIZED USE ILLEGAL". They're just a set of prints from the main computer design, of course, but still extremely informative: to the right engineer, they might reveal the secret of T-insertion for replication by other companies. These are what you and Brock were originally contracted to lift from the island, at a fee in the multiple millions.
+
+The monocle pings happily as we sight the plans with the crosshairs.
+
+>get roll
+We take the roll.
+
+>get letter
+We pick up the letter.
+
+>get plans
+We take the plans.
+
 >

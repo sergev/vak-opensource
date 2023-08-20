@@ -7,7 +7,7 @@
 set timeout -1
 
 # Remove previous log, if any.
-system rm -f "game.log"
+system rm -f "game.log" "*.glkdata"
 log_file "game.log"
 
 # Start the game.
@@ -20,16 +20,20 @@ expect ">"; send "no\r"
 expect ">"; send "wait\r"
 expect "before."; send "\r"
 
-# Back Alley
-expect ">"; send "look\r"
+#
+# Goal #1: Get out of these back streets
+#
+expect ">"; send "tutorial off\r"
+expect ">"; send "map on\r"
+expect ">"; send "highlighting on\r"
+expect ">"; send "goals\r"
+expect ">"; send "look\r";                      # Back Alley
 expect ">"; send "look yellow building\r"
 expect ">"; send "look at me\r"
+expect ">"; send "look at me\r"; # again
 expect ">"; send "memories\r"
-expect ">"; send "look at me\r"
-expect ">"; send "remember how we got here\r"; # Cluttered Industrial Room
-expect ">"; send "north\r"
-
-# Sigil Street
+expect ">"; send "remember how we got here\r";  # Cluttered Industrial Room
+expect ">"; send "north\r";                     # Sigil Street
 expect ">"; send "look shops\r"
 expect ">"; send "look mourning dress\r"
 expect ">"; send "inventory\r"
@@ -39,9 +43,109 @@ expect ">"; send "wave u-remover at mourning dress\r"; # or remove u from mourni
 expect ">"; send "score\r"
 expect ">"; send "look\r"
 expect ">"; send "look window\r"
-expect ">"; send "east\r"
+expect ">"; send "east\r";                      # Ampersand Bend
+expect ">"; send "look barrier\r"
+expect ">"; send "look code-lock\r"
+expect ">"; send "remove x from codex\r"
+expect ">"; send "open code-lock\r"
 
-# Ampersand Bend
+#
+# Goal #2: Get my backpack from the cinema
+#
+expect ">"; send "north\r";                     # Fair
+expect ">"; send "look kiosks\r"
+expect ">"; send "look wheel\r"
+expect ">"; send "spin wheel\r"
+expect ">"; send "west\r";                      # Midway
+expect ">"; send "look contest\r"
+expect ">"; send "look styrofoam\r"
+expect ">"; send "look word-balance\r"
+expect ">"; send "look barker\r"
+expect ">"; send "look tube\r"
+expect ">"; send "remove p from apple\r";       # we got gel
+expect ">"; send "n\r";                         # Church Forecourt
+expect ">"; send "w\r";                         # New Church
+expect ">"; send "w\r";                         # Church Garden
+expect ">"; send "look thicket\r"
+expect ">"; send "remove h from thicket\r"
+expect ">"; send "get ticket\r"
+expect ">"; send "e\r";                         # New Church
+expect ">"; send "look altar\r"
+expect ">"; send "look inscription\r"
+expect ">"; send "e\r";                         # Church Forecourt
+expect ">"; send "look new church\r"
+expect ">"; send "look cinema\r"
+expect ">"; send "n\r";                         # Cinema Lobby
+expect ">"; send "give ticket\r"
+expect ">"; send "w\r";                         # Screening Room
+expect ">"; send "look screen\r"
+expect ">"; send "look backpack\r"
+expect ">"; send "take backpack\r"
+expect ">"; send "look flash drive\r"
+expect ">"; send "look monocle\r"
+
+#
+# Goal #3: Retrieve your remaining possessions from locker at hostel
+#
+expect ">"; send "n\r";                         # Projection Booth
+expect ">"; send "use monocle\r"
+expect ">"; send "look projector\r"
+expect ">"; send "look jotter\r"
+expect ">"; send "take jotter\r"
+expect ">"; send "s\r";                         # Screening Room
+expect ">"; send "e\r";                         # Cinema Lobby
+expect ">"; send "s\r";                         # Church Forecourt
+expect ">"; send "se\r";                        # Fair
+expect ">"; send "e\r";                         # Heritage Corner
+expect ">"; send "look bricks\r"
+expect ">"; send "look shelter\r";              # or diorama
+expect ">"; send "look members\r"
+expect ">"; send "look army\r"
+expect ">"; send "remove y from army\r"
+expect ">"; send "take arm\r"
+expect ">"; send "e\r";                         # Hostel
+expect ">"; send "look attendant\r"
+expect ">"; send "look blouse\r"
+expect ">"; send "talk to attendant\r"
+expect ">"; send "ask keep guidebook\r"
+expect ">"; send "ask how unlock lockers\r"
+expect ">"; send "up\r";                        # Dormitory Room
+expect ">"; send "look floors\r"
+expect ">"; send "look beds\r"
+expect ">"; send "remember how it started with Brock\r"; # Brock’s Stateroom
+expect ">"; send "look locker\r"
+expect ">"; send "look lock\r"
+expect ">"; send "remember making your lock\r"; # Galley
+expect ">"; send "look girl\r"
+expect ">"; send "look t-shirt\r"
+expect ">"; send "look pack\r"
+expect ">"; send "ask for privacy\r"
+expect ">"; send "show arm\r"
+expect ">"; send "remove e from tube\r"
+expect ">"; send "put gel on lock\r"
+expect ">"; send "get clock\r"
+expect ">"; send "open locker\r"
+
+#
+# Goal #4: Meet your colleague Slango at Counterfeit Monkey
+#
+expect ">"; send "look roll\r"
+expect ">"; send "look letter\r"
+expect ">"; send "look plans\r"
+expect ">"; send "get roll\r"
+expect ">"; send "get letter\r"
+expect ">"; send "get plans\r"
+
+# Goal #5: Talk to Lena at the Aquarium Bookstore
+# Goal #6: Check the dead drop at the public convenience
+# Goal #7: Trace Brock’s movements at the antique shop
+# Goal #8: Find a way to understand the map
+# Goal #9: Speak to Professor Waterstone and get his invitation to see the T-inserter
+# Goal #10: Gain entrance to the Bureau
+# Goal #11: Find Brock
+# Goal #12: Test T-inserter
+# Goal #13: Escape the Bureau
+# Goal #14: Check out the paper and see what’s going on
 
 # Quit
 expect ">"; send "quit\r"
