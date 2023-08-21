@@ -135,8 +135,96 @@ expect ">"; send "look plans\r"
 expect ">"; send "get roll\r"
 expect ">"; send "get letter\r"
 expect ">"; send "get plans\r"
+expect ">"; send "down\r";                      # Hostel
+expect ">"; send "look nose-ring\r"
+expect ">"; send "get guidebook\r"
+expect ">"; send "west\r";                      # Heritage Corner
+expect ">"; send "north\r";                     # Monumental Staircase
+expect ">"; send "look poster\r"
+expect ">"; send "north\r";                     # Old City Walls
+expect ">"; send "look block\r"
+expect ">"; send "remember my youthful pranks\r"
+expect ">"; send "west\r";                      # Hesychius Street
+expect ">"; send "look farmer\r"
+expect ">"; send "look stall\r"
+expect ">"; send "look asparagus\r"
+expect ">"; send "look lime\r"
+expect ">"; send "look yam\r"
+expect ">"; send "buy asparagus\r"
+expect ">"; send "buy lime\r"
+expect ">"; send "buy yam\r"
+expect ">"; send "north\r";                     # Webster Court
+expect ">"; send "look home\r"
+expect ">"; send "ne\r";                        # Patriotic Chard-Garden
+expect ">"; send "look chard\r"
+expect ">"; send "remove h from chard\r"
+expect ">"; send "get card\r"
+expect ">"; send "remove s from soil\r"
+expect ">"; send "get oil\r"
+expect ">"; send "sw\r";                        # Webster Court
+expect ">"; send "west\r";                      # Roget Close
+expect ">"; send "look schoolhouse\r"
+expect ">"; send "look gate\r"
+expect ">"; send "look sculpture\r"
+expect ">"; send "put yam on pedestal\r"
+expect ">"; send "north\r";                     # Winding Footpath
+expect ">"; send "look footpath\r"
+expect ">"; send "look bushes\r"
+expect ">"; send "north\r";                     # Private Beach
+expect ">"; send "look sand\r"
+expect ">"; send "look hillside\r"
+expect ">"; send "look sage\r"
+expect ">"; send "get sage\r"
+expect ">"; send "get plastic\r"
+expect ">"; send "go to Webster Court\r"
+expect ">"; send "wait\r";                      # see where Father goes
+expect ">"; send "go to High Street\r";         # High Street
+expect ">"; send "remove d from card\r"
+expect ">"; send "remove n from funnel\r"
+expect ">"; send "put fuel in car\r"
+expect ">"; send "remove b from garbage\r"
+expect ">"; send "give oil to mechanic\r"
+expect ">"; send "thank mechanic\r"
+expect ">"; send "ask car\r"
+expect ">"; send "enter car\r"
+expect ">"; send "se\r";                        # Roundabout (jammed into the car)
+expect ">"; send "look people\r"
+expect ">"; send "look signs\r"
+expect ">"; send "look slogans\r"
+expect ">"; send "ne\r";                        # Deep Street (jammed into the car)
+expect ">"; send "look buildings\r"
+expect ">"; send "look balcony\r"
+expect ">"; send "look laundry\r"
+expect ">"; send "look patterns\r"
+expect ">"; send "nw\r";                        # Fish Market
+expect ">"; send "east\r";                      # Tin Hut
+expect ">"; send "look struts\r"
+expect ">"; send "look masses\r"
+expect ">"; send "look trap door\r"
+expect ">"; send "remove s from plans\r"
+expect ">"; send "remove l from plan\r"
+expect ">"; send "put pan into backpack\r"
+expect ">"; send "put monocle into backpack\r"
+expect ">"; send "put remover into backpack\r"
+expect ">"; send "close backpack\r"
+expect ">"; send "west\r";                      # Fish Market
+expect ">"; send "north\r";                     # Docks
+expect ">"; send "look boats\r"
+expect ">"; send "look sign\r"
+expect ">"; send "west\r";                      # Counterfeit Monkey
+expect ">"; send "ask about Slango\r"
+expect ">"; send "ask about rum\r"
+expect ">"; send "look Origin Paste\r"
+expect ">"; send "ask Origin Paste\r"
+expect ">"; send "ask about winning\r"
+expect ">"; send "remember past experience playing games\r"
+expect ">"; send "look clientele\r"
 
+#
 # Goal #5: Talk to Lena at the Aquarium Bookstore
+#
+expect ">"; send "go to Aquarium Bookstore\r";  # Aquarium Bookstore
+
 # Goal #6: Check the dead drop at the public convenience
 # Goal #7: Trace Brock’s movements at the antique shop
 # Goal #8: Find a way to understand the map
@@ -151,3 +239,5 @@ expect ">"; send "get plans\r"
 expect ">"; send "quit\r"
 puts ""
 exit
+
+#expect ">"; send "save\r"; expect ":"; send "mygame\r"

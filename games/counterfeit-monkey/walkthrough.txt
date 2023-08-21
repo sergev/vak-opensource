@@ -648,4 +648,610 @@ We pick up the letter.
 >get plans
 We take the plans.
 
+>down
+
+Hostel
+I take it this is where you stayed from the time you got to town until our operation. I would have expected that someone with your credentials would have been able to afford something better: The Fleur d'Or, maybe? But maybe you thought this was lower-profile. At least it's clean and doesn't smell funny.
+
+The desk attendant is sort of eying us. She is wearing a nose-ring and a blouse. 
+
+Discarded in one corner is Guidebook to Anglophone Atlantis. 
+
+There's a spiral staircase that leads up to the dormitory rooms.
+
+>look nose-ring
+It's silver and reasonably discreet.
+
+The monocle pings happily as we sight the nose-ring with the crosshairs. She mutters about people who can't take hints.
+
+>get guidebook
+We take Guidebook to Anglophone Atlantis. A much-thumbed and several years out-of-date guidebook to this immediate area. The cover is tomato-red but the pages are crinkly and beige: it appears that someone has spilled coffee on it.
+
+There's too much here to take in in a quick read, but we could look up specific topics if we wanted to read more.
+
+>west
+
+Heritage Corner
+This patch of the town square has been paved over in octagonal bricks and is commonly used for displays of traditional dancing: over-50 women in home-made embroidered aprons, skipping arm-in-arm and jumping over broomsticks.
+
+Under a bit of shelter in the corner, a diorama table shows scenes from local history, rotated out each week. This week's diorama represents the first sitting of the Committee for the New Orthodox Orthography. 
+
+The park continues to the north and west; to the east is the hostel.
+
+>north
+
+Monumental Staircase
+Once, the central hillock of the city was a fortified enclave, protected from the harbor and the peasant town by great walls. Now, however, the walls are mostly gone, except for a little spur that runs north from here. The walkways and tower are open to the public.
+
+Meanwhile a staircase as wide as a street descends east from the town square toward the harbor.
+
+An enormous blue and orange warning poster covers the wall alongside the staircase. 
+
+We can go north, south to Heritage Corner, southwest to Fair, east, and west from here.
+
+>look poster
+"WARNING: Have you seen these dangerous individuals? If so, avoid contact and report all interactions to the Bureau of Orthography." Below, there's a picture of several people. One of them is you, before your face got shuffled with mine. It's funny that when we met, you mentioned you were a user of illegally modified language-tools, but you didn't emphasize the grand larceny side so much.
+
+Not to worry. I won't turn you in. I can hardly afford to, can I?
+
+The monocle pings happily as we sight the poster with the crosshairs.
+
+>north
+
+Old City Walls
+Only portions of the old walls still stand, but you can walk along what remains, as though you were defending the place. They're a meter and a half wide, made of ashlar blocks. On the vertical faces these blocks are still rough, but underfoot they have been worn smooth by the passage of many defenders and (subsequently) tourists. One of the blocks in the wall has even been defaced, some old inscription gouged out.
+
+I used to like to climb around up here when I was a kid. I made believe-- oh, you'll think it's silly.
+
+Down below in the distance are the docks and the sea, and immediately east of here is an old hexagonal turret.
+
+Something makes you think of my youthful pranks.
+
+>look block
+To judge by its different shaping and color, the defaced block is something borrowed from an older building to make up the new wall: taken out of a church or a mosque or perhaps even a Roman fortification in some earlier era of the island.
+
+It was once inscribed with a message, but whatever it was, the foreign-language writing has been completely chiseled away so as to be illegible.
+
+The monocle pings happily as we sight the defaced ashlar block with the crosshairs.
+
+>remember my youthful pranks
+Oh, I used to play that I was an Atlantean guard defending the battlements against invading redcoats, armed only with a saber and an, uh, an o-removing musket. So they turned into red cats, you see. My mother explained later that letter removal hadn't ever taken the form of muskets and that I had my chronology wrong. So I do know better.
+
+And my father gave me an even longer and even less interesting lecture about how the British colonial government wasn't entirely a bad thing and how it didn't do to be too gleeful about mentally shooting some young soldier who probably didn't have a choice about being there.
+
+Then we're back in the present.
+
+>west
+
+Hesychius Street
+As the street names make obvious, this part of town was laid out in a different political age, when it was considered more important to commemorate linguistic richness than to standardize practices.
+
+This is also the edge of the richest part of town, with houses -- really, almost villas -- that were built for households with servants. My parents' place is just a block or two north of here.
+
+On holidays like today, this street is often host to a farmer's market; though it is now late enough in the day that most of the farmers have given up and gone home, taking with them their twenty-three varieties of pickled olives, their loganberry jam, and their pigs'-feet-in-aspic.
+
+One remaining farmer lazes here, watching his stall.
+
+>look farmer
+Contrary to your obvious expectations, he is dressed more or less like anyone else, and is neither wearing quaint overalls nor chewing a piece of hay.
+
+The monocle pings happily as we sight the farmer with the crosshairs.
+
+>look stall
+It appears to belong to the farmer. It's made of wood and canvas and offers a little shade against the harsh sun. Previous customers have cleared most of it off, but the farmer still has some asparagus, a lime, and a yam.
+
+The monocle pings happily as we sight the farmer's stall with the crosshairs.
+
+>look asparagus
+It looks particularly tender and pleasant, but I avoid the stuff.
+
+The monocle pings happily as we sight the asparagus with the crosshairs.
+
+>look lime
+A small, wrinkled, intense-looking fruit: it wouldn't give much juice, but is likely very strong.
+
+The monocle pings happily as we sight the lime with the crosshairs.
+
+>look yam
+A yam with whitish skin. Some of the dirt of the farm still adheres to it.
+
+The monocle pings happily as we sight the yam with the crosshairs.
+
+>buy asparagus
+We greet the farmer.
+
+The farmer makes a little cluck sound which seems to mean that he sees us but doesn't care to waste an entire syllable on acknowledging it.
+
+"What is for sale?" we ask.
+
+"I got some asparagus, a lime, and a yam," the farmer replies.
+
+"I'll have the asparagus, please," we say.
+
+"Sure thing," says the farmer.
+
+I'd like to recommend other vegetables.
+
+>buy lime
+"I'll have the lime, please," we say.
+
+"Sure thing," says the farmer.
+
+We could recommend other vegetables.
+
+>buy yam
+"I'll have the yam, please," we say.
+
+"Sure thing," says the farmer.
+
+We want to ask what is for sale.
+
+>north
+
+Webster Court
+Hesychius Street opens here into a broad and plainly-paved court.
+
+Lending its name to the location is a bronze statue of Noah Webster. My mother likes to irritate my father by quoting what his contemporaries called Webster: a "viper", a "maniacal pedant", and (always a favorite at Reform Day parties) "a toad in the service of sans-culottism". She makes sure to pronounce that in the most Parisian accent possible.
+
+The large building just to the north -- yes, the one in pale pink -- is my parents' home. I think I mentioned that my parents were well off. My father works for the Bureau, embarrassingly, and my mother was born into the kind of money that we like to pretend doesn't exist on this island.
+
+The streets continue south, east, and west; and just to the northeast is my parents' side garden.
+
+>look home
+It's stucco and tile, inspired by southern California ideas of gracious living. There are potted palm trees inside, and leather sofas, and French oil paintings for which expensive importation licenses had to be bought.
+
+My childhood bedroom faces northwest, away from the docks, towards the roofs of other villas and the open sea.
+
+The monocle pings happily as we sight my parents' home with the crosshairs.
+
+>ne
+
+Patriotic Chard-Garden
+A narrow strip of land between the house and the edge of my parents' property. The eastern edge runs right up to the decaying old wall of the city, which here means some stumpy masonry on this side and a dizzying drop on the other.
+
+The rest of their terraces and gardens are fenced off.
+
+A little chard still grows in the nearest bed, carefully tended to thrive in this climate. 
+
+Because it's so linguistically productive, chard is something of a national symbol; and during the world wars, there was a fad of gardening at home. After the war, it became common for affluent people with a little bit of land to keep their garden, so that if you were down on your luck you could glean a few leaves.
+
+>look chard
+Some leafy greens that might make an okay side salad, if we were feeling hungry.
+
+The monocle pings happily as we sight the chard with the crosshairs.
+
+>remove h from chard
+We reset the device to h. With a distinct whiff of crisp, snappy cardboard, the chard turns into a card. Not a playing card, as I might have expected, or a calling card, or even an index card, but a Tarot card, representing the Chariot. The vehicle is drawn by two prize horses, one black, one white. The driver appears to be having some difficulty keeping them together, to judge from the surly expression and the raised whip.
+
+There is a dismissive blatt from the monocle, and transposed over the card is a faint, greenish image of some chard.
+
+>get card
+We take the card.
+
+>remove s from soil
+We reset the device to s. With a distinct whiff of mechanics and the summer time, the soil turns into some oil. A can of what appears to be motor oil. It is sludgy and black.
+
+There is a dismissive blatt from the monocle, and transposed over the oil is a faint, greenish image of some soil.
+
+>get oil
+We pick up the oil.
+
+>sw
+
+Webster Court
+A broad and plainly-paved court, named for the statue of Noah Webster.
+
+The large, pale pink building north of us is my parents' home. 
+
+The streets continue south, east, and west; and just to the northeast is my parents' side garden.
+
+>west
+
+Roget Close
+A pleasantly sheltered lane in which I learned to ride a bicycle, and where my friend Lucy used to live, before she and her parents moved off-island. Restrictions were looser even twenty years ago. Our old schoolhouse is just west of here.
+
+If you look just north between the houses, you'll notice also the footpath down to an almost-private beach. It used to be open, but it's now gated off, and built into the gate is a chic modern sculpture. 
+
+>look schoolhouse
+It's where I went to school until I was twelve, as did most of the kids in this area. It's an old building with big arched windows and faded floorboards, and in the afternoon the schoolyard smells of spilled milk going sour in the sun. From this direction there's not much to see but the screen of palm trees in front.
+
+The monocle pings happily as we sight the schoolhouse with the crosshairs.
+
+>look gate
+A gate of wrought iron bars between two sturdy columns, too close to climb through and too tall to climb over. Built into the right-hand column, next to the gate latch, is a curious sculpture.
+
+The monocle pings happily as we sight the gate with the crosshairs.
+
+>look sculpture
+The base of the sculpture is a cone about four feet tall. On top of that is a flat circular pedestal, and there is a mirror that rotates around the outer circumference. The mirrored surface faces inward, so that it is sometimes reflecting whatever might be on the pedestal (currently nothing) and sometimes concealing it from view.
+
+The monocle pings happily as we sight the pedestal with the crosshairs.
+
+>put yam on pedestal
+We put the yam on the pedestal.
+
+The mirror rotates in leisurely fashion, and when it is done there is a May.
+
+This is the sheet for the month of May, torn from a calendar. Someone has put a gold star on the 21st, and "Dinner with the Shaplys" is penciled onto the 30th.
+
+There is a dismissive blatt from the monocle, and transposed over the May is a faint, greenish image of a yam.
+
+The gate clicks open. 
+
+[Your score has gone up by one point and is now fifteen.]
+
+>north
+We slip between the houses and down a path that looks as though it might lead to someone's back yard. No one has ever put up signage to correct this misapprehension because no one who lives around here is eager to encourage strangers on the private beach.
+
+Soon, however, the footpath begins to descend purposefully towards the level of the ocean.
+
+Winding Footpath
+The footpath winds between the villas, sloping steeply downward. It is narrow, and bushes left and right conceal it even from the windows of the people living nearby.
+
+>look footpath
+There are traces of sand on the pathway, tracked up from the beach.
+
+The monocle pings happily as we sight the footpath with the crosshairs.
+
+>look bushes
+Some variety I'm not familiar with: dark glossy green leaves, thick stems. In the right season, and I can't even remember what season that is, they also grow gaudy pink flowers. But not now. Lots of kudzu grows through and over the bushes -- this is one of the few spots on the island where it hasn't been eradicated, it seems.
+
+At one point along the path the bushes stick out especially far, as though there's something behind them.
+
+The monocle pings happily as we sight the bushes with the crosshairs.
+
+>north
+We continue down until there is a chink of a view of the sea. Then the path descends through a few last hairpin twists among rocks, and comes out suddenly on a little beach.
+
+Private Beach
+This is little more than a strip of fine yellow sand, perhaps twenty meters from side to side, and five from the hillside to the waterline. A little sage grows on the hillside, escaped from some garden, along with wilder plants. Above, at the top of that slope, are houses with balconies overlooking the sea, but from this angle it's impossible to see much of them, or for them (you'll have to take my word on this) to see us.
+
+Something green and plastic just barely pokes out of the sand. 
+
+>look sand
+It's baking hot.
+
+The monocle pings happily as we sight the sand with the crosshairs.
+
+>look hillside
+We see nothing special about the hillside.
+
+The monocle pings happily as we sight the hillside with the crosshairs.
+
+>look sage
+Dark green leaves furred with silver prickles.
+
+The monocle pings happily as we sight the sage with the crosshairs.
+
+>get sage
+We get the sage.
+
+>get plastic
+We get the funnel. A gaudy green plastic toy suitable for funneling water and shaping conical sand-turrets. It's all sandy.
+
+>go to Webster Court
+We walk. 
+
+Webster Court
+A broad and plainly-paved court, named for the statue of Noah Webster.
+
+The large, pale pink building north of us is my parents' home. 
+
+The streets continue south, east, and west; and just to the northeast is my parents' side garden.
+
+The door to my parents' house opens and my father comes out. He's talking over his shoulder: "Sorry, dear, but someone has to be on call."
+
+My mother answers from inside, but we can't make out what she's saying.
+
+"Surge on the grid," Father replies. "Could be an unauthorized synthesizer, but more likely... yes, exactly. I'll try to be home before the fireworks."
+
+He closes the door behind him.
+
+Hastily I take off our monocle and palm it. Father shouldn't recognize us in our current body, but wearing expensive Bureau equipment in his presence would be a terrible idea.
+
+We put the monocle into the backpack.
+
+>wait
+We hold our breath.
+
+My father sees us from a distance and gives a neighborly wave. "Happy Punctuating!" he shouts.
+
+I wave back rather weakly.
+
+He gets on his small red scooter, checks his helmet, and revs off to the south. Off, apparently, to investigate the synthesizer that put us together. That will go slowly because of the holiday, but I'm guessing there will be Bureau investigators crawling all over the south side of old town in an hour or two.
+
+>go to High Street
+We have a quick walk out of the cocooning silence of the wealthy streets and back among the fair booths. 
+
+High Street
+Hustle, bustle, dirt; ugly American chain shops; lots and lots of people. There seems to be a large organized protest in progress: protesters completely cram the sidewalk to the southeast.
+
+The curb is lined with garbage. 
+
+To the west, the street turns into a monumental staircase leading to the old fortified area; a cross street heads southeast towards the main roundabout.
+
+Achievement accomplished: Finished tutorial mode!
+
+From a loudspeaker nearby comes the electronic sound of simulated bells ringing the hour after noon. It's later than I thought. We'd better get a move on.
+
+>remove d from card
+We reset the device to d. With a distinct whiff of metal parts and oil, the card turns into a car. It is little larger than a toy, but that is what you want when driving on the streets around here. Any substantial vehicle wouldn't fit down the winding drives.
+
+Here is how my mother gets around. She takes a 300 Euro Hermès scarf with an orange border and a pattern of prancing horses. She tosses it in the air. As it falls, she shoots it twice, like a clay pigeon: once to take out the F, the second time for the S. And such a car: buttery leather seats, jaguar lines. If someone asks how she gets such good results, she jokes that it's because of her quality materials.
+
+Suffice it to say that we are not similarly blessed.
+
+The car is far too large for us to carry, and falls onto the ground.
+
+>remove n from funnel
+We reset the device to n. With a distinct whiff of volatile fumes, the funnel turns into some fuel. It looks like a generic canister of unleaded gasoline.
+
+>put fuel in car
+I deeply fear automotive maintenance, but I can (just) manage to pour in the fuel... and I think that's done it.
+
+[Your score has gone up by three points and is now eighteen.]
+
+>remove b from garbage
+We reset the device to b. There is a flash of psychedelic colors, and the garbage turns into a garage. It is a small but well-furnished garage for minor tuneups and repairs. It even comes with a mechanic: a surprising touch, since letter-removers are usually legally prevented from creating living persons, but sometimes there are glitches if the people are not created directly.
+
+The mechanic nods at us.
+
+>give oil to mechanic
+"Will this work?" We hold out the oil.
+
+"Should do," he says. Rolling up his sleeves, he goes to work on the car. There is no small amount of banging and muttering, but finally he stands back and announces that he believes it is now in working condition.
+
+We want to thank the mechanic.
+
+[Your score has gone up by three points and is now twenty-one.]
+
+>thank mechanic
+"Thank you, that was a great help," we say.
+
+He nods.
+
+We could ask whether the car is fixed.
+
+>ask car
+"Is the car fixed now?" we ask.
+
+"The oil is in," the mechanic says. "Should run all right."
+
+>enter car
+We open the car door: perhaps unsurprisingly, it comes without an effective lock system.
+
+We get into the car.
+
+>se
+We switch on the ignition and the car comes to life. Smelly, trembling, putt-putting life, but still, not bad for something we conjured out of a vegetable picked outside my parents' place.
+
+Roundabout (jammed into the car)
+We are jammed into the car with our knees almost at our chin, looking out through the bulbous little windshield. The motor is growling like a housecat with pneumonia.
+
+The traffic flows in a tight circle around a statue which we can never see clearly.
+
+The hundreds of people are carrying angry signs and wearing slogans. 
+
+Confusing signs point in various directions: northeast to Deep Street, northwest to High Street, south to Long Street, east to Tall Street.
+
+The car is making an unpleasant raspy growl.
+
+[Your score has gone up by five points and is now twenty-six.]
+
+>look people
+Hundreds of people pack the sidewalk, wearing slogans and carrying angry signs.
+
+You are reminded of your crew's heroism.
+
+>look signs
+They say things like "No Referendum = No Responsibility," "NOT GUILTY," and, more daringly, "The citizens of Atlantis have never voted for human rights violations." Some are just photos of Bureau officials wearing Hitler mustaches.
+
+The protesters can't say this directly, of course, but what they are protesting is the use of inanimation as a punishment by the Bureau of Orthography. Making someone into an inanimate object, or enclosing him in an inanimate object, is not technically murder, but it is considered a massive human rights violation by just about every other country in the world.
+
+>look slogans
+On every shirt and coat, sometimes screen-printed, sometimes just written on with a Sharpie, is the same message: NOT GUILTY.
+
+You know better than I do how the international media looks at Atlantis. How it presents us as a fat, wealthy plutocracy whose citizens happily engage in atrocities in order to keep hold of our unique advantages. But on most of those human rights issues, it's not as though we were ever asked. We never voted to do those things. The Bureau simply enacted them as "non-referrable procedures."
+
+>ne
+
+Deep Street (jammed into the car)
+We are jammed into the car with our knees almost at our chin, looking out through the bulbous little windshield. The motor is growling like a housecat with pneumonia.
+
+This road descends steeply from southwest to northwest, passing between white concrete buildings to provide access to the marina -- the Fish Market, the Docks, and a bar or two. The street is in deep shadow, protected from sunlight from almost any angle by its narrowness and by the height of the walls.
+
+We can go northwest, southwest to the Roundabout, east, and west from here.
+
+The car is making an unpleasant raspy growl.
+
+>look buildings
+Each has its balcony and its laundry flapping on clothes lines; but there the uniformity ends. Some are decorated in a curious fantasia of painted Moorish patterns; others a daring kind of art nouveau, all organic curves and windows that glance out under lowered concrete lids.
+
+>look balcony
+Many are rounded, like boxes at the opera.
+
+>look laundry
+Mostly bleached t-shirts and underpants and the odd sheet pinned to a line.
+
+>look patterns
+Black, gold, rose and red, they mark out arches and stripe eaves.
+
+>nw
+Since there's no way by road, we'll have to leave the car here. It is a moment's work to find a parking spot. We switch the ignition off.
+
+We swing the car door open.
+
+We climb out of the car.
+
+Fish Market
+Not very fishy at the moment, in fact: all the real trade happens in the early morning; then there is a period of tourist trade when the seafood sale tails off and most of the purchases are of polished conch shells and starfish; and then a little after noon the area clears out completely, leaving only briny rivulets on the concrete.
+
+A tall, stern woman is standing in the middle of the market. She wears the black caped uniform of an Authenticator, and a monocle just like mine. And I don't think I want her to see us. 
+
+Just east of here is a rusting corrugated tin building, which was built to house various possessions of the fishermen. 
+
+>east
+While the Authenticator's back is turned, we slip inside...
+
+Tin Hut
+Most of the light in here comes from circular windows punched into the tin walls just under the ceiling. From the inside, the building looks both larger and more sound than it appears from outside: there are plenty of sturdy struts supporting the roof and keeping the walls upright.
+
+Various tarpaulin-covered masses fill the room. 
+
+A trap door is set in the floor. 
+
+Sometimes smugglers and forgers have been known to stash things in here, since the building is close to the docks but rarely attracts the interest of customs officials.
+
+We catch our breath and look over our belongings to see if anything suspicious is showing. The B-remover, the monocle, and the plans might be a little too conspicuous.
+
+Ominous sounds come through the windows, but we're at the wrong angle to see out.
+
+>look struts
+The struts form a dull but sturdy lattice of metal, supporting the corrugated metal roof and walls.
+
+>look masses
+From the shapes visible under the blue plastic, it appears that they are probably tables and stalls, buckets, signs, and other necessary features of the fish market when sales are in progress. There's a flattish area we could probably scramble onto.
+
+>look trap door
+It is a wooden door set into the floor. The hinging mechanism is designed to keep the door closed if possible, perhaps as a safety feature so that people won't fall into an open hole.
+
+>remove s from plans
+We reset the device to s. With a distinct whiff of crisp paper, the plans turn into a plan. The number of pages in the original roll has been reduced, but this is still obviously a bit of DCL property. The only difference is that this version is incomplete.
+
+>remove l from plan
+We reset the device to l. There is a distinct spearmint flavor, and the plan turns into a pan. An omelet-sized skillet in cast iron.
+
+More racket comes in through the windows.
+
+>put pan into backpack
+We put the pan into the backpack.
+
+More racket comes in through the windows.
+
+>put monocle into backpack
+The monocle is in the backpack already.
+
+>put remover into backpack
+We put the L-remover into the backpack.
+
+>close backpack
+We close the backpack.
+
+>west
+I don't think there's anything showing that should get us into trouble. Timidly we open the door; the Authenticator has her back to us. We slip out. She makes one more turn in place -- monocled gaze sliding across us without stopping -- and then she strides away to the north.
+
+Fish Market
+Not very fishy at the moment, in fact: all the real trade happens in the early morning; then there is a period of tourist trade when the seafood sale tails off and most of the purchases are of polished conch shells and starfish; and then a little after noon the area clears out completely, leaving only briny rivulets on the concrete.
+
+Just east of here is a rusting corrugated tin building, which was built to house various possessions of the fishermen. 
+
+We can go north, south, southeast to Deep Street, and east to the Tin Hut from here.
+
+>north
+
+Docks
+Here are some dozens of boats tied up: some of them are small to medium-sized fishing craft, some tourist boats for trips around the island, some merely ferries to the deeper harbor where the cruise ships anchor.
+
+To the east, up a moderate rise from the sea-level docks, is the imposing exterior of the Customs House. The classical look is only a little undermined by the public-service posters along the front. There passports are inspected and cargo passed under authentication, foreign items renamed or confiscated, and suspected smugglers interrogated.
+
+Immediately west, a sign advertises a pub called the Counterfeit Monkey. 
+
+>look boats
+I know nothing about boats. You, on the other hand, appear to have an unnerving awareness of which of these craft are here on legal business and which are engaged in some form of smuggling or refugee-assistance.
+
+>look sign
+In the picture, a villainous man threatens a cage full of tiny primates with a primitive Victorian letter-remover. In the background is an enormous bag of cash.
+
+>west
+
+Counterfeit Monkey
+It takes a minute for us to adjust to the light in here. Built when people were a bit shorter and ceilings were a bit lower, the Counterfeit Monkey is always smoky and never well lit, even in the middle of the day.
+
+...and... Slango is not here.
+
+This is bad. Even I can see this is bad. What happened to your confidence in your team? Where are the guys who are supposed to get us out of here?
+
+Something must have gone wrong.
+
+"Help you?" asks Parker the barman unenthusiastically.
+
+I'd like to ask whether he has seen Slango.
+
+>ask about Slango
+"I wonder whether you've seen an associate of mine," we say to Parker. "Name of Slango."
+
+Parker looks over the bar at us. "He comes in here from time to time," he says. "Very regular customer. Always has about three rum and cokes." 
+
+This is a lie, and therefore a test. Slango doesn't drink alcohol himself and doesn't permit drunkenness in his crew.
+
+I'd like to challenge Parker about the rum.
+
+>ask about rum
+"Must be a different Slango," we say. "Mine is more of a root beer man. Thanks anyway though."
+
+"Oh, that Slango," Parker says, thoughtfully moving the Origin Paste sitting on the bar. "He's been around town the last couple of days, but not today. If you know his lady friend, you might try her." 
+
+Lady friend? This can only mean Lena, she being the only female native with whom Slango spends much time socially. But you wouldn't have guessed that she'd advanced to the status of lady friend. Either way, Lena is a rather odd woman who keeps a used bookstore off Deep Street.
+
+We could ask whether we can have the Origin Paste.
+
+>look Origin Paste
+A cake of pale purple: it is able to disguise letter-reformed objects so that they don't look like obvious frauds, or even show up under authentication.
+
+The only problem with it is the distinctive smell.
+
+The Origin Paste is powerful stuff, and worth a good bit of money.
+
+>ask Origin Paste
+"That Origin Paste for sale?" 
+
+"Well now," he says, grinning, "that would surely be illegal, would it not? Origin Paste is after all a controlled substance in this country, due to its unhappy association with fraudulent activities. On the other hand there is no law against someone winning the Origin Paste in a completely legitimate game of chance or skill."
+
+We could ask how one might go about winning.
+
+>ask about winning
+"Explain this game as though I have no idea what you're talking about," you say, leaning on the bar in an interested fashion. Are you flirting with Parker? No? Okay. Good to know.
+
+"It's a designated challenge game," says Parker. You've seen this played before, but he explains the rules anyway. 
+
+"There are two contestants, one challenger and one defender.
+
+"The challenger chooses any object he likes and shows it to the moderator ahead of time.
+
+"The defender, without seeing the object, stipulates a general category. The challenger has five minutes to turn his designated object into an item that fits the defender's category, or he forfeits his ante."
+
+My response would be to play the game.
+
+Something makes you think of past experience playing games.
+
+>remember past experience playing games
+The three of you were watching the contest at Counterfeit Monkey. This time the prize was a bottle of Dove Wing Absinthe, and the latest contestant was trying to letter-remove her way to an object the size of a pebble.
+
+Slango lifted his root beer. "These guys are in a rut. It's all 'make a liquid' and size-based challenges. I want to see some demanding categories. Strawberry-scented. Paisley. Pachyderm-themed."
+
+You shrugged. "People L-remove tiles," you said. "You can get a letter-made tie any color you want."
+
+"Import Category 5," Brock said. "Now that would be a strong challenge category." Under Atlantean customs law, Import Category 5 means things that are edible, but not fruits or vegetables -- everything from drugs to chicken breasts. "Clear, but it rules out a lot of overly productive agriculture words."
+
+Then we're back in the present.
+
+>look clientele
+A nasty-looking bunch. They can be good enough if you're on the right side of them, but getting and staying that way isn't easy. And they're justly suspicious: the customs house not infrequently tries to infiltrate the criminal organizations and brotherhoods, though with no great success.
+
+>go to Aquarium Bookstore
+We hike through the marina district. 
+
+Aquarium Bookstore
+The shop takes its name from the collection of fish mounted on every wall: swordfish, bass, other things I don't recognize. Underneath these dubious tokens, the walls are covered with bookshelves, and there are stacks of books on the floor where the shelves have proven insufficient.
+
+The merchandise consists mainly, but not exclusively, of books, and the selection caters to odd tastes. You once picked up in here a book about a man who R-removed a wrench, and then had his way with it. You and Brock had a good time with that one for the next month and a half.
+
+Lena is present, all right. In fact she watches us keenly the instant we come into the shop. Lena is an associate of Slango's. You hadn't realized that had crossed over into a romance. Slango has never, ever in your recollection dated anyone. And now this.
+
+"Happy Serial Comma Day," she says.
+
+"Glad to see you've got plenty of Origin Paste," Lena remarks. "It's such a useful thing to have. Smells so nice."
+
+I'd like to ask whether she has seen Slango or say who we are.
+
 >
