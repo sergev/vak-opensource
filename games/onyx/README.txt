@@ -1,5 +1,6 @@
-https://intfiction.org/t/command-line-inform-7-how-to-use-ni-inform6-and-cblorb-by-cli-for-9-3-6m62/50108
-
+Links:
+    https://intfiction.org/t/command-line-inform-7-how-to-use-ni-inform6-and-cblorb-by-cli-for-9-3-6m62/50108
+    https://www.hoowl.se/getting_started_writing_interactive_fiction_with_inform7.html
 
 First step: ni (compiles Inform 7 code to Inform 6 code)
 

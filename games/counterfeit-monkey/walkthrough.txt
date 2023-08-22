@@ -1254,4 +1254,323 @@ Lena is present, all right. In fact she watches us keenly the instant we come in
 
 I'd like to ask whether she has seen Slango or say who we are.
 
+>look fish
+None of the fish has been dusted in the last decade. The collection presents a slightly mournful air.
+
+>ask about Slango
+"You wouldn't happen to have seen Slango about recently?" we ask.
+
+"Slango?" she asks blankly, for all the world as though she'd had a lobotomy. "Is that a board game?"
+
+We could say who we are.
+
+>say who we are
+"Lena, it's Andra. And company. Maybe Slango mentioned that I was auditioning a new silent partner."
+
+"I don't know what you're talking about," she says. "But since you're here, whoever you are, I wonder whether you'd like to have a look at some merchandise of mine that could use a spruce." 
+
+Aha. She wants us to prove our identity; probably has contraband that needs concealing, and wants us to do the deed as proof of trustworthiness.
+
+There's a brief pause.
+
+Lena goes off into a corner and rummages among the suspicious piles of books, and uncovers a box. "C'mere," she says; and obediently I wander over to that area of the store, which incidentally happens to be tucked away and half-hidden by shelves.
+
+"See here," she says. "See what you can do with it, eh?"
+
+>look box
+It's just a cardboard box in which some items of interest have been stored.
+
+In the contraband box are some modems and some preamps.
+
+Lena apparently wants our help getting them into a less identifiable format.
+
+>look modems
+If Brock were here, he would know exactly what made these interesting and valuable. All you can guess is that they're not a form approved by the government.
+
+>look preamps
+They aren't in themselves restricted technology, but Atlantean government slaps a very high tariff on any kind of electronic device not manufactured on the island. This is especially annoying and needless in the case of audio equipment for which there is no local manufacturer.
+
+>remove m from modems
+(opening the backpack)
+We reset the device to m. With a distinct whiff of old book, the modems turn into some odes. A slender volume of poetry, bound between red covers. It looks completely harmless and is written in English.
+
+The blurb on the back describes it as a "collection of meditations" on Atlantis' imaginary roots, which is to say, a lot of stuff about magic-wielding Phoenicians, Knights Templar, refugees from the Tower of Babel, space aliens, cabalistic mysticism, and Lully's combinatorics.
+
+It fits in perfectly with the rest of Lena's selection. Really amazing work. I've seen other people who were able to do impressive things with local field distortions -- think hard enough and you can prejudice the outcome of a linguistic transition.
+
+But this... this is detail work like I haven't seen. My hat is off.
+
+Or would be if I were wearing a hat and taking it off didn't mean making you take it off too.
+
+Lena touches the binding appreciatively. "You've even got that little bit of creasing in the spine that makes it look used," she says. "This is perfect. Only risk is customers wanting to buy it. I've got a couple this would be right up their alley."
+
+>remove p from preamps
+We reset the device to p. There is a lavender cloud, and the preamps turn into some reams. Since each ream is 500 sheets of paper, and there are many reams here, the collection is unhelpfully bulky.
+
+Lena considers the heap of reams contemplatively. "That's inconvenient, isn't it," she says. "And I have a book store, not an office supply shop."
+
+I'd like to calm Lena or tease Lena about selling office supplies.
+
+>remove s from reams
+We reset the device to s. There is a distinct spearmint flavor, and the reams turn into a ream. One ream, which is to say 500 sheets, of generic printer or copier paper, in white-white.
+
+"That works. Kind of thing I might have around for printing invoices on. I was a little afraid there you were going to go for a ram just to spite me. Don't know where I'd put one of those around here."
+
+>go to Outdoor Cafe
+We make the short walk through the marina district. 
+
+Outdoor Café
+From this slightly raised terrace, tourists have a view of the activity in the market and out over the docks.
+
+Curiously, there's an acquaintance of yours here: Nexami Engeo is at one of the round black metal tables. He's a musician, the front man of engeo. Your gang helped him out with some customs issues because of his unusual name.
+
+Nexami nods to us. "Watch out. That table next to you has something sticky spilled on it." And indeed there is a spill. You were about to lean on it nonchalantly.
+
+We want to say thanks for pointing out spill or ask what he is doing in Atlantis.
+
+>look Nexami
+A big man, both tall and stout. He hasn't reached overweight yet, but it looks like a matter of time. He's wearing a rocker jacket and jeans.
+
+>look jacket
+It's black leather. It might make the wearer look fierce if he didn't have such a round dimpled face.
+
+>look jeans
+Blue. Ordinary cut. I'm not really an expert in fashion.
+
+>look tables
+The wobbly, tipsy kind of table that jog at a touch and spill your coffee everywhere.
+
+On the round black metal tables is a spill.
+
+>say thanks for pointing out spill
+"Hey, thanks."
+
+He makes a you're-welcome gesture and goes back to contemplating the sea view.
+
+We could ask what he is doing in Atlantis.
+
+>ask what he is doing in Atlantis
+"So, what are you doing in Atlantis?"
+
+"Doing a show tonight," he says. "Up on the City Walls." This is only partly a lie: you know that his main business in town is some sort of computer science contract, and that it's largely cover that his band is playing in the Serial Comma Day festivities.
+
+Nexami stands up and mutters something. I have a little trouble with his Scottish accent -- we don't get a lot of that around here, for obvious reasons -- but you interpret it as him saying he'd better go pay up.
+
+He heads into the interior of the café.
+
+>remove s from spill
+There is a smell of anise, and the spill turns into a pill. It is small, round, and blue. There are no brand or generic markings to indicate what it might do.
+
+>get pill
+We take the pill.
+
+>go to Counterfeit Monkey
+It's a short walk through the marina district. 
+
+Counterfeit Monkey
+Infamously this pub was raided in 1929, the year that the Bureau developed its first meager attempt at an Authentication Scope, and dozens of smugglers and fraudulent businessmen went to jail. But neither that raid nor subsequent scrutiny has ever shut the place down entirely. Built when people were a bit shorter and ceilings were a bit lower, the Counterfeit Monkey is always smoky and never well lit, even in the middle of the day.
+
+The clientele are currently engaged in a game of darts, while the barman watches and practices a sarcastic wit on those who embarrass themselves. There is also a quantity of Origin Paste sitting out on the bar. 
+
+Parker acknowledges our return with a nod.
+
+"What do you think? You up for a try at the Origin Paste?"
+
+I'm inclined to play the game.
+
+You have a fleeting thought of your crew's attitude to Atlantis law.
+
+>remember your crew’s attitude to Atlantis law
+I don't know what you think you're talking about, because we can't see any such thing here.
+
+>play game
+"I'd like to play for the Origin Paste," we say.
+
+"Excellent. Oh, I did mention the small matter of the entry fee?"
+
+I get out the roll of bills and he peels off two twenties.
+
+"Thank you. Now, you pick your entry article, and I'll ask one of these good gentlemen to suggest a defense category."
+
+>show pill
+"Right," says the barman. "The pill it is." 
+
+He turns towards the group assembled around the dartboard. "Anyone want to defend against this character?" (with a nod at you). 
+
+"A liquid," says a gruff man. ("You always say liquid!" complains one of the others. "It's his favorite thing!" says a third.) But the ante is submitted and the challenge set.
+
+>put gel on pill
+We dip out a fingertip-coating quantity of gel and rub it gently onto the pill. With an audible SPLORT, the pill becomes a spill. 
+
+"A winner!" says the barman, straightening up. "What do you know? The Origin Paste is all yours, darling."
+
+This produces a squawk of surprise and irritation from the defendant, and you get the impression that this game has been agreeably fleecing tourists all day. Pity you had to come along and spoil it.
+
+The spill, true to its nature, leaks out onto the floor.
+
+I'm inclined to ask whether he has any other games going.
+
+[Your score has gone up by three points and is now twenty-nine.]
+
+>get Origin Paste
+We get the Origin Paste.
+
+I'm inclined to ask whether he has any other games going.
+
+>ask whether he has any other games going
+"So, is there anything else I can win? Any other games going?"
+
+Parker laughs. "Not until tomorrow, kid," he says. "We only run one game a day."
+
+>go to Aquarium Bookstore
+We make the walk through the marina district. 
+
+Aquarium Bookstore
+The shop takes its name from the collection of fish mounted on every wall: swordfish, bass, other things I don't recognize. Underneath these dubious tokens, the walls are covered with bookshelves, and there are stacks of books on the floor where the shelves have proven insufficient.
+
+The merchandise consists mainly, but not exclusively, of books, and the selection caters to odd tastes. 
+
+Lena hovers, unwilling to let us look around ungoverned. At her feet is a contraband box containing a ream and some odes. 
+
+"Greetings," she says.
+
+"Nice monocle, by the way! You do have all the good toys. Suppose it means you can check your work and see whether you've really got enough paste on things."
+
+>put Origin Paste on ream
+We smear some of the Origin Paste onto the ream. Nothing obvious happens, of course, but that is the whole point.
+
+"Excellent," Lena mutters under her breath.
+
+>put Origin Paste on odes
+We smear some of the Origin Paste onto the odes. Nothing obvious happens, of course, but that is the whole point.
+
+"Perfect," Lena says, regarding her contraband possessions with satisfaction. "Welcome back, Andra and Guest."
+
+We could ask whether she has seen Slango.
+
+>ask about Slango
+"Now, you owe me one Slango," you say. "Where'd he get to?"
+
+"Slango and I were catching up. Bless that man, he's hung like a yak," she says. "But he got bad news and had to hurry back to the yacht. Said something about not being able to keep an appointment. I take it you're the appointment? I can try reaching him for you, if you want."
+
+My response would be to encourage Lena to contact Slango.
+
+>encourage Lena to contact Slango
+"That would be extremely helpful," we say. Perhaps we can finally get off this island and back into our separate skins, which would not be one minute too soon for me.
+
+"Very good," she says. She goes over to one of the free-standing shelves and takes out copies of Indian Summer and Seventy Ways to Disable an Authentication Scope. Behind these works of literature she finds what looks like a cellular phone; but it mustn't be one, or at least not of the usual variety, because the Bureau tightly controls such items. 
+
+We hear half a conversation. "It's me. There's someone to see... yes, I had her do the contraband... I don't know, a little taller and a lot less mean... Oh! I see. She looks healthy enough... I'm not running a restaurant! Okay. Okay. I'll talk to you later, sweetie. Bye." 
+
+Without meeting our eye, she buries the phone back in its previous location. Then she says, "He's coming in direct. He says go over to Counterfeit Monkey and he'll be right over as originally planned, and he's sorry about the wait."
+
+"Oh! And." She tosses us a coin. "Have a drink on me."
+
+I'd like to thank Lena.
+
+[Your score has gone up by three points and is now thirty-two.]
+
+>thank Lena
+"Thank you," we say. "We owe you one."
+
+She smirks. "I get my money's worth out of Slango, don't worry."
+
+>go to Counterfeit Monkey
+"This would be a good time to stop for lunch and a little siesta," says Lena, following us to the door. As we go out, she's rolling down the shades and putting up a closed sign.
+
+We walk through the marina district. 
+
+Counterfeit Monkey
+Built when people were a bit shorter and ceilings were a bit lower, the Counterfeit Monkey is always smoky and never well lit, even in the middle of the day.
+
+Slango sits at a dark table, nursing a root beer. Slango is, of course, not Slango's real name. He is half criminal, half ideological revolutionary: uncouth, restless, always hungry for a new exploit. Had he been born into a freer society, he might have become a very valuable engineer or consultant. He has been your mentor in crime and your usher into the world of adults.
+
+There's a spill on the floor. 
+
+Slango meets our eye for a long minute without smiling.
+
+We want to say who we are.
+
+>look Slango
+He's dressed plainly but neatly: clean jeans, crisp white button-up shirt. His face is calm and his voice is even and he could be any age between thirty and fifty. He looked that way when you met him eight years ago, too.
+
+>say who we are
+"Slango," you say. "Lena gave me a totally unwanted visual about your yaklike proportions. Guess you also got a yak's sense of clock time?"
+
+"It was an emergency. I figured you'd go to Lena, and I was right."
+
+"You were lucky. I knew her a little, but I had no idea you two were making the yak with two humps."
+
+"No such thing as a bactrian yak," Slango replies. "My apologies. I assumed that what Brock knows, he passes on to you, and he certainly knows about me and Lena." He scowls into his root beer. "Nearly gave himself a hernia laughing," Slango adds under his breath.
+
+We could explain Brock's probable reasons or ask whether we can leave now.
+
+>explain reasons
+"She's old enough to be your spinster aunt and flaky enough to tell your fortune with half a tarot deck and a couple of Uno cards," you say. "We haven't got a lot of clues about what your type is, but I doubt Brock would have guessed Lena."
+
+"She's thirty-two," says Slango crisply. "She runs Radio Free Atlantida single-handed with electronics she built herself. And if she were old enough to be my spinster aunt, that would still be my business."
+
+"So, uh, I guess you guys are pretty serious, then," you say.
+
+"I'd give her and me better odds than you and Brock."
+
+We could mutter darkly or ask whether we can leave now.
+
+>mutter darkly
+I grumble under our breath about people who are hung up on their personal issues when there are useful jobs to be done.
+
+Slango pretends not to hear.
+
+We're all silent as the door of the pub opens and closes and a large man walks past us. 
+
+"Brock's run into a little trouble pursuing a profitable opportunity."
+
+We want to ask what the trouble was.
+
+>ask what the trouble was
+"Define trouble."
+
+"I had a pick-up arranged to get him off the island shore all the way down by Maiana last night, but he didn't make it, and sent no messages. I checked a contact in Bureau Processing, but no arrest file has gone through, so Brock hasn't been caught. He's just... missing."
+
+A squabble breaks out over by the darts board. 
+
+"We can't leave without Brock," Slango says, as though you needed persuading.
+
+Or maybe he's saying that to the me half of us. Right now, it's true that I'm not keen on the prospect of hanging out in Atlantis. We're already way behind the plan.
+
+We want to complain about the inefficiency of this scheme.
+
+You are reminded of how it started with Brock.
+
+>remember how it started with Brock
+Navigation Area
+Brock was sitting at the controls, with you leaning over him. He pushed you away. "Cut it out. I'm not available every time you decide to go slumming."
+
+It was deep blue summer twilight. He was driving the yacht with one hand on the steering wheel and the other loosely in his lap. You turned to go.
+
+Then we're back in the present.
+
+>complain about inefficiency of scheme
+Sorry, but I have to get this out there. "I was really expecting a smoother escape plan when I arranged to work with your operation," I say.
+
+Slango eyes us with disfavor. "Andra, you got a moron up in your head. Kid -- Alex -- we aren't travel agents."
+
+A dart bounces off the dart board and lands near your foot. A gruff man retrieves it with muttered apologies.  "I've got to get back to the yacht; it's empty," Slango says. "And I would prefer not to let the Bureau get a good look at me, while your current face is, shall we say, disposable. The trick is, we don't know where Brock is. If he left a message for us, it'll be at the dead drop."
+
+That's a spot at the public convenience by the town bus station where the three of you leave messages for one another when necessary. Usually quiet, yet anonymous. "We're on it," we say.
+
+"Glad to hear it," says Slango. "Now stop referring to yourself as 'we' in company."
+
+This gives us something to go on, anyway. We give Slango what I intend as a reassuring nod of solidarity.
+
+"Back to the yacht for me," Slango says. "Don't let the other half of your head do anything you wouldn't do."
+
+"Which of us are you talking to?" I ask smartly.
+
+"Both."
+
+He heads out towards the docks and quickly disappears from view -- returning to the yacht to wait for us to arrive with Brock.
+
+[Your score has gone up by five points and is now thirty-seven.]
+
 >

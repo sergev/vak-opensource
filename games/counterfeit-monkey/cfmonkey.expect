@@ -176,8 +176,10 @@ expect ">"; send "look hillside\r"
 expect ">"; send "look sage\r"
 expect ">"; send "get sage\r"
 expect ">"; send "get plastic\r"
+
 expect ">"; send "go to Webster Court\r"
 expect ">"; send "wait\r";                      # see where Father goes
+
 expect ">"; send "go to High Street\r";         # High Street
 expect ">"; send "remove d from card\r"
 expect ">"; send "remove n from funnel\r"
@@ -224,8 +226,55 @@ expect ">"; send "look clientele\r"
 # Goal #5: Talk to Lena at the Aquarium Bookstore
 #
 expect ">"; send "go to Aquarium Bookstore\r";  # Aquarium Bookstore
+expect ">"; send "look fish\r"
+expect ">"; send "ask about Slango\r"
+expect ">"; send "say who we are\r"
+expect ">"; send "look box\r"
+expect ">"; send "look modems\r"
+expect ">"; send "look preamps\r"
+expect ">"; send "remove m from modems\r"
+expect ">"; send "remove p from preamps\r"
+expect ">"; send "remove s from reams\r"
 
+expect ">"; send "go to Outdoor Cafe\r";        # Outdoor Café
+expect ">"; send "look Nexami\r"
+expect ">"; send "look jacket\r"
+expect ">"; send "look jeans\r"
+expect ">"; send "look tables\r"
+expect ">"; send "say thanks for pointing out spill\r"
+expect ">"; send "ask what he is doing in Atlantis\r"
+expect ">"; send "remove s from spill\r"
+expect ">"; send "get pill\r"
+
+expect ">"; send "go to Counterfeit Monkey\r";  # Counterfeit Monkey
+expect ">"; send "remember your crew’s attitude to Atlantis law\r"; # Galley
+expect ">"; send "play game\r"
+expect ">"; send "show pill\r"
+expect ">"; send "put gel on pill\r"
+expect ">"; send "get Origin Paste\r"
+expect ">"; send "ask whether he has any other games going\r"
+
+expect ">"; send "go to Aquarium Bookstore\r";  # Aquarium Bookstore
+expect ">"; send "put Origin Paste on ream\r"
+expect ">"; send "put Origin Paste on odes\r"
+expect ">"; send "ask about Slango\r"
+expect ">"; send "encourage Lena to contact Slango\r"
+expect ">"; send "thank Lena\r"
+
+expect ">"; send "go to Counterfeit Monkey\r";  # Counterfeit Monkey
+expect ">"; send "look Slango\r"
+expect ">"; send "say who we are\r"
+expect ">"; send "explain reasons\r"
+expect ">"; send "mutter darkly\r"
+expect ">"; send "ask what the trouble was\r"
+expect ">"; send "remember how it started with Brock\r"
+expect ">"; send "complain about inefficiency of scheme\r"
+
+#
 # Goal #6: Check the dead drop at the public convenience
+#
+#expect ">"; send "\r"
+
 # Goal #7: Trace Brock’s movements at the antique shop
 # Goal #8: Find a way to understand the map
 # Goal #9: Speak to Professor Waterstone and get his invitation to see the T-inserter
