@@ -273,7 +273,7 @@ expect ">"; send "complain about inefficiency of scheme\r"
 #
 # Goal #6: Check the dead drop at the public convenience
 #
-#expect ">"; send "\r"
+expect ">"; send "save\r"; expect ":"; send "start6\r"
 
 # Goal #7: Trace Brock’s movements at the antique shop
 # Goal #8: Find a way to understand the map
@@ -288,5 +288,3 @@ expect ">"; send "complain about inefficiency of scheme\r"
 expect ">"; send "quit\r"
 puts ""
 exit
-
-#expect ">"; send "save\r"; expect ":"; send "mygame\r"

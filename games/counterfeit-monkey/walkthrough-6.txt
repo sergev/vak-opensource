@@ -1,0 +1,290 @@
+spawn ./glulxe CounterfeitMonkey-11.gblorb
+Welcome to the Cheap Glk Implementation, library version 1.0.6.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Can you hear me? >> y
+
+Good, you're conscious. We're conscious. I've heard urban legends about synthesis going wrong, one half person getting lost.
+
+Do you remember our name?
+
+>no
+To review, we're Alexandra now. I was Alex, before the synthesis. You were...
+
+>wait
+...oh boy. Okay. Okay. I need you on form here. This is going to be hard if you don't remember being Andra. Not panicking. As far as I can tell, the operation was a success. We're meant to be one person now, unrecognizable to anyone who knew us before.
+
+
+Counterfeit Monkey
+A Removal by Emily Short
+Release 11 / Serial number 230220 / Inform 7 build 6M62 (I6/v6.41 lib 6/12N) 
+
+
+Let's try to get a look around. I haven't been able to run our body without your help, but maybe now you're awake, it'll work better.
+
+To get a look around, type LOOK and press return. If you do not want help getting started, type TUTORIAL OFF.
+>restore
+Enter saved game to load: start6
+Ok. 
+
+>go to Roundabout
+We make the quick drive through the marina district. 
+
+
+The whole Roundabout has ground to a halt, with protesters walking in the street and in some places completely filling the road. But this is mostly a nuisance until I notice that there are a couple of teenagers handcuffed to a tree.
+
+I give the wheel a yank and run the car up onto the central traffic circle a little way. Call it a parking job. We need to get those kids out of here before their arrest is processed and they go to storage. I might not have the nerve to do anything by myself, but you're with me, and I'm starting to appreciate that's like being Batman. 
+
+Traffic Circle (jammed into the car)
+Normally no pedestrian ever comes to this circle of grass and litter: the flow of traffic is too constant and too fast. But the protest has stopped the traffic and I'm determined to do something about the two teenagers I saw just now, so here we are. Though we probably have to get out of the car if we're going to be useful.
+
+>put Origin Paste on car
+We surreptitiously smear some of the Origin Paste onto the car. Nothing obvious happens, of course, but that is the whole point.
+
+[Your score has gone up by one point and is now thirty-eight.]
+
+>get out
+We open the door of the car.
+
+We climb out of the car.
+
+Traffic Circle
+A giant Atlantida statue stands at the center, decorated in an unorthodox fashion with a sign and a stuffed octopus. Atlantida is to us a bit as Uncle Sam might be to you, except that she embodies the spirit of the people rather than the government. In recent years she's become a symbol of opposition to the Bureau.
+
+Two teenagers are cuffed to a brown tree, apparently for safe-keeping while the All-Purpose Officer undoes their vandalism. He has a diminutive affixer. 
+
+"Go ahead, put us in Cold Storage!" shouts the defiant teenager. "I'm happy to sleep through all this shit and wake up when we have jet packs and a government that respects the rights of its people."
+
+The All-Purpose Officer shifts the restoration gel rifle from one hand to another; looks around; and then props it against the foot of the statue.
+
+>look statue
+On the giant Atlantida statue are a sign and a stuffed octopus.
+
+>look sign
+It reads:
+
+The Spirit of Atlantis is the Spirit of Referendum!
+
+NO MORE "NON-REFERRABLE PROCEDURES"...
+ ...ON INTERNATIONAL RELATIONS
+ ...ON ECONOMIC POLICY
+ ...ON HUMAN RIGHTS
+
+>look octopus
+Slightly wrong, actually, but I suppose they didn't have a stuffed squid handy. Of the four symbols associated with Atlantis, the squid -- representing invention and individuality -- is the one that has greatest resonance for protesters.
+
+This one has been tied to Atlantida's hand alongside the olive branch she traditionally carries.
+
+>look officer
+He is uniformed and has a look of serious determination.
+
+>look affixer
+A piece of specialized equipment resembling a copper-plated staple gun. It shoots "ette's and "ling's and the odd "mini" into words capable of receiving such endings.
+
+>look rifle
+A rifle that shoots pellets of restoration gel, converting objects from a distance. Guns like this are illegal to carry unless you're Bureau. They can inflict unpleasant bruises if they encounter nothing to convert and absorb the energy.
+
+>look teenagers
+One of them looks nervous, the other defiant. When she catches us looking her way, she contorts herself uncomfortably in order to be able to give us the finger.
+
+>use monocle
+(first taking the monocle)
+Everything turns computer-monitor green when viewed through our right eye. And staring fixedly at anything will turn up its authenticity status.
+
+The nervous teenager looks unhappy. "We won't get out of here until our families are all dead and global warming has reduced Atlantis to three square feet of hilltop."
+
+The All-Purpose Officer goes around to the back of the statue and begins to climb up the leg, finding footholds in the folds of Atlantida's gown. It looks like a precarious business, but he's determined.
+
+>look tree
+It's a tree of indeterminate species. I'm pretty sure it wasn't here yesterday. Though the leaves are dusty and brown, there's no leaf-fall at all underneath the tree, and it's not one of the palms that usually grow in this area.
+
+There is a dismissive blatt from the monocle, and transposed over the brown tree is a faint, greenish image of a brown tee.
+
+>get rifle
+We pick up the rifle. It fits well in your hand: good heft. I feel like we know how to aim this thing. It's illegal to carry, but that doesn't seem to be bothering you right now.
+
+The nervous teenager struggles against her bonds.
+
+Gritting his teeth, the All-Purpose Officer climbs for access out onto Atlantida's huge metal arm. It looks about as sturdy as a substantial tree branch, but more slippery, and inconveniently angled.
+
+>look metal arm
+It is bare and muscular, as though Atlantida is envisioned championing her people through a series of arm-wrestling matches.
+
+On the huge metal arm are an All-Purpose Officer and an olive branch.
+
+The monocle pings happily as we sight the huge metal arm with the crosshairs.
+
+>look olive branch
+A metal olive branch, complete with metal leaves and metal olives.
+
+The monocle pings happily as we sight the olive branch with the crosshairs.
+
+>shoot tree
+(with the restoration gel rifle)
+We shoot the restoration gel rifle at the brown tree. With an audible SPLORT, the brown tree becomes a brown tee. It's a brown wooden peg for putting a golf ball on. Apparently the All-Purpose Officer performed a little light R-insertion when he found himself in need of a portable tree.
+
+Freed from attachment to the tree, the teenagers look at each other and then run off into the crowd.
+
+The All-Purpose Officer glances around, but you've made us stand so our body conceals the rifle from his angle. He growls in annoyance. "Station," he says, apparently to thin air. "I need back-up."
+
+Understood, says a tinny distant voice.
+
+Once the All-Purpose Officer comes level with the sign, he shoots it with the diminutive affixer, turning it into a signet. It's an outsized signet bearing the crest of the Bureau of Orthography, now hanging around the statue's neck in the same way that the sign did a moment ago.
+
+>enter car
+We get into the car.
+
+No one seems to be much the wiser about what just happened. I have to say, you know what you're doing. We ditch the rifle out the window -- it's too large to fit in the car. Traffic is starting to move again. We'd better get on to the dead drop.
+
+Roundabout (jammed into the car)
+We are jammed into the car with our knees almost at our chin, looking out through the bulbous little windshield. The motor is growling like a housecat with pneumonia.
+
+The traffic flows in a tight circle around a statue which we know all too well.
+
+Confusing signs point in various directions: northeast to Deep Street, northwest to High Street, south to Long Street, east to Tall Street.
+
+The car is making an unpleasant raspy growl.
+
+>east
+
+Tall Street (jammed into the car)
+We are jammed into the car with our knees almost at our chin, looking out through the bulbous little windshield. The motor is growling like a housecat with pneumonia.
+
+Tall Street is very quiet. No celebrations have reached this far, and neither is there any business today; so it has an air of dull abandonment. At the east end the street bends to go around an old park rarely visited.
+
+To the south is the important blue rotunda of the Bureau of Orthography. The street runs west towards the busy roundabout.
+
+The car is making an unpleasant raspy growl.
+
+>east
+Since there's no way by road, we'll have to leave the car here. It is a moment's work to find a parking spot. We switch the ignition off.
+
+We open the door of the car.
+
+We climb out of the car.
+
+Abandoned Park
+In contrast with the parks in the more savory parts of town, this is a bit of patchy grass where local dogs occasionally come out to do their business. A granite war memorial is fixed at the center, which is why tourist maps optimistically call the place Monument Green. But the memorial is only moderately monumental and the grass hardly green at all.
+
+We step on a twig before we back away again. 
+
+It is a place that might have been developed long ago; only it is known that there are remains of Roman settlement here, and there is a risk that digging out the foundations would turn up some of those ruins, exposing a large number of Latin-language objects to the light of day. To prevent this catastrophe the whole area has been placed off limits to development.
+
+We can go southeast and west to Tall Street from here.
+
+>look memorial
+It's a curious thing: it stands taller than a person and yet seems almost embarrassed and self-effacing. The lettering is cut quite small, and the names thereon are tightly spaced. Since 1829 there have been only thirty-five officially sanctioned surnames on the island, which means that, for reasons of space, the names have been truncated to numbers, and the result is a list that looks almost like a table of Biblical quotations: John 31, Mark 12, Paul 29.
+
+The reason for all this compactness is that the memorial is dedicated to the dead of all wars. Deaths from the War of Secession and the Civil Dispute of Standardization, losses from islanders volunteering in the French Foreign Legion, and the hefty cost of World Wars I and II, all are crammed into the upper left corner, leaving room for a long and bloody future.
+
+On the war memorial is a poppy.
+
+The monocle pings happily as we sight the war memorial with the crosshairs.
+
+>look poppy
+Not a real, fresh poppy, but a construct of bright red fabric with a black heart.
+
+The monocle pings happily as we sight the poppy with the crosshairs.
+
+>se
+
+Bus Station
+A currently-desolate depot from which buses run seasonally to Maiana, the island's other major town. The old station building is a low, rectilinear edifice from the 60s, all pebbled concrete and sheet glass, but it's shut, leaving accessible only a series of empty bus bays and a wall-mounted schedule. The public convenience to the east is the only thing open, while the area to the northwest is open parkland.
+
+A dove flutters from one surface to another, occasionally stopping to stare at us. 
+
+A shed, rather ramshackle and unlikely, sits on the pavement, where it ought to be in the way of incoming buses. 
+
+You have a fleeting thought of leaving your family for the last time.
+
+>leaving your family for the last time
+That's not a verb I recognize.
+
+>look schedule
+The schedule is an intricate affair, and the deciphering of the various letter-codes and footnotes was actually a subject of study in my grade school. The buses run every sixty-two minutes during daylight in the winter, every forty-three minutes in summer, with every third bus running as an express without stops if the passengers of this bus do not vote otherwise.
+
+During the run of the school year there is an extra inbound bus in the morning and outward in the afternoon; contrariwise the bus is on half-schedule Sundays and holidays, except major patriotic holidays when there is no bus at all.
+
+Like today.
+
+The monocle pings happily as we sight the wall-mounted schedule with the crosshairs.
+
+>look shed
+Sheds like this are typically cheap and very very temporary housing for the homeless. The policy of the Bureau is that no one is allowed to beg, and punishments for begging and homelessness are often quite stiff, so there is nothing in the way of an established shelter on the island and little recourse for those who might need it.
+
+There is a dismissive blatt from the monocle, and transposed over the shed is a faint, greenish image of a shred.
+
+>
+I beg your pardon?
+
+>east
+
+Public Convenience
+There are just the two toilet stalls and a couple of sinks, but the place has been kept up reasonably well, if one doesn't count the graffiti.
+
+A soap dispenser hangs beside the mirror. 
+
+About knee-height in one of the stalls is a hole that runs right through the wall between the men's and women's restrooms. It's here that you and Brock and Slango usually leave things for one another.
+
+A faint smell of lavender lingers in the air.
+
+>look graffiti
+We glance over the range of messages from past occupants and notice...
+
+Some wag has drawn an arrow pointing to the toilet and written beside it: P-REMOVER.
+
+The monocle pings happily as we sight the graffiti with the crosshairs.
+
+>look soap
+It's the kind where a squeeze will dispense new soap into the sink.
+
+The monocle pings happily as we sight the soap dispenser with the crosshairs.
+
+>smell
+The smell seems to emanate from the small hole in the wall.
+
+>look hole
+It's too small to get a good look through, really, and usually cluttered with junk.
+
+In the hole in the wall is some ash.
+
+The monocle pings happily as we sight the hole in the wall with the crosshairs.
+
+>look ash
+It's fine grey-white powder, and a fair quantity of it: too much to have come from a cigarette or two.
+
+The monocle fails to make any sound or response at all, but no green image forms revealing the true nature of the ash.
+
+>put gel on ash
+We just touch a coated fingertip of gel to the ash. With an audible SPLORT, the ash becomes some trash. Most of it's junk: sweet wrappers, tissues, bus tickets. But there's also, suggestively, an appointment card for Arbot Maps & Antiques.
+
+[Your score has gone up by three points and is now forty-one.]
+
+>

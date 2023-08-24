@@ -1,0 +1,81 @@
+#!/usr/bin/expect -f
+#
+# Play game Alabaster.
+#
+# Based on https://intfiction.org/t/counterfeit-monkey-invisiclues/44257
+#
+set timeout -1
+
+# Remove previous log, if any.
+system rm -f "game.log" "*.glkdata"
+log_file "game.log"
+
+# Start the game.
+spawn ./glulxe CounterfeitMonkey-11.gblorb
+match_max 100000
+
+# Introduction
+expect ">>"; send "y\r"
+expect ">"; send "no\r"
+expect ">"; send "wait\r"
+expect "before."; send "\r"
+
+# Restore saved game.
+expect ">"; send "restore\r"; expect ":"; send "start6\r"
+
+#
+# Goal #6: Check the dead drop at the public convenience
+#
+expect ">"; send "go to Roundabout\r";          # Traffic Circle (jammed into the car)
+expect ">"; send "put Origin Paste on car\r"
+expect ">"; send "get out\r";                   # Traffic Circle
+expect ">"; send "look statue\r"
+expect ">"; send "look sign\r"
+expect ">"; send "look octopus\r"
+expect ">"; send "look officer\r"
+expect ">"; send "look affixer\r"
+expect ">"; send "look rifle\r"
+expect ">"; send "look teenagers\r"
+expect ">"; send "use monocle\r"
+expect ">"; send "look tree\r"
+expect ">"; send "get rifle\r"
+expect ">"; send "look metal arm\r"
+expect ">"; send "look olive branch\r"
+expect ">"; send "shoot tree\r"
+expect ">"; send "enter car\r";                 # Roundabout (jammed into the car)
+expect ">"; send "east\r";                      # Tall Street (jammed into the car)
+expect ">"; send "east\r";                      # Abandoned Park
+expect ">"; send "look memorial\r"
+expect ">"; send "look poppy\r"
+expect ">"; send "se\r";                        # Bus Station
+expect ">"; send "leaving your family for the last time\r"; # Bus Stop
+expect ">"; send "look schedule\r"
+expect ">"; send "look shed\r"
+expect ">"; send "\r"
+expect ">"; send "east\r";                      # Public Convenience
+expect ">"; send "look graffiti\r"
+expect ">"; send "look soap\r"
+expect ">"; send "smell\r"
+expect ">"; send "look hole\r"
+expect ">"; send "look ash\r"
+expect ">"; send "put gel on ash\r"
+
+#
+# Goal #7: Trace Brock’s movements at the antique shop
+#
+#expect ">"; send "\r"
+
+# Goal #8: Find a way to understand the map
+# Goal #9: Speak to Professor Waterstone and get his invitation to see the T-inserter
+# Goal #10: Gain entrance to the Bureau
+# Goal #11: Find Brock
+# Goal #12: Test T-inserter
+# Goal #13: Escape the Bureau
+# Goal #14: Check out the paper and see what’s going on
+
+# Quit
+expect ">"; send "quit\r"
+puts ""
+exit
+
+#expect ">"; send "save\r"; expect ":"; send "mygame\r"
