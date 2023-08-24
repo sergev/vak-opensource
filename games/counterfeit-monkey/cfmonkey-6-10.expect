@@ -63,9 +63,33 @@ expect ">"; send "put gel on ash\r"
 #
 # Goal #7: Trace Brock’s movements at the antique shop
 #
-#expect ">"; send "\r"
+expect ">"; send "go to Tall Street\r";         # Tall Street
+expect ">"; send "enter car\r"
+expect ">"; send "west\r";                      # Roundabout (jammed into the car)
+expect ">"; send "south\r";                     # Long Street North (jammed into the car)
+expect ">"; send "south\r";                     # Long Street South (jammed into the car)
+expect ">"; send "look bag\r"
+expect ">"; send "look ball\r"
+expect ">"; send "look jigsaw\r"
+expect ">"; send "west\r";                      # Arbot Maps & Antiques
+expect ">"; send "look collection\r"
+expect ">"; send "look mannequin\r"
+expect ">"; send "look goggles\r"
+expect ">"; send "look Slangovia\r"
+expect ">"; send "look legend\r"
+expect ">"; send "ask about Brock\r"
+expect ">"; send "remember how it started with Brock\r"; # Sunning Deck
+expect ">"; send "ask which map was sold\r"
+expect ">"; send "ask what sort of demonstration\r"
+expect ">"; send "buy map\r"
+expect ">"; send "ask about Brock\r"
+expect ">"; send "remember how it started with Brock\r"; # Café, Marseilles
 
+#
 # Goal #8: Find a way to understand the map
+#
+expect ">"; send "goals\r"
+
 # Goal #9: Speak to Professor Waterstone and get his invitation to see the T-inserter
 # Goal #10: Gain entrance to the Bureau
 # Goal #11: Find Brock

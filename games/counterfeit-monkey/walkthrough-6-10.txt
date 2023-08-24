@@ -287,4 +287,212 @@ We just touch a coated fingertip of gel to the ash. With an audible SPLORT, the 
 
 [Your score has gone up by three points and is now forty-one.]
 
+>go to Tall Street
+We have a brief walk. 
+
+Tall Street
+Tall Street is very quiet. No celebrations have reached this far, and neither is there any business today; so it has an air of dull abandonment. At the east end the street bends to go around an old park rarely visited.
+
+Our car -- which might better be described as a covered bicycle -- is parked nearby. 
+
+To the south is the important blue rotunda of the Bureau of Orthography. The street runs west towards the busy roundabout.
+
+>enter car
+We get into the car.
+
+>west
+We switch the ignition on.
+
+Roundabout (jammed into the car)
+We are jammed into the car with our knees almost at our chin, looking out through the bulbous little windshield. The motor is growling like a housecat with pneumonia.
+
+The traffic flows in a tight circle around a statue which we know all too well.
+
+Confusing signs point in various directions: northeast to Deep Street, northwest to High Street, south to Long Street, east to Tall Street.
+
+The car is making an unpleasant raspy growl.
+
+>south
+
+Long Street North (jammed into the car)
+We are jammed into the car with our knees almost at our chin, looking out through the bulbous little windshield. The motor is growling like a housecat with pneumonia.
+
+Long Street is lined on each side with a double-row of tall, anemic palm trees that bend towards one another many feet overhead. This corridor continues some considerable distance south.
+
+On the west side of the street is the several-story front of the Fleur d'Or hotel. 
+
+We can go north to the Roundabout, south, and west from here.
+
+The car is making an unpleasant raspy growl.
+
+>south
+
+Long Street South (jammed into the car)
+We are jammed into the car with our knees almost at our chin, looking out through the bulbous little windshield. The motor is growling like a housecat with pneumonia.
+
+Long Street is lined on each side with a double-row of tall, anemic palm trees that bend towards one another many feet overhead. We are now in the southern part of this long corridor, between the Canadian Embassy and Arbot Maps & Antiques.
+
+Someone has left a shopping bag at the roadside -- maybe by accident when loading up a car, maybe because they mean to come back for it. There are a ball and a jigsaw in the shopping bag. 
+
+We can go north to Long Street North, south, and west from here.
+
+The car is making an unpleasant raspy growl.
+
+>look bag
+The logo on the outside is from Landison's, a popular toy store on the island. It's probably closed today, so this would have been bought earlier -- possibly even as a present for Serial Comma Day.
+
+In the shopping bag are a ball and a jigsaw.
+
+The monocle pings happily as we sight the shopping bag with the crosshairs.
+
+>look ball
+Made of blue and white rubber, and decorated all over with a pattern of random letters in different sportive fonts.
+
+The monocle pings happily as we sight the ball with the crosshairs.
+
+>look jigsaw
+The boxed puzzle displays an execution scene, with several pro-British traitors from the 1820s being lined up before the depluralization cannon. It was thought a considerable punishment to be forced to share a body and consciousness with others.
+
+The monocle pings happily as we sight the jigsaw with the crosshairs.
+
+>west
+Since there's no way by road, we'll have to leave the car here. It is a moment's work to find a parking spot. We switch the ignition off.
+
+We open the door of the car.
+
+We climb out of the car.
+
+We show the appointment card, and are let in.
+
+Arbot Maps & Antiques
+There is a large collection of vintage and antique maps under glass -- the island of Atlantis as a whole, street maps of here and of Maiana, navigation maps of the harbor, and then maps of more distant places as well. 
+
+A stylish mannequin near the front sports a pair of Britishizing goggles. 
+
+Overseeing all this is a woman named Kate. 
+
+"Welcome to Arbot," says Kate. "Feel free to browse and ask me any questions you may have about the merchandise."
+
+I'd like to ask whether she has seen Brock.
+
+>look collection
+We study the maps. One in the collection stands out: a map of Slangovia, framed like all the others but of suspiciously recent vintage.
+
+>look mannequin
+A head and torso only, and abstractly rendered. The vaguely masculine shape is covered in coarse white linen.
+
+On the mannequin is a pair of Britishizing goggles.
+
+The monocle pings happily as we sight the mannequin with the crosshairs.
+
+>look goggles
+An experimental prototype that (from the perspective of the viewer only) adds -u- into words ending in -or, and reverses -er into -re wherever possible. Subjects wearing the Britishizing goggles generally began to develop implausible accents and to have better than usual success wooing American tourists. Otherwise, the goggles are not much use: like my monocle, they don't affect the actual form of an object in any way.
+
+The surplus stock were mostly given away as rewards to supporters of public television, and the Bureau discouraged even recreational use in the 1980s as they began to make progress towards greater linguistic purity.
+
+The monocle pings happily as we sight the Britishizing goggles with the crosshairs.
+
+>look Slangovia
+It's a detailed street map pretending to correspond to some remote South African town called Slangovia. Cryptic icons dot the surface. There is a legend in the lower right corner that appears to be a separate piece glued on.
+
+The monocle pings happily as we sight the map of Slangovia with the crosshairs.
+
+>look legend
+This legend tells of Iphis and Ianthe: Iphis, a girl raised in disguise as a boy, falls in love with her playmate Ianthe. She prays to the goddess Isis, who takes pity and transforms Iphis into a man, able to marry Ianthe after all.
+
+It bears no obvious relation to the map of Slangovia.
+
+>ask about Brock
+"Have you seen a man -- maybe this morning -- about this height, dark hair, very blue eyes, kind of cocky?"
+
+There's a light of recognition. "Yes, he was in. A friend of my boss. He visited the shop and sold us a map he happened to have with him. Then they left, together. I believe there was some discussion of seeing a demonstration."
+
+I'm inclined to ask which map was sold, ask what sort of demonstration, or ask whether Brock seemed upset.
+
+Something makes you think of how it started with Brock.
+
+>remember how it started with Brock
+Sunning Deck
+Brock was sprawled out on the cushions with his sunglasses on. Pretending not to see you. You stood so that your shadow crossed his face and he had to look up.
+
+"I've been a jerk and I'm sorry," you said.
+
+"I'm not the man-whore of Babylon," he replied. "I've had the odd fling. That's all."
+
+"I know."
+
+"I'm not James Bond here."
+
+You pulled your towel more tightly around you. "I know."
+
+"And you have lost the right ever to give me crap about women again," he said.
+
+Your teeth were starting to chatter. "Yes."
+
+"Okay. Apology accepted." He lowered his sunglasses again.
+
+Then we're back in the present.
+
+>ask which map was sold
+"He sold you a map? Which one was that?"
+
+"It's just here," Kate says, going over to the selection and pointing out a map purporting to depict Slangovia. "An unusual piece."
+
+She glances sideways at us.
+
+We could ask what sort of demonstration or ask whether Brock seemed upset.
+
+>ask what sort of demonstration
+"You mentioned that your boss and the other gentleman went to a demonstration. What kind of demonstration was it?"
+
+She smiles and shrugs. "Mr. Arbot used to work for the Bureau before he retired to sell antiques. He still has lots of connections. It could be anything."
+
+We want to ask whether Brock seemed upset.
+
+>buy map
+"I'll take the Slangovia map," we say. "It's not every day you see something like this."
+
+"Very good," she says. "Too bad he didn't think to offer it to you directly! But just as well for us, I suppose."
+
+I take this to mean that Arbot is getting a big commission on the sale.
+
+Kate removes the map from its case and packs it up carefully for us.
+
+>ask about Brock
+"There's a chance my friend was in trouble. Did he seem to be in a hurry or concerned about anything?"
+
+"Not at all. He appeared eager to speak with Mr. Arbot, and they had plans together, but he didn't seem agitated. If anything, he seemed a little more worldly and collected than people in his line of work usually are."
+
+Cryptic. Perhaps he was posing as a researcher? But we can't very well ask, not if we're supposed to be a friend of his.
+
+Kate rearranges a few objects in the shop window.
+
+"If your friend is missing, you could report him to the Bureau, you know," she says. "I believe they keep close tabs on academic and research visitors. They may well know where he is."
+
+"Thank you," you say. "I don't think things are quite at that point." And they never will be, obviously.
+
+You are reminded of how it started with Brock.
+
+>remember how it started with Brock
+Café, Marseilles
+Brock was scowling into his drink. "I don't know, Andra. Are you going to flip on me again if we try to be together? I'm not blaming you for your parents, and... honestly, I'm surprised how much you've been able to assemble yourself into someone new. But jeezus."
+
+"What happened to your thing about how everyone goes through life hurting everyone else a little bit, like radiation?" you asked. "But mostly people heal, and it's worth it?"
+
+"Yeah, that's true," he said. "But you still don't go into the reactor core with no suit, if you see what I mean."
+
+You tilted your head. "You weathered it pretty well when you and Annalisa split up."
+
+He swirled the melted ice in the bottom of his glass. "Is this what you're fishing for?" he said. "For me to tell you you're special, you're different, I care about you more and therefore it would ruin everything if we ever broke up?"
+
+You didn't answer.
+
+"It would ruin everything," he says. "Because you're on my crew. But as to the girlfriend thing, I have no idea. We don't know each other that way."
+
+Then we're back in the present.
+
+>goals
+Here's what we think we need to do: 
+  Find a way to understand the map
+
 >
