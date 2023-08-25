@@ -75,8 +75,6 @@ expect ">"; send "west\r";                      # Arbot Maps & Antiques
 expect ">"; send "look collection\r"
 expect ">"; send "look mannequin\r"
 expect ">"; send "look goggles\r"
-expect ">"; send "look Slangovia\r"
-expect ">"; send "look legend\r"
 expect ">"; send "ask about Brock\r"
 expect ">"; send "remember how it started with Brock\r"; # Sunning Deck
 expect ">"; send "ask which map was sold\r"
@@ -88,9 +86,33 @@ expect ">"; send "remember how it started with Brock\r"; # Café, Marseilles
 #
 # Goal #8: Find a way to understand the map
 #
+expect ">"; send "look Slangovia\r"
+expect ">"; send "look legend\r"
+expect ">"; send "get legend\r"
+expect ">"; send "go to Fleur d'Or Lobby\r";    # Fleur d’Or Lobby
+expect ">"; send "look spotlights\r"
+expect ">"; send "look glass\r"
+expect ">"; send "look piano\r"
+expect ">"; send "look piece\r"
+expect ">"; send "look \r"
+expect ">"; send "west\r";                      # Fleur d’Or Drinks Club
+expect ">"; send "look toolkit\r"
+expect ">"; send "look screwdrivers\r"
+expect ">"; send "look gimlets\r"
+expect ">"; send "look rusty nails\r"
+expect ">"; send "look bartender\r"
+expect ">"; send "look homonym paddle\r"
+expect ">"; send "look patron\r"
+expect ">"; send "look gin and tonic\r"
+expect ">"; send "look other patrons\r"
+expect ">"; send "show legend to bartender\r"
+expect ">"; send "look legend\r"
+
+#
+# Goal #9: Speak to Professor Waterstone and get his invitation to see the T-inserter
+#
 expect ">"; send "goals\r"
 
-# Goal #9: Speak to Professor Waterstone and get his invitation to see the T-inserter
 # Goal #10: Gain entrance to the Bureau
 # Goal #11: Find Brock
 # Goal #12: Test T-inserter

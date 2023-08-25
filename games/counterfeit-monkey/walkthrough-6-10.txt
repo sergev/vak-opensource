@@ -392,16 +392,6 @@ The surplus stock were mostly given away as rewards to supporters of public tele
 
 The monocle pings happily as we sight the Britishizing goggles with the crosshairs.
 
->look Slangovia
-It's a detailed street map pretending to correspond to some remote South African town called Slangovia. Cryptic icons dot the surface. There is a legend in the lower right corner that appears to be a separate piece glued on.
-
-The monocle pings happily as we sight the map of Slangovia with the crosshairs.
-
->look legend
-This legend tells of Iphis and Ianthe: Iphis, a girl raised in disguise as a boy, falls in love with her playmate Ianthe. She prays to the goddess Isis, who takes pity and transforms Iphis into a man, able to marry Ianthe after all.
-
-It bears no obvious relation to the map of Slangovia.
-
 >ask about Brock
 "Have you seen a man -- maybe this morning -- about this height, dark hair, very blue eyes, kind of cocky?"
 
@@ -491,8 +481,159 @@ You didn't answer.
 
 Then we're back in the present.
 
+>look Slangovia
+It's a detailed street map pretending to correspond to some remote South African town called Slangovia. Cryptic icons dot the surface. There is a legend in the lower right corner that appears to be a separate piece glued on.
+
+The monocle pings happily as we sight the map of Slangovia with the crosshairs.
+
+>look legend
+This legend tells of Iphis and Ianthe: Iphis, a girl raised in disguise as a boy, falls in love with her playmate Ianthe. She prays to the goddess Isis, who takes pity and transforms Iphis into a man, able to marry Ianthe after all.
+
+It bears no obvious relation to the map of Slangovia.
+
+>get legend
+We pick up the map of Slangovia.
+
+>go to Fleur d'Or Lobby
+Once we get to Long Street North we pull easily into one of the available parking spots, since many people have now gone home.
+
+Fleur d'Or Lobby
+The Fleur d'Or is a high-end hotel that serves businessmen and luxury tourists interested in the linguistic mechanisms of the island. As a result, it has all kinds of paid exemptions, including an exemption allowing it to operate under a foreign name.
+
+The spotlights in the ceiling light the floor in distinct pools of Bureau blue, and a sheet of frosted glass etched with random letters separates the lobby from the drinks club to the west.
+
+There is no one at the glossy piano in the corner, though a piece has been left on the piano bench. 
+
+>look spotlights
+The spotlights are more or less steady blue, just fluctuating a little in intensity to add to the sense of being underwater.
+
+The monocle pings happily as we sight the spotlights with the crosshairs.
+
+>look glass
+The glass is a good three quarters of an inch thick, and looks very sturdy. The etched letters glow or fade out again depending on the changing light conditions in the lobby.
+
+Annotation in the corner indicates that this is a commissioned artwork by Anne Landis Rosehip, entitled "The Primeval Sea."
+
+The monocle pings happily as we sight the sheet of frosted glass with the crosshairs.
+
+>look piano
+A glossy grand, probably worthy of better than bar music.
+
+The monocle pings happily as we sight the piano with the crosshairs.
+
+>look piece
+It looks like a setting of "The Grammatical Number of Our Enemy (Is Singular)," a popular music-hall piece of the 1890s that still gets trotted out now and then. There are rousing choruses where the audience can join in to represent the enemy sailors just prior to their encounter with the depluralizing cannon.
+
+The monocle pings happily as we sight the piece with the crosshairs.
+
+>look 
+Fleur d'Or Lobby
+The spotlights in the ceiling light the floor in distinct pools of Bureau blue, and a sheet of frosted glass etched with random letters separates the lobby from the drinks club to the west.
+
+There is no one at the glossy piano in the corner, though a piece has been left on the piano bench. 
+
+Something makes you think of your crew's skill.
+
+>west
+
+Fleur d'Or Drinks Club
+The back wall is dramatically decorated with bottled liquors of all sorts, from gin to cachaça; there's a giant bottle of Campari, taller than your average three-year-old, with a red ribbon around its neck.
+
+What makes this place technically a drinks club rather than a bar is its license to serve letter-manufactured food and drink. A toolkit on the bar contains some screwdrivers, some gimlets, and some rusty nails, ready to be transformed into their respective cocktails.
+
+The bartender is in the middle of showing her homonym paddle to a patron holding a gin and tonic. The other patrons are scattered around the room at small tables, drinking or talking among themselves. 
+
+She acknowledges us with a nod as we stroll up to the bar and get close enough to hear their conversation. "It was originally produced as a toy, but it's actually a bit dangerous," the bartender is saying.
+
+"Dangerous? How so?" asks the patron.
+
+"Various ways," she says. "Suppose I hit a small object that has a big homonym, like say a plane. You know, the carpentry kind. Suddenly I've got an airplane-style plane on top of me."
+
+>look toolkit
+It offers an assortment: some screwdrivers, some gimlets, and some rusty nails.
+
+>look screwdrivers
+An assortment of plain screwdrivers, with strong metal shafts and plastic handles.
+
+The monocle pings happily as we sight the screwdrivers with the crosshairs.
+
+>look gimlets
+A gimlet is a hand-tool for drilling holes, like an auger but smaller. It is for piercing things and boring into them, anyway, which is presumably where the phrase "gimlet-eyed" comes from. These are arranged into an attractive bouquet-shape.
+
+The monocle pings happily as we sight the gimlets with the crosshairs.
+
+>look rusty nails
+They're scattered around in the toolkit, presumably taken from a condemned building somewhere.
+
+The monocle pings happily as we sight the rusty nails with the crosshairs.
+
+>look bartender
+She has masses of curly hair, a classically straight nose, and the most peculiar eyes -- a color neither hazel nor green, and exotically turned up.
+
+The monocle pings happily as we sight the bartender with the crosshairs.
+
+>look homonym paddle
+Who had the idea of hitting things to make them swap with their homonyms, I couldn't guess. Nonetheless the toy -- shaped like a ping-pong paddle and formed of coral-colored rubber -- enjoyed a brief vogue in the 80s.
+
+To prevent theft, the paddle is attached to the bartender's wrist by a thin steel cable and bracelet.
+
+The monocle pings happily as we sight the homonym paddle with the crosshairs.
+
+>look patron
+He looks like a business traveler, though perhaps at the end of a long day.
+
+The monocle pings happily as we sight the patron with the crosshairs.
+
+>look gin and tonic
+It is fizzing gently in its glass.
+
+The monocle pings happily as we sight the gin and tonic with the crosshairs.
+
+>look other patrons
+They're mostly dressed in suits or business casual outfits at least, and are having odd stilted conversations in which they try to avoid saying anything meaningful about the work they are here to do.
+
+I don't think we have much to gain from the crowd.
+
+>show legend to bartender
+We draw the bartender's attention to the legend.
+
+"This?" she says, looking a little surprised. "You want it converted?"
+
+"Why not?"
+
+"No reason," she says. "Just I did the same item a few hours ago for a gentleman. Really hot, with these amazing eyes-"
+
+"Whatever," you say, before she can get any more excited about Brock.
+
+She smirks. Then she taps the legend with her paddle and it transforms into a proper map legend.
+
+"What if you hit something that doesn't mean anything else?" the patron asks. "Like a chicken?"
+
+"Nothing," she says. "That's safe." As though to demonstrate, she smacks the paddle against her left buttock. "See? I don't get changed into a different bartender. Want to try?"
+
+She holds up the paddle as though she's going to tap him with it.
+
+"Uh... my name is Mark," he says.
+
+"Maybe not, then!" she says, laughing brightly.
+
+I'd like to thank the bartender.
+
+[Your score has gone up by one point and is now forty-two.]
+
+>look legend
+This legend has been edited from its original form, replacing the words like HOSPITAL and RESTROOM with other, hand-written labels: INVITE, GOT, 11, OUT, T-INSERTER, etc. By arranging the words of the legend in the order in which the icons appear along the main street, we arrive at GOT INVITE T-INSERTER DEMONSTRATION. OUT 11 AM.
+
+Of course, it's already long past 11 AM, so Brock's plan clearly went wrong. If we're going to go after him, we'll have to go to the T-inserter demonstration ourselves. The catch is that, as dangerous new technology, it's held inside the Bureau and requires a special invitation to enter.
+
+I think I know where we can get one, though. My advisor Professor Waterstone -- that's the person overseeing my graduate research -- was also invited to this demonstration. We might be able to get his.
+
+[Your score has gone up by three points and is now forty-five.]
+
 >goals
 Here's what we think we need to do: 
-  Find a way to understand the map
+  Speak to Professor Waterstone and get his invitation to see the T-inserter
+  Gain entrance to the Bureau
+  Find Brock
 
 >
