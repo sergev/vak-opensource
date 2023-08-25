@@ -1,6 +1,6 @@
 #!/usr/bin/expect -f
 #
-# Play game Alabaster.
+# Play game Counterfeit Monkey, goals 1-5.
 #
 # Based on https://intfiction.org/t/counterfeit-monkey-invisiclues/44257
 #
@@ -274,6 +274,7 @@ expect ">"; send "complain about inefficiency of scheme\r"
 # Goal #6: Check the dead drop at the public convenience
 #
 expect ">"; send "save\r"; expect ":"; send "start6\r"
+expect ">"; send "score\r"
 
 # Goal #7: Trace Brock’s movements at the antique shop
 # Goal #8: Find a way to understand the map

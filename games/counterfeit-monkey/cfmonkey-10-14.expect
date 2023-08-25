@@ -1,0 +1,40 @@
+#!/usr/bin/expect -f
+#
+# Play game Counterfeit Monkey, goals 10-14.
+#
+# Based on https://intfiction.org/t/counterfeit-monkey-invisiclues/44257
+#
+set timeout -1
+
+# Remove previous log, if any.
+system rm -f "game.log" "*.glkdata"
+log_file "game.log"
+
+# Start the game.
+spawn ./glulxe CounterfeitMonkey-11.gblorb
+match_max 100000
+
+# Introduction
+expect ">>"; send "y\r"
+expect ">"; send "no\r"
+expect ">"; send "wait\r"
+expect "before."; send "\r"
+
+# Restore saved game.
+expect ">"; send "restore\r"; expect ":"; send "start10\r"
+
+#
+# Goal #10: Gain entrance to the Bureau
+#
+expect ">"; send "goals\r"
+expect ">"; send "i\r"
+
+# Goal #11: Find Brock
+# Goal #12: Test T-inserter
+# Goal #13: Escape the Bureau
+# Goal #14: Check out the paper and see what’s going on
+
+# Quit
+expect ">"; send "quit\r"
+puts ""
+exit

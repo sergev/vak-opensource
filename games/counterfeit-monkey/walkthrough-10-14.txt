@@ -1,0 +1,71 @@
+spawn ./glulxe CounterfeitMonkey-11.gblorb
+Welcome to the Cheap Glk Implementation, library version 1.0.6.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Can you hear me? >> y
+
+Good, you're conscious. We're conscious. I've heard urban legends about synthesis going wrong, one half person getting lost.
+
+Do you remember our name?
+
+>no
+To review, we're Alexandra now. I was Alex, before the synthesis. You were...
+
+>wait
+...oh boy. Okay. Okay. I need you on form here. This is going to be hard if you don't remember being Andra. Not panicking. As far as I can tell, the operation was a success. We're meant to be one person now, unrecognizable to anyone who knew us before.
+
+
+Counterfeit Monkey
+A Removal by Emily Short
+Release 11 / Serial number 230220 / Inform 7 build 6M62 (I6/v6.41 lib 6/12N) 
+
+
+Let's try to get a look around. I haven't been able to run our body without your help, but maybe now you're awake, it'll work better.
+
+To get a look around, type LOOK and press return. If you do not want help getting started, type TUTORIAL OFF.
+>restore
+Enter saved game to load: start10
+Ok. 
+
+>goals
+Here's what we think we need to do: 
+  Gain entrance to the Bureau
+  Find Brock
+
+>i
+We are equipped with the following essentials: a backpack, a flash drive, an invitation, your L-remover (upgraded to handle animates and abstracts), a monocle, some Origin Paste, a pan (really the smuggled plans in disguise), a roll, and a tub of restoration gel.
+
+We are also carrying an arm, some asparagus, a banana, a cross, Guidebook to Anglophone Atlantis, a jotter, a keycard (which opens the small door), a letter, a lime, a map of Slangovia, a password, a ring (which opens the sturdy iron gate), some sage, a screwdriver, a shrimp cocktail, and some yogurt.
+
+The flash drive and the pan (really the smuggled plans in disguise) are in the backpack, which is gaping wide open so everyone can see what's inside. 
+
+We are wearing the monocle. 
+
+>
