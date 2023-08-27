@@ -322,13 +322,157 @@ She looks over our other visible possessions (the word, the shrimp cocktail, the
 
 [Your score has gone up by five points and is now seventy-eight.]
 
->save
-Enter saved game to store: start11
-Ok.
+>east
+
+Bureau Hallway
+This is a long hallway with many doors leading off, the business of the bureau being varied and all-encompassing; it is for all essential purposes the chief organ of government in Atlantis, since only a few topics are brought to citizen referendum.
+
+We can go east, west to the Antechamber, and down from here.
+
+>down
+
+Bureau Basement South
+We have descended into a windowless underground passage. The hallway runs north from here, and for an eerily long way -- the tunnels must extend well beyond the above-ground profile of the building.
+
+Propped in the corner are some articles that were probably meant to be used as part of the Serial Comma Day Fair, but got confiscated instead: a seer automaton and a plywood cutout depicting Atlantida.
+
+We can go north and up to the Bureau Hallway from here.
+
+>look automaton
+It's a robotic head inside a glass box. When turned on, it gives out fortunes. There's an old-fashioned carnival feel about the thing, and the fact that it's a portable size makes it a good candidate for traveling fairs.
+
+The seer automaton is currently switched off.
+
+>look cutout
+It's one of those plywood cutouts where a tourist sticks his head through and someone else takes a photo showing the tourist a funny pose. This one puts the tourist's face on Atlantida, complete with flowing blue robes and expansive bosom.
+
+>turn on automaton
+The seer cranks to life, looks us up and down with painted wooden eyeballs, and in a tinny voice, says, "I predict you will become BIG. Much bigger than you were yesterday."
+
+>north
+
+Bureau Basement Middle
+The hallway continues both north and south, flanked by doors painted immutable colors: hyacinth, celadon, chartreuse.
+
+The cute security door at the north end is solidly shut. 
+
+An adorable video camera hangs in the left corner above the door. 
+
+>look door
+A thick iron door, decorated with Hello Kitty stickers. There is no handle and no access to the locking mechanism (though it is certainly locked). The door can only be activated by guards in another room, watching through a video camera.
+
+>look camera
+It has a lens, certainly, but it is also made of pink plastic and has cat ears. And it looks like it will recognize us if we approach, perhaps?
+
+>north
+The guards have apparently been instructed to allow us in, because as we approach, the door slides open.
+
+The door seals behind us as soon as we are through.
+
+Bureau Basement Secret Section
+The heightened security on this side of the door is obvious everywhere we look. The floor is tiled in paisley tiles. The light fixtures give off pale pink light. The walls are covered in frog leather. The doors are locked with padlocks the size of handbags, locks decorated à la Louis Quinze, combination locks made of solid gold. There is not a bare noun in sight.
+
+The cute security door at the south end is solidly shut. 
+
+The hallway runs from south (comparatively normal) to north (deeply frightening). Just west is the equipment testing room.
+
+>west
+
+Sensitive Equipment Testing Room
+A room with no windows, no cameras, no recording equipment, and barely any furniture.
+
+A rock sits in one corner of the room. 
+
+At the center of the room is a gleaming new T-inserter Machine. This is a state of the art device: letter removal has been well understood for decades, but insertion is much more dangerous and difficult, fraught with ambiguity. 
+
+>look rock
+Heavy, dark, and roughly hexagonal, like a slice of basalt column.
+
+>put gel on rock
+We dip out a pea-sized quantity of gel and rub it gently onto the rock. With an audible SPLORT, the rock becomes Brock. He looks a bit haggard to me, but I don't think anything too horrible has happened to him. So perhaps you can stop worrying.
+
+Brock stands, dusting himself off. He looks us up and down without expression, without any sign of recognition. "What day is it?" he asks.
+
+"Still Serial Comma Day," you say. "Brock, it's me. And Alex, but I'm here."
+
+The waxen look melts and he grins. "Thank god. It's harder than you'd expect being a rock."
+
+We could suggest we get out of here, complain about Brock's recklessness, or rejoice that Brock is okay. Then again, we could just get to work so we can be out of here faster.
+
+>suggest we get out of here
+"You've been a lump of igneous all day," you say. "It's getting dark out there. If we don't get out now, we're going to get caught by some janitor with a privative affixer."
+
+"I didn't have time to run the tests I wanted to run on the T-inserter. It'll take three minutes and then we can go. We need to do abstracts, animates, and a stability check."
+
+Brock roots around in his pockets and fishes out a sign. "I picked this up in the hallway, if it's any use," he says. He tosses it in the corner.
+
+We could insist on leaving immediately or accept Brock's lunacy. Maybe it's not worth it, though.
+
+>look sign
+It reads: "Reminder: the six-monthly security remodel is set for this coming Tuesday. Please be prepared to cooperate with the floorers as they install our new coprolite tiles, and leave no secure documents visible."
+
+>accept lunacy
+"I suppose it's pointless to argue," you say. I'm glad this makes you feel warm and fuzzy. "Let's do this thing and get out."
+
+"You know it."
+
+He pauses, listening for noises outside.  "It's weird -- you have a different face but the expressions are still yours. It's like you have a really good rubber mask on."
+
+He runs a hand over the small nozzles. "First we should see whether this thing can reify abstracts."
+
+I'd like to complain about Brock's recklessness or discover why Brock got stuck here. Or, then again, there's always finishing the job.
+
+>discover why Brock got stuck here
+"How did this happen?"
+
+"How do you think? I hung back after a demonstration earlier, trying to collect the extra information I needed, but before I could finish, they'd noticed I was missing from the group and sent someone back to look for me. And better to go inanimate than to be definitely caught in human form."
+
+Brock is looking at everything but us. "I've half a mind to explore a little while we're down here just about unsupervised," Brock says reflectively.
+
+I glare at him.
+
+"I know there's no time," he says. "But there are supposed to be all sorts of things in the Bureau sub-basement that have never seen the light of day. DCL projects that went wrong, secret government experiments, possibly a buried command center."
+
+We want to complain about Brock's recklessness or ask what buried command center he heard of. Or, then again, there's always finishing the job.
+
+Something makes you think of how it started with Brock.
+
+>remember how it started with Brock
+Brock's Stateroom
+Brock had tied your wrists to the headboard and your left ankle to the corner of the bed. He had a thesaurus open and was writing, with a paintbrush, across your stomach.
+
+"Floozy?" he asked.
+
+You giggled, so he painted the word above your navel, smiling, giving the Y a big flourishing curlicue.
+
+"Let's see, what else. Fornicator?"
+
+You drew in your breath sharply. Remembering an angry lesson read from the lectern.
+
+"Okay," he said. "Not that one, yet," and licked away the F he'd begun to paint.
+
+Then we're back in the present.
+
+>complain about recklessness
+"This was rash, even for you," you say. "Wandering into the heart of the Bureau with no back-up and no escape plan, when we had a timed extraction to complete? You could've taken me and Slango down with you."
+
+"Sweetheart, don't," Brock says. "Don't do this now. You're not yourself."
+
+We could remind Brock that synthesis was necessary because of him. Or, then again, there's always finishing the job.
+
+>remind Brock that synthesis was necessary because of him
+"Not myself," you repeat coldly. "I wouldn't need to be synthesized if Andra's face hadn't been caught on film. And whose fault was that?"
+
+Silence. "I'm sorry that that happened," he says, very deliberately. "But you're not breaking up with me down here, with a spy inside your head. We'll do this later if we do it at all."
+
+He pauses, listening for noises outside. "If it can't do abstracts, the market value is going to be a lot lower because of the limited-depth trees."
 
 >goals
 Here's what we think we need to do: 
-  Find Brock
+  Test T-inserter on making creatures
+  Test T-inserter on making abstracts
+  Test T-inserter on situations where it could build more than one thing
+  Escape the Bureau
 
 >i
 We are equipped with the following essentials: a backpack, a flash drive, a monocle, some Origin Paste, a pan (really the smuggled plans in disguise), a roll, your T-remover (upgraded to handle animates and abstracts), and a tub of restoration gel.

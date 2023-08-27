@@ -63,11 +63,34 @@ expect ">"; send "wait\r"
 #
 # Goal #11: Find Brock
 #
-expect ">"; send "save\r"; expect ":"; send "start11\r"
+expect ">"; send "east\r";                      # Bureau Hallway
+expect ">"; send "down\r";                      # Bureau Basement South
+expect ">"; send "look automaton\r"
+expect ">"; send "look cutout\r"
+expect ">"; send "turn on automaton\r"
+expect ">"; send "north\r";                     # Bureau Basement Middle
+expect ">"; send "look door\r"
+expect ">"; send "look camera\r"
+expect ">"; send "north\r";                     # Bureau Basement Secret Section
+expect ">"; send "west\r";                      # Sensitive Equipment Testing Room
+expect ">"; send "look rock\r"
+expect ">"; send "put gel on rock\r"
+expect ">"; send "suggest we get out of here\r"
+expect ">"; send "look sign\r"
+expect ">"; send "accept lunacy\r"
+expect ">"; send "discover why Brock got stuck here\r"
+expect ">"; send "remember how it started with Brock\r"; # Brock's Stateroom
+expect ">"; send "complain about recklessness\r"
+expect ">"; send "remind Brock that synthesis was necessary because of him\r"
+
+#
+# Goal #12: Test T-inserter
+#
+expect ">"; send "save\r"; expect ":"; send "start12\r"
+
 expect ">"; send "goals\r"
 expect ">"; send "i\r"
 
-# Goal #12: Test T-inserter
 # Goal #13: Escape the Bureau
 # Goal #14: Check out the paper and see what’s going on
 
