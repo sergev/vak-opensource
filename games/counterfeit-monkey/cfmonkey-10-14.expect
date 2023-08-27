@@ -44,7 +44,7 @@ expect ">"; send "remove t from twig\r"
 expect ">"; send "put origin paste on pass\r"
 expect ">"; send "put origin paste on wig\r"
 expect ">"; send "wear wig\r"
-expect ">"; send "south\r";                     # Rotunda
+expect ">"; send "south\r";                     # Antechamber
 expect ">"; send "look notice\r"
 expect ">"; send "look secretary\r"
 expect ">"; send "look stool\r"
@@ -86,13 +86,28 @@ expect ">"; send "remind Brock that synthesis was necessary because of him\r"
 #
 # Goal #12: Test T-inserter
 #
-expect ">"; send "save\r"; expect ":"; send "start12\r"
+expect ">"; send "put roll into inserter\r"
+expect ">"; send "put gel on troll\r"
+expect ">"; send "remove g from sign\r"
+expect ">"; send "put sin into inserter\r"
+expect ">"; send "remove s from stint\r"
+expect ">"; send "remove n from tint\r"
+expect ">"; send "remove t from tit\r"
+expect ">"; send "put I into inserter\r"
+expect ">"; send "remove t from tit\r"
+expect ">"; send "put I into inserter\r"
+
+#
+# Goal #13: Escape the Bureau
+#
+expect ">"; send "save\r"; expect ":"; send "start13\r"
 
 expect ">"; send "goals\r"
 expect ">"; send "i\r"
 
-# Goal #13: Escape the Bureau
+#
 # Goal #14: Check out the paper and see what’s going on
+#
 
 # Quit
 expect ">"; send "quit\r"

@@ -467,19 +467,98 @@ Silence. "I'm sorry that that happened," he says, very deliberately. "But you're
 
 He pauses, listening for noises outside. "If it can't do abstracts, the market value is going to be a lot lower because of the limited-depth trees."
 
+>put roll into inserter
+There is a loud and satisfying pop from the machine as it turns the roll into a troll.
+
+Grey skin, yellow teeth, green eyes. Legs as big around as tree trunks. A pot belly, speaking of a great deal of food eaten raw.
+
+"No problem creating creatures," Brock says judiciously.
+
+The troll gets out of the T-inserter machine.
+
+[Your score has gone up by one point and is now seventy-nine.]
+
+>put gel on troll
+We dip out a pea-sized quantity of gel and rub it gently onto the troll. With an audible SPLORT, the troll becomes a roll. 
+
+>remove g from sign
+(opening the backpack)
+We reset the device to g. With a distinct whiff of sulfur, the sign turns into a sin. An abstract representation of pettiness of spirit and obsession with needless detail, embodied by the image of a grey-skinned bureaucrat and a huge heap of papers.
+
+He stands back, regarding the T-inserter thoughtfully. Brock goes on about the importance of abstracts.
+
+>put sin into inserter
+(first taking the sin)
+There are two small pops from the machine as it turns the sin into a stint.
+
+The flickering images represent a period of time spent in the military: a young person in a uniform, smartly waving goodbye to hazily-sketched parents; a duration of training and mostly boring patrol work; release from service, with a few mild commendations and some pocket money.
+
+"Right. It's good on abstracts, then," Brock says, contemplating the stint.
+
+He cranes to look around at the back of the machine, but doesn't find anything interesting. "Next we need to look at the stabilization performance," Brock says. "Inserters sometimes run into trouble if there's a case where the same base word could be expanded to multiple derivatives -- for instance, if you S-inserted CREAM, it wouldn't know whether to make CREAMS or SCREAM or SCREAMS."
+
+>remove s from stint
+We reset the device to s. There is a distinct spearmint flavor, and the stint turns into a tint. A neon shade of purple, as though someone had watercolored that bit of air.
+
+>remove n from tint
+We reset the device to n. With a distinct whiff of fresh air, the tint turns into a tit. A small, harmless-looking bird.
+
+He eyes the tit. "Oh for a homonym paddle."
+
+The tit clambers out of the T-inserter machine.
+
+>remove t from tit
+We reset the device to t. There is a mad-scientist cackle, and the tit turns into an I. It's an abstract that looks like a bit of mirror. When I look at it I see Alex, my proper self, and not just restored to my usual body, but photo-retouched to be that bit smarter and freer of skin-blemishes, well-dressed. It's like looking in the mirror at reality as it should be.
+
+You doubtless see yourself too -- as you are, or perhaps as you want to be.
+
+He cocks his head to look at the I. "I have surprisingly good hair for someone who has just been a rock."
+
+"Objects in mirror may appear more attractive than they are," we remark.
+
+>put I into inserter
+(first taking the I)
+There are two small pops from the machine as it turns the I into a tit.
+
+Of course, there were other options there: the T-inserter could have made two words. But it seems to be disambiguating to the tit. The question now is whether it would do so consistently or whether its behavior is underdetermined; we don't have time for a really thorough trial set, but checking a couple more times may be indicative.
+
+He watches us with a slightly disturbing intentness in his eyes. I look away again.
+
+The tit clambers out of the T-inserter machine.
+
+>remove t from tit
+The tit gives way to the now-familiar I.
+
+He stands back, regarding the T-inserter thoughtfully. "Some inserters," Brock goes on, "have controls to let you insert the minimum or maximum possible number of letters."
+
+>put I into inserter
+(first taking the I)
+There is a loud and satisfying pop from the machine as it turns the I into an it. It's itself. It. The epitome of itness. Philosophers would pay millions.
+
+There now: the T-inserter has constructed both tit and it. Not very stable, it seems. Slango will be interested to know that.
+
+"Check," says Brock. "And that's all we need here. Now..." He hesitates. "One person escaping is easier than two, I suppose."
+
+You start to object, but I say, "Yes, you'd better return to petrified form." You know I'm right. He'll be easier to carry.
+
+A little grimly, he produces his own letter-remover and repeats the B-removal that made him in the first place. Once again we're alone in a room with a rock.
+
+[Your score has gone up by three points and is now eighty-two.]
+
+>save
+Enter saved game to store: start13
+Ok.
+
 >goals
 Here's what we think we need to do: 
-  Test T-inserter on making creatures
-  Test T-inserter on making abstracts
-  Test T-inserter on situations where it could build more than one thing
   Escape the Bureau
 
 >i
-We are equipped with the following essentials: a backpack, a flash drive, a monocle, some Origin Paste, a pan (really the smuggled plans in disguise), a roll, your T-remover (upgraded to handle animates and abstracts), and a tub of restoration gel.
+We are equipped with the following essentials: a backpack, a flash drive, a monocle, some Origin Paste, a pan (really the smuggled plans in disguise), your T-remover (upgraded to handle animates and abstracts), and a tub of restoration gel.
 
 We are also carrying an arm, some asparagus, a banana, a cross, Guidebook to Anglophone Atlantis, a jotter, a keycard (which opens the small door), a letter, a lime, a map of Slangovia, a pass, a ring (which opens the sturdy iron gate), some sage, a screwdriver, a shred, a shrimp cocktail, a stick, a wig, a word, and some yogurt.
 
-Of that collection, the flash drive, the monocle, the Origin Paste, the pan (really the smuggled plans in disguise), and the T-remover (upgraded to handle animates and abstracts) are packed away in the backpack, which is closed for greater concealment. 
+Of that collection, the flash drive, the monocle, the Origin Paste, and the pan (really the smuggled plans in disguise) are packed away in the backpack, which is gaping wide open so everyone can see what's inside. 
 
 We are wearing the wig and the shred. 
 
