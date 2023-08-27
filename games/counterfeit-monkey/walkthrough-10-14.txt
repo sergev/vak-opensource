@@ -545,21 +545,271 @@ A little grimly, he produces his own letter-remover and repeats the B-removal th
 
 [Your score has gone up by three points and is now eighty-two.]
 
->save
-Enter saved game to store: start13
-Ok.
+>get rock
+We pick up the rock.
+
+>east
+We get the roll.
+
+Bureau Basement Secret Section
+The heightened security on this side of the door is obvious everywhere we look. The floor is tiled in paisley tiles. The light fixtures give off pale pink light. The walls are covered in frog leather. The doors are locked with padlocks the size of handbags, locks decorated à la Louis Quinze, combination locks made of solid gold. There is not a bare noun in sight.
+
+The cute security door at the south end is solidly shut. 
+
+The hallway runs from south (comparatively normal) to north (deeply frightening). Just west is the equipment testing room.
+
+"Alex." 
+
+I can't help it: I stop and turn. It's too ingrained in me. And it's my father's voice.
+
+He's wearing his ordinary work clothes, but he looks strained to the point of fracture. And someone could come out of any of these doors at any moment.
+
+"Your mother told me about meeting your supposed girlfriend at your apartment. She was puzzled by that, but I knew what must have happened," my father says, in a very low voice. "I deleted the record of your unauthorized synthesizer draining the power grid, which, by the way, could get me dismissed."
+
+I'd like to deny everything.
+
+>deny everything
+"You must have me confused with someone else."
+
+He sighs. Not deceived even a little; weary that we tried.
+
+Footsteps sound far away down the hall, but no one comes this way. "I didn't tell your mother what I suspected, but when it comes out you've& defected& I won't be able to keep this from her. And you're giving up your career. Mine too, possibly; we'll all be under suspicion, I suppose.
+
+"It's pointless. You could have done a great deal for the Bureau from within. I was trying to help you see that."
+
+We want to lay out our reasons or be comforting.
+
+>lay out our reasons
+"I want to do something that matters," I say. "I don't see my work making a speck of difference here."
+
+"You mean you don't see my work as important," he says. "Got that from your mother, I imagine."
+
+We stare at each other, breathing hard.
+
+"So your partners in crime are, what, smugglers? Industrial saboteurs? That's wonderful. Finally some role models."
+
+I'm inclined to quibble or deny being a spy.
+
+>quibble
+"We prefer to think of it as ensuring that important technology does not remain the sole property of a restrictive hegemony," we say. 
+
+"Okay, around here we still call that theft," Father says. Somewhere down the hall a clock ticks loudly. "You've left enough traces that people will know someone came in here today."
+
+>wait
+Time passes.
+
+"Here's what we're going to do, Alex. You're going in there--" (he points at a door to the southwest) "--and I'm going to call for backup to arrest the first person that comes out. That could be Alex, it could be whoever-else-you-are, it could be both of you in this same body.
+
+"If it is Alex who comes back out, I can't possibly save your university career, but we might be able to make a case for clemency." What he means by that-- oh. Yes. I understand now.
+
+He gives us a hard shove. We're half inside the room when we hear his last remark:
+
+"Alex... don't try to escape back through the Rotunda. If you really can't come home, then head north. I've never seen it, but supposedly there's an emergency exit up there."
+
+Then he's gone.
+
+Cold Storage
+Shelves on both sides of the room are full of objects on stands: objects that used to be men and women, and in a few cases even children. The stand labels preserve their original names.
+
+A duty roster is posted prominently. 
+
+If this goes wrong, we could wind up living in here permanently. So we'd better figure whom to send out, and do it fast.
+
+>look objects
+The stand labels preserve their names, and a few details such as birthdate and date of inanimation.
+
+>look labels
+We pick out a name on one of them: Thierry Claude, foreigner, inanim 1969 on charge of espionage.
+
+>look roster
+The roster records duty shifts once every two weeks, assigned to various people in the department, all of them very high-ranking.
+
+"Be conscientious," admonishes the roster. "Read each name clearly while looking at the item through a monocle. If you suspect an object of losing its original identity, contact the Curator. We have disposed of seventeen objects this year!!"
+
+>put gel on rock
+We dip out a pea-sized quantity of gel and rub it gently onto the rock. With an audible SPLORT, the rock becomes Brock. 
+
+"Hi," Brock says.
+
+You're silent. I'm not letting you act again. You're not stopping me.
+
+"We're still inside the Bureau basement," I say. "We just need to head out, separately."
+
+He looks puzzled. "Aren't we safer together?"
+
+"No," I say.
+
+>no
+
+"But--"
+
+"Look, just trust me, this once," we say.
+
+Brock backs out the door. Loud sounds of an arrest ensue. I hear my father's voice, and two other people. Then finally the sounds die away.
+
+A faint spell comes over me and I feel dizzy.
+
+>ne
+
+Bureau Basement Secret Section
+The heightened security on this side of the door is obvious everywhere I look. The floor is tiled in paisley tiles. The light fixtures give off pale pink light. The walls are covered in frog leather. The doors are locked with padlocks the size of handbags, locks decorated à la Louis Quinze, combination locks made of solid gold. There is not a bare noun in sight.
+
+The cute security door at the south end is solidly shut; there's no sign of anyone still waiting on this side of it. 
+
+Going south through the security door isn't an option; our only way out is north. Just west is the equipment testing room, and southwest is Cold Storage.
+
+>north
+
+Wonderland
+The ridiculous décor continues, now so extreme that I cannot even put a name to the things around us. They might as well be extrusions from a nightmare by Dali, or by Dr. Seuss. Offices are accessed by hatchways that seem to have come from submarines, or through passages resembling the sphincter of a great whale, or up ladders decorated with human teeth.
+
+An open archway leads to storage space east of here.
+
+Hanging in the air at the north end of the hallway is an odor. 
+
+>look ridiculous
+The name plaques identify such functions as "North-End Meeting Room" and "DCL Special Liaison," but who knows whether the descriptions are remotely true. There is something very menacing about it all, as though one were going mad.
+
+>look odor
+I can't quite place it. There's definitely a smell, but what is it like? Strawberries? Burning rubber? Freshly chopped chives? Every time I think I've pinned it, it goes again, sliding sideways to smell like something else.
+
+>east
+
+Equipment Archive
+The ceiling is mirrored, perhaps to make it harder for anyone to sneak around without being noticed among the shelves.
+
+The equipment shelves here display an assortment of obsolete, broken, foreign, or otherwise unusual letter tools. There are an accent flipper, an umlaut punch, a Catalan punt volat needle, some broken components, and some lamb granulates on the equipment shelves. 
+
+The functional area continues to the south, and the hallway is west.
+
+>look ceiling
+It's gleaming and shiny and very clean and I don't want to look in it.
+
+>look shelves
+On the equipment shelves are an accent flipper, an umlaut punch (empty), a Catalan punt volat needle, some broken components, and some lamb granulates.
+
+>look flipper
+Not an Atlantean product at all, but a machine built by the state-subsidized French company Aigu. Its sole purpose is to convert accents or remove them entirely, not a function that much applies to English words. In form, it looks like a very small spatula connected by wire to a substantial battery pack.
+
+You've heard of the congrès / congres scandal. One of these was responsible.
+
+>look punch
+A very heavy, solid object manufactured in Stuttgart. A wire basket holds the item to be punched; two sharp metal tines descend into the basket at the moment of use.
+
+>look needle
+An infinitely delicate tool designed to slip between two Ls. It has no application in English.
+
+>look components
+A heap of parts from old machines: cranks, gears, buttons with letters and numbers on them, delicate hoops of silver wire, knobs from which all the markers have worn away.
+
+>look granulates
+They're tiny brown beads used to make lamb-stock gravy. Perhaps they're left-over military rations of some kind.
+
+>put gel on granulates
+I dip out a pea-sized quantity of gel and rub it gently onto the lamb granulates. With an audible SPLORT, the lamb granulates become some anagram bullets. Heavy, high-impact stuff. Anagramming requires a great deal of force to break the linguistic cohesion of the word or phrase being modified. On the other hand, it's the one process that is routinely effective even on adjective-adhering nouns.
+
+>get bullets
+I get the anagram bullets.
+
+>south
+
+Display Reloading Room
+This area is more or less empty. Hazard tape marks off an area of the floor to indicate that I shouldn't stand there.
+
+A black and white tv monitor is embedded in the wall.  
+
+There is a small black push-button on the wall. 
+
+>look tape
+It's striped yellow and red, and describes an area on the floor. Come to that, there's an area in the ceiling immediately above the hazard tape that looks separate from the rest of the ceiling.
+
+>look monitor
+It is showing images of the Tools Exhibit upstairs, one of the few parts of the Bureau open to the public. A businesswoman is gazing curiously at the anagramming gun.
+
+>push button
+A heavy clunk sounds. On the tv monitor, I see the display case black out.
+
+Then there is a groaning of moving metal, and part of the ceiling lowers. This is, apparently, how displays are swapped out for the tools exhibit upstairs: the display platform is lowering to our level, providing access. This brings the Model T, the Etymological Reversing Chamber, and the anagramming gun down into the room.
+
+>look Model T
+The Regency-era T-remover is clumsy-looking and too big to lift, thanks to the coal boiler required to power it. It still bears the maker's mark of one S. Meretzky.
+
+>look Etymological Reversing Chamber
+It looks like an iron lung -- a large sealed chamber with extensive machinery surrounding it. It is able to make words run back to their linguistic roots: ape into apa, pearl to perle, and so on.
+
+The machine is of little popular use and is principally applied by scholars under controlled circumstances.
+
+Despite newspaper articles breathlessly proclaiming that the ERC will be able to produce the "God language" -- mankind's original tongue -- in practice even the more modest research goal of rediscovering the vocabulary of proto-Indo-European would require prohibitive amounts of power. As one moves further and further from forms that are familiar to modern speakers, the reification effort required increases exponentially.
+
+>get gun
+I take the anagramming gun. Anagramming guns are illegal now, of course, because of their desperately unpredictable behavior. This one is a huge heavy thing, though not quite an artillery piece, because of the colossal amounts of power required and all the stabilizers needed to try to collapse the letters back down to a single phrase.
+
+>load gun
+(with the anagram bullets)
+I would not know how to do this, but you have sufficient expert skill that we've got the gun loaded up in no time.
+
+>go to Wonderland
+I make the quick hike. 
+
+Wonderland
+The ridiculous décor continues, now so extreme that I cannot even put a name to the things around us. They might as well be extrusions from a nightmare by Dali, or by Dr. Seuss. Offices are accessed by hatchways that seem to have come from submarines, or through passages resembling the sphincter of a great whale, or up ladders decorated with human teeth.
+
+An open archway leads to storage space east of here.
+
+Hanging in the air at the north end of the hallway is an odor. 
+
+>shoot odor
+(with the anagramming gun)
+The gun fires ruggedly into the odor, which shatters and then reforms as a door. It is part of the north wall, and currently closed.
+
+[Your score has gone up by one point and is now eighty-three.]
+
+>open door
+I open the door, revealing a room beyond.
+
+>north
+
+Oracle Project
+This is nothing less than the command center for a massive propaganda campaign. Paintings of Atlantida and polling charts cover the walls, dating back to the second world war and continuing straight through to the present.
+
+On the long table are a paperweight and an inciting fable. 
+
+I can go south to Wonderland and east from here.
+
+>look paintings
+The paintings are old, 19th-century affairs, and they show Atlantida larger than life, typically wearing blue, with a sort of French academy face and bare feet. The squid is a frequent motif in the background, as it represents inventiveness, strength, and the ability to try many things at once.
+
+>look charts
+Blue lines on the charts record the citizen responses to the concept of Atlantida. They record wartime progress in establishing the concept in the popular imagination, with a spike in 1942, corresponding to a heavy press of propaganda.
+
+After the war, there's a break in the charts until 1951, when tracking resumes. Additional spikes appear at 1968 and 1972.
+
+Each chart also shows a yellow line, which roughly goes down as the blue line goes up. It is labeled "Power to generate animate abstract." The yellow line stops at 1982 and no further points are recorded on it.
+
+>look table
+On the long table are a paperweight and an inciting fable.
+
+>look paperweight
+Blue and white strands are swirled through the heavy, lens-like hunk of clear glass.
+
+>look fable
+It's a short children's tale, with illustrations. A young boy was left an orphan in a certain village. So he went door to door around the village, but none of the families would take him in, all having some excuse: there were too many children already, the house was too small, there was not enough food, the parents were too old for a new child, and so on.
+
+Despondent, the boy was on the verge of giving up when a magician came to town. He went around door to door with the boy a second time, this time asking each household for just one letter. When he was done, he used a powerful machine on the letters in his bag, and transformed them into a LOVING FAMILY!
+
+(The text ends here, but the illustration shows the boy beaming in the arms of a manufactured mother, father, siblings, hamster, and goldfish.)
 
 >goals
-Here's what we think we need to do: 
+Here's what I think I need to do: 
   Escape the Bureau
 
 >i
-We are equipped with the following essentials: a backpack, a flash drive, a monocle, some Origin Paste, a pan (really the smuggled plans in disguise), your T-remover (upgraded to handle animates and abstracts), and a tub of restoration gel.
+I am equipped with the following essentials: an anagramming gun, a backpack, a flash drive, a monocle, some Origin Paste, a pan (really the smuggled plans in disguise), a roll, your T-remover (upgraded to handle animates and abstracts), and a tub of restoration gel.
 
-We are also carrying an arm, some asparagus, a banana, a cross, Guidebook to Anglophone Atlantis, a jotter, a keycard (which opens the small door), a letter, a lime, a map of Slangovia, a pass, a ring (which opens the sturdy iron gate), some sage, a screwdriver, a shred, a shrimp cocktail, a stick, a wig, a word, and some yogurt.
+I am also carrying an arm, some asparagus, a banana, a cross, Guidebook to Anglophone Atlantis, a jotter, a keycard (which opens the small door), a letter, a lime, a map of Slangovia, a pass, a ring (which opens the sturdy iron gate), some sage, a screwdriver, a shred, a shrimp cocktail, a stick, a wig, a word, and some yogurt.
 
 Of that collection, the flash drive, the monocle, the Origin Paste, and the pan (really the smuggled plans in disguise) are packed away in the backpack, which is gaping wide open so everyone can see what's inside. 
 
-We are wearing the wig and the shred. 
+I am wearing the wig and the shred. 
 
 >

@@ -86,28 +86,85 @@ expect ">"; send "remind Brock that synthesis was necessary because of him\r"
 #
 # Goal #12: Test T-inserter
 #
-expect ">"; send "put roll into inserter\r"
+expect ">"; send "put roll into inserter\r";    # got troll
 expect ">"; send "put gel on troll\r"
 expect ">"; send "remove g from sign\r"
-expect ">"; send "put sin into inserter\r"
+expect ">"; send "put sin into inserter\r";     # got stint
 expect ">"; send "remove s from stint\r"
 expect ">"; send "remove n from tint\r"
 expect ">"; send "remove t from tit\r"
-expect ">"; send "put I into inserter\r"
+expect ">"; send "put I into inserter\r";       # got tit
 expect ">"; send "remove t from tit\r"
-expect ">"; send "put I into inserter\r"
+expect ">"; send "put I into inserter\r";       # got it
 
 #
 # Goal #13: Escape the Bureau
 #
-expect ">"; send "save\r"; expect ":"; send "start13\r"
+expect ">"; send "get rock\r"
+expect ">"; send "east\r";                      # Bureau Basement Secret Section
+expect ">"; send "deny everything\r"
+expect ">"; send "lay out our reasons\r"
+expect ">"; send "quibble\r"
+expect ">"; send "wait\r";                      # Cold Storage
+expect ">"; send "look objects\r"
+expect ">"; send "look labels\r"
+expect ">"; send "look roster\r"
+expect ">"; send "put gel on rock\r";           # "Aren't we safer together?"
+expect ">"; send "no\r"
+expect ">"; send "ne\r";                        # Bureau Basement Secret Section
 
-expect ">"; send "goals\r"
-expect ">"; send "i\r"
+# From here, you can only access five rooms:
+#   the Bureau Basement Secret Section,
+#   the Sensitive Equipment Testing Room,
+#   Wonderland,
+#   the Equipment Archive, and
+#   the Display Reloading Room.
+
+expect ">"; send "north\r";                     # Wonderland
+expect ">"; send "look ridiculous\r"
+expect ">"; send "look odor\r"
+expect ">"; send "east\r";                      # Equipment Archive
+expect ">"; send "look ceiling\r"
+expect ">"; send "look shelves\r"
+expect ">"; send "look flipper\r"
+expect ">"; send "look punch\r"
+expect ">"; send "look needle\r"
+expect ">"; send "look components\r"
+expect ">"; send "look granulates\r"
+expect ">"; send "put gel on granulates\r"
+expect ">"; send "get bullets\r"
+expect ">"; send "south\r";                     # Display Reloading Room
+expect ">"; send "look tape\r"
+expect ">"; send "look monitor\r"
+expect ">"; send "push button\r"
+expect ">"; send "look Model T\r"
+expect ">"; send "look Etymological Reversing Chamber\r"
+expect ">"; send "get gun\r"
+expect ">"; send "load gun\r"
+expect ">"; send "go to Wonderland\r";          # Wonderland
+expect ">"; send "shoot odor\r"
+expect ">"; send "open door\r"
+expect ">"; send "north\r";                     # Oracle Project
+
+# Now you can access:
+#   Oracle Project,
+#   Surveillance Room,
+#   Tunnel through Chalk,
+#   Workshop, and
+#   Generator Room.
+
+expect ">"; send "look paintings\r"
+expect ">"; send "look charts\r"
+expect ">"; send "look table\r"
+expect ">"; send "look paperweight\r";          # actually paper and weight
+expect ">"; send "look fable\r";                # actually filing cabinet
 
 #
 # Goal #14: Check out the paper and see what’s going on
 #
+#expect ">"; send "save\r"; expect ":"; send "start14\r"
+expect ">"; send "goals\r"
+expect ">"; send "i\r"
 
 # Quit
 expect ">"; send "quit\r"
