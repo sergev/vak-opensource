@@ -26,10 +26,47 @@ expect ">"; send "restore\r"; expect ":"; send "start10\r"
 #
 # Goal #10: Gain entrance to the Bureau
 #
+expect ">"; send "go to University Oval\r";     # University Oval
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "go to Tall Street\r";         # Tall Street
+expect ">"; send "wear shred\r"
+expect ">"; send "hit figure with stick\r"
+expect ">"; send "south\r";                     # Rotunda
+expect ">"; send "look skylight\r"
+expect ">"; send "look text\r"
+expect ">"; send "look board\r"
+expect ">"; send "look bin\r"
+expect ">"; send "look shuttle\r"
+expect ">"; send "put gel on password\r"
+expect ">"; send "remove t from twig\r"
+expect ">"; send "put origin paste on pass\r"
+expect ">"; send "put origin paste on wig\r"
+expect ">"; send "wear wig\r"
+expect ">"; send "south\r";                     # Rotunda
+expect ">"; send "look notice\r"
+expect ">"; send "look secretary\r"
+expect ">"; send "look stool\r"
+expect ">"; send "look scope\r"
+expect ">"; send "look skirt\r"
+expect ">"; send "look top\r"
+expect ">"; send "ask whether she enjoys her job\r"
+expect ">"; send "ask how she got this job\r"
+expect ">"; send "ask who Porson is\r"
+expect ">"; send "ask what the T-inserter does\r"
+expect ">"; send "ask where the T-inserter is kept\r"
+expect ">"; send "show invitation\r"
+expect ">"; send "show pass\r"
+expect ">"; send "wait\r"
+
+#
+# Goal #11: Find Brock
+#
+expect ">"; send "save\r"; expect ":"; send "start11\r"
 expect ">"; send "goals\r"
 expect ">"; send "i\r"
 
-# Goal #11: Find Brock
 # Goal #12: Test T-inserter
 # Goal #13: Escape the Bureau
 # Goal #14: Check out the paper and see what’s going on

@@ -47,11 +47,13 @@ expect ">"; send "east\r";                      # Tall Street (jammed into the c
 expect ">"; send "east\r";                      # Abandoned Park
 expect ">"; send "look memorial\r"
 expect ">"; send "look poppy\r"
+expect ">"; send "get twig\r"
 expect ">"; send "se\r";                        # Bus Station
-expect ">"; send "leaving your family for the last time\r"; # Bus Stop
+expect ">"; send "remember leaving your family for the last time\r"; # Bus Stop
 expect ">"; send "look schedule\r"
 expect ">"; send "look shed\r"
-expect ">"; send "\r"
+expect ">"; send "put gel on shed\r"
+expect ">"; send "get shred\r"
 expect ">"; send "east\r";                      # Public Convenience
 expect ">"; send "look graffiti\r"
 expect ">"; send "look soap\r"
@@ -180,6 +182,8 @@ expect ">"; send "look coffee-maker\r"
 expect ">"; send "look swivel-chair\r"
 expect ">"; send "look water cooler\r"
 expect ">"; send "look sticky\r"
+expect ">"; send "remove y from sticky\r"
+expect ">"; send "get stick\r"
 expect ">"; send "open refrigerator\r"
 expect ">"; send "look cream\r"
 expect ">"; send "look silver platter\r"

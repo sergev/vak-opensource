@@ -213,6 +213,9 @@ Not a real, fresh poppy, but a construct of bright red fabric with a black heart
 
 The monocle pings happily as we sight the poppy with the crosshairs.
 
+>get twig
+We pick up the twig. Nine or ten inches long, very thin and somewhat flexible. There are no leaves left on it.
+
 >se
 
 Bus Station
@@ -222,10 +225,13 @@ A dove flutters from one surface to another, occasionally stopping to stare at u
 
 A shed, rather ramshackle and unlikely, sits on the pavement, where it ought to be in the way of incoming buses. 
 
-You have a fleeting thought of leaving your family for the last time.
+Something makes you think of leaving your family for the last time.
 
->leaving your family for the last time
-That's not a verb I recognize.
+>remember leaving your family for the last time
+Bus Stop
+Your suitcase was next to your leg. It was nearly three in the morning. There were thirty more minutes before the bus would take you to San Francisco. Your mother would have warned you not to be in a place like that alone so late at night, but it didn't feel, then, like anything that could happen to you would be worse than your mother's behavior and her anger.
+
+Then we're back in the present.
 
 >look schedule
 The schedule is an intricate affair, and the deciphering of the various letter-codes and footnotes was actually a subject of study in my grade school. The buses run every sixty-two minutes during daylight in the winter, every forty-three minutes in summer, with every third bus running as an express without stops if the passengers of this bus do not vote otherwise.
@@ -241,8 +247,11 @@ Sheds like this are typically cheap and very very temporary housing for the home
 
 There is a dismissive blatt from the monocle, and transposed over the shed is a faint, greenish image of a shred.
 
->
-I beg your pardon?
+>put gel on shed
+We dip out a pea-sized quantity of gel and rub it gently onto the shed. With an audible SPLORT, the shed becomes a shred. Just a torn rag-end of cloth. It is white and blue, and bears every evidence of having been part of an obligatory-service uniform.
+
+>get shred
+We acquire the shred.
 
 >east
 
@@ -288,12 +297,12 @@ We just touch a coated fingertip of gel to the ash. With an audible SPLORT, the 
 [Your score has gone up by three points and is now forty-one.]
 
 >go to Tall Street
-We have a brief walk. 
+We walk. 
 
 Tall Street
 Tall Street is very quiet. No celebrations have reached this far, and neither is there any business today; so it has an air of dull abandonment. At the east end the street bends to go around an old park rarely visited.
 
-Our car -- which might better be described as a covered bicycle -- is parked nearby. 
+Our car -- a sub-sub-compact that looks like it might be outraced by a kid on a scooter -- is parked nearby. 
 
 To the south is the important blue rotunda of the Bureau of Orthography. The street runs west towards the busy roundabout.
 
@@ -311,6 +320,8 @@ The traffic flows in a tight circle around a statue which we know all too well.
 Confusing signs point in various directions: northeast to Deep Street, northwest to High Street, south to Long Street, east to Tall Street.
 
 The car is making an unpleasant raspy growl.
+
+They're honking at us for a reason, you know.
 
 >south
 
@@ -332,7 +343,7 @@ We are jammed into the car with our knees almost at our chin, looking out throug
 
 Long Street is lined on each side with a double-row of tall, anemic palm trees that bend towards one another many feet overhead. We are now in the southern part of this long corridor, between the Canadian Embassy and Arbot Maps & Antiques.
 
-Someone has left a shopping bag at the roadside -- maybe by accident when loading up a car, maybe because they mean to come back for it. There are a ball and a jigsaw in the shopping bag. 
+Someone has left a shopping bag at the roadside -- maybe by accident when loading up a car, maybe because they mean to come back for it. The shopping bag contains a ball and a jigsaw. 
 
 We can go north to Long Street North, south, and west from here.
 
@@ -373,7 +384,7 @@ Overseeing all this is a woman named Kate.
 
 "Welcome to Arbot," says Kate. "Feel free to browse and ask me any questions you may have about the merchandise."
 
-I'd like to ask whether she has seen Brock.
+We could ask whether she has seen Brock.
 
 >look collection
 We study the maps. One in the collection stands out: a map of Slangovia, framed like all the others but of suspiciously recent vintage.
@@ -397,9 +408,9 @@ The monocle pings happily as we sight the Britishizing goggles with the crosshai
 
 There's a light of recognition. "Yes, he was in. A friend of my boss. He visited the shop and sold us a map he happened to have with him. Then they left, together. I believe there was some discussion of seeing a demonstration."
 
-I'm inclined to ask which map was sold, ask what sort of demonstration, or ask whether Brock seemed upset.
+We want to ask which map was sold, ask what sort of demonstration, or ask whether Brock seemed upset.
 
-Something makes you think of how it started with Brock.
+You are reminded of how it started with Brock.
 
 >remember how it started with Brock
 Sunning Deck
@@ -430,14 +441,14 @@ Then we're back in the present.
 
 She glances sideways at us.
 
-We could ask what sort of demonstration or ask whether Brock seemed upset.
+I'd like to ask what sort of demonstration or ask whether Brock seemed upset.
 
 >ask what sort of demonstration
 "You mentioned that your boss and the other gentleman went to a demonstration. What kind of demonstration was it?"
 
 She smiles and shrugs. "Mr. Arbot used to work for the Bureau before he retired to sell antiques. He still has lots of connections. It could be anything."
 
-We want to ask whether Brock seemed upset.
+I'd like to ask whether Brock seemed upset.
 
 >buy map
 "I'll take the Slangovia map," we say. "It's not every day you see something like this."
@@ -455,13 +466,11 @@ Kate removes the map from its case and packs it up carefully for us.
 
 Cryptic. Perhaps he was posing as a researcher? But we can't very well ask, not if we're supposed to be a friend of his.
 
-Kate rearranges a few objects in the shop window.
-
-"If your friend is missing, you could report him to the Bureau, you know," she says. "I believe they keep close tabs on academic and research visitors. They may well know where he is."
+Kate greets a woman who has just come into the shop. "If your friend is missing, you could report him to the Bureau, you know," she says. "I believe they keep close tabs on academic and research visitors. They may well know where he is."
 
 "Thank you," you say. "I don't think things are quite at that point." And they never will be, obviously.
 
-You are reminded of how it started with Brock.
+Something makes you think of how it started with Brock.
 
 >remember how it started with Brock
 Café, Marseilles
@@ -492,7 +501,7 @@ This legend tells of Iphis and Ianthe: Iphis, a girl raised in disguise as a boy
 It bears no obvious relation to the map of Slangovia.
 
 >get legend
-We pick up the map of Slangovia.
+We get the map of Slangovia.
 
 >go to Fleur d'Or Lobby
 Once we get to Long Street North we pull easily into one of the available parking spots, since many people have now gone home.
@@ -532,7 +541,7 @@ The spotlights in the ceiling light the floor in distinct pools of Bureau blue, 
 
 There is no one at the glossy piano in the corner, though a piece has been left on the piano bench. 
 
-Something makes you think of your crew's skill.
+You have a fleeting thought of your crew's skill.
 
 >west
 
@@ -595,7 +604,7 @@ They're mostly dressed in suits or business casual outfits at least, and are hav
 I don't think we have much to gain from the crowd.
 
 >show legend to bartender
-We draw the bartender's attention to the legend.
+"What do you make of this?" we ask, showing off the legend.
 
 "This?" she says, looking a little surprised. "You want it converted?"
 
@@ -617,7 +626,7 @@ She holds up the paddle as though she's going to tap him with it.
 
 "Maybe not, then!" she says, laughing brightly.
 
-I'd like to thank the bartender.
+We could thank the bartender.
 
 [Your score has gone up by one point and is now forty-two.]
 
@@ -641,7 +650,7 @@ There's a crackling discharge of purple-toned lightning, and in place of the scr
 
 "Just the way you were imagining it, guaranteed."
 
-I'm inclined to thank the bartender.
+We could thank the bartender.
 
 >thank bartender
 "Thank you!"
@@ -658,8 +667,16 @@ We turn away from the bartender so she won't see too obviously what we're up to.
 >get screwdriver
 We get the screwdriver.
 
+Mark looks thoughtfully into his gin and tonic. "I hear that sometimes the Bureau turns people into inanimate objects as a criminal sentence. Is that true?"
+
+For the first time, the bartender looks uncomfortable. "I just pour the drinks," she says. "Hey, you're almost out there! Let me give you a refill." And she busies herself getting down the Bombay Sapphire and refilling his drink.
+
+"You ever tempted to paddle the Sapphire?" Mark asks. "Should be worth a lot."
+
+"Alas, jewelers tend to check for authenticity around here," she replies.
+
 >go to Long Street South
-We drive. 
+We have a quick drive. 
 
 Long Street South (jammed into the car)
 We are jammed into the car with our knees almost at our chin, looking out through the bulbous little windshield. The motor is growling like a housecat with pneumonia.
@@ -683,10 +700,10 @@ We climb out of the car.
 We dip out a pea-sized quantity of gel and rub it gently onto the car. With an audible SPLORT, the car becomes some chard. 
 
 >remove h from chard
-We reset the device to h. The chard gives way to the card. This time it's the Fool. A shiftless young woman is carrying a loaded backpack, striding across a sunny landscape.
+We reset the device to h. The chard gives way to the card. This time it's the Twins. They're male and female. A floating, sky-born figure above them is either choosing one or about to shoot one: it's hard to know what to make of the pointer or arrow it wields.
 
 >get card
-We pick up the card.
+We take the card.
 
 >south
 
@@ -700,7 +717,7 @@ I live in the apartment complex that runs along the west side of the square -- i
 Babel Café
 Through many changes of management, this institution has fed the denizens of the university and ignored their semi-sedition.
 
-A clerk in a white apron stands behind the long glass case. In the long glass case are a pocket-bread, a wrap, and a honey pastry triangle. 
+A clerk in a white apron stands behind the long glass case. The long glass case contains a pocket-bread, a wrap, and a honey pastry triangle. 
 
 The tables are square wooden things painted dark blue (not the vibrant blue of the Bureau, but something closer to midnight), and the upper surfaces are découpaged with antique travel postcards. 
 
@@ -817,7 +834,7 @@ The ring unlocks the sturdy iron gate to the university.
 The monocle pings happily as we sight the ring with the crosshairs.
 
 >take key
-We get the key.
+We take the key.
 
 >take ring
 We take the ring.
@@ -843,16 +860,16 @@ She raises her eyebrows. "I see. How secretive of him not to bring you around. A
 
 I know you think it's a bit sketchy that my mother just walks into my apartment when I'm not around, but I swear to you she's never done that before. She must be more worried about something than she's letting on.
 
-My response would be to claim to have seen him this morning or say we don't know.
+We could claim to have seen him this morning or say we don't know.
 
 >say don't know
 "I don't know," we say.
 
 "A communicative couple, then," she says dryly. My mother has never been very nice to girlfriends she considered stupid.
 
-Mother stares absently at our monocle for a moment. "He must like you," she says, "if he lets you wear his monocle. He's very proud of that. But do be careful with it -- it would be a little embarrassing if someone were to catch you with it. Alex's father was technically not supposed to remove it from the Bureau."
+Mother spaces out a bit, contemplating our monocle. "He must like you," she says, "if he lets you wear his monocle. He's very proud of that. But do be careful with it -- it would be a little embarrassing if someone were to catch you with it. Alex's father was technically not supposed to remove it from the Bureau."
 
-We could agree to take care of the monocle.
+I'm inclined to agree to take care of the monocle.
 
 >agree to take care of the monocle
 "I'll be very careful with it."
@@ -861,7 +878,7 @@ We could agree to take care of the monocle.
 
 "Evidently not planning to have dinner at home this evening," she comments.
 
-We want to explain we might go out.
+I'm inclined to explain we might go out.
 
 >look yogurt
 It is the gooseberry fool flavor, left over from a six-pack. I always eat the strawberry and peach first.
@@ -869,13 +886,13 @@ It is the gooseberry fool flavor, left over from a six-pack. I always eat the st
 Okay, I feel guilty about leaving this to go bad, but I was in a rush -- I did get rid of most of the rest of my food over the last couple of days, but I just never had time to eat this. And it seemed wrong to throw it out. Sue me.
 
 >take yogurt
-We get the yogurt.
+We pick up the yogurt.
 
 "How well do you know him?" Mother asks. She immediately catches herself, and adds: "I'm not inquiring into the details of your relationship. But I am concerned about him. He has seemed very unhappy recently about his work. Has he said anything to you about that? Wanting to leave the program, or change careers, or... anything?" 
 
 I didn't think she'd noticed.
 
-I'm inclined to reassure Mother or suggest the truth.
+We could reassure Mother or suggest the truth.
 
 >reassure Mother
 "I think it's graduate school getting to him a bit," we lie. I am pretty sure this is what my mother thinks: she has little time for whining or sulking, and I believe she considers any ideological queasiness I may have exhibited to be just malingering about research that is not going well.
@@ -884,9 +901,7 @@ I'm inclined to reassure Mother or suggest the truth.
 
 I would like her to go on, but she doesn't: because it would be indiscreet, because she doesn't trust us.
 
-She gives the refrigerator door a little push and it swings closed.
-
-"Well," Mother says. "I had better go. If you do see Alex, tell him to call me, please. It isn't an emergency, but you can tell him there's a bit of Bureau business I'd like to discuss with him."
+She gives the refrigerator door a little push and it swings closed. "Well," Mother says. "I had better go. If you do see Alex, tell him to call me, please. It isn't an emergency, but you can tell him there's a bit of Bureau business I'd like to discuss with him."
 
 We nod, and suddenly it is borne in on me that this may be the last I see of my mother in a lifetime: and I'm trying to memorize the exact cut of her hair and the way her expensive Italian heels tap on the floor, and meanwhile she is going out completely indifferent to the moment. I could have stood for our previous meeting to be the last one -- we had dinner and she hugged me goodbye then. This makes it all much much worse.
 
@@ -941,14 +956,14 @@ We already have the attention of the activist.
 
 I can, in fact, imagine the implications, probably a little better than she would like.
 
-We could encourage the activist to elaborate on the implications.
+We want to encourage the activist to elaborate on the implications.
 
 >encourage activist
 "Oh?" we say neutrally. This is all it takes.
 
 "Toxi waste would be, in concept, a completely harmless, safe, and neutral substance that would have no detrimental impact on the surrounding environment. By raising awareness of toxi waste throughout the Anglophone world, we would put the collective consciousness to work for the environment! It would then be possible for volunteer workers to convert large stocks of dangerous toxic waste into the safe, neutral toxi waste using minimal energy."
 
-We could ask how consciousness will be raised or ask how the campaign will address problems of visualization.
+I'm inclined to ask how consciousness will be raised or ask how the campaign will address problems of visualization.
 
 >ask how consciousness will be raised
 "And, er, how do you plan to raise awareness of toxi waste to sufficient levels to achieve linguistic efficacy?" we ask. Well, that was mostly me. But I'm curious.
@@ -1059,16 +1074,14 @@ He raises an eyebrow. "At your age?"
 
 Some professors would greet this with warmth or sensitivity or at least good manners. Waterstone says, "Well, in that case, it is to be hoped that you spent those wasted years on some valuable activity. What did you need from me?"
 
-I'm inclined to say that we just dropped by to meet him.
+My response would be to say that we just dropped by to meet him.
 
 >say that we just dropped by to meet him
 "I just dropped by to meet you," we say. "I had heard good things about your teaching."
 
 "I rarely teach undergraduates," he remarks. "You would spend your time more profitably by making the acquaintance of the teaching assistants or perhaps" -- and here he enunciates the name with distaste -- "Professor Brown."
 
-There's a brief pause.
-
-"Look, I really must work on this," says Waterstone, chasing us to the door. "Perhaps someone else in the department can answer a few of your questions. I believe I saw Professor Higgate earlier, and Professor Brown is usually in his lab downstairs. I'm sure he's not working on anything too urgent. Goodbye!"
+There's a brief pause. "Look, I really must work on this," says Waterstone, chasing us to the door. "Perhaps someone else in the department can answer a few of your questions. I believe I saw Professor Higgate earlier, and Professor Brown is usually in his lab downstairs. I'm sure he's not working on anything too urgent. Goodbye!"
 
 The office door closes with measured firmness behind us.
 
@@ -1104,7 +1117,7 @@ Dank and malodorous: there are no windows down here, and the drainage is terribl
 
 The stairs up are here; the lecture room at the east. Immediately south is the Graduate Student Office, and southwest is Professor Brown's office. The most interesting of all is the small door west, trying to look inconspicuous, but locked with a keycard lock: it's where the department stores its most dangerous licensed equipment.
 
-A large open carton stands against the wall right between Brown's lab door and the interesting door. "Recycling," reads the sign over the carton. "Place your lab-created items here for processing." There is a banana in the large carton. 
+A large open carton stands against the wall right between Brown's lab door and the interesting door. "Recycling," reads the sign over the carton. "Place your lab-created items here for processing." The large carton contains a banana. 
 
 >look carton
 In the large carton is a banana.
@@ -1117,7 +1130,7 @@ Just beginning to get brown and spotty.
 There is a dismissive blatt from the monocle, and transposed over the banana is a faint, unappetizing image of a bandana.
 
 >take banana
-We get the banana.
+We pick up the banana.
 
 >south
 
@@ -1159,6 +1172,14 @@ Please be careful. The blue hats are watching you.
 
 The monocle pings happily as we sight the sticky with the crosshairs.
 
+>remove y from sticky
+We reset the device to y. With a distinct whiff of sap, the sticky turns into a stick. It is about two feet long. It's stripped of its leaves and fairly sturdy.
+
+There is a dismissive blatt from the monocle, and transposed over the stick is a faint, greenish image of a sticky.
+
+>get stick
+We take the stick.
+
 >open refrigerator
 We open the tiny refrigerator, revealing some cream and a silver platter.
 
@@ -1180,18 +1201,18 @@ It's trash. Why it wound up being archived in the refrigerator is anyone's guess
 The monocle pings happily as we sight the crumpled cocktail napkin with the crosshairs.
 
 >get shrimp tail
-We get the shrimp tail. There's no meat left; just the remains of one shrimp tail with the flesh bitten off.
+We acquire the shrimp tail. There's no meat left; just the remains of one shrimp tail with the flesh bitten off.
 
 >remove c from cream
-We reset the device to c. There is a distinct spearmint flavor, and the cream turns into a ream. One ream, which is to say 500 sheets, of generic printer or copier paper. The sheets are an attractive milky color.
+We reset the device to c. There is a flash of canary light, and the cream turns into a ream. One ream, which is to say 500 sheets, of generic printer or copier paper. The sheets are an attractive milky color.
 
 There is a dismissive blatt from the monocle, and transposed over the ream is a faint, greenish image of some cream.
 
 >get ream
-We get the ream.
+We take the ream.
 
 >go to Language Studies Department Office
-We have a quick hike. 
+It's a short walk. 
 
 Language Studies Department Office
 This big, slightly drab area holds such useful objects as the mailboxes and the secretary's computer. On ordinary days the secretary would be in as well, presiding over affairs. The offices of individual professors lie north and west, though the north door is closed.
@@ -1236,7 +1257,7 @@ I know all this because Brown cornered me in the hallway one afternoon and talke
 
 "Don't touch anything, please," he says, without looking up.
 
-We could ask what he is doing.
+We want to ask what he is doing.
 
 >look equipment
 A series of metal boxes with digital readouts and wires that lead in and out.
@@ -1256,7 +1277,7 @@ Without looking at us, he says, "I'm getting ready to do a new calibration run o
 
 This is a favorite of his, because you can get it so easily from a glove, so the materials are inexpensive.
 
-I'd like to ask what love looks like or ask how Professor Brown makes abstracts.
+We want to ask what love looks like or ask how Professor Brown makes abstracts.
 
 >ask what love looks like
 "What does love look like, then?" we ask, as though I hadn't seen this a bunch of times already.
@@ -1269,14 +1290,14 @@ There: Professor Brown in a nutshell. Did he tell you anything you wanted to kno
 
 The deal is that manifestations of "love" tend to look like stuff you'd find on a greeting card: roses, hearts, kiss symbols. Every once in a while you get something a little more platonic. But it's a let-down, if you want to know the truth. Most significant abstracts are like that: all you get by reifying them is a popular visualization. 
 
-We could ask how Professor Brown makes abstracts.
+We want to ask how Professor Brown makes abstracts.
 
 >ask how Professor Brown makes abstracts
 "What equipment do you use to make your abstracts?" we ask.
 
 "It's an ordinary letter-remover with a few adjustments," Brown says. "The department's computer can lift some of the legal overrides on standard letter tools. The job would be easier if I had access to higher-powered machinery, but..."
 
-We want to ask whether he can fix the letter-remover.
+My response would be to ask whether he can fix the letter-remover.
 
 >ask whether he can fix the letter-remover
 "Could you fix my letter-remover to make abstract objects as well?"
@@ -1289,7 +1310,7 @@ He comes back in a minute.
 
 "There," he says. "Should be abstract-enabled now."
 
-I'm inclined to ask what he thinks of the letter-remover or thank Professor Brown.
+We want to ask what he thinks of the letter-remover or thank Professor Brown.
 
 [Your score has gone up by three points and is now forty-eight.]
 
@@ -1298,14 +1319,14 @@ I'm inclined to ask what he thinks of the letter-remover or thank Professor Brow
 
 "Yes well," he says. "Don't show it to anyone. Technically you shouldn't have that."
 
-We could ask what he thinks of the letter-remover.
+My response would be to ask what he thinks of the letter-remover.
 
 >ask what he thinks of the letter-remover
 "Is there anything else that could be done to upgrade my letter-remover?" we ask naively.
 
 "Nothing I can help you with, I'm afraid," he says. "There are some safety overrides that could be programmed out, allowing you to make living creatures, but that's..." He does his spasmodic shrug. "One of those things where I think the laws have a point. It's dangerous and possibly even cruel."
 
-We want to ask why reifying living creatures is cruel.
+I'd like to ask why reifying living creatures is cruel.
 
 >ask why reifying living creatures is cruel
 "Why would it be cruel to make a living creature?" you ask.
@@ -1313,12 +1334,12 @@ We want to ask why reifying living creatures is cruel.
 "We don't know whether such creations have awareness and sensation like other creatures," he says. "If they do, it is horrible to bring them into existence only to send them out again."
 
 >go to Language Studies Department Office
-It's a brief hike. 
+We have a brief walk. 
 
 Language Studies Department Office
 This big, slightly drab area holds such useful objects as the mailboxes and the secretary's computer. On ordinary days the secretary would be in as well, presiding over affairs. The offices of individual professors lie north and west, though the north door is closed.
 
-The department printer also sits on the u-shaped desk. On the output tray is a draft document. 
+The department printer also sits on the u-shaped desk. There is a draft document on the output tray. 
 
 >west
 
@@ -1334,7 +1355,7 @@ She looks up when we come in. ".i xu do se bangu la lojban." Higgate asks. She's
 
 Her face falls. "Ah! I was hoping you'd be here for Conversational Lojban Tea." The room is conspicuously lacking other Lojban conversationalists.
 
-We want to ask how Professor Higgate is doing.
+I'd like to ask how Professor Higgate is doing.
 
 >look bookshelf
 We see nothing special about the rosewood bookshelf.
@@ -1389,7 +1410,7 @@ They recently redid this room, and whoever picked the decorations had postmodern
 
 Professor Higgate waits a little absent-mindedly nearby, looking over the bookshelf. There are History of the Standards Revolution and Lives of the Lexicographers on the bookshelf. 
 
-A massive plexiglas case takes up one corner of the room. The plexiglas case contains a compact but high-powered late model synthesizer. 
+A massive plexiglas case takes up one corner of the room. In the plexiglas case is a compact but high-powered late model synthesizer. 
 
 The big table at the center of the room is an irregular polygon, with one chair pushed up to the shortest side. I think the shape is intended to undermine traditional conceptions of academic hierarchy, but in practice it  just means that whoever gets to seminar late has to sit with a table angle jabbing him in the stomach.
 
@@ -1397,7 +1418,7 @@ There's a brief pause.
 
 "I'd offer you some cucumber sandwiches," Professor Higgate says. "But I'm afraid I ate them all."
 
-We want to ask which conlangs she knows.
+I'd like to ask which conlangs she knows.
 
 [Your score has gone up by three points and is now fifty-one.]
 
@@ -1460,13 +1481,13 @@ We awkwardly and silently squeeze against the wall and angle ourself so that we 
 We open the plexiglas case.
 
 >get crossword
-We pick up the crossword. It looks like it's been snipped out of Chard-Farmer's Weekly, but it hasn't been filled in at all.
+We take the crossword. It looks like it's been snipped out of Chard-Farmer's Weekly, but it hasn't been filled in at all.
 
 >put gel on crossword
 We dip out a pea-sized quantity of gel and rub it gently onto the crossword. With an audible SPLORT, the crossword becomes a word and a cross. 
 
 >look word
-At the moment, the word is "to", floating about in Arno Pro lettering.
+At the moment, the word is "because", floating about in Arno Pro lettering.
 
 There is a dismissive blatt from the monocle, and transposed over the word is a faint, greenish image of a sword.
 
@@ -1493,7 +1514,7 @@ There is a dismissive blatt from the monocle, and transposed over the keycard is
 [Your score has gone up by one point and is now fifty-four.]
 
 >get keycard
-We get the keycard.
+We pick up the keycard.
 
 [Your score has gone up by three points and is now fifty-seven.]
 
@@ -1511,7 +1532,7 @@ There is a dismissive blatt from the monocle, and transposed over the as is a fa
 We dip out a fingertip-coating quantity of gel and rub it gently onto the as. With an audible SPLORT, the as becomes a pastis. An anise-flavored liqueur. It's an acquired taste, but now that I've acquired it, I like to exercise the acquisition as frequently as possible. You may not be as big a fan, for which I apologize in advance.
 
 >remove i from pastis
-We reset the device to i. There is a flash of psychedelic colors, and the pastis turns into some pasts. It looks from the side like a shard of glass, but seen straight on, it captures previous events. At the moment it is replaying us taking the keycard.
+We reset the device to i. There is a flash of psychedelic colors, and the pastis turns into some pasts. It looks from the side like a shard of glass, but seen straight on, it captures previous events. At the moment it is replaying us discussing mutter darkly.
 
 There is a dismissive blatt from the monocle, and transposed over the pasts is a faint, greenish image of a pastis.
 
@@ -1534,10 +1555,10 @@ A glowing series of numbers and figures in the air, which changes and flickers n
 There is a dismissive blatt from the monocle, and transposed over the password is a faint, greenish image of a pass and a word.
 
 >get password
-We pick up the password.
+We get the password.
 
 >go to Samuel Johnson Basement
-We walk. 
+We make the brief walk. 
 
 Samuel Johnson Basement
 Dank and malodorous: there are no windows down here, and the drainage is terrible.
@@ -1547,18 +1568,18 @@ The stairs up are here; the lecture room at the east. Immediately south is the G
 A large open carton stands against the wall right between Brown's lab door and the interesting door. "Recycling," reads the sign over the carton. "Place your lab-created items here for processing." 
 
 >remove w from wrap
-We reset the device to w. There is a flash of blue light, and the wrap turns into a rap. A pulsating ball of angry air.
+We reset the device to w. There is a flash of cerulean light, and the wrap turns into a rap. A pulsating ball of angry air.
 
 There is a dismissive blatt from the monocle, and transposed over the rap is a faint, greenish image of a wrap.
 
-The rap includes the phrase "colder than a rifle shot, restoration to the real".
+The rap includes the phrase "my words hit like an anagram bullet".
 
 >drop rap
 I'll just leave that in the carton; less likely to be disturbed there.
 
 We set the rap in the carton, where it ought to provide a helpful distraction for the time being.
 
-It includes the phrase "my words hit like an anagram bullet".
+It includes the phrase "colder than a rifle shot, restoration to the real".
 
 >west
 We unlock the small door with a swipe of the keycard.
@@ -1612,19 +1633,19 @@ The reclamation machine clanks shut. The security program comes up again on scre
 [Your score has gone up by three points and is now sixty.]
 
 >go to Language Studies Department Office
-We make the short walk. 
+We hike. 
 
 Language Studies Department Office
 This big, slightly drab area holds such useful objects as the mailboxes and the secretary's computer. On ordinary days the secretary would be in as well, presiding over affairs. The offices of individual professors lie north and west, though both doors are closed.
 
-The department printer also sits on the u-shaped desk. On the output tray is a draft document. 
+The department printer also sits on the u-shaped desk. There is a draft document on the output tray. 
 
 >remove l from clock
 We reset the device to l. With a distinct whiff of something objectionable, the clock turns into a cock. It stares back at us malevolently through one eye.
 
 There is a dismissive blatt from the monocle, and transposed over the cock is a faint, greenish image of a clock.
 
-The cock clucks.
+The cock lets out a half-crow.
 
 >show cock to Waterstone
 Waterstone is unable to hear you through the closed door, which is presumably the purpose of closing it, so let's try knocking instead.
@@ -1633,10 +1654,10 @@ Waterstone glares at the cock. Then he picks up a marker and writes on a piece o
 
 If he were a cartoon there would be a thundercloud over his laptop.
 
-The cock lets out a half-crow.
+The cock clucks.
 
 >go to Seminar Room
-It's a quick walk. 
+We make the walk. 
 
 Language Studies Seminar Room
 They recently redid this room, and whoever picked the decorations had postmodern tastes.
@@ -1651,19 +1672,19 @@ We can also see some screws here.
 
 I shut the door so that we don't get interrupted.
 
-The cock clucks.
+The cock lets out a half-crow.
 
 >put cock in synthesizer
 We put the cock into the synthesizer.
 
-The cock lets out a half-crow.
+The cock clucks.
 
 The cock makes some attempts to flutter out of the synthesizer, but doesn't get much lift and gives up for the moment.
 
 >put tail in synthesizer
 We put the shrimp tail into the synthesizer.
 
-The cock clucks.
+The cock lets out a half-crow.
 
 The cock makes some attempts to flutter out of the synthesizer, but doesn't get much lift and gives up for the moment.
 
@@ -1675,15 +1696,15 @@ A floridly red concoction of tiny shrimps in sauce. I've always considered it vu
 There is a dismissive blatt from the monocle, and transposed over the shrimp cocktail is a faint, unappetizing image of a cock and a shrimp tail.
 
 >get cocktail
-We take the shrimp cocktail.
+We pick up the shrimp cocktail.
 
 >go to Language Studies Department Office
-We make the hike. 
+It's a short walk. 
 
 Language Studies Department Office
 This big, slightly drab area holds such useful objects as the mailboxes and the secretary's computer. On ordinary days the secretary would be in as well, presiding over affairs. The offices of individual professors lie north and west, though both doors are closed.
 
-The department printer also sits on the u-shaped desk. There is a draft document on the output tray. 
+The department printer also sits on the u-shaped desk. On the output tray is a draft document. 
 
 >show cocktail to Waterstone
 Waterstone is unable to hear you through the closed door, which is presumably the purpose of closing it, so let's try knocking instead.
@@ -1703,7 +1724,7 @@ Before we can do anything, Waterstone pops his head back in. "What you did there
 And he pops back out.
 
 >get invitation
-We take the invitation.
+We get the invitation.
 
 [Your score has gone up by ten points and is now seventy.]
 

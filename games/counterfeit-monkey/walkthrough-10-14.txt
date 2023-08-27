@@ -54,18 +54,289 @@ To get a look around, type LOOK and press return. If you do not want help gettin
 Enter saved game to load: start10
 Ok. 
 
+>go to University Oval
+We have a quick walk. 
+
+University Oval
+This is the center of the university, a broad grassy oval shaded with sycamore trees and surrounded by buildings in brick or white stone.
+
+Immediately south of here is the building where I spend most of my time, Samuel Johnson Hall. 
+
+A sign lies on the grass, abandoned by its owner. 
+
+There are a couple of officers lounging by the university gate. We won't be able to go by without being seen.
+
+As I'm taking this in, you notice hubbub behind us. We move out of the way as more officers escort Professor Higgate from the building.
+
+"There's been a mistake," Higgate is saying coolly. "That conversation was conducted under a special license for research in constructed languages. I can produce a copy --"
+
+The officer leading her says, "We're acting on information." He gives a quick, revealing glance in the direction of Professor Brown, who is also coming out of the building.
+
+>wait
+Time crawls by. We're looking as harmless and inattentive as humanly possible.
+
+"Alex Rosehip," says the officer with Higgate. The back of my neck prickles. "What can you tell me about his constructed language?"
+
+Higgate stops moving forward and the officers stop with her. "It really is a masterpiece -- the root words are all based on resources common in the tropics. Dirt and mud are highly productive terms, as are many common pests. The syllables are consonant-dense but still relatively easy to pronounce. In my view, it's the most credible proposal ever put forward in utopian linguistics."
+
+The officer smiles faintly. "Isn't that a bit like 'the world's most credible proposal for a perpetual motion engine'?"
+
+>wait
+Time crawls by.
+
+"Whether it works or not, I am sure it's not intended as an attack on the Anglophone efficacy," Higgate says. "Alex has a fine mind but very little gumption. And he loves Atlantis."
+
+"As far as you're aware," the officer replies.
+
+"Obviously," Higgate snaps. "I can only tell you what I know of Alex from five years of close supervision."
+
+The officers look at one another, then back at her. "We're going to need to continue this conversation in depth."
+
+A stricken expression crosses Higgate's face.
+
+>wait
+Time crawls by.
+
+"I'd like to make a call," Higgate says.
+
+"Not possible," says the man at her elbow.
+
+"I assert my right to a friendly witness," she says firmly. They ignore her.
+
+The officers sweep Higgate away into a windowless van. "Mobile Conversation Unit," says the side of the van in bright cheery letters. "The Bureau Is Listening to YOU!"
+
+The van pulls away into traffic. Brown strolls away in the other direction, not meeting anyone's eye. It's not easy getting tenure around here.
+
+>go to Tall Street
+We hike out from under the sycamores in the Oval and up Long Street. 
+
+Tall Street
+Tall Street is full of families, some reaching as far as the old park at the east end of the street.
+
+They're gathered around a hanging cardboard figure in front of the Bureau of Orthography. The children, and a few of the adults, are taking turns hitting it with sticks, hoping for a shower of comma-shaped candy. This is a common holiday activity, but from the disgruntled comments and the petulant expressions of the children, it has already been going on longer than is strictly fun.
+
+Another child takes a whack at the hanging figure. She bounces away from the blow, but does not break.
+
+>wear shred
+We gently remove the monocle.
+
+We tie the shred over our eyes. To be honest, it only partially obscures our vision; we still have a pretty good idea where everything is.
+
+The latest child's attack swings wide of the figure.
+
+>hit figure with stick
+We take a good swing with the stick and connect, finally, with the hanging Atlantida figure.
+
+There is a resounding crack!
+
+The crowd roars with approval, and dozens of small bodies surge around us so that I almost lose our balance. We push our shred up out of our way.
+
+The ground is covered with glitter and candy and confetti; the Atlantida has broken open at the torso.
+
+The children gather their heaps of candy and a few scoops of glittery confetti as well, but eventually trickle away again with their parents, returning through the park or down side streets or to their cars.
+
+[Your score has gone up by three points and is now seventy-three.]
+
+>south
+
+Rotunda
+Echoing space, marble floor, eye-like skylight many meters above us: so far, the Rotunda might belong to any 19th-century government bureau of means and self-importance.
+
+What sets this one apart is the lettering, each sigil no bigger than a flea, carved over every inch of the walls. Inscribed here is, in fact, the entire text of A New Orthodox Orthography, which means that if we had a great deal of patience and many rolls of butcher paper, we could take rubbings and wind up with our very own volume.
+
+We don't, of course. There are better things to do. More important places to go. The administrative part of the bureau is away to the south, and there is an exhibit of letter tools to the east, which is open to the public.
+
+Near the street entrance is a sizable informational bulletin-board advertising the services of the Bureau; and next to this, pushed back to be out of the way, is a bin. In the bin is a shuttle. 
+
+>look skylight
+It is distant and perfectly round.
+
+>look text
+It is far too small to read, especially since the letters are not painted or inked, just carved into the stone surfaces.
+
+>look board
+What Can Your Bureau of Orthography Do For You? inquires the bulletin board, in a sprightly casual font.
+
+On a sheet labeled From Plumbing to Medicine... "And More", the bulletin board describes the tools available to the All-Purpose Officers, including a synthesizer for combining two word-objects into one; Q- and Z-inserters (most letters are still under development); and even specially licensed equipment capable of producing living creatures.
+
+For immigration and importation services, such as assigning Atlantean names to immigrants, neutralizing foreign-language pets, and approving imported goods, we are encouraged to visit the Customs House instead.
+
+A handwritten note is tacked up after this, which adds that the synthesizer is unavailable for public use through Dec. 19th because it is on loan to the university Department of Language Studies.
+
+>look bin
+BUREAU PARKING, reads the bin, in thick black marker. DO NOT TAKE UNLESS AUTHORIZED.
+
+In the bin is a shuttle.
+
+>look shuttle
+It's a wooden device that holds a quantity of yarn, allowing the user more easily to pass the thread back and forth while weaving.
+
+It is also a bit of a snarky joke on the Bureau's part. Atlantean land prices being what they are, the Bureau prefers not to have to build a parking garage. Instead they have shuttles that an All-Purpose Officer with a homonym paddle can easily convert into a full-sized vehicle for use, and back again for easy storage.
+
+The shuttles in their untransformed state are no earthly use to anyone else, of course, which is why they can be left around unsupervised.
+
+>put gel on password
+We dip out a pea-sized quantity of gel and rub it gently onto the password. With an audible SPLORT, the password becomes a word and a pass. 
+
+There is a long whistle, a peppery burst. The fireworks must have started outside.
+
+>remove t from twig
+We reset the device to t. With a distinct whiff of the faintest whiff of shampoo, the twig turns into a wig. A surprisingly realistic wig, cut to about the shoulder. It looks like our hair, but a good bit longer.
+
+There is a distant roar like a hissing dragon.
+
+>put origin paste on pass
+We smear some of the Origin Paste onto the pass. Nothing obvious happens, of course, but that is the whole point.
+
+It sounds as though the sky is making popcorn.
+
+>put origin paste on wig
+We smear some of the Origin Paste onto the wig. Nothing obvious happens, of course, but that is the whole point.
+
+The sky is temporarily very quiet.
+
+>wear wig
+We settle the wig on our head and adjust our hair underneath.
+
+There is a deep boom of cannon fire.
+
+>south
+Before approaching the secretary ahead, we try to hide all our illegal things in the backpack.
+
+Antechamber
+The most important task of any government bureau is to keep away time-wasters, irritants, and uninformed members of the general public, who might distract the diligent workers within from their important tasks. The Bureau of Orthography is no different.
+
+An instructive notice details the criteria for entry to the Bureau proper.
+
+Here to guard access to the rest of the building is a secretary on a tall stool. The secretary is carrying the Regulation Authentication Scope and wearing a pencil skirt and a plain white top. 
+
+We can go north to the Rotunda and east from here.
+
+She turns her eyes towards us but doesn't say anything.
+
+My response would be to ask whether she enjoys her job.
+
+>look notice
+Please note that those wishing to enter must have a PASS suitable for visitors, which must include an UP TO DATE photograph closely resembling the subject. Passes that do not look like their possessors will be rejected.
+
+Visitors will also need an additional proof of their business in the Bureau, such as a letter of invitation from a Bureau authority.
+
+All credentials will be subject to inspection with an authentication scope.
+
+Anyone attempting to enter the Bureau with a falsified pass or lack of proper credentials may be subject to FINES and INDEFINITE DETENTION.
+
+>look secretary
+Curiously, she refuses to quite meet our eye.
+
+>look stool
+It looks uncomfortable.
+
+On the tall stool is a secretary.
+
+>look scope
+It looks like a small hand-held telescope, or perhaps a very posh kaleidoscope: all brown leather and brass fittings, and a good heft indicating quality materials. The sophisticated electronics are all concealed within. If we look through the scope at something, we can see its true nature, regardless of spelling changes.
+
+>look skirt
+A prim, pencil-length number reaching to just below the knee. It is the regulation shade of Orthographical Blue.
+
+>look top
+Devoid of ruffles, lace or other distractions.
+
+>ask whether she enjoys her job
+"This must be a good job," we say, in our best making-friendly-conversation way. "Getting to meet lots of new people. Access to all the bureau toys."
+
+"They never let me try any of the good equipment," she says, with surprising bitterness. "When they brought in the T-inserter, they let Porson--" Then she stops, her expression that of a guppy being strangled. 
+
+We could ask how she got this job, ask who Porson is, ask what the T-inserter does, or ask where the T-inserter is kept.
+
+>ask how she got this job
+"How did you get this job?" we ask.
+
+"Through the usual process," she says. "I qualified through the regional spelling bee, then was submitted to a battery of examinations, followed by a three-year course of rigorous training."
+
+We could ask who Porson is, ask what the T-inserter does, or ask where the T-inserter is kept.
+
+>ask who Porson is
+"Who is Porson?" we ask curiously.
+
+"Porson works in the Historical Research Room," she says. "A job he got, I might add, through sheer nepotism. He's no more qualified than I am, but they say he has a 'job-related need' to see all the new developments first." 
+
+I'm inclined to ask what the T-inserter does or ask where the T-inserter is kept.
+
+>ask what the T-inserter does
+"What does the T-inserter do?" we ask, as though we were a couple of yokels.
+
+She raises her eyebrows as though she cannot believe the phenomenal idiocy of this question. No answer is vouchsafed.
+
+>ask where the T-inserter is kept
+"This T-inserter must be pretty delicate," we say. I'm letting you talk, this time. I think I'm too direct. "I'm surprised the Bureau keeps it in a public building."
+
+She visibly struggles between two impulses: the feeling that she shouldn't be talking about such a secret piece of equipment at all, and the desire to convince us that it couldn't be easily found or stolen. Finally she compromises with "Not all parts of the Bureau are equally available to visitors."
+
+>show invitation
+We show our pass to the secretary.
+
+The secretary raises her Authentication Scope to look at the pass. There is a moment of silence. The scope does nothing.
+
+"That will do," the secretary says of our pass. Then she inspects the invitation with the monocle. "Most of the visits were earlier in the day," she says. "Quite a fracas there was this morning."
+
+"The invitation doesn't state a particular time," we say.
+
+She deflates momentarily and goes back to inspecting. "There's another problem. This invitation is for Professor Waterstone. They're watermarked individually to avoid fraud. You're not Professor Waterstone."
+
+"He sent me to do some research in his place. I'm a student of his."
+
+She frowns. "Invitations to inspect highly secure machinery are not transferrable," she says. "And how should I know whether you stole it?"
+
+>show pass
+I'm handling this.
+
+"Professor Waterstone is a busy man," I say. "If you want me to tell him you wouldn't cooperate, I'm just as happy not to work on Serial Comma Day. But if DCL wants his endorsement or advice, they'll have to work within his schedule. If you are going to turn me away, however, I would like the opportunity to speak with your manager."
+
+The secretary scowls. "Fine. I'll contact Waterstone." She places a call -- on speakerphone, no less -- glaring all the time.
+
+"Waterstone here," says the phone. There's background traffic noise. Waterstone must be on the road already. Figures he would have a car phone. Most people aren't allowed, here.
+
+"I have a student here attempting to use your invitation to enter the Bureau," says the secretary. "Was it stolen?"
+
+"What? Oh that. No."
+
+"You're saying you gave your invitation away."
+
+"Yes I did," says Waterstone. "And I have been a research partner to DCL since before you were born."
+
+"Sir, you are aware that this is highly irregular!"
+
+>wait
+Sure, hang in there. I'm pretty sure that what we need here is to act as much like Professor Waterstone himself as humanly possible.
+
+The secretary is still talking. "You personally vouch for this student? You know her well and are sure of her trustworthiness?"
+
+"Known her for years," lies Waterstone, annoyed. There's a click as he hangs up.
+
+"What a delightful man," remarks the secretary.
+
+She looks over our other visible possessions (the word, the shrimp cocktail, the keycard, the cross, the stick, the banana, the yogurt, the ring, the screwdriver, the map of Slangovia, the sage, the lime, the asparagus, Guidebook to Anglophone Atlantis, the letter, the roll, the tub, the arm, the jotter, and the backpack) and deems them acceptable. She makes us sign a book, for which we use a signature of your invention. Finally: "Go in, descend to the basement, and present yourself at the secure section downstairs. Be advised you will be under video surveillance as you approach. Any attempts to modify or steal Bureau property, to gain access to rooms to which you have not been expressly invited, to eavesdrop on conversations of Bureau employees, or to leave objects of your own behind in the Bureau, may result in your arrest and prosecution.
+
+"Have a nice day!"
+
+[Your score has gone up by five points and is now seventy-eight.]
+
+>save
+Enter saved game to store: start11
+Ok.
+
 >goals
 Here's what we think we need to do: 
-  Gain entrance to the Bureau
   Find Brock
 
 >i
-We are equipped with the following essentials: a backpack, a flash drive, an invitation, your L-remover (upgraded to handle animates and abstracts), a monocle, some Origin Paste, a pan (really the smuggled plans in disguise), a roll, and a tub of restoration gel.
+We are equipped with the following essentials: a backpack, a flash drive, a monocle, some Origin Paste, a pan (really the smuggled plans in disguise), a roll, your T-remover (upgraded to handle animates and abstracts), and a tub of restoration gel.
 
-We are also carrying an arm, some asparagus, a banana, a cross, Guidebook to Anglophone Atlantis, a jotter, a keycard (which opens the small door), a letter, a lime, a map of Slangovia, a password, a ring (which opens the sturdy iron gate), some sage, a screwdriver, a shrimp cocktail, and some yogurt.
+We are also carrying an arm, some asparagus, a banana, a cross, Guidebook to Anglophone Atlantis, a jotter, a keycard (which opens the small door), a letter, a lime, a map of Slangovia, a pass, a ring (which opens the sturdy iron gate), some sage, a screwdriver, a shred, a shrimp cocktail, a stick, a wig, a word, and some yogurt.
 
-The flash drive and the pan (really the smuggled plans in disguise) are in the backpack, which is gaping wide open so everyone can see what's inside. 
+Of that collection, the flash drive, the monocle, the Origin Paste, the pan (really the smuggled plans in disguise), and the T-remover (upgraded to handle animates and abstracts) are packed away in the backpack, which is closed for greater concealment. 
 
-We are wearing the monocle. 
+We are wearing the wig and the shred. 
 
 >
