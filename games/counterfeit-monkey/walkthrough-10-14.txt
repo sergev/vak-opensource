@@ -711,6 +711,24 @@ I dip out a pea-sized quantity of gel and rub it gently onto the lamb granulates
 >get bullets
 I get the anagram bullets.
 
+>put component in punch
+(first taking the broken components)
+I put the broken components into the wire basket of the umlaut punch. There is a hum as the punch warms up, then a bang! as the tines come down sharply, tattooing the broken components.
+
+Briefly the broken components appears as the art metal band Bröken Cömpönents, before fading back to itself: there just isn't enough energy to hold the conversion, given Bröken Cömpönents's dismal reputation. The reunion tour wasn't a big success.
+
+When they are gone, a power chord remains in the air.
+
+The repeated power chord makes it sound as though some heavy equipment is being used in here even when it's not.
+
+[Your score has gone up by one point and is now eighty-three.]
+
+>remove h from power chord
+I reset the device to h. There is a flash of yellow light, and the power chord turns into a power cord. This is the heaviest-duty cabling I've ever seen in my life: thick as a snake, covered in yellow sheathing, with a massive plug at each end.
+
+>get power cord
+I take the power cord.
+
 >south
 
 Display Reloading Room
@@ -724,7 +742,7 @@ There is a small black push-button on the wall.
 It's striped yellow and red, and describes an area on the floor. Come to that, there's an area in the ceiling immediately above the hazard tape that looks separate from the rest of the ceiling.
 
 >look monitor
-It is showing images of the Tools Exhibit upstairs, one of the few parts of the Bureau open to the public. A businesswoman is gazing curiously at the anagramming gun.
+It is showing images of the Tools Exhibit upstairs, one of the few parts of the Bureau open to the public. A businesswoman holding a cane is gazing curiously at the Model T.
 
 >push button
 A heavy clunk sounds. On the tv monitor, I see the display case black out.
@@ -762,7 +780,7 @@ Hanging in the air at the north end of the hallway is an odor.
 (with the anagramming gun)
 The gun fires ruggedly into the odor, which shatters and then reforms as a door. It is part of the north wall, and currently closed.
 
-[Your score has gone up by one point and is now eighty-three.]
+[Your score has gone up by one point and is now eighty-four.]
 
 >open door
 I open the door, revealing a room beyond.
@@ -772,7 +790,7 @@ I open the door, revealing a room beyond.
 Oracle Project
 This is nothing less than the command center for a massive propaganda campaign. Paintings of Atlantida and polling charts cover the walls, dating back to the second world war and continuing straight through to the present.
 
-On the long table are a paperweight and an inciting fable. 
+There are a paperweight and an inciting fable on the long table. 
 
 I can go south to Wonderland and east from here.
 
@@ -792,6 +810,12 @@ On the long table are a paperweight and an inciting fable.
 >look paperweight
 Blue and white strands are swirled through the heavy, lens-like hunk of clear glass.
 
+>put gel on paperweight
+I dip out a pea-sized quantity of gel and rub it gently onto the paperweight. With an audible SPLORT, the paperweight becomes a weight and a paper. 
+
+>get weight
+I take the weight. Shaped like a headless pyramid. "0.5 kg" is stamped in the top together with the seal of the Bureau. It's an official weight, intended to reassure citizens that they were getting a genuine standard measure.
+
 >look fable
 It's a short children's tale, with illustrations. A young boy was left an orphan in a certain village. So he went door to door around the village, but none of the families would take him in, all having some excuse: there were too many children already, the house was too small, there was not enough food, the parents were too old for a new child, and so on.
 
@@ -799,14 +823,328 @@ Despondent, the boy was on the verge of giving up when a magician came to town. 
 
 (The text ends here, but the illustration shows the boy beaming in the arms of a manufactured mother, father, siblings, hamster, and goldfish.)
 
+>east
+
+Surveillance Room
+A surveillance computer is mounted on the wall, an impressive flat screen readout displaying current activity. 
+
+Another room lies to the east. The door I came through is west, and there is also a spiral staircase down.
+
+>look computer
+Below the flat screen are a keyboard and mouse, both shiny silver. Only top of the line equipment down here, it seems.
+
+The surveillance computer is currently switched on.
+
+The following options are visible on the screen:
+
+Security Cameras
+Power Grid
+Requisitions
+Access Records
+
+>down
+
+Tunnel through Chalk
+This passage has been cut through natural cliff rock and looks older than the Bureau itself. The walls are rough-hewn, exposing sedimentary strata. Here and there it looks as though someone has actually excavated a favored rock or relic.
+
+Blocking the far end of the corridor is a metal portcullis. It is currently lowered. From the pulley above the portcullis hangs a counter. 
+
+I can go east through the portcullis (closed) and up to the Surveillance Room from here.
+
+>look strata
+Layers of slightly varying chalk color, some of which are embedded with tiny seashells and other fossil evidence.
+
+>look portcullis
+Heavy black metal bars, left from a much earlier state. It is currently lowered. From the pulley above the portcullis hangs a counter.
+
+>look counter
+One of those devices with a press-button to increment a number, to assist with counting things like the number of people attending an event. There's also a loop to let the user wear it over one finger. The counter currently reads 17.
+
+>get counter
+I take the counter.
+
+>up
+
+Surveillance Room
+A surveillance computer is mounted on the wall, an impressive flat screen readout displaying current activity. 
+
+Another room lies to the east. The door I came through is west, and there is also a spiral staircase down to the tunnel.
+
+>east
+
+Workshop
+A room whose importance is obvious from how clean it is and how little furniture it is allowed to have.
+
+A programmable dais sits in the middle of the room. It has the raw look of lab equipment rather than a nice smooth commercial instrument. 
+
+A specialized wall socket is built into the east wall, clearly not part of the ordinary power system for the Bureau. 
+
+I can go east and west to the Surveillance Room from here.
+
+>look dais
+It's a round black metal platform with substantial stabilizing coils visible underneath, five or six feet in diameter. This is experimental lab grade letter equipment, ferociously powerful, insanely dangerous.
+
+The dais has a big lever, a massive switch, and a dais socket (with no cord currently plugged in).
+
+>look lever
+One of those big heavy levers you see at demolitions. You won't be tripping this thing by accident.
+
+The big lever is currently switched off.
+
+>look switch
+A large black switch with a red arrow painted on it. There are two stops, labeled with black marker on tape: swap homonym and synthesize. It is currently set to swap homonym.
+
+>look socket
+A power socket suitable for plugging a cord into.
+
+>plug cord into wall
+I plug the power cord firmly into the wall socket. The other end remains free and not plugged into anything.
+
+>plug cord into dais
+I plug the power cord firmly into the dais socket. Both ends of the power cord are now plugged in, so the dais is connected to the wall socket.
+
+>east
+
+Generator Room
+The walls are lined with concrete. Yellow paint lettering says CAUTION: HIGH ENERGY EQUIPMENT and DO NOT OPERATE WITHOUT TRAINING.
+
+A first aid station is built onto the wall. It is closed. 
+
+Most of the room is taken up with a gigantic boiler installation that is currently off. The locking mechanism is a brushed steel bucket, currently empty. 
+
+>look station
+It's a large box mounted to the wall, with a red cross painted on the front of it.
+
+>look bucket
+Attached to the machine is a brushed steel bucket, with insulated walls; it looks like a large version of an ice bucket for chilling sparkling wines.
+
+Around the outside of the bucket are all sorts of odd gears, sprockets, parts, and bits, which have been attached in a haphazard way with bolts, wire, and duct tape. Presumably this does something to items placed in the bucket.
+
+At the lip of the bucket is a switch labeled REVERSE. The switch is currently off.
+
+>put stick in bucket
+There is a churning noise from within the brushed steel bucket, and a moment later I see inside some stock. Pale brown stock, still warm and steaming slightly.
+
+This appears to have unlocked the mechanism. With a growl, the boiler comes to life.
+
+There's a particularly vibrant blue-white flash from within the boiler. All the meters twitch.
+
+[Your score has gone up by one point and is now eighty-five.]
+
+>west
+
+Workshop
+A room whose importance is obvious from how clean it is and how little furniture it is allowed to have.
+
+A programmable dais sits in the middle of the room. It has the raw look of lab equipment rather than a nice smooth commercial instrument. 
+
+A power cord snakes across the floor, connecting the dais socket to the wall socket. 
+
+I can go east to the Generator Room and west to the Surveillance Room from here.
+
+>flip switch
+I give the switch a strong twist and turn it to synthesize.
+
+>put counter on dais
+I put the counter on the programmable dais.
+
+>put weight on dais
+I put the weight on the programmable dais.
+
+>pull lever
+The programmable dais glows vibrant blue for five seconds, leaving behind a counterweight.
+
+A very substantial hunk of metal with a ring at the top end, suitable for attachment to a hook or rope.
+
+>get counterweight
+I pick up the counterweight.
+
+>go to Tunnel through Chalk
+It's a brief walk. 
+
+Tunnel through Chalk
+This passage has been cut through natural cliff rock and looks older than the Bureau itself. The walls are rough-hewn, exposing sedimentary strata. Here and there it looks as though someone has actually excavated a favored rock or relic.
+
+Blocking the far end of the corridor is a metal portcullis. It is currently lowered. There's a pulley and hook arrangement above the portcullis, but the hook is empty. 
+
+I can go east through the portcullis (closed) and up to the Surveillance Room from here.
+
+The air stirs with a breeze from the east.
+
+>put counterweight on hook
+I hang the counterweight on the hook. The portcullis shifts slightly but doesn't rise on its own. Perhaps with a little help, though.
+
+>open portcullis
+I open the portcullis.
+
+Something like the cry of a seagull comes down the passage.
+
+>east
+
+Personal Apartment
+At a guess, this is a room hardly anyone ever visits, or even knows about. Though the ceiling and one wall are bare cave, the rest has been paneled and  graciously decorated in the style of the end of the 18th century. Oil paintings on the walls depict great men and women of Atlantis gone by: Phyllida Shaply, Amelia Landison, Clarence Arbot, Jon Rosehip. An antique bed stands in the center of the room.
+
+The metal portcullis guards the way back. It is currently raised. From the pulley above the portcullis hangs a counterweight. 
+
+There are a stack of files and a rubber stamp on the inlaid desk. 
+
+Air and sunlight stream in from the east.
+
+
+
+Please press SPACE to continue.
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"Don't move, Alexandra, or I'll split you in two."
+
+A very tall woman with Bureau-blue eyes steps into the room from the east, carrying a restoration gel rifle. Her face is ageless, her mouth full-lipped but proud. We've never met, but I recognize her at once.
+
+Atlantida moves the rifle a fraction and fires through the portcullis at the counterweight. With an audible SPLORT, the counterweight becomes a weight and a counter. 
+
+The weight falls to the ground.
+
+The portcullis crashes shut.
+
+>shoot rifle with gun
+She sees us moving the gun into position, and our reflexes are slower than hers.
+
+She fires again. The pellet hits us, cold and hard, in the shoulder. It stings like hell and for a moment I think our clavicle is broken. I put our hand over the wounded spot.
+
+Our hand.
+
+Atlantida lowers the rifle, surprised. "Fused," she says. "Isn't that interesting. And so recently, too. If the gel rifle won't separate you, nothing will." She smiles, not warmly. "Pity. You would have been easier to deal with separately. Cold Storage for Andra, house arrest for Alex."
+
+Fused? We should be two pieces by now. Maybe she has an explanation? But you seem to be focused on her gun hand. How can you be so calm?
+
+>shoot rifle with gun
+The gun fires ruggedly into the restoration gel rifle, which shatters and then reforms as an infertile astrologer. She's a woman with long grey hair, well past menopause.
+
+The infertile astrologer falls awkwardly to earth and looks around in confusion.
+
+"Oh, bravo," says Atlantida. "Could you possibly have made a less useful ally?"
+
+>put gel on astrologer
+The astrologer is still a little too far away to reach. She's moving towards us, though. If we wait, perhaps...
+
+Atlantida smiles with half a mouth. "You've arrived on a difficult day. In the ordinary course of things, I keep things quiet: the spirit of democracy, but none of the sordid wrangling and bribes and corruption and compromise. It's only when the spirit of the island itself is threatened, that we have to resort to such extreme measures."
+
+The infertile astrologer sidles closer to us, smiling and making hand signs that I think are supposed to represent Aries. Old bat.
+
+My response would be to ask whether the protesters feel the same way.
+
+>put gel on astrologer
+I dip out a pea-sized quantity of gel and rub it gently onto the infertile astrologer. With an audible SPLORT, the infertile astrologer becomes a restoration gel rifle. 
+
+Atlantida realizes that the restoration gel rifle is now a couple of meters away from her. 
+
+She presses a button on something in her hand. Far away, a high-pitched bell rings.
+
+"Did you have anything else you wanted to ask me? I so rarely get to talk with ordinary citizens. Only ones with clearance, and those about to go into Cold Storage. A last interview with Saint Peter."
+
+>shoot Atlantida with rifle
+We sidle over and casually pick up the restoration gel rifle as though we were just curious. Or maybe had an insatiable urge to tidy up.
+
+Her eyes follow the gesture. "Don't you dare, you little traitor," she says. "I have been your mother, your father, your waking up and your going to sleep, your teachers and your lovers and your friends. I am the integrity of this island. Change me and you change Atlantis forever."
+
+"Maybe it's time," I say. "Maybe part of the business of democracy is having the arguments--"
+
+You don't let me finish. I shoot the restoration gel rifle at Atlantida. With an audible SPLORT, Atlantida becomes an atlantida. It's a sort of shellfish, vaguely like a clam or scallop but bigger and with different ridges.
+
+>look paintings
+They look like originals. I have seen some of these portraits before, in books at school or in the museum, but was given to understand that they'd been stolen, leaving only photographs or replicas.
+
+>look desk
+Very elegant and delicate.
+
+On the inlaid desk are a stack of files and a rubber stamp.
+
+>look files
+Even a quick look through the titles gives some idea. "DCL Plausibility studies on a syllable-removing gun." "Economic impact study towards an S-inserter, with particular attention to factory closures and workforce reduction in the developing world." "Single-noun Targeted Bomb." "Popular Opinion Study Concerning Utopian Linguistics." "Monthly Counterintelligence Report on Progress towards Manipulation of Simplified Chinese Character Set."
+
+There are others like this, some thin, some fat with paperwork and sticky notes.
+
+>look stamp
+It is made to stamp two words: ETHICAL VETO. The discoloration shows it has indeed been used, though not, perhaps, very recently.
+
+>east
+
+Private Solarium
+A window in the north wall, cut out through the cliff face, gives a view of tranquil sea under a darkening sky. 
+
+Left on a coffee table (as though waiting for maid service) is a silver tray. On the silver tray are some jacks, a cloth napkin, some crumbs, and a dirty coffee cup. 
+
+There is an ebook reader on the chaise longue. 
+
+There's a distant sound of movement. Someone is looking for us.
+
+>look table
+Antique as well, most likely. It is the same handsome wood as the furnishings in the rest of the apartment.
+
+On the coffee table is a silver tray (on which are some jacks, a cloth napkin, some crumbs, and a dirty coffee cup (empty)).
+
+>look tray
+Just matte enough to give no reflections, and stamped with a classical Atlantean pattern of overlapping olive branches and chard leaves.
+
+On the silver tray are some jacks, a cloth napkin, some crumbs, and a dirty coffee cup (empty).
+
+>look jacks
+A set of children's playing jacks. They are lined up, with curious precision, into the letter A.
+
+>look napkin
+Good linen in eau-de-nil, monogrammed with a large A, and smeared with a few smudges of honey.
+
+>look crumbs
+At a guess, they come from some sort of breakfast roll or pastry.
+
+>look cup
+The residual liquid in the bottom reveals that the person whose breakfast this was takes a small amount of milk and no sugar.
+
+>look longue
+It implies afternoons of elegant indolence. Many of them.
+
+On the chaise longue is an ebook reader.
+
+>look reader
+An expensive recent model, silver-backed, with a glossy touch screen.
+
+The ebook reader is currently switched off.
+
+>save
+Enter saved game to store: mid13
+Ok.
+
 >goals
 Here's what I think I need to do: 
   Escape the Bureau
 
 >i
-I am equipped with the following essentials: an anagramming gun, a backpack, a flash drive, a monocle, some Origin Paste, a pan (really the smuggled plans in disguise), a roll, your T-remover (upgraded to handle animates and abstracts), and a tub of restoration gel.
+I am equipped with the following essentials: an anagramming gun, a backpack, a flash drive, your H-remover (upgraded to handle animates and abstracts), a monocle, some Origin Paste, a pan (really the smuggled plans in disguise), a roll, and a tub of restoration gel.
 
-I am also carrying an arm, some asparagus, a banana, a cross, Guidebook to Anglophone Atlantis, a jotter, a keycard (which opens the small door), a letter, a lime, a map of Slangovia, a pass, a ring (which opens the sturdy iron gate), some sage, a screwdriver, a shred, a shrimp cocktail, a stick, a wig, a word, and some yogurt.
+I am also carrying an arm, some asparagus, a banana, a cross, Guidebook to Anglophone Atlantis, a jotter, a keycard (which opens the small door), a letter, a lime, a map of Slangovia, a pass, a restoration gel rifle, a ring (which opens the sturdy iron gate), some sage, a screwdriver, a shred, a shrimp cocktail, a wig, a word, and some yogurt.
 
 Of that collection, the flash drive, the monocle, the Origin Paste, and the pan (really the smuggled plans in disguise) are packed away in the backpack, which is gaping wide open so everyone can see what's inside. 
 

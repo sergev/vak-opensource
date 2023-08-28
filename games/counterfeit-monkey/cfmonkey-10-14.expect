@@ -133,6 +133,9 @@ expect ">"; send "look components\r"
 expect ">"; send "look granulates\r"
 expect ">"; send "put gel on granulates\r"
 expect ">"; send "get bullets\r"
+expect ">"; send "put component in punch\r"
+expect ">"; send "remove h from power chord\r"
+expect ">"; send "get power cord\r"
 expect ">"; send "south\r";                     # Display Reloading Room
 expect ">"; send "look tape\r"
 expect ">"; send "look monitor\r"
@@ -157,7 +160,64 @@ expect ">"; send "look paintings\r"
 expect ">"; send "look charts\r"
 expect ">"; send "look table\r"
 expect ">"; send "look paperweight\r";          # actually paper and weight
+expect ">"; send "put gel on paperweight\r"
+expect ">"; send "get weight\r"
 expect ">"; send "look fable\r";                # actually filing cabinet
+expect ">"; send "east\r";                      # Surveillance Room
+expect ">"; send "look computer\r"
+expect ">"; send "down\r";                      # Tunnel through Chalk
+expect ">"; send "look strata\r"
+expect ">"; send "look portcullis\r"
+expect ">"; send "look counter\r"
+expect ">"; send "get counter\r"
+expect ">"; send "up\r";                        # Surveillance Room
+expect ">"; send "east\r";                      # Workshop
+expect ">"; send "look dais\r"
+expect ">"; send "look lever\r"
+expect ">"; send "look switch\r"
+expect ">"; send "look socket\r"
+expect ">"; send "plug cord into wall\r"
+expect ">"; send "plug cord into dais\r"
+expect ">"; send "east\r";                      # Generator Room
+expect ">"; send "look station\r"
+expect ">"; send "look bucket\r"
+expect ">"; send "put stick in bucket\r";       # got stock
+expect ">"; send "west\r";                      # Workshop
+expect ">"; send "flip switch\r"
+expect ">"; send "put counter on dais\r"
+expect ">"; send "put weight on dais\r"
+expect ">"; send "pull lever\r";                # got counterweight
+expect ">"; send "get counterweight\r"
+expect ">"; send "go to Tunnel through Chalk\r"; # Tunnel through Chalk
+expect ">"; send "put counterweight on hook\r"
+expect ">"; send "open portcullis\r"
+
+# Atlantida
+# (game automatically saved as CM-Atlantida-fight-autosave)
+expect ">"; send "east\r";                      # Personal Apartment
+expect "continue."; send " \r";                 # “Don’t move, Alexandra, or I’ll split you in two.”
+expect ">"; send "shoot rifle with gun\r"
+expect ">"; send "shoot rifle with gun\r";      # twice
+expect ">"; send "put gel on astrologer\r"
+expect ">"; send "put gel on astrologer\r";     # twice
+expect ">"; send "shoot Atlantida with rifle\r"; # got 'atlantida' shellfish
+expect ">"; send "look paintings\r"
+expect ">"; send "look desk\r"
+expect ">"; send "look files\r"
+expect ">"; send "look stamp\r"
+expect ">"; send "east\r";                      # Private Solarium
+expect ">"; send "look table\r"
+expect ">"; send "look tray\r"
+expect ">"; send "look jacks\r"
+expect ">"; send "look napkin\r"
+expect ">"; send "look crumbs\r"
+expect ">"; send "look cup\r"
+expect ">"; send "look longue\r"
+expect ">"; send "look reader\r"
+
+# TODO: make a new, improved Atlantida
+
+expect ">"; send "save\r"; expect ":"; send "mid13\r"
 
 #
 # Goal #14: Check out the paper and see what’s going on
