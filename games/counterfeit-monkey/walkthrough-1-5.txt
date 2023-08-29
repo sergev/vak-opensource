@@ -242,7 +242,7 @@ South and east lead to more of the park; there is a small cinema (where I left m
 New Church
 Not a Gothic cathedral from the era when the church was wealthy and secure, but a gallant Neo-classical response to the turmoil of the 18th century, when the power of language was just beginning to be evident, and instead of an immutable cosmology, we suddenly had observer-consensus reality. What is the need or use of God, if it turns out that He gave all the power of creation to Adam when He let him name the animals?
 
-An inscription above the altar, picked out in gold paint, reads ½  ÁÇÇ &½ A »y³¿Â. 
+An inscription above the altar, picked out in gold paint, reads Ἐν ἀρχῇ ἦν ὁ λόγος. 
 
 My mother volunteers here: I think I should warn you. She is not quite religious, but believes in the cultural value of the building, and in having some sort of place where people can go for spiritual respite. She also, I suspect, likes having those great gold letters, defiantly foreign and arcane in the heart of the old city.
 
@@ -269,7 +269,7 @@ We take the ticket. It reads ADMIT ONE in large black letters.
 New Church
 Not a Gothic cathedral from the era when the church was wealthy and secure, but a gallant Neo-classical response to the turmoil of the 18th century, when the power of language was just beginning to be evident, and instead of an immutable cosmology, we suddenly had observer-consensus reality. 
 
-An inscription above the altar, picked out in gold paint, reads ½  ÁÇÇ &½ A »y³¿Â. 
+An inscription above the altar, picked out in gold paint, reads Ἐν ἀρχῇ ἦν ὁ λόγος. 
 
 There are side exits both east and west; and a gift shop occupies the narthex at the south end.
 
@@ -1572,5 +1572,31 @@ This gives us something to go on, anyway. We give Slango what I intend as a reas
 He heads out towards the docks and quickly disappears from view -- returning to the yacht to wait for us to arrive with Brock.
 
 [Your score has gone up by five points and is now thirty-seven.]
+
+>save
+Enter saved game to store: start6
+Ok.
+
+>score
+You have earned 37 points:
+  1 point for using the letter-remover
+  3 points for passing through the temporary barrier
+  3 points for winning the gel
+  3 points for retrieving the backpack
+  1 point for using the gel
+  3 points for opening the locker
+  1 point for using the spinner
+  3 points for fueling our car
+  3 points for repairing our car
+  5 points for traveling by car
+  3 points for winning a barroom bet
+  3 points for arranging contact with Slango through his lady friend
+  5 points for meeting Slango
+
+You have not yet removed a, c, f, g, i, j, k, o, q, r, t, v, w, or z from anything.
+
+The achievements you have accomplished so far include: 
+
+  Finished tutorial mode
 
 >
