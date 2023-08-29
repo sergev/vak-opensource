@@ -1,0 +1,469 @@
+#!/usr/bin/expect -f
+#
+# Play game Counterfeit Monkey, goals 1-5.
+#
+# Based on https://intfiction.org/t/counterfeit-monkey-invisiclues/44257
+#
+set timeout -1
+
+# Remove previous log, if any.
+system rm -f "game.log" "*.glkdata"
+log_file "game.log"
+
+# Start the game.
+spawn ./glulxe CounterfeitMonkey-11.gblorb
+match_max 100000
+
+# Introduction
+expect ">>"; send "y\r"
+expect ">"; send "no\r"
+expect ">"; send "wait\r"
+expect "before."; send "\r"
+
+#
+# Goal #1: Get out of these back streets
+#
+expect ">"; send "tutorial off\r"
+expect ">"; send "north\r";                     # Sigil Street
+expect ">"; send "east\r";                      # Ampersand Bend
+expect ">"; send "remove x from codex\r"
+expect ">"; send "open code-lock\r"
+
+#
+# Goal #2: Get my backpack from the cinema
+#
+expect ">"; send "north\r";                     # Fair
+expect ">"; send "spin wheel\r"
+expect ">"; send "west\r";                      # Midway
+expect ">"; send "remove p from apple\r";       # we got gel
+expect ">"; send "n\r";                         # Church Forecourt
+expect ">"; send "w\r";                         # New Church
+expect ">"; send "w\r";                         # Church Garden
+expect ">"; send "remove h from thicket\r"
+expect ">"; send "get ticket\r"
+expect ">"; send "e\r";                         # New Church
+expect ">"; send "e\r";                         # Church Forecourt
+expect ">"; send "n\r";                         # Cinema Lobby
+expect ">"; send "give ticket\r"
+expect ">"; send "w\r";                         # Screening Room
+expect ">"; send "take backpack\r"
+
+#
+# Goal #3: Retrieve your remaining possessions from locker at hostel
+#
+expect ">"; send "n\r";                         # Projection Booth
+expect ">"; send "s\r";                         # Screening Room
+expect ">"; send "e\r";                         # Cinema Lobby
+expect ">"; send "s\r";                         # Church Forecourt
+expect ">"; send "se\r";                        # Fair
+expect ">"; send "e\r";                         # Heritage Corner
+expect ">"; send "remove y from army\r"
+expect ">"; send "take arm\r"
+expect ">"; send "e\r";                         # Hostel
+expect ">"; send "talk to attendant\r"
+expect ">"; send "up\r";                        # Dormitory Room
+expect ">"; send "ask for privacy\r"
+expect ">"; send "show arm\r"
+expect ">"; send "drop arm\r"
+expect ">"; send "remove e from tube\r"
+expect ">"; send "put gel on lock\r"
+expect ">"; send "get clock\r"
+expect ">"; send "open locker\r"
+
+#
+# Goal #4: Meet your colleague Slango at Counterfeit Monkey
+#
+expect ">"; send "get roll\r"
+expect ">"; send "get plans\r"
+expect ">"; send "down\r";                      # Hostel
+expect ">"; send "west\r";                      # Heritage Corner
+expect ">"; send "north\r";                     # Monumental Staircase
+expect ">"; send "north\r";                     # Old City Walls
+expect ">"; send "west\r";                      # Hesychius Street
+expect ">"; send "buy yam\r"
+expect ">"; send "north\r";                     # Webster Court
+expect ">"; send "ne\r";                        # Patriotic Chard-Garden
+expect ">"; send "remove h from chard\r"
+expect ">"; send "get card\r"
+expect ">"; send "remove s from soil\r"
+expect ">"; send "get oil\r"
+expect ">"; send "sw\r";                        # Webster Court
+expect ">"; send "west\r";                      # Roget Close
+expect ">"; send "put yam on pedestal\r"
+expect ">"; send "north\r";                     # Winding Footpath
+expect ">"; send "north\r";                     # Private Beach
+expect ">"; send "get plastic\r"
+
+expect ">"; send "go to Webster Court\r"
+expect ">"; send "wait\r";                      # see where Father goes
+
+expect ">"; send "go to High Street\r";         # High Street
+expect ">"; send "remove d from card\r"
+expect ">"; send "remove n from funnel\r"
+expect ">"; send "put fuel in car\r"
+expect ">"; send "remove b from garbage\r"
+expect ">"; send "give oil to mechanic\r"
+expect ">"; send "ask car\r"
+expect ">"; send "enter car\r"
+expect ">"; send "se\r";                        # Roundabout (jammed into the car)
+expect ">"; send "ne\r";                        # Deep Street (jammed into the car)
+expect ">"; send "nw\r";                        # Fish Market
+expect ">"; send "east\r";                      # Tin Hut
+expect ">"; send "remove s from plans\r"
+expect ">"; send "remove l from plan\r"
+expect ">"; send "put pan into backpack\r"
+expect ">"; send "put monocle into backpack\r"
+expect ">"; send "put remover into backpack\r"
+expect ">"; send "close backpack\r"
+expect ">"; send "west\r";                      # Fish Market
+expect ">"; send "north\r";                     # Docks
+expect ">"; send "west\r";                      # Counterfeit Monkey
+expect ">"; send "ask Origin Paste\r"
+expect ">"; send "ask about winning\r"
+
+#
+# Goal #5: Talk to Lena at the Aquarium Bookstore
+#
+expect ">"; send "go to Aquarium Bookstore\r";  # Aquarium Bookstore
+expect ">"; send "say who we are\r"
+expect ">"; send "remove m from modems\r"
+expect ">"; send "remove p from preamps\r"
+expect ">"; send "remove s from reams\r"
+
+expect ">"; send "go to Outdoor Cafe\r";        # Outdoor Café
+expect ">"; send "remove s from spill\r"
+expect ">"; send "get pill\r"
+
+expect ">"; send "go to Counterfeit Monkey\r";  # Counterfeit Monkey
+expect ">"; send "play game\r"
+expect ">"; send "show pill\r"
+expect ">"; send "put gel on pill\r"
+expect ">"; send "get Origin Paste\r"
+
+expect ">"; send "go to Aquarium Bookstore\r";  # Aquarium Bookstore
+expect ">"; send "put Origin Paste on ream\r"
+expect ">"; send "put Origin Paste on odes\r"
+expect ">"; send "ask about Slango\r"
+expect ">"; send "encourage Lena to contact Slango\r"
+
+expect ">"; send "go to Counterfeit Monkey\r";  # Counterfeit Monkey
+expect ">"; send "say who we are\r"
+expect ">"; send "explain reasons\r"
+expect ">"; send "mutter darkly\r"
+expect ">"; send "ask what the trouble was\r"
+expect ">"; send "complain about inefficiency of scheme\r"
+
+#
+# Goal #6: Check the dead drop at the public convenience
+#
+expect ">"; send "go to Roundabout\r";          # Traffic Circle (jammed into the car)
+expect ">"; send "put Origin Paste on car\r"
+expect ">"; send "get out\r";                   # Traffic Circle
+expect ">"; send "use monocle\r"
+expect ">"; send "get rifle\r"
+expect ">"; send "shoot tree\r"
+expect ">"; send "enter car\r";                 # Roundabout (jammed into the car)
+expect ">"; send "east\r";                      # Tall Street (jammed into the car)
+expect ">"; send "east\r";                      # Abandoned Park
+expect ">"; send "get twig\r"
+expect ">"; send "se\r";                        # Bus Station
+expect ">"; send "put gel on shed\r"
+expect ">"; send "get shred\r"
+expect ">"; send "east\r";                      # Public Convenience
+expect ">"; send "smell\r"
+expect ">"; send "put gel on ash\r"
+
+#
+# Goal #7: Trace Brock’s movements at the antique shop
+#
+expect ">"; send "go to Tall Street\r";         # Tall Street
+expect ">"; send "enter car\r"
+expect ">"; send "west\r";                      # Roundabout (jammed into the car)
+expect ">"; send "south\r";                     # Long Street North (jammed into the car)
+expect ">"; send "south\r";                     # Long Street South (jammed into the car)
+expect ">"; send "west\r";                      # Arbot Maps & Antiques
+expect ">"; send "ask about Brock\r"
+expect ">"; send "ask which map was sold\r"
+expect ">"; send "ask what sort of demonstration\r"
+expect ">"; send "buy map\r"
+expect ">"; send "ask about Brock\r"
+
+#
+# Goal #8: Find a way to understand the map
+#
+expect ">"; send "get legend\r"
+expect ">"; send "go to Fleur d'Or Lobby\r";    # Fleur d’Or Lobby
+expect ">"; send "west\r";                      # Fleur d’Or Drinks Club
+expect ">"; send "show legend to bartender\r"
+expect ">"; send "look legend\r"
+expect ">"; send "ask bartender for screwdriver\r"
+expect ">"; send "put gel on screwdriver\r"
+expect ">"; send "get screwdriver\r"
+
+#
+# Goal #9: Speak to Professor Waterstone and get his invitation to see the T-inserter
+#
+expect ">"; send "go to Long Street South\r";   # Long Street South (jammed into the car)
+expect ">"; send "exit car\r"
+expect ">"; send "put gel on car\r"
+expect ">"; send "remove h from chard\r"
+expect ">"; send "get card\r"
+expect ">"; send "south\r";                     # Palm Square
+expect ">"; send "south\r";                     # Babel Café
+expect ">"; send "buy wrap\r"
+expect ">"; send "north\r";                     # Palm Square
+expect ">"; send "sw\r";                        # closed (You had me leave my keys behind, remember?)
+expect ">"; send "west\r";                      # window opens
+expect ">"; send "\r";                          # Apartment Bathroom
+expect ">"; send "close window\r"
+expect ">"; send "take key\r"
+expect ">"; send "take ring\r"
+expect ">"; send "south\r";                     # My Apartment
+expect ">"; send "ne\r";                        # mother walks into the room
+expect ">"; send "say girlfriend\r"
+expect ">"; send "say don't know\r"
+expect ">"; send "agree to take care of the monocle\r"
+expect ">"; send "taste yogurt\r"
+expect ">"; send "reassure Mother\r"
+expect ">"; send "ne\r";                        # Palm Square
+expect ">"; send "se\r";                        # University Oval
+expect ">"; send "talk to activist\r"
+expect ">"; send "encourage activist\r"
+expect ">"; send "ask how consciousness will be raised\r"
+expect ">"; send "donate\r"
+expect ">"; send "south\r";                     # Samuel Johnson Hall
+expect ">"; send "se\r";                        # Language Studies Department Office
+expect ">"; send "north\r";                     # Waterstone’s Office
+expect ">"; send "excuse\r"
+expect ">"; send "say that we just dropped by to meet him\r"; # Language Studies Department Office
+expect ">"; send "nw\r";                        # Samuel Johnson Hall
+expect ">"; send "down\r";                      # Samuel Johnson Basement
+expect ">"; send "south\r";                     # Graduate Student Office
+expect ">"; send "remove y from sticky\r"
+expect ">"; send "get stick\r"
+expect ">"; send "open refrigerator\r"
+expect ">"; send "get shrimp tail\r"
+expect ">"; send "remove c from cream\r"
+expect ">"; send "get ream\r"
+expect ">"; send "go to Language Studies Department Office\r"; # Language Studies Department Office
+expect ">"; send "put ream in printer\r"
+expect ">"; send "close printer\r"
+expect ">"; send "read draft\r"
+
+# Speak to Dr.Brown
+expect ">"; send "go to Samuel Johnson Basement\r"; # Samuel Johnson Basement
+expect ">"; send "sw\r";                        # Brown’s Lab
+expect ">"; send "ask whether he can fix the letter-remover\r"; # “There,” he says. “Should be abstract-enabled now.”
+
+# Speak to Dr.Higgate
+expect ">"; send "go to Language Studies Department Office\r"; # Language Studies Department Office
+expect ">"; send "west\r";                      # Higgate’s office
+expect ">"; send "say no\r"
+expect ">"; send "ask how we might return a book\r"; # Language Studies Seminar Room
+expect ">"; send "return book\r"
+
+# Get a keycard
+expect ">"; send "open case\r";                 # "Is someone in the Seminar Room?"
+expect ">"; send "open case\r"
+expect ">"; send "get crossword\r"
+expect ">"; send "put gel on crossword\r"
+expect ">"; send "put key in synthesizer\r"
+expect ">"; send "put card in synthesizer\r"
+expect ">"; send "turn on synthesizer\r"
+expect ">"; send "get keycard\r"
+expect ">"; send "put gel on as\r";             # as = Roman coin
+expect ">"; send "remove i from pastis\r"
+expect ">"; send "remove t from pasts\r"
+expect ">"; send "put pass in synthesizer\r"
+expect ">"; send "put word in synthesizer\r"
+expect ">"; send "turn on synthesizer\r"
+expect ">"; send "get password\r"
+
+# Improve your remover
+expect ">"; send "go to Samuel Johnson Basement\r"; # Samuel Johnson Basement
+expect ">"; send "remove w from wrap\r"
+expect ">"; send "drop rap\r"
+expect ">"; send "west\r";                      # Rectification Room
+expect ">"; send "turn on computer\r"
+expect ">"; send "enter password\r"
+expect ">"; send "type 4\r"
+expect ">"; send "put remover in machine\r"
+
+# Show cock and cocktail to Prof.Waterstone
+expect ">"; send "go to Language Studies Department Office\r"; # Language Studies Department Office
+expect ">"; send "remove l from clock\r"
+expect ">"; send "show cock to Waterstone\r"
+expect ">"; send "go to Seminar Room\r";        # Seminar Room
+expect ">"; send "put cock in synthesizer\r"
+expect ">"; send "put tail in synthesizer\r"
+expect ">"; send "turn on synthesizer\r"
+expect ">"; send "get cocktail\r"
+expect ">"; send "go to Language Studies Department Office\r"; # Language Studies Department Office
+expect ">"; send "show cocktail to Waterstone\r"
+expect ">"; send "wait\r"
+expect ">"; send "get invitation\r"
+
+#
+# Goal #10: Gain entrance to the Bureau
+#
+expect ">"; send "go to University Oval\r";     # University Oval
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "go to Tall Street\r";         # Tall Street
+expect ">"; send "wear shred\r"
+expect ">"; send "hit figure with stick\r"
+expect ">"; send "south\r";                     # Rotunda
+expect ">"; send "put gel on password\r"
+expect ">"; send "remove t from twig\r";        # got wig
+expect ">"; send "put origin paste on pass\r"
+expect ">"; send "put origin paste on wig\r"
+expect ">"; send "wear wig\r"
+expect ">"; send "south\r";                     # Antechamber
+expect ">"; send "show invitation\r"
+expect ">"; send "show pass\r"
+expect ">"; send "wait\r"
+
+#
+# Goal #11: Find Brock
+#
+expect ">"; send "east\r";                      # Bureau Hallway
+expect ">"; send "down\r";                      # Bureau Basement South
+expect ">"; send "turn on automaton\r"
+expect ">"; send "north\r";                     # Bureau Basement Middle
+expect ">"; send "north\r";                     # Bureau Basement Secret Section
+expect ">"; send "west\r";                      # Sensitive Equipment Testing Room
+expect ">"; send "put gel on rock\r"
+expect ">"; send "suggest we get out of here\r"
+expect ">"; send "accept lunacy\r"
+expect ">"; send "discover why Brock got stuck here\r"
+expect ">"; send "complain about recklessness\r"
+expect ">"; send "remind Brock that synthesis was necessary because of him\r"
+
+#
+# Goal #12: Test T-inserter
+#
+expect ">"; send "put roll into inserter\r";    # got troll
+expect ">"; send "put gel on troll\r"
+expect ">"; send "remove g from sign\r";        # got sin
+expect ">"; send "put sin into inserter\r";     # got stint
+expect ">"; send "remove s from stint\r";       # got tint
+expect ">"; send "remove n from tint\r";        # got tit
+expect ">"; send "remove t from tit\r";         # got I
+expect ">"; send "put I into inserter\r";       # got tit
+expect ">"; send "remove t from tit\r";         # got  I
+expect ">"; send "put I into inserter\r";       # got it
+
+#
+# Goal #13: Escape the Bureau
+#
+expect ">"; send "get rock\r"
+expect ">"; send "east\r";                      # Bureau Basement Secret Section
+expect ">"; send "deny everything\r"
+expect ">"; send "lay out our reasons\r"
+expect ">"; send "quibble\r"
+expect ">"; send "wait\r";                      # Cold Storage
+expect ">"; send "put gel on rock\r";           # "Aren't we safer together?"
+expect ">"; send "no\r"
+expect ">"; send "ne\r";                        # Bureau Basement Secret Section
+
+# From here, you can only access five rooms:
+#   the Bureau Basement Secret Section,
+#   the Sensitive Equipment Testing Room,
+#   Wonderland,
+#   the Equipment Archive, and
+#   the Display Reloading Room.
+
+expect ">"; send "north\r";                     # Wonderland
+expect ">"; send "east\r";                      # Equipment Archive
+expect ">"; send "put gel on granulates\r"
+expect ">"; send "get bullets\r"
+expect ">"; send "put component in punch\r"
+expect ">"; send "remove h from power chord\r"; # got cord
+expect ">"; send "get power cord\r"
+expect ">"; send "south\r";                     # Display Reloading Room
+expect ">"; send "push button\r"
+expect ">"; send "get gun\r"
+expect ">"; send "load gun\r"
+expect ">"; send "go to Wonderland\r";          # Wonderland
+expect ">"; send "shoot odor\r"
+expect ">"; send "open door\r"
+expect ">"; send "north\r";                     # Oracle Project
+
+# Now you can access:
+#   Oracle Project,
+#   Surveillance Room,
+#   Tunnel through Chalk,
+#   Workshop, and
+#   Generator Room.
+
+expect ">"; send "put gel on paperweight\r";    # actually paper and weight
+expect ">"; send "get weight\r"
+expect ">"; send "east\r";                      # Surveillance Room
+expect ">"; send "down\r";                      # Tunnel through Chalk
+expect ">"; send "get counter\r"
+expect ">"; send "up\r";                        # Surveillance Room
+expect ">"; send "east\r";                      # Workshop
+expect ">"; send "plug cord into wall\r"
+expect ">"; send "plug cord into dais\r"
+expect ">"; send "east\r";                      # Generator Room
+expect ">"; send "put stick in bucket\r";       # got stock
+expect ">"; send "west\r";                      # Workshop
+expect ">"; send "flip switch\r"
+expect ">"; send "put counter on dais\r"
+expect ">"; send "put weight on dais\r"
+expect ">"; send "pull lever\r";                # got counterweight
+expect ">"; send "get counterweight\r"
+expect ">"; send "go to Tunnel through Chalk\r"; # Tunnel through Chalk
+expect ">"; send "put counterweight on hook\r"
+expect ">"; send "open portcullis\r"
+
+# Atlantida
+# (game automatically saved as CM-Atlantida-fight-autosave)
+expect ">"; send "east\r";                      # Personal Apartment
+expect "continue."; send " \r";                 # “Don’t move, Alexandra, or I’ll split you in two.”
+expect ">"; send "shoot rifle with gun\r"
+expect ">"; send "shoot rifle with gun\r";      # twice
+expect ">"; send "put gel on astrologer\r"
+expect ">"; send "put gel on astrologer\r";     # twice
+expect ">"; send "shoot Atlantida with rifle\r"; # got 'atlantida' shellfish
+expect ">"; send "get atlantida\r"
+expect ">"; send "east\r";                      # Private Solarium
+
+# Make a new, improved Atlantida
+expect ">"; send "remove s from jacks\r";       # got jack
+expect ">"; send "get jack\r"
+expect ">"; send "west\r";                      # Personal Apartment
+expect ">"; send "open portcullis\r"
+expect ">"; send "go to Workshop\r";            # Workshop
+expect ">"; send "flip switch\r"
+expect ">"; send "put atlantida on dais\r"
+expect ">"; send "pull lever\r";                # got new Atlantida
+expect ">"; send "go to Personal Apartment\r";  # Personal Apartment
+expect ">"; send "get jack\r"
+expect ">"; send "east\r";                      # Private Solarium
+expect ">"; send "north\r";                     # Precarious Perch
+expect ">"; send "down\r";                      # Abandoned Shore
+expect ">"; send "remove l from bollard\r";     # got board
+expect ">"; send "remove d from board\r";       # got boar
+expect ">"; send "remove b from boar\r";        # got oar
+expect ">"; send "get oar\r"
+expect ">"; send "enter kayak\r"
+expect ">"; send "north\r";                     # Open Sea (in the kayak)
+expect ">"; send "north\r"
+expect "continue."; send " \r"
+expect "continue."; send " \r";                 # Your Bunk
+
+#
+# Goal #14: Check out the paper and see what’s going on
+#
+expect ">"; send "open wardrobe\r"
+expect ">"; send "wear trousers\r"
+expect ">"; send "wear turtleneck\r"
+expect ">"; send "fp\r";                        # Galley
+expect ">"; send "read newspaper\r"
+
+# Quit
+expect ">"; send "quit\r"
+puts ""
+exit
