@@ -1074,6 +1074,11 @@ Her eyes follow the gesture. "Don't you dare, you little traitor," she says. "I 
 
 You don't let me finish. I shoot the restoration gel rifle at Atlantida. With an audible SPLORT, Atlantida becomes an atlantida. It's a sort of shellfish, vaguely like a clam or scallop but bigger and with different ridges.
 
+>get atlantida
+I pick up the atlantida. It's heavy as a rock, because it has been fossilized.
+
+There's a distant sound of movement. Someone is looking for us.
+
 >look paintings
 They look like originals. I have seen some of these portraits before, in books at school or in the museum, but was given to understand that they'd been stolen, leaving only photographs or replicas.
 
@@ -1098,8 +1103,6 @@ A window in the north wall, cut out through the cliff face, gives a view of tran
 Left on a coffee table (as though waiting for maid service) is a silver tray. On the silver tray are some jacks, a cloth napkin, some crumbs, and a dirty coffee cup. 
 
 There is an ebook reader on the chaise longue. 
-
-There's a distant sound of movement. Someone is looking for us.
 
 >look table
 Antique as well, most likely. It is the same handsome wood as the furnishings in the rest of the apartment.
@@ -1133,21 +1136,416 @@ An expensive recent model, silver-backed, with a glossy touch screen.
 
 The ebook reader is currently switched off.
 
->save
-Enter saved game to store: mid13
-Ok.
+>remove s from jacks
+I reset the device to s. There is a mad-scientist cackle, and the jacks turn into a jack. A heavy-duty jack, suitable for raising cars or other substantial objects.
 
->goals
-Here's what I think I need to do: 
-  Escape the Bureau
+>get jack
+I take the jack.
 
->i
-I am equipped with the following essentials: an anagramming gun, a backpack, a flash drive, your H-remover (upgraded to handle animates and abstracts), a monocle, some Origin Paste, a pan (really the smuggled plans in disguise), a roll, and a tub of restoration gel.
+>west
 
-I am also carrying an arm, some asparagus, a banana, a cross, Guidebook to Anglophone Atlantis, a jotter, a keycard (which opens the small door), a letter, a lime, a map of Slangovia, a pass, a restoration gel rifle, a ring (which opens the sturdy iron gate), some sage, a screwdriver, a shred, a shrimp cocktail, a wig, a word, and some yogurt.
+Personal Apartment
+At a guess, this is a room hardly anyone ever visits, or even knows about. Though the ceiling and one wall are bare cave, the rest has been paneled and  graciously decorated in the style of the end of the 18th century. Oil paintings on the walls depict great men and women of Atlantis gone by: Phyllida Shaply, Amelia Landison, Clarence Arbot, Jon Rosehip. An antique bed stands in the center of the room.
 
-Of that collection, the flash drive, the monocle, the Origin Paste, and the pan (really the smuggled plans in disguise) are packed away in the backpack, which is gaping wide open so everyone can see what's inside. 
+The metal portcullis guards the way back. It is currently lowered. From the pulley above the portcullis hangs a counter. 
 
-I am wearing the wig and the shred. 
+On the inlaid desk are a stack of files and a rubber stamp. 
 
->
+Air and sunlight stream in from the east.
+
+>open portcullis
+I slip the jack under the portcullis and raise it a few feet -- enough for me to slip past.
+
+>go to Workshop
+I walk. 
+
+Workshop
+A room whose importance is obvious from how clean it is and how little furniture it is allowed to have.
+
+A programmable dais sits in the middle of the room. It has the raw look of lab equipment rather than a nice smooth commercial instrument. 
+
+A power cord snakes across the floor, connecting the dais socket to the wall socket. 
+
+I can go east to the Generator Room and west to the Surveillance Room from here.
+
+I definitely hear footsteps. And voices.
+
+>flip switch
+I give the switch a strong twist and turn it to swap homonym.
+
+>put atlantida on dais
+I put the atlantida on the programmable dais.
+
+>pull lever
+The programmable dais glows deep red. Almost at once Atlantida is lying on the surface. She looks very similar to her earlier self, but the differences are there. The eyes are grey now. A tattoo of a writhing squid encircles her left wrist. Her face is younger.
+
+She gets to her feet.
+
+"You'd better leave, quickly," she says. "I'll make sure your friends get out, but it will be easier if we don't have to explain you as well."
+
+I could ask how to fix the fusion.
+
+>ask how to fix the fusion
+"The two of us, Alex and Andra, we seem to be stuck together permanently. You don't happen to know how to remove our fusion?"
+
+She shakes her head. "We've never found a way to undo that effect completely," she says. "I'm sorry. But try to listen to both your voices. One may be the weaker now, but if you try to kill that self entirely, it tends to cause a severe mental illness."
+
+I want to ask what Atlantida knows about synthesis.
+
+>ask what Atlantida knows about synthesis
+"Wait, what do you know about synthesized people?" If we don't find out now, will there be a better time?
+
+"There have been experiments. They didn't end well, though most didn't collapse into a single dominant personality as quickly as you. You've been under unusual stress."
+
+There's a brief pause.
+
+"Hurry!" she says. "Take the window in the Solarium, climb down the beach. Don't look back."
+
+>go to Personal Apartment
+It's a quick walk. 
+
+Personal Apartment
+At a guess, this is a room hardly anyone ever visits, or even knows about. Though the ceiling and one wall are bare cave, the rest has been paneled and  graciously decorated in the style of the end of the 18th century. Oil paintings on the walls depict great men and women of Atlantis gone by: Phyllida Shaply, Amelia Landison, Clarence Arbot, Jon Rosehip. An antique bed stands in the center of the room.
+
+Atlantida stands nearby, urging me to hurry out via the Private Solarium. I think she's enjoying her role as conspiratorial heroine. 
+
+The metal portcullis guards the way back. It is currently raised a few feet by a jack. From the pulley above the portcullis hangs a counter. 
+
+On the inlaid desk are a stack of files and a rubber stamp. 
+
+Air and sunlight stream in from the east.
+
+Someone is coming into the workshop upstairs. There's at most a few seconds before they'll be down the tunnel.
+
+>get jack
+I pick up the jack.
+
+The portcullis crashes shut.
+
+The portcullis should at least slow down anyone coming after us. Though that's only moderately comforting.
+
+>east
+She follows. "Go, go," she says. "You've done good work today. Atlantis is grateful."
+
+Private Solarium
+Atlantida stands nearby, urging me to hurry out via the Private Solarium. 
+
+A window in the north wall, cut out through the cliff face, gives a view of tranquil sea under a darkening sky. 
+
+Left on a coffee table (as though waiting for maid service) is a silver tray. There are a cloth napkin, some crumbs, and a dirty coffee cup on the silver tray. 
+
+There is an ebook reader on the chaise longue. 
+
+From the other room, the noises make it sound as though someone is using a metal torch to dismantle the portcullis bar by bar.
+
+>north
+I open the tall window.
+
+As soon as we're through, Atlantida closes the window behind us, and we hear it lock. No evidence that we came through here, now.
+
+Precarious Perch
+From up here there's a handsome view of the sea, which isn't so far down really. But it's a scramble down a nearly sheer cliff for the first bit, until I make it down to the rockfall below, and it would be easy for a careless person to injure herself.
+
+It's hard to see through the tall window to the room behind: mostly it reflects the sea.
+
+>look sea
+The water is quiet today -- though it rarely achieves very impressive waves anyhow. The color ranges from a bright Bureau blue close to shore to a deep lapis at the horizon.
+
+>down
+It's a nasty business lowering ourselves over the edge, with little to hold onto up here; scrabbling around with our toes for good holds; letting go with one hand to descend a little further...
+
+But after some minutes of this painstaking process the cliff begins to slope outward more, and it's no longer a question of climbing down a face, but rather of scrambling down over boulders. And then... 
+
+Abandoned Shore
+There's a little inlet of shore here, mostly boulders with little sand, completely cut off from the dock area and sheltered by the curve of the rock so that it wouldn't be visible from the sea unless someone were very close in.
+
+There is a squid in the tidal pools among the boulders. 
+
+A bollard is bolted to one of the rocks, which is curious considering the otherwise unused and inaccessible look of the spot. 
+
+An old but still serviceable kayak is drawn up and firmly shackled to the bollard. 
+
+>look squid
+A squid, washed into a tidal pool, but not damaged. When the tide comes back in, it will be free to go.
+
+>look boulders
+Rough black rock, the kind that tears up your hands if you try to hold onto it too tightly.
+
+On the boulders is a squid.
+
+>look bollard
+A metal pole, painted all-weather green and bolted to a rock. Its ilk are used in more trafficked places for securing boats and so on; and indeed so is this one, despite the implausible setting.
+
+>look kayak
+A green plastic boat, designed to be used by one person with a paddle or oar. It's seaworthy, at least for reasonable distances, and shackled to the bollard for safety.
+
+>remove l from bollard
+I reset the device to l. With a distinct whiff of raw wood, the bollard turns into a board. It's a fairly generic plank -- sort of pine, by the looks of it, though constructed things tend to be a little vague on niceties such as species -- and looks like it's designed to be part of a new deck or somesuch thing.
+
+>remove d from board
+I reset the device to d. With a distinct whiff of sweaty animal, the board turns into a boar. In the old days they used to hunt these animals, and I can understand the impulse. It's like a pig, but even uglier and bristlier, with long dangerous-looking tusky teeth coming out of both its top and bottom jaws.
+
+The boar gives us a very nasty kind of look, and then -- without any provocation, I'm sure -- starts running right at us.
+
+>remove b from boar
+I reset the device to b. Our hand is less than steady, but I manage to wave the letter-remover accurately enough.
+
+The boar vanishes with a pop, and an oar falls harmlessly to the ground. It's a light sort of oar, almost a paddle. Still probably not the ideal thing for use with a kayak, but it'll do.
+
+>get oar
+I get the oar.
+
+>enter kayak
+I get into the kayak.
+
+>north
+With some awkwardness, I manage to push off and begin to laboriously row for open sea.
+
+Open Sea (in the kayak)
+The water stretches in all directions, but I can see off to the north where Slango's yacht is anchored, ready to bring me back aboard. Its metallic blue shape almost blends in with the water.
+
+If I were further around the island to the east, I might be able to see bits of the drowned city: both the buildings that were legitimately destroyed when the land sunk into the sea, and the areas where during the Civil Dispute of Standardization the authorities dumped unwanted foreign archaeological artifacts. But here I'm afraid it's just shellfish and sand down there.
+
+>north
+I come around to the aft of Slango's yacht and give a good shout. With the help of a ladder and a hand up from Slango himself, I soon have the kayak stored, and ourselves and our possessions on deck.
+
+Before we can really start a conversation, Slango has a rough go at us with a washcloth and a tub of restoration gel. He is determined to separate you from me before he has a real talk with either of us; and it's not until a number of swipes in that he realizes how wrong things are.
+
+"This isn't working," he remarks, tossing the gel and washcloth aside.
+
+"We're fused," I explain, not very coherently. "Something happened. I don't know if it can be fixed."
+"And Brock?" Slango demands. "Have you got him?"
+
+I shake our head. "But he'll be released soon," I say. "I'm pretty sure I've seen to that."
+
+"Pretty sure," Slango repeats.
+
+I just look at him.
+
+"Okay," he says, though it isn't. "Okay." And he goes to the cockpit and fires up the engine, while we watch the lights of Atlantis get farther away and finally dim.
+
+
+Please press SPACE to continue.
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+In the rocking boat, with the sound of the motor beneath us, you dream
+
+of a ceremony on a clifftop with our two families seated looking on, and us in a long white dress, carrying a bouquet of scrabble tiles, walking down an aisle alone to be formally unified with ourself
+
+of wearing a suit and meeting with some very rich men to talk about how to bring my language to Africa, and Brock giving us advice about how to handle them
+
+of gathering all the indigenous languages, all the little dying languages, all the languages shoved aside because they lack linguistic efficacy, into a firefly bottle, where their letterforms flicker desperately
+
+
+
+Please press SPACE to continue.
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+72 hours later
+
+Your Bunk (aboard the True Macaque) (on your bed)
+Amazing: it's even tinier than my apartment, and the bed isn't even a twin in width. Across from the bed is a built-in bench, with portholes above, just at the waterline.
+
+Your wardrobe door is firmly closed, which is helpful because otherwise it is tricky walking around in here. 
+
+[Your score has gone up by fifteen points and is now one hundred.]
+
+>look bed
+Homely but familiar.
+
+your bed has two drawers. Neither are open.
+
+>look bench
+It's hard and less comfortable than a sofa, but it is adequate for seating on the rare occasions when a second person comes into your room. Mostly you read on the bed.
+
+>look portholes
+Perhaps I should drop any attempt to sound nautical and just call them windows, because they are not the round things one normally thinks of. But they are waterproof and just above the water line.
+
+>open wardrobe
+I open your wardrobe, revealing a wig, a shred, a ring, a monocle, a backpack, a sundress, a black turtleneck, some trousers, and a swimsuit.
+
+>look wig
+A surprisingly realistic wig, cut to about the shoulder. It looks like our hair, but a good bit longer.
+
+>look shred
+Just a torn rag-end of cloth. It is white and blue, and bears every evidence of having been part of an obligatory-service uniform.
+
+>look ring
+A gold-toned ring that from a distance would look like a signet. In fact the face of it is figured with the symbol of the university, an owl biting the letter A in its beak. Embedded in this face is the tiny RFID tag that opens generic university security.
+
+It is the perfect combination of technical paranoia and old-fashioned pretentiousness, and one is assigned to every new student with great pomp on the day of orientation.
+
+The ring unlocks the sturdy iron gate.
+
+>look monocle
+This is no mere fashion accessory. It is the very top grade of authentication scope, designed for people who have to use them all day, and normally available only to employees of the Bureau of Orthography. If I look through the monocle at something, I can see its true nature, regardless of spelling changes.
+
+>look backpack
+Mine: a little bit worn, but capacious. It doesn't have any identifying marks on it, and I thought a brand-new bag would look more suspicious. It currently gapes open.
+
+>look sundress
+Bought during a vacation in Nauplia. It was tempting to look like the other tourists. And why not?
+
+>look turtleneck
+It averts attention and is useful on jobs.
+
+>look trousers
+Close-fitting and dark colored, useful to wear when going places sneakily by night.
+
+>look swimsuit
+Often the only form of exercise available is swimming off the back of the True Macaque, and Slango insists that you and Brock do this daily if on-shore forms of exertion are not available. It's a one-piece suit, meant for function rather than show.
+
+>wear trousers
+(first taking the trousers)
+I put on the trousers.
+
+The yacht rolls gently under the influence of an especially strong wave.
+
+>wear turtleneck
+(first taking the black turtleneck)
+I put on the black turtleneck.
+
+>fp
+I get off your bed.
+
+Galley (aboard the True Macaque)
+Smaller than the kitchen in a comfortable house, but carefully and elegantly fitted, with an electric stovetop, a convection oven/microwave, a tiny refrigerator, a sink: enough, in short, to serve the crew of three on long trips. I guess even a fairly big boat is still small on the inside, eh?
+
+There's even a little washing machine, for items too big to hand-wash in the sink.
+
+There are a newspaper and a pan on the built-in table. 
+
+On the port wall, built-in shelves hold a battered selection of games.
+
+>look table
+When the weather is good and there is nothing urgent happening, you all often eat out on the sunning deck, which is more congenial; but at other times you take your meals down here, on this table. The seating is built-in.
+
+On the built-in table are a newspaper and a pan (empty).
+
+>look pan
+An omelet-sized skillet in cast iron.
+
+>look games
+Oh, all sorts: Boggle and Scrabble, which you always win and which therefore Brock and Slango only play when they're in a mood for cheering you up. Monopoly, dusty with disuse. Puerto Rico. Arkham Horror. It's surprising what even Brock will admit to being amused by in the course of a long evening at sea.
+
+>read newspaper
+It's the Chard-Farmer's Daily from Atlantis. A huge headline is splashed across the front:
+
+"REFERENDUM ANNOUNCED!"
+
+The picture on the front shows the Atlantida statue decked out with lights like a Christmas tree and people posing next to her for pictures.
+
+My father has been promoted, apparently, to something called the Provisional Committee for Orthographic Reform. He is quoted as saying that the amnesty for Cold Storage prisoners is an important step forward. "Of course, government by citizen referendum brings its own problems, and further constitutional work may be needed if we mean to bring Atlantis in line with the European Union."
+
+Slango comes in, with Brock behind him. "Bad news," he says. "We're going to have to split that payout three ways instead of two. The new Atlantida has a perverse sense of humor. She express-mailed Brock to Mallorca for us. In rock form."
+
+Brock bends down to massage his right thigh. "Turns out it's not comfortable having spent the night in a cardboard box, even if you were petrified at the time. Things to know and learn."
+
+I study his face. It's the face he wears when he's reserving judgment about whether or not to be incredibly pissed off. You're the one who knows how to read that face, but I'm a little relieved to see it too.
+
+"My father might've been inanimated instead," I say.
+
+"Slango mentioned," Brock says.
+
+"He's a lot older. I thought he might have some heart trouble or... or not deal with it well."
+
+Brock studies us for a moment more. Then he reaches into his pocket and pulls out a huge gummy candy shaped like a squid.
+
+"Want one? They used them as packing material in my shipping box. We've got lots."
+
+
+
+    *** The End ***
+
+
+In that game you scored 100 out of a possible 100, in 374 turns, earning you the rank of Successful Revolutionary.
+
+
+Achievement accomplished: Alex Rosehip award for completing the game in easy mode!
+
+
+Would you like to RESTART, RESTORE a saved game, QUIT, UNDO the last command, review your final SCORE, reveal what ACHIEVEMENTS you have yet to accomplish, or learn about some of the SOURCES used in creating this game?
+> achievements
+These achievements you have yet to accomplish:
+
+  Admiral Thoureaux award for removing every letter of the alphabet in one playthrough
+  Amanda Waterstone award for discovering cultic passages
+  Andra award for completing the game in hard mode
+  Camilla Downdweller award for creating five types of fish in one playthrough
+  Finn Rosehip award for gnu-hunting
+  Horace Fingerstain award for jotting some notes
+  Igor Rosehip award for creating at least five body parts in one playthrough
+  Jocasta Higgate award for reconstructing pagan worship on the island
+  Lester Parsons award for discovering unspecified local rites
+  Lord Michael Rosehip award for showing the black spot to a pirate crew
+  Lucius Quagmire award for viewing unusual films
+  Mort Shaply award for showing Poe a raven-based foodstuff
+  Priscilla Parsons award for winning the game without ever entering the church
+  Propper Rosehip award for talespinning
+  Reverend Plaice award for placing the cross on the altar while liturgically dressed
+  Roman "Sticky" Fingerstain award for impromptu art theft
+
+Would you like to RESTART, RESTORE a saved game, QUIT, UNDO the last command, review your final SCORE, reveal what ACHIEVEMENTS you have yet to accomplish, or learn about some of the SOURCES used in creating this game?
+> sources
+I started working in earnest on this game in 2008. Since that time, the US has undergone two presidential elections; for months, the Occupy Seattle protests filled a city block just a short stroll from my apartment; and the successes and failures of the Arab Spring were constantly in the news. These experiences introduced more serious themes into what was initially a purely silly game.
+
+Gene Sharp's From Dictatorship to Democracy and the documentary How to Start a Revolution helped me think about peaceful revolutions and the communication of dissent within totalitarian regimes.
+
+The history of Atlantis' colonization mirrors that of nearby Gibraltar, on the theory that the same powers would have been likely to take an interest. Wikipedia supplied most of the potted history I used for this.
+
+Arika Okrent's In the Land of Invented Languages and Mark Rosenfelder's Language Construction Kit (first a website, subsequently a book) taught me a lot about existing constructed languages and helped me imagine what might interest Atlantean academics.
+
+Poor Economics (Abhijit Banerjee, Esther Duflo) provided some general background about different attempts to address global poverty, contributing to the Atlantean concept of utopian linguistics (and why it hadn't yet saved the world).
+
+The Scrabble dictionary and the internet anagram server, among others, helped me map out the puzzle space systematically.
+
+Hundreds of other small details came out of YouTube or Wikipedia, from the composition of classic cocktails to the mating behavior of pigs. Background for specific elements may be found in the game's source text.
+
+Would you like to RESTART, RESTORE a saved game, QUIT, UNDO the last command, review your final SCORE, reveal what ACHIEVEMENTS you have yet to accomplish, or learn about some of the SOURCES used in creating this game?
+> 
