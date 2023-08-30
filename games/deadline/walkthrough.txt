@@ -14,8 +14,652 @@ north at the end of a pebbled path is the Robner house, flanked to the northeast
 and northwest by a vast expanse of well-kept lawn. Beyond the house can be seen
 the lakefront.
 
->wait
+>north
+
+
+Front Path
+You are at the Robners' front door, which is closed.
+You can walk around the house from here to the east or west. To the south a
+rolling lawn leads to the entrance of the estate.
+
+>open door
+
+
+The front door is now open.
+
+>north
+
+
+Mrs. Robner appears, walking down a hallway from the north.
+"Hello," she says, "I'm Mrs. Robner. Please come in. I'm afraid I really can't
+help you much. This is surely a terrible waste of time, not to mention
+upsetting, having all these police marching around the house. This has been a
+trying time, as I suppose you can understand. As I told Mr. Coates and the other
+detective, you may look around but you must be out by 8 o'clock at the latest.
+Oh, I almost forgot...Mr. Coates will be reading my husband's will at noon in
+the living room. You may attend if you wish.""I'm going to make myself some
+breakfast now. I'll be around all day if you need anything. I'll do what I can
+to help. Good day!"
+Foyer
+This is the foyer of the Robner house, beautifully appointed with a fine crystal
+chandelier, marble floors, and a large marble-topped table. The front door, to
+the south, is closed. The foyer continues north.
+Mrs. Robner heads off to the north.
+
+>north
+
+
+North of Foyer
+This is a hallway north of the foyer. To the west is an open doorway, and to the
+east is the foot of a staircase. The hall continues north.
+Mrs. Robner heads off to the north.
+
+>east
+
+
+Bottom of Stairs
+You are at the foot of the stairs to the second floor. Open archways lead west
+and south.
+
+>up
+
+
+Stairs
+You are on a landing halfway up the flight of stairs. You notice that the stairs
+do indeed make quite a noise when stepped upon.
+
+>up
+
+
+Top of Stairs
+You are at the top of the staircase where short hallways run north and south and
+a corridor the length of the house heads west.
+
+>west
+
+
+Hallway
+You are just west of the staircase. There are doors on both sides (north and
+south) of the hallway, which continues west. Both doors are closed.
+
+>west
+
+
+Hallway
+This is approximately the middle of the corridor, a convenient place for a
+closet full of linens. Stairs to the east and a window to the west are about
+equidistant. The closet, to the north, is open and rather shallow.
+
+>west
+
+
+Hallway
+This section of hallway is near the west end. Through the window at the end of
+the hall you can see some trees and the lake beyond. The hallway continues east
+and west, and a door to the south is closed.
+
+>west
+
+
+End of Hallway
+This is the west end of the upstairs hall. To the north is the library, where
+Mr. Robner was found. Its solid oak door has been knocked down and is lying just
+inside the entrance to the library. A window which cannot be opened is at the
+end of the hallway.
+
+>north
+Library
+This is the library where Mr. Robner's body was found. It is decorated in a
+simple but comfortable style. Mr. Robner obviously spent a great deal of time
+here. A wide executive desk sits before tall balcony windows which lie at the
+north of the room. A telephone is sitting on the desk. The east side of the room
+is composed of three large bookshelf units containing numerous volumes on many
+topics. The floor is carpeted from wall to wall. The massive oak door which
+blocked the entrance has been forcibly knocked off its hinges and is lying by
+the doorway.
+A pencil is lying on the floor near the desk.
+Beside the desk is a large collapsible tray.
+Sitting on the tray is a bowl containing a white powdery substance.
+Alongside the desk is a wicker wastepaper basket.
+The wastepaper basket contains:
+  A bunch of crumpled papers
+Lying on the floor, overturned, is a beautiful saucer.
+Turned onto its side, lying on the floor, is a beautiful teacup.
+Lying atop the desk is a pad of white note paper.
+A desk calendar is here, open to July 7.
+There is a bottle of Ebullion here.
+
+
+
+>examine rug
+
+
+The carpet is an expensive affair, and quite clean, except for a few small areas
+of dried mud in the vicinity of the desk. There are no other stains or markings
+that you can see.
+
+>get cup
+
+
+Taken.
+
+>get pad
+
+
+Taken.
+
+>get calendar
+
+
+Taken.
+
+>get pencil
+
+
+Taken.
+
+>rub pencil on pad
+
+
+Shading the paper with the pencil reveals impressions left by writing on the
+previous sheet. The writer must borne down heavily, but only a few words come
+out clearly:
+
+  Baxter,
+
+                  st time
+ nsist             op       merg
+       mnidy               Oth
+          forc
+         ocumen     y poss
+  plica     y      Focus s
+          recons
+late!
+                              rsha
+
+>turn page of calendar
+
+
+It is open to July 8.
+There is only one notation here, in the 9AM spot: "Call Coates: Will completed".
+
+>open balcony door
+
+
+The balcony door is now open.
+
+>north
+
+
+Library Balcony
+The balcony is bare of furniture, though it has a beautiful view of the rose
+garden, the north lawn and the lake. A metal railing around the balcony
+prevents an accidental drop to the thorny roses below. The window between the
+balcony and the library is open.
+Away to the north, Mr. McNabb can be seen mowing the grass.
+
+>examine railing
+
+
+The railing is made of a sturdy metal and helps prevent nasty falls. There is a
+small area of paint scraped off the outside edge.
+
+>south
+
+
+Library
+Beside the desk is a large collapsible tray.
+Sitting on the tray is a bowl containing a white powdery substance.
+Alongside the desk is a wicker wastepaper basket.
+The wastepaper basket contains:
+  A bunch of crumpled papers
+Lying on the floor, overturned, is a beautiful saucer.
+There is a bottle of Ebullion here.
+
+>south
+
+
+End of Hallway
+
+>east
+
+
+Hallway
+
+>east
+
+
+Hallway
+
+>east
+
+
+Hallway
+
+>east
+
+
+Top of Stairs
+
+>down
+
+
+Stairs
+
+>down
+
+
+Bottom of Stairs
+
+>west
+
+
+North of Foyer
+
+>south
+
+
+Foyer
+To the north Mrs. Robner enters the hallway from the north.
+
+>open door
+
+
+The front door is now open.
+Mrs. Robner, off to the north, ducks into a room to the west.
+
+>south
+
+
+Front Path
+
+>east
+
+
+East of Front Door
+You are in front of the Robner house just east of the front door. A small
+window, closed and securely locked, is the only thing of note here. To the
+northeast is the east side of the house.
+The ornately carved cornerstone of the house is nearby.
+
+>east
+
+
+East Lawn
+You are on a neatly manicured lawn, east of the house, which extends north and
+east to the shore of a lake. To the northwest is a peaceful orchard, and toward
+the south another wide lawn. Southeast, beside the lake, is a small shed with a
+solitary dirty window.
+Mr. McNabb is off to the northwest.
+
+>se
+
+
+Shed
+This small garden shed is filled with implements of gardening and lawn care.
+Shelves filled with various tools line the walls and a filthy window looks out
+on the lawn.
+Leaning in a corner is a wooden ladder.
+
+>examine ladder
+
+
+The ladder is a typical gardening ladder, about fifteen feet long and caked with
+dirt and dried mud.
+
+>north
+
+
+East Lawn
+Mr. McNabb is off to the northwest.
+
+>south
+
+
+South Lawn
+
+>north
+
+
+Front Path
+
+>north
+
+
+Foyer
+
+>north
+
+
+North of Foyer
+
+>east
+
+
+Bottom of Stairs
+
+>up
+
+
+Stairs
+
+>up
+
+
+Top of Stairs
+
+>south
+
+
+South Upstairs Hall
+The hallway turns a corner here and continues east. To the north is the head of
+the stairs. A door to the south is open.
+
+>south
+
+
+Dunbar's Bathroom
+This bathroom contains the usual sink, toilet, and bath. A medicine cabinet,
+closed, is above the sink. A door to the north is open.
+
+>open cabinet
+
+
+Opening the cabinet reveals a bottle of LoBlo, a bottle of cough medicine, and a
+bottle of aspirin.
+
+>examine loblo
+
+
+Frobizz Pharmacy   #69105
+
+Ms. S. Dunbar
+LoBLO
+Take 1 tablet 3 times daily
+
+Fizmo Labs, Ltd. - Kingston, Ont.
+LoBLO Brand of Methsparin, USP
+10mg Tablets
+
+Warning:  LoBLO may be dangerous
+when used in combination with
+other medications. Please read
+the enclosed circular prior to
+using these tablets.
+
+>north
+
+
+South Upstairs Hall
+
+>north
+
+
+Top of Stairs
+
+>down
+
+
+Stairs
+
+>down
+
+
+Bottom of Stairs
+
+>west
+
+
+North of Foyer
+
+>south
+
+
+Foyer
+To the north Ms. Dunbar enters the hallway from the west.
+
+>south
+
+
+Front Path
+
+>wait until 11:30
+
+
 Time passes...
-It is now 8:03 am.
+You notice a very faint ringing sound coming from the house.
+Do you want to keep waiting? (Y/N) >yes
+
+
+A car pulls up the drive to the south, and Mr. Baxter steps out onto the lawn.
+Do you want to keep waiting? (Y/N) >yes
+
+
+A mailman walks briskly up to you, hands you an envelope, and departs.
+Do you want to keep waiting? (Y/N) >yes
+
+
+Mr. Baxter is walking past you.
+Do you want to keep waiting? (Y/N) >yes
+
+
+Mr. Baxter heads off to the north.
+Do you want to keep waiting? (Y/N) >yes
+
+
+To the east Mr. McNabb comes into view from the northwest.
+Do you want to keep waiting? (Y/N) >yes
+
+
+Mr. McNabb, off to the east, disappears from sight to the northwest.
+Do you want to keep waiting? (Y/N) >yes
+
+
+The local paperboy, in an amazing athletic feat, throws a newspaper toward the
+house from a distance of at least 100 feet. It even lands beside the front door,
+rather than in the bushes.
+Do you want to keep waiting? (Y/N) >yes
+It is now 11:30 am.
+
+>east
+
+
+East of Front Door
+The ornately carved cornerstone of the house is nearby.
+
+>east
+
+
+East Lawn
+
+>nw
+
+
+Orchard Path
+You are on a path at the edge of a small orchard of fruit trees which abuts the
+eastern side of the back of the house. The orchard is obviously intended more to
+display the beauty of the blossoms in spring than to produce significant amounts
+of fruit. The windows of the kitchen look out onto the orchard, although your
+view of them is blocked by the trees and a small grape arbor. To the west is a
+path along a rose garden, and lawns sweep out to the north and east.
+Mr. McNabb is off to the west.
+
+>west
+
+
+Garden Path
+You are at the edge of a large rose garden, meticulously maintained by the
+gardener, Mr. McNabb. He is said to be exceedingly proud of this particular
+garden, which is the envy of the neighbors. Rows of roses are neatly arranged
+and the sweet fragrance of the flowers is worth a trip here in itself. An
+orchard to the east contains many varieties of fruit trees and wide lawns lie to
+the west and north. The roses themselves are to the south, filling the area
+between you and the back of the house.
+Mr. McNabb is here, cutting fresh flowers. He seems quite worked up and is
+talking aloud to himself.
+
+>hey McNabb
+
+
+Mr. McNabb is facing you.
+
+>what is wrong
+
+
+(said to Mr. McNabb)
+He tells you his story. He was tending to the roses this morning when he noticed
+two deep holes in the garden, with a few roses crushed nearby. He doesn't know
+when he'll be able to repair the damage.
+
+>show me the holes
+
+
+(said to Mr. McNabb)
+"Follow me!" he says, and starts walking toward the roses.
+Mr. McNabb heads off to the south.
+
+>follow him
+
+
+Among the Roses
+You are among rows of roses. The ground is soft, and your footsteps leave a
+rather bad impression as many poor seedlings are trampled underfoot. A safer
+place to admire the flowers lies to the north. A window to the south allows a
+view into the house.
+There is no way into the house from here.
+McNabb grabs your arm and leads you to a spot deep within the garden and near
+the house. You might never have found this place alone. He points at the ground,
+where you see two holes in the soft earth.
+Mr. McNabb heads off to the north.
+
+>examine holes
+
+
+There are two holes here, each about two inches by four inches. They are at
+least three inches deep and the soil is compacted around them.
+
+>examine ground
+
+
+Ouch! You cut your finger on a sharp edge as you dig. You search carefully in
+the dirt, now that you are sure something is there, and pull up a piece of
+porcelain, covered with dirt and dried mud.
+
+>dig around holes
+
+
+Aside from dirt, organic fertilizer, and small crawly creatures, you turn up
+nothing but roses.
+
+>analyze fragment for loblo
+
+
+Sergeant Duffy walks up as quietly as a mouse. He takes the fragment from you.
+"I'll return soon with the results," he says, and leaves as silently as he
+entered.
+
+>north
+
+
+Garden Path
+Mr. McNabb is here, planting seeds. He seems quite worked up and is talking
+aloud to himself.
+
+>sw
+
+
+West Lawn
+This is a sprawling lawn west of the Robner house. To the west and north is the
+lake shore. To the northeast is a rose garden, and to the south another wide
+lawn.
+
+>se
+
+
+West of Front Door
+You are in front of the Robner house just west of the front door. To the north
+is a large bay window through which can be seen part of the living room. To the
+northwest is the west side of the house.
+
+>east
+
+
+Front Path
+Leaning against the front door is today's issue of the Daily Herald.
+
+>north
+
+
+Foyer
+
+>north
+
+
+North of Foyer
+
+>west
+
+
+Living Room
+This is a large and impressive room, whose furnishings bespeak the great
+personal wealth of the Robners. The south side of the room is a large bay
+window, now closed, which looks out onto the front yard.
+A wood pile sits beside a huge fieldstone fireplace. A double doorway leading to
+the main hall is the only exit. Pictures of Mrs. Robner's colonial ancestors
+line one wall. The room contains formal seating for at least fifteen people, in
+several groups of chairs and couches. Tables and cabinets, all of the finest
+mahogany and walnut, complete the furnishings. On one of the tables is a
+telephone.
+Ms. Dunbar is sitting on the sofa here.
+Mrs. Robner is sitting here, knitting.
+Mr. Baxter is sitting here reading a book.
+
+>examine envelope
+
+
+                  CANAAN CT POST OFFICE
+                   * JULY 06 * 08:00 *
+
+          Mrs. Marshall Robner
+          506 Lake View Rd.
+          Maitland, Ct.
+
+>wait for Coates
+
+
+Time passes...
+You can hear footsteps on the staircase.
+Do you want to keep waiting? (Y/N) >yes
+
+
+George steps into the room.
+Do you want to keep waiting? (Y/N) >yes
+
+Do you want to keep waiting? (Y/N) >yes
+Mr. Coates steps into the room.
+Mr. Coates shakes your hand. "I'm glad you're here, Inspector. We'll begin the
+reading soon."
+Mr. Coates begins: "This is an awkward situation. Mr. Robner told me five days
+ago that he wanted to execute a new will, and promised to call me when it was
+completed. As I never heard from him, I must assume that he either changed his
+mind or did not complete the new will. Therefore, the one in my possession must
+be considered the most recent testament."
+From the corner of your eye, you catch George nodding his head, as if in
+approval, and smiling broadly.
+Continuing, Mr. Coates says: "Naturally, should a more recent will exist and be
+found within a reasonable period, the present one will be voided. I will proceed
+with reading the will here in my hands, which was executed three years ago last
+month." He reads the will, simply written and direct, leaving equal parts of the
+estate to his son, George Arthur Robner, and his wife, Mrs. Leslie Phillips
+Robner.
+There is some discussion, understated congratulations and overstated sympathy,
+which Mr. Coates cuts short by clearing his throat. "I must leave now, I'm
+afraid. If you have any questions, I can be contacted tomorrow." He picks up the
+phone, dials his office, and asks to be picked up at the Robner estate.
+Mr. Coates, for whom you are waiting, has arrived.
+
+
+
+It is now 11:57 am.
 
 >
