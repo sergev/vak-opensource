@@ -1,0 +1,23 @@
+#!/usr/bin/expect -f
+#
+# Play game Deadline.
+#
+# Based on https://ifarchive.org/if-archive/infocom/hints/solutions/deadline.txt
+#
+set timeout -1
+
+# Remove previous log, if any.
+system rm -f "game.log"
+log_file "game.log"
+
+# Start the game.
+spawn dfrotz -m -s 123 Deadline.dat
+match_max 100000
+
+# Introduction
+expect ">"; send "wait\r"
+
+# Quit
+expect ">"; send "quit\r"
+puts ""
+exit

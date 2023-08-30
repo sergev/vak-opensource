@@ -1,0 +1,21 @@
+spawn dfrotz -m -s 123 Deadline.dat
+Using normal formatting.
+Loading Deadline.dat.
+
+
+DEADLINE: An INTERLOGIC Mystery
+Copyright 1982 by Infocom, Inc. All rights reserved.
+DEADLINE and INTERLOGIC are trademarks of Infocom, Inc.
+Release 27 / Serial number 831005
+
+South Lawn
+You are on a wide lawn just north of the entrance to the Robner estate. Directly
+north at the end of a pebbled path is the Robner house, flanked to the northeast
+and northwest by a vast expanse of well-kept lawn. Beyond the house can be seen
+the lakefront.
+
+>wait
+Time passes...
+It is now 8:03 am.
+
+>
