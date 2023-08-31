@@ -118,47 +118,73 @@ expect {
 #
 # DEADLINE Part Three
 #
+expect ">"; send "show George the calendar\r"
+expect ">"; send "follow him\r";                # North of Foyer
+expect ">"; send "follow him\r";                # Bottom of Stairs
+expect ">"; send "follow him\r";                # Stairs
+expect ">"; send "follow him\r";                # Top of Stairs
+expect ">"; send "follow him\r";                # Hallway
+expect ">"; send "follow him\r";                # Hallway
+expect ">"; send "follow him\r";                # Hallway
+expect ">"; send "west\r";                      # End of Hallway
+expect ">"; send "north\r";                     # Library
+expect ">"; send "north\r";                     # Library Balcony
+expect ">"; send "wait 10 minutes\r"
+expect {
+    "George motioning with his right hand" {}
+    "(Y/N) >" {
+        send "yes\r"
+        exp_continue
+    }
+}
+expect "(Y/N) >"; send "no\r"
+expect ">"; send "wait 6 minutes\r"
+expect ">"; send "south\r";                     # Library
+expect ">"; send "examine bookshelf\r"
+expect ">"; send "press button\r";              # Hidden Closet
+expect ">"; send "get will\r"
+expect ">"; send "examine safe\r"
+expect ">"; send "get papers\r"
+expect ">"; send "read papers\r"
+expect ">"; send "west\r";                      # Library
+expect ">"; send "south\r";                     # End of Hallway
+expect ">"; send "east\r";                      # Hallway
+expect ">"; send "east\r";                      # Hallway
+expect ">"; send "east\r";                      # Hallway
+expect ">"; send "east\r";                      # Top of Stairs
+expect ">"; send "down\r";                      # Stairs
+expect ">"; send "down\r";                      # Bottom of Stairs
+expect ">"; send "west\r";                      # North of Foyer
+expect ">"; send "west\r";                      # Living Room
+expect ">"; send "hey Baxter\r"
+expect ">"; send "what about Focus\r"
+expect ">"; send "show papers to Baxter\r"
+expect ">"; send "show lab report to Dunbar\r"
+expect ">"; send "show lab report to Baxter\r"
+expect ">"; send "accuse Dunbar\r"
+expect ">"; send "east\r";                      # North of Foyer
+expect ">"; send "wait for Dunbar\r"
+expect ">"; send "follow her\r"
+expect ">"; send "follow her\r";                # Foyer
+expect ">"; send "follow her\r";                # Front Path
+expect ">"; send "get ticket\r"
+expect ">"; send "read ticket\r"
+expect ">"; send "show ticket to Dunbar\r"
+expect ">"; send "east\r";                      # East of Front Door
+expect ">"; send "east\r";                      # East Lawn
+expect ">"; send "se\r";                        # Shed
+expect ">"; send "wait for Baxter\r"
+expect {
+    "Mr. Baxter stops here" {}
+    "(Y/N) >" {
+        send "yes\r"
+        exp_continue
+    }
+}
+expect ">"; send "show ticket to Baxter\r"
+expect ">"; send "arrest Baxter and Dunbar\r"
+expect "(Y/N) >"; send "yes\r"
 
 # Quit
-expect ">"; send "quit\r"
-puts ""
+expect "roses."
 exit
-
-After the will is read, you decide to see if you can roust some
-of those present into giving you some clues as to the guilty
-party and, perhaps, the motive for the crime.  Let's start with
-George.  Type "SHOW GEORGE THE CALENDAR."  He will get very
-nervous and start heading out of the room.  Type "FOLLOW HIM"
-until he finally goes to his room.  He will keep telling you to
-leave him alone, but just keep following him until he enters his
-room.  At this point, you decide to see if George knows more then
-he's telling.  You aren't going to get anything from him here, so
-let's go to the balcony and wait to see if he does anything.  Go
-[W,N,N] to the balcony and type "WAIT 10 MINUTES."  Voila!  Here
-he comes!  Wait until he goes behind the bookshelf and then type
-"WAIT 4 MINUTES" to give him time to really get his hands into
-the cookie jar. When your 4 minutes are up, go [S], "EXAMINE
-BOOKSHELF," "PRESS BUTTON," and go [E].  Ha! Caught him
-red-handed!!  Type "GET WILL," "LOOK SAFE," "GET PAPERS," and
-"READ PAPERS." Things are beginning to look up! Let's see if we
-can substantiate some of this stuff.  Go back to the living room
-with [W,S,E,E,E,E,D,D,W,W].  My, isn't this cozy!  Type "HEY
-BAXTER," "WHAT ABOUT FOCUS." You know he's lying so you "SHOW
-PAPERS TO BAXTER."  Ah, that's better!  Now for some clever
-psycho-detective work.  Type "SHOW LAB REPORT TO DUNBAR" and
-"SHOW LAB REPORT TO BAXTER." Whip around and "ACCUSE DUNBAR."
-Hmmm...a tad nervous, isn't she? Perhaps we should go off and
-wait to see what develops. Go [E] to leave the room and "WAIT FOR
-DUNBAR."  Just as we suspected!  When she passes you, type
-"FOLLOW HER."  Once outside the house, she will drop a ticket.
-Type "GET TICKET" and "READ TICKET."  WOW!  This is getting good!
- Type "SHOW TICKET TO DUNBAR."  You know you've got her on the
-run now so head off to the shed to wait and see what develops.
-Go [E,E,SE] and "WAIT FOR BAXTER."  When they both show up, "SHOW
-TICKET TO BAXTER" and "ARREST BAXTER AND DUNBAR." You didn't
-believe them for a minute, did you? Due to the dynamic nature of
-Deadline, there are several ways to end up accusing Baxter and
-Dunbar of the murder.  There are also more puzzles to solve, but
-this is all that is necessary to put together an air-tight case
-against them.  If you have other methods of solving Deadline, let
-us know!

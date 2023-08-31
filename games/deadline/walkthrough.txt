@@ -662,4 +662,485 @@ Mr. Coates, for whom you are waiting, has arrived.
 
 It is now 11:57 am.
 
->
+>show George the calendar
+
+
+"I...uh...I don't really know what to say. I guess that Dad...but there is no
+other...I can't help you...sorry." George seems to be quite agitated.
+"I've...got to be going now. I'll see you later," George says. He starts to
+leave.
+George heads off to the east.
+Mr. Coates heads off to the east.
+
+>follow him
+
+
+North of Foyer
+"Please stop following me around like this. Can I have no privacy? I'm simply
+trying to take care of something personal."
+George heads off to the east.
+Mr. Coates heads off to the south.
+
+>follow him
+
+
+Bottom of Stairs
+"Please stop following me around like this. Can I have no privacy? I'm simply
+trying to take care of something personal."
+George is going upstairs.
+
+>follow him
+
+
+Stairs
+"Stop following me. My business is private."
+George is going upstairs.
+
+>follow him
+
+
+Top of Stairs
+"Please stop following me around like this. Can I have no privacy? I'm simply
+trying to take care of something personal."
+George heads off to the west.
+
+>follow him
+
+
+Hallway
+"Stop following me. My business is private."
+George heads off to the west.
+
+>follow him
+
+
+Hallway
+"Please stop following me around like this. Can I have no privacy? I'm simply
+trying to take care of something personal."
+George heads off to the west.
+
+>follow him
+
+
+Hallway
+"Stop following me. My business is private."
+George heads off to the south.
+
+>west
+
+
+End of Hallway
+You hear George's door close.
+
+>north
+
+
+Library
+Beside the desk is a large collapsible tray.
+Sitting on the tray is a bowl containing a white powdery substance.
+Alongside the desk is a wicker wastepaper basket.
+The wastepaper basket contains:
+  A bunch of crumpled papers
+Lying on the floor, overturned, is a beautiful saucer.
+There is a bottle of Ebullion here.
+
+>north
+
+
+Library Balcony
+
+>wait 10 minutes
+
+
+Time passes...
+You see George through the doorway, looking down the hallway, then darting into
+the library.
+Sergeant Duffy seems to arrive from nowhere, holding the fragment in his hands.
+"The fragment did contain LoBlo. Here is the full report." He hands you a slip
+of paper, and departs.
+Do you want to keep waiting? (Y/N) >yes
+
+
+George walks purposefully toward the bookshelves. He looks around, but you react
+before he can see you. When you peek out again, George is fiddling with the
+shelves. His right arm reaches into the shelf and, to your amazement, the unit
+of bookshelves on the left rotates away from the wall, revealing a darkened room
+behind. George enters it, trembling with barely controlled fear and excitement.
+Do you want to keep waiting? (Y/N) >yes
+
+
+A dim light in the hidden closet comes on. In the faint light, you can see
+George motioning with his right hand. All at once, the shelf swings shut!
+Do you want to keep waiting? (Y/N) >no
+It is now 12:13 pm.
+
+>wait 6 minutes
+Time passes...
+It is now 12:19 pm.
+
+>south
+
+
+Library
+Beside the desk is a large collapsible tray.
+Sitting on the tray is a bowl containing a white powdery substance.
+Alongside the desk is a wicker wastepaper basket.
+The wastepaper basket contains:
+  A bunch of crumpled papers
+Lying on the floor, overturned, is a beautiful saucer.
+There is a bottle of Ebullion here.
+
+>examine bookshelf
+
+
+The shelves contain many books and manuscripts covering a wide range of
+subjects. They are meticulously arranged.
+One book is out of place, however, leaving a gap in one row. On closer
+inspection, a small black button can be seen at the back of this gap.
+
+>press button
+
+
+The leftmost shelf quietly swings out against the balcony window.
+As the shelf swings open, George spins to face you. His expression, first
+seemingly wild with happiness, changes to one of panic and horror. He jerks
+around, trying feebly to conceal a piece of paper in his hands. He jumps toward
+you, then recoils in fear. Finally, sobbing, he crumples to the floor, clutching
+the paper beneath him. A large combination safe, imbedded in a wall, is lying
+open. You enter the hidden closet.
+Hidden Closet
+This is a secret room situated between the library and the master bedroom. The
+room is bare and somewhat dusty, as if it were not often used. An unmarked
+switchplate surrounds two buttons, one blue and one red. A formidable safe is
+embedded in the south wall. The heavy safe door is wide open.
+The library can be seen through a door to the west.
+George is here.
+George is holding:
+  A new will
+
+>get will
+
+
+Taken.
+
+>examine safe
+
+
+A stack of papers bound together is in the safe.
+
+>get papers
+
+
+Oh, no. The fragment slips from your arms while you are taking the stack of
+papers, and both tumble to the ground.
+The fragment is now on the floor.
+
+>read papers
+
+
+(Taken)
+Leafing through these papers, it becomes obvious that they incriminate Mr.
+Baxter in wrongdoings regarding the Focus scandal. They document funds which
+were embezzled by Baxter and tell how the scandal was hushed up. This evidence
+would be sufficient to convict Mr. Baxter in the Focus case.
+
+>west
+
+
+Library
+Beside the desk is a large collapsible tray.
+Sitting on the tray is a bowl containing a white powdery substance.
+Alongside the desk is a wicker wastepaper basket.
+The wastepaper basket contains:
+  A bunch of crumpled papers
+Lying on the floor, overturned, is a beautiful saucer.
+There is a bottle of Ebullion here.
+
+>south
+
+
+End of Hallway
+To the east Mrs. Robner enters the hallway from downstairs.
+
+>east
+
+
+Hallway
+Mrs. Robner is to the east, heading toward the west.
+
+>east
+
+
+Hallway
+Mrs. Robner, off to the east, ducks into a room to the north.
+
+>east
+
+
+Hallway
+
+>east
+
+
+Top of Stairs
+
+>down
+
+
+Stairs
+
+>down
+
+
+Bottom of Stairs
+
+>west
+
+
+North of Foyer
+
+>west
+
+
+Living Room
+Ms. Dunbar is sitting on the sofa here.
+Mr. Baxter is sitting here reading a book.
+
+>hey Baxter
+
+
+Mr. Baxter is facing you.
+
+>what about Focus
+
+
+(said to Mr. Baxter)
+There is a flicker of surprise on Baxter's face. "I'm not sure what you mean.
+Focus Corporation has been a subsidiary of Robner Corp. for some years. I fail
+to see its import."
+
+>show papers to Baxter
+
+
+He reads slowly and leafs through the pages. "I'm afraid I haven't been entirely
+candid with you. There was some trouble a few years ago with Focus Corp. because
+of some, let us say, irresponsible dealings on my part. Marshall agreed to cover
+up my involvement to save the company any bad publicity."
+
+>show lab report to Dunbar
+
+
+She seems stunned but recovers quickly. "He didn't commit suicide, then?" she
+says. "But LoBlo, that's a pill I take for my blood pressure." She pauses. "I
+can tell what you're thinking, but I didn't, couldn't have done it. Why should
+I? Someone must have taken them, maybe George. He knew I used them."
+
+>show lab report to Baxter
+
+
+Baxter studies the report carefully. "This is quite peculiar. It appears that
+Marshall was murdered. I wonder...I would have a word with George if I were you,
+Inspector."
+
+>accuse Dunbar
+
+
+"No! I didn't do it! I've worked for Mr. Robner for years. What possible motive
+could I have?" With that, Ms. Dunbar begins to cry and move about the room quite
+nervously.
+Ms. Dunbar glances at Baxter and then at you.
+
+>east
+
+
+North of Foyer
+
+>wait for Dunbar
+
+
+Time passes...
+Ms. Dunbar is walking past you.
+Ms. Dunbar, for whom you are waiting, has arrived.
+It is now 12:48 pm.
+
+>follow her
+
+
+You're in the same place as Ms. Dunbar!
+Ms. Dunbar heads off to the south.
+
+>follow her
+
+
+Foyer
+Ms. Dunbar heads off to the south.
+
+>follow her
+
+
+Front Path
+Leaning against the front door is today's issue of the Daily Herald.
+Ms. Dunbar spots you and stops. She reaches into her pocket and pulls out a
+cigarette. As she does so, what appears to be a ticket stub falls out of her
+pocket and floats to the ground. She checks her pocket again, apparently for a
+match, but finds none and puts the cigarette back in her pocket.
+
+>get ticket
+
+
+Taken.
+Ms. Dunbar stares off toward the south.
+
+>read ticket
+
+
+   Hartford
+ Philharmonic
+  Orchestra
+
+ July 7, 1982
+
+   - 8PM -
+
+Row R / Seat 7
+
+-^-^-^-^-^-^-^
+
+Ms. Dunbar eyes you nervously.
+
+>show ticket to Dunbar
+
+
+"Oh, I...well, I guess I should tell you. You see, Mr. Baxter and I, we go
+together to concerts, only occasionally, you understand. We went that night, the
+night Marshall died. Then he took me home and that's it. I should have said
+something before, but I just didn't think it was important, and, well, I didn't
+think that the others should know we were seeing each other socially.
+Our...nobody knows about it, you know. Please don't say anything!"
+Ms. Dunbar seems to be deep in thought.
+
+>east
+
+
+East of Front Door
+Ms. Dunbar is off to the west.
+The ornately carved cornerstone of the house is nearby.
+Ms. Dunbar seems to be deep in thought.
+
+>east
+
+
+East Lawn
+Mr. McNabb is off to the northwest.
+Ms. Dunbar is off to the west.
+Ms. Dunbar stares off toward the south.
+Ms. Dunbar is to the west, heading toward the east.
+
+>se
+
+
+Shed
+
+>wait for Baxter
+
+
+Time passes...
+Ms. Dunbar stops here.
+Do you want to keep waiting? (Y/N) >yes
+
+
+Dunbar paces around the shed nervously. If she was looking for something, she
+would have found it by now.
+Do you want to keep waiting? (Y/N) >yes
+
+
+Dunbar paces around the shed nervously. If she was looking for something, she
+would have found it by now.
+Do you want to keep waiting? (Y/N) >yes
+
+
+Dunbar paces around the shed nervously. If she was looking for something, she
+would have found it by now.
+Do you want to keep waiting? (Y/N) >yes
+
+
+Dunbar paces around the shed nervously. If she was looking for something, she
+would have found it by now.
+Do you want to keep waiting? (Y/N) >yes
+
+
+Dunbar paces around the shed nervously. If she was looking for something, she
+would have found it by now.
+Do you want to keep waiting? (Y/N) >yes
+
+
+Dunbar paces around the shed nervously. If she was looking for something, she
+would have found it by now.
+Do you want to keep waiting? (Y/N) >yes
+
+
+Dunbar paces around the shed nervously. If she was looking for something, she
+would have found it by now.
+Do you want to keep waiting? (Y/N) >yes
+
+
+Dunbar paces around the shed nervously. If she was looking for something, she
+would have found it by now.
+Do you want to keep waiting? (Y/N) >yes
+
+
+Ms. Dunbar seems to be looking around for something.
+Mr. Baxter stops here.
+Mr. Baxter, for whom you are waiting, has arrived.
+It is now 1:08 pm.
+
+>show ticket to Baxter
+
+
+"Ah, that must be Ms. Dunbar's ticket stub. I should have told you earlier. Ms.
+Dunbar was with me at the concert on the night that Marshall killed himself. She
+became ill at intermission and hired a car to take her back home. You see,
+Inspector, I know that Ms. Dunbar appreciates classical music, so I occasionally
+ask her along to my subscription series. I really should have told the other
+detective, but I didn't think it mattered."
+
+>arrest Baxter and Dunbar
+Text of a letter from Police Commissioner Klutz dated September 5:
+
+Dear Inspector,
+
+    Congratulations on your superb handling of the Robner case. As you have
+probably heard, a jury convicted Mr. Baxter and Ms. Dunbar today of the murder
+of Mr. Robner. Thanks to you, the murderers will be behind bars, possibly for
+the rest of their lives. Thanks for a job brilliantly done. Which reminds me of
+another fascinating case I would like to assign you to...
+
+Coming soon: Another INTERLOGIC Mystery from Infocom
+
+You have solved the case! If you would like, you may see the author's summary of
+the story. We would advise you to come up with your own first! Would you like to
+see the author's summary? (Y/N) >yes
+Mr. Robner's work was his life, as pointed out by a number of the principals.
+George knew that his father had lost control of the company, and a story in the
+newspaper indicated that Baxter intended to sell the company to a multi-national
+conglomerate, presumably to advance his career. Baxter admitted to the merger
+plans, but indicated that Mr. Robner was in complete agreement. This is contrary
+to what George and Mrs. Robner said. The note pad found in the library was
+Robner's last, desperate attempt to save the company, in which Robner threatened
+to expose Baxter's involvement in the Focus scandal. Baxter denied getting the
+note, but it was not in the trash. The papers detailing Baxter's criminality in
+the scandal were kept locked in a safe in a hidden closet near the library. Only
+George and Marshall Robner knew the whereabouts of the safe.
+  Baxter planned to murder his partner, aided by the fact that Robner was known
+to be depressed, even suicidal. He enlisted the help of his lover, Dunbar, one
+of whose medicines was found to interact fatally with the pills Robner was
+taking. The relationship of Baxter and Dunbar was kept quiet, although Mrs.
+Rourke had an inkling of it. After the concert in Hartford which both Baxter and
+Dunbar attended, they returned to the Robner estate. Dunbar placed some LoBlo in
+Robner's tea. After Robner died, Baxter used the ladder from the shed to enter
+the library and exchange the incriminating cup for a clean one (counting the
+china in the kitchen reveals that a cup is missing). Coming down the ladder,
+
+Baxter presumably dropped the cup and inadvertently left one piece on the ground
+in the rose garden, near the ladder holes that McNabb found while tending his
+roses.
