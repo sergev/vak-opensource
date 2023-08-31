@@ -11,7 +11,8 @@ system rm -f "game.log"
 log_file "game.log"
 
 # Start the game.
-spawn dfrotz -m -s 123 Deadline.dat
+#spawn dfrotz -m -s 123 Deadline.dat
+spawn dfrotz -m -s 123 deadline.z3
 match_max 100000
 
 #

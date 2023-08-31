@@ -1,6 +1,6 @@
-spawn dfrotz -m -s 123 Deadline.dat
+spawn dfrotz -m -s 123 deadline.z3
 Using normal formatting.
-Loading Deadline.dat.
+Loading deadline.z3.
 
 
 DEADLINE: An INTERLOGIC Mystery
