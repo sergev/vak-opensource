@@ -11,11 +11,11 @@ system rm -f "game.log"
 log_file "game.log"
 
 # Start the game.
-spawn frob --no-colors --no-seed-rand --no-scrolling --interface=plain --no-pause cain.t3
+spawn ./frob --no-colors --no-seed-rand --no-scrolling --interface=plain --no-pause cain.t3
 match_max 100000
 
-expect "More"; send " \r"
-expect "More"; send " \r"
+expect "continue..."; send "\r"
+expect "continue..."; send "\r"
 
 # Quit
 expect ">"; send "quit\r"

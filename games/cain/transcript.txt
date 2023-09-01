@@ -1,4 +1,4 @@
-spawn frob --no-colors --no-seed-rand --no-scrolling --interface=plain --no-pause cain.t3
+spawn ./frob --no-colors --no-seed-rand --no-scrolling --interface=plain --no-pause cain.t3
   
 
 
@@ -21,14 +21,14 @@ spawn frob --no-colors --no-seed-rand --no-scrolling --interface=plain --no-paus
                                  -Genesis 4:13 KJV
 
 
-[More] 
-      
+
                  According to Cain
                  An inquiry
                  by Jim Nelson
                 
 
 [Press any key to continue...]  
+
 
 
 
@@ -52,12 +52,12 @@ Cain--is monumental.  It is the oldest mystery in known history.
 
 The Provost breaks the silence with a deep and gravelly voice.  "Indagator, you
 are charged with resolving this ancient question.  Stand and prepare yourself!"
-[More] 
-      
+
 Summoning all his powers, he claps his hands--and in an instant, you are sent
 back in time...to the beginning...
 
 [Press any key to continue...]  
+
 
 I. A YOUNG EARTH
 
