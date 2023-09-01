@@ -1,0 +1,248 @@
+According to Cain: Walkthrough
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    * Jim Nelson, jimbonator@gmail.com
+    * 25 September, 2022
+    * https://j-nelson.net/according-to-cain
+
+Note: This walkthrough will lead you from the beginning of the game to the
+proper ending. In-game HINTS are available if you’re stuck. They’re generally
+preferable over this walkthrough since they will reveal only a slice of the game
+at a time, rather than all at once.
+
+Once the settlement is reached, there are several viable paths one may take to
+complete the game. This walkthrough is designed to minimize moves while also
+directing the player through the natural flow of the game’s mechanics.
+
+I. A Young Earth
+~~~~~~~~~~~~~~~~
+
+After meeting with the Provost, you’re sent back to the beginning of recorded
+time. As you travel east, you should pick up everything you find on the path:
+the rucksack, the pulverulent cloth, the Pharmakon, and the envelope. You should
+also hold on to the orbis bracelet. These are all provided by the Academy to aid
+in your inquiry. Be sure to pay attention to the memories stirring through your
+head as you travel. Also take note of the crow following you.
+
+Spend a couple of turns perusing the book. It will introduce you to some basic
+concepts you’ll need to understand to finish the game.
+
+You won’t be able to cross the rope bridge unless you’re carrying all the above
+items. When you’re ready, cross the bridge.
+
+II. A Fragile Earth
+~~~~~~~~~~~~~~~~~~~
+
+Flood plain
+~~~~~~~~~~~
+After taking an unexpected plunge in the river, you’re washed downstream to a
+landing. Note that you lost the orbis bracelet in the river.
+
+After examining the sluice gate, go southeast. Wear the lumens gem. It’s another
+vital piece of equipment provided to you by the Academy. Return to the sluice
+gate and note that it is now glowing. This indicates the sluice is laden with
+strong memories burned into it in the past. Examine the sluice, LOOK UP OSTENDO,
+and search around for the essences you now require.
+
+You will find a salt deposit to the northeast (COLLECT SALT) and a sulfur
+deposit to the southeast (COLLECT SULFUR). APPLY SALT AND SULFUR TO SLUICE will
+reveal the compound you need to unlock the memory stored within it (and cause
+you to memorize the compound as “ostendo,” which you will use later). You are
+holding phlegm—it was provided to you by the Academy— and so you can immediately
+unlock the memory with APPLY PHLEGM AND SULFUR TO SLUICE.
+
+Cain’s complaint gives you a clue why the sluice is jammed closed. Look in the
+pond, remove the wedge, and pull the lever. The pond drains, and you may proceed
+north toward the settlement.
+
+Well & fire pit
+~~~~~~~~~~~~~~~
+When you reach the well, you’ll notice it’s glowing (if you’re wearing the
+lumens gem). APPLY OSTENDO TO WELL tells you that you need yellow bile and ash
+to unlock its memories. Since you’re not carrying any ash, it’s time to move on.
+
+At the foot of the tree to the east is a braid of four wooden cups. Take this,
+as it’s another piece of equipment you’ll need in your inquiry.
+
+Travel east to the fire pit. The stones around the pit are glowing: APPLY
+OSTENDO TO STONES. This time you need arsenic, sulfur, and Adam’s Humour.
+
+Take the ash beside the fire pit and travel west back to the well. EXAMINE WELL
+will remind you which essences you need. APPLY YELLOW BILE AND ASH TO WELL will
+unlock Cain’s memory about Adam. It tells you that Adam was choleric. LOOK UP
+CHOLERIC reveals that yellow bile is the Humour associated with cholera.
+
+Travel east back to the fire pit. APPLY ARSENIC, SULFUR, AND YELLOW BILE TO
+STONES. You learn of a compound Adam used to re-light the fire in the pit called
+encyp. LOOK UP ENCYP to learn its ingredients, and then APPLY SALT AND ASH TO
+FIRE PIT. Gather your dignity while the crow mocks you from afar.
+
+Scarecrow & honeycomb
+~~~~~~~~~~~~~~~~~~~~~
+Go west and south to the scarecrow. EXAMINE SCARECROW reveals that an ocu
+compound will permit you see what it’s fake eyes have seen. LOOK UP OCU, then
+APPLY ARSENIC AND PHLEGM TO SCARECROW.
+
+Further south you’ll find a rock cracked in two embedded in the field. Although
+it’s glowing, APPLY OSTENDO TO ROCK will only tell you that you’ll need to learn
+more about the family before it will give up its secrets.
+
+Southeast is a beehive. TAKE HONEYCOMB will give you wax, another essence you’ll
+need in your inquiry. The bees won’t give up the royal jelly so easily.
+
+Hovel
+~~~~~
+Go northwest, north, north, east, and east again to reach the hovel. Outside is
+a bandage; take it. Inside the hovel, LOOK UNDER BASKET and take the obsidian
+slab. EXAMINE BLANKETS to find a strand of cornsilk stuck in the hovel wall.
+Closer examination reveals this is a strand of hair, and is glowing. You should
+TAKE HAIR.
+
+APPLY OSTENDO TO HAIR reveals the needed essences, which are Eve’s Humour this
+time, the poison of Adam’s Humour, and wax.
+
+Looking in the slab, you see your eyes reflected back at you. APPLY OCU TO SLAB
+tells you that Eve was melancholic. LOOK UP MELANCHOLY tells you that black bile
+is the associated Humour. LOOK UP YELLOW BILE (Adam’s Humour) tells you its
+poison is chamomile.
+
+Leave the hovel. Go west and south and enter the slaughterhouse.
+
+Slaughterhouse
+~~~~~~~~~~~~~~
+Take the knife. APPLY OSTENDO TO STUMP tells you that Cain’s Humour is phlegm.
+LOOK UP ABEL suggests that he was sanguine, and LOOK UP SANGUINE reveals the
+temperament’s Humour is blood. LOOK UP PHLEGM tells you that its poison is sage.
+
+Although the interior of the slaughterhouse is covered with dried blood, LOOK UP
+BLOOD tells you that only the fresh kind can be used in a compound. It also
+suggests that if blood cannot be located, you might need to provide it yourself.
+
+CUT SELF WITH KNIFE won’t work because the knife is too dull, but there may be
+compound to make it anew. LOOK UP SHARPEN tells you about the novo compound:
+APPLY SULFUR AND BLACK BILE TO KNIFE. Now you may CUT SELF WITH KNIFE and obtain
+a quantity of blood.
+
+Take a bone off the pile. You’ll need it later.
+
+Exit the slaughterhouse. Travel north and northeast to the landslide.
+
+Shrine
+~~~~~~
+A boulder of iron ore blocks a cavern in the side of the mountain. LOOK UP METAL
+tells you that the vulk compound will dissolve metal. APPLY ARSENIC, SULFUR, AND
+WAX TO BOULDER will destroy it.
+
+Enter the cavern. The giant ochre face painted on the wall stares back at you
+with solemn eyes. APPLY OCU TO FACE reveals the result of Cain’s and Abel’s
+sacrifices.
+
+Go north and take the cinnabar. Return to the face on the wall.
+
+Put the slab in the cave pocket. Note that its reflection permits you to see
+into the northeast shrine. Enter that shrine, set the bone on the altar, and
+exit. Look in the slab. You’ll see an animal take the bone. Return to the shrine
+and search the shadows. (Take the slab from the pocket before you go.)
+
+ENTER CREVICE and you’ll find yourself facing a captive badger. Cut the tether
+to free the badger. Take the grease.
+
+APPLY OSTENDO TO STAIN. Using the Pharmakon, you learn that you hold the
+necessary ingredients: APPLY PHLEGM, LYMPH, AND WAX TO STAIN.
+
+Exit the hidden room, exit the shrine, and exit the cavern. Go southwest, east,
+and south to the workshop tent.
+
+Down the well
+~~~~~~~~~~~~~
+The rope is securely tied to the center post. CUT KNOT will release the rope,
+which you should take.
+
+Leave the tent and travel west to the well. TIE ROPE TO CROSSBEAM and CLIMB DOWN WELL.
+
+To the north you’ll discover a corpse. Examine it to discover his orbis
+bracelet. You may put the bracelet on the corpse or hold on to it. That decision
+is between you and your conscience.
+
+Go south and southeast, take the jug, and then south to the chamomile field.
+COLLECT CHAMOMILE.
+
+You can now unlock the strand of hair: APPLY BLACK BILE, CHAMOMILE, AND WAX TO HAIR.
+
+Return to the rope and climb up. Be sure to take the rope before you move on.
+
+Royal jelly & sage
+~~~~~~~~~~~~~~~~~~
+Travel east to the fire pit, take a chunk of charcoal, travel west, south,
+south, and southeast to the beehive. Take the royal jelly and move with some
+haste northwest to the oat field, where the crow has another good laugh at your
+expense.
+
+You may now travel south to the sage field: COLLECT SAGE. Travel south to the
+mountains.
+
+Mountains
+~~~~~~~~~
+The obsidian slab fits perfectly in the obsidian block’s scar, causing the block
+to glow. APPLY OSTENDO TO BLOCK. You should be able to use the Pharmakon to
+deduce the necessary remedy and poison. The “binding excipient” is grease, the
+only excipient in the book so described, and the “Body of the Three Primes” is
+salt: APPLY BLACK BILE, SAGE, GREASE, AND SALT TO BLOCK.
+
+Examine the scratches on the block. Now you know they are actually writing. LOOK
+UP LANGUAGE tells you about the glos compound: APPLY BLOOD, CHAMOMILE, GREASE,
+AND WAX TO SCRATCHES. The scratches tell you the necessary directions for
+traveling up the mountain maze.
+
+GO UP to the trailhead and follow the directions: Southwest, southeast, east,
+and then north.
+
+III. An Uncertain Earth
+~~~~~~~~~~~~~~~~~~~~~~~
+
+Go southeast to the camp. Get the fire going: APPLY ENCYP TO FIRE PIT. Put the
+clay jug under the spout. Pull the lever and wait a couple of turns. The jug is
+now full of spirits (aqua vitae). Take the jug.
+
+Go northwest and then south. Tie the rope to the forge and thread the rope
+through the pulley. Pull the rope to move the forge over the magma pool. Put the
+cinnabar in the chimney and wait a few turns. Take the mercury.
+
+Go north and down the mountain. Travel north to the foot of the great tree, then
+east and south. Enter the slaughterhouse. You can now unlock its mem- ory: APPLY
+BLOOD, SAGE, AND SALT TO STUMP. Use the MEMORIES command to verify you’ve
+learned the Humours of all four family members.
+
+Exit the slaughterhouse. Go west and south to the clearing. You’ve now learned
+enough about the family’s history to learn the secrets stored here. APPLY
+OSTENDO TO ROCK.
+
+LOOK UP THREE PRIMES and read about its trio of essences to learn which
+represents “Spirit.” APPLY LYMPH, SAGE, ROYAL JELLY, SPIRITS, AND MERCURY TO
+ROCK to witness the first murder in Man’s history.
+
+All that’s left to do in the settlement is follow Cain’s trail. Travel southwest.
+
+IV. A Wandering Earth
+~~~~~~~~~~~~~~~~~~~~~
+
+Go northwest to the field of thorns and thistle. APPLY GLOS TO SIGN.
+
+Southwest is a tunnel. Enter it and—
+
+You’re trapped underground. APPLY ENCYP TO TORCH to shine some light on your
+predicament. Vulk won’t melt away rust, so APPLY NOVO TO BAR to make it like
+new, then APPLY VULK TO BAR to make it disappear.
+
+Go west and examine the portrait. The crushed wood chest won’t open. APPLY OCU
+TO PAINTING not only allows you to see what it has witnessed, but also to hear
+Abel’s perspective for once.
+
+The revelation offers a clue to opening the chest. You could not collect any oil
+from the vines, but you may have a lubricant of your own: APPLY GREASE TO CHEST.
+Open it and be rewarded with well-deserved praise from Hester IV of Minscip himself.
+
+Go west to a dazzling sight of a garden paradise being destroyed. Try talking to
+the man. You will learn the nature of the Mark of Cain, which is the goal of
+your inquiry. Check MEMORIES to verify you’ve witnessed all sixteen revelations.
+
+Your inquiry is complete. BREAK SEAL to file your report.

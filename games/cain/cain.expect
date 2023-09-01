@@ -1,0 +1,23 @@
+#!/usr/bin/expect -f
+#
+# Play game According to Cain.
+#
+# Based on http://plover.net/~davidw/sol/a/accor22.html
+#
+set timeout -1
+
+# Remove previous log, if any.
+system rm -f "game.log"
+log_file "game.log"
+
+# Start the game.
+spawn frob --no-colors --no-seed-rand --no-scrolling --interface=plain --no-pause cain.t3
+match_max 100000
+
+expect "More"; send " \r"
+expect "More"; send " \r"
+
+# Quit
+expect ">"; send "quit\r"
+puts "quit"
+exit
