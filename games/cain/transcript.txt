@@ -77,3 +77,388 @@ Behind you, to the distant west, lies Eden.
 
 [Type ABOUT for more information on this game.]
 
+>east
+A tree
+In a break from the rugged and stark terrain, a magnificent tree rises
+alongside the path.  A crow descends from high above and alights upon its
+lowest branch.
+
+Nestled against the roots of the tree sits a leather rucksack.
+
+In the rucksack you see some arsenic, some lymph, some black bile, some phlegm,
+and some yellow bile.
+
+The Academy has provided well.  This rucksack will you help you with your
+inquiry.  As you travel, you should discover more of the tools you will require
+to complete your inquiry and prepare your report for the Provost.
+
+The way continues east.
+
+>get rucksack
+You heave up the weighty rucksack and sling it over your shoulder.
+
+>look rucksack
+This unique rucksack of tanned leather and stitching holds several secured
+phials.  Once stored in it, liquids will not spill or mix while traveling.  In
+the rucksack you see some arsenic, some lymph, some black bile, some phlegm,
+and some yellow bile.
+
+>east
+As you travel, your thoughts wander to the plight of Adam and Eve, the first
+humans created and parents of all Mankind.
+
+They were brought forth in the paradise Eden.  They lived a life of pure ease,
+only to be banished to the wilderness for a single weakness.  This path you
+walk would have been the one they followed as they searched for a new home...
+
+A Young Earth
+Your journey brings you to the mouth of a turbulent valley and a terrible
+sight: The valley walls and floor have broken open, allowing foul steam and
+gases from the underworld to escape high into the air.
+
+Here lies yet another provision from the Academy for your inquiry: On the
+ground near the magma flow is a pulverulent cloth.
+
+The way continues east and west.  Any travel south through the valley is
+blocked by the magma flow.
+
+>get cloth
+You pick up the pulverulent cloth.
+
+A great grumbling announces itself beneath the ground, and you find yourself
+swaying about as though on a ship deck.  A moment later, the disturbance
+ceases.
+
+>look cloth
+This pulverulent cloth is sewn for chemists and doctors to carry powders and
+herbals.  It's woven to wick away moisture and keep its contents dry under
+normal conditions.  Submerged, however, the powders will be ruined.
+
+>east
+Your thoughts return to the Provost's words in his quarters:
+
+"Recall that Eve birthed two sons," the Provost told you.  "Cain, the eldest,
+tilled the fields.  Younger brother Abel tended the flocks.  Until..." He
+trails off.
+
+"Cain murdered Abel," you said to complete his thought.
+
+"The first murder in all of history.  As punishment, the Creator cursed Cain to
+wander the Earth to the end of his days.  Cain was marked to prove he
+introduced murder into our world.  The mark served to protect Cain from others
+taking vengeance upon him."
+
+"Why do that?  Why protect such evil?"
+
+The Provost emitted a gravelly murmur.  "Vengeance was the Creator's."
+
+Approaching the river
+The steady rushing of a river comes from the east.  A turbulent valley of magma
+and steam roils to the west.
+
+Lying here is a thick tome bound in calf-skin.  It's the Pharmakon, a formulary
+and another provision made by the Academy for your inquiry.
+
+This book may be the most valuable possession they delivered for your work.
+
+>get Pharmakon
+With a grunt, you pick up the cumbersome and dusty tome.
+
+>look Pharmakon
+The Pharmakon is a formulary compiled over the ages, from the ancients to the
+modern Scholastics of the Academy.  It's a massive, unwieldy reference of fine-
+print, formulae, cross-references, and paper dust.
+
+It's also a compendium of history, knowledge, insight: Wisdom earned and
+expressed.
+
+Entries are poorly organized, as the Pharmakon is revised continuously as
+discoveries are made and old knowledge found undependable.
+
+It's not intended to be read cover-to-cover.  Rather, it should be consulted by
+topic.
+
+While the formulary is organized in haphazard fashion, its initial entry is
+worthy of your attention: First Principles.
+
+[To use this resource, try CONSULT BOOK ABOUT FIRST PRINCIPLES or LOOK UP
+INDAGATOR.]
+
+>look Pharmakon
+The Pharmakon is a formulary compiled over the ages, from the ancients to the
+modern Scholastics of the Academy.  It's a massive, unwieldy reference of fine-
+print, formulae, cross-references, and paper dust.
+
+It's also a compendium of history, knowledge, insight: Wisdom earned and
+expressed.
+
+Entries are poorly organized, as the Pharmakon is revised continuously as
+discoveries are made and old knowledge found undependable.
+
+It's not intended to be read cover-to-cover.  Rather, it should be consulted by
+topic.
+
+The initial entry in the formulary is First Principles.
+
+>look up First Principles
+(the Pharmakon)
+"First Principles" acts as a kind of introduction for this edition of the
+Pharmakon.  It was penned by Hester IV of Minscip, an old cur and one of the
+original Indagatores the Academy produced.  He was also your mentor, and a
+trusted one at that.
+
+He uses the opportunity of an introduction to produce a screed on the loose
+ethics of your chosen profession:
+
+"More than the what, the Indagator determines the why: the motivations; the
+reasoning; the rationalizations; the madness.
+
+"The greatest tool available to the investigator is combining essences to form
+compounds, which unlock old memories, reveal hidden details, and even reshape
+physical matter.  Researching the Pharmakon is vital to the success of your
+inquiry!
+
+"Good luck, Indagator," Hester IV of Minscip writes in his hasty but flowing
+penmanship.  "TRUTH is our shared pursuit.  It is ignorance we fight, to light
+the way toward a more complete understanding of our fellow man and woman!"
+
+c.f., Indagator, essence
+
+>look up Indagator
+(the Pharmakon)
+Indagator: The investigator; the observer; the questioner & the doubter.
+
+An Indagator examines all, determines the significance, and forgets nothing.
+MEMORIES and RECALL are two of your most important powers.
+
+"SACRIFICE is--alas!--also a necessity of our chosen profession," Hester IV of
+Minscip adds.
+
+c.f., essence, alchemy, sacrifice
+
+>memories
+So far, you've gathered no historical revelations about your inquiry.
+
+>look up essence
+(the Pharmakon)
+Essences are the backbone of the Indagator's compounds, and thereby his or her
+inquiry.
+
+While a constellation of essences exist for medicinal, soothsaying, and other
+scientific pursuits, for the Indagator only three varieties are pertinent:
+
+   * remedy
+   * poison
+   * excipient
+
+Compounds are formed by applying two or more of these essences to an object or
+a surface.  When the correct combination is applied, the mixture will trigger
+the desired effect.
+
+If the wrong compound is applied, the mixture will dissolve, leaving nothing
+but a sense of waste.
+
+c.f., remedy, poison, excipient
+
+>look up alchemy
+(the Pharmakon)
+Alchemy is a broad and learned field, but the Indagator has only to be
+acquainted with a handful of simple compounds for success in an inquiry.  Those
+compounds are--
+
+Here the ink on the page blurs and smudges, no doubt due to some careless
+scribe spilling his tea on the page, or one of the Academy's absentminded
+Scholastics shaving while poring over its secrets.  (Not that they shave that
+often; once a year, perhaps, at most.)
+
+When the blurred ink and scarred paper settles at the bottom of the page, only
+this warning remains:
+
+"Compounds may be applied for effect once and only once.  Subsequent attempts
+will merely result in loss of the applied essences."
+
+>look up sacrifice
+(the Pharmakon)
+Hester IV of Miscip writes:
+
+"Sacrifice is the defining characteristic of the Indagator's excipient essence,
+of which no other profession uses in quite the same manner or to the same
+effect.
+
+"Sacrifice is the defining characteristic of the Indagator as well, for every
+inquiry requires sacrifice--in the name of TRUTH!  Onward!"
+
+c.f., Indagator, Truth, excipient
+
+>look up remedy
+(the Pharmakon)
+A remedy is a vital and promotive essence in compounds.
+
+Remedies are blood, yellow bile, black bile, and phlegm.
+
+It is no coincidence that all four remedies are also the Four Humours.
+Understand the Four Humours, and you will understand the use of remedies and
+poisons.
+
+c.f., poison, excipient, Four Humours
+
+>look up poison
+(the Pharmakon)
+A poison is a vital but countering essence in compounds.
+
+Poisons are lymph, chamomile, arsenic, and sage.
+
+c.f., remedy, excipient
+
+Your training at the Academy informs you that you should concentrate on
+completing your inquiry, not searching the Pharmakon round and round.
+
+[Don't worry about learning everything the Pharmakon has to offer right away.
+You'll have plenty of chances to consult it later.]
+
+>look up excipient
+(the Pharmakon)
+An excipient is an essence sacrificed in a compound to hold together the remedy
+and the poison, which, by their nature, are repelled.
+
+Excipients are salt & sulfur; grease & ash; wax & royal jelly; and spirits &
+mercury.
+
+Hester IV of Minscip can't help but add in the margin: "Power lies not in the
+remedy or the poison, but in the sacrifice!"
+
+c.f., remedy, poison, sacrifice
+
+>look up Truth
+(the Pharmakon)
+"The pursuit of TRUTH is the only footrace worth running," Hester IV of Minscip
+writes.  "Do not block the way of inquiry!
+
+"And that is all I have to say on the subject."
+
+>look up Four Humours
+(the Pharmakon)
+The Four Humours represent the balancing fluids intrinsic to the human body.
+Every living being contains all four; it is when the Humours are unbalanced
+that one may overtake the others, leading to excessive behavior and damaging
+thoughts.
+
+The Four Humours are:
+
+   * blood which makes one sanguine
+   * yellow bile which makes one choleric
+   * black bile which makes one melancholic
+   * phlegm which makes one phlegmatic
+
+Note that all four are remedies in the Indagator tool kit.
+
+Hester IV of Minscip adds in the margin: "Early inquiries into Adam, Eve, Cain,
+& Abel indicates each is associated with a different Humour.  Learning each
+family member's Humour would be a tour de force for any Indagator!"
+
+c.f., remedy, Three Primes
+
+>look up Three Primes
+(the Pharmakon)
+The Three Primes (tria prima) represent the fullness of Life, the potential of
+the human spirit, and the unity of Mankind.  The primes are located in salt,
+sulfur, and mercury.
+
+As all three are excipients, they are sacrificed when formulating compounds.
+Their very nature represents the nature of the Indagator: SACRIFICE.
+
+The significance of the Three Primes versus the balance of the Four Humours
+have been hotly debated since the earliest stirrings of Scholasticism.
+
+c.f., excipient, Four Humours, sacrifice
+
+The scolding voice of Hester IV of Minscip rings out across your thoughts: "Do
+not waste precious time lost in the pages of the Pharmakon!  Your inquiry
+awaits!  ONWARD!"
+
+>east
+You recall the Provost throwing up his liver-spotted hands when you last spoke
+to him:
+
+"The historical record offers no clue to the form of Cain's rude mark!" he
+said.  "Is it a scar on his face, or the color of his hair, or a horn sprouting
+from his forehead?  To know this is to better understand the true nature of
+evil, for Cain was Perdition itself!"
+
+This is the question you must answer.  It is why you've been sent back to this
+time, the beginning of mankind's existence on Earth.
+
+Crossing
+A roaring river of whitewater and coursing rapids terminates your path through
+the wilderness.  A lean, frayed rope bridge crosses east to the opposite bank.
+Otherwise, your only other path is west, the way you came.
+
+With a showy beating of its wings, a crow swoops down and settles among the
+topmost branches of a nearby eucalyptus.
+
+Lying on the river's bank is an oversized vellum envelope with a prominent blue
+seal.  You will need it to issue your final report to the Academy.
+
+>get envelope
+You take the envelope.  The stiffness of the vellum reminds you of the
+Academy's formality.  You think of the elderly and wise Provost, of your
+teacher Hester IV of Minscip, and of the steady purpose of the Academy's
+Scholastics.  You do not want to let them down.
+
+A crow high in the tree preens its feathers and shakes itself.
+
+>look envelope
+The envelope is of stiff vellum folded into shape and held fast with an
+embossed seal.
+
+The Provost expects you to break the seal when you're prepared to report your
+findings to the Academy.
+
+Choose your time wisely.  You are the final Indagator the Academy can afford to
+send for this investigation.  Breaking the seal is tantamount to declaring your
+inquiry is completed.
+
+>east
+Bearing some trepidation, you plant a foot on the rope bridge, then the other.
+Your crossing begins with careful, mindful steps.
+
+Three-quarters of the way across, your fears fade.  Perhaps your time at the
+Academy among its soft scholars has left you suspicious of rural craftsmanship.
+After all, you made it this far without--
+
+Strands of the rope start unwinding beneath your feet.  You impulsively grapple
+for the hand-hold, but it too buckles.  Madly you scramble to hold onto your
+possessions as the rope gives way.  You tumble into the ice-cold river...
+
+[Press any key to continue...]  
+
+
+II. A FRAGILE EARTH
+
+You're washed far downstream before you manage to grasp solid rock and pull
+yourself from the river.  You trudge up the eastern bank drenched to the bone
+and grouching about "rural craftsmanship."
+
+After some time in the sun, your equipment and essences are dry and intact.
+The frigid river has left you shivering uncontrollably, however.
+
+Worse: You lost your orbis bracelet in the water.  Without it, you have no way
+to return to the Academy.
+
+You struggle to recall why you accepted this task from the Provost.  You
+struggle equally to grasp why he would select you, a novitiate so green in the
+science of investigation.  Perhaps after losing two Indagatores to the inquiry,
+he found himself facing a dearth of volunteers.
+
+Plain
+You're standing on the edge of a flooded plain.  A stagnant pond fed by the
+redirected river makes a murky mirror across the plain.  An irrigation ditch
+controlled by a sluice gate leads to a distant field of wheat covering much of
+the valley floor.
+
+To the southeast is a winding footpath leading up an incline, while northeast
+of here is a squat cave set in the side of the bank.
+
+Far to the north, you make out a settlement around an enormous cedar tree.  The
+way north is blocked by the pond.
+

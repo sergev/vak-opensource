@@ -16,6 +16,49 @@ match_max 100000
 
 expect "continue..."; send "\r"
 expect "continue..."; send "\r"
+#expect ">"; send "about\r"
+
+#
+# I. A Young Earth
+#
+expect ">"; send "east\r";                      # A tree
+expect ">"; send "get rucksack\r"
+expect ">"; send "look rucksack\r"
+expect ">"; send "east\r";                      # A Young Earth
+expect ">"; send "get cloth\r"
+expect ">"; send "look cloth\r"
+expect ">"; send "east\r";                      # Approaching the river
+expect ">"; send "get Pharmakon\r"
+expect ">"; send "look Pharmakon\r"
+expect ">"; send "look Pharmakon\r"
+expect ">"; send "look up First Principles\r"
+expect ">"; send "look up Indagator\r"
+expect ">"; send "memories\r";                  # also 'recall'
+expect ">"; send "look up essence\r"
+expect ">"; send "look up alchemy\r"
+expect ">"; send "look up sacrifice\r"
+expect ">"; send "look up remedy\r";            # Remedies are blood, yellow bile, black bile, and phlegm.
+expect ">"; send "look up poison\r";            # Poisons are lymph, chamomile, arsenic, and sage.
+expect ">"; send "look up excipient\r";         # Excipients are salt & sulfur; grease & ash; wax & royal jelly; and spirits & mercury.
+expect ">"; send "look up Truth\r"
+expect ">"; send "look up Four Humours\r"
+
+# The Four Humours are:
+#  * blood       which makes one sanguine
+#  * yellow bile which makes one choleric
+#  * black bile  which makes one melancholic
+#  * phlegm      which makes one phlegmatic
+
+expect ">"; send "look up Three Primes\r";      # The primes are located in salt, sulfur, and mercury.
+expect ">"; send "east\r";                      # Crossing
+expect ">"; send "get envelope\r"
+expect ">"; send "look envelope\r"
+expect ">"; send "east\r";                      # Plain
+expect "continue..."; send "\r"
+
+#
+# II. A Fragile Earth
+#
 
 # Quit
 expect ">"; send "quit\r"
