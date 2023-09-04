@@ -2449,7 +2449,470 @@ realize how far you've traveled to reach here.
 A steep slope descends down the mountain in a hurry, while a path leads
 southeast.  The way south leads up the mountain.
 
+>se
+Camp
+A lean-to of hides and canvas stretched taut over a wood frame stands against a
+sheer rock face.
+
+Under the lean-to you discover all the trappings of a distillery.  Loose grain
+kernels are scattered in the dirt about the centerpiece, a crude still over a
+scorched fire pit.
+
+The path back to the mountain pass is to the northwest.
+
+>apply encyp to fire pit
+You spread some of the salt and the ash on the fire pit.
+
+The admixture blends, swells, bubbles, seizes up--
+
+Cain's voice rages in your ear:
+
+It was much to their surprise when I found them in the tent.  Awan--my sister
+and supposed wife--lying with Abel and inebriated from his vicious
+distillation.  The grain I labored to raise from the earth--nourishment for our
+family--fried down and transmuted into revelry and fleshy pleasures.
+
+I beat Abel mightily--I remember little of the moment, but I did it.  Only
+Awan's cries to halt could stop me.  When I raised a hand to her, I saw what I
+had become, and I broke down.  Awan carried our child, after all.
+
+As I fled, Awan was cradling Abel's bruised head against the side of her womb.
+
+Like so many phlegmatics, Cain suffers from bouts of cholera when his brooding
+nature is tested.  This is not idle speculation; it is proven scientific fact,
+as your Academy training can attest.
+
+With a mighty whoom--you kept your distance this time--a fire bursts alive.
+
+[You've unlocked another revelation.]
+
+>put clay jug under spout
+You put the clay jug under the wood spout.
+
+>pull lever
+With a pull of the lever, the metal pan swings over the fire pit.  The pan
+quickly begins to heat.
+
+The mash cooks down in the pan with hisses and gurgles.
+
+>wait
+Time passes.
+
+A hot clear liquid pools around the mash.  It has the astringent odor of
+spirits, the precious aqua vitae.
+
+>wait
+Time passes.
+
+The pool gathers enough volume to move along the slope of the pan to a wood
+trough.  The precious spirits are carried by twists and turns to the V-shaped
+spout, where the liquid drips as a clear thread.  After a minute, the jug is
+full of spirits--the precious aqua vitae.
+
+You push the lever and the metal pan swings away from the fire.  The gummy mash
+is now dry and burnt.  It seems unlikely you could produce any more from it.
+
+>take clay jug
+You pick up the clay jug.
+
+You're definitely feverish, and grower sicker by the minute, but you must press
+on.  Once this inquiry is over, you can take a long, well-deserved rest.
+
+>nw
+Mountain pass
+A brisk steady wind cuts across this mountain pass, an unwelcome contrast to
+the warm, if chilling, settlement below.
+
+A steep slope descends down the mountain in a hurry, while a path leads
+southeast.  The way south leads up the mountain.
+
+>south
+Magma pool
+Near the summit of the mountain you come across a roiling pool of orange magma
+surrounded by a ring of rocks.  The stench of brimstone is quite pungent.
+
+A single olive tree looms over the pool.  Exposure to the heat and exhaust has
+stripped it of its bark and blackened its bare limbs.  A heat-abused pulley
+dangles from the tree's lowest limb.
+
+A squat brick forge has fallen on its side beside the pool of magma.  Nearby is
+what appears to be a makeshift anvil.
+
+The only way down the mountain is to the north.
+
+>tie rope to forge
+You tie the rope to the hook on top of the forge.
+
+>thread rope through pulley
+You thread the rope through the pulley.
+
+>pull rope
+Putting all your strength into it, you manage to lift the forge off its side
+and swing it over the pool.
+
+You remind yourself: This is Cain's forge.  History records him as the first
+metalworker.  No doubt he forged the shovel you've seen in the visions, as he
+did the knife you found in Abel's slaughterhouse.
+
+You let the block settle atop the rocks ringing the magma.  You release the
+rope with great relief, the muscles in your arms twitching and tingling from
+the stress.
+
+The forge begins heating up.
+
+>put cinnabar in chimney
+You drop the cinnabar down the tube and into the forge.
+
+After a moment, a high-pitched hissing squeals from the forge's stubby chimney.
+
+>wait
+Time passes.
+
+The sound of gurgling liquid emerges from the forge.
+
+>wait
+Time passes.
+
+Mercury drips from the forge's opening with a slow trickle, until a small pool
+of the precious quicksilver has formed on the ground before you.
+
+>take mercury
+You carefully gather the precious mercury and add it to your rucksack.
+
+>north
+Mountain pass
+A brisk steady wind cuts across this mountain pass, an unwelcome contrast to
+the warm, if chilling, settlement below.
+
+A steep slope descends down the mountain in a hurry, while a path leads
+southeast.  The way south leads up the mountain.
+
+You are deathly ill.  You look forward to collapsing and taking a long sleep
+when you've completed your inquiry.
+
+>down
+You practically gallop down, jarring yourself and rattling your knees in the
+process, but you reach the base of the mountain in one piece...
+
+Base of mountain
+A range of Atlas-like mountains ascends mightily to the misty heavens.  Nearby,
+on a more diminutive scale, a rotund obsidian block squats firmly in the
+ground.
+
+Up the mountain is a trailhead of animal paths and switchbacks ascending the
+side of the mountain.
+
+The settlement is north.
+
+>north
+After a trek across the valley floor, you reach the edge of the settlement...
+
+Sage field
+A narrow winding strip of sage spreads forth from here.  The growth is so
+thick, your travel into the field is impeded, and you can only reach the first
+row of plants.
+
+Steam and miasma emerge from a wide chasm on the far side of the field.  On the
+other side of the chasm stands a field of chamomile.
+
+To the east stands an elderly almond tree supporting a mud hive.  The edge of
+the wheat field is to the north.
+
+To the distant south runs an impressive mountain range rising into the mist-
+laden sky.
+
+The cacophony of the agitated swarm drones continuously from the east.  They
+are furious.
+
+>north
+Clearing
+The meticulously tended field of wheat opens to a circular clearing of trampled
+stalks and grain-heavy florets crushed underfoot.
+
+Off-center of the clearing sits a squat russet-brown rock cracked in half.
+
+The russet-brown rock glows a clear blue hue.
+
+To the southeast stands an almond tree among a cloud of bees.  A field of
+flowering sage spreads out to the south.  A scarecrow is north of here.
+
+An almost imperceptible trail of broken wheat stalks cuts southwest through the
+field.
+
+The crow's piercing call shatters the still air.
+
+>north
+In the wheat field
+Twenty or thirty hectares of wheat are planted in tidy rows along the southern
+edge of the settlement.
+
+Traveling north will lead you out of the field and toward the center of the
+settlement.  A dilapidated shack stands to the east, while a path south through
+the field leads to a clearing.
+
+A rough and ready scarecrow stands upright here.
+
+>north
+Foot of the great cedar tree
+You're standing at the foot of a great cedar tree.  Its leafy branches reach
+all directions overhead.
+
+A crow sits on one of the lower tree branches.  You could reach it if you
+climbed up.
+
+A well stands to the west.  To the south begins an expansive tilled field.
+East is a fire pit surrounded by some small buildings.  Smoke rises from its
+center.
+
+The crow launches from the tree, flies a roundabout loop in the hazy sky, and
+returns to its perch.
+
+>east
+Fire pit
+This clearing, along with the great cedar tree to the west, feels to be the hub
+of the settlement and its surrounding areas.
+
+In the center of the clearing stands a large fire pit surrounded by a ring of
+stones.  A roaring fire burns here, sending a column of smoke into the murky
+skies.
+
+East of here, a thatch mud hovel and a gray tent are built against the side of
+a hill.  To the south stands a dilapidated wood shack.
+
+Far to the northeast, you discern what appears to be a cavern entrance.
+
+A loose pile of smoking charcoal stands beside the intense fire.
+
+A bee passing through the clearing steers far from the smoldering pile of
+charcoal, as though allergic to its smoke, and flies away.
+
+>south
+Outside a slaughterhouse
+This dilapidated shack of rough-cut cypress planks leans to one side and is in
+need of shoring up.  From the dried red-wine splatter about the interior walls,
+it's obvious this was a slaughterhouse.
+
+The shack may be entered from here by going south.  A fire pit is due north,
+while a field of wheat stands to the west.
+
+>enter
+Slaughterhouse
+The interior of the rustic slaughterhouse is stark and stunning to the
+uninitiated.
+
+The planks are a rich tannin color from the sheer quantity of blood spilled.
+The coloration spreads up the walls, spattered from countless slaughtered
+animals.  You imagine a grim assortment of iron tools and instruments once
+filled this place.
+
+Mostly, it's the lingering odor here that strikes you.
+
+A wide tree stump occupies the center of the shack.
+
+In one corner is a loose pile of animal bones.
+
+The tree stump glows a clear blue hue.
+
+Your inquiry has determined that the tree stump has a revelation locked within
+it.
+
+>apply blood, sage and salt to stump
+You spread some of the blood, the sage, and the salt on the tree stump.
+
+The admixture blends, swells, bubbles, seizes up--
+
+In your ear comes a familiar voice, the grim voice of Cain:
+
+At the close of Slaughter, the blood of forty animals coats my brother from
+neck to knee.  His skin is slick and painted dark red from the umber of his
+flock.
+
+Abel is never happier than during Slaughter.  With his throat-knife's iron
+between his teeth, he takes the beast in both hands.  In one confident motion
+he wrangles the animal onto the tree stump.  The animals stand wide-eyed with
+terror, but they do not resist.  For the entirety of their short lives, he has
+been as a father to them.
+
+When he flicks the fine edge across the beast's neck, only a nick appears, a
+spot of black blood under its jaw.  A moment later, a thread thickens across
+its neckline, then begins coursing like a stream.  It is my knife, I forged it
+for Abel, and their blood will be reckoned when my time of accounting comes.
+
+[You've unlocked another revelation.]
+
+>exit
+Outside a slaughterhouse
+This dilapidated shack of rough-cut cypress planks leans to one side and is in
+need of shoring up.  From the dried red-wine splatter about the interior walls,
+it's obvious this was a slaughterhouse.
+
+The shack may be entered from here by going south.  A fire pit is due north,
+while a field of wheat stands to the west.
+
+>west
+In the wheat field
+Twenty or thirty hectares of wheat are planted in tidy rows along the southern
+edge of the settlement.
+
+Traveling north will lead you out of the field and toward the center of the
+settlement.  A dilapidated shack stands to the east, while a path south through
+the field leads to a clearing.
+
+A rough and ready scarecrow stands upright here.
+
+>south
+Clearing
+The meticulously tended field of wheat opens to a circular clearing of trampled
+stalks and grain-heavy florets crushed underfoot.
+
+Off-center of the clearing sits a squat russet-brown rock cracked in half.
+
+The russet-brown rock glows a clear blue hue.
+
+To the southeast stands an almond tree among a cloud of bees.  A field of
+flowering sage spreads out to the south.  A scarecrow is north of here.
+
+An almost imperceptible trail of broken wheat stalks cuts southwest through the
+field.
+
+The cacophony of the agitated swarm drones continuously from the southeast.
+They are furious.
+
+>apply ostendo to rock
+You spread some of the salt and the sulfur on the russet-brown rock.
+
+The ostendo compound blends and dissolves, preparing to reveal the next steps
+for unlocking the revelations burned into the russet-brown rock...
+
+A disembodied voice whispers to you in an unsure voice: "Abel's poison.  Cain's
+poison.  Royal jelly.  The spirit of aqua vitae.  And the Spirit of the Three
+Primes."
+
+In all your studies at the Academy, this is unprecedented: A compound requiring
+two poisons and three excipients.  Whatever event is locked within this stone,
+it must be extremely powerful.
+
+>look up three primes
+(the Pharmakon)
+The Three Primes (tria prima) represent the fullness of Life, the potential of
+the human spirit, and the unity of Mankind.  The primes are located in salt,
+sulfur, and mercury.
+
+As all three are excipients, they are sacrificed when formulating compounds.
+Their very nature represents the nature of the Indagator: SACRIFICE.
+
+The significance of the Three Primes versus the balance of the Four Humours
+have been hotly debated since the earliest stirrings of Scholasticism.
+
+c.f., excipient, Four Humours, sacrifice
+
+>apply lymph, sage, royal jelly, spirits and mercury to rock
+You spread some of the lymph, the sage, the royal jelly, the spirits, and the
+mercury on the russet-brown rock.
+
+The admixture blends, swells, bubbles, seizes up--
+
+Cain's growing rage floods in:
+
+On my knees, I work the shovel to pry this stubborn rock from the field.  Abel
+approaches with his right cheek and eye socket still mottled from the bruising
+I gave him in the mountains.
+
+"I will marry Awan," he announces.  "Just as Mother and Father were wed in
+their garden paradise."
+
+"You will not take my wife and child from me."
+
+"The child Awan carries is mine.  She would tell you so, but shame holds her
+tongue."  He leans down to me.  "What troubles you, brother?  This rock?  The
+crow thieving your grain?  Or is it the swarm of locusts sleeping underground,
+waiting for their moment to rise and overwhelm you?"
+
+It is difficult to speak in measured tones.  "What troubles me is this: I
+perceive the world was created in goodness, but it is not governed according to
+the fruit of good works."
+
+"You misperceive.  In judgment there is no respect of persons.  My sacrifice
+was superior to yours, and I am rewarded."
+
+I say, again, with difficulty: "Then there is neither judgment nor judge, nor
+even another world."
+
+A brash smile bursts across his face.  "There was a judgment, brother.  There
+is a better world, and it is reserved for Awan and me."
+
+I strike the blade of the shovel across his face.  Taking him by the neck, I
+wrestle him to the dirt.  My vision washes umber--I smash the back of his head
+into the rock repeatedly, as though by killing him I am killing this stubborn
+blister among my wheat.
+
+Abel lays sprawled across the ground, lifeless.  My violence has cracked the
+rock in two.  The black earth I've nourished now drinks my brother's blood.
+
+What have I done?
+
+The Crow lands beside him.  It sniffs at my brother's still body for evidence
+of life.
+
+In the distance, Mother calls it is mealtime.
+
+"Am I my brother's keeper?" I whisper to the Crow.
+
+As if in answer, the ground beneath me begins trembling and groaning.
+
+The bird scratches in the dirt with its talons.  It digs a trench with its
+beak.
+
+I must hurry--Mother calls my name, and when I do not arrive, she will come to
+find me.
+
+You witness a sobbing Cain burying his brother as Eve's voice draws near.  He
+scampers off through the wheat field and cuts a path southwest through the
+stalks...
+
+...You come to in a daze.
+
+The crow flies low overhead, its screech echoing across the valley.  It comes
+to rest at a distant ravine to the southwest.
+
+It screeches once more, as though beckoning.
+
+[You've unlocked another revelation.]
+
+>sw
+With the crow in your sights, and the memory of Cain's flight fresh in your
+mind, you easily follow the trail...
+
+IV. A WANDERING EARTH
+
+For from this time forth thou shalt be the father of his lies;
+thou shalt be called Perdition...
+                  -Moses 5:24, Pearl of Great Price
+
+And Cain went out from before the LORD,
+and dwelt in the land of exile and wandering,
+        east of Eden.
+
+...from the time that he sinned and killed his brother,
+[the earth] changed to produce thorns and thistles.
+                  -Genesis 4:16, Targum Jerusalem
+
+And the LORD set a mark upon Cain.
+                  -Genesis 4:15 KJV
+
+You reach the edge of a ravine.  Feverish, clothes soaked-through with sweat,
+you rest for awhile.
+
+Edge of barren field
+A wide ravine extends miles in both directions.  Hundreds of feet below runs a
+veritable river of molten magma.  Its lava scorches trees along its path.  You
+suspect this ravine once hosted a river of water, until the young Earth tore
+itself open and its innards gushed out.
+
+To the northwest lies a field of gnarled vines.  The wheat field is to the
+northeast.
+
 >save
-Save game to file >start3.t3v
+Save game to file >start4.t3v
 Saved.
 

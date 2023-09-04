@@ -208,7 +208,7 @@ through the pulley. Pull the rope to move the forge over the magma pool. Put the
 cinnabar in the chimney and wait a few turns. Take the mercury.
 
 Go north and down the mountain. Travel north to the foot of the great tree, then
-east and south. Enter the slaughterhouse. You can now unlock its mem- ory: APPLY
+east and south. Enter the slaughterhouse. You can now unlock its memory: APPLY
 BLOOD, SAGE, AND SALT TO STUMP. Use the MEMORIES command to verify you’ve
 learned the Humours of all four family members.
 

@@ -237,12 +237,44 @@ expect ">"; send "north\r";                     # Mountain pass
 #
 # III. An Uncertain Earth
 #
-expect ">"; send "save\r"; expect ">"; send "start3.t3v\r"
+expect ">"; send "se\r";                        # Camp
+expect ">"; send "apply encyp to fire pit\r"
+expect ">"; send "put clay jug under spout\r"
+expect ">"; send "pull lever\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "take clay jug\r"
+expect ">"; send "nw\r";                        # Mountain pass
+expect ">"; send "south\r";                     # Magma pool
+expect ">"; send "tie rope to forge\r"
+expect ">"; send "thread rope through pulley\r"
+expect ">"; send "pull rope\r"
+expect ">"; send "put cinnabar in chimney\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "take mercury\r"
+expect ">"; send "north\r";                     # Mountain pass
+expect ">"; send "down\r";                      # Base of mountain
+expect ">"; send "north\r";                     # Sage field
+expect ">"; send "north\r";                     # Clearing
+expect ">"; send "north\r";                     # In the wheat field
+expect ">"; send "north\r";                     # Foot of the great cedar tree
+expect ">"; send "east\r";                      # Fire pit
+expect ">"; send "south\r";                     # Outside a slaughterhouse
+expect ">"; send "enter\r";                     # Slaughterhouse
+expect ">"; send "apply blood, sage and salt to stump\r"
+expect ">"; send "exit\r";                      # Outside a slaughterhouse
+expect ">"; send "west\r";                      # In the wheat field
+expect ">"; send "south\r";                     # Clearing
+expect ">"; send "apply ostendo to rock\r";     # Abel’s poison. Cain’s poison. Royal jelly. The spirit of aqua vitae. And the Spirit of the Three Primes.
+expect ">"; send "look up three primes\r"
+expect ">"; send "apply lymph, sage, royal jelly, spirits and mercury to rock\r"
+expect ">"; send "sw\r";                        # Edge of barren field
 
 #
 # IV. A Wandering Earth
 #
-#expect ">"; send "save\r"; expect ">"; send "start4.t3v\r"
+expect ">"; send "save\r"; expect ">"; send "start4.t3v\r"
 
 # Quit
 expect ">"; send "quit\r"
