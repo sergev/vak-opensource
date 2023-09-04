@@ -21,7 +21,7 @@ spawn ./frob --no-colors --no-seed-rand --no-scrolling --interface=plain --no-pa
                                  -Genesis 4:13 KJV
 
 
-
+[More]
                  According to Cain
                  An inquiry
                  by Jim Nelson
@@ -462,3 +462,491 @@ of here is a squat cave set in the side of the bank.
 Far to the north, you make out a settlement around an enormous cedar tree.  The
 way north is blocked by the pond.
 
+>save
+Save game to file >start2.t3v
+Saved.
+
+>look gate
+A sluice gate with a wood lever controls whether the river water can enter the
+irrigation ditch.  The gate's closed, causing the swollen river to flood the
+plain.
+
+>se
+A Fragile Earth
+Peering down from atop an incline, you behold yet another awesome spectacle in
+the distance: The earth ripped open and the underworld's molten rivers and
+miasma escaping to the surface.  This young Earth suffers teething pains, and
+its tantrum is most awful.
+
+The narrow footpath continues down the hill into a chasm, or northwest back to
+the sluice gate.
+
+A deep blue gem strung on a loop of leather cord lies on the ground.  It's
+another provision from the Academy.
+
+>wear gem
+(first taking the lumens gem)
+
+You put the leather cord around your neck.  The lumens gem hangs at your
+sternum.
+
+The breeze carries up from the chasm below the stench of rotten eggs.
+
+>down
+Sulfur deposits
+In this wide and arid chasm you spy the telltale yellow chalk of sulfur
+spilling down the slope.
+
+A winding path leads up out of the chasm.
+
+>collect sulfur
+You collect all the sulfur you can find, prepare it for use, and add it to the
+pulverulent cloth.
+
+You notice you're slightly warm, and feeling an unexpected soreness in your jaw
+and neck muscles.  That dunk in the ice-cold river must have impaired your
+constitution more than you first thought.
+
+>up
+A Fragile Earth
+Peering down from atop an incline, you behold yet another awesome spectacle in
+the distance: The earth ripped open and the underworld's molten rivers and
+miasma escaping to the surface.  This young Earth suffers teething pains, and
+its tantrum is most awful.
+
+The narrow footpath continues down the hill into a chasm, or northwest back to
+the sluice gate.
+
+>nw
+Plain
+You're standing on the edge of a flooded plain.  A stagnant pond fed by the
+redirected river makes a murky mirror across the plain.  An irrigation ditch
+controlled by a sluice gate leads to a distant field of wheat covering much of
+the valley floor.
+
+To the southeast is a winding footpath leading up an incline, while northeast
+of here is a squat cave set in the side of the bank.
+
+Far to the north, you make out a settlement around an enormous cedar tree.  The
+way north is blocked by the pond.
+
+The sluice glows a clear blue hue.  The lumens gem is telling you to examine
+the sluice closer.
+
+>look gate
+A sluice gate with a wood lever controls whether the river water can enter the
+irrigation ditch.  The gate's closed, causing the swollen river to flood the
+plain.
+
+The sluice glows a clear blue hue.  The lumens gem has detected powerful
+memories stored within this surface.  You should apply an ostendo compound to
+learn how to unlock them.  They may potentially help you with your inquiry.
+
+[Use LOOK UP OSTENDO to learn what substances you'll need to unlock the
+memories stored in the sluice.]
+
+>look up ostendo
+(the Pharmakon)
+Strong emotional reactions are embedded in surfaces near the source of the
+psychic disturbance.
+
+Once an ostendo compound is applied to such a surface, the Indagator will
+receive an Inspiration for unlocking the revelation embedded within it.
+
+Note that ostendo, as with all compounds, should only be applied once.
+Applying the same compound to the same surface more than once only serves to
+waste essences.
+
+Hester IV of Minscip adds a footnote in his peculiar scrawl:
+
+"While detailing the ingredients ostendo requires should be unnecessary for any
+Indagator worth his salt, I will transcribe them here to quiet the countless
+students who bang on my door at all hours pleading for its formulation: salt &
+sulfur.  Now let me sleep!"
+
+c.f., essence, alchemy
+
+[Alas, the Academy didn't send provisions for every ingredient you'll need to
+complete your inquiry.  You have some sulfur.  Search around and see if you can
+locate some salt.]
+
+>ne
+Salt bed
+This squat cave entrance is actually nothing more than a dry grotto shaped
+convex by the river.
+
+A gash up the side of the grotto reveals a bed of crystal salt embedded in the
+rock face.
+
+The sluice gate is to the southwest.
+
+>collect salt
+You collect all the salt you can find, prepare it for use, and add it to the
+pulverulent cloth.
+
+>sw
+Plain
+You're standing on the edge of a flooded plain.  A stagnant pond fed by the
+redirected river makes a murky mirror across the plain.  An irrigation ditch
+controlled by a sluice gate leads to a distant field of wheat covering much of
+the valley floor.
+
+To the southeast is a winding footpath leading up an incline, while northeast
+of here is a squat cave set in the side of the bank.
+
+Far to the north, you make out a settlement around an enormous cedar tree.  The
+way north is blocked by the pond.
+
+The sluice glows a clear blue hue.
+
+[You should APPLY SALT TO SLUICE and APPLY SULFUR TO SLUICE to activate an
+ostendo compound.]
+
+>apply salt and sulfur to sluice
+You spread some of the salt and the sulfur on the sluice.
+
+The ostendo compound blends and dissolves, preparing to reveal the next steps
+for unlocking the revelations burned into the sluice...
+
+In your ear comes a disembodied whisper: "Phlegm and sulfur."
+
+Applying these two essences to the sluice will unlock the memories embedded
+within it.
+
+[You may now refer to the ostendo compound by name.  Using it has seared its
+list of essences into your memory.  For example, you may APPLY OSTENDO TO
+SHOVEL if the need arises.]
+
+>apply phlegm and sulfur to sluice
+You spread some of the phlegm and the sulfur on the sluice.
+
+The admixture blends, swells, bubbles, seizes up--
+
+The ethereal voice of a young man appears in your mind.  It is a voice recorded
+in the past:
+
+After Father and I dug this trench to irrigate my wheat and vegetables, brother
+Abel made a discovery: When the sluice is closed, the field floods deep enough
+for his flock to drink from.  This saves him half a day of shepherding them
+down to the river and back.  My crops suffer for his laziness.  I have
+repeatedly warned him not to lock the sluice closed without my permission.
+
+Mother and Father will not intervene.  He is the youngest son.  They are
+intoxicated by his charms and soothed by his assurances that he bears no ill
+will.
+
+And yet here I find my field dry as dust and the sluice gate closed.  He has
+managed to jam it shut with a wedge, to prevent me from undoing his handiwork.
+He is without shame!
+
+The voice fades off, leaving you with an electric charge of scholarly
+excitement.  The young man speaks of his brother Abel.  "Mother" is Eve, the
+first Woman to walk the Earth.  "Father" is Adam, the first Man.  This is
+Cain's voice!
+
+[Use MEMORIES to list all revelations you've surfaced in your inquiry.]
+
+>look pond
+With the sluice closed, the swollen river is backed up and flooding the plain.
+In the murky still pond you faintly make out a wooden wedge jammed into the
+bottom of the sluice gate.  You should be able to reach it.
+
+>remove wedge
+You manage to remove the wedge from the gate's jamb, but you lose the slippery
+thing in the murky water.  The gate should be free to move now, though.
+
+>pull lever
+With a great deal of effort, you succeed in pulling the sluice lever back.  The
+gate opens and water rushes into the irrigation ditch.
+
+Within a few minutes, the pond has drained enough for you to move north across
+the plain.
+
+>north
+River bank
+You recognize this to be the opposite bank of the river crossing you attempted.
+The rope bridge unraveled entirely and was swept downstream with you.
+
+North of here stands a small settlement.  No fence or markings, only a few
+buildings around a grand cedar tree.  To the south is a sluice gate.
+
+Down the rushing river flows ice-cold water.
+
+As though demonstrating the ease of fording a river, the crow launches from the
+far bank, soars over the river in a geometric arc, and lands gracefully a few
+feet from you.
+
+Without a glance, it emits a berating caaaw at you.
+
+It makes another showy beating of its wings, lifts off, and flies away.
+
+>north
+As you approach the settlement, you surmise it was abandoned some time ago.
+Time has worn down everything left behind...
+
+Well
+A ring of rock surrounds a well in the ground.  A crossbeam dissects the well's
+opening in half.  From the depths below comes the echoing trickle of slow-
+running water.
+
+The river is south of here, while a towering cedar is to the east.  Beyond it
+is a clearing and some ramshackle buildings.
+
+The well glows a clear blue hue.
+
+It would be wise to examine the well closer, in case it may yield any insights
+into your inquiry.
+
+>apply ostendo to well
+You spread some of the salt and the sulfur on the well.
+
+The ostendo compound blends and dissolves, preparing to reveal the next steps
+for unlocking the revelations burned into the well...
+
+In your ear comes a disembodied whisper: "Yellow bile and ash."
+
+Applying this mixture to the well will unlock the memories embedded within.
+Now, if you could only find some ash...
+
+>east
+Foot of the great cedar tree
+You're standing at the foot of a great cedar tree.  Its leafy branches reach
+all directions overhead.
+
+The crow alights upon one of the lower branches.  It caws twice at you and
+ruffles its wings with a satisfied shrug.  You reckon you could climb to the
+tree's lower branches, if you so desired, if only to give the crow a piece of
+your mind.
+
+A well stands to the west.  To the south begins an expansive tilled field.
+East is a fire pit surrounded by some small buildings.
+
+The Academy has provided once more.  A string of wood cups braided together by
+a strand of twine is piled on the ground at the foot of the tree.
+
+>get cups
+You pick up the braid of cups.
+
+The crow soars about in the sky for a few moments, as though stretching its
+wings, before returning to its branch.
+
+>east
+Fire pit
+This clearing, along with the great cedar tree to the west, feels to be the hub
+of the settlement and its surrounding areas.
+
+In the center of the clearing stands a large fire pit surrounded by a ring of
+stones.  The middle is scorched out from much use, but the pit is cold.
+
+East of here, a thatch mud hovel and a gray tent are built against the side of
+a hill.  To the south stands a dilapidated wood shack.
+
+Far to the northeast, you discern what appears to be a landslide.
+
+The fire pit stones glow a clear blue hue.
+
+The crow launches from the tree, flies a roundabout loop in the hazy sky, and
+returns to its perch.
+
+>get ash
+You collect all the ash you can find, prepare it for use, and add it to the
+pulverulent cloth.
+
+>apply ostendo to stones
+You spread some of the salt and the sulfur on the fire pit stones.
+
+The ostendo compound blends and dissolves, preparing to reveal the next steps
+for unlocking the revelations burned into the fire pit stones...
+
+In your ear comes a disembodied whisper: "Arsenic, sulfur, and Adam's Humour."
+
+Stones will speak the truth, but you must coax it from them.
+
+Besides arsenic and sulfur, you must determine which of the Four Humours
+dominated Adam's temperament.  Studying the Pharmakon may be of help.  Good
+places to start would be the entries on Adam and the Four Humours.
+
+Unlocking other revelations around the settlement may shine a light on the
+matter as well.
+
+>look up Adam
+(the Pharmakon)
+The first Man to walk the Earth; the Father of Mankind.  Adam's sin, along with
+Eve's, led to their expulsion from paradise.
+
+Sired sons Cain and Abel, and eldest daughter Awan, among other children.
+
+The first four family members--Adam, Eve, Cain, & Abel--each represent a
+Humour, and their temperaments, moods, and emotions are defined as such.  None
+of the family members share a Humour.
+
+Scholastics speculate Adam was phlegmatic: Reserved, thoughtful, and patient.
+The matter remains unknown at the moment, however.
+
+c.f., Four Humours, Eden, Eve
+
+>west
+Foot of the great cedar tree
+You're standing at the foot of a great cedar tree.  Its leafy branches reach
+all directions overhead.
+
+A crow sits on one of the lower tree branches.  You could reach it if you
+climbed up.
+
+A well stands to the west.  To the south begins an expansive tilled field.
+East is a fire pit surrounded by some small buildings.
+
+>west
+Well
+A ring of rock surrounds a well in the ground.  A crossbeam dissects the well's
+opening in half.  From the depths below comes the echoing trickle of slow-
+running water.
+
+The river is south of here, while a towering cedar is to the east.  Beyond it
+is a clearing and some ramshackle buildings.
+
+The well glows a clear blue hue.
+
+Your inquiry has determined that the well has a revelation locked within it.
+
+>look well
+The stones surrounding the perimeter of the well are mostly egg-shaped river
+rock smoothed by erosion.  Judging by the shovel marks cut into the inner walls
+of the well, the well was dug by hand, and is not a natural formation the
+settlers here took advantage of.
+
+A thick wood crossbeam is mounted over the well.
+
+The compound needed to release the revelation locked within is composed of
+yellow bile and ash.
+
+>apply yellow bile and ash to well
+You spread some of the yellow bile and the ash on the well.
+
+The admixture blends, swells, bubbles, seizes up--
+
+The young man's voice--Cain--begins speaking in your mind about his father,
+Adam:
+
+Father believes with enough contrition, the Creator will permit us to return to
+the paradise Eden.  He has begun a hard fast, consuming only sips of rainwater
+and nibbles of honeycomb.  It has made him weak.  His ribs press into his skin
+and reveal the cage encasing his heart.
+
+Fasting, hard work, and daily exhortations to the Creator have driven Father to
+the precipice.  His eyes bulge egg-like from their sockets.  White foam flecks
+the corners of his mouth.  He rarely speaks, but when he does, he rants and
+raves, permitting none of us to get in so much as two words.
+
+Unlike Mother, he refuses to discuss his time in the garden paradise before
+their sins drove them out.  Hard work is his silent contrition for his error--
+daily, grinding, maddening hard work.
+
+This suggests much about Adam's temperament--and his Humour.  Obsession driven
+to madness is a well-established behavior of an overly choleric person.  The
+Pharmakon has more information.
+
+[You've unlocked another revelation.  Use MEMORIES for all revelations you may
+recall.]
+
+>look up choleric
+(the Pharmakon)
+The humour yellow bile makes one choleric.  It is countered by the chamomile
+poison.
+
+The choleric are characterized as decisive, analytic, and "quick on their
+feet."  They prefer action over contemplation.  Unlike melancholics, they live
+in the moment rather than the past.
+
+An excess of cholera leads to a depletion of the choleric's admirable
+qualities.  Decisiveness becomes quick-tempered; analytics are surrendered to
+instinct.  Anger and snap decisions become their norm.  Madness is common.
+
+c.f., yellow bile, chamomile, melancholic, Four Humours, madness
+
+Lost in thought for a moment, your focus snaps back when the crow's shrill call
+cuts through the air.
+
+>east
+Foot of the great cedar tree
+You're standing at the foot of a great cedar tree.  Its leafy branches reach
+all directions overhead.
+
+A crow sits on one of the lower tree branches.  You could reach it if you
+climbed up.
+
+A well stands to the west.  To the south begins an expansive tilled field.
+East is a fire pit surrounded by some small buildings.
+
+>east
+Fire pit
+This clearing, along with the great cedar tree to the west, feels to be the hub
+of the settlement and its surrounding areas.
+
+In the center of the clearing stands a large fire pit surrounded by a ring of
+stones.  The middle is scorched out from much use, but the pit is cold.
+
+East of here, a thatch mud hovel and a gray tent are built against the side of
+a hill.  To the south stands a dilapidated wood shack.
+
+Far to the northeast, you discern what appears to be a landslide.
+
+The fire pit stones glow a clear blue hue.
+
+Your inquiry has determined that the fire pit stones have a revelation locked
+within them.
+
+>apply arsenic, sulfur, and yellow bile to stones
+You spread some of the arsenic, the sulfur, and the yellow bile on the fire pit
+stones.
+
+The admixture blends, swells, bubbles, seizes up--
+
+Cain's voice appears in your thoughts, a message from the past:
+
+Each night, Father ignites the Great Fire.  On haunches before the crackling
+flames, he supplicates himself to the Creator.  His cries for forgiveness echo
+off the mountains to the south.
+
+Some mornings, I find him passed out before the Fire's dying embers.  He lies
+naked and uncovered, having worked himself into a froth before losing
+consciousness.
+
+Once, in a raving lather, Adam cried out to the dancing Fire: "The world was
+created in goodness!  So it must be governed according to the fruit of good
+works!"
+
+Father throws salt into the Fire to divine our family's future.  He wishes to
+foresee if we will be permitted to return to the garden paradise.  And Adam has
+divined a magick: He applies salt and ash to the pit to ignite the Fire.
+
+In his mania he ignores the Crow, who trills down at him from the Great Tree.
+The Crow is scolding Adam for resorting to the black arts.
+
+I know this: Ignore the Crow at your own peril.
+
+When Cain's voice fades off, you realize the "magick" Adam learned is, in fact,
+established science.  It is known as encyp, and it is recorded in the
+Pharmakon.
+
+[You've unlocked another revelation.  Use MEMORIES for all revelations you may
+recall.]
+
+>look up encyp
+(the Pharmakon)
+Producing fire is a remedial skill explained by any proficient woodsman or
+soldier.  However, restoring an extinguished fire without the aid of flint or
+spark is a trick most rare.
+
+The alchemical encyp compound is trivial: salt & ash.  The compound is only
+effective for restoring fire in a location where a previous fire burned, such
+as a hearth or a scorched field.
+
+As is his wont, Hester IV of Minscip cannot help but add in the margin:
+"Alomancy--salt divination--has an ancient provenance.  It is often coupled
+with pyromancy, that is, fire divination.  Restoring a fire regularly used for
+alomancy can reveal much about the alomancer and his or her flock."
+
+c.f., essence, alchemy
+
+>

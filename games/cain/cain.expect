@@ -59,6 +59,46 @@ expect "continue..."; send "\r"
 #
 # II. A Fragile Earth
 #
+expect ">"; send "save\r"; expect ">"; send "start2.t3v\r"
+
+# Flood plain
+expect ">"; send "look gate\r"
+expect ">"; send "se\r";                        # A Fragile Earth
+expect ">"; send "wear gem\r"
+expect ">"; send "down\r";                      # Sulfur deposits
+expect ">"; send "collect sulfur\r"
+expect ">"; send "up\r";                        # A Fragile Earth
+expect ">"; send "nw\r";                        # Plain
+expect ">"; send "look gate\r"
+expect ">"; send "look up ostendo\r";           # need salt & sulfur
+expect ">"; send "ne\r";                        # Salt bed
+expect ">"; send "collect salt\r"
+expect ">"; send "sw\r";                        # Plain
+expect ">"; send "apply salt and sulfur to sluice\r"
+expect ">"; send "apply phlegm and sulfur to sluice\r"
+expect ">"; send "look pond\r"
+expect ">"; send "remove wedge\r"
+expect ">"; send "pull lever\r"
+expect ">"; send "north\r";                     # River bank
+
+# Well & fire pit
+expect ">"; send "north\r";                     # Well
+expect ">"; send "apply ostendo to well\r";     # need yellow bile and ash
+expect ">"; send "east\r";                      # Foot of the great cedar tree
+expect ">"; send "get cups\r"
+expect ">"; send "east\r";                      # Fire pit
+expect ">"; send "get ash\r"
+expect ">"; send "apply ostendo to stones\r";   # need arsenic, sulfur, and Adam’s Humour
+expect ">"; send "look up Adam\r"
+expect ">"; send "west\r";                      # Foot of the great cedar tree
+expect ">"; send "west\r";                      # Well
+expect ">"; send "look well\r"
+expect ">"; send "apply yellow bile and ash to well\r"; # Adam was choleric
+expect ">"; send "look up choleric\r"
+expect ">"; send "east\r";                      # Foot of the great cedar tree
+expect ">"; send "east\r";                      # Fire pit
+expect ">"; send "apply arsenic, sulfur, and yellow bile to stones\r"; # salt and ash ignites the fire
+expect ">"; send "look up encyp\r"
 
 # Quit
 expect ">"; send "quit\r"
