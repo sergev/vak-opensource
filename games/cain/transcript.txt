@@ -21,7 +21,7 @@ spawn ./frob --no-colors --no-seed-rand --no-scrolling --interface=plain --no-pa
                                  -Genesis 4:13 KJV
 
 
-[More]
+
                  According to Cain
                  An inquiry
                  by Jim Nelson
@@ -94,7 +94,7 @@ to complete your inquiry and prepare your report for the Provost.
 
 The way continues east.
 
->get rucksack
+>take rucksack
 You heave up the weighty rucksack and sling it over your shoulder.
 
 >look rucksack
@@ -122,7 +122,7 @@ ground near the magma flow is a pulverulent cloth.
 The way continues east and west.  Any travel south through the valley is
 blocked by the magma flow.
 
->get cloth
+>take cloth
 You pick up the pulverulent cloth.
 
 A great grumbling announces itself beneath the ground, and you find yourself
@@ -161,7 +161,7 @@ and another provision made by the Academy for your inquiry.
 
 This book may be the most valuable possession they delivered for your work.
 
->get Pharmakon
+>take Pharmakon
 With a grunt, you pick up the cumbersome and dusty tome.
 
 >look Pharmakon
@@ -399,7 +399,7 @@ topmost branches of a nearby eucalyptus.
 Lying on the river's bank is an oversized vellum envelope with a prominent blue
 seal.  You will need it to issue your final report to the Academy.
 
->get envelope
+>take envelope
 You take the envelope.  The stiffness of the vellum reminds you of the
 Academy's formality.  You think of the elderly and wise Provost, of your
 teacher Hester IV of Minscip, and of the steady purpose of the Academy's
@@ -461,10 +461,6 @@ of here is a squat cave set in the side of the bank.
 
 Far to the north, you make out a settlement around an enormous cedar tree.  The
 way north is blocked by the pond.
-
->save
-Save game to file >start2.t3v
-Saved.
 
 >look gate
 A sluice gate with a wood lever controls whether the river water can enter the
@@ -724,7 +720,7 @@ East is a fire pit surrounded by some small buildings.
 The Academy has provided once more.  A string of wood cups braided together by
 a strand of twine is piled on the ground at the foot of the tree.
 
->get cups
+>take cups
 You pick up the braid of cups.
 
 The crow soars about in the sky for a few moments, as though stretching its
@@ -748,7 +744,7 @@ The fire pit stones glow a clear blue hue.
 The crow launches from the tree, flies a roundabout loop in the hazy sky, and
 returns to its perch.
 
->get ash
+>take ash
 You collect all the ash you can find, prepare it for use, and add it to the
 pulverulent cloth.
 
@@ -949,4 +945,938 @@ alomancy can reveal much about the alomancer and his or her flock."
 
 c.f., essence, alchemy
 
->
+>apply salt and ash to fire pit
+You spread some of the salt and the ash on the fire pit.
+
+The admixture blends, swells, bubbles, seizes up--
+
+Again, Cain's voice appears in your thoughts:
+
+"The Fire has forsaken me," Adam proclaims.  He has broken his fast, and his
+health is much improved.  "Both of you are to begin a ritual of sacrifice.
+Cain, gather your best grain and vegetables.  Abel, slaughter the first of your
+flock.  Submit your yield to the Creator for judgment."
+
+"I shall do as you wish," I tell Father and Mother.
+
+"I will not," Abel says.  "Such waste does not honor my labor."
+
+"Listen to your father," Eve says.  "The one who provides the best sacrifice
+will be rewarded."
+
+Far to the northeast, The Crow perches among the rocks.  It caws twice for our
+attention.
+
+"Establish your shrine where the Crow calls from," Father says.
+
+With a great whooom, a massive and intense fire springs up in the pit.  So
+sudden, and igniting with such force, you stumble backwards in retreat, heart
+palpitating and the whiff of singed hair all about you.
+
+A pile of cold charcoal you previously overlooked now smolders.  Its coals glow
+a soft orange color.
+
+[You may now refer to the encyp compound by name.]
+
+[You've unlocked another revelation.]
+
+>west
+Foot of the great cedar tree
+You're standing at the foot of a great cedar tree.  Its leafy branches reach
+all directions overhead.
+
+A crow sits on one of the lower tree branches.  You could reach it if you
+climbed up.
+
+A well stands to the west.  To the south begins an expansive tilled field.
+East is a fire pit surrounded by some small buildings.  Smoke rises from its
+center.
+
+The crow's piercing call shatters the still air.
+
+>south
+In the wheat field
+Twenty or thirty hectares of wheat are planted in tidy rows along the southern
+edge of the settlement.
+
+You recognize this to be a field of domesticated grain.  That knowledge comes
+not from your time at the Academy, but rather of an unremarkable youth spent
+harvesting wheat and sorghum on your grandfather's farm.
+
+Traveling north will lead you out of the field and toward the center of the
+settlement.  A dilapidated shack stands to the east, while a path south through
+the field leads to a clearing.
+
+A rough and ready scarecrow stands upright here.
+
+>look scarecrow
+This crude dummy is little more than willow and straw fashioned into a human-
+like form and tied to a post.  Its lifeless eyes stare off toward a clearing to
+the south.
+
+Not that this scarecrow has earned its keep--from what you've seen so far, the
+crows around here seem to feel they rule the roost.
+
+You snap your fingers: An ocu compound may give this scarecrow a voice to the
+events it's witnessed in this field.  The Pharmakon should be of help here.
+
+>look up ocu
+(the Pharmakon)
+Dummies, portraits, and any other lifeless mimicry possessing human eyes may
+retain a memory of the past they've witnessed.  Ocu provides a way to hear
+these mimics' tales.
+
+Arsenic & phlegm grants a voice to these mute witnesses.  Merely apply the
+compound to the form bearing the eyes, and one will re-envision what the
+mimicked eyes witnessed.
+
+c.f., essence, alchemy
+
+>apply arsenic and phlegm to scarecrow
+You spread some of the arsenic and the phlegm on the scarecrow.
+
+The admixture blends, swells, bubbles, seizes up--
+
+Your eyes become the scarecrow's eyes.  Through them, you witness an age-old
+altercation: A brotherly spat.
+
+Cain toils in the field for hours exposed to the stark white sun.  Abel passes
+by on several occasions, cool and refreshed, with a puckish smirk and a
+mischievous air about him.
+
+"Have you not your flock to attend to?" Cain snaps.  He has labored all morning
+with a shovel to dig an enormous egg-shaped rock out from the field.
+
+"You are the keeper of your field," Abel says.  "My flock is my business."
+
+Throughout the sweltering day, Abel passes by several more times, never
+offering assistance.  Cain toils against the stubborn rock.  The egg-shaped
+rock does not budge.
+
+Abel taunts him.  "The river is cool today.  I swam while my flock quenched
+their thirst.  What have you been doing with your time?"
+
+Temper sapped, Cain throws aside the shovel and storms off.  The rock in the
+field remains embedded in the ground.  Abel grins, shakes his head, and
+saunters off.
+
+The crow cries out twice...and you return to the present moment, with only the
+memory of the scarecrow's vision as a memento.
+
+[You may now refer to the ocu compound by name.]
+
+[You've unlocked another revelation.]
+
+>south
+Clearing
+The meticulously tended field of wheat opens to a circular clearing of trampled
+stalks and grain-heavy florets crushed underfoot.
+
+Off-center of the clearing sits a squat russet-brown rock cracked in half.
+
+The russet-brown rock glows a clear blue hue.
+
+To the southeast stands an almond tree among a cloud of bees.  A field of
+flowering sage spreads out to the south.  A scarecrow is north of here.
+
+An almost imperceptible trail of broken wheat stalks cuts southwest through the
+field.
+
+The drone of the bees from the southeast is hypnotic.
+
+>apply ostendo to rock
+You spread some of the salt and the sulfur on the russet-brown rock.
+
+The ostendo mixture sizzles and smokes.  Something is wrong--the noxious fumes
+smell raw and sour--
+
+Anguished screams come at you like banshees from all directions.  They send you
+reeling left and right in confusion.
+
+When the effect fades and you recover your wits, you realize how potent and
+deep-seated the memory within this rock must be.
+
+To understand what it holds, you'll need to unlock more revelations in and
+around the settlement.
+
+You should also be certain of the Humour corresponding to each family member:
+Adam, Eve, Cain, and Abel.  (Use MEMORIES to track what you've learned.)
+
+You're clammy and perspiring slightly.  All the walking around has made you
+feel more winded than you would expect.
+
+>se
+Beehive
+Tucked between the lowest branches of this elderly and stooped almond tree is a
+mud-covered beehive swarming with its diligent occupants.  The mud hive has
+grown too weighty for its perch.  Portions have broken away.  The bees are
+frantic and steadfast in their concerted efforts to shore it up.
+
+A loose honeycomb shard hangs from the wall of the hive.
+
+You can retrace your footsteps through the wheat field by going northwest.  To
+the west opens up a field of sage.
+
+>take honeycomb
+Gently, so not to disturb the hive or its occupants, you remove the brittle
+chunk of wax and set it in one of the cups in the braid.
+
+The bees notice the loss.  For a moment their numbers and intensity are
+changed.  You feel threatened, and sense they will turn on you en masse, but
+they soon settle and continue their labors.
+
+With the honeycomb removed, the fat mud hive is partially opened, like a
+grievous belly wound exposing the innards of a suffering man.  You spy within
+the hive several pockets of the highly-desired royal jelly.
+
+>nw
+Clearing
+The meticulously tended field of wheat opens to a circular clearing of trampled
+stalks and grain-heavy florets crushed underfoot.
+
+Off-center of the clearing sits a squat russet-brown rock cracked in half.
+
+The russet-brown rock glows a clear blue hue.
+
+To the southeast stands an almond tree among a cloud of bees.  A field of
+flowering sage spreads out to the south.  A scarecrow is north of here.
+
+An almost imperceptible trail of broken wheat stalks cuts southwest through the
+field.
+
+The disturbed bees' drone from the southeast has a distinct intensity to it.
+
+>north
+In the wheat field
+Twenty or thirty hectares of wheat are planted in tidy rows along the southern
+edge of the settlement.
+
+Traveling north will lead you out of the field and toward the center of the
+settlement.  A dilapidated shack stands to the east, while a path south through
+the field leads to a clearing.
+
+A rough and ready scarecrow stands upright here.
+
+>north
+Foot of the great cedar tree
+You're standing at the foot of a great cedar tree.  Its leafy branches reach
+all directions overhead.
+
+A crow sits on one of the lower tree branches.  You could reach it if you
+climbed up.
+
+A well stands to the west.  To the south begins an expansive tilled field.
+East is a fire pit surrounded by some small buildings.  Smoke rises from its
+center.
+
+>east
+Fire pit
+This clearing, along with the great cedar tree to the west, feels to be the hub
+of the settlement and its surrounding areas.
+
+In the center of the clearing stands a large fire pit surrounded by a ring of
+stones.  A roaring fire burns here, sending a column of smoke into the murky
+skies.
+
+East of here, a thatch mud hovel and a gray tent are built against the side of
+a hill.  To the south stands a dilapidated wood shack.
+
+Far to the northeast, you discern what appears to be a landslide.
+
+A loose pile of smoking charcoal stands beside the intense fire.
+
+Still reeling from the unexpected burst of flame leaping at your face, your
+gaze ascends to the heights of the great cedar tree across the clearing.  The
+crow is jouncing up and down on its perch.  Its taunting caws echo across the
+valley, sounding uncomfortably like the laughter you've endured from the
+Academy's Scholastics.
+
+"Indagatores," they murmured with a chuckle.  "When has anyone learned one
+thing from them?"
+
+>east
+Outside the hovel
+You're standing before a hovel constructed of packed mud and straw.  Through
+the entry you see the interior is a dim, cold place.
+
+A white cotton roll sits on the ground, another provision from the Academy for
+your inquiry.  It appears to be a bandage.
+
+East leads into the hovel.  The fire pit is due west, while a gray four-square
+tent is south of here.
+
+The crow soars about in the sky for a few moments, as though stretching its
+wings, before returning to its branch.
+
+>take bandage
+As you pick it up, a sudden lightheadedness comes over you.  Your skin is
+clammy and waxy.  A flushed prickliness swarms about your neck and temples.
+
+>enter
+Hovel
+The dim interior of this abandoned mud-and-thatch hovel suggests the family who
+made a life here lived quite roughly.  Straw has been strewn about as bedding,
+with leftover strips of coarse linen indicative of old blankets left behind.
+
+A limp and oversized woven basket sits upside-down on the floor, as though
+pushed over and set aside in the hurry to abandon this place.
+
+These sparse accomodations can only remind you of life on your grandfather's
+farm, and the drafty cottage you both sought shelter in during snowstorms and
+torrential rains.
+
+How long has it been since you last shivered inside that cottage?  Not long
+enough.
+
+>look under basket
+The meager sunlight from the entry catches something nestled among the rags
+under the basket.  It's a gleaming slab of obsidian sparkling in the gray
+sunlight coming through the entryway.
+
+>take slab
+On your knees and stretching as far as you can reach, your fingertips get
+enough of a hold to slide the obsidian slab close and pick it up.  It fits
+nicely in your hand.
+
+>look blankets
+Just handling the linen sends dust motes up into the meager light admitted
+through the entryway.
+
+You notice a strand of yellow silk caught in the mud and thatch of the rear
+wall.
+
+You're clammy and perspiring slightly.  All the walking around has made you
+feel more winded than you would expect.
+
+>look silk
+Upon closer examination, you see the silk is actually a strand of blond hair.
+It's long with a slight wave in it.  From the length and various qualities of
+the hair, you believe this to be from the head of a girl or a young woman.
+
+The strand of blond hair glows a clear blue hue.  The hair is so slight, the
+hue is barely noticeable.
+
+>take hair
+Gently you pluck up the strand of blond hair.
+
+>apply ostendo to hair
+You spread some of the salt and the sulfur on the strand of blond hair.
+
+The ostendo compound blends and dissolves, preparing to reveal the next steps
+for unlocking the revelations burned into the strand of blond hair...
+
+A disembodied voice whispers nearby: "Eve's Humour, poison of Adam's Humour,
+and wax."
+
+The Pharmakon will be of service here in determining which essences correspond
+to Adam's and Eve's Humours.  In particular, you must add the poison of Adam's
+Humour.
+
+It's also possible the information may be gleaned by coaxing visions and
+revelations from other surfaces in the settlement.  Keep searching!
+
+>look in slab
+In the black sheen of the polished surface, you spy a faint representation of
+yourself: Your nose, the perspiration across your brow, the corners of your
+mouth drooping, and especially your twin piercing eyes glancing back at you.
+
+Most of all, you appear...beleaguered.
+
+A sharp jolt shakes you to and fro, causing you to check your balance.  It's
+another reminder of a young Earth finding its legs.
+
+>apply ocu to slab
+You spread some of the arsenic and the phlegm on the obsidian slab.
+
+The admixture blends, swells, bubbles, seizes up--
+
+Your eyes reflecting back at you become the eyes of all who've gazed into the
+obsidian's polished surface.  It is Eve who has peered into it the most.
+
+A beauty when she was first created, her grace was ground down by her exile to
+the wilderness.  Deadened eyes and a lifeless expression have replaced the
+charms of her youth.
+
+While studying herself in the obsidian mirror, she tells her children long and
+loving stories of life in Eden.  Every plant bore succulent fruit and aromatic
+blossoms.  The waterfalls provided endless fresh water.  Never a storm to flood
+the garden.  Never a drought to parch the soil.
+
+"It was a place of no tomorrows," she tells her children.  "It was a time of no
+yesterdays."
+
+Adam tells her to quit lulling the children with tales of that which has
+passed.  "There are stones to turn and lambs to slaughter."
+
+Eve lives her days in a waking half-dream peering back in time through the
+polished obsidian.  The weight of paradise lost is immense.
+
+When the vision ceases, there is no doubt in your mind: Eve is afflicted with
+melancholy.  The Pharmakon has more information.
+
+[You've unlocked another revelation.]
+
+>look up Eve
+(the Pharmakon)
+The first Woman to walk the Earth; the Mother of Mankind.  Eve's sin, along
+with Adam's, led to their expulsion from paradise.
+
+Bore sons Cain and Abel, and eldest daughter Awan, among other children.
+
+The first four family members--Adam, Eve, Cain, & Abel--each represent a
+Humour, and their temperaments, moods, and emotions are defined as such.  None
+of the family members share a Humour.
+
+Scholastics are uncertain which Humour represents Eve.
+
+c.f., Four Humours, Eden, Adam
+
+>look up melancholy
+(the Pharmakon)
+The humour black bile makes one melancholic.  It is countered by the arsenic
+poison.
+
+Those afflicted with melancholy suffer from the most complex of emotional
+dispositions, which can only be described as a kind of withdrawal from
+relationships as well as society.  Melancholy often leads to despair, the
+foulest of sins.
+
+c.f., black bile, arsenic, Four Humours, depression
+
+>exit
+Outside the hovel
+You're standing before a hovel constructed of packed mud and straw.  Through
+the entry you see the interior is a dim, cold place.
+
+East leads into the hovel.  The fire pit is due west, while a gray four-square
+tent is south of here.
+
+>west
+Fire pit
+This clearing, along with the great cedar tree to the west, feels to be the hub
+of the settlement and its surrounding areas.
+
+In the center of the clearing stands a large fire pit surrounded by a ring of
+stones.  A roaring fire burns here, sending a column of smoke into the murky
+skies.
+
+East of here, a thatch mud hovel and a gray tent are built against the side of
+a hill.  To the south stands a dilapidated wood shack.
+
+Far to the northeast, you discern what appears to be a landslide.
+
+A loose pile of smoking charcoal stands beside the intense fire.
+
+A bee passing through the clearing steers far from the smoldering pile of
+charcoal, as though allergic to its smoke, and flies away.
+
+>south
+Outside a slaughterhouse
+This dilapidated shack of rough-cut cypress planks leans to one side and is in
+need of shoring up.  From the dried red-wine splatter about the interior walls,
+it's obvious this was a slaughterhouse.
+
+The shack may be entered from here by going south.  A fire pit is due north,
+while a field of wheat stands to the west.
+
+Lost in thought for a moment, your focus snaps back when the crow's shrill call
+cuts through the air.
+
+>enter
+Slaughterhouse
+The interior of the rustic slaughterhouse is stark and stunning to the
+uninitiated.
+
+The planks are a rich tannin color from the sheer quantity of blood spilled.
+The coloration spreads up the walls, spattered from countless slaughtered
+animals.  You imagine a grim assortment of iron tools and instruments once
+filled this place.
+
+Mostly, it's the lingering odor here that strikes you.
+
+A wide tree stump occupies the center of the shack.
+
+In one corner is a loose pile of animal bones.
+
+A short stout knife lies on the tree stump.
+
+The tree stump glows a clear blue hue.
+
+>take knife
+You pick up the knife.
+
+>apply ostendo to stump
+You spread some of the salt and the sulfur on the tree stump.
+
+The ostendo compound blends and dissolves, preparing to reveal the next steps
+for unlocking the revelations burned into the tree stump...
+
+A voice whispers in your ear: "Abel's Humour, the poison of phlegm--which is
+Cain's Humour--and salt."
+
+Excellent--ostendo has revealed phlegm to be Cain's Humour.  But note you must
+apply phlegm's corresponding poison.
+
+The Pharmakon and further searching of the settlement may help in deducing
+which essences are to be used on the stump.
+
+>look up Abel
+(the Pharmakon)
+Second son of Adam and Eve.  Abel's sin: unknown.  Some Scholastics speculate
+he was without blame.
+
+Abel was the first herdsman and shepherd, and he managed the family's flock.
+He is considered a kind and gentle soul, and often pictured holding a lamb or a
+shepherd's crook.
+
+The first four family members--Adam, Eve, Cain, & Abel--each represent a
+Humour, and their temperaments, moods, and emotions are defined as such.  None
+of the family members share a Humour.
+
+Abel's blameless quality suggests to many Scholastics that he was sanguine.
+
+c.f., Four Humours, Cain
+
+>look up sanguine
+(the Pharmakon)
+The humour blood makes one sanguine.  It is countered by the lymph poison.
+
+The sanguine temperament is considered the best temperament to possess, for a
+person of this temperament is cheerful, prankish, and charming.
+
+Sanguinity imbues the lucky person with the envious skills of judging a face,
+reading a room, playing to the crowd.
+
+An excess of blood in the body leads to an excess of its considerable powers:
+The person becomes biting, insensitive to others, and indifferent to their
+fates.
+
+c.f., blood, lymph, Four Humours
+
+>look up phlegm
+(the Pharmakon)
+Phlegm is a remedy promoting a phlegmatic nature: reserved, quiet, thoughtful,
+introspective.  It is countered by the sage poison.
+
+Hester IV of Minscip makes a handwritten addition: "Not to be confused with the
+phlegm from a runny nose!  What organ secretes this vital fluid remains unknown
+to medical science."
+
+c.f., sage, remedy, phlegmatic
+
+>look up blood
+(the Pharmakon)
+Blood is a remedy promoting a sanguine nature: active, enthusiastic, social.
+It is countered by the lymph poison.
+
+Only fluid blood makes an acceptable essence.  The dried variety is of no use
+to producing compounds.
+
+Hester IV of Minscip adds: "If an Indagator is unable to procure a quantity of
+blood, he or she often needs to provide it from their own body.  This is the
+SACRIFICE of our chosen profession!"
+
+c.f., lymph, remedy, sanguine
+
+>look up sharpen
+(the Pharmakon)
+Although reversing the ravages of human age remains well-beyond the current
+limits of medical science, our understanding of the physical world does permit
+the more modest ability of restoring a simple man-made object to its earlier
+form.
+
+The alchemical compound novo may be concocted by applying the following
+essences to the article in need of restoration: sulfur & black bile.
+
+Note the limits of novo: Complex machinery and intricate work are unaffected by
+the compound.  Only the most simplest of creations are within its powers.
+
+c.f., essence, alchemy
+
+>apply sulfur and black bile to knife
+You spread some of the sulfur and the black bile on the knife.
+
+The admixture blends, swells, bubbles, seizes up--
+
+The rust sizzles and burns off, producing a noxious smoke.  Within moments, the
+years of age and use are wound back, leaving you with a a bright blade of oiled
+iron and a threatening edge.
+
+[You may now refer to the novo compound by name.]
+
+>cut self with knife
+After steeling yourself, you open a bit of flesh.  Blood flows into one of the
+rucksack's glass phials.
+
+After drawing a sufficient quantity, you wrap your wound with the bandage.  A
+vertigo comes over you; a moment later, the dizziness recedes.
+
+>take bone
+You take one of the bones off the pile.
+
+>exit
+Outside a slaughterhouse
+This dilapidated shack of rough-cut cypress planks leans to one side and is in
+need of shoring up.  From the dried red-wine splatter about the interior walls,
+it's obvious this was a slaughterhouse.
+
+The shack may be entered from here by going south.  A fire pit is due north,
+while a field of wheat stands to the west.
+
+>north
+Fire pit
+This clearing, along with the great cedar tree to the west, feels to be the hub
+of the settlement and its surrounding areas.
+
+In the center of the clearing stands a large fire pit surrounded by a ring of
+stones.  A roaring fire burns here, sending a column of smoke into the murky
+skies.
+
+East of here, a thatch mud hovel and a gray tent are built against the side of
+a hill.  To the south stands a dilapidated wood shack.
+
+Far to the northeast, you discern what appears to be a landslide.
+
+A loose pile of smoking charcoal stands beside the intense fire.
+
+The smoldering pile of charcoal causes a passing bee to alter its course.  It
+makes a wide arc around the smoke.
+
+>ne
+After walking a fair distance, you reach...
+
+Landslide
+Loose shale and rock covers the foothill of a mountain range.  You suspect the
+event was recent, and perhaps triggered by the groundshaking activity you've
+endured since arriving here.
+
+The fire pit is to the southwest.  A thick column of smoke rises from its
+center.
+
+>save
+Save game to file >mid2.t3v
+Saved.
+
+>look up metal
+(the Pharmakon)
+Dissolving metals is one of the more terrible and destructive powers available
+to the Indagator, and one with the greatest potential for undesirable
+consequences.
+
+The essences involved for vulk are simply these: arsenic, sulfur, & wax.
+Applied properly, the metal will melt into its elemental state and evaporate
+off.
+
+Heed with care this alchemical transformation: Improperly used, it can wreck an
+inquiry.
+
+Hester IV of Minscip adds with uncharacteristic piquancy, "Good for breaking
+free of jail cells & shackles!" suggesting the predicaments an Indagator
+routinely faces.
+
+c.f., essence, alchemy
+
+You're clammy and perspiring slightly.  All the walking around has made you
+feel more winded than you would expect.
+
+>apply arsenic, sulfur, and wax to boulder
+You spread some of the arsenic, the sulfur, and the wax on the boulder.
+
+The admixture blends, swells, bubbles, seizes up--
+
+The strips and pockets of iron ore in the boulder quiver, then melt off like
+suet in a hot pan.  The now hollowed-out boulder crumbles under the weight of
+itself, as well as the weight of the surrounding rock pressing down upon it.
+
+You scramble back in time to witness the landslide collapse into heaps of
+rubble and chalky billows of dust around a freshly-revealed crevice in the
+rock.
+
+[You may now refer to the vulk compound by name.]
+
+>enter
+...Cain brought of the fruit of the ground an offering unto the LORD.
+
+And Abel, he also brought of the firstlings of his flock and of the fat
+thereof.  And the LORD had respect unto Abel and to his offering:
+
+But unto Cain and to his offering He had not respect.
+                  -Genesis 4:3-5 KJV
+Cavern
+Passages within this dark cavern branch deeper into the mountain.  Sizable ones
+lead to the northeast and southeast.
+
+A great vermillion-colored face is painted on the cave wall between the two
+larger passages.
+
+On the wall near the northeast passage is a small, naturally-formed pocket in
+the rock about the size of your hand.
+
+A deposit of a chalky red substance is in the north end of the cavern.
+
+The cavern exits through a slim crevice to the west.
+
+>apply ocu to face
+You spread some of the arsenic and the phlegm on the painted face.
+
+The admixture blends, swells, bubbles, seizes up--
+
+Through the eyes painted on the wall, you witness Cain and Abel entering the
+cavern.
+
+In a straw basket Cain has assembled a sacrifice of ripe vegetables, ears of
+wheat, palm hearts stored in their own oil, sage honey, and tree nuts.
+
+Abel carries his sacrifice in a cured sheep stomach.  Within it he has placed
+odd scraps of pelt, boiled bones, and a dried ox testicle wrapped in palm
+leaves.
+
+They enter their shrines, Abel to the northeast, Cain to the southeast.  They
+return and kneel before the great face.  Cain bows his head; Abel appears
+bored.
+
+Soon, they rise and return to their shrines.  Cain emerges with his untouched
+bounty.  Abel emerges as well, however, he is empty-handed.
+
+"The Creator has taken my offering to the heavens, and rejected your paltry
+nuts and honey," Abel announces.
+
+Cain hurries between the two shrines, first with puzzlement, then with anger.
+He confronts the stoic vermillion face.  "How can this be?" he yells at the
+wall.  "The world was created in goodness!  Is it not governed by the reward of
+good works?"
+
+He throws aside his offering and storms out of the cavern, and Abel's laughter
+booms off the high walls.
+
+[You've unlocked another revelation.]
+
+>north
+Cinnabar deposit
+In a shallow grotto off the deep cavern you find a slim vein of deep-vermillion
+cinnabar running down the curved wall.
+
+The rest of the cavern is to the south.
+
+>take cinnabar
+You collect a single nugget of the precious cinnabar.
+
+>south
+Cavern
+Passages within this dark cavern branch deeper into the mountain.  Sizable ones
+lead to the northeast and southeast.
+
+A great vermillion-colored face is painted on the cave wall between the two
+larger passages.
+
+On the wall near the northeast passage is a small, naturally-formed pocket in
+the rock about the size of your hand.
+
+A cinnabar deposit is in the north end of the cavern.
+
+The cavern exits through a slim crevice to the west.
+
+>put slab in pocket
+The obsidian slab fits snugly within the pocket.  It stands up within the
+opening.
+
+Due to its angle, it reflects an image of the shrine to the northeast.
+
+>ne
+Shrine to the Firstlings of the Flock
+This natural grotto has been transformed to a shrine dedicated to meat, organs,
+blood, and fat.  Drawings of grisly sacrifices being slaughtered and butchered
+smother the cave wall in a baroque and monstrous display.  Most of the drawings
+depict the bones of various animals.
+
+These grotesques converge on a stone altar surrounded by shadows.
+
+You can exit to the southwest.
+
+>put bone on altar
+You put the animal bone on the stone altar.
+
+>sw
+Cavern
+Passages within this dark cavern branch deeper into the mountain.  Sizable ones
+lead to the northeast and southeast.
+
+A great vermillion-colored face is painted on the cave wall between the two
+larger passages.
+
+On the wall near the northeast passage is a small, naturally-formed pocket in
+the rock about the size of your hand.
+
+In the wall pocket you see an obsidian slab.
+
+A cinnabar deposit is in the north end of the cavern.
+
+The cavern exits through a slim crevice to the west.
+
+>look in slab
+With the slab situated so, you can see a dark reflection of the shrine to the
+northeast.  On the altar is the animal bone.
+
+Unexpectedly comes movement in the black reflection--a sleek four-legged animal
+emerges from the shrine's shadows!  Stealthily, it sniffs around at the bone,
+takes it between its teeth, and thieves it away.
+
+It darts back into the shadows and disappears.
+
+>take slab
+You pick up the obsidian slab.  It fits well in your hand.
+
+>ne
+Shrine to the Firstlings of the Flock
+This natural grotto has been transformed to a shrine dedicated to meat, organs,
+blood, and fat.  Drawings of grisly sacrifices being slaughtered and butchered
+smother the cave wall in a baroque and monstrous display.  Most of the drawings
+depict the bones of various animals.
+
+These grotesques converge on a stone altar surrounded by shadows.
+
+Now aware of what you're looking for, you discover a dark crevice leading to
+the southeast.
+
+You can exit to the southwest.
+
+>search shadows
+A narrow crevice lurks among the shadows.
+
+>enter crevice
+Lair
+This deep cave is barely high enough for you to stand in.  Scattered across the
+ground are bits of cracked bone.  The stink of rot and animal waste is thick in
+here.
+
+A vicious badger cowers against the rear of the cave, teeth bared and hair on
+its back standing.  It's tied by a tether to a hook in the wall.  It snarls and
+snaps at you.
+
+Near the badger is a pool of congealed grease.
+
+You notice an umber stain on the volcanic rock near you.
+
+The umber stain glows a clear blue hue.
+
+The only way out is through a crevice to the northwest.
+
+The badger snarls and hisses at you.  It's pressed against the rear reaches of
+this tight cave.
+
+>cut tether
+(with the knife)
+Freed, the badger races out of the cave as fast as its stubby legs will carry
+it.  The tether jounces along the ground behind it like an elongated tail,
+until both are gone.
+
+>take grease
+You collect all the grease you can find, prepare it for use, and add it to the
+braid of cups.
+
+>apply ostendo to stain
+You spread some of the salt and the sulfur on the umber stain.
+
+The ostendo compound blends and dissolves, preparing to reveal the next steps
+for unlocking the revelations burned into the umber stain...
+
+In your ear comes a disembodied whisper: "The remedy of the phlegmatic, the
+poison of the sanguine, and wax."
+
+>apply phlegm, lymph, and wax to stain
+You spread some of the phlegm, the lymph, and the wax on the umber stain.
+
+The admixture blends, swells, bubbles, seizes up--
+
+Cain's voice arrives in your ear all at once, and in a rage:
+
+Abel's gone too far--this trick of his to prove his sacrifice is worthy and
+mine worthless--it's profane--
+
+Once again my brother has found a way to humiliate me.  In his humiliation, he
+has discovered another way to impress Father and open Mother's heart a little
+wider for him.  Even our sister Awan has grown enamored with him.  I sense it
+in her eyes and smile when he departs to tend to his flock.
+
+My attempts to free the frightened animal have left me bloodied and lacerated.
+His callousness toward this innocent creature is unforgiveable.
+
+I must go and dig the rock out of the wheat field.  I will return afterwards
+with food for the trapped animal, and determine some way to free it.
+
+[You've unlocked another revelation.]
+
+>exit
+Shrine to the Firstlings of the Flock
+This natural grotto has been transformed to a shrine dedicated to meat, organs,
+blood, and fat.  Drawings of grisly sacrifices being slaughtered and butchered
+smother the cave wall in a baroque and monstrous display.  Most of the drawings
+depict the bones of various animals.
+
+These grotesques converge on a stone altar surrounded by shadows.
+
+You can exit to the southwest, or pass through a dark crevice to the southeast.
+
+>exit
+Cavern
+Passages within this dark cavern branch deeper into the mountain.  Sizable ones
+lead to the northeast and southeast.
+
+A great vermillion-colored face is painted on the cave wall between the two
+larger passages.
+
+On the wall near the northeast passage is a small, naturally-formed pocket in
+the rock about the size of your hand.
+
+A cinnabar deposit is in the north end of the cavern.
+
+The cavern exits through a slim crevice to the west.
+
+>exit
+Cavern entrance
+Rubble of shale and loose rock cover the ground here, evidence of a recent
+landslide.  A jagged crevice in the side of a hill opens to a dim cavern within
+the mountain.
+
+The fire pit is to the southwest.  A thick column of smoke rises from its
+center.
+
+>sw
+It's a fairly long walk to the fire pit.
+
+Fire pit
+This clearing, along with the great cedar tree to the west, feels to be the hub
+of the settlement and its surrounding areas.
+
+In the center of the clearing stands a large fire pit surrounded by a ring of
+stones.  A roaring fire burns here, sending a column of smoke into the murky
+skies.
+
+East of here, a thatch mud hovel and a gray tent are built against the side of
+a hill.  To the south stands a dilapidated wood shack.
+
+Far to the northeast, you discern what appears to be a cavern entrance.
+
+A loose pile of smoking charcoal stands beside the intense fire.
+
+The charcoal pile's thick smoke shifts with the change in the wind's direction.
+
+>east
+Outside the hovel
+You're standing before a hovel constructed of packed mud and straw.  Through
+the entry you see the interior is a dim, cold place.
+
+East leads into the hovel.  The fire pit is due west, while a gray four-square
+tent is south of here.
+
+The crow from somewhere in the distance cries out.
+
+>south
+Inside the tent
+Inside this spacious tent is smashed and overturned equipment, as though
+destroyed in a fit of rage.  You gather from the loose bits strewn about that
+this was once a craft workshop.
+
+The only undisturbed piece of equipment is a length of rope tied to the tent's
+center post.
+

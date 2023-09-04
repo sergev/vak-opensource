@@ -22,13 +22,13 @@ expect "continue..."; send "\r"
 # I. A Young Earth
 #
 expect ">"; send "east\r";                      # A tree
-expect ">"; send "get rucksack\r"
+expect ">"; send "take rucksack\r"
 expect ">"; send "look rucksack\r"
 expect ">"; send "east\r";                      # A Young Earth
-expect ">"; send "get cloth\r"
+expect ">"; send "take cloth\r"
 expect ">"; send "look cloth\r"
 expect ">"; send "east\r";                      # Approaching the river
-expect ">"; send "get Pharmakon\r"
+expect ">"; send "take Pharmakon\r"
 expect ">"; send "look Pharmakon\r"
 expect ">"; send "look Pharmakon\r"
 expect ">"; send "look up First Principles\r"
@@ -51,7 +51,7 @@ expect ">"; send "look up Four Humours\r"
 
 expect ">"; send "look up Three Primes\r";      # The primes are located in salt, sulfur, and mercury.
 expect ">"; send "east\r";                      # Crossing
-expect ">"; send "get envelope\r"
+expect ">"; send "take envelope\r"
 expect ">"; send "look envelope\r"
 expect ">"; send "east\r";                      # Plain
 expect "continue..."; send "\r"
@@ -59,7 +59,6 @@ expect "continue..."; send "\r"
 #
 # II. A Fragile Earth
 #
-expect ">"; send "save\r"; expect ">"; send "start2.t3v\r"
 
 # Flood plain
 expect ">"; send "look gate\r"
@@ -85,20 +84,111 @@ expect ">"; send "north\r";                     # River bank
 expect ">"; send "north\r";                     # Well
 expect ">"; send "apply ostendo to well\r";     # need yellow bile and ash
 expect ">"; send "east\r";                      # Foot of the great cedar tree
-expect ">"; send "get cups\r"
+expect ">"; send "take cups\r"
 expect ">"; send "east\r";                      # Fire pit
-expect ">"; send "get ash\r"
+expect ">"; send "take ash\r"
 expect ">"; send "apply ostendo to stones\r";   # need arsenic, sulfur, and Adam’s Humour
 expect ">"; send "look up Adam\r"
 expect ">"; send "west\r";                      # Foot of the great cedar tree
 expect ">"; send "west\r";                      # Well
 expect ">"; send "look well\r"
 expect ">"; send "apply yellow bile and ash to well\r"; # Adam was choleric
-expect ">"; send "look up choleric\r"
+expect ">"; send "look up choleric\r";          # The humour yellow bile makes one choleric. It is countered by the chamomile poison.
 expect ">"; send "east\r";                      # Foot of the great cedar tree
 expect ">"; send "east\r";                      # Fire pit
 expect ">"; send "apply arsenic, sulfur, and yellow bile to stones\r"; # salt and ash ignites the fire
 expect ">"; send "look up encyp\r"
+expect ">"; send "apply salt and ash to fire pit\r"
+
+# Scarecrow & honeycomb
+expect ">"; send "west\r";                      # Foot of the great cedar tree
+expect ">"; send "south\r";                     # In the wheat field
+expect ">"; send "look scarecrow\r"
+expect ">"; send "look up ocu\r";               # need arsenic & phlegm
+expect ">"; send "apply arsenic and phlegm to scarecrow\r"
+expect ">"; send "south\r";                     # Clearing
+expect ">"; send "apply ostendo to rock\r";     # did not work yet, need to learn more
+expect ">"; send "se\r";                        # Beehive
+expect ">"; send "take honeycomb\r"
+expect ">"; send "nw\r";                        # Clearing
+expect ">"; send "north\r";                     # In the wheat field
+expect ">"; send "north\r";                     # Foot of the great cedar tree
+expect ">"; send "east\r";                      # Fire pit
+expect ">"; send "east\r";                      # Outside the hovel
+
+# Hovel
+expect ">"; send "take bandage\r"
+expect ">"; send "enter\r";                     # Hovel
+expect ">"; send "look under basket\r"
+expect ">"; send "take slab\r"
+expect ">"; send "look blankets\r"
+expect ">"; send "look silk\r"
+expect ">"; send "take hair\r"
+expect ">"; send "apply ostendo to hair\r";     # need Eve’s Humour, poison of Adam’s Humour, and wax
+expect ">"; send "look in slab\r"
+expect ">"; send "apply ocu to slab\r";         # Eve was melancholic
+expect ">"; send "look up Eve\r"
+expect ">"; send "look up melancholy\r";        # The humour black bile makes one melancholic. It is countered by the arsenic poison.
+expect ">"; send "exit\r";                      # Outside the hovel
+expect ">"; send "west\r";                      # Fire pit
+expect ">"; send "south\r";                     # Outside a slaughterhouse
+
+# Slaughterhouse
+expect ">"; send "enter\r";                     # Slaughterhouse
+expect ">"; send "take knife\r"
+expect ">"; send "apply ostendo to stump\r";    # need Abel’s Humour, the poison of phlegm (which is Cain’s Humour) and salt
+expect ">"; send "look up Abel\r"
+expect ">"; send "look up sanguine\r";          # The humour blood makes one sanguine. It is countered by the lymph poison.
+expect ">"; send "look up phlegm\r";            # It is countered by the sage poison.
+expect ">"; send "look up blood\r"
+expect ">"; send "look up sharpen\r"
+expect ">"; send "apply sulfur and black bile to knife\r"
+expect ">"; send "cut self with knife\r"
+expect ">"; send "take bone\r"
+expect ">"; send "exit\r";                      # Outside a slaughterhouse
+expect ">"; send "north\r";                     # Fire pit
+expect ">"; send "ne\r";                        # Landslide
+
+# Shrine
+expect ">"; send "look up metal\r";             # need arsenic, sulfur, & wax
+expect ">"; send "apply arsenic, sulfur, and wax to boulder\r"
+expect ">"; send "enter\r";                     # Cavern
+expect ">"; send "apply ocu to face\r"
+expect ">"; send "north\r";                     # Cinnabar deposit
+expect ">"; send "take cinnabar\r"
+expect ">"; send "south\r";                     # Cavern
+expect ">"; send "put slab in pocket\r"
+expect ">"; send "ne\r";                        # Shrine to the Firstlings of the Flock
+expect ">"; send "put bone on altar\r"
+expect ">"; send "sw\r";                        # Cavern
+expect ">"; send "look in slab\r"
+expect ">"; send "take slab\r"
+expect ">"; send "ne\r";                        # Shrine to the Firstlings of the Flock
+expect ">"; send "search shadows\r"
+expect ">"; send "enter crevice\r"
+expect ">"; send "cut tether\r"
+expect ">"; send "take grease\r"
+expect ">"; send "apply ostendo to stain\r";    # The remedy of the phlegmatic, the poison of the sanguine, and wax.
+expect ">"; send "apply phlegm, lymph, and wax to stain\r"
+expect ">"; send "exit\r";                      # Shrine to the Firstlings of the Flock
+expect ">"; send "exit\r";                      # Cavern
+expect ">"; send "exit\r";                      # Cavern entrance
+expect ">"; send "sw\r";                        # Fire pit
+expect ">"; send "east\r";                      # Outside the hovel
+expect ">"; send "south\r";                     # Inside the tent
+
+# Down the well
+expect ">"; send "save\r"; expect ">"; send "mid2.t3v\r"
+
+#
+# III. An Uncertain Earth
+#
+#expect ">"; send "save\r"; expect ">"; send "start3.t3v\r"
+
+#
+# IV. A Wandering Earth
+#
+#expect ">"; send "save\r"; expect ">"; send "start4.t3v\r"
 
 # Quit
 expect ">"; send "quit\r"
