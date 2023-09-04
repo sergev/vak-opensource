@@ -178,12 +178,66 @@ expect ">"; send "east\r";                      # Outside the hovel
 expect ">"; send "south\r";                     # Inside the tent
 
 # Down the well
-expect ">"; send "save\r"; expect ">"; send "mid2.t3v\r"
+expect ">"; send "cut knot\r"
+expect ">"; send "take rope\r"
+expect ">"; send "exit\r";                      # Outside the hovel
+expect ">"; send "west\r";                      # Fire pit
+expect ">"; send "west\r";                      # Foot of the great cedar tree
+expect ">"; send "west\r";                      # Well
+expect ">"; send "tie rope to crossbeam\r"
+expect ">"; send "climb down well\r";           # Bottom of well
+expect ">"; send "north\r";                     # Corpse
+expect ">"; send "look corpse\r"
+expect ">"; send "look band\r"
+expect ">"; send "take bracelet\r"
+expect ">"; send "south\r";                     # Bottom of well
+expect ">"; send "se\r";                        # A dark tunnel
+expect ">"; send "take jug\r"
+expect ">"; send "south\r";                     # An Uncertain Earth
+expect ">"; send "collect chamomile\r"
+expect ">"; send "apply black bile, chamomile and wax to hair\r"
+expect ">"; send "north\r";                     # A dark tunnel
+expect ">"; send "nw\r";                        # Bottom of well
+expect ">"; send "climb up rope\r";             # Well
+expect ">"; send "take rope\r"
+
+# Royal jelly & sage
+expect ">"; send "east\r";                      # Foot of the great cedar tree
+expect ">"; send "east\r";                      # Fire pit
+expect ">"; send "take charcoal\r"
+expect ">"; send "west\r";                      # Foot of the great cedar tree
+expect ">"; send "south\r";                     # In the wheat field
+expect ">"; send "south\r";                     # Clearing
+expect ">"; send "se\r";                        # Beehive
+expect ">"; send "take royal jelly\r"
+expect "ready"; send "y\r"; expect "Beehive"
+expect ">"; send "nw\r";                        # Clearing
+expect ">"; send "south\r";                     # Sage field
+expect ">"; send "collect sage\r"
+expect ">"; send "south\r";                     # Base of mountain
+
+# Mountains
+expect ">"; send "put slab into scar\r"
+expect ">"; send "apply ostendo to block\r";    # A melancholic remedy, a phlegmatic poison, a binding excipient, and the Body of the Three Primes.
+expect ">"; send "apply black bile, sage, grease and salt to block\r"
+expect ">"; send "look scratches\r"
+expect ">"; send "look up language\r"
+expect ">"; send "apply blood, chamomile, grease and wax to scratches\r"
+
+# “BEWARE the animals’ paths running up the mountain, for they travel in CIRCLES!
+# To reach the summit, enter the trailhead and navigate with care these directions:
+# Southwest, southeast, east, and then north.”
+
+expect ">"; send "up\r";                        # Animal trails
+expect ">"; send "sw\r";                        # Animal trails
+expect ">"; send "se\r";                        # Animal trails
+expect ">"; send "east\r";                      # Animal trails
+expect ">"; send "north\r";                     # Mountain pass
 
 #
 # III. An Uncertain Earth
 #
-#expect ">"; send "save\r"; expect ">"; send "start3.t3v\r"
+expect ">"; send "save\r"; expect ">"; send "start3.t3v\r"
 
 #
 # IV. A Wandering Earth

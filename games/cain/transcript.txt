@@ -1553,10 +1553,6 @@ endured since arriving here.
 The fire pit is to the southwest.  A thick column of smoke rises from its
 center.
 
->save
-Save game to file >mid2.t3v
-Saved.
-
 >look up metal
 (the Pharmakon)
 Dissolving metals is one of the more terrible and destructive powers available
@@ -1879,4 +1875,581 @@ this was once a craft workshop.
 
 The only undisturbed piece of equipment is a length of rope tied to the tent's
 center post.
+
+>cut knot
+(with the knife)
+After some sawing with the knife, you succeed in cutting the knot, leaving a
+good length of sturdy rope on the ground before you.
+
+>take rope
+You coil up the rope and sling it over your shoulder.
+
+>exit
+Outside the hovel
+You're standing before a hovel constructed of packed mud and straw.  Through
+the entry you see the interior is a dim, cold place.
+
+East leads into the hovel.  The fire pit is due west, while a gray four-square
+tent is south of here.
+
+>west
+Fire pit
+This clearing, along with the great cedar tree to the west, feels to be the hub
+of the settlement and its surrounding areas.
+
+In the center of the clearing stands a large fire pit surrounded by a ring of
+stones.  A roaring fire burns here, sending a column of smoke into the murky
+skies.
+
+East of here, a thatch mud hovel and a gray tent are built against the side of
+a hill.  To the south stands a dilapidated wood shack.
+
+Far to the northeast, you discern what appears to be a cavern entrance.
+
+A loose pile of smoking charcoal stands beside the intense fire.
+
+A sharp gust causes the smoke from the pile of charcoal to form a thin trail in
+the air.
+
+>west
+Foot of the great cedar tree
+You're standing at the foot of a great cedar tree.  Its leafy branches reach
+all directions overhead.
+
+A crow sits on one of the lower tree branches.  You could reach it if you
+climbed up.
+
+A well stands to the west.  To the south begins an expansive tilled field.
+East is a fire pit surrounded by some small buildings.  Smoke rises from its
+center.
+
+The crow launches from the tree, flies a roundabout loop in the hazy sky, and
+returns to its perch.
+
+>west
+Well
+A ring of rock surrounds a well in the ground.  A crossbeam dissects the well's
+opening in half.  From the depths below comes the echoing trickle of slow-
+running water.
+
+The river is south of here, while a towering cedar is to the east.  Beyond it
+is a clearing and some ramshackle buildings.
+
+From far off comes the rumbling of moving earth.  You prepare youself for the
+inevitable quaking of the earth--and it arrives, if only for a few moments.
+
+>tie rope to crossbeam
+You tie the rope to the crossbeam and throw the other end down to the bottom of
+the well.
+
+>climb down well
+Ponderously, and with a streak of self-doubt eating at you, you take hold of
+the rope and rappel down the throat of the well...
+
+Bottom of well
+A trickle of a cold stream runs across your feet.  In the dim light from above,
+you cannot make out where the water originates from or disappears to, but you
+do see the underground cavern continues to the southeast.  You also make out a
+narrow passage to the north.
+
+The climb down winded you.  Your arms feel doughy and your ribs ache.
+
+The rope dangles here, offering a way up to the surface.
+
+>north
+Corpse
+Crumpled before you in an undignified heap is a corpse.  From his attire, you
+can tell he was an Indagator from the Academy.
+
+You spy a jagged crevice cut in the tunnel high above revealing a scar of sky
+and some scattered sunlight.
+
+A narrow passage runs south.
+
+A raucous flapping of wings echoes down the cave walls, followed by an ear-
+piercing caaaw.  The crow's stark silhouette forms a distinct outline in the
+white light of the crevice above.
+
+>look corpse
+It is Crado, a highly experienced Indagator.  He was sent by the Academy before
+you.
+
+Both his legs are broken.  He must have suffered the injury climbing down the
+well, crawled here, and expired.  Such are the risks of your chosen
+profession...but still.  To die in this manner is a waste.
+
+You discover a band partially hidden by the body.
+
+A single gentle caw from the crow comes down to you as though reminding you of
+your task at hand.
+
+>look band
+It's an orbis bracelet!
+
+Once your inquiry is completed, it can deliver you back to the safety and
+comforts of the Academy.
+
+This is Crado's orbis, though.  If you were to place it on his body, he would
+be sent back to the Academy for a proper burial.  The orbis bracelet would
+travel with him.
+
+>take bracelet
+You take Crado's orbis bracelet.
+
+You're definitely feverish, and grower sicker by the minute, but you must press
+on.  Once this inquiry is over, you can take a long, well-deserved rest.
+
+>south
+Bottom of well
+A trickle of a cold stream runs across your feet.  In the dim light from above,
+you cannot make out where the water originates from or disappears to, but you
+do see the underground cavern continues to the southeast.  You also make out a
+narrow passage to the north.
+
+The rope dangles here, offering a way up to the surface.
+
+>se
+You trudge through the dank darkness for a while...
+
+A dark tunnel
+A bend in the tunnel runs northwest toward a feebly-lit clearing in the cave,
+and south toward a bright exit.
+
+A small unadorned clay jug lies on its side on the cave floor.
+
+>take jug
+You pick up the clay jug.
+
+>south
+You trudge down the dark corridor toward a blindingly bright light, and emerge
+into daylight...
+
+An Uncertain Earth
+Swaying in the breeze is a modest array of flowering chamomile.
+
+A massive crevice has torn open the earth beside the field.  Steaming effluence
+emerges from its depths.  Across the chasm to the west blooms a robust field of
+sage.
+
+A dank cave is to the north.
+
+A few bees fly off from the chamomile and meander across the chasm to the sage.
+
+>collect chamomile
+You pick all the flowering chamomile, as only the yellow pistil is suitable for
+mixing compounds.
+
+>apply black bile, chamomile and wax to hair
+You spread some of the black bile, the chamomile, and the wax on the strand of
+blond hair.
+
+The admixture blends, swells, bubbles, seizes up--
+
+Cain's voice, once more:
+
+Mother commands me to marry my sister, Awan, as well as Second Daughter when
+she is of age.
+
+To me, she says: "As the eldest, you are responsible for Abel and your sisters.
+When your father and I are no longer of this world, you will be patriarch."
+
+To my brother, she says: "Abel, you will serve your brother, to ensure the
+family of Mankind prospers and spreads."
+
+Our sisters gather in a tight brood far from the Fire.  The dancing flames
+illuminate their horrified expressions.
+
+"Cain, you and your sisters will produce twelve children," she says.
+
+I plead with her.  The sheep and swine do not breed brother with sister.  "Eve
+is in charge of family matters," is all Father will say.
+
+Abel announces: "If Cain discards Awan, I will marry her."  But Mother will
+have none of it.
+
+That night, Mother drapes over the bed a veil of muslin and linen.  She
+perfumes the bed with rare oils and essences.  Awan and I are led to this bower
+and instructed to lay together.  We are left alone in the hovel.
+
+Pressed together for warmth, my sister's thick mane pillows both our faces.
+She whispers to me: "Please...no...please do not..."
+
+The uncomfortable reckonings of the Earth's first inhabitants fades off.
+
+The hair sizzles away into a sour wispy smoke.
+
+[You've unlocked another revelation.]
+
+>north
+You plunge into the cave and its dim dankness...
+
+A dark tunnel
+A bend in the tunnel runs northwest toward a feebly-lit clearing in the cave,
+and south toward a bright exit.
+
+>nw
+You trudge through the darkness toward a dim opening in the caves lit from
+above...
+
+Bottom of well
+A trickle of a cold stream runs across your feet.  In the dim light from above,
+you cannot make out where the water originates from or disappears to, but you
+do see the underground cavern continues to the southeast.  You also make out a
+narrow passage to the north.
+
+The rope dangles here, offering a way up to the surface.
+
+>climb up rope
+With careful but determined progress, you haul yourself up the shaft of the
+well...
+
+Well
+A ring of rock surrounds a well in the ground.  A crossbeam dissects the well's
+opening in half.  From the depths below comes the echoing trickle of slow-
+running water.
+
+A length of rope is tied to the crossbeam, with its loose end hanging down the
+well's shaft.
+
+The river is south of here, while a towering cedar is to the east.  Beyond it
+is a clearing and some ramshackle buildings.
+
+The crow soars about in the sky for a few moments, as though stretching its
+wings, before returning to its branch.
+
+>take rope
+You pull up the rope and untie it from the crossbeam.  You coil up the rope and
+sling it over your shoulder.
+
+>east
+Foot of the great cedar tree
+You're standing at the foot of a great cedar tree.  Its leafy branches reach
+all directions overhead.
+
+A crow sits on one of the lower tree branches.  You could reach it if you
+climbed up.
+
+A well stands to the west.  To the south begins an expansive tilled field.
+East is a fire pit surrounded by some small buildings.  Smoke rises from its
+center.
+
+>east
+Fire pit
+This clearing, along with the great cedar tree to the west, feels to be the hub
+of the settlement and its surrounding areas.
+
+In the center of the clearing stands a large fire pit surrounded by a ring of
+stones.  A roaring fire burns here, sending a column of smoke into the murky
+skies.
+
+East of here, a thatch mud hovel and a gray tent are built against the side of
+a hill.  To the south stands a dilapidated wood shack.
+
+Far to the northeast, you discern what appears to be a cavern entrance.
+
+A loose pile of smoking charcoal stands beside the intense fire.
+
+The smoldering pile of charcoal causes a passing bee to alter its course.  It
+makes a wide arc around the smoke.
+
+>take charcoal
+With tender fingers and quick moves, you take the topmost chunk of charcoal.
+Plenty more remains on the pile.
+
+You toss the scalding chunk of charcoal from one hand to another.  Gray smoke
+pollutes the air around you.
+
+>west
+Foot of the great cedar tree
+You're standing at the foot of a great cedar tree.  Its leafy branches reach
+all directions overhead.
+
+A crow sits on one of the lower tree branches.  You could reach it if you
+climbed up.
+
+A well stands to the west.  To the south begins an expansive tilled field.
+East is a fire pit surrounded by some small buildings.  Smoke rises from its
+center.
+
+A flapping of wings and feathers comes from the crow above.
+
+>south
+In the wheat field
+Twenty or thirty hectares of wheat are planted in tidy rows along the southern
+edge of the settlement.
+
+Traveling north will lead you out of the field and toward the center of the
+settlement.  A dilapidated shack stands to the east, while a path south through
+the field leads to a clearing.
+
+A rough and ready scarecrow stands upright here.
+
+>south
+Clearing
+The meticulously tended field of wheat opens to a circular clearing of trampled
+stalks and grain-heavy florets crushed underfoot.
+
+Off-center of the clearing sits a squat russet-brown rock cracked in half.
+
+The russet-brown rock glows a clear blue hue.
+
+To the southeast stands an almond tree among a cloud of bees.  A field of
+flowering sage spreads out to the south.  A scarecrow is north of here.
+
+An almost imperceptible trail of broken wheat stalks cuts southwest through the
+field.
+
+The disturbed bees' drone from the southeast has a distinct intensity to it.
+
+>se
+Beehive
+Tucked between the lowest branches of this elderly and stooped almond tree is a
+mud-covered beehive swarming with its diligent occupants.  The mud hive has
+grown too weighty for its perch.  Portions have broken away.  The bees are
+frantic and steadfast in their concerted efforts to shore it up.
+
+The bees don't care for the charcoal smoke.  They give you a wide berth as you
+move, forming a constantly-agitating shell in the air about you.
+
+Hundreds of bees crawl about the interior walls of the hive.  More
+significantly, several pockets of royal jelly are within reach.
+
+You can retrace your footsteps through the wheat field by going northwest.  To
+the west opens up a field of sage.
+
+>take royal jelly
+If you take the royal jelly, you may not be able to return to this area.  Are
+you certain you're ready? y
+yes
+
+Holding your breath and steeling your resolve, you drop the charcoal, reach
+into the gash running down the side of the hive, and scoop up the precious
+royal jelly.  The swarm grows furious--reinforcements arrive from the sage
+field in waves.
+
+You have just enough time to deposit your prize in a braided cup before you
+must--
+
+Run!
+
+>Beehive
+Tucked between the lowest branches of this elderly and stooped almond tree is a
+mud-covered beehive swarming with its diligent occupants.  The mud hive has
+grown too weighty for its perch.  Portions have broken away.
+
+You can beat a hasty retreat by hurrying northwest to the wheat field or west
+to the sage.
+
+The bees' furious droning is like a thousand angry men arguing at once.
+
+>nw
+You beat a hasty retreat to the field...
+
+Clearing
+The meticulously tended field of wheat opens to a circular clearing of trampled
+stalks and grain-heavy florets crushed underfoot.
+
+Off-center of the clearing sits a squat russet-brown rock cracked in half.
+
+The russet-brown rock glows a clear blue hue.
+
+To the southeast stands an almond tree among a cloud of bees.  A field of
+flowering sage spreads out to the south.  A scarecrow is north of here.
+
+An almost imperceptible trail of broken wheat stalks cuts southwest through the
+field.
+
+Panting and out of breath, you look up to the crow in the branches of the great
+cedar tree.  Its head bobs up and down as it caws, as though laughing at you.
+
+Your pulse races for too long before calming.  The perspiration on your brow is
+not commensurate with your recent physical strain.
+
+>south
+Sage field
+A narrow winding strip of sage spreads forth from here.  The growth is so
+thick, your travel into the field is impeded, and you can only reach the first
+row of plants.
+
+Steam and miasma emerge from a wide chasm on the far side of the field.  On the
+other side of the chasm stands a field of chamomile.
+
+To the east stands an elderly almond tree supporting a mud hive.  The edge of
+the wheat field is to the north.
+
+To the distant south runs an impressive mountain range rising into the mist-
+laden sky.
+
+>collect sage
+You pick all the flowering sage available to you.
+
+>south
+After a taxing journey across the valley plain, you reach the foot of a
+mountain range...
+
+Base of mountain
+A range of Atlas-like mountains ascends mightily to the misty heavens.  Nearby,
+on a more diminutive scale, a rotund obsidian block squats firmly in the
+ground.
+
+Up the mountain is a trailhead of animal paths and switchbacks ascending the
+side of the mountain.
+
+The settlement is north.
+
+>put slab into scar
+The obsidian mirror fits the obsidian block's oval scar perfectly.
+
+With the slab set in the scar, the block is whole once more.  The obsidian
+block glows a clear blue hue.
+
+>apply ostendo to block
+You spread some of the salt and the sulfur on the obsidian block.
+
+The ostendo compound blends and dissolves, preparing to reveal the next steps
+for unlocking the revelations burned into the obsidian block...
+
+In your ear comes a disembodied whisper: "A melancholic remedy, a phlegmatic
+poison, a binding excipient, and the Body of the Three Primes."
+
+You're definitely feverish, and grower sicker by the minute, but you must press
+on.  Once this inquiry is over, you can take a long, well-deserved rest.
+
+>apply black bile, sage, grease and salt to block
+You spread some of the black bile, the sage, the grease, and the salt on the
+obsidian block.
+
+The admixture blends, swells, bubbles, seizes up--
+
+Cain's voice is familiar to you now:
+
+Mother gathers Abel, our eldest sister Awan, and myself.  She leads us to the
+foot of the mountains.
+
+"Strike the head, strike the heel," she tells us.  "The gift of childbirth was
+mine, but I sense it abandoning my body.  Cain and Awan, the gift has been
+passed to you.  The great chain of the family of Mankind is now your
+responsibility."
+
+"And what of me?" Abel demands.  "The Creator selected my yield in the shrine,
+and rejected Cain's."
+
+"Take Cain's inferior grain to the giant Nephilim living beyond the mountains,"
+she says.  "Trade with them for tack, tools, and supplies.  If they do not wish
+to trade, barter for peace.  The Fire indicates they are growing restless, and
+they outnumber us."
+
+I protest.  "Abel is not the proper ambassador of our family.  I am the eldest
+son.  I should represent our interests with the Nephilim."
+
+"Abel has been chosen."  Eve shows us the writing on the side of the obsidian
+block.  "Heed the warning carved here.  It will guide you through the
+mountains."
+
+Cain's voice dies off, leaving you only with an echo of this memory.
+
+[You've unlocked another revelation.]
+
+>look scratches
+A mess of deep scratches run down one side of the obsidian block.  It all
+appears chaotic, as though some mighty antediluvian creature sharpened his
+claws here.  (Pray you do not run into such a beast!)
+
+However, you now realize these crosshatches and angles represents a language--
+perhaps the first written language in the history of the world.
+
+>look up language
+(the Pharmakon)
+After much time with the Pharmakon, your motivated search yields fruit:
+
+The glos compound provides the Indagator a complete understanding of any
+written language before him or her...with the proviso that such comprehension
+is fleeting, only affording enough time for a few words or a phrase to be
+translated.
+
+Hester IV of Minscip adds in his telltale script: "Quite often, that is all a
+seasoned Indagator needs!"
+
+The compound is sophisticated by the standards of alchemy: blood, chamomile,
+grease, & wax.
+
+The entry concludes with a warning: "The compound must be applied directly to
+the writing or symbols stymieing the Indagator."
+
+c.f., essence, alchemy
+
+>apply blood, chamomile, grease and wax to scratches
+You spread some of the blood, the chamomile, the grease, and the wax on the
+scratches.
+
+The admixture blends, swells, bubbles, seizes up--
+
+You grow euphoric as the knowledge of another tongue floods in.  Your
+lightheaded state is amplified by the realization that you are not merely
+comprehending a foreign language, but the original language of Mankind.
+
+The aimless lines of the scratches take the shape of knowledge expressed.
+Quickly, before the effect of the compound deteriorates, you memorize the gist
+of the message:
+
+"BEWARE the animals' paths running up the mountain, for they travel in CIRCLES!
+To reach the summit, enter the trailhead and navigate with care these
+directions:
+
+Southwest, southeast, east, and then north."
+
+The effect fades away.
+
+[You may now refer to the glos compound by name.]
+
+[You've unlocked another revelation.]
+
+>up
+Animal trails
+You begin your trek up the mountainside with fresh confidence.  Animal tracks
+wander off in every direction.
+
+A nearby slope, quite steep and clear of brush, offers a quick trip down to the
+base of the mountain.
+
+>sw
+Animal trails
+You continue your trek up the mountainside with growing confidence of your
+progress.  Animal tracks wander off in every direction.
+
+A nearby slope, quite steep and clear of brush, offers a quick trip down to the
+base of the mountain.
+
+>se
+Animal trails
+You continue your trek up the mountainside with growing confidence of your
+progress.  Animal tracks wander off in every direction.
+
+A nearby slope, quite steep and clear of brush, offers a quick trip down to the
+base of the mountain.
+
+>east
+Animal trails
+You continue your trek up the mountainside with growing confidence of your
+progress.  Animal tracks wander off in every direction.
+
+A nearby slope, quite steep and clear of brush, offers a quick trip down to the
+base of the mountain.
+
+>north
+You emerge from the crisscrossing trails to a wind-scarred clearing...
+
+III. AN UNCERTAIN EARTH
+
+Mountain pass
+A brisk steady wind cuts across this mountain pass, an unwelcome contrast to
+the warm, if chilling, settlement below.  You peer down on the settlement and
+realize how far you've traveled to reach here.
+
+A steep slope descends down the mountain in a hurry, while a path leads
+southeast.  The way south leads up the mountain.
+
+>save
+Save game to file >start3.t3v
+Saved.
 
