@@ -2912,7 +2912,326 @@ itself open and its innards gushed out.
 To the northwest lies a field of gnarled vines.  The wheat field is to the
 northeast.
 
->save
-Save game to file >start4.t3v
-Saved.
+>nw
+Field of thorn and thistle
+This spacious tilled field is about a quarter the size of the wheat field back
+in the settlement.  It's apparent it was meticulously tilled and worked with
+care.  A sign on a post stands before the field.
+
+Rather than yielding grain or vegetable, the bounty this field produced is a
+crop of gnarled vines studded with thorns and wild thistle plants.
+
+A ravine lies to the southeast.  Southwest of here you make out a tunnel
+opening in the side of the mountain.
+
+A brilliant glowing light shines like a crown over the outcropping above.
+
+>apply glos to sign
+You spread some of the blood, the chamomile, the grease, and the wax on the
+sign.
+
+The admixture blends, swells, bubbles, seizes up--
+
+With a familiar wooziness, the alien language becomes as familiar as your
+grandfather's kindly face.  The symbols rearrange until they're plain to you:
+
+"Cain's Field / Free Food for All"
+
+The munificence did not go as planned.
+
+>sw
+Tunnel entrance
+A narrow tunnel stretching due west burrows a hole into the mountainside.  When
+your eyes adjust, you make out deep inside it what appears to be a man staring
+back at you.
+
+The field of thorn and thistle lies to the northeast.
+
+You are deathly ill.  You look forward to collapsing and taking a long sleep
+when you've completed your inquiry.
+
+>enter
+As you enter the tunnel, a great rumbling grows around you--the earth gives
+way--weightless, you tumble headlong into the void...
+
+[Press any key to continue...]  
+
+
+In the darkness appears a ball of light.  Soon, dozens of balls dripping fire
+approach, bringing with them cries and accusations.
+
+The grain-blight decimated your grandfather's wheat field, as well as the oats
+and sorghum in the neighboring farms.  Your grandfather died a broken man.  He
+left you his cottage, an exhausted well, and a field of dust and memories.
+
+The villagers came to you at the zero hour with torches and allegations.  They
+stripped you of your bedclothes; they painted your face like a clown; they held
+a trial around your bed, and judged you the ugliest in the village.
+
+Verdict passed, you were force-fed an oily meal of salted figs, honeyed olives,
+butter, and fattened goat.  Face shiny with grease and paint, they dragged you
+from your farm table to the villagers lined up outside your grandfather's
+cottage.
+
+As you stumbled down the row, they struck you with switches and paddles and
+shovels.  You brought the grain-blight, they screamed.  Now they chased it
+away.
+
+Naked, blistered, and bruised, you wandered the wilderness for three days
+before collapsing.
+
+Death would certainly have claimed you if not for the elderly traveler.  He
+revived you and brought you to the Academy.  There he nursed you to health,
+and, bedside, began teaching you of reason, investigation, and truth.
+
+His name was Hester, and he was the first person after your grandfather to
+demonstrate a flicker of belief in you...
+
+[Press any key to continue...]  
+
+
+In the dark
+You come to, hazy-headed and lying on your back, in near-total darkness.  A
+crack high above lets in a meager thread of sunlight.
+
+Even with your eyes adjusted, the only other thing you can make out in the
+darkness is a spent wood torch lying within reach.
+
+Some great weight across your chest has pinned you to the dirt floor.
+
+>apply encyp to torch
+With a bit of difficulty, you manage to spread some of the salt and the ash on
+the torch.
+
+The admixture blends, swells, bubbles, seizes up--
+
+The torch ignites with a searing white flame that nearly blinds you.  Soon its
+pulsing heat is toasting the side of your face, but no matter--you have some
+light now.
+
+That vital light illuminates exactly what is holding you to the floor: A
+weighty bar, thoroughly cankered with rust, pinned across your chest.
+
+Trapped (on the dirt floor)
+The tunnel you entered is now utterly blocked by the rock and rubble all around
+you.  A torch on the floor burns with an unnaturally intense and unwavering
+flame.
+
+This bleak pocket of rock you find yourself trapped in continues to the west.
+
+You are on the dirt floor.
+
+The weight of the rusted bar pins you down.
+
+>apply novo to bar
+You struggle to spread some of the sulfur and the black bile on the bar.
+
+The admixture blends, swells, bubbles, seizes up--
+
+The cankerous rust begins to dissolve, its spots disappearing and its gashes
+healing up.  Soon, the iron bar's lustrous finish has returned, from end to
+end.
+
+Of course, now you have a new problem.  A heavy and pristine iron bar is
+pinning you to the floor.
+
+>apply vulk to bar
+You manage to spread some of the arsenic, the sulfur, and the wax on the bar.
+
+The admixture blends, swells, bubbles, seizes up--
+
+The iron bar melts off into a gelatinous goo.  It drains onto the cave floor
+and dissolves into the dirt.
+
+>west
+(first getting off of the dirt floor)
+
+Blocked
+At the rear of this caved-in pocket, a detailed life-sized portrait has been
+painted on the volcanic rock.  The painting is of a young man standing and
+holding a lamb in his arms.
+
+At the feet of the portrait, a partially crushed wood chest is buried in the
+rock slide.
+
+The other half of this caved-in pocket lies to the east.
+
+>look portrait
+Dimly visible in the available light, the portrait is a full-sized rendering of
+Abel.  His face glows beatifically; you plainly discern his puckish smile and
+sly eyes staring back at you.  Cradled in his arms is a lamb.
+
+>apply ocu to painting
+You spread some of the arsenic and the phlegm on the painting.
+
+The admixture blends, swells, bubbles, seizes up--
+
+Your eyes becomes the portrait's eyes--you become a mute witness.  What you do
+not expect is to hear Abel's voice:
+
+Since I was young, Cain worked the soil and tended to his plants with a patent
+joy.  My brother was more alive around his plants and flowers than around us.
+
+Our parents leaned on him for all their problems.  When Adam was too sickly to
+dig the well, Cain completed it.  When Eve suffered bouts of her dark moods,
+she asked Cain for tea and a comforting word.  Adam taught Cain how to work
+metal, how to build tents, how to light the Great Fire.
+
+What was I responsible for?  Feeding goats and lambs.  Walking them to the
+river.  Slitting their throats when they grew plump.
+
+He would always be the eldest son.  I could never surpass him.
+
+From this dark place, I watch my brother work a new field.  He throws himself
+into the task with great vigor.  The rewards for his hard labor are thorns like
+knives and inedible thistles.
+
+Still, he is resourceful.  He hacks at the vines with an axe.  He extracts the
+oil running in their veins.  With it he oils his walking stick and the hinge of
+his precious lockbox.  But he fails to harvest a crop, and so he must leave and
+wander further.
+
+Every night, he sobs and cries out in his sleep.  He is alone, and I am with
+him, always.
+
+The voice of the dead.
+
+[You've unlocked another revelation.]
+
+>apply grease to chest
+You spread some of the grease on the crushed wood chest.
+
+A quick test of the lid indicates it's able to move now.
+
+>open chest
+With some forcible effort, you manage to pull open the chest lid.  The bottom
+of the chest is gone!  It must have been blown out by the force of the cave-in.
+
+Westward, out the bottom of the chest, the tunnel continues.  It reaches a
+brilliant platinum light and a hazy gray sky.
+
+It may be wishful thinking, or it may be the fever playing tricks on your mind,
+but you plainly hear Hester IV of Minscip whisper in your ear:
+
+"Novitiate no longer!  You are an Indagator, without qualification!"
+
+>west
+You crawl through the crushed chest, down the dark tunnel, and emerge from the
+cave to a dazzling light...
+
+A Wandering Earth
+The crow arrives with a noisy beating of its wings.  It lands in a rocky perch
+high above.
+
+From atop the outcropping, the source of the brilliant gleam in the sky is
+revealed:
+
+In the valley below you is the remains of a lush garden valley.  Blossoming
+fruit trees, green grasses and flora, and steppes of rich undergrowth once ran
+down the valley slopes.
+
+The river of magma has reached the garden.  It cleaves fiery arteries through
+the valley and destroys the pristine beauty acre by acre.  Endless waterfalls
+are now fire-falls.  The destruction casts a brilliant platinum light up to the
+sky.
+
+East leads down into the bowels of the earth.  A narrow and rough trail south
+leads around the edge of the precipice to a field below.
+
+Sitting on the edge of the outcropping is a young man clothed in coarse flax.
+
+>talk to man
+Up until now, the man's face has remained outside your view.  Now he turns to
+you.  Finally you can put a face to the voice of the man you've heard so often
+since your arrival here.
+
+It's the cragged face of a regretful man.  Dust and dirt outline the face's
+wrinkles and folds.  His watery eyes are veined red, and his mouth seems
+incapable of any shape but a deep frown.
+
+The Creator marked this man so he would never be harmed.  Who could attack
+someone with such a piteous expression?
+
+You begin to speak to him--you have many questions--
+
+The Crow lets out a berating caaaw, causing your head to snap around.  The
+great black bird launches from its perch and flies toward the misty horizon.
+
+When you turn back to Cain, he's gone.  Among the trees down the hill, you
+catch sight of his knapsack slung over one shoulder as he trudges on to his
+next destination...and then he disappears into the wilderness.
+
+[You've unlocked another revelation.]
+
+>memories
+You've witnessed sixteen of the sixteen available revelations:
+
+   * The sluice gate
+   * The well
+   * The stones
+   * The great fire
+   * The scarecrow
+   * The obsidian mirror
+   * The giant face
+   * The spot of blood
+   * The strand of hair
+   * The obsidian block
+   * The mountain warning
+   * The distillery
+   * The slaughterhouse
+   * The burial rock
+   * The underground portrait
+   * Meeting Cain
+
+You may RECALL these revelations by name.
+
+You've memorized the following alchemical compounds:
+
+   * encyp: Restore an extinguished fire
+   * glos: Briefly read any language
+   * novo: Restore a manmade invention to its original purpose
+   * ocu: Make a human-like yield an eyewitness revelation
+   * ostendo: Reveal compound to unlock revelation
+   * vulk: Melt metal
+
+You've learned the following about the family members:
+
+   * Adam is choleric.  His Humour is yellow bile.
+   * Eve is melancholic.  Her Humour is black bile.
+   * Cain is phlegmatic.  His Humour is phlegm.
+   * Abel is sanguine.  His Humour is blood.
+
+>break seal
+The seal breaks in quarters and falls away.  The stiff vellum envelope flops
+open to a single blank page.
+
+No instructions.  No directives.  No rubric or schema.  A void for you to fill.
+
+The Academy failed to send you ink, or even a writing instrument.  Your blood
+is the ink and your hand the pen.  Shaky with fever, you reopen your wound and
+dip your finger in your umber.
+
+You write down all you've seen.  The father, the mother, the sons and
+daughters.  The Fire, the Tree, and the Crow.  The rage and the despair.  And
+the Mark.  According to Cain, you smear across the top of the vellum.
+
+With your last words on the page, the vellum shimmers and fades away.  It is
+delivered.  The Provost has his report.
+
+The fever has set.  This fiery and broken world rocks to and fro.  You stumble
+and fall to the dirt.  You cover your sweat-beaded face with your hands.
+
+The orbis begins growing warm.  Soon you will be among the Scholastics and the
+Provost.  You look forward to seeing Hester's warm, elderly face once more.
+You hope you've done him proud.
+
+The cloud-ridden sky becomes a clear, cold night.  The crow cries out--and you
+sleep, at last.
+
+*** Finis.  ***
+
+
+Would you like to RESTART the story, UNDO the last move, see the CREDITS, read
+about the game's SOURCES and background, see the author's BIBLIO
+(bibliography), RESTORE a saved position, or QUIT?
 

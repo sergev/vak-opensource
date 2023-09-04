@@ -274,7 +274,25 @@ expect ">"; send "sw\r";                        # Edge of barren field
 #
 # IV. A Wandering Earth
 #
-expect ">"; send "save\r"; expect ">"; send "start4.t3v\r"
+#expect ">"; send "save\r"; expect ">"; send "start4.t3v\r"
+expect ">"; send "nw\r";                        # Field of thorn and thistle
+expect ">"; send "apply glos to sign\r";        # “Cain’s Field / Free Food for All”
+expect ">"; send "sw\r";                        # Tunnel entrance
+expect ">"; send "enter\r";                     # In the dark
+expect "continue..."; send "\r"
+expect "continue..."; send "\r"
+expect ">"; send "apply encyp to torch\r";      # Trapped (on the dirt floor)
+expect ">"; send "apply novo to bar\r"
+expect ">"; send "apply vulk to bar\r"
+expect ">"; send "west\r";                      # Blocked
+expect ">"; send "look portrait\r"
+expect ">"; send "apply ocu to painting\r"
+expect ">"; send "apply grease to chest\r"
+expect ">"; send "open chest\r"
+expect ">"; send "west\r";                      # A Wandering Earth
+expect ">"; send "talk to man\r"
+expect ">"; send "memories\r"
+expect ">"; send "break seal\r"
 
 # Quit
 expect ">"; send "quit\r"
