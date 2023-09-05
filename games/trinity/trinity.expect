@@ -1,0 +1,19 @@
+#!/usr/bin/expect -f
+#
+# Play game Trinity.
+#
+# Based on http://www.plover.net/~davidw/sol/t/trini86.html
+#
+set timeout -1
+
+# Remove previous log, if any.
+system rm -f "game.log"
+log_file "game.log"
+
+# Start the game.
+spawn dfrotz -m -s 123 tr.z4
+match_max 100000
+
+# Quit
+expect ">"; send "quit\r"
+exit
