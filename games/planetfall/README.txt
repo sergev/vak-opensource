@@ -12,4 +12,6 @@ Play online:
     https://iplayif.com/?story=https://github.com/historicalsource/planetfall/raw/master/COMPILED/planetfall.z3
 
 Hints:
-    https://www.filfre.net/2013/03/planetfall/
+    https://www.abandonwaredos.com/docs.php?sf=Planetfall_solution.txt&st=walkthrough&sg=Planetfall&idg=1138
+    http://www.eristic.net/games/infocom/planetfall.html
+    https://www.walkthroughking.com/text/planetfall.aspx

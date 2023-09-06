@@ -2,7 +2,7 @@
 #
 # Play game Planetfall.
 #
-# Based on https://www.filfre.net/2013/03/planetfall
+# Based on https://www.abandonwaredos.com/docs.php?sf=Planetfall_solution.txt&st=walkthrough&sg=Planetfall&idg=1138
 #
 set timeout -1
 
@@ -11,9 +11,99 @@ system rm -f "game.log"
 log_file "game.log"
 
 # Start the game.
-spawn dfrotz -m -s 123 tr.z4
+spawn dfrotz -m -s 123 planetfall.z3
 match_max 100000
+
+# You begin on 'Deck 9' of the Feinstein
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r";                      # until the space ship starts exploding
+expect ">"; send "west\r";                      # Escape Pod
+expect ">"; send "get in web\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r";                      # until the pod lands
+expect ">"; send "get out of web\r"
+expect ">"; send "get kit\r"
+expect ">"; send "open door\r"
+expect ">"; send "out\r";                       # Underwater
 
 # Quit
 expect ">"; send "quit\r"
 exit
+
+U, U, U, U, N, NE, E, E, E, S, S, S, SW, GET BAR (don't
+carry any access cards with the bar at ANY time!), NE, N, N, N, N, HOLD BAR OVER
+CREVICE (the bar is magnetic - a key sticks on to it), DROP BAR, S, W, W, UNLOCK
+PADLOCK WITH KEY, REMOVE PADLOCK, DROP IT AND KIT, OPEN DOOR, N, DROP KEY AND
+BRUSH, GET LADDER, S, E, E, N, N, DROP LADDER, EXTEND LADDER (it can now reach
+across the gap), PUT LADDER ACROSS RIFT, N, W, OPEN DESK (you find a 'kitchen
+access card' and an 'upper elevater a. card'), GET KITCHEN CARD AND UPPER CARD,
+W, OPEN DESK (here is a 'shuttle a. card'), GET SHUTTLE CARD, E, E, S, S, S, W,
+W (around this time you should be hungry), GET KIT, OPEN IT, EAT RED GOO, DROP
+KIT, S, GET CANTEEN, SLIDE KITCHEN CARD THROUGH SLOT (the door opens), S,
+EXAMINE MACHINE (it has an opening), OPEN CANTEEN, PUT IT IN NICHE, PRESS BUTTON
+(the canteen is filled with food), GET CANTEEN, CLOSE IT, N, DROP KITCHEN CARD,
+N, E, E, E, PRESS BLUE BUTTON, WAIT, WAIT (the upper elevator is opened), N,
+SLIDE UPPER CARD THROUGH SLOT, PRESS UP BUTTON, WAIT, WAIT (the elevator stops),
+S, NE (notice the flashing colour), SW, N, PRESS DOWN BUTTON, WAIT, WAIT, S, W,
+S, S, S, SW, GET FLASK, E, PUT FLASK UNDER SPOUT, PRESS X (being the flashing
+colour you just saw), GET FLASK, E, OPEN FLOYD (he contains a 'lower elevater a.
+card', which you take), TURN ON FLOYD, NW, N, N, N (Floyd arrives), E, N, SLIDE
+UPPER CARD THROUGH SLOT, PRESS UP BUTTON, WAIT, WAIT, S, NE, POUR FLUID IN HOLE
+(note the new colour), SW, N, PRESS DOWN BUTTON, WAIT, WAIT, S, W, W, S, LIE
+DOWN (if you're tired - which you should be!), WAIT (you fall asleep), STAND UP,
+GET ALL, N, W, GET KIT, EAT GREEN GOO, E, E, DROP KIT, S, S, S, S, PUT FLASK
+UNDER SPOUT, PRESS Y (the second flashing colour), GET FLASK, N, N, N, N, E, N,
+SLIDE UPPER CARD THROUGH SLOT, PRESS UP BUTTON, WAIT, WAIT, S, NE, POUR FLUID IN
+HOLE (remember the third colour), SW, N, PRESS DOWN BUTTON, WAIT, WAIT, S, W, S,
+S, S, S, PUT FLASK UNDER SPOUT, PRESS Z (the last colour), GET FLASK, N, N, N,
+N, E, N, SLIDE UPPER CARD THROUGH SLOT, PRESS UP BUTTON, WAIT, WAIT, S, NE, POUR
+FLUID IN HOLE (you have now repaired the communications system), SW, N, PRESS
+DOWN BUTTON, WAIT, WAIT, S, W, DROP FLASK, GET KIT, EAT BROWN GOO, DROP KIT, S,
+E, DROP UPPER CARD, GET BOX, W, S, S, SW, GET PLIERS, NE, N, N, N, E, PRESS RED
+BUTTON, WAIT (till the lower elevator arrives), S, SLIDE LOWER CARD THROUGH
+SLOT, PRESS DOWN BUTTON, WAIT, WAIT, WAIT, N, E, S, E, SLIDE SHUTTLE CARD
+THROUGH SLOT, PRESS LEVER (the shuttle sets into motion), WAIT (11 times. The
+shuttle is now doing 60), PULL LEVER, PULL LEVER, WAIT (11 times. The shuttle
+stops at a station), W, N, E, E, NE, N, TELL FLOYD TO GO NORTH (he finds a shiny
+fromitz board), TELL FLOYD TO GET SHINY BOARD (he gives it to you), S, E, N,
+OPEN PANEL, REMOVE SECOND BOARD, DROP IT, INSERT SHINY BOARD IN PANEL (the
+defense system has been repaired), S, OPEN CANTEEN, DRINK LIQUID, DROP CANTEEN
+AND SHUTTLE CARD, W, NW, GET BOTTLE, OPEN IT, DRINK MEDICINE (it cures fever),
+DROP BOTTLE, SE, E, E, N, OPEN CUBE, REMOVE FUSED BEDISTOR WITH PLIERS, DROP IT
+AND PLIERS, INSERT GOOD BEDISTOR IN CUBE (another system fixed!), S, S, S, E, S,
+OPEN LAB UNIFORM (inside is a piece of paper with the code for the door to
+'Conference Room' and a teleport card), GET TELEPORTATION CARD AND BATTERY, N,
+W, N, E, SLIDE TELEPORTATION CARD THROUGH SLOT, PRESS 2 (you appear in 'Booth
+2'), W, W, S, S, S, SW, REMOVE OLD BATTERY, DROP IT, INSERT NEW BATTERY IN
+LASER, GET LASER, NE, N, N, N, E, E, SLIDE TELEPORTATION CARD THROUGH SLOT,
+PRESS 3, W, S, S (Floyd sees the computer), N, E, OPEN BIO-LOCK DOOR, SE, E,
+LOOK THROUGH WINDOW (you see a lot of mutated creatures and a miniaturization
+card. After Floyd sees the computer, he offers his assistance), OPEN DOOR,
+CLOSE DOOR, WAIT,OPEN DOOR,CLOSE DOOR (Floyd dies, but he has grabbed the card),
+DROP BOX, GET MINIATURIZATION CARD, W, OPEN DOOR, W, SW, EXAMINE OUTPUT (sector
+384 is out of order), S, SLIDE MINIATURIZATION CARD THROUGH SLOT (you shrink!),
+TYPE 384 (and enter sector 384), E, N, N, TURN DIAL (on the laser) TO 1, LOOK
+INTO RELAY (there is some dirt in it), BURN SPECK (until it vanishes), FIRE
+LASER (till it is very warm), S (a microbe attacks you) THROW LASER INTO VOID
+(the microben jumps after it), S, W (you appear in 'Auxiliary Booth'), N, OPEN
+DESK, GET MASK, WEAR IT, PRESS EMERGENCY BUTTON ('Bio-Lab' is filled with gas),
+OPEN DOOR, W, OPEN LAB DOOR, W (the mutants attack!), W, OPEN DOOR, W, W, W,
+S(the mural has been moved - an elevator lies to the south), S, PRESS BUTTON,
+WAIT, WAIT, WAIT, N (you have saved the planet - and Floyd will be repaired. See
+you in Stationfall!!)

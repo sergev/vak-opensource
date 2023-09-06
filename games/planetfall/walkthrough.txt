@@ -1,0 +1,212 @@
+spawn dfrotz -m -s 123 planetfall.z3
+Using normal formatting.
+Loading planetfall.z3.
+
+
+PLANETFALL
+Infocom interactive fiction - a science fiction story
+Copyright (c) 1983 by Infocom, Inc. All rights reserved.
+PLANETFALL is a registered trademark of Infocom, Inc.
+Release 39 / Serial number 880501
+
+Another routine day of drudgery aboard the Stellar Patrol Ship Feinstein. This
+morning's assignment for a certain lowly Ensign Seventh Class: scrubbing the
+filthy metal deck at the port end of Level Nine. With your Patrol-issue self-
+contained multi-purpose all-weather scrub brush you shine the floor with a
+diligence born of the knowledge that at any moment dreaded Ensign First Class
+Blather, the bane of your shipboard existence, could appear.
+
+Deck Nine
+This is a featureless corridor similar to every other corridor on the ship. It
+curves away to starboard, and a gangway leads up. To port is the entrance to one
+of the ship's primary escape pods. The pod bulkhead is closed.
+
+>wait
+
+
+Time passes...
+
+>wait
+
+
+Time passes...
+
+>wait
+
+
+Time passes...
+
+>wait
+
+
+Time passes...
+
+>wait
+
+
+Time passes...
+
+>wait
+
+
+Time passes...
+
+>wait
+
+
+Time passes...
+
+>wait
+
+
+Time passes...
+
+A massive explosion rocks the ship. Echoes from the explosion resound
+deafeningly down the halls. The door to port slides open.
+
+>west
+
+
+Escape Pod
+This is one of the Feinstein's primary escape pods, for use in extreme
+emergencies. A mass of safety webbing, large enough to hold several dozen
+people, fills half the pod. The controls are entirely automated. The bulkhead
+leading out is open.
+
+The ship shakes again. You hear, from close by, the sounds of emergency
+bulkheads closing.
+
+>get in web
+
+
+You are now safely cushioned within the web.
+
+The pod door clangs shut as heavy explosions continue to buffet the Feinstein.
+
+>wait
+
+
+Time passes...
+
+You feel the pod begin to slide down its ejection tube as explosions shake the
+mother ship.
+
+>wait
+
+
+Time passes...
+
+Through the viewport of the pod you see the Feinstein dwindle as you head away.
+Bursts of light dot its hull. Suddenly, a huge explosion blows the Feinstein
+into tiny pieces, sending the escape pod tumbling away!
+
+As the escape pod tumbles away from the former location of the Feinstein, its
+gyroscopes whine. The pod slowly stops tumbling. Lights on the control panel
+blink furiously as the autopilot searches for a reasonable destination.
+
+>wait
+
+
+Time passes...
+
+The auxiliary rockets fire briefly, and a nearby planet swings into view through
+the port. It appears to be almost entirely ocean, with just a few visible
+islands and an unusually small polar ice cap. A moment later, the system's sun
+swings into view, and the viewport polarizes into a featureless black rectangle.
+
+>wait
+
+
+Time passes...
+
+The main thrusters fire a long, gentle burst. A monotonic voice issues from the
+control panel. "Approaching planet...human-habitable."
+
+>wait
+
+
+Time passes...
+
+>wait
+
+
+Time passes...
+
+>wait
+
+
+Time passes...
+
+>wait
+
+
+Time passes...
+
+The pod is buffeted as it enters the planet's atmosphere.
+
+>wait
+
+
+Time passes...
+
+You feel the temperature begin to rise, and the pod's climate control system
+roars as it labors to compensate.
+
+>wait
+
+
+Time passes...
+
+The viewport suddenly becomes transparent again, giving you a view of endless
+ocean below. The lights on the control panel flash madly as the pod's computer
+searches for a suitable landing site. The thrusters fire long and hard, slowing
+the pod's descent.
+
+>wait
+
+
+Time passes...
+
+The pod is now approaching the closer of a pair of islands. It appears to be
+surrounded by sheer cliffs rising from the water, and is topped by a wide
+plateau. The plateau seems to be covered by a sprawling complex of buildings.
+
+>wait
+
+
+Time passes...
+
+The pod lands with a thud. Through the viewport you can see a rocky cleft and
+some water below. The pod rocks gently back and forth as if it was precariously
+balanced. A previously unseen panel slides open, revealing some emergency
+provisions, including a survival kit and a towel.
+
+>get out of web
+
+
+As you stand, the pod shifts slightly and you feel it falling. A moment later,
+the fall stops with a shock, and you see water rising past the viewport.
+
+>get kit
+
+
+Taken.
+
+>open door
+
+
+The bulkhead opens and cold ocean water rushes in!
+
+The pod is now completely submerged, and you feel it smash against underwater
+rocks. Bubbles streaming upward past the window indicate that the pod is
+continuing to sink.
+
+>out
+
+
+Underwater
+You are momentarily disoriented as you enter the turbulent waters. Currents
+buffet you against the sharp rocks of an underwater cliff. A dim light filters
+down from above.
+
+>
