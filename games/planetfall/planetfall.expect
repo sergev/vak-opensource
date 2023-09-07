@@ -11,7 +11,7 @@ system rm -f "game.log"
 log_file "game.log"
 
 # Start the game.
-spawn dfrotz -m -s 123 planetfall.z3
+spawn dfrotz -m -s 4 planetfall.z3
 match_max 100000
 
 # You begin on 'Deck 9' of the Feinstein
@@ -24,8 +24,8 @@ expect ">"; send "wait\r"
 expect ">"; send "wait\r"
 expect ">"; send "wait\r";                      # until the space ship starts exploding
 expect ">"; send "west\r";                      # Escape Pod
+expect ">"; send "drop brochure\r"
 expect ">"; send "get in web\r"
-expect ">"; send "wait\r"
 expect ">"; send "wait\r"
 expect ">"; send "wait\r"
 expect ">"; send "wait\r"
