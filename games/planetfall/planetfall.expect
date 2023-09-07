@@ -14,17 +14,31 @@ log_file "game.log"
 spawn dfrotz -m -s 4 planetfall.z3
 match_max 100000
 
+#
+# Day 1
+#
+
 # You begin on 'Deck 9' of the Feinstein
-expect ">"; send "wait\r"
-expect ">"; send "wait\r"
-expect ">"; send "wait\r"
-expect ">"; send "wait\r"
+expect ">"; send "inventory\r"
+expect ">"; send "talk to Blather\r"
+expect ">"; send "scrub Blather\r"
+expect ">"; send "throw brush at Blather\r"
+expect ">"; send "examine uniform\r"
+expect ">"; send "examine id card\r"
+expect ">"; send "examine chronometer\r"
+expect ">"; send "talk to ambassador\r"
+expect ">"; send "attack ambassador\r"
+expect ">"; send "scrub slime\r"
+expect ">"; send "ask ambassador for celery\r"
+expect ">"; send "read brochure\r"
+expect ">"; send "drop brochure\r"
 expect ">"; send "wait\r"
 expect ">"; send "wait\r"
 expect ">"; send "wait\r"
 expect ">"; send "wait\r";                      # until the space ship starts exploding
 expect ">"; send "west\r";                      # Escape Pod
-expect ">"; send "drop brochure\r"
+
+# Escape Pod
 expect ">"; send "get in web\r"
 expect ">"; send "wait\r"
 expect ">"; send "wait\r"
@@ -37,20 +51,55 @@ expect ">"; send "wait\r"
 expect ">"; send "wait\r"
 expect ">"; send "wait\r"
 expect ">"; send "wait\r";                      # until the pod lands
+expect ">"; send "read towel\r"
 expect ">"; send "get out of web\r"
 expect ">"; send "get kit\r"
+expect ">"; send "open kit\r"
 expect ">"; send "open door\r"
 expect ">"; send "out\r";                       # Underwater
+expect ">"; send "up\r";                        # Crag
+expect ">"; send "up\r";                        # Balcony
+expect ">"; send "up\r";                        # Winding Stair
+expect ">"; send "up\r";                        # Courtyard
+
+# Dorm and Corridor Area
+expect ">"; send "drop id card\r"
+expect ">"; send "drop towel\r"
+expect ">"; send "north\r";                     # Plain Hall
+expect ">"; send "ne\r";                        # Rec Corridor
+expect ">"; send "east\r";                      # Mess Corridor
+expect ">"; send "east\r";                      # Dorm Corridor
+expect ">"; send "east\r";                      # Corridor Junction
+expect ">"; send "south\r";                     # Mech Corridor North
+expect ">"; send "south\r";                     # Mech Corridor
+expect ">"; send "south\r";                     # Mech Corridor South
+expect ">"; send "sw\r";                        # Tool Room
+expect ">"; send "examine device\r"
+expect ">"; send "examine flask\r"
+expect ">"; send "get bar\r";                   # don't carry any access cards with the bar at ANY time!
+expect ">"; send "ne\r";                        # Mech Corridor South
+expect ">"; send "north\r";                     # Mech Corridor
+expect ">"; send "north\r";                     # Mech Corridor North
+expect ">"; send "north\r";                     # Corridor Junction
+expect ">"; send "north\r";                     # Admin Corridor South
+expect ">"; send "hold bar over crevice\r";     # the bar is magnetic - a key sticks on to it
+expect ">"; send "drop bar\r"
+expect ">"; send "south\r";                     # Corridor Junction
+expect ">"; send "west\r";                      # Dorm Corridor
+expect ">"; send "west\r";                      # Mess Corridor
+expect ">"; send "unlock padlock with key\r"
+expect ">"; send "remove padlock\r"
+expect ">"; send "drop it and kit\r"
+expect ">"; send "open door\r"
+expect ">"; send "north\r";                     # Storage West
+expect ">"; send "drop key\r"
+expect ">"; send "get ladder\r"
 
 # Quit
 expect ">"; send "quit\r"
 exit
 
-U, U, U, U, N, NE, E, E, E, S, S, S, SW, GET BAR (don't
-carry any access cards with the bar at ANY time!), NE, N, N, N, N, HOLD BAR OVER
-CREVICE (the bar is magnetic - a key sticks on to it), DROP BAR, S, W, W, UNLOCK
-PADLOCK WITH KEY, REMOVE PADLOCK, DROP IT AND KIT, OPEN DOOR, N, DROP KEY AND
-BRUSH, GET LADDER, S, E, E, N, N, DROP LADDER, EXTEND LADDER (it can now reach
+S, E, E, N, N, DROP LADDER, EXTEND LADDER (it can now reach
 across the gap), PUT LADDER ACROSS RIFT, N, W, OPEN DESK (you find a 'kitchen
 access card' and an 'upper elevater a. card'), GET KITCHEN CARD AND UPPER CARD,
 W, OPEN DESK (here is a 'shuttle a. card'), GET SHUTTLE CARD, E, E, S, S, S, W,

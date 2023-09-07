@@ -21,25 +21,119 @@ This is a featureless corridor similar to every other corridor on the ship. It
 curves away to starboard, and a gangway leads up. To port is the entrance to one
 of the ship's primary escape pods. The pod bulkhead is closed.
 
->wait
+>inventory
 
 
-Time passes...
+You are carrying:
+  A Patrol uniform (being worn)
+  The Patrol uniform contains:
+    An ID card
+  A chronometer (being worn)
+  A Patrol-issue self-contained multi-purpose scrub brush
 
 Ensign First Class Blather swaggers in. He studies your work with half-closed
 eyes. "You call this polishing, Ensign Seventh Class?" he sneers. "We have a
 position for an Ensign Ninth Class in the toilet-scrubbing division, you know.
 Thirty demerits." He glares at you, his arms crossed.
 
->wait
+>talk to Blather
 
 
-Time passes...
+Blather shouts "Speak when you're spoken to, Ensign Seventh Class!" He breaks
+three pencil points in a frenzied rush to give you more demerits.
 
->wait
+>scrub Blather
 
 
-Time passes...
+The Ensign First Class prefers cleaning himself.
+
+>throw brush at Blather
+
+
+The Patrol-issue self-contained multi-purpose scrub brush bounces off Blather's
+bulbous nose. He becomes livid, orders you to do five hundred push-ups, gives
+you ten thousand demerits, and assigns you five years of extra galley duty.
+
+>examine uniform
+
+
+It is a standard-issue one-pocket Stellar Patrol uniform, a miracle of modern
+technology. It will keep its owner warm in cold climates and cool in warm
+locales. It provides protection against mild radiation, repels all insects,
+absorbs sweat, promotes healthy skin tone, and on top of everything else, it is
+super-comfy.
+
+Blather, adding fifty more demerits for good measure, moves off in search of
+more young ensigns to terrorize.
+
+>examine id card
+
+
+"STELLAR PATROL
+Special Assignment Task Force
+ID Number:  6172-531-541"
+
+>examine chronometer
+
+
+It is a standard wrist chronometer with a digital display. According to the
+chronometer, the current time is 4654. The back is engraved with the message
+"Good luck in the Patrol! Love, Mom and Dad."
+
+The alien ambassador from the planet Blow'k-bibben-Gordo ambles toward you from
+down the corridor. He is munching on something resembling an enormous stalk of
+celery, and he leaves a trail of green slime on the deck. He stops nearby, and
+you wince as a pool of slime begins forming beneath him on your newly-polished
+deck. The ambassador wheezes loudly and hands you a brochure outlining his
+planet's major exports.
+
+>talk to ambassador
+
+
+The ambassador taps his translator, and then touches his center knee to his left
+ear (the Blow'k-bibben-Gordoan equivalent of shrugging).
+
+The ambassador asks if you are performing some sort of religious ceremony.
+
+>attack ambassador
+
+
+The ambassador is startled, and emits an amazing quantity of slime which spreads
+across the section of the deck you just polished.
+
+The ambassador introduces himself as Br'gun-te'elkner-ipg'nun.
+
+>scrub slime
+
+
+Whew. You've cleaned up maybe one ten-thousandth of the slime. If you hurry, it
+might be all cleaned up before Ensign Blather gets here.
+
+The ambassador introduces himself as Br'gun-te'elkner-ipg'nun.
+
+>ask ambassador for celery
+
+
+The ambassador seems willing to let you eat some of it, but I doubt he wants to
+part with the entire stalk.
+
+The ambassador grunts a polite farewell, and disappears up the gangway, leaving
+a trail of dripping slime.
+
+>read brochure
+
+
+"The leading export of Blow'k-bibben-Gordo is the adventure game
+
+          *** PLANETFALL ***
+
+written by S. Eric Meretzky.
+Buy one today. Better yet, buy a thousand."
+
+>drop brochure
+
+
+Dropped.
 
 >wait
 
@@ -197,6 +291,14 @@ some water below. The pod rocks gently back and forth as if it was precariously
 balanced. A previously unseen panel slides open, revealing some emergency
 provisions, including a survival kit and a towel.
 
+>read towel
+
+
+(Taking the towel first)
+"S.P.S. FEINSTEIN
+  Escape Pod #42
+   Don't Panic!"
+
 >get out of web
 
 
@@ -208,14 +310,20 @@ the fall stops with a shock, and you see water rising past the viewport.
 
 Taken.
 
->open door
+>open kit
 
 
-The bulkhead opens and cold ocean water rushes in!
+Opening the survival kit reveals a blob of green goo, a blob of brown goo, and a
+blob of red goo.
 
 The pod is now completely submerged, and you feel it smash against underwater
 rocks. Bubbles streaming upward past the window indicate that the pod is
 continuing to sink.
+
+>open door
+
+
+The bulkhead opens and cold ocean water rushes in!
 
 >out
 
@@ -224,5 +332,240 @@ Underwater
 You are momentarily disoriented as you enter the turbulent waters. Currents
 buffet you against the sharp rocks of an underwater cliff. A dim light filters
 down from above.
+
+>up
+
+
+Crag
+You have reached a cleft in the cliff wall where the island rises from the
+water. The edge of the cleft displays recently exposed rock where it collapsed
+under the weight of the escape pod. About two meters below, turbulent waters
+swirl against sharp rocks. A small structure clings to the face of the cliff
+about eight meters above you. Even an out-of-shape Ensign Seventh Class could
+probably climb up to it.
+
+>up
+
+
+Balcony
+This is an octagonal room, half carved into and half built out from the cliff
+wall. Through the shattered windows which ring the outer wall you can see ocean
+to the horizon. A weathered metal plaque with barely readable lettering rests
+below the windows. The language seems to be a corrupt form of Galalingua. A
+steep stairway, roughly cut into the face of the cliff, leads upward. A rocky
+crag can be seen about eight meters below.
+
+>up
+
+
+Winding Stair
+The middle of a long, steep stairway carved into the face of a cliff.
+
+>up
+
+
+Courtyard
+You are in the courtyard of an ancient stone edifice, vaguely reminiscent of the
+castles you saw during your leave on Ramos Two. It has decayed to the point
+where it can probably be termed a ruin. Openings lead north and west, and a
+stairway downward is visible to the south.
+
+>drop id card
+
+
+Dropped.
+
+>drop towel
+
+
+Dropped.
+
+>north
+
+
+Plain Hall
+This is a featureless hall leading north and south. Although the hallway is old
+and dusty, the construction is of a much more modern style than the castle to
+the south. A similar hall branches off to the northeast.
+
+>ne
+
+
+Rec Corridor
+This is a wide, east-west hallway. Portals lead north and south, and another
+corridor branches southwest.
+
+>east
+
+
+Mess Corridor
+This is a wide, east-west hallway with a large portal to the south. A small door
+to the north is closed and hooked with a simple steel padlock which is also
+closed.
+
+>east
+
+
+Dorm Corridor
+This is a wide, east-west hallway with openings to the north and south. To the
+east, the corridor stretches off into the distance. That section of the hallway
+is lined with a motorized walkway (no longer running) that was probably intended
+to transport people or cargo down that tremendously long hall.
+
+>east
+
+
+You walk down the long, featureless hallway for a long time. Finally, you see an
+intersection ahead...
+
+Corridor Junction
+A north-south corridor intersects the main corridor here. To the west, the main
+corridor extends as far as you can see; a non-working walkway from that
+direction ends here. To the east, the corridor widens into a well-lit area.
+
+>south
+
+
+Mech Corridor North
+Entrances to rooms lie to the east and west from this north-south hall.
+
+>south
+
+
+Mech Corridor
+Entrances to rooms lie to the east and west from this north-south hall.
+
+>south
+
+
+Mech Corridor South
+The corridor ends here with doorways to the southwest, south, and southeast.
+
+>sw
+
+
+Tool Room
+This is apparently a storage room for tools. Exits lead northeast and east.
+A small device, labelled "Akmee Portabul Laazur", is resting on one of the lower
+shelves.
+On an upper shelf is a metal bar, curved into a U-shape.
+Sitting on the floor below the lowest shelf is a large glass flask.
+
+>examine device
+
+
+The laser, though portable, is still fairly heavy. It has a long, slender barrel
+and a dial with six settings, labelled "1" through "6." This dial is currently
+on setting 5. There is a depression on the top of the laser which contains an
+old battery.
+
+>examine flask
+
+
+The flask has a wide mouth and looks large enough to hold one or two liters. It
+is made of glass, or perhaps some tough plastic.
+
+>get bar
+
+
+Taken.
+
+>ne
+
+
+Mech Corridor South
+
+>north
+
+
+Mech Corridor
+
+>north
+
+
+Mech Corridor North
+
+>north
+
+
+Corridor Junction
+
+>north
+
+
+Admin Corridor South
+This section of hallway seems to have suffered some minor structural damage. The
+walls are cracked, and a jagged crevice crosses the floor. An opening leads east
+and the corridor heads north and south.
+
+>hold bar over crevice
+
+
+With a spray of dust and a loud clank, a piece of metal leaps from the crevice
+and affixes itself to the magnet. It is a steel key! With a tug, you remove the
+key from the magnet.
+
+>drop bar
+
+
+Dropped.
+
+>south
+
+
+Corridor Junction
+
+>west
+
+
+You walk down the long, featureless hallway for a long time. Finally, you see
+some doorways ahead...
+
+Dorm Corridor
+
+>west
+
+
+Mess Corridor
+
+>unlock padlock with key
+
+
+The padlock springs open.
+
+>remove padlock
+
+
+Taken.
+
+>drop it and kit
+
+
+padlock: Dropped.
+survival kit: Dropped.
+
+>open door
+
+
+Opened.
+
+>north
+
+
+Storage West
+This is a small room obviously intended as a storage area.
+A heavy-duty extendable ladder is leaning against the rear wall.
+On a small shelf is a large, unopened tin can. It has a plain white label which
+reads "Spam and Egz."
+
+>drop key
+
+
+Dropped.
+
+>get ladder
+
+
+Taken.
 
 >
