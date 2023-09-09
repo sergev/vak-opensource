@@ -1,0 +1,96 @@
+                   % Example program ... Table of primes
+(00000000000001f4) L      IS   500          The number of primes to find
+($255)             t      IS   $255         Temporary storage
+($254)             n      GREG
+($253)             q      GREG
+($252)             r      GREG
+($251)             jj     GREG
+($250)             kk     GREG
+($249)             pk     GREG
+($250)             mm     IS   kk
+                   
+                          LOC  Data_Segment
+2000000000000000:  PRIME1 WYDE 2
+ ...000: 0002    
+                          LOC  PRIME1+2*L
+($248=#20000000    ptop   GREG @
+         000003e8)
+($247=#ffffffff    j0     GREG PRIME1+2-@
+         fffffc1a)
+ ...3e8: 00000000  BUF    OCTA
+ ...3ec: 00000000
+                   
+                          LOC  #100
+0000000000000100:  Main   SET  n,3
+ ...100: e3fe0003
+ ...104: c1fbf700         SET  jj,j0
+ ...108: a6fef8fb  2H     STWU n,ptop,jj
+ ...10c: e7fb0002         INCL jj,2
+ ...110: 42fbxxxx  3H     BZ   jj,2F
+ ...114: e7fe0002  4H     INCL n,2
+ ...118: c1faf700  5H     SET  kk,j0
+ ...11c: 86f9f8fa  6H     LDWU pk,ptop,kk
+ ...120: 1cfdfef9         DIV  q,n,pk
+ ...124: fefc0006         GET  r,rR
+ ...128: 43fcfffb         BZ   r,4B
+ ...12c: 30fffdf9  7H     CMP  t,q,pk
+ ...130: 4dfffff6         BNP  t,2B
+ ...134: e7fa0002  8H     INCL kk,2
+ ...138: f1fffff9         JMP  6B
+($246=#00000000           GREG @
+         0000013c)
+ ...13c: 46697273  Title  BYTE "First Five Hundred Primes"
+ ...140: 74204669
+ ...144: 76652048
+ ...148: 756e6472
+ ...14c: 65642050
+ ...150: 72696d65
+ ...154: 73      
+ ...155:   0a00    NewLn  BYTE #a,0
+ ...157:       20  Blanks BYTE "   ",0
+ ...158: 202000  
+ ...15c: 23fff600  2H     LDA  t,Title
+ ...160: 00000701         TRAP 0,Fputs,StdOut
+ ...164: 35fa0002         NEG  mm,2
+ ...168: 20fafaf7  3H     ADD  mm,mm,j0
+ ...16c: 23fff61b         LDA  t,Blanks
+ ...170: 00000701         TRAP 0,Fputs,StdOut
+ ...174: 86f9f8fa  2H     LDWU pk,ptop,mm
+($245=#20303030    0H     GREG #2030303030000000
+         30000000)
+ ...178: aff5f800         STOU 0B,BUF
+ ...17c: 23fff804         LDA  t,BUF+4
+ ...180: 1df9f90a  1H     DIV  pk,pk,10
+ ...184: fefc0006         GET  r,rR
+ ...188: e7fc0030         INCL r,'0'
+ ...18c: a3fcff00         STBU r,t,0
+ ...190: 25ffff01         SUB  t,t,1
+ ...194: 5bf9fffb         PBNZ pk,1B
+ ...198: 23fff800         LDA  t,BUF
+ ...19c: 00000701         TRAP 0,Fputs,StdOut
+ ...1a0: e7fa0064         INCL mm,2*L/10
+ ...1a4: 51fafff4         PBN  mm,2B
+ ...1a8: 23fff619         LDA  t,NewLn
+ ...1ac: 00000701         TRAP 0,Fputs,StdOut
+ ...1b0: 31fffa62         CMP  t,mm,2*(L/10-1)
+ ...1b4: 5bffffed         PBNZ t,3B
+ ...1b8: 00000000         TRAP 0,Halt,0
+
+Symbol table:
+ BUF = #20000000000003e8 (14)
+ Blanks = #0000000000000157 (17)
+ L = #00000000000001f4 (2)
+ Main = #0000000000000100 (1)
+ NewLn = #0000000000000155 (16)
+ PRIME1 = #2000000000000000 (11)
+ Title = #000000000000013c (15)
+ j0 = $247 (13)
+ jj = $251 (7)
+ kk = $250 (8)
+ mm = $250 (10)
+ n = $254 (4)
+ pk = $249 (9)
+ ptop = $248 (12)
+ q = $253 (5)
+ r = $252 (6)
+ t = $255 (3)
