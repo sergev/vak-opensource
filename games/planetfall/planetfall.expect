@@ -50,6 +50,7 @@ expect ">"; send "wait\r"
 expect ">"; send "wait\r"
 expect ">"; send "wait\r"
 expect ">"; send "wait\r"
+expect ">"; send "wait\r"
 expect ">"; send "wait\r";                      # until the pod lands
 expect ">"; send "read towel\r"
 expect ">"; send "get out of web\r"

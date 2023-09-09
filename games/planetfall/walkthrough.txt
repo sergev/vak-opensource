@@ -145,25 +145,10 @@ Time passes...
 
 Time passes...
 
-Blather, adding fifty more demerits for good measure, moves off in search of
-more young ensigns to terrorize.
-
 >wait
 
 
 Time passes...
-
->wait
-
-
-Time passes...
-
-The alien ambassador from the planet Blow'k-bibben-Gordo ambles toward you from
-down the corridor. He is munching on something resembling an enormous stalk of
-celery, and he leaves a trail of green slime on the deck. He stops nearby, and
-you wince as a pool of slime begins forming beneath him on your newly-polished
-deck. The ambassador wheezes loudly and hands you a brochure outlining his
-planet's major exports.
 
 >wait
 
@@ -171,8 +156,7 @@ planet's major exports.
 Time passes...
 
 A massive explosion rocks the ship. Echoes from the explosion resound
-deafeningly down the halls. The door to port slides open. The ambassador squawks
-frantically, evacuates a massive load of gooey slime, and rushes away.
+deafeningly down the halls. The door to port slides open.
 
 >west
 
@@ -186,17 +170,17 @@ leading out is open.
 The ship shakes again. You hear, from close by, the sounds of emergency
 bulkheads closing.
 
->drop brochure
-
-
-Dropped.
-
-The pod door clangs shut as heavy explosions continue to buffet the Feinstein.
-
 >get in web
 
 
 You are now safely cushioned within the web.
+
+The pod door clangs shut as heavy explosions continue to buffet the Feinstein.
+
+>wait
+
+
+Time passes...
 
 You feel the pod begin to slide down its ejection tube as explosions shake the
 mother ship.
