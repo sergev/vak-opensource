@@ -1,4 +1,4 @@
-PROG    = hello hello.mmo echo.mmo primes.mmo
+PROG    = hello.mmo echo.mmo primes.mmo hello hi echo
 
 all:    $(PROG)
 	mmix-size $(PROG)
@@ -14,9 +14,22 @@ hello:  hello.c
 	mmix-objdump -D $@ > $@.dis
 
 run-chello: hello
-	mmix -s $<
+	mmix $<
 
 trace-chello: hello
+	mmix -t2 $<
+
+#
+# 'Hello World' in GNU assembler.
+#
+hi:     hi.S
+	mmix-gcc -nostdlib $< -o $@
+	mmix-objdump -D $@ > $@.dis
+
+run-hi: hi
+	mmix $<
+
+trace-hi: hi
 	mmix -t2 $<
 
 #
@@ -26,7 +39,7 @@ hello.mmo: hello.mms
 	mmixal -l hello.lst $<
 
 run-hello: hello.mmo
-	mmix -s $<
+	mmix $<
 
 trace-hello: hello.mmo
 	mmix -t2 $<
@@ -37,10 +50,14 @@ trace-hello: hello.mmo
 echo.mmo: echo.mms
 	mmixal -l echo.lst $<
 
-run-echo: echo.mmo
-	mmix -s $< foo bar
+echo:   echo.S
+	mmix-gcc -nostdlib $< -o $@
+	mmix-objdump -D $@ > $@.dis
 
-trace-echo: echo.mmo
+run-echo: echo
+	mmix $< foo bar
+
+trace-echo: echo
 	mmix -t2 $< foo bar
 
 #
@@ -50,7 +67,7 @@ primes.mmo: primes.mms
 	mmixal -l primes.lst $<
 
 run-primes: primes.mmo
-	mmix -s $<
+	mmix $<
 
 trace-primes: primes.mmo
 	mmix -t2 $<

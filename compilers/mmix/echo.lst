@@ -1,22 +1,22 @@
-($000)             argc    IS    $0
-($001)             argv    IS    $1
-                           LOC   #100
- ...100: 25000002  Main    SUB   argc,argc,2
- ...104: 5800xxxx          PBNN  argc,2F
- ...108: f0xxxxxx          JMP   9F
- ...10c: 2000      Blank   BYTE  ' ',0
- ...110: f5ffffff  1H      GETA  $255,Blank
- ...114: 00000701          TRAP  0,Fputs,StdOut
- ...118: 25000001          SUB   argc,argc,1
- ...11c: 21010108          ADD   argv,argv,8
- ...120: 8fff0108  2H      LDOU  $255,argv,8
- ...124: 00000701          TRAP  0,Fputs,StdOut
- ...128: 5b00fffa          PBNZ  argc,1B
- ...12c: f4ffxxxx  9H      GETA  $255,NewLine
- ...130: 00000701          TRAP  0,Fputs,StdOut
- ...134: e3ff0000          SETL    $255,0
- ...138: 00000000          TRAP  0,Halt,0
- ...13c: 0a00      NewLine BYTE #a,0
+($000)             argc    IS      $0
+($001)             argv    IS      $1
+                           LOC     #100
+ ...100: 25000002  Main    SUB     argc,argc,2
+ ...104: 5800xxxx          PBNN    argc,2F
+ ...108: f0xxxxxx          JMP     9F
+ ...10c: 2000      Blank   BYTE    ' ',0
+ ...110: f5ffffff  1H      GETA    $255,Blank
+ ...114: 00000701          TRAP    0,Fputs,StdOut
+ ...118: 25000001          SUB     argc,argc,1
+ ...11c: 21010108          ADD     argv,argv,8
+ ...120: 8fff0108  2H      LDOU    $255,argv,8
+ ...124: 00000701          TRAP    0,Fputs,StdOut
+ ...128: 5b00fffa          PBNZ    argc,1B
+ ...12c: f4ffxxxx  9H      GETA    $255,NewLine
+ ...130: 00000701          TRAP    0,Fputs,StdOut
+ ...134: e3ff0000          SET     $255,0
+ ...138: 00000000          TRAP    0,Halt,0
+ ...13c: 0a00      NewLine BYTE    #a,0
 
 Symbol table:
  Blank = #000000000000010c (4)
