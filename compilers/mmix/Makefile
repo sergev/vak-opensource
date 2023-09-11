@@ -1,4 +1,4 @@
-PROG    = hello.mmo echo.mmo primes.mmo hello hi echo
+PROG    = hello.mmo echo.mmo primes.mmo hello hi echo primes
 
 all:    $(PROG)
 	mmix-size $(PROG)
@@ -66,8 +66,12 @@ trace-echo: echo
 primes.mmo: primes.mms
 	mmixal -l primes.lst $<
 
-run-primes: primes.mmo
+primes: primes.S
+	mmix-gcc -nostdlib $< -o $@
+	mmix-objdump -D $@ > $@.dis
+
+run-primes: primes
 	mmix $<
 
-trace-primes: primes.mmo
+trace-primes: primes
 	mmix -t2 $<

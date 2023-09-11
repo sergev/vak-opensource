@@ -24,5 +24,5 @@ _init   SUB     argc, argc, 2       // decrement argc by 2
         TRAP    0, Halt, 0          // terminate
 
         .section .rodata
-Blank   BYTE    ' ', 0              // string " "
-NewLine BYTE    #a, 0               // string "\n"
+Blank   .asciz  " "
+NewLine .asciz  "\n"

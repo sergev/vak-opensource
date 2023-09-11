@@ -10,4 +10,4 @@ _init   LDA     $255, text          // Put address of text message into register
         TRAP    0, Halt, 0          // System call Halt()
 
         .section .rodata
-text    BYTE    "Hi, GNU assembler!", #a, #0
+text    .asciz  "Hi, GNU assembler!\n"
