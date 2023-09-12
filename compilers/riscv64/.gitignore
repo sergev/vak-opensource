@@ -1,0 +1,6 @@
+hello-world-libc
+hello-world-libc-strip
+*.o
+*.s
+rv-bin
+rv-sim

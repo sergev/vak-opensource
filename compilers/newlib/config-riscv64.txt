@@ -1,0 +1,23 @@
+Newlib for RISC-V.
+
+$ git checkout https://sourceware.org/git/newlib-cygwin.git
+$ cd newlib-cygwin
+$ mkdir build
+$ cd build
+$ ../configure --target=riscv64-elf \
+                --prefix=/opt \
+                --enable-newlib-io-long-double \
+                --enable-newlib-io-long-long \
+                --enable-newlib-io-c99-formats \
+                --enable-newlib-register-fini \
+                CFLAGS_FOR_TARGET=-O2 \
+                -D_POSIX_MODE \
+                -ffunction-sections \
+                -fdata-sections \
+                -mcmodel=medlow \
+                CXXFLAGS_FOR_TARGET=-O2 \
+                -D_POSIX_MODE \
+                -ffunction-sections \
+                -fdata-sections \
+                -mcmodel=medlow
+$ make
