@@ -14,31 +14,40 @@ typedef struct {
     bool reenter;
 } stream_state;
 
-/* This approach isn't very memory efficient or clear,
- * but it avoids external size/buffer tracking in this
- * example.
- */
+static void dis_vprintf(stream_state *stream, const char *fmt, va_list arg)
+{
+    if (!stream->reenter) {
+        vasprintf(&stream->insn_buffer, fmt, arg);
+        stream->reenter = true;
+    } else {
+        char *message;
+        vasprintf(&message, fmt, arg);
+
+        char *buf;
+        asprintf(&buf, "%s%s", stream->insn_buffer, message);
+        free(stream->insn_buffer);
+        free(message);
+        stream->insn_buffer = buf;
+    }
+}
+
 static int dis_fprintf(void *stream, const char *fmt, ...)
 {
-    stream_state *ss = (stream_state *)stream;
+    va_list arg;
+    va_start(arg, fmt);
+    dis_vprintf(stream, fmt, arg);
+    va_end(arg);
+    return 0;
+}
+
+static int dis_fprintf_styled(void *stream, enum disassembler_style style, const char *fmt, ...)
+{
+    (void)style;
 
     va_list arg;
     va_start(arg, fmt);
-    if (!ss->reenter) {
-        vasprintf(&ss->insn_buffer, fmt, arg);
-        ss->reenter = true;
-    } else {
-        char *tmp;
-        vasprintf(&tmp, fmt, arg);
-
-        char *tmp2;
-        asprintf(&tmp2, "%s%s", ss->insn_buffer, tmp);
-        free(ss->insn_buffer);
-        free(tmp);
-        ss->insn_buffer = tmp2;
-    }
+    dis_vprintf(stream, fmt, arg);
     va_end(arg);
-
     return 0;
 }
 
@@ -48,7 +57,7 @@ char *disassemble_raw(uint8_t *input_buffer, size_t input_buffer_size)
     stream_state ss = {};
 
     disassemble_info disasm_info = {};
-    init_disassemble_info(&disasm_info, &ss, dis_fprintf);
+    init_disassemble_info(&disasm_info, &ss, dis_fprintf, dis_fprintf_styled);
     disasm_info.arch = bfd_arch_arm;
     disasm_info.mach = bfd_mach_arm_6M;
     disasm_info.read_memory_func = buffer_read_memory;
@@ -69,10 +78,10 @@ char *disassemble_raw(uint8_t *input_buffer, size_t input_buffer_size)
         if (disassembled == NULL) {
             asprintf(&disassembled, "%s", ss.insn_buffer);
         } else {
-            char *tmp;
-            asprintf(&tmp, "%s\n%s", disassembled, ss.insn_buffer);
+            char *buf;
+            asprintf(&buf, "%s\n%s", disassembled, ss.insn_buffer);
             free(disassembled);
-            disassembled = tmp;
+            disassembled = buf;
         }
 
         /* Reset the stream state after each instruction decode.
@@ -86,7 +95,7 @@ char *disassemble_raw(uint8_t *input_buffer, size_t input_buffer_size)
 
 int main(int argc, char const *argv[])
 {
-    uint16_t input_buffer[] = {
+    uint16_t instructions[] = {
         0x0000,
         0x1111,
         0x2222,
@@ -95,10 +104,14 @@ int main(int argc, char const *argv[])
         0x5555,
         0x6666,
     };
-    size_t input_buffer_size = sizeof(input_buffer);
+    char *disassembled = disassemble_raw((uint8_t*)instructions, sizeof(instructions));
 
-    char *disassembled = disassemble_raw((uint8_t*)input_buffer, input_buffer_size);
-    puts(disassembled);
+    // Print result.
+    const char *line = strtok(disassembled, "\n");
+    for (int i=0; line != NULL; i++) {
+        printf("%04x    %s\n", instructions[i], line);
+        line = strtok(NULL, "\n");
+    }
     free(disassembled);
 
     return 0;
