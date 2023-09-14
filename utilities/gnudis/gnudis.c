@@ -99,7 +99,7 @@ char *disassemble_raw(uint8_t *input_buffer, size_t input_buffer_size)
 void print_short_insns()
 {
 #define SHORT_MAX 0xe800
-    uint16_t short_insns[SHORT_MAX];
+    uint16_t instructions[SHORT_MAX];
     unsigned count = 0;
 
     //
@@ -114,17 +114,67 @@ void print_short_insns()
         if (opcode >= 0xb600 && opcode <= 0xb8ff)
             continue;
 
-        short_insns[count++] = opcode;
+        instructions[count++] = opcode;
     }
-    char *disassembled = disassemble_raw((uint8_t*)short_insns, count * sizeof(uint16_t));
+    char *disassembled = disassemble_raw((uint8_t*)instructions, count * sizeof(uint16_t));
 
     // Print result.
     const char *line = strtok(disassembled, "\n");
     for (int i=0; line != NULL; i++) {
-        printf("%04x     %s\n", short_insns[i], line);
+        printf("%04x     %s\n", instructions[i], line);
         line = strtok(NULL, "\n");
     }
     free(disassembled);
+}
+
+//
+// Create a list of opcodes, by iterating a specified range of bits.
+// Return a count of opcodes created.
+//
+unsigned opcode_iterate(uint16_t *instructions, unsigned op1, unsigned op2, unsigned lo, unsigned hi)
+{
+    unsigned count = 0;
+
+    if (lo == 0) {
+        instructions[count++] = op1;
+        instructions[count++] = op2;
+    }
+
+    unsigned limit = 1 << (hi + 1);
+    for (unsigned value = 1 << lo; value < limit; value += 1 << lo) {
+        if (hi < 16) {
+            instructions[count++] = op1;
+            instructions[count++] = op2 | value;
+        } else {
+            instructions[count++] = op1 | (value >> 16);
+            instructions[count++] = op2;
+        }
+    }
+    return count;
+}
+
+//
+// Create a list of opcodes, by applying a "running 1" to a specified range of bits.
+// Return a count of opcodes created.
+//
+unsigned opcode_runone(uint16_t *instructions, unsigned op1, unsigned op2, unsigned lo, unsigned hi)
+{
+    unsigned count = 0;
+
+    if (lo == 0) {
+        instructions[count++] = op1;
+        instructions[count++] = op2;
+    }
+    for (unsigned bitnum = lo; bitnum <= hi; bitnum++) {
+        if (bitnum < 16) {
+            instructions[count++] = op1;
+            instructions[count++] = op2 | (1 << bitnum);
+        } else {
+            instructions[count++] = op1 | (1 << (bitnum - 16));
+            instructions[count++] = op2;
+        }
+    }
+    return count;
 }
 
 //
@@ -140,64 +190,64 @@ void print_short_insns()
 //
 void print_long_insns()
 {
-    static const uint16_t long_insns[] = {
-        //
-        // MSR instruction.
-        //                -----op1------            ---op2--
-        // 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0 15 14 13 12 11 10  9  8 7 6 5 4 3 2 1 0
-        //  1  1  1  1  0  0 1 1 1 0 0(0)--Rn---  1  0 (0) 0 (1)(0)(0)(0)------SYSm-----
-        //
-        0xf380, 0x8000,
-        0xf390, 0x8000,
+    uint16_t instructions[10000];
+    unsigned count = 0;
 
-        //
-        // Miscellaneous control instructions.
-        //                -----op1------               ---op2--
-        // 15 14 13 12 11 10 9 8 7 6 5 4 3  2  1  0 15 14 13 12 11 10  9  8 7 6 5 4 3 2 1 0
-        //  1  1  1  1  0  0 1 1 1 0 1 1(1)(1)(1)(1) 1  0 (0) 0 (1)(1)(1)(1)0 1 0 0 option   DSB Data Synchronization Barrier
-        //  1  1  1  1  0  0 1 1 1 0 1 1(1)(1)(1)(1) 1  0 (0) 0 (1)(1)(1)(1)0 1 0 1 option   DMB Data Memory Barrier
-        //  1  1  1  1  0  0 1 1 1 0 1 1(1)(1)(1)(1) 1  0 (0) 0 (1)(1)(1)(1)0 1 1 0 option   ISB Instruction Synchronization Barrier
-        //
-        0xf3bf, 0x8f40,
-        0xf3bf, 0x8f50,
-        0xf3bf, 0x8f60,
+    //
+    // MSR instruction.
+    //                -----op1------            ---op2--
+    // 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0 15 14 13 12 11 10  9  8 7 6 5 4 3 2 1 0
+    //  1  1  1  1  0  0 1 1 1 0 0(0)--Rn---  1  0 (0) 0 (1)(0)(0)(0)------SYSm-----
+    //
+    count += opcode_iterate(&instructions[count], 0xf380, 0x8000, 0, 7);
+    count += opcode_iterate(&instructions[count], 0xf380, 0x8000, 16, 19);
 
-        //
-        // MRS instruction.
-        //                -----op1------                ---op2--
-        // 15 14 13 12 11 10 9 8 7 6 5 4  3  2  1  0 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0
-        //  1  1  1  1  0  0 1 1 1 1 1(0)(1)(1)(1)(1) 1  0 (0) 0 ---Rd---- ------SYSm-----
-        //
-        0xf3ef, 0x8000,
+    //
+    // Miscellaneous control instructions.
+    //                -----op1------               ---op2--
+    // 15 14 13 12 11 10 9 8 7 6 5 4 3  2  1  0 15 14 13 12 11 10  9  8 7 6 5 4 3 2 1 0
+    //  1  1  1  1  0  0 1 1 1 0 1 1(1)(1)(1)(1) 1  0 (0) 0 (1)(1)(1)(1)0 1 0 0 option   DSB Data Synchronization Barrier
+    //  1  1  1  1  0  0 1 1 1 0 1 1(1)(1)(1)(1) 1  0 (0) 0 (1)(1)(1)(1)0 1 0 1 option   DMB Data Memory Barrier
+    //  1  1  1  1  0  0 1 1 1 0 1 1(1)(1)(1)(1) 1  0 (0) 0 (1)(1)(1)(1)0 1 1 0 option   ISB Instruction Synchronization Barrier
+    //
+    count += opcode_iterate(&instructions[count], 0xf3bf, 0x8f40, 0, 3);
+    count += opcode_iterate(&instructions[count], 0xf3bf, 0x8f50, 0, 3);
+    count += opcode_iterate(&instructions[count], 0xf3bf, 0x8f60, 0, 3);
 
-        //
-        // UDF instruction.
-        //                -----op1------            ---op2--
-        // 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0
-        //  1  1  1  1  0  1 1 1 1 1 1 1 --imm4-  1  0  1  0 ---------imm12-----------
-        //
-        0xf7f0, 0xa000,
+    //
+    // MRS instruction.
+    //                -----op1------                ---op2--
+    // 15 14 13 12 11 10 9 8 7 6 5 4  3  2  1  0 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0
+    //  1  1  1  1  0  0 1 1 1 1 1(0)(1)(1)(1)(1) 1  0 (0) 0 ---Rd---- ------SYSm-----
+    //
+    count += opcode_iterate(&instructions[count], 0xf3ef, 0x8000, 0, 7);
+    count += opcode_iterate(&instructions[count], 0xf3ef, 0x8000, 8, 11);
 
-        //
-        // BL instruction.
-        //                -----op1------            ---op2--
-        // 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0
-        //  1  1  1  1  0  S -------imm10-------  1  1 J1  1 J2  --------imm11--------
-        0xf000, 0xd000,
-        0xf000, 0xd800,
-        0xf000, 0xf000,
-        0xf000, 0xf800,
-        0xf400, 0xd000,
-        0xf400, 0xd800,
-        0xf400, 0xf000,
-        0xf400, 0xf800,
-    };
-    char *disassembled = disassemble_raw((uint8_t*)long_insns, count * sizeof(uint16_t));
+    //
+    // UDF instruction.
+    //                -----op1------            ---op2--
+    // 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0
+    //  1  1  1  1  0  1 1 1 1 1 1 1 --imm4-  1  0  1  0 ---------imm12-----------
+    //
+    count += opcode_runone(&instructions[count], 0xf7f0, 0xa000, 0, 11);
+    count += opcode_runone(&instructions[count], 0xf7f0, 0xa000, 16, 19);
+
+    //
+    // BL instruction.
+    //                -----op1------            ---op2--
+    // 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0
+    //  1  1  1  1  0  S -------imm10-------  1  1 J1  1 J2  --------imm11--------
+    count += opcode_runone(&instructions[count], 0xf000, 0xd000, 0, 11);
+    count += opcode_runone(&instructions[count], 0xf000, 0xd000, 16, 26);
+    count += opcode_runone(&instructions[count], 0xf000, 0xf000, 0, 11);
+    count += opcode_runone(&instructions[count], 0xf000, 0xf000, 16, 26);
+
+    char *disassembled = disassemble_raw((uint8_t*)instructions, count * sizeof(uint16_t));
 
     // Print result.
     const char *line = strtok(disassembled, "\n");
     for (int i=0; line != NULL; i += 2) {
-        printf("%04x %04x %s\n", long_insns[i], long_insns[i+1], line);
+        printf("%04x %04x %s\n", instructions[i], instructions[i+1], line);
         line = strtok(NULL, "\n");
     }
 
@@ -206,7 +256,7 @@ void print_long_insns()
 
 int main(int argc, char const *argv[])
 {
-    //print_short_insns();
+    print_short_insns();
     print_long_insns();
     return 0;
 }
