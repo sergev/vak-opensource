@@ -4,7 +4,7 @@ CFLAGS          = -O -Wall -Werror
 LDFLAGS         =
 OBJ             = hello.o syscalls.o
 
-all:            hello.elf
+all:            hello.elf long.o short.o
 
 clean:
 		rm -f hello.elf *.o
