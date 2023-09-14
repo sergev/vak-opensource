@@ -47,6 +47,9 @@ static int dis_fprintf_styled(void *stream, enum disassembler_style style, const
     va_list arg;
     va_start(arg, fmt);
     dis_vprintf(stream, fmt, arg);
+//printf("%s: ", __func__);
+//vprintf(fmt, arg);
+//printf("\n");
     va_end(arg);
     return 0;
 }
@@ -93,26 +96,117 @@ char *disassemble_raw(uint8_t *input_buffer, size_t input_buffer_size)
     return disassembled;
 }
 
-int main(int argc, char const *argv[])
+void print_short_insns()
 {
-    uint16_t instructions[] = {
-        0x0000,
-        0x1111,
-        0x2222,
-        0x3333,
-        0x4444,
-        0x5555,
-        0x6666,
-    };
-    char *disassembled = disassemble_raw((uint8_t*)instructions, sizeof(instructions));
+#define SHORT_MAX 0xe800
+    uint16_t short_insns[SHORT_MAX];
+    unsigned count = 0;
+
+    //
+    // 16-bit opcodes.
+    //
+    for (int opcode=0; opcode < SHORT_MAX; opcode++) {
+        // Ignore range 4780-47ff.
+        if (opcode >= 0x4780 && opcode <= 0x47ff)
+            continue;
+
+        // Ignore range b600-b8ff.
+        if (opcode >= 0xb600 && opcode <= 0xb8ff)
+            continue;
+
+        short_insns[count++] = opcode;
+    }
+    char *disassembled = disassemble_raw((uint8_t*)short_insns, count * sizeof(uint16_t));
 
     // Print result.
     const char *line = strtok(disassembled, "\n");
     for (int i=0; line != NULL; i++) {
-        printf("%04x    %s\n", instructions[i], line);
+        printf("%04x     %s\n", short_insns[i], line);
         line = strtok(NULL, "\n");
     }
     free(disassembled);
+}
 
+//
+// 32-bit opcodes.
+//
+//                -----op1------            ---op2--
+// 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0
+//  1  1  1  1  0  0 1 1 1 0 0 x x x x x  1  0  x  0  x  x x x x x x x x x x x  MSR
+//  1  1  1  1  0  0 1 1 1 0 1 1 x x x x  1  0  x  0  x  x x x x x x x x x x x  Miscellaneous control instructions
+//  1  1  1  1  0  0 1 1 1 1 1 x x x x x  1  0  x  0  x  x x x x x x x x x x x  MRS
+//  1  1  1  1  0  1 1 1 1 1 1 1 x x x x  1  0  1  0  x  x x x x x x x x x x x  UDF
+//  1  1  1  1  0  x x x x x x x x x x x  1  1  x  1  x  x x x x x x x x x x x  BL
+//
+void print_long_insns()
+{
+    static const uint16_t long_insns[] = {
+        //
+        // MSR instruction.
+        //                -----op1------            ---op2--
+        // 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0 15 14 13 12 11 10  9  8 7 6 5 4 3 2 1 0
+        //  1  1  1  1  0  0 1 1 1 0 0(0)--Rn---  1  0 (0) 0 (1)(0)(0)(0)------SYSm-----
+        //
+        0xf380, 0x8000,
+        0xf390, 0x8000,
+
+        //
+        // Miscellaneous control instructions.
+        //                -----op1------               ---op2--
+        // 15 14 13 12 11 10 9 8 7 6 5 4 3  2  1  0 15 14 13 12 11 10  9  8 7 6 5 4 3 2 1 0
+        //  1  1  1  1  0  0 1 1 1 0 1 1(1)(1)(1)(1) 1  0 (0) 0 (1)(1)(1)(1)0 1 0 0 option   DSB Data Synchronization Barrier
+        //  1  1  1  1  0  0 1 1 1 0 1 1(1)(1)(1)(1) 1  0 (0) 0 (1)(1)(1)(1)0 1 0 1 option   DMB Data Memory Barrier
+        //  1  1  1  1  0  0 1 1 1 0 1 1(1)(1)(1)(1) 1  0 (0) 0 (1)(1)(1)(1)0 1 1 0 option   ISB Instruction Synchronization Barrier
+        //
+        0xf3bf, 0x8f40,
+        0xf3bf, 0x8f50,
+        0xf3bf, 0x8f60,
+
+        //
+        // MRS instruction.
+        //                -----op1------                ---op2--
+        // 15 14 13 12 11 10 9 8 7 6 5 4  3  2  1  0 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0
+        //  1  1  1  1  0  0 1 1 1 1 1(0)(1)(1)(1)(1) 1  0 (0) 0 ---Rd---- ------SYSm-----
+        //
+        0xf3ef, 0x8000,
+
+        //
+        // UDF instruction.
+        //                -----op1------            ---op2--
+        // 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0
+        //  1  1  1  1  0  1 1 1 1 1 1 1 --imm4-  1  0  1  0 ---------imm12-----------
+        //
+        0xf7f0, 0xa000,
+
+        //
+        // BL instruction.
+        //                -----op1------            ---op2--
+        // 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0
+        //  1  1  1  1  0  S -------imm10-------  1  1 J1  1 J2  --------imm11--------
+        0xf000, 0xd000,
+        0xf000, 0xd800,
+        0xf000, 0xf000,
+        0xf000, 0xf800,
+        0xf400, 0xd000,
+        0xf400, 0xd800,
+        0xf400, 0xf000,
+        0xf400, 0xf800,
+    };
+    char *disassembled = disassemble_raw((uint8_t*)long_insns, count * sizeof(uint16_t));
+
+    // Print result.
+    const char *line = strtok(disassembled, "\n");
+    for (int i=0; line != NULL; i += 2) {
+        printf("%04x %04x %s\n", long_insns[i], long_insns[i+1], line);
+        line = strtok(NULL, "\n");
+    }
+
+    free(disassembled);
+}
+
+int main(int argc, char const *argv[])
+{
+    //print_short_insns();
+    print_long_insns();
     return 0;
 }
