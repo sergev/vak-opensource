@@ -8,7 +8,7 @@
 _start:
         mov     X0, StdOut          // Print to StdOut
         adr     X1, text            // Put address of text message into register X1
-        mov     X2, #19             // Length of our string
+        mov     X2, #23             // Length of our string
         mov     X16, Write          // Unix write() system call
         svc     #0x80               // Call kernel to output the string
 
@@ -16,4 +16,4 @@ _start:
         mov     X16, Halt           // Unix _exit() system call
         svc     #0x80               // Call kernel to terminate the program
 
-text:   .ascii  "Hi, GNU assembler!\n"
+text:   .ascii  "Hi, aarch64 assembler!\n"
