@@ -7,4 +7,4 @@ HelloWorld.o: HelloWorld.s
 	as -arch arm64 -o HelloWorld.o HelloWorld.s
 
 hi:     hi.S
-	cc -o $@ $< -e _start
+	cc -o $@ $< -e _start -target arm64-apple-macos
