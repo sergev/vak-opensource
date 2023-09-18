@@ -1,0 +1,47 @@
+Result:
+
+------------ 89
+apsr    = 20000000
+iapsr   = 20000000
+eapsr   = 20000000
+xpsr    = 20000000
+ipsr    = 00000000
+epsr    = 00000000
+iepsr   = 00000000
+msp     = 20041f68
+psp     = fffffffc
+primask = 00000000
+control = 00000000
+apsr initial = 20000000
+write zeroes = 00000000
+write ones   = f0000000
+iapsr initial = 20000000
+write zeroes  = 00000000
+write ones    = f0000000
+eapsr initial = 20000000
+write zeroes  = 00000000
+write ones    = f0000000
+xpsr initial = 20000000
+write zeroes = 00000000
+write ones   = f0000000
+ipsr initial = 00000000
+write zeroes = 00000000
+write ones   = 00000000
+epsr initial = 00000000
+write zeroes = 00000000
+write ones   = 00000000
+iepsr initial = 00000000
+write zeroes  = 00000000
+write ones    = 00000000
+msp initial  = 20041f98
+write zeroes = 00000000
+write ones   = fffffffc
+psp initial  = fffffffc
+write zeroes = 00000000
+write ones   = fffffffc
+primask initial = 00000000
+write zeroes    = 00000000
+write ones      = 00000001
+control initial = 00000000
+write zeroes    = 00000000
+write ones      = 00000002

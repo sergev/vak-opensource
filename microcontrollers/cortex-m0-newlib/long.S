@@ -184,3 +184,8 @@ main:
         bl    0x00500a34                @ f100 f000 bl 0x00500a34
         bl    0x00600a38                @ f200 f000 bl 0x00600a38
         bl    0xffffffffff800a3c        @ f400 f000 bl 0xffffffffff800a3c
+
+        yield
+        wfe
+        wfi
+        sev
