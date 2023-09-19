@@ -12,18 +12,25 @@ int main()
     for (;;) {
         printf("------------ %u\n", ++count);
 
-        unsigned pc, base;
+        unsigned base, pc1, pc2, pc3, pc4;
 
         asm volatile(
 
-            "      adr %1, base \n"
-            "base: mov %0, pc \n"
+            "adr %0, base \n"
+        "base: \n"
+            "mov %1, pc \n"
+            "mov %2, pc \n"
+            "mov %3, pc \n"
+            "mov %4, pc \n"
 
-            : "=r" (pc), "=r" (base)
+            : "=r" (base), "=r" (pc1), "=r" (pc2), "=r" (pc3), "=r" (pc4)
         );
 
         printf("base = %08x\n", base);
-        printf("pc   = %08x\n", pc);
+        printf("pc1  = %08x\n", pc1);
+        printf("pc2  = %08x\n", pc2);
+        printf("pc3  = %08x\n", pc3);
+        printf("pc4  = %08x\n", pc4);
 
         sleep_ms(1000);
     }
