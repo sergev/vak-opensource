@@ -1,4 +1,0 @@
-module HelloCxx {
-    header "HelloCxx.h"
-    export *
-}

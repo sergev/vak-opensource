@@ -10,7 +10,6 @@ let package = Package(
         .executableTarget(
             name: "hello",
             dependencies: ["HelloCxx"],
-            //swiftSettings: [.unsafeFlags(["-enable-experimental-cxx-interop"])]
             swiftSettings: [.interoperabilityMode(.Cxx)]
         ),
     ]
