@@ -4,11 +4,11 @@
 import PackageDescription
 
 let package = Package(
-    name: "HelloSwift",
+    name: "Demo",
     targets: [
         .target(name: "HelloCxx"),
         .executableTarget(
-            name: "hello",
+            name: "Demo",
             dependencies: ["HelloCxx"],
             swiftSettings: [.interoperabilityMode(.Cxx)]
         ),
