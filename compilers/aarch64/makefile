@@ -8,3 +8,9 @@ HelloWorld.o: HelloWorld.s
 
 hi:     hi.S
 	cc -o $@ $< -e _start -target arm64-apple-macos
+
+branch.S: condition-codes.py
+	./$< > $@
+
+branch: branch.S
+	cc -o $@ $< -e _start -target arm64-apple-macos
