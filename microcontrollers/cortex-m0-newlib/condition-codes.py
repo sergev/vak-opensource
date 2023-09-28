@@ -16,12 +16,12 @@ def gen_branch(suffix, jump_flag):
     if jump_flag:
         # This instruction will jump.
         label = get_label()
-        print(f"    b{suffix} {label}f")
-        print(f"    svc #0              // fail")
+        print(f"        b{suffix} {label}f")
+        print(f"        svc #0              // fail")
         print(f"{label}:")
     else:
         # No jump.
-        print(f"    b{suffix} fail")
+        print(f"        b{suffix} fail")
 
 #
 # Iterate all branch instructions.
@@ -50,9 +50,9 @@ def gen_cond(cond):
     v = (cond >> 0) & 1
 
     print("")
-    print(f"    // Condition codes: N={n} Z={z} C={c} V={v}")
-    print(f"    ldr r0, =0x{cond:x}0000000")
-    print("    msr APSR_nzcvq, r0")
+    print(f"        // Condition codes: N={n} Z={z} C={c} V={v}")
+    print(f"        ldr r0, =0x{cond:x}0000000")
+    print("        msr APSR_nzcvq, r0")
 
     gen_branch("eq", z == 1)
     gen_branch("ne", z == 0)
@@ -75,6 +75,6 @@ def gen_cond(cond):
 for cond in range(0, 16):
     gen_cond(cond)
 
-print("    svc #0              // pass")
+print("        svc #0              // pass")
 print("fail:")
-print("    svc #0              // fail")
+print("        svc #0              // fail")

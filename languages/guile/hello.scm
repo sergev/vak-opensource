@@ -1,4 +1,4 @@
-#!/opt/local/bin/guile -q -s
+#!/usr/bin/env guile -q -s
 !#
 ;;; Commentary:
 
