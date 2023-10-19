@@ -5,13 +5,11 @@
 class Simulator;
 
 class Event {
-    uint64_t start_time{};
-
 public:
     virtual void behave(Simulator &sim) = 0;
 
-    uint64_t get_time() { return start_time; }
-    void set_time(uint64_t t) { start_time = t; }
+private:
+    uint64_t start_time{};
 
     // Compare two events by start time and index.
     struct Cmp {
@@ -24,21 +22,18 @@ public:
             return (intptr_t)a < (intptr_t)b;
         }
     };
+
+    friend class Simulator;
 };
 
 class Simulator {
-    uint64_t master_clock{};
-
-    // Event queue, ordered by start time.
-    std::set<Event *, Event::Cmp> queue;
-
 public:
     bool is_active() const { return !queue.empty(); }
 
     void wait(Event &event, unsigned num_cycles)
     {
         // Insert event into queue.
-        event.set_time(master_clock + num_cycles);
+        event.start_time = master_clock + num_cycles;
         queue.insert(&event);
     }
 
@@ -49,15 +44,21 @@ public:
         queue.erase(event);
 
         // Update time.
-        if (event->get_time() > master_clock) {
-            unsigned msec = event->get_time() - master_clock;
+        if (event->start_time > master_clock) {
+            unsigned msec = event->start_time - master_clock;
             usleep(msec * 1000);
         }
-        master_clock = event->get_time();
+        master_clock = event->start_time;
 
         // Run event.
         event->behave(*this);
     }
 
     uint64_t get_clock() const { return master_clock; }
+
+private:
+    uint64_t master_clock{};
+
+    // Event queue, ordered by start time.
+    std::set<Event *, Event::Cmp> queue;
 };
