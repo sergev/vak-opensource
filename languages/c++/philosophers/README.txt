@@ -1,4 +1,4 @@
-Simulation of the dining pilosophers problem.
+Simulation of the dining philosophers problem.
 
 https://medium.com/science-journal/the-dining-philosophers-problem-fded861c37ed
 
