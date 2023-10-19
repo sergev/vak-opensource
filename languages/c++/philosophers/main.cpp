@@ -1,59 +1,4 @@
-#include <iostream>
-#include <set>
-
-class Simulator;
-
-class Event {
-public:
-    uint64_t start_time{};
-
-    virtual void behave(Simulator &sim) = 0;
-
-    // Compare two events by start time.
-    struct Cmp {
-        bool operator()(const Event *a, const Event *b) const
-        {
-            if (a->start_time < b->start_time)
-                return true;
-            if (a->start_time > b->start_time)
-                return false;
-            return true;
-        }
-    };
-};
-
-class Simulator {
-    uint64_t master_clock{};
-
-    // Event queue, ordered by start time.
-    std::set<Event *, Event::Cmp> queue;
-
-public:
-    bool is_active()
-    {
-        return !queue.empty();
-    }
-
-    void run()
-    {
-        // Get next event from queue.
-        Event *event = *queue.begin();
-        queue.erase(event);
-
-        // Update time.
-        master_clock = event->start_time;
-
-        // Run event.
-        event->behave(*this);
-    }
-
-    void wait(Event &event, unsigned num_cycles)
-    {
-        // Insert event into queue.
-        event.start_time = master_clock + num_cycles;
-        queue.insert(&event);
-    }
-};
+#include "simulator.h"
 
 enum class Fork {
     FREE,
@@ -90,27 +35,23 @@ public:
                 left_fork  = Fork::TAKEN;
                 right_fork = Fork::TAKEN;
                 state      = State::EATING;
-                display();
-                sim.wait(*this, random(10, 2000));
             } else {
                 // Waiting for forks.
                 state = State::WAITING;
-                display();
-                sim.wait(*this, 10);
             }
         } else {
             // Stop eating.
             left_fork  = Fork::FREE;
             right_fork = Fork::FREE;
             state      = State::THINKING;
-            display();
-            sim.wait(*this, random(10, 2000));
         }
+        sim.wait(*this, random(10, 2000));
+        display(sim.get_clock());
     }
 
-    void display()
+    void display(uint64_t current_time) const
     {
-#if 0
+#if 1
         static const unsigned xpos[] = { 35, 54, 47, 23, 16 };
         static const unsigned ypos[] = { 3, 10, 20, 20, 10 };
         static bool initialized{};
@@ -133,7 +74,7 @@ public:
         }
         std::cout << std::flush;
 #else
-        std::cout << "abcde"[index] << ": ";
+        std::cout << '(' << current_time << ") " << "abcde"[index] << ": ";
         switch (state) {
         case State::THINKING:
             std::cout << "thinking";
@@ -145,7 +86,7 @@ public:
             std::cout << "waiting";
             break;
         }
-        std::cout << std::endl;
+        std::cout << " until " << get_time() << std::endl;
 #endif
     }
 };

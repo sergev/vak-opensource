@@ -10,3 +10,5 @@ philosophers:   $(OBJ)
 
 clean:
 		rm -f *.o philosophers
+###
+main.o: main.cpp simulator.h
