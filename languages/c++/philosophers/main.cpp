@@ -100,7 +100,7 @@ private:
     }
 };
 
-int main(int argc, char **argv)
+int main()
 {
     Fork forks[5]{};
     Philosopher a(0, forks[0], forks[1]);

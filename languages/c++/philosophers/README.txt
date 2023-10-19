@@ -9,3 +9,5 @@ must have two forks in order to eat, and each fork may only
 be used by one philosopher at a time. At any time a philosopher
 can pick up or set down the fork on their right or left,
 but cannot start eating until picking up both forks.
+
+Video: https://www.youtube.com/watch?v=ESE07LqIzyw
