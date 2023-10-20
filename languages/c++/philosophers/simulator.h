@@ -61,8 +61,7 @@ public:
     void run()
     {
         // Get next event from queue.
-        Event *event = *queue.begin();
-        queue.erase(event);
+        Event *event = queue.extract(queue.begin()).value(); // C++17
 
         // Update time.
         if (event->start_time > master_clock) {
