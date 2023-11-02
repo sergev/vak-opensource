@@ -1,4 +1,5 @@
 print_floats
 print_bfloat16
+print_minifloat8
 float_epsilons
 bfloat16_epsilons
