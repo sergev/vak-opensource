@@ -43,6 +43,9 @@ static unsigned led_color = COLOR_SUSPENDED;
 
 int main(void)
 {
+    board_init();
+    tusb_init();
+
     // WS2812 LED on rp2040-zero connected to GP16 pin.
     const unsigned WS2812_PIN = 16;
     const bool IS_RGBW = false;
@@ -51,9 +54,6 @@ int main(void)
     const unsigned offset = pio_add_program(pio0, &ws2812_program);
 
     ws2812_program_init(pio0, SM, offset, WS2812_PIN, FREQ, IS_RGBW);
-
-    board_init();
-    tusb_init();
 
     unsigned prev_color = led_color;
     pio_sm_put_blocking(pio0, 0, led_color);
