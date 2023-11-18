@@ -28,52 +28,61 @@
 
 #include "bsp/board.h"
 #include "tusb.h"
+#include "hardware/pio.h"
+#include "ws2812.pio.h"
 
-//--------------------------------------------------------------------+
-// MACRO CONSTANT TYPEDEF PROTYPES
-//--------------------------------------------------------------------+
-
-/* Blink pattern
- * - 250 ms  : device not mounted
- * - 1000 ms : device mounted
- * - 2500 ms : device is suspended
- */
+//
+// Colors in g-r-b-w format.
+//
 enum {
-    BLINK_NOT_MOUNTED = 250,
-    BLINK_MOUNTED = 1000,
-    BLINK_SUSPENDED = 2500,
+    COLOR_NOT_MOUNTED = 0x00007f00, // blue 50%
+    COLOR_MOUNTED     = 0x007f0000, // red 50%
+    COLOR_SUSPENDED   = 0x7f000000, // green 50%
 };
+static unsigned led_color = COLOR_SUSPENDED;
 
-static uint32_t blink_interval_ms = BLINK_NOT_MOUNTED;
-
-void led_blinking_task(void);
-
-/*------------- MAIN -------------*/
 int main(void)
 {
+    // WS2812 LED on rp2040-zero connected to GP16 pin.
+    const unsigned WS2812_PIN = 16;
+    const bool IS_RGBW = false;
+    const unsigned SM = 0;
+    const float FREQ = 800000;
+    const unsigned offset = pio_add_program(pio0, &ws2812_program);
+
+    ws2812_program_init(pio0, SM, offset, WS2812_PIN, FREQ, IS_RGBW);
+
     board_init();
     tusb_init();
 
+    unsigned prev_color = led_color;
+    pio_sm_put_blocking(pio0, 0, led_color);
     while (1) {
-        tud_task(); // tinyusb device task
-        led_blinking_task();
+        // TinyUSB device task.
+        tud_task();
+
+        // Update LED color.
+        if (led_color != prev_color) {
+            pio_sm_put_blocking(pio0, 0, led_color);
+            prev_color = led_color;
+        }
     }
 }
 
-//--------------------------------------------------------------------+
-// Device callbacks
-//--------------------------------------------------------------------+
+//
+// Device callbacks.
+//
 
 // Invoked when device is mounted
 void tud_mount_cb(void)
 {
-    blink_interval_ms = BLINK_MOUNTED;
+    led_color = COLOR_MOUNTED;
 }
 
 // Invoked when device is unmounted
 void tud_umount_cb(void)
 {
-    blink_interval_ms = BLINK_NOT_MOUNTED;
+    led_color = COLOR_NOT_MOUNTED;
 }
 
 // Invoked when usb bus is suspended
@@ -82,28 +91,11 @@ void tud_umount_cb(void)
 void tud_suspend_cb(bool remote_wakeup_en)
 {
     (void)remote_wakeup_en;
-    blink_interval_ms = BLINK_SUSPENDED;
+    led_color = COLOR_SUSPENDED;
 }
 
 // Invoked when usb bus is resumed
 void tud_resume_cb(void)
 {
-    blink_interval_ms = tud_mounted() ? BLINK_MOUNTED : BLINK_NOT_MOUNTED;
-}
-
-//--------------------------------------------------------------------+
-// BLINKING TASK
-//--------------------------------------------------------------------+
-void led_blinking_task(void)
-{
-    static uint32_t start_ms = 0;
-    static bool led_state = false;
-
-    // Blink every interval ms
-    if (board_millis() - start_ms < blink_interval_ms)
-        return; // not enough time
-    start_ms += blink_interval_ms;
-
-    board_led_write(led_state);
-    led_state = 1 - led_state; // toggle
+    led_color = tud_mounted() ? COLOR_MOUNTED : COLOR_NOT_MOUNTED;
 }

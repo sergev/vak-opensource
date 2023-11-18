@@ -36,6 +36,7 @@ target_link_libraries(${PROJECT_NAME} PUBLIC
     pico_unique_id
     tinyusb_device
     tinyusb_board
+    hardware_pio
 )
 
 # Uncomment this line to enable fix for Errata RP2040-E5 (the fix requires use of GPIO 15)
