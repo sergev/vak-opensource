@@ -14,6 +14,10 @@ add_compile_options(-Wall
     -Wno-maybe-uninitialized
 )
 
+# Fix waveshare_rp2040_zero USB unrecognize after unplug and replug
+# https://github.com/raspberrypi/pico-sdk/pull/1421
+add_compile_definitions(PICO_FLASH_SPI_CLKDIV=4)
+
 # Initialize the SDK
 set(PICO_BOARD waveshare_rp2040_zero)
 pico_sdk_init()
