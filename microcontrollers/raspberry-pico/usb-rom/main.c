@@ -35,9 +35,9 @@
 // Colors in g-r-b-w format.
 //
 enum {
-    COLOR_NOT_MOUNTED = 0x00007f00, // blue 50%
-    COLOR_MOUNTED     = 0x007f0000, // red 50%
-    COLOR_SUSPENDED   = 0x7f000000, // green 50%
+    COLOR_NOT_MOUNTED = 0x00000f00, // blue 6%
+    COLOR_MOUNTED     = 0x000f0000, // red 6%
+    COLOR_SUSPENDED   = 0x0f000000, // green 6%
 };
 static unsigned led_color = COLOR_SUSPENDED;
 
