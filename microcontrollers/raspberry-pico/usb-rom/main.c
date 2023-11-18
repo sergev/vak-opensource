@@ -28,6 +28,7 @@
 
 #include "bsp/board.h"
 #include "tusb.h"
+#include "pico/unique_id.h"
 #include "hardware/pio.h"
 #include "ws2812.pio.h"
 
@@ -39,12 +40,15 @@ enum {
     COLOR_MOUNTED     = 0x000f0000, // red 6%
     COLOR_SUSPENDED   = 0x0f000000, // green 6%
 };
-static unsigned led_color = COLOR_SUSPENDED;
+static unsigned led_color = 0;
+
+// buffer to hold flash ID
+char serial[2 * PICO_UNIQUE_BOARD_ID_SIZE_BYTES + 1];
 
 int main(void)
 {
     board_init();
-    tusb_init();
+    pico_get_unique_board_id_string(serial, sizeof(serial));
 
     // WS2812 LED on rp2040-zero connected to GP16 pin.
     const unsigned WS2812_PIN = 16;
@@ -55,8 +59,12 @@ int main(void)
 
     ws2812_program_init(pio0, SM, offset, WS2812_PIN, FREQ, IS_RGBW);
 
-    unsigned prev_color = led_color;
-    pio_sm_put_blocking(pio0, 0, led_color);
+    unsigned prev_color = 0;
+    pio_sm_put_blocking(pio0, 0, 0);
+    sleep_ms(250);
+
+    tud_init(BOARD_TUD_RHPORT);
+
     while (1) {
         // TinyUSB device task.
         tud_task();

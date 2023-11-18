@@ -22,7 +22,6 @@
  * THE SOFTWARE.
  *
  */
-#include "pico/unique_id.h"
 #include "tusb.h"
 
 //--------------------------------------------------------------------+
@@ -31,7 +30,7 @@
 tusb_desc_device_t const desc_device = {
     .bLength = sizeof(tusb_desc_device_t),
     .bDescriptorType = TUSB_DESC_DEVICE,
-    .bcdUSB = 0x0110,
+    .bcdUSB = 0x0200,
 
     .bDeviceClass = 0x00,
     .bDeviceSubClass = 0x00,
@@ -40,8 +39,8 @@ tusb_desc_device_t const desc_device = {
     .bMaxPacketSize0 = CFG_TUD_ENDPOINT0_SIZE,
 
     // TODO: get unique ID from https://pid.codes.
-    .idVendor = 0x07ff, // Unknown
-    .idProduct = 0x00ff, // Portable Hard Drive
+    .idVendor  = 0x239a, // Adafruit boards
+    .idProduct = 0xcafe, // TinyUSB example
     .bcdDevice = 0x0100,
 
     .iManufacturer = 0x01,
@@ -100,7 +99,7 @@ enum {
 };
 
 // buffer to hold flash ID
-char serial[2 * PICO_UNIQUE_BOARD_ID_SIZE_BYTES + 1];
+extern char serial[];
 
 // array of pointer to string descriptors
 char const *string_desc_arr[] = {
@@ -129,10 +128,6 @@ uint16_t const *tud_descriptor_string_cb(uint8_t index, uint16_t langid)
     default:
         // Note: the 0xEE index string is a Microsoft OS 1.0 Descriptors.
         // https://docs.microsoft.com/en-us/windows-hardware/drivers/usbcon/microsoft-defined-usb-descriptors
-
-        if (index == STRID_SERIAL) {
-            pico_get_unique_board_id_string(serial, sizeof(serial));
-        }
 
         if (!(index < sizeof(string_desc_arr) / sizeof(string_desc_arr[0])))
             return NULL;
