@@ -24,7 +24,11 @@ add_executable(${PROJECT_NAME}
 
 target_link_libraries(${PROJECT_NAME} PUBLIC
     pico_stdlib
+    hardware_pio
 )
+
+# generate the header file into the source tree as it is included in the RP2040 datasheet
+#pico_generate_pio_header(pio_ws2812 ws2812.pio OUTPUT_DIR .)
 
 pico_add_extra_outputs(${PROJECT_NAME})
 
