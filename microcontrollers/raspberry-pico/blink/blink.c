@@ -20,7 +20,7 @@ static inline void led_write(unsigned color)
 //
 static inline unsigned color_rgb(uint8_t r, uint8_t g, uint8_t b)
 {
-    return (r << 8) | (g << 16) | b;
+    return (r << 16) | (g << 8) | b;
 }
 
 int main()
@@ -35,17 +35,20 @@ int main()
     ws2812_program_init(pio0, SM, offset, WS2812_PIN, FREQ, IS_RGBW);
 
     for (;;) {
-        led_write(color_rgb(0xff, 0, 0)); // red
+        // red
+        led_write(color_rgb(0xff, 0, 0));
         sleep_ms(250);
         led_write(0);
         sleep_ms(250);
 
-        led_write(color_rgb(0, 0xff, 0)); // green
+        // green
+        led_write(color_rgb(0, 0xff, 0));
         sleep_ms(250);
         led_write(0);
         sleep_ms(250);
 
-        led_write(color_rgb(0, 0, 0xff)); // blue
+        // blue
+        led_write(color_rgb(0, 0, 0xff));
         sleep_ms(250);
         led_write(0);
         sleep_ms(250);

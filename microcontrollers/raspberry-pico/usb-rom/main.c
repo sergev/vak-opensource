@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2019 Ha Thach (tinyusb.org)
+ * Copyright (c) 2023 Serge Vakulenko
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -33,14 +33,13 @@
 #include "ws2812.pio.h"
 
 //
-// Colors in g-r-b-w format.
+// Colors.
 //
 enum {
-    COLOR_NOT_MOUNTED = 0x00000f00, // blue 6%
-    COLOR_MOUNTED     = 0x000f0000, // red 6%
-    COLOR_SUSPENDED   = 0x0f000000, // green 6%
+    COLOR_RED    = 0x0f000000, // red 6%
+    COLOR_GREEN  = 0x000f0000, // green 6%
+    COLOR_BLUE   = 0x00000f00, // blue 6%
 };
-static unsigned led_color = 0;
 
 // buffer to hold flash ID
 char serial[2 * PICO_UNIQUE_BOARD_ID_SIZE_BYTES + 1];
@@ -69,41 +68,20 @@ int main(void)
         // TinyUSB device task.
         tud_task();
 
+        // LED color depends on USB state.
+        unsigned led_color = prev_color;
+        if (tud_suspended()) {
+            led_color = COLOR_BLUE;
+        } else if (tud_mounted()) {
+            led_color = COLOR_RED;
+        } else if (tud_connected()) {
+            led_color = COLOR_GREEN;
+        }
+
         // Update LED color.
         if (led_color != prev_color) {
             pio_sm_put_blocking(pio0, 0, led_color);
             prev_color = led_color;
         }
     }
-}
-
-//
-// Device callbacks.
-//
-
-// Invoked when device is mounted
-void tud_mount_cb(void)
-{
-    led_color = COLOR_MOUNTED;
-}
-
-// Invoked when device is unmounted
-void tud_umount_cb(void)
-{
-    led_color = COLOR_NOT_MOUNTED;
-}
-
-// Invoked when usb bus is suspended
-// remote_wakeup_en : if host allow us  to perform remote wakeup
-// Within 7ms, device must draw an average of current less than 2.5 mA from bus
-void tud_suspend_cb(bool remote_wakeup_en)
-{
-    (void)remote_wakeup_en;
-    led_color = COLOR_SUSPENDED;
-}
-
-// Invoked when usb bus is resumed
-void tud_resume_cb(void)
-{
-    led_color = tud_mounted() ? COLOR_MOUNTED : COLOR_NOT_MOUNTED;
 }
