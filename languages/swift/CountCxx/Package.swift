@@ -4,7 +4,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "Demo",
+    name: "CountCxx",
     platforms: [
         .macOS(.v14),
     ],
@@ -23,7 +23,7 @@ let package = Package(
             ])]
         ),
         .executableTarget(
-            name: "Demo",
+            name: "Application",
             dependencies: ["ModelCxx", "Gui"],
             swiftSettings: [.interoperabilityMode(.Cxx)]
         ),
