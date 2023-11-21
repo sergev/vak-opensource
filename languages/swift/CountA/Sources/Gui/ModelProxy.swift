@@ -12,7 +12,7 @@ class ModelProxy: ObservableObject {
     static let shared = ModelProxy()
 
     // Allocate C++ object.
-    var model = ModelCxx()
+    private var model = ModelCxx()
 
     func increment() {
         model.increment()

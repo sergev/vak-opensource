@@ -15,7 +15,8 @@ let package = Package(
         ),
         .target(
             name: "ModelCxx",
-            dependencies: ["Gui"]
+            dependencies: ["Gui"],
+            publicHeadersPath: "."
         ),
         .executableTarget(
             name: "Demo",
