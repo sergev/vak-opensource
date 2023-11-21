@@ -14,6 +14,10 @@ class ModelProxy: ObservableObject {
     // Allocate C++ object.
     private var model = ModelCxx()
 
+    func setup() {
+        model.setup()
+    }
+
     func increment() {
         model.increment()
     }

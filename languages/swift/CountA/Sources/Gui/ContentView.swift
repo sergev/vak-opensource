@@ -9,19 +9,21 @@ public struct ContentView: View {
     @ObservedObject var proxy: ModelProxy = ModelProxy.shared
 
     public var body: some View {
-        VStack {
+        HStack {
+            Button("-") {
+                proxy.decrement()
+            }
             Text("\(proxy.count)")
             Button("+") {
                 proxy.increment()
-            }
-            Button("-") {
-                proxy.decrement()
             }
         }
         .padding()
     }
 
-    public init() {}
+    public init() {
+        proxy.setup()
+    }
 }
 
 #Preview {
