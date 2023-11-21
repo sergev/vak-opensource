@@ -14,12 +14,12 @@ let package = Package(
             swiftSettings: [.interoperabilityMode(.Cxx)]
         ),
         .target(
-            name: "HelloCxx",
+            name: "ModelCxx",
             dependencies: ["Gui"]
         ),
         .executableTarget(
             name: "Demo",
-            dependencies: ["HelloCxx", "Gui"],
+            dependencies: ["ModelCxx", "Gui"],
             swiftSettings: [.interoperabilityMode(.Cxx)]
         ),
     ],

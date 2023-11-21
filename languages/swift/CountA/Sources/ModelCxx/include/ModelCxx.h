@@ -1,4 +1,4 @@
-class HelloCxx {
+class ModelCxx {
 private:
     int count{};
 

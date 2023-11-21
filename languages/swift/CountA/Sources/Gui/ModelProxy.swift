@@ -1,28 +1,28 @@
 //
-//  ModelState.swift
+//  ModelProxy.swift
 //
 //  Created by Serge Vakulenko on 11/11/23.
 //
 import Foundation
-import HelloCxx
+import ModelCxx
 
-class ModelState: ObservableObject {
+class ModelProxy: ObservableObject {
     @Published var count: Int = 0
 
-    static let shared = ModelState()
+    static let shared = ModelProxy()
 
     // Allocate C++ object.
-    var state = HelloCxx()
+    var model = ModelCxx()
 
     func increment() {
-        state.increment()
+        model.increment()
     }
 
     func decrement() {
-        state.decrement()
+        model.decrement()
     }
 }
 
 public func updateCount(val: Int) {
-    ModelState.shared.count = val
+    ModelProxy.shared.count = val
 }

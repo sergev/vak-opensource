@@ -6,16 +6,16 @@
 import SwiftUI
 
 public struct ContentView: View {
-    @ObservedObject var state: ModelState = ModelState.shared
+    @ObservedObject var proxy: ModelProxy = ModelProxy.shared
 
     public var body: some View {
         VStack {
-            Text("\(state.count)")
+            Text("\(proxy.count)")
             Button("+") {
-                state.increment()
+                proxy.increment()
             }
             Button("-") {
-                state.decrement()
+                proxy.decrement()
             }
         }
         .padding()

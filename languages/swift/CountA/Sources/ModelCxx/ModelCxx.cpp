@@ -1,13 +1,13 @@
-#include "HelloCxx.h"
+#include "ModelCxx.h"
 #include "Gui-Swift.h"
 
-void HelloCxx::increment()
+void ModelCxx::increment()
 {
     count++;
     Gui::updateCount(count);
 }
 
-void HelloCxx::decrement()
+void ModelCxx::decrement()
 {
     count--;
     Gui::updateCount(count);
