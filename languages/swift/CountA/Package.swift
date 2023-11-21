@@ -9,10 +9,17 @@ let package = Package(
         .macOS(.v14),
     ],
     targets: [
-        .target(name: "HelloCxx"),
+        .target(
+            name: "Gui",
+            swiftSettings: [.interoperabilityMode(.Cxx)]
+        ),
+        .target(
+            name: "HelloCxx",
+            dependencies: ["Gui"]
+        ),
         .executableTarget(
             name: "Demo",
-            dependencies: ["HelloCxx"],
+            dependencies: ["HelloCxx", "Gui"],
             swiftSettings: [.interoperabilityMode(.Cxx)]
         ),
     ],

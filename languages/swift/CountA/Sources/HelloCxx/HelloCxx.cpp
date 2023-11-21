@@ -1,6 +1,14 @@
 #include "HelloCxx.h"
+#include "Gui-Swift.h"
 
-std::string HelloCxx::message() const
+void HelloCxx::increment()
 {
-    return "Hello from C++ to Swift!";
+    count++;
+    Gui::updateCount(count);
+}
+
+void HelloCxx::decrement()
+{
+    count--;
+    Gui::updateCount(count);
 }

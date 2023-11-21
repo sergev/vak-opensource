@@ -5,10 +5,10 @@
 //
 import SwiftUI
 
-struct ContentView: View {
+public struct ContentView: View {
     @ObservedObject var state: ModelState = ModelState.shared
 
-    var body: some View {
+    public var body: some View {
         VStack {
             Text("\(state.count)")
             Button("+") {
@@ -20,6 +20,8 @@ struct ContentView: View {
         }
         .padding()
     }
+
+    public init() {}
 }
 
 #Preview {
