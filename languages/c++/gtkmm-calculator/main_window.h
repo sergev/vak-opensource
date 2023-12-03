@@ -12,12 +12,12 @@
 class Main_window : public Gtk::Window {
 public:
     Main_window();
-    float z, strx, stry;
-    char *pEnd;
-    std::string op, x, y;
+    virtual ~Main_window();
+
+private:
+    std::string x, y;
     char opc;
     const int BUTTON_HEIGHT = 100, BUTTON_WIDTH = 100;
-    virtual ~Main_window();
 
 protected:
     void on_one_button_click();
@@ -54,6 +54,6 @@ protected:
     Gtk::Button clear_button;
     Gtk::Button equal_buttton;
 
-    Gtk::Entry textbox;
+    Gtk::Entry display;
     Gtk::Grid grid;
 };
