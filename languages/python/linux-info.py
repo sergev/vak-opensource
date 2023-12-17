@@ -1,11 +1,11 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #
 # Print information about the current computer.
 #
 import os
 import re
 from socket import gethostname
-from platform import linux_distribution
+from platform import freedesktop_os_release
 
 def gethost():
     '''Extract host name'''
@@ -46,12 +46,12 @@ def model():
 def distribution():
     '''Format distribution'''
     try:
-        return ' '.join([str(x) for x in linux_distribution()]) + ' (' + os.uname()[2] + ')'
+        return freedesktop_os_release()['PRETTY_NAME']
     except:
         return "N/A"
 
-print "        Host:", gethost()
-print "Manufacturer:", manufacturer()
-print "       Model:", model()
-print "   Processor:", processor()
-print "Distribution:", distribution()
+print("        Host:", gethost())
+print("Manufacturer:", manufacturer())
+print("       Model:", model())
+print("   Processor:", processor())
+print("Distribution:", distribution())
