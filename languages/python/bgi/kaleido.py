@@ -43,8 +43,6 @@ def rnd_circles (x, y, r):
     ellipse (xc - y, yc - x, 0, 360, r, r)
     ellipse (xc + y, yc - x, 0, 360, r, r)
 
-# -----
-
 def rnd_bars (x, y, r):
     bar (xc + x - r/2, yc + y - r/2, xc + x + r/2, yc + y + r/2)
     bar (xc - x - r/2, yc + y - r/2, xc - x + r/2, yc + y + r/2)
@@ -65,25 +63,15 @@ def rnd_bars (x, y, r):
     rectangle (xc - y - r/2, yc - x - r/2, xc - y + r/2, yc - x + r/2)
     rectangle (xc + y - r/2, yc - x - r/2, xc + y + r/2, yc - x + r/2)
 
-# -----
-
-stop = False
-
-#setwinoptions ("", -1, -1, SDL_WINDOW_FULLSCREEN)
-#initwindow (0, 0) # fullscreen
-initwindow (800, 800)
+initwindow (600, 600)
 setbkcolor (BLACK)
 setcolor (RED)
 cleardevice ()
 refresh ()
 xc = int (getmaxx () / 2)
 yc = int (getmaxy () / 2)
-"""
-settextjustify (CENTER_TEXT, CENTER_TEXT)
-outtextxy (xc, yc, "Press a key to start:")
-getch ()
-"""
 n = 0
+stop = False
 
 while (stop != True):
 
@@ -125,5 +113,3 @@ while (stop != True):
             stop = True
 
 closegraph ()
-
-# ----- end of file kaleido.py
