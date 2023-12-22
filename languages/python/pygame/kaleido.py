@@ -69,9 +69,14 @@ while not stop:
     # Did the user click the window close button?
     for event in pygame.event.get():
         if event.type == pygame.QUIT or \
-           event.type == pygame.KEYDOWN or \
+           event.type == pygame.TEXTINPUT or \
            event.type == pygame.MOUSEBUTTONDOWN:
             stop = True
+
+    # Fade existing contents.
+    surface = pygame.Surface((SCREEN_WIDTH, SCREEN_HEIGHT), pygame.SRCALPHA)
+    surface.fill((0, 0, 0, 4))
+    screen.blit(surface, (0, 0))
 
     # Define randrange position and radius of a circle.
     x = randrange(xc)
@@ -86,10 +91,11 @@ while not stop:
     y = randrange(yc)
     r = 5 + randrange(25)
 
-    # draw 8 boxes.
+    # Draw 8 boxes.
     rnd_bars(x, y, r)
 
     # Update the display.
+    pygame.time.wait(10)
     pygame.display.update()
 
 # All done!
