@@ -4,7 +4,7 @@
 # By Guido Gonzato, December 2018
 # By Serge Vakulenko, December 2023
 #
-import pygame
+import pygame, sys
 from random import randrange
 
 # Initialize pygame.
@@ -63,15 +63,20 @@ def rnd_bars(x, y, r):
     pygame.draw.rect(screen, border_color, (xc + y - r//2, yc - x - r//2, r, r), width=1)
 
 # Run until the user asks to quit.
-stop = False
-while not stop:
+while True:
 
-    # Did the user click the window close button?
+    # Update the display.
+    pygame.time.wait(10)
+    pygame.display.update()
+
+    # Exit on any key press, button click or window close.
     for event in pygame.event.get():
         if event.type == pygame.QUIT or \
            event.type == pygame.TEXTINPUT or \
+           (event.type == pygame.KEYDOWN and event.key == pygame.K_RETURN) or \
            event.type == pygame.MOUSEBUTTONDOWN:
-            stop = True
+            pygame.quit()
+            sys.exit(0)
 
     # Fade existing contents.
     surface = pygame.Surface((SCREEN_WIDTH, SCREEN_HEIGHT), pygame.SRCALPHA)
@@ -93,10 +98,3 @@ while not stop:
 
     # Draw 8 boxes.
     rnd_bars(x, y, r)
-
-    # Update the display.
-    pygame.time.wait(10)
-    pygame.display.update()
-
-# All done!
-pygame.quit()
