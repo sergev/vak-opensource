@@ -9,8 +9,8 @@ LIBS            =
 main:           $(OBJ)
 		$(CXX) $(LDFLAGS) $(OBJ) $(LIBS) -o $@
 
-std.pcm:
-		$(CXX) -Xclang -emit-module-interface -c std.cpp -o std.pcm
+std.pcm:        std.cppm
+		$(CXX) --precompile $< -o $@
 
 clean:
 		rm -rf *.o *.pcm *.dSYM main
