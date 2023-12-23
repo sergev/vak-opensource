@@ -20,7 +20,8 @@ screen.fill((0, 0, 0))
 xc = SCREEN_WIDTH // 2
 yc = SCREEN_HEIGHT // 2
 
-def rnd_circles(x, y, r):
+# Draw eight circles of random color.
+def draw_circles(x, y, r):
     color = (randrange(256), randrange(256), randrange(256))
     pygame.draw.circle(screen, color, (xc + x, yc + y), r)
     pygame.draw.circle(screen, color, (xc - x, yc + y), r)
@@ -30,7 +31,7 @@ def rnd_circles(x, y, r):
     pygame.draw.circle(screen, color, (xc - y, yc + x), r)
     pygame.draw.circle(screen, color, (xc - y, yc - x), r)
     pygame.draw.circle(screen, color, (xc + y, yc - x), r)
-    # outlines
+
     border_color = (randrange(256), randrange(256), randrange(256))
     pygame.draw.circle(screen, border_color, (xc + x, yc + y), r, width=1)
     pygame.draw.circle(screen, border_color, (xc - x, yc + y), r, width=1)
@@ -41,7 +42,8 @@ def rnd_circles(x, y, r):
     pygame.draw.circle(screen, border_color, (xc - y, yc - x), r, width=1)
     pygame.draw.circle(screen, border_color, (xc + y, yc - x), r, width=1)
 
-def rnd_bars(x, y, r):
+# Draw eight boxes of random color.
+def draw_boxes(x, y, r):
     color = (randrange(256), randrange(256), randrange(256))
     pygame.draw.rect(screen, color, (xc + x - r//2, yc + y - r//2, r, r))
     pygame.draw.rect(screen, color, (xc - x - r//2, yc + y - r//2, r, r))
@@ -51,7 +53,7 @@ def rnd_bars(x, y, r):
     pygame.draw.rect(screen, color, (xc - y - r//2, yc + x - r//2, r, r))
     pygame.draw.rect(screen, color, (xc - y - r//2, yc - x - r//2, r, r))
     pygame.draw.rect(screen, color, (xc + y - r//2, yc - x - r//2, r, r))
-    # outlines
+
     border_color = (randrange(256), randrange(256), randrange(256))
     pygame.draw.rect(screen, border_color, (xc + x - r//2, yc + y - r//2, r, r), width=1)
     pygame.draw.rect(screen, border_color, (xc - x - r//2, yc + y - r//2, r, r), width=1)
@@ -62,39 +64,47 @@ def rnd_bars(x, y, r):
     pygame.draw.rect(screen, border_color, (xc - y - r//2, yc - x - r//2, r, r), width=1)
     pygame.draw.rect(screen, border_color, (xc + y - r//2, yc - x - r//2, r, r), width=1)
 
-# Run until the user asks to quit.
+# Quit on window close, any button click or key press.
+def is_quit(event):
+    if event.type == pygame.QUIT:
+        return True
+    if event.type == pygame.MOUSEBUTTONDOWN:
+        return True
+    if event.type == pygame.TEXTINPUT:
+        return True
+    if event.type == pygame.KEYDOWN:
+        if event.key == pygame.K_RETURN:
+            return True
+        if event.key == pygame.K_ESCAPE:
+            return True
+    return False
+
+# Main loop.
 while True:
 
     # Update the display.
-    pygame.time.wait(10)
     pygame.display.update()
+    pygame.time.wait(10)
 
-    # Exit on any key press, button click or window close.
+    # Process user input.
     for event in pygame.event.get():
-        if event.type == pygame.QUIT or \
-           event.type == pygame.TEXTINPUT or \
-           (event.type == pygame.KEYDOWN and event.key == pygame.K_RETURN) or \
-           event.type == pygame.MOUSEBUTTONDOWN:
+        if is_quit(event):
             pygame.quit()
             sys.exit(0)
 
-    # Fade existing contents.
+    # Fade existing contents by 3%.
     surface = pygame.Surface((SCREEN_WIDTH, SCREEN_HEIGHT), pygame.SRCALPHA)
-    surface.fill((0, 0, 0, 4))
+    surface.fill((0, 0, 0, 3))
     screen.blit(surface, (0, 0))
 
-    # Define randrange position and radius of a circle.
+    # Draw eight random circles.
     x = randrange(xc)
     y = randrange(yc)
     r = 5 + randrange(25)
+    draw_circles(x, y, r)
 
-    # Draw 8 filled circles.
-    rnd_circles(x, y, r)
-
-    # Define a randrange box.
+    # Draw eight random boxes.
     x = randrange(xc)
     y = randrange(yc)
     r = 5 + randrange(25)
-
-    # Draw 8 boxes.
-    rnd_bars(x, y, r)
+    draw_boxes(x, y, r)
