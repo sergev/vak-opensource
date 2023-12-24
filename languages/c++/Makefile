@@ -1,9 +1,10 @@
-CXX         = g++-13
-CXXFLAGS    = -O3 -std=c++20 -Wall
+CXX         = g++
+CXXFLAGS    = -O -std=c++20 -Wall
+PROG        = std_info ascii3d hello lol calculator prolog async streambuf fmt
 
-all:    ascii3d fmt
+all:    $(PROG)
 
-ascii3d: ascii3d.cpp
+%:      %.cpp
 	$(CXX) $(LDFLAGS) $(CFLAGS) $< -o $@
 
 hello:  hello.cpp
@@ -28,4 +29,4 @@ lol:    lol.cpp
 	clang++ -std=c++11 $< -o $@
 
 clean:
-	rm -f ascii3d hello lol calculator prolog async streambuf fmt *.o
+	rm -f $(PROG) *.o

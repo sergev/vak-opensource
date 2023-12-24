@@ -6,3 +6,5 @@ prolog
 async
 map
 fmt
+std_info
+streambuf
