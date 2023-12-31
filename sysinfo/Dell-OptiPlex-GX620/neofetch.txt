@@ -1,0 +1,12 @@
+vak@retro
+---------
+OS: Ubuntu 22.04.3 LTS x86_64
+Host: OptiPlex GX620
+Kernel: 6.2.0-39-generic
+Uptime: 1 day, 2 hours, 21 mins
+Packages: 1838 (dpkg), 11 (snap)
+Shell: bash 5.1.16
+Terminal: /dev/pts/2
+CPU: Intel Pentium 4 2.80GHz (2) @ 2.793GHz
+GPU: Intel 82945G/GZ
+Memory: 697MiB / 1949MiB

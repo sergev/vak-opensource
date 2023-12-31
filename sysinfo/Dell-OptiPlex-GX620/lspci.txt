@@ -1,0 +1,153 @@
+00:00.0 Host bridge: Intel Corporation 82945G/GZ/P/PL Memory Controller Hub (rev 02)
+	Subsystem: Dell OptiPlex GX620
+	Flags: bus master, fast devsel, latency 0
+	Capabilities: <access denied>
+
+00:01.0 PCI bridge: Intel Corporation 82945G/GZ/P/PL PCI Express Root Port (rev 02) (prog-if 00 [Normal decode])
+	Flags: bus master, fast devsel, latency 0, IRQ 16
+	Bus: primary=00, secondary=01, subordinate=01, sec-latency=0
+	I/O behind bridge: [disabled]
+	Memory behind bridge: fe900000-fe9fffff [size=1M]
+	Prefetchable memory behind bridge: [disabled]
+	Capabilities: <access denied>
+	Kernel driver in use: pcieport
+
+00:02.0 VGA compatible controller: Intel Corporation 82945G/GZ Integrated Graphics Controller (rev 02) (prog-if 00 [VGA controller])
+	Subsystem: Dell 82945G/GZ Integrated Graphics Controller
+	Flags: bus master, fast devsel, latency 0, IRQ 16
+	Memory at feb00000 (32-bit, non-prefetchable) [size=512K]
+	I/O ports at e898 [size=8]
+	Memory at e0000000 (32-bit, prefetchable) [size=256M]
+	Memory at feac0000 (32-bit, non-prefetchable) [size=256K]
+	Expansion ROM at 000c0000 [virtual] [disabled] [size=128K]
+	Capabilities: <access denied>
+	Kernel driver in use: i915
+	Kernel modules: i915, intelfb
+
+00:02.1 Display controller: Intel Corporation 82945G/GZ Integrated Graphics Controller (rev 02)
+	Subsystem: Dell 82945G/GZ Integrated Graphics Controller
+	Flags: bus master, fast devsel, latency 0
+	Memory at feb80000 (32-bit, non-prefetchable) [size=512K]
+	Capabilities: <access denied>
+
+00:1c.0 PCI bridge: Intel Corporation NM10/ICH7 Family PCI Express Port 1 (rev 01) (prog-if 00 [Normal decode])
+	Flags: bus master, fast devsel, latency 0, IRQ 16
+	Bus: primary=00, secondary=02, subordinate=02, sec-latency=0
+	I/O behind bridge: 00001000-00001fff [size=4K]
+	Memory behind bridge: fe800000-fe8fffff [size=1M]
+	Prefetchable memory behind bridge: 0000000080000000-00000000801fffff [size=2M]
+	Capabilities: <access denied>
+	Kernel driver in use: pcieport
+
+00:1c.1 PCI bridge: Intel Corporation NM10/ICH7 Family PCI Express Port 2 (rev 01) (prog-if 00 [Normal decode])
+	Flags: bus master, fast devsel, latency 0, IRQ 17
+	Bus: primary=00, secondary=03, subordinate=03, sec-latency=0
+	I/O behind bridge: 00003000-00003fff [size=4K]
+	Memory behind bridge: fe700000-fe7fffff [size=1M]
+	Prefetchable memory behind bridge: 0000000080200000-00000000803fffff [size=2M]
+	Capabilities: <access denied>
+	Kernel driver in use: pcieport
+
+00:1d.0 USB controller: Intel Corporation NM10/ICH7 Family USB UHCI Controller #1 (rev 01) (prog-if 00 [UHCI])
+	Subsystem: Dell OptiPlex GX620
+	Flags: bus master, medium devsel, latency 0, IRQ 21
+	I/O ports at ff80 [size=32]
+	Kernel driver in use: uhci_hcd
+
+00:1d.1 USB controller: Intel Corporation NM10/ICH7 Family USB UHCI Controller #2 (rev 01) (prog-if 00 [UHCI])
+	Subsystem: Dell OptiPlex GX620
+	Flags: bus master, medium devsel, latency 0, IRQ 22
+	I/O ports at ff60 [size=32]
+	Kernel driver in use: uhci_hcd
+
+00:1d.2 USB controller: Intel Corporation NM10/ICH7 Family USB UHCI Controller #3 (rev 01) (prog-if 00 [UHCI])
+	Subsystem: Dell OptiPlex GX620
+	Flags: bus master, medium devsel, latency 0, IRQ 18
+	I/O ports at ff40 [size=32]
+	Kernel driver in use: uhci_hcd
+
+00:1d.3 USB controller: Intel Corporation NM10/ICH7 Family USB UHCI Controller #4 (rev 01) (prog-if 00 [UHCI])
+	Subsystem: Dell OptiPlex GX620
+	Flags: bus master, medium devsel, latency 0, IRQ 23
+	I/O ports at ff20 [size=32]
+	Kernel driver in use: uhci_hcd
+
+00:1d.7 USB controller: Intel Corporation NM10/ICH7 Family USB2 EHCI Controller (rev 01) (prog-if 20 [EHCI])
+	Subsystem: Dell OptiPlex GX620
+	Flags: bus master, medium devsel, latency 0, IRQ 21
+	Memory at ffa80800 (32-bit, non-prefetchable) [size=1K]
+	Capabilities: <access denied>
+	Kernel driver in use: ehci-pci
+
+00:1e.0 PCI bridge: Intel Corporation 82801 PCI Bridge (rev e1) (prog-if 01 [Subtractive decode])
+	Flags: bus master, fast devsel, latency 0
+	Bus: primary=00, secondary=04, subordinate=04, sec-latency=32
+	I/O behind bridge: [disabled]
+	Memory behind bridge: fe600000-fe6fffff [size=1M]
+	Prefetchable memory behind bridge: [disabled]
+	Capabilities: <access denied>
+
+00:1e.2 Multimedia audio controller: Intel Corporation 82801G (ICH7 Family) AC'97 Audio Controller (rev 01)
+	Subsystem: Dell OptiPlex GX620
+	Flags: bus master, medium devsel, latency 0, IRQ 23
+	I/O ports at ec00 [size=256]
+	I/O ports at e8c0 [size=64]
+	Memory at feabfa00 (32-bit, non-prefetchable) [size=512]
+	Memory at feabf900 (32-bit, non-prefetchable) [size=256]
+	Capabilities: <access denied>
+	Kernel driver in use: snd_intel8x0
+	Kernel modules: snd_intel8x0
+
+00:1f.0 ISA bridge: Intel Corporation 82801GB/GR (ICH7 Family) LPC Interface Bridge (rev 01)
+	Flags: bus master, medium devsel, latency 0
+	Capabilities: <access denied>
+	Kernel driver in use: lpc_ich
+	Kernel modules: intel_rng, lpc_ich, leds_ss4200
+
+00:1f.1 IDE interface: Intel Corporation 82801G (ICH7 Family) IDE Controller (rev 01) (prog-if 8a [ISA Compatibility mode controller, supports both channels switched to PCI native mode, supports bus mastering])
+	Subsystem: Dell 82801G (ICH7 Family) IDE Controller
+	Flags: bus master, medium devsel, latency 0, IRQ 16
+	I/O ports at 01f0 [size=8]
+	I/O ports at 03f4
+	I/O ports at 0170 [size=8]
+	I/O ports at 0374
+	I/O ports at ffa0 [size=16]
+	Kernel driver in use: ata_piix
+	Kernel modules: pata_acpi
+
+00:1f.2 IDE interface: Intel Corporation NM10/ICH7 Family SATA Controller [IDE mode] (rev 01) (prog-if 8f [PCI native mode controller, supports both channels switched to ISA compatibility mode, supports bus mastering])
+	Subsystem: Dell OptiPlex GX620
+	Flags: bus master, 66MHz, medium devsel, latency 0, IRQ 20
+	I/O ports at fe00 [size=8]
+	I/O ports at fe10 [size=4]
+	I/O ports at fe20 [size=8]
+	I/O ports at fe30 [size=4]
+	I/O ports at fea0 [size=16]
+	Capabilities: <access denied>
+	Kernel driver in use: ata_piix
+	Kernel modules: pata_acpi
+
+00:1f.3 SMBus: Intel Corporation NM10/ICH7 Family SMBus Controller (rev 01)
+	Subsystem: Dell OptiPlex GX620
+	Flags: medium devsel, IRQ 17
+	I/O ports at e8a0 [size=32]
+	Kernel driver in use: i801_smbus
+	Kernel modules: i2c_i801
+
+02:00.0 Ethernet controller: Broadcom Inc. and subsidiaries NetXtreme BCM5751 Gigabit Ethernet PCI Express (rev 01)
+	Subsystem: Dell OptiPlex GX620
+	Flags: bus master, fast devsel, latency 0, IRQ 16
+	Memory at fe8f0000 (64-bit, non-prefetchable) [size=64K]
+	Expansion ROM at <ignored> [disabled]
+	Capabilities: <access denied>
+	Kernel driver in use: tg3
+	Kernel modules: tg3
+
+04:02.0 Network controller: Qualcomm Atheros AR9227 Wireless Network Adapter (rev 01)
+	Subsystem: Qualcomm Atheros AR9227 Wireless Network Adapter
+	Flags: bus master, 66MHz, medium devsel, latency 168, IRQ 18
+	Memory at fe6f0000 (32-bit, non-prefetchable) [size=64K]
+	Capabilities: <access denied>
+	Kernel driver in use: ath9k
+	Kernel modules: ath9k
+
