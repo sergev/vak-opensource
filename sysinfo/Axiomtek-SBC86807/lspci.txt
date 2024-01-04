@@ -1,0 +1,130 @@
+00:00.0 Host bridge: Intel Corporation 82852/82855 GM/GME/PM/GMV Processor to I/O Controller (rev 02)
+	Subsystem: Elitegroup Computer Systems 82852/82855 GM/GME/PM/GMV Processor to I/O Controller
+	Flags: bus master, fast devsel, latency 0
+	Capabilities: <access denied>
+	Kernel driver in use: agpgart-intel
+
+00:00.1 System peripheral: Intel Corporation 82852/82855 GM/GME/PM/GMV Processor to I/O Controller (rev 02)
+	Subsystem: Intel Corporation 82852/82855 GM/GME/PM/GMV Processor to I/O Controller
+	Flags: bus master, fast devsel, latency 0
+
+00:00.3 System peripheral: Intel Corporation 82852/82855 GM/GME/PM/GMV Processor to I/O Controller (rev 02)
+	Subsystem: Intel Corporation 82852/82855 GM/GME/PM/GMV Processor to I/O Controller
+	Flags: bus master, fast devsel, latency 0
+
+00:02.0 VGA compatible controller: Intel Corporation 82852/855GM Integrated Graphics Device (rev 02) (prog-if 00 [VGA controller])
+	Subsystem: Elitegroup Computer Systems 82852/855GM Integrated Graphics Device
+	Flags: bus master, fast devsel, latency 0, IRQ 16
+	Memory at e0000000 (32-bit, prefetchable) [size=128M]
+	Memory at e8100000 (32-bit, non-prefetchable) [size=512K]
+	I/O ports at e900 [size=8]
+	Expansion ROM at 000c0000 [virtual] [disabled] [size=128K]
+	Capabilities: <access denied>
+	Kernel driver in use: i915
+	Kernel modules: i915
+
+00:02.1 Display controller: Intel Corporation 82852/855GM Integrated Graphics Device (rev 02)
+	Subsystem: Elitegroup Computer Systems 82852/855GM Integrated Graphics Device
+	Flags: fast devsel
+	Memory at 40000000 (32-bit, prefetchable) [disabled] [size=128M]
+	Memory at 48000000 (32-bit, non-prefetchable) [disabled] [size=512K]
+	Capabilities: <access denied>
+	Kernel modules: i915
+
+00:1d.0 USB controller: Intel Corporation 82801DB/DBL/DBM (ICH4/ICH4-L/ICH4-M) USB UHCI Controller #1 (rev 02) (prog-if 00 [UHCI])
+	Subsystem: Elitegroup Computer Systems 82801DB/DBL/DBM (ICH4/ICH4-L/ICH4-M) USB UHCI Controller
+	Flags: bus master, medium devsel, latency 0, IRQ 16
+	I/O ports at eb00 [size=32]
+	Kernel driver in use: uhci_hcd
+	Kernel modules: uhci_hcd
+
+00:1d.1 USB controller: Intel Corporation 82801DB/DBL/DBM (ICH4/ICH4-L/ICH4-M) USB UHCI Controller #2 (rev 02) (prog-if 00 [UHCI])
+	Subsystem: Elitegroup Computer Systems 82801DB/DBL/DBM (ICH4/ICH4-L/ICH4-M) USB UHCI Controller
+	Flags: bus master, medium devsel, latency 0, IRQ 19
+	I/O ports at ed00 [size=32]
+	Kernel driver in use: uhci_hcd
+	Kernel modules: uhci_hcd
+
+00:1d.2 USB controller: Intel Corporation 82801DB/DBL/DBM (ICH4/ICH4-L/ICH4-M) USB UHCI Controller #3 (rev 02) (prog-if 00 [UHCI])
+	Subsystem: Elitegroup Computer Systems 82801DB/DBL/DBM (ICH4/ICH4-L/ICH4-M) USB UHCI Controller
+	Flags: bus master, medium devsel, latency 0, IRQ 18
+	I/O ports at e800 [size=32]
+	Kernel driver in use: uhci_hcd
+	Kernel modules: uhci_hcd
+
+00:1d.7 USB controller: Intel Corporation 82801DB/DBM (ICH4/ICH4-M) USB2 EHCI Controller (rev 02) (prog-if 20 [EHCI])
+	Subsystem: Elitegroup Computer Systems 82801DB/DBM (ICH4/ICH4-M) USB2 EHCI Controller
+	Flags: bus master, medium devsel, latency 0, IRQ 23
+	Memory at e8180000 (32-bit, non-prefetchable) [size=1K]
+	Capabilities: <access denied>
+	Kernel driver in use: ehci-pci
+	Kernel modules: ehci_pci
+
+00:1e.0 PCI bridge: Intel Corporation 82801 PCI Bridge (rev 82) (prog-if 00 [Normal decode])
+	Flags: bus master, fast devsel, latency 0
+	Bus: primary=00, secondary=01, subordinate=01, sec-latency=32
+	I/O behind bridge: d000-dfff [size=4K] [16-bit]
+	Memory behind bridge: e8000000-e80fffff [size=1M] [32-bit]
+	Prefetchable memory behind bridge: [disabled] [32-bit]
+
+00:1f.0 ISA bridge: Intel Corporation 82801DB/DBL (ICH4/ICH4-L) LPC Interface Bridge (rev 02)
+	Flags: bus master, medium devsel, latency 0
+	Kernel driver in use: lpc_ich
+	Kernel modules: intel_rng, lpc_ich
+
+00:1f.1 IDE interface: Intel Corporation 82801DB (ICH4) IDE Controller (rev 02) (prog-if 8a [ISA Compatibility mode controller, supports both channels switched to PCI native mode, supports bus mastering])
+	Subsystem: Elitegroup Computer Systems 82801DB (ICH4) IDE Controller
+	Flags: bus master, medium devsel, latency 0, IRQ 18
+	I/O ports at 01f0 [size=8]
+	I/O ports at 03f4
+	I/O ports at 0170 [size=8]
+	I/O ports at 0374
+	I/O ports at f000 [size=16]
+	Memory at 48080000 (32-bit, non-prefetchable) [size=1K]
+	Kernel driver in use: ata_piix
+	Kernel modules: ata_piix, ata_generic
+
+00:1f.3 SMBus: Intel Corporation 82801DB/DBL/DBM (ICH4/ICH4-L/ICH4-M) SMBus Controller (rev 02)
+	Subsystem: Elitegroup Computer Systems 82801DB/DBL/DBM (ICH4/ICH4-L/ICH4-M) SMBus Controller
+	Flags: medium devsel, IRQ 17
+	I/O ports at 0500 [size=32]
+	Kernel driver in use: i801_smbus
+	Kernel modules: i2c_i801
+
+00:1f.5 Multimedia audio controller: Intel Corporation 82801DB/DBL/DBM (ICH4/ICH4-L/ICH4-M) AC'97 Audio Controller (rev 02)
+	Subsystem: Elitegroup Computer Systems 82801DB/DBL/DBM (ICH4/ICH4-L/ICH4-M) AC'97 Audio Controller
+	Flags: bus master, medium devsel, latency 0, IRQ 17
+	I/O ports at e000 [size=256]
+	I/O ports at ec00 [size=64]
+	Memory at e8181000 (32-bit, non-prefetchable) [size=512]
+	Memory at e8182000 (32-bit, non-prefetchable) [size=256]
+	Capabilities: <access denied>
+	Kernel driver in use: snd_intel8x0
+	Kernel modules: snd_intel8x0
+
+01:04.0 Ethernet controller: Realtek Semiconductor Co., Ltd. RTL-8100/8101L/8139 PCI Fast Ethernet Adapter (rev 10)
+	Subsystem: Elitegroup Computer Systems RTL-8100/8101L/8139 PCI Fast Ethernet Adapter
+	Flags: bus master, medium devsel, latency 32, IRQ 18
+	I/O ports at d000 [size=256]
+	Memory at e8011000 (32-bit, non-prefetchable) [size=256]
+	Capabilities: <access denied>
+	Kernel driver in use: 8139too
+	Kernel modules: 8139cp, 8139too
+
+01:05.0 Ethernet controller: Realtek Semiconductor Co., Ltd. RTL-8100/8101L/8139 PCI Fast Ethernet Adapter (rev 10)
+	Subsystem: Elitegroup Computer Systems RTL-8100/8101L/8139 PCI Fast Ethernet Adapter
+	Flags: bus master, medium devsel, latency 32, IRQ 19
+	I/O ports at d400 [size=256]
+	Memory at e8010000 (32-bit, non-prefetchable) [size=256]
+	Capabilities: <access denied>
+	Kernel driver in use: 8139too
+	Kernel modules: 8139cp, 8139too
+
+01:06.0 Network controller: Qualcomm Atheros AR9227 Wireless Network Adapter (rev 01)
+	Subsystem: Qualcomm Atheros AR9227 Wireless Network Adapter
+	Flags: bus master, 66MHz, medium devsel, latency 168, IRQ 20
+	Memory at e8000000 (32-bit, non-prefetchable) [size=64K]
+	Capabilities: <access denied>
+	Kernel driver in use: ath9k
+	Kernel modules: ath9k
+
