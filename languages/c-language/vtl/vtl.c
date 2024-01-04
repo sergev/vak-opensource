@@ -7,9 +7,7 @@
   2004/06/26
 */
 
-
 #include "system.h"
-
 
 static int fndln(unsigned short *ptr);
 static unsigned short nxtln(unsigned short ptr);
@@ -25,7 +23,6 @@ static void putl(unsigned short *ptr, unsigned char d);
 static void crlf(void);
 static void putnm(unsigned short x);
 static void putstr(char *str);
-
 
 int main(void) {
   unsigned short ptr;
@@ -47,9 +44,9 @@ int main(void) {
 	ordr(ptr);
 	if (READW(Pcc) == 0 || READW(Pcc) == READW(line)) {
 	  /* no branch */
-	  if (line == Lbf) break;	/* ダイレクトモードの場合 */
+	  if (line == Lbf) break;	/* For direct mode */
 	  line = nxtln(line);
-	  if (line == READW(Bnd)) break;	/* 最終行まで実行した場合 */
+	  if (line == READW(Bnd)) break;	/* When executed to the last line */
 	} else {
 	  /* branch */
 	  WRITEW(Svp, READW(line) + 1);
@@ -100,8 +97,8 @@ int main(void) {
 
 
 /*
-  行番号が*Pcc以上の最小の行を探して，
-  見つかればその先頭番地を*ptrに入れて0を返し，見つからなければ1を返す．
+  Searches for the smallest line with a line number greater than or equal to *Pcc,
+  and if found, puts its starting address in *ptr and returns 0, otherwise returns 1.
 */
 static int fndln(unsigned short *ptr) {
   for (*ptr = Obj; *ptr != READW(Bnd); *ptr = nxtln(*ptr)) {
@@ -112,7 +109,7 @@ static int fndln(unsigned short *ptr) {
 
 
 /*
-  *ptrの次の行の先頭を見つけてその位置を返す
+  Find the beginning of the next line in *ptr and return its position
 */
 static unsigned short nxtln(unsigned short ptr) {
   for (ptr += 2; READB(ptr++) != '\0'; ) ;
@@ -121,7 +118,7 @@ static unsigned short nxtln(unsigned short ptr) {
 
 
 /*
-  一行読み込んでlbfから始まるアドレスに格納する
+  Read one line and store it at the address starting from lbf
 */
 static void getln(unsigned short lbf) {
   int p;
@@ -147,9 +144,9 @@ static void getln(unsigned short lbf) {
 
 
 /*
-  **ptrが数字でなければ0を返す
-  数字の場合は，その数字をバイナリに変換して*nに入れ，
-  *ptrを数字の次のアドレスに進ませて，1を返す
+  Returns 0 if **ptr is not a number.
+  If it is a number, convert the number to binary, put it in *n, advance *ptr to
+  the next address of the number, and return 1.
 */
 static int getnm(unsigned short *ptr, unsigned short *n) {
   if (!num(*ptr)) return 0;
@@ -163,7 +160,7 @@ static int getnm(unsigned short *ptr, unsigned short *n) {
 
 
 /*
-  *ptrが数字なら1，それ以外なら0を返す
+  Returns 1 if *ptr is a number, otherwise returns 0
 */
 static int num(unsigned short ptr) {
   return ('0' <= READB(ptr) && READB(ptr) <= '9');
@@ -171,14 +168,14 @@ static int num(unsigned short ptr) {
 
 
 /*
-  ptrから始まる文を実行する
+  Execute statement starting with ptr
 */
 static void ordr(unsigned short ptr) {
   unsigned char c;
   unsigned short adr;
 
-  getvr(&ptr, &c, &adr);	/* 左辺値のアドレスを求める */
-  ptr++;	/* 代入の'='を読み飛ばす */
+  getvr(&ptr, &c, &adr);	/* Find address of lvalue */
+  ptr++;	/* Skip '=' in assignment */
 
   if (READB(ptr) == '"') {
     ptr++;
@@ -187,7 +184,7 @@ static void ordr(unsigned short ptr) {
   } else {
     unsigned short val;
 
-    expr(&ptr, &val);	/* 右辺値を計算する */
+    expr(&ptr, &val);	/* Calculate rvalue */
 
     if (c == '$') {
       putchr(val & 0xff);
@@ -209,7 +206,7 @@ static void ordr(unsigned short ptr) {
 
 
 /*
-  *ptrで始まる値を計算し，*valに入れる
+  Calculate the value starting with *ptr and put it in *val
 */
 static void expr(unsigned short *ptr, unsigned short *val) {
   unsigned char c;
@@ -224,7 +221,7 @@ static void expr(unsigned short *ptr, unsigned short *val) {
 
 
 /*
-  *ptrから始まる値の要素を読み*valに入れる
+  Read the value element starting from *ptr and put it in *val
 */
 static void factr(unsigned short *ptr, unsigned short *val) {
   unsigned char c;
@@ -252,14 +249,15 @@ static void factr(unsigned short *ptr, unsigned short *val) {
 
     (*ptr)--;
     getvr(ptr, &c, &adr);
-    *val = READW(adr);	/* 変数か配列の値を得る */
+    *val = READW(adr);	/* get the value of a variable or array */
   }
   return;
 }
 
 
 /*
-  *ptrから始まる演算子と値の要素を読み演算結果を*valに入れる
+  Read the operator and value elements starting from *ptr and put the operation
+  result in *val
 */
 static void term(unsigned short *ptr, unsigned short *val) {
   unsigned char c;
@@ -288,7 +286,8 @@ static void term(unsigned short *ptr, unsigned short *val) {
 
 
 /*
-  *ptrから始まる変数・配列の文字を*cに入れてアドレスを*adr返す
+  Put the characters of the variable/array starting from *ptr into *c and return
+  the address *adr
 */
 static void getvr(unsigned short *ptr, unsigned char *c, unsigned short *adr) {
   unsigned short val;
@@ -305,7 +304,7 @@ static void getvr(unsigned short *ptr, unsigned char *c, unsigned short *adr) {
 
 
 /*
-  文字dで終る文字列ptrを表示する
+  Display string str ending with letter d
 */
 static void putl(unsigned short *ptr, unsigned char d) {
   while (READB(*ptr) != d) putchr(READB((*ptr)++));
@@ -315,7 +314,7 @@ static void putl(unsigned short *ptr, unsigned char d) {
 
 
 /*
-  改行する
+  Begin on a new line
 */
 static void crlf(void) {
   putchr('\r');
@@ -325,7 +324,7 @@ static void crlf(void) {
 
 
 /*
-  数値xを表示する
+  Display the number x
 */
 static void putnm(unsigned short x) {
   unsigned short ptr;
@@ -344,7 +343,7 @@ static void putnm(unsigned short x) {
 
 
 /*
-  文字列strを表示して改行する
+  Display string str and line break
 */
 static void putstr(char *str) {
   while (*str != '\0') putchr(*(str++));
