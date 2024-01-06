@@ -1,0 +1,13 @@
+vak@raspberrypi 
+--------------- 
+OS: Debian GNU/Linux 11 (bullseye) aarch64 
+Host: Raspberry Pi 3 Model B Rev 1.2 
+Kernel: 6.1.21-v8+ 
+Uptime: 11 hours, 27 mins 
+Packages: 653 (dpkg) 
+Shell: bash 5.1.4 
+Resolution: 1366x768 
+Terminal: /dev/pts/0 
+CPU: BCM2835 (4) @ 1.200GHz 
+Memory: 96MiB / 909MiB 
+
