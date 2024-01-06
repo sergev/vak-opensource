@@ -1,0 +1,12 @@
+vak@celeron
+-----------
+OS: Debian GNU/Linux 12 (bookworm) i686
+Kernel: 6.1.0-17-686-pae
+Uptime: 1 day, 20 hours, 55 mins
+Packages: 543 (dpkg)
+Shell: bash 5.2.15
+Resolution: 640x480
+Terminal: /dev/pts/0
+CPU: Intel Celeron M 1.00GHz (1) @ 998MHz
+GPU: Intel 82852/855GM Integrated Graphics Device
+Memory: 62MiB / 988MiB

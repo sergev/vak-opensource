@@ -1,0 +1,21 @@
+00:00.0 PCI bridge: Broadcom Inc. and subsidiaries BCM2711 PCIe Bridge (prog-if 00 [Normal decode])
+	Flags: bus master, fast devsel, latency 0, IRQ 91
+	Bus: primary=00, secondary=01, subordinate=01, sec-latency=0
+	I/O behind bridge: 0000-0fff [size=4K] [16-bit]
+	Memory behind bridge: c0000000-c00fffff [size=1M] [32-bit]
+	Prefetchable memory behind bridge: [disabled] [64-bit]
+	Capabilities: [48] Power Management version 3
+	Capabilities: [ac] Express Root Port (Slot-), MSI 00
+	Capabilities: [100] Advanced Error Reporting
+	Capabilities: [180] Vendor Specific Information: ID=0000 Rev=0 Len=028 <?>
+	Capabilities: [240] L1 PM Substates
+
+01:00.0 USB controller: VIA Technologies, Inc. VL805/806 xHCI USB 3.0 Controller (rev 01) (prog-if 30 [XHCI])
+	Subsystem: VIA Technologies, Inc. VL805/806 xHCI USB 3.0 Controller
+	Flags: bus master, fast devsel, latency 0, IRQ 92
+	Memory at c0000000 (64-bit, non-prefetchable)
+	Capabilities: [80] Power Management version 3
+	Capabilities: [90] MSI: Enable+ Count=1/4 Maskable- 64bit+
+	Capabilities: [c4] Express Endpoint, MSI 00
+	Capabilities: [100] Advanced Error Reporting
+

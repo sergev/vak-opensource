@@ -1,0 +1,10 @@
+vak@zebub 
+--------- 
+OS: FreeBSD 14.0-RELEASE aarch64 
+Uptime: 21 hours, 58 mins 
+Packages: 62 (pkg) 
+Shell: bash 5.2.15 
+Terminal: /dev/pts/0 
+CPU: ARM Cortex-A72 r0p3 (4) 
+Memory: 521MiB / 3933MiB 
+
