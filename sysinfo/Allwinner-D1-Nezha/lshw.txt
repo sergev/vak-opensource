@@ -1,0 +1,182 @@
+ubuntu
+    description: Computer
+    product: Allwinner D1 Nezha
+    width: 64 bits
+  *-core
+       description: Motherboard
+       physical id: 0
+     *-cpu
+          description: CPU
+          product: cpu
+          physical id: 0
+          bus info: cpu@0
+          size: 1008MHz
+          capacity: 1008MHz
+          width: 32 bits
+          capabilities: cpufreq
+        *-cache
+             description: L1 Cache
+             physical id: 0
+             size: 32KiB
+     *-memory
+          description: System memory
+          physical id: 1
+          size: 954MiB
+  *-usbhost:0
+       product: EHCI Host Controller
+       vendor: Linux 6.5.0-14-generic ehci_hcd
+       physical id: 2
+       bus info: usb@1
+       logical name: usb1
+       version: 6.05
+       capabilities: usb-2.00
+       configuration: driver=hub slots=1 speed=480Mbit/s
+  *-usbhost:1
+       product: EHCI Host Controller
+       vendor: Linux 6.5.0-14-generic ehci_hcd
+       physical id: 3
+       bus info: usb@2
+       logical name: usb2
+       version: 6.05
+       capabilities: usb-2.00
+       configuration: driver=hub slots=1 speed=480Mbit/s
+  *-usbhost:2
+       product: Generic Platform OHCI controller
+       vendor: Linux 6.5.0-14-generic ohci_hcd
+       physical id: 4
+       bus info: usb@3
+       logical name: usb3
+       version: 6.05
+       capabilities: usb-1.10
+       configuration: driver=hub slots=1 speed=12Mbit/s
+  *-usbhost:3
+       product: Generic Platform OHCI controller
+       vendor: Linux 6.5.0-14-generic ohci_hcd
+       physical id: 5
+       bus info: usb@4
+       logical name: usb4
+       version: 6.05
+       capabilities: usb-1.10
+       configuration: driver=hub slots=1 speed=12Mbit/s
+  *-usbhost:4
+       product: MUSB HDRC host driver
+       vendor: Linux 6.5.0-14-generic musb-hcd
+       physical id: 1
+       bus info: usb@5
+       logical name: usb5
+       version: 6.05
+       capabilities: usb-2.00
+       configuration: driver=hub slots=1 speed=480Mbit/s
+  *-mmc0
+       description: MMC Host
+       physical id: 6
+       logical name: mmc0
+     *-device
+          description: SD Card
+          product: EB1QT
+          vendor: Unknown (27)
+          physical id: 1
+          logical name: /dev/mmcblk0
+          version: 3.0
+          date: 11/2021
+          serial: 2964218861
+          size: 29GiB (32GB)
+          capabilities: sd gpt-1.00 partitioned partitioned:gpt
+          configuration: guid=334ba63e-3d55-4ace-8adf-3db15a965b9f logicalsectorsize=512 sectorsize=512
+        *-volume:0
+             description: EXT4 volume
+             vendor: Linux
+             physical id: 1
+             logical name: /dev/mmcblk0p1
+             logical name: /
+             version: 1.0
+             serial: 574be7aa-55fc-4972-96f2-7f78d1e3d90f
+             size: 29GiB
+             capacity: 29GiB
+             capabilities: journaled extended_attributes large_files huge_files dir_nlink recover 64bit extents ext4 ext2 initialized
+             configuration: created=2023-10-09 21:51:01 filesystem=ext4 label=cloudimg-rootfs lastmountpoint=/ modified=2024-01-06 15:24:32 mount.fstype=ext4 mount.options=rw,relatime,discard,errors=remount-ro,commit=30 mounted=2024-01-06 15:24:45 state=mounted
+        *-volume:1
+             description: Windows FAT volume
+             vendor: mkfs.fat
+             physical id: c
+             logical name: /dev/mmcblk0p12
+             version: FAT32
+             serial: c8be-244b
+             size: 15EiB
+             capabilities: fat initialized
+             configuration: FATs=2 filesystem=fat label=CIDATA name=CIDATA
+        *-volume:2
+             description: EFI partition
+             physical id: d
+             logical name: /dev/mmcblk0p13
+             serial: c17c2fcb-c926-445b-921c-90354ae0011a
+             capacity: 12MiB
+             capabilities: precious
+             configuration: name=loader1
+        *-volume:3
+             description: EFI partition
+             physical id: e
+             logical name: /dev/mmcblk0p14
+             serial: 2ee6a1b5-3f9e-4850-9f54-e716e9105dee
+             capacity: 5103KiB
+             capabilities: precious
+             configuration: name=loader2
+        *-volume:4
+             description: Windows FAT volume
+             vendor: mkfs.fat
+             physical id: f
+             logical name: /dev/mmcblk0p15
+             logical name: /boot/efi
+             version: FAT32
+             serial: 9a27-b986
+             size: 84MiB
+             capacity: 105MiB
+             capabilities: boot fat initialized
+             configuration: FATs=2 filesystem=fat label=UEFI mount.fstype=vfat mount.options=rw,relatime,fmask=0077,dmask=0077,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro name=ESP state=mounted
+        *-volume:5
+             description: EFI partition
+             physical id: 10
+             logical name: /dev/mmcblk0p16
+             serial: c916af5d-26a7-4fc0-a365-9a3f82d94c5a
+             capacity: 3611KiB
+             capabilities: precious
+             configuration: name=loader2b
+  *-mmc1
+       description: MMC Host
+       physical id: 7
+       logical name: mmc1
+     *-device
+          description: SDIO Device
+          physical id: 1
+          bus info: mmc@1:0001:1
+          logical name: mmc1:0001:1
+          serial: 0
+          capabilities: sdio
+  *-sound
+       description: sun20icodec
+       physical id: 8
+       logical name: card0
+       logical name: /dev/snd/controlC0
+       logical name: /dev/snd/pcmC0D0c
+       logical name: /dev/snd/pcmC0D0p
+  *-input:0
+       product: 2009800.keys
+       physical id: 9
+       logical name: input0
+       logical name: /dev/input/event0
+       capabilities: platform
+  *-input:1
+       product: dw_hdmi
+       physical id: a
+       logical name: input1
+       logical name: /dev/input/event1
+       capabilities: cec
+  *-network
+       description: Ethernet interface
+       physical id: b
+       logical name: end0
+       serial: 9e:31:7e:0b:4a:d4
+       size: 100Mbit/s
+       capacity: 1Gbit/s
+       capabilities: ethernet physical tp mii 10bt 10bt-fd 100bt 100bt-fd 1000bt-fd autonegotiation
+       configuration: autonegotiation=on broadcast=yes driver=st_mac100 driverversion=6.5.0-14-generic duplex=full ip=192.168.11.26 link=yes multicast=yes port=twisted pair speed=100Mbit/s

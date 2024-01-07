@@ -1,0 +1,12 @@
+vak@ubuntu 
+---------- 
+OS: Ubuntu 23.10 riscv64 
+Host: Allwinner D1 Nezha 
+Kernel: 6.5.0-14-generic 
+Uptime: 1 hour 
+Packages: 806 (dpkg), 4 (snap) 
+Shell: bash 5.2.15 
+Terminal: /dev/pts/1 
+CPU: (1) @ 1.008GHz 
+Memory: 160MiB / 954MiB 
+
