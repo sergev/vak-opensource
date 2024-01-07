@@ -1,0 +1,150 @@
+U-Boot SPL 2022.10 (Jun 19 2023 - 14:37:50 +0000)
+sunxi_ram_probe: dram-controller@3102000: probing
+DRAM only have internal ZQ!!
+ddr_efuse_type: 0x0
+[AUTO DEBUG] two rank and full DQ!
+ddr_efuse_type: 0x0
+[AUTO DEBUG] rank 0 row = 15
+[AUTO DEBUG] rank 0 bank = 8
+[AUTO DEBUG] rank 0 page size = 2 KB
+[AUTO DEBUG] rank 1 row = 15
+[AUTO DEBUG] rank 1 bank = 8
+[AUTO DEBUG] rank 1 page size = 2 KB
+rank1 config same as rank0
+DRAM BOOT DRIVE INFO: V0.24
+DRAM CLK = 792 MHz
+DRAM Type = 3 (2:DDR2,3:DDR3)
+DRAMC ZQ value: 0x7b7bfb
+DRAM ODT value: 0x42.
+ddr_efuse_type: 0x0
+DRAM SIZE =1024 M
+DRAM simple test OK.
+mxstatus=0xc0408000 mhcr=0x00000109 mcor=0x00000003 mhint=0x00004000
+Trying to boot from MMC1
+PLL reg = 0xf8216300, freq = 1200000000
+SPL size = 81920, sector = 400
+sunxi_ram_get_info: dram-controller@3102000: getting info
+
+OpenSBI v1.2
+   ____                    _____ ____ _____
+  / __ \                  / ____|  _ \_   _|
+ | |  | |_ __   ___ _ __ | (___ | |_) || |
+ | |  | | '_ \ / _ \ '_ \ \___ \|  _ < | |
+ | |__| | |_) |  __/ | | |____) | |_) || |_
+  \____/| .__/ \___|_| |_|_____/|____/_____|
+        | |
+        |_|
+
+Platform Name             : Allwinner D1 Nezha
+Platform Features         : medeleg
+Platform HART Count       : 1
+Platform IPI Device       : ---
+Platform Timer Device     : --- @ 0Hz
+Platform Console Device   : uart8250
+Platform HSM Device       : sun20i-d1-ppu
+Platform PMU Device       :
+Platform Reboot Device    : sunxi-wdt-reset
+Platform Shutdown Device  : ---
+Firmware Base             : 0x40000000
+Firmware Size             : 212 KB
+Runtime SBI Version       : 1.0
+
+Domain0 Name              : root
+Domain0 Boot HART         : 0
+Domain0 HARTs             : 0*
+Domain0 Region00          : 0x0000000040000000-0x000000004003ffff ()
+Domain0 Region01          : 0x0000000000000000-0xffffffffffffffff (R,W,X)
+Domain0 Next Address      : 0x0000000042e00000
+Domain0 Next Arg1         : 0x0000000042e90578
+Domain0 Next Mode         : S-mode
+Domain0 SysReset          : yes
+
+Boot HART ID              : 0
+Boot HART Domain          : root
+Boot HART Priv Version    : v1.11
+Boot HART Base ISA        : rv64imafdcvx
+Boot HART ISA Extensions  : time
+Boot HART PMP Count       : 8
+Boot HART PMP Granularity : 2048
+Boot HART PMP Address Bits: 38
+Boot HART MHPM Count      : 29
+Boot HART MIDELEG         : 0x0000000000020222
+Boot HART MEDELEG         : 0x000000000000b109
+sunxi_set_gate: (CLK#24) unhandled
+
+
+U-Boot 2022.10 (Jun 19 2023 - 14:37:50 +0000) Allwinner Technology
+
+DRAM:  1 GiB
+sunxi_set_gate: (CLK#24) unhandled
+Core:  54 devices, 20 uclasses, devicetree: separate
+WDT:   Not starting watchdog@6011000
+MMC:   mmc@4020000: 0, mmc@4021000: 1
+Loading Environment from FAT... PLL reg = 0xf8216300, freq = 1200000000
+Unable to use mmc 0:1...
+In:    serial@2500000
+Out:   serial@2500000
+Err:   serial@2500000
+Net:
+Warning: ethernet@4500000 (eth0) using random MAC address - 9e:31:7e:0b:4a:d4
+eth0: ethernet@4500000
+starting USB...
+Bus usb@4101000: USB EHCI 1.00
+Bus usb@4101400: USB OHCI 1.0
+Bus usb@4200000: USB EHCI 1.00
+Bus usb@4200400: USB OHCI 1.0
+scanning bus usb@4101000 for devices... 1 USB Device(s) found
+scanning bus usb@4101400 for devices... 1 USB Device(s) found
+scanning bus usb@4200000 for devices... 1 USB Device(s) found
+scanning bus usb@4200400 for devices... 1 USB Device(s) found
+       scanning usb for storage devices... 0 Storage Device(s) found
+Hit any key to stop autoboot:  0
+PLL reg = 0xf8216300, freq = 1200000000
+switch to partitions #0, OK
+mmc0 is current device
+Scanning mmc 0:1...
+Card did not respond to voltage select! : -110
+** Unable to read file ubootefi.var **
+Failed to load EFI variables
+BootOrder not defined
+EFI boot manager: Cannot load any image
+Scanning mmc 0:f...
+BootOrder not defined
+EFI boot manager: Cannot load any image
+Found EFI removable media binary efi/boot/bootriscv64.efi
+159744 bytes read in 29 ms (5.3 MiB/s)
+Booting /efi\boot\bootriscv64.efi
+error: no suitable video mode found.
+
+
+          GNU GRUB  version 2.12~rc1
+
+ ┌──────────────────────────────────────────┐
+ │*Ubuntu                                   │
+ │ Advanced options for Ubuntu              │
+ │                                          │
+ │                                          │
+ │                                          │
+ │                                          │
+ │                                          │
+ │                                          │
+ │                                          │
+ │                                          │
+ │                                          │
+ │                                          │
+ └──────────────────────────────────────────┘
+
+      Use the ▲ and ▼ keys to select which entry is highlighted.
+      Press enter to boot the selected OS, `e' to edit the commands before booting or `c' for a command-line.
+   The highlighted entry will be executed automatically in 0s.
+
+
+  Booting `Ubuntu'
+
+Loading Linux 6.5.0-14-generic ...
+Loading initial ramdisk ...
+Loading device tree blob...
+EFI stub: Booting Linux Kernel...
+EFI stub: Loaded initrd from LINUX_EFI_INITRD_MEDIA_GUID device path
+EFI stub: Using DTB from configuration table
+EFI stub: Exiting boot services...
