@@ -1,0 +1,179 @@
+longan
+    description: Computer
+    product: Sipeed Longan Pi 3H
+    serial: 3380200097cd20d9
+    width: 64 bits
+    capabilities: smp
+  *-core
+       description: Motherboard
+       physical id: 0
+     *-cpu:0
+          description: CPU
+          product: cpu
+          physical id: 0
+          bus info: cpu@0
+          size: 1320MHz
+          capacity: 1416MHz
+          capabilities: fp asimd aes pmull sha1 sha2 crc32 cpuid cpufreq
+     *-cpu:1
+          description: CPU
+          product: cpu
+          physical id: 1
+          bus info: cpu@1
+          size: 1320MHz
+          capacity: 1416MHz
+          capabilities: fp asimd aes pmull sha1 sha2 crc32 cpuid cpufreq
+     *-cpu:2
+          description: CPU
+          product: cpu
+          physical id: 2
+          bus info: cpu@2
+          size: 1320MHz
+          capacity: 1416MHz
+          capabilities: fp asimd aes pmull sha1 sha2 crc32 cpuid cpufreq
+     *-cpu:3
+          description: CPU
+          product: cpu
+          physical id: 3
+          bus info: cpu@3
+          size: 1320MHz
+          capacity: 1416MHz
+          capabilities: fp asimd aes pmull sha1 sha2 crc32 cpuid cpufreq
+     *-memory
+          description: System memory
+          physical id: 4
+          size: 3947MiB
+  *-usbhost:0
+       product: EHCI Host Controller
+       vendor: Linux 6.7.0-rc3+ ehci_hcd
+       physical id: 1
+       bus info: usb@1
+       logical name: usb1
+       version: 6.07
+       capabilities: usb-2.00
+       configuration: driver=hub slots=1 speed=480Mbit/s
+  *-usbhost:1
+       product: EHCI Host Controller
+       vendor: Linux 6.7.0-rc3+ ehci_hcd
+       physical id: 2
+       bus info: usb@2
+       logical name: usb2
+       version: 6.07
+       capabilities: usb-2.00
+       configuration: driver=hub slots=1 speed=480Mbit/s
+  *-usbhost:2
+       product: EHCI Host Controller
+       vendor: Linux 6.7.0-rc3+ ehci_hcd
+       physical id: 3
+       bus info: usb@3
+       logical name: usb3
+       version: 6.07
+       capabilities: usb-2.00
+       configuration: driver=hub slots=1 speed=480Mbit/s
+     *-usb
+          description: Bluetooth wireless interface
+          product: AIC 8800D80
+          vendor: AICSemi
+          physical id: 1
+          bus info: usb@3:1
+          version: 1.00
+          serial: 20220103
+          capabilities: usb-2.00 bluetooth
+          configuration: driver=aic8800_fdrv maxpower=500mA speed=480Mbit/s
+  *-usbhost:3
+       product: Generic Platform OHCI controller
+       vendor: Linux 6.7.0-rc3+ ohci_hcd
+       physical id: 4
+       bus info: usb@4
+       logical name: usb4
+       version: 6.07
+       capabilities: usb-1.10
+       configuration: driver=hub slots=1 speed=12Mbit/s
+  *-usbhost:4
+       product: Generic Platform OHCI controller
+       vendor: Linux 6.7.0-rc3+ ohci_hcd
+       physical id: 5
+       bus info: usb@5
+       logical name: usb5
+       version: 6.07
+       capabilities: usb-1.10
+       configuration: driver=hub slots=1 speed=12Mbit/s
+  *-usbhost:5
+       product: Generic Platform OHCI controller
+       vendor: Linux 6.7.0-rc3+ ohci_hcd
+       physical id: 6
+       bus info: usb@6
+       logical name: usb6
+       version: 6.07
+       capabilities: usb-1.10
+       configuration: driver=hub slots=1 speed=12Mbit/s
+  *-mmc0
+       description: MMC Host
+       physical id: 7
+       logical name: mmc0
+     *-device
+          description: SD Card
+          product: GB1QT
+          vendor: Unknown (27)
+          physical id: 1
+          logical name: /dev/mmcblk0
+          version: 3.0
+          date: 07/2021
+          serial: 3359335296
+          size: 29GiB (32GB)
+          capabilities: sd partitioned partitioned:dos
+          configuration: logicalsectorsize=512 sectorsize=512 signature=17405a53
+        *-volume:0
+             description: Windows FAT volume
+             vendor: mkfs.fat
+             physical id: 1
+             logical name: /dev/mmcblk0p1
+             version: FAT16
+             serial: dfde-05ff
+             size: 63MiB
+             capacity: 64MiB
+             capabilities: primary bootable fat initialized
+             configuration: FATs=2 filesystem=fat
+        *-volume:1
+             description: EXT4 volume
+             vendor: Linux
+             physical id: 2
+             logical name: /dev/mmcblk0p2
+             version: 1.0
+             serial: 0afa8651-3409-4f53-ace8-035cbad5e2be
+             size: 29GiB
+             capacity: 29GiB
+             capabilities: primary journaled extended_attributes large_files huge_files dir_nlink recover 64bit extents ext4 ext2 initialized
+             configuration: created=2023-12-20 19:20:33 filesystem=ext4 lastmountpoint=/ modified=2024-01-08 19:25:04 mounted=1970-01-02 08:00:06 state=clean
+  *-mmc1
+       description: MMC Host
+       physical id: 8
+       logical name: mmc1
+     *-device
+          description: SD/MMC Device
+          product: Y2P032
+          vendor: Unknown (155)
+          physical id: 1
+          logical name: /dev/mmcblk1
+          date: 02/2022
+          serial: 2224634783
+          size: 31268536320
+          capabilities: mmc
+          configuration: logicalsectorsize=512 sectorsize=512
+  *-network:0
+       description: Ethernet interface
+       physical id: 9
+       logical name: end0
+       serial: 02:00:97:cd:20:d9
+       size: 100Mbit/s
+       capacity: 1Gbit/s
+       capabilities: ethernet physical tp mii 10bt 10bt-fd 100bt 100bt-fd 1000bt-fd autonegotiation
+       configuration: autonegotiation=on broadcast=yes driver=st_mac100 driverversion=6.7.0-rc3+ duplex=full ip=192.168.11.28 link=yes multicast=yes port=twisted pair speed=100Mbit/s
+  *-network:1 DISABLED
+       description: Ethernet interface
+       physical id: a
+       bus info: firewire@3
+       logical name: wlxe8519ee8fa4a
+       serial: e8:51:9e:e8:fa:4a
+       capabilities: ethernet physical
+       configuration: broadcast=yes driver=usb driverversion=6.7.0-rc3+ multicast=yes

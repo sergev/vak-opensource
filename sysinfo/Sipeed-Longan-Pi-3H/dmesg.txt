@@ -1,0 +1,395 @@
+[    0.000000] Booting Linux on physical CPU 0x0000000000 [0x410fd034]
+[    0.000000] Linux version 6.7.0-rc3+ (ubuntu@ubuntu-2204-buildserver) (aarch64-linux-gnu-gcc (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0, GNU ld (GNU Binutils for Ubuntu) 2.38) #1 SMP PREEMPT Wed Dec 20 10:17:59 UTC 2023
+[    0.000000] Machine model: Sipeed Longan Pi 3H
+[    0.000000] earlycon: uart0 at MMIO32 0x0000000005000000 (options '115200n8')
+[    0.000000] printk: legacy bootconsole [uart0] enabled
+[    0.000000] Reserved memory: created CMA memory pool at 0x0000000041000000, size 128 MiB
+[    0.000000] OF: reserved mem: initialized node linux,cma, compatible id shared-dma-pool
+[    0.000000] OF: reserved mem: 0x0000000041000000..0x0000000048ffffff (131072 KiB) map reusable linux,cma
+[    0.000000] OF: reserved mem: 0x0000000040000000..0x000000004003ffff (256 KiB) nomap non-reusable secmon@40000000
+[    0.000000] Zone ranges:
+[    0.000000]   DMA32    [mem 0x0000000040000000-0x00000000ffffffff]
+[    0.000000]   Normal   [mem 0x0000000100000000-0x000000013fffffff]
+[    0.000000] Movable zone start for each node
+[    0.000000] Early memory node ranges
+[    0.000000]   node   0: [mem 0x0000000040000000-0x000000004003ffff]
+[    0.000000]   node   0: [mem 0x0000000040040000-0x000000013fffffff]
+[    0.000000] Initmem setup node 0 [mem 0x0000000040000000-0x000000013fffffff]
+[    0.000000] psci: probing for conduit method from DT.
+[    0.000000] psci: PSCIv1.1 detected in firmware.
+[    0.000000] psci: Using standard PSCI v0.2 function IDs
+[    0.000000] psci: MIGRATE_INFO_TYPE not supported.
+[    0.000000] psci: SMC Calling Convention v1.4
+[    0.000000] percpu: Embedded 20 pages/cpu s45032 r8192 d28696 u81920
+[    0.000000] pcpu-alloc: s45032 r8192 d28696 u81920 alloc=20*4096
+[    0.000000] pcpu-alloc: [0] 0 [0] 1 [0] 2 [0] 3
+[    0.000000] Detected VIPT I-cache on CPU0
+[    0.000000] CPU features: kernel page table isolation disabled by kernel configuration
+[    0.000000] alternatives: applying boot alternatives
+[    0.000000] Kernel command line: root=/dev/mmcblk0p2 console=tty1 console=ttyS0,115200 rootwait rw earlycon clk_ignore_unused
+[    0.000000] printk: log_buf_len individual max cpu contribution: 131072 bytes
+[    0.000000] printk: log_buf_len total cpu_extra contributions: 393216 bytes
+[    0.000000] printk: log_buf_len min size: 131072 bytes
+[    0.000000] printk: log_buf_len: 524288 bytes
+[    0.000000] printk: early log buf free: 128848(98%)
+[    0.000000] Dentry cache hash table entries: 524288 (order: 10, 4194304 bytes, linear)
+[    0.000000] Inode-cache hash table entries: 262144 (order: 9, 2097152 bytes, linear)
+[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 1032192
+[    0.000000] mem auto-init: stack:off, heap alloc:off, heap free:off
+[    0.000000] software IO TLB: area num 4.
+[    0.000000] software IO TLB: mapped [mem 0x00000000fbfff000-0x00000000fffff000] (64MB)
+[    0.000000] Memory: 3910984K/4194304K available (7424K kernel code, 870K rwdata, 2108K rodata, 384K init, 271K bss, 152248K reserved, 131072K cma-reserved)
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+[    0.000000] rcu: Preemptible hierarchical RCU implementation.
+[    0.000000] rcu: RCU calculated value of scheduler-enlistment delay is 10 jiffies.
+[    0.000000] NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
+[    0.000000] Root IRQ handler: gic_handle_irq
+[    0.000000] GIC: Using split EOI/Deactivate mode
+[    0.000000] rcu: srcu_init: Setting srcu_struct sizes based on contention.
+[    0.000000] arch_timer: cp15 timer(s) running at 24.00MHz (phys).
+[    0.000000] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x588fe9dc0, max_idle_ns: 440795202592 ns
+[    0.000000] sched_clock: 56 bits at 24MHz, resolution 41ns, wraps every 4398046511097ns
+[    0.009167] Console: colour dummy device 80x25
+[    0.014043] printk: legacy console [tty1] enabled
+[    0.019673] Calibrating delay loop (skipped), value calculated using timer frequency.. 48.00 BogoMIPS (lpj=240000)
+[    0.031053] pid_max: default: 32768 minimum: 301
+[    0.036252] Mount-cache hash table entries: 8192 (order: 4, 65536 bytes, linear)
+[    0.044400] Mountpoint-cache hash table entries: 8192 (order: 4, 65536 bytes, linear)
+[    0.053804] cacheinfo: Unable to detect cache hierarchy for CPU 0
+[    0.061097] rcu: Hierarchical SRCU implementation.
+[    0.065897] rcu: 	Max phase no-delay instances is 1000.
+[    0.071941] smp: Bringing up secondary CPUs ...
+[    0.077241] Detected VIPT I-cache on CPU1
+[    0.077309] CPU1: Booted secondary processor 0x0000000001 [0x410fd034]
+[    0.077673] Detected VIPT I-cache on CPU2
+[    0.077715] CPU2: Booted secondary processor 0x0000000002 [0x410fd034]
+[    0.078052] Detected VIPT I-cache on CPU3
+[    0.078094] CPU3: Booted secondary processor 0x0000000003 [0x410fd034]
+[    0.078158] smp: Brought up 1 node, 4 CPUs
+[    0.116652] SMP: Total of 4 processors activated.
+[    0.121816] CPU features: detected: 32-bit EL0 Support
+[    0.127468] CPU features: detected: CRC32 instructions
+[    0.133115] CPU: All CPU(s) started at EL2
+[    0.137629] alternatives: applying system-wide alternatives
+[    0.145098] devtmpfs: initialized
+[    0.151953] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+[    0.162770] futex hash table entries: 1024 (order: 4, 65536 bytes, linear)
+[    0.174620] pinctrl core: initialized pinctrl subsystem
+[    0.181017] NET: Registered PF_NETLINK/PF_ROUTE protocol family
+[    0.188909] DMA: preallocated 512 KiB GFP_KERNEL pool for atomic allocations
+[    0.196752] DMA: preallocated 512 KiB GFP_KERNEL|GFP_DMA32 pool for atomic allocations
+[    0.205704] cpuidle: using governor menu
+[    0.209851] hw-breakpoint: found 6 breakpoint and 4 watchpoint registers.
+[    0.217372] ASID allocator initialised with 65536 entries
+[    0.225928] platform 3001000.clock: Fixed dependency cycle(s) with /soc/rtc@7000000
+[    0.236982] platform 6510000.tcon-top: Fixed dependency cycle(s) with /soc/hdmi@6000000/ports/port@0/endpoint
+[    0.248005] platform 6515000.lcd-controller: Fixed dependency cycle(s) with /soc/tcon-top@6510000/ports/port@4/endpoint@0
+[    0.260063] platform 6515000.lcd-controller: Fixed dependency cycle(s) with /soc/tcon-top@6510000/ports/port@1/endpoint@2
+[    0.272117] platform 6515000.lcd-controller: Fixed dependency cycle(s) with /soc/tcon-top@6510000
+[    0.282295] platform 7010000.clock: Fixed dependency cycle(s) with /soc/rtc@7000000
+[    0.290888] platform connector: Fixed dependency cycle(s) with /soc/hdmi@6000000/ports/port@1/endpoint
+[    0.301706] Modules: 29968 pages in range for non-PLT usage
+[    0.301712] Modules: 521488 pages in range for PLT usage
+[    0.309060] SCSI subsystem initialized
+[    0.318889] usbcore: registered new interface driver usbfs
+[    0.324944] usbcore: registered new interface driver hub
+[    0.330803] usbcore: registered new device driver usb
+[    0.336552] Advanced Linux Sound Architecture Driver Initialized.
+[    0.343653] Bluetooth: Core ver 2.22
+[    0.347285] NET: Registered PF_BLUETOOTH protocol family
+[    0.353107] Bluetooth: HCI device and connection manager initialized
+[    0.359921] Bluetooth: HCI socket layer initialized
+[    0.365276] Bluetooth: L2CAP socket layer initialized
+[    0.370840] Bluetooth: SCO socket layer initialized
+[    0.376664] clocksource: Switched to clocksource arch_sys_counter
+[    0.388953] NET: Registered PF_INET protocol family
+[    0.394511] IP idents hash table entries: 65536 (order: 7, 524288 bytes, linear)
+[    0.405792] tcp_listen_portaddr_hash hash table entries: 2048 (order: 3, 32768 bytes, linear)
+[    0.415240] Table-perturb hash table entries: 65536 (order: 6, 262144 bytes, linear)
+[    0.423766] TCP established hash table entries: 32768 (order: 6, 262144 bytes, linear)
+[    0.432718] TCP bind hash table entries: 32768 (order: 8, 1048576 bytes, linear)
+[    0.442121] TCP: Hash tables configured (established 32768 bind 32768)
+[    0.449393] UDP hash table entries: 2048 (order: 4, 65536 bytes, linear)
+[    0.456845] UDP-Lite hash table entries: 2048 (order: 4, 65536 bytes, linear)
+[    0.464861] NET: Registered PF_UNIX/PF_LOCAL protocol family
+[    0.473161] Initialise system trusted keyrings
+[    0.477758] workingset: timestamp_bits=46 max_order=20 bucket_order=0
+[    0.547210] Key type asymmetric registered
+[    0.551708] Asymmetric key parser 'x509' registered
+[    0.556628] io scheduler mq-deadline registered
+[    0.565718] Serial: 8250/16550 driver, 6 ports, IRQ sharing disabled
+[    0.574245] printk: legacy console [ttyS0] disabled
+[    0.579638] 5000000.serial: ttyS0 at MMIO 0x5000000 (irq = 14, base_baud = 1500000) is a 16550A
+[    0.589244] printk: legacy console [ttyS0] enabled
+[    0.599294] printk: legacy bootconsole [uart0] disabled
+[    0.630573] usbcore: registered new interface driver usb-storage
+[    0.637198] sun6i-rtc 7000000.rtc: registered as rtc0
+[    0.642269] sun6i-rtc 7000000.rtc: setting system clock to 2024-01-08T20:52:33 UTC (1704747153)
+[    0.651261] i2c_dev: i2c /dev entries driver
+[    0.655725] mv64xxx_i2c 7081400.i2c: can't get pinctrl, bus recovery not supported
+[    0.663663] axp20x-i2c 0-0036: AXP20x variant AXP313a found
+[    0.669517] axp20x-i2c 0-0036: AXP20X driver loaded
+[    0.675088] sunxi-wdt 30090a0.watchdog: Watchdog enabled (timeout=16 sec, nowayout=0)
+[    0.683326] usbcore: registered new interface driver bcm203x
+[    0.689027] usbcore: registered new interface driver bpa10x
+[    0.694818] usbcore: registered new interface driver bfusb
+[    0.700343] usbcore: registered new interface driver btusb
+[    0.707018] SMCCC: SOC_ID: ID = jep106:091e:1823 Revision = 0x00000002
+[    0.713918] usbcore: registered new interface driver usbhid
+[    0.719504] usbhid: USB HID core driver
+[    0.723964] hw perfevents: enabled with armv8_cortex_a53 PMU driver, 7 counters available
+[    0.733420] NET: Registered PF_PACKET protocol family
+[    0.738558] Bluetooth: RFCOMM TTY layer initialized
+[    0.743441] Bluetooth: RFCOMM socket layer initialized
+[    0.748620] Bluetooth: RFCOMM ver 1.11
+[    0.752377] Bluetooth: BNEP (Ethernet Emulation) ver 1.3
+[    0.757701] Bluetooth: BNEP filters: protocol multicast
+[    0.762930] Bluetooth: BNEP socket layer initialized
+[    0.767903] Bluetooth: HIDP (Human Interface Emulation) ver 1.2
+[    0.773825] Bluetooth: HIDP socket layer initialized
+[    0.783311] Loading compiled-in X.509 certificates
+[    0.801597] platform 1100000.mixer: Fixed dependency cycle(s) with /soc/tcon-top@6510000/ports/port@0/endpoint@0
+[    0.813781] gpio gpiochip0: Static allocation of GPIO base is deprecated, use dynamic allocation.
+[    0.829893] sun50i-h616-pinctrl 300b000.pinctrl: initialized sunXi PIO driver
+[    0.837343] gpio gpiochip1: Static allocation of GPIO base is deprecated, use dynamic allocation.
+[    0.846369] sun50i-h616-r-pinctrl 7022000.pinctrl: initialized sunXi PIO driver
+[    0.854359] debugfs: Directory '1100000.mixer' with parent 'regmap' already present!
+[    0.862197] debugfs: Directory '1100000.mixer' with parent 'regmap' already present!
+[    0.885778] sun4i-drm display-engine: bound 1100000.mixer (ops 0xffffffc0807aca80)
+[    0.893475] sun4i-drm display-engine: bound 6510000.tcon-top (ops 0xffffffc0807b15a8)
+[    0.901570] sun4i-drm display-engine: bound 6515000.lcd-controller (ops 0xffffffc0807a9f90)
+[    0.909982] sun8i-dw-hdmi 6000000.hdmi: supply hvcc not found, using dummy regulator
+[    0.917941] sun8i-dw-hdmi 6000000.hdmi: Detected HDMI TX controller v2.12a with HDCP (DWC HDMI 2.0 TX PHY)
+[    0.927996] sun8i-dw-hdmi 6000000.hdmi: registered DesignWare HDMI I2C bus driver
+[    0.935653] sun4i-drm display-engine: bound 6000000.hdmi (ops 0xffffffc0807abb40)
+[    0.943500] [drm] Initialized sun4i-drm 1.0.0 20150629 for display-engine on minor 0
+[    0.951332] sun4i-drm display-engine: [drm] Cannot find any crtc or sizes
+[    0.958207] sun4i-drm display-engine: [drm] Cannot find any crtc or sizes
+[    0.965970] dwmac-sun8i 5020000.ethernet: IRQ eth_wake_irq not found
+[    0.972384] dwmac-sun8i 5020000.ethernet: IRQ eth_lpi not found
+[    0.978573] dwmac-sun8i 5020000.ethernet: PTP uses main clock
+[    0.984332] dwmac-sun8i 5020000.ethernet: Current syscon value is not the default 51fe6 (expect 0)
+[    0.993420] dwmac-sun8i 5020000.ethernet: No HW DMA feature register supported
+[    1.000657] dwmac-sun8i 5020000.ethernet: RX Checksum Offload Engine supported
+[    1.007890] dwmac-sun8i 5020000.ethernet: COE Type 2
+[    1.012856] dwmac-sun8i 5020000.ethernet: TX Checksum insertion supported
+[    1.019651] dwmac-sun8i 5020000.ethernet: Normal descriptors
+[    1.025310] dwmac-sun8i 5020000.ethernet: Chain mode enabled
+[    1.036316] ehci-platform 5200000.usb: EHCI Host Controller
+[    1.040009] ehci-platform 5310000.usb: EHCI Host Controller
+[    1.040087] ohci-platform 5310400.usb: Generic Platform OHCI controller
+[    1.040107] ohci-platform 5310400.usb: new USB bus registered, assigned bus number 1
+[    1.040146] ohci-platform 5311400.usb: Generic Platform OHCI controller
+[    1.040164] ohci-platform 5311400.usb: new USB bus registered, assigned bus number 2
+[    1.040272] ohci-platform 5310400.usb: irq 290, io mem 0x05310400
+[    1.040287] ohci-platform 5311400.usb: irq 291, io mem 0x05311400
+[    1.041929] ehci-platform 5200000.usb: new USB bus registered, assigned bus number 3
+[    1.047634] ehci-platform 5311000.usb: EHCI Host Controller
+[    1.047682] ohci-platform 5200400.usb: Generic Platform OHCI controller
+[    1.047697] ohci-platform 5200400.usb: new USB bus registered, assigned bus number 4
+[    1.047752] ohci-platform 5200400.usb: irq 293, io mem 0x05200400
+[    1.054149] ehci-platform 5200000.usb: irq 288, io mem 0x05200000
+[    1.061828] ehci-platform 5310000.usb: new USB bus registered, assigned bus number 5
+[    1.061971] ehci-platform 5311000.usb: new USB bus registered, assigned bus number 6
+[    1.062032] ehci-platform 5311000.usb: irq 292, io mem 0x05311000
+[    1.068494] cfg80211: Loading compiled-in X.509 certificates for regulatory database
+[    1.076177] ehci-platform 5310000.usb: irq 289, io mem 0x05310000
+[    1.086684] ehci-platform 5311000.usb: USB 2.0 started, EHCI 1.00
+[    1.088437] sunxi-mmc 4020000.mmc: Got CD GPIO
+[    1.089118] Loaded X.509 cert 'sforshee: 00b28ddf47aef9cea7'
+[    1.089153] clk: Not disabling unused clocks
+[    1.089158] ALSA device list:
+[    1.089161]   No soundcards found.
+[    1.089232] platform regulatory.0: Direct firmware load for regulatory.db failed with error -2
+[    1.089239] cfg80211: failed to load regulatory.db
+[    1.096136] usb usb6: New USB device found, idVendor=1d6b, idProduct=0002, bcdDevice= 6.07
+[    1.113643] sunxi-mmc 4022000.mmc: initialized, max. request size: 2048 KB, uses new timings mode
+[    1.115948] usb usb6: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    1.126740] ehci-platform 5200000.usb: USB 2.0 started, EHCI 1.00
+[    1.126787] sunxi-mmc 4020000.mmc: initialized, max. request size: 16384 KB, uses new timings mode
+[    1.128119] usb usb6: Product: EHCI Host Controller
+[    1.156668] ehci-platform 5310000.usb: USB 2.0 started, EHCI 1.00
+[    1.157402] usb usb6: Manufacturer: Linux 6.7.0-rc3+ ehci_hcd
+[    1.183095] mmc0: host does not support reading read-only switch, assuming write-enable
+[    1.183921] usb usb6: SerialNumber: 5311000.usb
+[    1.188676] mmc0: new high speed SDHC card at address 0001
+[    1.190597] hub 6-0:1.0: USB hub found
+[    1.199426] mmcblk0: mmc0:0001 GB1QT 29.8 GiB
+[    1.203697] hub 6-0:1.0: 1 port detected
+[    1.213495]  mmcblk0: p1 p2
+[    1.243132] usb usb4: New USB device found, idVendor=1d6b, idProduct=0001, bcdDevice= 6.07
+[    1.248882] mmc1: new HS200 MMC card at address 0001
+[    1.254012] usb usb4: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    1.260148] mmcblk1: mmc1:0001 Y2P032 29.1 GiB
+[    1.267740] usb usb4: Product: Generic Platform OHCI controller
+[    1.267745] usb usb4: Manufacturer: Linux 6.7.0-rc3+ ohci_hcd
+[    1.273560] mmcblk1boot0: mmc1:0001 Y2P032 4.00 MiB
+[    1.277744] usb usb4: SerialNumber: 5200400.usb
+[    1.282272] mmcblk1boot1: mmc1:0001 Y2P032 4.00 MiB
+[    1.286093] hub 4-0:1.0: USB hub found
+[    1.347311] hub 4-0:1.0: 1 port detected
+[    1.351501] usb usb1: New USB device found, idVendor=1d6b, idProduct=0001, bcdDevice= 6.07
+[    1.359778] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    1.367015] usb usb1: Product: Generic Platform OHCI controller
+[    1.372932] usb usb1: Manufacturer: Linux 6.7.0-rc3+ ohci_hcd
+[    1.378682] usb usb1: SerialNumber: 5310400.usb
+[    1.383457] hub 1-0:1.0: USB hub found
+[    1.387229] hub 1-0:1.0: 1 port detected
+[    1.391417] usb usb3: New USB device found, idVendor=1d6b, idProduct=0002, bcdDevice= 6.07
+[    1.399702] usb usb3: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    1.406942] usb usb3: Product: EHCI Host Controller
+[    1.411824] usb usb3: Manufacturer: Linux 6.7.0-rc3+ ehci_hcd
+[    1.417587] usb usb3: SerialNumber: 5200000.usb
+[    1.422422] hub 3-0:1.0: USB hub found
+[    1.426193] hub 3-0:1.0: 1 port detected
+[    1.430450] usb usb2: New USB device found, idVendor=1d6b, idProduct=0001, bcdDevice= 6.07
+[    1.438724] usb usb2: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    1.445942] usb usb2: Product: Generic Platform OHCI controller
+[    1.451926] usb usb2: Manufacturer: Linux 6.7.0-rc3+ ohci_hcd
+[    1.457766] usb usb2: SerialNumber: 5311400.usb
+[    1.462564] hub 2-0:1.0: USB hub found
+[    1.466330] hub 2-0:1.0: 1 port detected
+[    1.470552] usb usb5: New USB device found, idVendor=1d6b, idProduct=0002, bcdDevice= 6.07
+[    1.478830] usb usb5: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    1.486053] usb usb5: Product: EHCI Host Controller
+[    1.490938] usb usb5: Manufacturer: Linux 6.7.0-rc3+ ehci_hcd
+[    1.496694] usb usb5: SerialNumber: 5310000.usb
+[    1.501501] hub 5-0:1.0: USB hub found
+[    1.505329] hub 5-0:1.0: 1 port detected
+[    1.524070] EXT4-fs (mmcblk0p2): mounted filesystem 0afa8651-3409-4f53-ace8-035cbad5e2be r/w with ordered data mode. Quota mode: disabled.
+[    1.526688] usb 6-1: new high-speed USB device number 2 using ehci-platform
+[    1.536555] VFS: Mounted root (ext4 filesystem) on device 179:2.
+[    1.550422] devtmpfs: mounted
+[    1.553531] Freeing unused kernel memory: 384K
+[    1.558055] Run /sbin/init as init process
+[    1.562154]   with arguments:
+[    1.562157]     /sbin/init
+[    1.562161]   with environment:
+[    1.562163]     HOME=/
+[    1.562166]     TERM=linux
+[    1.757579] usb 6-1: New USB device found, idVendor=a69c, idProduct=8d80, bcdDevice= 1.00
+[    1.765810] usb 6-1: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[    1.772985] usb 6-1: Product: AIC Wlan
+[    1.776758] usb 6-1: Manufacturer: aicsemi
+[    1.780866] usb 6-1: SerialNumber: 20220103
+[    2.287961] systemd[1]: Failed to find module 'autofs4'
+[    2.325464] systemd[1]: systemd 254.5-1 running in system mode (+PAM +AUDIT +SELINUX +APPARMOR +IMA +SMACK +SECCOMP +GCRYPT -GNUTLS +OPENSSL +ACL +BLKID +CURL +ELFUTILS +FIDO2 +IDN2 -IDN +IPTC +KMOD +LIBCRYPTSETUP +LIBFDISK +PCRE2 -PWQUALITY +P11KIT +QRENCODE +TPM2 +BZIP2 +LZ4 +XZ +ZLIB +ZSTD -BPF_FRAMEWORK -XKBCOMMON +UTMP +SYSVINIT default-hierarchy=unified)
+[    2.357486] systemd[1]: Detected architecture arm64.
+[    2.403884] systemd[1]: Hostname set to <longan>.
+[    3.131742] systemd[1]: Configuration file /etc/systemd/system/firstboot.service is marked executable. Please remove executable permission bits. Proceeding anyway.
+[    3.163592] systemd[1]: Queued start job for default target graphical.target.
+[    3.243090] systemd[1]: Created slice system-getty.slice - Slice /system/getty.
+[    3.287885] systemd[1]: Created slice system-modprobe.slice - Slice /system/modprobe.
+[    3.329336] systemd[1]: Created slice system-serial\x2dgetty.slice - Slice /system/serial-getty.
+[    3.378517] systemd[1]: Created slice user.slice - User and Session Slice.
+[    3.417211] systemd[1]: Started systemd-ask-password-console.path - Dispatch Password Requests to Console Directory Watch.
+[    3.467168] systemd[1]: Started systemd-ask-password-wall.path - Forward Password Requests to Wall Directory Watch.
+[    3.507005] systemd[1]: proc-sys-fs-binfmt_misc.automount - Arbitrary Executable File Formats File System Automount Point was skipped because of an unmet condition check (ConditionPathExists=/proc/sys/fs/binfmt_misc).
+[    3.526552] systemd[1]: Reached target cryptsetup.target - Local Encrypted Volumes.
+[    3.566787] systemd[1]: Reached target integritysetup.target - Local Integrity Protected Volumes.
+[    3.606964] systemd[1]: Reached target paths.target - Path Units.
+[    3.646828] systemd[1]: Reached target remote-cryptsetup.target - Remote Encrypted Volumes.
+[    3.686804] systemd[1]: Reached target remote-fs.target - Remote File Systems.
+[    3.726837] systemd[1]: Reached target remote-veritysetup.target - Remote Verity Protected Volumes.
+[    3.766815] systemd[1]: Reached target slices.target - Slice Units.
+[    3.806864] systemd[1]: Reached target swap.target - Swaps.
+[    3.846864] systemd[1]: Reached target veritysetup.target - Local Verity Protected Volumes.
+[    3.887413] systemd[1]: Listening on systemd-initctl.socket - initctl Compatibility Named Pipe.
+[    3.951527] systemd[1]: systemd-journald-audit.socket - Journal Audit Socket was skipped because of an unmet condition check (ConditionSecurity=audit).
+[    3.965961] systemd[1]: Listening on systemd-journald-dev-log.socket - Journal Socket (/dev/log).
+[    4.017843] systemd[1]: Listening on systemd-journald.socket - Journal Socket.
+[    4.058072] systemd[1]: Listening on systemd-networkd.socket - Network Service Netlink Socket.
+[    4.099089] systemd[1]: Listening on systemd-udevd-control.socket - udev Control Socket.
+[    4.137182] systemd[1]: Listening on systemd-udevd-kernel.socket - udev Kernel Socket.
+[    4.177463] systemd[1]: dev-hugepages.mount - Huge Pages File System was skipped because of an unmet condition check (ConditionPathExists=/sys/kernel/mm/hugepages).
+[    4.227020] systemd[1]: Mounting dev-mqueue.mount - POSIX Message Queue File System...
+[    4.273267] systemd[1]: Mounting sys-kernel-debug.mount - Kernel Debug File System...
+[    4.317422] systemd[1]: sys-kernel-tracing.mount - Kernel Trace File System was skipped because of an unmet condition check (ConditionPathExists=/sys/kernel/tracing).
+[    4.333186] systemd[1]: kmod-static-nodes.service - Create List of Static Device Nodes was skipped because of an unmet condition check (ConditionFileNotEmpty=/lib/modules/6.7.0-rc3+/modules.devname).
+[    4.354304] systemd[1]: Starting modprobe@configfs.service - Load Kernel Module configfs...
+[    4.402307] systemd[1]: Starting modprobe@dm_mod.service - Load Kernel Module dm_mod...
+[    4.454533] systemd[1]: Starting modprobe@drm.service - Load Kernel Module drm...
+[    4.501319] systemd[1]: Starting modprobe@efi_pstore.service - Load Kernel Module efi_pstore...
+[    4.551495] systemd[1]: Starting modprobe@fuse.service - Load Kernel Module fuse...
+[    4.591411] systemd[1]: Starting modprobe@loop.service - Load Kernel Module loop...
+[    4.630970] systemd[1]: Starting nftables.service - nftables...
+[    4.667882] systemd[1]: systemd-journald.service: unit configures an IP firewall, but the local system does not support BPF/cgroup firewalling.
+[    4.680825] systemd[1]: systemd-journald.service: (This warning is only shown for the first unit using IP firewalling.)
+[    4.694312] systemd[1]: Starting systemd-journald.service - Journal Service...
+[    4.744889] systemd[1]: Starting systemd-modules-load.service - Load Kernel Modules...
+[    4.790847] systemd[1]: Starting systemd-network-generator.service - Generate network units from Kernel command line...
+[    4.805696] systemd-journald[112]: Collecting audit messages is disabled.
+[    4.846983] systemd[1]: systemd-pcrmachine.service - TPM2 PCR Machine ID Measurement was skipped because of an unmet condition check (ConditionPathExists=/sys/firmware/efi/efivars/StubPcrKernelImage-4a67b082-0a4c-41cf-b6c7-440b29bb8c4f).
+[    4.871365] systemd[1]: Starting systemd-remount-fs.service - Remount Root and Kernel File Systems...
+[    4.920164] systemd[1]: Starting systemd-tmpfiles-setup-dev-early.service - Create Static Device Nodes in /dev gracefully...
+[    4.980164] systemd[1]: Starting systemd-udev-trigger.service - Coldplug All udev Devices...
+[    5.033992] systemd[1]: Started systemd-journald.service - Journal Service.
+[    5.909808] systemd-journald[112]: Received client request to flush runtime journal.
+[    6.026226] systemd-journald[112]: /var/log/journal/38b4b202a39441db8c6b7bf9a3b9d26f/system.journal: Journal file uses a different sequence number ID, rotating.
+[    6.040619] systemd-journald[112]: Rotating system journal.
+[    6.983644] dwmac-sun8i 5020000.ethernet end0: renamed from eth0
+[    7.194899] aic_bluetooth_mod_init
+[    7.198613] RELEASE DATE:2023_0904_1726
+[    7.217405] Aic high speed USB device detected
+[    7.222463] chip_id=7
+[    7.224735] aic_load_firmware :firmware path = /lib/firmware/aic8800D80/fw_patch_table_8800d80_u02.bin
+[    7.236408] file md5:60c393e1fc0f7e3890da25727a7662f1
+[    7.241566] ### Upload fw_patch_table_8800d80_u02.bin fw_patch_table, size=928
+[    7.248863] addr_adid 0x201940, addr_patch 0x1e0000
+[    7.253742] aic_load_firmware :firmware path = /lib/firmware/aic8800D80/fw_adid_8800d80_u02.bin
+[    7.263388] file md5:f546881a81b960d89a672578eb45a809
+[    7.268561] ### Upload fw_adid_8800d80_u02.bin firmware, @ = 201940  size=1708
+[    7.276318] fw download complete
+
+[    7.282012] aic_load_firmware :firmware path = /lib/firmware/aic8800D80/fw_patch_8800d80_u02.bin
+[    7.294171] file md5:d37a01aea149ecee1bfcdb8c636ebb54
+[    7.300249] ### Upload fw_patch_8800d80_u02.bin firmware, @ = 1e0000  size=21392
+[    7.314315] fw download complete
+
+[    7.330194] patch version - Sep 04 2023 16:21:02 - git b720037
+[    7.336067] aic_load_firmware :firmware path = /lib/firmware/aic8800D80/fmacfw_8800d80_u02.bin
+[    7.362304] file md5:0d89292dbb1fd11659f8f2a32eb51b44
+[    7.367486] ### Upload fmacfw_8800d80_u02.bin firmware, @ = 120000  size=319357
+[    7.419489] fw download complete
+
+[    7.441285] usbcore: registered new interface driver aic_load_fw
+[    7.450799] usb 6-1: USB disconnect, device number 2
+[    7.463257] app_cmp
+[    7.466257] aicwf_usb_disconnect enter
+[    7.476244] aicwf_bus_deinit
+[    7.995611] q_sz/max:  0 /  8 - next tkn: 433
+[    8.002873] q_sz/max:  0 /  8 - next tkn: 433
+[    8.007261] usb_err:<aicwf_usb_rx_submit_all_urb,230>: bus is not up=0
+[    8.013800] usb bustx thread will to stop
+[    8.019188] usb bustx thread stop
+[    8.023879] exit aicwf_bus_deinit
+[    8.028689] usb busrx thread will to stop
+[    8.033948] usb busrx thread stop
+[    8.387354] usb 6-1: new high-speed USB device number 3 using ehci-platform
+[    8.607696] usb 6-1: New USB device found, idVendor=a69c, idProduct=8d81, bcdDevice= 1.00
+[    8.615906] usb 6-1: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[    8.638436] usb 6-1: Product: AIC 8800D80
+[    8.642451] usb 6-1: Manufacturer: AICSemi
+[    8.646545] usb 6-1: SerialNumber: 20220103
+[    8.686654] aic_load_fw: probe of 6-1:1.2 failed with error -1
+[    8.747820] aic_btusb: AICBT_RELEASE_NAME: 202012_ANDROID
+[    8.759751] aic_btusb: AicSemi Bluetooth USB driver module init, version 2.1.0
+[    8.768068] aic_btusb: RELEASE DATE: 2023_0506_1635
+[    8.776152] aic_btusb: Register usb char device interface for BT driver
+[    8.801495] usbcore: registered new interface driver aic_btusb
+[    9.116686] random: crng init done
+[   10.510288] Bluetooth: MGMT ver 1.22
+[   11.309485] dwmac-sun8i 5020000.ethernet end0: Register MEM_TYPE_PAGE_POOL RxQ-0
+[   11.516721] dwmac-sun8i 5020000.ethernet end0: PHY [stmmac-0:01] driver [RTL8211F Gigabit Ethernet] (irq=POLL)
+[   11.526849] dwmac-sun8i 5020000.ethernet end0: No Safety Features support found
+[   11.534169] dwmac-sun8i 5020000.ethernet end0: No MAC Management Counters available
+[   11.546508] dwmac-sun8i 5020000.ethernet end0: PTP not supported by HW
+[   11.559012] dwmac-sun8i 5020000.ethernet end0: configuring for phy/rgmii link mode
+[   11.607434] rwnx_reg_notifier Enter
+[   11.636260] ieee80211 phy0:
+               *******************************************************
+               ** CAUTION: USING PERMISSIVE CUSTOM REGULATORY RULES **
+               *******************************************************
+[   11.692116] usbcore: registered new interface driver aic8800_fdrv
+[   11.718118] usb 6-1 wlxe8519ee8fa4a: renamed from wlan0
+[   13.668442] dwmac-sun8i 5020000.ethernet end0: Link is Up - 100Mbps/Full - flow control rx/tx

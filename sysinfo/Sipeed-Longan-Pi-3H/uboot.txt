@@ -1,0 +1,34 @@
+U-Boot 2024.01-rc2-00062-gda2e3196e4-dirty (Dec 20 2023 - 10:11:45 +0000) Allwinner Technology
+
+CPU:   Allwinner H616 (SUN50I)
+Model: LonganPi 3H
+DRAM:  4 GiB
+Core:  48 devices, 19 uclasses, devicetree: separate
+WDT:   Not starting watchdog@30090a0
+MMC:   mmc@4020000: 0, mmc@4022000: 1
+Loading Environment from FAT... Unable to read "uboot.env" from mmc0:1...
+In:    serial@5000000
+Out:   serial@5000000
+Err:   serial@5000000
+Net:   eth0: ethernet@5020000
+Unknown command 'usb' - try 'help'
+Hit any key to stop autoboot:  0
+switch to partitions #0, OK
+mmc0 is current device
+Scanning mmc 0:1...
+Found /extlinux/extlinux.conf
+Retrieving file: /extlinux/extlinux.conf
+U-Boot menu
+1:  Linux
+Enter choice: 1:    Linux
+Retrieving file: /Image
+append: root=/dev/mmcblk0p2 console=tty1 console=ttyS0,115200 rootwait rw earlycon clk_ignore_unused
+Retrieving file: /dtbs/allwinner/sun50i-h618-longanpi-3h.dtb
+Moving Image from 0x40080000 to 0x40200000, end=40cf0000
+## Flattened Device Tree blob at 4fa00000
+   Booting using the fdt blob at 0x4fa00000
+Working FDT set to 4fa00000
+   Loading Device Tree to 0000000049ff8000, end 0000000049fffd38 ... OK
+Working FDT set to 49ff8000
+
+Starting kernel ...

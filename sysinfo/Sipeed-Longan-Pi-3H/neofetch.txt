@@ -1,0 +1,12 @@
+vak@longan 
+---------- 
+OS: Debian GNU/Linux trixie/sid aarch64 
+Host: Sipeed Longan Pi 3H 
+Kernel: 6.7.0-rc3+ 
+Uptime: 2 hours, 23 mins 
+Packages: 688 (dpkg) 
+Shell: bash 5.2.21 
+Terminal: /dev/pts/1 
+CPU: (4) @ 1.416GHz 
+Memory: 87MiB / 3947MiB 
+
