@@ -1,0 +1,33 @@
+0000:00:00.0 PCI bridge: PLDA XpressRich-AXI Ref Design (rev 02) (prog-if 00 [Normal decode])
+	Flags: bus master, fast devsel, latency 0, IRQ 34
+	Bus: primary=00, secondary=01, subordinate=01, sec-latency=0
+	Memory behind bridge: 30000000-300fffff [size=1M] [32-bit]
+	Capabilities: [80] Express Root Port (Slot+), MSI 00
+	Capabilities: [e0] MSI: Enable+ Count=1/32 Maskable+ 64bit+
+	Capabilities: [f8] Power Management version 3
+	Capabilities: [100] Vendor Specific Information: ID=1556 Rev=1 Len=008 <?>
+	Capabilities: [200] Advanced Error Reporting
+	Kernel driver in use: pcieport
+
+0000:01:00.0 USB controller: VIA Technologies, Inc. VL805/806 xHCI USB 3.0 Controller (rev 01) (prog-if 30 [XHCI])
+	Subsystem: VIA Technologies, Inc. VL805/806 xHCI USB 3.0 Controller
+	Flags: bus master, fast devsel, latency 0, IRQ 77
+	Memory at 30000000 (64-bit, non-prefetchable) [size=4K]
+	Capabilities: [80] Power Management version 3
+	Capabilities: [90] MSI: Enable+ Count=1/4 Maskable- 64bit+
+	Capabilities: [c4] Express Endpoint, MSI 00
+	Capabilities: [100] Advanced Error Reporting
+	Kernel driver in use: xhci_hcd
+	Kernel modules: xhci_pci
+
+0001:00:00.0 PCI bridge: PLDA XpressRich-AXI Ref Design (rev 02) (prog-if 00 [Normal decode])
+	Flags: bus master, fast devsel, latency 0, IRQ 50
+	Bus: primary=00, secondary=01, subordinate=01, sec-latency=0
+	Memory behind bridge: [disabled] [32-bit]
+	Capabilities: [80] Express Root Port (Slot+), MSI 00
+	Capabilities: [e0] MSI: Enable+ Count=1/32 Maskable+ 64bit+
+	Capabilities: [f8] Power Management version 3
+	Capabilities: [100] Vendor Specific Information: ID=1556 Rev=1 Len=008 <?>
+	Capabilities: [200] Advanced Error Reporting
+	Kernel driver in use: pcieport
+

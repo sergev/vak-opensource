@@ -1,0 +1,12 @@
+vak@visionfive2 
+--------------- 
+OS: Ubuntu 23.10 riscv64 
+Host: StarFive VisionFive 2 v1.3B 
+Kernel: 6.5.0-14-generic 
+Uptime: 28 mins 
+Packages: 894 (dpkg), 4 (snap) 
+Shell: bash 5.2.15 
+Terminal: /dev/pts/0 
+CPU: (4) @ 1.500GHz 
+Memory: 299MiB / 7932MiB 
+
