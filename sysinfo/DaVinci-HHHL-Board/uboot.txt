@@ -1,0 +1,51 @@
+U-Boot 2023.01 (Jul 18 2023 - 00:30:14 +0000)
+
+Model: SiMa.ai DaVinci Half-Height-Half-Length Board
+Board: SiMa.ai HHHL board
+U-boot device tree name: simaai-davinci-hhhl.dtb
+Linux device tree name: davinci-hhhl.dtb
+DRAM:
+DDR INIT: Target DDR controller frequency: 933MHz
+DDR INIT: DDR initialization successful for all controllers
+DDR INITIALIZATION SUMMARY
+DDR 0: PASSED
+DDR 1: PASSED
+DDR 2: PASSED
+DDR 3: PASSED
+2 GiB
+Core:  19 devices, 10 uclasses, devicetree: fit
+WDT:   Started watchdog@0x700000 with servicing every 1000ms (60s timeout)
+MMC:   mmc@00716000: 0, mmc@00717000: 1
+Loading Environment from FAT... OK
+In:    uart@0070d000
+Out:   uart@0070d000
+Err:   uart@0070d000
+ETHPHY INIT: Initialization successful for all controllers
+ETHPHY INITIALIZATION SUMMARY
+ETHPHY 0: PASSED
+ETHPHY 1: PASSED
+ETHPHY 2: PASSED
+ETHPHY 3: PASSED
+Net:   eth0: ethernet@1000000 [PRIME], eth1: ethernet@1200000
+Hit any key to stop autoboot:  0
+MMC: no card present
+switch to partitions #0, OK
+mmc0(part 0) is current device
+Scanning mmc 0:3...
+Found U-Boot script /boot-0/boot.scr.uimg
+1578 bytes read in 20 ms (76.2 KiB/s)
+## Executing script at 90000000
+16222 bytes read in 19 ms (833 KiB/s)
+16790016 bytes read in 390 ms (41.1 MiB/s)
+Moving Image from 0xc0080000 to 0xc0200000, end=c1280000
+## Flattened Device Tree blob at c8000000
+   Booting using the fdt blob at 0xc8000000
+Working FDT set to c8000000
+ERROR: reserving fdt memory region failed (addr=120000000 size=20000000 flags=4)
+   Loading Device Tree to 00000000fee5b000, end 00000000fee61f5d ... OK
+Working FDT set to fee5b000
+Disabled node /pcie_ep@1800000 in dtb
+Updated size of /reserved-memory/ocm@0 to 0x00400000 bytes in dtb
+Updated size of /reserved-memory/ocm@300000 to 0x00000000 bytes in dtb
+
+Starting kernel ...

@@ -1,0 +1,389 @@
+[    0.000000] Booting Linux on physical CPU 0x0000000000 [0x411fd062]
+[    0.000000] Linux version 6.1.22 (oe-user@oe-host) (aarch64-poky-linux-gcc (GCC) 11.3.0, GNU ld (GNU Binutils) 2.38.20220708) #1 SMP PREEMPT Wed Dec 20 20:15:59 UTC 2023
+[    0.000000] Machine model: SiMa.ai DaVinci Half-Height-Half-Length Board
+[    0.000000] efi: UEFI not found.
+[    0.000000] OF: fdt: Reserved memory: failed to reserve memory for node 'ocm@300000': base 0x0000000000400000, size 0 MiB
+[    0.000000] Reserved memory: created DMA memory pool at 0x0000000000000000, size 4 MiB
+[    0.000000] OF: reserved mem: initialized node ocm@0, compatible id shared-dma-pool
+[    0.000000] Reserved memory: created DMA memory pool at 0x0000000088000000, size 128 MiB
+[    0.000000] OF: reserved mem: initialized node evmem@0x88000000, compatible id shared-dma-pool
+[    0.000000] Reserved memory: created CMA memory pool at 0x00000000a0000000, size 512 MiB
+[    0.000000] OF: reserved mem: initialized node linux,cma, compatible id shared-dma-pool
+[    0.000000] Reserved memory: created DMA memory pool at 0x0000000100000000, size 1536 MiB
+[    0.000000] OF: reserved mem: initialized node dms@0x100000000, compatible id shared-dma-pool
+[    0.000000] Reserved memory: created DMA memory pool at 0x00000001e0000000, size 2048 MiB
+[    0.000000] OF: reserved mem: initialized node dms@0x200000000, compatible id shared-dma-pool
+[    0.000000] Reserved memory: created DMA memory pool at 0x00000002c0000000, size 2560 MiB
+[    0.000000] OF: reserved mem: initialized node dms@0x300000000, compatible id shared-dma-pool
+[    0.000000] Reserved memory: created DMA memory pool at 0x0000000380000000, size 2560 MiB
+[    0.000000] OF: reserved mem: initialized node dms@0x380000000, compatible id shared-dma-pool
+[    0.000000] NUMA: No NUMA configuration found
+[    0.000000] NUMA: Faking a node at [mem 0x00000000a0000000-0x000000045fffffff]
+[    0.000000] NUMA: NODE_DATA [mem 0x45f6d8b00-0x45f6dafff]
+[    0.000000] Zone ranges:
+[    0.000000]   DMA      [mem 0x00000000a0000000-0x00000000ffffffff]
+[    0.000000]   DMA32    empty
+[    0.000000]   Normal   [mem 0x0000000100000000-0x000000045fffffff]
+[    0.000000] Movable zone start for each node
+[    0.000000] Early memory node ranges
+[    0.000000]   node   0: [mem 0x00000000a0000000-0x00000000ffffffff]
+[    0.000000]   node   0: [mem 0x0000000100000000-0x000000015fffffff]
+[    0.000000]   node   0: [mem 0x0000000180000000-0x000000019fffffff]
+[    0.000000]   node   0: [mem 0x00000001a0000000-0x00000001bfffffff]
+[    0.000000]   node   0: [mem 0x00000001c0000000-0x00000001dfffffff]
+[    0.000000]   node   0: [mem 0x00000001e0000000-0x000000025fffffff]
+[    0.000000]   node   0: [mem 0x0000000280000000-0x00000002bfffffff]
+[    0.000000]   node   0: [mem 0x00000002c0000000-0x000000035fffffff]
+[    0.000000]   node   0: [mem 0x0000000380000000-0x000000041fffffff]
+[    0.000000]   node   0: [mem 0x0000000420000000-0x000000045fffffff]
+[    0.000000] Initmem setup node 0 [mem 0x00000000a0000000-0x000000045fffffff]
+[    0.000000] percpu: Embedded 28 pages/cpu s74920 r8192 d31576 u114688
+[    0.000000] pcpu-alloc: s74920 r8192 d31576 u114688 alloc=28*4096
+[    0.000000] pcpu-alloc: [0] 0 [0] 1 [0] 2 [0] 3 [0] 4 [0] 5 [0] 6 [0] 7
+[    0.000000] Detected VIPT I-cache on CPU0
+[    0.000000] CPU features: detected: GIC system register CPU interface
+[    0.000000] CPU features: detected: Virtualization Host Extensions
+[    0.000000] CPU features: detected: Hardware dirty bit management
+[    0.000000] CPU features: detected: Spectre-v4
+[    0.000000] alternatives: applying boot alternatives
+[    0.000000] Fallback order for Node 0: 0
+[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 3483648
+[    0.000000] Policy zone: Normal
+[    0.000000] Kernel command line: console=ttyS0,115200n8 netcfg=dhcp root=/dev/mmcblk1p1 rw rootwait
+[    0.000000] Unknown kernel command line parameters "netcfg=dhcp", will be passed to user space.
+[    0.000000] Dentry cache hash table entries: 2097152 (order: 12, 16777216 bytes, linear)
+[    0.000000] Inode-cache hash table entries: 1048576 (order: 11, 8388608 bytes, linear)
+[    0.000000] mem auto-init: stack:off, heap alloc:off, heap free:off
+[    0.000000] software IO TLB: area num 8.
+[    0.000000] software IO TLB: mapped [mem 0x00000000fae56000-0x00000000fee56000] (64MB)
+[    0.000000] Memory: 3855052K/14155776K available (9280K kernel code, 1740K rwdata, 2908K rodata, 2368K init, 435K bss, 9776436K reserved, 524288K cma-reserved)
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=8, Nodes=1
+[    0.000000] trace event string verifier disabled
+[    0.000000] rcu: Preemptible hierarchical RCU implementation.
+[    0.000000] rcu: 	RCU event tracing is enabled.
+[    0.000000] rcu: 	RCU restricting CPUs from NR_CPUS=32 to nr_cpu_ids=8.
+[    0.000000] 	Trampoline variant of Tasks RCU enabled.
+[    0.000000] 	Tracing variant of Tasks RCU enabled.
+[    0.000000] rcu: RCU calculated value of scheduler-enlistment delay is 25 jiffies.
+[    0.000000] rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=8
+[    0.000000] NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
+[    0.000000] GICv3: GIC: Using split EOI/Deactivate mode
+[    0.000000] GICv3: 640 SPIs implemented
+[    0.000000] GICv3: 0 Extended SPIs implemented
+[    0.000000] Root IRQ handler: gic_handle_irq
+[    0.000000] GICv3: GICv3 features: 16 PPIs
+[    0.000000] GICv3: CPU0: found redistributor 0 region 0:0x0000000003240000
+[    0.000000] rcu: srcu_init: Setting srcu_struct sizes based on contention.
+[    0.000000] arch_timer: cp15 timer(s) running at 25.00MHz (phys).
+[    0.000000] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x5c40939b5, max_idle_ns: 440795202646 ns
+[    0.000001] sched_clock: 56 bits at 25MHz, resolution 40ns, wraps every 4398046511100ns
+[    0.000219] Console: colour dummy device 80x25
+[    0.000314] Calibrating delay loop (skipped), value calculated using timer frequency.. 50.00 BogoMIPS (lpj=100000)
+[    0.000327] pid_max: default: 32768 minimum: 301
+[    0.000392] LSM: Security Framework initializing
+[    0.000553] Mount-cache hash table entries: 32768 (order: 6, 262144 bytes, linear)
+[    0.000630] Mountpoint-cache hash table entries: 32768 (order: 6, 262144 bytes, linear)
+[    0.002696] cblist_init_generic: Setting adjustable number of callback queues.
+[    0.002717] cblist_init_generic: Setting shift to 3 and lim to 1.
+[    0.002824] cblist_init_generic: Setting shift to 3 and lim to 1.
+[    0.003050] rcu: Hierarchical SRCU implementation.
+[    0.003058] rcu: 	Max phase no-delay instances is 1000.
+[    0.003611] EFI services will not be available.
+[    0.004227] smp: Bringing up secondary CPUs ...
+[    0.004828] Detected VIPT I-cache on CPU1
+[    0.004952] GICv3: CPU1: found redistributor 1 region 0:0x0000000003260000
+[    0.005007] CPU1: Booted secondary processor 0x0000000001 [0x411fd062]
+[    0.005797] Detected VIPT I-cache on CPU2
+[    0.005916] GICv3: CPU2: found redistributor 100 region 0:0x0000000003280000
+[    0.005960] CPU2: Booted secondary processor 0x0000000100 [0x411fd062]
+[    0.006615] Detected VIPT I-cache on CPU3
+[    0.006709] GICv3: CPU3: found redistributor 101 region 0:0x00000000032a0000
+[    0.006742] CPU3: Booted secondary processor 0x0000000101 [0x411fd062]
+[    0.007385] Detected VIPT I-cache on CPU4
+[    0.007492] GICv3: CPU4: found redistributor 200 region 0:0x00000000032c0000
+[    0.007524] CPU4: Booted secondary processor 0x0000000200 [0x411fd062]
+[    0.008213] Detected VIPT I-cache on CPU5
+[    0.008306] GICv3: CPU5: found redistributor 201 region 0:0x00000000032e0000
+[    0.008336] CPU5: Booted secondary processor 0x0000000201 [0x411fd062]
+[    0.008925] Detected VIPT I-cache on CPU6
+[    0.009034] GICv3: CPU6: found redistributor 300 region 0:0x0000000003300000
+[    0.009065] CPU6: Booted secondary processor 0x0000000300 [0x411fd062]
+[    0.009657] Detected VIPT I-cache on CPU7
+[    0.009755] GICv3: CPU7: found redistributor 301 region 0:0x0000000003320000
+[    0.009782] CPU7: Booted secondary processor 0x0000000301 [0x411fd062]
+[    0.009872] smp: Brought up 1 node, 8 CPUs
+[    0.009883] SMP: Total of 8 processors activated.
+[    0.009890] CPU features: detected: Data cache clean to the PoU not required for I/D coherence
+[    0.009895] CPU features: detected: Common not Private translations
+[    0.009899] CPU features: detected: CRC32 instructions
+[    0.009903] CPU features: detected: RCpc load-acquire (LDAPR)
+[    0.009907] CPU features: detected: LSE atomic instructions
+[    0.009911] CPU features: detected: Privileged Access Never
+[    0.009915] CPU features: detected: RAS Extension Support
+[    0.009920] CPU features: detected: Speculative Store Bypassing Safe (SSBS)
+[    0.010033] CPU: All CPU(s) started at EL2
+[    0.010037] alternatives: applying system-wide alternatives
+[    0.015269] devtmpfs: initialized
+[    0.018305] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns
+[    0.018334] futex hash table entries: 2048 (order: 5, 131072 bytes, linear)
+[    0.029215] DMI not present or invalid.
+[    0.029863] NET: Registered PF_NETLINK/PF_ROUTE protocol family
+[    0.030962] DMA: preallocated 1024 KiB GFP_KERNEL pool for atomic allocations
+[    0.031382] DMA: preallocated 1024 KiB GFP_KERNEL|GFP_DMA pool for atomic allocations
+[    0.031743] DMA: preallocated 1024 KiB GFP_KERNEL|GFP_DMA32 pool for atomic allocations
+[    0.032434] thermal_sys: Registered thermal governor 'step_wise'
+[    0.032486] cpuidle: using governor menu
+[    0.032581] hw-breakpoint: found 6 breakpoint and 4 watchpoint registers.
+[    0.032768] ASID allocator initialised with 65536 entries
+[    0.038442] KASLR disabled due to lack of seed
+[    0.042610] HugeTLB: registered 1.00 GiB page size, pre-allocated 0 pages
+[    0.042619] HugeTLB: 0 KiB vmemmap can be freed for a 1.00 GiB page
+[    0.042625] HugeTLB: registered 32.0 MiB page size, pre-allocated 0 pages
+[    0.042629] HugeTLB: 0 KiB vmemmap can be freed for a 32.0 MiB page
+[    0.042633] HugeTLB: registered 2.00 MiB page size, pre-allocated 0 pages
+[    0.042637] HugeTLB: 0 KiB vmemmap can be freed for a 2.00 MiB page
+[    0.042642] HugeTLB: registered 64.0 KiB page size, pre-allocated 0 pages
+[    0.042645] HugeTLB: 0 KiB vmemmap can be freed for a 64.0 KiB page
+[    0.045505] pps_core: LinuxPPS API ver. 1 registered
+[    0.045513] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[    0.045541] PTP clock support registered
+[    0.045562] EDAC MC: Ver: 3.0.0
+[    0.046645] vgaarb: loaded
+[    0.047021] clocksource: Switched to clocksource arch_sys_counter
+[    0.047394] VFS: Disk quotas dquot_6.6.0
+[    0.047441] VFS: Dquot-cache hash table entries: 512 (order 0, 4096 bytes)
+[    0.054473] NET: Registered PF_INET protocol family
+[    0.055236] IP idents hash table entries: 262144 (order: 9, 2097152 bytes, linear)
+[    0.065120] tcp_listen_portaddr_hash hash table entries: 8192 (order: 5, 131072 bytes, linear)
+[    0.065272] Table-perturb hash table entries: 65536 (order: 6, 262144 bytes, linear)
+[    0.065307] TCP established hash table entries: 131072 (order: 8, 1048576 bytes, linear)
+[    0.065861] TCP bind hash table entries: 65536 (order: 9, 2097152 bytes, linear)
+[    0.067855] TCP: Hash tables configured (established 131072 bind 65536)
+[    0.068039] UDP hash table entries: 8192 (order: 6, 262144 bytes, linear)
+[    0.068262] UDP-Lite hash table entries: 8192 (order: 6, 262144 bytes, linear)
+[    0.068652] NET: Registered PF_UNIX/PF_LOCAL protocol family
+[    0.069179] RPC: Registered named UNIX socket transport module.
+[    0.069190] RPC: Registered udp transport module.
+[    0.069193] RPC: Registered tcp transport module.
+[    0.069197] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[    0.069206] PCI: CLS 0 bytes, default 64
+[    0.070197] hw perfevents: enabled with armv8_pmuv3 PMU driver, 7 counters available
+[    0.071964] workingset: timestamp_bits=42 max_order=21 bucket_order=0
+[    0.077368] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    0.078054] NFS: Registering the id_resolver key type
+[    0.078096] Key type id_resolver registered
+[    0.078100] Key type id_legacy registered
+[    0.078171] nfs4filelayout_init: NFSv4 File Layout Driver Registering...
+[    0.078177] nfs4flexfilelayout_init: NFSv4 Flexfile Layout Driver Registering...
+[    0.108901] io scheduler mq-deadline registered
+[    0.108915] io scheduler kyber registered
+[    0.113950] Serial: 8250/16550 driver, 4 ports, IRQ sharing enabled
+[    0.115314] printk: console [ttyS0] disabled
+[    0.135528] 70d000.uart: ttyS0 at MMIO 0x70d000 (irq = 17, base_baud = 3686400) is a U6_16550A
+[    1.268021] printk: console [ttyS0] enabled
+[    1.280861] loop: module loaded
+[    1.284349] simaai-memory simaai,memory-manager: Registered
+[    1.290069] simaai-memory simaai,ocm-manager: assigned reserved memory node ocm@0
+[    1.297684] simaai-memory simaai,ocm-manager: Registered
+[    1.303143] simaai-memory simaai,dms0-manager: assigned reserved memory node dms@0x100000000
+[    1.311727] simaai-memory simaai,dms0-manager: Registered
+[    1.317306] simaai-memory simaai,dms1-manager: assigned reserved memory node dms@0x200000000
+[    1.325887] simaai-memory simaai,dms1-manager: Registered
+[    1.331444] simaai-memory simaai,dms2-manager: assigned reserved memory node dms@0x300000000
+[    1.340032] simaai-memory simaai,dms2-manager: Registered
+[    1.345585] simaai-memory simaai,dms3-manager: assigned reserved memory node dms@0x380000000
+[    1.354172] simaai-memory simaai,dms3-manager: Registered
+[    1.359692] simaai-memory simaai,evmem-manager: assigned reserved memory node evmem@0x88000000
+[    1.368431] simaai-memory simaai,evmem-manager: Registered
+[    1.374516] tun: Universal TUN/TAP device driver, 1.6
+[    1.379961] stmmaceth 1000000.ethernet: IRQ eth_wake_irq not found
+[    1.386175] stmmaceth 1000000.ethernet: IRQ eth_lpi not found
+[    1.392056] stmmaceth 1000000.ethernet: Found APB XPCS subnode
+[    1.397968] stmmaceth 1000000.ethernet: PTP uses main clock
+[    1.403797] stmmaceth 1000000.ethernet: User ID: 0x10, Synopsys ID: 0x37
+[    1.410532] stmmaceth 1000000.ethernet: 	DWMAC1000
+[    1.415338] stmmaceth 1000000.ethernet: DMA HW capability register supported
+[    1.422395] stmmaceth 1000000.ethernet: RX Checksum Offload Engine supported
+[    1.429453] stmmaceth 1000000.ethernet: COE Type 2
+[    1.434251] stmmaceth 1000000.ethernet: TX Checksum insertion supported
+[    1.440870] stmmaceth 1000000.ethernet: Wake-Up On Lan supported
+[    1.446945] stmmaceth 1000000.ethernet: Enhanced/Alternate descriptors
+[    1.453482] stmmaceth 1000000.ethernet: Enabled extended descriptors
+[    1.459844] stmmaceth 1000000.ethernet: Ring mode enabled
+[    1.465259] stmmaceth 1000000.ethernet: Enable RX Mitigation via HW Watchdog Timer
+[    1.531031] stmmaceth 1000000.ethernet: Installled XPCS support
+[    1.537880] stmmaceth 1200000.ethernet: IRQ eth_wake_irq not found
+[    1.544096] stmmaceth 1200000.ethernet: IRQ eth_lpi not found
+[    1.549941] stmmaceth 1200000.ethernet: Found APB XPCS subnode
+[    1.555837] stmmaceth 1200000.ethernet: PTP uses main clock
+[    1.561612] stmmaceth 1200000.ethernet: User ID: 0x10, Synopsys ID: 0x37
+[    1.568342] stmmaceth 1200000.ethernet: 	DWMAC1000
+[    1.573145] stmmaceth 1200000.ethernet: DMA HW capability register supported
+[    1.580200] stmmaceth 1200000.ethernet: RX Checksum Offload Engine supported
+[    1.587254] stmmaceth 1200000.ethernet: COE Type 2
+[    1.592058] stmmaceth 1200000.ethernet: TX Checksum insertion supported
+[    1.598678] stmmaceth 1200000.ethernet: Wake-Up On Lan supported
+[    1.604760] stmmaceth 1200000.ethernet: Enhanced/Alternate descriptors
+[    1.611299] stmmaceth 1200000.ethernet: Enabled extended descriptors
+[    1.617661] stmmaceth 1200000.ethernet: Ring mode enabled
+[    1.623065] stmmaceth 1200000.ethernet: Enable RX Mitigation via HW Watchdog Timer
+[    1.687029] stmmaceth 1200000.ethernet: Installled XPCS support
+[    1.694028] i2c_dev: i2c /dev entries driver
+[    1.699661] dw_wdt 700000.watchdog: No valid TOPs array specified
+[    1.706637] EDAC MC0: Giving out device to module 1 controller synps_ddr_controller: DEV synps_edac (INTERRUPT)
+[    1.717173] EDAC MC1: Giving out device to module 1 controller synps_ddr_controller: DEV synps_edac (INTERRUPT)
+[    1.727689] EDAC MC2: Giving out device to module 1 controller synps_ddr_controller: DEV synps_edac (INTERRUPT)
+[    1.738176] EDAC MC3: Giving out device to module 1 controller synps_ddr_controller: DEV synps_edac (INTERRUPT)
+[    1.748588] sdhci: Secure Digital Host Controller Interface driver
+[    1.754785] sdhci: Copyright(c) Pierre Ossman
+[    1.759181] sdhci-pltfm: SDHCI platform and OF driver helper
+[    1.765537] sima-mailbox 720000.mailbox: Mailbox registered
+[    1.771394] sima-mailbox 720010.mailbox: Mailbox registered
+[    1.777227] sima-mailbox 720020.mailbox: Mailbox registered
+[    1.782943] sima-mailbox 720030.mailbox: Mailbox registered
+[    1.788667] sima-mailbox 720040.mailbox: Mailbox registered
+[    1.794354] sima-mailbox 720050.mailbox: Mailbox registered
+[    1.796989] mmc0: SDHCI controller on 716000.mmc [716000.mmc] using ADMA 64-bit
+[    1.800088] sima-mailbox 7200c0.mailbox: Mailbox registered
+[    1.802380] mmc1: SDHCI controller on 717000.mmc [717000.mmc] using ADMA 64-bit
+[    1.820418] sima-mailbox 7200d0.mailbox: Mailbox registered
+[    1.826524] sima_mailbox_client 728000.ev74_lp_mbox: Successfully registered
+[    1.833872] sima_mailbox_client 728800.ev74_hp_mbox: Successfully registered
+[    1.841196] sima_mailbox_client 729000.m4_lp_mbox: Successfully registered
+[    1.848343] sima_mailbox_client 729800.m4_hp_mbox: Successfully registered
+[    1.855758] simaai-hpi 300f1000.hpi-controller: HPI registered
+[    1.862184] dw-apb-timer-counter 704000.counter: Initialized 4 counter channels
+[    1.870169] NET: Registered PF_PACKET protocol family
+[    1.875565] NET: Registered PF_KCM protocol family
+[    1.880642] 9pnet: Installing 9P2000 support
+[    1.883165] mmc0: new high speed MMC card at address 0001
+[    1.884974] Key type dns_resolver registered
+[    1.891066] mmcblk0: mmc0:0001 DG4016 14.7 GiB
+[    1.895111] registered taskstats version 1
+[    1.903837]  mmcblk0: p1 p2 p3 p4 p5 p6
+[    1.908987] mmcblk0boot0: mmc0:0001 DG4016 4.00 MiB
+[    1.915564] mmcblk0boot1: mmc0:0001 DG4016 4.00 MiB
+[    1.921856] mmcblk0rpmb: mmc0:0001 DG4016 4.00 MiB, chardev (239:0)
+[    1.928363] Waiting for root device /dev/mmcblk1p1...
+[    2.018508] mmc1: error -110 whilst initialising SD card
+[    2.056800] mmc1: Got command interrupt 0x00000001 even though no command operation was in progress.
+[    2.065941] mmc1: sdhci: ============ SDHCI REGISTER DUMP ===========
+[    2.072382] mmc1: sdhci: Sys addr:  0x00000000 | Version:  0x00000005
+[    2.078823] mmc1: sdhci: Blk size:  0x00000000 | Blk cnt:  0x00000000
+[    2.085263] mmc1: sdhci: Argument:  0x80000c08 | Trn mode: 0x00000000
+[    2.091704] mmc1: sdhci: Present:   0x03ff0000 | Host ctl: 0x00000000
+[    2.098144] mmc1: sdhci: Power:     0x0000000f | Blk gap:  0x00000000
+[    2.104583] mmc1: sdhci: Wake-up:   0x00000000 | Clock:    0x00009b87
+[    2.111023] mmc1: sdhci: Timeout:   0x00000000 | Int stat: 0x00000000
+[    2.117462] mmc1: sdhci: Int enab:  0x00ff1083 | Sig enab: 0x00ff1083
+[    2.123902] mmc1: sdhci: ACmd stat: 0x00000000 | Slot int: 0x00000000
+[    2.130340] mmc1: sdhci: Caps:      0x3f6a0181 | Caps_1:   0x08008071
+[    2.136780] mmc1: sdhci: Cmd:       0x0000341a | Max curr: 0x00000000
+[    2.143220] mmc1: sdhci: Resp[0]:   0x00000000 | Resp[1]:  0x00000000
+[    2.149659] mmc1: sdhci: Resp[2]:   0x00000000 | Resp[3]:  0x00000000
+[    2.156098] mmc1: sdhci: Host ctl2: 0x00000000
+[    2.160541] mmc1: sdhci: ADMA Err:  0x00000000 | ADMA Ptr: 0x0000000000000000
+[    2.167674] mmc1: sdhci: ============================================
+[    2.179955] mmc1: Got command interrupt 0x00000001 even though no command operation was in progress.
+[    2.189091] mmc1: sdhci: ============ SDHCI REGISTER DUMP ===========
+[    2.195529] mmc1: sdhci: Sys addr:  0x00000000 | Version:  0x00000005
+[    2.201969] mmc1: sdhci: Blk size:  0x00000000 | Blk cnt:  0x00000000
+[    2.208409] mmc1: sdhci: Argument:  0x00000000 | Trn mode: 0x00000000
+[    2.214849] mmc1: sdhci: Present:   0x03ff0000 | Host ctl: 0x00000000
+[    2.221289] mmc1: sdhci: Power:     0x0000000f | Blk gap:  0x00000000
+[    2.227728] mmc1: sdhci: Wake-up:   0x00000000 | Clock:    0x00009b87
+[    2.234168] mmc1: sdhci: Timeout:   0x00000000 | Int stat: 0x00000000
+[    2.240607] mmc1: sdhci: Int enab:  0x00ff1083 | Sig enab: 0x00ff1083
+[    2.247047] mmc1: sdhci: ACmd stat: 0x00000000 | Slot int: 0x00000000
+[    2.253486] mmc1: sdhci: Caps:      0x3f6a0181 | Caps_1:   0x08008071
+[    2.259926] mmc1: sdhci: Cmd:       0x00000502 | Max curr: 0x00000000
+[    2.266365] mmc1: sdhci: Resp[0]:   0x000001aa | Resp[1]:  0x00000000
+[    2.272804] mmc1: sdhci: Resp[2]:   0x00000000 | Resp[3]:  0x00000000
+[    2.279242] mmc1: sdhci: Host ctl2: 0x00000000
+[    2.283685] mmc1: sdhci: ADMA Err:  0x00000000 | ADMA Ptr: 0x0000000000000000
+[    2.290819] mmc1: sdhci: ============================================
+[    2.328299] mmc1: new high speed SDXC card at address 59b4
+[    2.334530] mmcblk1: mmc1:59b4 GE4S5 239 GiB
+[    2.341323]  mmcblk1: p1
+[    2.362733] EXT4-fs (mmcblk1p1): mounted filesystem with ordered data mode. Quota mode: none.
+[    2.371418] VFS: Mounted root (ext4 filesystem) on device 179:97.
+[    2.385453] devtmpfs: mounted
+[    2.389244] Freeing unused kernel memory: 2368K
+[    2.393912] Run /sbin/init as init process
+[    2.398025]   with arguments:
+[    2.398028]     /sbin/init
+[    2.398032]   with environment:
+[    2.398035]     HOME=/
+[    2.398038]     TERM=linux
+[    2.398041]     netcfg=dhcp
+[    2.967180] systemd[1]: System time before build time, advancing clock.
+[    3.045978] NET: Registered PF_INET6 protocol family
+[    3.052348] Segment Routing with IPv6
+[    3.056090] In-situ OAM (IOAM) with IPv6
+[    3.126510] systemd[1]: systemd 253.5-1ubuntu6 running in system mode (+PAM +AUDIT +SELINUX +APPARMOR +IMA +SMACK +SECCOMP +GCRYPT -GNUTLS +OPENSSL +ACL +BLKID +CURL +ELFUTILS +FIDO2 +IDN2 -IDN +IPTC +KMOD +LIBCRYPTSETUP +LIBFDISK +PCRE2 -PWQUALITY +P11KIT +QRENCODE +TPM2 +BZIP2 +LZ4 +XZ +ZLIB +ZSTD -BPF_FRAMEWORK -XKBCOMMON +UTMP +SYSVINIT default-hierarchy=unified)
+[    3.159133] systemd[1]: Detected architecture arm64.
+[    3.179352] systemd[1]: No hostname configured, using default hostname.
+[    3.186354] systemd[1]: Hostname set to <localhost>.
+[    3.833037] systemd[1]: Queued start job for default target graphical.target.
+[    3.871535] systemd[1]: Created slice system-modprobe.slice - Slice /system/modprobe.
+[    3.897088] systemd[1]: Created slice system-serial\x2dgetty.slice - Slice /system/serial-getty.
+[    3.924505] systemd[1]: Created slice user.slice - User and Session Slice.
+[    3.947561] systemd[1]: Started systemd-ask-password-console.path - Dispatch Password Requests to Console Directory Watch.
+[    3.975486] systemd[1]: Started systemd-ask-password-wall.path - Forward Password Requests to Wall Directory Watch.
+[    4.003481] systemd[1]: proc-sys-fs-binfmt_misc.automount - Arbitrary Executable File Formats File System Automount Point was skipped because of an unmet condition check (ConditionPathExists=/proc/sys/fs/binfmt_misc).
+[    4.023116] systemd[1]: Reached target cryptsetup.target - Local Encrypted Volumes.
+[    4.047284] systemd[1]: Reached target integritysetup.target - Local Integrity Protected Volumes.
+[    4.071309] systemd[1]: Reached target paths.target - Path Units.
+[    4.095237] systemd[1]: Reached target remote-fs.target - Remote File Systems.
+[    4.119212] systemd[1]: Reached target slices.target - Slice Units.
+[    4.143245] systemd[1]: Reached target swap.target - Swaps.
+[    4.163281] systemd[1]: Reached target veritysetup.target - Local Verity Protected Volumes.
+[    4.188028] systemd[1]: Listening on syslog.socket - Syslog Socket.
+[    4.211614] systemd[1]: Listening on systemd-initctl.socket - initctl Compatibility Named Pipe.
+[    4.235915] systemd[1]: Listening on systemd-journald-dev-log.socket - Journal Socket (/dev/log).
+[    4.259936] systemd[1]: Listening on systemd-journald.socket - Journal Socket.
+[    4.285158] systemd[1]: Listening on systemd-udevd-control.socket - udev Control Socket.
+[    4.311869] systemd[1]: Listening on systemd-udevd-kernel.socket - udev Kernel Socket.
+[    4.359405] systemd[1]: Mounting dev-hugepages.mount - Huge Pages File System...
+[    4.387528] systemd[1]: Mounting dev-mqueue.mount - POSIX Message Queue File System...
+[    4.415457] systemd[1]: Mounting sys-kernel-debug.mount - Kernel Debug File System...
+[    4.443407] systemd[1]: Mounting sys-kernel-tracing.mount - Kernel Trace File System...
+[    4.467994] systemd[1]: systemd-journald.service: unit configures an IP firewall, but the local system does not support BPF/cgroup firewalling.
+[    4.480931] systemd[1]: (This warning is only shown for the first unit using IP firewalling.)
+[    4.493381] systemd[1]: Starting systemd-journald.service - Journal Service...
+[    4.520321] systemd[1]: Starting keyboard-setup.service - Set the console keyboard layout...
+[    4.548299] systemd[1]: Starting kmod-static-nodes.service - Create List of Static Device Nodes...
+[    4.567233] systemd-journald[156]: Collecting audit messages is disabled.
+[    4.580141] systemd[1]: Starting modprobe@configfs.service - Load Kernel Module configfs...
+[    4.608039] systemd[1]: Starting modprobe@dm_mod.service - Load Kernel Module dm_mod...
+[    4.640251] systemd[1]: Starting modprobe@drm.service - Load Kernel Module drm...
+[    4.669757] systemd[1]: Starting modprobe@efi_pstore.service - Load Kernel Module efi_pstore...
+[    4.700366] systemd[1]: Starting modprobe@fuse.service - Load Kernel Module fuse...
+[    4.722122] fuse: init (API version 7.37)
+[    4.732138] systemd[1]: Starting modprobe@loop.service - Load Kernel Module loop...
+[    4.766185] systemd[1]: Starting systemd-modules-load.service - Load Kernel Modules...
+[    4.795396] systemd[1]: systemd-pcrmachine.service - TPM2 PCR Machine ID Measurement was skipped because of an unmet condition check (ConditionPathExists=/sys/firmware/efi/efivars/StubPcrKernelImage-4a67b082-0a4c-41cf-b6c7-440b29bb8c4f).
+[    4.847653] systemd[1]: Starting systemd-remount-fs.service - Remount Root and Kernel File Systems...
+[    4.876006] systemd[1]: Starting systemd-udev-trigger.service - Coldplug All udev Devices...
+[    4.906315] systemd[1]: Started systemd-journald.service - Journal Service.
+[    5.273900] systemd-journald[156]: Received client request to flush runtime journal.
+[    5.286309] systemd-journald[156]: File /var/log/journal/ecd711cf3a2d3f24e84d689e65a5b825/system.journal corrupted or uncleanly shut down, renaming and replacing.
+[    5.715032] random: crng init done
+[    5.982078] stmmaceth 1000000.ethernet end0: renamed from eth0
+[    6.028601] stmmaceth 1200000.ethernet end1: renamed from eth1
+[    6.065651] remoteproc remoteproc0: simaai,evxx-rproc is available
+[    6.065917] remoteproc remoteproc0: Direct firmware load for davinci-evxx-fw failed with error -2
+[    6.065940] remoteproc remoteproc0: Falling back to sysfs fallback for: davinci-evxx-fw
+[    6.070214] remoteproc remoteproc1: simaai,m4-rproc is available
+[    6.070429] remoteproc remoteproc1: Direct firmware load for mla_driver.elf failed with error -2
+[    6.070449] remoteproc remoteproc1: Falling back to sysfs fallback for: mla_driver.elf
+[    6.172022] remoteproc remoteproc1: powering up simaai,m4-rproc
+[    6.172117] remoteproc remoteproc1: Direct firmware load for mla_driver.elf failed with error -2
+[    6.172133] remoteproc remoteproc1: Falling back to sysfs fallback for: mla_driver.elf
+[    6.179540] remoteproc remoteproc0: powering up simaai,evxx-rproc
+[    6.179635] remoteproc remoteproc0: Direct firmware load for davinci-evxx-fw failed with error -2
+[    6.179648] remoteproc remoteproc0: Falling back to sysfs fallback for: davinci-evxx-fw
+[    6.190178] remoteproc remoteproc1: request_firmware failed: -2
+[    6.191369] remoteproc remoteproc0: request_firmware failed: -2
+[    6.192716] dw_axi_dmac_platform 730000.dma-controller: DesignWare AXI DMA Controller, 32 channels
+[    6.196577] dw_axi_dmac_platform 734000.dma-controller: DesignWare AXI DMA Controller, 32 channels

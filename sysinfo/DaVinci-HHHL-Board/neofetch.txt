@@ -1,0 +1,12 @@
+sima@localhost 
+-------------- 
+OS: Ubuntu 23.10 aarch64 
+Host: SiMa.ai DaVinci Half-Height-Half-Length Board 
+Kernel: 6.1.22 
+Uptime: 2 hours, 35 mins 
+Packages: 607 (dpkg) 
+Shell: bash 5.2.15 
+Terminal: /dev/pts/1 
+CPU: (8) 
+Memory: 169MiB / 4279MiB 
+

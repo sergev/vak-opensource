@@ -1,0 +1,188 @@
+localhost
+    description: Computer
+    product: SiMa.ai DaVinci Half-Height-Half-Length Board
+    width: 64 bits
+    capabilities: smp tagged_addr_disabled
+  *-core
+       description: Motherboard
+       physical id: 0
+     *-cpu:0
+          description: CPU
+          product: cpu
+          physical id: 0
+          bus info: cpu@0
+          capabilities: fp asimd evtstrm crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp
+     *-cpu:1
+          description: CPU
+          product: cpu
+          physical id: 1
+          bus info: cpu@1
+          capabilities: fp asimd evtstrm crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp
+     *-cpu:2
+          description: CPU
+          product: cpu
+          physical id: 2
+          bus info: cpu@2
+          capabilities: fp asimd evtstrm crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp
+     *-cpu:3
+          description: CPU
+          product: cpu
+          physical id: 3
+          bus info: cpu@3
+          capabilities: fp asimd evtstrm crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp
+     *-cpu:4
+          description: CPU
+          product: cpu
+          physical id: 4
+          bus info: cpu@4
+          capabilities: fp asimd evtstrm crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp
+     *-cpu:5
+          description: CPU
+          product: cpu
+          physical id: 5
+          bus info: cpu@5
+          capabilities: fp asimd evtstrm crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp
+     *-cpu:6
+          description: CPU
+          product: cpu
+          physical id: 6
+          bus info: cpu@6
+          capabilities: fp asimd evtstrm crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp
+     *-cpu:7
+          description: CPU
+          product: cpu
+          physical id: 7
+          bus info: cpu@7
+          capabilities: fp asimd evtstrm crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp
+     *-cpu:8 DISABLED
+          description: CPU
+          product: cpu-map
+          physical id: 8
+          bus info: cpu@8
+     *-memory
+          description: System memory
+          physical id: 9
+          size: 4279MiB
+  *-mmc0
+       description: MMC Host
+       physical id: 1
+       logical name: mmc0
+     *-device
+          description: SD/MMC Device
+          product: DG4016
+          vendor: Unknown (69)
+          physical id: 1
+          bus info: mmc@0:0001
+          date: 12/2021
+          serial: 1140180001
+          capabilities: mmc
+        *-interface:0
+             physical id: 1
+             logical name: /dev/mmcblk0rpmb
+        *-interface:1
+             physical id: 2
+             logical name: /dev/mmcblk0
+             size: 15758000128
+             capabilities: gpt-1.00 partitioned partitioned:gpt
+             configuration: guid=a84d0584-dfc6-47dc-93cb-1c9f95b13825 logicalsectorsize=512 sectorsize=512
+           *-volume:0
+                description: data partition
+                vendor: Windows
+                physical id: 1
+                logical name: /dev/mmcblk0p1
+                serial: 8862abd1-9585-413e-90de-0361857dad20
+                capacity: 2047KiB
+                configuration: name=u-boot0
+           *-volume:1
+                description: data partition
+                vendor: Windows
+                physical id: 2
+                logical name: /dev/mmcblk0p2
+                serial: 95dcccea-8d2b-433d-abaf-8edbd3bf6025
+                capacity: 2047KiB
+                configuration: name=u-boot1
+           *-volume:2
+                description: Windows FAT volume
+                vendor: mkfs.fat
+                physical id: 3
+                logical name: /dev/mmcblk0p3
+                version: FAT32
+                serial: 5ac8-2c5f
+                size: 511MiB
+                capacity: 511MiB
+                capabilities: fat initialized
+                configuration: FATs=2 filesystem=fat label=boot name=boot
+           *-volume:3
+                description: EXT4 volume
+                vendor: Linux
+                physical id: 4
+                logical name: /dev/mmcblk0p4
+                version: 1.0
+                serial: 565f3489-8c0b-4135-a3a5-5c96beb0c68b
+                size: 2GiB
+                capabilities: journaled extended_attributes large_files huge_files dir_nlink 64bit extents ext4 ext2 initialized
+                configuration: created=2011-04-05 23:00:00 filesystem=ext4 lastmountpoint=/ modified=1970-01-01 00:00:01 mounted=1970-01-01 00:00:01 name=platform0 state=clean
+           *-volume:4
+                description: EXT4 volume
+                vendor: Linux
+                physical id: 5
+                logical name: /dev/mmcblk0p5
+                version: 1.0
+                serial: 431567f1-13c5-4850-9abb-6b3b1c1a3014
+                size: 2GiB
+                capabilities: journaled extended_attributes large_files huge_files dir_nlink 64bit extents ext4 ext2 initialized
+                configuration: created=2011-04-05 23:00:00 filesystem=ext4 modified=2023-09-19 16:45:37 mounted=2023-09-19 16:45:28 name=platform1 state=clean
+           *-volume:5
+                description: EXT4 volume
+                vendor: Linux
+                physical id: 6
+                logical name: /dev/mmcblk0p6
+                version: 1.0
+                serial: 1c2cb624-85ae-404f-bf00-4cae08f4c3d1
+                size: 10GiB
+                capacity: 10GiB
+                capabilities: journaled extended_attributes large_files huge_files dir_nlink 64bit extents ext4 ext2 initialized
+                configuration: created=2023-08-17 21:03:30 filesystem=ext4 modified=2022-04-29 16:17:01 mounted=2022-04-29 16:11:53 name=userdata state=clean
+  *-mmc1
+       description: MMC Host
+       physical id: 2
+       logical name: mmc1
+     *-device
+          description: SD Card
+          product: GE4S5
+          vendor: Unknown (27)
+          physical id: 59b4
+          logical name: /dev/mmcblk1
+          version: 3.0
+          date: 05/2023
+          serial: 1420714852
+          size: 238GiB (256GB)
+          capabilities: sd partitioned partitioned:dos
+          configuration: logicalsectorsize=512 sectorsize=512 signature=6ef22bdb
+        *-volume
+             description: EXT4 volume
+             vendor: Linux
+             physical id: 1
+             logical name: /dev/mmcblk1p1
+             version: 1.0
+             serial: 397f64ff-cc2c-4487-a949-5993f8c78d97
+             size: 1023MiB
+             capacity: 238GiB
+             capabilities: primary bootable journaled extended_attributes large_files huge_files dir_nlink recover 64bit extents ext4 ext2 initialized
+             configuration: created=2024-01-15 22:57:15 filesystem=ext4 lastmountpoint=/ modified=1970-01-01 00:00:02 mounted=1970-01-01 00:00:02 state=clean
+  *-network:0
+       description: Ethernet interface
+       physical id: 3
+       logical name: end0
+       serial: 68:e1:54:00:1c:70
+       size: 1Gbit/s
+       capacity: 1Gbit/s
+       capabilities: ethernet physical 10bt-fd 100bt-fd 1000bt-fd autonegotiation
+       configuration: autonegotiation=on broadcast=yes driver=st_gmac driverversion=6.1.22 duplex=full ip=192.168.2.2 link=yes multicast=yes speed=1Gbit/s
+  *-network:1 DISABLED
+       description: Ethernet interface
+       physical id: 4
+       logical name: end1
+       serial: 68:e1:54:00:1c:71
+       capabilities: ethernet physical
+       configuration: broadcast=yes multicast=yes
