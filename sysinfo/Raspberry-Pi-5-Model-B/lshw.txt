@@ -1,0 +1,202 @@
+pi5
+    description: Computer
+    product: Raspberry Pi 5 Model B Rev 1.0
+    serial: 339e7785ac4ed3d6
+    width: 64 bits
+    capabilities: smp cp15_barrier setend swp tagged_addr_disabled
+  *-core
+       description: Motherboard
+       physical id: 0
+     *-cpu:0
+          description: CPU
+          product: cpu
+          physical id: 1
+          bus info: cpu@0
+          size: 2300MHz
+          capacity: 2400MHz
+          capabilities: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp cpufreq
+     *-cpu:1
+          description: CPU
+          product: cpu
+          physical id: 2
+          bus info: cpu@1
+          size: 2300MHz
+          capacity: 2400MHz
+          capabilities: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp cpufreq
+     *-cpu:2
+          description: CPU
+          product: cpu
+          physical id: 3
+          bus info: cpu@2
+          size: 2300MHz
+          capacity: 2400MHz
+          capabilities: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp cpufreq
+     *-cpu:3
+          description: CPU
+          product: cpu
+          physical id: 4
+          bus info: cpu@3
+          size: 2300MHz
+          capacity: 2400MHz
+          capabilities: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp cpufreq
+     *-cpu:4 DISABLED
+          description: CPU
+          product: l2-cache
+          physical id: 5
+          bus info: cpu@4
+     *-cpu:5 DISABLED
+          description: CPU
+          product: l3-cache
+          physical id: 6
+          bus info: cpu@5
+     *-memory
+          description: System memory
+          physical id: 7
+          size: 3925MiB
+     *-pci
+          description: PCI bridge
+          product: Broadcom Inc. and subsidiaries
+          vendor: Broadcom Inc. and subsidiaries
+          physical id: 0
+          bus info: pci@0000:00:00.0
+          version: 21
+          width: 32 bits
+          clock: 33MHz
+          capabilities: pci pm pciexpress normal_decode bus_master cap_list
+          configuration: driver=pcieport
+          resources: irq:37 memory:1f00000000-1f005fffff
+        *-network
+             description: Ethernet controller
+             physical id: 0
+             bus info: pci@0000:01:00.0
+             version: 00
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pm pciexpress msix bus_master cap_list
+             configuration: driver=rp1 latency=0
+             resources: irq:37 memory:1f00410000-1f00413fff memory:1f00000000-1f003fffff memory:1f00400000-1f0040ffff
+  *-usbhost:0
+       product: xHCI Host Controller
+       vendor: Linux 6.5.0-1008-raspi xhci-hcd
+       physical id: 1
+       bus info: usb@1
+       logical name: usb1
+       version: 6.05
+       capabilities: usb-2.00
+       configuration: driver=hub slots=2 speed=480Mbit/s
+  *-usbhost:1
+       product: xHCI Host Controller
+       vendor: Linux 6.5.0-1008-raspi xhci-hcd
+       physical id: 2
+       bus info: usb@2
+       logical name: usb2
+       version: 6.05
+       capabilities: usb-3.00
+       configuration: driver=hub slots=1 speed=5000Mbit/s
+  *-usbhost:2
+       product: xHCI Host Controller
+       vendor: Linux 6.5.0-1008-raspi xhci-hcd
+       physical id: 3
+       bus info: usb@3
+       logical name: usb3
+       version: 6.05
+       capabilities: usb-2.00
+       configuration: driver=hub slots=2 speed=480Mbit/s
+  *-usbhost:3
+       product: xHCI Host Controller
+       vendor: Linux 6.5.0-1008-raspi xhci-hcd
+       physical id: 4
+       bus info: usb@4
+       logical name: usb4
+       version: 6.05
+       capabilities: usb-3.00
+       configuration: driver=hub slots=1 speed=5000Mbit/s
+  *-mmc0
+       description: MMC Host
+       physical id: 5
+       logical name: mmc0
+     *-device
+          description: SD Card
+          product: SR128
+          vendor: SanDisk
+          physical id: aaaa
+          logical name: /dev/mmcblk0
+          version: 8.6
+          date: 10/2023
+          serial: 3396618437
+          size: 119GiB (127GB)
+          capabilities: sd partitioned partitioned:dos
+          configuration: logicalsectorsize=512 sectorsize=512 signature=1634ec00
+        *-volume:0 UNCLAIMED
+             description: Windows FAT volume
+             vendor: mkfs.fat
+             physical id: 1
+             version: FAT32
+             serial: 81c9-1c52
+             size: 511MiB
+             capacity: 512MiB
+             capabilities: primary bootable fat initialized
+             configuration: FATs=2 filesystem=fat label=system-boot
+        *-volume:1
+             description: EXT4 volume
+             vendor: Linux
+             physical id: 2
+             logical name: /dev/mmcblk0p2
+             logical name: /
+             version: 1.0
+             serial: d78ea5c7-a075-476e-acdd-a16cc2187931
+             size: 118GiB
+             capacity: 118GiB
+             capabilities: primary journaled extended_attributes large_files huge_files dir_nlink recover 64bit extents ext4 ext2 initialized
+             configuration: created=2023-10-11 15:56:29 filesystem=ext4 label=writable lastmountpoint=/ modified=2023-10-26 06:55:46 mount.fstype=ext4 mount.options=rw,relatime mounted=2023-10-26 06:55:47 state=mounted
+  *-mmc1
+       description: MMC Host
+       physical id: 6
+       logical name: mmc1
+     *-device
+          description: SDIO Device
+          physical id: 1
+          bus info: mmc@1:0001
+          serial: 0
+          capabilities: sdio
+        *-interface:0
+             description: Wireless interface
+             product: 4345
+             vendor: Broadcom
+             physical id: 1
+             bus info: mmc@1:0001:1
+             logical name: mmc1:0001:1
+             logical name: wlan0
+             serial: d8:3a:dd:bf:9f:c2
+             capabilities: ethernet physical wireless
+             configuration: broadcast=yes driver=brcmfmac driverversion=7.45.241 firmware=01-703fd60 ip=192.168.86.34 multicast=yes wireless=IEEE 802.11
+        *-interface:1
+             product: 4345
+             vendor: Broadcom
+             physical id: 2
+             bus info: mmc@1:0001:2
+             logical name: mmc1:0001:2
+        *-bt
+             description: BlueTooth interface
+             product: 4345
+             vendor: Broadcom
+             physical id: 3
+             bus info: mmc@1:0001:3
+             logical name: mmc1:0001:3
+             capabilities: wireless bluetooth
+             configuration: wireless=BlueTooth
+  *-input
+       product: pwr_button
+       physical id: 7
+       logical name: input2
+       logical name: /dev/input/event0
+       capabilities: platform
+  *-network
+       description: Ethernet interface
+       physical id: 8
+       logical name: eth0
+       serial: d8:3a:dd:bf:9f:c1
+       size: 100Mbit/s
+       capacity: 1Gbit/s
+       capabilities: ethernet physical tp mii 10bt 10bt-fd 100bt 100bt-fd 1000bt 1000bt-fd autonegotiation
+       configuration: autonegotiation=on broadcast=yes driver=macb driverversion=6.5.0-1008-raspi duplex=full ip=192.168.11.30 link=yes multicast=yes port=twisted pair speed=100Mbit/s

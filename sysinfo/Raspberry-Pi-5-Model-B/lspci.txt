@@ -1,0 +1,25 @@
+00:00.0 PCI bridge: Broadcom Inc. and subsidiaries Device 2712 (rev 21) (prog-if 00 [Normal decode])
+	Flags: bus master, fast devsel, latency 0, IRQ 37
+	Bus: primary=00, secondary=01, subordinate=01, sec-latency=0
+	Memory behind bridge: 00000000-005fffff [size=6M] [32-bit]
+	Prefetchable memory behind bridge: [disabled] [64-bit]
+	Capabilities: [48] Power Management version 3
+	Capabilities: [ac] Express Root Port (Slot-), MSI 00
+	Capabilities: [100] Advanced Error Reporting
+	Capabilities: [160] Virtual Channel
+	Capabilities: [180] Vendor Specific Information: ID=0000 Rev=0 Len=028 <?>
+	Capabilities: [240] L1 PM Substates
+	Capabilities: [300] Secondary PCI Express
+	Kernel driver in use: pcieport
+
+01:00.0 Ethernet controller: Device 1de4:0001
+	Flags: bus master, fast devsel, latency 0, IRQ 37
+	Memory at 1f00410000 (32-bit, non-prefetchable) [size=16K]
+	Memory at 1f00000000 (32-bit, non-prefetchable) [virtual] [size=4M]
+	Memory at 1f00400000 (32-bit, non-prefetchable) [size=64K]
+	Capabilities: [40] Power Management version 3
+	Capabilities: [70] Express Endpoint, MSI 00
+	Capabilities: [b0] MSI-X: Enable+ Count=61 Masked-
+	Capabilities: [100] Advanced Error Reporting
+	Kernel driver in use: rp1
+

@@ -1,0 +1,10 @@
+NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+loop0         7:0    0  69.1M  1 loop /snap/core22/1035
+loop1         7:1    0  68.5M  1 loop /snap/core22/867
+loop2         7:2    0   169M  1 loop /snap/lxd/25953
+loop3         7:3    0 134.8M  1 loop /snap/lxd/26202
+loop4         7:4    0  35.5M  1 loop /snap/snapd/20298
+loop5         7:5    0  35.2M  1 loop /snap/snapd/20674
+mmcblk0     179:0    0 119.1G  0 disk 
+├─mmcblk0p1 179:1    0   512M  0 part /boot/firmware
+└─mmcblk0p2 179:2    0 118.6G  0 part /
