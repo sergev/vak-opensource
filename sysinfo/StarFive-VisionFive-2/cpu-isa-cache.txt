@@ -1,0 +1,31 @@
+$ cpu-info
+
+Packages:
+    0:
+Microarchitectures:
+    4x unknown
+Cores:
+    0: 1 processor (0), vendor 0x00000011 uarch 0x00000000
+    1: 1 processor (1), vendor 0x00000011 uarch 0x00000000
+    2: 1 processor (2), vendor 0x00000011 uarch 0x00000000
+    3: 1 processor (3), vendor 0x00000011 uarch 0x00000000
+Logical processors (System ID):
+    0 (0)
+    1 (1)
+    2 (2)
+    3 (3)
+
+$ isa-info
+
+Instruction sets:
+    Base Integer: yes
+    Integer Multiply/Divide: yes
+    Atomics: yes
+    Single-Precision Floating-Point: yes
+    Double-Precision Floating-Point: yes
+    Compressed: yes
+    Vector: no
+
+$ cache-info
+
+Max cache size (upper bound): 0 bytes

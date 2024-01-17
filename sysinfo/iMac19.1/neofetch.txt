@@ -1,0 +1,17 @@
+vak@tundra.local
+----------------
+OS: macOS 14.2.1 23C71 x86_64
+Host: iMac19,1
+Kernel: 23.2.0
+Uptime: 27 days, 23 hours, 47 mins
+Packages: 3 (port), 590 (brew)
+Shell: bashc Bash Commander 5.2.21.220
+Resolution: 2048x1152@2x
+DE: Aqua
+WM: Quartz Compositor
+WM Theme: Blue (Light)
+Terminal: Apple_Terminal
+Terminal Font: AndaleMono
+CPU: Intel i9-9900K (16) @ 3.60GHz
+GPU: Radeon Pro 575X
+Memory: 9325MiB / 16384MiB

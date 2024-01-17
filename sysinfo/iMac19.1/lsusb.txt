@@ -1,0 +1,140 @@
+$ system_profiler -detailLevel mini SPUSBDataType
+
+USB:
+
+    USB 3.1 Bus:
+
+      Host Controller Driver: AppleUSBXHCITR
+      PCI Device ID: 0x15ec
+      PCI Revision ID: 0x0006
+      PCI Vendor ID: 0x8086
+      Bus Number: 0x00
+
+        USB3.0 Hub             :
+
+          Product ID: 0x0817
+          Vendor ID: 0x2109  (VIA Labs, Inc.)
+          Version: 3.c3
+          Speed: Up to 5 Gb/s
+          Manufacturer: VIA Labs, Inc.
+          Location ID: 0x00100000 / 6
+          Current Available (mA): 900
+          Current Required (mA): 0
+          Extra Operating Current (mA): 0
+
+    USB 3.1 Bus:
+
+      Host Controller Driver: AppleIntelCNLUSBXHCI
+      PCI Device ID: 0xa36d
+      PCI Revision ID: 0x0010
+      PCI Vendor ID: 0x8086
+
+        Elements 10B8:
+
+          Product ID: 0x10b8
+          Vendor ID: 0x1058  (Western Digital Technologies, Inc.)
+          Version: 10.12
+          Serial Number: 575839314539344454314D52
+          Speed: Up to 5 Gb/s
+          Manufacturer: Western Digital
+          Location ID: 0x14b00000 / 4
+          Current Available (mA): 900
+          Current Required (mA): 896
+          Extra Operating Current (mA): 0
+          Media:
+            Elements 10B8:
+              Capacity: 2 TB (2,000,365,289,472 bytes)
+              Removable Media: No
+              BSD Name: disk3
+              Logical Unit: 0
+              Partition Map Type: GPT (GUID Partition Table)
+              S.M.A.R.T. status: Verified
+              USB Interface: 0
+
+        USB Keyboard:
+
+          Product ID: 0x0169
+          Vendor ID: 0x04d9  (Holtek Semiconductor, Inc.)
+          Version: 2.09
+          Speed: Up to 1.5 Mb/s
+          Location ID: 0x14700000 / 2
+          Current Available (mA): 500
+          Current Required (mA): 100
+          Extra Operating Current (mA): 0
+
+        FaceTime HD Camera (Built-in):
+
+          Product ID: 0x8511
+          Vendor ID: 0x05ac (Apple Inc.)
+          Version: 72.52
+          Serial Number: CCG949303CNH34FFU
+          Speed: Up to 480 Mb/s
+          Manufacturer: Apple Inc.
+          Location ID: 0x14600000 / 1
+          Current Available (mA): 500
+          Current Required (mA): 500
+          Extra Operating Current (mA): 0
+          Built-In: Yes
+
+        USB2.0 Hub             :
+
+          Product ID: 0x2817
+          Vendor ID: 0x2109  (VIA Labs, Inc.)
+          Version: 3.c3
+          Speed: Up to 480 Mb/s
+          Manufacturer: VIA Labs, Inc.
+          Location ID: 0x14200000 / 53
+          Current Available (mA): 500
+          Current Required (mA): 0
+          Extra Operating Current (mA): 0
+
+            Macro Pad 2:
+
+              Product ID: 0x0002
+              Vendor ID: 0xceeb
+              Version: 0.01
+              Speed: Up to 1.5 Mb/s
+              Manufacturer: ANAVI
+              Location ID: 0x14240000 / 55
+              Current Available (mA): 500
+              Current Required (mA): 500
+              Extra Operating Current (mA): 0
+
+            ABMT1500:
+
+              Product ID: 0x0501
+              Vendor ID: 0x0764  (Cyber Power Systems, Inc.)
+              Version: 2.00
+              Serial Number: FCEMX2000401
+              Speed: Up to 12 Mb/s
+              Manufacturer: CPS
+              Location ID: 0x14230000 / 56
+              Current Available (mA): 500
+              Current Required (mA): 2
+              Extra Operating Current (mA): 0
+
+            FT232R USB UART:
+
+              Product ID: 0x6001
+              Vendor ID: 0x0403  (Future Technology Devices International Limited)
+              Version: 6.00
+              Serial Number: A602JMCH
+              Speed: Up to 12 Mb/s
+              Manufacturer: FTDI
+              Location ID: 0x14210000 / 23
+              Current Available (mA): 500
+              Current Required (mA): 90
+              Extra Operating Current (mA): 0
+
+            USB Billboard Device   :
+
+              Product ID: 0x8888
+              Vendor ID: 0x2109  (VIA Labs, Inc.)
+              Version: 0.01
+              Serial Number: 0000000000000001
+              Speed: Up to 480 Mb/s
+              Manufacturer: VIA Labs, Inc.
+              Location ID: 0x14250000 / 58
+              Current Available (mA): 500
+              Current Required (mA): 100
+              Extra Operating Current (mA): 0
