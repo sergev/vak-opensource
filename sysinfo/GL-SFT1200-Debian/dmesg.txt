@@ -1,0 +1,485 @@
+[    0.307981] io scheduler kyber registered
+[    0.354241] cacheinfo: Unable to detect cache hierarchy for CPU 0
+[    0.371316] brd: module loaded
+[    0.372490] sfax8-spi 18202000.spi: sfax8_spi_probe...
+[    0.373156] sfax8-spi 18202000.spi: registered master spi2
+[    0.373666] sfax8-spi 18202000.spi: initial setup for spi-nand
+[    0.373717] spi spi2.0: setup mode 0, 8 bits/w, 33000000 Hz max --> 0
+[    0.374533] spi-nand spi2.0: gigadevice SPI NAND was found.
+[    0.374569] spi-nand spi2.0: 128 MiB, block size: 128 KiB, page size: 2048, OOB size: 128
+[    0.375954] 5 fixed-partitions partitions found on MTD device spi2.0
+[    0.375988] Creating 5 MTD partitions on "spi2.0":
+[    0.376017] 0x000000000000-0x000000020000 : "spl-loader"
+[    0.378071] 0x000000020000-0x000000080000 : "u-boot"
+[    0.381072] 0x000000080000-0x0000000a0000 : "u-boot-env"
+[    0.383193] 0x0000000a0000-0x0000000c0000 : "factory"
+[    0.385195] 0x0000000c0000-0x00007f4c0000 : "firmware"
+[    0.385228] mtd: partition "firmware" extends beyond the end of device "spi2.0" -- size truncated to 0x7f40000
+[    0.385723] random: fast init done
+[    0.720277] random: crng init done
+[    4.838853] 2 uimage-fw partitions found on MTD device firmware
+[    4.838909] 0x0000000c0000-0x0000004c0000 : "kernel"
+[    4.840465] 0x0000004c0000-0x000008000000 : "ubi"
+[    4.842884] sfax8-spi 18202000.spi: registered child spi2.0
+[    4.842919] sfax8-spi 18202000.spi: SFAx8 SPI Controller at 0x18202000 irq 22
+[    4.844807] libphy: Fixed MDIO Bus: probed
+[    4.845582] dwc2 17000000.usb: 17000000.usb supply vusb_d not found, using dummy regulator
+[    4.845722] dwc2 17000000.usb: 17000000.usb supply vusb_a not found, using dummy regulator
+[    4.845954] sfax8_usb_phy_power_on:
+[    4.846009] dwc2 17000000.usb: Configuration mismatch. dr_mode forced to host
+[    4.862891] dwc2 17000000.usb: DWC OTG Controller
+[    4.862960] dwc2 17000000.usb: new USB bus registered, assigned bus number 1
+[    4.863070] dwc2 17000000.usb: irq 20, io mem 0x17000000
+[    4.864275] hub 1-0:1.0: USB hub found
+[    4.864366] hub 1-0:1.0: 1 port detected
+[    4.865290] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    4.865320] ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+[    4.865353] ohci-platform: OHCI generic platform driver
+[    4.865672] usbcore: registered new interface driver usb-storage
+[    5.367685] i8042: i8042 controller selftest timeout
+[    5.368905] i2c /dev entries driver
+[    5.369183] IR NEC protocol handler initialized
+[    5.369197] IR RC5(x/sz) protocol handler initialized
+[    5.369208] IR RC6 protocol handler initialized
+[    5.369218] IR JVC protocol handler initialized
+[    5.369229] IR Sony protocol handler initialized
+[    5.369240] IR SANYO protocol handler initialized
+[    5.369251] IR Sharp protocol handler initialized
+[    5.369262] IR MCE Keyboard/mouse protocol handler initialized
+[    5.369273] IR XMP protocol handler initialized
+[    5.372545] hidraw: raw HID events driver (C) Jiri Kosina
+[    5.372722] Netfilter messages via NETLINK v0.30.
+[    5.373095] nf_conntrack version 0.5.0 (2048 buckets, 8192 max)
+[    5.373442] nf_tables: (c) 2007-2009 Patrick McHardy <kaber@trash.net>
+[    5.373471] nf_tables_compat: (c) 2012 Pablo Neira Ayuso <pablo@netfilter.org>
+[    5.373562] xt_time: kernel timezone is -0000
+[    5.374018] ip_tables: (C) 2000-2006 Netfilter Core Team
+[    5.375586] NET: Registered protocol family 10
+[    5.377954] Segment Routing with IPv6
+[    5.378101] NET: Registered protocol family 17
+[    5.378201] bridge: filtering via arp/ip/ip6tables is no longer available by default. Update your scripts to load br_netfilter if you need this.
+[    5.378219] 8021q: 802.1Q VLAN Support v1.8
+[    5.382431] 18300000.serial: ttyS0 at MMIO 0x18300000 (irq = 23, base_baud = 7812500) is a SFAX8 rev32
+[    6.261380] console [ttyS0] enabled
+[    6.268144] UBI: auto-attach mtd6
+[    6.271614] ubi0: attaching mtd6
+[    6.481204] usb 1-1: new high-speed USB device number 2 using dwc2
+[    6.739562] usb-storage 1-1:1.0: USB Mass Storage device detected
+[    6.747402] scsi host0: usb-storage 1-1:1.0
+[    8.427282] scsi 0:0:0:0: Direct-Access     Samsung  Flash Drive FIT  1100 PQ: 0 ANSI: 6
+[    9.762980] ubi0: scanning is finished
+[    9.804187] ubi0: attached mtd6 (name "ubi", size 123 MiB)
+[    9.809711] ubi0: PEB size: 131072 bytes (128 KiB), LEB size: 126976 bytes
+[    9.816637] ubi0: min./max. I/O unit sizes: 2048/2048, sub-page size 2048
+[    9.823469] ubi0: VID header offset: 2048 (aligned 2048), data offset: 4096
+[    9.830433] ubi0: good PEBs: 986, bad PEBs: 0, corrupted PEBs: 0
+[    9.836474] ubi0: user volume: 2, internal volumes: 1, max. volumes count: 128
+[    9.843734] ubi0: max/mean erase counter: 5/2, WL threshold: 4096, image sequence number: 2025402995
+[    9.852902] ubi0: available PEBs: 0, total reserved PEBs: 986, PEBs reserved for bad PEB handling: 20
+[    9.862222] ubi0: background thread "ubi_bgt0d" started, PID 59
+[    9.866371] block ubiblock0_0: created from ubi0:0(rootfs)
+[    9.873748] ubiblock: device ubiblock0_0 (rootfs) set to be root filesystem
+[    9.881738] input: gpio-keys as /devices/platform/gpio-keys/input/input0
+[    9.906270] VFS: Mounted root (squashfs filesystem) readonly on device 254:0.
+[    9.914475] Freeing unused kernel memory: 316K
+[    9.918950] This architecture does not have kernel memory protection.
+[   10.866396] init: Console is alive
+[   10.870152] init: - watchdog -
+[   13.347326] kmodloader: loading kernel modules from /etc/modules-boot.d/*
+[   13.437552] sfax8_factory_read_probe...
+[   13.443311] macaddr is 94 83 c4 41 8b a6
+[   13.448917] sn is ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+[   13.456691] sn_flag is 0xff
+[   13.462630] hardware version flag is \xff\xff
+[   13.467979] hardware version is \xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff
+[   13.475623] model version flag is \xff\xff
+[   13.480720] model version is \xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff
+[   13.488090] can not find an vaild country ID[\xff\xff], use default value[CN]
+[   13.494782] countryID is CN
+[   13.499160] HW feature is 0xffffffff
+[   13.504327] vender flag is \xff\xff
+[   13.508873] vender is \xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff
+[   13.514233] product key flag is \xff\xff
+[   13.519203] product key is \xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff
+[   13.524996] login info flag is \xff\xff
+[   13.529897] login info is 0xffffffff
+[   13.535068] rom type flag is \xff\xff
+[   13.539797] rom type is 0xffffffff
+[   13.544797] get wifi version XO
+[   13.554062] get gmac delay: 150d
+[   13.557320] sf_factory_read_sysfs_register, parent :sfax8_factory_read
+[   13.569688] Button Hotplug driver version 0.4.1
+[   13.579609] exFAT: Version 1.2.9
+[   13.617612] sd 0:0:0:0: [sda] 125313283 512-byte logical blocks: (64.2 GB/59.8 GiB)
+[   13.625883] sd 0:0:0:0: [sda] Write Protect is off
+[   13.630717] sd 0:0:0:0: [sda] Mode Sense: 43 00 00 00
+[   13.631316] sd 0:0:0:0: [sda] Write cache: enabled, read cache: enabled, doesn't support DPO or FUA
+[   13.648297]  sda: sda1 sda2
+[   13.654359] sd 0:0:0:0: [sda] Attached SCSI removable disk
+[   13.661839] ehci-platform: EHCI generic platform driver
+[   13.690402] sf_gmac: h/w version is 0x1037
+[   13.694774] sf_gmac: request irq=18 ret=0
+[   13.698861] sf_gmac: request pmt irq=19 ret=0
+[   13.703571] libphy: Siflower MII Bus: probed
+[   13.708230] [hnat notice]hnat probe success
+[   13.712648] hnat dev name sf_hnat.0.auto
+[   13.716591] sf gmac not phy config use switch
+[   13.823525] end sf_trigger_eswitch_hwReset
+[   13.828224] register new generic netlink family name COMMON_NL!
+[   13.834412] sf generic netlink module init success,get family id 23!
+[   13.840920] genl dev name sf_genl.2.auto
+[   13.845030] eswitch probe success
+[   13.849209] End intel_rgmii_init
+[   13.854843] SWAPI: Registered char device [switch_api] with major no [81]
+[   13.893589] End ethsw_swapi_register
+[   13.927536] register new generic netlink family name DPS_NL!
+[   13.933358] init dps family with id 24!
+[   13.937233] sf gmac get switch model 2
+[   13.943433] netif_napi_add() called with weight 256 on device eth%d
+[   13.953583] usbcore: registered new interface driver uas
+[   13.959412] kmodloader: done loading kernel modules from /etc/modules-boot.d/*
+[   13.977461] init: - preinit -
+[   16.120405] set port:1 pvid:1
+[   16.123583] set port:2 pvid:1
+[   16.126661] set port:3 pvid:1
+[   16.131959] add port:1 for vlan:1 tagged:0
+[   16.137529] add port:2 for vlan:1 tagged:0
+[   16.143147] add port:3 for vlan:1 tagged:0
+[   16.148720] add port:5 for vlan:1 tagged:1
+[   16.422829] gmac open success
+[   19.651610] UBIFS (ubi0:1): background thread "ubifs_bgt0_1" started, PID 138
+[   19.839560] UBIFS (ubi0:1): recovery needed
+[   20.337408] UBIFS (ubi0:1): recovery completed
+[   20.342386] UBIFS (ubi0:1): UBIFS: mounted UBI device 0, volume 1, name "rootfs_data"
+[   20.350272] UBIFS (ubi0:1): LEB size: 126976 bytes (124 KiB), min./max. I/O unit sizes: 2048 bytes/2048 bytes
+[   20.360343] UBIFS (ubi0:1): FS size: 106786816 bytes (101 MiB, 841 LEBs), journal size 5332992 bytes (5 MiB, 42 LEBs)
+[   20.371107] UBIFS (ubi0:1): reserved for root: 4952683 bytes (4836 KiB)
+[   20.377772] UBIFS (ubi0:1): media format: w4/r0 (latest is w5/r0), UUID 14355DA1-F0D7-4764-9EC4-507A0E4F151B, small LPT model
+[   20.432031] mount_root: switching to ubifs overlay
+[   20.531935] urandom-seed: Seeding with /etc/urandom.seed
+[   22.807664] startcore init fill all memory!
+[   22.859742] rf access base address : b1c00000
+[   22.864208] sf_wifi_rf_os_resources_get:
+[   22.868132]  priv->base : b1c00000
+[   22.871575]  priv->irq : 29
+[   22.874512] gpio -2,of_get_named_gpio failed! Do not support external PA
+[   22.944264] Now copy rf_pmem.bin firmware with size 71772, @ = 0x4002
+[   22.966026] Now copy rf_default_reg.bin default reg with size 63612
+[   23.001314] XO config value : fd
+[   23.005096] get TRX_PATH_CFG==ff
+[   23.008353] rf_bootup
+[   23.010628] ml_apb_send_0_params_cmd command : 0x8010, cmd_base : 0x3240, rrq : 1
+[   23.018265] command 0x8010 get a repsonse with args : 4
+[   23.023575] rf hw version : 0x50c0
+[   23.026986] rf sw version : 0x2103
+[   23.030385] value : 0x2
+[   23.032868] ml_apb_send_1_params_cmd, rrq = 1, cmd_base : 0x3240, cmd = 0x8101, args0 = 0xff
+[   23.041438] command 0x8101 get a repsonse with args : 1
+[   23.046666] xo_value_conf :0xfd
+[   23.049806] ml_apb_send_1_params_cmd, rrq = 1, cmd_base : 0x3240, cmd = 0x8111, args0 = 0xfd
+[   23.058375] command 0x8111 get a repsonse with args : 1
+[   23.063636] switch to OPERATING mode
+[   23.067220] ml_apb_send_0_params_cmd command : 0x8090, cmd_base : 0x3240, rrq : 1
+[   23.386887] command 0x8090 get a repsonse with args : 1
+[   23.421134] ml_apb_send_0_params_cmd command : 0x8070, cmd_base : 0x3240, rrq : 1
+[   23.428735] command 0x8070 get a repsonse with args : 2
+[   23.434011] ml_apb_send_2_params_cmd, rrq = 1, cmd_base : 0x3240, cmd = 0x8042, args0 = 0x1b, args1 = 0x3e8
+[   23.443883] command 0x8042 get a repsonse with args : 1
+[   23.449109] property_id 27 property_value 1000
+[   23.453582] rf mod param thermal_on 1 
+[   23.457333] read cooling temp(0x1c0) from factory
+[   23.457340] set thermal_state : 10
+[   23.462077] **************************************************************sfax8_thermal_sensor_register
+[   23.468399] sf_wifi_rf_sysfs_register, parent :aetnensis
+[   24.527634] Loading modules backported from Linux version v4.19.7-0-g61c68f2a2af0
+[   24.535194] Backport generated by backports.git v4.19.7-1-0-g148b072d
+[   24.588812] sf16a18_lb_fmac: unknown parameter 'independent_antenna_control' ignored
+[   24.597481] siwifi v - build: franklin Mar 30 2017 11:10:15 - svnUnversioned directory
+[   24.605859] Now band 2.4G
+[   24.608513] load_task, path : sf1688_lb_fmac.bin, task_id : 0
+[   24.805325] node->entry_addr=1f00000 node=8737eb80
+[   24.819546] task id=0 state=0
+[   24.822717] siwifi_platform_init, priv->base : b1000000
+[   24.829042] get wifi address from factory
+[   24.833272] info: gpio get failed from dts!<<<<<<<<<<<<<<<<<<<<<<<
+[   24.839530] the default platform clk rate is 375000000
+[   24.847485] txpower calibration table use factory info
+[   24.854291] band 0: wifi txpower table version 1, flag 2, normal list 86e5c400, sleepmode list 86e5de00, low list 86e5c200, high list   (null)
+[   24.870900] lb registering.......
+[   24.874273] find a empty client seat : 0
+[   24.879359] Now copy ldpcram.bin firmware, @ = 0xb1109000
+[   24.884958] size=980, is_lb=1
+[   24.888102] load ldpc cost 0 cnt loop
+[   24.891857] lmac_glue_start(0)
+[   24.894912] start_task, 0
+[   24.897530] task entry_addr=0x1f00000
+[   24.901229] start aresetn 0 por_resetn 0 
+[   24.905242] wait lmac init(0)>>>>>>>>>>>>>>>>>>>>>>>
+[   24.912115] lmac[0] v6.0.0.0 - build: davy Fri, 06 Nov 2020 15:05:54 +0800 band: 0
+[   24.919698] lmac[0] SW profiling configuration:
+[   24.924230] lmac[0]   - TX_IPC_IRQ: 0
+[   24.927891] lmac[0]   - TX_APP_EVT: 1
+[   24.931554] lmac[0]   - TX_BUF_ALLOC: 2
+[   24.935389] lmac[0]   - TX_DMA_IRQ: 3
+[   24.939051] lmac[0]   - TX_PAYL_HDL: 4
+[   24.942800] lmac[0]   - TX_NEW_TAIL: 5
+[   24.946549] lmac[0]   - TX_MAC_IRQ: 6
+[   24.950212] lmac[0]   - TX_BUF_FREE: 7
+[   24.953960] lmac[0]   - TX_CFM_EVT: 8
+[   24.957623] lmac[0]   - TX_CFM_DMA_IRQ: 9
+[   24.961633] lmac[0]   - RX_MAC_IRQ: 10
+[   24.965383] lmac[0]   - RX_CNTRL_EVT: 11
+[   24.969307] lmac[0]   - RX_MPDU_XFER: 12
+[   24.973229] lmac[0]   - RX_MPDU_FREE: 13
+[   24.977153] lmac[0]   - RX_DMA_IRQ: 14
+[   24.980902] lmac[0]   - RX_DMA_EVT: 15
+[   24.984651] lmac[0]   - RX_IPC_IND: 16
+[   24.988402] lmac[0]   - AGG_FIRST_MPDU_DWNLD: 17
+[   24.993020] lmac[0]   - AGG_START_AMPDU: 18
+[   24.997203] lmac[0]   - AGG_ADD_MPDU: 19
+[   25.001128] lmac[0]   - AGG_FINISH_AMPDU: 20
+[   25.005398] lmac[0]   - AGG_BAR_DONETX: 21
+[   25.009495] lmac[0]   - AGG_BA_RXED: 22
+[   25.013330] lmac[0]   - MM_HW_IDLE: 23
+[   25.017080] lmac[0]   - MM_SET_CHANNEL: 24
+[   25.021177] lmac[0]   - TX_FRAME_PUSH: 25
+[   25.025188] lmac[0]   - TX_FRAME_CFM: 26
+[   25.029110] lmac[0]   - TX_AC_BG[0]: 27
+[   25.032947] lmac[0]   - TX_AC_BG[1]: 28
+[   25.036783] lmac[0]   - TX_AC_IRQ[0]: 29
+[   25.040723] lmac init complete(0)
+[   25.040763] wait lmac over(0)<<<<<<<<<<<<<<<<<<<<<<<
+[   25.049073] successfully turn on platform 0!
+[   25.055427] ieee80211 phy0: PHY features: [NSS=2][CHBW=40][LDPC]
+[   25.061502] ieee80211 phy0: FW features: [BCN][AUTOBCN][HWSCAN][CMON][MROLE][RADAR][PS][UAPSD][DPSM][AMPDU][AMSDU][CHNL_CTXT][REORD][UMAC][MFP]
+[   25.074410] tx headroom : 224, tx amsdu headroom : 50, rx headroom : 182, rx pd offset 224
+[   25.085046] rx_bufsz - 2560, rx_pd_offset - 224
+[   25.090224] radar set region 0
+[   25.094382] siwifi_hw->phy_config.digtable[0]:30303030
+[   25.099557] siwifi_hw->phy_config.digtable[1]:2d2d2d2d
+[   25.104896] siwifi_hw->phy_config.digtable[2]:30303030
+[   25.110056] siwifi_hw->phy_config.digtable[3]:2d2d2d2d
+[   25.115251] siwifi_hw->phy_config.digtable[4]:30303030
+[   25.120398] siwifi_hw->phy_config.digtable[5]:2d2d2d2d
+[   25.125587] siwifi_hw->phy_config.digtable_max[0]:7f504434
+[   25.131126] siwifi_hw->phy_config.digtable_max[1]:6c4c4030
+[   25.136626] siwifi_hw->phy_config.digtable_max[2]:7f504434
+[   25.142161] siwifi_hw->phy_config.digtable_max[3]:6c4c4030
+[   25.147666] siwifi_hw->phy_config.digtable_max[4]:7f504434
+[   25.153202] siwifi_hw->phy_config.digtable_max[5]:6c4c4030
+[   25.158704] siwifi_hw->phy_config.digtable_max[6]:0
+[   25.163624] siwifi_hw->phy_config.digtable[6]:1
+[   25.168408] siwifi_parse_txpower_gain_table_configfile: lb_txpower_table.ini not exsist, use default file.
+[   25.181969] found hnat device to add
+[   25.185588] [hnat notice]add wifi dev index 7 ndev86e2f000
+[   25.191190] ieee80211 phy0: New interface create wlan0
+[   25.222009] sf16a18_hb_fmac: unknown parameter 'independent_antenna_control' ignored
+[   25.230541] siwifi v - build: franklin Mar 30 2017 11:10:15 - svnUnversioned directory
+[   25.238930] Now band 5G
+[   25.241450] load_task, path : sf1688_hb_fmac.bin, task_id : 1
+[   25.458160] node->entry_addr=2000000 node=86861280
+[   25.472646] task id=1 state=0
+[   25.475658] siwifi_platform_init, priv->base : b7800000
+[   25.481839] get wifi address from factory
+[   25.485878] info: gpio get failed from dts!<<<<<<<<<<<<<<<<<<<<<<<
+[   25.492241] the default platform clk rate is 375000000
+[   25.497499] txpower calibration table use factory info
+[   25.504069] band 1: wifi txpower table version 1, flag 2, normal list 87544000, sleepmode list 87545000, low list 87545800, high list   (null)
+[   25.520565] hb registering.......
+[   25.523979] find a empty client seat : 1
+[   25.528902] Now copy ldpcram.bin firmware, @ = 0xb7909000
+[   25.534402] size=1500, is_lb=0
+[   25.537724] load ldpc cost 0 cnt loop
+[   25.541470] lmac_glue_start(1)
+[   25.544525] start_task, 1
+[   25.547145] task entry_addr=0x2000000
+[   25.550805] start aresetn 0 por_resetn 0 
+[   25.554868] wait lmac init(1)>>>>>>>>>>>>>>>>>>>>>>>
+[   25.561368] lmac[1] v6.0.0.0 - build: davy Fri, 06 Nov 2020 15:05:54 +0800 band: 1
+[   25.568949] lmac[1] SW profiling configuration:
+[   25.573487] lmac[1]   - TX_IPC_IRQ: 0
+[   25.577155] lmac[1]   - TX_APP_EVT: 1
+[   25.580817] lmac[1]   - TX_BUF_ALLOC: 2
+[   25.584663] lmac[1]   - TX_DMA_IRQ: 3
+[   25.588331] lmac[1]   - TX_PAYL_HDL: 4
+[   25.592089] lmac[1]   - TX_NEW_TAIL: 5
+[   25.595843] lmac[1]   - TX_MAC_IRQ: 6
+[   25.599506] lmac[1]   - TX_BUF_FREE: 7
+[   25.603260] lmac[1]   - TX_CFM_EVT: 8
+[   25.606926] lmac[1]   - TX_CFM_DMA_IRQ: 9
+[   25.610935] lmac[1]   - RX_MAC_IRQ: 10
+[   25.614692] lmac[1]   - RX_CNTRL_EVT: 11
+[   25.618621] lmac[1]   - RX_MPDU_XFER: 12
+[   25.622549] lmac[1]   - RX_MPDU_FREE: 13
+[   25.626476] lmac[1]   - RX_DMA_IRQ: 14
+[   25.630225] lmac[1]   - RX_DMA_EVT: 15
+[   25.633981] lmac[1]   - RX_IPC_IND: 16
+[   25.637736] lmac[1]   - AGG_FIRST_MPDU_DWNLD: 17
+[   25.642359] lmac[1]   - AGG_START_AMPDU: 18
+[   25.646546] lmac[1]   - AGG_ADD_MPDU: 19
+[   25.650469] lmac[1]   - AGG_FINISH_AMPDU: 20
+[   25.654748] lmac[1]   - AGG_BAR_DONETX: 21
+[   25.658849] lmac[1]   - AGG_BA_RXED: 22
+[   25.662690] lmac[1]   - MM_HW_IDLE: 23
+[   25.666443] lmac[1]   - MM_SET_CHANNEL: 24
+[   25.670540] lmac[1]   - TX_FRAME_PUSH: 25
+[   25.674557] lmac[1]   - TX_FRAME_CFM: 26
+[   25.678485] lmac[1]   - TX_AC_BG[0]: 27
+[   25.682326] lmac[1]   - TX_AC_BG[1]: 28
+[   25.686166] lmac[1]   - TX_AC_IRQ[0]: 29
+[   25.690115] lmac init complete(1)
+[   25.690141] wait lmac over(1)<<<<<<<<<<<<<<<<<<<<<<<
+[   25.698462] successfully turn on platform 1!
+[   25.704720] ieee80211 phy1: PHY features: [NSS=2][CHBW=80][LDPC]
+[   25.710751] ieee80211 phy1: FW features: [BCN][AUTOBCN][HWSCAN][CMON][MROLE][RADAR][PS][UAPSD][DPSM][AMPDU][AMSDU][CHNL_CTXT][REORD][UMAC][VHT][MFP]
+[   25.724151] tx headroom : 224, tx amsdu headroom : 50, rx headroom : 182, rx pd offset 224
+[   25.734958] rx_bufsz - 2560, rx_pd_offset - 224
+[   25.740074] radar set region 0
+[   25.744160] siwifi_hw->phy_config.digtable[0]:30383430
+[   25.749330] siwifi_hw->phy_config.digtable[1]:2c34302c
+[   25.754625] siwifi_hw->phy_config.digtable[2]:30383430
+[   25.759771] siwifi_hw->phy_config.digtable[3]:2c34302c
+[   25.764959] siwifi_hw->phy_config.digtable[4]:30383430
+[   25.770104] siwifi_hw->phy_config.digtable[5]:2c34302c
+[   25.775281] siwifi_hw->phy_config.digtable_max[0]:78483830
+[   25.780779] siwifi_hw->phy_config.digtable_max[1]:6c40342c
+[   25.786309] siwifi_hw->phy_config.digtable_max[2]:78483830
+[   25.791836] siwifi_hw->phy_config.digtable_max[3]:6c40342c
+[   25.797336] siwifi_hw->phy_config.digtable_max[4]:78483830
+[   25.802867] siwifi_hw->phy_config.digtable_max[5]:6c40342c
+[   25.808370] siwifi_hw->phy_config.digtable_max[6]:0
+[   25.813302] siwifi_hw->phy_config.digtable[6]:1
+[   25.818043] siwifi_parse_txpower_gain_table_configfile: hb_txpower_table.ini not exsist, use default file.
+[   25.830992] found hnat device to add
+[   25.834782] [hnat notice]add wifi dev index 6 ndev87473000
+[   25.840284] ieee80211 phy1: New interface create wlan1
+[   25.868070] procd: - early -
+[   25.871306] procd: - watchdog -
+[   26.937657] procd: - watchdog -
+[   26.941871] procd: - ubus -
+[   27.113542] procd: - init -
+[   28.311491] kmodloader: loading kernel modules from /etc/modules.d/*
+[   28.339287] ntfs: driver 2.1.32 [Flags: R/O MODULE].
+[   28.356183] tun: Universal TUN/TAP device driver, 1.6
+[   28.369332] ip6_tables: (C) 2000-2006 Netfilter Core Team
+[   28.444692] ip_set: protocol 6
+[   28.499581] u32 classifier
+[   28.502431]     input device check on
+[   28.506135]     Actions configured
+[   28.513220] Mirror/redirect action on
+[   28.561948] fuse init (API version 7.26)
+[   28.578809] usbcore: registered new interface driver cdc_acm
+[   28.584622] cdc_acm: USB Abstract Control Model driver for USB modems and ISDN adapters
+[   28.594710] usbcore: registered new interface driver cdc_wdm
+[   28.617043] Ebtables v2.0 registered
+[   28.622608] usbcore: registered new interface driver ipheth
+[   28.736614] ctnetlink v0.93: registering with nfnetlink.
+[   28.787451] usbcore: registered new interface driver usbserial
+[   28.793744] usbcore: registered new interface driver usbserial_generic
+[   28.800595] usbserial: USB Serial support registered for generic
+[   28.815674] wireguard: WireGuard 0.0.20181218 loaded. See www.wireguard.com for information.
+[   28.824278] wireguard: Copyright (C) 2015-2018 Jason A. Donenfeld <Jason@zx2c4.com>. All Rights Reserved.
+[   28.861670] usbcore: registered new interface driver cdc_ether
+[   28.871011] usbcore: registered new interface driver cdc_ncm
+[   28.878776] usbcore: registered new interface driver cp210x
+[   28.884748] usbserial: USB Serial support registered for cp210x
+[   28.896930] usbcore: registered new interface driver huawei_cdc_ncm
+[   28.911524] PPP generic driver version 2.4.2
+[   28.918086] PPP MPPE Compression module registered
+[   28.924899] NET: Registered protocol family 24
+[   28.932029] usbcore: registered new interface driver qmi_wwan
+[   28.940525] usbcore: registered new interface driver rndis_host
+[   28.967822] usbcore: registered new interface driver rt2800usb
+[   28.976104] usbcore: registered new interface driver sierra
+[   28.982132] usbserial: USB Serial support registered for Sierra USB modem
+[   28.991890] usbcore: registered new interface driver sierra_net
+[   29.003182] usbcore: registered new interface driver option
+[   29.009124] usbserial: USB Serial support registered for GSM modem (1-port)
+[   29.021762] kmodloader: done loading kernel modules from /etc/modules.d/*
+[   37.049033] [hnat info] ifname br-guest, index 7  is wan 0
+[   37.102043] [hnat info] ifname br-lan, index 0  is wan 0
+[   37.192749] [hnat info] ifname eth0.2, index 0  is wan 1 
+[   37.264884] [hnat info] ifname pppoe-wan, index 7  is wan 1 
+[   37.360105] set port:1 pvid:1
+[   37.363225] set port:2 pvid:1
+[   37.366337] set port:3 pvid:1
+[   37.370365] add port:1 for vlan:1 tagged:0
+[   37.375154] add port:2 for vlan:1 tagged:0
+[   37.379816] add port:3 for vlan:1 tagged:0
+[   37.384653] add port:5 for vlan:1 tagged:1
+[   37.389195] set port:0 pvid:2
+[   37.393531] add port:0 for vlan:2 tagged:0
+[   37.398527] add port:5 for vlan:2 tagged:1
+[   37.403108] set port:5 pvid:2
+[   41.980618] IPv6: ADDRCONF(NETDEV_UP): eth0: link is not ready
+[   42.158251] IPv6: ADDRCONF(NETDEV_UP): lo: link is not ready
+[   42.452593] gmac open success
+[   42.464064] br-lan: port 1(eth0.1) entered blocking state
+[   42.469506] br-lan: port 1(eth0.1) entered disabled state
+[   42.476120] device eth0.1 entered promiscuous mode
+[   42.480993] device eth0 entered promiscuous mode
+[   42.490094] br-lan: port 1(eth0.1) entered blocking state
+[   42.495731] br-lan: port 1(eth0.1) entered forwarding state
+[   42.502722] [hnat info]add lan ip c0a80801 pf 24  index 0 name br-lan
+[   43.318759] hb-fmac 17800000.wifi-hb wlan1: Remove Interface
+[   43.324701] found hnat device to del
+[   43.515163] hb-fmac 17800000.wifi-hb wlan1 (unregistering): Remove Interface Over
+[   43.653870] lb-fmac 11000000.wifi-lb wlan0: Remove Interface
+[   43.659649] found hnat device to del
+[   43.764403] lb-fmac 11000000.wifi-lb wlan0 (unregistering): Remove Interface Over
+[   43.924727] found hnat device to add
+[   43.928391] [hnat notice]add wifi dev index 7 ndev863e1000
+[   44.087635] lmac[1] vif_mgmt_register, vif_type : 0 status=0 index=0, req_idx=0
+[   44.095469] lmac[1] use low txpower table
+[   44.957774] radar set region 1
+[   44.961316] radar set region 1
+[   46.806051] found hnat device to add
+[   46.809739] [hnat notice]add wifi dev index 6 ndev85829000
+[   46.876619] lmac[0] vif_mgmt_register, vif_type : 2 status=0 index=0, req_idx=0
+[   46.884495] lmac[0] use low txpower table
+[   46.906221] br-lan: port 2(wlan1) entered blocking state
+[   46.911798] br-lan: port 2(wlan1) entered disabled state
+[   46.918892] device wlan1 entered promiscuous mode
+[   46.957317] found hnat device to add
+[   46.960999] [hnat notice]add wifi dev index 5 ndev875a6000
+[   48.331241] lmac[1] vif_mgmt_register, vif_type : 2 status=0 index=1, req_idx=0
+[   48.338681] lmac[1] use low txpower table
+[   48.365698] br-lan: port 3(wlan0) entered blocking state
+[   48.371432] br-lan: port 3(wlan0) entered disabled state
+[   48.379373] device wlan0 entered promiscuous mode
+[   48.623046] hb-fmac 17800000.wifi-hb wlan0: Del key for vif(1), key index : 0
+[   48.630911] hb-fmac 17800000.wifi-hb wlan0: Del key for vif(1), key index : 1
+[   48.639797] hb-fmac 17800000.wifi-hb wlan0: Del key for vif(1), key index : 2
+[   48.647202] lmac[1] {CTXT-0} Create channel context: freq=5745MHz bw=80MHz pwr=30dBm
+[   48.647227] lmac[1] {CTXT-0} link to {VIF-0}: status=0 nb_vif=0
+[   48.647251] lmac[1] rc_init: station_id=0 format_mod=4 pre_type=0 short_gi=1 max_bw=2
+[   48.647273] lmac[1] rc_init: nss_max=1 mcs_max=9 r_idx_min=12 r_idx_max=12 no_samples=10
+[   48.686546] hb-fmac 17800000.wifi-hb wlan0: Del key for vif(1), key index : 3
+[   48.938968] lmac[1] {CTXT-0} link to {VIF-1}: status=4 nb_vif=1
+[   48.969491] hb-fmac 17800000.wifi-hb wlan0: AP started: ch=0, bcmc_idx=65
+[   48.983093] br-lan: port 3(wlan0) entered blocking state
+[   48.988613] br-lan: port 3(wlan0) entered forwarding state
+[   48.999920] hb-fmac 17800000.wifi-hb wlan0: Add key for vif(1), key index : 1
+[   49.685838] hb-fmac 17800000.wifi-hb wlan-sta: Add key for sta 0 (08:b4:b1:06:df:74)
+[   49.694847] hb-fmac 17800000.wifi-hb wlan-sta: Add key for vif(0), key index : 2
+[   54.494943] lb-fmac 11000000.wifi-lb wlan1: Del key for vif(0), key index : 0
+[   54.510856] lb-fmac 11000000.wifi-lb wlan1: Del key for vif(0), key index : 1
+[   54.518797] lb-fmac 11000000.wifi-lb wlan1: Del key for vif(0), key index : 2
+[   54.526885] lb-fmac 11000000.wifi-lb wlan1: Del key for vif(0), key index : 3
+[   54.773312] lmac[0] {CTXT-0} Create channel context: freq=2437MHz bw=20MHz pwr=30dBm
+[   54.781217] lmac[0] {CTXT-0} link to {VIF-0}: status=0 nb_vif=0
+[   54.781517] lb-fmac 11000000.wifi-lb wlan1: AP started: ch=0, bcmc_idx=64
+[   54.794907] br-lan: port 2(wlan1) entered blocking state
+[   54.800394] br-lan: port 2(wlan1) entered forwarding state
+[   54.813369] lb-fmac 11000000.wifi-lb wlan1: Add key for vif(0), key index : 1
+[   58.280082] lmac[1] rc_init: station_id=1 format_mod=4 pre_type=0 short_gi=1 max_bw=2
+[   58.288178] lmac[1] rc_init: nss_max=1 mcs_max=9 r_idx_min=12 r_idx_max=12 no_samples=10
+[   58.309046] add sta(f8:ff:c2:40:a6:a8) to hash table 64!
+[   58.314736] hb-fmac 17800000.wifi-hb wlan0: Add sta 1 (f8:ff:c2:40:a6:a8) flags=[WME][AUTHENTICATED][ASSOCIATED]
+[   58.328908] hb-fmac 17800000.wifi-hb wlan0: Del key for sta 1 (f8:ff:c2:40:a6:a8)
+[   58.338218] hb-fmac 17800000.wifi-hb wlan0: Del key for sta 1 (f8:ff:c2:40:a6:a8)
+[   58.346789] hb-fmac 17800000.wifi-hb wlan0: Del key for sta 1 (f8:ff:c2:40:a6:a8)
+[   58.357326] hb-fmac 17800000.wifi-hb wlan0: Add key for vif(1), key index : 1
+[   58.478482] hb-fmac 17800000.wifi-hb wlan0: Add key for sta 1 (f8:ff:c2:40:a6:a8)
+[   90.421412] EXT4-fs (sda1): mounted filesystem with ordered data mode. Opts: (null)
+[   99.267784] Adding 2097148k swap on /dev/sda2.  Priority:-2 extents:1 across:2097148k 

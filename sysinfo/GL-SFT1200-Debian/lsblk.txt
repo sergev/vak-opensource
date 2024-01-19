@@ -1,0 +1,12 @@
+NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+sda           8:0    1  59.8G  0 disk 
+├─sda1        8:1    1  57.8G  0 part /
+└─sda2        8:2    1     2G  0 part [SWAP]
+mtdblock0    31:0    0   128K  1 disk 
+mtdblock1    31:1    0   384K  1 disk 
+mtdblock2    31:2    0   128K  1 disk 
+mtdblock3    31:3    0   128K  1 disk 
+mtdblock4    31:4    0 127.3M  0 disk 
+mtdblock5    31:5    0     4M  0 disk 
+mtdblock6    31:6    0 123.3M  0 disk 
+ubiblock0_0 254:0    0  13.3M  0 disk 

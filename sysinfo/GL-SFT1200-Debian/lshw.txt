@@ -1,0 +1,90 @@
+gl-sft1200
+    description: Computer
+    product: GL-SFT1200
+    width: 32 bits
+    capabilities: smp
+  *-core
+       description: Motherboard
+       physical id: 0
+     *-cpu:0
+          description: CPU
+          product: cpu
+          physical id: 0
+          bus info: cpu@0
+          size: 800MHz
+          capacity: 1200MHz
+          width: 32 bits
+          capabilities: cpufreq
+     *-cpu:1
+          description: CPU
+          product: cpu
+          physical id: 1
+          bus info: cpu@1
+          size: 800MHz
+          capacity: 1200MHz
+          width: 32 bits
+          capabilities: cpufreq
+     *-cpu:2
+          description: CPU
+          product: cpu
+          physical id: 2
+          bus info: cpu@2
+          size: 800MHz
+          capacity: 1200MHz
+          width: 32 bits
+          capabilities: cpufreq
+     *-cpu:3
+          description: CPU
+          product: cpu
+          physical id: 3
+          bus info: cpu@3
+          size: 800MHz
+          capacity: 1200MHz
+          width: 32 bits
+          capabilities: cpufreq
+     *-memory
+          description: System memory
+          physical id: 4
+          size: 116MiB
+  *-scsi
+       physical id: 1
+       bus info: scsi@0
+       logical name: scsi0
+       capabilities: scsi-host
+       configuration: driver=usb-storage
+  *-input
+       product: gpio-keys
+       physical id: 2
+       logical name: input0
+       logical name: /dev/input/event0
+       capabilities: platform
+  *-network:0
+       description: Wireless interface
+       physical id: 3
+       logical name: wlan-sta
+       serial: 6e:83:c4:41:8b:a9
+       capabilities: ethernet physical wireless
+       configuration: broadcast=yes driver=hb-fmac ip=192.168.86.36 multicast=yes wireless=IEEE 802.11
+  *-network:1
+       description: Wireless interface
+       physical id: 4
+       logical name: wlan0
+       serial: 94:83:c4:41:8b:a9
+       capabilities: ethernet physical wireless
+       configuration: broadcast=yes driver=hb-fmac multicast=yes wireless=IEEE 802.11
+  *-network:2
+       description: Ethernet interface
+       physical id: 5
+       logical name: eth0
+       serial: 94:83:c4:41:8b:a6
+       size: 10Mbit/s
+       capacity: 1Gbit/s
+       capabilities: ethernet physical tp mii 10bt 10bt-fd 100bt 100bt-fd 1000bt-fd autonegotiation
+       configuration: autonegotiation=on broadcast=yes driver=gswicth driverversion=1.0.0 duplex=half link=yes multicast=yes port=MII speed=10Mbit/s
+  *-network:3
+       description: Wireless interface
+       physical id: 6
+       logical name: wlan1
+       serial: 94:83:c4:41:8b:a8
+       capabilities: ethernet physical wireless
+       configuration: broadcast=yes driver=lb-fmac multicast=yes wireless=IEEE 802.11

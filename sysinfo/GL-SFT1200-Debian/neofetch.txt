@@ -1,0 +1,12 @@
+root@GL-SFT1200 
+--------------- 
+OS: Debian GNU/Linux 12 (bookworm) mips 
+Host: GL-SFT1200 
+Kernel: 4.14.90 
+Uptime: 10 mins 
+Packages: 539 (dpkg) 
+Shell: ash 
+Terminal: /dev/pts/0 
+CPU: MIPS interAptiv (multi) V2.8 (4) @ 1.200GHz 
+Memory: 42MiB / 116MiB 
+

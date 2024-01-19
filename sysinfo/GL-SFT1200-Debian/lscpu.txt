@@ -1,0 +1,14 @@
+Architecture:        mips
+Byte Order:          Little Endian
+CPU(s):              4
+On-line CPU(s) list: 0-3
+Model name:          -
+Model:               MIPS interAptiv (multi) V2.8  FPU V0.0
+Thread(s) per core:  2
+Core(s) per socket:  2
+Socket(s):           1
+CPU(s) scaling MHz:  67%
+CPU max MHz:         1200.0000
+CPU min MHz:         100.0000
+BogoMIPS:            531.66
+Flags:               mips16 dsp dsp2 mt eva
