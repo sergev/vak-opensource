@@ -127,8 +127,7 @@ void cryptfile(char *key, int decodeflag)
 
 int main(int argc, char **argv)
 {
-    //char userid[KEYSZ], passwd[16], *id;
-    int err, showkeyflag = 0, showsecflag = 0, decodeflag = 0;
+    int showkeyflag = 0, showsecflag = 0, decodeflag = 0;
     int encodeflag = 0, encryptflag = 0, decryptflag = 0;
 
     if (argc < 2 || argv[1][0] != '-')
@@ -183,31 +182,39 @@ int main(int argc, char **argv)
 
     if (argc != 1)
         goto usage;
+    const char *userid = argv[0];
+
+    //
+    // Initialize GPG library.
+    //
+    gpg_error_t err;
+    gpgme_check_version (NULL);
+    err = gpgme_engine_check_version (GPGME_PROTOCOL_OpenPGP);
+    if (err) {
+        fprintf (stderr, "check version failed: <%s> %s\n", gpgme_strsource (err), gpgme_strerror (err));
+        exit (1);
+    }
+
+    gpgme_ctx_t ctx;
+    err = gpgme_new (&ctx);
+    if (err) {
+        fprintf (stderr, "cannot create gpg context: <%s> %s\n", gpgme_strsource (err), gpgme_strerror (err));
+        exit (1);
+    }
+    gpgme_set_protocol (ctx, GPGME_PROTOCOL_OpenPGP);
+    gpgme_set_armor (ctx, 1);
+
     if (encryptflag || decryptflag) {
         cryptfile(argv[0], decryptflag);
         return 0;
     }
 
-    //id = argv[0];
-
-    static char filename[128], *p;
-    p = getenv("HOME");
-    if (!p)
-        p = "/";
-    strcpy(filename, p);
-    strcat(filename, "/.gnupg/secring.gpg");
-    //crypt_pubfile = crypt_secfile = filename;
-
+    gpgme_key_t thekey;
     if (!decodeflag && !showsecflag) {
-#if 0
-        strcpy(userid, id);
-        err = getpublickey(crypt_pubfile, 0, userid, pn, pe);
-#else
-        err = -1;
-#endif
-        if (err < 0) {
-            fprintf(stderr, "getpublickey error %d\n", err);
-            exit(1);
+        err = gpgme_get_key (ctx, userid, &thekey, 0);
+        if (err) {
+            fprintf (stderr, "error getting key for '%s': %s\n", userid, gpg_strerror (err));
+            exit (1);
         }
     }
     if (showkeyflag) {
