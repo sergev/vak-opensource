@@ -1,47 +1,37 @@
+#include <gpgme.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
 #include <string.h>
+#include <sys/errno.h>
+#include <unistd.h>
 
-#include <gpgme.h>
-
-#if 0
-char pn[KEYSZ], pe[KEYSZ];
-char sn[KEYSZ], se[KEYSZ];
-char sd[KEYSZ], sp[KEYSZ];
-char sq[KEYSZ], su[KEYSZ];
-
-char enc[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz@%0123456789";
-
-void printkey(char *name, char *val)
+void printkey(const char *title, char val[], unsigned nbytes)
 {
-    int len, i;
-    int reg, n;
+    static const char ASCII64[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz@%0123456789";
+    int i, reg, n;
 
-    for (len = KEYSZ; len > 0; --len)
-        if (val[len - 1])
-            break;
-    printf("%s ", name);
+    printf("%s ", title);
 
-    reg = len;
-    n = 8;
+    reg = nbytes;
+    n = 16;
     i = 0;
     for (;;) {
-        putchar(enc[reg & 077]);
+        putchar(ASCII64[reg & 077]);
         reg >>= 6;
         n -= 6;
         if (n < 6) {
-            if (i >= len)
+            if (i >= nbytes) {
                 break;
+            }
             reg |= (unsigned char)val[i++] << n;
             n += 8;
         }
     }
-    if (n > 0)
-        putchar(enc[reg & 077]);
+    if (n > 0) {
+        putchar(ASCII64[reg & 077]);
+    }
     printf("\n");
 }
-#endif
 
 void encode()
 {
@@ -125,6 +115,36 @@ void cryptfile(char *key, int decodeflag)
 #endif
 }
 
+void print_data(const char *title, gpgme_data_t dh)
+{
+#define BUF_SIZE 5000
+    char buf[BUF_SIZE + 1];
+    int ret;
+    gpg_error_t err;
+
+    ret = gpgme_data_seek(dh, 0, SEEK_SET);
+    if (ret) {
+        err = gpgme_err_code_from_errno(errno);
+        if (err) {
+            fprintf(stderr, "data seek failed: <%s> %s\n", gpgme_strsource(err),
+                    gpgme_strerror(err));
+            exit(1);
+        }
+    }
+    while ((ret = gpgme_data_read(dh, buf, BUF_SIZE)) > 0) {
+        //fwrite(buf, ret, 1, stdout);
+        printkey(title, buf, ret);
+    }
+    if (ret < 0) {
+        err = gpgme_err_code_from_errno(errno);
+        if (err) {
+            fprintf(stderr, "data read failed: <%s> %s\n", gpgme_strsource(err),
+                    gpgme_strerror(err));
+            exit(1);
+        }
+    }
+}
+
 int main(int argc, char **argv)
 {
     int showkeyflag = 0, showsecflag = 0, decodeflag = 0;
@@ -188,43 +208,61 @@ int main(int argc, char **argv)
     // Initialize GPG library.
     //
     gpg_error_t err;
-    gpgme_check_version (NULL);
-    err = gpgme_engine_check_version (GPGME_PROTOCOL_OpenPGP);
+    gpgme_check_version(NULL);
+    err = gpgme_engine_check_version(GPGME_PROTOCOL_OpenPGP);
     if (err) {
-        fprintf (stderr, "check version failed: <%s> %s\n", gpgme_strsource (err), gpgme_strerror (err));
-        exit (1);
+        fprintf(stderr, "check version failed: <%s> %s\n", gpgme_strsource(err),
+                gpgme_strerror(err));
+        exit(1);
     }
 
     gpgme_ctx_t ctx;
-    err = gpgme_new (&ctx);
+    err = gpgme_new(&ctx);
     if (err) {
-        fprintf (stderr, "cannot create gpg context: <%s> %s\n", gpgme_strsource (err), gpgme_strerror (err));
-        exit (1);
+        fprintf(stderr, "cannot create gpg context: <%s> %s\n", gpgme_strsource(err),
+                gpgme_strerror(err));
+        exit(1);
     }
-    gpgme_set_protocol (ctx, GPGME_PROTOCOL_OpenPGP);
-    gpgme_set_armor (ctx, 1);
+    gpgme_set_protocol(ctx, GPGME_PROTOCOL_OpenPGP);
+    gpgme_set_armor(ctx, 1);
 
     if (encryptflag || decryptflag) {
         cryptfile(argv[0], decryptflag);
         return 0;
     }
 
-    gpgme_key_t thekey;
+    gpgme_key_t keyarray[2];
     if (!decodeflag && !showsecflag) {
-        err = gpgme_get_key (ctx, userid, &thekey, 0);
+        err = gpgme_get_key(ctx, userid, &keyarray[0], 0);
         if (err) {
-            fprintf (stderr, "error getting key for '%s': %s\n", userid, gpg_strerror (err));
-            exit (1);
+            fprintf(stderr, "error getting key for '%s': <%s> %s\n", userid, gpgme_strsource(err),
+                    gpg_strerror(err));
+            exit(1);
         }
     }
     if (showkeyflag) {
-#if 0
-        fprintf(stderr, "Public key: %.*s\n", userid[0], userid + 1);
-        printkey("keye", pe);
-        printkey("keyn", pn);
-#else
-        fprintf(stderr, "TODO\n");
-#endif
+        // Allocate data buffer,
+        gpgme_data_t out;
+        err = gpgme_data_new(&out);
+        if (err) {
+            fprintf(stderr, "cannot allocate data: <%s> %s\n", gpgme_strsource(err),
+                    gpgme_strerror(err));
+            exit(1);
+        }
+
+        // Extract key.
+        gpgme_export_mode_t mode = 0;
+        err = gpgme_op_export_keys(ctx, keyarray, mode, out);
+        if (err) {
+            fprintf(stderr, "cannot export keys: <%s> %s\n", gpgme_strsource(err),
+                    gpgme_strerror(err));
+            exit(1);
+        }
+
+        // Print the key.
+        fprintf(stderr, "Public key: %s\n", userid);
+        print_data("key", out);
+        gpgme_data_release(out);
     }
     if (showsecflag || decodeflag) {
 #if 0
@@ -265,9 +303,14 @@ int main(int argc, char **argv)
 #else
         fprintf(stderr, "TODO\n");
 #endif
-    } else if (decodeflag)
+    } else if (decodeflag) {
         decode();
-    else
+    } else {
         encode();
+    }
+
+    // Cleanup.
+    gpgme_key_unref(keyarray[0]);
+    gpgme_release(ctx);
     return 0;
 }
