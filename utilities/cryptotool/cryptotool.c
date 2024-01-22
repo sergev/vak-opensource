@@ -115,10 +115,9 @@ void cryptfile(char *key, int decodeflag)
 #endif
 }
 
-void print_data(const char *title, gpgme_data_t dh)
+void print_key(const char *title, gpgme_data_t dh)
 {
-#define BUF_SIZE 5000
-    char buf[BUF_SIZE + 1];
+    char buf[5000];
     int ret;
     gpg_error_t err;
 
@@ -131,10 +130,7 @@ void print_data(const char *title, gpgme_data_t dh)
             exit(1);
         }
     }
-    while ((ret = gpgme_data_read(dh, buf, BUF_SIZE)) > 0) {
-        //fwrite(buf, ret, 1, stdout);
-        printkey(title, buf, ret);
-    }
+    ret = gpgme_data_read(dh, buf, sizeof(buf));
     if (ret < 0) {
         err = gpgme_err_code_from_errno(errno);
         if (err) {
@@ -143,6 +139,11 @@ void print_data(const char *title, gpgme_data_t dh)
             exit(1);
         }
     }
+    if (ret >= sizeof(buf)) {
+        fprintf(stderr, "key is too large!\n");
+        exit(1);
+    }
+    printkey(title, buf, ret);
 }
 
 int main(int argc, char **argv)
@@ -224,7 +225,6 @@ int main(int argc, char **argv)
         exit(1);
     }
     gpgme_set_protocol(ctx, GPGME_PROTOCOL_OpenPGP);
-    gpgme_set_armor(ctx, 1);
 
     if (encryptflag || decryptflag) {
         cryptfile(argv[0], decryptflag);
@@ -233,9 +233,10 @@ int main(int argc, char **argv)
 
     gpgme_key_t keyarray[2];
     if (!decodeflag && !showsecflag) {
+        // Get public key.
         err = gpgme_get_key(ctx, userid, &keyarray[0], 0);
         if (err) {
-            fprintf(stderr, "error getting key for '%s': <%s> %s\n", userid, gpgme_strsource(err),
+            fprintf(stderr, "error getting public key for '%s': <%s> %s\n", userid, gpgme_strsource(err),
                     gpg_strerror(err));
             exit(1);
         }
@@ -251,8 +252,7 @@ int main(int argc, char **argv)
         }
 
         // Extract key.
-        gpgme_export_mode_t mode = 0;
-        err = gpgme_op_export_keys(ctx, keyarray, mode, out);
+        err = gpgme_op_export_keys(ctx, keyarray, 0, out);
         if (err) {
             fprintf(stderr, "cannot export keys: <%s> %s\n", gpgme_strsource(err),
                     gpgme_strerror(err));
@@ -261,28 +261,15 @@ int main(int argc, char **argv)
 
         // Print the key.
         fprintf(stderr, "Public key: %s\n", userid);
-        print_data("key", out);
+        print_key("key", out);
         gpgme_data_release(out);
     }
     if (showsecflag || decodeflag) {
-#if 0
-        /* Get password. */
-        struct MD5Context mdContext;
-        char *pass = getpass("Password: ");
-
-        /* Calculate the hash */
-        MD5Init(&mdContext);
-        MD5Update(&mdContext, (unsigned char *)pass, strlen(pass));
-        memset(pass, 0, strlen(pass));
-        MD5Final((unsigned char *)passwd, &mdContext);
-
-        strcpy(userid, id);
-        err = getsecretkey((unsigned char *)passwd, crypt_secfile, userid, sn, se, sd, sp, sq, su);
-#else
-        err = -1;
-#endif
-        if (err < 0) {
-            fprintf(stderr, "getsecretkey error %d\n", err);
+        // Get secret key.
+        err = gpgme_get_key(ctx, userid, &keyarray[0], 1);
+        if (err) {
+            fprintf(stderr, "error getting secret key for '%s': <%s> %s\n", userid, gpgme_strsource(err),
+                    gpg_strerror(err));
             exit(1);
         }
     }
@@ -292,17 +279,27 @@ int main(int argc, char **argv)
     } else if (encodeflag) {
         // TODO
     } else if (showsecflag) {
-#if 0
-        fprintf(stderr, "Secret key: %.*s\n", userid[0], userid + 1);
-        printkey("syse", se);
-        printkey("sysn", sn);
-        printkey("sysd", sd);
-        printkey("sysp", sp);
-        printkey("sysq", sq);
-        printkey("sysu", su);
-#else
-        fprintf(stderr, "TODO\n");
-#endif
+        // Allocate data buffer,
+        gpgme_data_t out;
+        err = gpgme_data_new(&out);
+        if (err) {
+            fprintf(stderr, "cannot allocate data: <%s> %s\n", gpgme_strsource(err),
+                    gpgme_strerror(err));
+            exit(1);
+        }
+
+        // Extract key.
+        err = gpgme_op_export_keys(ctx, keyarray, GPGME_EXPORT_MODE_SECRET, out);
+        if (err) {
+            fprintf(stderr, "cannot export keys: <%s> %s\n", gpgme_strsource(err),
+                    gpgme_strerror(err));
+            exit(1);
+        }
+
+        // Print the key.
+        fprintf(stderr, "Secret key: %s\n", userid);
+        print_key("sys", out);
+        gpgme_data_release(out);
     } else if (decodeflag) {
         decode();
     } else {
