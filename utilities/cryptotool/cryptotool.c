@@ -35,6 +35,9 @@ void printkey(const char *title, char val[], unsigned nbytes)
 
 void encode()
 {
+    // TODO: use openssl
+    // https://wiki.openssl.org/index.php/EVP_Symmetric_Encryption_and_Decryption
+    // For example: openssl enc -aes-256-cbc -pbkdf2 -in foo -out bar -k qwerty -md md5
 #if 0
     char inbuf[KEYSZ], outbuf[KEYSZ];
     int q, n, err;
@@ -143,6 +146,9 @@ void print_key(const char *title, gpgme_data_t dh)
         fprintf(stderr, "key is too large!\n");
         exit(1);
     }
+
+    //TODO: decode public key into N and E values.
+    //TODO: decrypt secret key info D, P, Q, U values.
     printkey(title, buf, ret);
 }
 
