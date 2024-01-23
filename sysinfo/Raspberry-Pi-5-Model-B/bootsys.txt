@@ -1,0 +1,56 @@
+RPi: BOOTSYS release VERSION:30de0ba5 DATE: 2023/10/30 TIME: 16:45:10
+BOOTMODE: 0x06 partition 0 build-ts BUILD_TIMESTAMP=1698684310 serial ac4ed3d6 boardrev c04170 stc 957704
+AON_RESET: 00000003 PM_RSTS 00001000
+RP1_BOOT chip ID: 0x20001927
+PM_RSTS: 0x00001000
+part 00000000 reset_info 00000000
+PMIC reset-event 00000000 rtc 00000000 alarm 00000000 enabled 0
+uSD voltage 3.3V
+Initialising SDRAM 'Samsung' 16Gb x2 total-size: 32 Gbit 4267
+DDR 4267 1 0 32 152
+RP1_BOOT chip ID: 0x20001927
+
+RP1_BOOT chip ID: 0x20001927
+RP1_BOOT: fw size 25968
+PCI2 init
+PCI2 reset
+PCIe scan 00001de4:00000001
+RP1_CHIP_INFO 20001927
+
+RPi: BOOTLOADER release VERSION:30de0ba5 DATE: 2023/10/30 TIME: 16:45:10
+BOOTMODE: 0x06 partition 0 build-ts BUILD_TIMESTAMP=1698684310 serial ac4ed3d6 boardrev c04170 stc 3789943
+AON_RESET: 00000003 PM_RSTS 00001000
+usb_pd_init status 3
+USB_PD CONFIG 0 41
+Boot mode: SD (01) order f4
+SD HOST: 200000000 CTL0: 0x00800000 BUS: 400000 Hz actual: 390625 HZ div: 512 (256) status: 0x1fff0000 delay: 276
+SD HOST: 200000000 CTL0: 0x00800f00 BUS: 400000 Hz actual: 390625 HZ div: 512 (256) status: 0x1fff0000 delay: 276
+OCR c0ff8000 [275]
+CID: 00035344535231323886ca7448c5017a
+CSD: 400e0032db790003b8ab7f800a404000
+SD: bus-width: 4 spec: 2 SCR: 0x02458487 0x00000000
+SD HOST: 200000000 CTL0: 0x00800f04 BUS: 50000000 Hz actual: 50000000 HZ div: 4 (2) status: 0x1fff0000 delay: 2
+MBR: 0x00000800, 1048576 type: 0x0c
+MBR: 0x00100800,248686559 type: 0x83
+MBR: 0x00000000,       0 type: 0x00
+MBR: 0x00000000,       0 type: 0x00
+Trying partition: 0
+type: 32 lba: 2048 'mkfs.fat' ' system-boot' clusters 1032412 (1)
+rsc 32 fat-sectors 8066 root dir cluster 2 sectors 0 entries 0
+FAT32 clusters 1032412
+[sdcard] autoboot.txt not found
+Trying partition: 0
+type: 32 lba: 2048 'mkfs.fat' ' system-boot' clusters 1032408 (1)
+rsc 32 fat-sectors 8066 root dir cluster 2 sectors 0 entries 0
+FAT32 clusters 1032408
+Read config.txt bytes     1137 hnd 0x438
+[sdcard] pieeprom.upd not found
+usb_max_current_enable default 0 max-current 3000
+Read bcm2712-rpi-5-b.dtb bytes    73712 hnd 0x3d4fc
+dt-match: compatible: raspberrypi,5-model-b match: brcm,bcm2712
+dt-match: compatible: brcm,bcm2712 match: brcm,bcm2712
+PM_RSTS 00001000
+Selecting USB low current limit
+
+NOTICE:  BL31: v2.6(release):v2.6-239-g2a9ede0bd
+NOTICE:  BL31: Built : 14:26:57, Jun 22 2023
