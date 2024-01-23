@@ -1,0 +1,31 @@
+NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+loop0    7:0    0     4K  1 loop /snap/bare/5
+loop1    7:1    0   149M  1 loop /snap/chromium/2529
+loop2    7:2    0 158.9M  1 loop /snap/chromium/2734
+loop3    7:3    0 118.2M  1 loop /snap/core/15511
+loop4    7:4    0 105.8M  1 loop /snap/core/16202
+loop5    7:5    0  74.1M  1 loop /snap/core22/1033
+loop6    7:6    0  63.4M  1 loop /snap/core20/1974
+loop7    7:7    0  73.9M  1 loop /snap/core22/817
+loop8    7:8    0  66.5M  1 loop /snap/cups/1024
+loop9    7:9    0  66.6M  1 loop /snap/cups/980
+loop10   7:10   0 236.8M  1 loop /snap/firefox/1943
+loop11   7:11   0  63.9M  1 loop /snap/core20/2105
+loop12   7:12   0 346.3M  1 loop /snap/gnome-3-38-2004/119
+loop13   7:13   0 349.7M  1 loop /snap/gnome-3-38-2004/143
+loop14   7:14   0 485.5M  1 loop /snap/gnome-42-2204/120
+loop15   7:15   0   497M  1 loop /snap/gnome-42-2204/141
+loop16   7:16   0  65.2M  1 loop /snap/gtk-common-themes/1519
+loop17   7:17   0  91.7M  1 loop /snap/gtk-common-themes/1535
+loop18   7:18   0  45.9M  1 loop /snap/snap-store/599
+loop19   7:19   0  12.3M  1 loop /snap/snap-store/959
+loop20   7:20   0   284K  1 loop /snap/snapd-desktop-integration/14
+loop21   7:21   0   452K  1 loop /snap/snapd-desktop-integration/83
+loop22   7:22   0   246M  1 loop /snap/firefox/3626
+sda      8:0    0 233.8G  0 disk 
+├─sda1   8:1    0   200M  0 part /boot/efi
+├─sda2   8:2    0 116.4G  0 part 
+├─sda3   8:3    0 619.9M  0 part 
+└─sda4   8:4    0 116.5G  0 part /var/snap/firefox/common/host-hunspell
+                                 /
+sdb      8:16   1     0B  0 disk 

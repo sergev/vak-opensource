@@ -1,0 +1,617 @@
+mac13
+    description: Notebook
+    product: MacBookPro11,2 (System SKU#)
+    vendor: Apple Inc.
+    version: 1.0
+    serial: C02MF27VFD58
+    width: 64 bits
+    capabilities: smbios-2.4 dmi-2.4 smp vsyscall32
+    configuration: boot=normal chassis=notebook family=Mac sku=System SKU# uuid=7a7bef23-9a22-5e6b-a127-378a6640804c
+  *-core
+       description: Motherboard
+       product: Mac-3CBD00234E554E41
+       vendor: Apple Inc.
+       physical id: 0
+       version: MacBookPro11,2
+       serial: C024116007KFJT1AM
+       slot: Part Component
+     *-cpu
+          description: CPU
+          product: Intel(R) Core(TM) i7-4850HQ CPU @ 2.30GHz
+          vendor: Intel Corp.
+          physical id: 0
+          bus info: cpu@0
+          version: 6.70.1
+          serial: To Be Filled By O.E.M.
+          slot: U3E1
+          size: 800MHz
+          capacity: 3500MHz
+          width: 64 bits
+          clock: 25MHz
+          capabilities: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp x86-64 constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm cpuid_fault epb invpcid_single pti ssbd ibrs ibpb stibp tpr_shadow flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid xsaveopt dtherm ida arat pln pts vnmi md_clear flush_l1d cpufreq
+          configuration: microcode=28
+        *-cache:0
+             description: L1 cache
+             physical id: 2
+             size: 128KiB
+             capacity: 128KiB
+             capabilities: asynchronous internal write-back instruction
+             configuration: level=1
+        *-cache:1
+             description: L2 cache
+             physical id: 3
+             size: 1MiB
+             capacity: 1MiB
+             capabilities: asynchronous internal write-back unified
+             configuration: level=2
+        *-cache:2
+             description: L3 cache
+             physical id: 4
+             size: 6MiB
+             capacity: 6MiB
+             capabilities: asynchronous internal write-back unified
+             configuration: level=3
+     *-cache
+          description: L1 cache
+          physical id: 1
+          size: 128KiB
+          capacity: 128KiB
+          capabilities: asynchronous internal write-back data
+          configuration: level=1
+     *-memory
+          description: System Memory
+          physical id: 6
+          slot: System board or motherboard
+          size: 8GiB
+        *-bank:0
+             description: SODIMM DDR3 Synchronous 1600 MHz (0.6 ns)
+             product: HMT451S6AFR8A-PB
+             vendor: Hynix Semiconductor (Hyundai Electronics)
+             physical id: 0
+             serial: 0x00000000
+             slot: DIMM0
+             size: 4GiB
+             clock: 1600MHz (0.6ns)
+        *-bank:1
+             description: SODIMM DDR3 Synchronous 1600 MHz (0.6 ns)
+             product: HMT451S6AFR8A-PB
+             vendor: Hynix Semiconductor (Hyundai Electronics)
+             physical id: 1
+             serial: 0x00000000
+             slot: DIMM0
+             size: 4GiB
+             clock: 1600MHz (0.6ns)
+     *-firmware:0
+          description: BIOS
+          vendor: Apple Inc.
+          physical id: c
+          version: 432.40.8.0.1
+          date: 09/16/2021
+          size: 1MiB
+          capacity: 8MiB
+          capabilities: pci upgrade shadowing cdboot bootselect acpi ieee1394boot smartbattery netboot
+     *-firmware:1
+          description: BIOS
+          physical id: 36dd
+          size: 1019KiB
+          capabilities: pcmcia
+     *-pci
+          description: Host bridge
+          product: Crystal Well DRAM Controller
+          vendor: Intel Corporation
+          physical id: 100
+          bus info: pci@0000:00:00.0
+          version: 08
+          width: 32 bits
+          clock: 33MHz
+        *-pci:0
+             description: PCI bridge
+             product: Crystal Well PCI Express x16 Controller
+             vendor: Intel Corporation
+             physical id: 1
+             bus info: pci@0000:00:01.0
+             version: 08
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pci pm msi pciexpress normal_decode bus_master cap_list
+             configuration: driver=pcieport
+             resources: irq:26 ioport:3000(size=12288) memory:a0b00000-acbfffff ioport:acc00000(size=201326592)
+           *-pci
+                description: PCI bridge
+                product: DSL5520 Thunderbolt 2 Bridge [Falcon Ridge 4C 2013]
+                vendor: Intel Corporation
+                physical id: 0
+                bus info: pci@0000:05:00.0
+                version: 00
+                width: 32 bits
+                clock: 33MHz
+                capabilities: pci pm msi pciexpress normal_decode bus_master cap_list
+                configuration: driver=pcieport
+                resources: irq:16 ioport:3000(size=8192) memory:a0b00000-a8bfffff ioport:acc00000(size=134217728)
+              *-pci:0
+                   description: PCI bridge
+                   product: DSL5520 Thunderbolt 2 Bridge [Falcon Ridge 4C 2013]
+                   vendor: Intel Corporation
+                   physical id: 0
+                   bus info: pci@0000:06:00.0
+                   version: 00
+                   width: 32 bits
+                   clock: 33MHz
+                   capabilities: pci pm msi pciexpress normal_decode bus_master cap_list
+                   configuration: driver=pcieport
+                   resources: irq:31 memory:a0b00000-a0bfffff
+                 *-generic
+                      description: System peripheral
+                      product: DSL5520 Thunderbolt 2 NHI [Falcon Ridge 4C 2013]
+                      vendor: Intel Corporation
+                      physical id: 0
+                      bus info: pci@0000:07:00.0
+                      version: 00
+                      width: 32 bits
+                      clock: 33MHz
+                      capabilities: pm msi pciexpress msix bus_master cap_list
+                      configuration: driver=thunderbolt latency=0
+                      resources: irq:16 memory:a0b00000-a0b3ffff memory:a0b40000-a0b40fff
+              *-pci:1
+                   description: PCI bridge
+                   product: DSL5520 Thunderbolt 2 Bridge [Falcon Ridge 4C 2013]
+                   vendor: Intel Corporation
+                   physical id: 3
+                   bus info: pci@0000:06:03.0
+                   version: 00
+                   width: 32 bits
+                   clock: 33MHz
+                   capabilities: pci pm msi pciexpress normal_decode bus_master cap_list
+                   configuration: driver=pcieport
+                   resources: irq:32 ioport:3000(size=4096) memory:a0c00000-a4bfffff ioport:acc00000(size=67108864)
+              *-pci:2
+                   description: PCI bridge
+                   product: DSL5520 Thunderbolt 2 Bridge [Falcon Ridge 4C 2013]
+                   vendor: Intel Corporation
+                   physical id: 4
+                   bus info: pci@0000:06:04.0
+                   version: 00
+                   width: 32 bits
+                   clock: 33MHz
+                   capabilities: pci pm msi pciexpress normal_decode bus_master cap_list
+                   configuration: driver=pcieport
+                   resources: irq:33
+              *-pci:3
+                   description: PCI bridge
+                   product: DSL5520 Thunderbolt 2 Bridge [Falcon Ridge 4C 2013]
+                   vendor: Intel Corporation
+                   physical id: 5
+                   bus info: pci@0000:06:05.0
+                   version: 00
+                   width: 32 bits
+                   clock: 33MHz
+                   capabilities: pci pm msi pciexpress normal_decode bus_master cap_list
+                   configuration: driver=pcieport
+                   resources: irq:34 ioport:4000(size=4096) memory:a4c00000-a8bfffff ioport:b0c00000(size=67108864)
+              *-pci:4
+                   description: PCI bridge
+                   product: DSL5520 Thunderbolt 2 Bridge [Falcon Ridge 4C 2013]
+                   vendor: Intel Corporation
+                   physical id: 6
+                   bus info: pci@0000:06:06.0
+                   version: 00
+                   width: 32 bits
+                   clock: 33MHz
+                   capabilities: pci pm msi pciexpress normal_decode bus_master cap_list
+                   configuration: driver=pcieport
+                   resources: irq:35
+        *-display
+             description: VGA compatible controller
+             product: Crystal Well Integrated Graphics Controller
+             vendor: Intel Corporation
+             physical id: 2
+             bus info: pci@0000:00:02.0
+             logical name: /dev/fb0
+             version: 08
+             width: 64 bits
+             clock: 33MHz
+             capabilities: msi pm vga_controller bus_master cap_list rom fb
+             configuration: depth=32 driver=i915 latency=0 resolution=2880,1800
+             resources: irq:56 memory:a0000000-a03fffff memory:90000000-9fffffff ioport:2000(size=64) memory:c0000-dffff
+        *-multimedia:0
+             description: Audio device
+             product: Crystal Well HD Audio Controller
+             vendor: Intel Corporation
+             physical id: 3
+             bus info: pci@0000:00:03.0
+             logical name: card0
+             logical name: /dev/snd/controlC0
+             logical name: /dev/snd/hwC0D0
+             logical name: /dev/snd/pcmC0D3p
+             logical name: /dev/snd/pcmC0D7p
+             logical name: /dev/snd/pcmC0D8p
+             version: 08
+             width: 64 bits
+             clock: 33MHz
+             capabilities: pm msi pciexpress bus_master cap_list
+             configuration: driver=snd_hda_intel latency=0
+             resources: irq:58 memory:a0a10000-a0a13fff
+           *-input:0
+                product: HDA Intel HDMI HDMI/DP,pcm=3
+                physical id: 0
+                logical name: input12
+                logical name: /dev/input/event10
+           *-input:1
+                product: HDA Intel HDMI HDMI/DP,pcm=7
+                physical id: 1
+                logical name: input13
+                logical name: /dev/input/event11
+           *-input:2
+                product: HDA Intel HDMI HDMI/DP,pcm=8
+                physical id: 2
+                logical name: input14
+                logical name: /dev/input/event12
+        *-usb
+             description: USB controller
+             product: 8 Series/C220 Series Chipset Family USB xHCI
+             vendor: Intel Corporation
+             physical id: 14
+             bus info: pci@0000:00:14.0
+             version: 05
+             width: 64 bits
+             clock: 33MHz
+             capabilities: pm msi xhci bus_master cap_list
+             configuration: driver=xhci_hcd latency=0
+             resources: irq:36 memory:a0a00000-a0a0ffff
+           *-usbhost:0
+                product: xHCI Host Controller
+                vendor: Linux 6.5.0-14-generic xhci-hcd
+                physical id: 0
+                bus info: usb@1
+                logical name: usb1
+                version: 6.05
+                capabilities: usb-2.00
+                configuration: driver=hub slots=14 speed=480Mbit/s
+              *-usb:0
+                   description: USB hub
+                   product: BRCM20702 Hub
+                   vendor: Apple Inc.
+                   physical id: 8
+                   bus info: usb@1:8
+                   version: 1.00
+                   capabilities: usb-2.00
+                   configuration: driver=hub maxpower=94mA slots=3 speed=12Mbit/s
+                 *-usb
+                      description: Bluetooth wireless interface
+                      product: Bluetooth USB Host Controller
+                      vendor: Apple Inc.
+                      physical id: 3
+                      bus info: usb@1:8.3
+                      version: 1.50
+                      capabilities: usb-2.00 bluetooth
+                      configuration: driver=btusb speed=12Mbit/s
+              *-usb:1
+                   description: Keyboard
+                   product: Apple Internal Keyboard / Trackpad
+                   vendor: Apple Inc.
+                   physical id: c
+                   bus info: usb@1:c
+                   version: 2.25
+                   capabilities: usb-2.00
+                   configuration: driver=bcm5974 maxpower=40mA speed=12Mbit/s
+           *-usbhost:1
+                product: xHCI Host Controller
+                vendor: Linux 6.5.0-14-generic xhci-hcd
+                physical id: 1
+                bus info: usb@2
+                logical name: usb2
+                version: 6.05
+                capabilities: usb-3.00
+                configuration: driver=hub slots=6 speed=5000Mbit/s
+              *-usb
+                   description: Mass storage device
+                   product: Card Reader
+                   vendor: Apple
+                   physical id: 4
+                   bus info: usb@2:4
+                   logical name: scsi1
+                   version: 8.20
+                   serial: 000000000820
+                   capabilities: usb-3.00 scsi emulated scsi-host
+                   configuration: driver=usb-storage maxpower=896mA speed=5000Mbit/s
+                 *-disk
+                      description: SCSI Disk
+                      product: SD Card Reader
+                      vendor: APPLE
+                      physical id: 0.0.0
+                      bus info: scsi@1:0.0.0
+                      logical name: /dev/sdb
+                      version: 3.00
+                      serial: 000000000820
+                      capabilities: removable
+                      configuration: ansiversion=6 logicalsectorsize=512 sectorsize=512
+                    *-medium
+                         physical id: 0
+                         logical name: /dev/sdb
+        *-communication
+             description: Communication controller
+             product: 8 Series/C220 Series Chipset Family MEI Controller #1
+             vendor: Intel Corporation
+             physical id: 16
+             bus info: pci@0000:00:16.0
+             version: 04
+             width: 64 bits
+             clock: 33MHz
+             capabilities: pm msi bus_master cap_list
+             configuration: driver=mei_me latency=0
+             resources: irq:55 memory:a0a19100-a0a1910f
+        *-multimedia:1
+             description: Audio device
+             product: 8 Series/C220 Series Chipset High Definition Audio Controller
+             vendor: Intel Corporation
+             physical id: 1b
+             bus info: pci@0000:00:1b.0
+             logical name: card1
+             logical name: /dev/snd/controlC1
+             logical name: /dev/snd/hwC1D0
+             logical name: /dev/snd/pcmC1D0c
+             logical name: /dev/snd/pcmC1D0p
+             logical name: /dev/snd/pcmC1D1p
+             version: 05
+             width: 64 bits
+             clock: 33MHz
+             capabilities: pm msi pciexpress bus_master cap_list
+             configuration: driver=snd_hda_intel latency=0
+             resources: irq:57 memory:a0a14000-a0a17fff
+           *-input:0
+                product: HDA Intel PCH Headphone
+                physical id: 0
+                logical name: input10
+                logical name: /dev/input/event6
+           *-input:1
+                product: HDA Intel PCH SPDIF
+                physical id: 1
+                logical name: input11
+                logical name: /dev/input/event9
+           *-input:2
+                product: HDA Intel PCH Mic
+                physical id: 2
+                logical name: input9
+                logical name: /dev/input/event5
+        *-pci:1
+             description: PCI bridge
+             product: 8 Series/C220 Series Chipset Family PCI Express Root Port #1
+             vendor: Intel Corporation
+             physical id: 1c
+             bus info: pci@0000:00:1c.0
+             version: d5
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pci pciexpress msi pm normal_decode bus_master cap_list
+             configuration: driver=pcieport
+             resources: irq:27 ioport:6000(size=4096) memory:7fa00000-7fbfffff ioport:7fc00000(size=2097152)
+        *-pci:2
+             description: PCI bridge
+             product: 8 Series/C220 Series Chipset Family PCI Express Root Port #3
+             vendor: Intel Corporation
+             physical id: 1c.2
+             bus info: pci@0000:00:1c.2
+             version: d5
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pci pciexpress msi pm normal_decode bus_master cap_list
+             configuration: driver=pcieport
+             resources: irq:28 memory:a0400000-a06fffff
+           *-network
+                description: Wireless interface
+                product: BCM4360 802.11ac Wireless Network Adapter
+                vendor: Broadcom Inc. and subsidiaries
+                physical id: 0
+                bus info: pci@0000:02:00.0
+                logical name: wlp2s0
+                version: 03
+                serial: 78:31:c1:d6:9e:6a
+                width: 64 bits
+                clock: 33MHz
+                capabilities: pm msi pciexpress bus_master cap_list ethernet physical wireless
+                configuration: broadcast=yes driver=wl0 driverversion=6.30.223.271 (r587334) ip=192.168.86.36 latency=0 multicast=yes wireless=IEEE 802.11
+                resources: irq:18 memory:a0600000-a0607fff memory:a0400000-a05fffff
+        *-pci:3
+             description: PCI bridge
+             product: 8 Series/C220 Series Chipset Family PCI Express Root Port #4
+             vendor: Intel Corporation
+             physical id: 1c.3
+             bus info: pci@0000:00:1c.3
+             version: d5
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pci pciexpress msi pm normal_decode bus_master cap_list
+             configuration: driver=pcieport
+             resources: irq:29 memory:a0800000-a09fffff ioport:80000000(size=268435456)
+           *-multimedia UNCLAIMED
+                description: Multimedia controller
+                product: 720p FaceTime HD Camera
+                vendor: Broadcom Inc. and subsidiaries
+                physical id: 0
+                bus info: pci@0000:03:00.0
+                version: 00
+                width: 64 bits
+                clock: 33MHz
+                capabilities: pm msi pciexpress bus_master cap_list
+                configuration: latency=0
+                resources: memory:a0900000-a090ffff memory:80000000-8fffffff memory:a0800000-a08fffff
+        *-pci:4
+             description: PCI bridge
+             product: 8 Series/C220 Series Chipset Family PCI Express Root Port #5
+             vendor: Intel Corporation
+             physical id: 1c.4
+             bus info: pci@0000:00:1c.4
+             version: d5
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pci pciexpress msi pm normal_decode bus_master cap_list
+             configuration: driver=pcieport
+             resources: irq:30 memory:a0700000-a07fffff
+           *-sata
+                description: SATA controller
+                product: Apple PCIe SSD
+                vendor: Samsung Electronics Co Ltd
+                physical id: 0
+                bus info: pci@0000:04:00.0
+                logical name: scsi0
+                version: 01
+                width: 32 bits
+                clock: 33MHz
+                capabilities: sata pm msi pciexpress vpd ahci_1.0 bus_master cap_list rom emulated
+                configuration: driver=ahci latency=0
+                resources: irq:16 memory:a0700000-a0701fff memory:a0710000-a071ffff
+              *-disk
+                   description: ATA Disk
+                   product: APPLE SSD SM0256
+                   physical id: 0.0.0
+                   bus info: scsi@0:0.0.0
+                   logical name: /dev/sda
+                   version: JA1Q
+                   serial: S1K4NYBF150101
+                   size: 233GiB (251GB)
+                   capabilities: partitioned partitioned:dos
+                   configuration: ansiversion=5 logicalsectorsize=512 sectorsize=4096
+                 *-volume:0 UNCLAIMED
+                      description: EFI GPT partition
+                      physical id: 1
+                      bus info: scsi@0:0.0.0,1
+                      capacity: 200MiB
+                      capabilities: primary nofs
+                 *-volume:1
+                      description: Darwin/OS X HFS+ partition
+                      vendor: Mac OS X (journaled)
+                      physical id: 2
+                      bus info: scsi@0:0.0.0,2
+                      logical name: /dev/sda2
+                      version: 4
+                      serial: fd6c8519-821b-7e0a-0000-00000074c000
+                      size: 116GiB
+                      capacity: 116GiB
+                      capabilities: primary bootable journaled osx hfsplus initialized
+                      configuration: boot=osx checked=2021-12-25 16:42:30 created=2021-12-25 16:42:30 filesystem=hfsplus lastmountedby=HFSJ modified=2022-01-09 19:53:19 state=clean
+                 *-volume:2
+                      description: Darwin/OS X HFS+ partition
+                      vendor: Mac OS X (journaled)
+                      physical id: 3
+                      bus info: scsi@0:0.0.0,3
+                      logical name: /dev/sda3
+                      version: 4
+                      serial: 938bcc5b-3410-cd30-0000-000000005000
+                      size: 619MiB
+                      capacity: 619MiB
+                      capabilities: primary journaled bootable macos osx hfsplus initialized
+                      configuration: boot=osx checked=2021-12-25 17:11:19 created=2021-12-25 17:11:19 filesystem=hfsplus lastmountedby=HFSJ modified=2021-12-25 17:33:36 state=clean
+                 *-volume:3
+                      description: EXT4 volume
+                      vendor: Linux
+                      physical id: 4
+                      bus info: scsi@0:0.0.0,4
+                      logical name: /dev/sda4
+                      logical name: /
+                      logical name: /var/snap/firefox/common/host-hunspell
+                      version: 1.0
+                      serial: 105c53dd-9b0d-4a8b-b85f-60c137a5a20e
+                      size: 116GiB
+                      capacity: 116GiB
+                      capabilities: primary journaled extended_attributes large_files huge_files dir_nlink recover 64bit extents ext4 ext2 initialized
+                      configuration: created=2021-12-25 17:41:40 filesystem=ext4 lastmountpoint=/ modified=2024-01-22 21:51:33 mount.fstype=ext4 mount.options=ro,noexec,noatime,errors=remount-ro mounted=2024-01-22 21:51:35 state=mounted
+        *-isa
+             description: ISA bridge
+             product: HM87 Express LPC Controller
+             vendor: Intel Corporation
+             physical id: 1f
+             bus info: pci@0000:00:1f.0
+             version: 05
+             width: 32 bits
+             clock: 33MHz
+             capabilities: isa bus_master cap_list
+             configuration: driver=lpc_ich latency=0
+             resources: irq:0
+           *-pnp00:00
+                product: PnP device PNP0103
+                physical id: 0
+                capabilities: pnp
+                configuration: driver=system
+           *-pnp00:01
+                product: PnP device PNP0c02
+                physical id: 1
+                capabilities: pnp
+                configuration: driver=system
+           *-pnp00:02
+                product: PnP device PNP0b00
+                physical id: 2
+                capabilities: pnp
+                configuration: driver=rtc_cmos
+           *-pnp00:03
+                product: PnP device APP000b
+                physical id: 3
+                capabilities: pnp
+           *-pnp00:04
+                product: PnP device PNP0c02
+                physical id: 4
+                capabilities: pnp
+                configuration: driver=system
+           *-pnp00:05
+                product: PnP device PNP0c01
+                physical id: 5
+                capabilities: pnp
+                configuration: driver=system
+        *-serial
+             description: SMBus
+             product: 8 Series/C220 Series Chipset Family SMBus Controller
+             vendor: Intel Corporation
+             physical id: 1f.3
+             bus info: pci@0000:00:1f.3
+             version: 05
+             width: 64 bits
+             clock: 33MHz
+             configuration: driver=i801_smbus latency=0
+             resources: irq:18 memory:a0a19000-a0a190ff ioport:efa0(size=32)
+  *-input:0
+       product: Lid Switch
+       physical id: 1
+       logical name: input0
+       logical name: /dev/input/event0
+       capabilities: platform
+  *-input:1
+       product: Power Button
+       physical id: 2
+       logical name: input1
+       logical name: /dev/input/event1
+       capabilities: platform
+  *-input:2
+       product: Sleep Button
+       physical id: 3
+       logical name: input2
+       logical name: /dev/input/event2
+       capabilities: platform
+  *-input:3
+       product: Power Button
+       physical id: 4
+       logical name: input3
+       logical name: /dev/input/event3
+       capabilities: platform
+  *-input:4
+       product: Apple Inc. Apple Internal Keyboard / Trackpad
+       physical id: 5
+       logical name: input4
+       logical name: /dev/input/event4
+       logical name: input4::capslock
+       logical name: input4::compose
+       logical name: input4::kana
+       logical name: input4::numlock
+       logical name: input4::scrolllock
+       capabilities: usb
+  *-input:5
+       product: bcm5974
+       physical id: 6
+       logical name: input7
+       logical name: /dev/input/event7
+       logical name: /dev/input/mouse1
+       capabilities: usb
+  *-input:6
+       product: Video Bus
+       physical id: 7
+       logical name: input8
+       logical name: /dev/input/event8
+       capabilities: platform

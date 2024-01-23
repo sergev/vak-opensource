@@ -1,0 +1,14 @@
+vak@mac13 
+--------- 
+OS: Ubuntu 22.04.3 LTS x86_64 
+Host: MacBookPro11,2 1.0 
+Kernel: 6.5.0-14-generic 
+Uptime: 12 mins 
+Packages: 1878 (dpkg), 13 (snap) 
+Shell: bash 5.1.16 
+Resolution: 2880x1800 
+Terminal: /dev/pts/2 
+CPU: Intel i7-4850HQ (8) @ 3.500GHz 
+GPU: Intel Crystal Well 
+Memory: 1571MiB / 7840MiB 
+

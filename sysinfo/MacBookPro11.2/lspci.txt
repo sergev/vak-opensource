@@ -1,0 +1,311 @@
+00:00.0 Host bridge: Intel Corporation Crystal Well DRAM Controller (rev 08)
+	Subsystem: Apple Inc. Crystal Well DRAM Controller
+	Flags: bus master, fast devsel, latency 0
+	Capabilities: [e0] Vendor Specific Information: Len=0c <?>
+
+00:01.0 PCI bridge: Intel Corporation Crystal Well PCI Express x16 Controller (rev 08) (prog-if 00 [Normal decode])
+	Flags: bus master, fast devsel, latency 0, IRQ 26
+	Bus: primary=00, secondary=05, subordinate=9b, sec-latency=0
+	I/O behind bridge: 00003000-00005fff [size=12K]
+	Memory behind bridge: a0b00000-acbfffff [size=193M]
+	Prefetchable memory behind bridge: 00000000acc00000-00000000b8bfffff [size=192M]
+	Capabilities: [88] Subsystem: Apple Inc. Crystal Well PCI Express x16 Controller
+	Capabilities: [80] Power Management version 3
+	Capabilities: [90] MSI: Enable+ Count=1/1 Maskable- 64bit-
+	Capabilities: [a0] Express Root Port (Slot+), MSI 00
+	Capabilities: [100] Virtual Channel
+	Capabilities: [140] Root Complex Link
+	Capabilities: [d94] Secondary PCI Express
+	Kernel driver in use: pcieport
+
+00:02.0 VGA compatible controller: Intel Corporation Crystal Well Integrated Graphics Controller (rev 08) (prog-if 00 [VGA controller])
+	Subsystem: Apple Inc. Crystal Well Integrated Graphics Controller
+	Flags: bus master, fast devsel, latency 0, IRQ 56
+	Memory at a0000000 (64-bit, non-prefetchable) [size=4M]
+	Memory at 90000000 (64-bit, prefetchable) [size=256M]
+	I/O ports at 2000 [size=64]
+	Expansion ROM at 000c0000 [virtual] [disabled] [size=128K]
+	Capabilities: [90] MSI: Enable+ Count=1/1 Maskable- 64bit-
+	Capabilities: [d0] Power Management version 2
+	Capabilities: [a4] PCI Advanced Features
+	Kernel driver in use: i915
+	Kernel modules: i915
+
+00:03.0 Audio device: Intel Corporation Crystal Well HD Audio Controller (rev 08)
+	Subsystem: Apple Inc. Crystal Well HD Audio Controller
+	Flags: bus master, fast devsel, latency 0, IRQ 58
+	Memory at a0a10000 (64-bit, non-prefetchable) [size=16K]
+	Capabilities: [50] Power Management version 2
+	Capabilities: [60] MSI: Enable+ Count=1/1 Maskable- 64bit-
+	Capabilities: [70] Express Root Complex Integrated Endpoint, MSI 00
+	Kernel driver in use: snd_hda_intel
+	Kernel modules: snd_hda_intel
+
+00:14.0 USB controller: Intel Corporation 8 Series/C220 Series Chipset Family USB xHCI (rev 05) (prog-if 30 [XHCI])
+	Subsystem: Intel Corporation 8 Series/C220 Series Chipset Family USB xHCI
+	Flags: bus master, medium devsel, latency 0, IRQ 36
+	Memory at a0a00000 (64-bit, non-prefetchable) [size=64K]
+	Capabilities: [70] Power Management version 2
+	Capabilities: [80] MSI: Enable+ Count=1/8 Maskable- 64bit+
+	Kernel driver in use: xhci_hcd
+	Kernel modules: xhci_pci
+
+00:16.0 Communication controller: Intel Corporation 8 Series/C220 Series Chipset Family MEI Controller #1 (rev 04)
+	Subsystem: Intel Corporation 8 Series/C220 Series Chipset Family MEI Controller
+	Flags: bus master, fast devsel, latency 0, IRQ 55
+	Memory at a0a19100 (64-bit, non-prefetchable) [size=16]
+	Capabilities: [50] Power Management version 3
+	Capabilities: [8c] MSI: Enable+ Count=1/1 Maskable- 64bit+
+	Kernel driver in use: mei_me
+	Kernel modules: mei_me
+
+00:1b.0 Audio device: Intel Corporation 8 Series/C220 Series Chipset High Definition Audio Controller (rev 05)
+	Subsystem: Intel Corporation 8 Series/C220 Series Chipset High Definition Audio Controller
+	Flags: bus master, fast devsel, latency 0, IRQ 57
+	Memory at a0a14000 (64-bit, non-prefetchable) [size=16K]
+	Capabilities: [50] Power Management version 2
+	Capabilities: [60] MSI: Enable+ Count=1/1 Maskable- 64bit+
+	Capabilities: [70] Express Root Complex Integrated Endpoint, MSI 00
+	Capabilities: [100] Virtual Channel
+	Kernel driver in use: snd_hda_intel
+	Kernel modules: snd_hda_intel
+
+00:1c.0 PCI bridge: Intel Corporation 8 Series/C220 Series Chipset Family PCI Express Root Port #1 (rev d5) (prog-if 00 [Normal decode])
+	Flags: bus master, fast devsel, latency 0, IRQ 27
+	Bus: primary=00, secondary=01, subordinate=01, sec-latency=0
+	I/O behind bridge: 00006000-00006fff [size=4K]
+	Memory behind bridge: 7fa00000-7fbfffff [size=2M]
+	Prefetchable memory behind bridge: 000000007fc00000-000000007fdfffff [size=2M]
+	Capabilities: [40] Express Root Port (Slot+), MSI 00
+	Capabilities: [80] MSI: Enable+ Count=1/1 Maskable- 64bit-
+	Capabilities: [90] Subsystem: Intel Corporation 8 Series/C220 Series Chipset Family PCI Express Root Port
+	Capabilities: [a0] Power Management version 3
+	Kernel driver in use: pcieport
+
+00:1c.2 PCI bridge: Intel Corporation 8 Series/C220 Series Chipset Family PCI Express Root Port #3 (rev d5) (prog-if 00 [Normal decode])
+	Flags: bus master, fast devsel, latency 0, IRQ 28
+	Bus: primary=00, secondary=02, subordinate=02, sec-latency=0
+	I/O behind bridge: [disabled]
+	Memory behind bridge: a0400000-a06fffff [size=3M]
+	Prefetchable memory behind bridge: [disabled]
+	Capabilities: [40] Express Root Port (Slot+), MSI 00
+	Capabilities: [80] MSI: Enable+ Count=1/1 Maskable- 64bit-
+	Capabilities: [90] Subsystem: Intel Corporation 8 Series/C220 Series Chipset Family PCI Express Root Port
+	Capabilities: [a0] Power Management version 3
+	Kernel driver in use: pcieport
+
+00:1c.3 PCI bridge: Intel Corporation 8 Series/C220 Series Chipset Family PCI Express Root Port #4 (rev d5) (prog-if 00 [Normal decode])
+	Flags: bus master, fast devsel, latency 0, IRQ 29
+	Bus: primary=00, secondary=03, subordinate=03, sec-latency=0
+	I/O behind bridge: [disabled]
+	Memory behind bridge: a0800000-a09fffff [size=2M]
+	Prefetchable memory behind bridge: 0000000080000000-000000008fffffff [size=256M]
+	Capabilities: [40] Express Root Port (Slot+), MSI 00
+	Capabilities: [80] MSI: Enable+ Count=1/1 Maskable- 64bit-
+	Capabilities: [90] Subsystem: Intel Corporation 8 Series/C220 Series Chipset Family PCI Express Root Port
+	Capabilities: [a0] Power Management version 3
+	Kernel driver in use: pcieport
+
+00:1c.4 PCI bridge: Intel Corporation 8 Series/C220 Series Chipset Family PCI Express Root Port #5 (rev d5) (prog-if 00 [Normal decode])
+	Flags: bus master, fast devsel, latency 0, IRQ 30
+	Bus: primary=00, secondary=04, subordinate=04, sec-latency=0
+	I/O behind bridge: [disabled]
+	Memory behind bridge: a0700000-a07fffff [size=1M]
+	Prefetchable memory behind bridge: [disabled]
+	Capabilities: [40] Express Root Port (Slot+), MSI 00
+	Capabilities: [80] MSI: Enable+ Count=1/1 Maskable- 64bit-
+	Capabilities: [90] Subsystem: Intel Corporation 8 Series/C220 Series Chipset Family PCI Express Root Port
+	Capabilities: [a0] Power Management version 3
+	Kernel driver in use: pcieport
+
+00:1f.0 ISA bridge: Intel Corporation HM87 Express LPC Controller (rev 05)
+	Subsystem: Intel Corporation HM87 Express LPC Controller
+	Flags: bus master, medium devsel, latency 0
+	Capabilities: [e0] Vendor Specific Information: Len=0c <?>
+	Kernel driver in use: lpc_ich
+	Kernel modules: lpc_ich
+
+00:1f.3 SMBus: Intel Corporation 8 Series/C220 Series Chipset Family SMBus Controller (rev 05)
+	Subsystem: Intel Corporation 8 Series/C220 Series Chipset Family SMBus Controller
+	Flags: medium devsel, IRQ 18
+	Memory at a0a19000 (64-bit, non-prefetchable) [size=256]
+	I/O ports at efa0 [size=32]
+	Kernel driver in use: i801_smbus
+	Kernel modules: i2c_i801
+
+02:00.0 Network controller: Broadcom Inc. and subsidiaries BCM4360 802.11ac Wireless Network Adapter (rev 03)
+	Subsystem: Apple Inc. BCM4360 802.11ac Wireless Network Adapter
+	Flags: bus master, fast devsel, latency 0, IRQ 18
+	Memory at a0600000 (64-bit, non-prefetchable) [size=32K]
+	Memory at a0400000 (64-bit, non-prefetchable) [size=2M]
+	Capabilities: [48] Power Management version 3
+	Capabilities: [58] MSI: Enable- Count=1/1 Maskable- 64bit+
+	Capabilities: [68] Vendor Specific Information: Len=44 <?>
+	Capabilities: [ac] Express Endpoint, MSI 00
+	Capabilities: [100] Advanced Error Reporting
+	Capabilities: [13c] Device Serial Number 78-31-00-ff-ff-00-00-01
+	Capabilities: [150] Power Budgeting <?>
+	Capabilities: [160] Virtual Channel
+	Capabilities: [1b0] Latency Tolerance Reporting
+	Capabilities: [220] Physical Resizable BAR
+	Kernel driver in use: wl
+	Kernel modules: bcma, wl
+
+03:00.0 Multimedia controller: Broadcom Inc. and subsidiaries 720p FaceTime HD Camera
+	Subsystem: Broadcom Inc. and subsidiaries 720p FaceTime HD Camera
+	Flags: bus master, fast devsel, latency 0
+	Memory at a0900000 (64-bit, non-prefetchable) [size=64K]
+	Memory at 80000000 (64-bit, prefetchable) [size=256M]
+	Memory at a0800000 (64-bit, non-prefetchable) [size=1M]
+	Capabilities: [48] Power Management version 3
+	Capabilities: [58] MSI: Enable- Count=1/1 Maskable- 64bit+
+	Capabilities: [68] Vendor Specific Information: Len=44 <?>
+	Capabilities: [ac] Express Endpoint, MSI 00
+	Capabilities: [100] Advanced Error Reporting
+	Capabilities: [13c] Device Serial Number 00-00-00-ff-ff-00-00-00
+	Capabilities: [150] Power Budgeting <?>
+	Capabilities: [160] Virtual Channel
+	Capabilities: [1b0] Latency Tolerance Reporting
+	Capabilities: [220] Physical Resizable BAR
+
+04:00.0 SATA controller: Samsung Electronics Co Ltd Apple PCIe SSD (rev 01) (prog-if 01 [AHCI 1.0])
+	Flags: bus master, fast devsel, latency 0, IRQ 16
+	Memory at a0700000 (32-bit, non-prefetchable) [size=8K]
+	Expansion ROM at a0710000 [disabled] [size=64K]
+	Capabilities: [40] Power Management version 3
+	Capabilities: [50] MSI: Enable- Count=1/2 Maskable+ 64bit+
+	Capabilities: [70] Express Endpoint, MSI 00
+	Capabilities: [d0] Vital Product Data
+	Capabilities: [100] Advanced Error Reporting
+	Capabilities: [140] Device Serial Number 00-00-00-00-00-00-00-00
+	Capabilities: [150] Power Budgeting <?>
+	Capabilities: [160] Latency Tolerance Reporting
+	Kernel driver in use: ahci
+	Kernel modules: ahci
+
+05:00.0 PCI bridge: Intel Corporation DSL5520 Thunderbolt 2 Bridge [Falcon Ridge 4C 2013] (prog-if 00 [Normal decode])
+	Flags: bus master, fast devsel, latency 0, IRQ 16
+	Bus: primary=05, secondary=06, subordinate=6b, sec-latency=0
+	I/O behind bridge: 00003000-00004fff [size=8K]
+	Memory behind bridge: a0b00000-a8bfffff [size=129M]
+	Prefetchable memory behind bridge: 00000000acc00000-00000000b4bfffff [size=128M]
+	Capabilities: [80] Power Management version 3
+	Capabilities: [88] MSI: Enable- Count=1/1 Maskable- 64bit+
+	Capabilities: [ac] Subsystem: Device 2222:1111
+	Capabilities: [c0] Express Upstream Port, MSI 00
+	Capabilities: [100] Device Serial Number eb-1f-30-08-78-f1-0c-00
+	Capabilities: [200] Advanced Error Reporting
+	Capabilities: [300] Virtual Channel
+	Capabilities: [400] Power Budgeting <?>
+	Capabilities: [500] Vendor Specific Information: ID=1234 Rev=1 Len=050 <?>
+	Capabilities: [600] Latency Tolerance Reporting
+	Kernel driver in use: pcieport
+
+06:00.0 PCI bridge: Intel Corporation DSL5520 Thunderbolt 2 Bridge [Falcon Ridge 4C 2013] (prog-if 00 [Normal decode])
+	Flags: bus master, fast devsel, latency 0, IRQ 31
+	Bus: primary=06, secondary=07, subordinate=07, sec-latency=0
+	I/O behind bridge: [disabled]
+	Memory behind bridge: a0b00000-a0bfffff [size=1M]
+	Prefetchable memory behind bridge: [disabled]
+	Capabilities: [80] Power Management version 3
+	Capabilities: [88] MSI: Enable+ Count=1/1 Maskable- 64bit+
+	Capabilities: [ac] Subsystem: Device 2222:1111
+	Capabilities: [c0] Express Downstream Port (Slot+), MSI 00
+	Capabilities: [100] Device Serial Number eb-1f-30-08-78-f1-0c-00
+	Capabilities: [200] Advanced Error Reporting
+	Capabilities: [300] Virtual Channel
+	Capabilities: [400] Power Budgeting <?>
+	Capabilities: [500] Vendor Specific Information: ID=1234 Rev=1 Len=050 <?>
+	Kernel driver in use: pcieport
+
+06:03.0 PCI bridge: Intel Corporation DSL5520 Thunderbolt 2 Bridge [Falcon Ridge 4C 2013] (prog-if 00 [Normal decode])
+	Physical Slot: 2
+	Flags: bus master, fast devsel, latency 0, IRQ 32
+	Bus: primary=06, secondary=08, subordinate=38, sec-latency=0
+	I/O behind bridge: 00003000-00003fff [size=4K]
+	Memory behind bridge: a0c00000-a4bfffff [size=64M]
+	Prefetchable memory behind bridge: 00000000acc00000-00000000b0bfffff [size=64M]
+	Capabilities: [80] Power Management version 3
+	Capabilities: [88] MSI: Enable+ Count=1/1 Maskable- 64bit+
+	Capabilities: [ac] Subsystem: Device 2222:1111
+	Capabilities: [c0] Express Downstream Port (Slot+), MSI 00
+	Capabilities: [100] Device Serial Number eb-1f-30-08-78-f1-0c-00
+	Capabilities: [200] Advanced Error Reporting
+	Capabilities: [300] Virtual Channel
+	Capabilities: [400] Power Budgeting <?>
+	Capabilities: [500] Vendor Specific Information: ID=1234 Rev=1 Len=050 <?>
+	Kernel driver in use: pcieport
+
+06:04.0 PCI bridge: Intel Corporation DSL5520 Thunderbolt 2 Bridge [Falcon Ridge 4C 2013] (prog-if 00 [Normal decode])
+	Physical Slot: 3
+	Flags: bus master, fast devsel, latency 0, IRQ 33
+	Bus: primary=06, secondary=39, subordinate=39, sec-latency=0
+	I/O behind bridge: [disabled]
+	Memory behind bridge: [disabled]
+	Prefetchable memory behind bridge: [disabled]
+	Capabilities: [80] Power Management version 3
+	Capabilities: [88] MSI: Enable+ Count=1/1 Maskable- 64bit+
+	Capabilities: [ac] Subsystem: Device 2222:1111
+	Capabilities: [c0] Express Downstream Port (Slot+), MSI 00
+	Capabilities: [100] Device Serial Number eb-1f-30-08-78-f1-0c-00
+	Capabilities: [200] Advanced Error Reporting
+	Capabilities: [300] Virtual Channel
+	Capabilities: [400] Power Budgeting <?>
+	Capabilities: [500] Vendor Specific Information: ID=1234 Rev=1 Len=050 <?>
+	Kernel driver in use: pcieport
+
+06:05.0 PCI bridge: Intel Corporation DSL5520 Thunderbolt 2 Bridge [Falcon Ridge 4C 2013] (prog-if 00 [Normal decode])
+	Physical Slot: 4
+	Flags: bus master, fast devsel, latency 0, IRQ 34
+	Bus: primary=06, secondary=3a, subordinate=6a, sec-latency=0
+	I/O behind bridge: 00004000-00004fff [size=4K]
+	Memory behind bridge: a4c00000-a8bfffff [size=64M]
+	Prefetchable memory behind bridge: 00000000b0c00000-00000000b4bfffff [size=64M]
+	Capabilities: [80] Power Management version 3
+	Capabilities: [88] MSI: Enable+ Count=1/1 Maskable- 64bit+
+	Capabilities: [ac] Subsystem: Device 2222:1111
+	Capabilities: [c0] Express Downstream Port (Slot+), MSI 00
+	Capabilities: [100] Device Serial Number eb-1f-30-08-78-f1-0c-00
+	Capabilities: [200] Advanced Error Reporting
+	Capabilities: [300] Virtual Channel
+	Capabilities: [400] Power Budgeting <?>
+	Capabilities: [500] Vendor Specific Information: ID=1234 Rev=1 Len=050 <?>
+	Kernel driver in use: pcieport
+
+06:06.0 PCI bridge: Intel Corporation DSL5520 Thunderbolt 2 Bridge [Falcon Ridge 4C 2013] (prog-if 00 [Normal decode])
+	Physical Slot: 5
+	Flags: bus master, fast devsel, latency 0, IRQ 35
+	Bus: primary=06, secondary=6b, subordinate=6b, sec-latency=0
+	I/O behind bridge: [disabled]
+	Memory behind bridge: [disabled]
+	Prefetchable memory behind bridge: [disabled]
+	Capabilities: [80] Power Management version 3
+	Capabilities: [88] MSI: Enable+ Count=1/1 Maskable- 64bit+
+	Capabilities: [ac] Subsystem: Device 2222:1111
+	Capabilities: [c0] Express Downstream Port (Slot+), MSI 00
+	Capabilities: [100] Device Serial Number eb-1f-30-08-78-f1-0c-00
+	Capabilities: [200] Advanced Error Reporting
+	Capabilities: [300] Virtual Channel
+	Capabilities: [400] Power Budgeting <?>
+	Capabilities: [500] Vendor Specific Information: ID=1234 Rev=1 Len=050 <?>
+	Kernel driver in use: pcieport
+
+07:00.0 System peripheral: Intel Corporation DSL5520 Thunderbolt 2 NHI [Falcon Ridge 4C 2013]
+	Subsystem: Device 2222:1111
+	Physical Slot: 0-1
+	Flags: bus master, fast devsel, latency 0, IRQ 16
+	Memory at a0b00000 (32-bit, non-prefetchable) [size=256K]
+	Memory at a0b40000 (32-bit, non-prefetchable) [size=4K]
+	Capabilities: [80] Power Management version 3
+	Capabilities: [88] MSI: Enable- Count=1/1 Maskable- 64bit+
+	Capabilities: [c0] Express Endpoint, MSI 00
+	Capabilities: [a0] MSI-X: Enable+ Count=16 Masked-
+	Capabilities: [100] Device Serial Number eb-1f-30-08-78-f1-0c-00
+	Capabilities: [200] Advanced Error Reporting
+	Capabilities: [300] Virtual Channel
+	Capabilities: [400] Power Budgeting <?>
+	Capabilities: [500] Vendor Specific Information: ID=1234 Rev=1 Len=050 <?>
+	Capabilities: [600] Latency Tolerance Reporting
+	Kernel driver in use: thunderbolt
+	Kernel modules: thunderbolt
+
