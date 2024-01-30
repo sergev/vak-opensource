@@ -1,0 +1,144 @@
+$ cpu-info
+
+Packages:
+	0: Intel Xeon Gold 6338
+	1: Intel Xeon Gold 6338
+	2: Intel Xeon Gold 6338
+	3: Intel Xeon Gold 6338
+	4: Intel Xeon Gold 6338
+	5: Intel Xeon Gold 6338
+	6: Intel Xeon Gold 6338
+	7: Intel Xeon Gold 6338
+	8: Intel Xeon Gold 6338
+	9: Intel Xeon Gold 6338
+	10: Intel Xeon Gold 6338
+	11: Intel Xeon Gold 6338
+	12: Intel Xeon Gold 6338
+	13: Intel Xeon Gold 6338
+	14: Intel Xeon Gold 6338
+	15: Intel Xeon Gold 6338
+Microarchitectures:
+	16x Sunny Cove
+Cores:
+	0: 1 processor (0), Intel Sunny Cove
+	1: 1 processor (1), Intel Sunny Cove
+	2: 1 processor (2), Intel Sunny Cove
+	3: 1 processor (3), Intel Sunny Cove
+	4: 1 processor (4), Intel Sunny Cove
+	5: 1 processor (5), Intel Sunny Cove
+	6: 1 processor (6), Intel Sunny Cove
+	7: 1 processor (7), Intel Sunny Cove
+	8: 1 processor (8), Intel Sunny Cove
+	9: 1 processor (9), Intel Sunny Cove
+	10: 1 processor (10), Intel Sunny Cove
+	11: 1 processor (11), Intel Sunny Cove
+	12: 1 processor (12), Intel Sunny Cove
+	13: 1 processor (13), Intel Sunny Cove
+	14: 1 processor (14), Intel Sunny Cove
+	15: 1 processor (15), Intel Sunny Cove
+Logical processors (System ID):
+	0 (0): APIC ID 0x00000000
+	1 (1): APIC ID 0x00000002
+	2 (2): APIC ID 0x00000004
+	3 (3): APIC ID 0x00000006
+	4 (4): APIC ID 0x00000008
+	5 (5): APIC ID 0x0000000a
+	6 (6): APIC ID 0x0000000c
+	7 (7): APIC ID 0x0000000e
+	8 (8): APIC ID 0x00000010
+	9 (9): APIC ID 0x00000012
+	10 (10): APIC ID 0x00000014
+	11 (11): APIC ID 0x00000016
+	12 (12): APIC ID 0x00000018
+	13 (13): APIC ID 0x0000001a
+	14 (14): APIC ID 0x0000001c
+	15 (15): APIC ID 0x0000001e
+
+$ isa-info
+
+Scalar instructions:
+	LAHF/SAHF: yes
+	LZCNT: yes
+	POPCNT: yes
+	TBM: no
+	BMI: yes
+	BMI2: yes
+	ADCX/ADOX: yes
+Memory instructions:
+	MOVBE: yes
+	PREFETCH: no
+	PREFETCHW: yes
+	PREFETCHWT1: no
+	CLZERO: no
+SIMD extensions:
+	MMX: yes
+	MMX+: yes
+	3dnow!: no
+	3dnow!+: no
+	3dnow! Geode: no
+	DAZ: yes
+	SSE: yes
+	SSE2: yes
+	SSE3: yes
+	SSSE3: yes
+	SSE4.1: yes
+	SSE4.2: yes
+	SSE4a: no
+	Misaligned SSE: no
+	AVX: yes
+	FMA3: yes
+	FMA4: no
+	XOP: no
+	F16C: yes
+	AVX2: yes
+	AVX512F: yes
+	AVX512PF: no
+	AVX512ER: no
+	AVX512CD: yes
+	AVX512DQ: yes
+	AVX512BW: yes
+	AVX512VL: yes
+	AVX512IFMA: yes
+	AVX512VBMI: yes
+	AVX512VBMI2: yes
+	AVX512BITALG: yes
+	AVX512VPOPCNTDQ: yes
+	AVX512VNNI: yes
+	AVX512BF16: no
+	AVX512FP16: no
+	AVX512VP2INTERSECT: no
+	AVX512_4VNNIW: no
+	AVX512_4FMAPS: no
+	AVXVNNI: no
+Multi-threading extensions:
+	MONITOR/MWAIT: no
+	MONITORX/MWAITX: no
+	CMPXCHG16B: yes
+	HLE: no
+	RTM: no
+	XTEST: no
+	RDPID: yes
+Cryptography extensions:
+	AES: yes
+	VAES: yes
+	PCLMULQDQ: yes
+	VPCLMULQDQ: yes
+	GFNI: yes
+	RDRAND: yes
+	RDSEED: yes
+	SHA: yes
+Profiling instructions:
+	RDTSCP: yes
+	MPX: no
+System instructions:
+	CLWB: yes
+	FXSAVE/FXSTOR: yes
+	XSAVE/XSTOR: yes
+
+$ cache-info
+
+Max cache size (upper bound): 50331648 bytes
+L1 instruction cache: 16 x 32 KB, 8-way set associative (64 sets), 64 byte lines, shared by 1 processors
+L1 data cache: 16 x 48 KB, 12-way set associative (64 sets), 64 byte lines, shared by 1 processors
+L2 unified cache: 16 x 1280 KB (exclusive), 20-way set associative (1024 sets), 64 byte lines, shared by 1 processors
+L3 unified cache: 16 x 48 MB (exclusive), 12-way set associative (65536 sets, complex indexing), 64 byte lines, shared by 1 processors

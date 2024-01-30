@@ -1,0 +1,673 @@
+sw-u20-1
+    description: Computer
+    width: 64 bits
+    capabilities: smp vsyscall32
+  *-core
+       description: Motherboard
+       physical id: 0
+     *-memory
+          description: System memory
+          physical id: 0
+          size: 64GiB
+     *-cpu:0
+          product: Intel(R) Xeon(R) Gold 6338 CPU @ 2.00GHz
+          vendor: Intel Corp.
+          physical id: 1
+          bus info: cpu@0
+          width: 64 bits
+          capabilities: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss syscall nx pdpe1gb rdtscp x86-64 constant_tsc arch_perfmon rep_good nopl xtopology tsc_reliable nonstop_tsc cpuid pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch cpuid_fault invpcid_single ssbd ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves wbnoinvd arat avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid md_clear flush_l1d arch_capabilities
+     *-cpu:1
+          product: Intel(R) Xeon(R) Gold 6338 CPU @ 2.00GHz
+          vendor: Intel Corp.
+          physical id: 2
+          bus info: cpu@1
+          width: 64 bits
+          capabilities: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss syscall nx pdpe1gb rdtscp x86-64 constant_tsc arch_perfmon rep_good nopl xtopology tsc_reliable nonstop_tsc cpuid pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch cpuid_fault invpcid_single ssbd ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves wbnoinvd arat avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid md_clear flush_l1d arch_capabilities
+     *-cpu:2
+          product: Intel(R) Xeon(R) Gold 6338 CPU @ 2.00GHz
+          vendor: Intel Corp.
+          physical id: 3
+          bus info: cpu@2
+          width: 64 bits
+          capabilities: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss syscall nx pdpe1gb rdtscp x86-64 constant_tsc arch_perfmon rep_good nopl xtopology tsc_reliable nonstop_tsc cpuid pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch cpuid_fault invpcid_single ssbd ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves wbnoinvd arat avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid md_clear flush_l1d arch_capabilities
+     *-cpu:3
+          product: Intel(R) Xeon(R) Gold 6338 CPU @ 2.00GHz
+          vendor: Intel Corp.
+          physical id: 4
+          bus info: cpu@3
+          width: 64 bits
+          capabilities: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss syscall nx pdpe1gb rdtscp x86-64 constant_tsc arch_perfmon rep_good nopl xtopology tsc_reliable nonstop_tsc cpuid pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch cpuid_fault invpcid_single ssbd ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves wbnoinvd arat avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid md_clear flush_l1d arch_capabilities
+     *-cpu:4
+          product: Intel(R) Xeon(R) Gold 6338 CPU @ 2.00GHz
+          vendor: Intel Corp.
+          physical id: 5
+          bus info: cpu@4
+          width: 64 bits
+          capabilities: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss syscall nx pdpe1gb rdtscp x86-64 constant_tsc arch_perfmon rep_good nopl xtopology tsc_reliable nonstop_tsc cpuid pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch cpuid_fault invpcid_single ssbd ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves wbnoinvd arat avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid md_clear flush_l1d arch_capabilities
+     *-cpu:5
+          product: Intel(R) Xeon(R) Gold 6338 CPU @ 2.00GHz
+          vendor: Intel Corp.
+          physical id: 6
+          bus info: cpu@5
+          width: 64 bits
+          capabilities: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss syscall nx pdpe1gb rdtscp x86-64 constant_tsc arch_perfmon rep_good nopl xtopology tsc_reliable nonstop_tsc cpuid pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch cpuid_fault invpcid_single ssbd ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves wbnoinvd arat avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid md_clear flush_l1d arch_capabilities
+     *-cpu:6
+          product: Intel(R) Xeon(R) Gold 6338 CPU @ 2.00GHz
+          vendor: Intel Corp.
+          physical id: 7
+          bus info: cpu@6
+          width: 64 bits
+          capabilities: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss syscall nx pdpe1gb rdtscp x86-64 constant_tsc arch_perfmon rep_good nopl xtopology tsc_reliable nonstop_tsc cpuid pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch cpuid_fault invpcid_single ssbd ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves wbnoinvd arat avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid md_clear flush_l1d arch_capabilities
+     *-cpu:7
+          product: Intel(R) Xeon(R) Gold 6338 CPU @ 2.00GHz
+          vendor: Intel Corp.
+          physical id: 8
+          bus info: cpu@7
+          width: 64 bits
+          capabilities: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss syscall nx pdpe1gb rdtscp x86-64 constant_tsc arch_perfmon rep_good nopl xtopology tsc_reliable nonstop_tsc cpuid pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch cpuid_fault invpcid_single ssbd ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves wbnoinvd arat avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid md_clear flush_l1d arch_capabilities
+     *-cpu:8
+          product: Intel(R) Xeon(R) Gold 6338 CPU @ 2.00GHz
+          vendor: Intel Corp.
+          physical id: 9
+          bus info: cpu@8
+          width: 64 bits
+          capabilities: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss syscall nx pdpe1gb rdtscp x86-64 constant_tsc arch_perfmon rep_good nopl xtopology tsc_reliable nonstop_tsc cpuid pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch cpuid_fault invpcid_single ssbd ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves wbnoinvd arat avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid md_clear flush_l1d arch_capabilities
+     *-cpu:9
+          product: Intel(R) Xeon(R) Gold 6338 CPU @ 2.00GHz
+          vendor: Intel Corp.
+          physical id: a
+          bus info: cpu@9
+          width: 64 bits
+          capabilities: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss syscall nx pdpe1gb rdtscp x86-64 constant_tsc arch_perfmon rep_good nopl xtopology tsc_reliable nonstop_tsc cpuid pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch cpuid_fault invpcid_single ssbd ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves wbnoinvd arat avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid md_clear flush_l1d arch_capabilities
+     *-cpu:10
+          product: Intel(R) Xeon(R) Gold 6338 CPU @ 2.00GHz
+          vendor: Intel Corp.
+          physical id: b
+          bus info: cpu@10
+          width: 64 bits
+          capabilities: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss syscall nx pdpe1gb rdtscp x86-64 constant_tsc arch_perfmon rep_good nopl xtopology tsc_reliable nonstop_tsc cpuid pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch cpuid_fault invpcid_single ssbd ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves wbnoinvd arat avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid md_clear flush_l1d arch_capabilities
+     *-cpu:11
+          product: Intel(R) Xeon(R) Gold 6338 CPU @ 2.00GHz
+          vendor: Intel Corp.
+          physical id: c
+          bus info: cpu@11
+          width: 64 bits
+          capabilities: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss syscall nx pdpe1gb rdtscp x86-64 constant_tsc arch_perfmon rep_good nopl xtopology tsc_reliable nonstop_tsc cpuid pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch cpuid_fault invpcid_single ssbd ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves wbnoinvd arat avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid md_clear flush_l1d arch_capabilities
+     *-cpu:12
+          product: Intel(R) Xeon(R) Gold 6338 CPU @ 2.00GHz
+          vendor: Intel Corp.
+          physical id: d
+          bus info: cpu@12
+          width: 64 bits
+          capabilities: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss syscall nx pdpe1gb rdtscp x86-64 constant_tsc arch_perfmon rep_good nopl xtopology tsc_reliable nonstop_tsc cpuid pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch cpuid_fault invpcid_single ssbd ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves wbnoinvd arat avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid md_clear flush_l1d arch_capabilities
+     *-cpu:13
+          product: Intel(R) Xeon(R) Gold 6338 CPU @ 2.00GHz
+          vendor: Intel Corp.
+          physical id: e
+          bus info: cpu@13
+          width: 64 bits
+          capabilities: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss syscall nx pdpe1gb rdtscp x86-64 constant_tsc arch_perfmon rep_good nopl xtopology tsc_reliable nonstop_tsc cpuid pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch cpuid_fault invpcid_single ssbd ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves wbnoinvd arat avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid md_clear flush_l1d arch_capabilities
+     *-cpu:14
+          product: Intel(R) Xeon(R) Gold 6338 CPU @ 2.00GHz
+          vendor: Intel Corp.
+          physical id: f
+          bus info: cpu@14
+          width: 64 bits
+          capabilities: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss syscall nx pdpe1gb rdtscp x86-64 constant_tsc arch_perfmon rep_good nopl xtopology tsc_reliable nonstop_tsc cpuid pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch cpuid_fault invpcid_single ssbd ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves wbnoinvd arat avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid md_clear flush_l1d arch_capabilities
+     *-cpu:15
+          product: Intel(R) Xeon(R) Gold 6338 CPU @ 2.00GHz
+          vendor: Intel Corp.
+          physical id: 10
+          bus info: cpu@15
+          width: 64 bits
+          capabilities: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss syscall nx pdpe1gb rdtscp x86-64 constant_tsc arch_perfmon rep_good nopl xtopology tsc_reliable nonstop_tsc cpuid pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch cpuid_fault invpcid_single ssbd ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves wbnoinvd arat avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid md_clear flush_l1d arch_capabilities
+     *-pci
+          description: Host bridge
+          product: 440BX/ZX/DX - 82443BX/ZX/DX Host bridge
+          vendor: Intel Corporation
+          physical id: 100
+          bus info: pci@0000:00:00.0
+          version: 01
+          width: 32 bits
+          clock: 33MHz
+          configuration: driver=agpgart-intel
+          resources: irq:0
+        *-pci:0
+             description: PCI bridge
+             product: 440BX/ZX/DX - 82443BX/ZX/DX AGP bridge
+             vendor: Intel Corporation
+             physical id: 1
+             bus info: pci@0000:00:01.0
+             version: 01
+             width: 32 bits
+             clock: 66MHz
+             capabilities: pci normal_decode bus_master
+        *-isa
+             description: ISA bridge
+             product: 82371AB/EB/MB PIIX4 ISA
+             vendor: Intel Corporation
+             physical id: 7
+             bus info: pci@0000:00:07.0
+             version: 08
+             width: 32 bits
+             clock: 33MHz
+             capabilities: isa bus_master
+             configuration: latency=0
+        *-ide
+             description: IDE interface
+             product: 82371AB/EB/MB PIIX4 IDE
+             vendor: Intel Corporation
+             physical id: 7.1
+             bus info: pci@0000:00:07.1
+             version: 01
+             width: 32 bits
+             clock: 33MHz
+             capabilities: ide isa_compat_mode pci_native_mode bus_master
+             configuration: driver=ata_piix latency=64
+             resources: irq:0 ioport:1f0(size=8) ioport:3f6 ioport:170(size=8) ioport:376 ioport:1060(size=16)
+        *-bridge UNCLAIMED
+             description: Bridge
+             product: 82371AB/EB/MB PIIX4 ACPI
+             vendor: Intel Corporation
+             physical id: 7.3
+             bus info: pci@0000:00:07.3
+             version: 08
+             width: 32 bits
+             clock: 33MHz
+             capabilities: bridge
+             configuration: latency=0
+        *-generic
+             description: System peripheral
+             product: Virtual Machine Communication Interface
+             vendor: VMware
+             physical id: 7.7
+             bus info: pci@0000:00:07.7
+             version: 10
+             width: 64 bits
+             clock: 33MHz
+             capabilities: bus_master cap_list
+             configuration: driver=vmw_vmci latency=64 maxlatency=255 mingnt=6
+             resources: irq:16 ioport:1080(size=64) memory:febfe000-febfffff
+        *-display
+             description: VGA compatible controller
+             product: SVGA II Adapter
+             vendor: VMware
+             physical id: f
+             bus info: pci@0000:00:0f.0
+             version: 00
+             width: 32 bits
+             clock: 33MHz
+             capabilities: vga_controller bus_master cap_list rom
+             configuration: driver=vmwgfx latency=64
+             resources: irq:16 ioport:1070(size=16) memory:e8000000-efffffff memory:fe000000-fe7fffff memory:c0000-dffff
+        *-scsi
+             description: SCSI storage controller
+             product: 53c1030 PCI-X Fusion-MPT Dual Ultra320 SCSI
+             vendor: Broadcom / LSI
+             physical id: 10
+             bus info: pci@0000:00:10.0
+             version: 01
+             width: 64 bits
+             clock: 33MHz
+             capabilities: scsi bus_master cap_list rom
+             configuration: driver=mptspi latency=64 maxlatency=255 mingnt=6
+             resources: irq:17 ioport:1400(size=256) memory:feba0000-febbffff memory:febc0000-febdffff memory:c0208000-c020bfff
+        *-pci:1
+             description: PCI bridge
+             product: PCI bridge
+             vendor: VMware
+             physical id: 11
+             bus info: pci@0000:00:11.0
+             version: 02
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pci subtractive_decode bus_master cap_list
+             resources: ioport:2000(size=8192) memory:fd500000-fdffffff ioport:e7b00000(size=5242880)
+           *-sata
+                description: SATA controller
+                product: SATA AHCI controller
+                vendor: VMware
+                physical id: 0
+                bus info: pci@0000:02:00.0
+                version: 00
+                width: 32 bits
+                clock: 66MHz
+                capabilities: sata ahci_1.0 bus_master cap_list rom
+                configuration: driver=ahci latency=64
+                resources: irq:65 memory:fd5ff000-fd5fffff memory:fd500000-fd50ffff
+        *-pci:2
+             description: PCI bridge
+             product: PCI Express Root Port
+             vendor: VMware
+             physical id: 15
+             bus info: pci@0000:00:15.0
+             version: 01
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pci normal_decode bus_master cap_list
+             configuration: driver=pcieport
+             resources: irq:24 ioport:4000(size=4096) memory:fd400000-fd4fffff ioport:c0000000(size=2097152)
+           *-network
+                description: Ethernet interface
+                product: VMXNET3 Ethernet Controller
+                vendor: VMware
+                physical id: 0
+                bus info: pci@0000:03:00.0
+                logical name: ens160
+                version: 01
+                serial: 00:50:56:9f:2f:c8
+                size: 10Gbit/s
+                capacity: 10Gbit/s
+                width: 32 bits
+                clock: 33MHz
+                capabilities: bus_master cap_list rom ethernet physical logical tp 1000bt-fd 10000bt-fd
+                configuration: autonegotiation=off broadcast=yes driver=vmxnet3 driverversion=1.4.17.0-k-NAPI duplex=full ip=10.1.8.120 latency=0 link=yes multicast=yes port=twisted pair speed=10Gbit/s
+                resources: irq:18 memory:fd4fc000-fd4fcfff memory:fd4fd000-fd4fdfff memory:fd4fe000-fd4fffff ioport:4000(size=16) memory:fd400000-fd40ffff
+        *-pci:3
+             description: PCI bridge
+             product: PCI Express Root Port
+             vendor: VMware
+             physical id: 15.1
+             bus info: pci@0000:00:15.1
+             version: 01
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pci normal_decode bus_master cap_list
+             configuration: driver=pcieport
+             resources: irq:25 ioport:8000(size=4096) memory:fd000000-fd0fffff ioport:e7700000(size=1048576)
+        *-pci:4
+             description: PCI bridge
+             product: PCI Express Root Port
+             vendor: VMware
+             physical id: 15.2
+             bus info: pci@0000:00:15.2
+             version: 01
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pci normal_decode bus_master cap_list
+             configuration: driver=pcieport
+             resources: irq:26 ioport:c000(size=4096) memory:fcc00000-fccfffff ioport:e7300000(size=1048576)
+        *-pci:5
+             description: PCI bridge
+             product: PCI Express Root Port
+             vendor: VMware
+             physical id: 15.3
+             bus info: pci@0000:00:15.3
+             version: 01
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pci normal_decode bus_master cap_list
+             configuration: driver=pcieport
+             resources: irq:27 memory:fc800000-fc8fffff ioport:e6f00000(size=1048576)
+        *-pci:6
+             description: PCI bridge
+             product: PCI Express Root Port
+             vendor: VMware
+             physical id: 15.4
+             bus info: pci@0000:00:15.4
+             version: 01
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pci normal_decode bus_master cap_list
+             configuration: driver=pcieport
+             resources: irq:28 memory:fc400000-fc4fffff ioport:e6b00000(size=1048576)
+        *-pci:7
+             description: PCI bridge
+             product: PCI Express Root Port
+             vendor: VMware
+             physical id: 15.5
+             bus info: pci@0000:00:15.5
+             version: 01
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pci normal_decode bus_master cap_list
+             configuration: driver=pcieport
+             resources: irq:29 memory:fc000000-fc0fffff ioport:e6700000(size=1048576)
+        *-pci:8
+             description: PCI bridge
+             product: PCI Express Root Port
+             vendor: VMware
+             physical id: 15.6
+             bus info: pci@0000:00:15.6
+             version: 01
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pci normal_decode bus_master cap_list
+             configuration: driver=pcieport
+             resources: irq:30 memory:fbc00000-fbcfffff ioport:e6300000(size=1048576)
+        *-pci:9
+             description: PCI bridge
+             product: PCI Express Root Port
+             vendor: VMware
+             physical id: 15.7
+             bus info: pci@0000:00:15.7
+             version: 01
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pci normal_decode bus_master cap_list
+             configuration: driver=pcieport
+             resources: irq:31 memory:fb800000-fb8fffff ioport:e5f00000(size=1048576)
+        *-pci:10
+             description: PCI bridge
+             product: PCI Express Root Port
+             vendor: VMware
+             physical id: 16
+             bus info: pci@0000:00:16.0
+             version: 01
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pci normal_decode bus_master cap_list
+             configuration: driver=pcieport
+             resources: irq:32 ioport:5000(size=4096) memory:fd300000-fd3fffff ioport:e7a00000(size=1048576)
+        *-pci:11
+             description: PCI bridge
+             product: PCI Express Root Port
+             vendor: VMware
+             physical id: 16.1
+             bus info: pci@0000:00:16.1
+             version: 01
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pci normal_decode bus_master cap_list
+             configuration: driver=pcieport
+             resources: irq:33 ioport:9000(size=4096) memory:fcf00000-fcffffff ioport:e7600000(size=1048576)
+        *-pci:12
+             description: PCI bridge
+             product: PCI Express Root Port
+             vendor: VMware
+             physical id: 16.2
+             bus info: pci@0000:00:16.2
+             version: 01
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pci normal_decode bus_master cap_list
+             configuration: driver=pcieport
+             resources: irq:34 ioport:d000(size=4096) memory:fcb00000-fcbfffff ioport:e7200000(size=1048576)
+        *-pci:13
+             description: PCI bridge
+             product: PCI Express Root Port
+             vendor: VMware
+             physical id: 16.3
+             bus info: pci@0000:00:16.3
+             version: 01
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pci normal_decode bus_master cap_list
+             configuration: driver=pcieport
+             resources: irq:35 memory:fc700000-fc7fffff ioport:e6e00000(size=1048576)
+        *-pci:14
+             description: PCI bridge
+             product: PCI Express Root Port
+             vendor: VMware
+             physical id: 16.4
+             bus info: pci@0000:00:16.4
+             version: 01
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pci normal_decode bus_master cap_list
+             configuration: driver=pcieport
+             resources: irq:36 memory:fc300000-fc3fffff ioport:e6a00000(size=1048576)
+        *-pci:15
+             description: PCI bridge
+             product: PCI Express Root Port
+             vendor: VMware
+             physical id: 16.5
+             bus info: pci@0000:00:16.5
+             version: 01
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pci normal_decode bus_master cap_list
+             configuration: driver=pcieport
+             resources: irq:37 memory:fbf00000-fbffffff ioport:e6600000(size=1048576)
+        *-pci:16
+             description: PCI bridge
+             product: PCI Express Root Port
+             vendor: VMware
+             physical id: 16.6
+             bus info: pci@0000:00:16.6
+             version: 01
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pci normal_decode bus_master cap_list
+             configuration: driver=pcieport
+             resources: irq:38 memory:fbb00000-fbbfffff ioport:e6200000(size=1048576)
+        *-pci:17
+             description: PCI bridge
+             product: PCI Express Root Port
+             vendor: VMware
+             physical id: 16.7
+             bus info: pci@0000:00:16.7
+             version: 01
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pci normal_decode bus_master cap_list
+             configuration: driver=pcieport
+             resources: irq:39 memory:fb700000-fb7fffff ioport:e5e00000(size=1048576)
+        *-pci:18
+             description: PCI bridge
+             product: PCI Express Root Port
+             vendor: VMware
+             physical id: 17
+             bus info: pci@0000:00:17.0
+             version: 01
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pci normal_decode bus_master cap_list
+             configuration: driver=pcieport
+             resources: irq:40 ioport:6000(size=4096) memory:fd200000-fd2fffff ioport:e7900000(size=1048576)
+        *-pci:19
+             description: PCI bridge
+             product: PCI Express Root Port
+             vendor: VMware
+             physical id: 17.1
+             bus info: pci@0000:00:17.1
+             version: 01
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pci normal_decode bus_master cap_list
+             configuration: driver=pcieport
+             resources: irq:41 ioport:a000(size=4096) memory:fce00000-fcefffff ioport:e7500000(size=1048576)
+        *-pci:20
+             description: PCI bridge
+             product: PCI Express Root Port
+             vendor: VMware
+             physical id: 17.2
+             bus info: pci@0000:00:17.2
+             version: 01
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pci normal_decode bus_master cap_list
+             configuration: driver=pcieport
+             resources: irq:42 ioport:e000(size=4096) memory:fca00000-fcafffff ioport:e7100000(size=1048576)
+        *-pci:21
+             description: PCI bridge
+             product: PCI Express Root Port
+             vendor: VMware
+             physical id: 17.3
+             bus info: pci@0000:00:17.3
+             version: 01
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pci normal_decode bus_master cap_list
+             configuration: driver=pcieport
+             resources: irq:43 memory:fc600000-fc6fffff ioport:e6d00000(size=1048576)
+        *-pci:22
+             description: PCI bridge
+             product: PCI Express Root Port
+             vendor: VMware
+             physical id: 17.4
+             bus info: pci@0000:00:17.4
+             version: 01
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pci normal_decode bus_master cap_list
+             configuration: driver=pcieport
+             resources: irq:44 memory:fc200000-fc2fffff ioport:e6900000(size=1048576)
+        *-pci:23
+             description: PCI bridge
+             product: PCI Express Root Port
+             vendor: VMware
+             physical id: 17.5
+             bus info: pci@0000:00:17.5
+             version: 01
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pci normal_decode bus_master cap_list
+             configuration: driver=pcieport
+             resources: irq:45 memory:fbe00000-fbefffff ioport:e6500000(size=1048576)
+        *-pci:24
+             description: PCI bridge
+             product: PCI Express Root Port
+             vendor: VMware
+             physical id: 17.6
+             bus info: pci@0000:00:17.6
+             version: 01
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pci normal_decode bus_master cap_list
+             configuration: driver=pcieport
+             resources: irq:46 memory:fba00000-fbafffff ioport:e6100000(size=1048576)
+        *-pci:25
+             description: PCI bridge
+             product: PCI Express Root Port
+             vendor: VMware
+             physical id: 17.7
+             bus info: pci@0000:00:17.7
+             version: 01
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pci normal_decode bus_master cap_list
+             configuration: driver=pcieport
+             resources: irq:47 memory:fb600000-fb6fffff ioport:e5d00000(size=1048576)
+        *-pci:26
+             description: PCI bridge
+             product: PCI Express Root Port
+             vendor: VMware
+             physical id: 18
+             bus info: pci@0000:00:18.0
+             version: 01
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pci normal_decode bus_master cap_list
+             configuration: driver=pcieport
+             resources: irq:48 ioport:7000(size=4096) memory:fd100000-fd1fffff ioport:e7800000(size=1048576)
+        *-pci:27
+             description: PCI bridge
+             product: PCI Express Root Port
+             vendor: VMware
+             physical id: 18.1
+             bus info: pci@0000:00:18.1
+             version: 01
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pci normal_decode bus_master cap_list
+             configuration: driver=pcieport
+             resources: irq:49 ioport:b000(size=4096) memory:fcd00000-fcdfffff ioport:e7400000(size=1048576)
+        *-pci:28
+             description: PCI bridge
+             product: PCI Express Root Port
+             vendor: VMware
+             physical id: 18.2
+             bus info: pci@0000:00:18.2
+             version: 01
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pci normal_decode bus_master cap_list
+             configuration: driver=pcieport
+             resources: irq:50 memory:fc900000-fc9fffff ioport:e7000000(size=1048576)
+        *-pci:29
+             description: PCI bridge
+             product: PCI Express Root Port
+             vendor: VMware
+             physical id: 18.3
+             bus info: pci@0000:00:18.3
+             version: 01
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pci normal_decode bus_master cap_list
+             configuration: driver=pcieport
+             resources: irq:51 memory:fc500000-fc5fffff ioport:e6c00000(size=1048576)
+        *-pci:30
+             description: PCI bridge
+             product: PCI Express Root Port
+             vendor: VMware
+             physical id: 18.4
+             bus info: pci@0000:00:18.4
+             version: 01
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pci normal_decode bus_master cap_list
+             configuration: driver=pcieport
+             resources: irq:52 memory:fc100000-fc1fffff ioport:e6800000(size=1048576)
+        *-pci:31
+             description: PCI bridge
+             product: PCI Express Root Port
+             vendor: VMware
+             physical id: 18.5
+             bus info: pci@0000:00:18.5
+             version: 01
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pci normal_decode bus_master cap_list
+             configuration: driver=pcieport
+             resources: irq:53 memory:fbd00000-fbdfffff ioport:e6400000(size=1048576)
+        *-pci:32
+             description: PCI bridge
+             product: PCI Express Root Port
+             vendor: VMware
+             physical id: 18.6
+             bus info: pci@0000:00:18.6
+             version: 01
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pci normal_decode bus_master cap_list
+             configuration: driver=pcieport
+             resources: irq:54 memory:fb900000-fb9fffff ioport:e6000000(size=1048576)
+        *-pci:33
+             description: PCI bridge
+             product: PCI Express Root Port
+             vendor: VMware
+             physical id: 18.7
+             bus info: pci@0000:00:18.7
+             version: 01
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pci normal_decode bus_master cap_list
+             configuration: driver=pcieport
+             resources: irq:55 memory:fb500000-fb5fffff ioport:e5c00000(size=1048576)
+     *-pnp00:00
+          product: PnP device PNP0c02
+          physical id: 11
+          capabilities: pnp
+          configuration: driver=system
+     *-pnp00:01
+          product: PnP device PNP0b00
+          physical id: 12
+          capabilities: pnp
+          configuration: driver=rtc_cmos
+     *-pnp00:02
+          product: PnP device PNP0303
+          physical id: 13
+          capabilities: pnp
+          configuration: driver=i8042 kbd
+     *-pnp00:03
+          product: PnP device VMW0003
+          physical id: 14
+          capabilities: pnp
+          configuration: driver=i8042 aux
+     *-pnp00:04
+          product: PnP device PNP0103
+          physical id: 15
+          capabilities: pnp
+          configuration: driver=system
+     *-pnp00:05
+          product: PnP device PNP0c02
+          physical id: 16
+          capabilities: pnp
+          configuration: driver=system
+  *-scsi
+       physical id: 1
+       bus info: scsi@32
+       logical name: scsi32
+       capabilities: scsi-host
+       configuration: driver=mptspi

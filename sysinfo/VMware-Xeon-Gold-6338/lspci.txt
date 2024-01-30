@@ -1,0 +1,384 @@
+00:00.0 Host bridge: Intel Corporation 440BX/ZX/DX - 82443BX/ZX/DX Host bridge (rev 01)
+	Subsystem: VMware Virtual Machine Chipset
+	Flags: bus master, medium devsel, latency 0
+	Kernel driver in use: agpgart-intel
+
+00:01.0 PCI bridge: Intel Corporation 440BX/ZX/DX - 82443BX/ZX/DX AGP bridge (rev 01) (prog-if 00 [Normal decode])
+	Flags: bus master, 66MHz, medium devsel, latency 0
+	Bus: primary=00, secondary=01, subordinate=01, sec-latency=64
+	I/O behind bridge: [disabled]
+	Memory behind bridge: [disabled]
+	Prefetchable memory behind bridge: [disabled]
+
+00:07.0 ISA bridge: Intel Corporation 82371AB/EB/MB PIIX4 ISA (rev 08)
+	Subsystem: VMware Virtual Machine Chipset
+	Flags: bus master, medium devsel, latency 0
+
+00:07.1 IDE interface: Intel Corporation 82371AB/EB/MB PIIX4 IDE (rev 01) (prog-if 8a [ISA Compatibility mode controller, supports both channels switched to PCI native mode, supports bus mastering])
+	Subsystem: VMware Virtual Machine Chipset
+	Flags: bus master, medium devsel, latency 64
+	Memory at 000001f0 (32-bit, non-prefetchable) [virtual] [size=8]
+	Memory at 000003f0 (type 3, non-prefetchable) [virtual]
+	Memory at 00000170 (32-bit, non-prefetchable) [virtual] [size=8]
+	Memory at 00000370 (type 3, non-prefetchable) [virtual]
+	I/O ports at 1060 [virtual] [size=16]
+	Kernel driver in use: ata_piix
+	Kernel modules: pata_acpi
+
+00:07.3 Bridge: Intel Corporation 82371AB/EB/MB PIIX4 ACPI (rev 08)
+	Subsystem: VMware Virtual Machine Chipset
+	Flags: medium devsel, IRQ 9
+	Kernel modules: i2c_piix4
+
+00:07.7 System peripheral: VMware Virtual Machine Communication Interface (rev 10)
+	Subsystem: VMware Virtual Machine Communication Interface
+	Flags: bus master, medium devsel, latency 64, IRQ 16
+	I/O ports at 1080 [size=64]
+	Memory at febfe000 (64-bit, non-prefetchable) [size=8K]
+	Capabilities: <access denied>
+	Kernel driver in use: vmw_vmci
+	Kernel modules: vmw_vmci
+
+00:0f.0 VGA compatible controller: VMware SVGA II Adapter (prog-if 00 [VGA controller])
+	Subsystem: VMware SVGA II Adapter
+	Flags: bus master, medium devsel, latency 64, IRQ 16
+	I/O ports at 1070 [size=16]
+	Memory at e8000000 (32-bit, prefetchable) [size=128M]
+	Memory at fe000000 (32-bit, non-prefetchable) [size=8M]
+	Expansion ROM at 000c0000 [virtual] [disabled] [size=128K]
+	Capabilities: <access denied>
+	Kernel driver in use: vmwgfx
+	Kernel modules: vmwgfx
+
+00:10.0 SCSI storage controller: Broadcom / LSI 53c1030 PCI-X Fusion-MPT Dual Ultra320 SCSI (rev 01)
+	Subsystem: VMware LSI Logic Parallel SCSI Controller
+	Flags: bus master, medium devsel, latency 64, IRQ 17
+	I/O ports at 1400 [size=256]
+	Memory at feba0000 (64-bit, non-prefetchable) [size=128K]
+	Memory at febc0000 (64-bit, non-prefetchable) [size=128K]
+	Expansion ROM at c0208000 [virtual] [disabled] [size=16K]
+	Capabilities: <access denied>
+	Kernel driver in use: mptspi
+	Kernel modules: mptspi
+
+00:11.0 PCI bridge: VMware PCI bridge (rev 02) (prog-if 01 [Subtractive decode])
+	Flags: bus master, medium devsel, latency 64
+	Bus: primary=00, secondary=02, subordinate=02, sec-latency=68
+	I/O behind bridge: 00002000-00003fff [size=8K]
+	Memory behind bridge: fd500000-fdffffff [size=11M]
+	Prefetchable memory behind bridge: 00000000e7b00000-00000000e7ffffff [size=5M]
+	Capabilities: <access denied>
+
+00:15.0 PCI bridge: VMware PCI Express Root Port (rev 01) (prog-if 00 [Normal decode])
+	Flags: bus master, fast devsel, latency 0, IRQ 24
+	Bus: primary=00, secondary=03, subordinate=03, sec-latency=0
+	I/O behind bridge: 00004000-00004fff [size=4K]
+	Memory behind bridge: fd400000-fd4fffff [size=1M]
+	Prefetchable memory behind bridge: 00000000c0000000-00000000c01fffff [size=2M]
+	Capabilities: <access denied>
+	Kernel driver in use: pcieport
+
+00:15.1 PCI bridge: VMware PCI Express Root Port (rev 01) (prog-if 00 [Normal decode])
+	Flags: bus master, fast devsel, latency 0, IRQ 25
+	Bus: primary=00, secondary=04, subordinate=04, sec-latency=0
+	I/O behind bridge: 00008000-00008fff [size=4K]
+	Memory behind bridge: fd000000-fd0fffff [size=1M]
+	Prefetchable memory behind bridge: 00000000e7700000-00000000e77fffff [size=1M]
+	Capabilities: <access denied>
+	Kernel driver in use: pcieport
+
+00:15.2 PCI bridge: VMware PCI Express Root Port (rev 01) (prog-if 00 [Normal decode])
+	Flags: bus master, fast devsel, latency 0, IRQ 26
+	Bus: primary=00, secondary=05, subordinate=05, sec-latency=0
+	I/O behind bridge: 0000c000-0000cfff [size=4K]
+	Memory behind bridge: fcc00000-fccfffff [size=1M]
+	Prefetchable memory behind bridge: 00000000e7300000-00000000e73fffff [size=1M]
+	Capabilities: <access denied>
+	Kernel driver in use: pcieport
+
+00:15.3 PCI bridge: VMware PCI Express Root Port (rev 01) (prog-if 00 [Normal decode])
+	Flags: bus master, fast devsel, latency 0, IRQ 27
+	Bus: primary=00, secondary=06, subordinate=06, sec-latency=0
+	I/O behind bridge: [disabled]
+	Memory behind bridge: fc800000-fc8fffff [size=1M]
+	Prefetchable memory behind bridge: 00000000e6f00000-00000000e6ffffff [size=1M]
+	Capabilities: <access denied>
+	Kernel driver in use: pcieport
+
+00:15.4 PCI bridge: VMware PCI Express Root Port (rev 01) (prog-if 00 [Normal decode])
+	Flags: bus master, fast devsel, latency 0, IRQ 28
+	Bus: primary=00, secondary=07, subordinate=07, sec-latency=0
+	I/O behind bridge: [disabled]
+	Memory behind bridge: fc400000-fc4fffff [size=1M]
+	Prefetchable memory behind bridge: 00000000e6b00000-00000000e6bfffff [size=1M]
+	Capabilities: <access denied>
+	Kernel driver in use: pcieport
+
+00:15.5 PCI bridge: VMware PCI Express Root Port (rev 01) (prog-if 00 [Normal decode])
+	Flags: bus master, fast devsel, latency 0, IRQ 29
+	Bus: primary=00, secondary=08, subordinate=08, sec-latency=0
+	I/O behind bridge: [disabled]
+	Memory behind bridge: fc000000-fc0fffff [size=1M]
+	Prefetchable memory behind bridge: 00000000e6700000-00000000e67fffff [size=1M]
+	Capabilities: <access denied>
+	Kernel driver in use: pcieport
+
+00:15.6 PCI bridge: VMware PCI Express Root Port (rev 01) (prog-if 00 [Normal decode])
+	Flags: bus master, fast devsel, latency 0, IRQ 30
+	Bus: primary=00, secondary=09, subordinate=09, sec-latency=0
+	I/O behind bridge: [disabled]
+	Memory behind bridge: fbc00000-fbcfffff [size=1M]
+	Prefetchable memory behind bridge: 00000000e6300000-00000000e63fffff [size=1M]
+	Capabilities: <access denied>
+	Kernel driver in use: pcieport
+
+00:15.7 PCI bridge: VMware PCI Express Root Port (rev 01) (prog-if 00 [Normal decode])
+	Flags: bus master, fast devsel, latency 0, IRQ 31
+	Bus: primary=00, secondary=0a, subordinate=0a, sec-latency=0
+	I/O behind bridge: [disabled]
+	Memory behind bridge: fb800000-fb8fffff [size=1M]
+	Prefetchable memory behind bridge: 00000000e5f00000-00000000e5ffffff [size=1M]
+	Capabilities: <access denied>
+	Kernel driver in use: pcieport
+
+00:16.0 PCI bridge: VMware PCI Express Root Port (rev 01) (prog-if 00 [Normal decode])
+	Flags: bus master, fast devsel, latency 0, IRQ 32
+	Bus: primary=00, secondary=0b, subordinate=0b, sec-latency=0
+	I/O behind bridge: 00005000-00005fff [size=4K]
+	Memory behind bridge: fd300000-fd3fffff [size=1M]
+	Prefetchable memory behind bridge: 00000000e7a00000-00000000e7afffff [size=1M]
+	Capabilities: <access denied>
+	Kernel driver in use: pcieport
+
+00:16.1 PCI bridge: VMware PCI Express Root Port (rev 01) (prog-if 00 [Normal decode])
+	Flags: bus master, fast devsel, latency 0, IRQ 33
+	Bus: primary=00, secondary=0c, subordinate=0c, sec-latency=0
+	I/O behind bridge: 00009000-00009fff [size=4K]
+	Memory behind bridge: fcf00000-fcffffff [size=1M]
+	Prefetchable memory behind bridge: 00000000e7600000-00000000e76fffff [size=1M]
+	Capabilities: <access denied>
+	Kernel driver in use: pcieport
+
+00:16.2 PCI bridge: VMware PCI Express Root Port (rev 01) (prog-if 00 [Normal decode])
+	Flags: bus master, fast devsel, latency 0, IRQ 34
+	Bus: primary=00, secondary=0d, subordinate=0d, sec-latency=0
+	I/O behind bridge: 0000d000-0000dfff [size=4K]
+	Memory behind bridge: fcb00000-fcbfffff [size=1M]
+	Prefetchable memory behind bridge: 00000000e7200000-00000000e72fffff [size=1M]
+	Capabilities: <access denied>
+	Kernel driver in use: pcieport
+
+00:16.3 PCI bridge: VMware PCI Express Root Port (rev 01) (prog-if 00 [Normal decode])
+	Flags: bus master, fast devsel, latency 0, IRQ 35
+	Bus: primary=00, secondary=0e, subordinate=0e, sec-latency=0
+	I/O behind bridge: [disabled]
+	Memory behind bridge: fc700000-fc7fffff [size=1M]
+	Prefetchable memory behind bridge: 00000000e6e00000-00000000e6efffff [size=1M]
+	Capabilities: <access denied>
+	Kernel driver in use: pcieport
+
+00:16.4 PCI bridge: VMware PCI Express Root Port (rev 01) (prog-if 00 [Normal decode])
+	Flags: bus master, fast devsel, latency 0, IRQ 36
+	Bus: primary=00, secondary=0f, subordinate=0f, sec-latency=0
+	I/O behind bridge: [disabled]
+	Memory behind bridge: fc300000-fc3fffff [size=1M]
+	Prefetchable memory behind bridge: 00000000e6a00000-00000000e6afffff [size=1M]
+	Capabilities: <access denied>
+	Kernel driver in use: pcieport
+
+00:16.5 PCI bridge: VMware PCI Express Root Port (rev 01) (prog-if 00 [Normal decode])
+	Flags: bus master, fast devsel, latency 0, IRQ 37
+	Bus: primary=00, secondary=10, subordinate=10, sec-latency=0
+	I/O behind bridge: [disabled]
+	Memory behind bridge: fbf00000-fbffffff [size=1M]
+	Prefetchable memory behind bridge: 00000000e6600000-00000000e66fffff [size=1M]
+	Capabilities: <access denied>
+	Kernel driver in use: pcieport
+
+00:16.6 PCI bridge: VMware PCI Express Root Port (rev 01) (prog-if 00 [Normal decode])
+	Flags: bus master, fast devsel, latency 0, IRQ 38
+	Bus: primary=00, secondary=11, subordinate=11, sec-latency=0
+	I/O behind bridge: [disabled]
+	Memory behind bridge: fbb00000-fbbfffff [size=1M]
+	Prefetchable memory behind bridge: 00000000e6200000-00000000e62fffff [size=1M]
+	Capabilities: <access denied>
+	Kernel driver in use: pcieport
+
+00:16.7 PCI bridge: VMware PCI Express Root Port (rev 01) (prog-if 00 [Normal decode])
+	Flags: bus master, fast devsel, latency 0, IRQ 39
+	Bus: primary=00, secondary=12, subordinate=12, sec-latency=0
+	I/O behind bridge: [disabled]
+	Memory behind bridge: fb700000-fb7fffff [size=1M]
+	Prefetchable memory behind bridge: 00000000e5e00000-00000000e5efffff [size=1M]
+	Capabilities: <access denied>
+	Kernel driver in use: pcieport
+
+00:17.0 PCI bridge: VMware PCI Express Root Port (rev 01) (prog-if 00 [Normal decode])
+	Flags: bus master, fast devsel, latency 0, IRQ 40
+	Bus: primary=00, secondary=13, subordinate=13, sec-latency=0
+	I/O behind bridge: 00006000-00006fff [size=4K]
+	Memory behind bridge: fd200000-fd2fffff [size=1M]
+	Prefetchable memory behind bridge: 00000000e7900000-00000000e79fffff [size=1M]
+	Capabilities: <access denied>
+	Kernel driver in use: pcieport
+
+00:17.1 PCI bridge: VMware PCI Express Root Port (rev 01) (prog-if 00 [Normal decode])
+	Flags: bus master, fast devsel, latency 0, IRQ 41
+	Bus: primary=00, secondary=14, subordinate=14, sec-latency=0
+	I/O behind bridge: 0000a000-0000afff [size=4K]
+	Memory behind bridge: fce00000-fcefffff [size=1M]
+	Prefetchable memory behind bridge: 00000000e7500000-00000000e75fffff [size=1M]
+	Capabilities: <access denied>
+	Kernel driver in use: pcieport
+
+00:17.2 PCI bridge: VMware PCI Express Root Port (rev 01) (prog-if 00 [Normal decode])
+	Flags: bus master, fast devsel, latency 0, IRQ 42
+	Bus: primary=00, secondary=15, subordinate=15, sec-latency=0
+	I/O behind bridge: 0000e000-0000efff [size=4K]
+	Memory behind bridge: fca00000-fcafffff [size=1M]
+	Prefetchable memory behind bridge: 00000000e7100000-00000000e71fffff [size=1M]
+	Capabilities: <access denied>
+	Kernel driver in use: pcieport
+
+00:17.3 PCI bridge: VMware PCI Express Root Port (rev 01) (prog-if 00 [Normal decode])
+	Flags: bus master, fast devsel, latency 0, IRQ 43
+	Bus: primary=00, secondary=16, subordinate=16, sec-latency=0
+	I/O behind bridge: [disabled]
+	Memory behind bridge: fc600000-fc6fffff [size=1M]
+	Prefetchable memory behind bridge: 00000000e6d00000-00000000e6dfffff [size=1M]
+	Capabilities: <access denied>
+	Kernel driver in use: pcieport
+
+00:17.4 PCI bridge: VMware PCI Express Root Port (rev 01) (prog-if 00 [Normal decode])
+	Flags: bus master, fast devsel, latency 0, IRQ 44
+	Bus: primary=00, secondary=17, subordinate=17, sec-latency=0
+	I/O behind bridge: [disabled]
+	Memory behind bridge: fc200000-fc2fffff [size=1M]
+	Prefetchable memory behind bridge: 00000000e6900000-00000000e69fffff [size=1M]
+	Capabilities: <access denied>
+	Kernel driver in use: pcieport
+
+00:17.5 PCI bridge: VMware PCI Express Root Port (rev 01) (prog-if 00 [Normal decode])
+	Flags: bus master, fast devsel, latency 0, IRQ 45
+	Bus: primary=00, secondary=18, subordinate=18, sec-latency=0
+	I/O behind bridge: [disabled]
+	Memory behind bridge: fbe00000-fbefffff [size=1M]
+	Prefetchable memory behind bridge: 00000000e6500000-00000000e65fffff [size=1M]
+	Capabilities: <access denied>
+	Kernel driver in use: pcieport
+
+00:17.6 PCI bridge: VMware PCI Express Root Port (rev 01) (prog-if 00 [Normal decode])
+	Flags: bus master, fast devsel, latency 0, IRQ 46
+	Bus: primary=00, secondary=19, subordinate=19, sec-latency=0
+	I/O behind bridge: [disabled]
+	Memory behind bridge: fba00000-fbafffff [size=1M]
+	Prefetchable memory behind bridge: 00000000e6100000-00000000e61fffff [size=1M]
+	Capabilities: <access denied>
+	Kernel driver in use: pcieport
+
+00:17.7 PCI bridge: VMware PCI Express Root Port (rev 01) (prog-if 00 [Normal decode])
+	Flags: bus master, fast devsel, latency 0, IRQ 47
+	Bus: primary=00, secondary=1a, subordinate=1a, sec-latency=0
+	I/O behind bridge: [disabled]
+	Memory behind bridge: fb600000-fb6fffff [size=1M]
+	Prefetchable memory behind bridge: 00000000e5d00000-00000000e5dfffff [size=1M]
+	Capabilities: <access denied>
+	Kernel driver in use: pcieport
+
+00:18.0 PCI bridge: VMware PCI Express Root Port (rev 01) (prog-if 00 [Normal decode])
+	Flags: bus master, fast devsel, latency 0, IRQ 48
+	Bus: primary=00, secondary=1b, subordinate=1b, sec-latency=0
+	I/O behind bridge: 00007000-00007fff [size=4K]
+	Memory behind bridge: fd100000-fd1fffff [size=1M]
+	Prefetchable memory behind bridge: 00000000e7800000-00000000e78fffff [size=1M]
+	Capabilities: <access denied>
+	Kernel driver in use: pcieport
+
+00:18.1 PCI bridge: VMware PCI Express Root Port (rev 01) (prog-if 00 [Normal decode])
+	Flags: bus master, fast devsel, latency 0, IRQ 49
+	Bus: primary=00, secondary=1c, subordinate=1c, sec-latency=0
+	I/O behind bridge: 0000b000-0000bfff [size=4K]
+	Memory behind bridge: fcd00000-fcdfffff [size=1M]
+	Prefetchable memory behind bridge: 00000000e7400000-00000000e74fffff [size=1M]
+	Capabilities: <access denied>
+	Kernel driver in use: pcieport
+
+00:18.2 PCI bridge: VMware PCI Express Root Port (rev 01) (prog-if 00 [Normal decode])
+	Flags: bus master, fast devsel, latency 0, IRQ 50
+	Bus: primary=00, secondary=1d, subordinate=1d, sec-latency=0
+	I/O behind bridge: [disabled]
+	Memory behind bridge: fc900000-fc9fffff [size=1M]
+	Prefetchable memory behind bridge: 00000000e7000000-00000000e70fffff [size=1M]
+	Capabilities: <access denied>
+	Kernel driver in use: pcieport
+
+00:18.3 PCI bridge: VMware PCI Express Root Port (rev 01) (prog-if 00 [Normal decode])
+	Flags: bus master, fast devsel, latency 0, IRQ 51
+	Bus: primary=00, secondary=1e, subordinate=1e, sec-latency=0
+	I/O behind bridge: [disabled]
+	Memory behind bridge: fc500000-fc5fffff [size=1M]
+	Prefetchable memory behind bridge: 00000000e6c00000-00000000e6cfffff [size=1M]
+	Capabilities: <access denied>
+	Kernel driver in use: pcieport
+
+00:18.4 PCI bridge: VMware PCI Express Root Port (rev 01) (prog-if 00 [Normal decode])
+	Flags: bus master, fast devsel, latency 0, IRQ 52
+	Bus: primary=00, secondary=1f, subordinate=1f, sec-latency=0
+	I/O behind bridge: [disabled]
+	Memory behind bridge: fc100000-fc1fffff [size=1M]
+	Prefetchable memory behind bridge: 00000000e6800000-00000000e68fffff [size=1M]
+	Capabilities: <access denied>
+	Kernel driver in use: pcieport
+
+00:18.5 PCI bridge: VMware PCI Express Root Port (rev 01) (prog-if 00 [Normal decode])
+	Flags: bus master, fast devsel, latency 0, IRQ 53
+	Bus: primary=00, secondary=20, subordinate=20, sec-latency=0
+	I/O behind bridge: [disabled]
+	Memory behind bridge: fbd00000-fbdfffff [size=1M]
+	Prefetchable memory behind bridge: 00000000e6400000-00000000e64fffff [size=1M]
+	Capabilities: <access denied>
+	Kernel driver in use: pcieport
+
+00:18.6 PCI bridge: VMware PCI Express Root Port (rev 01) (prog-if 00 [Normal decode])
+	Flags: bus master, fast devsel, latency 0, IRQ 54
+	Bus: primary=00, secondary=21, subordinate=21, sec-latency=0
+	I/O behind bridge: [disabled]
+	Memory behind bridge: fb900000-fb9fffff [size=1M]
+	Prefetchable memory behind bridge: 00000000e6000000-00000000e60fffff [size=1M]
+	Capabilities: <access denied>
+	Kernel driver in use: pcieport
+
+00:18.7 PCI bridge: VMware PCI Express Root Port (rev 01) (prog-if 00 [Normal decode])
+	Flags: bus master, fast devsel, latency 0, IRQ 55
+	Bus: primary=00, secondary=22, subordinate=22, sec-latency=0
+	I/O behind bridge: [disabled]
+	Memory behind bridge: fb500000-fb5fffff [size=1M]
+	Prefetchable memory behind bridge: 00000000e5c00000-00000000e5cfffff [size=1M]
+	Capabilities: <access denied>
+	Kernel driver in use: pcieport
+
+02:00.0 SATA controller: VMware SATA AHCI controller (prog-if 01 [AHCI 1.0])
+	DeviceName: sata0
+	Subsystem: VMware SATA AHCI controller
+	Physical Slot: 32
+	Flags: bus master, 66MHz, fast devsel, latency 64, IRQ 65
+	Memory at fd5ff000 (32-bit, non-prefetchable) [size=4K]
+	Expansion ROM at fd500000 [virtual] [disabled] [size=64K]
+	Capabilities: <access denied>
+	Kernel driver in use: ahci
+	Kernel modules: ahci
+
+03:00.0 Ethernet controller: VMware VMXNET3 Ethernet Controller (rev 01)
+	DeviceName: Ethernet0
+	Subsystem: VMware VMXNET3 Ethernet Controller
+	Physical Slot: 160
+	Flags: bus master, fast devsel, latency 0, IRQ 18
+	Memory at fd4fc000 (32-bit, non-prefetchable) [size=4K]
+	Memory at fd4fd000 (32-bit, non-prefetchable) [size=4K]
+	Memory at fd4fe000 (32-bit, non-prefetchable) [size=8K]
+	I/O ports at 4000 [size=16]
+	Expansion ROM at fd400000 [virtual] [disabled] [size=64K]
+	Capabilities: <access denied>
+	Kernel driver in use: vmxnet3
+	Kernel modules: vmxnet3
+

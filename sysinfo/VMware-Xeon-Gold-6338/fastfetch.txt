@@ -1,0 +1,20 @@
+serge.vakulenko@sw-u20-1
+------------------------
+OS: Ubuntu focal 20.04 x86_64
+Host: VMware Virtual Platform
+Kernel: 5.4.0-167-generic
+Uptime: 68 days, 22 hours, 13 mins
+Packages: 2498 (dpkg), 10 (snap)
+Shell: bashc
+Theme: Yaru [GTK3]
+Icons: Yaru [GTK3]
+Cursor: mate
+Terminal: /dev/pts/8
+CPU: Intel(R) Xeon(R) Gold 6338 (16) @ 2.00 GHz
+Memory: 2.25 GiB / 62.77 GiB (4%)
+Swap: 63.00 MiB / 4.00 GiB (2%)
+Disk (/): 13.76 GiB / 63.97 GiB (22%) - xfs
+Disk (/var): 99.62 GiB / 284.90 GiB (35%) - xfs
+Local IP (ens160): 10.1.8.120/22 *
+Locale: en_US.UTF-8
+

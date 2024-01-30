@@ -1,0 +1,29 @@
+NAME          MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+loop0           7:0    0     4K  1 loop /snap/bare/5
+loop1           7:1    0  63.9M  1 loop /snap/core20/2105
+loop2           7:2    0  66.6M  1 loop /snap/cups/1024
+loop3           7:3    0  74.1M  1 loop /snap/core22/1033
+loop4           7:4    0  73.9M  1 loop /snap/core22/864
+loop5           7:5    0  81.3M  1 loop /snap/gtk-common-themes/1534
+loop6           7:6    0  91.8M  1 loop /snap/lxd/23991
+loop7           7:7    0 349.7M  1 loop /snap/gnome-3-38-2004/143
+loop8           7:8    0   497M  1 loop /snap/gnome-42-2204/141
+loop9           7:9    0  63.5M  1 loop /snap/core20/2015
+loop10          7:10   0  40.9M  1 loop /snap/snapd/20290
+loop11          7:11   0 159.6M  1 loop /snap/chromium/2738
+loop12          7:12   0  66.6M  1 loop /snap/cups/980
+loop13          7:13   0  91.7M  1 loop /snap/gtk-common-themes/1535
+loop15          7:15   0 158.9M  1 loop /snap/chromium/2734
+loop16          7:16   0 349.7M  1 loop /snap/gnome-3-38-2004/140
+loop17          7:17   0 496.9M  1 loop /snap/gnome-42-2204/132
+loop18          7:18   0  91.9M  1 loop /snap/lxd/24061
+loop19          7:19   0  40.4M  1 loop /snap/snapd/20671
+sda             8:0    0   350G  0 disk 
+├─sda1          8:1    0     1M  0 part 
+├─sda2          8:2    0     1G  0 part /boot
+├─sda3          8:3    0   246G  0 part 
+│ ├─vg0-lv--0 253:0    0    64G  0 lvm  /
+│ └─vg0-lv--1 253:1    0   285G  0 lvm  /var
+└─sda4          8:4    0   103G  0 part 
+  └─vg0-lv--1 253:1    0   285G  0 lvm  /var
+sr0            11:0    1  1024M  0 rom  
