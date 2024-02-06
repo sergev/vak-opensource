@@ -10,4 +10,6 @@ int main()
     printf("Size of float: %zu bytes\n", sizeof(float));
     printf("Size of double: %zu bytes\n", sizeof(double));
     printf("Size of long double: %zu bytes\n", sizeof(long double));
+    printf("Size of pointer: %zu bytes\n", sizeof(void*));
+    printf("Size of size_t: %zu bytes\n", sizeof(sizeof(char)));
 }
