@@ -1,1 +1,7 @@
+*.o
+sizes
 float-limits
+bfloat16
+double
+float
+ldouble

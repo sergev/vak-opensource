@@ -26,6 +26,7 @@ clean:
 float:          float.o
 		$(CC) $(LDFLAGS) $< -o $@
 		ln -s -f float double
+		ln -s -f float ldouble
 		ln -s -f float bfloat16
 
 float128:       float128.o

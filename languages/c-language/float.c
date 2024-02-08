@@ -12,13 +12,13 @@
  * either version 2 of the License, or (at your discretion) any later version.
  * See the accompanying file "COPYING.txt" for more details.
  */
+#include <errno.h>
+#include <math.h>
+#include <stdbool.h>
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdint.h>
-#include <stdbool.h>
-#include <errno.h>
-#include <math.h>
 
 typedef enum {
     MODE_FLOAT,
@@ -33,6 +33,7 @@ void usage()
     fprintf(stderr, "Usage:\n");
     fprintf(stderr, "    float number\n");
     fprintf(stderr, "    double number\n");
+    fprintf(stderr, "    ldouble number\n");
     fprintf(stderr, "    bfloat16 number\n");
     fprintf(stderr, "\nNumbers:\n");
     fprintf(stderr, "    [+-]DDD.DDDe[+-]DD    - decimal floating-point literal\n");
@@ -51,13 +52,50 @@ void usage()
     exit(-1);
 }
 
+__uint128_t strtou128(const char *str, char **endptr)
+{
+    __uint128_t val = 0;
+
+    if (str[0] == '0' && (str[1] == 'x' || str[1] == 'X')) {
+        str += 2;
+    }
+
+    // Convert digits
+    while (*str) {
+        int digit;
+
+        // Handle decimal digits (0-9)
+        if (*str >= '0' && *str <= '9') {
+            digit = *str - '0';
+        } else {
+            // Handle letters based on base (a-z or A-Z)
+            if (*str >= 'A' && *str <= 'Z') {
+                digit = *str - 'A' + 10;
+            } else {
+                digit = *str - 'a' + 10;
+            }
+            if (digit >= 16) {
+                break; // Invalid digit
+            }
+        }
+
+        val = val * 16 + digit;
+        str++;
+    }
+
+    // Set endptr if provided
+    if (endptr) {
+        *endptr = (char*) str;
+    }
+    return val;
+}
+
 //
 // Prefix 0x, but no pN suffix - mode HEXINT.
 //
 float_mode_t detect_mode(const char *input)
 {
-    if (strcasestr(input, "0x") != NULL &&
-        strcasestr(input, "p") == NULL) {
+    if (strcasestr(input, "0x") != NULL && strcasestr(input, "p") == NULL) {
         return MODE_HEXINT;
     }
     return MODE_FLOAT;
@@ -91,7 +129,45 @@ void print_double(const char *input)
         exit(-1);
     }
 
-    printf("%.17g = %a = <%04x %04x %04x %04x>\n", d.float64, d.float64, d.uns16[3], d.uns16[2], d.uns16[1], d.uns16[0]);
+    printf("%.17g = %a = <%04x %04x %04x %04x>\n", d.float64, d.float64, d.uns16[3], d.uns16[2],
+           d.uns16[1], d.uns16[0]);
+}
+
+void print_ldouble(const char *input)
+{
+    if (sizeof(long double) != 16) {
+        fprintf(stderr, "%s: long double is not supported on this architecture\n", input);
+        exit(-1);
+    }
+    union {
+        __uint128_t uns128;
+        long double float128;
+        uint16_t uns16[8];
+    } d;
+    char *endptr = "";
+
+    errno = 0;
+    switch (mode) {
+    case MODE_HEXINT:
+        d.uns128 = strtou128(input, &endptr);
+        break;
+    default:
+        d.float128 = strtold(input, &endptr);
+        break;
+    }
+
+    if (errno != 0) {
+        perror(input);
+        exit(-1);
+    }
+    if (*endptr != 0) {
+        fprintf(stderr, "%s: bad format\n", input);
+        exit(-1);
+    }
+
+    printf("%.34Lg = %La = <%04x %04x %04x %04x %04x %04x %04x %04x>\n", d.float128, d.float128,
+           d.uns16[7], d.uns16[6], d.uns16[5], d.uns16[4], d.uns16[3], d.uns16[2], d.uns16[1],
+           d.uns16[0]);
 }
 
 void print_float(const char *input)
@@ -211,6 +287,9 @@ int main(int argc, char **argv)
 
     } else if (strcmp("double", progname) == 0) {
         print_double(argv[0]);
+
+    } else if (strcmp("ldouble", progname) == 0) {
+        print_ldouble(argv[0]);
 
     } else if (strcmp("bfloat16", progname) == 0) {
         print_bfloat16(argv[0]);
