@@ -1,7 +1,8 @@
 #include <onnxruntime/onnxruntime_cxx_api.h>
+#include <png.h>
 
 #include <iostream>
-#include <png.h>
+
 #include "../argparse.h"
 
 //
@@ -120,18 +121,16 @@ void write_image(const float pixels_chw[], const std::string &output_file, unsig
 }
 
 //
-// Size of input/output image in Fast Neural Style Transfer models.
-//
-constexpr unsigned HEIGHT = 224;
-constexpr unsigned WIDTH = 224;
-constexpr unsigned NCHAN = 3;
-
-//
 // Re-style one image with given model.
 //
 void restyle(const std::string &suffix, const std::string &input_file,
              const std::string &model_file)
 {
+    // Size of input/output image in Fast Neural Style Transfer models.
+    constexpr unsigned HEIGHT = 224;
+    constexpr unsigned WIDTH  = 224;
+    constexpr unsigned NCHAN  = 3;
+
     // Initialize ONNX runtime.
     Ort::Env env(ORT_LOGGING_LEVEL_ERROR, "onnx");
     Ort::SessionOptions session_options;
@@ -146,8 +145,8 @@ void restyle(const std::string &suffix, const std::string &input_file,
         throw std::runtime_error(model_file + ": Bad output count");
 
     // Check input shape.
-    auto const input_info = session.GetInputTypeInfo(0);
-    auto const input_type = input_info.GetTensorTypeAndShapeInfo().GetElementType();
+    auto const input_info  = session.GetInputTypeInfo(0);
+    auto const input_type  = input_info.GetTensorTypeAndShapeInfo().GetElementType();
     auto const input_shape = input_info.GetTensorTypeAndShapeInfo().GetShape();
     if (input_type != ONNX_TENSOR_ELEMENT_DATA_TYPE_FLOAT)
         throw std::runtime_error(model_file + ": Bad input type");
@@ -163,8 +162,8 @@ void restyle(const std::string &suffix, const std::string &input_file,
         throw std::runtime_error(model_file + ": Bad input width dimension");
 
     // Check output shape.
-    auto const output_info = session.GetOutputTypeInfo(0);
-    auto const output_type = output_info.GetTensorTypeAndShapeInfo().GetElementType();
+    auto const output_info  = session.GetOutputTypeInfo(0);
+    auto const output_type  = output_info.GetTensorTypeAndShapeInfo().GetElementType();
     auto const output_shape = output_info.GetTensorTypeAndShapeInfo().GetShape();
     if (output_type != ONNX_TENSOR_ELEMENT_DATA_TYPE_FLOAT)
         ;
@@ -181,9 +180,9 @@ void restyle(const std::string &suffix, const std::string &input_file,
 
     // Get names of input/output.
     Ort::AllocatorWithDefaultOptions allocator;
-    std::string input_name = session.GetInputNameAllocated(0, allocator).get();
-    std::string output_name = session.GetOutputNameAllocated(0, allocator).get();
-    const char *input_names[1] = { input_name.c_str() };
+    std::string input_name      = session.GetInputNameAllocated(0, allocator).get();
+    std::string output_name     = session.GetOutputNameAllocated(0, allocator).get();
+    const char *input_names[1]  = { input_name.c_str() };
     const char *output_names[1] = { output_name.c_str() };
 
     // Read input image.
@@ -191,7 +190,7 @@ void restyle(const std::string &suffix, const std::string &input_file,
     read_image(input_data, input_file, HEIGHT, WIDTH, NCHAN);
 
     // Create input tensor object from data values.
-    auto memory_info = Ort::MemoryInfo::CreateCpu(OrtArenaAllocator, OrtMemTypeDefault);
+    auto memory_info  = Ort::MemoryInfo::CreateCpu(OrtArenaAllocator, OrtMemTypeDefault);
     auto input_tensor = Ort::Value::CreateTensor<float>(
         memory_info, input_data.data(), input_data.size(), input_shape.data(), input_shape.size());
     if (!input_tensor.IsTensor())
@@ -207,7 +206,7 @@ void restyle(const std::string &suffix, const std::string &input_file,
 
     // Extract output.
     const float *output_data = output_tensors[0].GetTensorData<float>();
-    std::string output_file = remove_extension(input_file, ".png") + "-" + suffix + ".png";
+    std::string output_file  = remove_extension(input_file, ".png") + "-" + suffix + ".png";
     write_image(output_data, output_file, HEIGHT, WIDTH, NCHAN);
 }
 

@@ -65,3 +65,6 @@ SpacesBeforeTrailingComments: 1
 #
 BinPackParameters: true
 AllowAllParametersOfDeclarationOnNextLine: false
+
+AlignConsecutiveAssignments: true
+AlignConsecutiveMacros: true
