@@ -1,5 +1,6 @@
 #include <onnxruntime/onnxruntime_cxx_api.h>
 #include <iostream>
+#include <cstdint>
 #include "argparse.h"
 
 //
@@ -29,7 +30,7 @@ void print_model_inputs(const Ort::Session &session)
 
     for (unsigned i = 0; i < session.GetInputCount(); i++) {
         auto const name = session.GetInputNameAllocated(i, allocator);
-        std::cout << "Input #" << i << " Name: " << name << '\n';
+        std::cout << "Input #" << i << " Name: " << name.get() << '\n';
 
         auto const shape = session.GetInputTypeInfo(i).GetTensorTypeAndShapeInfo().GetShape();
         std::cout << "Input #" << i << " Shape: ";
@@ -43,7 +44,7 @@ void print_model_outputs(const Ort::Session &session)
 
     for (unsigned i = 0; i < session.GetOutputCount(); i++) {
         auto const name = session.GetOutputNameAllocated(i, allocator);
-        std::cout << "Output #" << i << " Name: " << name << '\n';
+        std::cout << "Output #" << i << " Name: " << name.get() << '\n';
 
         auto const shape = session.GetOutputTypeInfo(i).GetTensorTypeAndShapeInfo().GetShape();
         std::cout << "Output #" << i << " Shape: ";
@@ -55,11 +56,11 @@ void print_model_metadata(const Ort::ModelMetadata &meta)
 {
     Ort::AllocatorWithDefaultOptions allocator;
 
-    std::cout << "Producer Name: " << meta.GetProducerNameAllocated(allocator) << '\n';
-    std::cout << "Graph Name: " << meta.GetGraphNameAllocated(allocator) << '\n';
-    std::cout << "Domain: " << meta.GetDomainAllocated(allocator) << '\n';
-    std::cout << "Description: " << meta.GetDescriptionAllocated(allocator) << '\n';
-    std::cout << "Graph Description: " << meta.GetGraphDescriptionAllocated(allocator) << '\n';
+    std::cout << "Producer Name: " << meta.GetProducerNameAllocated(allocator).get() << '\n';
+    std::cout << "Graph Name: " << meta.GetGraphNameAllocated(allocator).get() << '\n';
+    std::cout << "Domain: " << meta.GetDomainAllocated(allocator).get() << '\n';
+    std::cout << "Description: " << meta.GetDescriptionAllocated(allocator).get() << '\n';
+    std::cout << "Graph Description: " << meta.GetGraphDescriptionAllocated(allocator).get() << '\n';
     std::cout << "Version: " << meta.GetVersion() << '\n';
 }
 
@@ -72,6 +73,8 @@ void inspect(const std::string &filename)
     Ort::Env env(ORT_LOGGING_LEVEL_WARNING, "onnx");
     Ort::SessionOptions session_options;
 
+    std::cout << "Model: " << filename << '\n';
+
     // Open the model.
     Ort::Session session(env, filename.c_str(), session_options);
 
@@ -80,6 +83,7 @@ void inspect(const std::string &filename)
     print_model_inputs(session);
     print_model_outputs(session);
     print_model_metadata(session.GetModelMetadata());
+    std::cout << '\n';
 }
 
 int main(int argc, const char **argv)
