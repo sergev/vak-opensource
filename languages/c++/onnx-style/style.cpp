@@ -5,6 +5,24 @@
 #include "../argparse.h"
 
 //
+// Remove specified extension from a filename, if it's present.
+//
+std::string remove_extension(const std::string &filename, const std::string &extension)
+{
+    size_t lastdot = filename.find_last_of('.');
+    if (lastdot == std::string::npos) {
+        // No extension.
+        return filename;
+    }
+    if (filename.substr(lastdot) != extension) {
+        // Different extension.
+        return filename;
+    }
+    // Remove extension.
+    return filename.substr(0, lastdot);
+}
+
+//
 // Convert image from HWC format to CHW format.
 //
 std::vector<float> hwc_to_chw(const uint8_t input[], unsigned height, unsigned width,
@@ -189,7 +207,7 @@ void restyle(const std::string &suffix, const std::string &input_file,
 
     // Extract output.
     const float *output_data = output_tensors[0].GetTensorData<float>();
-    std::string output_file = input_file + "-" + suffix + ".png"; // TODO
+    std::string output_file = remove_extension(input_file, ".png") + "-" + suffix + ".png";
     write_image(output_data, output_file, HEIGHT, WIDTH, NCHAN);
 }
 
