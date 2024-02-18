@@ -166,7 +166,7 @@ void restyle(const std::string &suffix, const std::string &input_file,
     auto const output_type  = output_info.GetTensorTypeAndShapeInfo().GetElementType();
     auto const output_shape = output_info.GetTensorTypeAndShapeInfo().GetShape();
     if (output_type != ONNX_TENSOR_ELEMENT_DATA_TYPE_FLOAT)
-        ;
+        throw std::runtime_error(model_file + ": Bad output type");
     if (output_shape.size() != 4)
         throw std::runtime_error(model_file + ": Bad output shape");
     if (output_shape[0] != 1)
@@ -212,9 +212,9 @@ void restyle(const std::string &suffix, const std::string &input_file,
 
 int main(int argc, const char **argv)
 {
+    // Parse command line arguments.
     argparse::ArgumentParser program("onnx");
     program.add_argument("input").help("Input picture").nargs(1);
-
     try {
         program.parse_args(argc, argv);
     } catch (const std::exception &err) {
@@ -224,6 +224,7 @@ int main(int argc, const char **argv)
     }
     auto filename = program.get<std::string>("input");
 
+    // Apply five networks to the input image.
     restyle("candy", filename, "candy-9.onnx");
     restyle("mosaic", filename, "mosaic-9.onnx");
     restyle("pointilism", filename, "pointilism-9.onnx");
