@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.13.2)
-project(onnx-style VERSION 0.0.1 DESCRIPTION "Change style of image")
+project(onnx-restyle VERSION 0.0.1 DESCRIPTION "Change style of image")
 
 #--------------------------------------------------------------
 # Options
@@ -44,19 +44,19 @@ find_package(PNG REQUIRED)
 include_directories(${PNG_INCLUDE_DIR})
 
 #--------------------------------------------------------------
-# onnx-style
+# onnx-restyle
 #
-add_executable(onnx-style
-    style.cpp
+add_executable(onnx-restyle
+    restyle.cpp
 )
 include_directories(
     /usr/local/include
     /opt/homebrew/include
 )
-target_link_directories(onnx-style PRIVATE
+target_link_directories(onnx-restyle PRIVATE
     /usr/local/lib
     /opt/homebrew/lib
 )
-target_link_libraries(onnx-style onnxruntime ${PNG_LIBRARY})
+target_link_libraries(onnx-restyle onnxruntime ${PNG_LIBRARY})
 
-install(TARGETS onnx-style DESTINATION bin)
+install(TARGETS onnx-restyle DESTINATION bin)
