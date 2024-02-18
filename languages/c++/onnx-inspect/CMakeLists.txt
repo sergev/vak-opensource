@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.13.2)
-project(onnx VERSION 0.0.1 DESCRIPTION "CLI tool for ONNX models")
+project(onnx-inspect VERSION 0.0.1 DESCRIPTION "Inspect ONNX models")
 
 #--------------------------------------------------------------
 # Options
@@ -38,19 +38,19 @@ set(CMAKE_CXX_FLAGS_DEBUG "-g")
 set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 
 #--------------------------------------------------------------
-# onnx
+# onnx-inspect
 #
-add_executable(onnx
+add_executable(onnx-inspect
     inspect.cpp
 )
 include_directories(
     /usr/local/include
     /opt/homebrew/include
 )
-target_link_directories(onnx PRIVATE
+target_link_directories(onnx-inspect PRIVATE
     /usr/local/lib
     /opt/homebrew/lib
 )
-target_link_libraries(onnx onnxruntime)
+target_link_libraries(onnx-inspect onnxruntime)
 
-install(TARGETS onnx DESTINATION bin)
+install(TARGETS onnx-inspect DESTINATION bin)

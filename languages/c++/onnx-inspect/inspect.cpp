@@ -1,7 +1,7 @@
 #include <onnxruntime/onnxruntime_cxx_api.h>
 #include <iostream>
 #include <cstdint>
-#include "argparse.h"
+#include "../argparse.h"
 
 //
 // Print a shape dimension vector.
