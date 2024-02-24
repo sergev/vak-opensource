@@ -9,17 +9,16 @@ NUM_Y = 10
 SIZE_X = 50
 SIZE_Y = 50
 
-num_white     = 13
-num_violet    = 13
-num_lilac     = 7
-num_turquoise = 7
-num_teal      = 40
+UPPER_LEFT = 0
+UPPER_RIGHT = NUM_X - 1
+LOWER_LEFT = NUM_X * (NUM_Y - 1)
+LOWER_RIGHT = (NUM_X * NUM_Y) - 1
 
-layout = ['w'] * num_white + \
-         ['v'] * num_violet + \
-         ['l'] * num_lilac + \
-         ['q'] * num_turquoise + \
-         ['t'] * num_teal
+layout = ['w'] * 13 + \
+         ['v'] * 13 + \
+         ['l'] * 7 + \
+         ['q'] * 7 + \
+         ['t'] * 40
 
 initwindow(NUM_X * SIZE_X, NUM_Y * SIZE_Y)
 setbkcolor(BLACK)
@@ -66,6 +65,37 @@ def draw():
             index += 1
 
 #
+# Exchange two patches with given indices.
+#
+def swap_patches(a, b):
+    t = layout[a]
+    layout[a] = layout[b]
+    layout[b] = t
+
+#
+# Select random patch.
+#
+def random_index():
+    return random.randint(0, NUM_X * NUM_Y - 1)
+
+#
+# Check for corner.
+#
+def is_corner(index):
+    return (index == UPPER_LEFT) or (index == UPPER_RIGHT) or (index == LOWER_LEFT) or (index == LOWER_RIGHT)
+
+#
+# Set corner to teal color.
+#
+def fix_corner(index):
+    if layout[index] != 't':
+        while True:
+            dest_index = random_index()
+            if layout[dest_index] == 't' and not is_corner(dest_index):
+                swap_patches(index, dest_index)
+                return
+
+#
 # Find minimal distance between given patch and others of the same color.
 #
 def find_min_distance(index, type):
@@ -82,14 +112,6 @@ def find_min_distance(index, type):
     return min_distance
 
 #
-# Exchange two patches with given indices.
-#
-def swap_patches(a, b):
-    t = layout[a]
-    layout[a] = layout[b]
-    layout[b] = t
-
-#
 # Try to move a patch with given index.
 # Return true when it helps.
 #
@@ -100,7 +122,7 @@ def move_patch(src_index, src_type):
     best_dest = 0
 
     for dest_index, dest_type in enumerate(layout):
-        if dest_type == src_type:
+        if dest_type == src_type or is_corner(dest_index):
             continue
 
         if dest_type != 't':
@@ -130,7 +152,7 @@ def move_patch(src_index, src_type):
 
     if best_cost > 0:
         swap_patches(src_index, best_dest)
-        print(f"{src_type} {src_index} {best_dest} -> {best_cost}")
+        print(f"{src_type} {src_index} {best_dest}: {src_cost:.3} -> {best_cost:.3}")
         return True
 
     return False
@@ -149,8 +171,12 @@ def optimize():
     return count > 0
 
 random.shuffle(layout)
+fix_corner(UPPER_LEFT)
+fix_corner(UPPER_RIGHT)
+fix_corner(LOWER_LEFT)
+fix_corner(LOWER_RIGHT)
 while optimize():
-    pass
+    print("---")
 print("Done.")
 draw()
 getch()
