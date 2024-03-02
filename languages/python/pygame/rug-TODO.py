@@ -1,6 +1,5 @@
 #!/usr/bin/env python3.11
-from sdl_bgi import *
-import random, time, math
+import pygame, sys, random, time, math
 
 # Number of patches
 NUM_X = 8

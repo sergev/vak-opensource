@@ -1,0 +1,203 @@
+0000000100003220 <_matmul>:
+100003220: 55                          	pushq	%rbp
+100003221: 48 89 e5                    	movq	%rsp, %rbp
+100003224: 31 c0                       	xorl	%eax, %eax
+100003226: 66 2e 0f 1f 84 00 00 00 00 00       	nopw	%cs:(%rax,%rax)
+100003230: 8b 0a                       	movl	(%rdx), %ecx
+100003232: 44 8b 42 20                 	movl	32(%rdx), %r8d
+100003236: 0f af 0c 06                 	imull	(%rsi,%rax), %ecx
+10000323a: 44 0f af 44 06 04           	imull	4(%rsi,%rax), %r8d
+100003240: 41 01 c8                    	addl	%ecx, %r8d
+100003243: 8b 4a 40                    	movl	64(%rdx), %ecx
+100003246: 0f af 4c 06 08              	imull	8(%rsi,%rax), %ecx
+10000324b: 44 01 c1                    	addl	%r8d, %ecx
+10000324e: 44 8b 42 60                 	movl	96(%rdx), %r8d
+100003252: 44 0f af 44 06 0c           	imull	12(%rsi,%rax), %r8d
+100003258: 41 01 c8                    	addl	%ecx, %r8d
+10000325b: 8b 8a 80 00 00 00           	movl	128(%rdx), %ecx
+100003261: 0f af 4c 06 10              	imull	16(%rsi,%rax), %ecx
+100003266: 44 01 c1                    	addl	%r8d, %ecx
+100003269: 44 8b 82 a0 00 00 00        	movl	160(%rdx), %r8d
+100003270: 44 0f af 44 06 14           	imull	20(%rsi,%rax), %r8d
+100003276: 41 01 c8                    	addl	%ecx, %r8d
+100003279: 8b 8a c0 00 00 00           	movl	192(%rdx), %ecx
+10000327f: 0f af 4c 06 18              	imull	24(%rsi,%rax), %ecx
+100003284: 44 01 c1                    	addl	%r8d, %ecx
+100003287: 44 8b 82 e0 00 00 00        	movl	224(%rdx), %r8d
+10000328e: 44 0f af 44 06 1c           	imull	28(%rsi,%rax), %r8d
+100003294: 41 01 c8                    	addl	%ecx, %r8d
+100003297: 44 89 04 07                 	movl	%r8d, (%rdi,%rax)
+10000329b: 8b 4a 04                    	movl	4(%rdx), %ecx
+10000329e: 44 8b 42 24                 	movl	36(%rdx), %r8d
+1000032a2: 0f af 0c 06                 	imull	(%rsi,%rax), %ecx
+1000032a6: 44 0f af 44 06 04           	imull	4(%rsi,%rax), %r8d
+1000032ac: 41 01 c8                    	addl	%ecx, %r8d
+1000032af: 8b 4a 44                    	movl	68(%rdx), %ecx
+1000032b2: 0f af 4c 06 08              	imull	8(%rsi,%rax), %ecx
+1000032b7: 44 01 c1                    	addl	%r8d, %ecx
+1000032ba: 44 8b 42 64                 	movl	100(%rdx), %r8d
+1000032be: 44 0f af 44 06 0c           	imull	12(%rsi,%rax), %r8d
+1000032c4: 41 01 c8                    	addl	%ecx, %r8d
+1000032c7: 8b 8a 84 00 00 00           	movl	132(%rdx), %ecx
+1000032cd: 0f af 4c 06 10              	imull	16(%rsi,%rax), %ecx
+1000032d2: 44 01 c1                    	addl	%r8d, %ecx
+1000032d5: 44 8b 82 a4 00 00 00        	movl	164(%rdx), %r8d
+1000032dc: 44 0f af 44 06 14           	imull	20(%rsi,%rax), %r8d
+1000032e2: 41 01 c8                    	addl	%ecx, %r8d
+1000032e5: 8b 8a c4 00 00 00           	movl	196(%rdx), %ecx
+1000032eb: 0f af 4c 06 18              	imull	24(%rsi,%rax), %ecx
+1000032f0: 44 01 c1                    	addl	%r8d, %ecx
+1000032f3: 44 8b 82 e4 00 00 00        	movl	228(%rdx), %r8d
+1000032fa: 44 0f af 44 06 1c           	imull	28(%rsi,%rax), %r8d
+100003300: 41 01 c8                    	addl	%ecx, %r8d
+100003303: 44 89 44 07 04              	movl	%r8d, 4(%rdi,%rax)
+100003308: 8b 4a 08                    	movl	8(%rdx), %ecx
+10000330b: 44 8b 42 28                 	movl	40(%rdx), %r8d
+10000330f: 0f af 0c 06                 	imull	(%rsi,%rax), %ecx
+100003313: 44 0f af 44 06 04           	imull	4(%rsi,%rax), %r8d
+100003319: 41 01 c8                    	addl	%ecx, %r8d
+10000331c: 8b 4a 48                    	movl	72(%rdx), %ecx
+10000331f: 0f af 4c 06 08              	imull	8(%rsi,%rax), %ecx
+100003324: 44 01 c1                    	addl	%r8d, %ecx
+100003327: 44 8b 42 68                 	movl	104(%rdx), %r8d
+10000332b: 44 0f af 44 06 0c           	imull	12(%rsi,%rax), %r8d
+100003331: 41 01 c8                    	addl	%ecx, %r8d
+100003334: 8b 8a 88 00 00 00           	movl	136(%rdx), %ecx
+10000333a: 0f af 4c 06 10              	imull	16(%rsi,%rax), %ecx
+10000333f: 44 01 c1                    	addl	%r8d, %ecx
+100003342: 44 8b 82 a8 00 00 00        	movl	168(%rdx), %r8d
+100003349: 44 0f af 44 06 14           	imull	20(%rsi,%rax), %r8d
+10000334f: 41 01 c8                    	addl	%ecx, %r8d
+100003352: 8b 8a c8 00 00 00           	movl	200(%rdx), %ecx
+100003358: 0f af 4c 06 18              	imull	24(%rsi,%rax), %ecx
+10000335d: 44 01 c1                    	addl	%r8d, %ecx
+100003360: 44 8b 82 e8 00 00 00        	movl	232(%rdx), %r8d
+100003367: 44 0f af 44 06 1c           	imull	28(%rsi,%rax), %r8d
+10000336d: 41 01 c8                    	addl	%ecx, %r8d
+100003370: 44 89 44 07 08              	movl	%r8d, 8(%rdi,%rax)
+100003375: 8b 4a 0c                    	movl	12(%rdx), %ecx
+100003378: 44 8b 42 2c                 	movl	44(%rdx), %r8d
+10000337c: 0f af 0c 06                 	imull	(%rsi,%rax), %ecx
+100003380: 44 0f af 44 06 04           	imull	4(%rsi,%rax), %r8d
+100003386: 41 01 c8                    	addl	%ecx, %r8d
+100003389: 8b 4a 4c                    	movl	76(%rdx), %ecx
+10000338c: 0f af 4c 06 08              	imull	8(%rsi,%rax), %ecx
+100003391: 44 01 c1                    	addl	%r8d, %ecx
+100003394: 44 8b 42 6c                 	movl	108(%rdx), %r8d
+100003398: 44 0f af 44 06 0c           	imull	12(%rsi,%rax), %r8d
+10000339e: 41 01 c8                    	addl	%ecx, %r8d
+1000033a1: 8b 8a 8c 00 00 00           	movl	140(%rdx), %ecx
+1000033a7: 0f af 4c 06 10              	imull	16(%rsi,%rax), %ecx
+1000033ac: 44 01 c1                    	addl	%r8d, %ecx
+1000033af: 44 8b 82 ac 00 00 00        	movl	172(%rdx), %r8d
+1000033b6: 44 0f af 44 06 14           	imull	20(%rsi,%rax), %r8d
+1000033bc: 41 01 c8                    	addl	%ecx, %r8d
+1000033bf: 8b 8a cc 00 00 00           	movl	204(%rdx), %ecx
+1000033c5: 0f af 4c 06 18              	imull	24(%rsi,%rax), %ecx
+1000033ca: 44 01 c1                    	addl	%r8d, %ecx
+1000033cd: 44 8b 82 ec 00 00 00        	movl	236(%rdx), %r8d
+1000033d4: 44 0f af 44 06 1c           	imull	28(%rsi,%rax), %r8d
+1000033da: 41 01 c8                    	addl	%ecx, %r8d
+1000033dd: 44 89 44 07 0c              	movl	%r8d, 12(%rdi,%rax)
+1000033e2: 8b 4a 10                    	movl	16(%rdx), %ecx
+1000033e5: 44 8b 42 30                 	movl	48(%rdx), %r8d
+1000033e9: 0f af 0c 06                 	imull	(%rsi,%rax), %ecx
+1000033ed: 44 0f af 44 06 04           	imull	4(%rsi,%rax), %r8d
+1000033f3: 41 01 c8                    	addl	%ecx, %r8d
+1000033f6: 8b 4a 50                    	movl	80(%rdx), %ecx
+1000033f9: 0f af 4c 06 08              	imull	8(%rsi,%rax), %ecx
+1000033fe: 44 01 c1                    	addl	%r8d, %ecx
+100003401: 44 8b 42 70                 	movl	112(%rdx), %r8d
+100003405: 44 0f af 44 06 0c           	imull	12(%rsi,%rax), %r8d
+10000340b: 41 01 c8                    	addl	%ecx, %r8d
+10000340e: 8b 8a 90 00 00 00           	movl	144(%rdx), %ecx
+100003414: 0f af 4c 06 10              	imull	16(%rsi,%rax), %ecx
+100003419: 44 01 c1                    	addl	%r8d, %ecx
+10000341c: 44 8b 82 b0 00 00 00        	movl	176(%rdx), %r8d
+100003423: 44 0f af 44 06 14           	imull	20(%rsi,%rax), %r8d
+100003429: 41 01 c8                    	addl	%ecx, %r8d
+10000342c: 8b 8a d0 00 00 00           	movl	208(%rdx), %ecx
+100003432: 0f af 4c 06 18              	imull	24(%rsi,%rax), %ecx
+100003437: 44 01 c1                    	addl	%r8d, %ecx
+10000343a: 44 8b 82 f0 00 00 00        	movl	240(%rdx), %r8d
+100003441: 44 0f af 44 06 1c           	imull	28(%rsi,%rax), %r8d
+100003447: 41 01 c8                    	addl	%ecx, %r8d
+10000344a: 44 89 44 07 10              	movl	%r8d, 16(%rdi,%rax)
+10000344f: 8b 4a 14                    	movl	20(%rdx), %ecx
+100003452: 44 8b 42 34                 	movl	52(%rdx), %r8d
+100003456: 0f af 0c 06                 	imull	(%rsi,%rax), %ecx
+10000345a: 44 0f af 44 06 04           	imull	4(%rsi,%rax), %r8d
+100003460: 41 01 c8                    	addl	%ecx, %r8d
+100003463: 8b 4a 54                    	movl	84(%rdx), %ecx
+100003466: 0f af 4c 06 08              	imull	8(%rsi,%rax), %ecx
+10000346b: 44 01 c1                    	addl	%r8d, %ecx
+10000346e: 44 8b 42 74                 	movl	116(%rdx), %r8d
+100003472: 44 0f af 44 06 0c           	imull	12(%rsi,%rax), %r8d
+100003478: 41 01 c8                    	addl	%ecx, %r8d
+10000347b: 8b 8a 94 00 00 00           	movl	148(%rdx), %ecx
+100003481: 0f af 4c 06 10              	imull	16(%rsi,%rax), %ecx
+100003486: 44 01 c1                    	addl	%r8d, %ecx
+100003489: 44 8b 82 b4 00 00 00        	movl	180(%rdx), %r8d
+100003490: 44 0f af 44 06 14           	imull	20(%rsi,%rax), %r8d
+100003496: 41 01 c8                    	addl	%ecx, %r8d
+100003499: 8b 8a d4 00 00 00           	movl	212(%rdx), %ecx
+10000349f: 0f af 4c 06 18              	imull	24(%rsi,%rax), %ecx
+1000034a4: 44 01 c1                    	addl	%r8d, %ecx
+1000034a7: 44 8b 82 f4 00 00 00        	movl	244(%rdx), %r8d
+1000034ae: 44 0f af 44 06 1c           	imull	28(%rsi,%rax), %r8d
+1000034b4: 41 01 c8                    	addl	%ecx, %r8d
+1000034b7: 44 89 44 07 14              	movl	%r8d, 20(%rdi,%rax)
+1000034bc: 8b 4a 18                    	movl	24(%rdx), %ecx
+1000034bf: 44 8b 42 38                 	movl	56(%rdx), %r8d
+1000034c3: 0f af 0c 06                 	imull	(%rsi,%rax), %ecx
+1000034c7: 44 0f af 44 06 04           	imull	4(%rsi,%rax), %r8d
+1000034cd: 41 01 c8                    	addl	%ecx, %r8d
+1000034d0: 8b 4a 58                    	movl	88(%rdx), %ecx
+1000034d3: 0f af 4c 06 08              	imull	8(%rsi,%rax), %ecx
+1000034d8: 44 01 c1                    	addl	%r8d, %ecx
+1000034db: 44 8b 42 78                 	movl	120(%rdx), %r8d
+1000034df: 44 0f af 44 06 0c           	imull	12(%rsi,%rax), %r8d
+1000034e5: 41 01 c8                    	addl	%ecx, %r8d
+1000034e8: 8b 8a 98 00 00 00           	movl	152(%rdx), %ecx
+1000034ee: 0f af 4c 06 10              	imull	16(%rsi,%rax), %ecx
+1000034f3: 44 01 c1                    	addl	%r8d, %ecx
+1000034f6: 44 8b 82 b8 00 00 00        	movl	184(%rdx), %r8d
+1000034fd: 44 0f af 44 06 14           	imull	20(%rsi,%rax), %r8d
+100003503: 41 01 c8                    	addl	%ecx, %r8d
+100003506: 8b 8a d8 00 00 00           	movl	216(%rdx), %ecx
+10000350c: 0f af 4c 06 18              	imull	24(%rsi,%rax), %ecx
+100003511: 44 01 c1                    	addl	%r8d, %ecx
+100003514: 44 8b 82 f8 00 00 00        	movl	248(%rdx), %r8d
+10000351b: 44 0f af 44 06 1c           	imull	28(%rsi,%rax), %r8d
+100003521: 41 01 c8                    	addl	%ecx, %r8d
+100003524: 44 89 44 07 18              	movl	%r8d, 24(%rdi,%rax)
+100003529: 8b 4a 1c                    	movl	28(%rdx), %ecx
+10000352c: 44 8b 42 3c                 	movl	60(%rdx), %r8d
+100003530: 0f af 0c 06                 	imull	(%rsi,%rax), %ecx
+100003534: 44 0f af 44 06 04           	imull	4(%rsi,%rax), %r8d
+10000353a: 41 01 c8                    	addl	%ecx, %r8d
+10000353d: 8b 4a 5c                    	movl	92(%rdx), %ecx
+100003540: 0f af 4c 06 08              	imull	8(%rsi,%rax), %ecx
+100003545: 44 01 c1                    	addl	%r8d, %ecx
+100003548: 44 8b 42 7c                 	movl	124(%rdx), %r8d
+10000354c: 44 0f af 44 06 0c           	imull	12(%rsi,%rax), %r8d
+100003552: 41 01 c8                    	addl	%ecx, %r8d
+100003555: 8b 8a 9c 00 00 00           	movl	156(%rdx), %ecx
+10000355b: 0f af 4c 06 10              	imull	16(%rsi,%rax), %ecx
+100003560: 44 01 c1                    	addl	%r8d, %ecx
+100003563: 44 8b 82 bc 00 00 00        	movl	188(%rdx), %r8d
+10000356a: 44 0f af 44 06 14           	imull	20(%rsi,%rax), %r8d
+100003570: 41 01 c8                    	addl	%ecx, %r8d
+100003573: 8b 8a dc 00 00 00           	movl	220(%rdx), %ecx
+100003579: 0f af 4c 06 18              	imull	24(%rsi,%rax), %ecx
+10000357e: 44 01 c1                    	addl	%r8d, %ecx
+100003581: 44 8b 82 fc 00 00 00        	movl	252(%rdx), %r8d
+100003588: 44 0f af 44 06 1c           	imull	28(%rsi,%rax), %r8d
+10000358e: 41 01 c8                    	addl	%ecx, %r8d
+100003591: 44 89 44 07 1c              	movl	%r8d, 28(%rdi,%rax)
+100003596: 48 83 c0 20                 	addq	$32, %rax
+10000359a: 48 3d 00 01 00 00           	cmpq	$256, %rax              ## imm = 0x100
+1000035a0: 0f 85 8a fc ff ff           	jne	0x100003230 <_matmul+0x10>
+1000035a6: 5d                          	popq	%rbp
+1000035a7: c3                          	retq
+1000035a8: 0f 1f 84 00 00 00 00 00     	nopl	(%rax,%rax)

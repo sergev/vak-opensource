@@ -1,0 +1,36 @@
+0000000100003160 <_matmul_sse>:
+100003160: 55                          	pushq	%rbp
+100003161: 48 89 e5                    	movq	%rsp, %rbp
+100003164: 31 c0                       	xorl	%eax, %eax
+100003166: 66 2e 0f 1f 84 00 00 00 00 00       	nopw	%cs:(%rax,%rax)
+100003170: c4 e2 7d 58 04 06           	vpbroadcastd	(%rsi,%rax), %ymm0
+100003176: c4 e2 7d 40 02              	vpmulld	(%rdx), %ymm0, %ymm0
+10000317b: c4 e2 7d 58 4c 06 04        	vpbroadcastd	4(%rsi,%rax), %ymm1
+100003182: c4 e2 75 40 4a 20           	vpmulld	32(%rdx), %ymm1, %ymm1
+100003188: c4 e2 7d 58 54 06 08        	vpbroadcastd	8(%rsi,%rax), %ymm2
+10000318f: c4 e2 6d 40 52 40           	vpmulld	64(%rdx), %ymm2, %ymm2
+100003195: c4 e2 7d 58 5c 06 0c        	vpbroadcastd	12(%rsi,%rax), %ymm3
+10000319c: c5 f5 fe c0                 	vpaddd	%ymm0, %ymm1, %ymm0
+1000031a0: c4 e2 65 40 4a 60           	vpmulld	96(%rdx), %ymm3, %ymm1
+1000031a6: c5 ed fe c9                 	vpaddd	%ymm1, %ymm2, %ymm1
+1000031aa: c4 e2 7d 58 54 06 10        	vpbroadcastd	16(%rsi,%rax), %ymm2
+1000031b1: c4 e2 6d 40 92 80 00 00 00  	vpmulld	128(%rdx), %ymm2, %ymm2
+1000031ba: c4 e2 7d 58 5c 06 14        	vpbroadcastd	20(%rsi,%rax), %ymm3
+1000031c1: c4 e2 65 40 9a a0 00 00 00  	vpmulld	160(%rdx), %ymm3, %ymm3
+1000031ca: c5 fd fe c1                 	vpaddd	%ymm1, %ymm0, %ymm0
+1000031ce: c5 ed fe cb                 	vpaddd	%ymm3, %ymm2, %ymm1
+1000031d2: c4 e2 7d 58 54 06 18        	vpbroadcastd	24(%rsi,%rax), %ymm2
+1000031d9: c4 e2 6d 40 92 c0 00 00 00  	vpmulld	192(%rdx), %ymm2, %ymm2
+1000031e2: c5 f5 fe ca                 	vpaddd	%ymm2, %ymm1, %ymm1
+1000031e6: c5 fd fe c1                 	vpaddd	%ymm1, %ymm0, %ymm0
+1000031ea: c4 e2 7d 58 4c 06 1c        	vpbroadcastd	28(%rsi,%rax), %ymm1
+1000031f1: c4 e2 75 40 8a e0 00 00 00  	vpmulld	224(%rdx), %ymm1, %ymm1
+1000031fa: c5 f5 fe c0                 	vpaddd	%ymm0, %ymm1, %ymm0
+1000031fe: c5 fe 7f 04 07              	vmovdqu	%ymm0, (%rdi,%rax)
+100003203: 48 83 c0 20                 	addq	$32, %rax
+100003207: 48 3d 00 01 00 00           	cmpq	$256, %rax              ## imm = 0x100
+10000320d: 0f 85 5d ff ff ff           	jne	0x100003170 <_matmul_sse+0x10>
+100003213: 5d                          	popq	%rbp
+100003214: c5 f8 77                    	vzeroupper
+100003217: c3                          	retq
+100003218: 0f 1f 84 00 00 00 00 00     	nopl	(%rax,%rax)
