@@ -1,2 +1,3 @@
-matmul-sse
+matmul4
+matmul8
 *.dSYM
