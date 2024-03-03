@@ -27,13 +27,13 @@
 //
 // Multiply two matrices 8x8.
 //
-void matmul(int32_t result[8][8], const int32_t matrix1[8][8], const int32_t matrix2[8][8])
+void matmul(int32_t result[8][8], const int32_t foo[8][8], const int32_t bar[8][8])
 {
     for (int r = 0; r < 8; r++) {
         for (int c = 0; c < 8; c++) {
             int sum = 0;
             for (int k = 0; k < 8; k++) {
-                sum += matrix1[r][k] * matrix2[k][c];
+                sum += foo[r][k] * bar[k][c];
             }
             result[r][c] = sum;
         }
@@ -60,7 +60,7 @@ void print(const int32_t matrix[8][8])
 #if __x86_64__
 #include <immintrin.h>
 
-void matmul_simd(int32_t result[8][8], const int32_t matrix1[8][8], const int32_t matrix2[8][8])
+void matmul_simd(int32_t result[8][8], const int32_t foo[8][8], const int32_t bar[8][8])
 {
     for (int r = 0; r < 8; ++r) {
 
@@ -70,10 +70,10 @@ void matmul_simd(int32_t result[8][8], const int32_t matrix1[8][8], const int32_
         for (unsigned k = 0; k < 8; k++) {
 
             // Load one element from matrix A, replicate.
-            const __m256i a = _mm256_set1_epi32(matrix1[r][k]);
+            const __m256i a = _mm256_set1_epi32(foo[r][k]);
 
             // Load one row from matrix B.
-            const __m256i b = _mm256_loadu_si256((const __m256i *)&matrix2[k][0]);
+            const __m256i b = _mm256_loadu_si256((const __m256i *)&bar[k][0]);
 
             // Multiply element-wise.
             const __m256i product = _mm256_mullo_epi32(a, b);
@@ -94,7 +94,7 @@ void matmul_simd(int32_t result[8][8], const int32_t matrix1[8][8], const int32_
 #if __aarch64__
 #include <arm_neon.h>
 
-void matmul_simd(int32_t result[8][8], const int32_t matrix1[8][8], const int32_t matrix2[8][8])
+void matmul_simd(int32_t result[8][8], const int32_t foo[8][8], const int32_t bar[8][8])
 {
     for (int r = 0; r < 8; ++r) {
 
@@ -105,11 +105,11 @@ void matmul_simd(int32_t result[8][8], const int32_t matrix1[8][8], const int32_
         for (unsigned k = 0; k < 8; k++) {
 
             // Load one element from matrix A, replicate.
-            const int32x4_t a = vdupq_n_s32(matrix1[r][k]);
+            const int32x4_t a = vdupq_n_s32(foo[r][k]);
 
             // Load one row from matrix B.
-            const int32x4_t b_lo = vld1q_s32(&matrix2[k][0]);
-            const int32x4_t b_hi = vld1q_s32(&matrix2[k][4]);
+            const int32x4_t b_lo = vld1q_s32(&bar[k][0]);
+            const int32x4_t b_hi = vld1q_s32(&bar[k][4]);
 
             // Multiply element-wise.
             const int32x4_t product_lo = vmulq_s32(a, b_lo);
@@ -128,7 +128,7 @@ void matmul_simd(int32_t result[8][8], const int32_t matrix1[8][8], const int32_
 
 int main()
 {
-    int32_t matrix1[8][8] = {
+    int32_t foo[8][8] = {
         {  -6, -59,  41,    8,   43,  -38, -91,  -30 },
         {  94,  26, -69,   15, -127,   42,  32,  -90 },
         {  20,  82, -76, -108,    4,   48,  82,  -41 },
@@ -138,7 +138,7 @@ int main()
         {  74,  42, -61,  -36,  113,  -35,  94,   49 },
         { -32,   3,  19,   80,   68,    1, -82, -120 },
     };
-    int32_t matrix2[8][8] = {
+    int32_t bar[8][8] = {
         { -61, -53,  48,  105,   48,  78,  90, 100 },
         {  60, -80, -94, -109,    9,  89, -73,  63 },
         { 127, -57,  86,  -90, -106,  96,  76,  80 },
@@ -150,11 +150,11 @@ int main()
     };
     int32_t result[8][8];
 
-    matmul(result, matrix1, matrix2);
+    matmul(result, foo, bar);
     printf("Traditional result:\n");
     print(result);
 
-    matmul_simd(result, matrix1, matrix2);
+    matmul_simd(result, foo, bar);
     printf("SIMD result:\n");
     print(result);
 
