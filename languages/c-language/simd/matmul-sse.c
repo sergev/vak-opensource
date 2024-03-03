@@ -2,6 +2,7 @@
 // Multiply two int32 matrices, with int32 result.
 //
 #include <stdio.h>
+#include <stdint.h>
 
 //
 // Multiply two matrices 8x8.
@@ -39,7 +40,7 @@ void print(const int32_t matrix[8][8])
 #if __x86_64__
 #include <immintrin.h>
 
-void matmul_sse(int32_t result[8][8], const int32_t matrix1[8][8], const int32_t matrix2[8][8])
+void matmul_simd(int32_t result[8][8], const int32_t matrix1[8][8], const int32_t matrix2[8][8])
 {
     for (int r = 0; r < 8; ++r) {
 
@@ -65,6 +66,45 @@ void matmul_sse(int32_t result[8][8], const int32_t matrix1[8][8], const int32_t
     }
 }
 #endif // __x86_64__
+
+//
+// Multiply two matrices 8x8 using ARM Neon instructions.
+// Note: this code can be compiled only on ARM architecture.
+//
+#if __aarch64__
+#include <arm_neon.h>
+
+void matmul_simd(int32_t result[8][8], const int32_t matrix1[8][8], const int32_t matrix2[8][8])
+{
+    for (int r = 0; r < 8; ++r) {
+
+        // Sum for this iteration: one row of int32 values.
+        int32x4_t sum_lo = vmovq_n_s32(0);
+        int32x4_t sum_hi = vmovq_n_s32(0);
+
+        for (unsigned k = 0; k < 8; k++) {
+
+            // Load one element from matrix A, replicate.
+            const int32x4_t a = vdupq_n_s32(matrix1[r][k]);
+
+            // Load one row from matrix B.
+            const int32x4_t b_lo = vld1q_s32(&matrix2[k][0]);
+            const int32x4_t b_hi = vld1q_s32(&matrix2[k][4]);
+
+            // Multiply element-wise.
+            const int32x4_t product_lo = vmulq_s32(a, b_lo);
+            const int32x4_t product_hi = vmulq_s32(a, b_hi);
+
+            // Accumulate.
+            sum_lo = vaddq_s32(sum_lo, product_lo);
+            sum_hi = vaddq_s32(sum_hi, product_hi);
+        }
+
+        vst1q_s32(&result[r][0], sum_lo);
+        vst1q_s32(&result[r][4], sum_hi);
+    }
+}
+#endif // __ARM_NEON__
 
 int main()
 {
@@ -94,7 +134,7 @@ int main()
     printf("Traditional result:\n");
     print(result);
 
-    matmul_sse(result, matrix1, matrix2);
+    matmul_simd(result, matrix1, matrix2);
     printf("SSE result:\n");
     print(result);
 

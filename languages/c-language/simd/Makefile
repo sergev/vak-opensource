@@ -1,5 +1,10 @@
 PROG            = matmul-sse
-CFLAGS		= -O3 -g -Wall -Werror -msse4.1 -mavx2 -mavx
+
+# Intel x64
+#CFLAGS		= -O3 -g -Wall -Werror -msse4.1 -mavx2 -mavx
+
+# ARM
+CFLAGS		= -O3 -g -Wall -Werror -march=native -mcpu=native -mtune=native #-ftree-vectorize
 
 all:		$(PROG)
 
