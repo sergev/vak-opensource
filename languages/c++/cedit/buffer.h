@@ -12,8 +12,8 @@ public:
     Buffer();
 
     // Get line by index.
-    std::string& line(size_t n) { return lines[n]; }
-    const std::string& line(size_t n) const { return lines[n]; }
+    std::string &line(size_t n) { return lines[n]; }
+    const std::string &line(size_t n) const { return lines[n]; }
 
     // Get number of lines.
     size_t size() const { return lines.size(); }
