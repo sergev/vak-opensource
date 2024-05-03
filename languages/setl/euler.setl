@@ -1,0 +1,50 @@
+#!/usr/bin/env setl
+$
+$ Example from book "Programming with Sets, An Introduction to SETL", page 406.
+$
+$ Given an undirected graph G, the Eulerian path problem is to traverse
+$ all the edges of G exactly once by a single unbroken path, which starts
+$ at some node of the graph and ends at some other node.
+$
+program Euler;                              $ Eulerian path construction
+
+graph := {[1,2],[2,3],[3,4],[4,1],[4,2]};   $ a small graph
+print(euler_path(graph +
+    {[y, x] : [x, y] in graph}));           $ which is undirected.
+
+proc Euler_path(G);                         $ constructs Eulerian path for graph G
+    nodes := domain G;                      $ all nodes in the graph.
+    if #(odds := {x in nodes | odd(#G{x})}) > 2 then
+        return om;                          $ since more than two nodes are
+                                            $ touched by an odd number of
+    end if;                                 $ edges
+
+    $ odds is the set of all nodes of G that are touched by
+    $ an odd number of edges
+
+    x := (arb odds)? arb nodes;             $ pick a node of odds if possible;
+                                            $ otherwise pick any node of G
+    path := [x] + build_path(x, G);
+
+    (while exists z = path(i) | G{z} /= { })
+        new_p := build_path(z, G);          $ insert new section into path
+        G - := ({[y, x] : [x, y] in new_p} + {e: e in new_p});
+        path := path(1..i-I) + new_p + path(i..);
+    end while;
+    return path;
+end proc Euler_path;
+
+proc build_path(x, rw G);                   $ builds maximal path section
+                                            $ starting at x, and deletes all edges
+                                            $ traversed
+    p := [];
+    (while (y := arb G{x}) /= om)           $ while there exists an edge leaving
+                                            $ the last point reached
+        p with := y;                        $ extend path to traverse the edge
+        G - := {[x, y], [y, x]};            $ delete the edge just traversed
+        x := y;                             $ step to y
+    end while;
+    return p;
+end proc build_path;
+
+end program euler;                          $ Eulerian path construction
