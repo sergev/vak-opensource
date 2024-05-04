@@ -1,0 +1,67 @@
+11.6 A Turing-Machine Simulator
+
+Turing machines, named after the famous English mathematician
+and computer scientist Alan Turing, are the most elementary
+kind of computer, so elementary that they are not used in any
+practical way but merely serve as idealized models of
+computation at its simplest. Used in this way, they play an
+important role in theoretical investigations of the ultimate
+limits of computability. A significant fact about these very
+simple computing mechanisms is that they can be programmed to
+imitate the action of any other computer; for example, a Turing
+machine can be programmed to take the text of any SETL program
+and print out its result.
+
+Turing machines consist of two basic parts: a tape and a
+read-write head. The tape is a linear array of squares,
+infinite in both directions. In a tape square, the automaton
+can print any character chosen from a finite collection called
+the tape alphabet of the Turing machine. All but a finite
+number of squares on the tape are always blank. At the start of
+each cycle of operation of the Turing machine, its read-write
+head is positioned at one of the tape squares and is in one of
+a finite collection of possible internal states s. The
+read-write head then reads the character c held in the square
+at which it is positioned and performs three actions, all
+determined by the character c which has just been read and
+the internal state s of the read-write head:
+
+  (i) Some new character c' is written into the tape square at
+      which the read-write head is positioned, replacing the
+      character c that was there;
+
+ (ii) The read-write head passes into a new internal state s';
+
+(iii) The read-write head either moves one step right, or one
+      step left or remains where it is.
+
+Plainly, these actions of the Turing machine can be defined by
+a map action(e, s), whose two parameters are a tape character e
+and an internal state s, and whose value is a tuple [e', s',
+n'], consisting of the tape character e' that will overwrite c,
+the new internal state s' of the read-write head, and an
+indicator n of the direction of head motion, which must be
+either +1 (move right), -1 (move left), or 0 (don't move).
+
+The following procedures read in the description of a Turing
+machine, check this description for validity, read in the
+initial contents of the Turing machines's tape, and then
+proceed to imitate its actions. The tape is represented by a
+tuple tape whosej-th component is the character written in
+thej-th square. Blank squares contain the blank character. The
+Turing machine stops when it reaches an internal state s such
+that action(c, s) is undefined. We assume that the Turing
+machine description read in initially is a set of quintuples
+[c,s,c',s',n'], each representing an action-map entry
+[[c,s],c',s',n]. This description is checked to verify that the
+action map it describes is really single-valued. The auxiliary
+procedure print-tape prints the contents of the Turing machine
+tape after each cycle of operation.
+
+The example Turing machine handles a string of 0s and 1s, with
+0 represented by the blank symbol. Its task is to double any
+series of 1s encountered on the tape by writing a 0 between
+them. For example, when the head reads "111", it will write a
+0, then "111". The output will be "1110111".
+
+For details, see: https://en.wikipedia.org/wiki/Turing_machine_examples

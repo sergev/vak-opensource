@@ -6,12 +6,13 @@ $ A Turing-Machine Simulator.
 $
 program Turing_simulate;                    $ Turing machine simulator
 
-if (atps := read_check( )) = om then
+if (atps := read_check()) = om then
     stop;                                   $ illegal specification
 end;
 [action, tape, position, state] := atps;    $ unpack action table, initial
                                             $ tape, initial position, and
                                             $ initial state
+print_tape(tape, position, state);
 (while (act := action(tape(position), state)) /= om)
                                             $ until stop
     [tape(position), state, n] := act;      $ write new character to tape
@@ -25,6 +26,7 @@ end;
     print_tape(tape, position, state);
 end while;
 
+print;
 print('Simulation ended. Chapter and state are:', tape(position), state);
 
 proc read_check;                            $ reads and checks action table,
@@ -77,29 +79,26 @@ proc read_check;                            $ reads and checks action table,
 
 end proc read_check;
 
-proc print_tape (tape, position, state);    $ Turing machine tape print
+proc print_tape(tape, position, state);     $ Turing machine tape print
                                             $ utility.
 
     $ This procedure is used to display the state of the Turing machine tape at
     $ the end of each cycle of simulation
 
-    const sq = 18, hsq = 9;                 $ one-fourth and one-eighth screen size
-    const screen_size = 72;                 $ number of characters on terminal
+    const HSQ = 9;                          $ one-eighth screen size
 
-    topline := screen_size*'_';
-    topline(4*hsq + 1...4*hsq + 4) := '?';
-    botline := screen_size*'_';
-    tape_string := (hsq*' ') +/ tape + (hsq*' ');
+    topline := (HSQ*6 - 2)*'_';
+    topline(3*HSQ + 1 ... 3*HSQ + 4) := 'vvvv';
+    tape_string := (HSQ*' ') +/ tape + (HSQ*' ');
                                             $ convert tape to string and pad
                                             $ with blanks.
-    tape_string := tape_string(position..position + 2*hsq - 1);
+    tape_string := tape_string(position..position + 2*HSQ - 1);
 
     picture := +/ ['|' + t + ' ' : t in tape_string];
     picture(1) := ' ';                      $ remove first vertical bar.
     print;
     print(topline);
     print(picture + ' ' + str state);
-    print(botline);
 
 end proc print_tape;
 
