@@ -86,15 +86,16 @@ proc print_tape(tape, position, state);     $ Turing machine tape print
     $ the end of each cycle of simulation
 
     const HSQ = 9;                          $ one-eighth screen size
+    const SCREEN_SIZE = 72;                 $ number of characters on terminal
 
-    topline := (HSQ*6 - 2)*'_';
-    topline(3*HSQ + 1 ... 3*HSQ + 4) := 'vvvv';
+    topline := SCREEN_SIZE*'_';
+    topline(4*HSQ + 1 ... 4*HSQ + 4) := '_~~~';
     tape_string := (HSQ*' ') +/ tape + (HSQ*' ');
                                             $ convert tape to string and pad
                                             $ with blanks.
     tape_string := tape_string(position..position + 2*HSQ - 1);
 
-    picture := +/ ['|' + t + ' ' : t in tape_string];
+    picture := +/ ['| ' + t + ' ' : t in tape_string];
     picture(1) := ' ';                      $ remove first vertical bar.
     print;
     print(topline);
