@@ -1,0 +1,24 @@
+#!/usr/bin/expect -f
+#
+# Play game Anchorhead.
+#
+# Based on https://ifarchive.org/if-archive/solutions/AnchorSolve.txt
+#
+set timeout -1
+
+# Remove previous log, if any.
+system rm -f "game.log"
+log_file "game.log"
+
+# Start the game.
+spawn dfrotz -m -s 4 anchor.z8
+match_max 100000
+
+expect "any other key to begin"; send "\r"
+expect "Welcome to Anchorhead"; send "\r"
+send "\r"
+expect ">"; send "inventory\r"
+
+# Quit
+expect ">"; send "quit\r"
+exit
