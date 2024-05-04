@@ -1,0 +1,45 @@
+#!/usr/bin/env setl
+$
+$ Example from book "Programming with Sets, An Introduction to SETL", page 408.
+$
+$ The problem of topological sorting.
+$
+program sort3;
+
+graph := {
+    [2, 3],
+    [3, 1],
+    [4, 0],
+    [4, 1],
+    [5, 0],
+    [5, 2]
+};
+print(top_sort3(graph));                $ output: [4 5 0 2 3 1]
+
+proc top_sort3(G);                      $ second iterative form of the topological sorting
+                                        $ procedure
+    nodes := (domain G) + (range G);
+    count := {};                        $ initialize the count function described previously
+    ready := nodes;                     $ The following loop will remove elements that have
+                                        $ any predecessors from ready
+    (for [x, y] in G)
+        count(y) := (count(y) ? 0) + 1;
+        ready less := y;                $ since y has a predecessor
+    end for;
+                                        $ At this point ready is the set of all nodes without
+                                        $ predecessors
+    t:= [];                             $ t is the tuple being built up
+    (while ready /= {})
+        n from ready;
+        t with := n;
+        (for n1 in G{n})
+            if (count(n1) - := 1) = 0 then
+                ready with := n1;
+            end;
+        end for;
+    end while;
+    return t;
+
+end proc top_sort3;
+
+end program sort3;

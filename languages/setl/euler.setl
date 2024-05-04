@@ -26,7 +26,7 @@ proc Euler_path(G);                         $ constructs Eulerian path for graph
                                             $ otherwise pick any node of G
     path := [x] + build_path(x, G);
 
-    (while exists z = path(i) | G{z} /= { })
+    (while exists z = path(i) | G{z} /= {})
         new_p := build_path(z, G);          $ insert new section into path
         G - := ({[y, x] : [x, y] in new_p} + {e: e in new_p});
         path := path(1..i-I) + new_p + path(i..);

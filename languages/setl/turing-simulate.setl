@@ -1,0 +1,106 @@
+#!/usr/bin/env setl
+$
+$ Example from book "Programming with Sets, An Introduction to SETL", page 445.
+$
+$ A Turing-Machine Simulator.
+$
+program Turing_simulate;                    $ Turing machine simulator
+
+if (atps := read_check( )) = om then
+    stop;                                   $ illegal specification
+end;
+[action, tape, position, state] := atps;    $ unpack action table, initial
+                                            $ tape, initial position, and
+                                            $ initial state
+(while (act := action(tape(position), state)) /= om)
+                                            $ until stop
+    [tape(position), state, n] := act;      $ write new character to tape
+                                            $ and change internal state
+    if (position + := n) < 1 then           $ moved left to brand-new square
+        tape := [' '] + tape;               $ add blank square at left
+        position := 1;                      $ and adjust position pointer
+    elseif position > #tape then            $ moved right to brand-new square;
+        tape with := ' ';                   $ add blank at right
+    end if;
+    print_tape(tape, position, state);
+end while;
+
+print('Simulation ended. Chapter and state are:', tape(position), state);
+
+proc read_check;                            $ reads and checks action table,
+                                            $ tape, initial position, and
+                                            $ initial state
+    open('TUR.IN', 'TEXT-IN');
+    reada('TUR.IN', actuples, tape, position, state);
+    action := {[[c, s], [c2, s2, n]] : [c, s, c2, s2, n] in actuples};
+
+    not_single := false;
+
+    (for im = action{cs} | #im > 1)         $ action is not single-valued
+        not_single := true;
+        print;
+        print('action is indeterminate in condition', cs);
+        print('actions could be:');
+        (for [c2, s2, n] in im)
+            print(c2, s2, n);
+        end for;
+        print;
+    end for;
+
+    if not_single then
+        return om;                          $ as indication of error in action table
+    end;
+    if not (bad_cs := {cs: [c2, s2, n] = action(cs) | n notin {-1, 1, 0}}) = {} then
+        print('Illegal tape-motion indicators occur for conditions:', bad_cs);
+    end if;
+    if not is_integer(position) then
+        print('Illegal initial position:', position);
+    end if;
+    if not is_tuple(tape) then
+        print('Illegal initial tape:', tape);
+    end if;
+    if not forall t = tape(i) | is_string(t) and #t = 1 then
+        print('Illegal initial tape', tape);
+    end if;
+
+    $ now add extra blanks to the initial tape if necessary
+
+    if position > #tape then                $ extend tape with additional
+                                            $ blank squares
+        tape + := (#tape - position)*[' '];
+    elseif position < 1 then                $ add extra blank squares to left
+        tape := (1 - position)*[' '];
+        position := 1;                      $ adjust index of position on
+                                            $ extended tape
+    end if;
+    return [action, tape, position, state];
+
+end proc read_check;
+
+proc print_tape (tape, position, state);    $ Turing machine tape print
+                                            $ utility.
+
+    $ This procedure is used to display the state of the Turing machine tape at
+    $ the end of each cycle of simulation
+
+    const sq = 18, hsq = 9;                 $ one-fourth and one-eighth screen size
+    const screen_size = 72;                 $ number of characters on terminal
+
+    topline := screen_size*'_';
+    topline(4*hsq + 1...4*hsq + 4) := '?';
+    botline := screen_size*'_';
+    tape_string := (hsq*' ') +/ tape + (hsq*' ');
+                                            $ convert tape to string and pad
+                                            $ with blanks.
+    tape_string := tape_string(position..position + 2*hsq - 1);
+
+    picture := +/ ['|' + t + ' ' : t in tape_string];
+    picture(1) := ' ';                      $ remove first vertical bar.
+    print;
+    print(topline);
+    print(picture + ' ' + str state);
+    print(botline);
+
+end proc print_tape;
+
+end program Turing_simulate;

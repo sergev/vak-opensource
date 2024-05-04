@@ -1,0 +1,74 @@
+#!/usr/bin/env setl
+$
+$ Example from book "Programming with Sets, An Introduction to SETL", page 410.
+$
+$ The Stable Assignment Problem: the Gale-Shapley algorithm.
+$
+program gale_shapley;                       $ Gale-Shapley assignment algorithm
+
+const A, B, CC, D;                          $ constants designating colleges
+
+stpref := { [1, [A, B, CC]],                $ students' choices
+            [2, [B, CC, A, D]],
+            [3, [CC, A, B]],
+            [4, [B, A, CC]] };
+colpref := { [A, [1, 2, 3, 4]],             $ colleges' rankings of applicant
+             [B, [4, 3, 2, 1]],
+             [CC, [2, 4, 3]],
+             [D, [1, 2, 4]] };
+quot := { [A, 2],                           $ site of entering class
+          [B, 1],
+          [CC, 1],
+          [D, 2] };
+print(assign(stpref, colpref, quot));       $ output: [{[A [1 3]] [B [4]] [CC [2]] [D []]} {}]
+
+proc assign(stud_pref, coll_pref, quota);   $ Gale_Shapley stable
+                                            $ assignment algorithm
+
+    $ stud_pref maps each student into the vector of colleges he/she finds
+    $ acceptable, ranked in decreasing order of preference; coll_pref(c)(s1, s2)
+    $ is true if college c finds student s1 preferable to student s2, false otherwise.
+    $ The map quata gives the number of students each college will accept.
+
+    colleges := domain quota;
+    active := {[c, []] : c in colleges};    $ set up an empty active list for each college
+    applicants := domain stud_pref;         $ initialize the pool of applicants
+    (for j in [1 .. #quota])                $ we may need as many rounds
+                                            $ of applications as there are colleges
+        new_applicants := applicants;       $ save the set of applicants, which will be iterated over
+        (for s in applicants | stud_pref(s) /= [])
+                                            $ each unsatisfied student who has a college to apply to does so
+            first_choice fromb stud_pref(s);
+            active(first_choice) with := s;
+            new_applicants less := s;
+        end for s;
+        applicants := new_applicants;       $ bring the set of applicants into its
+                                            $ new condition
+        (for c in colleges | # active(c) > quota(c))
+                                            $ drop all 'over quota' applicants
+            active(c) := pref_sort(active(c), coll_pref(c));
+                                            $ rerank all who have applied
+            (for k in [quota(c) + 1 .. #active(c)])
+                applicants with := active(c)(k);
+                                            $ return student to applicant pool
+            end for k;
+            active(c) := active(c)(1 .. #active(c) min quota(c));
+                                            $ cut back active list
+        end for c;
+        if not exists s in applicants | stud_pref(s) /= [] then
+            quit;
+        end if;
+    end for j;
+    return [active, applicants];            $ pattern of assignments is complete
+
+end proc assign;
+
+proc pref_sort(apvect, order);              $ this returns the current group of
+                                            $ applicants in the order of the college's
+                                            $ choice.
+    applicants := {x: x in apvect};         $ convert to set
+    return [x in order | x in applicants];
+
+end proc pref_sort;
+
+end program gale_shapley;                   $ Gale-Shapley assignment algorithm

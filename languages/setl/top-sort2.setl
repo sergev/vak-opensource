@@ -1,0 +1,34 @@
+#!/usr/bin/env setl
+$
+$ Example from book "Programming with Sets, An Introduction to SETL", page 408.
+$
+$ The problem of topological sorting.
+$
+program sort2;
+
+graph := {
+    [2, 3],
+    [3, 1],
+    [4, 0],
+    [4, 1],
+    [5, 0],
+    [5, 2]
+};
+print(top_sort2(graph));                $ output: [4 5 0 2 3 1]
+
+proc top_sort2(G);                      $ first iterative form of topological sort
+    nodes := (domain G) + (range G);    $ Here we calculate the set of all
+                                        $ nodes; this makes it unnecessary to
+                                        $ pass the set of nodes as an additional
+                                        $ parameter.
+    t := [];
+    (while exists n in nodes | n notin range G)
+        t with := n;
+        G lessf := n;
+        nodes less := n;
+    end while;
+    return t;
+
+end proc top_sort2;
+
+end program sort2;

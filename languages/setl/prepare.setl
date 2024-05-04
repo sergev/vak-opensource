@@ -1,0 +1,464 @@
+#!/usr/bin/env setl
+$
+$ Example from book "Programming with Sets, An Introduction to SETL", page 415.
+$
+$ A Text Preparation Program.
+$
+program prepare;
+var Page_horizontal, Page_vertical, Spacing, Left_margin, Right-margin, Autoparagraph, Tuple_oLwords, Justify,
+Fill,
+Line_count,
+$ text preparation system
+$ global variables
+$ horizontal width of paper
+$ vertical width of paper
+$ current spacing of lines
+$ left margin
+$ right margin
+$ switch for autoparagraphing
+$ collects words of input for output $ controls right justification
+$ controls filling of lines
+$ counts number of lines on page
+
+Page_number_stack, Number_pages, Main_title,
+Subtitle, Print-header, FiILj_save, First-page, Chapter-number, Page_advance, Margin_save, Figure_lines, Figure_flag, Page_figure_flag, Indent-flag, Para_indent-flag, Number_blanks, Paragraph_spacing, Paragraph_indent;
+$ stack of page & subpage numbers $ switch for page numbering
+$ page title
+$ page subtitle
+$ controls header printings
+$ saves fill & justify during LIT
+$ switch for first page
+$ current chapter number
+$ page advance character
+$ saves margins during indented note
+$ number of lines reserved for figure
+$ switch to leave space for figure
+$ leaves space for figure on top of next page $ switch for indentation
+$ switch for paragraph indentation
+$ number of spaces to indent
+$ current spacing between paragraphs
+$ number of spaces to indent for paragraph
+$ constants designating all commands
+BR, S, B, FG, I, P, C, NT, EN, TP, NM, NNM, CR, NC, T, FT, SB, PG,
+const
+ESP, HD, NHD, J, NJ, F, NF, LIT, ELI, LM, RM, PV, SP, AP, SS, NAP;
+const LegaLops = $ legal commands
+{BR, S, B, FG, I, P, C, NT, EN, TP, NM, NNM, CR, NC, T, FT, SB, PG, ESP, HD, NHD, J, NJ, F, NF, LIT, ELI, LM, RM, PV, SP, AP, SS, NAP};
+const Cause-new_Iine = $ these commands cause Tuple_oLwords to be $ emptied. Text immediately following these
+$ commands is output at beginning of new line. {BR, S, B, I, C, NT, EN, PG, TP, CH, J, NJ, F, NF, LIT, ELI, LM, RM};
+$ ************** INFORMATION AND COMMENTS **************
+$ The text preparation system's main job is to FILL and/or JUSTIFY the
+$ source file. The course of the main procedure depends on these two modes.
+$ If both the FILL and JUSTIFY switches are off text is printed in the same
+$ format as input. In all other cases words of text are broken out of the input
+$ line and placed in a Tuple_oLwords. If FILL is off and JUSTIFY is on
+$ (i.e., justifying but not filling lines), then the Tuple is printed in justified form
+$ immediately after the line of input is processed. If FILL is on then the Tuple
+$ is filled until one of the following three cases arises:
+$ (1) a command line is encountered. (a line begining with a period).
+$ (2) a new paragraph is to begin.
+$ (3) end of input.
+$ The entire Tuple however is not output at this time. Those words that do not
+$ fill the last line of output remain in the Tuple until a specific command that
+$ causes a new line is encountered, or until cases 2 & 3.
+
+$ NOTE: Only when FILL is on can more than one line of input be read and $ placed in the Tuple before being output.
+$ A major feature of the text preparation system is the "autoparagraph." If $ the autoparagraph switch is on, (it initially isn't), an input line beginning
+$ with a blank causes the Tuple to be emptied, a preset number of lines to be $ skipped, and a preget number of spaces to be indented. (These numbers are $ initially set to 5 and 1).
+$ PREP.lN should contain the source file. PREP.OUT will contain the $ output file.
+$ Command lines differ from text lines in that they begin with a period.
+$ An explanation of some of the subtler uses of some variables follows:
+$ Indent-flag/Para_indentflag. Two different flags are used for two situations.
+$ $ $ $
+$ $ $ $ $
+$ $ $ $ $ $ $ $ $ $ $ $ $
+Indent-flag is used when the command INDENT is encountered. ParLindent-flag is used in conjunction with the AUTOPARAGRAPH command. Since the INDENT command can be used when AUTOPARAGRAPH is on, two flags are necessary.
+Figure_flag/Page_figure_flag. When the FG command is encountered Figure_flag is turned on so as to leave a specified number oflines blank the next time the Tuple is output. I f there are an insufficient number oflines left on the current page for the figure, blank lines must be left at the top of the next page. Page_figure_flag is turned on in this case.
+First-page. This switch is on initially and turned off after the first page headers are printed. This switch causes page headers for the first page to be output at the same time as the first words of the Tuple are to be output. First page headers are not printed in the initialization so that commands can be used to change initialization values. This is especially necessary for the following commands;
+Fill,-+ ON (initialization value) Justify -+ ON
+Title -+ NULL
+Subtitle -+ NULL
+Chapter # -+ 1
+Page number switch -+ ON Page header switch -+ ON
+Two major types of error are detected by the program:
+$
+$ Justify error. IfJUSTIFY is on and FILL is off, too many words in a line $ of input (initially, greater than 60 characters) or a single word will cause $ a justify error. This type of error terminates processing.
+$ Command error. This is caused by either an invalid command or an error $ in the command's parameters. In this case the command is ignored and $ an appropriate message is printed.
+
+$ **** MAIN PROGRAM OF TEXT PREPARATION SYSTEM ****
+ini tialize; loop do
+get('PREP.lN', line);
+if line = om then quit loop; end;
+if match(line, '.') /= om then
+if (cmd := break(line,' '» = om then
+cmd:= line;
+$ initialize all global variables & $ determine input & output files $ remain in loop until all text is $ processed
+$ read line of input $ end of text input
+$ a command line $ no parameter
+line := om;
+end if;
+if cmd notin LegaLops then error_proc(cmd); continue loop; end;
+if Fill then prinLlines; end;
+$ output the text collected $ in Tuple_oLwords in
+$ its correct format. Words $ that remain in the Tuple $ are those that do not fill $ last line.
+$ 'command check' checks validity of the command line. $ 'handle command' carries out the command. command_tuple :=
+command_check (cmd, line); $ command tuple
+$ contains the command $ and its parameters.
+if command_tuple /= om then handle-command(command_tuple); else error_proc(cmd);
+end;
+continue loop do;
+end if match;
+if not (Fill or Justify) then
+output (line); else
+if Autoparagraph and line(l) = ' span(line, ' ');
+(until line = om)
+$ output line as it was read in
+$ if AUTOPARAGRAPH is on, $ a blank space at the beginning $ of the paragraph signals for
+$ new paragraph.
+'then paragraph; end;
+$ this loop places words $ of input into Tuple
+
+if (next-word := break(line,' next-word := line;
+line:= om;
+else
+span(line, , ');
+end if;
+TuplcoLwords with := next-word; end until;
+end if;
+if Justify and not Fill then print-line; end
+end loop; finalize;
+')) = om then
+$ ***************** END OF MAIN PROGRAM *****************
+proc initialize; $ parameter & file name initialization
+$ this procedure initializes all global variables and opens the input & output files.
+open('PREP.lN', 'CODED'); open(,PREP.OUT, 'CODED-OUT); Page_advance := '*';
+Page_vertical := 58; Page_horizontal := 60;
+$ default lines per page $ default spaces per line $ default margins
+$ default margins
+$ single spacing
+$ lines between paragraphs
+$ indentation
+$ switch that controls indentation
+$ controls indentation in paragraph
+Left_margin := 0;
+Right-margin:= 60;
+Spacing := 1;
+Paragraph_spacing := 1; Paragraph_indent := 5;
+Indent-flag := false;
+Para_indent-flag := false;
+Figurcflag := Page_figure_flag := false;
+First-page := true; Print-header := true; Main_title := Subtitle := "; Autoparagraph := false; Tuple_oLwords := [ ]; PagcnumbeLstack := [1]; Fill := true;
+Justify := true; Line_count := 1; NumbeLpages := true;
+$ turned ofT when first 'page' occurs $ initially on
+$ initially ofT
+$ contains words of text to be processed $ initially on first page
+$ initially on
+$ initially on
+$ counts lines on page
+$ page numbering switched on
+
+ChapteLnumber := 1; $ advances with each chapter end proc initialize;
+proc page; $ page advance procedure
+$ This procedure is invoked whenever output proceeds to a new page. This $ procedure puts out a line containing a page advance character, then the page $ number, title, & subtitle if switched on.
+put(,PREP.OUT', Page_advance);
+Line_count := 0;
+First-page := false;
+if NumbeLpages then $ build up first line with page number
+NumbeLline:= 'PAGE' +/[str Page_numbeLstack(z) + '.': z in[I .. # Page_number_stack]];
+NumbeLline := NumbeLline(1 .. # NumbeLline -
+Page-numbeLstack( # Page_numbeLstack) + := 1;
+output(NumbeLline); output("); end if;
+if Print-header then
+center(om, Main_title); center(om, Subtitle); outputC ');
+1); $ drop last $ character
+end if;
+if Page_figure_flag then
+Page_figure_flag := false;
+blankout(Figure_lines); end if;
+end proc page;
+$ leave room for a figure
+proc output(line);
+$ this is the main output procedure of the prepare program.
+if First-page then page; end;
+nblanks := Spacing; $ number of lines to skip
+if Figure_flag then
+Figure_flag := false;
+$ iffigure can fit on this page, room is left for it. Ifthere is not enough space, $ room is left on the top of the next page. Page_figure_flag is used in the
+$ later case.
+if Figure-lines + Line_count + Spacing >= Page_vertical then
+Page_figure_flag := true;
+else nblanks := Figure_lines + Spacing; end;
+end;
+Line_count +:= 1; $ counts lines on each page
+
+put('PREP.OUT', line);
+if Line_count >= Page_vertical then page; end; blankout(nblanks - 1);
+end proc output;
+proc command_check (cmd, line); $ breaks command out of line
+$ this procedure checks command & parameter validity; it also sends back $ the command and its parameters in a Tuple.
+case cmd of
+(BR, EN, PG, NM, NNM, SP, ESP, HD, NHD,
+J, NJ, F, NF, LIT, ELI, AP, NAP): return [cmd];
+(CH, T, FT, SB):
+$ no parameters
+$ these commands have $ one string parameter $ remove blanks
+span (line, , ');
+if line = om then return om; else return [cmd, line]; end;
+(S, B, FG, I, TP, NC, LM, RM, SS, PV):
+span(line,' ');
+if (param := integeLcheck(line)) = om
+then return om;
+else return [cmd, param]; end if;
+$ these commands have $ one integer parameter $ remove blanks
+$ error encountered
+$ the rest of the commands are now treated separately
+(NT):
+span(line, , '); ifline= om
+then return [cmd, 'NOTE'];
+else return [cmd, line]; end if;
+(C):
+span(line, , ');
+if match(line, ';') = om then
+$ has form 'NT text'.
+$ If text is omitted the
+$ word 'NOTE' is centered
+$ has form of 'C n; text'. $ n is optional
+$ integer present if (param := integeLcheck(line)) = om then return om; end;
+span(line, ' ');
+if match(line, ';') = om then return om; end;
+span(line,' ');
+if line = om then return om; else return [cmd, param, line]; end;
+
+else
+span(line, , ');
+if line = om then return om; else return [cmd, om, line]; end;
+end if;
+(P): $ has the form 'P ni n2' span(line, , ');
+if (param := integeLcheck(line)) = om then return om; end; span(line, , ');
+if (param2 := integeLcheck(line)) = om then return om; end; return [cmd, param, param2];
+end case;
+end proc command_check;
+proc integeLcheck(rw line); $ checks validity of string integer if (param := span(line, '-0123456789')) = om or (line = '-')
+then return om; end;
+if match(param, '-') = om then return num(param);
+else return - num(param); end; end proc integer_check;
+proc num(stg);
+valu:= 0;
+(for di = stg(q))
+valu:= valu*1O;
+valu +:= (abs di - abs '0'); end for;
+return valu;
+end proc num;
+proc handle_command(command_tuple);     $ command interpreter
+$ this command interpeter handles all prepare commands.
+[cmd,p1,p2] := command_tuple;
+if (cmd in Cause-new_Iine) then print-remaining_Iine; end;
+case cmd of
+(BR): $ break command return;
+(I): $ indent Ident-flag:= true;
+NumbeLblanks := pI max 0 min (Right-margin - 10);
+(NM): $ resume page numbering NumbeLpages:= true;
+$ converts string to integer
+
+(NNM):
+NumbeLpages := false;
+(NC):
+ChapteLnumber := pI;
+(T):
+Maifl-title := pI;
+(SB):
+Subtitle := pI;
+(SP): page;
+Page_numbeLstack with := 1;
+(ESP): page;
+if # Page_numbeLstack > 1 then junk frome Page_numbeLstack;
+$ end page numbering
+$ supply chapter number $ supply title
+$ subtitle
+$ start subpage
+$ begin subnumbers $ end subpage
+$ drop one level
+Page_number_stack( # Page_number_stack) + := 1; end if;
+(HD): $ print page headers Print-header := true;
+(NHD): $ end page headers Print-header := false;
+(1): $ justification Justify := true;
+(NJ) $ end justification Justify := false;
+(F): $ fill lines Fill := true;
+(NF): $ end filling lines Fill := false;
+(PV): $ lines per page Page_vertical := pI;
+(LIT): $ suspend fill/justify FiILj_save:= [Fill, Justify];
+Fill := Justify := false;
+(ELI): $ resume fill/justify [Fill, Justify] := FiILj_save;
+
+(LM): $ set left margin Left-margin:= pI max 0 min (Right-margin - 10); Page_horizontal := Right-margin - Left-margin;
+(RM): $ set right margin Right-margin := pI min (Page_horizontal + Left-margin) max (Left-margin + 10);
+Page_horizontal := Right-margin - Left-margin;
+(SS): $ set spacing Spacing:= pI max 1 min 5;
+(AP): $ start autoparagraphing Autoparagraph := true;
+(NAP): $ end autoparagraphing Autoparagraph := false;
+(P): $ set paragraph spacing Paragraph_indent:= pI;
+Paragraph_spacing := p2;
+(S): $ skip n spacings if (pI *spacing) + Line_count> Page_vertical then
+page; else
+blankout((pl max O)*spacing); end if;
+(B): $ skip in lines ifpl + Line_count> Page_vertical then
+page; else
+blankout(pl max 0); end if;
+(FG): $ leave lines for figure Figure_flag := true;
+Figure_lines := pI;
+(C): $ center text center(pl, p2);
+(PG): $ start new page
+$ if current is not empty
+if Line_count > 0 then page; end;
+(TP): $ start new page if less $ than pI lines remain
+if Line_count + pI >= Page_vertical then page; end;
+
+(CH):                           $ chapter
+    chapter(pl);
+(NT):                           $ indented note
+blankout(2);
+center(om, pI);
+blankout(I);
+Margin_save := [Right-margin, Left-margin, Page_horizontal]; Left-margin +:= (Page-horizontal div 4);
+Right-margin := Right-margin - (Page_horizontal div 4); Page_horizontal := Right-margin - Left-margin;
+(EN): $ end indented note blankout(2);
+[Right-margin, Left_margin, Page_horizontal] := Margin_save;
+end case;
+end proc handle_command;
+proc paragraph;
+$ autoparagraph procedure. This procedure is called when a space begins a $ line of input (and AUTOPARAGRAPH is on).
+$ first the Tuple_oLwords is completely output.
+if Fill then print-lines; end;
+print_remaining_Iine;
+Para_indent-flag := true; $ the next time the Tuple is printed
+$ indentation will be made. (see proc indenter). blankout(Paragraph_spacing - 1);
+end proc paragraph;
+proc blankout(nlines);          $ leaves nlines empty. If the end of page
+                                $ is reached no more lines are blanked out.
+if First-page then page; end;
+(for z in [1 .. nlines])
+Line_count +:= 1;
+put(,PREP.OUT', ");             $ outputs a blank line
+if Line_count >= Page_vertical then page; return; end;
+end for;
+end proc blankout; proc indenter;
+$ if Para_indent-flag or Indent-flag is on, this procedure causes indentation. $ This is done by adding blanks to the beginning ofthe first word in the Tuple. $ Number-blanks contains the number of blanks to be indented.
+
+if Para_indenLflag and IndenLflag = false then Number-blanks := Paragraph_indent;
+end;
+if IndenLflag of Para_indenLflag then
+Para_indenLflag := false;
+IndenLflag := false;
+If Tuple_oLwords = [ ] then quit; end;
+$ remove the word from the Tuple, add blanks to it, then place it back. word fromb Tuple_oLwords;
+word:= (' '*Number-blanks) + word;
+Tuple_oLwords := [word] + Tuple_oLwords;
+end if;
+end proc indenter;
+proc prinLlines;
+$ printing procedure for when fill is on
+indenter;
+printed_lines := if Fill and Justify
+then fill_justifier( )
+else filler( ) $ Fill on, Justify ofT
+end;
+(for line in printed_lines)
+line := (' '*Left_margin) + line;
+output(line); end for;
+end proc prinLlines; proc filler;
+filler-lines := [ ]; loop do
+$ produces output in filled form $ tuple of filled lines
+temp_line := ";
+nwords := nchar := 0;
+(for word in Tuple_oLwords)
+$ number of words and of characters
+nchar +:= #word + 1;
+nwords +:= 1;
+if nchar > (Page_horizontal + 1) then goto fillit; end; temp_line +:= word + ' ';
+end for;
+return filler_lines;
+fillit: filler_lines with := temp_line; (for n in [1 .. nwords - 1])
+junk fromb Tuple_oLwords; end for;
+end loop;
+
+end proc filler;
+proc fill_justifier;
+$ produces output that is filled and justified
+justified_lines := [ ]; loop do
+nwords := nchar := 0;
+(for word in Tuple_oLwords)
+nchar +:= # word + 1;
+nwords +:= 1;
+if nchar > (Page_horizontal + 1) then goto addit; end;
+end for;
+return justified_lines;
+addit: temp_line := puLspaces(nwords - 1,
+Page_horizontal - nchar + # word + 2); justified_lines with := temp_line;
+end loop;
+end proc fill_justifier;
+proc prinLline;
+$ printing procedure for when justify is on and fill is off
+indenter;
+if # Tuple_oLwords = 1 then justifier_error; end; $ one word cannot be justified
+nword := nchar := 0;
+(for word in Tuple_oLwords)
+nchar +:= # word + 1;
+nword +:= 1;
+if nchar > Page_horizontal + 1 then justifier_error; end; $ too many words on the input line
+end for;
+oULline := ouLspaces(nword, Page_horizontal - nchar + 1); output(ouLline);
+end proc prinLline;
+proc justifier_error;
+output('TEXT PREPARATION TERMINATED DUE TO ERROR WITH USE OF JUSTIFY');
+stop;
+end proc justifier_error;
+proc puLspaces(nwords, nblanks);
+
+justified_line := ";
+space_count := (size:= (nwords - 1))*[IJ; (for z in [1 .. nblanksJ)
+space_count((random (size - 1)) + 1) +:= 1; end for;
+(for z in [1 .. sizeJ)
+word fromb Tuple_oLwords; justified_line + := word;
+k := space_count(z);
+(for m in [1 .. kJ)
+justified_line +:=' '; end for;
+end for;
+word fromb Tuple_oLwords; justified_line + := word; return justified_line;
+end proc puLspaces;
+proc prinLremaining_line;
+$ procedure prints remaining line from $ Tuple_oLwords
+if Tuple_oLwords = [ J then return; end; temp_line := (' '*LefLmargin);
+word fromb Tuple_oLwords;
+(while word /= om)
+temp_line + := word + ' ';
+word fromb Tuple_oLwords; end while;
+output(temp_line);
+end proc prinLremaining_Iine;
+proc center(n, text); $ center text on column n
+if n = om then n := (Page_horizontal div 2) + LefLmargin; end; k:=(n- (#textdiv2)- 1)max0;
+line := (k*' ') + text;
+output(line);
+end proc center;
+proc chapter(text);
+$ new chapter is to begin, chapter headers are printed.
+PrinLheader := false;
+page;
+blankout(3);
+center(om, 'CHAPTER' + str Chapter-number);
+
+Chapter-number + := 1; blankout(2);
+center(om, text); blankout(3);
+Main_title := text; $ set the title to the chapter text
+$ the following are set to their initialization values Print-header:= true;
+Subtitle := ";
+Spacing := 1;
+Justify := true;
+Fill := true; Left_margin := 0; Right-margin := 60; Page_horizontal := 60; end proc chapter;
+proc error-proc(cmd);               $ prints out error message
+print(,ERROR ENCOUNTERED WITH COMMAND', cmd, 'COMMAND IGNORED');
+end proc error-proc;
+proc finalize; $ finalize system, first print whats left in the tuple. if Fill then print-lines; end;
+print_remaining_Iine;
+c1ose('PREP.lN');
+c1ose(,PREP.OUT); end proc finalize;
+end program prepare;
