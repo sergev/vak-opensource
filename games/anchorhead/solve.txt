@@ -1,0 +1,146 @@
+
+Anchorhead
+An interactive gothic by Michael S. Gentry
+Release 5 / Serial number 990206 / Inform v6.15 Library 6/7
+
+The Complete Step-by-Step Walkthru with score-notification by Aeron Pax.
+
+Note: Some variables change from game to game...
+ - Torn Journal (the combination to the safe).
+ - Strange metal flute (correct attunation).
+ - Blueprint & Mirror rack (the correct measurement).
+
+
+DAY 1:
+Se. Push can against wall. Climb can. Up. West. Push play.
+East. Look up Verlac (2p). West. Unlock Door. West. West.
+West. NW. West. Read book. Show keys to Michael (2p). East.
+SE. East. South. South. East. South. SW. NW. Unlock door.
+North.
+
+DAY 1, EVENING:
+Close door. Lock door. Up. North. Undress. Drop all. West.
+Bathe. East. Lie in bed. Sleep.
+
+DAY 2:
+Look. Get wallet. Open it. Get card. Leave bed. Dress.
+Get all. Wear coat. South. Down. West. Open cupboard.
+Pull lining (2p). Read journal. [Note the combination to the safe.]
+North. Get flashlight. Open Cabinet. Get matches. Turn on flashlight.
+NW. Get broom. Unlock door. Down. South. Search crates. Get box.
+Read clippings. [You should know learn the following names of the
+Verlac family: Mordecai, Elijah, Heinrich & Wilhelm.] Drop cardboard
+box. Wipe web. Drop broom. Get key (1p). Put key on keyring. North. Up. SE.
+East. East. Look at paintings. Look at scene. South. Get album. Look up
+Wilhelm in album. Look up Eustacia in album. Look up Croseus in album.
+West. Up. East. North. Get volume. Read it. Look at bookshelf.
+Get Poe (1p). Examine safe. [ Now "turn the dial to x", three times,
+where x equals the appropriate combination found in the torn journal.
+This opens the safe - (2p).] Look in safe. Get puzzle box and flute.
+South. South. Open jewelry box. Get silver locket. Push bed.
+Look in hole. Get pages (2p). Read pages. [You learn the name William.]
+North. West. Down. North. West. Unlock door. North. NW. Unlock crypt.
+Down. Examine coffin. Look up William on nameplate. Open William's coffin.
+Get skull. Up. SE. South. Close door. Lock door. East. South. Unlock door.
+South. SE. NE. North. West. Get newspaper. Read it. South. South. SE.
+Look up Edward in record. Look up Mordecai in record. Look up Elijah in
+record. Look up Heinrich in record. Look up Wilhelm in record. NW. SW.
+Look up Edward in record. Look up Mordecai in Record. Look up Elijah in
+record. Look up Heinrich in record. [You seem to be uncovering a pattern
+here;] Look up Wilhelm in record. NE. North. North. North. North. West.
+NW. West. North. Ring bell. Show card to librarian. Ask librarian for
+book (2p). Open Historical. Get slip of paper. Read it. Read Historical
+(1p). Drop it. South. East. SE. East. North. Get Lantern. South. Look
+under table. Get flask. South. NW. Read wall. West. South. Look in display
+case. Ask proprietor about amulet (5p). Give puzzle box to him (2p).
+Get puzzle box. North. East. SW. South. South. East. East. Give flask to bum
+(2p). Ask bum about himself. Ask bum about brother. Ask bum about Anna.
+Ask bum about crypt. Tell bum about skull. Show skull to bum.
+Give amulet to bum (5p).
+
+DAY 2, EVENING:
+Put copper key on keyring. SE. Get tin. NW. West. South. SW. NW. North.
+[Michael is missing.] Close door. Up. East. North. East. Get letter opener.
+Look at screen. Remove ring. Look at it. Wear it. Type 0628 on laptop (2p).
+Look at screen. West. South. Pull cord. Up. Push newspaper under door.
+Put letter opener in keyhole. Get newspaper. Get brass key (1p). Put brass
+key on keyring. Unlock door. North. Search straw. Get gold locket. South.
+Down. West. North. West. Get towel. East. Undress. Drop all. Lie in bed. Sleep.
+
+DAY 3:
+Leave bed. Dress. Wear coat. Get all. South. East. North. East. Look at
+fireplace. Turn sphere. SW. West. Look in hole. East. Look in hole. NW.
+Look in hole (2p). SW. SE. Put lens in telescope [the disk in the puzzle box].
+Look in telescope (5p). [You've learned then name: Ialdabaoloth.] SE. East.
+Down. West. Down. North. West. NW. Down. East. Search wine rack.
+[By examining the five bottles, you find 5 different letters.]
+Turn c. Turn w. Turn h. Turn e. Turn m (2p). [A secret passage to the north.]
+North. North. North. NE. Down. Say ialdabaoloth. North.
+[Now you must attune the flute until you hear the right-hand column's
+vibrations grow stronger, resonating in harmony with the note of the flute.
+The flute's attunation changes with each time you restart the game, so
+follow this procedure: Play flute. Cover hole 1. Play flute. Remove finger
+from flute. Cover hole 2. Play flute. etc.. Continue with this, covering
+one hole at a time until you have found two different settings on the flute
+which ressonates in harmony with the column - Remember them for later!
+Ie. if the columns resonate with the flute when you have covered hole 3 and
+hole 5 - You should cover both hole 3 and 5 on the flute, before playing
+to summon the portal to The Womb of Nehilim, but don't do this ...yet.]
+South. Up. SW. NW. East. Down. West. Down. South. SE. NE. South. South.
+Look at woods. West. SW. West. Get drawing paper. Get Hook. South. Lift
+plywood cover. Down. Search bones. Get Teddy. Up. North. East. South. Down.
+Hide under bones. Wait (2p). Up. Up. North. East. NE. East. North. East. SE.
+Break padlock with hook (1p). Down. Look at shape. Search shape. Put steel key
+on keyring. Look at furnace. Open hatch. West. [If you lantern is burning,
+now is a good time to "extinguish lantern".] Put all in pocket. Jump onto
+riser. North. Get cloth. East. Read huge tome. [At the question "Will you
+read on?" - Answer "no".] East. Up. Up. Get rope. Down. West. West. South.
+Drop robe in shaft. Tie rope to railing. Down. Drop rope (2p). Light flashlight.
+[If the flashlight fails to work - Drop it, light a match and light the lantern.]
+Get robe. NW. North. North. Open tin. Put oil on hatch. Open hatch. Up. East.
+West. NW. East. Unlock drawer. Open drawer (2p). Get all from drawer.
+Read letter. Put bronze key on keyring. West. West. West. North. West. North.
+[Remember that newspaper-article - If the kidnapped boy (Jeffrey Greer) was
+abducted from #11 Mill Town Road, this is the door you should knock on.]
+Knock on door 11. Give teddy to woman (2p). Look in overalls. Get long steel
+key (1p). Put it on keyring. West. South. South. Search thicket. Unlock hatch.
+Get lantern. [from your coat's pocket] North. [The flashlight doesn't work.]
+Light match. Light lantern. Put towel on valve. Turn wheel (1p). North. North.
+Open hatch. Wait. Wait. North. Tie chain to me. Look at controls. Pull lever (2p).
+Untie chain. North. Read notes. Get caliper. Get memo. Get Blueprint. Read it.
+[The blueprint hold two numbers: "0.0113" and a variable, that changes each time
+you restart the game. Now you need to find the mirror from the mirror rack that
+measures the same as the variable-number, this is done by: Get mirror 1.
+Put it in caliper. (If the number is wrong, drop it, and continue this procedure
+with all 4 mirrors - One of them has the same measure as the blueprint variable.
+Hold on to this mirror but drop all the others). Let's assume from this point
+onwards that the correct mirror is mirror #4.]
+Get mirror 4. Put it in caliper. [We have a match!] Open tin. Rub oil on mirror 4.
+South. Down. Jump off equipment. South. South. South. South. NE. East.
+[Now you spot Michael by the lighthouse.] East. NE. East. Up. Down. [Ouch!]
+
+THE LAST NIGHT:
+Break door. Break door. Get glass. Look at window pane. Put glass in crack.
+Cut jacket with glass (2p). Open closet. Wear coat. Get all from closet. South.
+South. Unlock west door. Open it. West. Look in tear. Get town square (2p).
+Read it. Get needle. East. South. [A madman approaches..] South. Down.
+Get lantern [from your coat's pocket]. Light match. Light lantern. North. North.
+Get magazine. Give magazine to madman. Get large key. Put it in keyring. Unlock
+gate. North. North (2p). [the madman escapes] North. Remove coat. Wear robe.
+East. Wait (x5) [until a small, shiny object falls out of the bum's clothes.]
+Look. Put all in pocket. Get amulet (2p). North. Give gold locket to creature.
+Hit creature with hook (2p). North. West. North. East. NE. Unlock door. Open it.
+East. Up. Look at device. Get real mirror. Wait. Wait.  Give mirror 4 to Michael.
+[The Island of Flesh.] Wait (x9) [until the people start fleeing from the island.]
+(5p). Pick cuffs with needle. Free boy (5p). West. SW. SW. West. West. North.
+Wait. South. East. South. East. South. South. Touch obelisk. Show ring to Michael
+(5p). Show amulet to Michael (5p). [Remember the last time you were in the
+Burial Mound - Now attune the flute like you did back then, ie. "cover hole 3".
+"cover hole 5" and..] Play flute (15).
+
+* EPILOGUE *
+Go north. Get test. Look at little window.
+
+--You have won... for now--
+
+In this game you scored 100 out of possible 100 points!

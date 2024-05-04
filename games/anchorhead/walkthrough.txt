@@ -1,147 +1,1615 @@
+spawn dfrotz -m -s 4 anchor.z8
+Using normal formatting.
+Loading anchor.z8.
 
-Anchorhead
+
+
+
+
+
+
+
+               [Press 'R' to restore; any other key to begin]
+
+
+
+You take a deep breath of salty air as the first raindrops begin to spatter the
+pavement, and the swollen, slate-colored clouds that blanket the sky mutter
+ominous portents amongst themselves over the little coastal town of Anchorhead.
+
+Squinting up into the glowering storm, you wonder how everything managed to
+happen so fast. The strange phone call over a month ago, from a lawyer claiming
+to represent the estate of some distant branch of Michael's family, was
+bewildering enough in itself... but then the sudden whirlwind of planning and
+decisions, legal details and travel arrangements, the packing up and shipping
+away of your entire home, your entire life...
+
+Now suddenly here you are, after driving for the past two days straight, over a
+thousand miles away from the familiar warmth of Texas, getting ready to move
+into the ancestral mansion of a clan of relatives so far removed that not even
+Michael has ever heard of them. And you've only been married since June and none
+of this was any of your idea in the first place, and already it's starting to
+rain.
+
+These days, you often find yourself feeling confused and uprooted.
+
+You shake yourself and force the melancholy thoughts from your head, trying to
+focus on the errand at hand. You're to meet with the real estate agent and pick
+up the keys to your new house while Michael runs across town to take care of
+some paperwork at the university. He'll be back to pick you up in a few minutes,
+and then the two of you can begin the long, precarious process of settling in.
+
+A sullen belch emanates from the clouds, and the rain starts coming down harder
+-- fat, cold drops smacking loudly against the cobblestones. Shouldn't it be
+snowing in New England at this time of year? With a sigh, you open your
+umbrella.
+
+Welcome to Anchorhead...
+
+
+
+
+
+
+
+
+
+
+
 An interactive gothic by Michael S. Gentry
+
+(Type HELP or ABOUT for some useful information.)
+
 Release 5 / Serial number 990206 / Inform v6.15 Library 6/7
 
-The Complete Step-by-Step Walkthru with score-notification by Aeron Pax.
 
-Note: Some variables change from game to game...
- - Torn Journal (the combination to the safe).
- - Strange metal flute (correct attunation).
- - Blueprint & Mirror rack (the correct measurement).
+A grim little cul-de-sac, tucked away in a corner of the claustrophobic tangle
+of narrow, twisting avenues that largely constitute the older portion of
+Anchorhead. Like most of the streets in this city, it is ancient, shadowy, and
+leads essentially nowhere. The lane ends here at the real estate agent's office,
+which lies to the east, and winds its way back toward the center of town to the
+west. A narrow, garbage-choked alley opens to the southeast.
+
+>inventory
 
 
-DAY 1:
-Se. Push can against wall. Climb can. Up. West. Push play.
-East. Look up Verlac (2p). West. Unlock Door. West. West.
-West. NW. West. Read book. Show keys to Michael (2p). East.
-SE. East. South. South. East. South. SW. NW. Unlock door.
-North.
-  
-DAY 1, EVENING:
-Close door. Lock door. Up. North. Undress. Drop all. West.
-Bathe. East. Lie in bed. Sleep.
+You are wearing your wedding ring, your trenchcoat and your clothes; in
+addition, you have in your hand your umbrella.
 
-DAY 2:
-Look. Get wallet. Open it. Get card. Leave bed. Dress.
-Get all. Wear coat. South. Down. West. Open cupboard.
-Pull lining (2p). Read journal. [Note the combination to the safe.]
-North. Get flashlight. Open Cabinet. Get matches. Turn on flashlight.
-NW. Get broom. Unlock door. Down. South. Search crates. Get box.
-Read clippings. [You should know learn the following names of the
-Verlac family: Mordecai, Elijah, Heinrich & Wilhelm.] Drop cardboard
-box. Wipe web. Drop broom. Get key (1p). Put key on keyring. North. Up. SE.
-East. East. Look at paintings. Look at scene. South. Get album. Look up 
-Wilhelm in album. Look up Eustacia in album. Look up Croseus in album.
-West. Up. East. North. Get volume. Read it. Look at bookshelf. 
-Get Poe (1p). Examine safe. [ Now "turn the dial to x", three times,
-where x equals the appropriate combination found in the torn journal.
-This opens the safe - (2p).] Look in safe. Get puzzle box and flute.
-South. South. Open jewelry box. Get silver locket. Push bed. 
-Look in hole. Get pages (2p). Read pages. [You learn the name William.]
-North. West. Down. North. West. Unlock door. North. NW. Unlock crypt.
-Down. Examine coffin. Look up William on nameplate. Open William's coffin.
-Get skull. Up. SE. South. Close door. Lock door. East. South. Unlock door.
-South. SE. NE. North. West. Get newspaper. Read it. South. South. SE.
-Look up Edward in record. Look up Mordecai in record. Look up Elijah in
-record. Look up Heinrich in record. Look up Wilhelm in record. NW. SW.
-Look up Edward in record. Look up Mordecai in Record. Look up Elijah in
-record. Look up Heinrich in record. [You seem to be uncovering a pattern
-here;] Look up Wilhelm in record. NE. North. North. North. North. West.
-NW. West. North. Ring bell. Show card to librarian. Ask librarian for
-book (2p). Open Historical. Get slip of paper. Read it. Read Historical
-(1p). Drop it. South. East. SE. East. North. Get Lantern. South. Look 
-under table. Get flask. South. NW. Read wall. West. South. Look in display
-case. Ask proprietor about amulet (5p). Give puzzle box to him (2p).
-Get puzzle box. North. East. SW. South. South. East. East. Give flask to bum
-(2p). Ask bum about himself. Ask bum about brother. Ask bum about Anna. 
-Ask bum about crypt. Tell bum about skull. Show skull to bum. 
-Give amulet to bum (5p). 
+The pockets of your trenchcoat are empty.
 
-DAY 2, EVENING:
-Put copper key on keyring. SE. Get tin. NW. West. South. SW. NW. North.
-[Michael is missing.] Close door. Up. East. North. East. Get letter opener.
-Look at screen. Remove ring. Look at it. Wear it. Type 0628 on laptop (2p).
-Look at screen. West. South. Pull cord. Up. Push newspaper under door.
-Put letter opener in keyhole. Get newspaper. Get brass key (1p). Put brass
-key on keyring. Unlock door. North. Search straw. Get gold locket. South.
-Down. West. North. West. Get towel. East. Undress. Drop all. Lie in bed. Sleep.
+>se
 
-DAY 3:
-Leave bed. Dress. Wear coat. Get all. South. East. North. East. Look at
-fireplace. Turn sphere. SW. West. Look in hole. East. Look in hole. NW.
-Look in hole (2p). SW. SE. Put lens in telescope [the disk in the puzzle box].
-Look in telescope (5p). [You've learned then name: Ialdabaoloth.] SE. East.
-Down. West. Down. North. West. NW. Down. East. Search wine rack. 
-[By examining the five bottles, you find 5 different letters.]
-Turn c. Turn w. Turn h. Turn e. Turn m (2p). [A secret passage to the north.]
-North. North. North. NE. Down. Say ialdabaoloth. North.
-[Now you must attune the flute until you hear the right-hand column's
-vibrations grow stronger, resonating in harmony with the note of the flute.
-The flute's attunation changes with each time you restart the game, so
-follow this procedure: Play flute. Cover hole 1. Play flute. Remove finger
-from flute. Cover hole 2. Play flute. etc.. Continue with this, covering
-one hole at a time until you have found two different settings on the flute
-which ressonates in harmony with the column - Remember them for later! 
-Ie. if the columns resonate with the flute when you have covered hole 3 and
-hole 5 - You should cover both hole 3 and 5 on the flute, before playing
-to summon the portal to The Womb of Nehilim, but don't do this ...yet.]
-South. Up. SW. NW. East. Down. West. Down. South. SE. NE. South. South. 
-Look at woods. West. SW. West. Get drawing paper. Get Hook. South. Lift
-plywood cover. Down. Search bones. Get Teddy. Up. North. East. South. Down.
-Hide under bones. Wait (2p). Up. Up. North. East. NE. East. North. East. SE.
-Break padlock with hook (1p). Down. Look at shape. Search shape. Put steel key
-on keyring. Look at furnace. Open hatch. West. [If you lantern is burning,
-now is a good time to "extinguish lantern".] Put all in pocket. Jump onto
-riser. North. Get cloth. East. Read huge tome. [At the question "Will you
-read on?" - Answer "no".] East. Up. Up. Get rope. Down. West. West. South.
-Drop robe in shaft. Tie rope to railing. Down. Drop rope (2p). Light flashlight.
-[If the flashlight fails to work - Drop it, light a match and light the lantern.]
-Get robe. NW. North. North. Open tin. Put oil on hatch. Open hatch. Up. East.
-West. NW. East. Unlock drawer. Open drawer (2p). Get all from drawer.
-Read letter. Put bronze key on keyring. West. West. West. North. West. North.
-[Remember that newspaper-article - If the kidnapped boy (Jeffrey Greer) was
-abducted from #11 Mill Town Road, this is the door you should knock on.]
-Knock on door 11. Give teddy to woman (2p). Look in overalls. Get long steel
-key (1p). Put it on keyring. West. South. South. Search thicket. Unlock hatch.
-Get lantern. [from your coat's pocket] North. [The flashlight doesn't work.]
-Light match. Light lantern. Put towel on valve. Turn wheel (1p). North. North.
-Open hatch. Wait. Wait. North. Tie chain to me. Look at controls. Pull lever (2p).
-Untie chain. North. Read notes. Get caliper. Get memo. Get Blueprint. Read it.
-[The blueprint hold two numbers: "0.0113" and a variable, that changes each time
-you restart the game. Now you need to find the mirror from the mirror rack that 
-measures the same as the variable-number, this is done by: Get mirror 1.
-Put it in caliper. (If the number is wrong, drop it, and continue this procedure
-with all 4 mirrors - One of them has the same measure as the blueprint variable.
-Hold on to this mirror but drop all the others). Let's assume from this point
-onwards that the correct mirror is mirror #4.] 
-Get mirror 4. Put it in caliper. [We have a match!] Open tin. Rub oil on mirror 4.
-South. Down. Jump off equipment. South. South. South. South. NE. East.
-[Now you spot Michael by the lighthouse.] East. NE. East. Up. Down. [Ouch!]
 
-THE LAST NIGHT:
-Break door. Break door. Get glass. Look at window pane. Put glass in crack.
-Cut jacket with glass (2p). Open closet. Wear coat. Get all from closet. South.
-South. Unlock west door. Open it. West. Look in tear. Get town square (2p).
-Read it. Get needle. East. South. [A madman approaches..] South. Down. 
-Get lantern [from your coat's pocket]. Light match. Light lantern. North. North.
-Get magazine. Give magazine to madman. Get large key. Put it in keyring. Unlock
-gate. North. North (2p). [the madman escapes] North. Remove coat. Wear robe.
-East. Wait (x5) [until a small, shiny object falls out of the bum's clothes.]
-Look. Put all in pocket. Get amulet (2p). North. Give gold locket to creature.
-Hit creature with hook (2p). North. West. North. East. NE. Unlock door. Open it.
-East. Up. Look at device. Get real mirror. Wait. Wait.  Give mirror 4 to Michael.
-[The Island of Flesh.] Wait (x9) [until the people start fleeing from the island.]
-(5p). Pick cuffs with needle. Free boy (5p). West. SW. SW. West. West. North.
-Wait. South. East. South. East. South. South. Touch obelisk. Show ring to Michael
-(5p). Show amulet to Michael (5p). [Remember the last time you were in the 
-Burial Mound - Now attune the flute like you did back then, ie. "cover hole 3". 
-"cover hole 5" and..] Play flute (15).
 
-* EPILOGUE *
-Go north. Get test. Look at little window.
+This narrow aperture between two buildings is nearly blocked with piles of
+rotting cardboard boxes and overstuffed garbage cans. Ugly, half-crumbling brick
+walls to either side totter oppressively over you. The alley ends here at a
+tall, wooden fence.
 
---You have won... for now-- 
+High up on the wall of the northern building there is a narrow, transom-style
+window.
 
-In this game you scored 100 out of possible 100 points!
+>push can against wall
 
+
+Grunting and holding your breath, you manhandle one of the filthy cans under the
+window.
+
+In the distance, you can hear the lonesome keening of a train whistle drifting
+on the wind.
+
+>climb can
+
+
+You clamber onto the wobbling garbage can, precariously balanced. You can just
+reach the lower edge of the window from here.
+
+>up
+
+
+(opening the transom window first)
+(closing the umbrella first)
+It's a tight squeeze, but you just manage to wriggle through, dropping quietly
+to the floor inside.
+
+
+Peering through the murk, you can make out the blocky outlines of filing
+cabinets lining the walls and a doorway to the west. A window high up on the
+south wall lets in a very faint illumination.
+
+>west
+
+
+
+Pallid gray light trickles in through the drawn blinds. The office is deserted,
+papers still scattered across the top of the desk. The front door lies west, and
+the file room lies east.
+
+Sitting on the corner of the paper-strewn desk are a telephone and an answering
+machine.
+
+Someone seems to have left a cup of coffee sitting out, half-finished and cold.
+
+>push play
+
+
+For a while there is nothing but a quiet hiss, followed by intermittent skirls
+of strange-sounding static. It sounds like one of those annoying glitches where
+the caller hangs up but the machine keeps recording anyway. Then, barely audible
+through the static, you detect what sounds like a human voice whispering a
+single word:
+
+
+
+The machine beeps.
+
+A brief shudder ripples up your back. You remember now, "Verlac" is the name of
+this branch of Michael's family.
+
+>east
+
+
+
+Peering through the murk, you can make out the blocky outlines of filing
+cabinets lining the walls and a doorway to the west. A window high up on the
+south wall lets in a very faint illumination.
+
+>look up Verlac
+
+
+(in the filing cabinets)
+Strange; the file on the Verlac property has been cleaned out. Title, deed, all
+the papers, all of it gone. There is, however, a set of keys tucked down in the
+hanging folder. You quickly pocket them.
+
+
+
+>west
+
+
+
+Pallid gray light trickles in through the drawn blinds. The office is deserted,
+papers still scattered across the top of the desk. The front door lies west, and
+the file room lies east.
+
+Sitting on the corner of the paper-strewn desk are a telephone and an answering
+machine.
+
+Someone seems to have left a cup of coffee sitting out, half-finished and cold.
+
+>unlock door
+
+
+You unlock the office door.
+
+>west
+
+
+(opening the real estate office door first)
+The rain is still coming down, so you open your umbrella.
+
+
+A grim little cul-de-sac, tucked away in a corner of the claustrophobic tangle
+of narrow, twisting avenues that largely constitute the older portion of
+Anchorhead. Like most of the streets in this city, it is ancient, shadowy, and
+leads essentially nowhere. The lane ends here at the real estate agent's office,
+which lies to the east, and winds its way back toward the center of town to the
+west. A narrow, garbage-choked alley opens to the southeast.
+
+The office door is open.
+
+>west
+
+
+
+As the lane winds along from east to west, it narrows until the steep, jagged
+rooftops on either side of the street practically touch each other. To the
+south, a side street leads across Whateley Bridge toward the center of town, and
+a twisting lane leads up a hill to the northwest. A short flight of steps to the
+north leads down to the local watering hole.
+
+>west
+
+
+
+To the north, a gap in the crowded press of gloomy buildings opens onto a
+country lane, heading out over a grassy heath. The main street continues to the
+east, while to the northwest, over the top of a steep rise, you can just make
+out the vaulted rooftops of the university.
+
+>nw
+
+
+
+Isolated and serene within its high, ivy-covered walls, Miskaton University
+represents this benighted town's single, if somewhat dubious, claim to cultural
+achievement. Founded some time in the early 1800s, the school's reputation and
+enrollment have diminished somewhat as Anchorhead drifts further and further
+into the abyss of provincial backwaterism. Still, it is generally recognized for
+its collection of folklore and esoteric mythology (one of the oldest and most
+extensive on the east coast). The Board of Deans was also kind enough to offer
+Michael a full professorship upon hearing of his recently discovered heritage
+and his plans to move into the estate. Ivory tower, perhaps, but at least they
+take care of their own.
+
+There are numerous buildings surrounding this cobbled court, but the only one
+you are interested in is the library to the west, where Michael told you he'd be
+until he came back to the real estate agent's office to pick you up. Which,
+incidentally, he has not yet done.
+
+>west
+
+
+You close your umbrella, as is your habit after coming indoors.
+
+
+Shadows roost thickly in the vaulted ceiling, and small, green-shaded desk lamps
+cast pools of warm radiance here and there around the library's dim interior.
+You pause a moment to let the hushed peacefulness of this place soak in -- a
+welcome relief from the unsettling events of the day. An exit lies east, and a
+small alcove to the north houses the circulation counter.
+
+Peering through the shadows, you spot your husband sitting at one of the reading
+desks, absorbed in some sort of weighty tome and clearly oblivious to the time.
+
+>read book
+
+
+Michael looks up, startled, then realizes it's you and smiles. "Hi, hon," he
+says, closing the book and stretching. Then he glances at his watch. "Good
+grief, what happened to the time? I'm so sorry -- I just lost track." He smiles
+sheepishly.
+
+"Well?" he asks. "Did you get the keys?"
+
+>show keys to Michael
+
+
+"Great!" says Michael. "You hang on to that. Just a second, I'll put this back."
+He takes the book up to the circulation desk and hands it to the librarian.
+"Okay then," he says, returning, "let's go."
+
+Michael suddenly smacks his forehead. "Oh, crap, I forgot to tell you. The car
+broke down." He spreads his hands. "I don't know what happened to it; one second
+I'm parking outside, the next second it dies and I can't get it started again. I
+called a tow truck, but the nearest garage is up in Arkham. They picked it up
+but won't be able to look at it until next week at the earliest. Anyway, it
+looks like we'll have to walk back to the house." He offers you a lame smile.
+"You can hold the umbrella."
+
+
+
+>east
+The rain is still coming down, so you open your umbrella.
+
+
+Isolated and serene within its high, ivy-covered walls, Miskaton University
+represents this benighted town's single, if somewhat dubious, claim to cultural
+achievement. Founded some time in the early 1800s, the school's reputation and
+enrollment have diminished somewhat as Anchorhead drifts further and further
+into the abyss of provincial backwaterism. Still, it is generally recognized for
+its collection of folklore and esoteric mythology (one of the oldest and most
+extensive on the east coast). The Board of Deans was also kind enough to offer
+Michael a full professorship upon hearing of his recently discovered heritage
+and his plans to move into the estate. Ivory tower, perhaps, but at least they
+take care of their own.
+
+There are numerous buildings surrounding this cobbled court, but the only one
+you are interested in is the library to the west.
+
+Michael hurries to catch up.
+
+"We really should be getting on to the house, don't you think?" asks Michael.
+"It's a bit rainy out."
+
+
+
+>se
+
+
+
+To the north, a gap in the crowded press of gloomy buildings opens onto a
+country lane, heading out over a grassy heath. The main street continues to the
+east, while to the northwest, over the top of a steep rise, you can just make
+out the vaulted rooftops of the university.
+
+Michael hurries to catch up.
+
+The clouds overhead mutter restlessly to themselves.
+
+>east
+
+
+
+As the lane winds along from east to west, it narrows until the steep, jagged
+rooftops on either side of the street practically touch each other. To the
+south, a side street leads across Whateley Bridge toward the center of town, and
+a twisting lane leads up a hill to the northwest. A short flight of steps to the
+north leads down to the local watering hole.
+
+Michael strolls along after you.
+
+The clouds overhead mutter restlessly to themselves.
+
+>south
+
+
+
+A hoary monument of crumbling, moss-eaten flagstones, Whateley Bridge is
+possibly older than any other structure in the entire city. Ponderously it spans
+the dark, torpid waters of the Miskaton River, connecting the north and south
+halves of the city and occasionally raining bits of gravel and mortar from its
+underside into the water. It looks just wide enough for two cars to pass each
+other between the flanking stone parapets, but you wouldn't volunteer to try it.
+
+Michael follows you.
+
+>south
+
+
+
+A wide expanse of uneven pavestones lies open to the sky, bordered on all sides
+by the leaning, steep-roofed architecture that looms over everything in this
+city. The municipal courthouse stands at the south end of the square, next to
+the mouth of a dark, narrow alley to the southwest. Avenues to the west and east
+lead back into the cramped and ingrown streets, while to the north lies Whateley
+Bridge.
+
+In the center of the square, rising from a circular lawn of unhealthy-looking
+grass and weeds, stands a strange, stone obelisk. It seems to be a monument of
+some sort, although you can see no plaque or marker anywhere near it.
+
+Michael hurries to catch up.
+
+>east
+
+
+
+A low, irregular brick wall to the north divides this street from the steep,
+mud-slick banks of the sinuous Miskaton, while a rusty iron gate provides access
+to a precarious flight of stone steps leading down the bank to the water's edge.
+The street bends south here, turning into a misty avenue between the trees. The
+town square lies west, a vacant lot lies east.
+
+Michael hurries to catch up.
+
+>south
+
+
+
+Perhaps it is merely the effect of some unwholesome vapour rising from the murky
+waters of the nearby Miskaton, but the temperature along this street seems
+perceptibly cooler than normal, even for a New England autumn. Two dirt roads
+lead south and southwest, into the dense woods at the edge of town.
+
+A clammy mist hangs thickly in the air, seeping through your clothes and making
+you shiver.
+
+Michael strolls along after you.
+
+>sw
+
+
+As you walk through, the mists part before your husband almost deferentially,
+quickly dissolving away into nothing.
+
+The ground begins to rise sharply as the road climbs up into the hills south of
+town.
+
+
+The treeline falls away on the north side of this northwest-northeast bend in
+the road, giving way to a panoramic view of the Miskaton River Valley and the
+grubby little town of Anchorhead nestled within it. From here you can see the
+paper mill almost directly to the north; the solitary lighthouse and surrounding
+ocean to the northeast; and the dilapidated stone church below you to the east.
+Winding through it all is the oily black ribbon of the Miskaton, and almost
+directly in the center lies the little clearing of Town Square. You can just
+make out the shape of the obelisk from here.
+
+Michael hurries to catch up.
+
+>nw
+
+
+
+The lane runs up from the southeast and ends at a wide clearing surrounded by
+gnarled and ancient trees. A wide, curving driveway runs up to the front door of
+your house, which lies north.
+
+The fabled Verlac family mansion looms before you in the gloom, its dark
+creaking presence dominating the clearing and, somehow, even though it is not
+visible through the trees, the entire valley. The foreboding shadow of the
+Verlacs seems to enshroud all of Anchorhead from here.
+
+A typewritten notice has been attached to the front door.
+
+Michael follows you.
+
+"Well," says Michael, "this must be the place. We finally made it, honey. We're
+home!"
+
+>unlock door
+
+
+You unlock the front door.
+
+>north
+(opening the front door first)
+You close your umbrella, as is your habit after coming indoors.
+
+
+Although it appears spacious from the outside, the house's interior feels
+cramped and gloomy. The walls seem too close together; the ceiling is too high.
+The doorways, leading in several directions, are narrow and filled with shadows,
+and the stairs leading up to the second floor are steep and rickety. This is not
+a house that makes you feel welcome. It is a house that makes you feel tiny and
+timid, and afraid of dark places. It is a house that makes you feel alone.
+
+The front door stands open to the south.
+
+Carelessly stacked in a towering heap in the middle of the room are all your
+luggage and belongings, which you had sent ahead through a moving company before
+driving up to Massachusetts. Everything you own is boxed away and piled up in
+the middle of the floor. The reality of this move finally slams home as you
+stare at the sprawling jumble of stuff, and suddenly you feel very lost and
+adrift.
+
+Night has now undeniably fallen, and the house is very, very dark. There is
+
+
+
+probably just enough residual ambience to feel your way upstairs to the bedroom,
+but the rest of the house is a tenebrous maze of shadows, and any exploring
+would probably best be done in the morning.
+
+Michael strolls along after you.
+
+Michael stretches his arms and yawns. "Well," he says, "I think I'm going to
+turn in. There'll be plenty of time to unpack and explore tomorrow. Good night,
+hon." He kisses you on the cheek. "Don't stay up too late."
+
+And with that, he goes upstairs.
+
+>close door
+
+
+You close the front door.
+
+>lock door
+
+
+You lock the front door.
+
+>up
+
+
+
+A narrow hallway runs east, from the top of the stairs down the length of the
+house. To the north, directly opposite the stairs, is the master bedroom.
+
+>north
+
+
+
+The master bedroom is a picture-postcard of rustic New England charm. Faded
+sketches of rural landscapes adorn the walls; a beautifully carved dressing
+mirror stands in one corner; an old-fashioned accordion radiator gurgles quietly
+beneath the window. The most striking feature, an enormous, antique, four-poster
+bed, must be the largest piece of furniture in the house.
+
+Michael is curled up in bed, sound asleep.
+
+If it weren't for this hopelessly backwater town and the disturbing
+circumstances surrounding the house, you'd say this was your dream home. Even
+so, as much as you would like to relax and enjoy the comforts of a fully
+furnished historical New England estate, you can't help but be put off by the
+shady aura surrounding the family that used to live here. The last of the line,
+you remind yourself, recently committed suicide after killing his wife and two
+daughters with a shotgun. Involuntarily you shiver, glancing nervously at the
+doorways to the south and west.
+
+>undress
+
+
+You take off the trenchcoat.
+You take off the clothes.
+
+>drop all
+
+
+keyring: Dropped.
+trenchcoat: Dropped.
+clothes: Dropped.
+umbrella: Dropped.
+
+>west
+
+
+
+A small chamber of cold, white tile and floral-print wallpaper. It sports a
+genuine, whitewashed, claw-foot bathtub with a shower attachment, which is a
+definite plus. The bedroom lies east.
+
+>bathe
+
+
+Grateful for the opportunity to relax, you draw a hot bath (the water, at least,
+is running, even if nothing else in the house is) and soak. The tension of this
+strange day melts gently from your body. After thirty minutes or so, you begin
+to feel normal again. After forty-five, you begin to think you might be able to
+adjust to this place after all. By then the water has begun to cool off,
+however, so you drain it and quietly dry yourself off. All in all, you feel
+enormously better.
+
+
+
+>east
+
+
+
+The master bedroom is a picture-postcard of rustic New England charm. Faded
+sketches of rural landscapes adorn the walls; a beautifully carved dressing
+mirror stands in one corner; an old-fashioned accordion radiator gurgles quietly
+beneath the window. The most striking feature, an enormous, antique, four-poster
+bed, must be the largest piece of furniture in the house. Doorways lead west and
+south.
+
+Your clothes lie in an untidy pile on the floor.
+
+Your trenchcoat is here.
+
+Michael is curled up in bed, sound asleep.
+
+You can also see your umbrella and a keyring (on which are Warning: @get_prop
+called with object 0 (PC = 16120) (will ignore further occurrences)
+two keys (a key to the house and a key to the cellar)) here.
+
+>lie in bed
+
+
+Gratefully, you crawl into bed and pull the covers up to your chin.
+
+>sleep
+Almost immediately you fall asleep, and as the wind slithers around the eaves
+and the house creaks furtive secrets to itself, you drift into troubling
+dreams...
+
+
+You are waiting in your bed, with the coverlet up under your chin, waiting for
+Father to come tuck you in. Footsteps in the hall pause outside your door. You
+close your eyes; when you open them again Father is standing at the foot of the
+bed. His eyes are bloodshot, rimmed with red, and you wonder if he has been
+crying. Slowly, he starts to take off his belt.
+
+Only it's not your father after all, it's Michael. He hands you a golden sphere
+and says:
+
+"I don't know what it opens yet but I have an idea."
+
+Your reflection is like a little doll trapped inside the sphere. Everything is
+tinged with gold. Your face swells and stretches comically as you stare back at
+yourself through the curved, distorting walls. Reaching out, your fingers curve
+back on themselves... the wall breaks and...
+
+You are running from the eyes, the terrible red-rimmed eyes, through endless,
+narrow corridors of wooden slats and crumbling plaster. You stumble through turn
+after turn, hopelessly lost. There is a small hole in the boards -- peering
+
+through it you see Michael in the study, typing diligently away. You scream, you
+pound on the wall, but he can't hear you. The red-rimmed eyes draw closer;
+hurrying down a twisting passage you find a dead end... the wall breaks and...
+
+Outside, you stand at another dead end, a high brick wall at the end of a steep,
+twisting lane. Written in black spraypaint...
+
+
+
+Behind you, you hear the buzzing of a fly. You turn...
+
+
+
+
+
+
+
+
+
+
+
+
+
+You wake up. Steam billows gently by, and you can hear the sound of running
+water coming from the bathroom.
+
+>look
+
+
+, on the four-poster bed
+The master bedroom is a picture-postcard of rustic New England charm. Faded
+sketches of rural landscapes adorn the walls; a beautifully carved dressing
+mirror stands in one corner; an old-fashioned accordion radiator gurgles quietly
+beneath the window. The most striking feature, an enormous, antique, four-poster
+bed, must be the largest piece of furniture in the house. Doorways lead west and
+south.
+
+Your clothes lie in an untidy pile on the floor.
+
+Your trenchcoat is here.
+
+You can also see your umbrella and a keyring (on which are two keys (a key to
+the house and a key to the cellar)) here.
+
+On the four-poster bed you can see Michael's pants (in which is Michael's wallet
+(which is closed)).
+
+>open wallet
+
+
+(first taking the wallet)
+With a nervous glance toward the bathroom, you slip the wallet from Michael's
+pants.
+You open the wallet, revealing Michael's faculty card.
+
+You can hear Michael splashing around, noisily enjoying his shower.
+
+>get card
+
+
+The shower suddenly stops. Quickly you palm the card, replace the wallet and
+arrange the pants the way you found them. A moment later Michael emerges from
+the bathroom, toweling his hair. "My, don't you look tempting this morning," he
+says, giving you a kiss. He tosses the towel back into the bathroom and gets
+dressed. "I think I'm going to stay home and get some writing done. I don't
+actually start work until tomorrow, so..." He kisses you on the cheek as he
+walks out into the hall. "If you go out today, see if you can find a newspaper.
+I want to learn as much as I can about this town."
+
+He looks at you for a moment, and his voice becomes serious. "I love you, hon.
+You know that, don't you? I really want us to try and be happy here."
+
+Then he turns and pads down the hall.
+
+You take a deep breath as he goes. You've never lied to Michael or hidden
+anything from him before, ever; now, hardly two days into your new life, you're
+already sneaking through his wallet.
+
+Oh yeah. You're off to a great start.
+
+>leave bed
+
+
+Reluctantly, you do so.
+
+
+The master bedroom is a picture-postcard of rustic New England charm. Faded
+sketches of rural landscapes adorn the walls; a beautifully carved dressing
+mirror stands in one corner; an old-fashioned accordion radiator gurgles quietly
+beneath the window. The most striking feature, an enormous, antique, four-poster
+bed, must be the largest piece of furniture in the house. Doorways lead west and
+south.
+
+Your clothes lie in an untidy pile on the floor.
+
+Your trenchcoat is here.
+
+You can also see your umbrella and a keyring (on which are two keys (a key to
+the house and a key to the cellar)) here.
+
+>dress
+
+
+(first taking the clothes)
+You put on the clothes.
+
+>get all
+
+
+umbrella: Taken.
+trenchcoat: Taken.
+keyring: Taken.
+
+>wear coat
+
+
+You put on the trenchcoat.
+
+>south
+
+
+
+A narrow hallway runs east, from the top of the stairs down the length of the
+house. To the north, directly opposite the stairs, is the master bedroom.
+
+>down
+
+
+
+Although it appears spacious from the outside, the house's interior feels
+cramped and gloomy. The walls seem too close together; the ceiling is too high.
+The doorways, leading in several directions, are narrow and filled with shadows,
+and the stairs leading up to the second floor are steep and rickety. This is not
+a house that makes you feel welcome. It is a house that makes you feel tiny and
+timid, and afraid of dark places. It is a house that makes you feel alone.
+
+Your luggage is still here, spread out all over the foyer.
+
+>west
+
+
+
+Much of the elegance has faded from this room. The huge dining table running the
+length of it is covered with a thick gray film of dust, and the china cupboard
+standing against the far wall is draped in shadow. Doorways to the north and
+east offer little relief from the gloom. For what must be the hundredth time,
+you wish you could open the windows in this place.
+
+>open cupboard
+
+
+The cupboard is empty; the china must have been auctioned off, in the confusion
+before Michael was contacted, perhaps. Down at the bottom of the cupboard is a
+velvet lining, where the silverware would usually be kept.
+
+>pull lining
+
+
+You pull the lining back a bit further and discover a thin, palm-sized journal
+tucked underneath it. Intrigued, you pull the little book free.
+
+
+
+>read journal
+It's a slim little book, no bigger than your hand, bound in imitation leather.
+The mice really have been at it; most of the pages have been chewed away.
+
+What's left of the journal reads:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+The text breaks off as several more pages are missing. the last fragmented entry
+reads:
+
+
+
+>north
+
+
+
+Where once pots and skillets and various utensils hung in profusion, the kitchen
+walls are now merely ranks of dusty cabinets and a forest of empty hooks.
+Doorways lead east and south, a small pantry lies to the northwest, and the back
+door to the north leads out of the house.
+
+Someone's flashlight is lying on the kitchen counter; one of the movers must
+have left it.
+
+An odd feeling of gloom overtakes you momentarily, and you find yourself
+thinking about the Verlac family's personal effects -- the everyday mundanities,
+such as kitchen utensils. Were they thrown out, or donated to charity, or
+auctioned off as grisly souvenirs? What about the canned goods? Did anyone think
+to take them? The cabinets might even still be stocked. Morbidly, you wonder
+what Mrs. Edward Verlac might have been cooking for dinner the night her husband
+blew her head off.
+
+>get flashlight
+
+
+(slipping the faculty card into the pocket of your trenchcoat to get a hand
+free)
+You pick up the flashlight. It's battery-powered, and waterproof too, by the
+look of it.
+
+The flashlight is currently switched off.
+
+>open cabinet
+
+
+The cabinets are not, after all, still stocked -- much to your relief. There's
+nothing in there but an old book of matches.
+
+>get matches
+
+
+(slipping the umbrella into the pocket of your trenchcoat to get a hand free)
+You pick up the book of matches. A label on the side reads, "Water-resistant
+matches. Strike on cover." There are six matches left.
+
+>turn on flashlight
+
+
+The flashlight emits a warm yellow beam.
+
+>nw
+
+
+
+The pantry is empty save for a layer of dust on the shelves. A door to the south
+leads down to the cellar, or you can return to the kitchen to the southeast.
+
+Leaning in the corner is an old broom.
+
+>get broom
+
+
+(slipping the keyring into the pocket of your trenchcoat to get a hand free)
+You pick up the broom. It's just an ordinary-looking broom.
+
+>unlock door
+
+
+(first taking the keyring)
+(slipping the torn journal into the pocket of your trenchcoat to get a hand
+free)
+Taken.
+You unlock the cellar door.
+
+>down
+
+
+(opening the cellar door first)
+You descend the gloomy steps into the dank cellar.
+
+
+The old, flagstone walls gleam with unwholesome-smelling moisture, and the
+sagging timbers creak uneasily above your head. Ancient, frayed wiring festoons
+the ceiling like some strange species of clinging vine. Portions of the cellar
+extend south and east into the clammy darkness, though you could always beat a
+hasty retreat up the stairs to the north.
+
+One largish bundle of wires leads down to a rusty old fuse cabinet bolted to the
+far wall.
+
+>south
+
+
+
+Old crates and boxes piled high against the walls make this room seem even
+smaller and dingier than it actually is, which is saying a lot. A doorway lies
+north; the other walls contain nothing but shadows and dirt-filled corners.
+
+>search crates
+
+
+You spend some time poking dispiritedly through boxes of second-hand table
+settings, discarded shoes and outdated encyclopedias, but the only thing you
+manage to dig up is an old cardboard box full of newspaper clippings, which
+might make interesting reading later if you can find the time. The only thing at
+all noteworthy about the room, in fact, is that it desperately wants cleaning;
+there's even a big, nasty-looking spider web in a corner behind one of the
+crates.
+
+>get box
+
+
+(the cardboard box)
+(slipping the book of matches into the pocket of your trenchcoat to get a hand
+free)
+You pick up the cardboard box. It's an old gray shoebox, ragged around the
+edges, with the lid missing.
+In the cardboard box are some newspaper clippings.
+
+>read clippings
+
+
+   > (Arkham Herald, August 12, 1956)
+     (printed notice)
+     (London Times, March 3, 1918)
+     (crumpled flyer)
+     (obituary)
+     (Arkham Herald, June 22, 1973)
+     (Arkham Herald, September 19, 1958)
+     (photostatic copy)
+     (Arkham Herald, April 9, 1935)
+     (Arkham Herald, July 7, 1988)
+     (announcement)
+
+ [press BACKSPACE to return to game]
+   >^H
+
+
+
+Old crates and boxes piled high against the walls make this room seem even
+smaller and dingier than it actually is, which is saying a lot. A doorway lies
+north; the other walls contain nothing but shadows and dirt-filled corners.
+
+A nasty-looking spider web fills one dark corner like some sort of sticky,
+fibrous mold.
+
+>drop cardboard box
+
+
+Dropped.
+
+>wipe web
+
+
+With a single sweep of the broom, you clear the spider web away.
+
+>drop broom
+
+
+Dropped.
+
+>get key
+
+
+(the old-fashioned iron key)
+You pick up the old-fashioned iron key. It's an old key, the kind with a round
+barrel about a quarter-inch in diameter and flat, square teeth.
+
+
+
+>put key on keyring
+
+
+(the old-fashioned iron key on the keyring)
+The old-fashioned iron key is now on the keyring.
+
+>north
+
+
+
+The old, flagstone walls gleam with unwholesome-smelling moisture, and the
+sagging timbers creak uneasily above your head. Ancient, frayed wiring festoons
+the ceiling like some strange species of clinging vine. Portions of the cellar
+extend south and east into the clammy darkness, though you could always beat a
+hasty retreat up the stairs to the north.
+
+One largish bundle of wires leads down to a rusty old fuse cabinet bolted to the
+far wall.
+
+>up
+
+
+Gratefully, you leave the clammy confines of the cellar behind.
+
+
+The pantry is empty save for a layer of dust on the shelves. A door to the south
+leads down to the cellar, or you can return to the kitchen to the southeast.
+
+The cellar door stands open, revealing dark stairs leading down.
+
+>se
+
+
+
+Where once pots and skillets and various utensils hung in profusion, the kitchen
+walls are now merely ranks of dusty cabinets and a forest of empty hooks.
+Doorways lead east and south, a small pantry lies to the northwest, and the back
+door to the north leads out of the house.
+
+>east
+
+
+
+A short hallway, connecting rooms to the east, west and south.
+
+>east
+
+
+
+A long, oak-paneled room, with doorways to the south and west. Paintings line
+the walls, mounted beneath small, shaded lamps that would illuminate the
+canvasses nicely if only the electricity were working. Still, even in the
+shadowed gloom you can see that all were done by the same artist.
+
+>look at paintings
+
+
+All of them are bizarre, and most of them border on the grotesque. Alien
+landscapes peopled by writhing, malformed creatures; ancient temples built in
+strange, eye-bending architectures; monstrous beasts crawling through shadows
+that cannot quite conceal their disturbingly human shapes -- these seem to make
+up the bulk of the paintings' subject matter. And yet, despite the fantastical
+nature of the images painted, the style is neither abstract nor surreal. In
+fact, the level of detail approaches the photorealistic. Excruciating attention
+has been paid to light, shadows, and textures; even the alien creatures are
+depicted with gruesome anatomical accuracy. It is as though the artist had
+worked from actual, living models rather than from what must have been a
+thoroughly deranged imagination, and the overall effect is rather chilling.
+
+One scene in particular catches your eye.
+
+>look at scene
+
+
+A group of white men in Revolutionary period clothing, taking prisoner a group
+of Native Americans. The exact situation is unclear: the white men stand around
+with muskets threatening, while the natives, who are chained together, file into
+a fenced enclosure, as though being herded into a compound of some sort.
+
+In the extreme background, at the far end of the enclosure, stands a large brick
+building. Dark, grainy smoke billows up from two stone chimneys rising above the
+structure. Leaning very close, you can just make out another group of natives
+being herded into the structure by more of the white men.
+
+You shake yourself suddenly, and realize you've been staring intently at the
+painting for minutes on end. You step back and rub your tired eyes. When you
+look again, however, the picture you were just examining is no longer in front
+of you. None of the other paintings have moved as far as you can tell, but that
+particular scene seems to have disappeared without leaving so much as a blank
+space on the wall.
+
+>south
+
+
+
+The east wall is occupied by a beautiful antique sofa, and a large, hand-woven
+rug covers the hardwood floor. The huge marble fireplace in the north wall helps
+complete the impression of comfort and warmth, and for a moment or two you can
+almost think of this place as somewhere you could live, as opposed to merely
+somewhere others have died. The foyer lies west, and a doorway to the left of
+the fireplace leads north.
+
+Your brief sense of comfort quickly drains away, however, as you become aware of
+the icy and maniacal stare emanating from the great portrait hanging over the
+mantelpiece. Under the malefic gaze of those red-rimmed eyes, the most
+comforting thought you can muster is that of immediate flight.
+
+On the sofa is a family album.
+
+>get album
+
+
+You pick up the family album. It's a slim, hardbound volume in dark leather,
+unadorned except for name "Verlac" embossed on the front. Glancing at the title
+page, you notice two details: one, the book was self-published; and two, it was
+published in 1944. So it's a good bet that Edward Verlac and his family aren't
+mentioned here.
+
+>look up Wilhelm in album
+
+
+That's not a name you're familiar with. Since the family album is filled with
+names you're not familiar with, you are unable to get very far looking for it.
+
+>look up Eustacia in album
+
+
+That's not a name you're familiar with. Since the family album is filled with
+names you're not familiar with, you are unable to get very far looking for it.
+
+>look up Croseus in album
+
+
+That's not a name you're familiar with. Since the family album is filled with
+names you're not familiar with, you are unable to get very far looking for it.
+
+>west
+
+
+
+Although it appears spacious from the outside, the house's interior feels
+cramped and gloomy. The walls seem too close together; the ceiling is too high.
+The doorways, leading in several directions, are narrow and filled with shadows,
+and the stairs leading up to the second floor are steep and rickety. This is not
+a house that makes you feel welcome. It is a house that makes you feel tiny and
+timid, and afraid of dark places. It is a house that makes you feel alone.
+
+Your luggage is still here, spread out all over the foyer.
+
+>up
+
+
+
+A narrow hallway runs east, from the top of the stairs down the length of the
+house. To the north, directly opposite the stairs, is the master bedroom.
+
+>east
+
+
+
+The shuttered window at the end of the hall throws a gloomy rectangle of light
+onto the bare wooden floor. Doorways lead north and south.
+
+There is a cord dangling in mid-air here, right about level with your face.
+
+>north
+
+
+
+Whatever else their faults may have been, the Verlacs were evidently not ones to
+shun the printed word. Books line the walls from floor to ceiling in this dark-
+paneled, green-carpeted room, interrupted only by doorways to the east and
+south. A rich, brown leather armchair sits in stately repose near the window,
+with a polished brass pipe stand nearby completing the picture of some blue-
+blooded country squire's literary refuge. Once again, you are struck by how
+easily this place could have been the perfect home.
+
+A beautiful pair of mahogany sliding doors stand closed to the east.
+
+Resting on the pipe stand is a sizable volume decorated with a gilded pentagram
+on its cover.
+
+>get volume
+
+
+()
+You pick up . It's an old medieval tome
+dated in the early 1300s, written by one Galarian Academius desChamps.
+
+>read it
+
+
+Essentially, it's a textbook on the theory and practice of magickal wards and
+seals, mystic symbols inscribed on doors and containers in order to keep people
+and spirits out -- or in. It's all very deliberately vague and arcane (in
+addition to being written in medieval French and translated into Middle English,
+making it nearly impossible to understand), the kind of thing that likely got
+many a scholar burned at the stake in those days.
+
+You are surprised to find that a page in this old and probably quite valuable
+book has been folded down, as though to mark the place. The section marked
+discusses various methods of opening doors that have been sealed with the image
+of a pagan god. Speaking aloud the deity's true name will usually do the trick,
+apparently.
+
+>look at bookshelf
+
+
+Literally hundreds of books stuff the shelves, many of them thick, cracked,
+leather-bound tomes with ribbon place-holders and titles lettered in raised gold
+leaf. It would take you years to peruse them all. However, one interesting title
+does catch your eye. An authentic first printing of Edgar Allen Poe's
+, shelved incongruously between volumes "G" and "H" of
+the Encyclopedia Americana.
+
+>get Poe
+
+
+The book sticks stubbornly at first, and, thinking that it must be tightly
+wedged in between the encyclopediae, you give it a fierce jerk. Suddenly, the
+book slides halfway out, then pops back in with a loud "snick".
+
+Amazingly, a section of the bookshelf slides back, revealing a hidden safe.
+
+
+
+>examine safe
+
+
+It's a stark cube of black, oily steel, fifteen inches to a side. Its only
+feature is a large calibrated dial set into the front.
+
+>turn the dial to 49
+
+
+The tumblers tick quietly as you turn the dial to 49...
+
+>turn the dial to 55
+
+
+The tumblers tick quietly as you turn the dial to 55...
+
+>turn the dial to 36
+
+
+The tumblers tick quietly as you turn the dial to 36...
+
+>look in safe
+
+
+You can't see inside, since the safe is closed.
+
+>get puzzle box and flute
+
+
+You can't see any such thing.
+
+>south
+
+
+
+The shuttered window at the end of the hall throws a gloomy rectangle of light
+onto the bare wooden floor. Doorways lead north and south.
+
+There is a cord dangling in mid-air here, right about level with your face.
+
+>south
+
+
+
+This must be the children's bedroom. The bed is smaller than the one in the
+master bedroom, its bright coverlet providing one of the few feeble splashes of
+color in what must have been, for most of its history, a joylessly Puritan
+household. A small vanity table occupies the opposite wall, and in the corner
+under the window stands an ancient crib. The only exit is to the north.
+
+A child's jewelry box sits on the corner of the vanity.
+
+>open jewelry box
+
+
+You open the jewelry box, revealing a silver locket.
+
+>get silver locket
+
+
+(slipping the keyring into the pocket of your trenchcoat to get a hand free)
+You pick up the silver locket. It is oval-shaped, held shut with a tiny clasp.
+
+>push bed
+
+
+Bracing yourself, you push the bed away from the wall, revealing a ragged hole
+in the wood paneling.
+
+>look in hole
+
+
+In the ragged hole is a bundle of soggy pages.
+
+>get pages
+
+
+(slipping the family album into the pocket of your trenchcoat to get a hand
+free)
+You pick up the bundle of soggy pages. It appears to have been someone's diary.
+There must have been a leak at some time behind the wall where it was hidden,
+because most of the pages are water-logged and completely illegible. However,
+portions of a few entries remain untouched.
+
+
+
+>read pages
+Carefully, you turn the tattered pages. The handwriting is that of a young girl.
+You idly wonder if this might have been the diary of one of Edward Verlac's
+daughters -- but then you notice part of a date, just visible in the corner of
+the page: 1953. This must have been written, then, several years before Edward
+was born.
+
+The entries that are legible read as follows:
+
+
+
+
+
+
+[this entry dated 1957]
+
+
+
+
+
+
+
+
+
+Nothing else is readable except for one fragmented entry near the very end of
+the book, the date in the corner reading February 27, 1961:
+
+
+
+ [a page has been torn away]
+
+
+And that's all.
+
+>north
+
+
+
+The shuttered window at the end of the hall throws a gloomy rectangle of light
+onto the bare wooden floor. Doorways lead north and south.
+
+There is a cord dangling in mid-air here, right about level with your face.
+
+>west
+
+
+
+A narrow hallway runs east, from the top of the stairs down the length of the
+house. To the north, directly opposite the stairs, is the master bedroom.
+
+>down
+
+
+
+Although it appears spacious from the outside, the house's interior feels
+cramped and gloomy. The walls seem too close together; the ceiling is too high.
+The doorways, leading in several directions, are narrow and filled with shadows,
+and the stairs leading up to the second floor are steep and rickety. This is not
+a house that makes you feel welcome. It is a house that makes you feel tiny and
+timid, and afraid of dark places. It is a house that makes you feel alone.
+
+Your luggage is still here, spread out all over the foyer.
+
+>north
+
+
+
+A short hallway, connecting rooms to the east, west and south.
+
+>west
+
+
+
+Where once pots and skillets and various utensils hung in profusion, the kitchen
+walls are now merely ranks of dusty cabinets and a forest of empty hooks.
+Doorways lead east and south, a small pantry lies to the northwest, and the back
+door to the north leads out of the house.
+
+>unlock door
+
+
+(first taking the keyring)
+(slipping  into the pocket of your
+trenchcoat to get a hand free)
+Taken.
+You unlock the back door.
+
+>north
+
+
+(opening the back door first)
+
+
+A gravel path starts here at the back door of the house, and marks a trail
+nearly overgrown by weeds and briars. It disappears into the undergrowth to the
+northwest, framed by crooked trees with overhanging branches that seem to form a
+stunted, jagged archway into the dim recesses of the forest.
+
+>nw
+
+
+Stooping to avoid the sharp, bare twigs that snag your clothes and seem to reach
+greedily for your eyes, you pick your way through the undergrowth to a small
+clearing.
+
+
+Old, moss-slimed tombstones, many broken off and leaning crazily like an old
+man's teeth, poke up from the soft, mulchy earth. In their midst stands an
+ancient marble crypt, its heavy iron door nearly obscured by thick draperies of
+ivy. The trees press close around this quiet enclave of death, leaning together
+over your head as if sharing secrets. A gap in the undergrowth to the southeast
+reveals a narrow gravel path.
+
+>unlock crypt
+
+
+You go through all the keys on your keyring, trying each one in turn, and after
+several false attempts you discover that the old-fashioned iron key fits the
+lock.
+You unlock the iron door.
+
+>down
+
+
+(opening the iron door first)
+The faint echo of dripping water and a musty smell of decay grow stronger as you
+descend.
+
+
+The air is clammy and frigid, the stone walls damp and streaked with mud and
+lichen. Pale, swollen roots push through cracks in the masonry. The smell of
+damp corruption is almost overpowering here, though the stairs to the south lead
+toward fresher air.
+
+The walls of this chamber contain dozens of wide, shallow niches; in each niche,
+a coffin.
+
+>examine coffin
+
+
+Rank upon rank of the ancient Verlac family remains are stacked away in this
+hole, left to crumble and deliquesce together, merging back into the dark matter
+which gave them birth. Above each niche is a nameplate indicating who was buried
+here and when they died.
+
+>look up William on nameplate
+
+
+(in the nameplates)
+The nameplate reads "William Verlac, b. June 22, 1954, d. September 18, 1958".
+Unlike the others, William's coffin is a ramshackle affair of cheap pine, held
+together with rusting nails. It's half-rotten with age and so shabbily built you
+could probably open it with your bare hands.
+
+>open coffin
+
+
+Compelled by a gruesome curiosity, you dig your fingers under the soft, rotting
+boards and pry up the lid. With the shriek of pulling nails and a shower of
+crumbling wood, the coffin comes open, and you look inside, expecting to find a
+child's tiny skeleton...
+
+Dear God.
+
+There's no child buried here. Instead, the coffin contains only the worm-eaten
+bones of some kind of animal.
+
+Who would have buried an animal in place of the child that should have been
+interred here? And why would they do such a thing? Glumly, you look around at
+the rest of the coffins, and realize that anyone who might have known the
+answers to these questions is probably already buried in this room.
+
+>get skull
+
+
+(slipping the silver locket into the pocket of your trenchcoat to get a hand
+free)
+You pick up the animal's skull. The gruesome thing seems to leer at you with its
+bleached, toothy grin.
+
+>up
+
+
+You involuntary take a deep breath of fresh air as you leave the clammy, foetid
+depths of the crypt behind.
+
+
+Old, moss-slimed tombstones, many broken off and leaning crazily like an old
+man's teeth, poke up from the soft, mulchy earth. In their midst stands an
+ancient marble crypt, its heavy iron door nearly obscured by thick draperies of
+ivy. The trees press close around this quiet enclave of death, leaning together
+over your head as if sharing secrets. A gap in the undergrowth to the southeast
+reveals a narrow gravel path.
+
+>se
+
+
+
+A gravel path starts here at the back door of the house, and marks a trail
+nearly overgrown by weeds and briars. It disappears into the undergrowth to the
+northwest, framed by crooked trees with overhanging branches that seem to form a
+stunted, jagged archway into the dim recesses of the forest.
+
+>south
+
+
+
+Where once pots and skillets and various utensils hung in profusion, the kitchen
+walls are now merely ranks of dusty cabinets and a forest of empty hooks.
+Doorways lead east and south, a small pantry lies to the northwest, and the back
+door to the north leads out of the house.
+
+>close door
+
+
+You close the back door.
+
+>lock door
+
+
+You lock the back door.
+
+>east
+
+
+
+A short hallway, connecting rooms to the east, west and south.
+
+>south
+
+
+
+Although it appears spacious from the outside, the house's interior feels
+cramped and gloomy. The walls seem too close together; the ceiling is too high.
+The doorways, leading in several directions, are narrow and filled with shadows,
+and the stairs leading up to the second floor are steep and rickety. This is not
+a house that makes you feel welcome. It is a house that makes you feel tiny and
+timid, and afraid of dark places. It is a house that makes you feel alone.
+
+Your luggage is still here, spread out all over the foyer.
+
+>unlock door
+
+
+You unlock the front door.
+
+>south
+
+
+(opening the front door first)
+
+
+The lane runs up from the southeast and ends at a wide clearing surrounded by
+gnarled and ancient trees. A wide, curving driveway runs up to the front door of
+your house, which lies north.
+
+The front door stands open to the north.
+
+The Verlac mansion looms before you, casting an air of menace over the clearing.
+
+A typewritten notice has been attached to the front door.
+
+>se
+
+
+
+The treeline falls away on the north side of this northwest-northeast bend in
+the road, giving way to a panoramic view of the Miskaton River Valley and the
+grubby little town of Anchorhead nestled within it. From here you can see the
+paper mill almost directly to the north; the solitary lighthouse and surrounding
+ocean to the northeast; and the dilapidated stone church below you to the east.
+Winding through it all is the oily black ribbon of the Miskaton, and almost
+directly in the center lies the little clearing of Town Square. You can just
+make out the shape of the obelisk from here.
+
+>ne
+
+
+
+Perhaps it is merely the effect of some unwholesome vapour rising from the murky
+waters of the nearby Miskaton, but the temperature along this street seems
+perceptibly cooler than normal, even for a New England autumn. Two dirt roads
+lead south and southwest, into the dense woods at the edge of town.
+
+>north
+
+
+
+A low, irregular brick wall to the north divides this street from the steep,
+mud-slick banks of the sinuous Miskaton, while a rusty iron gate provides access
+to a precarious flight of stone steps leading down the bank to the water's edge.
+The street bends south here, turning into a misty avenue between the trees. The
+town square lies west, a vacant lot lies east.
+
+>west
+
+
+
+A wide expanse of uneven pavestones lies open to the sky, bordered on all sides
+by the leaning, steep-roofed architecture that looms over everything in this
+city. The municipal courthouse stands at the south end of the square, next to
+the mouth of a dark, narrow alley to the southwest. Avenues to the west and east
+lead back into the cramped and ingrown streets, while to the north lies Whateley
+Bridge.
+
+A damp newspaper lies on the curb, fluttering slightly in the wind.
+
+In the center of the square, rising from a circular lawn of unhealthy-looking
+grass and weeds, stands a strange, stone obelisk. It seems to be a monument of
+some sort, although you can see no plaque or marker anywhere near it.
+
+>get newspaper
+
+
+(slipping the bundle of soggy pages into the pocket of your trenchcoat to get a
+hand free)
+You pick up the newspaper. It's the "Weekly Arkham Herald". Anchorhead,
+apparently, is not large enough to warrant its own newspaper.
+
+A flurry of dead leaves goes skittering along the ground, swirling past you in
+the wind.
+
+>read it
+
+
+The front page story is about Jeffrey Greer, 8 years old, who was abducted from
+his home at #11 Mill Town Road last night. Little Jeffrey is the latest victim
+in a series of abductions that stretches back for years, one every six months or
+so, and that authorities believe is the work of a single perpetrator. Local
+police had hoped to prove that Edward Verlac had been behind the kidnappings,
+but were unable to obtain a confession or any hard proof. Edward Verlac was
+convicted of murdering his wife and two daughters, one of whom was 15 months
+old, in January of this year; he was found not guilty by reason of insanity and
+incarcerated in Danvers Asylum, where he remained until committing suicide last
+March. This latest kidnapping, occurring after Edward's death, seems to have
+cleared up any lingering suspicions that he might have been the culprit.
+
+Anyone possessing information regarding the whereabouts of Jeffrey Greer is
+strongly urged to speak to the authorities as soon as possible.
+
+>

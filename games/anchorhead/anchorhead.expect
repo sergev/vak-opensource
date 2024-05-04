@@ -17,7 +17,189 @@ match_max 100000
 expect "any other key to begin"; send "\r"
 expect "Welcome to Anchorhead"; send "\r"
 send "\r"
-expect ">"; send "inventory\r"
+expect ">"; send "inventory\r";             # Outside the Real Estate Office
+
+#
+# Day 1.
+#
+expect ">"; send "se\r";                    # Alley
+expect ">"; send "push can against wall\r"
+expect ">"; send "climb can\r"
+expect ">"; send "up\r";                    # File Room
+expect ">"; send "west\r";                  # Office
+expect ">"; send "push play\r"
+expect ">"; send "east\r";                  # File Room
+expect ">"; send "look up Verlac\r"
+expect ">"; send "west\r";                  # Office
+expect ">"; send "unlock door\r"
+expect ">"; send "west\r";                  # Outside the Real Estate Office
+expect ">"; send "west\r";                  # Narrow Street
+expect ">"; send "west\r";                  # Junction
+expect ">"; send "nw\r";                    # University Court
+expect ">"; send "west\r";                  # Library
+expect ">"; send "read book\r"
+expect ">"; send "show keys to Michael\r"
+expect ">"; send "east\r";                  # University Court
+expect ">"; send "se\r";                    # Junction
+expect ">"; send "east\r";                  # Narrow Street
+expect ">"; send "south\r";                 # Whateley Bridge
+expect ">"; send "south\r";                 # Town Square
+expect ">"; send "east\r";                  # Riverwalk
+expect ">"; send "south\r";                 # Chilly Avenue
+expect ">"; send "sw\r";                    # Scenic View
+expect ">"; send "nw\r";                    # Outside the House
+expect ">"; send "unlock door\r"
+expect ">"; send "north\r";                 # Foyer
+
+#
+# Day 1, evening.
+#
+expect ">"; send "close door\r"
+expect ">"; send "lock door\r"
+expect ">"; send "up\r";                    # Upstairs Landing
+expect ">"; send "north\r";                 # Master Bedroom
+expect ">"; send "undress\r"
+expect ">"; send "drop all\r";              # keyring, trenchcoat, clothes, umbrella
+expect ">"; send "west\r";                  # Bathroom
+expect ">"; send "bathe\r"
+expect ">"; send "east\r";                  # Master Bedroom
+expect ">"; send "lie in bed\r"
+expect ">"; send "sleep\r"
+expect "dreams"; send "\r"
+expect "You turn"; send "\r"
+
+#
+# Day 2.
+#
+send "\r";                                  # You wake up
+expect ">"; send "look\r";                  # Master Bedroom, on the four-poster bed
+expect ">"; send "open wallet\r"
+expect ">"; send "get card\r"
+expect ">"; send "leave bed\r";             # Master Bedroom
+expect ">"; send "dress\r"
+expect ">"; send "get all\r";               # keyring, trenchcoat, umbrella
+expect ">"; send "wear coat\r"
+expect ">"; send "south\r";                 # Upstairs Landing
+expect ">"; send "down\r";                  # Foyer
+expect ">"; send "west\r";                  # Dining Room
+expect ">"; send "open cupboard\r"
+expect ">"; send "pull lining\r"
+expect ">"; send "read journal\r";          # Note the combination to the safe: 49-55-36
+expect ">"; send "north\r";                 # Kitchen
+expect ">"; send "get flashlight\r"
+expect ">"; send "open cabinet\r"
+expect ">"; send "get matches\r"
+expect ">"; send "turn on flashlight\r"
+expect ">"; send "nw\r";                    # Pantry
+expect ">"; send "get broom\r"
+expect ">"; send "unlock door\r"
+expect ">"; send "down\r";                  # Cellar
+expect ">"; send "south\r";                 # Storage
+expect ">"; send "search crates\r"
+expect ">"; send "get box\r"
+expect ">"; send "read clippings\r";        # Learn names of the Verlac family: Mordecai, Elijah, Heinrich & Wilhelm
+expect "BACKSPACE"; send "\b"
+expect ">"; send "\r"
+expect ">"; send "drop cardboard box\r"
+expect ">"; send "wipe web\r"
+expect ">"; send "drop broom\r"
+expect ">"; send "get key\r"
+expect ">"; send "put key on keyring\r"
+expect ">"; send "north\r";                 # Cellar
+expect ">"; send "up\r";                    # Pantry
+expect ">"; send "se\r";                    # Kitchen
+expect ">"; send "east\r";                  # Back Hall
+expect ">"; send "east\r";                  # Gallery
+expect ">"; send "look at paintings\r"
+expect ">"; send "look at scene\r"
+expect ">"; send "south\r";                 # Sitting Room
+expect ">"; send "get album\r"
+expect ">"; send "look up Wilhelm in album\r"
+expect ">"; send "look up Eustacia in album\r"
+expect ">"; send "look up Croseus in album\r"
+expect ">"; send "west\r";                 # Foyer
+expect ">"; send "up\r";                   # Upstairs Landing
+expect ">"; send "east\r";                 # Upstairs Hall
+expect ">"; send "north\r";                # Library
+expect ">"; send "get volume\r"
+expect ">"; send "read it\r"
+expect ">"; send "look at bookshelf\r"
+expect ">"; send "get Poe\r"
+expect ">"; send "examine safe\r"
+expect ">"; send "turn the dial to 49\r"
+expect ">"; send "turn the dial to 55\r"
+expect ">"; send "turn the dial to 36\r"
+expect ">"; send "look in safe\r"
+expect ">"; send "get puzzle box and flute\r"
+expect ">"; send "south\r";                 # Upstairs Hall
+expect ">"; send "south\r";                 # Children’s Bedroom
+expect ">"; send "open jewelry box\r"
+expect ">"; send "get silver locket\r"
+expect ">"; send "push bed\r"
+expect ">"; send "look in hole\r"
+expect ">"; send "get pages\r"
+expect ">"; send "read pages\r";            # Learn the name: William
+expect ">"; send "north\r";                 # Upstairs Hall
+expect ">"; send "west\r";                  # Upstairs Landing
+expect ">"; send "down\r";                  # Foyer
+expect ">"; send "north\r";                 # Back Hall
+expect ">"; send "west\r";                  # Kitchen
+expect ">"; send "unlock door\r"
+expect ">"; send "north\r";                 # Path Behind the House
+expect ">"; send "nw\r";                    # Family Plot
+expect ">"; send "unlock crypt\r"
+expect ">"; send "down\r";                  # In the Crypt
+expect ">"; send "examine coffin\r"
+expect ">"; send "look up William on nameplate\r"
+expect ">"; send "open coffin\r"
+expect ">"; send "get skull\r"
+expect ">"; send "up\r";                    # Family Plot
+expect ">"; send "se\r";                    # Path Behind the House
+expect ">"; send "south\r";                 # Kitchen
+expect ">"; send "close door\r"
+expect ">"; send "lock door\r"
+expect ">"; send "east\r";                  # Back Hall
+expect ">"; send "south\r";                 # Foyer
+expect ">"; send "unlock door\r"
+expect ">"; send "south\r";                 # Outside the House
+expect ">"; send "se\r";                    # Scenic View
+expect ">"; send "ne\r";                    # Chilly Avenue
+expect ">"; send "north\r";                 # Riverwalk
+expect ">"; send "west\r";                  # Town Square
+expect ">"; send "get newspaper\r"
+expect ">"; send "read it\r"
+
+#South. South. SE.
+#Look up Edward in record. Look up Mordecai in record. Look up Elijah in
+#record. Look up Heinrich in record. Look up Wilhelm in record. NW. SW.
+#Look up Edward in record. Look up Mordecai in Record. Look up Elijah in
+#record. Look up Heinrich in record. [You seem to be uncovering a pattern
+#here;] Look up Wilhelm in record. NE. North. North. North. North. West.
+#NW. West. North. Ring bell. Show card to librarian. Ask librarian for
+#book (2p). Open Historical. Get slip of paper. Read it. Read Historical
+#(1p). Drop it. South. East. SE. East. North. Get Lantern. South. Look
+#under table. Get flask. South. NW. Read wall. West. South. Look in display
+#case. Ask proprietor about amulet (5p). Give puzzle box to him (2p).
+#Get puzzle box. North. East. SW. South. South. East. East. Give flask to bum
+#(2p). Ask bum about himself. Ask bum about brother. Ask bum about Anna.
+#Ask bum about crypt. Tell bum about skull. Show skull to bum.
+#Give amulet to bum (5p).
+
+#
+# Day 2, evening.
+#
+
+#
+# Day 3.
+#
+
+#
+# The last night.
+#
+
+#
+# Epilogue.
+#
 
 # Quit
 expect ">"; send "quit\r"
