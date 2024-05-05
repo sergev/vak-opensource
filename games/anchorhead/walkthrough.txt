@@ -3408,10 +3408,31 @@ now realize can only be the true base of the town square obelisk.
 At the narrower, northern end of the vaguely egg-shaped cavern sits a massive
 stone altar, flanked on either side by a pair of strange, vibrating columns.
 
->cover hole 2
+>cover hole 1
  Burial Mound                                        day three
 
 (first taking the strange metal flute)
+You place your finger over the first flute hole.
+
+>play flute
+ Burial Mound                                        day three
+
+(the strange metal flute)
+The flute emits an eerie, almost sub-sonic note.
+
+The columns' vibrations seem to grow momentarily stronger while the flute's
+sound lingers, their dissonant ringing resonating strangely with the warbling,
+metallic notes.
+
+>remove finger from flute
+ Burial Mound                                        day three
+
+(the strange metal flute)
+You lift your finger from the first flute hole.
+
+>cover hole 2
+ Burial Mound                                        day three
+
 You place your finger over the second flute hole.
 
 >play flute
@@ -3424,6 +3445,79 @@ The columns' vibrations seem to grow momentarily stronger while the flute's
 sound lingers, their dissonant ringing resonating strangely with the warbling,
 metallic notes.
 
+>remove finger from flute
+ Burial Mound                                        day three
+
+(the strange metal flute)
+You lift your finger from the second flute hole.
+
+>cover hole 3
+ Burial Mound                                        day three
+
+You place your finger over the third flute hole.
+
+>play flute
+ Burial Mound                                        day three
+
+(the strange metal flute)
+The flute emits an eerie, low-pitched note.
+
+The columns' vibrations seem to grow momentarily stronger while the flute's
+sound lingers, their dissonant ringing resonating strangely with the warbling,
+metallic notes.
+
+>remove finger from flute
+ Burial Mound                                        day three
+
+(the strange metal flute)
+You lift your finger from the third flute hole.
+
+>cover hole 4
+ Burial Mound                                        day three
+
+You place your finger over the fourth flute hole.
+
+>play flute
+ Burial Mound                                        day three
+
+(the strange metal flute)
+The flute emits an eerie note.
+
+The right-hand column's vibrations suddenly grow stronger, resonating in harmony
+with the warbling, metallic note of the flute. The two dissonances seem to
+intertwine, reinforcing each other, and for a single instant you think you see a
+strange rippling effect in the air over the altar. Then it is gone, and the
+sound fades.
+
+>remove finger from flute
+ Burial Mound                                        day three
+
+(the strange metal flute)
+You lift your finger from the fourth flute hole.
+
+>cover hole 5
+ Burial Mound                                        day three
+
+You place your finger over the fifth flute hole.
+
+>play flute
+ Burial Mound                                        day three
+
+(the strange metal flute)
+The flute emits an eerie, high-pitched note.
+
+The right-hand column's vibrations suddenly grow stronger, resonating in harmony
+with the warbling, metallic note of the flute. The two dissonances seem to
+intertwine, reinforcing each other, and for a single instant you think you see a
+strange rippling effect in the air over the altar. Then it is gone, and the
+sound fades.
+
+>remove finger from flute
+ Burial Mound                                        day three
+
+(the strange metal flute)
+You lift your finger from the fifth flute hole.
+
 >cover hole 6
  Burial Mound                                        day three
 
@@ -3433,8 +3527,28 @@ You place your finger over the sixth flute hole.
  Burial Mound                                        day three
 
 (the strange metal flute)
-The flute emits an odd mixture of metallic, warbling notes which intertwine and
-harmonize eerily with each other.
+The flute emits an eerie, screeching note.
+
+The columns' vibrations seem to grow momentarily stronger while the flute's
+sound lingers, their dissonant ringing resonating strangely with the warbling,
+metallic notes.
+
+>remove finger from flute
+ Burial Mound                                        day three
+
+(the strange metal flute)
+You lift your finger from the sixth flute hole.
+
+>cover hole 7
+ Burial Mound                                        day three
+
+You place your finger over the seventh flute hole.
+
+>play flute
+ Burial Mound                                        day three
+
+(the strange metal flute)
+The flute emits an eerie, piercingly high note.
 
 The columns' vibrations seem to grow momentarily stronger while the flute's
 sound lingers, their dissonant ringing resonating strangely with the warbling,
@@ -3569,9 +3683,6 @@ Perhaps it is merely the effect of some unwholesome vapour rising from the murky
 waters of the nearby Miskaton, but the temperature along this street seems
 perceptibly cooler than normal, even for a New England autumn. Two dirt roads
 lead south and southwest, into the dense woods at the edge of town.
-
-In the distance, you can hear the lonesome keening of a train whistle drifting
-on the wind.
 
 >south
  Deserted Lane                                       day three
@@ -4313,10 +4424,11 @@ of dim light.
 Much of the water is pouring through an open hatch set in the floor of the
 tunnel.
 
->turn off flashlight
+>drop flashlight
  Outflow Tunnel                                      day three
 
-You switch the flashlight off.
+(first taking the flashlight)
+Dropped.
 
 >east
  Narrow Beach                                        day three
@@ -4378,6 +4490,8 @@ machine.
 
 Someone seems to have left a cup of coffee sitting out, half-finished and cold.
 
+You can hear a fly buzzing around, hovering over the back of your neck.
+
 >unlock drawer
  Office                                              day three
 
@@ -4386,22 +4500,111 @@ You go through all the keys on your keyring, trying each one in turn, and after
 several false attempts you discover that the small steel key fits the lock.
 You unlock the drawer.
 
-You can hear a fly buzzing around, hovering over the back of your neck.
+>open drawer
+ Office                                              day three
+
+You open the drawer, revealing a hastily written letter and a tarnished bronze
+key.
+
+You can hear a fly buzzing around, somewhere in the room.
+
+Your score has just gone up by two points.
 
 >get all from drawer
  Office                                              day three
 
-You'll have to be more specific about which objects you mean.
+tarnished bronze key: You remove the tarnished bronze key from the drawer. It is
+heavy and apparently very old, crusted over in places with a thin rime of
+verdigris.
+hastily written letter: (slipping the old tin into the pocket of your trenchcoat
+to get a hand free)
+(closing the old tin first)
+You remove the hastily written letter from the drawer. It consists of several
+pages torn from a yellow legal pad and stapled in the corner; each page is
+covered on both sides, top to bottom, with erratic, frightened handwriting. It
+is dated two days ago -- the day you arrived in Anchorhead.
 
 >read letter
+(the hastily written letter)
+The letter reads:
+
+"To whom it may concern --
+
+"My name is Claudia Benson, and I attest that I am of sound mind and body, at
+least for what little time I have left.
+
+"If you are reading this anywhere within the city limits of Anchorhead, be aware
+that your life is in grave and immediate danger. Nearly all of the inhabitants
+of this city are members of a secret cult that has thrived since before the
+first settlers arrived here in the early 1600s and is still strong today. Its
+members are fanatical and quite insane, and will kill anyone who learns their
+secrets. I received a phone call early this morning which I believe is a threat
+to my life; I assume the cult somehow discovered that I was planning to divulge
+information to an outsider and now plans to silence me. In case I don't make it,
+I am leaving this testimony for someone to find; hopefully it will be someone
+who can put a stop to this madness once and for all.
+
+"The cult originally evolved from the rituals of the ancient Misquat Indian
+tribe that once lived in this region. Although this tribe is now extinct, its
+
+beliefs have been passed down relatively unchanged through generations of
+settlers for nearly four centuries. These beliefs center around the worship of
+some sort of demon or god from the outer reaches of space, which visited the
+earth millions of years ago and will return some day to wreak terrible
+destruction. I am unclear on the exact details as there is very little
+historical information available on this tribe, unless the University is hiding
+material from me, which I am half-convinced it may well be.
+
+"The ringleaders of this cult are and have always been the Verlac family. Every
+second generation a male Verlac is born, and the role of high priest is passed
+down from grandfather to grandson, following some arcane ritual of ascension.
+There is a persistent legend that this ritual somehow involves a transmigration
+of souls -- that, in fact, all male Verlacs are actually the reincarnation of
+the original founder of the American line. Although this is obviously nothing
+more than local superstition, the legend has such a hold on the people of the
+region that it may have become a self-perpetuating delusion on the part of the
+members of the Verlac family, each male child honestly believing that he is his
+own grandfather reborn. Edward Verlac rejected this obscene birthright, and I
+believe that the townspeople drove him to insanity for it.
+
+"Regardless of the truth behind these legends, the cult is planning to act very
+soon. In the 1920s, Edward's grandfather Mordecai Verlac began preaching that
+
+the return of the 'Nameless God' was imminent -- specifically, that it would
+occur the day after tomorrow. He re-opened the defunct paper mill, converting it
+into a factory to build some sort of device, a 'beacon' with which to facilitate
+the Nameless God's entry into this world. This device is very nearly finished,
+and in two days they will be ready to enact their great ritual -- what they call
+the 'Blessed Event'. It will most likely entail the wholesale slaughter of every
+non-cultist man, woman and child in the city. The child abductions of the past
+few years were most likely preparatory sacrifices perpetrated by the cult, and
+there is no reason to believe that the killing will stop once their great ritual
+is complete.
+
+"If you are, in fact, the young man who planned to move into the Verlac estate,
+you must be careful. The cult is almost certainly watching your every move, and
+will attempt to induct and brainwash you into their cult or, failing that,
+murder both you and your wife. I had hoped to warn you upon your arrival;
+however, as the message on my answering machine this morning attests, I don't
+have much time left. With any luck, I'll be out of the city by tonight. If I
+don't make it, please try to stop these people. This key might help -- I managed
+to dig it out our old property file on the lighthouse. I know they consider that
+building important for some reason. Do what you can with it. And be careful.
+These cultists are a menace, inbred and insane to the last man, and no one will
+be safe until they are wiped off the face of the earth.
+
  Office                                              day three
 
-There's nothing written on the letter opener.
+"Good luck, and be careful.
+
+      -- Claudia Benson"
+
+You can hear a fly buzzing around, somewhere in the next room.
 
 >put bronze key on keyring
  Office                                              day three
 
-You can't see any such thing.
+The tarnished bronze key is now on the keyring.
 
 >west
  Outside the Real Estate Office                      day three
@@ -4437,6 +4640,8 @@ To the north, a gap in the crowded press of gloomy buildings opens onto a
 country lane, heading out over a grassy heath. The main street continues to the
 east, while to the northwest, over the top of a steep rise, you can just make
 out the vaulted rooftops of the university.
+
+The cold wind cuts through your clothes, chilling you to the bone.
 
 >north
  Mill Road                                           day three
@@ -4476,6 +4681,11 @@ The cold wind cuts through your clothes, chilling you to the bone.
 After a moment or two of silence, you hear a furtive rattling, and the door
 opens a crack to reveal a woman's pale and haggard face. She stares out you with
 a mixture of trepidation and mistrust.
+
+Curtains twitch behind a grimy windowpane, and you glance over in time to see a
+lean, suspicious face pulling back into the shadows.
+
+The cold wind blows harder, tugging at the hem of your trenchcoat.
 
 >give teddy to woman
 (first taking the teddy bear)
@@ -4547,8 +4757,6 @@ The road peters out at a wide clearing of rutted mud, flanked by uneven rows of
 decrepit, clapboard shacks. The town is quiet, almost deserted; only a few bits
 of loose tarpaper blowing listlessly in the wind betray the overall stillness.
 
-The cold wind cuts through your clothes, chilling you to the bone.
-
 >south
  Entrance to the Paper Mill                          day three
 
@@ -4557,9 +4765,6 @@ The road turns southwest here and runs squarely through the front entrance to
 the old paper mill. A gate of heavy iron bars blocks the only opening into this
 charred fortress, although an overgrown path leads around the wall to the south.
 To the north, a rutted lane threads its way past a row of dilapidated shacks.
-
-Flakes of ash drift gently down from the sky like gray snow, coating everything
-with a thin layer of soot.
 
 >south
  Bare Foundations                                    day three
@@ -4573,6 +4778,9 @@ through cracked and buckling slabs of concrete; twisted rebar and rusting pipes
 poke up like the legs of dead insects. The ruins are surrounded on all sides by
 dense thickets, although narrow, overgrown trails lead northeast and southeast
 through the underbrush.
+
+A flurry of dead leaves goes skittering along the ground, swirling past you in
+the wind.
 
 >search thicket
  Bare Foundations                                    day three
@@ -4592,9 +4800,6 @@ You unlock the metal hatch.
 
 Taken.
 
-A flurry of dead leaves goes skittering along the ground, swirling past you in
-the wind.
-
 >north
  Darkness                                            day three
 
@@ -4603,12 +4808,17 @@ the wind.
 Darkness
 It is pitch dark, and you can't see a thing.
 
+Just as the mechanical noises reach a crescendo, the pipes at the north end of
+the crawlway suddenly give vent to an enormous gout of superheated steam. The
+entire north half of the crawlway is momentarily filled with vapor and intense
+heat, which just as quickly dissipates. The noise behind the walls recedes to a
+calmer level.
+
 >light match
  Maintenance Access Tunnel                           day three
 
 (first taking the book of matches)
-(slipping the old tin into the pocket of your trenchcoat to get a hand free)
-(closing the old tin first)
+(slipping the keyring into the pocket of your trenchcoat to get a hand free)
 Taken.
 One of the matches starts to burn.
 
@@ -4626,29 +4836,19 @@ sweating pipes lining the walls. Just to its left is a gauge of some sort.
 
 The lantern is now lit.
 
-The noise of machinery is growing steadily louder.
-
->drop match
- Maintenance Access Tunnel                           day three
-
-Dropped.
-
-The machines behind the walls are reaching a feverish pitch, and an unpleasant
-vibration ripples up and down the crawlway.
-
-The match goes out.
+The needle slowly creeps up the dial.
 
 >put towel on valve
  Maintenance Access Tunnel                           day three
 
 (first taking the towel)
+(slipping the hastily written letter into the pocket of your trenchcoat to get a
+hand free)
 You drape the towel over the valve wheel.
 
-Just as the mechanical noises reach a crescendo, the pipes at the north end of
-the crawlway suddenly give vent to an enormous gout of superheated steam. The
-entire north half of the crawlway is momentarily filled with vapor and intense
-heat, which just as quickly dissipates. The noise behind the walls recedes to a
-calmer level, and the needle on the gauge swings back down to zero.
+The noise of machinery is growing steadily louder.
+
+Ouch! You drop the match as it burns down to your fingers.
 
 >turn wheel
  Maintenance Access Tunnel                           day three
@@ -4802,7 +5002,8 @@ between the pincers at the tool's other end.
 >get memo
  Workshop                                            day three
 
-(slipping the keyring into the pocket of your trenchcoat to get a hand free)
+(slipping the book of matches into the pocket of your trenchcoat to get a hand
+free)
 You pick up the printed memo. It's a flimsy sheet of paper with the following
 message printed on it:
 
@@ -4950,7 +5151,12 @@ sweating pipes lining the walls. Just to its left is a gauge of some sort.
 
 Michael's damp bath towel is draped across the wheel.
 
-You can also see a book of matches here.
+>get match
+ Maintenance Access Tunnel                           day three
+
+(slipping the mirror labeled #2 into the pocket of your trenchcoat to get a hand
+free)
+Taken.
 
 >south
  Bare Foundations                                    day three
@@ -4966,6 +5172,11 @@ through the underbrush.
 Set into the base of the mill wall, nearly covered by the thickets, is a metal
 hatch.
 
+Flakes of ash drift gently down from the sky like gray snow, coating everything
+with a thin layer of soot.
+
+The cold wind cuts through your clothes, chilling you to the bone.
+
 >ne
  Entrance to the Paper Mill                          day three
 
@@ -4976,6 +5187,9 @@ The road turns southwest here and runs squarely through the front entrance to
 the old paper mill. A gate of heavy iron bars blocks the only opening into this
 charred fortress, although an overgrown path leads around the wall to the south.
 To the north, a rutted lane threads its way past a row of dilapidated shacks.
+
+A flurry of dead leaves goes skittering along the ground, swirling past you in
+the wind.
 
 >east
  Mill Road                                           day three
@@ -5007,8 +5221,6 @@ road has diminished to little more than a pair of dusty ruts. A hundred yards to
 the northeast, at the breakwater's far end, the lonely stone tower of
 Anchorhead's lighthouse stands vigil against the ocean.
 
-Another wave crashes against the rocks, sending a cloud of spray into the air.
-
 >ne
  At the Foot of the Lighthouse                       day three
 
@@ -5021,6 +5233,8 @@ the rocks to the southeast, around the structure's base.
 
 The great bronze door of the lighthouse stands slightly ajar, revealing a narrow
 rectangle of blackness within.
+
+Another wave crashes against the rocks, sending a cloud of spray into the air.
 
 >east
  Bottom of the Lighthouse                            day three
@@ -5134,4 +5348,1503 @@ covered with thick, quilted padding. The door in the west wall is also covered
 with padding, except for a tiny observation window about five feet up, from
 which a feeble light trickles in.
 
+An eerie, flickering glow momentarily illuminates the hall outside the cell.
+
+>break door
+ Padded Cell                                         the last night
+
+You take a few steps back, draw a deep breath, and hurl your body at the door.
+It shudders violently, and you thought you felt something give.
+
+   *** ka-WHAM!!! ***
+
+A monstrous clap of thunder rolls across the sky, shaking the whole town to its
+foundations.
+
+>break door
+ Hallway                                             the last night
+
+With a defiant shout, you launch your body at the door. Something snaps (the
+door? you think incoherently, or your shoulder?), and the door flies open,
+sending you sprawling out into the hallway.
+
+Hallway
+A grim hallway of concrete and industrial green tiles. This is the north end;
+the hallway runs south from here. Doors lead east and west, and a narrow, barred
+window to the north looks out onto the dark corner outside.
+
+A shard of glass from the broken window lies on the floor.
+
+>get glass
+ Hallway                                             the last night
+
+(the shard of glass)
+Painstakingly, you get down on your knees and very, very carefully pick up the
+shard of glass with your teeth.
+
+>look at window pane
+ Hallway                                             the last night
+
+Building maintenance is obviously not a big priority at this institution. The
+wall around the window casement is cracked in several places -- some of the
+cracks are quite large. The window pane itself is broken in, probably by a
+misguided bird sometime in the recent past.
+
+A sudden flash of lightning from outside momentarily etches the room in sharp
+black and white contrast.
+
+>put glass in crack
+ Hallway                                             the last night
+
+(the shard of glass in the crack)
+You wedge the shard of glass into the crack, its sharp edge pointing outward.
+
+   *** ka-WHAM!!! ***
+
+A monstrous clap of thunder rolls across the sky, shaking the whole town to its
+foundations.
+
+>cut jacket with glass
+ Hallway                                             the last night
+
+(the shard of glass)
+Carefully, you lean back against the wall and start shrugging your shoulders
+against the jutting glass shard. After what seems like an eternity, you feel the
+straps begin to fray and loosen, until suddenly the strait jacket grows slack
+and slips free. You shake the horrible garment off in disgust, giving it a
+vicious kick for good measure as you gingerly rub feeling back into your arms.
+
+Your score has just gone up by two points.
+
+>open closet
+ Hallway                                             the last night
+
+You open the closet, revealing your trenchcoat, a hooded robe, a lantern, an old
+tin and a book of matches.
+
+>wear coat
+ Hallway                                             the last night
+
+(first taking the trenchcoat)
+You put on the trenchcoat.
+
+>get all from closet
+ Hallway                                             the last night
+
+hooded robe: You remove the hooded robe from the closet.
+lantern: You remove the lantern from the closet.
+old tin: You remove the old tin from the closet.
+book of matches: You remove the book of matches from the closet.
+
+>south
+ Hallway                                             the last night
+
+Hallway
+A grim hallway of concrete and industrial green tiles, running north and south
+from here. Doors lead east and west.
+
+>south
+ Hallway                                             the last night
+
+Hallway
+A grim hallway of concrete and industrial green tiles. This is the south end;
+the hall runs north from here. Doors lead east and west, and a doorway to the
+south leads to the top of a stairway.
+
+Something about the observation window in the western cell door catches your
+eye; it looks like it has blood on it.
+
+>unlock west door
+ Hallway                                             the last night
+
+You unlock the west cell door.
+
+You hear strange, gibbering laughter coming from down the hall.
+
+>open it
+ Hallway                                             the last night
+
+You open the west cell door.
+
+>west
+ Padded Cell                                         the last night
+
+Padded Cell
+Another padded cell, much like the rest. There is a door in the east wall.
+
+The padding in this room seems a bit worse for the wear; murky bloodstains
+spatter the canvas near the door, and there is a large tear down in the corner
+of the cell, with bits of stuffing leaking out.
+
+>look in tear
+ Padded Cell                                         the last night
+
+In the ragged tear is a torn square of canvas.
+
+>get torn square
+ Padded Cell                                         the last night
+
+(slipping the lantern into the pocket of your trenchcoat to get a hand free)
+As you carefully pull the ragged piece of canvas from its hiding place,
+something pricks you sharply on the finger. You jerk your hand away; then,
+peering into the tear once again, you notice an old, crusted needle embedded in
+the stuffing.
+
+Your score has just gone up by two points.
+
+>read it
+It's roughly six inches to a side and covered front and back with uneven, barely
+legible handwriting. The letters are the murky brown color of blood.
+
+"My name is Edward Verlac, and this is my testament:
+
+"I am utterly, utterly mad.
+
+"They have locked me in here for my own safety -- and for the safety of others.
+My arms are bound in a strait jacket. Yet this is no less than I deserve. I am
+writing this using a needle dropped carelessly by one of the orderlies some
+weeks ago; biting my lip to draw blood for the ink, I hold the tiny steel quill
+beneath my teeth to write. This exhaustive task shall be my last on earth; when
+I am finished, I shall dash my brains out against the cell window. The last of
+the Verlacs will be dead, and the world made a slightly brighter place thereby.
+
+"Know this: I did not slip into madness through any weakness or congenital
+defect (except insofar as my blood is indelibly tainted with the cursed ichor of
+the Verlac line) -- I was driven mad by the spectre of my great-great ancestor,
+Croseus Verlac. For generations that fiend has traveled down the family line,
+passing from body to body in a hideous, incestuous ritual whereby he impregnates
+his own daughter, then projects his black soul into the innocent body of his
+
+infant grandson. I myself was horrified to discover that I am in fact the
+progeny of my own grandfather, Mordecai Verlac, and his wretched, tormented
+daughter -- my mother, Anna. The experiment failed on the first attempt,
+producing William, my sickly, malformed elder brother whom I never knew.
+William, however, died while still a toddler -- or so my mother has always told
+me -- and the next unholy coupling resulted in me.
+
+"From as early as I can remember, I could feel the lurking presence of my
+grandfather, who died the day I was born, and who I now realize was little more
+than a fleshly disguise for the pernicious warlock Croseus. He stalked the
+boundaries of my mind, seeking a means of entrance, of condemning my soul to
+limbo and taking up a fresh, new abode in my young limbs. His evil, red-rimmed
+eyes haunted my every dream and o'ershadowed even my waking hours. The amulet my
+mother gave me while I was still in the crib protected me -- for the old man
+cannot abide its presence, and must flee all who wear it -- but Mother died
+while I was still young, and since then my folly has brought tragedy to myself
+and to all those I love.
+
+"The memory of my mother's urgent warnings faded soon after her death. I became
+embarrassed by the scandal that seemed to hover over my family name like a pall,
+and was mortified by the superstitious trinket that I still wore around my neck,
+as if in ignorant servitude to those old myths. The red-rimmed eyes had not
+
+given me nightmares since my twelfth birthday, and I dismissed them as an
+immature fancy that had passed along with my boyhood. At the age of 21, I pawned
+the amulet at a magic shop somewhere in town, and thereby sealed my doom.
+
+"For ten years I have resisted Croseus' demonic encroachment upon my mind, my
+soul, my very being, with only the strength of my will. It was not enough. I
+found my mind flooded at the oddest times with strange, antiquarian memories; my
+speech and mannerisms lapsed into uncharacteristic, archaic patterns; and worst
+of all, I found myself looking at my dear daughter Gertrude -- only seven years
+old! -- in the most unwholesome way, with the most unmentionable ideas creeping
+through my subconscious.
+
+"I scoured every street in this cursed town, looking for that magic shop, but I
+have never found it. In desperation I began delving into old histories and
+forbidden genealogies, researching the history of the dread Verlac name for some
+solution to my plight. I discovered no answers, only the horrors I have just
+written of. But I also discovered something worse -- the ultimate purpose behind
+the old demon's nefarious bodysnatching!
+
+"He plans to unleash a primordial evil such that the earth could not possibly
+survive. I have seen the plans and the blueprints; I have read the dread tome in
+my great-great grandfather's church; I have used the obsidian lens that is not
+
+ Padded Cell                                         the last night
+
+true obsidian, and I have looked upon what that madman means to draw down onto
+this earth! He and this town, his foul congregation of fanatics and madmen! They
+are all a part of it! They have been watching me, waiting for me to change,
+waiting for the return of their monstrous high priest!!
+
+"It was then that I realized that killing only myself would not be enough; for
+the degenerate inhabitants of this town would hunt down my family and wreak a
+terrible vengeance if I took from them their Messiah. And besides; who could say
+whether the crafty devil Croseus might not concoct some new way to enter the
+world, through a new body -- through that of one of my daughters, perhaps? The
+ritual has always demanded a grandson, but Croseus was never one to let such a
+trivial inconvenience stop him. He would find a way. He always returns to his
+blood.
+
+"I did the only thing I could do -- Julia, I am so terribly sorry, but I will be
+with you soon -- I could not let him have you, or Gertrude or Sonia -- and I
+will not let him have me. Say good-bye to the last of the Verlacs -- there will
+be no blood for him once I am gone."
+
+>get needle
+ Padded Cell                                         the last night
+
+(slipping the old tin into the pocket of your trenchcoat to get a hand free)
+(closing the old tin first)
+You pick up the crusty needle. It's about two inches long, very old and crusted
+with what looks like dried blood. The point is worn down but still sharp.
+
+>east
+ Hallway                                             the last night
+
+Hallway
+A grim hallway of concrete and industrial green tiles. This is the south end;
+the hall runs north from here. Doors lead east and west, and a doorway to the
+south leads to the top of a stairway.
+
+Something about the observation window in the western cell door catches your
+eye; it looks like it has blood on it.
+
+>south
+ Hallway                                             the last night
+
+You are stopped halfway to the stairs by a loud banging noise behind you.
+
+You turn around -- there it is again. A loud, shuddering bang, like something
+heavy slamming into something wooden -- and you see a cell door halfway down the
+hall shiver in its frame.
+
+Looks like someone else is trying out your brilliant escape plan.
+
+The door is hit a third time, the latch snaps and the door flies open, and a
+filthy, ragged man staggers out into the hall. You have just enough time to
+notice -- with no small amount of disquiet -- that the man is not wearing a
+strait jacket, and then he looks up at you and grins an utterly psychotic grin.
+
+The madman follows you at a wary distance.
+
+>south
+ Top of Stairs                                       the last night
+
+Top of Stairs
+You are at the top of a stairwell leading down to the asylum's ground floor. A
+hallway lined with doors leads north.
+
+The madman follows you at a wary distance.
+
+>down
+ Bottom of Stairs                                    the last night
+
+Bottom of Stairs
+You are at the bottom of a stairwell leading up to the asylum's second floor. A
+hallway leads north.
+
+The madman lurches after you.
+
+>get lantern
+ Bottom of Stairs                                    the last night
+
+(slipping the book of matches into the pocket of your trenchcoat to get a hand
+free)
+Taken.
+
+>light match
+ Bottom of Stairs                                    the last night
+
+(first taking the book of matches)
+(slipping the torn square of canvas into the pocket of your trenchcoat to get a
+hand free)
+Taken.
+One of the matches starts to burn.
+
+"Yummy," whispers the madman to himself. "Oh, yummy, yummy..."
+
+>light lantern
+ Bottom of Stairs                                    the last night
+
+The lantern is now lit.
+
+The madman licks his lips, eyeing you hungrily.
+
+   *** ka-WHAM!!! ***
+
+A monstrous clap of thunder rolls across the sky, shaking the whole town to its
+foundations.
+
+>north
+ Hallway                                             the last night
+
+Hallway
+A grim hallway of concrete and industrial green tiles. This is the south end;
+the hall runs north from here. A doorway to the south leads to the bottom of a
+stairway.
+
+The madman follows you at a wary distance.
+
+The madman licks his lips, eyeing you hungrily.
+
+Ouch! You drop the match as it burns down to your fingers.
+
+>north
+ Hallway                                             the last night
+
+Hallway
+A grim hallway of concrete and industrial green tiles. The hallway runs south
+from here; to the north, the hallway ends at the barred gate leading to the
+lobby.
+
+The orderly is lying face down in a pool of blood, several feet beyond the
+barred gate.
+
+The orderly's porno magazine lies discarded on the floor, just outside the
+barred gate.
+
+A large key dangles from the orderly's belt.
+
+The madman lurches after you.
+
+>get magazine
+ Hallway                                             the last night
+
+(slipping the crusty needle into the pocket of your trenchcoat to get a hand
+free)
+You reach through the bars and snag the magazine.
+
+>give magazine to madman
+ Hallway                                             the last night
+
+The madman snatches the magazine from your hand and begins pawing through it
+like an over-sexed adolescent, giggling and occasionally squeezing his crotch.
+
+>get large key
+ Hallway                                             the last night
+
+You pick up the cell key. Presumably, it opens the barred gates, providing
+access into (or out of) the asylum.
+
+"Yummy," whispers the madman to himself. "Oh, yummy, yummy..."
+
+>put it on keyring
+ Hallway                                             the last night
+
+The cell key is now on the keyring.
+
+The madman giggles maniacally to himself, flipping through the pages of the
+magazine and drooling uncontrollably.
+
+>unlock gate
+ Hallway                                             the last night
+
+(first taking the keyring)
+You go through all the keys on your keyring, trying each one in turn, and after
+several false attempts you discover that the cell key fits the lock.
+You unlock the barred gate.
+
+>north
+The madman, noticing you trying to sneak off, tosses the magazine aside and
+hobbles after you.
+(opening the barred gate first)
+
+Waiting Room
+Ugly, mint-green tiles and walls of whitewashed cinderblock comprise the decor
+of this inhospitable waiting room. A hard little sofa upholstered in avocado
+vinyl and a feebly struggling potted palm are provided for the comfort of
+visitors, although you get the feeling that few inmates of this institution are
+fortunate enough to have visitors. A metal gate bars entrance to a southern
+passageway, which you assume leads to the inmates' section. The exit lies north.
+
+The orderly is lying face down in a pool of blood in the middle of the room.
+
+The orderly's name tag lies on the floor nearby.
+
+The madman hops awkwardly toward you, giggling and dripping saliva from his
+blood-smeared chin.
+
+The madman stops, stoops down, and picks a bit of gristly stuff out of the back
+of the orderly's head. He pops it into his mouth and chews it rapidly, rubbing
+
+ Waiting Room                                        the last night
+
+his belly.
+
+>north
+The rain is still coming down, so you open your umbrella.
+(first taking the umbrella)
+(slipping the book of matches into the pocket of your trenchcoat to get a hand
+free)
+Taken.
+
+Asylum Courtyard
+The grim, white-washed edifice of Danvers Asylum bounds this tiny, shadowed
+courtyard to the south, its narrow, barred windows staring blankly down at you
+like ranks of shriveled, empty eye sockets. You can escape through a narrow
+gateway in the high, brick wall to the north.
+
+The madman comes prancing out the front door of the asylum, and suddenly stops
+dead in his tracks. He looks around, utterly dumbfounded. He looks up at the
+sky, and feels the raindrops striking his face. Slowly it dawns on his addled
+brain that he is outside; that he is, in fact, free.
+
+With a wild whoop of pure joy, the madman hobbles away down the street, laughing
+and chattering to himself with such unabashed happiness that for a moment you
+almost forget that you have just let loose a dangerous and quite probably
+homicidal psychotic into the world at large.
+
+ Asylum Courtyard                                    the last night
+
+Then again, you think, in this town he might just fit right in.
+
+The clouds overhead mutter restlessly to themselves.
+
+A sudden gust of rain puts the lantern out.
+
+Your score has just gone up by two points.
+
+>north
+ Dark Corner                                         the last night
+
+Dark Corner
+The rooftops above you lean so close together as to nearly block out the sky
+altogether, making this a particularly dark and unpleasant section of the city.
+The street leads away to the east, and a shadowy driveway leads through a high
+brick wall to the south.
+
+A gust of wind blows your hair into your face.
+
+>remove coat
+ Dark Corner                                         the last night
+
+You take off the trenchcoat.
+
+>wear robe
+ Dark Corner                                         the last night
+
+You put on the hooded robe.
+
+A sizzling bolt of lightning cuts through the night sky, illuminating your
+surroundings in a sudden sheet of blinding white radiance that leaves eerie,
+green afterimages scarred onto your retinas.
+
+>east
+Town Square
+A wide expanse of uneven pavestones lies open to the sky, bordered on all sides
+by the leaning, steep-roofed architecture that looms over everything in this
+city. The municipal courthouse stands at the south end of the square, next to
+the mouth of a dark, narrow alley to the southwest. Avenues to the west and east
+lead back into the cramped and ingrown streets, while to the north lies Whateley
+Bridge.
+
+In the center of the square, rising from a circular lawn of unhealthy-looking
+grass and weeds, stands a strange, stone obelisk. It seems to be a monument of
+some sort, although you can see no plaque or marker anywhere near it.
+
+As you step into the open square you hear a sudden commotion -- several crowds
+of people are converging onto the town square from different directions. You can
+hear their shouts and see the flickering glow of their torches as the mob begins
+to swarm in from the north and east.
+
+   *** ka-WHAM!!! ***
+
+A monstrous clap of thunder rolls across the sky, shaking the whole town to its
+
+ Town Square                                         the last night
+
+foundations.
+
+>wait
+ Town Square                                         the last night
+
+Time passes.
+
+The obelisk glows red with the bloody light of their torches. They are almost
+here; you'd better find somewhere to hide, quickly.
+
+>wait
+ Town Square                                         the last night
+
+Time passes.
+
+Robed men brandishing torches pour into the square, rallying around the obelisk
+at its center. Several of them seem to be struggling with someone. You huddle
+back into the shadows, but  no one seems to notice yet another robed figure in
+the midst of the crowd. For the moment, it seems, you are safe.
+
+>wait
+ Town Square                                         the last night
+
+You wait, helplessly.
+
+The struggling men step forward, and you can see they have the old bum from the
+vacant lot. His wrists are bound and his arms held by two cultists on either
+side. Although he screams and writhes with frantic desperation, the frail old
+drunkard is no match for his captors. Someone raises his hands for silence --
+you can't quite see him from where you are -- and the mob quiets down. Even the
+old bum's screams lower to a fearful whimpering.
+
+The old man wails pitifully, begging his captors for mercy.
+
+>wait
+ Town Square                                         the last night
+
+You wait, helplessly.
+
+"My brethren," intones the leader, "we are gathered here to mete out bloody
+justice upon one who has sinned against us. This one," -- he jabs a finger at
+the old bum -- "has divulged our secrets to an outsider and betrayed the sacred
+trust of our brotherhood! For this, his soul must be condemned forever, embraced
+and encysted within the necrotic folds of the Womb of Nehilim!"
+
+At this, the crowd lets loose with a roar of approval, while the old bum throws
+back his head and shrieks helplessly into the storm.
+
+>wait
+ Town Square                                         the last night
+
+You wait, helplessly.
+
+The cultists drag the bum over to the monument and prepare to lift him up.
+Suddenly, he makes a break for it, bolting through the pressing crowd and
+running, by some grotesque twist of luck, straight at you.
+
+The old man stops short. The flickering torchlight illuminates your face, and
+his eyes widen in recognition. He opens his mouth to speak...
+
+And four burly cultists tackle him simultaneously, pulling him down. As the old
+man's body hits the ground, a small, shiny object falls out of the bum's clothes
+and bounces out across the cobblestones, unnoticed by all.
+
+The cultists carry the bum back and lift him up onto the monument, hanging him
+by the wrists from the iron ring set into its tip.
+
+>look
+Town Square
+A wide expanse of uneven pavestones lies open to the sky, bordered on all sides
+by the leaning, steep-roofed architecture that looms over everything in this
+city. The municipal courthouse stands at the south end of the square, next to
+the mouth of a dark, narrow alley to the southwest. Avenues to the west and east
+lead back into the cramped and ingrown streets, while to the north lies Whateley
+Bridge.
+
+Your amulet is lying on the cobblestones a few yards away from the obelisk.
+Apparently, it didn't give the old bum as much luck as he'd hoped.
+
+The square is packed with an angry, screaming mob of cultists.
+
+In the center of the square, rising from a circular lawn of unhealthy-looking
+grass and weeds, stands a strange, stone obelisk. It seems to be a monument of
+some sort, although you can see no plaque or marker anywhere near it.
+
+"Please," sobs the old man pitifully, "please, I didn't, I swear, I didn't tell
+nobody nothing, so I didn't! I SWEAR TO GOD I DIDN'T TELL -- "
+
+ Town Square                                         the last night
+
+Before the poor old man can finish his plea, a dozen cultists brandishing long
+metal rods begin brutally beating him. You avert your eyes; his screams are
+quickly cut off as his ribs are staved in, and soon all you can hear are the
+horrible thuds, and the wet snapping sound of breaking bones.
+
+A flurry of dead leaves goes skittering along the ground, swirling past you in
+the wind.
+
+>put all in pocket
+ Town Square                                         the last night
+
+umbrella: (closing the umbrella first)
+You slip the umbrella into the pocket of your trenchcoat.
+keyring: You slip the keyring into the pocket of your trenchcoat.
+lantern: You slip the lantern into the pocket of your trenchcoat.
+
+Although it seems to go on forever, the slaughter is finished in less than a
+minute. The crowd backs away, its cheering and chanting diminished to a low,
+hypnotic murmur. The cultists quickly disperse back into the streets, and within
+moments the square is once again empty... except for the mutilated thing hanging
+from the obelisk.
+
+>get amulet
+ Town Square                                         the last night
+
+You pick up the amulet, musing sadly that it must not have brought the poor old
+bum as much luck as he'd hoped.
+
+Your score has just gone up by two points.
+
+>north
+Whateley Bridge
+A hoary monument of crumbling, moss-eaten flagstones, Whateley Bridge is
+possibly older than any other structure in the entire city. Ponderously it spans
+the dark, torpid waters of the Miskaton River, connecting the north and south
+halves of the city and occasionally raining bits of gravel and mortar from its
+underside into the water. It looks just wide enough for two cars to pass each
+other between the flanking stone parapets, but you wouldn't volunteer to try it.
+
+As you approach the bridge, you see a hulking shadow lurking about on the far
+bank. You slow down warily, remembering the townsfolk who threatened you
+earlier, peering through the darkness and obscuring rain to catch a glimpse of
+the person. Then the figure moves slightly, and you realize that it's much
+larger than a man; in fact, the figure isn't shaped anything like a man at all.
+
+A sudden crack of lightning illuminates the bridge for a brief, horrible instant
+-- and in that instant, you see it.
+
+In the next few moments, your battered mind manages to blot out the memory of
+that bloated, barrel-like, armless trunk; those thick, double-jointed legs that
+end in shiny black hooves; that writhing forest of fleshy tendrils crowning the
+
+ Whateley Bridge                                     the last night
+
+torso in place of a proper head -- but you are not, and will never be, able to
+banish the horrible, searing memory of the thing's misplaced face which leers
+madly out at you from the side of the trunk -- that child's face on a monster's
+body!
+
+The creature lurches toward you, its hooved feet thumping heavily on the old
+stone bridge.
+
+>give gold locket to creature
+ Whateley Bridge                                     the last night
+
+(first taking the gold locket)
+You toss the gold locket at the monster's feet, and the clasp springs open when
+it hits the cobblestones, revealing the woman's portrait inside. The creature
+looks down and is immediately captivated. It bends over awkwardly, delicately
+grasps the chain with the tip of one tentacle, and holds the locket up to its
+face.
+
+For a single heartbeat of time, even the storm seems to hold still. The little
+boy's face gazes at the picture in the locket for a long, aching moment. And a
+silent tear wells up in the corner of its eye and trickles down its cheek.
+
+The monster ignores you for the moment, fascinated by the portrait of its
+mother.
+
+>hit creature with hook
+(first taking the meat hook)
+With a hoarse yell of desperation, you raise the meat hook over your head and
+fly at the monster while its attention is absorbed by the tiny picture of its
+mother.
+
+It never even sees you coming. With brutal accuracy, you sink the meat hook deep
+into the left eye of the little boy's face. It screams, a high, squawling wail
+like a frightened infant, and a thick, black ichor spurts from the wound. It
+thrashes about helplessly, knocking you onto the ground, and you scramble back
+on your hands and feet crab-style, trying to get away from its struggles.
+
+Another flash of lightning, and you see the thing stagger over to the side of
+the bridge. One tentacle manages to pluck out the hook, which clatters to the
+pavement -- but the damage has been done. The monster hits the stone parapet,
+overbalances, and goes over the side, taking the locket with it. It hits the
+water with a giant splash and is instantly engulfed by the raging current. By
+the time you get to your feet, rush to the side and look over, the monster's
+body is gone.
+
+Your score has just gone up by two points.
+
+ Whateley Bridge                                     the last night
+
+>north
+ Narrow Street                                       the last night
+
+Narrow Street
+As the lane winds along from east to west, it narrows until the steep, jagged
+rooftops on either side of the street practically touch each other. To the
+south, a side street leads across Whateley Bridge toward the center of town, and
+a twisting lane leads up a hill to the northwest. A short flight of steps to the
+north leads down to the local watering hole.
+
+>west
+ Junction                                            the last night
+
+Junction
+To the north, a gap in the crowded press of gloomy buildings opens onto a
+country lane, heading out over a grassy heath. The main street continues to the
+east, while to the northwest, over the top of a steep rise, you can just make
+out the vaulted rooftops of the university.
+
+In the distance, you can hear the lonesome keening of a train whistle drifting
+on the wind.
+
+>north
+ Mill Road                                           the last night
+
+Mill Road
+The road carries you across a desolate heath of gray, windswept grass. To the
+south, the black, jagged outline of Anchorhead's steep roofs and sharp, leaning
+gables cuts across the horizon. The road forks here to the west and east,
+heading across the railroad tracks in one direction, out toward the seashore in
+the other.
+
+A group of cultists passes you, heading north from the town.
+
+The cultists, thinking you are one of their own, pass by silently.
+
+>east
+ Breakwater                                          the last night
+
+The road heads out over a narrow breakwater jutting out into the ocean.
+
+Breakwater
+You are picking your way across the breakwater's bare, rocky spine, where the
+road has diminished to little more than a pair of dusty ruts. A hundred yards to
+the northeast, at the breakwater's far end, the lonely stone tower of
+Anchorhead's lighthouse stands vigil against the ocean.
+
+The sea thrashes against the shore with storm-driven fury.
+
+The cold wind cuts through your clothes, chilling you to the bone.
+
+>ne
+ At the Foot of the Lighthouse                       the last night
+
+At the Foot of the Lighthouse
+You stand in a circular clearing among the stones, surrounded on nearly every
+side by the sea. Before you looms the ancient, massive lighthouse, a vertiginous
+pillar of pale brick jabbing defiantly up at the sky. The road from the
+southwest ends here, although it looks as though you could pick your way down
+the rocks to the southeast, around the structure's base.
+
+A group of cultists passes you, heading around the lighthouse to the southeast.
+
+The sea thrashes against the shore with storm-driven fury.
+
+The great bronze door of the lighthouse is closed.
+
+The cultists, thinking you are one of their own, pass by silently.
+
+>unlock door
+ At the Foot of the Lighthouse                       the last night
+
+(first taking the keyring)
+You go through all the keys on your keyring, trying each one in turn, and after
+several false attempts you discover that the tarnished bronze key fits the lock.
+You unlock the massive bronze door.
+
+>open it
+ At the Foot of the Lighthouse                       the last night
+
+With great effort, you manage to pull the ancient, creaking door open a few
+inches, enough to slip through.
+
+>put all in pocket
+ At the Foot of the Lighthouse                       the last night
+
+keyring: You slip the keyring into the pocket of your trenchcoat.
+amulet: You slip the amulet into the pocket of your trenchcoat.
+
+Another wave crashes against the rocks, sending a cloud of spray into the air.
+
+>east
+ Bottom of the Lighthouse                            the last night
+
+Bottom of the Lighthouse
+The sound of the ocean is muffled behind the thick cinderblock walls, and the
+air is damp and heavy. You can almost feel the weight of two hundred feet of
+hoary old whitewashed brick pressing down on you from above. To the west, a
+narrow strip of dim light marks the exit. Cracked concrete steps lead up.
+
+>up
+ Top of the Lighthouse                               the last night
+
+You climb the winding stairs in a gradual spiral around the inner circumference
+of the tower, and finally emerge, breathless, at the top.
+
+Top of the Lighthouse
+The stairs give onto a wide, circular chamber surrounded by windows. The glass
+is old and streaked with grime, but you still have to catch your breath at the
+magnificence of the view. In one direction, the dying heath and the stunted
+cluster of buildings that is Anchorhead; in the other, the ocean like a vast,
+undulating blanket.
+
+Sitting in the middle of the room, beneath a large, hexagonal skylight, is the
+most bizarre, incomprehensibly complicated device you have ever seen.
+
+>look at device
+ Top of the Lighthouse                               the last night
+
+It looks a bit like a telescope, a bit like a microwave oven turned inside out,
+and a bit like the "industrial laser" from Goldfinger. It's pointed almost
+straight up, right through the skylight, aimed directly at the rumbling hole in
+the sky. Its exact purpose is unfathomable, but it is emitting an ominous,
+throbbing hum and radiating a curious warmth that causes an unwholesome
+prickling sensation all over your skin.
+
+Most of the exposed components are too complex to comprehend, but there is a
+receptacle about two thirds of the way along the thing's -- er, "barrel" -- that
+contains a round mirror, like a focusing mirror in a telescope. It looks as
+though you could remove it.
+
+>get real mirror
+ Top of the Lighthouse                               the last night
+
+The receptacle lets go of the mirror with a metallic click and a pneumatic hiss.
+
+"Well, well; if it isn't the loyal wife."
+
+You whirl around to find Michael standing in the doorway, flanked by two robed
+guards who stare at you with a distinct glitter of malice in their eyes.
+
+>wait
+ Top of the Lighthouse                               the last night
+
+Time passes.
+
+Michael smirks as he advances on you. "You're quite a persistent little tart,
+aren't you? Quite the gutsy little irritant. I suppose Michael must have been
+one of those 'modern' men; didn't go in for the submissive type." Michael -- or
+whatever fiend is speaking from behind Michael's face -- sneers. "Didn't have
+the balls for it, is my guess. In my day, we knew how to keep our wives. A
+headstrong woman should be broken in, just like a headstrong horse."
+
+>wait
+ Top of the Lighthouse                               the last night
+
+Time passes.
+
+Michael walks past you and runs his fingers along the strange device.
+
+"My, my, you do keep busy," Michael remarks when he finds the focusing mirror
+missing. "It's a good thing I caught you in time." He turns to you and holds out
+his hand. "Your little game is over now, woman, and you've lost. Give me the
+mirror now."
+
+>give mirror 2 to Michael
+(first taking the mirror labeled #2)
+"That's more like it," Michael says.
+
+Michael pauses, glances down at the mirror in his hand, then smirks at you. "But
+of course, there's no telling where else you've been poking around, what you
+might have gotten your dirty little hands on, hmm?"
+
+He leans in close to you, and you can smell corruption on his breath like
+rotting oranges. "I've been wondering where this had gotten off to," he murmurs
+in your ear, taking the caliper-like instrument from you. He applies the
+instrument to the mirror, and frowns as he checks the readout.
+
+Then he smiles.
+
+"Well, that's that then," he says, placing the mirror back in its receptacle. He
+nods toward the guards, who seize you and begin dragging you down the stairs.
+
+"It's time to clue you in to just what's been going on around here," Michael
+says, following behind you. "First hand. I think you'll find it quite...
+enthralling."
+
+You are dragged bodily down to the foot of the lighthouse and around to the
+rocky outcropping, where an island of flesh floats just beyond the breakwater's
+tip. The guards shove their way through the crowds of robed supplicants,
+carrying you to the island's center. They force you to your knees and, despite
+your best efforts at escape, manhandle you into a pair of handcuffs looped
+through an iron ring set in a heavy stone block. The block is so low, you are
+forced to remain kneeling in the squelchy muck, craning your neck to watch the
+orgiastic ceremoney taking place... and your husband -- no, you tell yourself,
+not your husband; the creature that your husband has become -- leading the
+terrible rites.
+Warning: @jin called with object 0 (PC = 26bd9) (will ignore further
+occurrences)
+
+Island of Flesh
+The island is barely forty feet across, its surface covered with an ankle-deep
+layer of slime and muck. Underneath the muck, the ground throbs -- heaving
+rhythmically to a blasphemous, living pulse.
+
+The sea thrashes against the shore with storm-driven fury.
+
+The robed guards hover to either side of you, waiting for you to make a move.
+
+ Island of Flesh                                     the last night
+
+Michael stands in the center of it all, leading the hellish rites.
+
+Robed cultists crowd around on every side -- some of them brandishing flaming
+torches, some of them chanting in some hideous, archaic tongue, all of them
+swaying to the hypnotic pulse that rises up from the depths of the fleshy
+ground.
+
+You are handcuffed to one of several heavy stone blocks set in a rough
+semicircle around the center of the island.
+
+Lashed to a stake in the center of the island is a young boy.
+
+The boy cries pitifully, his sobs going unheeded by the chanting cultists and
+the raging storm.
+
+>wait
+ Island of Flesh                                     the last night
+
+You wait, helplessly.
+
+>wait
+ Island of Flesh                                     the last night
+
+You wait, helplessly.
+
+Michael takes up a torch from one of the crowd. Holding it high above his head,
+he turns to the lighthouse and intones:
+
+"Iach! That Which May Not Be Named, I call upon Thee! Formless Drifter of the
+Gulfs Between, I summon Thee!"
+
+The crowd murmurs in ecstatic encouragement.
+
+>wait
+ Island of Flesh                                     the last night
+
+You wait, helplessly.
+
+"I cast aside the Seals! I throw open the Gates!"
+
+Michael traces a mystic sigil in the air in front of him with the flaming torch.
+The flames seem to hang for a moment in strange patterns before twisting away
+into nothing.
+
+"OHODOS - SCIES - ABYSSON!"
+
+The torch flares up with a roar, and the ocean waves seem to respond with
+sudden, inexplicable fury, crashing brutally against the island.
+
+>wait
+ Island of Flesh                                     the last night
+
+You wait, helplessly.
+
+Michael turns his back on the lighthouse, facing out to sea.
+
+"To the East, where the Spawning Chaos seethes and suppurates within the
+Crucible of Grum, from whose bursting pustules arise the Million Unseeable
+Forms, I summon Thee!"
+
+>wait
+ Island of Flesh                                     the last night
+
+You wait, helplessly.
+
+Michael makes a quarter-turn to his left.
+
+"To the North, where the Howling Hunger sweeps invisibly across the Yellow
+Plains and gnaws upon the entrails of the pious, I summon Thee!"
+
+A monstrous bolt of lightning licks down from the sky and strikes the sea just
+north of the island, sending a spume of steam and boiling water fifty feet into
+the shrieking sky. Screams of fear and rapture erupt throughout the pressing
+crowd, almost inaudible beneath the deafening peal of thunder.
+
+>wait
+ Island of Flesh                                     the last night
+
+You wait, helplessly.
+
+Michael isn't even fazed. He makes a half-turn to the right and continues:
+
+"To the South, where the Seven Corpulent Sultans of Slaas'tha stand in judgment
+over the Heretics of Kron, and force their vile copulations upon the repentant,
+I summon Thee!"
+
+Another lightning bolt, this time striking just south of the island, and another
+spume of water. The crowd begins to writhe and gibber madly, like a single,
+plasmic organism.
+
+>wait
+ Island of Flesh                                     the last night
+
+You wait, helplessly.
+
+Michael makes a three-quarter turn to his left, coming all the way around to
+face the lighthouse once more.
+
+"To the Ultimate West, wherein lies the Void That Conquers All, I summon Thee!"
+
+The top of the lighthouse begins to glow with an unwholesome, violet light. A
+low, ominous vibration creeps up from the ground, crawling up through your bones
+and reverberating painfully in your teeth.
+
+>wait
+ Island of Flesh                                     the last night
+
+You wait, helplessly.
+
+The air around the lighthouse is rippling now. Several cultists fall convulsing
+to the mud; others are screaming in strange, strangled tongues. The earth
+shakes, and the air is split by a high-pitched harmonic ringing, like a crystal
+about to shatter.
+
+Michael raises the torch, preparing to thrust it into the pyre at the child's
+feet. He throws his head back and shrieks directly into the eye of the storm:
+
+"IACH! PIOTH XENOBETHAKLES! ULUTUK FH'TAGHN!! BY THE KEYS OF IOK-SOTOT I NAME
+THEE!
+
+"!!! IALDABAOLOTH !!! COME FORTH !!!"
+
+>wait
+You wait, helplessly.
+
+What happens next is rather unexpected.
+
+The high-pitched ringing sound reaches a crescendo, and without warning the
+upper half of the lighthouse explodes violently in a boiling fireball of violet
+flames. For a moment, Michael's lunatic grin of triumph remains frozen in place,
+licked by the purple radiance, not yet cognizant that the ritual has gone wrong.
+In the next instant, however, he is stricken.
+
+"The mirror..." he whispers hoarsely.
+
+Bits of burning debris are raining down on the island. The cultists fall back in
+panic and start pushing at each other to get off the island and escape. Many are
+pushed off into the water, where clusters of ropy, jellyfish-like tentacles
+immediately drag them screaming beneath the waves. A burning chunk of masonry
+strikes one of your guards in the head, and he drops to the mud next to you with
+a mass of chewed-spaghetti pulp where his face used to be. The other guard takes
+a quick, frightened look around, then bolts without a backward glance.
+
+"Come back!" screams Michael. "Come back, cowards!" But no one heeds him. With a
+
+ Island of Flesh                                     the last night
+
+strangled curse he turns and hurls the torch into the sea.
+
+Your score has just gone up by five points.
+
+>pick cuffs with needle
+(first taking the crusty needle)
+The metal cuffs bite painfully into your wrists, but with a little bit of
+excruciating contortion you manage to insert the end of the needle into the
+keyhole. For what seems like endless minutes, you jiggle the needle fruitlessly
+around, biting your lip against the cramps that keep trying to seize your
+painfully bent hands and bitterly reflecting that Linda Hamilton makes it look
+deceptively easy on the big screen -- and suddenly the cuff snaps open. Quickly
+you free your other wrist, and the handcuffs slide free, landing in the muck.
+
+The horrible, fleshy ground shudders beneath you. Bubbles begin to boil up
+around the island's edges.
+
+"You -- " Michael snarls at you, his voice a barely intelligible choke. The
+malice pouring out of his expression is almost more than you can bear to look
+at. "If I had the time I'd gut you right here and now -- " suddenly the ground
+lurches slightly, and Michael smiles. "But perhaps I won't need to." With a
+mocking bow he strides past you and hops over to the shore. "I'm sorry I can't
+stay around to watch you die," he calls over his shoulder, "but I have some
+rather urgent business to attend to." The next moment he is gone, running down
+the breakwater toward town.
+
+ Island of Flesh                                     the last night
+
+>free boy
+ Island of Flesh                                     the last night
+
+Quickly you untie the bonds holding the boy to the stake; as his hands slip free
+he jumps away from you and eyes you warily. Then, sniffling and rubbing his
+arms, he runs to the edge of the island, hops over onto the breakwater and
+starts sprinting home.
+
+The boiling is becoming more violent. You also notice that the tide seems to be
+striking the island a bit higher than before, even though the waves themselves
+aren't getting any taller.
+
+Your score has just gone up by five points.
+
+>west
+ Rocky Spur                                          the last night
+
+You hop across the water-filled gap.
+
+Rocky Spur
+A small outcropping of stone, just large enough for you to stand on, sticks out
+from the end of the breakwater. The hungry sea laps at your feet, surging over
+the rocks and then trickling down into crevices. To the southwest, an uneven
+trail leads back up the rocks, around the side of the lighthouse.
+
+The sea thrashes against the shore with storm-driven fury.
+
+Beyond the breakwater's tip, a small island has risen from the sea. It is
+quickly sinking back into the churning waters.
+
+The island is definitely sinking now.
+
+>sw
+ At the Foot of the Lighthouse                       the last night
+
+The trail turns northwest, following the curve of the lighthouse wall.
+
+At the Foot of the Lighthouse
+You stand in a circular clearing among the stones, surrounded on nearly every
+side by the sea. Before you looms the ancient, massive lighthouse, a vertiginous
+pillar of pale brick jabbing defiantly up at the sky. The road from the
+southwest ends here, although it looks as though you could pick your way down
+the rocks to the southeast, around the structure's base.
+
+The sea thrashes against the shore with storm-driven fury.
+
+The great bronze door of the lighthouse stands slightly ajar, revealing a narrow
+rectangle of blackness within.
+
+A sizzling bolt of lightning cuts through the night sky, illuminating your
+surroundings in a sudden sheet of blinding white radiance that leaves eerie,
+green afterimages scarred onto your retinas.
+
+Another wave crashes against the rocks, sending a cloud of spray into the air.
+
+>sw
+ Breakwater                                          the last night
+
+Breakwater
+You are picking your way across the breakwater's bare, rocky spine, where the
+road has diminished to little more than a pair of dusty ruts. A hundred yards to
+the northeast, at the breakwater's far end, the lonely stone tower of
+Anchorhead's lighthouse stands vigil against the ocean.
+
+The sea thrashes against the shore with storm-driven fury.
+
+   *** ka-WHAM!!! ***
+
+A monstrous clap of thunder rolls across the sky, shaking the whole town to its
+foundations.
+
+>west
+ Mill Road                                           the last night
+
+Mill Road
+The road carries you across a desolate heath of gray, windswept grass. To the
+south, the black, jagged outline of Anchorhead's steep roofs and sharp, leaning
+gables cuts across the horizon. The road forks here to the west and east,
+heading across the railroad tracks in one direction, out toward the seashore in
+the other.
+
+>west
+ Entrance to the Paper Mill                          the last night
+
+As you cross the railroad tracks, the air becomes warmer, more dingy, and
+slightly more difficult to breathe.
+
+Entrance to the Paper Mill
+The road turns southwest here and runs squarely through the front entrance to
+the old paper mill. A gate of heavy iron bars blocks the only opening into this
+charred fortress, although an overgrown path leads around the wall to the south.
+To the north, a rutted lane threads its way past a row of dilapidated shacks.
+
+>north
+ Shanty Town                                         the last night
+
+Shanty Town
+The road peters out at a wide clearing of rutted mud, flanked by uneven rows of
+decrepit, clapboard shacks. The town is quiet, almost deserted; only a few bits
+of loose tarpaper blowing listlessly in the wind betray the overall stillness.
+
+The young boy you freed from the island is standing here. He gives you a fearful
+glance.
+
+>wait
+ Shanty Town                                         the last night
+
+Time passes.
+
+Silently, the boy walks through the churning mud to the front steps of #11 Mill
+Town Road. For a moment, he stands there on the stoop, looking back at you;
+dirty, disheveled, drenched by the streaming rain. Then he turns and, raising
+his little fist, knocks on the door.
+
+The door opens. The old woman looks out, then looks down. She sees the boy, and
+it seems that she becomes just a little bit younger at that moment. "My baby..."
+you hear her say, and then she is on her knees, folding her son into her arms.
+She stands, still holding him, and looks over his shoulder at you.
+
+"Thank you," she says. Her eyes speak volumes of gratitude that her words will
+never be able to express. "Thank you for bringing him home."
+
+And then she goes inside, and the door slowly closes behind her.
+
+>south
+ Entrance to the Paper Mill                          the last night
+
+Entrance to the Paper Mill
+The road turns southwest here and runs squarely through the front entrance to
+the old paper mill. A gate of heavy iron bars blocks the only opening into this
+charred fortress, although an overgrown path leads around the wall to the south.
+To the north, a rutted lane threads its way past a row of dilapidated shacks.
+
+>east
+ Mill Road                                           the last night
+
+As you cross the railroad tracks, the air seems to lift slightly, becoming more
+breathable once again.
+
+Mill Road
+The road carries you across a desolate heath of gray, windswept grass. To the
+south, the black, jagged outline of Anchorhead's steep roofs and sharp, leaning
+gables cuts across the horizon. The road forks here to the west and east,
+heading across the railroad tracks in one direction, out toward the seashore in
+the other.
+
+>south
+ Junction                                            the last night
+
+Junction
+To the north, a gap in the crowded press of gloomy buildings opens onto a
+country lane, heading out over a grassy heath. The main street continues to the
+east, while to the northwest, over the top of a steep rise, you can just make
+out the vaulted rooftops of the university.
+
+>east
+ Narrow Street                                       the last night
+
+Narrow Street
+As the lane winds along from east to west, it narrows until the steep, jagged
+rooftops on either side of the street practically touch each other. To the
+south, a side street leads across Whateley Bridge toward the center of town, and
+a twisting lane leads up a hill to the northwest. A short flight of steps to the
+north leads down to the local watering hole.
+
+>south
+ Whateley Bridge                                     the last night
+
+Whateley Bridge
+A hoary monument of crumbling, moss-eaten flagstones, Whateley Bridge is
+possibly older than any other structure in the entire city. Ponderously it spans
+the dark, torpid waters of the Miskaton River, connecting the north and south
+halves of the city and occasionally raining bits of gravel and mortar from its
+underside into the water. It looks just wide enough for two cars to pass each
+other between the flanking stone parapets, but you wouldn't volunteer to try it.
+
+You can see a meat hook here.
+
+>south
+Town Square
+A wide expanse of uneven pavestones lies open to the sky, bordered on all sides
+by the leaning, steep-roofed architecture that looms over everything in this
+city. The municipal courthouse stands at the south end of the square, next to
+the mouth of a dark, narrow alley to the southwest. Avenues to the west and east
+lead back into the cramped and ingrown streets, while to the north lies Whateley
+Bridge.
+
+Michael -- or rather, the thing that has possessed Michael's body -- is standing
+here.
+
+The poor old man's mutilated corpse hangs from the top of the obelisk.
+
+Michael looks at you and smiles. It is not a particularly pleasant smile. He
+walks over to the obelisk and places his hand against the bloodstained stone,
+then mutters something guttural under his breath. The twisted hieroglyphs begin
+to shine with an eerie phosphorescence which quickly brightens and envelopes
+Michael. His form wavers, then becomes transparent, and when the light fades he
+has disappeared.
+
+ Town Square                                         the last night
+
+The obelisk is still glowing.
+
+>touch obelisk
+As your fingers touch the gore-streaked stone, the green light grows brighter,
+fanning out to envelope you. The odor of rotting fruit briefly assails your
+nostrils; your vision streaks, then blurs; there is the sound of rushing air,
+and when your eyes clear, you are somewhere else...
+
+Burial Mound
+The cave is lined, floor to ceiling, with mummified human corpses. Shrunken and
+desiccated, they lie in jumbled heaps inside irregularly carved niches. Carvings
+cover the rock walls in between the niches -- grotesque, leering faces too
+horrible even to look upon, their features twitching and smirking in the
+wavering light that sifts down from above.
+
+Michael -- or rather, the thing that has possessed Michael's body -- is standing
+here.
+
+The obelisk base stands before you, vast and shadowy in the green, murky light.
+
+At the narrower, northern end of the vaguely egg-shaped cavern sits a massive
+stone altar, flanked on either side by a pair of strange, vibrating columns.
+
+Suddenly Michael lunges forward and grabs your arms. He shakes you, causing your
+
+ Burial Mound                                        the last night
+
+head to whip back and forth and your teeth to click painfully together.
+
+"Bitch -- " he hisses, " -- rotten, filthy bitch -- you never give up, do you?
+You've foiled me for the last time! There's no way to fix what you've undone
+tonight, but by all the unholy spawn of darkness I will put you in a stone cold
+place for it!!" And his hands lock tightly around your throat and begin to
+squeeze.
+
+>show ring to Michael
+ Burial Mound                                        the last night
+
+There is one chance -- if you can only somehow reach whatever weak flicker of
+humanity still survives within that shell; if the person who was your husband
+still exists somewhere, buried beneath the part that is Croseus Verlac...
+
+Silently, you raise up your left hand, your wedding ring gleaming softly in the
+strange, green light.
+
+Michael is transfixed. He seems to want to recoil from the sight, yet is somehow
+simultaneously drawn to it. Suddenly, his face crumbles, the madness and stoic
+evil falling away to reveal confusion, fear, vulnerability and anguish -- all
+superimposed upon the malevolent features of Croseus, struggling to regain
+control.
+
+Your score has just gone up by five points.
+
+>show amulet to Michael
+ Burial Mound                                        the last night
+
+(first taking the amulet)
+In his moment of hesitation, you see your chance; straining against his choking
+grip, you slip the amulet's cord around Michael's neck, letting the silver
+pendant drop to his chest.
+
+Instantly Michael begins convulsing, arching his back and clawing at his chest.
+His jaws stretch open as if to release a howl of torment, but instead of voice,
+a thick, ropy stream of ectoplasmic mist pours from his throat. It pools into
+the center of the room, roils about, then coalesces into a human form -- the
+vaporous, half-rotted apparition of Croseus Verlac himself!
+
+Michael lets out a weak groan.
+
+Your score has just gone up by five points.
+
+>cover hole 4
+ Burial Mound                                        the last night
+
+(first taking the strange metal flute)
+You place your finger over the fourth flute hole.
+
+Michael lets out a weak groan.
+
+>cover hole 5
+ Burial Mound                                        the last night
+
+You place your finger over the fifth flute hole.
+
+The ghost lets out a chilling, sepulchral laugh. "You useless, puny mortal," it
+cries. "Did you really think that there was any way on earth you could stop me?
+I have lived and thrived for over four hundred years -- not even Death can claim
+me!"
+
+>play flute
+(the strange metal flute)
+The flute emits an odd mixture of metallic, warbling notes which intertwine and
+harmonize eerily with each other.
+
+The strange harmony of the flute blends with the atonal ringing of the two
+columns, and the three sounds suddenly grow stronger, resonating with and
+reinforcing one another, intertwining like a dissonant, invisible braid. The
+sound increases in volume, piercing your eardrums and causing the very air to
+shimmer.
+
+Suddenly the air above the altar begins to ripple as though with extreme heat.
+The very fabric of space seems to twist and buckle between the two columns; and
+then, with a sound like a wet sheet being torn slowly down the middle, the
+fabric splits.
+
+You are immediately swept off your feet by a powerful sucking vacuum, pulling
+everything within reach toward the portal. Dust and debris; bones and loose rock
+from the burial niches; everything not nailed down goes flying across the temple
+and into the all-devouring maw hovering over the altar-stone. Desperately, you
+wedge your fingers into a crack in the floor; with the other hand you grasp hold
+of Michael's pants leg and hang on for dear life.
+
+Verlac is caught like a gossamer thread in a tornado. Frantically he claws at
+the air, but as an insubstantial ghost there is nothing for him to hang on to.
+Shrieking and cursing, he is dragged inexorably back, closer and closer to the
+portal, until the suction draws his corpus out into a long, trailing ribbon,
+like an unraveling cable-knit sweater -- and in the next moment he is gone
+forever, sucked into whatever alien dimension lies beyond that horrible rift.
+
+For a few agonizing moments you don't think you're going to make it; then,
+suddenly, the chaos stops, leaving you breathless on the floor.
+
+Painstakingly, you pry your stiff, bleeding fingers out of the crack and roll
+over. The rift is gone. The air is normal, and the columns are ringing quietly,
+as if nothing had happened.
+
+Silence reigns.
+
+There passes some time that your memory cannot account for; a brief period of
+blackness and oblivion, you and your unconscious husband, together in the
+subterranean vault. Perhaps you were unconscious as well; you cannot remember.
+At some point you become conscious again. You lift Michael to his feet, putting
+his arm around your shoulders, and the two of you stagger up the titan stairs to
+
+the surface. The ground begins rumbling just as you are exiting the house, but
+by that time Michael has recovered some of his senses and can walk a bit faster.
+
+You make it down to the bend in the road overlooking the town just in time to
+see the town square collapse, the vile obelisk sinking into the earth. Several
+buildings are dragged down along with it. A gas pipe ruptures in the courthouse,
+sending a gout of flame high into the air, and soon the entire town is burning.
+
+Behind you, a muffled explosion and a sudden warmth against your back bespeak a
+similar end to the Verlac family mansion. For a moment you find yourself almost
+turning back, driven by instinct to rescue your belongings -- but you stop. You
+turn away. And while Michael rests, you stand at the overlook and watch the
+sparks rise like fireflies, mingling with the stars in a clear, cloudless sky.
+
+
+                                * EPILOGUE *
+
+                       He always returns to his blood.
+
+                       -- Edward Verlac
+
+
+ Home                                                one year later
+
+Home
+You are home, and it is a momentous event. Downstairs, Michael is waiting for
+you to bring him the wondrous news. To the east is the bedroom you both share,
+and to the north is your bathroom.
+
+A cool wave of uneasiness washes slowly over you; you're not sure why.
+
+You can hear a fly buzzing around, hovering over the back of your neck.
+
+Your score has just gone up by fifteen points.
+
+>go north
+ Your Bathroom                                       one year later
+
+You can barely feel yourself walking; it's almost as if some outer force were
+moving you of its own accord.
+
+Your Bathroom
+Your bathroom; an ordinary place. A normal, safe, familiar place.
+
+On the counter is a home pregnancy test.
+
+"Well?" Michael calls excitedly from downstairs. "Have you looked yet?"
+
+>get test
+ Your Bathroom                                       one year later
+
+You pick up the home pregnancy test. It's an ordinary pregnancy test, the kind
+you can get at any drugstore; the kind with the little window that turns pink if
+you're going to have a baby.
+
+Michael calls up again, this time sounding slightly worried: "Hon? Everything
+okay up there?"
+
+>look at little window
+You stare down at the little plastic indicator, and an inexplicable horror
+seizes you as you recall Edward Verlac's last words:
+
+And besides; who could say whether the crafty devil Croseus might not concoct
+some new way to enter the world, through a new body -- through that of one of my
+daughters, perhaps? The ritual has always demanded a grandson, but Croseus was
+never one to let such a trivial inconvenience stop him. He would find a way. He
+always returns to his blood.
+
+The window is pink. The test is positive.
+
+From downstairs, you can hear Michael joyfully talking to himself:
+
+"Oh, I hope it's a little girl," he says. "I've always wanted to have a little
+girl."
+
+    *** You have won... for now ***
+
+In that game you scored 99 out of a possible 100 points; you have banished the
+
+ Your Bathroom                                       one year later
+
+evil and saved your husband from a fate most hideous -- but you were unable to
+solve the entire mystery.
+
+Thank you for playing Anchorhead!
+
+Would you like to RESTART, RESTORE a saved game, UNDO your last move, give the
+FULL score for that game, see some suggestions for AMUSING things to do or QUIT?
 >

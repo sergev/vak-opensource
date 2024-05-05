@@ -335,12 +335,28 @@ expect ">"; send "ne\r";                    # Great Stairs
 expect ">"; send "down\r";                  # Bottom of Stairs
 expect ">"; send "say ialdabaoloth\r"
 expect ">"; send "north\r";                 # Burial Mound
+expect ">"; send "cover hole 1\r"
+expect ">"; send "play flute\r";
+expect ">"; send "remove finger from flute\r"
 expect ">"; send "cover hole 2\r"
-expect ">"; send "play flute\r";            # The right-hand column’s vibrations resonate in harmony with the flute.
+expect ">"; send "play flute\r";
+expect ">"; send "remove finger from flute\r"
+expect ">"; send "cover hole 3\r"
+expect ">"; send "play flute\r";
+expect ">"; send "remove finger from flute\r"
+expect ">"; send "cover hole 4\r"
+expect ">"; send "play flute\r";            # rippling effect
+expect ">"; send "remove finger from flute\r"
+expect ">"; send "cover hole 5\r"
+expect ">"; send "play flute\r";            # rippling effect
+expect ">"; send "remove finger from flute\r"
 expect ">"; send "cover hole 6\r"
-expect ">"; send "play flute\r";            # The right-hand column’s vibrations resonate in harmony with the flute.
+expect ">"; send "play flute\r";
+expect ">"; send "remove finger from flute\r"
+expect ">"; send "cover hole 7\r"
+expect ">"; send "play flute\r";
 
-# You should cover both hole 2 and 6 on the flute, before playing
+# You should cover both hole 4 and 5 on the flute, before playing
 # to summon the portal to The Womb of Nehilim, but don't do this ...yet.
 
 expect ">"; send "south\r";                 # Bottom of Stairs
@@ -420,12 +436,13 @@ expect ">"; send "open tin\r"
 expect ">"; send "put oil on hatch\r"
 expect ">"; send "open hatch\r"
 expect ">"; send "up\r";                    # Outflow Tunnel
-expect ">"; send "turn off flashlight\r"
+expect ">"; send "drop flashlight\r"
 expect ">"; send "east\r";                  # Narrow Beach
 expect ">"; send "west\r";                  # Alley
 expect ">"; send "nw\r";                    # Outside the Real Estate Office
 expect ">"; send "east\r";                  # Office
 expect ">"; send "unlock drawer\r"
+expect ">"; send "open drawer\r"
 expect ">"; send "get all from drawer\r";   # tarnished bronze key, hastily written letter
 expect ">"; send "read letter\r"
 expect ">"; send "put bronze key on keyring\r"
@@ -453,7 +470,6 @@ expect ">"; send "get lantern\r"
 expect ">"; send "north\r";                 # Darkness
 expect ">"; send "light match\r";           # Maintenance Access Tunnel, the southern end
 expect ">"; send "light lantern\r"
-expect ">"; send "drop match\r"
 expect ">"; send "put towel on valve\r"
 expect ">"; send "turn wheel\r"
 expect ">"; send "north\r";                 # Maintenance Access Tunnel, at the center
@@ -482,6 +498,7 @@ expect ">"; send "jump off equipment\r";    # Mill Floor
 expect ">"; send "south\r";                 # Maintenance Access Tunnel, the north end
 expect ">"; send "south\r";                 # Maintenance Access Tunnel, at the center
 expect ">"; send "south\r";                 # Maintenance Access Tunnel, the southern end
+expect ">"; send "get match\r"
 expect ">"; send "south\r";                 # Bare Foundations
 expect ">"; send "ne\r";                    # Entrance to the Paper Mill
 expect ">"; send "east\r";                  # Mill Road
@@ -495,12 +512,118 @@ expect "red-rimmed eyes"; send "\r"
 #
 # The last night.
 #
-expect "Lovecraft"; send "\r";              # You wake up
+expect "Lovecraft"; send "\r";              # Padded Cell
+expect ">"; send "break door\r"
+expect ">"; send "break door\r";            # Hallway, north end
+expect ">"; send "get glass\r"
+expect ">"; send "look at window pane\r"
+expect ">"; send "put glass in crack\r"
+expect ">"; send "cut jacket with glass\r"
+expect ">"; send "open closet\r"
+expect ">"; send "wear coat\r"
+expect ">"; send "get all from closet\r";   # hooded robe, lantern, mirror labeled #2, old tin
+expect ">"; send "south\r";                 # Hallway
+expect ">"; send "south\r";                 # Hallway, south end
+expect ">"; send "unlock west door\r"
+expect ">"; send "open it\r"
+expect ">"; send "west\r";                  # Padded Cell
+expect ">"; send "look in tear\r"
+expect ">"; send "get torn square\r"
+expect ">"; send "read it\r"
+expect ">"; send "get needle\r"
+expect ">"; send "east\r";                  # Hallway, south end
+expect ">"; send "south\r";                 # stopped by madman
+expect ">"; send "south\r";                 # Top of Stairs
+expect ">"; send "down\r";                  # Bottom of Stairs
+expect ">"; send "get lantern\r"
+expect ">"; send "light match\r"
+expect ">"; send "light lantern\r"
+expect ">"; send "north\r";                 # Hallway, south end
+expect ">"; send "north\r";                 # Hallway
+expect ">"; send "get magazine\r"
+expect ">"; send "give magazine to madman\r"
+expect ">"; send "get large key\r"
+expect ">"; send "put it on keyring\r"
+expect ">"; send "unlock gate\r"
+expect ">"; send "north\r";                 # Waiting Room
+expect ">"; send "north\r";                 # Asylum Courtyard
+expect ">"; send "north\r";                 # Dark Corner
+expect ">"; send "remove coat\r"
+expect ">"; send "wear robe\r"
+expect ">"; send "east\r";                  # Town Square
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "look\r"
+expect ">"; send "put all in pocket\r";     # umbrella, keyring, lantern
+expect ">"; send "get amulet\r"
+expect ">"; send "north\r";                 # Whateley Bridge
+expect ">"; send "give gold locket to creature\r"
+expect ">"; send "hit creature with hook\r"
+expect ">"; send "north\r";                 # Narrow Street
+expect ">"; send "west\r";                  # Junction
+expect ">"; send "north\r";                 # Mill Road
+expect ">"; send "east\r";                  # Breakwater
+expect ">"; send "ne\r";                    # At the Foot of the Lighthouse
+expect ">"; send "unlock door\r";
+expect ">"; send "open it\r"
+expect ">"; send "put all in pocket\r";     # keyring, amulet
+expect ">"; send "east\r";                  # Bottom of the Lighthouse
+expect ">"; send "up\r";                    # Top of the Lighthouse
+expect ">"; send "look at device\r"
+expect ">"; send "get real mirror\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "give mirror 2 to Michael\r"
+
+# The Island of Flesh.
+
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r";                  # until the people start fleeing from the island
+expect ">"; send "pick cuffs with needle\r"
+expect ">"; send "free boy\r"
+expect ">"; send "west\r";                  # Rocky Spur
+expect ">"; send "sw\r";                    # At the Foot of the Lighthouse
+expect ">"; send "sw\r";                    # Breakwater
+expect ">"; send "west\r";                  # Mill Road
+expect ">"; send "west\r";                  # Entrance to the Paper Mill
+expect ">"; send "north\r";                 # Shanty Town
+expect ">"; send "wait\r"
+expect ">"; send "south\r";                 # Entrance to the Paper Mill
+expect ">"; send "east\r";                  # Mill Road
+expect ">"; send "south\r";                 # Junction
+expect ">"; send "east\r";                  # Narrow Street
+expect ">"; send "south\r";                 # Whateley Bridge
+expect ">"; send "south\r";                 # Town Square
+expect ">"; send "touch obelisk\r"
+expect ">"; send "show ring to Michael\r"
+expect ">"; send "show amulet to Michael\r"
+
+# Remember the last time you were in the Burial Mound.
+# Now attune the flute like you did back then.
+
+expect ">"; send "cover hole 4\r"
+expect ">"; send "cover hole 5\r"
+expect ">"; send "play flute\r"
+expect "cloudless sky"; send "\r"
+expect "Edward Verlac"; send "\r"
 
 #
 # Epilogue.
 #
+expect ">"; send "go north\r";              # Your Bathroom
+expect ">"; send "get test\r"
+expect ">"; send "look at little window\r"; # In that game you scored 99 out of a possible 100 points
 
 # Quit
-expect ">"; send "quit\r"
+expect "QUIT"; send "quit\r"
 exit
