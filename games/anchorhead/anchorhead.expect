@@ -11,7 +11,7 @@ system rm -f "game.log"
 log_file "game.log"
 
 # Start the game.
-spawn dfrotz -m -s 4 anchor.z8
+spawn /Users/vak/Project/Games/frotz/dfrotz -m -s 123 anchor.z8
 match_max 100000
 
 expect "any other key to begin"; send "\r"
@@ -71,7 +71,7 @@ expect "You turn"; send "\r"
 #
 # Day 2.
 #
-send "\r";                                  # You wake up
+expect "Lovecraft"; send "\r";              # You wake up
 expect ">"; send "look\r";                  # Master Bedroom, on the four-poster bed
 expect ">"; send "open wallet\r"
 expect ">"; send "get card\r"
@@ -84,7 +84,7 @@ expect ">"; send "down\r";                  # Foyer
 expect ">"; send "west\r";                  # Dining Room
 expect ">"; send "open cupboard\r"
 expect ">"; send "pull lining\r"
-expect ">"; send "read journal\r";          # Note the combination to the safe: 49-55-36
+expect ">"; send "read journal\r";          # Note the combination to the safe: 49-12-53
 expect ">"; send "north\r";                 # Kitchen
 expect ">"; send "get flashlight\r"
 expect ">"; send "open cabinet\r"
@@ -127,8 +127,8 @@ expect ">"; send "look at bookshelf\r"
 expect ">"; send "get Poe\r"
 expect ">"; send "examine safe\r"
 expect ">"; send "turn the dial to 49\r"
-expect ">"; send "turn the dial to 55\r"
-expect ">"; send "turn the dial to 36\r"
+expect ">"; send "turn the dial to 12\r"
+expect ">"; send "turn the dial to 53\r"
 expect ">"; send "look in safe\r"
 expect ">"; send "get puzzle box and flute\r"
 expect ">"; send "south\r";                 # Upstairs Hall
@@ -168,34 +168,334 @@ expect ">"; send "north\r";                 # Riverwalk
 expect ">"; send "west\r";                  # Town Square
 expect ">"; send "get newspaper\r"
 expect ">"; send "read it\r"
-
-#South. South. SE.
-#Look up Edward in record. Look up Mordecai in record. Look up Elijah in
-#record. Look up Heinrich in record. Look up Wilhelm in record. NW. SW.
-#Look up Edward in record. Look up Mordecai in Record. Look up Elijah in
-#record. Look up Heinrich in record. [You seem to be uncovering a pattern
-#here;] Look up Wilhelm in record. NE. North. North. North. North. West.
-#NW. West. North. Ring bell. Show card to librarian. Ask librarian for
-#book (2p). Open Historical. Get slip of paper. Read it. Read Historical
-#(1p). Drop it. South. East. SE. East. North. Get Lantern. South. Look
-#under table. Get flask. South. NW. Read wall. West. South. Look in display
-#case. Ask proprietor about amulet (5p). Give puzzle box to him (2p).
-#Get puzzle box. North. East. SW. South. South. East. East. Give flask to bum
-#(2p). Ask bum about himself. Ask bum about brother. Ask bum about Anna.
-#Ask bum about crypt. Tell bum about skull. Show skull to bum.
-#Give amulet to bum (5p).
+expect ">"; send "south\r";                 # Courthouse
+expect ">"; send "south\r";                 # Courthouse Basement
+expect ">"; send "se\r";                    # Birth Records
+expect ">"; send "look up Edward\r";        # Edward Verlac:   born April 26, 1960
+expect ">"; send "look up Mordecai\r";      # Mordecai Verlac: born January 30, 1886
+expect ">"; send "look up Elijah\r";        # Elijah Verlac:   born December 16, 1802
+expect ">"; send "look up Heinrich\r";      # Heinrich Verlac: born October 18, 1734
+expect ">"; send "look up Wilhelm\r";       # Wilhelm Verlac:  born March 11, 1651
+expect ">"; send "nw\r";                    # Courthouse Basement
+expect ">"; send "sw\r";                    # Death Records
+expect ">"; send "look up Edward\r";        # Edward Verlac:   died March 14, 1997.
+expect ">"; send "look up Mordecai\r";      # Mordecai Verlac: died April 26, 1960.
+expect ">"; send "look up Elijah\r";        # Elijah Verlac:   died January 30, 1886.
+expect ">"; send "look up Heinrich\r";      # Heinrich Verlac: died December 16, 1802.
+expect ">"; send "look up Wilhelm\r";       # Wilhelm Verlac:  died October 18, 1734.
+expect ">"; send "ne\r";                    # Courthouse Basement
+expect ">"; send "north\r";                 # Courthouse
+expect ">"; send "north\r";                 # Town Square
+expect ">"; send "north\r";                 # Whateley Bridge
+expect ">"; send "north\r";                 # Narrow Street
+expect ">"; send "west\r";                  # Junction
+expect ">"; send "nw\r";                    # University Court
+expect ">"; send "west\r";                  # Library
+expect ">"; send "north\r";                 # Circulation Desk
+expect ">"; send "ring bell\r"
+expect ">"; send "show card to librarian\r"
+expect ">"; send "ask for book\r"
+expect ">"; send "open historical\r"
+expect ">"; send "get slip\r"
+expect ">"; send "read it\r"
+expect ">"; send "read historical\r"
+expect "BACKSPACE"; send "\b"
+expect ">"; send "\r"
+expect ">"; send "drop book\r"
+expect ">"; send "south\r";                 # Library
+expect ">"; send "east\r";                  # University Court
+expect ">"; send "se\r";                    # Junction
+expect ">"; send "east\r";                  # Narrow Street
+expect ">"; send "north\r";                 # Local Pub
+expect ">"; send "get lantern\r"
+expect ">"; send "south\r"
+expect ">"; send "look under table\r"
+expect ">"; send "get flask\r"
+expect ">"; send "south\r";                 # Narrow Street
+expect ">"; send "nw\r";                    # Twisting Lane
+expect ">"; send "read wall\r"
+expect ">"; send "west\r";                  # Hidden Court
+expect ">"; send "south\r";                 # The Cauldron
+expect ">"; send "look in display case\r"
+expect ">"; send "ask proprietor about amulet\r"
+expect ">"; send "give puzzle box to him\r"
+expect ">"; send "get puzzle box\r"
+expect ">"; send "north\r";                 # Hidden Court
+expect ">"; send "east\r";                  # Twisting Lane
+expect ">"; send "sw\r";                    # Narrow Street
+expect ">"; send "south\r";                 # Whateley Bridge
+expect ">"; send "south\r";                 # Town Square
+expect ">"; send "east\r";                  # Riverwalk
+expect ">"; send "east\r";                  # Vacant Lot
+expect ">"; send "give flask to bum\r"
+expect ">"; send "ask bum about himself\r"
+expect ">"; send "ask bum about brother\r"
+expect ">"; send "ask bum about Anna\r"
+expect ">"; send "ask bum about crypt\r"
+expect ">"; send "tell bum about skull\r"
+expect ">"; send "show skull to bum\r"
+expect ">"; send "give amulet to bum\r"
 
 #
 # Day 2, evening.
 #
+expect ">"; send "put key on keyring\r"
+expect ">"; send "se\r";                    # Wharf
+expect ">"; send "get tin\r"
+expect ">"; send "nw\r";                    # Vacant Lot
+expect ">"; send "west\r";                  # Riverwalk
+expect ">"; send "south\r";                 # Chilly Avenue
+expect ">"; send "sw\r";                    # Scenic View
+expect ">"; send "nw\r";                    # Outside the House
+expect ">"; send "north\r";                 # Foyer
+expect ">"; send "close door\r"
+expect ">"; send "up\r";                    # Upstairs Landing
+expect ">"; send "east\r";                  # Upstairs Hall
+expect ">"; send "north\r";                 # Library
+expect ">"; send "east\r";                  # Study
+expect ">"; send "get opener\r"
+expect ">"; send "look at screen\r"
+expect ">"; send "remove ring\r"
+expect ">"; send "look at it\r";            # Your wedding date: June 28th
+expect ">"; send "wear it\r"
+expect ">"; send "type 0628\r"
+expect ">"; send "look at screen\r"
+expect ">"; send "west\r";                  # Library
+expect ">"; send "south\r";                 # Upstairs Hall
+expect ">"; send "pull cord\r"
+expect ">"; send "up\r";                    # Attic
+expect ">"; send "push newspaper under door\r"
+expect ">"; send "put opener in keyhole\r"
+expect ">"; send "get newspaper\r"
+expect ">"; send "get brass key\r"
+expect ">"; send "put brass key on keyring\r"
+expect ">"; send "unlock door\r"
+expect ">"; send "north\r";                 # Attic Cell
+expect ">"; send "search straw\r"
+expect ">"; send "get gold locket\r"
+expect ">"; send "south\r";                 # Attic
+expect ">"; send "down\r";                  # Upstairs Hall
+expect ">"; send "west\r";                  # Upstairs Landing
+expect ">"; send "north\r";                 # Master Bedroom
+expect ">"; send "west\r";                  # Bathroom
+expect ">"; send "get towel\r"
+expect ">"; send "east\r";                  # Master Bedroom
+expect ">"; send "undress\r"
+expect ">"; send "drop all\r";              # towel, gold locket, lantern, flashlight, trenchcoat, clothes
+expect ">"; send "lie in bed\r"
+expect ">"; send "sleep\r"
+expect "uneasy sleep"; send "\r"
+expect "you see the most horrible thing"; send "\r"
 
 #
 # Day 3.
 #
+expect "Lovecraft"; send "\r"
+expect ">"; send "leave bed\r";             # Master Bedroom
+expect ">"; send "dress\r"
+expect ">"; send "wear coat\r"
+expect ">"; send "get all\r";               # flashlight, lantern, gold locket, towel
+expect ">"; send "south\r";                 # Upstairs Landing
+expect ">"; send "east\r";                  # Upstairs Hall
+expect ">"; send "north\r";                 # Library
+expect ">"; send "east\r";                  # Study
+expect ">"; send "look at fireplace\r"
+expect ">"; send "turn sphere\r"
+expect ">"; send "sw\r";                    # Narrow Corridor
+expect ">"; send "west\r";                  # Narrow Corridor
+expect ">"; send "look in hole\r"
+expect ">"; send "east\r";                  # Narrow Corridor
+expect ">"; send "look in hole\r"
+expect ">"; send "nw\r";                    # Narrow Corridor
+expect ">"; send "look in hole\r"
+expect ">"; send "sw\r";                    # Narrow Corridor
+expect ">"; send "se\r";                    # Observatory
+expect ">"; send "put lens in telescope\r"
+expect ">"; send "look in telescope\r";     # You've learned name: Ialdabaoloth
+expect ">"; send "se\r";                    # Crawlspace
+expect ">"; send "east\r";                  # Attic
+expect ">"; send "down\r";                  # Upstairs Hall
+expect ">"; send "west\r";                  # Upstairs Landing
+expect ">"; send "down\r";                  # Foyer
+expect ">"; send "north\r";                 # Back Hall
+expect ">"; send "west\r";                  # Kitchen
+expect ">"; send "nw\r";                    # Pantry
+expect ">"; send "down\r";                  # Cellar
+expect ">"; send "east\r";                  # Wine Cellar
+expect ">"; send "search wine rack\r"
+expect ">"; send "turn c\r"
+expect ">"; send "turn w\r"
+expect ">"; send "turn h\r"
+expect ">"; send "turn e\r"
+expect ">"; send "turn m\r"
+expect ">"; send "north\r";                 # Windy Passage
+expect ">"; send "north\r";                 # Edge of the Pit
+expect ">"; send "north\r";                 # Other Side
+expect ">"; send "ne\r";                    # Great Stairs
+expect ">"; send "down\r";                  # Bottom of Stairs
+expect ">"; send "say ialdabaoloth\r"
+expect ">"; send "north\r";                 # Burial Mound
+expect ">"; send "cover hole 2\r"
+expect ">"; send "play flute\r";            # The right-hand column’s vibrations resonate in harmony with the flute.
+expect ">"; send "cover hole 6\r"
+expect ">"; send "play flute\r";            # The right-hand column’s vibrations resonate in harmony with the flute.
+
+# You should cover both hole 2 and 6 on the flute, before playing
+# to summon the portal to The Womb of Nehilim, but don't do this ...yet.
+
+expect ">"; send "south\r";                 # Bottom of Stairs
+expect ">"; send "up\r";                    # Great Stairs
+expect ">"; send "sw\r";                    # Other Side
+expect ">"; send "nw\r";                    # Crawlspace
+expect ">"; send "east\r";                  # Attic
+expect ">"; send "down\r";                  # Upstairs Hall
+expect ">"; send "west\r";                  # Upstairs Landing
+expect ">"; send "down\r";                  # Foyer
+expect ">"; send "south\r";                 # Outside the House
+expect ">"; send "se\r";                    # Scenic View
+expect ">"; send "ne\r";                    # Chilly Avenue
+expect ">"; send "south\r";                 # Deserted Lane
+expect ">"; send "south\r";                 # Down the Road
+expect ">"; send "look at woods\r"
+expect ">"; send "west\r";                  # Trampled Path
+expect ">"; send "sw\r";                    # Abandoned Slaughterhouse
+expect ">"; send "west\r";                  # Crumbled Ruin
+expect ">"; send "get drawing paper\r"
+expect ">"; send "get hook\r"
+expect ">"; send "south\r";                 # Old Stone Well
+expect ">"; send "lift plywood cover\r"
+expect ">"; send "down\r";                  # In the Well
+expect ">"; send "search bones\r"
+expect ">"; send "get Teddy\r"
+expect ">"; send "up\r";                    # Old Stone Well
+expect ">"; send "north\r";                 # Crumbled Ruin
+expect ">"; send "east\r";                  # a noise makes you stop
+expect ">"; send "south\r";                 # Old Stone Well
+expect ">"; send "down\r";                  # In the Well
+expect ">"; send "hide under bones\r"
+expect ">"; send "wait\r"
+expect ">"; send "up\r"
+expect ">"; send "up\r";                    # Old Stone Well
+expect ">"; send "north\r";                 # Crumbled Ruin
+expect ">"; send "east\r";                  # Abandoned Slaughterhouse
+expect ">"; send "ne\r";                    # Trampled Path
+expect ">"; send "east\r";                  # Down the Road
+expect ">"; send "north\r";                 # Deserted Lane
+expect ">"; send "east\r";                  # Churchyard
+expect ">"; send "se\r";                    # Behind the Church
+expect ">"; send "break padlock with hook\r"
+expect ">"; send "down\r";                  # Church Cellar
+expect ">"; send "look at shape\r"
+expect ">"; send "search shape\r"
+expect ">"; send "put steel key on keyring\r"
+expect ">"; send "look at furnace\r"
+expect ">"; send "open hatch\r"
+expect ">"; send "west\r";                  # Empty Stairwell
+expect ">"; send "extinguish lantern\r"
+expect ">"; send "put all in pocket\r";     # teddy bear, meat hook, lantern, flashlight
+expect ">"; send "jump onto riser\r";       # Broken Stairs
+expect ">"; send "north\r";                 # Vestibule
+expect ">"; send "get cloth\r"
+expect ">"; send "east\r";                  # Chapel
+expect ">"; send "read huge tome\r"
+expect ">"; send "no\r"
+expect ">"; send "east\r";                  # Behind the Chapel
+expect ">"; send "up\r";                    # Steeple
+expect ">"; send "up\r"
+expect ">"; send "get rope\r"
+expect ">"; send "down\r";                  # Behind the Chapel
+expect ">"; send "west\r";                  # Chapel
+expect ">"; send "west\r";                  # Vestibule
+expect ">"; send "south\r";                 # Broken Stairs
+expect ">"; send "drop robe in shaft\r"
+expect ">"; send "tie rope to railing\r"
+expect ">"; send "down\r";                  # Hanging From the Rope
+expect ">"; send "drop rope\r"
+expect ">"; send "light flashlight\r";      # Vaulted Tunnel
+expect ">"; send "get robe\r"
+expect ">"; send "nw\r";                    # Sewer Tunnel
+expect ">"; send "north\r";                 # Dripping Tunnel
+expect ">"; send "north\r";                 # Broken Tunnel
+expect ">"; send "open tin\r"
+expect ">"; send "put oil on hatch\r"
+expect ">"; send "open hatch\r"
+expect ">"; send "up\r";                    # Outflow Tunnel
+expect ">"; send "turn off flashlight\r"
+expect ">"; send "east\r";                  # Narrow Beach
+expect ">"; send "west\r";                  # Alley
+expect ">"; send "nw\r";                    # Outside the Real Estate Office
+expect ">"; send "east\r";                  # Office
+expect ">"; send "unlock drawer\r"
+expect ">"; send "get all from drawer\r";   # tarnished bronze key, hastily written letter
+expect ">"; send "read letter\r"
+expect ">"; send "put bronze key on keyring\r"
+expect ">"; send "west\r";                  # Outside the Real Estate Office
+expect ">"; send "west\r";                  # Narrow Street
+expect ">"; send "west\r";                  # Junction
+expect ">"; send "north\r";                 # Mill Road
+expect ">"; send "west\r";                  # Entrance to the Paper Mill
+expect ">"; send "north\r";                 # Shanty Town
+
+# Remember that newspaper-article - If the kidnapped boy (Jeffrey Greer) was
+# abducted from #11 Mill Town Road, this is the door you should knock on.
+
+expect ">"; send "knock on door 11\r"
+expect ">"; send "give teddy to woman\r";   # #11 Mill Town Road
+expect ">"; send "look in overalls\r"
+expect ">"; send "get long steel key\r"
+expect ">"; send "put it on keyring\r"
+expect ">"; send "west\r";                  # Shanty Town
+expect ">"; send "south\r";                 # Entrance to the Paper Mill
+expect ">"; send "south\r";                 # Bare Foundations
+expect ">"; send "search thicket\r"
+expect ">"; send "unlock hatch\r"
+expect ">"; send "get lantern\r"
+expect ">"; send "north\r";                 # Darkness
+expect ">"; send "light match\r";           # Maintenance Access Tunnel, the southern end
+expect ">"; send "light lantern\r"
+expect ">"; send "drop match\r"
+expect ">"; send "put towel on valve\r"
+expect ">"; send "turn wheel\r"
+expect ">"; send "north\r";                 # Maintenance Access Tunnel, at the center
+expect ">"; send "north\r";                 # Maintenance Access Tunnel, the north end
+expect ">"; send "open hatch\r"
+expect ">"; send "wait\r"
+expect ">"; send "wait\r"
+expect ">"; send "north\r";                 # Mill Floor
+expect ">"; send "tie chain to me\r"
+expect ">"; send "look at controls\r"
+expect ">"; send "pull lever\r";            # Catwalk
+expect ">"; send "untie chain\r"
+expect ">"; send "north\r";                 # Workshop
+expect ">"; send "read notes\r"
+expect ">"; send "get caliper\r"
+expect ">"; send "get memo\r"
+expect ">"; send "get blueprint\r"
+expect ">"; send "read it\r";               # Note second number: 0.0162
+expect ">"; send "get mirror 2\r"
+expect ">"; send "put it in caliper\r";     # The readout reads 0.0162
+expect ">"; send "open tin\r"
+expect ">"; send "rub oil on mirror 2\r"
+expect ">"; send "south\r";                 # Catwalk
+expect ">"; send "down\r";                  # Mill Floor, on the block of heavy equipment
+expect ">"; send "jump off equipment\r";    # Mill Floor
+expect ">"; send "south\r";                 # Maintenance Access Tunnel, the north end
+expect ">"; send "south\r";                 # Maintenance Access Tunnel, at the center
+expect ">"; send "south\r";                 # Maintenance Access Tunnel, the southern end
+expect ">"; send "south\r";                 # Bare Foundations
+expect ">"; send "ne\r";                    # Entrance to the Paper Mill
+expect ">"; send "east\r";                  # Mill Road
+expect ">"; send "east\r";                  # Breakwater
+expect ">"; send "ne\r";                    # At the Foot of the Lighthouse
+expect ">"; send "east\r";                  # Bottom of the Lighthouse
+expect ">"; send "up\r";                    # Top of the Lighthouse
+expect ">"; send "down\r";                  # Bottom of the Lighthouse
+expect "red-rimmed eyes"; send "\r"
 
 #
 # The last night.
 #
+expect "Lovecraft"; send "\r";              # You wake up
 
 #
 # Epilogue.

@@ -9,3 +9,5 @@ s///g
 
 sed -i~ '
 ' game.log
+
+sed 's/[[:blank:]]*$//' < game.log > walkthrough.txt
