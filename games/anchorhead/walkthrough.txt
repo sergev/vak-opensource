@@ -53,7 +53,6 @@ Welcome to Anchorhead...
 
               -- H.P. Lovecraft
 
- Outside the Real Estate Office                      day one
 
 ANCHORHEAD
 An interactive gothic by Michael S. Gentry
@@ -71,7 +70,6 @@ which lies to the east, and winds its way back toward the center of town to the
 west. A narrow, garbage-choked alley opens to the southeast.
 
 >inventory
- Outside the Real Estate Office                      day one
 
 You are wearing your wedding ring, your trenchcoat and your clothes; in
 addition, you have in your hand your umbrella.
@@ -79,7 +77,6 @@ addition, you have in your hand your umbrella.
 The pockets of your trenchcoat are empty.
 
 >se
- Alley                                               day one
 
 Alley
 This narrow aperture between two buildings is nearly blocked with piles of
@@ -91,7 +88,6 @@ High up on the wall of the northern building there is a narrow, transom-style
 window.
 
 >push can against wall
- Alley                                               day one
 
 Grunting and holding your breath, you manhandle one of the filthy cans under the
 window.
@@ -103,13 +99,11 @@ Overhead, the swollen clouds flicker ominously with a greenish haze of sheet
 lightning.
 
 >climb can
- Alley, on the garbage can                           day one
 
 You clamber onto the wobbling garbage can, precariously balanced. You can just
 reach the lower edge of the window from here.
 
 >up
- File Room                                           day one
 
 (opening the transom window first)
 (closing the umbrella first)
@@ -122,7 +116,6 @@ cabinets lining the walls and a doorway to the west. A window high up on the
 south wall lets in a very faint illumination.
 
 >west
- Office                                              day one
 
 Office
 Pallid gray light trickles in through the drawn blinds. The office is deserted,
@@ -135,7 +128,6 @@ machine.
 Someone seems to have left a cup of coffee sitting out, half-finished and cold.
 
 >push play
- Office                                              day one
 
 For a while there is nothing but a quiet hiss, followed by intermittent skirls
 of strange-sounding static. It sounds like one of those annoying glitches where
@@ -151,7 +143,6 @@ A brief shudder ripples up your back. You remember now, "Verlac" is the name of
 this branch of Michael's family.
 
 >east
- File Room                                           day one
 
 File Room
 Peering through the murk, you can make out the blocky outlines of filing
@@ -159,7 +150,6 @@ cabinets lining the walls and a doorway to the west. A window high up on the
 south wall lets in a very faint illumination.
 
 >look up Verlac
- File Room                                           day one
 
 (in the filing cabinets)
 Strange; the file on the Verlac property has been cleaned out. Title, deed, all
@@ -169,7 +159,6 @@ hanging folder. You quickly pocket them.
 Your score has just gone up by two points.
 
 >west
- Office                                              day one
 
 Office
 Pallid gray light trickles in through the drawn blinds. The office is deserted,
@@ -182,12 +171,10 @@ machine.
 Someone seems to have left a cup of coffee sitting out, half-finished and cold.
 
 >unlock door
- Office                                              day one
 
 You unlock the office door.
 
 >west
- Outside the Real Estate Office                      day one
 
 (opening the real estate office door first)
 The rain is still coming down, so you open your umbrella.
@@ -203,7 +190,6 @@ west. A narrow, garbage-choked alley opens to the southeast.
 The office door is open.
 
 >west
- Narrow Street                                       day one
 
 Narrow Street
 As the lane winds along from east to west, it narrows until the steep, jagged
@@ -213,7 +199,6 @@ a twisting lane leads up a hill to the northwest. A short flight of steps to the
 north leads down to the local watering hole.
 
 >west
- Junction                                            day one
 
 Junction
 To the north, a gap in the crowded press of gloomy buildings opens onto a
@@ -222,7 +207,6 @@ east, while to the northwest, over the top of a steep rise, you can just make
 out the vaulted rooftops of the university.
 
 >nw
- University Court                                    day one
 
 University Court
 Isolated and serene within its high, ivy-covered walls, Miskaton University
@@ -242,7 +226,6 @@ until he came back to the real estate agent's office to pick you up. Which,
 incidentally, he has not yet done.
 
 >west
- Library                                             day one
 
 You close your umbrella, as is your habit after coming indoors.
 
@@ -257,7 +240,6 @@ Peering through the shadows, you spot your husband sitting at one of the reading
 desks, absorbed in some sort of weighty tome and clearly oblivious to the time.
 
 >read book
- Library                                             day one
 
 Michael looks up, startled, then realizes it's you and smiles. "Hi, hon," he
 says, closing the book and stretching. Then he glances at his watch. "Good
@@ -267,7 +249,6 @@ sheepishly.
 "Well?" he asks. "Did you get the keys?"
 
 >show keys to Michael
- Library                                             day one
 
 "Great!" says Michael. "You hang on to that. Just a second, I'll put this back."
 He takes the book up to the circulation desk and hands it to the librarian.
@@ -284,7 +265,6 @@ looks like we'll have to walk back to the house." He offers you a lame smile.
 Your score has just gone up by two points.
 
 >east
- University Court                                    day one
 
 The rain is still coming down, so you open your umbrella.
 
@@ -306,7 +286,6 @@ you are interested in is the library to the west.
 Michael strolls along after you.
 
 >se
- Junction                                            day one
 
 Junction
 To the north, a gap in the crowded press of gloomy buildings opens onto a
@@ -317,7 +296,6 @@ out the vaulted rooftops of the university.
 Michael strolls along after you.
 
 >east
- Narrow Street                                       day one
 
 Narrow Street
 As the lane winds along from east to west, it narrows until the steep, jagged
@@ -332,7 +310,6 @@ Michael strolls along after you.
 "It's a bit rainy out."
 
 >south
- Whateley Bridge                                     day one
 
 Whateley Bridge
 A hoary monument of crumbling, moss-eaten flagstones, Whateley Bridge is
@@ -345,7 +322,6 @@ other between the flanking stone parapets, but you wouldn't volunteer to try it.
 Michael hurries to catch up.
 
 >south
- Town Square                                         day one
 
 Town Square
 A wide expanse of uneven pavestones lies open to the sky, bordered on all sides
@@ -364,7 +340,6 @@ Michael hurries to catch up.
 Michael makes a weak attempt to whistle.
 
 >east
- Riverwalk                                           day one
 
 Riverwalk
 A low, irregular brick wall to the north divides this street from the steep,
@@ -376,7 +351,6 @@ town square lies west, a vacant lot lies east.
 Michael follows you.
 
 >south
- Chilly Avenue                                       day one
 
 Chilly Avenue
 Perhaps it is merely the effect of some unwholesome vapour rising from the murky
@@ -390,7 +364,6 @@ you shiver.
 Michael hurries to catch up.
 
 >sw
- Scenic View                                         day one
 
 As you walk through, the mists part before your husband almost deferentially,
 quickly dissolving away into nothing.
@@ -411,7 +384,6 @@ make out the shape of the obelisk from here.
 Michael hurries to catch up.
 
 >nw
- Outside the House                                   day one
 
 Outside the House
 The lane runs up from the southeast and ends at a wide clearing surrounded by
@@ -431,7 +403,6 @@ Michael follows you.
 home!"
 
 >unlock door
- Outside the House                                   day one
 
 You unlock the front door.
 
@@ -458,7 +429,6 @@ adrift.
 
 Night has now undeniably fallen, and the house is very, very dark. There is
 
- Foyer                                               day one, evening
 
 probably just enough residual ambience to feel your way upstairs to the bedroom,
 but the rest of the house is a tenebrous maze of shadows, and any exploring
@@ -473,24 +443,20 @@ hon." He kisses you on the cheek. "Don't stay up too late."
 And with that, he goes upstairs.
 
 >close door
- Foyer                                               day one, evening
 
 You close the front door.
 
 >lock door
- Foyer                                               day one, evening
 
 You lock the front door.
 
 >up
- Upstairs Landing                                    day one, evening
 
 Upstairs Landing
 A narrow hallway runs east, from the top of the stairs down the length of the
 house. To the north, directly opposite the stairs, is the master bedroom.
 
 >north
- Master Bedroom                                      day one, evening
 
 Master Bedroom
 The master bedroom is a picture-postcard of rustic New England charm. Faded
@@ -511,13 +477,11 @@ daughters with a shotgun. Involuntarily you shiver, glancing nervously at the
 doorways to the south and west.
 
 >undress
- Master Bedroom                                      day one, evening
 
 You take off the trenchcoat.
 You take off the clothes.
 
 >drop all
- Master Bedroom                                      day one, evening
 
 keyring: Dropped.
 trenchcoat: Dropped.
@@ -525,7 +489,6 @@ clothes: Dropped.
 umbrella: Dropped.
 
 >west
- Bathroom                                            day one, evening
 
 Bathroom
 A small chamber of cold, white tile and floral-print wallpaper. It sports a
@@ -533,7 +496,6 @@ genuine, whitewashed, claw-foot bathtub with a shower attachment, which is a
 definite plus. The bedroom lies east.
 
 >bathe
- Bathroom                                            day one, evening
 
 Grateful for the opportunity to relax, you draw a hot bath (the water, at least,
 is running, even if nothing else in the house is) and soak. The tension of this
@@ -546,7 +508,6 @@ enormously better.
 Your score has just gone up by one point.
 
 >east
- Master Bedroom                                      day one, evening
 
 Master Bedroom
 The master bedroom is a picture-postcard of rustic New England charm. Faded
@@ -567,7 +528,6 @@ called with object 0 (PC = 16120) (will ignore further occurrences)
 two keys (a key to the house and a key to the cellar)) here.
 
 >lie in bed
- Master Bedroom, on the four-poster bed              day one, evening
 
 Gratefully, you crawl into bed and pull the covers up to your chin.
 
@@ -618,13 +578,11 @@ Behind you, you hear the buzzing of a fly. You turn...
                  -- H.P. Lovecraft
 
 
- Master Bedroom, on the four-poster bed              day two
 
 You wake up. Steam billows gently by, and you can hear the sound of running
 water coming from the bathroom.
 
 >look
- Master Bedroom, on the four-poster bed              day two
 
 Master Bedroom, on the four-poster bed
 The master bedroom is a picture-postcard of rustic New England charm. Faded
@@ -645,7 +603,6 @@ On the four-poster bed you can see Michael's pants (in which is Michael's wallet
 (which is closed)).
 
 >open wallet
- Master Bedroom, on the four-poster bed              day two
 
 (first taking the wallet)
 With a nervous glance toward the bathroom, you slip the wallet from Michael's
@@ -653,7 +610,6 @@ pants.
 You open the wallet, revealing Michael's faculty card.
 
 >get card
- Master Bedroom, on the four-poster bed              day two
 
 The shower suddenly stops. Quickly you palm the card, replace the wallet and
 arrange the pants the way you found them. A moment later Michael emerges from
@@ -676,7 +632,6 @@ already sneaking through his wallet.
 Oh yeah. You're off to a great start.
 
 >leave bed
- Master Bedroom                                      day two
 
 Reluctantly, you do so.
 
@@ -696,32 +651,27 @@ You can also see your umbrella and a keyring (on which are two keys (a key to
 the house and a key to the cellar)) here.
 
 >dress
- Master Bedroom                                      day two
 
 (first taking the clothes)
 You put on the clothes.
 
 >get all
- Master Bedroom                                      day two
 
 umbrella: Taken.
 trenchcoat: Taken.
 keyring: Taken.
 
 >wear coat
- Master Bedroom                                      day two
 
 You put on the trenchcoat.
 
 >south
- Upstairs Landing                                    day two
 
 Upstairs Landing
 A narrow hallway runs east, from the top of the stairs down the length of the
 house. To the north, directly opposite the stairs, is the master bedroom.
 
 >down
- Foyer                                               day two
 
 Foyer
 Although it appears spacious from the outside, the house's interior feels
@@ -734,7 +684,6 @@ timid, and afraid of dark places. It is a house that makes you feel alone.
 Your luggage is still here, spread out all over the foyer.
 
 >west
- Dining Room                                         day two
 
 Dining Room
 Much of the elegance has faded from this room. The huge dining table running the
@@ -744,14 +693,12 @@ east offer little relief from the gloom. For what must be the hundredth time,
 you wish you could open the windows in this place.
 
 >open cupboard
- Dining Room                                         day two
 
 The cupboard is empty; the china must have been auctioned off, in the confusion
 before Michael was contacted, perhaps. Down at the bottom of the cupboard is a
 velvet lining, where the silverware would usually be kept.
 
 >pull lining
- Dining Room                                         day two
 
 You pull the lining back a bit further and discover a thin, palm-sized journal
 tucked underneath it. Intrigued, you pull the little book free.
@@ -781,7 +728,6 @@ eyes...
 
 CANNOT DISCOVER ENTRANCE IN THE CELLAR!!! Secret eludes me still but I WILL FIND
 
- Dining Room                                         day two
 
 IT!!! The clue is in their names, that pestilential procession of names! If I
 could only --
@@ -792,7 +738,6 @@ reads:
  -- will fail. There is no recourse left. I know now what I must do. Julia --
 
 >north
- Kitchen                                             day two
 
 Kitchen
 Where once pots and skillets and various utensils hung in profusion, the kitchen
@@ -812,7 +757,6 @@ what Mrs. Edward Verlac might have been cooking for dinner the night her husband
 blew her head off.
 
 >get flashlight
- Kitchen                                             day two
 
 (slipping the faculty card into the pocket of your trenchcoat to get a hand
 free)
@@ -822,25 +766,21 @@ look of it.
 The flashlight is currently switched off.
 
 >open cabinet
- Kitchen                                             day two
 
 The cabinets are not, after all, still stocked -- much to your relief. There's
 nothing in there but an old book of matches.
 
 >get matches
- Kitchen                                             day two
 
 (slipping the umbrella into the pocket of your trenchcoat to get a hand free)
 You pick up the book of matches. A label on the side reads, "Water-resistant
 matches. Strike on cover." There are six matches left.
 
 >turn on flashlight
- Kitchen                                             day two
 
 The flashlight emits a warm yellow beam.
 
 >nw
- Pantry                                              day two
 
 Pantry
 The pantry is empty save for a layer of dust on the shelves. A door to the south
@@ -849,13 +789,11 @@ leads down to the cellar, or you can return to the kitchen to the southeast.
 Leaning in the corner is an old broom.
 
 >get broom
- Pantry                                              day two
 
 (slipping the keyring into the pocket of your trenchcoat to get a hand free)
 You pick up the broom. It's just an ordinary-looking broom.
 
 >unlock door
- Pantry                                              day two
 
 (first taking the keyring)
 (slipping the torn journal into the pocket of your trenchcoat to get a hand
@@ -864,7 +802,6 @@ Taken.
 You unlock the cellar door.
 
 >down
- Cellar                                              day two
 
 (opening the cellar door first)
 You descend the gloomy steps into the dank cellar.
@@ -880,7 +817,6 @@ One largish bundle of wires leads down to a rusty old fuse cabinet bolted to the
 far wall.
 
 >south
- Storage                                             day two
 
 Storage
 Old crates and boxes piled high against the walls make this room seem even
@@ -888,7 +824,6 @@ smaller and dingier than it actually is, which is saying a lot. A doorway lies
 north; the other walls contain nothing but shadows and dirt-filled corners.
 
 >search crates
- Storage                                             day two
 
 You spend some time poking dispiritedly through boxes of second-hand table
 settings, discarded shoes and outdated encyclopedias, but the only thing you
@@ -899,7 +834,6 @@ there's even a big, nasty-looking spider web in a corner behind one of the
 crates.
 
 >get box
- Storage                                             day two
 
 (the cardboard box)
 (slipping the book of matches into the pocket of your trenchcoat to get a hand
@@ -925,7 +859,6 @@ In the cardboard box are some newspaper clippings.
 
  [press BACKSPACE to return to game]
    >^H
- Storage                                             day two
 
 Storage
 Old crates and boxes piled high against the walls make this room seem even
@@ -936,22 +869,18 @@ A nasty-looking spider web fills one dark corner like some sort of sticky,
 fibrous mold.
 
 >drop cardboard box
- Storage                                             day two
 
 Dropped.
 
 >wipe web
- Storage                                             day two
 
 With a single sweep of the broom, you clear the spider web away.
 
 >drop broom
- Storage                                             day two
 
 Dropped.
 
 >get key
- Storage                                             day two
 
 (the old-fashioned iron key)
 You pick up the old-fashioned iron key. It's an old key, the kind with a round
@@ -960,13 +889,11 @@ barrel about a quarter-inch in diameter and flat, square teeth.
 Your score has just gone up by one point.
 
 >put key on keyring
- Storage                                             day two
 
 (the old-fashioned iron key on the keyring)
 The old-fashioned iron key is now on the keyring.
 
 >north
- Cellar                                              day two
 
 Cellar
 The old, flagstone walls gleam with unwholesome-smelling moisture, and the
@@ -979,7 +906,6 @@ One largish bundle of wires leads down to a rusty old fuse cabinet bolted to the
 far wall.
 
 >up
- Pantry                                              day two
 
 Gratefully, you leave the clammy confines of the cellar behind.
 
@@ -990,7 +916,6 @@ leads down to the cellar, or you can return to the kitchen to the southeast.
 The cellar door stands open, revealing dark stairs leading down.
 
 >se
- Kitchen                                             day two
 
 Kitchen
 Where once pots and skillets and various utensils hung in profusion, the kitchen
@@ -999,13 +924,11 @@ Doorways lead east and south, a small pantry lies to the northwest, and the back
 door to the north leads out of the house.
 
 >east
- Back Hall                                           day two
 
 Back Hall
 A short hallway, connecting rooms to the east, west and south.
 
 >east
- Gallery                                             day two
 
 Gallery
 A long, oak-paneled room, with doorways to the south and west. Paintings line
@@ -1014,7 +937,6 @@ canvasses nicely if only the electricity were working. Still, even in the
 shadowed gloom you can see that all were done by the same artist.
 
 >look at paintings
- Gallery                                             day two
 
 All of them are bizarre, and most of them border on the grotesque. Alien
 landscapes peopled by writhing, malformed creatures; ancient temples built in
@@ -1053,7 +975,6 @@ been placed just slightly off-center. It's a very subtly disturbing effect.
 You shake yourself suddenly, and realize you've been staring intently at the
 painting for minutes on end. You step back and rub your tired eyes. When you
 
- Gallery                                             day two
 
 look again, however, the picture you were just examining is no longer in front
 of you. None of the other paintings have moved as far as you can tell, but that
@@ -1061,7 +982,6 @@ particular scene seems to have disappeared without leaving so much as a blank
 space on the wall.
 
 >south
- Sitting Room                                        day two
 
 Sitting Room
 The east wall is occupied by a beautiful antique sofa, and a large, hand-woven
@@ -1079,7 +999,6 @@ comforting thought you can muster is that of immediate flight.
 On the sofa is a family album.
 
 >get album
- Sitting Room                                        day two
 
 You pick up the family album. It's a slim, hardbound volume in dark leather,
 unadorned except for name "Verlac" embossed on the front. Glancing at the title
@@ -1088,25 +1007,21 @@ published in 1944. So it's a good bet that Edward Verlac and his family aren't
 mentioned here.
 
 >look up Wilhelm in album
- Sitting Room                                        day two
 
 That's not a name you're familiar with. Since the family album is filled with
 names you're not familiar with, you are unable to get very far looking for it.
 
 >look up Eustacia in album
- Sitting Room                                        day two
 
 That's not a name you're familiar with. Since the family album is filled with
 names you're not familiar with, you are unable to get very far looking for it.
 
 >look up Croseus in album
- Sitting Room                                        day two
 
 That's not a name you're familiar with. Since the family album is filled with
 names you're not familiar with, you are unable to get very far looking for it.
 
 >west
- Foyer                                               day two
 
 Foyer
 Although it appears spacious from the outside, the house's interior feels
@@ -1119,14 +1034,12 @@ timid, and afraid of dark places. It is a house that makes you feel alone.
 Your luggage is still here, spread out all over the foyer.
 
 >up
- Upstairs Landing                                    day two
 
 Upstairs Landing
 A narrow hallway runs east, from the top of the stairs down the length of the
 house. To the north, directly opposite the stairs, is the master bedroom.
 
 >east
- Upstairs Hall                                       day two
 
 Upstairs Hall
 The shuttered window at the end of the hall throws a gloomy rectangle of light
@@ -1135,7 +1048,6 @@ onto the bare wooden floor. Doorways lead north and south.
 There is a cord dangling in mid-air here, right about level with your face.
 
 >north
- Library                                             day two
 
 Library
 Whatever else their faults may have been, the Verlacs were evidently not ones to
@@ -1152,7 +1064,6 @@ Resting on the pipe stand is a sizable volume decorated with a gilded pentagram
 on its cover.
 
 >get volume
- Library                                             day two
 
 (The Compleat Manual of Wardes and Seales)
 You pick up The Compleat Manual of Wardes and Seales. It's an old medieval tome
@@ -1161,7 +1072,6 @@ dated in the early 1300s, written by one Galarian Academius desChamps.
 You can hear Michael in the next room, typing away.
 
 >read it
- Library                                             day two
 
 Essentially, it's a textbook on the theory and practice of magickal wards and
 seals, mystic symbols inscribed on doors and containers in order to keep people
@@ -1177,7 +1087,6 @@ of a pagan god. Speaking aloud the deity's true name will usually do the trick,
 apparently.
 
 >look at bookshelf
- Library                                             day two
 
 Literally hundreds of books stuff the shelves, many of them thick, cracked,
 leather-bound tomes with ribbon place-holders and titles lettered in raised gold
@@ -1187,7 +1096,6 @@ Mystery and Imagination, shelved incongruously between volumes "G" and "H" of
 the Encyclopedia Americana.
 
 >get Poe
- Library                                             day two
 
 The book sticks stubbornly at first, and, thinking that it must be tightly
 wedged in between the encyclopediae, you give it a fierce jerk. Suddenly, the
@@ -1200,25 +1108,21 @@ You can hear Michael in the next room, typing away.
 Your score has just gone up by one point.
 
 >examine safe
- Library                                             day two
 
 It's a stark cube of black, oily steel, fifteen inches to a side. Its only
 feature is a large calibrated dial set into the front.
 
 >turn the dial to 49
- Library                                             day two
 
 The tumblers tick quietly as you turn the dial to 49...
 
 You can hear Michael in the next room, typing away.
 
 >turn the dial to 12
- Library                                             day two
 
 The tumblers tick quietly as you turn the dial to 12...
 
 >turn the dial to 53
- Library                                             day two
 
 The tumblers tick quietly as you turn the dial to 53... and with a hollow thunk,
 the safe suddenly swings open.
@@ -1226,12 +1130,10 @@ the safe suddenly swings open.
 Your score has just gone up by two points.
 
 >look in safe
- Library                                             day two
 
 In the safe are a puzzle box and a strange metal flute.
 
 >get puzzle box and flute
- Library                                             day two
 
 puzzle box: (slipping the keyring into the pocket of your trenchcoat to get a
 hand free)
@@ -1250,7 +1152,6 @@ varying sizes are drilled along the top.
 You can hear Michael in the next room, typing away.
 
 >south
- Upstairs Hall                                       day two
 
 Upstairs Hall
 The shuttered window at the end of the hall throws a gloomy rectangle of light
@@ -1259,7 +1160,6 @@ onto the bare wooden floor. Doorways lead north and south.
 There is a cord dangling in mid-air here, right about level with your face.
 
 >south
- Children's Bedroom                                  day two
 
 Children's Bedroom
 This must be the children's bedroom. The bed is smaller than the one in the
@@ -1271,31 +1171,26 @@ under the window stands an ancient crib. The only exit is to the north.
 A child's jewelry box sits on the corner of the vanity.
 
 >open jewelry box
- Children's Bedroom                                  day two
 
 You open the jewelry box, revealing a silver locket.
 
 >get silver locket
- Children's Bedroom                                  day two
 
 (slipping The Compleat Manual of Wardes and Seales into the pocket of your
 trenchcoat to get a hand free)
 You pick up the silver locket. It is oval-shaped, held shut with a tiny clasp.
 
 >push bed
- Children's Bedroom                                  day two
 
 Bracing yourself, you push the bed away from the wall, revealing a ragged hole
 in the wood paneling.
 
 >look in hole
- Children's Bedroom                                  day two
 
 (the ragged hole)
 In the ragged hole is a bundle of soggy pages.
 
 >get pages
- Children's Bedroom                                  day two
 
 (slipping the puzzle box into the pocket of your trenchcoat to get a hand free)
 You pick up the bundle of soggy pages. It appears to have been someone's diary.
@@ -1327,7 +1222,6 @@ beautiful... can't let him hurt my dear baby William... to the doctor, and he
 has a plan... I can never... this locket, William, and I will always keep
 yours... to always remember my face...
 
- Children's Bedroom                                  day two
 
 Nothing else is readable except for one fragmented entry near the very end of
 the book, the date in the corner reading February 27, 1961:
@@ -1340,7 +1234,6 @@ at the window --
 And that's all.
 
 >north
- Upstairs Hall                                       day two
 
 Upstairs Hall
 The shuttered window at the end of the hall throws a gloomy rectangle of light
@@ -1349,14 +1242,12 @@ onto the bare wooden floor. Doorways lead north and south.
 There is a cord dangling in mid-air here, right about level with your face.
 
 >west
- Upstairs Landing                                    day two
 
 Upstairs Landing
 A narrow hallway runs east, from the top of the stairs down the length of the
 house. To the north, directly opposite the stairs, is the master bedroom.
 
 >down
- Foyer                                               day two
 
 Foyer
 Although it appears spacious from the outside, the house's interior feels
@@ -1369,13 +1260,11 @@ timid, and afraid of dark places. It is a house that makes you feel alone.
 Your luggage is still here, spread out all over the foyer.
 
 >north
- Back Hall                                           day two
 
 Back Hall
 A short hallway, connecting rooms to the east, west and south.
 
 >west
- Kitchen                                             day two
 
 Kitchen
 Where once pots and skillets and various utensils hung in profusion, the kitchen
@@ -1384,7 +1273,6 @@ Doorways lead east and south, a small pantry lies to the northwest, and the back
 door to the north leads out of the house.
 
 >unlock door
- Kitchen                                             day two
 
 (first taking the keyring)
 (slipping the strange metal flute into the pocket of your trenchcoat to get a
@@ -1393,7 +1281,6 @@ Taken.
 You unlock the back door.
 
 >north
- Path Behind the House                               day two
 
 (opening the back door first)
 
@@ -1404,7 +1291,6 @@ northwest, framed by crooked trees with overhanging branches that seem to form a
 stunted, jagged archway into the dim recesses of the forest.
 
 >nw
- Family Plot                                         day two
 
 Stooping to avoid the sharp, bare twigs that snag your clothes and seem to reach
 greedily for your eyes, you pick your way through the undergrowth to a small
@@ -1419,7 +1305,6 @@ over your head as if sharing secrets. A gap in the undergrowth to the southeast
 reveals a narrow gravel path.
 
 >unlock crypt
- Family Plot                                         day two
 
 You go through all the keys on your keyring, trying each one in turn, and after
 several false attempts you discover that the old-fashioned iron key fits the
@@ -1427,7 +1312,6 @@ lock.
 You unlock the iron door.
 
 >down
- In the Crypt                                        day two
 
 (opening the iron door first)
 The faint echo of dripping water and a musty smell of decay grow stronger as you
@@ -1443,7 +1327,6 @@ The walls of this chamber contain dozens of wide, shallow niches; in each niche,
 a coffin.
 
 >examine coffin
- In the Crypt                                        day two
 
 Rank upon rank of the ancient Verlac family remains are stacked away in this
 hole, left to crumble and deliquesce together, merging back into the dark matter
@@ -1451,7 +1334,6 @@ which gave them birth. Above each niche is a nameplate indicating who was buried
 here and when they died.
 
 >look up William on nameplate
- In the Crypt                                        day two
 
 (in the nameplates)
 The nameplate reads "William Verlac, b. June 22, 1954, d. September 18, 1958".
@@ -1460,7 +1342,6 @@ together with rusting nails. It's half-rotten with age and so shabbily built you
 could probably open it with your bare hands.
 
 >open coffin
- In the Crypt                                        day two
 
 Compelled by a gruesome curiosity, you dig your fingers under the soft, rotting
 boards and pry up the lid. With the shriek of pulling nails and a shower of
@@ -1478,7 +1359,6 @@ the rest of the coffins, and realize that anyone who might have known the
 answers to these questions is probably already buried in this room.
 
 >get skull
- In the Crypt                                        day two
 
 (slipping the silver locket into the pocket of your trenchcoat to get a hand
 free)
@@ -1486,7 +1366,6 @@ You pick up the animal's skull. The gruesome thing seems to leer at you with its
 bleached, toothy grin.
 
 >up
- Family Plot                                         day two
 
 You involuntary take a deep breath of fresh air as you leave the clammy, foetid
 depths of the crypt behind.
@@ -1500,7 +1379,6 @@ over your head as if sharing secrets. A gap in the undergrowth to the southeast
 reveals a narrow gravel path.
 
 >se
- Path Behind the House                               day two
 
 Path Behind the House
 A gravel path starts here at the back door of the house, and marks a trail
@@ -1509,7 +1387,6 @@ northwest, framed by crooked trees with overhanging branches that seem to form a
 stunted, jagged archway into the dim recesses of the forest.
 
 >south
- Kitchen                                             day two
 
 Kitchen
 Where once pots and skillets and various utensils hung in profusion, the kitchen
@@ -1518,23 +1395,19 @@ Doorways lead east and south, a small pantry lies to the northwest, and the back
 door to the north leads out of the house.
 
 >close door
- Kitchen                                             day two
 
 You close the back door.
 
 >lock door
- Kitchen                                             day two
 
 You lock the back door.
 
 >east
- Back Hall                                           day two
 
 Back Hall
 A short hallway, connecting rooms to the east, west and south.
 
 >south
- Foyer                                               day two
 
 Foyer
 Although it appears spacious from the outside, the house's interior feels
@@ -1547,12 +1420,10 @@ timid, and afraid of dark places. It is a house that makes you feel alone.
 Your luggage is still here, spread out all over the foyer.
 
 >unlock door
- Foyer                                               day two
 
 You unlock the front door.
 
 >south
- Outside the House                                   day two
 
 (opening the front door first)
 
@@ -1568,7 +1439,6 @@ The Verlac mansion looms before you, casting an air of menace over the clearing.
 A typewritten notice has been attached to the front door.
 
 >se
- Scenic View                                         day two
 
 Scenic View
 The treeline falls away on the north side of this northwest-northeast bend in
@@ -1581,7 +1451,6 @@ directly in the center lies the little clearing of Town Square. You can just
 make out the shape of the obelisk from here.
 
 >ne
- Chilly Avenue                                       day two
 
 Chilly Avenue
 Perhaps it is merely the effect of some unwholesome vapour rising from the murky
@@ -1590,7 +1459,6 @@ perceptibly cooler than normal, even for a New England autumn. Two dirt roads
 lead south and southwest, into the dense woods at the edge of town.
 
 >north
- Riverwalk                                           day two
 
 Riverwalk
 A low, irregular brick wall to the north divides this street from the steep,
@@ -1600,7 +1468,6 @@ The street bends south here, turning into a misty avenue between the trees. The
 town square lies west, a vacant lot lies east.
 
 >west
- Town Square                                         day two
 
 Town Square
 A wide expanse of uneven pavestones lies open to the sky, bordered on all sides
@@ -1617,7 +1484,6 @@ grass and weeds, stands a strange, stone obelisk. It seems to be a monument of
 some sort, although you can see no plaque or marker anywhere near it.
 
 >get newspaper
- Town Square                                         day two
 
 (slipping the bundle of soggy pages into the pocket of your trenchcoat to get a
 hand free)
@@ -1625,7 +1491,6 @@ You pick up the newspaper. It's the "Weekly Arkham Herald". Anchorhead,
 apparently, is not large enough to warrant its own newspaper.
 
 >read it
- Town Square                                         day two
 
 The front page story is about Jeffrey Greer, 8 years old, who was abducted from
 his home at #11 Mill Town Road last night. Little Jeffrey is the latest victim
@@ -1643,7 +1508,6 @@ Anyone possessing information regarding the whereabouts of Jeffrey Greer is
 strongly urged to speak to the authorities as soon as possible.
 
 >south
- Courthouse                                          day two
 
 Courthouse
 A long, dimly lit, north-south corridor stretches away from the courthouse
@@ -1655,7 +1519,6 @@ hall's southern end, a staircase leads down into the basement; a sign hanging
 above it reads "RECORDS". You can return to Town Square to the north.
 
 >south
- Courthouse Basement                                 day two
 
 Courthouse Basement
 A single bulb dangling from the ceiling casts a watery, yellow light against the
@@ -1665,7 +1528,6 @@ hangs a sign that reads "BIRTH RECORDS", while the southwest door bears the sign
 "DEATH RECORDS".
 
 >se
- Birth Records                                       day two
 
 Birth Records
 A bare room with cinderblock walls. Thousands of records and documents, most
@@ -1673,40 +1535,34 @@ yellow and brittle with age, are stacked everywhere in towering piles. The exit
 lies northwest.
 
 >look up Edward
- Birth Records                                       day two
 
 (in the archives)
 Edward Verlac: born April 26, 1960.
 
 >look up Mordecai
- Birth Records                                       day two
 
 (in the archives)
 Mordecai Verlac: born January 30, 1886.
 
 >look up Elijah
- Birth Records                                       day two
 
 (in the archives)
 That's not a name you're familiar with. Since the archives are filled with names
 you're not familiar with, you are unable to get very far looking for it.
 
 >look up Heinrich
- Birth Records                                       day two
 
 (in the archives)
 That's not a name you're familiar with. Since the archives are filled with names
 you're not familiar with, you are unable to get very far looking for it.
 
 >look up Wilhelm
- Birth Records                                       day two
 
 (in the archives)
 That's not a name you're familiar with. Since the archives are filled with names
 you're not familiar with, you are unable to get very far looking for it.
 
 >nw
- Courthouse Basement                                 day two
 
 Courthouse Basement
 A single bulb dangling from the ceiling casts a watery, yellow light against the
@@ -1716,7 +1572,6 @@ hangs a sign that reads "BIRTH RECORDS", while the southwest door bears the sign
 "DEATH RECORDS".
 
 >sw
- Death Records                                       day two
 
 Death Records
 A bare room with cinderblock walls. Thousands of records and documents, most
@@ -1724,40 +1579,34 @@ yellow and brittle with age, are stacked everywhere in towering piles. The exit
 lies northeast.
 
 >look up Edward
- Death Records                                       day two
 
 (in the archives)
 Edward Verlac: died March 14, 1997.
 
 >look up Mordecai
- Death Records                                       day two
 
 (in the archives)
 Mordecai Verlac: died April 26, 1960.
 
 >look up Elijah
- Death Records                                       day two
 
 (in the archives)
 That's not a name you're familiar with. Since the archives are filled with names
 you're not familiar with, you are unable to get very far looking for it.
 
 >look up Heinrich
- Death Records                                       day two
 
 (in the archives)
 That's not a name you're familiar with. Since the archives are filled with names
 you're not familiar with, you are unable to get very far looking for it.
 
 >look up Wilhelm
- Death Records                                       day two
 
 (in the archives)
 That's not a name you're familiar with. Since the archives are filled with names
 you're not familiar with, you are unable to get very far looking for it.
 
 >ne
- Courthouse Basement                                 day two
 
 Courthouse Basement
 A single bulb dangling from the ceiling casts a watery, yellow light against the
@@ -1767,7 +1616,6 @@ hangs a sign that reads "BIRTH RECORDS", while the southwest door bears the sign
 "DEATH RECORDS".
 
 >north
- Courthouse                                          day two
 
 Courthouse
 A long, dimly lit, north-south corridor stretches away from the courthouse
@@ -1779,7 +1627,6 @@ hall's southern end, a staircase leads down into the basement; a sign hanging
 above it reads "RECORDS". You can return to Town Square to the north.
 
 >north
- Town Square                                         day two
 
 Town Square
 A wide expanse of uneven pavestones lies open to the sky, bordered on all sides
@@ -1794,7 +1641,6 @@ grass and weeds, stands a strange, stone obelisk. It seems to be a monument of
 some sort, although you can see no plaque or marker anywhere near it.
 
 >north
- Whateley Bridge                                     day two
 
 Whateley Bridge
 A hoary monument of crumbling, moss-eaten flagstones, Whateley Bridge is
@@ -1808,7 +1654,6 @@ In the distance, you can hear the lonesome keening of a train whistle drifting
 on the wind.
 
 >north
- Narrow Street                                       day two
 
 Narrow Street
 As the lane winds along from east to west, it narrows until the steep, jagged
@@ -1818,7 +1663,6 @@ a twisting lane leads up a hill to the northwest. A short flight of steps to the
 north leads down to the local watering hole.
 
 >west
- Junction                                            day two
 
 Junction
 To the north, a gap in the crowded press of gloomy buildings opens onto a
@@ -1827,7 +1671,6 @@ east, while to the northwest, over the top of a steep rise, you can just make
 out the vaulted rooftops of the university.
 
 >nw
- University Court                                    day two
 
 University Court
 Isolated and serene within its high, ivy-covered walls, Miskaton University
@@ -1848,7 +1691,6 @@ A flurry of dead leaves goes skittering along the ground, swirling past you in
 the wind.
 
 >west
- Library                                             day two
 
 Library
 Shadows roost thickly in the vaulted ceiling, and small, green-shaded desk lamps
@@ -1858,7 +1700,6 @@ welcome relief from the unsettling events of the day. An exit lies east, and a
 small alcove to the north houses the circulation counter.
 
 >north
- Circulation Desk                                    day two
 
 Circulation Desk
 A high counter divides the public portion of the library from the reserved
@@ -1871,7 +1712,6 @@ sign sits a heavy, dog-eared register, and sitting next to the register is a
 bell.
 
 >ring bell
- Circulation Desk                                    day two
 
 Ding.
 
@@ -1879,7 +1719,6 @@ A moment later, the gaunt and fishy-eyed librarian emerges silently from the
 shadows behind the counter.
 
 >show card to librarian
- Circulation Desk                                    day two
 
 (first taking the faculty card)
 (slipping the keyring into the pocket of your trenchcoat to get a hand free)
@@ -1887,7 +1726,6 @@ The librarian looks the card over, nods slowly, and hands it back to you without
 a word.
 
 >ask for book
- Circulation Desk                                    day two
 
 Wordlessly the librarian retreats back into the shadows, only to reappear the
 next moment carrying the thick, dusty tome you saw your husband with earlier.
@@ -1897,13 +1735,11 @@ disappearing again.
 Your score has just gone up by two points.
 
 >open historical
- Circulation Desk                                    day two
 
 As you open the book, a slip of paper falls from its pages and flutters to the
 ground.
 
 >get slip
- Circulation Desk                                    day two
 
 (slipping the animal's skull into the pocket of your trenchcoat to get a hand
 free)
@@ -1911,7 +1747,6 @@ You pick up the slip of paper. Someone was apparently using it as a bookmark.
 There's some writing on one side.
 
 >read it
- Circulation Desk                                    day two
 
 It says:
 
@@ -1932,7 +1767,6 @@ The handwriting is unmistakably Michael's.
 
  [press BACKSPACE to return to game]
    >^H
- Circulation Desk                                    day two
 
 Circulation Desk
 A high counter divides the public portion of the library from the reserved
@@ -1945,13 +1779,11 @@ sign sits a heavy, dog-eared register, and sitting next to the register is a
 bell.
 
 >drop book
- Circulation Desk                                    day two
 
 (A Historical Overview of Superstitions by J. Arnsworth Frazer)
 Dropped.
 
 >south
- Library                                             day two
 
 Library
 Shadows roost thickly in the vaulted ceiling, and small, green-shaded desk lamps
@@ -1961,7 +1793,6 @@ welcome relief from the unsettling events of the day. An exit lies east, and a
 small alcove to the north houses the circulation counter.
 
 >east
- University Court                                    day two
 
 University Court
 Isolated and serene within its high, ivy-covered walls, Miskaton University
@@ -1979,7 +1810,6 @@ There are numerous buildings surrounding this cobbled court, but the only one
 you are interested in is the library to the west.
 
 >se
- Junction                                            day two
 
 Junction
 To the north, a gap in the crowded press of gloomy buildings opens onto a
@@ -1988,7 +1818,6 @@ east, while to the northwest, over the top of a steep rise, you can just make
 out the vaulted rooftops of the university.
 
 >east
- Narrow Street                                       day two
 
 Narrow Street
 As the lane winds along from east to west, it narrows until the steep, jagged
@@ -1998,7 +1827,6 @@ a twisting lane leads up a hill to the northwest. A short flight of steps to the
 north leads down to the local watering hole.
 
 >north
- Local Pub                                           day two
 
 Local Pub
 A dank, drafty old drinking hole lit by flickering, oil-burning lanterns. Smoke
@@ -2014,26 +1842,22 @@ The lantern sitting on the table nearest you sputters fitfully, throwing
 distorted shadows across the wall.
 
 >get lantern
- Local Pub                                           day two
 
 (slipping the newspaper into the pocket of your trenchcoat to get a hand free)
 No one here looks as though they'd mind if you borrowed one of these lamps.
 Casually, you purloin the nearest one.
 
 >south
- Local Pub                                           day two
 
 As you make your way to the door, your foot strikes something under one of the
 tables.
 
 >look under table
- Local Pub                                           day two
 
 Some forgetful soul has left a flask underneath one of the tables, pushed into a
 shadowy corner.
 
 >get flask
- Local Pub                                           day two
 
 (slipping the faculty card into the pocket of your trenchcoat to get a hand
 free)
@@ -2043,7 +1867,6 @@ distinguished brand of spirits. The words "bootleg" and "rotgut" come to mind,
 probably because they are the only words legible on what's left of the label.
 
 >south
- Narrow Street                                       day two
 
 Narrow Street
 As the lane winds along from east to west, it narrows until the steep, jagged
@@ -2053,7 +1876,6 @@ a twisting lane leads up a hill to the northwest. A short flight of steps to the
 north leads down to the local watering hole.
 
 >nw
- Twisting Lane                                       day two
 
 Twisting Lane
 The lane narrows here to little more than a badly cobbled sidewalk as it wends
@@ -2065,7 +1887,6 @@ a blank brick wall.
 Someone has sprayed graffiti across the wall in black spraypaint.
 
 >read wall
- Twisting Lane                                       day two
 
 It's a strange design done in black spraypaint; an upturned hand with an
 irregular triangle inscribed in the palm. Beneath it is drawn an arrow pointing
@@ -2073,7 +1894,6 @@ roughly west, and following it with your gaze, you realize that it points
 directly at the narrow aperture of a sidestreet you'd never noticed before.
 
 >west
- Hidden Court                                        day two
 
 Hidden Court
 You had no idea this little courtyard even existed, cleverly tucked away amidst
@@ -2085,7 +1905,6 @@ sign marks a humble shop, while a sidestreet to the east leads back into the
 labyrinth.
 
 >south
- The Cauldron                                        day two
 
 A silvery bell jingles as you open the door.
 
@@ -2103,13 +1922,11 @@ On the display case is a violin.
 The proprietor watches you quietly from behind the display case.
 
 >look in display case
- The Cauldron                                        day two
 
 Inside the case you see a deck of tarot cards, a geode and an amulet. Resting on
 top of it is a violin.
 
 >ask proprietor about amulet
- The Cauldron                                        day two
 
 "Now there's a fancy little thing," remarks the proprietor. "A humble charm
 against evil. A ward against the Eye, you might say. Young chap brought that in
@@ -2126,7 +1943,6 @@ Miss? No. You go on and keep that, now. My treat. You may find it useful soon."
 Your score has just gone up by five points.
 
 >give puzzle box to him
- The Cauldron                                        day two
 
 (first taking the puzzle box)
 (slipping the slip of paper into the pocket of your trenchcoat to get a hand
@@ -2143,7 +1959,6 @@ He places the box on top of the display case. "And there you have it," he says.
 Your score has just gone up by two points.
 
 >get puzzle box
- The Cauldron                                        day two
 
 Taken.
 
@@ -2151,7 +1966,6 @@ The proprietor pulls a rag from his back pocket and polishes the top of the
 display case.
 
 >north
- Hidden Court                                        day two
 
 The old man waves as you leave. "Come back soon," he calls.
 
@@ -2165,7 +1979,6 @@ sign marks a humble shop, while a sidestreet to the east leads back into the
 labyrinth.
 
 >east
- Twisting Lane                                       day two
 
 Twisting Lane
 The lane narrows here to little more than a badly cobbled sidewalk as it wends
@@ -2177,7 +1990,6 @@ a blank brick wall.
 Someone has sprayed graffiti across the wall in black spraypaint.
 
 >sw
- Narrow Street                                       day two
 
 Narrow Street
 As the lane winds along from east to west, it narrows until the steep, jagged
@@ -2189,7 +2001,6 @@ north leads down to the local watering hole.
 The cold wind cuts through your clothes, chilling you to the bone.
 
 >south
- Whateley Bridge                                     day two
 
 Whateley Bridge
 A hoary monument of crumbling, moss-eaten flagstones, Whateley Bridge is
@@ -2200,7 +2011,6 @@ underside into the water. It looks just wide enough for two cars to pass each
 other between the flanking stone parapets, but you wouldn't volunteer to try it.
 
 >south
- Town Square                                         day two
 
 Town Square
 A wide expanse of uneven pavestones lies open to the sky, bordered on all sides
@@ -2215,7 +2025,6 @@ grass and weeds, stands a strange, stone obelisk. It seems to be a monument of
 some sort, although you can see no plaque or marker anywhere near it.
 
 >east
- Riverwalk                                           day two
 
 Riverwalk
 A low, irregular brick wall to the north divides this street from the steep,
@@ -2225,7 +2034,6 @@ The street bends south here, turning into a misty avenue between the trees. The
 town square lies west, a vacant lot lies east.
 
 >east
- Vacant Lot                                          day two
 
 Vacant Lot
 Where once a building stood, there is now only cracked pavement and rampant
@@ -2236,7 +2044,6 @@ An old man dressed in dirty rags sits on his mattress, muttering to himself as
 he stares intently out to sea.
 
 >give flask to bum
- Vacant Lot                                          day two
 
 His eyes burning with greed, the old man snatches the flask from your hand,
 unscrews the cap and tips it up into his waiting mouth. Trickles of pungent
@@ -2248,7 +2055,6 @@ dropping from his fingers.
 Your score has just gone up by two points.
 
 >ask bum about himself
- Vacant Lot                                          day two
 
 The old man sighs. "I was a doctor, once. I was a very good doctor. But that was
 before Edward, you know. Little Edward and his..." His voice trails off to a
@@ -2277,7 +2083,6 @@ a few years, but it was sickly, and in pain, and it could never be normal nor
 healthy. She brought it to me... I was her doctor, you see, I'd seen her through
 her child's birth, and she trusted me... and I put the thing down, softly and
 
- Vacant Lot                                          day two
 
 without pain, and they laid it to rest in the family crypt.
 
@@ -2288,7 +2093,6 @@ more out to sea. And he is lost, once again, to the horror and pain of the
 memories that can only be silenced by drink.
 
 >ask bum about Anna
- Vacant Lot                                          day two
 
 Tears stream unchecked down the old man's face. "Shouldn't have happened to the
 girl. Only seventeen, she was, still a child when he... when that red-eyed
@@ -2297,13 +2101,11 @@ DAUGHTER, GODS FUCK 'EM! SHOULDN'T HAVE DONE THAT TO HIS OWN DAUGHTER! GODS FUCK
 'EM ALL!!"
 
 >ask bum about crypt
- Vacant Lot                                          day two
 
 The old man stares at you suspiciously. "William was buried in the family crypt,
 at his mother's request, so he was; what're you getting at?"
 
 >tell bum about skull
- Vacant Lot                                          day two
 
 The old man bares his teeth. "You can't prove it! You can't prove anything, so
 you can't!"
@@ -2331,7 +2133,6 @@ me." He lets out an eye-wateringly pungent breath, "P'raps it's best they do.
 I've spent so long drowning my sins, p'raps time's come to pay for them at last.
 This won't do me much good no more," he says, holding up his little copper key.
 
- Vacant Lot                                          day two
 
 "And yet..." He closes his fist around it again. "And yet, maybe there's a
 way... they say there's ways to protect yourself, wards versus the Evil Eye and
@@ -2339,7 +2140,6 @@ such. " The old man stares greedily at the amulet around your neck. "Perhaps, if
 I could get me one o' those..."
 
 >give amulet to bum
- Vacant Lot                                          day two, evening
 
 "Thank you kindly, Miss, you're a generous one, so you are," grins the old man
 as he closes his grimy fingers around the charm. "And here y'are," he says,
@@ -2362,13 +2162,11 @@ dark soon.
 Your score has just gone up by five points.
 
 >put key on keyring
- Vacant Lot                                          day two, evening
 
 (the small copper key on the keyring)
 The small copper key is now on the keyring.
 
 >se
- Wharf                                               day two, evening
 
 Wharf
 The gentle creaking of hawsers and the hollow slap of water beneath the wooden
@@ -2381,14 +2179,12 @@ it's just you and the ocean.
 An old, discarded tin of fish oil sits at the end of the pier.
 
 >get tin
- Wharf                                               day two, evening
 
 (slipping the puzzle box into the pocket of your trenchcoat to get a hand free)
 You pick up the old tin. It's dented and rusty, and you can barely make out the
 words "Skagen, Denmark" printed along the side. The lid is closed.
 
 >nw
- Vacant Lot                                          day two, evening
 
 Vacant Lot
 Where once a building stood, there is now only cracked pavement and rampant
@@ -2403,7 +2199,6 @@ In the distance, you can hear the lonesome keening of a train whistle drifting
 on the wind.
 
 >west
- Riverwalk                                           day two, evening
 
 Riverwalk
 A low, irregular brick wall to the north divides this street from the steep,
@@ -2413,7 +2208,6 @@ The street bends south here, turning into a misty avenue between the trees. The
 town square lies west, a vacant lot lies east.
 
 >south
- Chilly Avenue                                       day two, evening
 
 Chilly Avenue
 Perhaps it is merely the effect of some unwholesome vapour rising from the murky
@@ -2422,7 +2216,6 @@ perceptibly cooler than normal, even for a New England autumn. Two dirt roads
 lead south and southwest, into the dense woods at the edge of town.
 
 >sw
- Scenic View                                         day two, evening
 
 The ground begins to rise sharply as the road climbs up into the hills south of
 town.
@@ -2438,7 +2231,6 @@ directly in the center lies the little clearing of Town Square. You can just
 make out the shape of the obelisk from here.
 
 >nw
- Outside the House                                   day two, evening
 
 Outside the House
 The lane runs up from the southeast and ends at a wide clearing surrounded by
@@ -2452,7 +2244,6 @@ The Verlac mansion looms before you, casting an air of menace over the clearing.
 A typewritten notice has been attached to the front door.
 
 >north
- Foyer                                               day two, evening
 
 Foyer
 Although it appears spacious from the outside, the house's interior feels
@@ -2471,19 +2262,16 @@ still, hushed; an eery prickling walks up your back like centipede legs. Michael
 isn't here, you realize. The house is empty. You are alone.
 
 >close door
- Foyer                                               day two, evening
 
 You close the front door.
 
 >up
- Upstairs Landing                                    day two, evening
 
 Upstairs Landing
 A narrow hallway runs east, from the top of the stairs down the length of the
 house. To the north, directly opposite the stairs, is the master bedroom.
 
 >east
- Upstairs Hall                                       day two, evening
 
 Upstairs Hall
 The shuttered window at the end of the hall throws a gloomy rectangle of light
@@ -2492,7 +2280,6 @@ onto the bare wooden floor. Doorways lead north and south.
 There is a cord dangling in mid-air here, right about level with your face.
 
 >north
- Library                                             day two, evening
 
 Library
 Whatever else their faults may have been, the Verlacs were evidently not ones to
@@ -2509,7 +2296,6 @@ A section of the shelves in the western wall has slid to one side, revealing a
 hidden safe.
 
 >east
- Study                                               day two, evening
 
 (opening the sliding doors first)
 
@@ -2525,7 +2311,6 @@ Michael's laptop sits in the middle of the desk, humming quietly to itself. Also
 on the desk is a letter opener.
 
 >get opener
- Study                                               day two, evening
 
 (slipping the animal's skull into the pocket of your trenchcoat to get a hand
 free)
@@ -2533,32 +2318,27 @@ You pick up the letter opener. It's a rather ornate thing, with a silver hilt
 and a slim, sharp tip.
 
 >look at screen
- Study                                               day two, evening
 
 The computer is in screen-saver mode: blank except for a single window
 requesting a 4-digit user passcode. Odd; you didn't think Michael ever used the
 passcode utility.
 
 >remove ring
- Study                                               day two, evening
 
 You slip the plain gold band from your finger. Usually you feel almost naked
 without your ring on, although sometimes you do find yourself taking it off
 briefly, just to read the inscription along the inside.
 
 >look at it
- Study                                               day two, evening
 
 Engraved along the inside are Michael's and your initials, along with your
 wedding date -- June 28th.
 
 >wear it
- Study                                               day two, evening
 
 The gold band slides onto your finger with a comforting snugness.
 
 >type 0628
- Study                                               day two, evening
 
 (on the laptop)
 The passcode window disappears and the screen suddenly fills with text,
@@ -2588,14 +2368,12 @@ don't know what they open yet but I have an idea --
 Tomorrow I must go down to the cellar. I must see if the things revealed to me
 in that terrible book are true.
 
- Study                                               day two, evening
 
 I know she is worried about me. I want to tell her, but --
 
 The entry ends there, unfinished.
 
 >west
- Library                                             day two, evening
 
 Library
 Whatever else their faults may have been, the Verlacs were evidently not ones to
@@ -2612,7 +2390,6 @@ A section of the shelves in the western wall has slid to one side, revealing a
 hidden safe.
 
 >south
- Upstairs Hall                                       day two, evening
 
 Upstairs Hall
 The shuttered window at the end of the hall throws a gloomy rectangle of light
@@ -2621,13 +2398,11 @@ onto the bare wooden floor. Doorways lead north and south.
 There is a cord dangling in mid-air here, right about level with your face.
 
 >pull cord
- Upstairs Hall                                       day two, evening
 
 With a rusty, ratcheting groan and a brief shower of dust, the trap door swings
 down and folds back, revealing a rickety wooden ladder leading up into darkness.
 
 >up
- Attic                                               day two, evening
 
 The ancient rungs creak alarmingly as you ascend.
 
@@ -2640,26 +2415,22 @@ crawl, while to the north stands a wooden door, draped in shadows and half-
 hidden by the slanting eaves.
 
 >push newspaper under door
- Attic                                               day two, evening
 
 You slide the newspaper under the door, leaving only an inch or two sticking out
 on your side.
 
 >put opener in keyhole
- Attic                                               day two, evening
 
 The tip of the letter opener bumps against something, and you hear something
 thump onto the newspaper on the other side of the door.
 
 >get newspaper
- Attic                                               day two, evening
 
 (slipping the old tin into the pocket of your trenchcoat to get a hand free)
 Something metallic falls off the newspaper as you pull it out from under the
 door.
 
 >get brass key
- Attic                                               day two, evening
 
 (slipping the letter opener into the pocket of your trenchcoat to get a hand
 free)
@@ -2669,12 +2440,10 @@ barrel about a quarter-inch in diameter and flat, square teeth.
 Your score has just gone up by one point.
 
 >put brass key on keyring
- Attic                                               day two, evening
 
 The old-fashioned brass key is now on the keyring.
 
 >unlock door
- Attic                                               day two, evening
 
 (first taking the keyring)
 You go through all the keys on your keyring, trying each one in turn, and after
@@ -2683,7 +2452,6 @@ lock.
 You unlock the door.
 
 >north
- Attic Cell                                          day two, evening
 
 (opening the door first)
 
@@ -2694,20 +2462,17 @@ pencil marks on the lower part of the walls seem to indicate that someone lived
 here once. Or, possibly, was kept here.
 
 >search straw
- Attic Cell                                          day two, evening
 
 You gingerly poke through the filthy straw, barely able to suppress your
 disgust. However, your search is not unrewarded: underneath the thickest part of
 the pile, you discover a tiny gold locket.
 
 >get gold locket
- Attic Cell                                          day two, evening
 
 (slipping the newspaper into the pocket of your trenchcoat to get a hand free)
 You pick up the gold locket. It is oval-shaped, held shut with a tiny clasp.
 
 >south
- Attic                                               day two, evening
 
 Attic
 It's much cooler up here than in the rest of the house, and you find it hard to
@@ -2718,7 +2483,6 @@ crawl, while to the north stands a wooden door, draped in shadows and half-
 hidden by the slanting eaves.
 
 >down
- Upstairs Hall                                       day two, evening
 
 The ancient rungs creak alarmingly as you descend.
 
@@ -2730,14 +2494,12 @@ A rickety wooden ladder stands here, descending from a three-foot by three-foot
 square of darkness in the ceiling.
 
 >west
- Upstairs Landing                                    day two, evening
 
 Upstairs Landing
 A narrow hallway runs east, from the top of the stairs down the length of the
 house. To the north, directly opposite the stairs, is the master bedroom.
 
 >north
- Master Bedroom                                      day two, evening
 
 Master Bedroom
 The master bedroom is a picture-postcard of rustic New England charm. Faded
@@ -2748,7 +2510,6 @@ bed, must be the largest piece of furniture in the house. Doorways lead west and
 south.
 
 >west
- Bathroom                                            day two, evening
 
 Bathroom
 A small chamber of cold, white tile and floral-print wallpaper. It sports a
@@ -2758,14 +2519,12 @@ definite plus. The bedroom lies east.
 Michael's bath towel lies crumpled in the corner, next to the tub.
 
 >get towel
- Bathroom                                            day two, evening
 
 (slipping the keyring into the pocket of your trenchcoat to get a hand free)
 You pick up the towel. It's still a little damp from Michael's shower, but
 otherwise it's a perfectly ordinary bath towel.
 
 >east
- Master Bedroom                                      day two, evening
 
 Master Bedroom
 The master bedroom is a picture-postcard of rustic New England charm. Faded
@@ -2776,13 +2535,11 @@ bed, must be the largest piece of furniture in the house. Doorways lead west and
 south.
 
 >undress
- Master Bedroom                                      day two, evening
 
 You take off the trenchcoat.
 You take off the clothes.
 
 >drop all
- Master Bedroom                                      day two, evening
 
 towel: Dropped.
 gold locket: Dropped.
@@ -2792,7 +2549,6 @@ trenchcoat: Dropped.
 clothes: Dropped.
 
 >lie in bed
- Master Bedroom, on the four-poster bed              day two, evening
 
 Gratefully, you crawl into bed and pull the covers up to your chin.
 
@@ -2837,13 +2593,11 @@ Your eyes adjust to the dark and you see --
                  -- H.P. Lovecraft
 
 
- Master Bedroom, on the four-poster bed              day three
 
 You wake up, shivering. Michael is in bed next to you, sleeping like a dead man
 with the sheets wrapped in a twisted snarl around his body.
 
 >leave bed
- Master Bedroom                                      day three
 
 Reluctantly, you do so.
 
@@ -2865,7 +2619,6 @@ You can also see a flashlight, a lantern, a gold locket (which is closed) and a
 towel here.
 
 >dress
- Master Bedroom                                      day three
 
 (first taking the clothes)
 You try to get dressed as quietly as possible, but apparently Michael isn't as
@@ -2875,7 +2628,6 @@ he is and all but unaware of your presence. Then, with a grunt of surprise, he
 seems to come to his senses and painstakingly crawls out of bed.
 
 >wear coat
- Master Bedroom                                      day three
 
 (first taking the trenchcoat)
 You put on the trenchcoat.
@@ -2884,7 +2636,6 @@ Michael wanders off to the south, looking around aimlessly, as though searching
 for something without even knowing what it is that is lost.
 
 >get all
- Master Bedroom                                      day three
 
 flashlight: Taken.
 lantern: Taken.
@@ -2892,7 +2643,6 @@ gold locket: Taken.
 towel: Taken.
 
 >south
- Upstairs Landing                                    day three
 
 Upstairs Landing
 A narrow hallway runs east, from the top of the stairs down the length of the
@@ -2901,7 +2651,6 @@ house. To the north, directly opposite the stairs, is the master bedroom.
 Michael stands here, frowning and absently rubbing at his forehead.
 
 >east
- Upstairs Hall                                       day three
 
 Upstairs Hall
 The shuttered window at the end of the hall throws a gloomy rectangle of light
@@ -2911,7 +2660,6 @@ A rickety wooden ladder stands here, descending from a three-foot by three-foot
 square of darkness in the ceiling.
 
 >north
- Library                                             day three
 
 Library
 Whatever else their faults may have been, the Verlacs were evidently not ones to
@@ -2931,7 +2679,6 @@ You can hear Michael moving around elsewhere in the house, the floorboards
 creaking uneasily with his footsteps.
 
 >east
- Study                                               day three
 
 Study
 This smaller room adjoining the library seems comfortable enough, although it is
@@ -2944,7 +2691,6 @@ A beautiful pair of mahogany sliding doors lead west, to the library.
 Michael's laptop sits in the middle of the desk, humming quietly to itself.
 
 >look at fireplace
- Study                                               day three
 
 The fireplace is carved from beautiful, dark-veined marble, a strange shade that
 is not quite a deep, forest green and not quite a murky, dusky red. The
@@ -2954,7 +2700,6 @@ You can hear Michael moving around elsewhere in the house, the floorboards
 creaking uneasily with his footsteps.
 
 >turn sphere
- Study                                               day three
 
 The sphere twists clockwise a few degrees, there is a barely audible "click",
 and the sphere snaps back into its original position. Suddenly, the entire
@@ -2962,7 +2707,6 @@ fireplace slides about eighteen inches to the left with a hollow grinding sound,
 revealing a narrow corridor in the southwest wall.
 
 >sw
- Narrow Corridor                                     day three
 
 Narrow Corridor
 The walls are bare wooden slats, patched with crumbling plaster and spiked with
@@ -2971,7 +2715,6 @@ bends and twist at confusing angles, making it hard to tell which direction
 you're heading in.
 
 >west
- Narrow Corridor                                     day three
 
 Narrow Corridor
 The walls are bare wooden slats, patched with crumbling plaster and spiked with
@@ -2983,7 +2726,6 @@ A thin beam of light slants through the dusty air, coming from a small hole half
 way up one wall.
 
 >look in hole
- Narrow Corridor                                     day three
 
 (the small hole)
 Standing on tiptoe and placing your eye up to the hole, you see the children's
@@ -3002,7 +2744,6 @@ somewhere. For a moment Michael simply stands there aimlessly, compulsively
 rubbing his forehead; then he stalks out of the room and is gone.
 
 >east
- Narrow Corridor                                     day three
 
 Narrow Corridor
 The walls are bare wooden slats, patched with crumbling plaster and spiked with
@@ -3036,7 +2777,6 @@ deferential, admiring, and... something else; you can't quite put your finger on
 at first, but as your husband continues to gaze rhapsodically at the terrible
 portrait, a sickening realization strikes you.
 
- Narrow Corridor                                     day three
 
 The expression is vanity. Ugly, self-absorbed vanity. Your husband is staring at
 this portrait the way he might preen himself in a mirror.
@@ -3045,7 +2785,6 @@ Michael brushes his fingers back through his hair and walks out of the room,
 chuckling softly to himself.
 
 >nw
- Narrow Corridor                                     day three
 
 Narrow Corridor
 The walls are bare wooden slats, patched with crumbling plaster and spiked with
@@ -3078,7 +2817,6 @@ revealing a hidden passage!
 The room is filled for a moment with a wild, wretched keening, like a cold wind
 blowing through an empty chasm. With one last, wary look behind him, Michael
 
- Narrow Corridor                                     day three
 
 steps through the portal. The light disappears, the wall swings back with
 another grinding sound, and then all is quiet.
@@ -3086,7 +2824,6 @@ another grinding sound, and then all is quiet.
 Your score has just gone up by two points.
 
 >sw
- Narrow Corridor                                     day three
 
 Narrow Corridor
 The walls are bare wooden slats, patched with crumbling plaster and spiked with
@@ -3095,7 +2832,6 @@ bends and twist at confusing angles, making it hard to tell which direction
 you're heading in.
 
 >se
- Observatory                                         day three
 
 Observatory
 You are in a small, enclosed cupola situated, by the look of the view through
@@ -3108,7 +2844,6 @@ Dominating the center of the room is a large mounted telescope, pointed almost
 straight up through the skylight.
 
 >put lens in telescope
- Observatory                                         day three
 
 (first taking the strange black disk)
 (slipping the gold locket into the pocket of your trenchcoat to get a hand free)
@@ -3142,7 +2877,6 @@ fluid, and it
 exactly, you just witnessed; whether it was a genuine astronomical phenomenon,
 or a hallucination, or the actual form of some Dark God from the Outer Reaches,
 
- Observatory                                         day three
 
 come to devour the world. You're not even entirely sure you remember what it
 looked like. The only thing you can clearly recall is a single name, pulsing in
@@ -3155,7 +2889,6 @@ And that's all.
 Your score has just gone up by five points.
 
 >se
- Crawlspace                                          day three
 
 As you make your way down the corridor, you begin to get dizzy, then nauseous.
 Lines seem to cross without bending, the ceiling becomes the walls and the floor
@@ -3169,7 +2902,6 @@ east the attic becomes more spacious, while the northwest corner opens into an
 oddly-angled corridor.
 
 >east
- Attic                                               day three
 
 Attic
 It's much cooler up here than in the rest of the house, and you find it hard to
@@ -3180,7 +2912,6 @@ crawl, while to the north stands a wooden door, draped in shadows and half-
 hidden by the slanting eaves.
 
 >down
- Upstairs Hall                                       day three
 
 The ancient rungs creak alarmingly as you descend.
 
@@ -3192,14 +2923,12 @@ A rickety wooden ladder stands here, descending from a three-foot by three-foot
 square of darkness in the ceiling.
 
 >west
- Upstairs Landing                                    day three
 
 Upstairs Landing
 A narrow hallway runs east, from the top of the stairs down the length of the
 house. To the north, directly opposite the stairs, is the master bedroom.
 
 >down
- Foyer                                               day three
 
 Foyer
 Although it appears spacious from the outside, the house's interior feels
@@ -3212,13 +2941,11 @@ timid, and afraid of dark places. It is a house that makes you feel alone.
 Your luggage is still here, spread out all over the foyer.
 
 >north
- Back Hall                                           day three
 
 Back Hall
 A short hallway, connecting rooms to the east, west and south.
 
 >west
- Kitchen                                             day three
 
 Kitchen
 Where once pots and skillets and various utensils hung in profusion, the kitchen
@@ -3227,7 +2954,6 @@ Doorways lead east and south, a small pantry lies to the northwest, and the back
 door to the north leads out of the house.
 
 >nw
- Pantry                                              day three
 
 Pantry
 The pantry is empty save for a layer of dust on the shelves. A door to the south
@@ -3236,7 +2962,6 @@ leads down to the cellar, or you can return to the kitchen to the southeast.
 The cellar door stands open, revealing dark stairs leading down.
 
 >down
- Cellar                                              day three
 
 You descend the gloomy steps into the dank cellar.
 
@@ -3251,7 +2976,6 @@ One largish bundle of wires leads down to a rusty old fuse cabinet bolted to the
 far wall.
 
 >east
- Wine Cellar                                         day three
 
 Wine Cellar
 This wing of the cellar is even older than the rest, with walls of piled,
@@ -3273,7 +2997,6 @@ insignificant trivia into a compelling story. Still, though, now that you're
 actually standing here... it all seems very strange.
 
 >search wine rack
- Wine Cellar                                         day three
 
 There are five bottles in the third row from the bottom that have been handled
 recently; the fingermarks are clearly outlined on their dusty labels. One label
@@ -3281,33 +3004,28 @@ is partially torn and the other is all but faded completely, but at a quick
 glance you count a Pinot Noir, a Cabernet Sauvignon, and a Cheval Blanc.
 
 >turn c
- Wine Cellar                                         day three
 
 The bottle with the faded label rotates a quarter-turn clockwise, then snaps
 back with a loud "click".
 
 >turn w
- Wine Cellar                                         day three
 
 (the robust Pinot Noir)
 The bottle of robust Pinot Noir rotates a quarter-turn clockwise, then snaps
 back with a loud "click".
 
 >turn h
- Wine Cellar                                         day three
 
 The bottle of vintage Cabernet Sauvignon rotates a quarter-turn clockwise, then
 snaps back with a loud "click".
 
 >turn e
- Wine Cellar                                         day three
 
 (the bottle with the torn label)
 The bottle with the torn label rotates a quarter-turn clockwise, then snaps back
 with a loud "click".
 
 >turn m
- Wine Cellar                                         day three
 
 The bottle of light Cheval Blanc rotates a quarter-turn clockwise, then snaps
 back with a loud "click". A rumbling grating sound suddenly fills the wine
@@ -3317,7 +3035,6 @@ revealing a dark passageway to the north from which blows a hot, foul wind.
 Your score has just gone up by two points.
 
 >north
- Windy Passage                                       day three
 
 You take a few cautious steps into the corridor, when the wall suddenly slams
 shut behind you with a reverberating boom. You are trapped!
@@ -3329,7 +3046,6 @@ The passage runs north, sloping downward into the depths of the hillside. A foul
 wind gusts intermittently from the darkness below.
 
 >north
- Edge of the Pit                                     day three
 
 Edge of the Pit
 The passageway ends here at a fathomless pit, a puckered circular hole in the
@@ -3342,7 +3058,6 @@ wind.
 Another blast of hot, foul-smelling air comes shrieking out of the pit.
 
 >north
- Other Side                                          day three
 
 Carefully, you edge out onto the swaying planks. The planks creak and bend
 beneath your weight. One of them snaps just as you lift your weight from it,
@@ -3361,7 +3076,6 @@ wind.
 Another blast of hot, foul-smelling air comes shrieking out of the pit.
 
 >ne
- Great Stairs                                        day three
 
 Great Stairs
 The vast, stone staircase plunges down into the earth. The seemingly
@@ -3369,14 +3083,12 @@ interminable steps curve in a gentle sweep from the southwest, above you,
 dropping toward black, unplumbed depths to the north.
 
 >down
- Bottom of Stairs                                    day three
 
 Bottom of Stairs
 The stairs end here at a huge, greenish-gold door set into the north wall. There
 is nothing else here; nowhere to go but onward or back.
 
 >say ialdabaoloth
- Bottom of Stairs                                    day three
 
 The metallic door suddenly rings out as if struck; it vibrates in aching harmony
 with the blasphemous name -- a shrill, grating sound like a dentist's drill. The
@@ -3387,7 +3099,6 @@ gleaming door swings smoothly open on perfectly balanced and utterly silent
 hinges.
 
 >north
- Burial Mound                                        day three
 
 The doorway opens out into a large, dome-ceilinged cavern. You stand at the
 threshold for a moment, peering into the strange, phosphorescent gloom, before
@@ -3409,13 +3120,11 @@ At the narrower, northern end of the vaguely egg-shaped cavern sits a massive
 stone altar, flanked on either side by a pair of strange, vibrating columns.
 
 >cover hole 1
- Burial Mound                                        day three
 
 (first taking the strange metal flute)
 You place your finger over the first flute hole.
 
 >play flute
- Burial Mound                                        day three
 
 (the strange metal flute)
 The flute emits an eerie, almost sub-sonic note.
@@ -3425,18 +3134,15 @@ sound lingers, their dissonant ringing resonating strangely with the warbling,
 metallic notes.
 
 >remove finger from flute
- Burial Mound                                        day three
 
 (the strange metal flute)
 You lift your finger from the first flute hole.
 
 >cover hole 2
- Burial Mound                                        day three
 
 You place your finger over the second flute hole.
 
 >play flute
- Burial Mound                                        day three
 
 (the strange metal flute)
 The flute emits an eerie, deep note.
@@ -3446,18 +3152,15 @@ sound lingers, their dissonant ringing resonating strangely with the warbling,
 metallic notes.
 
 >remove finger from flute
- Burial Mound                                        day three
 
 (the strange metal flute)
 You lift your finger from the second flute hole.
 
 >cover hole 3
- Burial Mound                                        day three
 
 You place your finger over the third flute hole.
 
 >play flute
- Burial Mound                                        day three
 
 (the strange metal flute)
 The flute emits an eerie, low-pitched note.
@@ -3467,18 +3170,15 @@ sound lingers, their dissonant ringing resonating strangely with the warbling,
 metallic notes.
 
 >remove finger from flute
- Burial Mound                                        day three
 
 (the strange metal flute)
 You lift your finger from the third flute hole.
 
 >cover hole 4
- Burial Mound                                        day three
 
 You place your finger over the fourth flute hole.
 
 >play flute
- Burial Mound                                        day three
 
 (the strange metal flute)
 The flute emits an eerie note.
@@ -3490,18 +3190,15 @@ strange rippling effect in the air over the altar. Then it is gone, and the
 sound fades.
 
 >remove finger from flute
- Burial Mound                                        day three
 
 (the strange metal flute)
 You lift your finger from the fourth flute hole.
 
 >cover hole 5
- Burial Mound                                        day three
 
 You place your finger over the fifth flute hole.
 
 >play flute
- Burial Mound                                        day three
 
 (the strange metal flute)
 The flute emits an eerie, high-pitched note.
@@ -3513,18 +3210,15 @@ strange rippling effect in the air over the altar. Then it is gone, and the
 sound fades.
 
 >remove finger from flute
- Burial Mound                                        day three
 
 (the strange metal flute)
 You lift your finger from the fifth flute hole.
 
 >cover hole 6
- Burial Mound                                        day three
 
 You place your finger over the sixth flute hole.
 
 >play flute
- Burial Mound                                        day three
 
 (the strange metal flute)
 The flute emits an eerie, screeching note.
@@ -3534,18 +3228,15 @@ sound lingers, their dissonant ringing resonating strangely with the warbling,
 metallic notes.
 
 >remove finger from flute
- Burial Mound                                        day three
 
 (the strange metal flute)
 You lift your finger from the sixth flute hole.
 
 >cover hole 7
- Burial Mound                                        day three
 
 You place your finger over the seventh flute hole.
 
 >play flute
- Burial Mound                                        day three
 
 (the strange metal flute)
 The flute emits an eerie, piercingly high note.
@@ -3555,14 +3246,12 @@ sound lingers, their dissonant ringing resonating strangely with the warbling,
 metallic notes.
 
 >south
- Bottom of Stairs                                    day three
 
 Bottom of Stairs
 The stairs end here at a huge, greenish-gold door set into the north wall. There
 is nothing else here; nowhere to go but onward or back.
 
 >up
- Great Stairs                                        day three
 
 You start back up the wide steps...
 
@@ -3572,7 +3261,6 @@ interminable steps curve in a gentle sweep from the southwest, above you,
 dropping toward black, unplumbed depths to the north.
 
 >sw
- Other Side                                          day three
 
 Other Side
 The passageway turns east here, the stone floor dropping down in a series of
@@ -3584,7 +3272,6 @@ A thin and decrepit rope bridge spans the pit, shivering occasionally in the
 wind.
 
 >nw
- Crawlspace                                          day three
 
 As you make your way down the corridor, you begin to get dizzy, then nauseous.
 Lines seem to cross without bending, the ceiling becomes the walls and the floor
@@ -3598,7 +3285,6 @@ east the attic becomes more spacious, while the northwest corner opens into an
 oddly-angled corridor.
 
 >east
- Attic                                               day three
 
 Attic
 It's much cooler up here than in the rest of the house, and you find it hard to
@@ -3609,7 +3295,6 @@ crawl, while to the north stands a wooden door, draped in shadows and half-
 hidden by the slanting eaves.
 
 >down
- Upstairs Hall                                       day three
 
 The ancient rungs creak alarmingly as you descend.
 
@@ -3621,14 +3306,12 @@ A rickety wooden ladder stands here, descending from a three-foot by three-foot
 square of darkness in the ceiling.
 
 >west
- Upstairs Landing                                    day three
 
 Upstairs Landing
 A narrow hallway runs east, from the top of the stairs down the length of the
 house. To the north, directly opposite the stairs, is the master bedroom.
 
 >down
- Foyer                                               day three
 
 Foyer
 Although it appears spacious from the outside, the house's interior feels
@@ -3641,7 +3324,6 @@ timid, and afraid of dark places. It is a house that makes you feel alone.
 Your luggage is still here, spread out all over the foyer.
 
 >south
- Outside the House                                   day three
 
 (opening the front door first)
 
@@ -3663,7 +3345,6 @@ the wind; you can't put your finger on it, but it might have something to do
 with that strange hole in the sky.
 
 >se
- Scenic View                                         day three
 
 Scenic View
 The treeline falls away on the north side of this northwest-northeast bend in
@@ -3676,7 +3357,6 @@ directly in the center lies the little clearing of Town Square. You can just
 make out the shape of the obelisk from here.
 
 >ne
- Chilly Avenue                                       day three
 
 Chilly Avenue
 Perhaps it is merely the effect of some unwholesome vapour rising from the murky
@@ -3685,7 +3365,6 @@ perceptibly cooler than normal, even for a New England autumn. Two dirt roads
 lead south and southwest, into the dense woods at the edge of town.
 
 >south
- Deserted Lane                                       day three
 
 Deserted Lane
 The gently winding lane makes its way through the birch woods south of town. New
@@ -3696,7 +3375,6 @@ other direction heads back to town. A paved walk also leads east through the
 trees.
 
 >south
- Down the Road                                       day three
 
 Down the Road
 The forest grows denser as you go, crowding thickly up to either side of the
@@ -3710,7 +3388,6 @@ night's dream flicker through your memory, but you are unable to recall the
 details.
 
 >look at woods
- Down the Road                                       day three
 
 You scrutinize the edge of the road carefully, looking for whatever it was you
 saw...
@@ -3721,7 +3398,6 @@ your dream, a narrow rut running west through the underbrush. You can hardly
 believe it, but there it is.
 
 >west
- Trampled Path                                       day three
 
 Trampled Path
 The tangled undergrowth has been beaten down in a path leading roughly from the
@@ -3730,7 +3406,6 @@ vines torn down, and small trees bent or even snapped in half, as though
 something heavy with huge, flat feet had simply trampled its way through.
 
 >sw
- Abandoned Slaughterhouse                            day three
 
 Abandoned Slaughterhouse
 The decayed remains of an old slaughterhouse stand here, now little more than a
@@ -3743,7 +3418,6 @@ leaves rustling or branches creaking; even the whippoorwills have fallen silent.
 All is still, holding its collective breath in an expectant hush.
 
 >west
- Crumbled Ruin                                       day three
 
 Crumbled Ruin
 The roof has collapsed, leaving the interior open to the sky; the floor is
@@ -3761,7 +3435,6 @@ Over in the far corner, a tattered sheet of drawing paper lies discarded on the
 ground.
 
 >get drawing paper
- Crumbled Ruin                                       day three
 
 (slipping the towel into the pocket of your trenchcoat to get a hand free)
 You pick up the tattered drawing. The drawing is of a pair of crudely rendered
@@ -3775,7 +3448,6 @@ thing. Above the first figure is scribbled the word "MOMY"; above the second,
 "WILAM (ME)".
 
 >get hook
- Crumbled Ruin                                       day three
 
 (slipping the strange metal flute into the pocket of your trenchcoat to get a
 hand free)
@@ -3786,7 +3458,6 @@ a minimum of ceremony. You wouldn't like to think what this could do to a living
 person.
 
 >south
- Old Stone Well                                      day three
 
 Old Stone Well
 Beyond the south wall of the old slaughterhouse, there is nothing but a tangled
@@ -3798,13 +3469,11 @@ Rising from the midst of the underbrush is a squat circle of stone: the top of
 an ancient well. A circle of rotting plywood covers the opening.
 
 >lift plywood cover
- Old Stone Well                                      day three
 
 You dig your fingers under the edge of the plywood and, straining as hard as you
 can, manage to slide the heavy cover off the top of the well and onto the grass.
 
 >down
- In the Well                                         day three
 
 Carefully testing each foothold, you descend into the well.
 
@@ -3817,13 +3486,11 @@ porch.
 You are standing knee deep in a rattling jumble of children's bones.
 
 >search bones
- In the Well                                         day three
 
 You notice a tuft of brown among the yellowed-ivory of the bones. Moving aside a
 clattering pile of ribs, you discover a child's teddy bear.
 
 >get Teddy
- In the Well                                         day three
 
 (slipping the tattered drawing into the pocket of your trenchcoat to get a hand
 free)
@@ -3831,7 +3498,6 @@ You pick up the teddy bear. It is old and threadbare, its fur worn through to
 the stuffing in some places. Stitched onto its behind is the name "Jeffrey".
 
 >up
- Old Stone Well                                      day three
 
 You painstakingly climb out of the old well.
 
@@ -3847,7 +3513,6 @@ an ancient well.
 A rotting circle of plywood leans against the side of the well.
 
 >north
- Crumbled Ruin                                       day three
 
 Crumbled Ruin
 The roof has collapsed, leaving the interior open to the sky; the floor is
@@ -3859,7 +3524,6 @@ chilling reminder of the bloody work which once went on within these walls.
 There's something odd about the ground here; some faint marking or pattern.
 
 >east
- Crumbled Ruin                                       day three
 
 You are about to step back through the eastern wall when a noise makes you stop.
 In the woods outside, to the east -- something is there. Something breathing.
@@ -3868,7 +3532,6 @@ Something huge.
 A branch cracks sharply; and another. It's coming this way.
 
 >south
- Old Stone Well                                      day three
 
 Old Stone Well
 Beyond the south wall of the old slaughterhouse, there is nothing but a tangled
@@ -3885,7 +3548,6 @@ The sound of tearing undergrowth grows louder. Whatever it is, it's practically
 bulldozing its way through the forest.
 
 >down
- In the Well                                         day three
 
 As quickly as you are able, you scramble down the rough stone walls. Ten feet
 from the bottom, you slip, landing with a clatter amidst the dusty bones.
@@ -3902,7 +3564,6 @@ The ground trembles slightly with the thing's thunderous footsteps as it tromps
 up the path. It's right outside the slaughterhouse!
 
 >hide under bones
- In the Well, lying under the children's bones       day three
 
 You burrow down into the bones, piling more bones on top of you for cover while
 trying to make as little noise as possible.
@@ -3922,7 +3583,6 @@ conscious. Two grotesquely blue and childlike eyes blink down into the darkness
 of the well, searching...
 
 
- In the Well, lying under the children's bones       day three
 
 And then it is gone.
 
@@ -3936,12 +3596,10 @@ Involuntarily, you let out a long, shuddering breath.
 Your score has just gone up by two points.
 
 >up
- In the Well                                         day three
 
 The bones fall away, clattering loudly as you stand up.
 
 >up
- Old Stone Well                                      day three
 
 You painstakingly climb out of the old well.
 
@@ -3957,7 +3615,6 @@ an ancient well.
 A rotting circle of plywood leans against the side of the well.
 
 >north
- Crumbled Ruin                                       day three
 
 Crumbled Ruin
 The roof has collapsed, leaving the interior open to the sky; the floor is
@@ -3969,7 +3626,6 @@ chilling reminder of the bloody work which once went on within these walls.
 There's something odd about the ground here; some faint marking or pattern.
 
 >east
- Abandoned Slaughterhouse                            day three
 
 Abandoned Slaughterhouse
 The decayed remains of an old slaughterhouse stand here, now little more than a
@@ -3978,7 +3634,6 @@ sickly grass. A path leads northeast, back toward the road; to the west, a
 gaping hole that might once have been a doorway leads into the rotting building.
 
 >ne
- Trampled Path                                       day three
 
 Trampled Path
 The tangled undergrowth has been beaten down in a path leading roughly from the
@@ -3987,7 +3642,6 @@ vines torn down, and small trees bent or even snapped in half, as though
 something heavy with huge, flat feet had simply trampled its way through.
 
 >east
- Down the Road                                       day three
 
 Down the Road
 The forest grows denser as you go, crowding thickly up to either side of the
@@ -4020,10 +3674,8 @@ all of them look as though they're just about ready to put an end to a certain
 over-curious, outsider woman who doesn't know enough to keep her nose out of
 things better left undisturbed.
 
- Deserted Lane                                       day three
 
 >east
- Churchyard                                          day three
 
 You dart past the men on your right, making a break for the church. The
 townsfolk hover around the entrance to the churchyard but do not follow you,
@@ -4038,7 +3690,6 @@ leads around the church to the southeast.
 A gust of wind blows your hair into your face.
 
 >se
- Behind the Church                                   day three
 
 The path bends northeast, around the side of the church.
 
@@ -4049,7 +3700,6 @@ although a wooden trap door over by the corner of the building probably leads
 into a cellar. A path leads southwest, around to the front of the church.
 
 >break padlock with hook
- Behind the Church                                   day three
 
 You raise the meat hook high over your head and bring it squarely down onto the
 padlock. The rusted metal casing splits open, the hasp falls loose, and the
@@ -4058,7 +3708,6 @@ padlock, now nothing but a broken shell, slides to the ground.
 Your score has just gone up by one point.
 
 >down
- Church Cellar                                       day three
 
 (opening the trap door first)
 As you drop to the floor, the trap door suddenly slams shut above you. You hear
@@ -4077,7 +3726,6 @@ At the very edge of your light's glow, you can just make out a horribly
 suggestive shape lying in the shadows behind the furnace.
 
 >look at shape
- Church Cellar                                       day three
 
 It's the dead body of a woman. Her head has been raggedly hacked away, and her
 clothes above the waist are soaked through with blood. As you fight to control
@@ -4086,26 +3734,22 @@ the decay, though bad, is not very far advanced. She must have been killed
 within the last couple of days at most.
 
 >search shape
- Church Cellar                                       day three
 
 Gingerly, trying to avoid the worst of the blood, you lift the woman's lapel,
 hoping to find something -- identification, maybe. Her wallet is missing;
 however, you do find, tucked into the pocket of her blazer, a small, steel key.
 
 >put steel key on keyring
- Church Cellar                                       day three
 
 The small steel key is now on the keyring.
 
 >look at furnace
- Church Cellar                                       day three
 
 It's a big, pot-bellied iron furnace, blackened from years of use, with a hatch
 on one side and numerous twisting pipes which snake out of the top and grope
 their way up to the ceiling.
 
 >open hatch
- Church Cellar                                       day three
 
 Your throat tightens as you slowly open the bloodstained hatch...
 
@@ -4113,7 +3757,6 @@ Slow horror washes over you. You found exactly what you expected to find, of
 course. It's the real estate agent's severed head.
 
 >west
- Empty Stairwell                                     day three
 
 Empty Stairwell
 This alcove used to house a stairwell leading up and down; now it contains only
@@ -4123,12 +3766,10 @@ ground floor, the last shattered riser only a couple of tantalizing feet out of
 reach.
 
 >extinguish lantern
- Empty Stairwell                                     day three
 
 You blow the lantern out.
 
 >put all in pocket
- Empty Stairwell                                     day three
 
 teddy bear: You slip the teddy bear into the pocket of your trenchcoat.
 meat hook: You slip the meat hook into the pocket of your trenchcoat.
@@ -4138,7 +3779,6 @@ flashlight: You slip the flashlight into the pocket of your trenchcoat.
 From far below you hear the faint lapping of water.
 
 >jump onto riser
- Broken Stairs                                       day three
 
 You take a few steps back, draw in a deep breath, and make a dash for the edge.
 At the last possible second you jump, sailing out over the pit as you make a
@@ -4159,7 +3799,6 @@ ground floor of the church.
 The creaking under your feet is getting louder.
 
 >north
- Vestibule                                           day three
 
 Vestibule
 A dim antechamber, opening onto the main chapel to the east. To the west, the
@@ -4169,7 +3808,6 @@ doorway to the south you can see stairs leading down.
 Piled in one dusty corner is a heap of old cloth.
 
 >get cloth
- Vestibule                                           day three
 
 You shake the cloth out, revealing it to be a hooded robe.
 
@@ -4178,7 +3816,6 @@ out of stone, a loud, protracted splintering, and finally a thunderous crash
 that seems to echo up the shaft from far below.
 
 >east
- Chapel                                              day three
 
 Chapel
 Broken shards from the shattered the stained glass windows grits under your feet
@@ -4214,15 +3851,12 @@ reading, to uncover the secrets that the people of Anchorhead uncovered...
 
 Will you read on?
 
- Chapel                                              day three
 
 >no
- Chapel                                              day three
 
 You step away from the podium with a shudder.
 
 >east
- Behind the Chapel                                   day three
 
 Behind the Chapel
 This little room behind the chapel is hardly bigger than a broom closet. A
@@ -4230,7 +3864,6 @@ ladder bolted to the wall leads up through a hatch, presumably up into the
 steeple.
 
 >up
- Steeple                                             day three
 
 Steeple
 A tiny space inside the tip of the church's steeple, barely five feet across,
@@ -4241,7 +3874,6 @@ The only exit seems to be the ladder from which you just emerged.
 An old length of rope dangles down from a square hole cut in the ceiling.
 
 >up
- Steeple                                             day three
 
 You haul yourself up onto the rope, bringing your whole weight to bear. It holds
 for about three seconds -- then there is a sharp snap from above you and a
@@ -4249,13 +3881,11 @@ muffled clank. The rope falls, spilling you to the floor amidst an untidy tangle
 of coils.
 
 >get rope
- Steeple                                             day three
 
 You pick up the length of rope. It's about twenty feet long, frayed in a few
 places but still sturdy enough.
 
 >down
- Behind the Chapel                                   day three
 
 Behind the Chapel
 This little room behind the chapel is hardly bigger than a broom closet. A
@@ -4263,7 +3893,6 @@ ladder bolted to the wall leads up through a hatch, presumably up into the
 steeple.
 
 >west
- Chapel                                              day three
 
 Chapel
 Broken shards from the shattered the stained glass windows grits under your feet
@@ -4277,7 +3906,6 @@ The big wooden cross that once hung above the pulpit has fallen, split in half.
 On the pulpit is a huge, black tome.
 
 >west
- Vestibule                                           day three
 
 Vestibule
 A dim antechamber, opening onto the main chapel to the east. To the west, the
@@ -4285,7 +3913,6 @@ main doors to the church have been solidly nailed shut, and a shadowy doorway to
 the south leads to further darkness.
 
 >south
- Broken Stairs                                       day three
 
 Broken Stairs
 The stairs are completely gone, now. All that's left is a narrow ledge
@@ -4295,13 +3922,11 @@ the wall.
 From far below you hear the faint lapping of water.
 
 >drop robe in shaft
- Broken Stairs                                       day three
 
 The hooded robe drops down out of sight, and a few seconds later you hear a
 faint splash.
 
 >tie rope to railing
- Broken Stairs                                       day three
 
 You tie the rope securely to the railing, letting the other end dangle down into
 the dark shaft.
@@ -4309,7 +3934,6 @@ the dark shaft.
 From far below you hear the faint lapping of water.
 
 >down
- Hanging From the Rope                               day three
 
 Gripping the end of the rope tightly, you lower yourself off the edge and shimmy
 down into the darkness.
@@ -4319,7 +3943,6 @@ Your feet dangle over empty space. Looking down, you can barely make out a faint
 glimmer of water, far below.
 
 >drop rope
- Darkness                                            day three
 
 You take a deep breath, shut your eyes tight, say a quick prayer... and let go
 of the rope.
@@ -4337,7 +3960,6 @@ It is pitch dark, and you can't see a thing.
 Your score has just gone up by two points.
 
 >light flashlight
- Vaulted Tunnel                                      day three
 
 The flashlight must not be quite as waterproof as you originally thought; the
 beam flickers unsteadily, and you have to bang it against the palm of your hand
@@ -4357,12 +3979,10 @@ filled depression. You're lucky to have missed it in your fall.
 You can also see a hooded robe here.
 
 >get robe
- Vaulted Tunnel                                      day three
 
 Taken.
 
 >nw
- Sewer Tunnel                                        day three
 
 Sewer Tunnel
 The tunnel is ankle-deep in brackish water, though raised walkways on either
@@ -4372,7 +3992,6 @@ directions, but all are too small for you to crawl through. Iron rungs embedded
 in the wall lead up through an access shaft, back to the surface.
 
 >north
- Dripping Tunnel                                     day three
 
 Dripping Tunnel
 The ceiling in this north-south tunnel is so low you must bend nearly double to
@@ -4383,7 +4002,6 @@ your sense of direction is mistaken, you must be crossing the Miskaton River --
 underneath it.
 
 >north
- Broken Tunnel                                       day three
 
 Broken Tunnel
 This looks to be an older part of the sewer system that has fallen into
@@ -4392,13 +4010,11 @@ disrepair. Many of the pipes here have crumbled and are filled with debris.
 Set in the low ceiling is an old iron hatch.
 
 >open tin
- Broken Tunnel                                       day three
 
 (first taking the old tin)
 You open the old tin, revealing a smelly quantity of fish oil.
 
 >put oil on hatch
- Broken Tunnel                                       day three
 
 (first getting some fish oil)
 You dip your finger in and come up with a small glob of pungent fish oil.
@@ -4406,14 +4022,12 @@ You dip your finger in and come up with a small glob of pungent fish oil.
 You rub a good amount of fish oil all over the rusty hinges.
 
 >open hatch
- Broken Tunnel                                       day three
 
 The oiled hinges give a little, allowing you to wiggle your fingers further
 under the door's edge. A sharp tug -- and the door swings down suddenly,
 spilling filthy water into your face.
 
 >up
- Outflow Tunnel                                      day three
 
 Outflow Tunnel
 From the smell of it, this must be a sewage outflow tunnel. Filthy water swirls
@@ -4425,13 +4039,11 @@ Much of the water is pouring through an open hatch set in the floor of the
 tunnel.
 
 >drop flashlight
- Outflow Tunnel                                      day three
 
 (first taking the flashlight)
 Dropped.
 
 >east
- Narrow Beach                                        day three
 
 You reach the end of the pipe and wriggle your way out, dropping awkwardly to
 the sand.
@@ -4447,7 +4059,6 @@ about three feet above the ground. A thin stream of acrid-smelling sewer water
 trickles out over the lip of the pipe, forming a puddle in the sand.
 
 >west
- Alley                                               day three
 
 At the top of the slope you find a tall, wooden fence with a loose board near
 the bottom; pushing it aside, you manage to wriggle through the gap.
@@ -4463,7 +4074,6 @@ window. One of the garbage cans has been pushed up against the wall directly
 underneath it.
 
 >nw
- Outside the Real Estate Office                      day three
 
 Outside the Real Estate Office
 A grim little cul-de-sac, tucked away in a corner of the claustrophobic tangle
@@ -4476,7 +4086,6 @@ west. A narrow, garbage-choked alley opens to the southeast.
 The office door is open.
 
 >east
- Office                                              day three
 
 Office
 Pallid gray light trickles in through the drawn blinds. The office is deserted,
@@ -4493,7 +4102,6 @@ Someone seems to have left a cup of coffee sitting out, half-finished and cold.
 You can hear a fly buzzing around, hovering over the back of your neck.
 
 >unlock drawer
- Office                                              day three
 
 (first taking the keyring)
 You go through all the keys on your keyring, trying each one in turn, and after
@@ -4501,7 +4109,6 @@ several false attempts you discover that the small steel key fits the lock.
 You unlock the drawer.
 
 >open drawer
- Office                                              day three
 
 You open the drawer, revealing a hastily written letter and a tarnished bronze
 key.
@@ -4511,7 +4118,6 @@ You can hear a fly buzzing around, somewhere in the room.
 Your score has just gone up by two points.
 
 >get all from drawer
- Office                                              day three
 
 tarnished bronze key: You remove the tarnished bronze key from the drawer. It is
 heavy and apparently very old, crusted over in places with a thin rime of
@@ -4593,7 +4199,6 @@ building important for some reason. Do what you can with it. And be careful.
 These cultists are a menace, inbred and insane to the last man, and no one will
 be safe until they are wiped off the face of the earth.
 
- Office                                              day three
 
 "Good luck, and be careful.
 
@@ -4602,12 +4207,10 @@ be safe until they are wiped off the face of the earth.
 You can hear a fly buzzing around, somewhere in the next room.
 
 >put bronze key on keyring
- Office                                              day three
 
 The tarnished bronze key is now on the keyring.
 
 >west
- Outside the Real Estate Office                      day three
 
 Outside the Real Estate Office
 A grim little cul-de-sac, tucked away in a corner of the claustrophobic tangle
@@ -4620,7 +4223,6 @@ west. A narrow, garbage-choked alley opens to the southeast.
 The office door is open.
 
 >west
- Narrow Street                                       day three
 
 Narrow Street
 As the lane winds along from east to west, it narrows until the steep, jagged
@@ -4633,7 +4235,6 @@ There appears to be a commotion of sorts to the south, where a group of
 townsfolk have gathered.
 
 >west
- Junction                                            day three
 
 Junction
 To the north, a gap in the crowded press of gloomy buildings opens onto a
@@ -4644,7 +4245,6 @@ out the vaulted rooftops of the university.
 The cold wind cuts through your clothes, chilling you to the bone.
 
 >north
- Mill Road                                           day three
 
 Mill Road
 The road carries you across a desolate heath of gray, windswept grass. To the
@@ -4654,7 +4254,6 @@ heading across the railroad tracks in one direction, out toward the seashore in
 the other.
 
 >west
- Entrance to the Paper Mill                          day three
 
 As you cross the railroad tracks, the air becomes warmer, more dingy, and
 slightly more difficult to breathe.
@@ -4666,7 +4265,6 @@ charred fortress, although an overgrown path leads around the wall to the south.
 To the north, a rutted lane threads its way past a row of dilapidated shacks.
 
 >north
- Shanty Town                                         day three
 
 Shanty Town
 The road peters out at a wide clearing of rutted mud, flanked by uneven rows of
@@ -4676,7 +4274,6 @@ of loose tarpaper blowing listlessly in the wind betray the overall stillness.
 The cold wind cuts through your clothes, chilling you to the bone.
 
 >knock on door 11
- Shanty Town                                         day three
 
 After a moment or two of silence, you hear a furtive rattling, and the door
 opens a crack to reveal a woman's pale and haggard face. She stares out you with
@@ -4710,7 +4307,6 @@ She steps aside from the door, and you enter her home.
 A dirty, ramshackle home, scraped together out of the bits and ends of working-
 class poverty. The floor is warped and broken wood, bare dirt showing through
 
- #11 Mill Town Road                                  day three
 
 the cracks between boards. Rags hang across the window in lieu of curtains. Over
 in the far corner is a rickety old stove; in the opposite corner a threadbare
@@ -4728,12 +4324,10 @@ west.
 Your score has just gone up by two points.
 
 >look in overalls
- #11 Mill Town Road                                  day three
 
 In the overalls is a long steel key.
 
 >get long steel key
- #11 Mill Town Road                                  day three
 
 That key might just come in handy; while the woman is looking in the other
 direction, you quickly pluck it from the overall pocket.
@@ -4741,12 +4335,10 @@ direction, you quickly pluck it from the overall pocket.
 Your score has just gone up by one point.
 
 >put it on keyring
- #11 Mill Town Road                                  day three
 
 The long steel key is now on the keyring.
 
 >west
- Shanty Town                                         day three
 
 The woman attempts a wan smile as you make ready to leave. "Thank you," she says
 softly, indicating the stuffed bear. "If you discover anything else, please let
@@ -4758,7 +4350,6 @@ decrepit, clapboard shacks. The town is quiet, almost deserted; only a few bits
 of loose tarpaper blowing listlessly in the wind betray the overall stillness.
 
 >south
- Entrance to the Paper Mill                          day three
 
 Entrance to the Paper Mill
 The road turns southwest here and runs squarely through the front entrance to
@@ -4767,7 +4358,6 @@ charred fortress, although an overgrown path leads around the wall to the south.
 To the north, a rutted lane threads its way past a row of dilapidated shacks.
 
 >south
- Bare Foundations                                    day three
 
 The path curves southwest, leading you into an overgrown area behind the mill.
 
@@ -4783,25 +4373,21 @@ A flurry of dead leaves goes skittering along the ground, swirling past you in
 the wind.
 
 >search thicket
- Bare Foundations                                    day three
 
 Carefully pushing the prickly branches aside, you find a rusty metal hatch set
 into the base of the wall.
 
 >unlock hatch
- Bare Foundations                                    day three
 
 You go through all the keys on your keyring, trying each one in turn, and after
 several false attempts you discover that the long steel key fits the lock.
 You unlock the metal hatch.
 
 >get lantern
- Bare Foundations                                    day three
 
 Taken.
 
 >north
- Darkness                                            day three
 
 (opening the metal hatch first)
 
@@ -4815,7 +4401,6 @@ heat, which just as quickly dissipates. The noise behind the walls recedes to a
 calmer level.
 
 >light match
- Maintenance Access Tunnel                           day three
 
 (first taking the book of matches)
 (slipping the keyring into the pocket of your trenchcoat to get a hand free)
@@ -4832,14 +4417,12 @@ A large metal valve wheel juts out from the middle of one of the many fat,
 sweating pipes lining the walls. Just to its left is a gauge of some sort.
 
 >light lantern
- Maintenance Access Tunnel                           day three
 
 The lantern is now lit.
 
 The needle slowly creeps up the dial.
 
 >put towel on valve
- Maintenance Access Tunnel                           day three
 
 (first taking the towel)
 (slipping the hastily written letter into the pocket of your trenchcoat to get a
@@ -4851,7 +4434,6 @@ The noise of machinery is growing steadily louder.
 Ouch! You drop the match as it burns down to your fingers.
 
 >turn wheel
- Maintenance Access Tunnel                           day three
 
 You grip the sides of the wheel -- even through the towel, you can feel the heat
 radiating from it -- and haul it clockwise with all your strength. It squeaks
@@ -4862,7 +4444,6 @@ gauge drops abruptly down to zero.
 Your score has just gone up by one point.
 
 >north
- Maintenance Access Tunnel                           day three
 
 The air grows hotter the farther in you go, and it is becoming difficult to
 breathe.
@@ -4872,7 +4453,6 @@ You are roughly at the center of the access crawlway, which stretches north and
 south from here.
 
 >north
- Maintenance Access Tunnel                           day three
 
 Maintenance Access Tunnel
 The north end of the access crawlway ends at a sturdy metal hatch. A thick haze
@@ -4882,26 +4462,22 @@ are almost blistering to the touch.
 The hatch is closed.
 
 >open hatch
- Maintenance Access Tunnel                           day three
 
 You shove the handle down, and it remains in the lowered position when you let
 go. Behind the metal walls you can hear mechanisms clanking into gear, and a
 faint, rapid ticking sound.
 
 >wait
- Maintenance Access Tunnel                           day three
 
 Time passes.
 
 >wait
- Maintenance Access Tunnel                           day three
 
 Time passes.
 
 You hear a heavy clunking sound from within the hatch.
 
 >north
- Mill Floor                                          day three
 
 (opening the hatch first)
 With a sharp tug, the heavy metal door swings open.
@@ -4919,19 +4495,16 @@ A long chain dangles from overhead, its last few feet pooled on the floor next
 to a bank of controls.
 
 >tie chain to me
- Mill Floor                                          day three
 
 You wrap the chain around your waist a few times.
 
 >look at controls
- Mill Floor                                          day three
 
 The waist-high bank has all number of arcane lights, dials and gauges on it;
 however, the only two controls that bear mentioning are a lever and a large red
 button.
 
 >pull lever
- Catwalk                                             day three
 
 You feel something click as the lever activates a hidden releasing mechanism;
 then, suddenly, the chain pulls taut and jerks you off your feet, hauling you up
@@ -4952,12 +4525,10 @@ your waist.
 Your score has just gone up by two points.
 
 >untie chain
- Catwalk                                             day three
 
 You disentangle yourself from the chain.
 
 >north
- Workshop                                            day three
 
 Workshop
 Several workbenches and racks of arcane electronic equipment have been dragged
@@ -4977,7 +4548,6 @@ like dishes in a dishwasher.
 Tacked up on the wall is a large technical blueprint.
 
 >read notes
- Workshop                                            day three
 
 The notes are a mess of incomprehensibly scrawled numbers; long printouts of
 technical data, tangled diagrams and complex formulae. Even if you had the
@@ -4988,7 +4558,6 @@ Lifting up a sheet of cribbed equations, you notice what looks to be a general
 memo to all mill workers.
 
 >get caliper
- Workshop                                            day three
 
 You pick up the calipers. Made of stainless steel, molded in a strangely
 flowing, almost organic design, the calipers -- if that is what they are --
@@ -5000,7 +4569,6 @@ whatever strange contortion of space is occupied by whatever object is placed
 between the pincers at the tool's other end.
 
 >get memo
- Workshop                                            day three
 
 (slipping the book of matches into the pocket of your trenchcoat to get a hand
 free)
@@ -5019,13 +4587,11 @@ In the Name of He Who Is Named Not,
 the Mgt.
 
 >get blueprint
- Workshop                                            day three
 
 (slipping the calipers into the pocket of your trenchcoat to get a hand free)
 The blueprint curls up into a loose tube as you pull it from the wall.
 
 >read it
- Workshop                                            day three
 
 You spread out the rolled-up blueprint to look it over.
 
@@ -5043,7 +4609,6 @@ written the number "0.0113"; someone else, in another handwriting, has scratched
 that number out and written below it, "0.0162".
 
 >get mirror 2
- Workshop                                            day three
 
 (slipping the printed memo into the pocket of your trenchcoat to get a hand
 free)
@@ -5053,13 +4618,11 @@ edges of your face as you stare into it. On the back is a small label with the
 number 2 written on it.
 
 >put it in caliper
- Workshop                                            day three
 
 The instrument holds the mirror delicately clamped between its pincers; the
 readout reads "0.0162".
 
 >open tin
- Workshop                                            day three
 
 (first taking the old tin)
 (slipping the blueprint into the pocket of your trenchcoat to get a hand free)
@@ -5067,7 +4630,6 @@ Taken.
 You open the old tin, revealing a smelly quantity of fish oil.
 
 >rub oil on mirror 2
- Workshop                                            day three
 
 (first getting some fish oil)
 You dip your finger in and come up with a small glob of pungent fish oil.
@@ -5076,7 +4638,6 @@ You rub a small bit of fish oil onto the reflective surface of the mirror,
 leaving a barely perceptible smear.
 
 >south
- Catwalk                                             day three
 
 Catwalk
 The catwalk stretches north, a narrow ribbon of metal grillwork dangling fifty
@@ -5089,7 +4650,6 @@ beyond the edge of the catwalk. Its other end is looped over a pulley system up
 in the ceiling, and continues all the way down, past the catwalk, to the floor.
 
 >down
- Mill Floor, on the block of heavy equipment         day three
 
 You slide down the chain, landing awkwardly on the large block of heavy
 equipment at the bottom.
@@ -5104,7 +4664,6 @@ provides a more direct route across the factory; however, you see no way to get
 up there from here.
 
 >jump off equipment
- Mill Floor                                          day three
 
 You get off the block of heavy equipment.
 
@@ -5121,7 +4680,6 @@ A large block of heavy equipment sits here next to the control bank, attached to
 the end of the chain.
 
 >south
- Maintenance Access Tunnel                           day three
 
 Maintenance Access Tunnel
 The north end of the access crawlway ends at a sturdy metal hatch. A thick haze
@@ -5131,14 +4689,12 @@ are almost blistering to the touch.
 The hatch is open.
 
 >south
- Maintenance Access Tunnel                           day three
 
 Maintenance Access Tunnel
 You are roughly at the center of the access crawlway, which stretches north and
 south from here.
 
 >south
- Maintenance Access Tunnel                           day three
 
 Maintenance Access Tunnel
 You are at the southern end of a long, narrow crawlway leading northward into
@@ -5152,14 +4708,12 @@ sweating pipes lining the walls. Just to its left is a gauge of some sort.
 Michael's damp bath towel is draped across the wheel.
 
 >get match
- Maintenance Access Tunnel                           day three
 
 (slipping the mirror labeled #2 into the pocket of your trenchcoat to get a hand
 free)
 Taken.
 
 >south
- Bare Foundations                                    day three
 
 Bare Foundations
 The foundations of an older structure lie crumbling in a sunken square of
@@ -5178,7 +4732,6 @@ with a thin layer of soot.
 The cold wind cuts through your clothes, chilling you to the bone.
 
 >ne
- Entrance to the Paper Mill                          day three
 
 The path curves to the north, leading you around to the front of the mill.
 
@@ -5192,7 +4745,6 @@ A flurry of dead leaves goes skittering along the ground, swirling past you in
 the wind.
 
 >east
- Mill Road                                           day three
 
 As you cross the railroad tracks, the air seems to lift slightly, becoming more
 breathable once again.
@@ -5211,7 +4763,6 @@ It's impossible to see the person's face from this distance, but the hair, the
 way he walks... you'd swear it was Michael.
 
 >east
- Breakwater                                          day three
 
 The road heads out over a narrow breakwater jutting out into the ocean.
 
@@ -5222,7 +4773,6 @@ the northeast, at the breakwater's far end, the lonely stone tower of
 Anchorhead's lighthouse stands vigil against the ocean.
 
 >ne
- At the Foot of the Lighthouse                       day three
 
 At the Foot of the Lighthouse
 You stand in a circular clearing among the stones, surrounded on nearly every
@@ -5237,7 +4787,6 @@ rectangle of blackness within.
 Another wave crashes against the rocks, sending a cloud of spray into the air.
 
 >east
- Bottom of the Lighthouse                            day three
 
 Bottom of the Lighthouse
 The sound of the ocean is muffled behind the thick cinderblock walls, and the
@@ -5246,7 +4795,6 @@ hoary old whitewashed brick pressing down on you from above. To the west, a
 narrow strip of dim light marks the exit. Cracked concrete steps lead up.
 
 >up
- Top of the Lighthouse                               day three
 
 You climb the winding stairs in a gradual spiral around the inner circumference
 of the tower, and finally emerge, breathless, at the top.
@@ -5341,7 +4889,6 @@ finally slams home...
 Padded Cell
 You are in a padded cell, the kind typically reserved for raving lunatics. The
 
- Padded Cell                                         the last night
 
 room is barely eight feet by eight feet square, with walls and floor of concrete
 covered with thick, quilted padding. The door in the west wall is also covered
@@ -5351,7 +4898,6 @@ which a feeble light trickles in.
 An eerie, flickering glow momentarily illuminates the hall outside the cell.
 
 >break door
- Padded Cell                                         the last night
 
 You take a few steps back, draw a deep breath, and hurl your body at the door.
 It shudders violently, and you thought you felt something give.
@@ -5362,7 +4908,6 @@ A monstrous clap of thunder rolls across the sky, shaking the whole town to its
 foundations.
 
 >break door
- Hallway                                             the last night
 
 With a defiant shout, you launch your body at the door. Something snaps (the
 door? you think incoherently, or your shoulder?), and the door flies open,
@@ -5376,14 +4921,12 @@ window to the north looks out onto the dark corner outside.
 A shard of glass from the broken window lies on the floor.
 
 >get glass
- Hallway                                             the last night
 
 (the shard of glass)
 Painstakingly, you get down on your knees and very, very carefully pick up the
 shard of glass with your teeth.
 
 >look at window pane
- Hallway                                             the last night
 
 Building maintenance is obviously not a big priority at this institution. The
 wall around the window casement is cracked in several places -- some of the
@@ -5394,7 +4937,6 @@ A sudden flash of lightning from outside momentarily etches the room in sharp
 black and white contrast.
 
 >put glass in crack
- Hallway                                             the last night
 
 (the shard of glass in the crack)
 You wedge the shard of glass into the crack, its sharp edge pointing outward.
@@ -5405,7 +4947,6 @@ A monstrous clap of thunder rolls across the sky, shaking the whole town to its
 foundations.
 
 >cut jacket with glass
- Hallway                                             the last night
 
 (the shard of glass)
 Carefully, you lean back against the wall and start shrugging your shoulders
@@ -5417,19 +4958,16 @@ vicious kick for good measure as you gingerly rub feeling back into your arms.
 Your score has just gone up by two points.
 
 >open closet
- Hallway                                             the last night
 
 You open the closet, revealing your trenchcoat, a hooded robe, a lantern, an old
 tin and a book of matches.
 
 >wear coat
- Hallway                                             the last night
 
 (first taking the trenchcoat)
 You put on the trenchcoat.
 
 >get all from closet
- Hallway                                             the last night
 
 hooded robe: You remove the hooded robe from the closet.
 lantern: You remove the lantern from the closet.
@@ -5437,14 +4975,12 @@ old tin: You remove the old tin from the closet.
 book of matches: You remove the book of matches from the closet.
 
 >south
- Hallway                                             the last night
 
 Hallway
 A grim hallway of concrete and industrial green tiles, running north and south
 from here. Doors lead east and west.
 
 >south
- Hallway                                             the last night
 
 Hallway
 A grim hallway of concrete and industrial green tiles. This is the south end;
@@ -5455,19 +4991,16 @@ Something about the observation window in the western cell door catches your
 eye; it looks like it has blood on it.
 
 >unlock west door
- Hallway                                             the last night
 
 You unlock the west cell door.
 
 You hear strange, gibbering laughter coming from down the hall.
 
 >open it
- Hallway                                             the last night
 
 You open the west cell door.
 
 >west
- Padded Cell                                         the last night
 
 Padded Cell
 Another padded cell, much like the rest. There is a door in the east wall.
@@ -5477,12 +5010,10 @@ spatter the canvas near the door, and there is a large tear down in the corner
 of the cell, with bits of stuffing leaking out.
 
 >look in tear
- Padded Cell                                         the last night
 
 In the ragged tear is a torn square of canvas.
 
 >get torn square
- Padded Cell                                         the last night
 
 (slipping the lantern into the pocket of your trenchcoat to get a hand free)
 As you carefully pull the ragged piece of canvas from its hiding place,
@@ -5561,7 +5092,6 @@ the old demon's nefarious bodysnatching!
 survive. I have seen the plans and the blueprints; I have read the dread tome in
 my great-great grandfather's church; I have used the obsidian lens that is not
 
- Padded Cell                                         the last night
 
 true obsidian, and I have looked upon what that madman means to draw down onto
 this earth! He and this town, his foul congregation of fanatics and madmen! They
@@ -5583,7 +5113,6 @@ will not let him have me. Say good-bye to the last of the Verlacs -- there will
 be no blood for him once I am gone."
 
 >get needle
- Padded Cell                                         the last night
 
 (slipping the old tin into the pocket of your trenchcoat to get a hand free)
 (closing the old tin first)
@@ -5591,7 +5120,6 @@ You pick up the crusty needle. It's about two inches long, very old and crusted
 with what looks like dried blood. The point is worn down but still sharp.
 
 >east
- Hallway                                             the last night
 
 Hallway
 A grim hallway of concrete and industrial green tiles. This is the south end;
@@ -5602,7 +5130,6 @@ Something about the observation window in the western cell door catches your
 eye; it looks like it has blood on it.
 
 >south
- Hallway                                             the last night
 
 You are stopped halfway to the stairs by a loud banging noise behind you.
 
@@ -5620,7 +5147,6 @@ strait jacket, and then he looks up at you and grins an utterly psychotic grin.
 The madman follows you at a wary distance.
 
 >south
- Top of Stairs                                       the last night
 
 Top of Stairs
 You are at the top of a stairwell leading down to the asylum's ground floor. A
@@ -5629,7 +5155,6 @@ hallway lined with doors leads north.
 The madman follows you at a wary distance.
 
 >down
- Bottom of Stairs                                    the last night
 
 Bottom of Stairs
 You are at the bottom of a stairwell leading up to the asylum's second floor. A
@@ -5638,14 +5163,12 @@ hallway leads north.
 The madman lurches after you.
 
 >get lantern
- Bottom of Stairs                                    the last night
 
 (slipping the book of matches into the pocket of your trenchcoat to get a hand
 free)
 Taken.
 
 >light match
- Bottom of Stairs                                    the last night
 
 (first taking the book of matches)
 (slipping the torn square of canvas into the pocket of your trenchcoat to get a
@@ -5656,7 +5179,6 @@ One of the matches starts to burn.
 "Yummy," whispers the madman to himself. "Oh, yummy, yummy..."
 
 >light lantern
- Bottom of Stairs                                    the last night
 
 The lantern is now lit.
 
@@ -5668,7 +5190,6 @@ A monstrous clap of thunder rolls across the sky, shaking the whole town to its
 foundations.
 
 >north
- Hallway                                             the last night
 
 Hallway
 A grim hallway of concrete and industrial green tiles. This is the south end;
@@ -5682,7 +5203,6 @@ The madman licks his lips, eyeing you hungrily.
 Ouch! You drop the match as it burns down to your fingers.
 
 >north
- Hallway                                             the last night
 
 Hallway
 A grim hallway of concrete and industrial green tiles. The hallway runs south
@@ -5700,20 +5220,17 @@ A large key dangles from the orderly's belt.
 The madman lurches after you.
 
 >get magazine
- Hallway                                             the last night
 
 (slipping the crusty needle into the pocket of your trenchcoat to get a hand
 free)
 You reach through the bars and snag the magazine.
 
 >give magazine to madman
- Hallway                                             the last night
 
 The madman snatches the magazine from your hand and begins pawing through it
 like an over-sexed adolescent, giggling and occasionally squeezing his crotch.
 
 >get large key
- Hallway                                             the last night
 
 You pick up the cell key. Presumably, it opens the barred gates, providing
 access into (or out of) the asylum.
@@ -5721,7 +5238,6 @@ access into (or out of) the asylum.
 "Yummy," whispers the madman to himself. "Oh, yummy, yummy..."
 
 >put it on keyring
- Hallway                                             the last night
 
 The cell key is now on the keyring.
 
@@ -5729,7 +5245,6 @@ The madman giggles maniacally to himself, flipping through the pages of the
 magazine and drooling uncontrollably.
 
 >unlock gate
- Hallway                                             the last night
 
 (first taking the keyring)
 You go through all the keys on your keyring, trying each one in turn, and after
@@ -5759,7 +5274,6 @@ blood-smeared chin.
 The madman stops, stoops down, and picks a bit of gristly stuff out of the back
 of the orderly's head. He pops it into his mouth and chews it rapidly, rubbing
 
- Waiting Room                                        the last night
 
 his belly.
 
@@ -5786,7 +5300,6 @@ and chattering to himself with such unabashed happiness that for a moment you
 almost forget that you have just let loose a dangerous and quite probably
 homicidal psychotic into the world at large.
 
- Asylum Courtyard                                    the last night
 
 Then again, you think, in this town he might just fit right in.
 
@@ -5797,7 +5310,6 @@ A sudden gust of rain puts the lantern out.
 Your score has just gone up by two points.
 
 >north
- Dark Corner                                         the last night
 
 Dark Corner
 The rooftops above you lean so close together as to nearly block out the sky
@@ -5808,12 +5320,10 @@ brick wall to the south.
 A gust of wind blows your hair into your face.
 
 >remove coat
- Dark Corner                                         the last night
 
 You take off the trenchcoat.
 
 >wear robe
- Dark Corner                                         the last night
 
 You put on the hooded robe.
 
@@ -5843,12 +5353,10 @@ to swarm in from the north and east.
 
 A monstrous clap of thunder rolls across the sky, shaking the whole town to its
 
- Town Square                                         the last night
 
 foundations.
 
 >wait
- Town Square                                         the last night
 
 Time passes.
 
@@ -5856,7 +5364,6 @@ The obelisk glows red with the bloody light of their torches. They are almost
 here; you'd better find somewhere to hide, quickly.
 
 >wait
- Town Square                                         the last night
 
 Time passes.
 
@@ -5866,7 +5373,6 @@ back into the shadows, but  no one seems to notice yet another robed figure in
 the midst of the crowd. For the moment, it seems, you are safe.
 
 >wait
- Town Square                                         the last night
 
 You wait, helplessly.
 
@@ -5880,7 +5386,6 @@ old bum's screams lower to a fearful whimpering.
 The old man wails pitifully, begging his captors for mercy.
 
 >wait
- Town Square                                         the last night
 
 You wait, helplessly.
 
@@ -5894,7 +5399,6 @@ At this, the crowd lets loose with a roar of approval, while the old bum throws
 back his head and shrieks helplessly into the storm.
 
 >wait
- Town Square                                         the last night
 
 You wait, helplessly.
 
@@ -5933,7 +5437,6 @@ some sort, although you can see no plaque or marker anywhere near it.
 "Please," sobs the old man pitifully, "please, I didn't, I swear, I didn't tell
 nobody nothing, so I didn't! I SWEAR TO GOD I DIDN'T TELL -- "
 
- Town Square                                         the last night
 
 Before the poor old man can finish his plea, a dozen cultists brandishing long
 metal rods begin brutally beating him. You avert your eyes; his screams are
@@ -5944,7 +5447,6 @@ A flurry of dead leaves goes skittering along the ground, swirling past you in
 the wind.
 
 >put all in pocket
- Town Square                                         the last night
 
 umbrella: (closing the umbrella first)
 You slip the umbrella into the pocket of your trenchcoat.
@@ -5958,7 +5460,6 @@ moments the square is once again empty... except for the mutilated thing hanging
 from the obelisk.
 
 >get amulet
- Town Square                                         the last night
 
 You pick up the amulet, musing sadly that it must not have brought the poor old
 bum as much luck as he'd hoped.
@@ -5987,7 +5488,6 @@ In the next few moments, your battered mind manages to blot out the memory of
 that bloated, barrel-like, armless trunk; those thick, double-jointed legs that
 end in shiny black hooves; that writhing forest of fleshy tendrils crowning the
 
- Whateley Bridge                                     the last night
 
 torso in place of a proper head -- but you are not, and will never be, able to
 banish the horrible, searing memory of the thing's misplaced face which leers
@@ -5998,7 +5498,6 @@ The creature lurches toward you, its hooved feet thumping heavily on the old
 stone bridge.
 
 >give gold locket to creature
- Whateley Bridge                                     the last night
 
 (first taking the gold locket)
 You toss the gold locket at the monster's feet, and the clasp springs open when
@@ -6036,10 +5535,8 @@ body is gone.
 
 Your score has just gone up by two points.
 
- Whateley Bridge                                     the last night
 
 >north
- Narrow Street                                       the last night
 
 Narrow Street
 As the lane winds along from east to west, it narrows until the steep, jagged
@@ -6049,7 +5546,6 @@ a twisting lane leads up a hill to the northwest. A short flight of steps to the
 north leads down to the local watering hole.
 
 >west
- Junction                                            the last night
 
 Junction
 To the north, a gap in the crowded press of gloomy buildings opens onto a
@@ -6061,7 +5557,6 @@ In the distance, you can hear the lonesome keening of a train whistle drifting
 on the wind.
 
 >north
- Mill Road                                           the last night
 
 Mill Road
 The road carries you across a desolate heath of gray, windswept grass. To the
@@ -6075,7 +5570,6 @@ A group of cultists passes you, heading north from the town.
 The cultists, thinking you are one of their own, pass by silently.
 
 >east
- Breakwater                                          the last night
 
 The road heads out over a narrow breakwater jutting out into the ocean.
 
@@ -6090,7 +5584,6 @@ The sea thrashes against the shore with storm-driven fury.
 The cold wind cuts through your clothes, chilling you to the bone.
 
 >ne
- At the Foot of the Lighthouse                       the last night
 
 At the Foot of the Lighthouse
 You stand in a circular clearing among the stones, surrounded on nearly every
@@ -6108,7 +5601,6 @@ The great bronze door of the lighthouse is closed.
 The cultists, thinking you are one of their own, pass by silently.
 
 >unlock door
- At the Foot of the Lighthouse                       the last night
 
 (first taking the keyring)
 You go through all the keys on your keyring, trying each one in turn, and after
@@ -6116,13 +5608,11 @@ several false attempts you discover that the tarnished bronze key fits the lock.
 You unlock the massive bronze door.
 
 >open it
- At the Foot of the Lighthouse                       the last night
 
 With great effort, you manage to pull the ancient, creaking door open a few
 inches, enough to slip through.
 
 >put all in pocket
- At the Foot of the Lighthouse                       the last night
 
 keyring: You slip the keyring into the pocket of your trenchcoat.
 amulet: You slip the amulet into the pocket of your trenchcoat.
@@ -6130,7 +5620,6 @@ amulet: You slip the amulet into the pocket of your trenchcoat.
 Another wave crashes against the rocks, sending a cloud of spray into the air.
 
 >east
- Bottom of the Lighthouse                            the last night
 
 Bottom of the Lighthouse
 The sound of the ocean is muffled behind the thick cinderblock walls, and the
@@ -6139,7 +5628,6 @@ hoary old whitewashed brick pressing down on you from above. To the west, a
 narrow strip of dim light marks the exit. Cracked concrete steps lead up.
 
 >up
- Top of the Lighthouse                               the last night
 
 You climb the winding stairs in a gradual spiral around the inner circumference
 of the tower, and finally emerge, breathless, at the top.
@@ -6155,7 +5643,6 @@ Sitting in the middle of the room, beneath a large, hexagonal skylight, is the
 most bizarre, incomprehensibly complicated device you have ever seen.
 
 >look at device
- Top of the Lighthouse                               the last night
 
 It looks a bit like a telescope, a bit like a microwave oven turned inside out,
 and a bit like the "industrial laser" from Goldfinger. It's pointed almost
@@ -6170,7 +5657,6 @@ contains a round mirror, like a focusing mirror in a telescope. It looks as
 though you could remove it.
 
 >get real mirror
- Top of the Lighthouse                               the last night
 
 The receptacle lets go of the mirror with a metallic click and a pneumatic hiss.
 
@@ -6180,7 +5666,6 @@ You whirl around to find Michael standing in the doorway, flanked by two robed
 guards who stare at you with a distinct glitter of malice in their eyes.
 
 >wait
- Top of the Lighthouse                               the last night
 
 Time passes.
 
@@ -6192,7 +5677,6 @@ the balls for it, is my guess. In my day, we knew how to keep our wives. A
 headstrong woman should be broken in, just like a headstrong horse."
 
 >wait
- Top of the Lighthouse                               the last night
 
 Time passes.
 
@@ -6247,7 +5731,6 @@ The sea thrashes against the shore with storm-driven fury.
 
 The robed guards hover to either side of you, waiting for you to make a move.
 
- Island of Flesh                                     the last night
 
 Michael stands in the center of it all, leading the hellish rites.
 
@@ -6265,12 +5748,10 @@ The boy cries pitifully, his sobs going unheeded by the chanting cultists and
 the raging storm.
 
 >wait
- Island of Flesh                                     the last night
 
 You wait, helplessly.
 
 >wait
- Island of Flesh                                     the last night
 
 You wait, helplessly.
 
@@ -6283,7 +5764,6 @@ Gulfs Between, I summon Thee!"
 The crowd murmurs in ecstatic encouragement.
 
 >wait
- Island of Flesh                                     the last night
 
 You wait, helplessly.
 
@@ -6299,7 +5779,6 @@ The torch flares up with a roar, and the ocean waves seem to respond with
 sudden, inexplicable fury, crashing brutally against the island.
 
 >wait
- Island of Flesh                                     the last night
 
 You wait, helplessly.
 
@@ -6310,7 +5789,6 @@ Crucible of Grum, from whose bursting pustules arise the Million Unseeable
 Forms, I summon Thee!"
 
 >wait
- Island of Flesh                                     the last night
 
 You wait, helplessly.
 
@@ -6325,7 +5803,6 @@ the shrieking sky. Screams of fear and rapture erupt throughout the pressing
 crowd, almost inaudible beneath the deafening peal of thunder.
 
 >wait
- Island of Flesh                                     the last night
 
 You wait, helplessly.
 
@@ -6340,7 +5817,6 @@ spume of water. The crowd begins to writhe and gibber madly, like a single,
 plasmic organism.
 
 >wait
- Island of Flesh                                     the last night
 
 You wait, helplessly.
 
@@ -6354,7 +5830,6 @@ low, ominous vibration creeps up from the ground, crawling up through your bones
 and reverberating painfully in your teeth.
 
 >wait
- Island of Flesh                                     the last night
 
 You wait, helplessly.
 
@@ -6394,7 +5869,6 @@ a quick, frightened look around, then bolts without a backward glance.
 
 "Come back!" screams Michael. "Come back, cowards!" But no one heeds him. With a
 
- Island of Flesh                                     the last night
 
 strangled curse he turns and hurls the torch into the sea.
 
@@ -6422,10 +5896,8 @@ stay around to watch you die," he calls over his shoulder, "but I have some
 rather urgent business to attend to." The next moment he is gone, running down
 the breakwater toward town.
 
- Island of Flesh                                     the last night
 
 >free boy
- Island of Flesh                                     the last night
 
 Quickly you untie the bonds holding the boy to the stake; as his hands slip free
 he jumps away from you and eyes you warily. Then, sniffling and rubbing his
@@ -6439,7 +5911,6 @@ aren't getting any taller.
 Your score has just gone up by five points.
 
 >west
- Rocky Spur                                          the last night
 
 You hop across the water-filled gap.
 
@@ -6457,7 +5928,6 @@ quickly sinking back into the churning waters.
 The island is definitely sinking now.
 
 >sw
- At the Foot of the Lighthouse                       the last night
 
 The trail turns northwest, following the curve of the lighthouse wall.
 
@@ -6480,7 +5950,6 @@ green afterimages scarred onto your retinas.
 Another wave crashes against the rocks, sending a cloud of spray into the air.
 
 >sw
- Breakwater                                          the last night
 
 Breakwater
 You are picking your way across the breakwater's bare, rocky spine, where the
@@ -6496,7 +5965,6 @@ A monstrous clap of thunder rolls across the sky, shaking the whole town to its
 foundations.
 
 >west
- Mill Road                                           the last night
 
 Mill Road
 The road carries you across a desolate heath of gray, windswept grass. To the
@@ -6506,7 +5974,6 @@ heading across the railroad tracks in one direction, out toward the seashore in
 the other.
 
 >west
- Entrance to the Paper Mill                          the last night
 
 As you cross the railroad tracks, the air becomes warmer, more dingy, and
 slightly more difficult to breathe.
@@ -6518,7 +5985,6 @@ charred fortress, although an overgrown path leads around the wall to the south.
 To the north, a rutted lane threads its way past a row of dilapidated shacks.
 
 >north
- Shanty Town                                         the last night
 
 Shanty Town
 The road peters out at a wide clearing of rutted mud, flanked by uneven rows of
@@ -6529,7 +5995,6 @@ The young boy you freed from the island is standing here. He gives you a fearful
 glance.
 
 >wait
- Shanty Town                                         the last night
 
 Time passes.
 
@@ -6549,7 +6014,6 @@ never be able to express. "Thank you for bringing him home."
 And then she goes inside, and the door slowly closes behind her.
 
 >south
- Entrance to the Paper Mill                          the last night
 
 Entrance to the Paper Mill
 The road turns southwest here and runs squarely through the front entrance to
@@ -6558,7 +6022,6 @@ charred fortress, although an overgrown path leads around the wall to the south.
 To the north, a rutted lane threads its way past a row of dilapidated shacks.
 
 >east
- Mill Road                                           the last night
 
 As you cross the railroad tracks, the air seems to lift slightly, becoming more
 breathable once again.
@@ -6571,7 +6034,6 @@ heading across the railroad tracks in one direction, out toward the seashore in
 the other.
 
 >south
- Junction                                            the last night
 
 Junction
 To the north, a gap in the crowded press of gloomy buildings opens onto a
@@ -6580,7 +6042,6 @@ east, while to the northwest, over the top of a steep rise, you can just make
 out the vaulted rooftops of the university.
 
 >east
- Narrow Street                                       the last night
 
 Narrow Street
 As the lane winds along from east to west, it narrows until the steep, jagged
@@ -6590,7 +6051,6 @@ a twisting lane leads up a hill to the northwest. A short flight of steps to the
 north leads down to the local watering hole.
 
 >south
- Whateley Bridge                                     the last night
 
 Whateley Bridge
 A hoary monument of crumbling, moss-eaten flagstones, Whateley Bridge is
@@ -6623,7 +6083,6 @@ to shine with an eerie phosphorescence which quickly brightens and envelopes
 Michael. His form wavers, then becomes transparent, and when the light fades he
 has disappeared.
 
- Town Square                                         the last night
 
 The obelisk is still glowing.
 
@@ -6650,7 +6109,6 @@ stone altar, flanked on either side by a pair of strange, vibrating columns.
 
 Suddenly Michael lunges forward and grabs your arms. He shakes you, causing your
 
- Burial Mound                                        the last night
 
 head to whip back and forth and your teeth to click painfully together.
 
@@ -6661,7 +6119,6 @@ place for it!!" And his hands lock tightly around your throat and begin to
 squeeze.
 
 >show ring to Michael
- Burial Mound                                        the last night
 
 There is one chance -- if you can only somehow reach whatever weak flicker of
 humanity still survives within that shell; if the person who was your husband
@@ -6679,7 +6136,6 @@ control.
 Your score has just gone up by five points.
 
 >show amulet to Michael
- Burial Mound                                        the last night
 
 (first taking the amulet)
 In his moment of hesitation, you see your chance; straining against his choking
@@ -6697,7 +6153,6 @@ Michael lets out a weak groan.
 Your score has just gone up by five points.
 
 >cover hole 4
- Burial Mound                                        the last night
 
 (first taking the strange metal flute)
 You place your finger over the fourth flute hole.
@@ -6705,7 +6160,6 @@ You place your finger over the fourth flute hole.
 Michael lets out a weak groan.
 
 >cover hole 5
- Burial Mound                                        the last night
 
 You place your finger over the fifth flute hole.
 
@@ -6781,7 +6235,6 @@ sparks rise like fireflies, mingling with the stars in a clear, cloudless sky.
                        -- Edward Verlac
 
 
- Home                                                one year later
 
 Home
 You are home, and it is a momentous event. Downstairs, Michael is waiting for
@@ -6795,7 +6248,6 @@ You can hear a fly buzzing around, hovering over the back of your neck.
 Your score has just gone up by fifteen points.
 
 >go north
- Your Bathroom                                       one year later
 
 You can barely feel yourself walking; it's almost as if some outer force were
 moving you of its own accord.
@@ -6808,7 +6260,6 @@ On the counter is a home pregnancy test.
 "Well?" Michael calls excitedly from downstairs. "Have you looked yet?"
 
 >get test
- Your Bathroom                                       one year later
 
 You pick up the home pregnancy test. It's an ordinary pregnancy test, the kind
 you can get at any drugstore; the kind with the little window that turns pink if
@@ -6838,7 +6289,6 @@ girl."
 
 In that game you scored 99 out of a possible 100 points; you have banished the
 
- Your Bathroom                                       one year later
 
 evil and saved your husband from a fate most hideous -- but you were unable to
 solve the entire mystery.

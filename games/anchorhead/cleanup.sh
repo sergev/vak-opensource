@@ -8,6 +8,7 @@ s///g
 ' game.log
 
 sed -i~ '
+/^ [A-Z#].............................................      .*/d
 ' game.log
 
 sed 's/[[:blank:]]*$//' < game.log > walkthrough.txt
