@@ -1,0 +1,21 @@
+#!/usr/bin/expect -f
+#
+# Play game Cragne Manor.
+#
+# Based on http://plover.net/~davidw/sol/c/cragn18.html
+#
+set timeout -1
+
+# Remove previous log, if any.
+system rm -f "game.log"
+log_file "game.log"
+
+# Start the game.
+spawn ./glulxe cragne.gblorb
+match_max 100000
+
+expect "any other key to begin"; send "\r"
+
+# Quit
+expect "QUIT"; send "quit\r"
+exit
