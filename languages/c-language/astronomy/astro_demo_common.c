@@ -120,4 +120,3 @@ void PrintTime(astro_time_t time)
     }
     printf("%s", text);
 }
-

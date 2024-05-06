@@ -1,4 +1,4 @@
-PROG            = seasons moonphase
+PROG            = seasons moonphase easter
 CFLAGS		= -O -Wall -Werror
 ASTRO           = astronomy.o astro_demo_common.o
 
@@ -12,3 +12,6 @@ seasons:        seasons.o $(ASTRO)
 
 moonphase:      moonphase.o $(ASTRO)
 		$(CC) $(LDFLAGS) moonphase.o $(ASTRO) -o $@
+
+easter:         easter.o $(ASTRO)
+		$(CC) $(LDFLAGS) easter.o $(ASTRO) -o $@

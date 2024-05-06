@@ -23,15 +23,23 @@ int main(int argc, const char *argv[])
     int year;
     astro_seasons_t seasons;
 
-    if (argc != 2)
+    if (argc == 1)
     {
-        fprintf(stderr, "USAGE: seasons year\n");
-        return 1;
+        astro_time_t time = Astronomy_CurrentTime();
+        astro_utc_t utc = Astronomy_UtcFromTime(time);
+        year = utc.year;
     }
-
-    if (1 != sscanf(argv[1], "%d", &year))
+    else if (argc == 2)
     {
-        fprintf(stderr, "ERROR: Invalid year '%s'.\n", argv[1]);
+        if (1 != sscanf(argv[1], "%d", &year))
+        {
+            fprintf(stderr, "Invalid year '%s'.\n", argv[1]);
+            return 1;
+        }
+    }
+    else
+    {
+        fprintf(stderr, "Usage: seasons [year]\n");
         return 1;
     }
 
