@@ -1,0 +1,1033 @@
+spawn ./glulxe cragne.gblorb
+Welcome to the Cheap Glk Implementation, library version 1.0.6.
+
+
+
+
+Welcome to Cragne Manor! Before we begin, we want to make sure you really understand what you're getting yourself into...
+
+[press any key to continue]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTENT WARNING
+
+Please be warned that this game contains:
+
+cosmic horror, body horror, psychological horror, gore, violence, murder, death, self-harm, suicide, mutilation, decapitation, racism, spiders, snakes, rats, aggressive birds, deceased animals, insects, incest, nonexplicit references to uncomfortable sexual situations involving minors, abusive relationships, domestic violence, pregnancy loss, ghosts, mental illness, homelessness, alcoholism, oppressive religious organizations, bullying, kidnapping, hostile vegetation, fungal overgrowth, creepy dolls, creepy children, references to human/anthropomorphic animal sex, eyeball contact, scatological references, strong language, virgin sacrifice, demon summoning, demon possession, blood, skeletons, viscera, infectious disease...
+
+...and possibly several other types of disturbing content we forgot to include.
+
+Would you still like to continue? (Please type yes or no.)
+yes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONCEPT WARNING
+
+To commemorate the 20th anniversary of Michael Gentry's Anchorhead, we got more than eighty people together and assigned each of them to create one room of a massive Anchorheadesque world. The authors were given basic information about what their rooms were and how they fit into the game's puzzle progression; beyond that, we told them to do whatever they wanted. We didn't tell anybody what was going on in anybody else's rooms.
+
+This resulted in a game that is ridiculous. The world the authors created is inconsistent and often nonsensical. Commands that are necessary to progress in one room might not work anywhere else. Many of the puzzles are, by ordinary human standards, deeply unfair. By ordinary human standards, this is not a good game.
+
+If you approach Cragne Manor as an conventional work of interactive fiction, you'll find it confusing and frustrating. Temper your expectations, be prepared for the weirdness you're diving into. You'll still end up confused and frustrated at some point. Then you'll discover that this is completely worth it.
+
+Would you still like to continue? (Please type yes or no.)
+yes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Thank you, and enjoy your stay in Cragne Manor! For more information about the game, please type ABOUT or CREDITS at any time.
+
+[press any key to begin]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+The cold autumn wind makes you shiver. The train station is eerily deserted: no staff, no other passengers. Even the train you arrived on has disappeared into the distance as if it had never been here. Your memory of the trip already seems faded and unreal, like a dream.
+
+The sign hanging overhead catches your eye: "Backwater Station." Yes: Backwater, Vermont. This is where you need to be. You need to find Peter.
+
+Cragne Manor
+An Anchorhead tribute by various authors
+Release 10 / Serial number 181208 / Inform 7 build 6M62 (I6/v6.33 lib 6/12N)
+
+Railway Platform (Naomi Hinchen)
+The platform is open to the outdoors, but has an overhanging roof with a rusted sign hanging from it. At the back of the platform, to the south, is the entrance to the lobby. Train tracks stretch off into the distance to the east and west; on the other side of the track is a graffitied brick wall. The only other living creature in sight is a rat fixing you with its beady black eyes.
+
+The clock overhead gives the time as 6:20 pm; beneath the clock is a schedule board listing train arrival times. On the platform itself are a wooden bench, a storage locker, and a vending machine.
+
+>x graffiti
+Someone has scrawled the word "Vaadignephod" on the wall in lime-green paint.
+
+>x schedule
+The board lists a schedule of train times:
+Providence     CANCELLED
+Dunwich        CANCELLED
+Innsmouth      CANCELLED
+Anchorhead     13:37
+Arkham         CANCELLED
+
+You step in an old wad of gum. Yuck.
+
+>x bench
+A weathered wooden bench. On the bench is a familiar gold wristwatch.
+
+>read inscription
+On the back of the watch is engraved
+N + P
+March 19th
+
+>wear watch
+(first taking the familiar gold wristwatch)
+You put on the familiar gold wristwatch.
+
+Thunder rumbles in the distance.
+
+>x rat
+Startled by your attention, the rat scurries away, leaving behind a brass winding key.
+
+>take key
+Taken.
+
+>x locker
+A storage locker painted a drab industrial gray. Attached to the front are a card swiper and a peeling label reading "Lost and Found."
+
+A leak in the ceiling drips water into a puddle.
+
+>take label
+You peel the label off the locker.
+
+>x machine
+Similar to a gumball machine, but it's the kind that dispenses toys in little plastic bubbles. At the bottom is a chute where the contents come out. There is a coin slot, but instead of a price next to it, there is a strange squiggled glyph.
+
+In the vending machine is a plastic bubble.
+
+>x glyph
+It seems to shift as you look at it, but looks almost like an R fused with a V. Or maybe a J fused with a P? No, it's definitely an R fused with a V.
+
+The clock gives a deep, booming chime on the half hour.
+
+>x bubble
+A small transparent plastic capsule with a lid.
+
+In the plastic bubble is a golden eyepiece.
+
+Thunder rumbles in the distance.
+
+>x eyepiece
+A misshapen golden disc, studded with lenses. It looks like it could fit flush with your eye socket. On its surfaces are a round button, a triangular button, and a small rectangular slot.
+
+The golden eyepiece is currently switched off.
+
+A leak in the ceiling drips water into a puddle.
+
+>x PA system
+The sound emits from a speaker set into the ceiling.
+
+The wind blows stray leaves across the tracks.
+
+>south
+
+Train Station Lobby (Shin)
+The evening light trickles through the dirty, cobweb-covered windows on either side of the station exit to the south, dimly illuminating your surroundings. To the north is the platform on which you arrived. To the east, a large mirror decorates the wall next to a green door. To the west, there is a brown door. The overall appearance is one of general neglect and decay. You regard your surroundings with a deep sense of foreboding.
+
+A styrofoam coffee cup sits on the floor next to the entrance to the bathroom.
+
+>take cup
+Taken.
+
+>x cup
+A half-full styrofoam cup of doubtless very unpleasant coffee that you found on the floor of a train station. It must have had cream in it at some point, because there are definitely some clouds swirling around in there.
+
+>x mirror
+You take a long look in the mirror. Even in these dim and dingy surroundings, you are as good-looking as ever.
+
+>x green door
+The green door appears to be the entrance to the station office. You try the handle and discover that it is locked.
+
+>x brown door
+The brown door leads to the station restroom. Thankfully, you have no need of the facilities at the moment.
+
+>west
+(first opening the brown door)
+
+Train Station Restroom (David Petrocco)
+As you enter the restroom you hear creak of a faucet being turned off and the rough scraping of metal upon metal from the far end of the restroom. Finally the automatic lights kick on revealing the restroom but there's no sign of who, or what, could have caused the noise.
+
+A harshly lit pay restroom. Dust and grime mar the once white tiles and marble of the facilities: A small shower stall with the curtain closed, a bathroom stall with a single dirty toilet (there are mounts for a door, but it is nowhere to be seen), a small storage closet for janitorial supplies, a four by four row of small lockers, and an extremely dirty dual basin sink.
+
+The train station is EAST.
+
+>x shower
+The shower curtain is a stained yellow sheet of plastic covering the entrance.
+
+While examining the shower you hear the loud WOOOSH of a toilet flushing behind you.
+
+>open curtain
+You open the train station shower.
+
+>x shower
+The shower is covered in fresh droplets of dirty brown water, as if someone had just recently turned it on after months of neglect. Small droplets of water drip from the shower head to the floor below.
+
+>x sink
+The train station restroom sink is currently switched off.
+
+>turn on sink
+As you turn on the sink it begins to shake violently.
+
+>turn off sink
+The shaking subsides as soon as you turn off the sink.
+
+>x toilet
+The toilet is filled with a murky brown, and foul smelling, water. The surface of the water ripples as the toilet finishes flushing.
+
+The loud crash of something falling near the closet door shatters the silence of the bathroom along with what's left of your nerve.
+
+>x closet
+A small storage closet where several shelves have collaped, their supports seemingly rotten away, and have buried what appears to be a long wooden handled tool, a mop or broom perhaps.
+
+A small note taped to the wall says Locker 3 7113.
+
+>x supplies
+You're already undergoing one monumental task, you don't need to give yourself another trying to clean this hellish mess.
+
+>x lockers
+Sixteen lockers in a four by four pattern. The few that still have doors are flung open and battered, save for one still secured by a large combination lock, the kind that you can set to a four-digit number.
+
+>set lock to 7113
+The lock slides open. You remove it from the hinges of the locker and open it to find a glass jar containing an insect.
+
+>take glass jar
+Taken.
+
+>x insect
+A clear glass jar containing a hideous green insect. It's either dead or doing a very good job of playing dead and you have no desire to find out which. The number of legs and eyes appear to change every time you look at it.
+
+It currently has ten legs and five eyes.
+
+>x insect
+A clear glass jar containing a hideous green insect. It's either dead or doing a very good job of playing dead and you have no desire to find out which. The number of legs and eyes appear to change every time you look at it.
+
+It currently has ten legs and eight eyes.
+
+>x insect
+A clear glass jar containing a hideous green insect. It's either dead or doing a very good job of playing dead and you have no desire to find out which. The number of legs and eyes appear to change every time you look at it.
+
+It currently has twelve legs and seven eyes.
+
+>east
+
+Train Station Lobby (Shin)
+The surroundings are as dim and dingy as ever. The platform is to the north. The dirty, cobweb-covered windows and the station exit are to the south. The large mirror and the green door are to the east. The restroom door is to the west. You are unsure what you should do.
+
+>south
+
+Exterior of Train Station (Emily Short with additions from Graham Nelson)
+To the north is the massive windowless bulk of the train station. A metal trash can squats beneath its carved facade. The town itself is downhill, on the other side of a ravine. Somewhere down there, you can get a bath and a meal.
+
+A woman stands in the center of the bridge, preventing traffic in both directions.
+
+>x station
+It is at least three stories tall, with no exterior windows. Carved on the outside are a series of figures, as though it were the outside of Notre Dame.
+
+Positioned in front is a trash can.
+
+>x figures
+Sculpted men and women, very muscular, engage in the work of building a train station. Most carry blocks of stone on their backs. Overseeing them is an inhuman figure carrying a whip.
+
+>x sky
+The clouds are gutteral, lightless, and tinged with green.
+
+>x can
+It is a closed metal can from which issues an unknowable stink.
+
+>open can
+You open the trash can and peer into its stygian depths. Within you discern a pull-string doll and a dog-eared book.
+
+>take all from can
+pull-string doll: Taken.
+
+a dog-eared book: Taken.
+
+>x doll
+The doll has an inane smile on its face and a pull-string in the middle of its back.
+
+It has the sort of head with two faces, one of which is hidden by its hair. Rotate the head and the other face will be forward.
+
+>pull string
+The doll chirps, "I like the train tracks! Parallel! Yay!"
+
+There is a tinny sound of applause.
+
+>pull string
+The doll chirps, "I like the glass jar containing an insect! Hideous! Yay!"
+
+There is a tinny sound of applause.
+
+>pull string
+The doll chirps, "I like the bridge! Antediluvian! Yay!"
+
+There is a tinny sound of applause.
+
+>x book
+A dog-eared, stained paperback called The Modern Girl's Divination Handbook -- Volume Three. The cover features three teenage girls of varying ethnicities laughing over the body of a dead cow, each one holding a section of entrails. Reading the blurb on the back makes you suspect that the authors used up all of the more normal divination methods in volumes one and two, and are now scraping the barrel for the really weird stuff.
+
+>read book
+You flip past the title page, looking for something interesting...
+
+Corn on the Cob Castings
+If your parents are anything like our parents, they really suck at predicting the future... but they might have a kernel of truth for you! The next time you're at a family barbecue, slip this potion into your mom's potato salad, then wait for her to finish her corn on the cob--
+
+What.
+
+[You can continue to READ the divination handbook; this is excerpt 1/3.]
+
+>read book
+You continue to thumb through the book...
+
+Teddy Rux-Possession
+Did you learn about history from a creepy animatronic bear when you were a kid, and now he's just gathering dust? Good news! With a little bit of sage smudging and energy cleansing, Teddy Ruxpin makes the perfect home for a wandering spirit--
+
+Nope nope nope.
+
+[You can continue to READ the divination handbook; this is excerpt 2/3.]
+
+The sky is oppressively tenebrous.
+
+>read book
+You flip past a lot of terrible ideas to the very last page of the book...
+
+Coffee Scrying
+Ever wonder if the little heart in your latte means the barista's crushing on you? Well, now you can find out for sure! All you need is a cold cup of coffee with some cream in it--
+
+Huh. Unlike everything else in the book, this seems like it might actually prove useful. There aren't that many possible readings, so you quickly memorize them and slam the book closed.
+
+[This is the end of the divination handbook, but if you have no respect for your own intelligence, you can READ it again.]
+
+>x coffee
+The swirls in your cup form a perfect fern, just like in a fancy latte. Botanical images mean that while there is much left to accomplish in the present situation, your immediate environment sustains you, and you have everything that you need.
+
+>x ravine
+It is hard to guess the depth. At one moment it seems no more than a story, and at the next measureless. Water must have carved this ravine, but not much is in evidence now. A thin trickle runs at the distant bottom of the chasm.
+
+>x woman
+She is wearing a long red scarf and a tattered skirt. Her hair is wild, grey in the same color as the train tracks, twisted by the wind. She keeps shooting uncomfortable glances at the town.
+
+>x scarf
+An angry scarlet, which indicates a greater than human vitality and vigor.
+
+>x skirt
+Tattered, prehistoric, a garment belonging to a previous century, when women in these parts were frequently burned.
+
+The sky above is an inhuman green tint.
+
+>x bridge
+The bridge is built of immense blocks, primeval beyond measure. It offers only a narrow crossing.
+
+>x town
+Uniformly grey and brown. Perhaps it is the weather, but even the church steeple looks dusty.
+
+>south
+The woman gets in your way. "If you're here for a holiday, you've made a serious mistake, fool," she says. It sounds like she means it.
+
+>ask woman about town
+She says, "Surely even you can see its nature, uneducated fool."
+
+>ask woman about herself
+The woman replies, "I was summoned here to protect you, and those like you."
+
+>ask woman about station
+"The train station has been here a long time, in many different guises, idiot."
+
+>ask woman about Peter
+She says, "You'll do best in this town if you ask least."
+
+>turn head
+You rotate the doll's head. Its alternate face appears, scowling fiercely.
+
+>pull string
+A voice comes from within the doll's body, squamous and gravelly: "Avoid the plague of the glass jar containing an insect! Green is the tint of poison and untamed growth! It is displeasing to the eye!"
+
+The woman looks alarmed.
+
+>show jar to woman
+The woman goes white. From behind you on the tracks comes a curious noise, mechanical and screeching, as though something were coming along the tracks. When you turn back, the woman has gone.
+
+>south
+You pass over the bridge.
+
+Milkweed (Caleb Wilson)
+It is possible to feel claustrophobia out of doors. Sunlight fills the sky but somehow doesn't reach you here. Steep banks of bramble rise to the east and west, trapping you within a gloomy trough a dozen yards wide. A poorly-surfaced road leads north and south along the trough's nadir. Just west of it, camouflaged with rust, is the train track.
+
+A tremendous patch of milkweed, the stems abnormally thick and tall, grows on the east side of the road beneath the thorn bank.
+
+A giant milkweed leaf dangles just within reach from the mass of stems.
+
+Almost hidden within the milkweed is a dilapidated shack built more of splinters than of planks.
+
+>x leaf
+A giant milkweed leaf, curled in such a way that it could cling to your face like a mask. It even has two milk-ringed holes for your eyes.
+
+>take leaf
+Taken.
+
+>x brambles
+The brambles are overgrown and yet sickly, with yellowed leaves and black-spotted stems. Thorns are plentiful, though apparently this isn't the kind of bramble that produces an edible berry. Or perhaps berries are out of season.
+
+>x shack
+A hateful structure less than five feet high. The wood frame of the shack has tilted, twisting subtly out of true. The angles itch at your eyes, somehow uncomfortable to look at. No windows. The low doorway, lacking a door, hisses at you open-mouthed. Or would that just be the standard summer susurrus of Vermont?
+
+"Hateful" might an odd way to describe a building, but you can't escape the impression that the shack is capable of such an emotion. It's got to be a death-trap, anyway: take a step inside, or even give the shack a push, and surely it will just collapse.
+
+>push shack
+You set your shoulder to the corner of the shack and give it a shove. The whole structure slumps, then leans, then falls over with a sound of splintering wood and tearing tar paper.
+
+The walls fall back and outward, somehow not falling onto the (what is that?) stone altar that once stood inside the shack.
+
+A swathe of milkweeds are knocked down, and a cloud of dust drifts up from the shadows, seeming to turn more solid in the sunlight far above.
+
+"Knocked down..." Oh no; it happens just that easily. The lyrics of a song pop into your head unbidden: I get knocked down / But I get up again / You're never going to keep me down!
+
+>x altar
+A six-foot long and three-foot high altar of pale green stone, polished smooth. The sides are humped and bulged, suggesting poreless coral. The top is flat, and bears a shallow impression in the shape of a human body, with a slightly deeper cavity at the top for the face.
+
+>wear leaf
+You put on the giant milkweed leaf.
+
+>get on altar
+You get onto the stone altar.
+
+You lie down, settling your body into the impression and your face into the cavity at the end. The milkweed leaf mask protects your face from the strands of orange slime that you belatedly notice fill the cavity. Is it even you doing this? It feels like the most natural action in the world.
+
+As you press your face deeper into the cavity, your vision warps. The world seems to fold and buckle: what was convex becomes concave and what was concave becomes convex.
+
+The altar wobbles and inverts, giving you the bizarre sensation of lying atop a smooth green hole that floats in midair. Deeper within the hole is a shelf of green stone with several items resting (how?) on it.
+
+>x shelf
+On the shelf are a postcard of Big Ben, a diary and an imaginary basalt sphere.
+
+>take all from shelf
+postcard of Big Ben: Taken.
+
+diary: Taken.
+
+imaginary basalt sphere: Taken.
+
+>x postcard
+A faded postcard with a picture of Big Ben on it. You'd guess the picture dates from the first quarter of the century.
+
+>read it
+"18th of June, 1923
+
+Dear Freddy,
+
+You'll never guess where I am: Paris! Ha ha.
+
+Today I broke into the mausoleum of a notorious baronet and pocketed an amulet interred, in 1627, next to his heart. Tomorrow I must liberate an unspeakably ancient mammoth-bone idol, purported to portray a coeval of Vaadignephod, from the prison in which it languishes (the British Museum).
+
+Such excitements make up my life now. If only you were allowed to know about such things, I would tell you that I am now a member of the Variegated Court, and that I have been granted the position of Cesious Alderman in this 'august order'.
+
+How I wish I could actually mail you this postcard, and that afterwards we could laugh together over such a stuffy phrase.
+
+Much Love,
+Phyl"
+
+>x diary
+A small brown book with embossed letters on the front, mostly worn away, spelling "DIARY". Inside it's filled with spidery letters in faded ink. According to the name inscribed inside the cover, this belonged to Phyllis Cragne.
+
+You think you remember your husband speaking of a "Great Aunt Phyl," a sprightly old lady who haunted his earliest memories and always wore tartan trousers.
+
+>read diary
+You read a few passages from near the beginning of the diary:
+
+"Danced with Freddy Morgan tonight. He's not the most graceful, but I'm hopeful he will improve. Tomorrow I leave for college."
+
+"How the professors scowl when they learn I'm a Cragne! I'm sure it would hurt my feelings, if they weren't all crusty old throwbacks with beards full of toast crumbs anyway."
+
+"Today in the sealed archives I found a most wonderful secret: evidence that the Court truly exists! One day I will join it -- I will make them let me -- and I will work harder than all the others who came before."
+
+You skim back and forth a bit, gathering that Phyllis Cragne was probably born around 1890, and that she started her archaeology studies at Ompompanoousuc College in 1918; she also seems to have become engaged to a local by the name of Frederick Morgan at around that same time.
+
+There's still a fair amount of the diary left; you could read more if you wanted to.
+
+>read diary
+You read a few passages from the middle of the diary:
+
+"It has finally happened! They extended an offer, and this morning, I accepted. I am looking forward to the fulfillment of my duties, particularly the travel necessitated by my new position. I wish I could persuade Freddy to come with me on at least one trip, but he's terrified of the ocean. I shall leave him to the calm waters of Vermont, with the promise to bring back a 'priceless antique' from each city I visit."
+
+"Received word of Freddy's accident."
+
+"Finished Prague. Turin, too. Magdeburg will wait until spring."
+
+You skim back and forth, gathering that during the 1920s and 30s Phyllis Cragne was often away from home on extended work trips. It was while she was on one such trip to London that Frederick Morgan was killed in a canoeing accident. Afterwards, and on through the 1950s, she spent even more time abroad, working tirelessly for the Court.
+
+There's still a small amount of the diary left; you could read more if you wanted to.
+
+>read diary
+You read a few passages from near the end of the diary:
+
+"Bristletail greatly prefers the climate of Barcelona to that of Stockholm. I haven't informed her yet that next we must visit a ruined Norse colony in Greenland, where, it is rumored, the colonists briefly, and in desperation, worshipped Vaadignephod before all succumbing to the Black Death."
+
+"Bristletail shows an increasingly superb comprehension of Ancient Akkadian. Twice she has caught an error in my translations, saving me from not insignificant embarrassment."
+
+"Bristletail has grown stubborn in her old age, refusing to communicate with feral insects. She claims the act to be beneath her dignity. Still, I have never known a more capable archive assistant."
+
+You skim the text, reading of Phyllis Cragne's research. Throughout the 1960s she wrote frequently of Bristletail, her cunning familiar, which (who?) apparently took the form of an unusually large silverfish. It seems likely that Phyllis died in the early 70s, which correlates with Michael's early memories of Great Aunt Phyl.
+
+You've read the whole diary; you could read it again if you wanted to remind yourself of something.
+
+>x basalt
+It's a black stone sphere about the size of a basketball, and it doesn't really exist. There is (well, technically, there is not) a narrow slot on one side like that of a piggy-bank.
+
+>x slot
+The slot is pinched very narrow, like a tiny, unhappy mouth. If the sphere is a piggy-bank, you shudder to imagine what dreadful, corroded coin was intended to be inserted.
+
+>stand
+You get off the stone altar.
+
+Milkweed (Caleb Wilson)
+It is possible to feel claustrophobia out of doors. Sunlight fills the sky but somehow doesn't reach you here. Steep banks of bramble rise to the east and west, trapping you within a gloomy trough a dozen yards wide. A poorly-surfaced road leads north and south along the trough's nadir. Just west of it, camouflaged with rust, is the train track.
+
+A tremendous patch of milkweed, the stems abnormally thick and tall, grows on the east side of the road beneath the thorn bank.
+
+A green stone altar, once at the center of the shack, stands amidst broken boards and milkweed.
+
+(An earworm has lodged itself in your head.)
+
+>take earworm
+The earworm is seemingly resistant to all forms of interaction, and simply acknowledging it gives it strength:
+
+I get knocked down / but I get up again / you're never going to keep me down! Damn it, Chumbawamba is still stuck in your head.
+
+[Author's note: messing with the earworm is entirely optional. Not that I would try to dissuade you from it!]
+
+>take earworm
+The earworm is seemingly resistant to all forms of interaction, and simply acknowledging it gives it strength:
+
+He drinks a whiskey drink / he drinks a vodka drink / he drinks a lager drink / he drinks a cider drink! Yes, Chumbawamba is still stuck in your head.
+
+>take earworm
+The earworm is seemingly resistant to all forms of interaction, and simply acknowledging it gives it strength:
+
+He sings the songs that remind him of the good times / he sings the songs that remind him of the better times! Yes, Chumbawamba is still stuck in your head.
+
+>x track
+The tracks run north and south beneath mats of dead grass and bramble, bringing to mind an impossible serpent banded with the black of the resinous ties. Are the tracks in use? Could a train actually traverse them? Who knows.
+
+>search track
+You find a flattened penny, which you take.
+
+>x penny
+A ruined penny, left on the tracks and flattened by a train. The damage to the coin has obscured and swollen Lincoln's head, giving him the appearance of an effaced carving of a bulbous king on a blasphemous onyx obelisk forgotten to history.
+
+>put penny in sphere
+The coin vanishes into the sphere with a click.
+
+The imaginary basalt sphere fluctuates, briefly taking on the appearance of a grotesque black frog. The frog croaks, spitting an imaginary athame up from its gullet into the world, before becoming once again a featureless stone sphere.
+
+>take athame
+Taken.
+
+>x it
+A non-existent black-handled knife, with a blade of sparkling metal that would be sharp enough to cut razors, if it actually existed.
+
+>x earworm
+You have a strange and terrible fancy that an earworm is attached to your brain with a thin tendril.
+
+The earworm is seemingly resistant to all forms of interaction, and simply acknowledging it gives it strength:
+
+Iä get knocked down / but iä get up again / you're never going to keep mi-go down! Well, Chumbawamba is still stuck in your head.
+
+>x tendril
+The tendril has to be imaginary. Doesn't it?
+
+>cut tendril with athame
+As the imaginary blade of the athame touches the tendril attaching the earworm to your brain, the tendril snaps, with a sound like a plucked harp string.
+
+The earworm vanishes with a sound like a crack cross a pane of glass.
+
+>south
+The imaginary basalt sphere vanishes with a sound like a popping soap bubble.
+The imaginary athame vanishes with a sound like a piece of spaghetti snapping in half.
+
+Church Exterior (Andy Holloway)
+The gravel road curves here past the doors of an old stone church, which squats defeatedly amid a few straggly trees. Behind it, to the northeast, you can see the first few stones of a modest graveyard. To the east the road narrows to cross a small bridge into the village proper; to the north, it crests the hill toward the train station.
+
+>x church
+An elderly and dispirited structure made of close-set stone blocks, long and rectangular, with an arched roof and a few scattered and muted stained glass windows. A couple of low stairs lead up to a double door at the front, facing the road, which is set in a square tower that juts slightly forward from and rises slightly above the rest of the structure, culminating in what you presume is a belfry (though you can't make out any bells).
+
+>x windows
+Jealously small, and too high to see through. You can vaguely make out the cataclysmic sufferings of some unfamiliar saint.
+
+>x door
+The double door is heavy wood set in an arch in the stone, weathered but still sturdy enough. A small keyhole is visible beneath the modest black metal handle on the right-hand door.
+
+>x belfry
+The tower sits slightly forward from the church proper and holds the entrance door. It culminates unambitiously not far above the rest of the roof, in a shadowy open area that might be a belfry.
+
+>x trees
+The trees around the church are spindly and as of yet still bare, though there is a decaying mush of last year's unraked fallen leaves scattered about the earth around their trunks.
+
+>x steps
+The two low stairs, of the same stone of the church, lead up to the double doors at the front of the central tower. They rise from the unkempt grass a few steps from the side of the road.
+
+>x keyhole
+The keyhole in the door to the church is a narrow, intricate gash in the metal below the handle. You kneel down to peer through it; it's too attenuated to make out any details, but you see through the door somewhere a distant, dazzling point of light.
+
+>knock on door
+You knock on the doors, producing a hollow, echoing thump quickly swallowed by the silence of the church.
+
+It doesn't feel like anybody heard you.
+
+>x road
+The road is gravel here, though it looks to be paved further into the village. For all that it's the only route to take for any village folk who want to pray or meet a train, it doesn't seem to be very well traveled.
+
+>take gravel
+You lift a handful of gravel and let it fall through your fingers again.
+
+>ne
+
+The Churchyard (David Jose)
+A neglected and long forgotten cemetery stretches out below you, surrounded by a rusted wrought iron fence. Lopsided gravemarkers, slowly succumbing to the elements, topple downhill like a congregation bent low in prayer. At the very center of the graveyard, set into a low valley, a squat, stone mausoleum crouches menacingly.
+
+To the southwest a dilapidated, stave church rises up obscenely against the night sky.
+
+A dark pine forest crowds against the wrought iron fence to the northeast. You might be able to forge a path between its trees.
+
+A discarded flashlight sits amidst the weeds behind an overturned gravestone.
+
+>inventory
+You are carrying:
+  aviator goggles (being worn)
+  the diary of Phyllis Cragne
+  a postcard of Big Ben
+  a giant milkweed leaf (being worn as a mask)
+  The Modern Girl's Divination Handbook -- Volume Three
+  a pull-string doll
+  a glass jar containing an insect
+  a half-full styrofoam coffee cup
+  a label
+  a brass winding key
+  a familiar gold wristwatch (being worn)
+
+>x goggles
+A pair of tinted, leather wrapped aviator goggles. A thin scratch mars the left lens.
+
+>take flashlight
+Taken.
+
+>x it
+A small flashlight, with a rubber ring where it screws together to keep the water out.
+
+>x ring
+It allows the flashlight to be opened easily to change the batteries, while also being waterproof when closed.
+
+>x fence
+A pitted wrought iron fence surrounds the graveyard.
+
+The fence seems fairly sturdy, but one of the cast iron spires seems to have been knocked loose from the top rail and is leaning askew.
+
+>take spire
+You grab hold of the loose rod and wrench it free from the fence.
+
+>x it
+A four foot long piece of the wrought iron fence that surrounds the cemetery. It's tipped with a wicked looking, spear-shaped finial.
+
+>x gravestone
+Simple, rough hewn marble markers, overgrown with weeds and stained by untold generations of blackened moss. The wind and weather have made sure that you can't make out any names or dates on any of these tombstones.
+
+>x mausoleum
+Covered in moss and half buried in a litter of dead leaves, the remaining letters above the door read "VERL C".
+
+Large, rough cut stone bricks make up the walls of the crypt, and a series of steeply pitched slate rooves protect the mausoleum and its internees from the fierce New England winters.
+
+A large oak door is set into wall beneath a peaked stone arch.
+
+>x door
+A heavy oak door, nearly four feet across, and wrapped with iron bands. This thing looks like it would be more at home repelling an invasion in a medieval castle.
+
+>open door
+You attempt to open the mausoleum door. The heavy door shifts slightly, but does not open. You suspect you'll need more leverage.
+
+>open door with spire
+You work the iron spire into the narrow gap between the door and the stone jamb and attempt to pry it open. After several minutes of effort, you're able to slowly work the door open far enough for you to be able to squeeze through.
+
+>in
+
+Mausoleum (Gary Butterfield)
+Immediately upon entering, you feel hot. This is a square chamber, made of stone. Dust is suspended in the air, clearly visible in the bright purple light eminating from the center of the room. The dust does not seem to fall.  There is a plinth in the center of the room with a tome on it. Each corner has a full length mirror.
+
+On the plinth is a shabby journal.
+
+A faint chill comes over you.
+
+>x journal
+A shabby looking leather volume with uneven pages. The letters "LVPB" have been burned onto the spine, under the insignia for The Backwater Public Library, which features two back to back crescent moons joined by a downward looking eye.
+
+This appears to be what's known as a commonplace book. It's a place for a writer to jot down ideas and fragments. There's really no order to it, but you could flip through it, if you wish.
+
+>x plinth
+Unlike the rest of the room, the plinth is starkly industrial. It is made of rusted iron, with rusty streaks moving downward towards the ground, as if water had poured from the top at one point. There is a tome on top.
+
+On the plinth is a shabby journal.
+
+>x dust
+The dust is piled up under each stack of tombs. It looks finely ground.
+
+>x tombs
+The tombs are stacked three high, and three wide, on each wall. Each tomb has a place where it looks like there was once a handle, but it has been ground down as if by hundreds of fingers, over the course of hundreds of years. There is no way to open the tombs.
+
+>x mirror
+Which do you mean, the northward mirror, the eastward mirror, the southward mirror or the westward mirror?
+
+>x northward mirror
+The mirror is positioned in the northern corner of the room. It has an oaken frame and a small bas relief of a human figure in the stone above. When you examine your reflection, you find that it reflects only you, not the room that surrounds you. You stare at yourself, staring at yourself, floating in a purple void.
+
+>x southward mirror
+The mirror is positioned in the southern corner of the room. It has a brass frame and there is a bas relief of a small humanoid in the stone above. You see a small version of yourself, though it is not exactly the same. Its posture is more confident, defiant even. When you look at its eyes, you see that its eyes do not match yours and it instead watches your hands carefully.
+
+>x eastward mirror
+The mirror is positioned in the eastern corner of the room. It has an pine frame and a small bas relief of a spider in the stone above. When you examine your reflection, you jump backwards away from it. The mirror does not seem to reflect you, but instead it shows you as if a giant had crumbled you up like a piece of paper. Your neck is folded so that your ear is resting on your collarbone. Your arms are bent, and twisted. Bones break through the skin, and spurs jut to the surface. At first you do not think it is actually you, but it clearly is. The creature in the mirror has the same terror in its eyes that you do.
+
+>x westward mirror
+The mirror is in the western corner of the room, but it has been destroyed, though oddly enough, not broken. It looks as if it were melted. There is a bas relief of a writing quill in the stone above.
+
+>take journal
+You hear a voice that says "Do you remember the first time you stole something? Do you remember when you first realized that adults lie all the time? How did that feel?" You close your eyes and shake your head, clearing it. When you open them, you find yourself at the entrance of the mausoleum.
+
+>take journal
+ The voice returns, "It is interesting to me that you think I belong to you. We both contain worlds, universes, multitudes. Possibility. And you would possess me." A bright flash of light and you find yourself at the entrance of the mausoleum.
+
+>take journal
+ The voice is louder. "Your name is written on water. Everything around you, everything in this place will be here long after you're dead and no one remembers you. Be gone." Again, you find yourself at the entrance of the mausoleum. This time, though you don't remember falling, you are on one knee.
+
+>take journal
+ The voice is exasperated. "What if you don't like what's at the end of all of this? Think about the time you're wasting here. All of this effort, all of this  reading  and for what? Do you not realize that some day you will die? How many entire days have you lived and complete forgotten? More than you can count, I wager." Your vision goes black and you feel yourself slammed against the door of the mausoleum, banging your head. Your rub the back of your hair and feel wet.
+
+>take journal
+ The voice is whispering. "Do you know what I have forgotten? Nothing. Every moment of my life is valuable and preserved. Every finger that has ever turned one of my pages, every set of eyes that has read me, I remember them all. I'm something that all of your kind wishes to be- permanent. How much time do you have to waste on this silly game? Here, let me make the decision easy for you." You hear a high pitched whining and...
+ You are back at the train station. You look around. Everything seems to be reset. You sigh, and painstakingly begin the process of dutifully repeating all of the actions that brought you to the mausoleum. Hours later, exhausted, you pry the door open and re-enter the tomb.
+
+>take journal
+ The voice screams. "What is wrong with you?  Examine yourself. I'll give you time." The whining sound is much louder and more intense now, and is accompanied by the smell of ozone. When you open your eyes...
+ You see a man in a mask pulling you out of somewhere safe and warm. You're surrounded by strangers and people you love.
+ ...
+ You open your mouth to scream and
+ WAAAHHHHHHHH. A...baby? This can't be real. You start pumping your fists in anger, trying to shake it off. Suddenly, the man with the mask reels back his gloved hand and
+ SMACK
+ You are on the floor of the mausoleum.
+
+>take journal
+You stare at the book for a moment before reaching out to yank it off the plinth. It puts up no resistance this time.
+
+>read journal
+ lungs have to be manually inflated via a pump in a sea side town. no one thinks its strange
+
+The chill behind you intensifies, and you feel like you're being watched.
+
+>read journal
+ credit line for emotional labor, she comes to collect
+
+>read journal
+ kid obsessed with d and d slowly becomes her character
+
+>read journal
+ hair starts growing from teeth/eyes
+
+>x chill
+A chill emanates from behind you, fading as you turn.
+
+>x coffee
+The clouds in your cup form horizontal bands. Lack of a symbolic image means that you have accomplished everything you must in your current environment and should move on to find new challenges in order to grow as a person.
+
+>out
+
+The Churchyard (David Jose)
+A neglected and long forgotten cemetery stretches out below you, surrounded by a rusted wrought iron fence. Lopsided gravemarkers, slowly succumbing to the elements, topple downhill like a congregation bent low in prayer. At the very center of the graveyard, set into a low valley, a squat, stone mausoleum crouches menacingly.
+
+To the southwest a dilapidated, stave church rises up obscenely against the night sky.
+
+A dark pine forest crowds against the wrought iron fence to the northeast. You might be able to forge a path between its trees.
+
+>ne
+
+The Dim Recesses of the Forest (Jacqueline A. Lott Ashwell)
+Branches scramble overhead, straining toward one another in a bid to blot out the sky. Mercifully, light manages to filter down through an opening in the canopy above a small pond. Paths slither away into the forest to the north, southwest, and southeast.
+
+You pause a moment to let the hushed peacefulness of this place soak in -- a welcome relief from the unsettling events of the day.
+
+>x pond
+Your reflection stares back at you, tree branches framing your face. You can discern nothing beneath the surface of the black water. The pond might be a foot deep, or a hundred feet deep. Or bottomless.
+
+>x leaves
+Leaves are everywhere. Some float, withered and aimless on the surface of the black water, the rest carpet the forest floor.
+
+>x branches
+You gaze up. Were it not for the pond, you get the feeling these branches would weave themselves together to plunge these woods into near-total darkness.
+
+>count leaves
+You feel a bizarre compulsion to count the leaves.
+
+One... two... three...
+
+...there are 69,105 of them. Give or take a few.
+
+While counting the leaves, you appear to have revealed a flat stone.
+
+A flurry of dead leaves goes skittering along the ground, swirling past you in the wind.
+
+>x stone
+A flat stone with rounded edges. You eye the surface of the pond speculatively.
+
+For a moment, the wind dies down. Leaves on the ground come to rest.
+
+>skip stone
+You weigh the flat stone in the palm of your hand for a moment or two, then decide to see if you can make it skip across the pond: you wind your arm back and fling the rock at an angle near-parallel to the water. It skips once... twice... three... four five six seven times, then disappears from view. You enjoy a brief feeling of accomplishment.
+
+All of the sudden, the forest goes quiet. Completely quiet. No wind, no doves, no sound at all.
+
+You are frozen in the stillness, too scared to move.
+
+>wait
+The unsettling silence continues. It's almost as if the forest is waiting for something to ... to happen.
+
+From the pond, a slimy ivory tentacle emerges, feeling its way toward you through the dead leaves.
+
+You are transfixed, and powerless with fear.
+
+>wait
+It is as if you are observing from outside your own body: you watch as the eburnean appendage begins wrapping itself slowly around your ankle.
+
+Suddenly, you are back inside your skin, and feel yourself being dragged toward the pond! You kick at the clammy white arm with your free foot, and desperately dig your fingers into the earth in an attempt to prevent the inevitable.
+
+The surface of the once-placid pond now churns violently.
+
+>wait
+To your horror, you are pulled beneath the surface!
+
+All is dark. All is still. An unearthly calm consumes you. You cannot breathe, but you do not seem to care. You blink, unable to make out any shapes in the black water.
+
+Then, from the depths, an ivory shape emerges: a many-tentacled creature. The cephalopod floats toward you, coming eye to eye, and you sense something... maybe sadness?...
+
+>x cephalopod
+Gently, two white tentacles place a delicate silver chain around your neck. Before you have time to express surprise or gratitude, the pond kraken carries you to shore. You inhale, thankful for the air, and turn back toward the pond just in time to see the last of the creature slip back beneath the surface.
+
+>x chain
+The locket and chain are silver, surprisingly untouched by the murky depths from which they came. The front of the locket bears a tiny embossed likeness of a kraken. The initials E.C. are engraved on its back.
+
+The wind momentarily stirs up a pile of leaves.
+
+>open locket
+You open the antique locket, revealing a tintype.
+
+Somewhere in the distance, you hear a mourning dove's plaintive song. From above, a leaf floats slowly toward the ground.
+
+>x tintype
+A portrait of a young but stern-looking woman with dark locks and darker eyes has been placed within the locket. The photograph is, to your amazement, dry and in good nick, despite how it came to be in your possession. You idly wonder if there's anything hidden behind it.
+
+The wind picks up again for a moment, and a few leaves fall from above. One of the leaves settles in your hair. You disentangle the leaf and toss it to the ground.
+
+>look behind tintype
+As you handle the photo, you notice something on its reverse. The handwriting is so small! You marvel at the clarity of the feminine script, which you are just able to make out. It reads:
+
+To my Eliakim,
+Eburnean Alderman of
+the Variegated Court.
+I would follow thee
+to the depths of Hell.
+          - Faythe
+
+The wind comes from a new direction. The skeletons of dead leaves scratch against one another.
+
+>put tintype in locket
+You put the tintype into the antique locket.
+
+>close locket
+You close the antique locket.
+
+>north
+
+The Old Well (Reed Lockwood)
+The trees here gather, black with wet; glimmering fingers hung with ragged matter, huddling beneath a cold and gently weeping sky. Beneath your feet, the damp red felt of rotting leaves slopes down toward a still, murky puddle. Nearby is a well, capped off with crumbling cement. A broken-down section of brick wall waits for raindrops to fall along its spine, and an old, half-dead oak straddles an angular boulder studded with quartz. A path through the forest leads south.
+
+You can see a wooden sigil here.
+
+>x sigil
+A circular wooden frame is embedded in the ground here, organic arcs of wood carved with strange symbols. Though surrounded by rot, it is entirely intact despite its apparent age.
+
+>x symbols
+They're completely illegible. You've never seen any language like this before.
+
+>x puddle
+A still, murky puddle sits beneath the tree. The slightest of ripples disturb its surface. There's something a little odd about it.
+
+>x tree
+It's an old, twisted oak tree grown over a granite boulder here. Many of its branches are rotting away, yet it clings to life. It has a hollow knothole at about eye level, and a large, prominent root juts from its base.
+
+>x knothole
+You peer into the knothole and find an oilcloth parcel. You pick it up.
+
+>x parcel
+An old rectangular parcel, oilcloth wrapped with twine. Given its size and shape, you're guessing it's a book.
+
+>open it
+You open the parcel, discovering a moldy journal and what looks to be a strange little battery. You toss the wrappings away. They look biodegradable enough. Indeed, they look like they've already begun biodegrading.
+
+>x moldy journal
+It's heavily damaged by the elements. You can make out the letters "-AGNE" on the front cover.
+
+>read it
+You riffle through the pages; only short passages are still legible:
+
+"... circular golden prosthesis seems to have chosen Mabel ... doctor said he can't remove it without harming the child ..."
+
+"... Mabel spends long hours examining stumps and rocks in the woods ... and I are most concerned. Mabel's stories of fairies and HIDDEN LANDS seem more than childish fancy"
+
+(There's a long section of the book here which is ruined and entirely illegible, although you can make out diagrams and the faded, troubling outlines of strange shapes)
+
+"... constructed the sigil out of sculpted and varnished wood after many ... Mabel instructs me on where it should be placed ... spirits she is in communication with have constructed various devices at her command ... creatures I have dubbed microphids ... "
+
+"... Clara still doesn't believe; threatened to get Pastor Crowell involved ... able to dodge him so far ... quit my position at ..."
+
+"... very concerned but there is no body ... up to seven successful SUMMONINGS that have remained docile ... we will never know, and quite frankly these studies are more important than that ... Each creature must process through three ARCHES, through three HABITATS and stages of development before finally maturing through the ARCH and SIGIL ... special GLUE created by that one created via the sequence ->FOREST->(illegible)->CLIFFS ..."
+
+"... at Clara's insistence I have written to the University ... fake name ... one we have dubbed Moppy is friendly enough and a loyal companion to Mabel ..."
+
+"... siphoning off the rest of the inheritance ... haven't seen her in a while ... sent an officer of the law to fetch Mabel, but Moppy took care of him ..."
+
+(another long damaged section)
+
+"... only Tall Pete is left ... lay Mabel in a grave beside Moppy ... TERRIBLE LIZARD-BIRD was raised up from the OCEAN - is still out there somewhere ..."
+
+"... now I wear the PROSTHESIS; now I can see everything. ... breached the walls of perception ... I am PRODDING the EGG MACHINE on the QUARTZ OUTCROPPING ... dozens of them GATHER to PROTECT me from the LIZARD BIRD ... PULLED the ROOF clear off my SHELTER ..."
+
+ And that's it. There's no more. Well, you suppose you didn't actually expect the author to keep writing right up until the point of his death, but you're a little disappointed.
+
+>x battery
+(the small, rectangular battery)
+A slick golden rectangle, slightly bowed, with contacts at one end marked "+" and "-".
+
+>x root
+Just a thck root sticking out from the base of the tree. Or is it? This might require a closer look.
+
+>x boulder
+A jagged gray boulder leans here among the trees, coming to about your waist. It would be largely unremarkable but for the fact that it is straddled by the twisted old oak. A ghostly patch of quartzite graces one corner of it.
+
+>x patch
+Pure, translucent white. Something is a little bit off about it.
+
+>x well
+An old well cap made of crumbling cement emerges from the forest floor here. Two wrought-iron handles, pitted with rust, emerge from the top. A padlock, also rusted, holds it closed.
+
+>x padlock
+It's rusted tight, but still solid.
+
+>x wall
+Damp bricks, decades old. They are not quite right, somehow.
+
+>x coffee
+The swirls in your cup form the engine of a train. Modes of transportation mean that your current environment presents challenges that can only be overcome by seeking fresh perspectives elsewhere until you're ready to return.
+
+>south
+
+The Dim Recesses of the Forest (Jacqueline A. Lott Ashwell)
+Branches scramble overhead, straining toward one another in a bid to blot out the sky. Mercifully, light manages to filter down through an opening in the canopy above a small pond. Paths slither away into the forest to the north, southwest, and southeast.
+
+>se
+
+Shack Exterior (Michael Lin)
+You enter a clearing, the earth barren and the air heavy with mist. A low windowless wooden shack dominates the area. Sitting by the shack is a wooden painted doll, clockwork mechanisms visible in its joints. It's startlingly lifelike.
+
+The woods are to the northwest, while that godforsaken town is to the southeast.
+
+On the ground, just out of the doll's reach, lie some loose scraps of paper.
+
+>save
+Enter saved game to store: shack-exterior
+Ok.
+
+>
