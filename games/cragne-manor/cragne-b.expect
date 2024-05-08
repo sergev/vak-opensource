@@ -1,0 +1,55 @@
+#!/usr/bin/expect -f
+#
+# Play game Cragne Manor.
+#
+# Based on http://plover.net/~davidw/sol/c/cragn18.html
+#
+set timeout -1
+
+# Remove previous log, if any.
+system rm -f "game.log"
+log_file "game.log"
+
+# Start the game.
+spawn ./glulxe cragne.gblorb
+match_max 100000
+
+expect "press any key to continue"; send "\r"
+expect "yes or no"; send "yes\r"
+expect "yes or no"; send "yes\r"
+expect "press any key to begin"; send "\r"
+
+#
+# Shack Exterior (Michael Lin)
+#
+# Goal: Obtain the Dollmaker's Journal.
+#
+expect ">"; send "restore\r"; expect ":"; send "shack-exterior\r"
+
+expect ">"; send "x clockwork doll\r"
+expect ">"; send "take scraps\r"
+expect ">"; send "read scraps\r"
+expect ">"; send "reassemble scraps\r";             # It's now a repaired page
+expect ">"; send "read page\r"
+expect ">"; send "give page to clockwork doll\r"
+expect ">"; send "take book\r";                     # The Dollmaker’s Journal
+expect ">"; send "x it\r";                          # Another journal
+expect ">"; send "read it\r";   # She is finally done. My finest clockwork creation. So wonderfully lifelike.
+expect ">"; send "read it\r";   # I’ve yet to decide what I should call her.
+expect ">"; send "read it\r";   # I must have rest. My senses deceive me into thinking she can see me, hear me.
+expect ">"; send "read it\r";   # What has she become? Is my child now my gaoler?
+expect ">"; send "read it\r";   # I think I’ve managed to lock her safely away. I only hope tha...
+expect ">"; send "read it\r"
+expect ">"; send "open door\r";                     # Locked
+expect ">"; send "se\r";                            # Outside the Library
+
+#
+# Outside the Library (Gavin Inglis)
+#
+# Optional: Read the stories on the notice board.
+#
+
+# Quit
+expect ">"; send "quit\r"
+#expect "QUIT"; send "quit\r"
+exit
