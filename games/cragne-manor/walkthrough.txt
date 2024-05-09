@@ -212,4 +212,497 @@ A short street terminates here. To the south it opens into the town square. To t
 
 You can see a notice board here.
 
+>x board
+A weatherbeaten community notice board outside the library. Behind glass you can see a community events schedule, a ripped newspaper headline, and the winning stories from a children's writing competition.
+
+>x events
+Monday: Poetry reading.
+Tuesday: Poetry reading.
+Wednesday: Cross-stitch. NO GUNS.
+Thursday: Poetry reading.
+Friday: Alcoholics Anonymous.
+Saturday: Poker.
+Sunday: CLOSED.
+
+>x headline
+"Vicious Animals Are Dismembered In Gory Nightly Excess, Pumped High On Drugs"
+
+>x stories
+There are a few stories on the board. You choose one at random to read.
+
+"My uncle showed me a trick where you unscrew a salt cellar in the diner and then the next person gets salt all over their food. I did it a couple of times and stayed around to watch through the window. It was funny. I like to make things better so I swapped the salt for sugar and then for the white stuff from the laundry. If you find a salt cellar with a big enough hole you can also put broken glass in there."
+
+>x stories
+There are a few stories on the board. You choose one at random to read.
+
+"I am in a band. I play guitar and Stuffy plays guitar and Richard plays guitar and Marie plays drums although she has only got one and Ermentrude sings. Sometimes Ermentrude plays guitar too. We are going on tour in the fall but for now we play live at different places in Backwater. When they catch us they throw us out but we are good at hiding. Our record is thirty-four minutes."
+
+>x stories
+There are a few stories on the board. You choose one at random to read.
+
+"I have a friend at home she is called Bertrande. She does not go to school. When mom comes in she hides beneath the bed or in the closet and sometimes she makes a joke with a kitchen knife. Bertrande is from France in the sixteenth century where she was a pleasant girl. She was murdured by a noble man and she says if she can collect the bud of an entire family she can travel back in time for revenge. I like her hair."
+
+>x stories
+There are a few stories on the board. You choose one at random to read.
+
+"My dad always takes me to see jazz. It is crap. He says it is the only true American art form. I pretend to listen but I actually try to use psychic powers to make the jazz people explode. I have tried about a hundred times. One time the trumpet man played a wrong note although it is difficult to tell with jazz. Then blood came out the end of his trumpet. Then he fell over. I got ice cream on the way home."
+
+>x stories
+There are a few stories on the board. You choose one at random to read.
+
+"My father is a member of the Vermont Cheesers. They are a secret society so I am not allowed to talk about them. They meet in The Creamery and they do not allow girls to join. Sometimes I have to wait in the anti-room so I sneak up on the balcony and watch. Every day they bet on a cheese in a sack and if they do not get it right they have to eat the cheese. One man always talks about Maple Smoked Gouda and another man always talks about The Cheese Trail and sometimes they put the cheese down their trousers. They all smile all the time but you can see in their eyes that they are scared."
+
+>x stories
+There are a few stories on the board. You choose one at random to read.
+
+"One night I was coming home from school. It was dark. Then I saw a light in the sky. It was a space alium. A light shone down on me and I went on the space ship. They gave me cookies but the chocolate chips were bugs. I was scared. They wanted to take me to their planut but I said I had to be home at 6.30 for dinner. The aliums seemed angry and they dropped me in a pond. My school books got wet. The end."
+
+>west
+You pause at the entrance of the real estate office to reread the telegram in your pocket, scanning the curt missive for any additional clues as to what the hell your husband hosed up this time. No dice. A wave of sheer black terror washes up into your pharynx, and you fight it back down.
+
+It's fine. It'll be fine. You saved his ass that time with the vampire yacht (stupid), you got him and yourself out of the sentient wax museum (so careless), you even... it is not worth thinking about the guy with the drill hands right now. It is never worth thinking about the guy with the drill hands. It's fine. It'll be fine.
+
+Your solid gold instincts have led you to this office, which means there's something you need to steal from inside of it, so you tell your brain to shut its trap, adjust your backpack on your shoulder, and push firmly through the door into the stale chill of the air conditioning.
+
+
+The woman behind the desk jerks her head up from a pile of papers as you enter, clearly surprised to have a customer. "Oh, hello!" she says. "Can I facts you about a house? Ugh, I mean, are you interested in a Forthright & Rotier property? I mean, they're all our -- we're the only realtor in -- hello!"
+
+Estate Agent's Office (Jenni Polodna)
+The space is dominated by the unexpectedly symbiotic combination of a giant desk and a tiny woman, who together give the impression of being one complete single entity, like a centaur. The surface of the desk is invisible underneath a loose pile of glossy architectural magazines, manila folders, and real estate listings pamphlets. Behind it, a gunmetal-grey filing cabinet lurks unattractively in the far corner. The exit back out to the street is east.
+
+A tiny woman is here waiting to answer all of your Backwater real estate questions.
+
+>x desk
+The surface of the desk is invisible underneath a loose pile of glossy architectural magazines, manila folders, and real estate listings pamphlets.
+>search desk
+As you approach the desk, the tiny woman bares her teeth and growls at you. "Oh, sorry," she says as you back towards the wall. "My priest and I are working together to get me not to do that anymore."
+
+>x woman
+The upper half of her body consists mostly of hair, insufficiently restrained with a blue plaid scrunchie. Twin octagonal shimmers beneath the hair suggest a pair of glasses. Her torso wears a t-shirt advertising the 1996 Muddy Crayfish Charity Run/Walk, sponsored by Forthright & Rotier.
+
+The lower half of her body is obscured by the giant desk, but your brain evolved over millennia to handle exactly this kind of situation, so without even thinking about it you assume she has two human legs instead of, say, half a kraken.
+
+>inventory
+You are carrying:
+  a Jansport backpack (being worn and open)
+    a key pocket (open but empty)
+    a book pocket (open but empty)
+    a side pocket (open but empty)
+    a trash pocket (open but empty)
+    a backpack features guide
+  a coded telegram
+  The Dollmaker's Journal
+  a moldy, waterlogged journal
+  a small, rectangular battery
+  an antique locket (being worn and closed)
+  a shabby journal
+  a faint chill (haunting you)
+  a cast iron spire
+  a waterproof flashlight
+  the diary of Phyllis Cragne
+  a postcard of Big Ben
+  a giant milkweed leaf (being worn as a mask)
+  The Modern Girl's Divination Handbook -- Volume Three
+  a pull-string doll
+  a glass jar containing an insect
+  a half-full styrofoam coffee cup
+  a label
+  a brass winding key
+  a familiar gold wristwatch (being worn)
+
+>x backpack
+You bought this backpack specifically to do thefts with, and you love it. From the outside it's modestly sized and easy to carry, but the inside is surprisingly capacious -- you've used it to smuggle oil paintings, kayaks, and (best day of your life) the entire contents of a government warehouse in Roswell, New Mexico. In addition to the cavernous main pocket of the backpack itself, there's a key pocket for your keys, a book pocket for your books, a side pocket for your sidequests, and a trash pocket for your trash. Zippers on all of these pockets let you open and close them at will.
+
+In the Jansport backpack are a key pocket, a book pocket, a side pocket, a trash pocket and a backpack features guide.
+
+>x guide
+Welcome to the NEW 1998 Urban Adventurer Streetwarrior TRIPLE-REINFORCED Lifestyle Management System by Jansport!
+
+Incredible Updated Features:
+** Separate zippable pockets let you hide things and reveal them at will!
+** Brand new abbreviations: mp = main pocket, kp = key pocket, bp = book pocket, etc.!
+** Time-saving upgrade for the adventurer on the go: LOOK IN or PUT [SOMETHING] IN a closed pocket without having to open it first!
+
+>x telegram
+NAOMI STOP FORGOT BROWN SHOES STOP PLEASE SEND BY EARLIEST POST STOP LOVE PETER
+
+In the secret code you worked out with your husband, "forgot brown shoes" means "the plan has gone dog-tits-up and I could not be deeper in the crap canal," while "please send by earliest post" means "invent a pretext and come extricate me immediately."
+
+So, here you are in Backwater, Vermont, with a missing husband and no idea what to do next. It's great. Everything's great.
+
+>x cabinet
+If a filing cabinet's purpose is to hold files without being otherwise interesting or remarkable, then this one has achieved self-actualization and is free to ascend to filing cabinet nirvana.
+
+>ask woman about Peter
+"Oh!" the woman exclaims. "You're the new wi-- I mean, you're Naomi Sparradew Cragne! Nice to meet you. I'm Bethany Tross." She boosts herself onto the desk to shake your hand. "I've got a huge file on Cragne Manor. It's absolutely fascinating. You're gonna love it." Lips slightly pursed, she surveys the mess on the desk. "Um. Just let me find it. Jeez. One sec."
+
+
+Bethany gathers all of the folders on the desk into her arms. "See, I'm getting a master's degree in local history, and this job is a gold mine for original documents," she explains. One by one she deposits each file into the cabinet, until only an empty-looking folder labeled CRAGNE MANOR remains. "Huh, it should be..." She flips it open, then with a disappointed look sets it on the desk in front of you.
+
+
+"Well, ratsack," she says. "I guess the Cragne Manor file's off being digitized. Ms. Rotier's been on this paperless office kick lately, which is weird, because we don't have a computer." Her expression brightens somewhat. "Any other buildings you want to know about? I'm not allowed to talk history at home anymore, not since the incident."
+
+
+Now that the desk is clean, you notice a paperback book that had been hiding underneath the folders.
+
+>x paperback
+A somewhat battered paperback whose lovingly fantasy-painted cover features a corseted steampunk woman embracing a Regency period nobleman -- who is also an anthropomorphic lion -- in space. "TWIN HEARTS BETWEEN THE PLANES," raised letters proclaim. "LEELAH VAUGHAN."
+
+Beneath the author's name, smaller text inside a sunburst informs you that this book was a 1981 Venus Rising nominee for "Best Sexual Tension." A shelving label for the Backwater Public Library covers the lower spine "[FIC / ERO / ANIMA / FELIS / YIKES]".
+
+This is it, your instincts whisper. This is the thing you need to steal. Also, look at it. It's amazing. Definitely steal that.
+
+>x folder
+The Cragne Manor folder is thin enough to appear empty while closed. When you open it, you see that it contains nothing but a Post-It note with the words "BETHANY, TOOK THESE TO GET DIGITIZED. RECYCLE THIS NOTE PLEASE!!!" alongside a small drawing of an anthropomorphized Earth giving the thumbs-up.
+
+>ask Bethany about library
+Bethany's features descend into a half-scowl. "Oh, it's just another boring Andrew Carnegie library, blah blah blah 1908, $5000 budget, snooze me a river of dreams. It's gross, all the books in there are gross, if you go in there you'll be gross too." This unenthusiastic description of a historic building seems out of character, so you cock an eyebrow at her quizzically.
+
+Bethany catches your look and deflates. "That crappy librarian is in league with the Badfinger University Shadow Historians," she explains. "She won't let me have jack. They've got some real good original mystical documents and I want a job there so bad."
+
+She meets your eyes again. "Right, I'll get the folder."
+
+>put paperback in bp
+(first taking Twin Hearts Between the Planes)
+
+Stealing the book while Bethany's got her back turned is definitely the right idea. When you play the scenario out in your mind, though, it goes something like this:
+
+[IMAGINARY SCENE] You slip the book into your pocket. Bethany turns around, ready to drop the folder on the desk, and spots that the book is gone. Her octagonal eyes glow red, and each unruly curl of her hair transmogrifies into a cobra, its eyes glowing red and its fangs dripping venom. "WHERE IS MY BOOK?" she roars, shaking the walls of the real estate office.
+
+The desk grows a mouth and chomps you in half somewhere around the lumbar spine. Your lower half bleeds out on the berber carpet as the desk masticates your torso and eyeballs and hands and other parts of your body you like a lot and use often. With a satisfied expression, Bethany retrieves the novel from the bloodsoaked pocket of your JNCOs. "Now I can finally confess my truth," she tells your exposed kidneys. "I think reading about lion sex is kind of nice actually."[END IMAGINARY SCENE]
+
+...okay, clearly this town has got you in a real weird headspace. The point is, you'll have to find a way to steal the book without Bethany noticing you've stolen it, or things might get... uncomfortable.
+
+"Folder located!" Bethany drops the folder onto the desk near Twin Hearts Between the Planes.
+
+"Stupid sexy library," Bethany sighs.
+
+>x library folder
+The Backwater Public Library folder is empty except for an index-card-sized note reading "Contents of this folder have been reclaimed as the rightful property of B.U.S.H. Any queries, complaints, and suggestions can be directed to the_uncaring_void_of_my_anal_canal@hotmail.com. Have a good rest of your SUCK IT LOSERS!!!".
+
+>ask Bethany about train station
+"Perfect! I'll just grab the folder for that," Bethany says, turning to search through the filing cabinet.
+
+>ask Bethany about train station
+"Just a sec," Bethany says, voice echoing weirdly. You turn to look and she's got her head almost completely inside one of the cabinet drawers.
+
+"Who just found the folder she was looking for? This girl!" Bethany drops the folder onto the desk, partially covering Twin Hearts Between the Planes.
+
+
+"Backwater didn't have a train station until 1968," Bethany tells you. "The local business owners were really pushing for one to be built, but the town council elders fought it tooth and nail, because they thought it would attract undesirables -- I think we both know what that's code for -- from the city. Then somebody pointed out the undesirables from the city, if you were nice to them and gave them shotguns, would be great allies in the constant war against the even-less-desirables who kept slithering out of the hills on their tentacle legs to steal babies. Backwater got noticeably less racist after that. Also fuller of babies."
+
+>x station folder
+The train station folder is incredibly thick. Flipping through it, most of its bulk appears to be schedules of arrivals and departures, and you're about to fall asleep when a folded page flutters out from between the timetables. You unfold it and take a look.
+
+"Oh, that thing is great," Bethany says. "It's a map of a proposed trolley system through Backwater, which wound up not getting built because it turned out the guy who sold it was secretly a bear, and no one knew what to do with that information. The trolley system would have been so cool though."
+
+>x map
+From what you've seen of Backwater, it's not that big, yet the trolley system on the map in your hands is extensive. A forest-green line runs into the woods, while a line as red as raw beef connects the downtown to the meatpacking plant. The church has its own line (gold), Cragne Manor has several (in various shades of purple -- also, why?), and Backwater itself is split into "Dangerous Backwater" (orange) and "Spooky Backwater" (blue). Apparently the real estate office is in Spooky Backwater, whatever that means.
+
+>ask Bethany about Backwater
+"Backwater was founded in 1773 as General John Snelson's personal latrine," Bethany tells you. "Snelson was stationed at a nearby fort and had bowel issues so intense that a cottage industry rose up to deal with his emissions. People showed up in droves to push the honey carts, replace the cut flowers, sell him bicarbonate, that sort of thing. Eventually, they brought their wives and built houses. After his death in 1785, everyone was kind of at a loss until Deuteronomous Cragne showed up. Not that he had bowel issues, I mean; he was his whole other thing."
+
+>ask Bethany about Deuteronomous
+"Deuteronomous Cragne came from somewhere in the mid-1790s and founded the Backwater line of Cragnes. He's your husband's great-great-great-great-grandfather," Bethany tells you. "He had a lot of portraits commissioned of himself as this huge vampire-looking guy with bright red eyes and a twenty-hand-tall nightmare stallion, but I found some charcoal drawings of him as a teenager, and he's practically cherubic-looking. Like a Keebler Elf with fluffy sideburns. It's hilarious."
+
+>ask Bethany about church
+"Great, I'll show you the folder for that!" Bethany says, turning to search through the filing cabinet.
+>ask Bethany about church
+"Just a sec," Bethany says, voice echoing weirdly. You turn to look and she's got her head almost completely inside one of the cabinet drawers.
+
+"The folder-finding wizard has done it again!" Bethany drops the folder onto the desk, partially covering Twin Hearts Between the Planes.
+
+
+"Most people in town think Backwater Church changes religious affiliation once every seven years," Bethany says, "but guess what I found out? This whole time they've just been worshipping different incarnations of X'n'xa the Inevitable March Towards Death, which technically makes them Episcopalians. Religion is wild, huh?"
+
+>x church folder
+The church folder contains mostly receipts for the installation of various stained-glass windows. You spot one for $0.00 with a pen scrawl across the bottom reading "I refuse to depict Imelda Cragne as the Virgin Mary, may God have mercy on my soul."
+
+"Oh yeah," Bethany says, when you point it out, "I forgot to mention that most of the Cragnes commissioned church windows of themselves as religious figures, but I guess the idea of a saintly Imelda Cragne clutching a baby Jesus was too much for that stained-glass artist. They fled to Canada the same day that receipt was written, which was absolutely the right call."
+
+>ask Bethany about Imelda
+"I know the Historian's Code says you're supposed to dispassionately examine people's lives without forming emotional judgments, but Imelda Cragne was a real piece of work," Bethany tells you. "She liked to psychologically abuse the workers at the meatpacking plant. If you crossed her, she would -- I swear to God -- draw your face on a ham, dress it up in your clothes, hang it from the nearest meat hook, and -- I actually have no idea what she did next, because no one will talk about it."
+
+"This wasn't just at the plant, either; she hung meat hooks up in every room of the manor so she could make dangling ham effigies of the servants and her own kids and anyone who even looked at her. Messed. Up. Lady."
+>ask Bethany about meatpacking plant
+"Absolutely! Let me find that folder," Bethany says, turning to search through the filing cabinet.
+
+>ask Bethany about meatpacking plant
+"Just a sec," Bethany says, voice echoing weirdly. You turn to look and she's got her head almost completely inside one of the cabinet drawers.
+
+"Here's the folder!" Bethany drops the folder onto the desk, further covering Twin Hearts Between the Planes.
+
+
+"The meatpacking plant was built by Alfred Silas Cragne in 1901 as an attempt to make a little money off of that year's Seven Days' Rain of Dead Pigs," Bethany tells you. "Which, as you might guess, was a phenomenon during which almost five thousand pigs fell out of the sky over downtown Backwater. Amazingly, only one person died, and everybody hated him, so it was a net win for the town."
+
+She shakes her head. "The pub owner likes to go on about how great it must have been to take a bucket out in the street and fill up on free bacon, but what I think is, if it means not getting clocked in the head with a pig hoof at the standard gravitational acceleration rate, I'd rather just spend the three bucks at Shaw's."
+
+>x plant folder
+You open the meatpacking plant folder and a chunk of raw beef falls onto the floor. Holding the folder as horizontally as possible, you open it the rest of the way. It's entirely full of raw beef. Mostly ground chuck, but you see a couple of ribs sticking out, and on the top is... is that a New York strip steak? "Hot beef injection compliments of B.U.S.H.," reads a note impaled into the meat pile.
+
+"True confession?" Bethany says, "I know they're proud of that little prank, but that's like thirty dollars worth of meat, and the park by my house has a grill."
+
+>x meat
+You've never felt less in need of a hot beef injection at any point in your entire life.
+
+>ask Bethany about BUSH
+"Badfinger University is five miles up the river from Squahonomie, and their Shadow Historians have been our archrivals for almost a century and a half," Bethany explains. "Every September our grad students and theirs engage in ritualized academic combat to decide which school has jurisdiction over which historical topics. This year they got almost all of the Cragnes -- I was gunning hard for Stella, and I made sure we kept Deuteronomous -- but this guy Josh that I hate blew the rest of our points on Jedediah Beaverhat, who is not even real, he's a pancake house mascot. I kinda think Josh is a mole."
+
+>ask Bethany about Stella
+"Stella Archer Cragne disappeared on the third of May, 1981," Bethany tells you. "She told her husband she was going into town to buy a hat for Petunia Cragne's wedding. The ticket taker at the station confirmed that she boarded the 12:35 train to Montpelier, and after that (once again Bethany drops her voice into Unsolved Mysteries registers) nobody saw her again. Dead or alive."
+
+"Ask me about Stella again if you want to hear all the facts of the case; I'm supposed to practice getting consent before quote-unquote talking people's ears off. People care an awful lot about their ears around here, if you ask me."
+
+>again
+Holding up her fingers one by one, Bethany cheerfully enumerates the facts of the case. "Fact! Stella had no known enemies; the family liked her -- well, except Imelda Cragne, but she was a 102-year-old racist who croaked six months before Stella went missing, so it's unlikely she was involved."
+
+"Fact! By all accounts, Stella & Horace were one of those boring quiet couples that stay home a lot and don't have affairs. Fact! I really enjoy saying 'fact!' Fact!"
+
+"Fact! Stella left the house with just her wallet and keys. She wasn't the purse-carrying type, but she owned a couple good-sized bags she could have packed some underwear and a toothbrush in if she'd planned to run away."
+
+"Fact! The Backwater P.D. searched all of the possessions she'd left behind and none of it was more suspicious than a Jell-O mold. I saw the whole list and lemme tell ya, I have weirder stuff in my pockets right now, including one or two bird skulls."
+
+>ask Bethany about Horace
+"So, at first, Horace Cragne spent a ton of money on private detectives to look for his wife," Bethany tells you. "Then, in June of 1983 -- well, no one knows what happened, but he fired his gumshoes and went around being cheerful in public all of a sudden. Complete 180 mood flip. Everyone thought he had a new lover, but I couldn't find any evidence of that, and you better believe I looked. I even... anyway."
+
+"This next part is sad," Bethany continues. "In September 1983 the Cragne Manor summerhouse burned down and Horace Cragne burned down with it. According to Backwater P.D. it wasn't arson, just some bad wiring in the heating unit. That fall was especially cold because... well, I'm not supposed to talk about gulf streams anymore, because apparently they bore people." She looks from left to right as though checking for spies, then leans forward conspiratorially. "But it was totally the gulf streams," she whispers.
+
+>ask Bethany about gulf streams
+"Ask me again if you're sure you want to know," Bethany says. "I can really get going when I talk about gulf streams."
+
+>again
+She takes a deep breath. "Okay. The Gulf Stream, together with its northern extension the North Atlantic Drift, is a warm and swift Atlantic ocean current that originates in the Gulf of Mexico and stretches to the tip of Florida, and follows the eastern coastlines of the United States and Newfoundland before crossing the Atlantic Ocean. The process of western intensification causes the Gulf Stream to be a northward accelerating current off the east coast of North America. At about 40°02N 30°02W, it splits in two, with the northern stream, the North Atlantic Drift, crossing to Northern Europe and the southern stream, the Canary Current, recirculating off West Africa."
+
+
+"The Gulf Stream influences the climate of the east coast of North America from Florida to Newfoundland, and the west coast of Europe. Although there has been recent debate, there is consensus that the climate of Western Europe and Northern Europe is warmer than it would otherwise be due to the North Atlantic drift which is the northeastern section of the Gulf Stream. It is part of the North Atlantic Gyre. Its presence has led to the development of strong cyclones of all types, both within the atmosphere and within the ocean. The Gulf Stream is also a significant potential source of renewable power generation. The Gulf Stream may be slowing down as a result of climate change."
+
+
+"The Gulf Stream is typically 100 kilometres (62 mi) wide and 800 metres (2,600 ft) to 1,200 metres (3,900 ft) deep. The current velocity is fastest near the surface, with the maximum speed typically about 2.5 metres per second (9 kph; 5.6 mph)."
+
+
+"European discovery of the Gulf Stream dates to the 1512 expedition of Juan Ponce de León, after which it became widely used by Spanish ships sailing from the Caribbean to Spain. A summary of Ponce de León's voyage log, on April 22, 1513, noted, 'A current such that, although they had great wind, they could not proceed forward, but backward and it seems that they were proceeding well; at the end it was known that the current was more powerful than the wind.' Its existence was also known to Peter Martyr d'Anghiera. If you don't know who that is, we don't have time to get into it right now, because we're busy talking about gulf streams."
+
+
+"Benjamin Franklin became interested in the North Atlantic Ocean circulation patterns. In 1768, while in England, Franklin heard a curious complaint from the Colonial Board of Customs: Why did it take British packets several weeks longer to reach New York from England than it took an average American merchant ship to reach Newport, Rhode Island, despite the merchant ships leaving from London and having to sail down the River Thames and then the length of the English Channel before they sailed across the Atlantic, while the packets left from Falmouth in Cornwall? (A packet is a kind of boat.)"
+
+
+"Franklin asked Timothy Folger, his cousin twice removed (according to the Nantucket Historical Society) and a Nantucket Island whaling captain, for an answer. Folger explained that merchant ships routinely crossed the then-unnamed Gulf Stream-identifying it by whale behavior, measurement of the water's temperature, and changes in the water's color-while the mail packet captains ran against it. Franklin had Folger sketch the path of the Gulf Stream on an old chart of the Atlantic and add written notes on how to avoid the Stream when sailing from England to America."
+
+"Franklin then forwarded the chart to Anthony Todd, secretary of the British Post Office. Franklin's Gulf Stream chart was printed in 1769 in London, but it was mostly ignored by British sea captains. A copy of the chart was printed in Paris circa 1770-1773, and a third version was published by Franklin in Philadelphia in 1786. The inset in the upper left part of the 1786 chart is an illustration of the migration pattern of herring and not an ocean current. That sounds like a Monty Python gag but I'm completely serious. Herring. For real."
+
+
+"The Gulf Stream proper is a western-intensified current, driven largely by wind stress. The North Atlantic Drift, in contrast, is largely thermohaline circulation-driven. In 1958 the oceanographer Henry Stommel noted that 'very little water from the Gulf of Mexico is actually in the Stream'. By carrying warm water northeast across the Atlantic, it makes Western and especially Northern Europe warmer than it otherwise would be, and New England colder and more miserable."
+
+
+"However, the extent of its contribution to the actual temperature differential between North America and Europe is a matter of dispute, as there is a recent minority opinion within the science community that this temperature difference (beyond that caused by contrasting maritime and continental climates) is mainly due to atmospheric waves created by the Rocky Mountains. The science community really gets into it sometimes. Like, you think historians are bad, but scientists go full on West Side Story. I once saw a chemist break the neck off a graduated cylinder and stab a microbiologist in the kidney."
+
+
+"The jet stream throws all of the storms towards America, which I personally consider a real dick move. A river of sea water, called the Atlantic North Equatorial Current, flows westward off the coast of Central Africa. When this current interacts with the northeastern coast of South America, the current forks into two branches. One passes into the Caribbean Sea, while a second, the Antilles Current, flows north and east of the West Indies. These two branches rejoin north of the Straits of Florida. I can loan you a notebook if you'd like to write this down. No? You sure? Okay."
+
+
+"The trade winds blow westward in the tropics, and the westerlies blow eastward at mid-latitudes. This wind pattern applies a stress to the subtropical ocean surface with negative curl across the north Atlantic Ocean. The resulting Sverdrup transport is equatorward. I enjoy saying the word 'Sverdrup.' Sverdrup."
+
+
+"Because of conservation of potential vorticity caused by the northward-moving winds on the subtropical ridge's western periphery and the increased relative vorticity of northward moving water, transport is balanced by a narrow, accelerating poleward current, which flows along the western boundary of the ocean basin, outweighing the effects of friction with the western boundary current, known as the Labrador current. The conservation of potential vorticity also causes bends along the Gulf Stream, which occasionally break off due to a shift in the Gulf Stream's position, forming separate warm and cold eddies. You gotta separate the eddies or they fight. This overall process, known as western intensification, causes currents on the western boundary of an ocean basin, such as the Gulf Stream, to be stronger than those on the eastern boundary."
+
+
+"As a consequence, the resulting Gulf Stream is a strong ocean current. It transports water at a rate of 30 million cubic meters per second (30 sverdrups -- there are those sverdrups again) through the Florida Straits. As it passes south of Newfoundland, this rate increases to 150 million cubic metres per second. The volume of the Gulf Stream dwarfs all rivers that empty into the Atlantic combined, which barely total 0.6 million cubic metres per second. It is weaker, however, than the Antarctic Circumpolar Current. Given the strength and proximity of the Gulf Stream, beaches along the East Coast of the United States may be more vulnerable to large sea-level anomalies, which significantly impact rates of coastal erosion, although not nearly as much as a kraken does."
+
+
+"Want me to keep going?" Bethany asks.
+
+
+"Silly question! Of course you do!" she responds before you can answer.
+
+
+"The Gulf Stream is typically 100 kilometres (62 mi) wide and 800 metres (2,600 ft) to 1,200 metres (3,900 ft) deep. The current velocity is fastest near the surface, with the maximum speed typically about 2.5 metres per second (5.6 mph). As it travels north, the warm water transported by the Gulf Stream undergoes evaporative cooling. The cooling is wind-driven: Wind moving over the water causes evaporation, cooling the water and increasing its salinity and density. When sea ice forms, salts are left out of the ice, a process known as brine exclusion. These two processes produce water that is denser and colder (or, more precisely, water that is still liquid at a lower temperature). In the North Atlantic Ocean, the water becomes so dense that it begins to sink down through less salty and less dense water. (The convective action is not unlike that of a lava lamp, if you're groovy.) This downdraft of cold, dense water becomes a part of the North Atlantic Deep Water, a southgoing stream. Very little seaweed lies within the current, although seaweed lies in clusters to its east."
+
+
+"The Gulf Stream is influential on the climate of the Florida peninsula. The portion off the Florida coast, referred to as the Florida current, maintains an average water temperature at or above 24 °C (75 °F) during the winter. East winds moving over this warm water move warm air from over the Gulf Stream inland, helping to keep temperatures milder across the state than elsewhere across the Southeast during the winter. Also, the Gulf Stream's proximity to Nantucket, Massachusetts adds to its biodiversity, as it is the northern limit for southern varieties of plant life, and the southern limit for northern plant species, Nantucket being warmer during winter than the mainland. I once knew a guy from Nantucket. I wonder how he's doing."
+
+
+"The North Atlantic Current of the Gulf Stream, along with similar warm air currents, helps keep Ireland and the western coast of Great Britain a couple of degrees warmer than the east. However, the difference is most dramatic in the western coastal islands of Scotland. A noticeable effect of the Gulf Stream and the strong westerly winds (driven by the warm water of the Gulf Stream) on Europe occurs along the Norwegian coast. Northern parts of Norway lie close to the Arctic zone, most of which is covered with ice and snow in winter. However, almost all of Norway's coast remains free of ice and snow throughout the year. Weather systems warmed by the Gulf Stream drift into Northern Europe, also warming the climate behind the Scandinavian mountains. I hope that what you're getting from all of this is that the Gulf Stream is a way better deal for Europe than it is for North America and we should consider renegotiating that trade agreement."
+
+
+"The warm water and temperature contrast along the edge of the Gulf Stream often increase the intensity of cyclones, tropical or otherwise. Tropical cyclone generation normally requires water temperatures in excess of 26.5 °C (79.7 °F). Tropical cyclone formation is common over the Gulf Stream, especially in the month of July. Storms travel westward through the Caribbean and then either move in a northward direction and curve toward the eastern coast of the United States or stay on a north-westward track and enter the Gulf of Mexico. Such storms have the potential to create strong winds and extensive damage to the United States' Southeast Coastal Areas. See what I'm talking about? We're really getting hosed on this deal."
+
+
+"Strong extratropical cyclones have been shown to deepen significantly along a shallow frontal zone, forced by the Gulf Stream itself, during the cold season. Subtropical cyclones also tend to generate near the Gulf Stream. 75 percent of such systems documented between 1951 and 2000 formed near this warm water current, with two annual peaks of activity occurring during the months of May and October. Cyclones within the ocean form under the Gulf Stream, extending as deep as 3,500 metres (11,500 ft) beneath the ocean's surface."
+
+
+"The theoretical maximum energy dissipation from Gulf Stream by turbines is in the range of 20-60 GW. One suggestion, which could theoretically supply power comparable to several nuclear power plants, would deploy a field of underwater turbines placed 300 meters (980 ft) under the center of the core of the Gulf Stream. Ocean thermal energy could also be harnessed to produce electricity using the temperature difference between cold deep water and warm surface water. Also, it'd be a great place for an underwater villain's lair."
+
+
+"Some of the RMS Titanic's victims, whose bodies were buoyed by lifebelts but were never found by rescue or recovery ships sent to find them, are surmised to have been carried away in the Gulf Stream. I feel like that's a great note to end on, when you're talking about gulf streams. Sverdrup."
+
+
+"Citation: Wikipedia contributors. 'Gulf Stream.' Wikipedia, The Free Encyclopedia, with additions by the incredibly talented and physically attractive author Jennifer A. Polodna. This has been my report about gulf streams. Thank you and enjoy the rest of your day in the real estate office. Not that it matters, but I still don't understand what you're doing here and I'm starting to suspect that neither do you."
+
+>ask Bethany about Jedediah
+"One legend goes that Jedediah Beaverhat invented the pancake, then he wanted something sweet to go on top of it, so he went into the forest and seduced Maple Kate, who was the half-druid tribal chief of the -- ugh, I don't know why I'm telling you Jedediah Beaverhat stories." Bethany makes a disgusted face. "He's not real, okay? He's not even an authentic local myth, just something the Goldwater Restaurant Group made up in 1953 to trick motorists into stopping for corn syrup."
+
+>ask Bethany about Maple Kate
+"Maple Kate, weirdly enough, does exist," Bethany tells you. "Her real name is Qaatsuqani Waxwing, she's a shrewd negotiator who speaks seven languages, and she would never ever sleep with Jedediah Beaverhat, because he's not a real person and she's incredibly gay."
+
+"Was she really a half-druid?" you ask.
+
+Bethany shakes her head. "She's only one-quarter druid, but she is one hundred percent vampire. Oops All Vampire."
+
+>ask Bethany about pub
+"Perfect! I'll just grab the folder for that," Bethany says, turning to search through the filing cabinet.
+
+>again
+"Just a sec," Bethany says, voice echoing weirdly. You turn to look and she's got her head almost completely inside one of the cabinet drawers.
+
+"Folder located!" Bethany drops the folder onto the desk, further covering Twin Hearts Between the Planes.
+
+
+"The pub was the first building constructed in Backwater," Bethany tells you. "It's been through approximately one hundred and seventy-eight changes of ownership since. The current owners say it's haunted by the ghost of an angry brewer who had his secret recipe for triple-dark stout stolen by Benjamin Franklin, but my research suggests they just made that up to get on the Food Network. They used to have pretty good maple poutine but the current owners got all uppity about 'that's not real Vermont food, that's fake Canadian tourist food, blah blah fiddleheads blah blah blah.' I kind of hate the current owners, if I'm honest."
+
+>x pub folder
+Along with some incredibly boring-looking documents, the folder labeled "Head & Anchor Pub (BETHANY: RELABEL THIS FOLDER)" contains a list of name changes and a piece of paper with all of the words blacked out FBI-style. "What's this?" you ask Bethany, indicating the latter.
+
+"Oh, that's the old secret menu for the pub, from back when it was the Sad Aroma and Garter Belt. It was a little too secret, if you want my opinion."
+
+>x menu
+You hold the paper up to the fluorescent ceiling light, hoping to read some of the blacked-out words, but no dice. "Seriously, just get like a Sam Adams," Bethany tells you. "That pub is way too into their secret menu, like, what, is there something so secret you're gonna order it off there and they're like 'oh no, guess you found out our secret,' then they hand you Excalibur and make you queen of England? Because I try that every time I go in there, and I'm still only eighty-fifth in line for the crown."
+
+>ask Bethany about office
+"Let me grab the folder for that!" Bethany says, turning to search through the filing cabinet.
+>again
+"Just a sec," Bethany says, voice echoing weirdly. You turn to look and she's got her head almost completely inside one of the cabinet drawers.
+
+"The folder-finding wizard has done it again!" Bethany drops the folder onto the desk. Twin Hearts Between the Planes is now completely hidden from view.
+
+
+"Josiah Forthright was a master hypnotist whose specialty was getting people to desire things that no sane person would ever want," Bethany tells you. "Then, completely out of nowhere, he opened a real estate office in Backwater, Vermont. It's sad that he gave up on his dream like that, don't you think?"
+
+>x office folder
+That's weird; the estate agency folder contains nothing but a single security camera photo of the room you are currently in, taken from a vantage point near the ceiling. You feel compelled to take a closer look.
+
+>x photo
+You look at the security camera photo in the estate agency folder.
+
+The space is dominated by the unexpectedly symbiotic combination of a giant desk and a tiny woman, who together give the impression of being one complete single entity, like a centaur. The surface of the desk is invisible underneath a loose pile of glossy architectural magazines, manila folders, and real estate listings pamphlets. Behind it, a gunmetal-grey filing cabinet lurks unattractively in the far corner. The exit back out to the street is east.
+
+A taller, short-haired woman wearing JNCOs and an antique locket swings at the giant desk with an axe. You can't see her face, but... that can't be you, right? It looks like you...
+
+"Oh, hey, ignore that," Bethany tells you. "Our security camera got possessed a couple weeks ago and Ms. Rotier's been slacking on replacing it, that's all."
+
+>x camera
+You look at the security camera photo in the estate agency folder.
+
+The space is dominated by the unexpectedly symbiotic combination of a giant desk and a tiny woman, who together give the impression of being one complete single entity, like a centaur. The surface of the desk is invisible underneath a loose pile of glossy architectural magazines, manila folders, and real estate listings pamphlets. Behind it, a gunmetal-grey filing cabinet lurks unattractively in the far corner. The exit back out to the street is east.
+
+A taller, short-haired woman wearing JNCOs and the mate of the first leather boot fights off a swarm of tarantulas, or whatever you call a group of a hundred tarantulas.
+
+"Seriously, it's just a standard malfunction, nothing to worry about," Bethany says.
+
+>again
+You look at the security camera photo in the estate agency folder.
+
+The space is dominated by the unexpectedly symbiotic combination of a giant desk and a tiny woman, who together give the impression of being one complete single entity, like a centaur. The surface of the desk is invisible underneath a loose pile of glossy architectural magazines, manila folders, and real estate listings pamphlets. Behind it, a gunmetal-grey filing cabinet lurks unattractively in the far corner. The exit back out to the street is east.
+
+A taller, short-haired woman wearing JNCOs and a golden eyepiece advances on the smaller woman with a samurai sword. You can see her face this time. It's definitely you.
+
+"Seriously, don't worry about it," Bethany says.
+
+>x magazines
+They've all got names like "SUPERIOR ABODE" and "SMUGLY MODERN" and "YURT FANCIER." You know what they mean by "yurt fancier" is "someone who fancies yurts," but you can't help feeling like they're implying the yurt is fancier than you are.
+
+(It is; it's made of cruelty-free faux beluga whaleskin and you, last time you checked, are not.)
+
+>x pamphlets
+On the corner of the desk nearest the door is a stack of pamphlets listing all the homes for sale in Backwater. You assume you can take one if you want one.
+
+>take pamphlet
+You take a pamphlet of home listings off of the stack.
+
+>read pamphlet
+18 F'tagn Court
+|| 8 BR 1 BA || Quiet neighborhood! Completely redone with brand new floors and concrete-sealed basement. Hardly any muttering!
+
+36 River Walk Drive
+|| 3 BR 2 BA || Great river views and convenient for boating! Trawl for crayfish from the comfort of your living room. Entire upstairs still mostly above water!
+
+23 Euclid Street
+|| 2 BR 5 BA || An obelisk lover's dream! Extensive yard boasts a true infinity pool and an impressive collection of garden statuary, including twin sphinxes. Paradoxically nearby to everything!
+
+Underneath the description of 23 Euclid Street, someone has scrawled the words "JACKDAWS LOVE MY BIG SPHINX OF QUARTZ."
+
+>ask Bethany about 23 Euclid
+"We definitely have a folder for that! One sec," Bethany says, turning to search through the filing cabinet.
+
+>put paperback in bp
+(first taking Twin Hearts Between the Planes)
+You utilize the skills you trained long and hard in the finest shopping malls of the greater Dallas-Fort Worth area. Moving like a rattlesnake (except without the rattling, obviously), you silently slide the lion sex book out from underneath the folders and slip it into the pocket of your JNCOs before Bethany has a chance to turn around.
+
+~~Lion sex book GET.~~
+
+You put Twin Hearts Between the Planes into the book pocket.
+
+"Here's the folder!" Bethany drops the folder onto the desk.
+
+
+"Back in the 70s it was hip to build your pad on top of a transdimensional leyline nexus even though that plays hell with the electrical wiring," Bethany tells you. "It's a genuinely cool property, though. I've been over there a couple times to check the portals. One of the sphinxes and I get along great, the other one is all pissy with me because I solved all its riddles in three minutes."
+
+She sighs. "I offered to help it write new ones and, like, centralize a database? But now whenever it sees me it just rolls its eyes and makes fart noises, and I'm all, 'Real mature, sphinx.' It makes it super awkward chatting with the other one 'cause they're only ten feet apart from each other but the house is still really cool. There's an infinity pool and everything."
+
+>x Euclid folder
+The folder for 23 Euclid Street is full of what you at first take to be someone's collection of midcentury modern cocktail napkins, then quickly realize is someone's collection of sphinx porn, crudely sketched onto midcentury modern cocktail napkins.
+
+"Yeah, there's a lot going on in that folder," says Bethany. "I was gonna warn you, but then I thought, nah, you look like a woman who can handle her sphinx dong."
+
+"Oh, I definitely am," you assure her, staring down a pair of cartoon sphinxes with comically oversized genitals engaged in a sex act you know only as the Disappearing Ball Trick.
+
+"Wanna know the really funny part?" Bethany asks you. "Sphinxes are asexual. I literally don't know why we hold on to these napkins."
+
+>x napkins
+You're definitely a woman who can handle her sphinx dong, don't get yourself wrong, but you don't really need to look at the -- good Lord, are they doing the Chattanooga Twanger? You slide your eyes away and gingerly shut the folder.
+
+>ask Bethany about 36 River Walk
+"We've got a folder for that!" Bethany says, turning to search through the filing cabinet.
+>again
+"Just a sec," Bethany says, voice echoing weirdly. You turn to look and she's got her head almost completely inside one of the cabinet drawers.
+
+"Bam! Folder found!" Bethany drops the folder onto the desk.
+
+
+"You know that ad where someone gets chocolate into someone else's peanut butter and someone else gets peanut butter into someone else's chocolate?" Bethany asks you. "That is basically what happened with 36 River Walk Drive except instead of a peanut butter cup you have a mostly underwater house and instead of being delicious it is soggy and bad."
+
+>x River folder
+The folder for 36 River Walk Drive is completely waterlogged. Carefully, you pull away the top layer of manila. Inside is a large clump of illegibly smeared, soggy paper that rips apart when you attempt to separate the pages.
+
+"You're probably thinking that file is all wet because the property sank into the river and there's some kind of sympathetic magic in effect," Bethany says, "but what actually happened was, I dropped it in the toilet. My bad!" You quickly put the folder back down.
+
+>ask Bethany about 18 F'tagn
+"We definitely have a folder for that! One sec," Bethany says, turning to search through the filing cabinet.
+
+>again
+"Just a sec," Bethany says, voice echoing weirdly. You turn to look and she's got her head almost completely inside one of the cabinet drawers.
+
+"Folder located!" Bethany drops the folder onto the desk.
+
+
+"Some crazy stuff went down at 18 F'tagn Court," Bethany tells you. "In fact, there was this huge mess and we had to change the floors."
+
+"The floors?" you ask.
+
+"You see, his bl-- his blackyard blarbecue got a blit out of hand." She tightens her lips. "And it, uh, blurnt the floorbloards. So we had to change them."
+
+You quirk an eyebrow at Bethany and she deflates.  "Sorry," she says, "I keep forgetting I'm supposed to lie about F'tagn Court, and wow am I really not great at it. Wanna know about any buildings where they didn't find a ton of faceless bodies?"
+
+>x F'Tagn folder
+The moment you slip your thumbnail between the two layers of the folder to separate them, the real estate office fills with a horrible shrieking as though angels were being torn limb from limb by an ungodly threshing machine, and you quickly withdraw your hand. "Yeah," Bethany says, "yeah, it does that."
+
+>x coffee
+The swirls in your cup form a blank, mirrored surface. Lack of a symbolic image means that you have accomplished everything you must in your current environment and should move on to find new challenges in order to grow as a person.
+
+>east
+
+Outside the Library (Gavin Inglis)
+A short street terminates here. To the south it opens into the town square. To the east, a few worn steps rise to the entrance of the public library, and to the west you can see a real estate office. A gloomy path leads northwest, towards the woods.
+
+You can see a notice board here.
+
 >

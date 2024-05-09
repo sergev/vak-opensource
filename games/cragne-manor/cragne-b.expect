@@ -48,6 +48,125 @@ expect ">"; send "se\r";                            # Outside the Library
 #
 # Optional: Read the stories on the notice board.
 #
+expect ">"; send "x board\r"
+expect ">"; send "x events\r"
+expect ">"; send "x headline\r"
+expect ">"; send "x stories\r"
+expect ">"; send "x stories\r"
+expect ">"; send "x stories\r"
+expect ">"; send "x stories\r"
+expect ">"; send "x stories\r"
+expect ">"; send "x stories\r";                     # Repeat a few times
+expect ">"; send "west\r"
+expect "conditioning"; send "\r";                   # Estate Agent’s Office
+
+#
+# Estate Agent’s Office (Jenni Polodna)
+#
+# Goal: Get that paperback.
+#
+expect ">"; send "x desk\r"
+expect ">"; send "search desk\r"
+expect ">"; send "x woman\r"
+expect ">"; send "inventory\r";                     # We now have a backpack and a coded telegram
+expect ">"; send "x backpack\r"
+expect ">"; send "x guide\r"
+expect ">"; send "x telegram\r"
+expect ">"; send "x cabinet\r"
+expect ">"; send "ask woman about Peter\r";         # She's Bethany Tross
+expect "One sec"; send "\r"
+expect "in front of you"; send "\r";                # Bethany quickly cleans her desk
+expect "incident"; send "\r";                       # A folder and a paperback book are left
+expect ">"; send "x paperback\r"
+expect ">"; send "x folder\r"
+expect ">"; send "ask Bethany about library\r";     # She turns to find its folder
+expect ">"; send "put paperback in bp\r";           # Can't do it now
+expect "Planes"; send "\r"
+expect ">"; send "x library folder\r"
+expect ">"; send "ask Bethany about train station\r"
+expect ">"; send "ask Bethany about train station\r"
+expect "Planes"; send "\r";                         # Note that she partially covers the paperback with the station folder
+expect ">"; send "x station folder\r"
+expect ">"; send "x map\r"
+expect ">"; send "ask Bethany about Backwater\r"
+expect ">"; send "ask Bethany about Deuteronomous\r"
+expect ">"; send "ask Bethany about church\r"
+expect ">"; send "ask Bethany about church\r"
+expect "Planes"; send "\r"
+expect ">"; send "x church folder\r"
+expect ">"; send "ask Bethany about Imelda\r"
+expect ">"; send "ask Bethany about meatpacking plant\r"
+expect ">"; send "ask Bethany about meatpacking plant\r"; # She mentions a pub
+expect "Planes"; send "\r"
+expect ">"; send "x plant folder\r"
+expect ">"; send "x meat\r"
+expect ">"; send "ask Bethany about BUSH\r"
+expect ">"; send "ask Bethany about Stella\r"
+expect ">"; send "again\r"
+expect ">"; send "ask Bethany about Horace\r"
+expect ">"; send "ask Bethany about gulf streams\r"
+expect ">"; send "again\r";                         # Huge massive aside
+expect "Africa"; send "\r"
+expect "climate change"; send "\r"
+expect "mph"; send "\r"
+expect "gulf streams"; send "\r"
+expect "kind of boat"; send "\r"
+expect "For real"; send "\r"
+expect "miserable"; send "\r"
+expect "kidney"; send "\r"
+expect "Okay"; send "\r"
+expect " Sverdrup"; send "\r"
+expect "eastern boundary"; send "\r"
+expect "kraken does"; send "\r"
+expect "Bethany asks"; send "\r"
+expect "answer"; send "\r"
+expect "its east"; send "\r"
+expect "doing"; send "\r"
+expect "agreement"; send "\r"
+expect "deal"; send "\r"
+expect "surface"; send "\r"
+expect "lair"; send "\r"
+expect "Sverdrup"; send "\r"
+expect ">"; send "ask Bethany about Jedediah\r"
+expect ">"; send "ask Bethany about Maple Kate\r"
+expect ">"; send "ask Bethany about pub\r"
+expect ">"; send "again\r"
+expect "Planes"; send "\r"
+expect ">"; send "x pub folder\r"
+expect ">"; send "x menu\r"
+expect ">"; send "ask Bethany about office\r"
+expect ">"; send "again\r";                         # Twin Hearts is now completely hidden
+expect "hidden from view"; send "\r"
+expect ">"; send "x office folder\r"
+expect ">"; send "x photo\r";                       # See yourself randomly dead or attacking
+expect ">"; send "x camera\r"
+expect ">"; send "again\r";                         # More random unplesantnesses
+expect ">"; send "x magazines\r"
+expect ">"; send "x pamphlets\r"
+expect ">"; send "take pamphlet\r"
+expect ">"; send "read pamphlet\r"
+expect ">"; send "ask Bethany about 23 Euclid\r"
+expect ">"; send "put paperback in bp\r"
+expect "Lion sex book GET"; send "\r"
+expect "desk"; send "\r"
+expect ">"; send "x Euclid folder\r"
+expect ">"; send "x napkins\r"
+expect ">"; send "ask Bethany about 36 River Walk\r"
+expect ">"; send "again\r"
+expect "desk"; send "\r"
+expect ">"; send "x River folder\r"
+expect ">"; send "ask Bethany about 18 F'tagn\r"
+expect ">"; send "again\r"
+expect "desk"; send "\r"
+expect ">"; send "x F'Tagn folder\r"
+expect ">"; send "x coffee\r";                      # Coffee says we're done here
+expect ">"; send "east\r";                          # Outside the Library
+
+#
+# Outside the Library (Gavin Inglis)
+#
+# Read the lion sex book, find the hidden pocket, and decide how to best use the backpack.
+#
 
 # Quit
 expect ">"; send "quit\r"
