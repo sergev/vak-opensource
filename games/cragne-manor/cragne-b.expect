@@ -167,6 +167,152 @@ expect ">"; send "east\r";                          # Outside the Library
 #
 # Read the lion sex book, find the hidden pocket, and decide how to best use the backpack.
 #
+expect ">"; send "x paperback\r"
+expect ">"; send "read it\r"
+expect ">"; send "again\r"
+expect ">"; send "again\r"
+expect ">"; send "again\r"
+expect ">"; send "again\r"
+expect ">"; send "again\r"
+expect ">"; send "again\r";                         # Read all 7 excerpts
+
+# Solving the cryptogram tells you about a hidden pocket!
+
+expect ">"; send "x hidden pocket\r"
+expect ">"; send "open hp\r";                       # trolley pass and trolley schedule
+expect ">"; send "x pass\r"
+expect ">"; send "wear pass\r"
+expect ">"; send "x trolley schedule\r";            # "WAIT FOR color LINE"
+
+# Destinations:
+# Brown Line – Train Station
+#  Gold Line – Church
+#  Blue Line – Library Square
+# Green Line – The Woods
+
+# Okay, let's decide how we'll stow stuff into our backpack. I
+# suggest putting used keys in the key pocket, books and
+# important readables in the book pocket, stuff you're completely
+# done with in the trash pocket, and stuff you're not done with
+# yet in the main pocket.
+
+# For the side pocket, let's keep anything about the Variegated
+# Court in there. We've already heard of two members and there's
+# bound to be more.
+
+# For the hidden pocket, I'm putting stuff that I never found
+# any use for. Like, it's probably trash too, but maybe there's a
+# secret use for some of it that I never discovered, and maybe
+# you'd like to know which items those are?
+
+expect ">"; send "put winding key in mp\r";         # because we haven't used it yet
+expect ">"; send "put postcard in sp\r"
+expect ">"; send "put diary in sp\r"
+expect ">"; send "put locket in sp\r"
+expect ">"; send "put shabby journal in bp\r"
+expect ">"; send "put moldy journal in bp\r"
+expect ">"; send "put Dollmaker's in bp\r"
+expect ">"; send "put trolley schedule in mp\r"
+expect ">"; send "put flashlight in mp\r"
+expect ">"; send "put battery in mp\r"
+expect ">"; send "put label in hp\r"
+expect ">"; send "put glass jar in tp\r"
+expect ">"; send "put spire in tp\r"
+expect ">"; send "put leaf in tp\r"
+expect ">"; send "put doll in mp\r";                # You can put in tp if you like, but the doll's fun to play with.
+expect ">"; send "put watch in mp\r"
+expect ">"; send "put pamphlet in tp\r"
+expect ">"; send "put cup in mp\r"
+expect ">"; send "put handbook in bp\r"
+
+# Now close up all the pockets but the main one. Isn't that tidy?
+
+expect ">"; send "close kp\r"
+expect ">"; send "close bp\r"
+expect ">"; send "close sp\r"
+expect ">"; send "close tp\r"
+expect ">"; send "close hp\r"
+expect ">"; send "inventory\r"
+expect ">"; send "east\r";                          # Backwater Public Library
+
+#
+# Backwater Public Library (Carl Muckenhoupt)
+#
+# Goal: Get the book list. Obtain the black book later.
+#
+expect ">"; send "x case\r"
+expect ">"; send "x plaque\r";                      # "De Vermibus Laceris" by Henry Danton Gules
+expect ">"; send "x black book\r"
+expect ">"; send "read it\r";                       # How to find someone lost
+expect ">"; send "x librarian\r"
+expect ">"; send "x counter\r"
+expect ">"; send "x sign\r";                        # "QUIET PLEASE"
+expect ">"; send "x jacket\r"
+expect ">"; send "take jacket\r"
+expect ">"; send "x card\r"
+expect ">"; send "show library card to librarian\r"; # She takes it, then gives it back with a note, the book list.
+expect ">"; send "x note\r"
+
+# You already have a couple of these books, but there's no need to return any until you've got them all.
+
+expect ">"; send "ask librarian about Peter\r";     # She shushes you
+expect ">"; send "x cart\r"
+expect ">"; send "x chairs\r"
+expect ">"; send "x shelves\r"
+expect ">"; send "browse shelves\r"
+expect ">"; send "again\r"
+expect ">"; send "again\r"
+expect ">"; send "x coffee\r";                      # Come back later
+
+# I'm hiding the book list inside the book pocket to avoid disambiguation with other notes in the game.
+
+expect ">"; send "put jacket and library card in tp\r"
+expect ">"; send "put book list in bp\r"
+expect ">"; send "west\r";                          # Outside the Library
+expect ">"; send "south\r";                         # Town square, Backwater, VT
+
+#
+# Town square, Backwater, VT (Marco Innocenti)
+#
+# Just look about the square for now. Talking to the man is optional. Solve the rings puzzle later.
+#
+expect ">"; send "x shape\r"
+expect ">"; send "x stones\r"
+expect ">"; send "x buildings\r"
+
+# By the way, you don't need to converse with this man, but he is interesting until he becomes a void of nothingness.
+
+expect ">"; send "x man\r";                         # Reminds you of Captn Squinter from home
+expect ">"; send "ask man about himself\r";         # "He's been waiting for you."
+expect ">"; send "ask man about welcome\r"
+expect ">"; send "ask man about manor\r"
+expect ">"; send "ask man about old\r"
+expect ">"; send "ask man about Peter\r"
+expect ">"; send "ask man about marriage\r"
+expect ">"; send "ask man about loop\r";            # It featured a tentacled creature
+expect ">"; send "ask man about himself\r"
+expect ">"; send "ask man about He\r"
+expect ">"; send "ask man about Edwin\r"
+expect ">"; send "ask man about entertaining\r"
+expect ">"; send "ask man about gifts\r"
+expect ">"; send "ask man about told\r"
+expect ">"; send "ask man about heritage\r"
+expect ">"; send "ask man about veil\r"
+expect ">"; send "ask man about see\r";             # You fall into the void inside him and he's gone
+expect ">"; send "undo\r"
+expect ">"; send "ask man about rings\r";           # They represent some sort of feast
+expect ">"; send "ask man about Navajo\r"
+expect ">"; send "ask man about Backwater\r"
+expect ">"; send "ask man about magic\r"
+expect ">"; send "x coffee\r";                      # Come back later
+expect ">"; send "sw\r";                            # Drinking Fountain
+
+#
+# Drinking Fountain (Lucian Smith)
+#
+# Just find the secondary fountain for now. Obtain the hidden library book later.
+#
+expect ">"; send "save\r"; expect ":"; send "drinking-fountain\r"
 
 # Quit
 expect ">"; send "quit\r"

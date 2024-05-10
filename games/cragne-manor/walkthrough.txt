@@ -705,4 +705,527 @@ A short street terminates here. To the south it opens into the town square. To t
 
 You can see a notice board here.
 
+>x paperback
+A somewhat battered paperback whose lovingly fantasy-painted cover features a corseted steampunk woman embracing a Regency period nobleman -- who is also an anthropomorphic lion -- in space. "TWIN HEARTS BETWEEN THE PLANES," raised letters proclaim. "LEELAH VAUGHAN."
+
+Beneath the author's name, smaller text inside a sunburst informs you that this book was a 1981 Venus Rising nominee for "Best Sexual Tension." A shelving label for the Backwater Public Library covers the lower spine "[FIC / ERO / ANIMA / FELIS / YIKES]".
+
+>read it
+You look at the inside cover of the paperback. The library insignia, a pair of back-to-back crescent moons flanking an eye which stares down at a book, is stamped here in purple. Underneath, in cursive, someone has written "For Mona with all the love in the world. Don't take Jim back. He's bad news." Following this is a loopy flourish of a signature you take to be "Leelah Vaughan."
+
+[You can continue to READ the lion sex book; this is excerpt 1/7.]
+A snap like ice cracking behind you makes you jump. You turn to see a chalky spark hovering near you.
+
+As you finish reading the passage, the spark moves through the book with an eerie hum, leaving frost behind on the library insignia.
+
+>again
+(You flip open the lion sex novel and read a page at random.)
+
+"You're leaving? Now? I don't understa--" She held her hands up to protest, but instead found herself clutching the manuscript-sized envelope he pressed into her chest.
+
+His voice was low and urgent in her ear, forcing a shiver to the base of her spine. "There's no time to explain. Keep this safe. If you believe in me, we'll see each other again."
+
+"Hey, wait up now!" she called after him as he rounded the bend in the stairs. "The hell you going, Steve?" The door closed with a self-assured thump, and she was alone.
+
+A few moments later, back in her office, she pulled the manuscript out of its envelope. It was thick; several hundred pages at least. Scrawled across the first was a simple four-word message: "THEY CAN'T SEE STORIES."
+
+[You can continue to READ the lion sex book; this is excerpt 2/7.]
+>again
+(You skim ahead a little bit in your lion sex book and find the next interesting bit.)
+
+One fierce blow from his assailant sent his flintlock pistol clattering onto the cobblestones. A second blow, this one to his gut, knocked the wind out of him and doubled him over. "This is it," he thought, "this is how I die, bludgeoned like a gopher by a third-rate murderer in the alleyways of 1890s London."
+
+Just then, a mysterious interloper appeared from among the shadows to brain his attacker with a lead pipe, dropping the tough to the ground without so much as a grunt. Nodding in satisfaction, she pushed her gear-encrusted goggles to the top of her head. "Can't say I'm too impressed with this time period," she told him. "It's got sanitation problems for real."
+
+"Portia?" Steve gaped at her like a puzzled fish. "What are you doing here?"
+
+She pulled a manuscript-sized envelope out of her cloak and waved it at him. "I believe in you," she said, "and that's important for our relationship, but what's important for our lives right now is that we run like hell."
+
+[You can continue to READ the lion sex book; this is excerpt 3/7.]
+>again
+(You open the lion sex book somewhere in the middle and read an excerpt.)
+
+Portia jumped away from him so hard that she almost fell backwards over the fainting couch. "Steve!" she exclaimed. "You're a lion!"
+
+"I've always been a lion," he explained. "I just deactivated the field that keeps people from noticing I'm a lion."
+
+Portia's voice became a plaintive wail. "The hell, Steve? You had sex with me, I had sex with you, and you were a lion this whole damn time? The whole time!"
+
+[You can continue to READ the lion sex book; this is excerpt 4/7.]
+>again
+(You continue reading the lion sex book right about where you left off.)
+
+"I had lion dick in me?" Portia's voice was becoming dangerously loud, and Steve glanced nervously at the Viscount, to make sure the drugs had not yet worn off. "Those things have barbs, Steve!"
+
+"Portia. Calm down. You would know if my dick had barbs."
+
+"My mama raised purebred cats, Steve, I have seen some crap, all right? I have seen some crap."
+
+Grimly, Steve removed his pants. "Here. I'll prove it to you."
+
+[You can continue to READ the lion sex book; this is excerpt 5/7.]
+>again
+The next approximately eighty-seven pages are all lion sex. All of them. All of it.
+
+[You can continue to READ the lion sex book; this is excerpt 6/7.]
+>again
+You flip to the very end of the lion sex book [spoilers]. It ends with Steve and Portia retiring to a stable time loop somewhere on Approximate Earth to raise their half-lion (and quarter-dolphin? when did that happen?) kids.
+
+Just inside the back cover, someone has written: "BJIYO -- SIX TIF J MOXXMD NIYDXLOBS WHIY XLD CFHOI NLIG. CLDCE XLD LOKKDB GICEDX IW TIFH AJCEGJCE. BIU SI SDX TIFH YJB, SOHM! O SIX YOBD JBK UD'HD KIOBS SHDJX. (LD NJTN LO & SIIK MFCE.) MIQD, JFBXOD NXDMMJ"
+
+[This is the end of the lion sex book, but you can READ it again to start over from the beginning.]
+>x hidden pocket
+You feel around inside the backpack until you find the zipper pull cleverly disguised as a loose piece of thread. This must be a hidden pocket!
+
+>open hp
+You open the hidden pocket, revealing a trolley pass and a trolley schedule.
+
+>x pass
+A small blue piece of laminated cardboard that says "BACKWATER TROLLEY MONTHLY PASS" in tidy serif font, with a yellow rope lanyard for you to hang it around your neck. You pray to any gods listening that you and Peter will be on a faraway beach together by the time the pass expires.
+
+>wear pass
+(first taking the trolley pass)
+You put on the trolley pass.
+
+>x trolley schedule
+It's unlike any public transit schedule you've ever seen, in that there are no times listed. A cheerfully phrased block of introduction text instructs riders to hang their passes around their necks, proceed to a trolley stop, and WAIT FOR whatever color LINE corresponds with their choice of destination. Well okay then.
+
+Destinations:
+Brown Line -- Train Station
+Gold Line -- Church
+Blue Line -- Library Square
+Green Line -- The Woods
+
+
+>put winding key in mp
+You put the brass winding key into the Jansport backpack.
+
+>put postcard in sp
+You put the postcard of Big Ben into the side pocket.
+
+>put diary in sp
+You put the diary of Phyllis Cragne into the side pocket.
+
+>put locket in sp
+(first taking it off)
+You put the antique locket into the side pocket.
+
+>put shabby journal in bp
+You put the shabby journal into the book pocket.
+
+>put moldy journal in bp
+You put the moldy, waterlogged journal into the book pocket.
+
+>put Dollmaker's in bp
+You put The Dollmaker's Journal into the book pocket.
+
+>put trolley schedule in mp
+(first taking the trolley schedule)
+You put the trolley schedule into the Jansport backpack.
+
+>put flashlight in mp
+You put the waterproof flashlight into the Jansport backpack.
+
+>put battery in mp
+(the small, rectangular battery in the Jansport backpack)
+You put the small, rectangular battery into the Jansport backpack.
+
+>put label in hp
+You put the label into the hidden pocket.
+
+>put glass jar in tp
+You put the glass jar containing an insect into the trash pocket.
+
+>put spire in tp
+You put the cast iron spire into the trash pocket.
+
+>put leaf in tp
+(first taking it off)
+You put the giant milkweed leaf into the trash pocket.
+
+>put doll in mp
+You put the pull-string doll into the Jansport backpack.
+
+>put watch in mp
+(first taking it off)
+You put the familiar gold wristwatch into the Jansport backpack.
+
+>put pamphlet in tp
+You put the pamphlet of home listings into the trash pocket.
+
+>put cup in mp
+You put the half-full styrofoam coffee cup into the Jansport backpack.
+
+>put handbook in bp
+You put The Modern Girl's Divination Handbook -- Volume Three into the book pocket.
+
+>close kp
+You close the key pocket.
+
+>close bp
+You close the book pocket.
+
+>close sp
+You close the side pocket.
+
+>close tp
+You close the trash pocket.
+
+>close hp
+You close the hidden pocket.
+
+>inventory
+You are carrying:
+  a trolley pass (being worn)
+  a Jansport backpack (being worn and open)
+    a half-full styrofoam coffee cup
+    a familiar gold wristwatch
+    a pull-string doll
+    a small, rectangular battery
+    a waterproof flashlight
+    a trolley schedule
+    a brass winding key
+    a hidden pocket (closed)
+    a key pocket (closed)
+    a book pocket (closed)
+    a side pocket (closed)
+    a trash pocket (closed)
+    a backpack features guide
+  a hovering spark (haunting you)
+
+>east
+
+Backwater Public Library (Carl Muckenhoupt)
+This is unusually spacious for a small-town library. You think you remember something about it being a national historical site? That would explain the decor, at least. It's half rustic colonial, half modern budget-strapped public service, with a meager collection of creaky shelves standing in the middle of an old plank floor. A small display case stands prominently near the entrance, and some weird chairs are scattered around for the comfort of the patrons, none of whom are here at the moment. The sole exit is back to the west.
+
+A fleece jacket is draped over the back of one of the chairs.
+
+A librarian stands behind a counter.
+
+>x case
+In the display case are a plaque and a big black book.
+
+>x plaque
+DE VERMIBUS LACERIS
+
+In 1630, the eccentric scholar and polymath Henry Danton Gules came to America to study the superstitions of the Abenaki people, who he was convinced held "the secrets of the earth". He spent much of the next eight years living among them, learning their language and folklore. Or so he claimed; his accounts of his experiences range from the highly exaggerated to the outright fabricated.
+
+"The native storytellers have shown me wondrous things. Under the mountains are caverns without limit, where great beasts roam, and feed upon the buried dead..."
+(Letter from Gules to a colleague)
+
+During this time, he wrote two books, under the pseudonym "Azban" (a trickster figure from Abenaki legend). One, now lost, was a text on a language that he called "Adamic", which he claimed was the original language spoken before the fall of the Tower of Babel. The other, displayed here, is De Vermibus Laceris, which he described as "completing the known principles of ritual magic by reuniting them with the forgotten wisdom of the ancients". Most of the book is written in a mix of Latin and English, but some of the more theoretical passages, including several entire chapters, are in Adamic, and have not been translated.
+
+In order to publish these books, Gules helped to finance the first printing press in New England in 1638. However, he never saw them printed, due to his disappearance in the great New Hampshire earthquake later that year. The few copies that had been made were declared "blasphemous" by Massachusetts Bay Colony governor John Winthrop, who ordered them destroyed. It was believed that no copies survived until 1986, when the volume displayed here was discovered concealed in a wall of the Backwater Public Library during renovations.
+
+>x black book
+A massive tome, with ragged pages bound in badly-decayed black leather, laid open on a stand.
+
+>read it
+The grimoire in open on a page describing peeling open the way to someone lost, whether they be in this world or not. You gather from the prelimaries that the ritual involves the horn of a black goat and a cyst from a god, as well as the lost one's true star sign and their most treasured memento. How the ritual is actually performed is further in the book on the pages you currently cannot see.
+
+
+The librarian looks at you.
+
+>x librarian
+An old woman with severe features, primly dressed, with slate-gray hair tied up in a bun. She's almost a caricature, and seems as antique as the building.
+
+>x counter
+Just a simple wood-veneer slab with a large version of the library insignia painted on. There's a sign mounted on it, and a small cart stands to one side..
+
+>x sign
+QUIET PLEASE
+
+The librarian catches your eye and points at the bookshelves. There's something odd about the way she moves. You can't quite put your finger on it.
+
+>x jacket
+Hey, isn't this Peter's jacket?
+
+Yeah, it totally is! It's got that worn-off section on the elbow from your bike trip together. I guess he must have been in the library recently and left it there. Only... how could anyone forget their jacket in this weather?
+
+In Peter's jacket is a library card.
+
+The librarian looks at you.
+
+>take jacket
+A card flutters to the ground as you pick the jacket up. Almost involuntarily, you stoop and pick it up too.
+
+The librarian fusses about behind the counter. There's something eerie about how quietly she moves about the library. You can hardly take a step without a floorboard creaking. It's like she weighs nothing.
+
+>x card
+A battered beige rectangle with rounded corners, printed with the library insignia, and bearing the words:
+
+PETER CRAGNE
+CRAGNE MANOR
+is entitled to borrow books from
+BACKWATER PUBLIC LIBRARY
+Backwater, Vermont
+and is responsible for all books taken on this card
+Expires APRIL 1998
+No 19078
+
+A little metal dealy clips through the cardboard, with a mirror-reversed version of the ID number stamped into it. They really haven't upgraded their systems in a while.
+
+The librarian disappears between the shelves for a bit, then returns.
+
+>show library card to librarian
+She takes the card from you and fusses with some machinery behind the counter. You hear the buzz of a dot-matrix printer, and then she gives you back the card along with a note.
+
+>x note
+ATTENTION PETER CRAGNE
+
+This is your notification that your status with the Backwater Public Library is DELINQUENT due to NON-RETURNAL.
+You are NOT PERMITTED to check out books or to access special library materials until your status is cleared.
+
+To clear your status, you must return ALL books you currently have checked out:
+
+    To Have, and To Have Knots: An Illustrated Guide
+    LVPB
+    The Dollmaker's Journal
+    Twin Hearts Between the Planes
+    Backwater Personalities (1915-1925 edition)
+    Tolerating An Asinine God
+    The Lives of the Roman Emperors
+    De Zeven Testamenten van de Krijsende Zeeworm
+    Venator in Tenebris
+    'Pataphysical Approaches to Quantum Superfluids
+    Legends of Lake Champlain and the Hudson River Valley
+    A Rudimentary Taxonomy of Known Scent and Grotesque Reactions
+    Life Beneath Nightmares
+    A Diver Swims Through It: Stories From the Sea
+    The Seven Gaunts
+    New England and the Bavarian Illuminati
+    ANCHORHEAD. A What-do-I-do-now Book Based on the Works of MICHAEL GENTRY
+
+>ask librarian about Peter
+With whip-like speed, she raises a finger to her lips and shushes you vigorously, then points at a sign on the counter.
+
+You glance around. There's no one around who you could possibly be disturbing.
+
+>x cart
+A rusty-wheeled little convenience with bright floral contact paper wrapped around its carrying surfaces.
+
+>x chairs
+A collection of tired-looking wooden sculptures with orange vinyl cushions on them.
+
+The librarian nods at you curtly. It really seems like she doesn't blink enough. Or at all.
+
+>x shelves
+The books don't seem to be in any particular order. You can browse if you like, but good luck finding anything specific.
+
+The librarian stamps something.
+
+>browse shelves
+A cursory search turns up the middle volume of a best-selling fantasy trilogy. Disappointed, you put it back.
+
+>again
+You randomly pull out a badly-damaged collection of old newspaper funnies. Wondering why anyone thought it belonged here, you return it to its place.
+
+The librarian looks at you.
+
+>again
+Your hand comes to rest on a bound collection of tabloid front pages. Disappointed, you place it back on the shelf.
+
+>x coffee
+The clouds in your cup form a sailboat. Modes of transportation mean that your current environment presents challenges that can only be overcome by seeking fresh perspectives elsewhere until you're ready to return.
+
+The librarian stamps something. You hadn't noticed before, but she doesn't ever seem to move her fingers. Her left hand is permanently in a pointing position, three fingers curled back. Her right is like a puppet's. She's probably a stroke survivor or something. You try not to stare.
+
+>put jacket and library card in tp
+Peter's jacket: You unzip the trash pocket, deposit Peter's jacket, then zip the trash pocket back up again.
+library card: You unzip the trash pocket, deposit the library card, then zip the trash pocket back up again.
+
+>put book list in bp
+You unzip the book pocket, deposit the book list, then zip the book pocket back up again.
+
+>west
+
+Outside the Library (Gavin Inglis)
+A short street terminates here. To the south it opens into the town square. To the east, a few worn steps rise to the entrance of the public library, and to the west you can see a real estate office. A gloomy path leads northwest, towards the woods.
+
+You can see a notice board here.
+
+A ghostly trolley stop sign reads Blue Line -- Library Square.
+
+>south
+
+Town square, Backwater, VT (Marco Innocenti)
+The first thing you notice, when entering the open yards of the town square, is the soft breeze that relentlessly caresses the buildings. It is so unlike the warm, salty air you were used to back home that you finally realize how long your trip has been, and how far removed you are now from everything you once knew.
+
+The large, hexagonal-shaped square is paved with big, white stones, polished by rain and wind over the decades; around it, low red-brick buildings look like watching peasants. One single street leaves the square to the north, while less accommodating paths lead west, in the direction of a towering church, and southwest.
+Due east, an iron bridge crosses the river, and southeast, a walkway leads down to its bank.
+
+The swollen, slate-colored clouds that blanket the sky are reflected in the shiny, circular shape embellishing the center of the square, muttering ominous portents amongst themselves.
+
+Ominous portents, you murmur to yourself.
+Since that day, twenty years ago, when you first read them in a Lovecraftian novel during that uneventful summer vacation, you've been waiting for the occasion to use these words yourself. Another cold, harsh gust of wind interrupts you before you can decide whether this was a coincidence worth being happy... or scared about.
+
+A man is leaning on the bridge rail, staring intensely at you with his only eye.
+
+>x shape
+The big emblem, one yard wide, is embedded in the center of the square like a manhole. The surface looks golden, although you seriously doubt it is anything more than pyrite. Its three rings surround a central circle tightened by bird claws with a single triangular mark pointing northeast. The rings themselves are bedecked by a series of symbols (outer to inner, then clockwise from north):
+
+BLACKBIRD |TREE      |SPARROW   |CUBE      |WOMAN     |FEATHER
+DAAN      |SHI       |AAK'EE    |HAI       |TLÈÈ      |JI
+PIG       |EYE       |WOODPECKER|CROSS     |FISH      |EAGLE.
+
+>x stones
+You realize how the square is probably a perfect hexagon, such an uncommon feature in rural towns. The big, white stones forming its pavement are interrupted in the center by an odd... manhole, a circular shape representing an emblem of some sorts.
+
+>x buildings
+The houses, all alike, form a low wall (for a building, that is) that form a wobbly hexagon around the square. The red bricks have been polished by rain and wind over the ages and now appear like polyps in human tissue. No window shows signs of life, and many of the blinds are either closed or barred from the inside.
+
+You wonder where everyone's gone.
+
+>x man
+Tall and slender, the one-eyed man reminds you of someone you knew back in your hometown: a fisherman with as many stories in his pockets as years on his back, who went by the name of Captn Squinter. He used to know a lot of tales about tormented ships... or at least he was good at making them up. He vanished years ago in unknown circumstances.
+
+>ask man about himself
+The one-eyed man blinks, showing some attention, but then ignores you.
+
+"Mrs Cra-gnee, welcome to Backwater. He's been waiting for you".
+
+>ask man about welcome
+"Name's Cragne, Sir. But thanks. Do I know you?"
+
+He smiles, and a phalanx of rotten, metal teeth opens up like a crack in the asphalt. "Oh, yeah -- har! har! -- sorry for the inconvenience, Mrs Crane. Didn't mean to offend you," he says, avoiding your question completely. "Did you visit the Manor already, Madam?"
+
+>ask man about manor
+"So the Manor is..."
+
+"A very nice piece of a building, if you ask me, Madam. It dates back to the very... I mean: it is very old. But it never grows old, does it?"
+
+>ask man about old
+"It never grows old," you puzzle.
+
+He must see something in your eyes he doesn't like, as he is quick to continue: "I mean. Some styles never quite age, right?"
+
+The next second he's again staring into nothingness, to the far distances beyond his shoulder.
+
+>ask man about Peter
+"Do you know my husband? His name is Peter Cragne and..." you stop, looking for the right thing to say. "Well, I need to find him."
+
+"Oh, Madam, how twisted is the fortune of a bride missing her groom! Although, these days, I come to think of it as a natural aspect of modern marriage, isn't it?"
+
+>ask man about marriage
+"You didn't answer my question," you insist. "Do you know where I can find Mr Cragne?"
+
+Captn Squinter points across the town square to a hill where you can see lights from Cragne Manor's upper balcony. The rotten finger displays a silver loop as big as a cherry pit. You fleetingly glimps a strange icon on it, covering the entirety of its flat top.
+
+"Up there, Madam," he says with hollow voice. "that's where all the Cragnes rest."
+
+ You don't fail to notice how he finally pronounced your name correctly.  You shiver at the last word he used.
+
+>ask man about loop
+"Nice ring," you flatter him.
+
+The one-eyed man looks away. "I ain't got no ring," he says, hiding the hand in a pocket of the weary jacket.
+
+But you are pretty sure there was a ring on that finger. And it was so big it could be used as a seal for sealing wax. The stamp on it -- provided it was a stamp -- resembled something in the likes of an octopus, although you could swear it held more than a dozen tentacles.
+
+Maritime symbols, you convince yourself, and don't insist further.
+
+>ask man about himself
+"Who are you?" you ask.
+
+The man smiles, as if you have asked the most trivial thing. "I'm a man made by the mountains, as you were made by the sea, Madam. I'm of no consequence, just a prop for indications."
+
+>ask man about He
+"He? Is someone expecting me?"
+
+You start believing the stranger is referring to Peter... then something more sinister comes into play. Why would Peter be expecting you when he's the one gone missing, to begin with? And what's with the man's voice? Isn't it fascinatingly wrong enough to suggest more malice?
+
+The answer leaves you puzzled: "Edwin, Madam. I suggest you pay a visit to the Manor, and have your questions answered."
+
+>ask man about Edwin
+"Who's this Edwin? I know nobody by that name. And now that you mention it, I know nobody at all, up here!"
+
+The one-eyed man rubs his hands as if to heat them from a winter that's gone on too long. "Sir Edwin's a quiet man who mostly keeps to himself. But he's also a philanthropist, in his own way. I'm sure you would find him entertaining enough as to follow his lead, Madam. Or so I was told."
+
+>ask man about entertaining
+"Entertaining?"
+
+"Oh, yes. He knows a lot of tricks. And he has gifts. Gifts for all that are bold enough to follow his example."
+
+>ask man about gifts
+"Gifts?".
+
+"Oh, yeah Madam. Very nice gifts, and very precious ones too. He has a gift for each one of us, and each gift is tailored to its intended bearer's wish. He gave me one, too, and promised I'd be free of it once the mid-summer woodpecker sings. Wanna see it?"
+
+>ask man about told
+"Do you even happen to know this man... Sir?"
+
+"Oh, everybody in Backwater knows about Sir Edwin. They know of his heritage."
+
+He then scrubs his hands -- showing for the first time a vast irritation, a blotch of red, dead skin, covering both his palms -- and sends the glance wandering to the southeast, from where a cold, inhumane sirocco comes wailing abruptly. You hold on to your garments.
+
+"We are his heritage, after all."
+
+>ask man about heritage
+You take a deep look into his eyes, checking for the remnants of this figure's sanity. "You are his heritage," you whisper.
+
+The man laughs abruptly, startling you.
+
+"We, Mrs Cragne, Madam. Us and you. Everybody. Everybody in Backwater is his heritage. And everyone that's ever been here. It's always been like that, and it always will. He put his gentle hand on our hearts -- mine and yours, Madam -- and since then we got to see beyond the veil that divides the worlds."
+
+>ask man about veil
+You widen your eyes in disbelief.
+
+"Find Sir Edwin," he says, with a relaxed smile. "He has all the answers. He will show you things."
+
+>ask man about see
+You lose yourself inside the man's only eye. For minutes, or hours, you stare into a vast, expanding abyss of pure blackness, increasing its circle as a dark stain of bleeding oil.
+
+Then, something happens.
+
+He grabs your hand and pulls it towards his jacket. Before you know what you're doing, your fingers latch onto the fabric and start pulling it open. Where the man's body should be, is the same engulfing darkness you saw in his eyes. Twisting, twirling like a thousand microscopic suns, like the limbs of an ever-forming galaxy. In a few seconds the jacket is open and you can't see anything other than this despair, like it is devouring you.
+
+You are falling into it.
+
+
+
+
+
+When you regain consciousness, the man is gone, and with him all his secrets. You are left standing disconcerted near the iron bridge, questioning if any of this really happened... and your own sanity.
+
+>undo
+Town square, Backwater, VT (Marco Innocenti)
+[Previous turn undone.]
+
+>ask man about rings
+"What is this... emblem, in the center of the square?"
+
+"It is a symbol of sorts. Don't know much about it. Except that you can see similar... designs scattered all around Backwater. Usually, though, they are hidd-... I mean: less exposed. They represent some sort of feast, or the likes of it. But, then again..."
+
+He scratches his nose.
+
+"The inscription are in Navajo," he concludes.
+
+>ask man about Navajo
+"The old Indian language? Aren't they supposed to originate, like, thousands of miles from here?"
+
+"You can't really understand the history of this town if you aren't ready to accept some level of absurdity, Madam."
+
+>ask man about Backwater
+"What do you know about this place?" you ask.
+
+"This place? You mean Backwater?" You nod. "Oh, it is just a small town, the likes of which you can find everywhere in America. In rural America, I'd say. It's not about the town, anyway. It's about the magic. Isn't it?"
+
+>ask man about magic
+"Magic?"
+
+The man smiles, providing no further insight.
+
+>x coffee
+The clouds in your cup form the engine of a train. Modes of transportation mean that your current environment presents challenges that can only be overcome by seeking fresh perspectives elsewhere until you're ready to return.
+
+>sw
+The man returns to his pretended duties, while keeping his one eye one you.
+
+Drinking Fountain (Lucian Smith)
+A public drinking fountain is placed in a nook here, nearly overgrown with ivy.  You can return to the town square to the northeast.
+
+>save
+Enter saved game to store: drinking-fountain
+Ok.
+
 >
