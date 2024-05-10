@@ -141,1091 +141,511 @@ The platform is open to the outdoors, but has an overhanging roof with a rusted 
 The clock overhead gives the time as 6:20 pm; beneath the clock is a schedule board listing train arrival times. On the platform itself are a wooden bench, a storage locker, and a vending machine.
 
 >restore
-Enter saved game to load: shack-exterior
+Enter saved game to load: drinking-fountain
 Ok.
 
->x clockwork doll
-A little doll of a girl. She's sitting at a little writing desk, with a book in front of her, firmly held underneath her arms. In one hand is a feather quill pen; at the other is an inkwell. Her eyes are gazing with longing at the scraps of paper.
+>x fountain
+An ornate brick drinking fountain, with a spout above a silver bowl, a button underneath, and surrounded by ivy.
 
->take scraps
-Taken.
+>x button
+A round button set in the brick underneath the bowl of the drinking fountain.
 
->read scraps
-Three scraps of paper, with various handwritten words on them. You suspect that they may form a complete page if you reassemble them.
+>push it
+You take a drink from the fountain.  The water is lukewarm and vaguely brackish.
 
->reassemble scraps
-With some experimentation, you rearrange the pieces back into a single page. They seal together, as if by magic. You now hold a repaired page.
+>x ivy
+Thick ivy grows around the fountain, obscuring all but the bowl and spout.
 
->read page
-A complete page, grimy yet strangely untorn. It reads: "I must have rest. My senses deceive me into thinking she can see me, hear me."
+>move ivy
+You pull back the ivy from the side of the fountain, revealing, for some reason, a second fountain.
 
->give page to clockwork doll
-The doll springs to life with the whirring of hidden gears and mechanisms. Her eyes dart between the page and the book in front of her. Her quill moves from inkwell to paper and back again, copying the page's contents into the book. Finishing the passage with a terminal stroke of the pen, the doll's shoulders move up, then down, as if taking a breath. Her open hand clumsily raises one cover and pushes it over, closing the book.
-
-She pushes it in your direction until it tumbles to the ground.
-
->take book
-(The Dollmaker's Journal)
-Taken.
-The doll begins to shudder and glow with heat. After a moment, the shaking stops, and the doll's head and hands sag, lifeless.
-
->x it
-A simple leatherbound journal, daubed with wayward paint splotches. A sticker on the cover bears the insignia of the Backwater Public Library.
-
->read it
-She is finally done. My finest clockwork creation. So wonderfully lifelike.
-
-The book continues.
-
-The chill behind you intensifies, and you feel like you're being watched.
-
->read it
-I've yet to decide what I should call her.
-
-The book continues.
-
->read it
-I must have rest. My senses deceive me into thinking she can see me, hear me.
-
-The book continues.
-
->read it
-What has she become? Is my child now my gaoler?
-
-The book continues.
-
->read it
-I think I've managed to lock her safely away. I only hope tha(the rest of the page is unintelligible)
-
-The book continues.
-
->read it
-(The remaining pages are nothing but a mess of crusted blood.)
-
->open door
-It seems to be locked.
-
->se
-
-Outside the Library (Gavin Inglis)
-A short street terminates here. To the south it opens into the town square. To the east, a few worn steps rise to the entrance of the public library, and to the west you can see a real estate office. A gloomy path leads northwest, towards the woods.
-
-You can see a notice board here.
-
->x board
-A weatherbeaten community notice board outside the library. Behind glass you can see a community events schedule, a ripped newspaper headline, and the winning stories from a children's writing competition.
-
->x events
-Monday: Poetry reading.
-Tuesday: Poetry reading.
-Wednesday: Cross-stitch. NO GUNS.
-Thursday: Poetry reading.
-Friday: Alcoholics Anonymous.
-Saturday: Poker.
-Sunday: CLOSED.
-
->x headline
-"Vicious Animals Are Dismembered In Gory Nightly Excess, Pumped High On Drugs"
-
->x stories
-There are a few stories on the board. You choose one at random to read.
-
-"My uncle showed me a trick where you unscrew a salt cellar in the diner and then the next person gets salt all over their food. I did it a couple of times and stayed around to watch through the window. It was funny. I like to make things better so I swapped the salt for sugar and then for the white stuff from the laundry. If you find a salt cellar with a big enough hole you can also put broken glass in there."
-
->x stories
-There are a few stories on the board. You choose one at random to read.
-
-"I am in a band. I play guitar and Stuffy plays guitar and Richard plays guitar and Marie plays drums although she has only got one and Ermentrude sings. Sometimes Ermentrude plays guitar too. We are going on tour in the fall but for now we play live at different places in Backwater. When they catch us they throw us out but we are good at hiding. Our record is thirty-four minutes."
-
->x stories
-There are a few stories on the board. You choose one at random to read.
-
-"I have a friend at home she is called Bertrande. She does not go to school. When mom comes in she hides beneath the bed or in the closet and sometimes she makes a joke with a kitchen knife. Bertrande is from France in the sixteenth century where she was a pleasant girl. She was murdured by a noble man and she says if she can collect the bud of an entire family she can travel back in time for revenge. I like her hair."
-
->x stories
-There are a few stories on the board. You choose one at random to read.
-
-"My dad always takes me to see jazz. It is crap. He says it is the only true American art form. I pretend to listen but I actually try to use psychic powers to make the jazz people explode. I have tried about a hundred times. One time the trumpet man played a wrong note although it is difficult to tell with jazz. Then blood came out the end of his trumpet. Then he fell over. I got ice cream on the way home."
-
->x stories
-There are a few stories on the board. You choose one at random to read.
-
-"My father is a member of the Vermont Cheesers. They are a secret society so I am not allowed to talk about them. They meet in The Creamery and they do not allow girls to join. Sometimes I have to wait in the anti-room so I sneak up on the balcony and watch. Every day they bet on a cheese in a sack and if they do not get it right they have to eat the cheese. One man always talks about Maple Smoked Gouda and another man always talks about The Cheese Trail and sometimes they put the cheese down their trousers. They all smile all the time but you can see in their eyes that they are scared."
-
->x stories
-There are a few stories on the board. You choose one at random to read.
-
-"One night I was coming home from school. It was dark. Then I saw a light in the sky. It was a space alium. A light shone down on me and I went on the space ship. They gave me cookies but the chocolate chips were bugs. I was scared. They wanted to take me to their planut but I said I had to be home at 6.30 for dinner. The aliums seemed angry and they dropped me in a pond. My school books got wet. The end."
-
->west
-You pause at the entrance of the real estate office to reread the telegram in your pocket, scanning the curt missive for any additional clues as to what the hell your husband hosed up this time. No dice. A wave of sheer black terror washes up into your pharynx, and you fight it back down.
-
-It's fine. It'll be fine. You saved his ass that time with the vampire yacht (stupid), you got him and yourself out of the sentient wax museum (so careless), you even... it is not worth thinking about the guy with the drill hands right now. It is never worth thinking about the guy with the drill hands. It's fine. It'll be fine.
-
-Your solid gold instincts have led you to this office, which means there's something you need to steal from inside of it, so you tell your brain to shut its trap, adjust your backpack on your shoulder, and push firmly through the door into the stale chill of the air conditioning.
-
-
-The woman behind the desk jerks her head up from a pile of papers as you enter, clearly surprised to have a customer. "Oh, hello!" she says. "Can I facts you about a house? Ugh, I mean, are you interested in a Forthright & Rotier property? I mean, they're all our -- we're the only realtor in -- hello!"
-
-Estate Agent's Office (Jenni Polodna)
-The space is dominated by the unexpectedly symbiotic combination of a giant desk and a tiny woman, who together give the impression of being one complete single entity, like a centaur. The surface of the desk is invisible underneath a loose pile of glossy architectural magazines, manila folders, and real estate listings pamphlets. Behind it, a gunmetal-grey filing cabinet lurks unattractively in the far corner. The exit back out to the street is east.
-
-A tiny woman is here waiting to answer all of your Backwater real estate questions.
-
->x desk
-The surface of the desk is invisible underneath a loose pile of glossy architectural magazines, manila folders, and real estate listings pamphlets.
->search desk
-As you approach the desk, the tiny woman bares her teeth and growls at you. "Oh, sorry," she says as you back towards the wall. "My priest and I are working together to get me not to do that anymore."
-
->x woman
-The upper half of her body consists mostly of hair, insufficiently restrained with a blue plaid scrunchie. Twin octagonal shimmers beneath the hair suggest a pair of glasses. Her torso wears a t-shirt advertising the 1996 Muddy Crayfish Charity Run/Walk, sponsored by Forthright & Rotier.
-
-The lower half of her body is obscured by the giant desk, but your brain evolved over millennia to handle exactly this kind of situation, so without even thinking about it you assume she has two human legs instead of, say, half a kraken.
-
->inventory
-You are carrying:
-  a Jansport backpack (being worn and open)
-    a key pocket (open but empty)
-    a book pocket (open but empty)
-    a side pocket (open but empty)
-    a trash pocket (open but empty)
-    a backpack features guide
-  a coded telegram
-  The Dollmaker's Journal
-  a moldy, waterlogged journal
-  a small, rectangular battery
-  an antique locket (being worn and closed)
-  a shabby journal
-  a faint chill (haunting you)
-  a cast iron spire
-  a waterproof flashlight
-  the diary of Phyllis Cragne
-  a postcard of Big Ben
-  a giant milkweed leaf (being worn as a mask)
-  The Modern Girl's Divination Handbook -- Volume Three
-  a pull-string doll
-  a glass jar containing an insect
-  a half-full styrofoam coffee cup
-  a label
-  a brass winding key
-  a familiar gold wristwatch (being worn)
-
->x backpack
-You bought this backpack specifically to do thefts with, and you love it. From the outside it's modestly sized and easy to carry, but the inside is surprisingly capacious -- you've used it to smuggle oil paintings, kayaks, and (best day of your life) the entire contents of a government warehouse in Roswell, New Mexico. In addition to the cavernous main pocket of the backpack itself, there's a key pocket for your keys, a book pocket for your books, a side pocket for your sidequests, and a trash pocket for your trash. Zippers on all of these pockets let you open and close them at will.
-
-In the Jansport backpack are a key pocket, a book pocket, a side pocket, a trash pocket and a backpack features guide.
-
->x guide
-Welcome to the NEW 1998 Urban Adventurer Streetwarrior TRIPLE-REINFORCED Lifestyle Management System by Jansport!
-
-Incredible Updated Features:
-** Separate zippable pockets let you hide things and reveal them at will!
-** Brand new abbreviations: mp = main pocket, kp = key pocket, bp = book pocket, etc.!
-** Time-saving upgrade for the adventurer on the go: LOOK IN or PUT [SOMETHING] IN a closed pocket without having to open it first!
-
->x telegram
-NAOMI STOP FORGOT BROWN SHOES STOP PLEASE SEND BY EARLIEST POST STOP LOVE PETER
-
-In the secret code you worked out with your husband, "forgot brown shoes" means "the plan has gone dog-tits-up and I could not be deeper in the crap canal," while "please send by earliest post" means "invent a pretext and come extricate me immediately."
-
-So, here you are in Backwater, Vermont, with a missing husband and no idea what to do next. It's great. Everything's great.
-
->x cabinet
-If a filing cabinet's purpose is to hold files without being otherwise interesting or remarkable, then this one has achieved self-actualization and is free to ascend to filing cabinet nirvana.
-
->ask woman about Peter
-"Oh!" the woman exclaims. "You're the new wi-- I mean, you're Naomi Sparradew Cragne! Nice to meet you. I'm Bethany Tross." She boosts herself onto the desk to shake your hand. "I've got a huge file on Cragne Manor. It's absolutely fascinating. You're gonna love it." Lips slightly pursed, she surveys the mess on the desk. "Um. Just let me find it. Jeez. One sec."
-
-
-Bethany gathers all of the folders on the desk into her arms. "See, I'm getting a master's degree in local history, and this job is a gold mine for original documents," she explains. One by one she deposits each file into the cabinet, until only an empty-looking folder labeled CRAGNE MANOR remains. "Huh, it should be..." She flips it open, then with a disappointed look sets it on the desk in front of you.
-
-
-"Well, ratsack," she says. "I guess the Cragne Manor file's off being digitized. Ms. Rotier's been on this paperless office kick lately, which is weird, because we don't have a computer." Her expression brightens somewhat. "Any other buildings you want to know about? I'm not allowed to talk history at home anymore, not since the incident."
-
-
-Now that the desk is clean, you notice a paperback book that had been hiding underneath the folders.
-
->x paperback
-A somewhat battered paperback whose lovingly fantasy-painted cover features a corseted steampunk woman embracing a Regency period nobleman -- who is also an anthropomorphic lion -- in space. "TWIN HEARTS BETWEEN THE PLANES," raised letters proclaim. "LEELAH VAUGHAN."
-
-Beneath the author's name, smaller text inside a sunburst informs you that this book was a 1981 Venus Rising nominee for "Best Sexual Tension." A shelving label for the Backwater Public Library covers the lower spine "[FIC / ERO / ANIMA / FELIS / YIKES]".
-
-This is it, your instincts whisper. This is the thing you need to steal. Also, look at it. It's amazing. Definitely steal that.
-
->x folder
-The Cragne Manor folder is thin enough to appear empty while closed. When you open it, you see that it contains nothing but a Post-It note with the words "BETHANY, TOOK THESE TO GET DIGITIZED. RECYCLE THIS NOTE PLEASE!!!" alongside a small drawing of an anthropomorphized Earth giving the thumbs-up.
-
->ask Bethany about library
-Bethany's features descend into a half-scowl. "Oh, it's just another boring Andrew Carnegie library, blah blah blah 1908, $5000 budget, snooze me a river of dreams. It's gross, all the books in there are gross, if you go in there you'll be gross too." This unenthusiastic description of a historic building seems out of character, so you cock an eyebrow at her quizzically.
-
-Bethany catches your look and deflates. "That crappy librarian is in league with the Badfinger University Shadow Historians," she explains. "She won't let me have jack. They've got some real good original mystical documents and I want a job there so bad."
-
-She meets your eyes again. "Right, I'll get the folder."
-
->put paperback in bp
-(first taking Twin Hearts Between the Planes)
-
-Stealing the book while Bethany's got her back turned is definitely the right idea. When you play the scenario out in your mind, though, it goes something like this:
-
-[IMAGINARY SCENE] You slip the book into your pocket. Bethany turns around, ready to drop the folder on the desk, and spots that the book is gone. Her octagonal eyes glow red, and each unruly curl of her hair transmogrifies into a cobra, its eyes glowing red and its fangs dripping venom. "WHERE IS MY BOOK?" she roars, shaking the walls of the real estate office.
-
-The desk grows a mouth and chomps you in half somewhere around the lumbar spine. Your lower half bleeds out on the berber carpet as the desk masticates your torso and eyeballs and hands and other parts of your body you like a lot and use often. With a satisfied expression, Bethany retrieves the novel from the bloodsoaked pocket of your JNCOs. "Now I can finally confess my truth," she tells your exposed kidneys. "I think reading about lion sex is kind of nice actually."[END IMAGINARY SCENE]
-
-...okay, clearly this town has got you in a real weird headspace. The point is, you'll have to find a way to steal the book without Bethany noticing you've stolen it, or things might get... uncomfortable.
-
-"Folder located!" Bethany drops the folder onto the desk near Twin Hearts Between the Planes.
-
-"Stupid sexy library," Bethany sighs.
-
->x library folder
-The Backwater Public Library folder is empty except for an index-card-sized note reading "Contents of this folder have been reclaimed as the rightful property of B.U.S.H. Any queries, complaints, and suggestions can be directed to the_uncaring_void_of_my_anal_canal@hotmail.com. Have a good rest of your SUCK IT LOSERS!!!".
-
->ask Bethany about train station
-"Perfect! I'll just grab the folder for that," Bethany says, turning to search through the filing cabinet.
-
->ask Bethany about train station
-"Just a sec," Bethany says, voice echoing weirdly. You turn to look and she's got her head almost completely inside one of the cabinet drawers.
-
-"Who just found the folder she was looking for? This girl!" Bethany drops the folder onto the desk, partially covering Twin Hearts Between the Planes.
-
-
-"Backwater didn't have a train station until 1968," Bethany tells you. "The local business owners were really pushing for one to be built, but the town council elders fought it tooth and nail, because they thought it would attract undesirables -- I think we both know what that's code for -- from the city. Then somebody pointed out the undesirables from the city, if you were nice to them and gave them shotguns, would be great allies in the constant war against the even-less-desirables who kept slithering out of the hills on their tentacle legs to steal babies. Backwater got noticeably less racist after that. Also fuller of babies."
-
->x station folder
-The train station folder is incredibly thick. Flipping through it, most of its bulk appears to be schedules of arrivals and departures, and you're about to fall asleep when a folded page flutters out from between the timetables. You unfold it and take a look.
-
-"Oh, that thing is great," Bethany says. "It's a map of a proposed trolley system through Backwater, which wound up not getting built because it turned out the guy who sold it was secretly a bear, and no one knew what to do with that information. The trolley system would have been so cool though."
-
->x map
-From what you've seen of Backwater, it's not that big, yet the trolley system on the map in your hands is extensive. A forest-green line runs into the woods, while a line as red as raw beef connects the downtown to the meatpacking plant. The church has its own line (gold), Cragne Manor has several (in various shades of purple -- also, why?), and Backwater itself is split into "Dangerous Backwater" (orange) and "Spooky Backwater" (blue). Apparently the real estate office is in Spooky Backwater, whatever that means.
-
->ask Bethany about Backwater
-"Backwater was founded in 1773 as General John Snelson's personal latrine," Bethany tells you. "Snelson was stationed at a nearby fort and had bowel issues so intense that a cottage industry rose up to deal with his emissions. People showed up in droves to push the honey carts, replace the cut flowers, sell him bicarbonate, that sort of thing. Eventually, they brought their wives and built houses. After his death in 1785, everyone was kind of at a loss until Deuteronomous Cragne showed up. Not that he had bowel issues, I mean; he was his whole other thing."
-
->ask Bethany about Deuteronomous
-"Deuteronomous Cragne came from somewhere in the mid-1790s and founded the Backwater line of Cragnes. He's your husband's great-great-great-great-grandfather," Bethany tells you. "He had a lot of portraits commissioned of himself as this huge vampire-looking guy with bright red eyes and a twenty-hand-tall nightmare stallion, but I found some charcoal drawings of him as a teenager, and he's practically cherubic-looking. Like a Keebler Elf with fluffy sideburns. It's hilarious."
-
->ask Bethany about church
-"Great, I'll show you the folder for that!" Bethany says, turning to search through the filing cabinet.
->ask Bethany about church
-"Just a sec," Bethany says, voice echoing weirdly. You turn to look and she's got her head almost completely inside one of the cabinet drawers.
-
-"The folder-finding wizard has done it again!" Bethany drops the folder onto the desk, partially covering Twin Hearts Between the Planes.
-
-
-"Most people in town think Backwater Church changes religious affiliation once every seven years," Bethany says, "but guess what I found out? This whole time they've just been worshipping different incarnations of X'n'xa the Inevitable March Towards Death, which technically makes them Episcopalians. Religion is wild, huh?"
-
->x church folder
-The church folder contains mostly receipts for the installation of various stained-glass windows. You spot one for $0.00 with a pen scrawl across the bottom reading "I refuse to depict Imelda Cragne as the Virgin Mary, may God have mercy on my soul."
-
-"Oh yeah," Bethany says, when you point it out, "I forgot to mention that most of the Cragnes commissioned church windows of themselves as religious figures, but I guess the idea of a saintly Imelda Cragne clutching a baby Jesus was too much for that stained-glass artist. They fled to Canada the same day that receipt was written, which was absolutely the right call."
-
->ask Bethany about Imelda
-"I know the Historian's Code says you're supposed to dispassionately examine people's lives without forming emotional judgments, but Imelda Cragne was a real piece of work," Bethany tells you. "She liked to psychologically abuse the workers at the meatpacking plant. If you crossed her, she would -- I swear to God -- draw your face on a ham, dress it up in your clothes, hang it from the nearest meat hook, and -- I actually have no idea what she did next, because no one will talk about it."
-
-"This wasn't just at the plant, either; she hung meat hooks up in every room of the manor so she could make dangling ham effigies of the servants and her own kids and anyone who even looked at her. Messed. Up. Lady."
->ask Bethany about meatpacking plant
-"Absolutely! Let me find that folder," Bethany says, turning to search through the filing cabinet.
-
->ask Bethany about meatpacking plant
-"Just a sec," Bethany says, voice echoing weirdly. You turn to look and she's got her head almost completely inside one of the cabinet drawers.
-
-"Here's the folder!" Bethany drops the folder onto the desk, further covering Twin Hearts Between the Planes.
-
-
-"The meatpacking plant was built by Alfred Silas Cragne in 1901 as an attempt to make a little money off of that year's Seven Days' Rain of Dead Pigs," Bethany tells you. "Which, as you might guess, was a phenomenon during which almost five thousand pigs fell out of the sky over downtown Backwater. Amazingly, only one person died, and everybody hated him, so it was a net win for the town."
-
-She shakes her head. "The pub owner likes to go on about how great it must have been to take a bucket out in the street and fill up on free bacon, but what I think is, if it means not getting clocked in the head with a pig hoof at the standard gravitational acceleration rate, I'd rather just spend the three bucks at Shaw's."
-
->x plant folder
-You open the meatpacking plant folder and a chunk of raw beef falls onto the floor. Holding the folder as horizontally as possible, you open it the rest of the way. It's entirely full of raw beef. Mostly ground chuck, but you see a couple of ribs sticking out, and on the top is... is that a New York strip steak? "Hot beef injection compliments of B.U.S.H.," reads a note impaled into the meat pile.
-
-"True confession?" Bethany says, "I know they're proud of that little prank, but that's like thirty dollars worth of meat, and the park by my house has a grill."
-
->x meat
-You've never felt less in need of a hot beef injection at any point in your entire life.
-
->ask Bethany about BUSH
-"Badfinger University is five miles up the river from Squahonomie, and their Shadow Historians have been our archrivals for almost a century and a half," Bethany explains. "Every September our grad students and theirs engage in ritualized academic combat to decide which school has jurisdiction over which historical topics. This year they got almost all of the Cragnes -- I was gunning hard for Stella, and I made sure we kept Deuteronomous -- but this guy Josh that I hate blew the rest of our points on Jedediah Beaverhat, who is not even real, he's a pancake house mascot. I kinda think Josh is a mole."
-
->ask Bethany about Stella
-"Stella Archer Cragne disappeared on the third of May, 1981," Bethany tells you. "She told her husband she was going into town to buy a hat for Petunia Cragne's wedding. The ticket taker at the station confirmed that she boarded the 12:35 train to Montpelier, and after that (once again Bethany drops her voice into Unsolved Mysteries registers) nobody saw her again. Dead or alive."
-
-"Ask me about Stella again if you want to hear all the facts of the case; I'm supposed to practice getting consent before quote-unquote talking people's ears off. People care an awful lot about their ears around here, if you ask me."
-
->again
-Holding up her fingers one by one, Bethany cheerfully enumerates the facts of the case. "Fact! Stella had no known enemies; the family liked her -- well, except Imelda Cragne, but she was a 102-year-old racist who croaked six months before Stella went missing, so it's unlikely she was involved."
-
-"Fact! By all accounts, Stella & Horace were one of those boring quiet couples that stay home a lot and don't have affairs. Fact! I really enjoy saying 'fact!' Fact!"
-
-"Fact! Stella left the house with just her wallet and keys. She wasn't the purse-carrying type, but she owned a couple good-sized bags she could have packed some underwear and a toothbrush in if she'd planned to run away."
-
-"Fact! The Backwater P.D. searched all of the possessions she'd left behind and none of it was more suspicious than a Jell-O mold. I saw the whole list and lemme tell ya, I have weirder stuff in my pockets right now, including one or two bird skulls."
-
->ask Bethany about Horace
-"So, at first, Horace Cragne spent a ton of money on private detectives to look for his wife," Bethany tells you. "Then, in June of 1983 -- well, no one knows what happened, but he fired his gumshoes and went around being cheerful in public all of a sudden. Complete 180 mood flip. Everyone thought he had a new lover, but I couldn't find any evidence of that, and you better believe I looked. I even... anyway."
-
-"This next part is sad," Bethany continues. "In September 1983 the Cragne Manor summerhouse burned down and Horace Cragne burned down with it. According to Backwater P.D. it wasn't arson, just some bad wiring in the heating unit. That fall was especially cold because... well, I'm not supposed to talk about gulf streams anymore, because apparently they bore people." She looks from left to right as though checking for spies, then leans forward conspiratorially. "But it was totally the gulf streams," she whispers.
-
->ask Bethany about gulf streams
-"Ask me again if you're sure you want to know," Bethany says. "I can really get going when I talk about gulf streams."
-
->again
-She takes a deep breath. "Okay. The Gulf Stream, together with its northern extension the North Atlantic Drift, is a warm and swift Atlantic ocean current that originates in the Gulf of Mexico and stretches to the tip of Florida, and follows the eastern coastlines of the United States and Newfoundland before crossing the Atlantic Ocean. The process of western intensification causes the Gulf Stream to be a northward accelerating current off the east coast of North America. At about 40°02N 30°02W, it splits in two, with the northern stream, the North Atlantic Drift, crossing to Northern Europe and the southern stream, the Canary Current, recirculating off West Africa."
-
-
-"The Gulf Stream influences the climate of the east coast of North America from Florida to Newfoundland, and the west coast of Europe. Although there has been recent debate, there is consensus that the climate of Western Europe and Northern Europe is warmer than it would otherwise be due to the North Atlantic drift which is the northeastern section of the Gulf Stream. It is part of the North Atlantic Gyre. Its presence has led to the development of strong cyclones of all types, both within the atmosphere and within the ocean. The Gulf Stream is also a significant potential source of renewable power generation. The Gulf Stream may be slowing down as a result of climate change."
-
-
-"The Gulf Stream is typically 100 kilometres (62 mi) wide and 800 metres (2,600 ft) to 1,200 metres (3,900 ft) deep. The current velocity is fastest near the surface, with the maximum speed typically about 2.5 metres per second (9 kph; 5.6 mph)."
-
-
-"European discovery of the Gulf Stream dates to the 1512 expedition of Juan Ponce de León, after which it became widely used by Spanish ships sailing from the Caribbean to Spain. A summary of Ponce de León's voyage log, on April 22, 1513, noted, 'A current such that, although they had great wind, they could not proceed forward, but backward and it seems that they were proceeding well; at the end it was known that the current was more powerful than the wind.' Its existence was also known to Peter Martyr d'Anghiera. If you don't know who that is, we don't have time to get into it right now, because we're busy talking about gulf streams."
-
-
-"Benjamin Franklin became interested in the North Atlantic Ocean circulation patterns. In 1768, while in England, Franklin heard a curious complaint from the Colonial Board of Customs: Why did it take British packets several weeks longer to reach New York from England than it took an average American merchant ship to reach Newport, Rhode Island, despite the merchant ships leaving from London and having to sail down the River Thames and then the length of the English Channel before they sailed across the Atlantic, while the packets left from Falmouth in Cornwall? (A packet is a kind of boat.)"
-
-
-"Franklin asked Timothy Folger, his cousin twice removed (according to the Nantucket Historical Society) and a Nantucket Island whaling captain, for an answer. Folger explained that merchant ships routinely crossed the then-unnamed Gulf Stream-identifying it by whale behavior, measurement of the water's temperature, and changes in the water's color-while the mail packet captains ran against it. Franklin had Folger sketch the path of the Gulf Stream on an old chart of the Atlantic and add written notes on how to avoid the Stream when sailing from England to America."
-
-"Franklin then forwarded the chart to Anthony Todd, secretary of the British Post Office. Franklin's Gulf Stream chart was printed in 1769 in London, but it was mostly ignored by British sea captains. A copy of the chart was printed in Paris circa 1770-1773, and a third version was published by Franklin in Philadelphia in 1786. The inset in the upper left part of the 1786 chart is an illustration of the migration pattern of herring and not an ocean current. That sounds like a Monty Python gag but I'm completely serious. Herring. For real."
-
-
-"The Gulf Stream proper is a western-intensified current, driven largely by wind stress. The North Atlantic Drift, in contrast, is largely thermohaline circulation-driven. In 1958 the oceanographer Henry Stommel noted that 'very little water from the Gulf of Mexico is actually in the Stream'. By carrying warm water northeast across the Atlantic, it makes Western and especially Northern Europe warmer than it otherwise would be, and New England colder and more miserable."
-
-
-"However, the extent of its contribution to the actual temperature differential between North America and Europe is a matter of dispute, as there is a recent minority opinion within the science community that this temperature difference (beyond that caused by contrasting maritime and continental climates) is mainly due to atmospheric waves created by the Rocky Mountains. The science community really gets into it sometimes. Like, you think historians are bad, but scientists go full on West Side Story. I once saw a chemist break the neck off a graduated cylinder and stab a microbiologist in the kidney."
-
-
-"The jet stream throws all of the storms towards America, which I personally consider a real dick move. A river of sea water, called the Atlantic North Equatorial Current, flows westward off the coast of Central Africa. When this current interacts with the northeastern coast of South America, the current forks into two branches. One passes into the Caribbean Sea, while a second, the Antilles Current, flows north and east of the West Indies. These two branches rejoin north of the Straits of Florida. I can loan you a notebook if you'd like to write this down. No? You sure? Okay."
-
-
-"The trade winds blow westward in the tropics, and the westerlies blow eastward at mid-latitudes. This wind pattern applies a stress to the subtropical ocean surface with negative curl across the north Atlantic Ocean. The resulting Sverdrup transport is equatorward. I enjoy saying the word 'Sverdrup.' Sverdrup."
-
-
-"Because of conservation of potential vorticity caused by the northward-moving winds on the subtropical ridge's western periphery and the increased relative vorticity of northward moving water, transport is balanced by a narrow, accelerating poleward current, which flows along the western boundary of the ocean basin, outweighing the effects of friction with the western boundary current, known as the Labrador current. The conservation of potential vorticity also causes bends along the Gulf Stream, which occasionally break off due to a shift in the Gulf Stream's position, forming separate warm and cold eddies. You gotta separate the eddies or they fight. This overall process, known as western intensification, causes currents on the western boundary of an ocean basin, such as the Gulf Stream, to be stronger than those on the eastern boundary."
-
-
-"As a consequence, the resulting Gulf Stream is a strong ocean current. It transports water at a rate of 30 million cubic meters per second (30 sverdrups -- there are those sverdrups again) through the Florida Straits. As it passes south of Newfoundland, this rate increases to 150 million cubic metres per second. The volume of the Gulf Stream dwarfs all rivers that empty into the Atlantic combined, which barely total 0.6 million cubic metres per second. It is weaker, however, than the Antarctic Circumpolar Current. Given the strength and proximity of the Gulf Stream, beaches along the East Coast of the United States may be more vulnerable to large sea-level anomalies, which significantly impact rates of coastal erosion, although not nearly as much as a kraken does."
-
-
-"Want me to keep going?" Bethany asks.
-
-
-"Silly question! Of course you do!" she responds before you can answer.
-
-
-"The Gulf Stream is typically 100 kilometres (62 mi) wide and 800 metres (2,600 ft) to 1,200 metres (3,900 ft) deep. The current velocity is fastest near the surface, with the maximum speed typically about 2.5 metres per second (5.6 mph). As it travels north, the warm water transported by the Gulf Stream undergoes evaporative cooling. The cooling is wind-driven: Wind moving over the water causes evaporation, cooling the water and increasing its salinity and density. When sea ice forms, salts are left out of the ice, a process known as brine exclusion. These two processes produce water that is denser and colder (or, more precisely, water that is still liquid at a lower temperature). In the North Atlantic Ocean, the water becomes so dense that it begins to sink down through less salty and less dense water. (The convective action is not unlike that of a lava lamp, if you're groovy.) This downdraft of cold, dense water becomes a part of the North Atlantic Deep Water, a southgoing stream. Very little seaweed lies within the current, although seaweed lies in clusters to its east."
-
-
-"The Gulf Stream is influential on the climate of the Florida peninsula. The portion off the Florida coast, referred to as the Florida current, maintains an average water temperature at or above 24 °C (75 °F) during the winter. East winds moving over this warm water move warm air from over the Gulf Stream inland, helping to keep temperatures milder across the state than elsewhere across the Southeast during the winter. Also, the Gulf Stream's proximity to Nantucket, Massachusetts adds to its biodiversity, as it is the northern limit for southern varieties of plant life, and the southern limit for northern plant species, Nantucket being warmer during winter than the mainland. I once knew a guy from Nantucket. I wonder how he's doing."
-
-
-"The North Atlantic Current of the Gulf Stream, along with similar warm air currents, helps keep Ireland and the western coast of Great Britain a couple of degrees warmer than the east. However, the difference is most dramatic in the western coastal islands of Scotland. A noticeable effect of the Gulf Stream and the strong westerly winds (driven by the warm water of the Gulf Stream) on Europe occurs along the Norwegian coast. Northern parts of Norway lie close to the Arctic zone, most of which is covered with ice and snow in winter. However, almost all of Norway's coast remains free of ice and snow throughout the year. Weather systems warmed by the Gulf Stream drift into Northern Europe, also warming the climate behind the Scandinavian mountains. I hope that what you're getting from all of this is that the Gulf Stream is a way better deal for Europe than it is for North America and we should consider renegotiating that trade agreement."
-
-
-"The warm water and temperature contrast along the edge of the Gulf Stream often increase the intensity of cyclones, tropical or otherwise. Tropical cyclone generation normally requires water temperatures in excess of 26.5 °C (79.7 °F). Tropical cyclone formation is common over the Gulf Stream, especially in the month of July. Storms travel westward through the Caribbean and then either move in a northward direction and curve toward the eastern coast of the United States or stay on a north-westward track and enter the Gulf of Mexico. Such storms have the potential to create strong winds and extensive damage to the United States' Southeast Coastal Areas. See what I'm talking about? We're really getting hosed on this deal."
-
-
-"Strong extratropical cyclones have been shown to deepen significantly along a shallow frontal zone, forced by the Gulf Stream itself, during the cold season. Subtropical cyclones also tend to generate near the Gulf Stream. 75 percent of such systems documented between 1951 and 2000 formed near this warm water current, with two annual peaks of activity occurring during the months of May and October. Cyclones within the ocean form under the Gulf Stream, extending as deep as 3,500 metres (11,500 ft) beneath the ocean's surface."
-
-
-"The theoretical maximum energy dissipation from Gulf Stream by turbines is in the range of 20-60 GW. One suggestion, which could theoretically supply power comparable to several nuclear power plants, would deploy a field of underwater turbines placed 300 meters (980 ft) under the center of the core of the Gulf Stream. Ocean thermal energy could also be harnessed to produce electricity using the temperature difference between cold deep water and warm surface water. Also, it'd be a great place for an underwater villain's lair."
-
-
-"Some of the RMS Titanic's victims, whose bodies were buoyed by lifebelts but were never found by rescue or recovery ships sent to find them, are surmised to have been carried away in the Gulf Stream. I feel like that's a great note to end on, when you're talking about gulf streams. Sverdrup."
-
-
-"Citation: Wikipedia contributors. 'Gulf Stream.' Wikipedia, The Free Encyclopedia, with additions by the incredibly talented and physically attractive author Jennifer A. Polodna. This has been my report about gulf streams. Thank you and enjoy the rest of your day in the real estate office. Not that it matters, but I still don't understand what you're doing here and I'm starting to suspect that neither do you."
-
->ask Bethany about Jedediah
-"One legend goes that Jedediah Beaverhat invented the pancake, then he wanted something sweet to go on top of it, so he went into the forest and seduced Maple Kate, who was the half-druid tribal chief of the -- ugh, I don't know why I'm telling you Jedediah Beaverhat stories." Bethany makes a disgusted face. "He's not real, okay? He's not even an authentic local myth, just something the Goldwater Restaurant Group made up in 1953 to trick motorists into stopping for corn syrup."
-
->ask Bethany about Maple Kate
-"Maple Kate, weirdly enough, does exist," Bethany tells you. "Her real name is Qaatsuqani Waxwing, she's a shrewd negotiator who speaks seven languages, and she would never ever sleep with Jedediah Beaverhat, because he's not a real person and she's incredibly gay."
-
-"Was she really a half-druid?" you ask.
-
-Bethany shakes her head. "She's only one-quarter druid, but she is one hundred percent vampire. Oops All Vampire."
-
->ask Bethany about pub
-"Perfect! I'll just grab the folder for that," Bethany says, turning to search through the filing cabinet.
-
->again
-"Just a sec," Bethany says, voice echoing weirdly. You turn to look and she's got her head almost completely inside one of the cabinet drawers.
-
-"Folder located!" Bethany drops the folder onto the desk, further covering Twin Hearts Between the Planes.
-
-
-"The pub was the first building constructed in Backwater," Bethany tells you. "It's been through approximately one hundred and seventy-eight changes of ownership since. The current owners say it's haunted by the ghost of an angry brewer who had his secret recipe for triple-dark stout stolen by Benjamin Franklin, but my research suggests they just made that up to get on the Food Network. They used to have pretty good maple poutine but the current owners got all uppity about 'that's not real Vermont food, that's fake Canadian tourist food, blah blah fiddleheads blah blah blah.' I kind of hate the current owners, if I'm honest."
-
->x pub folder
-Along with some incredibly boring-looking documents, the folder labeled "Head & Anchor Pub (BETHANY: RELABEL THIS FOLDER)" contains a list of name changes and a piece of paper with all of the words blacked out FBI-style. "What's this?" you ask Bethany, indicating the latter.
-
-"Oh, that's the old secret menu for the pub, from back when it was the Sad Aroma and Garter Belt. It was a little too secret, if you want my opinion."
-
->x menu
-You hold the paper up to the fluorescent ceiling light, hoping to read some of the blacked-out words, but no dice. "Seriously, just get like a Sam Adams," Bethany tells you. "That pub is way too into their secret menu, like, what, is there something so secret you're gonna order it off there and they're like 'oh no, guess you found out our secret,' then they hand you Excalibur and make you queen of England? Because I try that every time I go in there, and I'm still only eighty-fifth in line for the crown."
-
->ask Bethany about office
-"Let me grab the folder for that!" Bethany says, turning to search through the filing cabinet.
->again
-"Just a sec," Bethany says, voice echoing weirdly. You turn to look and she's got her head almost completely inside one of the cabinet drawers.
-
-"The folder-finding wizard has done it again!" Bethany drops the folder onto the desk. Twin Hearts Between the Planes is now completely hidden from view.
-
-
-"Josiah Forthright was a master hypnotist whose specialty was getting people to desire things that no sane person would ever want," Bethany tells you. "Then, completely out of nowhere, he opened a real estate office in Backwater, Vermont. It's sad that he gave up on his dream like that, don't you think?"
-
->x office folder
-That's weird; the estate agency folder contains nothing but a single security camera photo of the room you are currently in, taken from a vantage point near the ceiling. You feel compelled to take a closer look.
-
->x photo
-You look at the security camera photo in the estate agency folder.
-
-The space is dominated by the unexpectedly symbiotic combination of a giant desk and a tiny woman, who together give the impression of being one complete single entity, like a centaur. The surface of the desk is invisible underneath a loose pile of glossy architectural magazines, manila folders, and real estate listings pamphlets. Behind it, a gunmetal-grey filing cabinet lurks unattractively in the far corner. The exit back out to the street is east.
-
-A taller, short-haired woman wearing JNCOs and an antique locket swings at the giant desk with an axe. You can't see her face, but... that can't be you, right? It looks like you...
-
-"Oh, hey, ignore that," Bethany tells you. "Our security camera got possessed a couple weeks ago and Ms. Rotier's been slacking on replacing it, that's all."
-
->x camera
-You look at the security camera photo in the estate agency folder.
-
-The space is dominated by the unexpectedly symbiotic combination of a giant desk and a tiny woman, who together give the impression of being one complete single entity, like a centaur. The surface of the desk is invisible underneath a loose pile of glossy architectural magazines, manila folders, and real estate listings pamphlets. Behind it, a gunmetal-grey filing cabinet lurks unattractively in the far corner. The exit back out to the street is east.
-
-A taller, short-haired woman wearing JNCOs and the mate of the first leather boot fights off a swarm of tarantulas, or whatever you call a group of a hundred tarantulas.
-
-"Seriously, it's just a standard malfunction, nothing to worry about," Bethany says.
-
->again
-You look at the security camera photo in the estate agency folder.
-
-The space is dominated by the unexpectedly symbiotic combination of a giant desk and a tiny woman, who together give the impression of being one complete single entity, like a centaur. The surface of the desk is invisible underneath a loose pile of glossy architectural magazines, manila folders, and real estate listings pamphlets. Behind it, a gunmetal-grey filing cabinet lurks unattractively in the far corner. The exit back out to the street is east.
-
-A taller, short-haired woman wearing JNCOs and a golden eyepiece advances on the smaller woman with a samurai sword. You can see her face this time. It's definitely you.
-
-"Seriously, don't worry about it," Bethany says.
-
->x magazines
-They've all got names like "SUPERIOR ABODE" and "SMUGLY MODERN" and "YURT FANCIER." You know what they mean by "yurt fancier" is "someone who fancies yurts," but you can't help feeling like they're implying the yurt is fancier than you are.
-
-(It is; it's made of cruelty-free faux beluga whaleskin and you, last time you checked, are not.)
-
->x pamphlets
-On the corner of the desk nearest the door is a stack of pamphlets listing all the homes for sale in Backwater. You assume you can take one if you want one.
-
->take pamphlet
-You take a pamphlet of home listings off of the stack.
-
->read pamphlet
-18 F'tagn Court
-|| 8 BR 1 BA || Quiet neighborhood! Completely redone with brand new floors and concrete-sealed basement. Hardly any muttering!
-
-36 River Walk Drive
-|| 3 BR 2 BA || Great river views and convenient for boating! Trawl for crayfish from the comfort of your living room. Entire upstairs still mostly above water!
-
-23 Euclid Street
-|| 2 BR 5 BA || An obelisk lover's dream! Extensive yard boasts a true infinity pool and an impressive collection of garden statuary, including twin sphinxes. Paradoxically nearby to everything!
-
-Underneath the description of 23 Euclid Street, someone has scrawled the words "JACKDAWS LOVE MY BIG SPHINX OF QUARTZ."
-
->ask Bethany about 23 Euclid
-"We definitely have a folder for that! One sec," Bethany says, turning to search through the filing cabinet.
-
->put paperback in bp
-(first taking Twin Hearts Between the Planes)
-You utilize the skills you trained long and hard in the finest shopping malls of the greater Dallas-Fort Worth area. Moving like a rattlesnake (except without the rattling, obviously), you silently slide the lion sex book out from underneath the folders and slip it into the pocket of your JNCOs before Bethany has a chance to turn around.
-
-~~Lion sex book GET.~~
-
-You put Twin Hearts Between the Planes into the book pocket.
-
-"Here's the folder!" Bethany drops the folder onto the desk.
-
-
-"Back in the 70s it was hip to build your pad on top of a transdimensional leyline nexus even though that plays hell with the electrical wiring," Bethany tells you. "It's a genuinely cool property, though. I've been over there a couple times to check the portals. One of the sphinxes and I get along great, the other one is all pissy with me because I solved all its riddles in three minutes."
-
-She sighs. "I offered to help it write new ones and, like, centralize a database? But now whenever it sees me it just rolls its eyes and makes fart noises, and I'm all, 'Real mature, sphinx.' It makes it super awkward chatting with the other one 'cause they're only ten feet apart from each other but the house is still really cool. There's an infinity pool and everything."
-
->x Euclid folder
-The folder for 23 Euclid Street is full of what you at first take to be someone's collection of midcentury modern cocktail napkins, then quickly realize is someone's collection of sphinx porn, crudely sketched onto midcentury modern cocktail napkins.
-
-"Yeah, there's a lot going on in that folder," says Bethany. "I was gonna warn you, but then I thought, nah, you look like a woman who can handle her sphinx dong."
-
-"Oh, I definitely am," you assure her, staring down a pair of cartoon sphinxes with comically oversized genitals engaged in a sex act you know only as the Disappearing Ball Trick.
-
-"Wanna know the really funny part?" Bethany asks you. "Sphinxes are asexual. I literally don't know why we hold on to these napkins."
-
->x napkins
-You're definitely a woman who can handle her sphinx dong, don't get yourself wrong, but you don't really need to look at the -- good Lord, are they doing the Chattanooga Twanger? You slide your eyes away and gingerly shut the folder.
-
->ask Bethany about 36 River Walk
-"We've got a folder for that!" Bethany says, turning to search through the filing cabinet.
->again
-"Just a sec," Bethany says, voice echoing weirdly. You turn to look and she's got her head almost completely inside one of the cabinet drawers.
-
-"Bam! Folder found!" Bethany drops the folder onto the desk.
-
-
-"You know that ad where someone gets chocolate into someone else's peanut butter and someone else gets peanut butter into someone else's chocolate?" Bethany asks you. "That is basically what happened with 36 River Walk Drive except instead of a peanut butter cup you have a mostly underwater house and instead of being delicious it is soggy and bad."
-
->x River folder
-The folder for 36 River Walk Drive is completely waterlogged. Carefully, you pull away the top layer of manila. Inside is a large clump of illegibly smeared, soggy paper that rips apart when you attempt to separate the pages.
-
-"You're probably thinking that file is all wet because the property sank into the river and there's some kind of sympathetic magic in effect," Bethany says, "but what actually happened was, I dropped it in the toilet. My bad!" You quickly put the folder back down.
-
->ask Bethany about 18 F'tagn
-"We definitely have a folder for that! One sec," Bethany says, turning to search through the filing cabinet.
-
->again
-"Just a sec," Bethany says, voice echoing weirdly. You turn to look and she's got her head almost completely inside one of the cabinet drawers.
-
-"Folder located!" Bethany drops the folder onto the desk.
-
-
-"Some crazy stuff went down at 18 F'tagn Court," Bethany tells you. "In fact, there was this huge mess and we had to change the floors."
-
-"The floors?" you ask.
-
-"You see, his bl-- his blackyard blarbecue got a blit out of hand." She tightens her lips. "And it, uh, blurnt the floorbloards. So we had to change them."
-
-You quirk an eyebrow at Bethany and she deflates.  "Sorry," she says, "I keep forgetting I'm supposed to lie about F'tagn Court, and wow am I really not great at it. Wanna know about any buildings where they didn't find a ton of faceless bodies?"
-
->x F'Tagn folder
-The moment you slip your thumbnail between the two layers of the folder to separate them, the real estate office fills with a horrible shrieking as though angels were being torn limb from limb by an ungodly threshing machine, and you quickly withdraw your hand. "Yeah," Bethany says, "yeah, it does that."
-
->x coffee
-The swirls in your cup form a blank, mirrored surface. Lack of a symbolic image means that you have accomplished everything you must in your current environment and should move on to find new challenges in order to grow as a person.
-
->east
-
-Outside the Library (Gavin Inglis)
-A short street terminates here. To the south it opens into the town square. To the east, a few worn steps rise to the entrance of the public library, and to the west you can see a real estate office. A gloomy path leads northwest, towards the woods.
-
-You can see a notice board here.
-
->x paperback
-A somewhat battered paperback whose lovingly fantasy-painted cover features a corseted steampunk woman embracing a Regency period nobleman -- who is also an anthropomorphic lion -- in space. "TWIN HEARTS BETWEEN THE PLANES," raised letters proclaim. "LEELAH VAUGHAN."
-
-Beneath the author's name, smaller text inside a sunburst informs you that this book was a 1981 Venus Rising nominee for "Best Sexual Tension." A shelving label for the Backwater Public Library covers the lower spine "[FIC / ERO / ANIMA / FELIS / YIKES]".
-
->read it
-You look at the inside cover of the paperback. The library insignia, a pair of back-to-back crescent moons flanking an eye which stares down at a book, is stamped here in purple. Underneath, in cursive, someone has written "For Mona with all the love in the world. Don't take Jim back. He's bad news." Following this is a loopy flourish of a signature you take to be "Leelah Vaughan."
-
-[You can continue to READ the lion sex book; this is excerpt 1/7.]
-A snap like ice cracking behind you makes you jump. You turn to see a chalky spark hovering near you.
-
-As you finish reading the passage, the spark moves through the book with an eerie hum, leaving frost behind on the library insignia.
-
->again
-(You flip open the lion sex novel and read a page at random.)
-
-"You're leaving? Now? I don't understa--" She held her hands up to protest, but instead found herself clutching the manuscript-sized envelope he pressed into her chest.
-
-His voice was low and urgent in her ear, forcing a shiver to the base of her spine. "There's no time to explain. Keep this safe. If you believe in me, we'll see each other again."
-
-"Hey, wait up now!" she called after him as he rounded the bend in the stairs. "The hell you going, Steve?" The door closed with a self-assured thump, and she was alone.
-
-A few moments later, back in her office, she pulled the manuscript out of its envelope. It was thick; several hundred pages at least. Scrawled across the first was a simple four-word message: "THEY CAN'T SEE STORIES."
-
-[You can continue to READ the lion sex book; this is excerpt 2/7.]
->again
-(You skim ahead a little bit in your lion sex book and find the next interesting bit.)
-
-One fierce blow from his assailant sent his flintlock pistol clattering onto the cobblestones. A second blow, this one to his gut, knocked the wind out of him and doubled him over. "This is it," he thought, "this is how I die, bludgeoned like a gopher by a third-rate murderer in the alleyways of 1890s London."
-
-Just then, a mysterious interloper appeared from among the shadows to brain his attacker with a lead pipe, dropping the tough to the ground without so much as a grunt. Nodding in satisfaction, she pushed her gear-encrusted goggles to the top of her head. "Can't say I'm too impressed with this time period," she told him. "It's got sanitation problems for real."
-
-"Portia?" Steve gaped at her like a puzzled fish. "What are you doing here?"
-
-She pulled a manuscript-sized envelope out of her cloak and waved it at him. "I believe in you," she said, "and that's important for our relationship, but what's important for our lives right now is that we run like hell."
-
-[You can continue to READ the lion sex book; this is excerpt 3/7.]
->again
-(You open the lion sex book somewhere in the middle and read an excerpt.)
-
-Portia jumped away from him so hard that she almost fell backwards over the fainting couch. "Steve!" she exclaimed. "You're a lion!"
-
-"I've always been a lion," he explained. "I just deactivated the field that keeps people from noticing I'm a lion."
-
-Portia's voice became a plaintive wail. "The hell, Steve? You had sex with me, I had sex with you, and you were a lion this whole damn time? The whole time!"
-
-[You can continue to READ the lion sex book; this is excerpt 4/7.]
->again
-(You continue reading the lion sex book right about where you left off.)
-
-"I had lion dick in me?" Portia's voice was becoming dangerously loud, and Steve glanced nervously at the Viscount, to make sure the drugs had not yet worn off. "Those things have barbs, Steve!"
-
-"Portia. Calm down. You would know if my dick had barbs."
-
-"My mama raised purebred cats, Steve, I have seen some crap, all right? I have seen some crap."
-
-Grimly, Steve removed his pants. "Here. I'll prove it to you."
-
-[You can continue to READ the lion sex book; this is excerpt 5/7.]
->again
-The next approximately eighty-seven pages are all lion sex. All of them. All of it.
-
-[You can continue to READ the lion sex book; this is excerpt 6/7.]
->again
-You flip to the very end of the lion sex book [spoilers]. It ends with Steve and Portia retiring to a stable time loop somewhere on Approximate Earth to raise their half-lion (and quarter-dolphin? when did that happen?) kids.
-
-Just inside the back cover, someone has written: "BJIYO -- SIX TIF J MOXXMD NIYDXLOBS WHIY XLD CFHOI NLIG. CLDCE XLD LOKKDB GICEDX IW TIFH AJCEGJCE. BIU SI SDX TIFH YJB, SOHM! O SIX YOBD JBK UD'HD KIOBS SHDJX. (LD NJTN LO & SIIK MFCE.) MIQD, JFBXOD NXDMMJ"
-
-[This is the end of the lion sex book, but you can READ it again to start over from the beginning.]
->x hidden pocket
-You feel around inside the backpack until you find the zipper pull cleverly disguised as a loose piece of thread. This must be a hidden pocket!
-
->open hp
-You open the hidden pocket, revealing a trolley pass and a trolley schedule.
-
->x pass
-A small blue piece of laminated cardboard that says "BACKWATER TROLLEY MONTHLY PASS" in tidy serif font, with a yellow rope lanyard for you to hang it around your neck. You pray to any gods listening that you and Peter will be on a faraway beach together by the time the pass expires.
-
->wear pass
-(first taking the trolley pass)
-You put on the trolley pass.
-
->x trolley schedule
-It's unlike any public transit schedule you've ever seen, in that there are no times listed. A cheerfully phrased block of introduction text instructs riders to hang their passes around their necks, proceed to a trolley stop, and WAIT FOR whatever color LINE corresponds with their choice of destination. Well okay then.
-
-Destinations:
-Brown Line -- Train Station
-Gold Line -- Church
-Blue Line -- Library Square
-Green Line -- The Woods
-
-
->put winding key in mp
-You put the brass winding key into the Jansport backpack.
-
->put postcard in sp
-You put the postcard of Big Ben into the side pocket.
-
->put diary in sp
-You put the diary of Phyllis Cragne into the side pocket.
-
->put locket in sp
-(first taking it off)
-You put the antique locket into the side pocket.
-
->put shabby journal in bp
-You put the shabby journal into the book pocket.
-
->put moldy journal in bp
-You put the moldy, waterlogged journal into the book pocket.
-
->put Dollmaker's in bp
-You put The Dollmaker's Journal into the book pocket.
-
->put trolley schedule in mp
-(first taking the trolley schedule)
-You put the trolley schedule into the Jansport backpack.
-
->put flashlight in mp
-You put the waterproof flashlight into the Jansport backpack.
-
->put battery in mp
-(the small, rectangular battery in the Jansport backpack)
-You put the small, rectangular battery into the Jansport backpack.
-
->put label in hp
-You put the label into the hidden pocket.
-
->put glass jar in tp
-You put the glass jar containing an insect into the trash pocket.
-
->put spire in tp
-You put the cast iron spire into the trash pocket.
-
->put leaf in tp
-(first taking it off)
-You put the giant milkweed leaf into the trash pocket.
-
->put doll in mp
-You put the pull-string doll into the Jansport backpack.
-
->put watch in mp
-(first taking it off)
-You put the familiar gold wristwatch into the Jansport backpack.
-
->put pamphlet in tp
-You put the pamphlet of home listings into the trash pocket.
-
->put cup in mp
-You put the half-full styrofoam coffee cup into the Jansport backpack.
-
->put handbook in bp
-You put The Modern Girl's Divination Handbook -- Volume Three into the book pocket.
-
->close kp
-You close the key pocket.
-
->close bp
-You close the book pocket.
-
->close sp
-You close the side pocket.
-
->close tp
-You close the trash pocket.
-
->close hp
-You close the hidden pocket.
-
->inventory
-You are carrying:
-  a trolley pass (being worn)
-  a Jansport backpack (being worn and open)
-    a half-full styrofoam coffee cup
-    a familiar gold wristwatch
-    a pull-string doll
-    a small, rectangular battery
-    a waterproof flashlight
-    a trolley schedule
-    a brass winding key
-    a hidden pocket (closed)
-    a key pocket (closed)
-    a book pocket (closed)
-    a side pocket (closed)
-    a trash pocket (closed)
-    a backpack features guide
-  a hovering spark (haunting you)
-
->east
-
-Backwater Public Library (Carl Muckenhoupt)
-This is unusually spacious for a small-town library. You think you remember something about it being a national historical site? That would explain the decor, at least. It's half rustic colonial, half modern budget-strapped public service, with a meager collection of creaky shelves standing in the middle of an old plank floor. A small display case stands prominently near the entrance, and some weird chairs are scattered around for the comfort of the patrons, none of whom are here at the moment. The sole exit is back to the west.
-
-A fleece jacket is draped over the back of one of the chairs.
-
-A librarian stands behind a counter.
-
->x case
-In the display case are a plaque and a big black book.
-
->x plaque
-DE VERMIBUS LACERIS
-
-In 1630, the eccentric scholar and polymath Henry Danton Gules came to America to study the superstitions of the Abenaki people, who he was convinced held "the secrets of the earth". He spent much of the next eight years living among them, learning their language and folklore. Or so he claimed; his accounts of his experiences range from the highly exaggerated to the outright fabricated.
-
-"The native storytellers have shown me wondrous things. Under the mountains are caverns without limit, where great beasts roam, and feed upon the buried dead..."
-(Letter from Gules to a colleague)
-
-During this time, he wrote two books, under the pseudonym "Azban" (a trickster figure from Abenaki legend). One, now lost, was a text on a language that he called "Adamic", which he claimed was the original language spoken before the fall of the Tower of Babel. The other, displayed here, is De Vermibus Laceris, which he described as "completing the known principles of ritual magic by reuniting them with the forgotten wisdom of the ancients". Most of the book is written in a mix of Latin and English, but some of the more theoretical passages, including several entire chapters, are in Adamic, and have not been translated.
-
-In order to publish these books, Gules helped to finance the first printing press in New England in 1638. However, he never saw them printed, due to his disappearance in the great New Hampshire earthquake later that year. The few copies that had been made were declared "blasphemous" by Massachusetts Bay Colony governor John Winthrop, who ordered them destroyed. It was believed that no copies survived until 1986, when the volume displayed here was discovered concealed in a wall of the Backwater Public Library during renovations.
-
->x black book
-A massive tome, with ragged pages bound in badly-decayed black leather, laid open on a stand.
-
->read it
-The grimoire in open on a page describing peeling open the way to someone lost, whether they be in this world or not. You gather from the prelimaries that the ritual involves the horn of a black goat and a cyst from a god, as well as the lost one's true star sign and their most treasured memento. How the ritual is actually performed is further in the book on the pages you currently cannot see.
-
-
-The librarian looks at you.
-
->x librarian
-An old woman with severe features, primly dressed, with slate-gray hair tied up in a bun. She's almost a caricature, and seems as antique as the building.
-
->x counter
-Just a simple wood-veneer slab with a large version of the library insignia painted on. There's a sign mounted on it, and a small cart stands to one side..
+>x secondary
+(the secondary fountain)
+The smaller fountain is nearly obscured by the disturbed ivy.  Its bowl is filled with decaying leaves and crawling insects, and rust covers all its exposed metal.  A crumbling sign is mounted in the brick above the spout.
 
 >x sign
-QUIET PLEASE
+COLORED
 
-The librarian catches your eye and points at the bookshelves. There's something odd about the way she moves. You can't quite put your finger on it.
-
->x jacket
-Hey, isn't this Peter's jacket?
-
-Yeah, it totally is! It's got that worn-off section on the elbow from your bike trip together. I guess he must have been in the library recently and left it there. Only... how could anyone forget their jacket in this weather?
-
-In Peter's jacket is a library card.
-
-The librarian looks at you.
-
->take jacket
-A card flutters to the ground as you pick the jacket up. Almost involuntarily, you stoop and pick it up too.
-
-The librarian fusses about behind the counter. There's something eerie about how quietly she moves about the library. You can hardly take a step without a floorboard creaking. It's like she weighs nothing.
-
->x card
-A battered beige rectangle with rounded corners, printed with the library insignia, and bearing the words:
-
-PETER CRAGNE
-CRAGNE MANOR
-is entitled to borrow books from
-BACKWATER PUBLIC LIBRARY
-Backwater, Vermont
-and is responsible for all books taken on this card
-Expires APRIL 1998
-No 19078
-
-A little metal dealy clips through the cardboard, with a mirror-reversed version of the ID number stamped into it. They really haven't upgraded their systems in a while.
-
-The librarian disappears between the shelves for a bit, then returns.
-
->show library card to librarian
-She takes the card from you and fusses with some machinery behind the counter. You hear the buzz of a dot-matrix printer, and then she gives you back the card along with a note.
-
->x note
-ATTENTION PETER CRAGNE
-
-This is your notification that your status with the Backwater Public Library is DELINQUENT due to NON-RETURNAL.
-You are NOT PERMITTED to check out books or to access special library materials until your status is cleared.
-
-To clear your status, you must return ALL books you currently have checked out:
-
-    To Have, and To Have Knots: An Illustrated Guide
-    LVPB
-    The Dollmaker's Journal
-    Twin Hearts Between the Planes
-    Backwater Personalities (1915-1925 edition)
-    Tolerating An Asinine God
-    The Lives of the Roman Emperors
-    De Zeven Testamenten van de Krijsende Zeeworm
-    Venator in Tenebris
-    'Pataphysical Approaches to Quantum Superfluids
-    Legends of Lake Champlain and the Hudson River Valley
-    A Rudimentary Taxonomy of Known Scent and Grotesque Reactions
-    Life Beneath Nightmares
-    A Diver Swims Through It: Stories From the Sea
-    The Seven Gaunts
-    New England and the Bavarian Illuminati
-    ANCHORHEAD. A What-do-I-do-now Book Based on the Works of MICHAEL GENTRY
-
->ask librarian about Peter
-With whip-like speed, she raises a finger to her lips and shushes you vigorously, then points at a sign on the counter.
-
-You glance around. There's no one around who you could possibly be disturbing.
-
->x cart
-A rusty-wheeled little convenience with bright floral contact paper wrapped around its carrying surfaces.
-
->x chairs
-A collection of tired-looking wooden sculptures with orange vinyl cushions on them.
-
-The librarian nods at you curtly. It really seems like she doesn't blink enough. Or at all.
-
->x shelves
-The books don't seem to be in any particular order. You can browse if you like, but good luck finding anything specific.
-
-The librarian stamps something.
-
->browse shelves
-A cursory search turns up the middle volume of a best-selling fantasy trilogy. Disappointed, you put it back.
-
->again
-You randomly pull out a badly-damaged collection of old newspaper funnies. Wondering why anyone thought it belonged here, you return it to its place.
-
-The librarian looks at you.
-
->again
-Your hand comes to rest on a bound collection of tabloid front pages. Disappointed, you place it back on the shelf.
+>push rusty button
+The rusty button on the secondary fountain does nothing when you push it.
 
 >x coffee
-The clouds in your cup form a sailboat. Modes of transportation mean that your current environment presents challenges that can only be overcome by seeking fresh perspectives elsewhere until you're ready to return.
+The swirls in your cup form a roller blade. Modes of transportation mean that your current environment presents challenges that can only be overcome by seeking fresh perspectives elsewhere until you're ready to return.
 
-The librarian stamps something. You hadn't noticed before, but she doesn't ever seem to move her fingers. Her left hand is permanently in a pointing position, three fingers curled back. Her right is like a puppet's. She's probably a stroke survivor or something. You try not to stare.
-
->put jacket and library card in tp
-Peter's jacket: You unzip the trash pocket, deposit Peter's jacket, then zip the trash pocket back up again.
-library card: You unzip the trash pocket, deposit the library card, then zip the trash pocket back up again.
-
->put book list in bp
-You unzip the book pocket, deposit the book list, then zip the book pocket back up again.
-
->west
-
-Outside the Library (Gavin Inglis)
-A short street terminates here. To the south it opens into the town square. To the east, a few worn steps rise to the entrance of the public library, and to the west you can see a real estate office. A gloomy path leads northwest, towards the woods.
-
-You can see a notice board here.
-
-A ghostly trolley stop sign reads Blue Line -- Library Square.
-
->south
+>ne
 
 Town square, Backwater, VT (Marco Innocenti)
-The first thing you notice, when entering the open yards of the town square, is the soft breeze that relentlessly caresses the buildings. It is so unlike the warm, salty air you were used to back home that you finally realize how long your trip has been, and how far removed you are now from everything you once knew.
-
 The large, hexagonal-shaped square is paved with big, white stones, polished by rain and wind over the decades; around it, low red-brick buildings look like watching peasants. One single street leaves the square to the north, while less accommodating paths lead west, in the direction of a towering church, and southwest.
 Due east, an iron bridge crosses the river, and southeast, a walkway leads down to its bank.
 
 The swollen, slate-colored clouds that blanket the sky are reflected in the shiny, circular shape embellishing the center of the square, muttering ominous portents amongst themselves.
 
-Ominous portents, you murmur to yourself.
-Since that day, twenty years ago, when you first read them in a Lovecraftian novel during that uneventful summer vacation, you've been waiting for the occasion to use these words yourself. Another cold, harsh gust of wind interrupts you before you can decide whether this was a coincidence worth being happy... or scared about.
-
 A man is leaning on the bridge rail, staring intensely at you with his only eye.
 
->x shape
-The big emblem, one yard wide, is embedded in the center of the square like a manhole. The surface looks golden, although you seriously doubt it is anything more than pyrite. Its three rings surround a central circle tightened by bird claws with a single triangular mark pointing northeast. The rings themselves are bedecked by a series of symbols (outer to inner, then clockwise from north):
+>se
 
-BLACKBIRD |TREE      |SPARROW   |CUBE      |WOMAN     |FEATHER
-DAAN      |SHI       |AAK'EE    |HAI       |TLÈÈ      |JI
-PIG       |EYE       |WOODPECKER|CROSS     |FISH      |EAGLE.
+River Walk (Adam Whybray)
+A dirt path along the west bank of the Makaskuta - or Blackgourd - River. The air is motionless and sweltry, the urticariate heat drawing sweat profusely from your prickling glands.
 
->x stones
-You realize how the square is probably a perfect hexagon, such an uncommon feature in rural towns. The big, white stones forming its pavement are interrupted in the center by an odd... manhole, a circular shape representing an emblem of some sorts.
+Just below you, to your side, the river burbles in vainglorious stupor, foaming in bright patches from the surfacants released from the rotting deposits of the red maples and poplars that line its banks. A single black ash, denuded of leaves, its corky bark blighted with the telltale signs of parasitic infection, quietly interrupts the Autumnal foliage of its deciduous cousins.
 
->x buildings
-The houses, all alike, form a low wall (for a building, that is) that form a wobbly hexagon around the square. The red bricks have been polished by rain and wind over the ages and now appear like polyps in human tissue. No window shows signs of life, and many of the blinds are either closed or barred from the inside.
+The river's waters slith over rocks as lustrous-gray as seal skin, rending them freshly burnished for the mid-September sun, which casts Her rays in refulgent slats through the rust-honey colored trees. It is though Nature, in celebration of Her own fecundity, has chosen to offer Herself up in Equinoxical sacrifice - the rocks laid out before the blazing altar of the sun.
 
-You wonder where everyone's gone.
+There is a forbidding sign on the bank of the river.
 
->x man
-Tall and slender, the one-eyed man reminds you of someone you knew back in your hometown: a fisherman with as many stories in his pockets as years on his back, who went by the name of Captn Squinter. He used to know a lot of tales about tormented ships... or at least he was good at making them up. He vanished years ago in unknown circumstances.
+The way up to Backwater town square is northwest. Following the path north leads under the bridge.
 
->ask man about himself
-The one-eyed man blinks, showing some attention, but then ignores you.
+On the Makaskuta river is a buoy.
 
-"Mrs Cra-gnee, welcome to Backwater. He's been waiting for you".
+You can also see a grimy rock, a long hooked pole, a dying crawfish and a soggy tome here.
 
->ask man about welcome
-"Name's Cragne, Sir. But thanks. Do I know you?"
+A mistlike trolley stop sign reads Aqua Line -- River Walk.
 
-He smiles, and a phalanx of rotten, metal teeth opens up like a crack in the asphalt. "Oh, yeah -- har! har! -- sorry for the inconvenience, Mrs Crane. Didn't mean to offend you," he says, avoiding your question completely. "Did you visit the Manor already, Madam?"
+>read sign
+A wooden sign with a chunk missing from its bottom-right corner is embedded in the mud off the side of the path near the edge of the riverbank. Engraved in the sign is the message "Fishing and trapping allowed. Strictly no swimming."
 
->ask man about manor
-"So the Manor is..."
+>x river
+The river's name is said to date back to the 17th century, Christened by a local Algonquian tribe after the peculiarly black coloration of the cucurbita pepo gourds that sprouted in the floodplains south of Backwater. Natives believed local Jesuit Ministers to use the gourds in Devil worship and to prevent these rituals from taking place would uproot the warty vegetables and "drown" them in the river.
 
-"A very nice piece of a building, if you ask me, Madam. It dates back to the very... I mean: it is very old. But it never grows old, does it?"
+Across the 19th century, the Makaskuta became increasingly inhospitable to life due to the paper mills of Backwater discharging their untreated waste directly into its water - an industry that flourished in the period due to the competing demands of two local printing establishments which specialized in bound volumes of the letters, prayers and instructions of St. Ignatius of Loyola. By the 1870s the river was regularly running the color of strained tomato soup and, according to the 17th July 1874 edition of the Backwater Gazette, stank of "rank putrescence ... as though nothing borne of this Earth".
 
->ask man about old
-"It never grows old," you puzzle.
+Only the interventions of the mysterious philanthropist Dr. Elias Saltz, DDiv in the latter part of the 1960s were able to restore the Makaskuta to its once verdant glories. The good Doctor may also be thanked for the introduction of the C. Robustus genus of giant crawfish into the Makaskuta, for which it is now justly celebrated.
 
-He must see something in your eyes he doesn't like, as he is quick to continue: "I mean. Some styles never quite age, right?"
+The river babbles to itself complacently.
 
-The next second he's again staring into nothingness, to the far distances beyond his shoulder.
+On the Makaskuta river is a buoy.
 
->ask man about Peter
-"Do you know my husband? His name is Peter Cragne and..." you stop, looking for the right thing to say. "Well, I need to find him."
+>x buoy
+A buoy the color of a Caucasian's flesh bobs uneasily upon the water.  It certainly can't be for the sake of swimmers since the wooden sign makes it very clear this is prohibited. Perhaps some trappers are marking their catch?
 
-"Oh, Madam, how twisted is the fortune of a bride missing her groom! Although, these days, I come to think of it as a natural aspect of modern marriage, isn't it?"
+>x ash
+The scaly trunk of the black ash is marked by the signs of both fungal damage and the Emerald Ash Borer. Where sections of bark have flaked away from the trunk, weevil-wheedling paths of pale discoloration caused by the larval secretions of this virulent insect can be discerned. Epicormic shoots shamelessly sprout forth from this blighted trunk like unwanted fingers.
 
->ask man about marriage
-"You didn't answer my question," you insist. "Do you know where I can find Mr Cragne?"
+>x rock
+A solitary rock squats at the edge of the river bank, sullenly surveying the fresh, water-slick countenances of its semi-subnautical brethren.
 
-Captn Squinter points across the town square to a hill where you can see lights from Cragne Manor's upper balcony. The rotten finger displays a silver loop as big as a cherry pit. You fleetingly glimps a strange icon on it, covering the entirety of its flat top.
+>take it
+Taken.
 
-"Up there, Madam," he says with hollow voice. "that's where all the Cragnes rest."
+>x pole
+(the long hooked pole)
+A long stick of wood with a rusted copper fishing hook of approximately six inches attached to the end of it with thickly knotted twine. This is known to New England lobster trappers as a "gaff".
 
- You don't fail to notice how he finally pronounced your name correctly.  You shiver at the last word he used.
+>take it
+Taken.
 
->ask man about loop
-"Nice ring," you flatter him.
+>x crawfish
+A crawfish of unimaginable proportions skulks in a clump of weedy grass at the side of the path closest to the river. The fact that he is out of the water, just perceptibly twitching like a half-squashed insect and slowly drumming his spiny legs like an office worker pensively tapping his fingers on a desk, is a strong indication that under his hard carapace he is crawling with infection. He is broken, mouldering, no damn good despite his considerable size.
 
-The one-eyed man looks away. "I ain't got no ring," he says, hiding the hand in a pocket of the weary jacket.
+As though sensing your judgment, the crawldad's antennae tremble ineffectually.
 
-But you are pretty sure there was a ring on that finger. And it was so big it could be used as a seal for sealing wax. The stamp on it -- provided it was a stamp -- resembled something in the likes of an octopus, although you could swear it held more than a dozen tentacles.
+>x soggy tome
+A water-damaged and mud-stained book left forgotten on the riverbank by some freshwater lobster fisherman. Emblazoned upon the cover of the soggy tome is the title Padoson's Rules of Crawfish: A Guide for Men of Maine.
 
-Maritime symbols, you convince yourself, and don't insist further.
+The volume appears to be a personal copy rather than a library book. Perhaps the owner had gleaned all he could from the work and made any necessary transformations following Padoson's advice.
 
->ask man about himself
-"Who are you?" you ask.
+>take it
+Taken.
 
-The man smiles, as if you have asked the most trivial thing. "I'm a man made by the mountains, as you were made by the sea, Madam. I'm of no consequence, just a prop for indications."
+>read it
+You open to the first page of the book and read...
 
->ask man about He
-"He? Is someone expecting me?"
+"Crawfish, crawldads, mountain lobsters, mudbugs, yabbies, or however you know these mighty members of the Astacoidea and Parastacoidea superfamilies, have long been kin to the men of the New England, forging communities of inviolable hierarchy below water, much as we build and sustain such communities above. As with men, dominance determines these bio-mythic structures..."
 
-You start believing the stranger is referring to Peter... then something more sinister comes into play. Why would Peter be expecting you when he's the one gone missing, to begin with? And what's with the man's voice? Isn't it fascinatingly wrong enough to suggest more malice?
+You skip ahead.
 
-The answer leaves you puzzled: "Edwin, Madam. I suggest you pay a visit to the Manor, and have your questions answered."
+"Those crawfish stricken by the plague must invariably fall by the wayside much as the Spartans would throw weak and crippled newborn from the top of Mount Taygete, dashing the runts and striplings upon the rocks below."
 
->ask man about Edwin
-"Who's this Edwin? I know nobody by that name. And now that you mention it, I know nobody at all, up here!"
+Rhetoric of this nature seems to continue for several pages.
 
-The one-eyed man rubs his hands as if to heat them from a winter that's gone on too long. "Sir Edwin's a quiet man who mostly keeps to himself. But he's also a philanthropist, in his own way. I'm sure you would find him entertaining enough as to follow his lead, Madam. Or so I was told."
+"My father and I would sit together at the bank of the river and while father told me of the venal deceits of his wife we would catch those smallest crawfish - invariably the females of the species - which attempted to escape from the exit hole of the parlor, and father would delight me by cracking them upon his great bony knees. Later, when confronted with the disappointments of my youngest son, I would imagine taking him as my father had done the runtish bints, cracking him with satisfaction upon my own knee."
 
->ask man about entertaining
-"Entertaining?"
+You flick ahead to the middle of the book.
 
-"Oh, yes. He knows a lot of tricks. And he has gifts. Gifts for all that are bold enough to follow his example."
+"By means of these simple hand-binding exercises you will be able to Set your Claws in Order. While the experience will be painful at first, you must NEVER INDUCE YOURSELF INTO THINKING THAT LIFE IS ANYTHING OTHER THAN PAIN."
 
->ask man about gifts
-"Gifts?".
+There follows pages of bewildering diagrams which seem to depict men with lobster appendages fighting the Swimmerets of Chaos.
 
-"Oh, yeah Madam. Very nice gifts, and very precious ones too. He has a gift for each one of us, and each gift is tailored to its intended bearer's wish. He gave me one, too, and promised I'd be free of it once the mid-summer woodpecker sings. Wanna see it?"
+"... until the blood takes the form of a transluscent white gel, which you should then inject ... commercial fishing licences ... scream in the water like egg-burst women ... telomerase now in the DNA of your cells is the Chrysopoeia ... baptized by briny Neptune ...  dying and molting and eating oneself in the charnel house of bloodied bones ... "
 
->ask man about told
-"Do you even happen to know this man... Sir?"
+From hereon in the words become incomprehensible.
 
-"Oh, everybody in Backwater knows about Sir Edwin. They know of his heritage."
+Intellectual stuff.
 
-He then scrubs his hands -- showing for the first time a vast irritation, a blotch of red, dead skin, covering both his palms -- and sends the glance wandering to the southeast, from where a cold, inhumane sirocco comes wailing abruptly. You hold on to your garments.
+>fish river
+You fish the Makaskuta with the long hooked pole, thrusting it down into the water beneath the buoy, where it knocks against something heavy and - judging by the feel of its contact against the pole - wooden. You manage to manoeuvre the hook between what you presume to be two planks of wood and then, with considerable effort, pull the mysterious object to the riverbank. It is a freshwater lobster trap!
 
-"We are his heritage, after all."
+>x trap
+(the freshwater lobster trap)
+The trap looks rather like a rabbit hutch, approximately 600 mm in length, almost cuboid but slightly curved at the top edges so that its width is marginally more narrow at the top than at the bottom, where it measures around 300 mm. The framework of the trap seems to be made of slats of ash, which goes some way to explaining its weight. Along one side of the trap is a wire-frame mesh door attached to the body of the trap with copper "J Clip" hinges, long rusted. The door is held shut at the other end by two thin loops of twine, which are tied tight at a point two-thirds up and two-thirds down the length of the door, opposite the hinges. Along the other side of the trap is a funnel-shaped opening of netting, which grows narrower as it recedes into the trap.
 
->ask man about heritage
-You take a deep look into his eyes, checking for the remnants of this figure's sanity. "You are his heritage," you whisper.
+The kitchen (the funnel-shaped netting), the parlor (the trap's second chamber), and the bedroom (the trap's false exit) are all parts of the freshwater lobster trap.
 
-The man laughs abruptly, startling you.
+In the freshwater lobster trap are an employee ID card and an eggbound crawfish.
 
-"We, Mrs Cragne, Madam. Us and you. Everybody. Everybody in Backwater is his heritage. And everyone that's ever been here. It's always been like that, and it always will. He put his gentle hand on our hearts -- mine and yours, Madam -- and since then we got to see beyond the veil that divides the worlds."
+>x employee card
+An employee ID card for Vermont Transit Authority, bearing a blurry ID photo and the name "Veeder, R."
 
->ask man about veil
-You widen your eyes in disbelief.
+>x eggbound
+The eggbound crawfish is considerably smaller than the tragic, moldering specimen upon the bank - around six inches in length, but with antenna that resemble long curving tendrils, notably large for her size of body. She reposes in the trap's bedroom, occasionally skittering back and forth like an armor-plated insect.
 
-"Find Sir Edwin," he says, with a relaxed smile. "He has all the answers. He will show you things."
+The crawfish's swimmerets are laden with eggs the size and color of tinned peas. The eggs sway back and forth like grapes upon a vine, wafted by their mother to ensure their aeration.
 
->ask man about see
-You lose yourself inside the man's only eye. For minutes, or hours, you stare into a vast, expanding abyss of pure blackness, increasing its circle as a dark stain of bleeding oil.
+>kill dying crawfish with rock
+You raise the grimy rock high above your head and bring it crashing down upon the dying crawfish immediately splitting open its carapace revealing diseased creamy flesh the color of cooked chicken. Its eyestalks swivel wildly towards you and its periopods flicker like the eyelashes of a man trying desperately to awake from a nightmare.
 
-Then, something happens.
+You bring the rock down again and again, smashing rostrum and cephalothorax to shribbons until all that remains are fragments of shell, with a tail and two front claws emerging from a pulped mound of rotting flesh. The stench is intolerable.
 
-He grabs your hand and pulls it towards his jacket. Before you know what you're doing, your fingers latch onto the fabric and start pulling it open. Where the man's body should be, is the same engulfing darkness you saw in his eyes. Twisting, twirling like a thousand microscopic suns, like the limbs of an ever-forming galaxy. In a few seconds the jacket is open and you can't see anything other than this despair, like it is devouring you.
+While most of the shell of the dead crawfish is riven into tiny pieces, one especially sharp looking shard stands out from the rest.
 
-You are falling into it.
+>take shard
+You pluck the shard from the fishy mulch, being careful not to cut yourself.
 
+>x it
+An especially sharp and vicious looking shard of shattered crawfish carapace.
 
+>cut twine with shard
+(the thin loops of twine with the shard of shattered carapace)
+You cut through the twine with the sharp edge of the shard of the crawldad's shell. With the twine no longer securing the door of the trap, it swings open.
 
-
-
-When you regain consciousness, the man is gone, and with him all his secrets. You are left standing disconcerted near the iron bridge, questioning if any of this really happened... and your own sanity.
-
->undo
-Town square, Backwater, VT (Marco Innocenti)
-[Previous turn undone.]
-
->ask man about rings
-"What is this... emblem, in the center of the square?"
-
-"It is a symbol of sorts. Don't know much about it. Except that you can see similar... designs scattered all around Backwater. Usually, though, they are hidd-... I mean: less exposed. They represent some sort of feast, or the likes of it. But, then again..."
-
-He scratches his nose.
-
-"The inscription are in Navajo," he concludes.
-
->ask man about Navajo
-"The old Indian language? Aren't they supposed to originate, like, thousands of miles from here?"
-
-"You can't really understand the history of this town if you aren't ready to accept some level of absurdity, Madam."
-
->ask man about Backwater
-"What do you know about this place?" you ask.
-
-"This place? You mean Backwater?" You nod. "Oh, it is just a small town, the likes of which you can find everywhere in America. In rural America, I'd say. It's not about the town, anyway. It's about the magic. Isn't it?"
-
->ask man about magic
-"Magic?"
-
-The man smiles, providing no further insight.
+>take employee card
+Taken.
 
 >x coffee
-The clouds in your cup form the engine of a train. Modes of transportation mean that your current environment presents challenges that can only be overcome by seeking fresh perspectives elsewhere until you're ready to return.
+The clouds in your cup form -- weird, they've entirely dissipated. Lack of a symbolic image means that you have accomplished everything you must in your current environment and should move on to find new challenges in order to grow as a person.
 
->sw
-The man returns to his pretended duties, while keeping his one eye one you.
+>put soggy tome in bp
+You unzip the book pocket, deposit the soggy tome, then zip the book pocket back up again.
 
-Drinking Fountain (Lucian Smith)
-A public drinking fountain is placed in a nook here, nearly overgrown with ivy.  You can return to the town square to the northeast.
+>put employee card in mp
+You put the employee ID card into the Jansport backpack.
 
->save
-Enter saved game to store: drinking-fountain
-Ok.
+>put rock, pole, shard in tp
+grimy rock: You unzip the trash pocket, deposit the grimy rock, then zip the trash pocket back up again.
+long hooked pole: You unzip the trash pocket, deposit the long hooked pole, then zip the trash pocket back up again.
+shard of shattered carapace: You unzip the trash pocket, deposit the shard of shattered carapace, then zip the trash pocket back up again.
+
+>north
+
+Under the Bridge (Tenth)
+The path along the river gives way to a crumbling stone embankment as it passes below the arch of the old stone bridge. A rusty metal hatch is set into the ground opposite from the river, and towards the end of the embankment, a derelict payphone squats, forgotten, under the shadow of the bridge. To the south, the path continues to follow the river.
+
+>x bridge
+A once proud part of Backwater's infrastructure, now crumbling into ruin. The decorative carvings along the sides have worn away to faint impressions, and much of the underside has been patched with lighter-colored concrete.
+
+>x river
+The river splashes fitfully against the crumbling stone of the embankment, dark and murky in the shadows. The wrinkled surface of the water yields a rough reflection, an animated expressionist painting of the bridge and sky above.
+
+Your eyes are drawn to a dark shape, silhouetted against the sky - While indistinct in in the reflection, it resembles a figure leaning over the railing of the bridge...
+
+>x figure
+You're not sure what you thought you saw in the reflection; A figure, almost like a woman in an old-fashioned hat? But looking up at the bridge, there doesn't seem to be a person or... anything, really, along the edge of the railing.
+
+>x hatch
+The humidity of the river has rusted the hatch to the color of dried blood, like an old scab on the embankment. Seemingly of the same vintage as the bridge, it lacks any modern logo, markings, or even a handle, though there is an odd rectangular indentation along one edge.
+
+>x indentation
+The indentation in the hatch is a little over an inch long, about half as wide, and seems too shallow to make a good handle, even if it didn't look like a jagged-edged tetanus-shot-waiting-to-happen... Which, for the record, it does.
+
+>x payphone
+The payphone has been vandalized exhaustively over the years; The shelter is covered in graffiti, while the phone itself has been scratched, stained, spraypainted, and used as an ashtray, among other things. While there is a grievous wound where a large piece of the phone was torn out, there is still a coin slot in the upper right, a keypad in the center, next to the receiver, and a coin return in the lower right; Probably about as much of a phone as necessary to place a call.
+
+But you find yourself strangely reluctant to touch it, as if you would be disturbing a grave, or a shrine to some nameless Backwater god...
+
+>read graffiti
+There's no obvious place to start reading; Every inch of the panels are inlaid with high school scrimshaw, but your eyes are initially drawn to a cartoon dagger (or acorn? green pepper?) and the inscription "I don't ever wanna feel, like I did that day..."
+
+>again
+You've already lost track of where you started, and find yourself looking at the phrase "Black Number ONE", surrounded by tiny skulls and... hearts?
+
+>again
+Adrift on a sea of outsider folk art, you briefly lock eyes with "LISA LOEB IS A HACK", and a careless scribble you'd politely describe as "genitals".
+
+>again
+Your eyes struggle to find purchase on the maze of scribbles, briefly settling on "For a good time CALL 911"... Sheesh. it doesn't really work as a prank, or a joke..
+
+>again
+Maybe scrimshaw was the wrong metaphor... It's more like the phone went to prison and got all inked up with jailhouse tattoos, such as the letters "AC", an angry looking lightning bolt, and "DC".
+
+>again
+It's like a message board for bored teens; You'd almost say "a fire hydrant for stray dogs", but that seems cruel, even given "PEARL JAM", followed by "Jeremy!" (crossed out), "Black?" (also struck out), and finally, "EVENFLOW" (underlined repeatedly for emphasis).
+
+>again
+It doesn't seem like there's a whole thesis here, but... at least an anthropology paper? You try to focus, finding yourself looking at "WINONA FOREVER", of which the "NA" has been cleverly scribbled over.
+
+>again
+If you've learned one thing from this phone, it's to not hang out under a bridge with a bunch of miscreants. That's how you end up inscribed with an enthusiastic but flawed "ASE OF BASE" logo inside a jagged polygon.
+
+>again
+You must have read everything... Or so you thought, but then you find a whole extra column of scribbles, starting with the phrase "BADMOTORFINGER", presented boldly and without comment.
+
+>again
+Trying to make sense of a knot of graffiti, you follow a trail of scribbled stars to the number 258-0987, flanked by loosely drawn stars.
+
+>x coin return
+A narrow, grimy metal flap, stamped with the words PUSH FOR COIN, protecting the small chamber where your change should end up after making a call (though you have your doubts, given the condition of the phone).
+
+>x coin slot
+Set into a slightly rounded recess in the phone's faceplate is a thin slot, about the height of a quarter, labeled "5-10-25" and "US COINS ONLY".
+
+>x receiver
+An old, battered black plastic handset, connected to the phone by a segmented metal cable that reminds you of a rat's tail. It is hanging from a metal lever, the unfortunately named "cradle", like an unpleasant piece of meat on a hook.
+
+>x keypad
+A fairly standard telephone keypad. The buttons, once silver, and now more of a muted, nicotine-stained gray, include the first nine digits, in rows of three, followed by a final row containing the star, zero, and pound keys:
+ 1 2 3
+ 4 5 6
+ 7 8 9
+ * 0 #
+
+Twelve silver keys - Wasn't that an Elizabethan-era occult thing? Something to do with John Dee, Enochian angels, and other nonsense...
+
+>push coin return
+You press on the coin return with your finger, meeting some resistance, but it finally swings inwards with a soft crunch. Something dry and hard tumbles under your fingertip (it's not a tooth, why the hell would there be a tooth...) but as you jerk away your hand in revulsion, you also manage to fling an old quarter into your palm.
+
+>x quarter
+An ancient, discolored, battle-scarred US quarter, still proudly worth 25 cents. While the tail features a bald eagle, the George Washington profile on the head side has been... damaged.
+
+>put quarter in coin slot
+The phone swallows the coin, jingling in satisfaction. There is a buzzing and rattling deep inside, before a faint hiss of static becomes audible from the receiver.
+>take receiver
+You lift the receiver off the cradle, trying to not to think too much about the associations of that word.
+
+>dial 911
+There is an odd squawk of static on the line, followed by a few seconds of quiet hissing, before a distorted male voice begins to crackle through the speaker. It's... hard to make out, with gaps of silence and bursts of static, but you're fairly certain it's telling you that Emergency Services are not currently available on this exchange, and to try your call again shortly... Or that "the throne of heaven sits empty?" Something like that.
+
+>hang up
+(the phone receiver)
+You put the phone back where you found it, and hope it stays there.
+
+There is a solemn clunk from the heart of the phone, and something clatters to (an upsettingly crunchy) stop inside the coin return.
+
+>x coin return
+A narrow, grimy metal flap, stamped with the words PUSH FOR COIN, protecting the small chamber where your change should end up after making a call (though you have your doubts, given the condition of the phone).
+
+>push return
+You take a deep breath, and gingerly poke the coin return with your finger, deftly scooping out the quarter without touching... anything else.
+
+>put quarter in slot
+The coin clatters down into the depths of the machine. Deep inside, something rattles into place, and the receiver begins to hiss softly with static.
+>take receiver
+You reach towards the phone, as you would towards a spider that seems almost certaintly dead, but might not be, before finally taking it - You bring it up to the side of your head in much the same way.
+
+>dial 258-0987
+As you dial the number, pressing the buttons down the middle row, and then across the next-to-last row, from left to right, you realize that you have made the sign of the cross on the keypad... But upside-down and backwards.
+
+It's pretty typical high-school occult bullshit, but before you can roll your eyes, the phone buzzes to life, and, as if from a great distance, you begin to hear ringing on the other end of the line.
+
+The ring repeats three times, and then stops, leaving you in an ominous silence. Even the restless sound of the river behind you has stopped, and you are suddenly conscious of how, facing the payphone, you've turned your back on the water.
+
+>x river
+The surface of the river has become completely still, like a mirror; You feel as though you could fall through it, into the blue sky beyond the bridge...
+
+The bridge in the reflection is sound and whole, new as the day it was built, and instead of rotting patches of concrete, the underside is covered in a colorful painted mural. Roughly oval in shape, it features a vivid green, eel-like creature with a wavy frill, curled around as though ready to bite its own tail. You don't totally follow the motto encircling it... Something about the commission of an officer? Or an office? But the words "Croceate" and "Variegated Court" stand out.
+
+You tear your eyes away from the mural, to the railing of the bridge, as a woman leans over the edge, wearing an old-fashioned hat...
+
+"VAAAAAAA!" shrieks the phone, causing you to jump and almost drop the receiver, "DIIIIIIIIIGH..."
+
+You frantically slam the phone back down into the cradle, out of sheer panic, and there is a loud splash behind you.
+
+>again
+The surface of the river is white with foam, and splashes violently against the embankment, as though something large had just dove under the surface...
+
+>again
+The river splashes fitfully against the crumbling stone of the embankment, dark and murky in the shadows. The wrinkled surface of the water yields a rough reflection, an animated expressionist painting of the bridge and sky above, except for where a trail of bubbles mars the view, as though something... large... had recently swum past.
+
+The bridge in the reflection is sound and whole, new as the day it was built, and instead of rotting patches of concrete, the underside is covered in a colorful painted mural. Roughly oval in shape, it features a vivid green, eel-like creature with a wavy frill, curled around as though ready to bite its own tail. You don't totally follow the motto encircling it... Something about the commission of an officer? Or an office? But the words "Croceate" and "Variegated Court" stand out.
+
+>x coffee
+The swirls in your cup form a sailboat. Modes of transportation mean that your current environment presents challenges that can only be overcome by seeking fresh perspectives elsewhere until you're ready to return.
+
+>south
+
+River Walk (Adam Whybray)
+A dirt path along the west bank of the Makaskuta - or Blackgourd - River. The air is motionless and sweltry, the urticariate heat drawing sweat profusely from your prickling glands.
+
+Just below you, to your side, the river burbles in vainglorious stupor, foaming in bright patches from the surfacants released from the rotting deposits of the red maples and poplars that line its banks. A single black ash, denuded of leaves, its corky bark blighted with the telltale signs of parasitic infection, quietly interrupts the Autumnal foliage of its deciduous cousins.
+
+The river's waters slith over rocks as lustrous-gray as seal skin, rending them freshly burnished for the mid-September sun, which casts Her rays in refulgent slats through the rust-honey colored trees. It is though Nature, in celebration of Her own fecundity, has chosen to offer Herself up in Equinoxical sacrifice - the rocks laid out before the blazing altar of the sun.
+
+There is a forbidding sign on the bank of the river.
+
+The way up to Backwater town square is northwest. Following the path north leads under the bridge.
+
+On the Makaskuta river is a buoy.
+
+You can also see a shattered crawfish and a freshwater lobster trap (in which is an eggbound crawfish) here.
+
+A noncorporeal trolley stop sign reads Aqua Line -- River Walk.
+
+>x schedule
+It's unlike any public transit schedule you've ever seen, in that there are no times listed. A cheerfully phrased block of introduction text instructs riders to hang their passes around their necks, proceed to a trolley stop, and WAIT FOR whatever color LINE corresponds with their choice of destination.
+
+Destinations:
+Brown Line -- Train Station
+Gold Line -- Church
+Blue Line -- Library Square
+Aqua Line -- River Walk
+Green Line -- The Woods
+
+
+>wait for brown line
+You lean against the forbidding sign, hold out your pass, and wait for the brown line. Within moments, a mistlike trolley arrives. Instead of stopping and allowing you to board, it passes through you, and you find yourself transported to
+
+Railway Platform (Naomi Hinchen)
+The platform is open to the outdoors, but has an overhanging roof with a rusted sign hanging from it. At the back of the platform, to the south, is the entrance to the lobby. Train tracks stretch off into the distance to the east and west; on the other side of the track is a graffitied brick wall.
+
+The clock overhead gives the time as 1:33 am; beneath the clock is a schedule board listing train arrival times. On the platform itself are a wooden bench, a storage locker, and a vending machine.
+
+An insubstantial trolley stop sign reads Brown Line -- Train Station.
+
+Thunder rumbles in the distance.
+
+>unlock locker with employee card
+(first taking the employee ID card)
+The card swiper flashes a green light, and the door of the locker swings open. Inside you can see a suitcase.
+
+A leak in the ceiling drips water into a puddle.
+
+>put employee card in tp
+You unzip the trash pocket, deposit the employee ID card, then zip the trash pocket back up again.
+
+The wind blows stray leaves across the tracks.
+
+>take suitcase
+Taken.
+
+>x it
+A plain brown leather suitcase. You would recognize it as your husband's even without the monogrammed initials P.C. on the side. It has a four-digit combination lock set to 0000.
+
+>read inscription
+On the back of the watch is engraved
+N + P
+March 19th
+
+A leak in the ceiling drips water into a puddle.
+
+>set lock to 0319
+The lock clicks open.
+
+You step in an old wad of gum. Yuck.
+
+>put watch in tp
+You unzip the trash pocket, deposit the familiar gold wristwatch, then zip the trash pocket back up again.
+
+>open suitcase
+You open the suitcase, revealing a mysterious silver box.
+
+>x box
+A smooth, solid silver box. It rattles when shaken, but has no visible hinges, latch, or any other way to open it. On the top is an embossed image of a train.
+
+>take box
+Taken.
+
+>put suitcase in tp
+You unzip the trash pocket, deposit the suitcase, then zip the trash pocket back up again.
+
+>x schedule board
+The board lists a schedule of train times:
+Providence     CANCELLED
+Dunwich        CANCELLED
+Innsmouth      CANCELLED
+Anchorhead     13:37
+Arkham         CANCELLED
+
+Thunder rumbles in the distance.
+
+The clock gives a deep, booming chime on the quarter hour.
+
+>stand on bench
+You get onto the bench.
+
+You step in an old wad of gum. Yuck.
+
+>put winding key in clock
+The winding key fits neatly into the hole, ready to be turned.
+
+>set clock to 13:37
+The clock is now set to 1:37 pm.
+You blink at the sudden light--has the sun just come up? Hard to tell with the cloud cover, but it seems suddenly much lighter.
+
+An old-fashioned steam locomotive comes hurtling down the tracks from the west. It appears translucent, almost insubstantial, but the rush of wind and noise created by its passage fills the station: the clatter of the wheels, the chugging of the engine, the clanging of the bell, and the mournful blowing of the whistle. It whooshes through the station without stopping, and then is gone as swiftly as it appeared. In the sudden silence, you look down the tracks to the east, but can see no sign of it.
+
+The top of the mysterious silver box slides open, revealing a bronze coin.
+
+You shiver for no reason at all, as if someone has just walked over your grave.
+
+>put winding key in kp
+You unzip the key pocket, deposit the brass winding key, then zip the key pocket back up again.
+
+>stand
+You get off the bench.
+
+>x coin
+A tarnished circle of bronze. The heads side depicts a misshapen figure with what look like tentacles. The tails side has a strange glyph which seems to shift as you look at it, but looks almost like an R fused with a V. Or maybe a J fused with a P? No, it's definitely an R fused with a V.
+
+>take coin
+Taken.
+
+You step in an old wad of gum. Yuck.
+
+>put box in tp
+You unzip the trash pocket, deposit the mysterious silver box, then zip the trash pocket back up again.
+
+A leak in the ceiling drips water into a puddle.
+
+>put coin in coin slot
+The coin drops into the slot with a clunk. A plastic bubble falls into the chute.
+
+>take bubble
+Taken.
+
+A garbled message plays over the PA system, in which the only understandable word is "blood".
+
+>open bubble
+You open the plastic bubble.
+
+The clock gives a deep, booming chime on the quarter hour.
+
+>take eyepiece
+Taken.
+
+You shiver for no reason at all, as if someone has just walked over your grave.
+
+>put bubble in tp
+You unzip the trash pocket, deposit the plastic bubble, then zip the trash pocket back up again.
+
+>x eyepiece
+A misshapen golden disc, studded with lenses. It looks like it could fit flush with your eye socket. On its surfaces are a round button, a triangular button, and a small rectangular slot.
+
+The golden eyepiece is currently switched off.
+
+A low hum comes from the PA system, growing slowly louder until it crescendoes in a screech and falls suddenly silent.
+
+>wear it
+You try holding it up to your eye, but it just falls off. Perhaps there are additional steps.
+
+>put rectangular battery in eyepiece
+The battery fits perfectly into the slot in the device, its end now flush with the surface.
+
+>push round button
+The device emits a high-pitched whine.
+
+>push triangular button
+There is a high-frequency whine, and a thread of light is emitted from one of the lenses of the device. It ignores all conventional laws of nature as far as you are aware, twisting and swirling in complex patterns until fading off only inches from the lens.
+
+>wear eyepiece
+There's a sudden pinching sensation as the device clamps onto your face. Panicked, you struggle to remove it, but it won't budge. You feel a long needle pierce your eye, and then nothing. Your vision is normal once more - better than normal, even. Previously mundane surfaces now shimmer with possibility.
+
+>wait for green line
+You sit on the bench, hold out your pass, and wait for the green line. Within moments, a noncorporeal trolley arrives. Instead of stopping and allowing you to board, it passes through you, and you find yourself transported to
+
+The Old Well (Reed Lockwood)
+The trees here gather, black with wet; glimmering fingers hung with ragged matter, huddling beneath a cold and gently weeping sky. Beneath your feet, the damp red felt of rotting leaves slopes down toward a still, murky puddle. Nearby is a well, capped off with crumbling cement. A broken-down section of brick wall waits for raindrops to fall along its spine, and an old, half-dead oak straddles an angular boulder studded with quartz. A path through the forest leads south.
+
+You can see a wooden sigil here.
+
+A mistlike trolley stop sign reads Green Line -- The Woods.
 
 >

@@ -1,0 +1,173 @@
+#!/usr/bin/expect -f
+#
+# Play game Cragne Manor.
+#
+# Based on http://plover.net/~davidw/sol/c/cragn18.html
+#
+set timeout -1
+
+# Remove previous log, if any.
+system rm -f "game.log"
+log_file "game.log"
+
+# Start the game.
+spawn ./glulxe cragne.gblorb
+match_max 100000
+
+expect "press any key to continue"; send "\r"
+expect "yes or no"; send "yes\r"
+expect "yes or no"; send "yes\r"
+expect "press any key to begin"; send "\r"
+
+#
+# Drinking Fountain (Lucian Smith)
+#
+# Just find the secondary fountain for now. Obtain the hidden library book later.
+#
+expect ">"; send "restore\r"; expect ":"; send "drinking-fountain\r"
+
+expect ">"; send "x fountain\r"
+expect ">"; send "x button\r"
+expect ">"; send "push it\r"
+expect ">"; send "x ivy\r"
+expect ">"; send "move ivy\r"
+expect ">"; send "x secondary\r"
+expect ">"; send "x sign\r";                        # "COLORED"
+expect ">"; send "push rusty button\r"
+expect ">"; send "x coffee\r";                      # Come back later
+expect ">"; send "ne\r";                            # Town square, Backwater, VT
+expect ">"; send "se\r";                            # River Walk
+
+#
+# River Walk (Adam Whybray)
+#
+# Goal: Obtain the employee card.
+#
+expect ">"; send "read sign\r"
+expect ">"; send "x river\r"
+expect ">"; send "x buoy\r"
+expect ">"; send "x ash\r"
+expect ">"; send "x rock\r"
+expect ">"; send "take it\r"
+expect ">"; send "x pole\r"
+expect ">"; send "take it\r"
+expect ">"; send "x crawfish\r"
+expect ">"; send "x soggy tome\r"
+expect ">"; send "take it\r"
+expect ">"; send "read it\r"
+expect ">"; send "fish river\r";                    # You find a freshwater lobster trap
+expect ">"; send "x trap\r"
+expect ">"; send "x employee card\r";               # "Veeder, R."
+expect ">"; send "x eggbound\r"
+expect ">"; send "kill dying crawfish with rock\r"
+expect ">"; send "take shard\r"
+expect ">"; send "x it\r"
+expect ">"; send "cut twine with shard\r"
+expect ">"; send "take employee card\r"
+expect ">"; send "x coffee\r";                      # You're done here
+expect ">"; send "put soggy tome in bp\r"
+expect ">"; send "put employee card in mp\r"
+expect ">"; send "put rock, pole, shard in tp\r"
+expect ">"; send "north\r";                         # Under the Bridge
+
+#
+# Under the Bridge (Tenth)
+#
+# Goal: Learn that the Croceate Alderman's familiar is an eel. Open the hatch later.
+#
+expect ">"; send "x bridge\r"
+expect ">"; send "x river\r"
+expect ">"; send "x figure\r"
+expect ">"; send "x hatch\r"
+expect ">"; send "x indentation\r"
+expect ">"; send "x payphone\r"
+expect ">"; send "read graffiti\r"
+expect ">"; send "again\r"
+expect ">"; send "again\r"
+expect ">"; send "again\r"
+expect ">"; send "again\r"
+expect ">"; send "again\r"
+expect ">"; send "again\r"
+expect ">"; send "again\r"
+expect ">"; send "again\r"
+expect ">"; send "again\r";                         # 258-0987 with stars
+expect ">"; send "x coin return\r"
+expect ">"; send "x coin slot\r"
+expect ">"; send "x receiver\r"
+expect ">"; send "x keypad\r"
+expect ">"; send "push coin return\r";              # You get a quarter
+expect ">"; send "x quarter\r"
+expect ">"; send "put quarter in coin slot\r"
+expect ">"; send "take receiver\r"
+expect ">"; send "dial 911\r"
+expect ">"; send "hang up\r"
+expect ">"; send "x coin return\r"
+expect ">"; send "push return\r"
+expect ">"; send "put quarter in slot\r"
+expect ">"; send "take receiver\r"
+expect ">"; send "dial 258-0987\r"
+expect ">"; send "x river\r"
+expect ">"; send "again\r"
+expect ">"; send "again\r"
+
+# Note the new mural has an eel-creature, the word "Croceate", and the phrase "Variegated Court".
+
+expect ">"; send "x coffee\r";                      # Come back later
+expect ">"; send "south\r";                         # River Walk
+expect ">"; send "x schedule\r"
+expect ">"; send "wait for brown line\r";           # Railway Platform
+
+#
+# Railway Platform (Naomi Hinchen)
+#
+# Goal: Obtain the golden eyepiece.
+#
+expect ">"; send "unlock locker with employee card\r";  # Success!
+expect ">"; send "put employee card in tp\r"
+expect ">"; send "take suitcase\r"
+expect ">"; send "x it\r";                              # It's Peter's. Has 4-digit combo lock
+expect ">"; send "read inscription\r";                  # of wristwatch: "March 19th"
+expect ">"; send "set lock to 0319\r";                  # It opens
+expect ">"; send "put watch in tp\r"
+expect ">"; send "open suitcase\r"
+expect ">"; send "x box\r";                             # Image of train on top
+expect ">"; send "take box\r"
+expect ">"; send "put suitcase in tp\r"
+
+# Remember the schedule board?
+
+expect ">"; send "x schedule board\r"
+expect ">"; send "stand on bench\r"
+expect ">"; send "put winding key in clock\r"
+expect ">"; send "set clock to 13:37\r";                # Train rushes past and the box opens
+expect ">"; send "put winding key in kp\r"
+expect ">"; send "stand\r"
+expect ">"; send "x coin\r"
+expect ">"; send "take coin\r"
+expect ">"; send "put box in tp\r"
+expect ">"; send "put coin in coin slot\r"
+expect ">"; send "take bubble\r"
+expect ">"; send "open bubble\r"
+expect ">"; send "take eyepiece\r"
+expect ">"; send "put bubble in tp\r"
+expect ">"; send "x eyepiece\r"
+expect ">"; send "wear it\r";                           # It just falls off
+expect ">"; send "put rectangular battery in eyepiece\r"; # It fits!
+expect ">"; send "push round button\r";                 # It turns on
+expect ">"; send "push triangular button\r";            # It projects light?
+expect ">"; send "wear eyepiece\r";                     # It clamps on. Your vision is improved, but how?
+
+# Do you remember how many things looked "odd" at the well? Go back there.
+
+expect ">"; send "wait for green line\r";               # The Old Well
+
+#
+# The Old Well (Reed Lockwood)
+#
+# Goal: Open the well.
+#
+
+# Quit
+expect ">"; send "quit\r"
+#expect "QUIT"; send "quit\r"
+exit
