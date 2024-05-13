@@ -167,6 +167,83 @@ expect ">"; send "wait for green line\r";               # The Old Well
 # Goal: Open the well.
 #
 
+# The eyepiece lets you see four arches in the puddle: wooden, teal, violet, and sky blue.
+
+> x puddle. (You see wooden, teal, violet, and sky blue arches.)
+> x wooden arch. (In the ocean.)
+> x teal arch. (Connects the ocean to a forest.)
+> x violet arch. (Connects the ocean to a labyrinth.)
+> x sky blue arch. (Connects the ocean to a plain.)
+> enter wooden arch. (Too small.)
+
+# The game suggests prodding the arch with the laser on your eyepiece.
+
+> prod wooden arch.
+
+# The game tells you that "P" can be used as an abbreviation for "PROD".
+
+> x brick. (The labyrinth has wooden, marigold, violet, and pink arches.)
+> x marigold arch. (Connects the labyrinth to the forest.)
+> x pink arch. (Connects the labyrinth to the plain.)
+> x quartz. (The plain has wooden, mint green, pink, and sky blue arches, plus a machine and a pool of fluid.)
+> x mint green arch. (Connects the plain to the forest.)
+> x machine. (A dispenser of some kind.)
+> x fluid.
+> x root. (The forest has wooden, marigold, teal, and mint green arches.)
+> x arches. (Summary of what connects to what.)
+
+# You may wish to re-read the moldy journal before proceeding:
+
+> open bp. read moldy journal. put it in bp. close bp.
+
+# After reviewing the moldy journal, we should have a slightly better idea of what we're doing here: summoning creatures. They start from the machine and must go through three of the habitats before summoned into our world via the sigil.
+
+# At least seven of the creatures are docile, but you can be sure that the others are either hostile or indifferent. And one creature creates glue? Its sequence is FOREST-unknown-CLIFFS; we should try to summon that one.
+
+> p machine. (An egg falls into the pool, becoming a small blob.)
+> x blob. p blob. (The heat kills it. Oops.)
+> p machine. (A new blob.)
+> p mint. (The blob goes to forest and becomes a small quadruped.)
+> p teal. (The quadruped goes to ocean and becomes a bumpy whale.)
+> p violet. (The whale goes to labyrinth and becomes a armored climber.)
+> p wooden. (A great, armor-plated monster emerges from the sigil and stomps off.)
+
+# With our first summons, the game tells us some new commands: BIRTH, FOREST, PLAIN, CLIFFS, OCEAN, and SUMMON.
+
+# This is much easier. We can stop worrying about which arch is which.
+
+> birth. forest. plain. cliffs. summon.
+
+# A cycloptic ape leaves some sticky goo behind on the well. Don't touch the goo!
+
+> x well.
+
+# There are 27 different possible creatures you can summon; see the well puzzle for a summary.
+
+# To actually solve this puzzle, you need to first summon three friendly creatures that will stay here to defend you, then summon that terrible lizard-bird the moldy journal mentioned.
+
+# First, let's summon a hallucinogenic worm:
+
+> birth. cliffs. ocean. forest. summon. x worm.
+
+# Second, a comfy snake:
+
+> birth. cliffs. plains. forest. summon. x snake.
+
+# Third, a perfumed land octopus:
+
+> birth. ocean. cliffs. forest. summon. x octopus.
+
+# Finally, with goo on the well cap and with three friends, it's time to summon the fearsome pteranodon:
+
+> birth. forest. cliffs. ocean. summon.
+
+# The giant bird opens the well cap and flies away. Also, your eyepiece is damaged and falls off.
+
+> take eyepiece. x it. put it in tp.
+> x coffee. (You're done here.)
+> d.
+
 # Quit
 expect ">"; send "quit\r"
 #expect "QUIT"; send "quit\r"
