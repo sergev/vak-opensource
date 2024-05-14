@@ -144,4 +144,444 @@ The clock overhead gives the time as 6:20 pm; beneath the clock is a schedule bo
 Enter saved game to load: bridge
 Ok.
 
+>x river. x bridge. x slats. x cords
+The river crashes through the cavern, its monstrous call echoing upon itself in cacophony. You are disgusted by its crashing white froth, hissing and spitting up at you.
+
+The body of the bridge is formed of some offensive metamorphic stone; as if marble had been tainted by the presence of a grisly fungus that, aeons ago, had been subsumed into its surface. You are currently balancing on a walkway of calcareous slats.
+
+The calcareous slats that form the walkway feel strangely light underfoot; as though hollowed out and filled with air. In the gaps between, you can see the churning water below, stare too long and you are sure to become nauseous. Each platform stretches your legs as you move from one to the next; the gait of the bridge's architects must have been strange indeed.
+
+The taut cords that give the structure its shape appear to be woven in some complex squamous plait that elongates and contracts with a slither as you step across.
+
+As you look closer, the puce strands that make up the plait seem to move. Whether some optical illusion caused by their intricate braiding or something altogether more organic, you couldn't say. You look away quickly.
+
+>x rope. x polished metal
+A thick rope, stained dark with water and made inflexible by remnants of mud. One loop is fastened to the bridge with an impenetrable knot, while the other end is attached to a misshapen piece of polished metal.
+
+A piece of metal bent into a strange configuration. Sharp prongs curl in and around themselves like a gaping maw. You wouldn't want to cut yourself on those teeth. Curiously, the teeth are hinged, and could potentially be pried open.
+
+>x sculpture
+A labyrinthine network of pipes form the base of the structure, climbing up to a wide, shallow cauldron filled with luminescent green moss. Some crack in the ceiling allows a steady drip of repellent liquid to fall on the moss and it pulses with light in time with the regular falling of the fluid. At the bottom of the sculpture, one of the pipes flows into a circular pool of liquid. Beside the pool, there is a brazier filled with some manner of desiccated organic material.
+
+>x moss
+It is too high above you to see clearly from here, but something in the cauldron seems to flare up with each drop of liquid, filling the area with a flickering green light.
+
+>x brazier. x vegetation
+Formed of twisted iron, it contains clumps of dry vegetation.
+
+Although definitely organic, it's dry and crumbly and long-dead. It's hard to tell at this point whether it was a plant or a moss or something defying classification entirely.
+
+>x pool. smell pool
+A shallow pool of foul liquid that flows from the oozing pipes of the structure. Next to the pool is a brazier filled with some manner of desiccated organic material.
+
+Invisible noxious vapors burn your nostrils as you lean close to smell.
+
+>put claw in river
+You loop the rope around your hands, placing the strange metal contraption on the wall of the bridge. Giving the peculiar apparatus a hard shove, you send it tumbling over the edge into the water. You could climb down the rope now, if you wanted to.
+
+>down
+You gingerly tighten your hands around the fraying fibres and lower yourself until you are just above the water.
+
+Bridge (hanging underneath) (Daniel Stelzer and Jemma Briggeman)
+You are hanging precariously under the monstrous structure. The frayed rope digs into your palms painfully, but the deafening crash of the water beneath you keeps you clinging on for now.
+
+
+Hanging from the stone is something similar in form, if not in texture, to a vaporous bat.
+
+There is some strange semi-aquatic weed growing upside-down from the bottom of the bridge, a menacing hybrid of what seems to be a mushroom and a coral.
+
+A rope runs from the bridge above you down into the water below.
+
+>x bat
+While the creature has the same chiropteran features as a common bat, its "wings" are the color of rotting meat and have a pseudopodal glutinous texture. As you strain your eyes to examine the moldering fauna, it begins to nibble on the strange weed. It opens its mouth in a yawn and you see the creature's tongue coated with a thin film of pale brown powder. After a few moments it gives a gesture approximately equatable to a sneeze before letting go of its perch and dropping into the water like a stone.
+
+>take weed
+Your fingers brush against the chthonic coral hybrid and are now covered in some strange powder. If the organism is truly analogous to a fungal specimen, you suppose, perhaps, these are its spores.
+
+>x powder. eat powder
+Your fingers are coated with pale, brown dust expelled from the degraded weed growing under the bridge.
+
+Cautiously, you extend your tongue and lick the powder off your fingertips. It tastes like a odious combination of salt and earth. Almost immediately you begin to choke, the sensation of something germinating rapidly within the walls of your throat. Whatever it is seems to be sucking all the moisture from your windpipe as it grows exponentially, its branching structure blocking the air from entering your lungs.
+
+Your mouth and throat feel horribly dry. You cough painfully.
+
+>down
+You thrust your head down into the black water for just a moment and force yourself to swallow. The water seems to sate the abysmal fungus, and when you rise up again you manage to cough it out. But for that moment you were underwater, you felt a rush of oxygen in your lungs...perhaps if you had a light, you could stay down there?
+
+>x flashlight. turn it on
+A small flashlight, with a rubber ring where it screws together to keep the water out.
+
+You flip the switch a few times, but no light is forthcoming. It must have burned out.
+
+>open it. look in it
+You open the waterproof flashlight.
+
+It contains small light bulb and dead battery. Small raised letters inside the flashlight read "CONSUMER BE ADVISED: INSERTING RANDOM GLOWING OBJECTS INTO THIS FLASHLIGHT MAY VOID YOUR WARRANTY."
+
+>take battery and bulb
+dead battery: Taken.
+
+small light bulb: Taken.
+
+>x battery. x bulb
+A single AAA battery, no longer functional.
+
+The filament inside has burned through.
+
+>put battery and bulb in tp
+dead battery: You unzip the trash pocket, deposit the dead battery, then zip the trash pocket back up again.
+small light bulb: You unzip the trash pocket, deposit the small light bulb, then zip the trash pocket back up again.
+
+>up
+You haul yourself upward, the rope digging into your hands leaving them red and sore. With tremendous effort you finally pull yourself back over the edge of the bridge.
+
+Bridge (Daniel Stelzer and Jemma Briggeman)
+You are standing on a bridge spanning east to west in the middle of an echoing cavern. In the center of the bridge is a large perfidious sculpture constructed of pipes that climb up to a cauldron filled with an eerily glowing green moss, the only light source in the room. Beneath your feet you can hear the crashing of the river below. Ahead of you, to your horror, there are slats missing on the bridge - you'll never make it across without replacing them.
+
+
+A rope trails from the post of the bridge off into the turbulent water.
+
+>climb pipes. x outline
+With a little difficulty, you manage to haul your way up the sculpture until you are about halfway up. From here, you can see a strange outline under the water.
+
+The outline of some strange formation under the water catches your eye. Bleached white and unmoving - perhaps a skeleton?
+
+>x cauldron
+From here you can see that the moss in the cauldron is the same kind as is down in the brazier, macerated by the dripping liquid falling from the crack in the ceiling and collecting in the pipes. It seems to flare up with each drop of liquid, filling the area with a flickering green light.
+
+>take moss
+The cauldron is too far away to reach, but the same liquid seems to flow down through the pipes into the shallow pool.
+
+>stand
+You get off the protrusion.
+
+Bridge (Daniel Stelzer and Jemma Briggeman)
+You are standing on a bridge spanning east to west in the middle of an echoing cavern. In the center of the bridge is a large absurd sculpture constructed of pipes that climb up to a cauldron filled with an eerily glowing green moss, the only light source in the room. Beneath your feet you can hear the crashing of the river below. Ahead of you, to your horror, there are slats missing on the bridge - you'll never make it across without replacing them.
+
+
+You peer beneath the sickly, putrid green colour of the river. Strange... From here it almost looks as if you can see the outline of something, just visible under the water.
+
+A rope trails from the post of the bridge off into the turbulent water.
+
+>take vegetation. put flakes in flashlight
+You rub at one of the ashen leaves and it crumbles under your touch, leaving you with a few brittle flakes.
+
+You pack the flakes of plant matter into the gap inside the flashlight.
+
+>put liquid in flashlight. close flashlight
+You coat the inside of the flashlight with the foaming oily liquid.
+The flora blooms within the flashlight as it greedily sucks up the liquid, quickly doubling in size. As it macerates, it begins to softly glow around the edges until the entire specimen is incandescent with green light.
+
+You close the waterproof flashlight.
+
+>down
+You gingerly tighten your hands around the fraying fibres and lower yourself until you are just above the water.
+
+Bridge (hanging underneath) (Daniel Stelzer and Jemma Briggeman)
+You are hanging precariously under the monstrous structure. The frayed rope digs into your palms painfully, but the deafening crash of the water beneath you keeps you clinging on for now.
+
+
+Hanging from the stone is something similar in form, if not in texture, to a resplendent bat.
+
+There is some strange semi-aquatic weed growing upside-down from the bottom of the bridge, a alien hybrid of what seems to be a mushroom and a coral.
+
+A rope runs from the bridge above you down into the water below.
+
+>eat powder. down
+Cautiously, you extend your tongue and lick the powder off your fingertips. It tastes like a faint combination of salt and earth. Almost immediately you begin to choke, the sensation of something germinating rapidly within the walls of your throat. Whatever it is seems to be sucking all the moisture from your windpipe as it grows exponentially, its branching structure blocking the air from entering your lungs.
+
+Your mouth and throat feel horribly dry. You cough painfully.
+
+You lower yourself down, through the ceiling of crashing water, until you're beneath the surface. It is so cold you can feel your chest constricting and have to remind yourself to breathe. And surprisingly, down here, you can.
+
+Bridge (in the water underneath) (Daniel Stelzer and Jemma Briggeman)
+Beneath the surface of the tumultuous river, it is strangely calm down here. The sickly green water glows around you in a spherical shape, pulsing in time with the luminescent moss. Through the haze of the turbid water, the bleached bones of some long dead creature almost shine with their pristine whiteness.
+
+
+A thick rope is your only lifeline anchoring you in the dark abyss.
+
+>x bones. enter jaw
+Lurking in the water before you, half-submerged in the silt, is the skeleton of some colossal beast. Its posture is contorted, as though it were twisting around to snap at something above it. The bones are completely bleached white; every scrap of flesh picked clean by a thousand passing creatures. Probably a predator, you determine from the sharp teeth, a few jagged and broken. Its cavernous jaw has been locked in place, open and inviting. The gap is just big enough to swim inside, if you are cautious.
+
+(the misshapen skeleton)
+Reluctantly letting go of the rope, you pull yourself through the water and into the mouth of the beast. Through the empty eye sockets, you can just make out your only anchor to the world above. You have to keep your limbs tight to your torso to prevent the sharp teeth raking across your skin; you'd hate to think what might come investigating down here if any blood spilled in the water.
+
+Bridge (Daniel Stelzer and Jemma Briggeman) (in the misshapen skeleton)
+You've moved through the cavernous jaws of the long dead beast and into the cavity of its immense chest. The pulsing light from the moss causes the shadows cast by the ribcage to expand and contract; in the semi-gloom it almost looks as if the creature is still breathing.
+
+
+Several bones are loosely coupled to the skeleton now. They protrude from the spine at an oddly perpendicular angle, almost geometric in its sharpness.
+
+A rope runs upward from a piece of metal sunken in the nauseating silt nearby.
+
+>push bones. take bones. out
+(the flat bones)
+With a violent shove you manage to dislodge the bones from the skeleton. Fragments of coral spiral down into the silt, never to be seen again.
+
+(the flat bones)
+Taken.
+
+You extract yourself from the skeleton. Without the pulsating light from your lamp the illusion of breath vanishes, leaving nothing but lifeless bone. You take hold of the rope again, grateful to be anchored.
+
+Bridge (in the water underneath) (Daniel Stelzer and Jemma Briggeman)
+Beneath the surface of the tumultuous river, it is strangely calm down here. The sickly green water glows around you in a spherical shape, pulsing in time with the luminescent moss. Through the haze of the turbid water, the bleached bones of some long dead creature almost shine with their pristine whiteness.
+
+
+A thick rope is your only lifeline anchoring you in the dark abyss.
+
+>up
+The bones are impossibly heavy; every inch toward the surface is a chore. You are never going to get much further with their added weight. You'll have to think of another way to get them to the surface.
+
+>open claw. put bones in claw. close claw
+You pry the teeth open.
+
+(the flat bones in the metal claw-trap)
+You put the flat bones into the metal claw-trap.
+
+You force the teeth shut around the flat bones.
+
+>up
+You pull on the rope, doing your best not to get caught in the current as your head breaks the surface of the water. You feel the spongiform blockage in your throat dissolve, your lungs filling with untainted oxygen.
+
+Bridge (hanging underneath) (Daniel Stelzer and Jemma Briggeman)
+You are hanging precariously under the monstrous structure. The frayed rope digs into your palms painfully, but the deafening crash of the water beneath you keeps you clinging on for now.
+
+
+Hanging from the stone is something similar in form, if not in texture, to a repulsive bat.
+
+There is some strange semi-aquatic weed growing upside-down from the bottom of the bridge, a vague hybrid of what seems to be a mushroom and a coral.
+
+A rope runs from the bridge above you down into the water below.
+
+>up
+You haul yourself upward, the rope digging into your hands leaving them red and sore. With tremendous effort you finally pull yourself back over the edge of the bridge.
+
+Bridge (Daniel Stelzer and Jemma Briggeman)
+You are standing on a bridge spanning east to west in the middle of an echoing cavern. In the center of the bridge is a large peculiar sculpture constructed of pipes that climb up to a cauldron filled with an eerily glowing green moss, the only light source in the room. Beneath your feet you can hear the crashing of the river below. Ahead of you, to your horror, there are slats missing on the bridge - you'll never make it across without replacing them.
+
+
+A rope trails from the post of the bridge off into the turbulent water.
+
+>pull rope. open claw. take bones
+You tug hard, finding that something beneath the water pulls against you with equal or even greater force in the very opposite direction, till you are almost dragged off your feet and into the water. A second later, the strange force relents, and you stumble backward, pulling the anchor up onto the bridge.
+
+You pry the teeth open.
+
+Taken.
+
+>repair bridge
+The bones fit into position easily, settling into the gaps left by the missing slats. You look down at your feet and finally notice: the entire walkway is constructed of the parts of this long dead, infectious creature. You shiver involuntarily as your mind begins to imagine what piscatorial race of beings would use bone as architecture. You shake the thought from your mind - it is time to leave this place.
+
+>drop powder. put flashlight in tp
+You manage to rub the powder off your hands. It seems to disintegrate rather quickly.
+
+You unzip the trash pocket, deposit the waterproof flashlight, then zip the trash pocket back up again.
+
+>east
+
+Outside Pub (Jason Lautzenheiser)
+As the street runs east through this side of town, it narrows as the jagged rooftops on either side of the road reach out to each other. To the north is the pub. You can continue to the west where you see a bridge. As you pause on the narrow brick sidewalk which lays unevenly along the ugly, half-crumbling brick walls, you hear a train whistle in the distance. A sign hangs loosely above the pub entrance and to the side is a murky window.
+
+You can see a newspaper box and a rusty piece of metal here.
+
+>x box. x leg. take it
+The metal paperbox has a door, with a foggy glass window through which you can still see some of the newspapers inside. There is a large handle that would be used to open the box and beside the handle is a coin slot and a faded sign that reads "25 cents." One of the legs of the rusted paperbox has broken away and has left the newspaper box leaning at an angle. A rusty bar of metal, which appears to be the remains of the leg, lies on the sidewalk.
+
+In the newspaper box are some yellowed newspapers.
+
+The remains of the broken leg is light and sturdy and long enough to stretch from your hand to your elbow.
+
+Taken.
+
+>x newspapers
+Through the foggy window you can just make out part of the headline, "Ful... Court ....Dead."
+
+
+>open box. x slot. break box
+The normal way of opening it would be to put a quarter in the coin slot. Maybe you can look at the slot.
+
+The coin slot is the size of a quarter, so you'd expect to be able to put one in to get a newspaper. But the slot's too full of grime and rust to fit a quarter.
+
+You swing the leg at the glass window, but it's too light to do any real damage.
+
+>x handle. put leg in handle. pull leg
+A simple metal loop attached to the door.  It is rusty, but firmly attached to the door of the newspaper box.
+
+The leg appears to fit nicely in the handle and you slide it in until it is snug.  You now have more leverage for prying the newspaper box door open.
+
+You pull on the bar stuck in the handle, and you are able to gain enough leverage to tip the paperbox over. You back away in time to avoid the box, and when it hits the sidewalk, the glass window shatters on a loose brick that was sticking up higher from the rest.
+
+>x newspapers
+The paper is dated, July 26, 1970.  The headline reads "Fulvous Alderman of the Variegated Court Found Dead."
+
+Below the headline is a photo of someone you assume is Fulvous dressed in all black with black tie and black top hat.  He is standing in front of an old church and strangely enough, there's a duck at his feet, almost posing.
+
+The article reads, "Fulvous Alderman of the Variegated Court was found dead yesterday.  His body was found by an unnamed man who was exploring a remote area when he came across an abandoned white house. When the young man entered through a back window to explore the home, he found the body of Fulvous in the attic.  He was slumped over a table with what appears to be a ceremonial dagger in his back.  Other than the knife and some dull orange duck feathers scattered around the room, no other clues were found regarding the culprit or the motive."
+
+>put newspapers in sp
+You pick one of the old yellowed papers off of the stack.
+
+You unzip the side pocket, deposit the yellowed newspapers, then zip the side pocket back up again.
+
+>x pub. x sign. x window. x steps. x brick
+The outside of the building is made from rough brick put together long ago.  The mortar is slowly disintegrating and flaking onto the ground. The entrance, to the north, is at the bottom of some worn steps. There is a murky window to the side of the window.
+
+The painted wood sign is faded near-unreadability.  But you think the last two words are "Last Home".
+
+You move closer to the window and attempt to peer through.  It's dark inside and the window is very dirty, but you see human-like shapes moving around inside.
+
+The steps are worn and cracked and lead down to the pub entrance.
+
+The uneven sidewalk looks like it hasn't been repaired in quite some time.  You see many loose bricks and you risk tripping over them if you're not careful.
+
+>put brick in hp
+(loose bricks in the hidden pocket)
+You unzip the hidden pocket, deposit loose bricks, then zip the hidden pocket back up again.
+
+>north
+
+The Invisible Worm (Sam Kabo Ashwell)
+A dimly-lit tavern, old enough that all its straight lines have worn or warped slightly out of shape, and everything feels cluttered and a little too small; you've had apartments with living-rooms bigger than this. Heavy, dark beams support a low ceiling, and the walls are crowded with ancient farm tools and yellowing photographs. A cramped doorway, south, leads back outside.
+
+The bartender impassively surveys the room. He might have raised his eyebrows slightly in acknowledgement as you entered, but you wouldn't swear to it.
+
+Old-timers monopolize the fireplace nook; a straggle of teenagers hunch in a corner.
+
+The old-timers talk about the time the Thorn boy punched Deputy Barebone because of that business with his grandmother.
+
+>x bartender. x old-timers. x teenagers. x fireplace
+(the bartender)
+The bartender is working to perfect a back-of-house look: tattoos on forearm and neck, dirty-blonde dreadlocks kerchiefed back, a beard that makes it hard to read his age or mood. A broad face, stub-nosed. A broad body in a metal T-shirt. With deeper wrinkles or a few extra inches of height, he'd give off an air of menace; as it is he mostly gives off an air of watching the clock until he can sneak out back for a weed break.
+
+The three old boys around the fireplace - one pipe-smoker, one roll-up, one Lucky Strike - are fumigating the premises and talking shit about their families and neighbors.
+
+The old-timers talk about the time Jerusalem Perkins's hog gave birth to a jumbled-up lump of eyes and flesh. It's unclear whether this happened last week or last century.
+
+Not conspicuously blessed with the radiant bloom of golden youth; nor a grasp of basic hair care. They're nursing their beer with sullen frugality of a last round, so either they're broke or the barman's tolerance is approaching its limit.
+
+Cosy. Warm. Keeps off the chill of the night. Unfortunately, the old-timers have staked out the space nearest to it, as they probably have for the past thirty years.
+
+The old-timers speak of how laborious it is to prepare fiddleheads properly.
+
+>x beams. x tools. x whetstone. x photographs
+Old, blackened wood, worn smooth by generations of head injuries sustained by those taller than five foot ten.
+
+The old-timers rehash the time Vernon Snow was pursued by a mob for threatening a judge and hid in the woods for three weeks before surrendering.
+
+The difference between a museum and a midden is mostly organisation. This falls about halfway in between: at some point someone rummaged through a series of old sheds and barns, grabbed anything with no useful future, and pegged it to the wall. You can identify about half of it, horseshoes and scythes and the like: the remainder suggests either the management of very odd livestock, an art student newly possessed of a welding-iron, or highly specialised forms of sexual deviancy.
+
+Most of it is affixed to the wall with wire and nails; but just about at eye level, on the wall facing the bar, there's a well-used whetstone that's just balanced on a couple of wooden pegs.
+
+A dark grey, smooth whetstone, great for sharpening any cutting implements.
+
+The old-timers opine on how Ira Downing got no better than he deserved, and that God would recognize his own.
+
+Floods of sepia; you don't think there's anything dating from after the 1940s. It's mostly portraits and group shots; their subjects look world-weary and frayed around the edges, and nobody seems comfortable. The women are uncertain, prepared to be angry, as though the camera is being wielded by an unfavored nephew who can't be trusted with the exercise; the men are ciphers, eyes tired and defensive in a mask of weathered flesh.
+
+The old-timers converse upon the time Abstinence Chilton caught her nephew taking tea in the graveyard with a pregnant Tribeca jazz singer.
+
+>take whetstone
+Nothing about the bartender's manner suggests tolerance of rude tourists. It probably wouldn't be a good idea to steal the decor while he's watching.
+
+>south
+
+Outside Pub (Jason Lautzenheiser)
+As the street runs east through this side of town, it narrows as the jagged rooftops on either side of the road reach out to each other. To the north is the pub. You can continue to the west where you see a bridge. As you pause on the narrow brick sidewalk which lays unevenly along the ugly, half-crumbling brick walls, you hear a train whistle in the distance. A sign hangs loosely above the pub entrance and to the side is a murky window.
+
+You can see a newspaper box here.
+
+>east
+
+Constabulary Road (Harkness Munt)
+The road phases into little more than a wide dirt track winding from the west towards the edge of town to the northeast.  A paved walk wanders through an iron gate which interrupts a high stone wall looming to the north.  A memorial bench sits just outside its shadow. A tangled rampart of trees and dense undergrowth obstructs passage to the south.
+
+A barricade spans the road to the northeast, and beyond it a large shallow pit is being excavated. If you're careful, you could skirt the edges of the pit and continue along the northeast road.
+
+
+A man stands near the barricade.  He appears to be contemplating the contents of the dig site.
+
+A grad student works fastidiously on the fossilized bones in the pit.
+
+A mistlike trolley stop sign reads Orange Line -- Constabulary Road.
+
+>x gate. x plaque
+A set of spiked wrought iron bars towers across an opening in the north wall.  On a section of the wall adjacent to the gate rests a large bronze plaque.
+
+A bronze plaque which reads "Municipal Jail".
+
+>x bench. x trees. x barricade. x pit. x bones
+A wooden bench bearing the inscription "This room is dedicated to the memory of Christine Cunningham (Ataraxy)."
+
+Dim old growth forest cloaks the land south of the road, an impenetrable mass of gnarled limbs and thorny understory.
+
+You hear something skittering in the undergrowth.
+
+A long yellow barricade cordons off a pit dug into the roadway.
+
+Much of the road has been transformed into what appears to be a paleontological dig site.  A substantial mass of soil has been dredged up to form a terraced pit with a fossilized cluster of bones partially revealed within.  You may have room to skirt around the outside if you wish to travel northeast.
+
+The mineralized remains of a gargantuan predatory beast.
+
+You don't know much about ancient bones.  Perhaps the paleontologist could tell you more.
+
+>x man. x student
+The paleontologist in charge of the excavation.
+
+The young man focuses intently on the task of unearthing the fossil.
+
+>ask man about pit
+He seems surprised.
+
+"Huh, what was that?  Oh, hello.  Sorry, bit distracted there.  This is an amazing find!  What was it you needed again?  Dr. Daniel West from Miskaton University, by the way."  He moves to shake your hand.  "Just call me Dan."
+
+>ask Dan about fossil. ask Dan about Herbert
+"So what are you doing here?" you ask.
+
+"Excellent question.  At first, I thought we were wasting our time digging out a hoax, but after the preliminary lab results, it appears we're unearthing the greatest scientific find of the century!  You see the vertebral structure?  It's obviously piscine, and the armored plating on the anterior portion of the body along with the shearing toothplates clearly indicates that it's an exceptionally large arthrodire, most likely from the Devonian."
+
+You just nod uncomprehendingly as he continues.
+
+"Now, I know what you're thinking.  How could a fish possess clawed limbs?  Surely it's a tetrapod?  Not so!  The limb structure is inconsistent with any known vertebrate, fossil or extant, and the rock strata isn't Devonian at all.  It's Cambrian!  Both radiometric dating and analysis of surrounding fossil material confirms it!  This will rewrite the entire history of life on this planet.  Let Herbert suck on this one!"
+
+"Ah, so you've heard of my brother.  The great Reanimator."  He sighs.  "Everybody just wants to talk about Herbert.  I'll tell you what, his work on reviving necrotized tissue may seem revolutionary, but trust me.  It's all flash, no substance.  This on the other hand," he points at the old bones in the pit.  "This is solid science!"
+
+>ask Dan about student. ask Dan about university
+"Who is that doing the digging?"
+
+"Oh, that's my trusted field assistant.  His name is Wilson.  Brilliant student, but I'm afraid he doesn't say much.  Tends to get very engrossed in what he's doing."
+
+"Beautiful campus and a great geology and paleontology department.  If you ever find yourself in a town called Anchorhead you should take a tour.  Just keep your distance from the townsfolk.  Most of them are cultists who worship some wacky tentacled god.  Can't remember the thing's name."
+
+>ask Dan about Ialdabaoloth
+"Aha!  That's the name of that god those cultists like to worship!  The Great Old One, Ialdabaoloth!  Bunch of ridiculous superstitious nonsense, if you ask me.  You know, a few decades back a bunch of townsfolk up in Anchorhead and even a few professors at Miskaton claimed they saw the beastie appear in the sky over the old lighthouse."
+
+Suddenly, Dan's assistant breaks his silence.  "Hey, Dr. West?  You should really come look at this."
+
+"The student speaks!  What have you found?"
+
+"You'll never believe this.  There are impressions of what appear to be tentacles here."
+
+Dan scrambles down into the pit in a flurry of excitement. "Tentacles?  Soft tissue preservation?  This is even more extraordinary than we thought!  I'm so happy I could fhtagn!  Wait.  What did I just say?"
+
+The grad student begins to sway back and forth, giggling. "Ph'nglui mglw'nafh Ialdabaoloth R'lyeh wgah'nagl fhtagn." With that he drives his pickaxe into the paleontologist's skull, utters one final "fhtagn!", then does the same to himself.
+
+>x bodies. x pickaxe. enter pit
+The bodies of the paleontologist and his student sprawl lifeless in the bottom of the excavation site.  Both have exsanguinated from a pickaxe wound to the head.
+
+Blood and brain matter enrobes the pointy end.
+
+You step down into the pit for a moment, but immediately you begin to feel very strange, almost insane.  Hurriedly, you crawl back fhtagn.  No, out.  You crawl out.
+
+>open gate
+At the slightest brush of your fingertips, the gates slowly begin to creak open.
+
+>north
+
+Backwater Jail (Marshal Tenner Winter)
+The air is stale in this wood-paneled sheriff's office. You feel as if you've stepped back in time maybe twenty years as the office furnishings in here are simple and utilitarian. A desk, generic in style but wide enough for an outdated-looking computer, is near the window. A swivel chair is behind it and a wooden visitors chair is on the other side. Despite the meager light that creeps in the window, there's still a bleak glow from fluorescent bulbs overhead. Other furnishings include a file cabinet and, what appears to be, a locker that was literally ripped out of a high school and placed against the wall in here.
+
+Otherwise, a cheap door with a unisex bathroom sign on it is to the west and a secure door, obviously the lock-up, is to the north. The exit is south.
+
+On the desk is a clipboard holding some paperwork.
+
 >

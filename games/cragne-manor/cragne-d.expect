@@ -26,6 +26,108 @@ expect "press any key to begin"; send "\r"
 #
 expect ">"; send "restore\r"; expect ":"; send "bridge\r"
 
+expect ">"; send "x river. x bridge. x slats. x cords\r"
+expect ">"; send "x rope. x polished metal\r";          # It's a claw
+expect ">"; send "x sculpture\r"
+expect ">"; send "x moss\r"
+expect ">"; send "x brazier. x vegetation\r"
+expect ">"; send "x pool. smell pool\r"
+expect ">"; send "put claw in river\r";                 # You can now climb down
+expect ">"; send "down\r";                              # Bridge (hanging underneath)
+expect ">"; send "x bat\r";                             # It nibbles on the weed, sneezes, then drops like a stone
+expect ">"; send "take weed\r";                         # You now have spores, a fungal powder
+expect ">"; send "x powder. eat powder\r";              # Your mouth is very dry
+expect ">"; send "down\r"
+
+# Water makes the powder a source of oxygen! But you need light.
+
+expect ">"; send "x flashlight. turn it on\r"
+expect ">"; send "open it. look in it\r"
+expect ">"; send "take battery and bulb\r"
+expect ">"; send "x battery. x bulb\r";                 # They're both worthless
+expect ">"; send "put battery and bulb in tp\r";        # dead battery, small light bulb
+expect ">"; send "up\r";                                # Bridge
+expect ">"; send "climb pipes. x outline\r";            # Skeleton underwater?
+expect ">"; send "x cauldron\r";                        # Pool liquid plus moss equals green light
+expect ">"; send "take moss\r";                         # Can't reach it
+expect ">"; send "stand\r";                             # To get off the protrusion
+expect ">"; send "take vegetation. put flakes in flashlight\r"
+expect ">"; send "put liquid in flashlight. close flashlight\r"
+expect ">"; send "down\r";                              # Bridge (hanging underneath)
+expect ">"; send "eat powder. down\r";                  # Bridge (in the water underneath)
+expect ">"; send "x bones. enter jaw\r";                # Bridge (in the misshapen skeleton)
+expect ">"; send "push bones. take bones. out\r";       # Bridge (in the water underneath)
+expect ">"; send "up\r";                                # The bones are too heavy
+expect ">"; send "open claw. put bones in claw. close claw\r"
+expect ">"; send "up\r";                                # Bridge (hanging underneath)
+expect ">"; send "up\r";                                # Bridge
+expect ">"; send "pull rope. open claw. take bones\r"
+expect ">"; send "repair bridge\r";                     # using the bones
+expect ">"; send "drop powder. put flashlight in tp\r"
+expect ">"; send "east\r";                              # Outside Pub
+
+#
+# Outside Pub (Jason Lautzenheiser)
+#
+# Goal: Learn that the Fulvous Alderman's familiar is a duck.
+#
+expect ">"; send "x box. x leg. take it\r"
+expect ">"; send "x newspapers\r";                      # "Ful... Court ...Dead."
+expect ">"; send "open box. x slot. break box\r";       # Too light
+expect ">"; send "x handle. put leg in handle. pull leg\r"
+expect ">"; send "x newspapers\r";                      # "Fulvous Alderman ... orange duck ..."
+expect ">"; send "put newspapers in sp\r"
+expect ">"; send "x pub. x sign. x window. x steps. x brick\r"
+expect ">"; send "put brick in hp\r"
+expect ">"; send "north\r";                             # The Invisible Worm
+
+#
+# The Invisible Worm (Sam Kabo Ashwell)
+#
+# Just look about the pub for now. Obtain the whetstone later.
+#
+expect ">"; send "x bartender. x old-timers. x teenagers. x fireplace\r"
+expect ">"; send "x beams. x tools. x whetstone. x photographs\r"
+expect ">"; send "take whetstone\r";                    # Not while the bartender is watching
+
+# Come back later to get the whetstone.
+
+expect ">"; send "south\r";                             # Outside Pub
+expect ">"; send "east\r";                              # Constabulary Road (Harkness Munt)
+
+#
+# Constabulary Road (Harkness Munt)
+#
+# Optional: Talk to the paleontologist.
+#
+expect ">"; send "x gate. x plaque\r";                  # "Municipal Jail"
+expect ">"; send "x bench. x trees. x barricade. x pit. x bones\r"
+expect ">"; send "x man. x student\r"
+expect ">"; send "ask man about pit\r";                 # He says he's Dr. Daniel West, or just Dan
+expect ">"; send "ask Dan about fossil. ask Dan about Herbert\r"
+expect ">"; send "ask Dan about student. ask Dan about university\r"
+expect ">"; send "ask Dan about Ialdabaoloth\r";        # The student kills them both
+expect ">"; send "x bodies. x pickaxe. enter pit\r";    # Eep. No
+expect ">"; send "open gate\r";                         # It's not locked
+expect ">"; send "north\r";                             # Backwater Jail
+
+#
+# Backwater Jail (Marshal Tenner Winter)
+#
+# Goal: Open the evidence locker.
+#
+> x desk. x post-it note. (Evidence key in last arrestee's file.)
+> x computer. x monitor.
+> x clipboard. x paperwork. (Last arrestee was Eugene Kunkle.)
+> x office window. x secure door. x bathroom door. x placard.
+> x swivel chair. x visitors chair. x paneling. x bulbs.
+> x cabinet. open it. x Kunkle file. (He stole a library book.)
+> take aluminum key. close cabinet.
+> unlock locker with aluminum key. put aluminum key in kp.
+> open locker. (A corpse falls on you!)
+
+# You pass out, then wake up in...
+
 # Quit
 expect ">"; send "quit\r"
 #expect "QUIT"; send "quit\r"
