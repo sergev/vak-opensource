@@ -1,0 +1,32 @@
+#!/usr/bin/expect -f
+#
+# Play game Cragne Manor.
+#
+# Based on http://plover.net/~davidw/sol/c/cragn18.html
+#
+set timeout -1
+
+# Remove previous log, if any.
+system rm -f "game.log"
+log_file "game.log"
+
+# Start the game.
+spawn ./glulxe cragne.gblorb
+match_max 100000
+
+expect "press any key to continue"; send "\r"
+expect "yes or no"; send "yes\r"
+expect "yes or no"; send "yes\r"
+expect "press any key to begin"; send "\r"
+
+#
+# Bridge (Daniel Stelzer and Jemma Briggeman)
+#
+# Goal: Repair the bridge.
+#
+expect ">"; send "restore\r"; expect ":"; send "bridge\r"
+
+# Quit
+expect ">"; send "quit\r"
+#expect "QUIT"; send "quit\r"
+exit

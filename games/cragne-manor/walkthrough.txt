@@ -1,0 +1,147 @@
+spawn ./glulxe cragne.gblorb
+Welcome to the Cheap Glk Implementation, library version 1.0.6.
+
+
+
+
+Welcome to Cragne Manor! Before we begin, we want to make sure you really understand what you're getting yourself into...
+
+[press any key to continue]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTENT WARNING
+
+Please be warned that this game contains:
+
+cosmic horror, body horror, psychological horror, gore, violence, murder, death, self-harm, suicide, mutilation, decapitation, racism, spiders, snakes, rats, aggressive birds, deceased animals, insects, incest, nonexplicit references to uncomfortable sexual situations involving minors, abusive relationships, domestic violence, pregnancy loss, ghosts, mental illness, homelessness, alcoholism, oppressive religious organizations, bullying, kidnapping, hostile vegetation, fungal overgrowth, creepy dolls, creepy children, references to human/anthropomorphic animal sex, eyeball contact, scatological references, strong language, virgin sacrifice, demon summoning, demon possession, blood, skeletons, viscera, infectious disease...
+
+...and possibly several other types of disturbing content we forgot to include.
+
+Would you still like to continue? (Please type yes or no.)
+yes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONCEPT WARNING
+
+To commemorate the 20th anniversary of Michael Gentry's Anchorhead, we got more than eighty people together and assigned each of them to create one room of a massive Anchorheadesque world. The authors were given basic information about what their rooms were and how they fit into the game's puzzle progression; beyond that, we told them to do whatever they wanted. We didn't tell anybody what was going on in anybody else's rooms.
+
+This resulted in a game that is ridiculous. The world the authors created is inconsistent and often nonsensical. Commands that are necessary to progress in one room might not work anywhere else. Many of the puzzles are, by ordinary human standards, deeply unfair. By ordinary human standards, this is not a good game.
+
+If you approach Cragne Manor as an conventional work of interactive fiction, you'll find it confusing and frustrating. Temper your expectations, be prepared for the weirdness you're diving into. You'll still end up confused and frustrated at some point. Then you'll discover that this is completely worth it.
+
+Would you still like to continue? (Please type yes or no.)
+yes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Thank you, and enjoy your stay in Cragne Manor! For more information about the game, please type ABOUT or CREDITS at any time.
+
+[press any key to begin]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+The cold autumn wind makes you shiver. The train station is eerily deserted: no staff, no other passengers. Even the train you arrived on has disappeared into the distance as if it had never been here. Your memory of the trip already seems faded and unreal, like a dream.
+
+The sign hanging overhead catches your eye: "Backwater Station." Yes: Backwater, Vermont. This is where you need to be. You need to find Peter.
+
+Cragne Manor
+An Anchorhead tribute by various authors
+Release 10 / Serial number 181208 / Inform 7 build 6M62 (I6/v6.33 lib 6/12N)
+
+Railway Platform (Naomi Hinchen)
+The platform is open to the outdoors, but has an overhanging roof with a rusted sign hanging from it. At the back of the platform, to the south, is the entrance to the lobby. Train tracks stretch off into the distance to the east and west; on the other side of the track is a graffitied brick wall. The only other living creature in sight is a rat fixing you with its beady black eyes.
+
+The clock overhead gives the time as 6:20 pm; beneath the clock is a schedule board listing train arrival times. On the platform itself are a wooden bench, a storage locker, and a vending machine.
+
+>restore
+Enter saved game to load: bridge
+Ok.
+
+>
