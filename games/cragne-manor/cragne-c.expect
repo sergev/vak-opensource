@@ -269,6 +269,23 @@ expect ">"; send "down\r";                              # Circular Room
 #
 # Circular Room (JP)
 #
+# Just grab the wad of cash.
+#
+expect ">"; send "x cash\r"
+expect ">"; send "x stones\r"
+expect ">"; send "take cash. put cash in mp\r"
+expect ">"; send "x coffee\r";                          # You're done here
+expect ">"; send "up\r";                                # The Old Well
+expect ">"; send "wait for blue line\r";                # Outside the Library
+expect ">"; send "south\r";                             # Town square, Backwater, VT
+expect ">"; send "east\r";                              # Bridge
+
+#
+# Bridge (Daniel Stelzer and Jemma Briggeman)
+#
+# Goal: Repair the bridge.
+#
+expect ">"; send "save\r"; expect ":"; send "bridge\r"
 
 # Quit
 expect ">"; send "quit\r"

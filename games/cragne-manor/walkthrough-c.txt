@@ -917,4 +917,62 @@ You walk into a circular, high-ceilinged room made of roughly-shaped gray stones
 
 There appears to be a small wad of cash just inside the sunken area.
 
+>x cash
+It smells a little musty and is deeply creased into an almost solid lump.
+
+>x stones
+The irregular grey stones that comprise the circular room have a satiny sheen, appearing almost wet. Their color is soft and quiet; visions of pre-dawn fog in the harbor, spilling out from a river's mouth. The room itself looks like it spans about 30 feet, and its floor has a wide, round depression in the middle, rather resembling the resting place for a teacup.
+
+>take cash. put cash in mp
+Taken.
+
+You put the wad of cash into the Jansport backpack.
+
+>x coffee
+The clouds in your cup form -- weird, they've entirely dissipated. Lack of a symbolic image means that you have accomplished everything you must in your current environment and should move on to find new challenges in order to grow as a person.
+
+>up
+
+The Old Well (Reed Lockwood)
+The trees here gather, black with wet; glimmering fingers hung with ragged matter, huddling beneath a cold and gently weeping sky. Beneath your feet, the damp red felt of rotting leaves slopes down toward a still, murky puddle. Nearby is a well, a ragged, gaping hole in the earth. A broken-down section of brick wall waits for raindrops to fall along its spine, and an old, half-dead oak straddles an angular boulder studded with quartz. A path through the forest leads south.
+
+You can see a perfumed land octopus, a comfy snake, a hallucinogenic worm and a wooden sigil here.
+
+A ghostly trolley stop sign reads Green Line -- The Woods.
+
+>wait for blue line
+You lean against the old, crumbling well cap, hold out your pass, and wait for the blue line. Within moments, a spectral trolley arrives. Instead of stopping and allowing you to board, it passes through you, and you find yourself transported to
+
+Outside the Library (Gavin Inglis)
+A short street terminates here. To the south it opens into the town square. To the east, a few worn steps rise to the entrance of the public library, and to the west you can see a real estate office. A gloomy path leads northwest, towards the woods.
+
+You can see a notice board here.
+
+An insubstantial trolley stop sign reads Blue Line -- Library Square.
+
+>south
+
+Town square, Backwater, VT (Marco Innocenti)
+The large, hexagonal-shaped square is paved with big, white stones, polished by rain and wind over the decades; around it, low red-brick buildings look like watching peasants. One single street leaves the square to the north, while less accommodating paths lead west, in the direction of a towering church, and southwest.
+Due east, an iron bridge crosses the river, and southeast, a walkway leads down to its bank.
+
+The swollen, slate-colored clouds that blanket the sky are reflected in the shiny, circular shape embellishing the center of the square, muttering ominous portents amongst themselves.
+
+A man is leaning on the bridge rail, staring intensely at you with his only eye.
+
+>east
+Your feet finally touch down on some blackened shore and into some large subterrane. The slick black stone of the cavern arcs high above your head with strange formations that grow downwards and then out in oddly perpendicular angles. The damp rock moves in and out of focus as some pulsing green light illuminates the space.
+
+Taking a step, you feel the sand pulling at your shoes as though it were thick mud or quicksand. Your feet sink with every step, settling on some solid stone platform just beneath this layer of cloying sand that prevents you from being entirely swallowed.
+
+You pass between two monolithic pillars: oily green-black stone of a height that makes you dizzy to comprehend. Between them, a skeletal bridge stretches out across the chasm.
+
+The crossing spans a ravine of tumultuous water that roars like some uncaged beast and echoes around the cavern. Its Stygian call chills you and draws you in by equal measures as you take the first step onto the slats that form the bridge.
+
+Bridge (Daniel Stelzer and Jemma Briggeman)
+You are standing on a bridge spanning east to west in the middle of an echoing cavern. In the center of the bridge is a large cancerous sculpture constructed of pipes that climb up to a cauldron filled with an eerily glowing green moss, the only light source in the room. Beneath your feet you can hear the crashing of the river below. Ahead of you, to your horror, there are slats missing on the bridge - you'll never make it across without replacing them.
+
+
+What appears to be a rope is tied around one of the beams of the bridge. A ragged knot ties the other end to some misshapen piece of polished, almost pristine, metal while the rest of the rope is coiled neatly on the planks.
+
 >
