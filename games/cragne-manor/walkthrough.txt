@@ -648,4 +648,273 @@ You can see a wooden sigil here.
 
 A mistlike trolley stop sign reads Green Line -- The Woods.
 
+>x puddle
+Kneeling to examine the puddle, you witness a violent sea, plumed with frothing foam. Below the surface, the shadows of sea-life, cresting and rolling their smooth gray bodies.
+
+You can see the wooden arch, the teal arch, the violet arch and the sky blue arch here.
+
+>x wooden arch
+A wooden archway carved with eldritch symbols. It is located in the roiling ocean.
+
+>x teal arch
+The teal arch stands in the roiling ocean. Through it, you can see glimpses of a blessed forest.
+
+A teal arch.
+
+(You can see all arches discovered so far by typing "x arches".)
+>x violet arch
+The violet arch stands in the roiling ocean. Through it, you can see glimpses of a howling labyrinth.
+
+A violet arch.
+
+(You can see all arches discovered so far by typing "x arches".)
+>x sky blue arch
+The sky blue arch stands in the roiling ocean. Through it, you can see glimpses of a languid plain.
+
+A sky blue arch.
+
+>enter wooden arch
+You can't manipulate something that small with your bare hands. Try prodding it with the laser on your eyepiece.
+
+>prod wooden arch
+An ominous humming fills the clearing, but nothing happens.
+
+("p" can be used as an abbreviation for "prod")
+>x brick
+Your vision zooms in on the crumbling bricks to reveal a howling maze of rust-red crevices, between which swoop screeching black eagles. The red rock is perforated by innumerable cavities in which dwell scurrying insects.
+
+You can see the wooden arch, the marigold arch, the violet arch and the pink arch here.
+
+>x marigold arch
+The marigold arch stands in the howling labyrinth. Through it, you can see glimpses of a blessed forest.
+
+A marigold arch.
+
+>x pink arch
+The pink arch stands in the howling labyrinth. Through it, you can see glimpses of a languid plain.
+
+A pink arch.
+
+>x quartz
+Leaning in close to the patch of quartz, your vision swirls. Visions of a strange, microscopic world appear: A shallow pool of aquamarine fluid sits within a vast white desert woven with lavender capillaries, a soft network of exotic flora. Beside the crater, a chrome-plated, cylindrical machine protrudes from the ground.
+
+You can see the wooden arch, the mint green arch, the pink arch and the sky blue arch here.
+
+>x mint green arch
+The mint green arch stands in the languid plain. Through it, you can see glimpses of a blessed forest.
+
+A mint green arch.
+
+>x machine
+A chrome plated cylinder, studded with rivets. A chute extends from one side, toward the aquamarine pool. It is located in the languid plain.
+
+>x fluid
+The calm pool of aquamarine fluid is in the languid plain.
+
+You see nothing special about the calm pool of aquamarine fluid.
+
+>x root
+Peering at the twisted root, your vision distorts, distorts again. Suddenly you see as a forest of gray fungus over rich, piled soil. Strange little bipeds clamber among the stalks, pale with bulbous heads.
+
+You can see the wooden arch, the marigold arch, the teal arch and the mint green arch here.
+
+>x arches
+Arches found so far:
+
+wooden arch ----> wooden sigil
+marigold arch: howling labyrinth <---> blessed forest
+teal arch: roiling ocean <---> blessed forest
+mint green arch: languid plain <---> blessed forest
+pink arch: languid plain <---> howling labyrinth
+sky blue arch: languid plain <---> roiling ocean
+violet arch: roiling ocean <---> howling labyrinth
+>open bp
+You open the book pocket, revealing a soggy tome, a book list, The Modern Girl's Divination Handbook -- Volume Three, The Dollmaker's Journal, a moldy, waterlogged journal, a shabby journal and Twin Hearts Between the Planes.
+
+>read moldy journal
+(first taking the moldy, waterlogged journal)
+You riffle through the pages; only short passages are still legible:
+
+"... circular golden prosthesis seems to have chosen Mabel ... doctor said he can't remove it without harming the child ..."
+
+"... Mabel spends long hours examining stumps and rocks in the woods ... and I are most concerned. Mabel's stories of fairies and HIDDEN LANDS seem more than childish fancy"
+
+(There's a long section of the book here which is ruined and entirely illegible, although you can make out diagrams and the faded, troubling outlines of strange shapes)
+
+"... constructed the sigil out of sculpted and varnished wood after many ... Mabel instructs me on where it should be placed ... spirits she is in communication with have constructed various devices at her command ... creatures I have dubbed microphids ... "
+
+"... Clara still doesn't believe; threatened to get Pastor Crowell involved ... able to dodge him so far ... quit my position at ..."
+
+"... very concerned but there is no body ... up to seven successful SUMMONINGS that have remained docile ... we will never know, and quite frankly these studies are more important than that ... Each creature must process through three ARCHES, through three HABITATS and stages of development before finally maturing through the ARCH and SIGIL ... special GLUE created by that one created via the sequence ->FOREST->(illegible)->CLIFFS ..."
+
+"... at Clara's insistence I have written to the University ... fake name ... one we have dubbed Moppy is friendly enough and a loyal companion to Mabel ..."
+
+"... siphoning off the rest of the inheritance ... haven't seen her in a while ... sent an officer of the law to fetch Mabel, but Moppy took care of him ..."
+
+(another long damaged section)
+
+"... only Tall Pete is left ... lay Mabel in a grave beside Moppy ... TERRIBLE LIZARD-BIRD was raised up from the OCEAN - is still out there somewhere ..."
+
+"... now I wear the PROSTHESIS; now I can see everything. ... breached the walls of perception ... I am PRODDING the EGG MACHINE on the QUARTZ OUTCROPPING ... dozens of them GATHER to PROTECT me from the LIZARD BIRD ... PULLED the ROOF clear off my SHELTER ..."
+
+ And that's it. There's no more. Well, you suppose you didn't actually expect the author to keep writing right up until the point of his death, but you're a little disappointed.
+
+>put it in bp
+You put the moldy, waterlogged journal into the book pocket.
+
+>close bp
+You close the book pocket.
+
+>prod machine
+The chrome-plated machine shivers and lurches, and an egg trundles down its chute and splashes into the aquamarine pool below. The shell breaks apart, the pieces rapidly dissolving, leaving behind only a small, translucent blob.
+
+("p" can be used as an abbreviation for "prod")
+>x blob
+A nascent, translucent blob of flesh rolls and shivers on the surface of the aquamarine pool. It is located in the languid plain.
+
+>prod blob
+The tiny blob shrivels up and dies in the heat of the beam.
+
+>prod machine
+The chrome-plated machine shivers and lurches, and an egg trundles down its chute and splashes into the aquamarine pool below. The shell breaks apart, the pieces rapidly dissolving, leaving behind only a small, translucent blob.
+
+>prod mint
+The tiny blob wriggles up onto dry land and passes beneath the mint green arch. It disappears from the languid plain.
+The tiny blob emerges in the blessed forest and transforms into a small quadruped.
+
+>prod teal
+The creature saunters through the teal arch. It disappears from the blessed forest.
+The small quadruped emerges in the roiling ocean and transforms into a bumpy whale.
+
+>prod violet
+The whale dives to the violet arch. It disappears from the roiling ocean.
+The bumpy whale emerges in the howling labyrinth and transforms into a armored climber.
+
+>prod wooden
+(the wooden sigil)
+The air above the sigil crackles with energy.
+
+A great, armor-plated monster trundles forth from the sigil and off into the forest with hardly a backwards glance.
+
+(For future reference, you can use the command "birth" to lay another egg; "forest", "plain", "cliffs", and "ocean" to switch the creature between microcosms you've discovered; and "summon" to summon a mature creature into the sigil.)
+>birth
+The chrome-plated machine shivers and lurches, and an egg trundles down its chute and splashes into the aquamarine pool below. The shell breaks apart, the pieces rapidly dissolving, leaving behind only a small, translucent blob.
+
+>forest
+The tiny blob wriggles up onto dry land and passes beneath the mint green arch. It disappears from the languid plain.
+The tiny blob emerges in the blessed forest and transforms into a small quadruped.
+
+>plain
+The creature saunters through the mint green arch. It disappears from the blessed forest.
+The small quadruped emerges in the languid plain and transforms into a glassy horse.
+
+>cliffs
+This horse gallops gaily toward the pink arch. It disappears from the languid plain.
+The glassy horse emerges in the howling labyrinth and transforms into a slime ape.
+
+>summon
+The air above the sigil crackles with energy.
+
+The cycloptic ape extends its arms over the edge of the sigil, heaving itself into your pathetic material world, dripping gobs of sticky slime across the forest floor. It leaps atop the clearing and onto the well cap. It turns and catches you in its monocular gaze. An understanding passes between you. Maybe even - love? It turns again, bolting into the bushes.
+
+"W-Wait," you say, but the moment has passed.
+
+Only the creature's sticky goo is left behind on the well.
+
+>x well
+An old well cap made of crumbling cement emerges from the forest floor here. Two wrought-iron handles, pitted with rust, emerge from the top. A padlock, also rusted, holds it closed. The entire thing is covered in sticky goo.
+
+>birth. cliffs. ocean. forest. summon. x worm
+The chrome-plated machine shivers and lurches, and an egg trundles down its chute and splashes into the aquamarine pool below. The shell breaks apart, the pieces rapidly dissolving, leaving behind only a small, translucent blob.
+
+The tiny blob wriggles up onto dry land and passes beneath the pink arch. It disappears from the languid plain.
+The tiny blob emerges in the howling labyrinth and transforms into a wriggling worm.
+
+The little worm squirms its way into the violet arch. It disappears from the howling labyrinth.
+The wriggling worm emerges in the roiling ocean and transforms into a sinuous ribbon.
+
+The creature swims toward the teal arch. It disappears from the roiling ocean.
+The sinuous ribbon emerges in the blessed forest and transforms into a hallucinogenic worm.
+
+The air above the sigil crackles with energy.
+
+The great and colorful flatworm wriggles forth from the sigil.
+
+A brightly colored flatworm, adoned in purples and golds.
+
+>birth. cliffs. plains. forest. summon. x snake
+The chrome-plated machine shivers and lurches, and an egg trundles down its chute and splashes into the aquamarine pool below. The shell breaks apart, the pieces rapidly dissolving, leaving behind only a small, translucent blob.
+
+The tiny blob wriggles up onto dry land and passes beneath the pink arch. It disappears from the languid plain.
+The tiny blob emerges in the howling labyrinth and transforms into a wriggling worm.
+
+The little worm squirms its way into the pink arch. It disappears from the howling labyrinth.
+The wriggling worm emerges in the languid plain and transforms into a somnambulant snake.
+
+The creature inches its way lazily toward the mint green arch. It disappears from the languid plain.
+The somnambulant snake emerges in the blessed forest and transforms into a comfy snake.
+
+The air above the sigil crackles with energy.
+
+The padded snake slithers from the sigil.
+ It joins the hallucinogenic worm, falling asleep among the leaves.
+
+This large, soft snake is covered with cushions of flesh. It dozes peacefully here.
+
+>birth. ocean. cliffs. forest. summon. x octopus
+The chrome-plated machine shivers and lurches, and an egg trundles down its chute and splashes into the aquamarine pool below. The shell breaks apart, the pieces rapidly dissolving, leaving behind only a small, translucent blob.
+
+The tiny blob wriggles up onto dry land and passes beneath the sky blue arch. It disappears from the languid plain.
+The tiny blob emerges in the roiling ocean and transforms into a slightly more robust blob.
+
+The blob sinks beneath the surface of the waves, presumably to find the violet arch. It disappears from the roiling ocean.
+The slightly more robust blob emerges in the howling labyrinth and transforms into a gas-belching sphere.
+
+The creature descends toward the marigold arch. It disappears from the howling labyrinth.
+The gas-belching sphere emerges in the blessed forest and transforms into a perfumed land octopus.
+
+The air above the sigil crackles with energy.
+
+The colorful, tentacled creature appears on top of the sigil. It is quite happy to see you!
+ It joins comfy snake and hallucinogenic worm.
+
+This brightly patterned octopoid flops about with the other creatures here. It emits pleasing scents from the ends of its tentacles.
+
+>birth. forest. cliffs. ocean. summon
+The chrome-plated machine shivers and lurches, and an egg trundles down its chute and splashes into the aquamarine pool below. The shell breaks apart, the pieces rapidly dissolving, leaving behind only a small, translucent blob.
+
+The tiny blob wriggles up onto dry land and passes beneath the mint green arch. It disappears from the languid plain.
+The tiny blob emerges in the blessed forest and transforms into a small quadruped.
+
+The creature saunters through the marigold arch. It disappears from the blessed forest.
+The small quadruped emerges in the howling labyrinth and transforms into a winged scavenger.
+
+The creature flaps toward the violet arch. It disappears from the howling labyrinth.
+The winged scavenger emerges in the roiling ocean and transforms into a fearsome pteranodon.
+
+The air above the sigil crackles with energy.
+
+A fearsome pteranodon emerges and perches on the handles of the well-cap. It screeches at the other monsters, but they band together to defend themselves. Defeated, it attempts to fly off, but its feet are stuck fast to the well-cap. It screeches and shrieks, flapping its colossal wings, sending clots of leaves and muddy droplets spiraling into the air. At last, the cement cracks, and the top of the well breaks off in the creatures claws as it soars higher and higher. Only the open top of the well remains.
+
+In the chaos, a piece of debris must have hit the golden device, for now it the eyepiece shows only black. With a whine, it falls from your face, sputtering acrid green smoke.
+
+>take eyepiece. x it. put it in tp
+Taken.
+
+A misshapen golden disc, studded with lenses. It is cracked and misshapen now. On its surfaces are a round button, a triangular button, and a small rectangular slot.
+
+The golden eyepiece is currently switched off.
+
+You unzip the trash pocket, deposit the golden eyepiece, then zip the trash pocket back up again.
+
+>x coffee
+The swirls in your cup form a gentle ripple. Lack of a symbolic image means that you have accomplished everything you must in your current environment and should move on to find new challenges in order to grow as a person.
+
+>down
+
+Circular Room (JP)
+You walk into a circular, high-ceilinged room made of roughly-shaped gray stones. This room really looks like a capped well, but its location in the building suggests otherwise.
+
+There appears to be a small wad of cash just inside the sunken area.
+
 >
