@@ -1,0 +1,811 @@
+TRATTATI
+D' ARITHMETICA
+
+PUBBLICATI
+DA BALDASSARRE BONCOMPAGNI
+
+SOCIO ORDINARIO DELL'ACCADEMIA PONTIFICIA DE'NUOVI LINCEI,
+E SOCIO CORRISPONDENTE DELL'ACCADEMIA REALE
+DELLE SCIENZE DI TORINO,
+DELLA REALE ACCADEMIA DELLE SCIENZE DI NAPOLI,
+E DELLA PONTIFICIA ACCADEMIA DELLE SCIENZE
+DELL'ISTITUTO DI BOLOGNA
+
+--------
+I.
+ALGORITMI DE NUMERO INDORUM.
+--------
+
+ROMA
+TIPOGRAFIA DELLE SCIENZE FISICHE E MATEMATICHE
+in Via Lata N.º 211.
+1857.
+
+EX BIBLIOTHECA REGIA ACADEM. GEORGIAE AUG.                              (1)
+
+I.
+
+ALGORITMI DE NUMERO INDORUM.
+
+(Biblioteca dell'Università di Cambridge, Codice manoscritto contrasseguato « Ii. 6. 9 »
+carte 102, recto — 109, verso).
+
+Dixit algoritmi: laudes deo rectori nostro atque defensori
+dicamus dignas, que et debitum ei reddant, et augendo multiplicent
+laudem, deprecemurque eum ut nos dirigat in semita
+rectitudinis et ducat in uiam ueritatis, et ut auxilietur nobis
+super bona uoluntate in his que decreuimus exponere ac patefacere
+de numero indorum per .IX. literas, quibus exposuerunt
+uniuersum numerum suum causa leuitatis atque abreuiationis,
+ut hoc opus scilicet redderetur lewius querenti arithmeticam,
+idest numerum tam maximum quam exiguum, et quicquid
+in eo est ex multiplicatione et diuisione, collectione quoque
+ac dispersione et cetera.
+
+Dixit algoritmi: Cum uidissem yndos constituisse .IX. literas
+in uniuerso numero suo, propter dispositionem suam quam posuerunt,
+uolui patefacere de opere quod fit per eas aliquid
+quod esset leuius discentibus, si deus uoluerit. Si autem indi
+hoc uoluerunt, et intentio eorum in his .IX. literis fuit causa que
+mihi patuit, deus direxit me ad hoc. Si uero alia de causa,
+preter eam quam ego exposui, hoc fecerunt per hoc quod ego
+exposui, eadem causa certissime et absque ulla dubitatione potuerit
+inueniri. Leuiterque patebit aspicientibus et discentibus.
+
+Fecerunt igitur .IX. literas, quarum figure sunt he .... (#1-1).
+est quoque diuersitas inter homines in figuris earum: fit autem
+hec diuersitas in figura quinte litere et sexte, septime quoque         (2)
+et octaue. Setin hoc nullum impedimentum est. Sunt enim note
+signantes numerum, et he sunt figure in quibus est illa
+diuersitas .... (#2-1). Et iam patefeci in libro algebre et almucabalah,
+idest restaurationis et oppositionis, quod uniuersus numerus
+sit compositus, et quod uniuersus numerus componatur super
+unum. Vnum ergo inuenitur in uniuerso numero ; et hoc
+est quod in alio libro arithmetice dicitur. Quia unum est
+radix uniuersi numeri, et est extra numerum. Radix numeri
+est, quare per eum inuenitur omnis numerus. Extra numerum
+uero est, quare inuenitur per se, idest absque alio aliquo
+numero. Reliquus autem numerus sine uno inueniri non
+potest. Cum enim unum dicis, inuentione sui non indiget alio
+numero. Reliquus autem numerus indiget indiget (sic) uno :
+quare non potes dicere duo uel tria, nisi precedat unum. Nichil
+aliud est ergo numerus, nisi unitatum collectio; et hoc
+quod diximus non potes dicere duo ucl tria,nisi precedat unum:
+non de uoce diximus, ut ita dicam,set de re. Non enim | possunt
+esse duo uel tria, si unum auferatur. Vnum uero potest esse
+absque secundo uel tercio. Igitur nichil aliud sunt duo, nisi
+unius duplicitas uel geminatio: et similiter tria nichil aliud
+sunt, nisi eiusdem unitatis triplicatio: sic de reliquo numero
+intellige. Set nunc redeamus ad librum.
+
+(#1-1) La lacuna indicata con quattro punti nelle linea 23 della presente
+pagina trovasi anche nel sopraccitato Codice Ii. 6. 3 della Biblioteca dell
+Università di Cambridge (carta 102 recto, lin. 18).
+
+(#2-1) La lacuna indicata con quattro punti nella linea terza della presente pacina
+trovasi anche nel sopraccitato Codice 14. 6. 5. (carta 102 recto, lin. 22).
+
+Inueni,inquid algorizmi, omne quod potest dici ex numero,
+et esse quicquid excedit unum usque in .IX., idest quod est
+inter ix. et unum, idest duplicatur unum et fiunt duo; et
+triplicatur idem unum, fiuntque tria, et sic in ceteris usque
+in .IX. De inde ponuntur .X. in loco unius, et duplicantur
+-X. ac triplicantur, quemadmodum factum est de uno, fiuntque
+ex corüm duplicatione .XX., ex triplicatione .XXX., et
+ita usque ad .XC. Post hec redeunt .C. in loco unius, et                (3)
+duplicantur ibi atque triplicantur, quemadmodum factum est
+de uno et .X.; efficiunturque ex eis .CC. et .COC. et cetera
+usque in .PCCCC. Rursum ponuntur mille in loco unius ; et
+duplicando et triplicando, ut. diximus, fiunt ex eis .II. milia,
+et .III. et cetera usque in infinitum numerum, secundum hunc
+modum. Et inueni quod operati sunt yndi ex his differentiis.
+Quarum prima est differentia unitatum, in qua duplicatur et
+Vriplicatur quicquid est inter unum et .IX. Secunda. differentia
+decenorum, in qua duplicatur ucl triplicatur quicquid est a
+x. in nonaginta. Tercia differentia centenorum, in qua duplicatur
+uel trplicatur quicquid est a .C. in .PCCCC. Quarta
+uero est differentia milium, in qua duplicatur ac triplicatur
+quicquid est a mille in .IX. w. Quinta differentia est .X. hoc
+modo: quocienscumque ascenderit numerus, adduntur differentie:
+erit dispositio numeri ita: Omne unum quod fuerit in superiora
+(sic) differentia, erit in inferiori que est ante ipsam .X.;
+el quod fuerit .X. inferiori, erit unum in superiori que. precedit
+eam; et erit inicium differentiarum in dextera scriptoris:
+et hec erit prima earum, et ipsa posita est unitatibus. Cum
+autem panerentur .X. in loco unius, et fierent in secunda
+differentia, essetque figura eorum figura unius, necesse fuit
+eis figura decenorum, eo quod similis esset figure unius, ut
+Scirent per eam quod essent .X. Proposuerunt igitur ei unam
+differentiam, et posuerunt in ea circulum paruulum in similitudine
+.O. litere, ut per hoc scirent quod differentia unitatum
+esset uacua, et nichil numeri esset in ea preter circulum
+paruulum, quem diximus occupare eam: et ostenditur quod
+numerus, qui est in sequenti differentia, esset decenis, et quod
+hec esset differentia secunda que est differentia decenorum.
+Et posuerunt post circulum in predicta differentia secunda
+quicquid uoluerunt ex numero decenorum de hoc quod est
+inter .X. et .XC., ct he sunt figure decenorum: figura .X. est          (4)
+hec .... Figura .XX. .... (#4-1). Et similiter figura .XXX. est ita, | et
+ita:usque ad'.ix. : erit scilicet circulus in prima differentia,
+et caracter pertinens ad ipsum numerum in secunda differentia.
+Hoc autem sciendum est, quod caracter qui sic in
+prima differentia, unum; in secunda sic .X.; in tercia .C.,
+atque in quarta .I. Et similiter qui sic in prima differentia
+duo; in secunda sic .XX. , et in terci& .CC. , et in quarta ii,
+et sic de ceteris intellige. Nos autem redeamus ad librum.
+
+(#4-1) Le due lacune, ciascuna delle quali & indicata con quattro punti nella
+prima linea della presente pagina, trovansi anche nel sopraccitato Codice Ii. 6.
+8. (carta 102 verso, lin. 33).
+
+Post differentiam decenorum sequitur sequitur (sic) differeniia
+centenorum, in qua duplicatur ac triplicatur quicquid est a
+.C. in .DCCCC.; et eius figura est sicut figura unius in tercia: differentia
+posita ità .100.; et figura ducentorum est sicut figura
+duorum posita similiter in tercia differentia ita.300.:figura quoque
+tercentorum est figura trium posita in tercia differentia
+ita .300, et sic usque ad nongenta. Hac quoque sequitur differentia
+milium, in qua similiter duplicatur et triplicatur quicquid
+est a mille in -ix. Cuius figura est sicut figura unius in
+quarta differentia posita ita .1000: figura duorum milium est sicut
+figura duorum in quarta differentia posita ita. 2000. et ita
+usque ad ix. milia: ponuntur autem in differentia quarta ante
+caracterem tres circuli, ut. ostendatur, quod sit in quarta differentia,
+sicut positus est in secunda differentia unius, et in
+tercia. duo, ut ostenderetur quod essent differentie decenorum
+uel centenorum: et hoc fit cum non fuerit ante ipsum numerum
+alius numerus in eadem differentia. Si autem fuerit cum
+numero, qui ponitur in his differentiis, aliquis numerus infra
+eum, debet poni in ea differentia que sibi debetur. Verbi
+gratia: si fuerit cum .X. aliquis numerus de his qui sunt
+infra eum , utpote .XI, uel XII., ponuntur ita .II. : in prima
+scilicet differentia, ubi positus erat circulus, ponatur unus, et       (5)
+in secunda differentia ponatur etiam unum quod sic .X. Similiter
+si fuerit cum .C. alius numerus de his qui sunt infra
+eum, ponatur in differentia que sibi debetur. Quod ostendamus
+sub quodam exemplari, et dicamus quod essct numerus .CCC.
+xxv. Quem cum uellemus ponere in suis differentiis, posuimus
+ita. Incepimus a dextera scriptoris, et posuimus in prima differentia
+.V.; in secunda, eundo uersus sinistram partem scriptoris,
+.XX., et in tercia. differentia .CCC., unumquemque numerum
+in differentia sua, idest unitates in differentia unitatum,
+que est prima; et decenos in differentia decenorum, que est
+Secunda. Centenos uero in differentia centenorum, que est
+tercia; et hec est figura .335.: et similiter crit in aliis differentiis
+secundum hunc ordinem, idest quocienscumque augmentatus
+fuerit numerus ct creuerint differentie, ponatur unumquodque
+genus numeri in sua differentia que debetur ei. Cum
+autem collecti fuerint in aliqua differentiarum .X. uel plus,
+erigantur ad superiorem differentiam, et.fiat de unoquoque
+x. in superiori differentia unum. "Rursum si fuerit in eadem
+differentia,ad quam peruenerit numerus ascendendo, alter numerus
+addatur desuper, et colligantur insimul: et si fuerint in
+co .X. uel plus, fiat de unoquoque .X. unum, et crigatur ad
+superiorem differentiam, idest si collecti fuerint in prima differentia
+decem, |fiat de eis unum, et ponatur in secunda differentia:
+et si in eadem differentia similiter fuerit numerus, iungatur
+ei: ct si fuerint ibi .X., fiat de eis unum, et erigatur
+etiam ad terciam differentiam. Verbi gratia. Si in prima differentia,
+que est differentia unitatum, habueris .X.,fac de eis unum,
+et pone ipsum in secunda differentia. In prima ucro differentia
+pone circulum sicut diximus, ut ostendatur duc esse differentie.
+Si uero fuerint .XI., fac de .X. unum, et pone eum in secunda
+differentia ut supra, ct dimitte unum in prima. Si autem inueneris
+in secunda differentia, ubi posuistis ipsum numerum
+quem fecisti de .X.,aliquem numerum, iunge eum cum illo. Et             (6)
+si fuerint .X. uel plus, fac de .X. unum, et iterum. pone eum
+in differentia tercia ; et quod remanserit infra .X. maneat in
+suo loco. Quod autem dicimus plus .X., hoc pertinet ad multum
+numerum. Verbi gratia. Si fucrit in secunda uel tercia
+differentia magnus numerus, utpote si inueneris in differentia
+tercia,que est differentia centenorum, .IX.; ct si fuerint in differentia
+secunda .X., facies de .X. unum, et mutabis eum ad
+terciam differentiam, ubi iunges eum cum .IX. , ct fiunt. .X.:
+facies unum de ipsis .X.,et mutabis eum in quarta differentia,
+et ibi erit mille. Si uero inuenisses in secunda differentia .XX.,
+et facies de eis duo, addensque duo super ix. in tercia differentia,
+et fierent .XI.: faceres iterum de .X. unum, et mutares
+cum ad quartam differentiam, ubi esset mille, et remanet unum
+in tercia differentia: et ideo dicit .X. uel plus. Et hoc sciendum,
+quare cum mutaueris numerum, et posueris cum in scquenti
+differentia, debes ponere per caracteres suos, idest si
+fuerint .X. , pones pro cis caracterem qui significat in prima
+differentia unum; ct si fuerint .XX., pones pro eis caracterem
+qui significat in prima differentia duo, et sic dc ceteris intellige.
+Si uero remanserit in eadem differentia, de qua mutasti numerum,
+aliquid ex numero, dimitte eum similiter per caracteres
+suos, idest si remanserit unum uel duo, dimittes eum ibi
+per caracterem qui significat eundem numcrum, idest si remanserit
+unum, describes ibi caracterem unius; et si remanserint
+duo, describes ibi caracterem duorum et cetera. Set significabit
+unaqueque figura secundum quod fuerit differentia, idest
+in prima differentia significabit unitates; in secunda deceno
+(sic); in tercia centenos et cetera, sicut supra dictum est.
+
+Si autem fuerit numerus multus, et uolueris scire quotus sit,
+ucl quot differentie sint in ipso, ut scribas cum in libro, uel
+loquaris de co, scito quod non sit in aliqua differentia plus
+-IX., nec minus uno, nisi circulus. sit qui nichil est. Cum ergo
+uolueris hoc scire, numera differentias, incipiens a prima que          (7)
+erit in dextera parte, ct hec erit differentia unitatum. Relique
+uero differentie erunt descripte per successiones suas uersus
+sinistram partem scriptoris. Ex quibus secunda crit differentia
+decenorum, et tercia centenorum, et quarta milium, et quinta
+.X. milium. Sexta uero differentia erit .C. milium, et septima
+mille milium. Rursum vin."? erit .X. milia milium, | et nona .C.
+milia milium, et decima mille mille milium tribus uicibus, ct
+undecima .X. millia milia milium tribus uicibus, et duodecima
+.C. millia milia milium tribus uicibus, et XIII. mille mille
+mille milium quatuor uicibus; et similiter in omni differentia
+ex differentiis numeri addes in locutione tua. Quia super tres
+differentias, idest decenorum et centenorum, et milium residuum
+fuerit unum, erunt .X. milia ipsorum milium que cxierunt
+tibi in dictis. Si uero remanscerint duo, erunt .C. milia
+ex ipsis milibus: et iam constitui tibi exemplar, quo poteris
+scire ac probare per eum quicquid augmentatur super numerum,
+uel minuitur ex eo; et hec est figura eiusdem .... (#7-1).
+
+(#7-1) La lacuna indicata con quattro punti nella linea 17 della presente
+pagina trovasi anche nel sopraccitato Codice Ii. 6. 5. (carta 104 recto, lin.
+8, 9).
+
+Due litere cum collegeris eas secundum quod diximus de
+his notis, erit numerus milium earum notarum mille mille
+mille millium quinque uicibus secundum. numerum caracterum
+qui sunt sub eis; uel centum millia milia milia milium
+quatuor uicibus, secundum numerum caracterum qui sunt sub
+€is; uel octoginta milia milia milia milium quatuor uicibus, secundum
+quod est ex eis caracteribus. Deinde septingenta milia
+milia milium milium tribus uicibus; secundum caracteres
+qui sunt sub eis; et tria milia milia fnilium tribus uicibus; uel
+quinquaginta unum milia milium duabus uicibus; uel quadringenta
+milia et nonaginta duo milia et octingenta sexaginta tres.
+
+Cum uolueris addere numerum super numerum, uel minuere                  (8)
+numerum de numero, pone utrosque numeros in duobus
+ordinibus, unum scilicet ex eis sub altero, ct sit differentia
+unitatum &ub differentia unitatum, et differentia decenorum
+sub differentia decenorum. Quod si uolueris colligere utrosque
+numeros, addes scilicet unum super alterum : addes unamquamque
+differentiam super differentiam que est super eam
+de genere suo, idest unitates super unitates, et decenos super
+decenos. Cum collecti fuerint in aliqua differentiarum, idest in
+differentia unitatum uel decenorum, siue in alia aliqua decem,
+pones pro eis unum,et eriges eum ad superiorem differentiam,
+idest si habueris in prima differentia, que est differentia unitatum,
+decem, facies de eis unum, et sub leuabis eum ad differentiam
+decenorum, et ibi significabit decem. Si autem remanserit
+aliquid de numero quod sit infra x; uel fuerit ipse numerus
+infra .X., dimictens eum in eadem differentia; et si nichil
+remanserit, pones circulum, ut non sit differentia uacua: set
+sit in ea circulus qui occupet ea, ne forte cum | uacua fuerit,
+minuantur differentie, et putetur secunda esse prima; et sic decipieris
+in numero tuo. Sic quoque facies in omnibus differentiis.
+Similiter cum collecti fuerint in secunda differentia
+.X., facies de eis unum; et subleuabis eum ad differentiam
+terciam; ibique significabit centum ; et quicquid remanserit
+infra .X., remanebit ibi. Si uero nichil in ceteris remanserit,
+pones ibi circulum ut supra. Sic facies in ceteris differentiis,
+si plus fuerit. Si uero uolueris minuere unum de alio, numerum
+scilicet de numero, minues unam quamque differentiam
+de alia differentia que est super se ex genere suo; sicut
+supra dictum est. Quod si non fuerit in superiori differentia
+tantus numerus, de quo possis minuere numerum inferioris
+differentie, idest si fuerit minus, uel nichil ibi fucrit, accipies
+de secunda differentia que est alcior illo superiori unum,
+et de co facies decem; minuesque de eo quod debucris, et
+quod remanserit dimittes in eadem superiori differentia. Si             (9)
+uero nichil remanserit, pones ibi circulum ut supra. Si autem
+in secunda differentia a superiori nichil fuerit, accipe unum
+de tercia differentia, et erunt .X. in secunda. Et rursum ex
+illis .X. accipias unum, et fac de eo ut supra, et remanebunt
+in secunda .IX.; et incipe semper in augmentacione uel diminutione
+ab altiori differentia: postea a sequenti que eam
+succedit, quia utilius ac leuius erit opus, si Deus uoluerit.
+Quod ut facilius intelligatur, necesse est ut hoc sub exemplo
+notemus, et hoc dicamus tribus modis, ne quis in éo aliquo
+modo turbetur. Constituamus ergo aliquem numerum, et dicamus,
+ucrbi gratia. Ponamus sex milia quadrigentos uiginti
+duo per differentias suas, et dicamus quod uolumus minuere
+de eis tria milia ducentos undecim : ponamus itaque in prima
+differentia que est in dextera, scilicet duo, etinsecunda .XX.
+In tercia quoque quadringentos, et in quarta sex milia: et ponamus
+etiam ipsum numerum quem uolumus minuere de eo
+sub ipso per consimiles differentias ita. Ponamus scilicet unum
+sub düobus in prima differentia, et .X. sub .XX. in secunda;
+ducentos quoque sub quadringentis in tercia, et tria milia
+sub vi. milibus in quarta; et hec est eorum figura.
+
+Cumque uellemus minuere unum numerum de alio, minorem
+scilicet de maiori, cepimus a superiori differentia, idest a
+quarta. Minuimus itaque mt. de vi. , et remanserunt. tria in
+quarta differentia. Minuimus quoque duo de mn", et remanserunt
+in tercia differentia duo. Minuimus etiam unum de
+. g."*, et remansit unum in secunda differentia: et similiter
+remansit in prima differentia unum, cum minuerimus de duobus,
+que erant super eum, unum; et hec | remanencium figura
+eSt .... (#9-1). Rursum ponamus alium numerum alio modo ad
+placitum, de quo nichil remaneat in differentiis suis. Sitque           (10)
+numerus noster mille centum quadraginta quatuor, de quibus
+minuamus .C.XLIIII., et constituamus unum quemque ex cis
+sub alio hoc modo.
+
+(#9-1) La lacuna indicata con quattro punti nella linea 29 della presente pagina
+trovasi anche nel sopraccitato Codice I6. 6. 5. (carta 103 recto, linea
+jrima).
+
+Cum uolueris mediare aliquem. numerum, accipe a prima
+differentia, et media eam: in qua si fuerit numerus inpar, media
+pares, et remanebit unum, quod mediabis, idest diuides in
+duas medietates; constituesque medietatem unam triginta partem
+ex sexaginta, que faciunt unum; et pone sub eadem differentia
+.XXX.: deinde mediabis sequentem differentiam, si fuerit
+numerus eius par; et si fuerit impar, accipe medietatem
+paris, et pone eam in loco eius, et constitue medietatem unius
+residui quinque; et pone eos in differentia que est ante ipsam.
+Si autem non fuerit in eadem differentia quam uolueris mediare,
+nisi tantum unum, pone in loco eius. circulum, et pone
+quinque in differentia que est ante ipsam. Et similiter operare
+in uniuersis differentiis. Et cum uolueris duplare, incipe a superiori
+differentia, et dupla; ct cum numerus crescendo excesserit
+.X., fac.de decem unum, et pone eum in sequenti differentia,
+et inuenies, si Deus uoluerit.
+
+Etiam patefeci in libro, quod necesse cst omni numero qui
+multiplicatur in aliquo quolibet numero, ut duplicetur unus
+cx eis secundum unitates alterius. Cumque uolueris multiplicare
+aliquem numerum in alio per literas indorum, necesse est
+retinere multiplicationem numeri, qui est inter unum et. .IX.
+in inuicem, siuc concors fuerit numerus, siue diuersus. Cumque
+uolueris multiplicare numerum in altero, pone unum ex
+€is secundum quantitatem mansionum eius in tabula, ucl in
+qualibet re alia quam uolueris. De inde pone primam differentiam
+alterius numeri sub altiori differentia primi. Eritque
+prima mansio eiusdem numeri sub ultima mansione primi numeri
+quem posuisti. Et erit mansio secunda precedens primum
+numerwm uersus sinistram: cuius rei exemplar est. Quod cum
+uellemus multiplicare duo milia tercentos .XXVI. in .CCX.IIIIor,        (11)
+posuimus duo milia tercentos .XXVI. per indas literas in
+iim.or differentiis; fucruntque in prima differentia, que est in
+dextera, .V.; et in secunda duo, qui sunt .XX.; et in tercia
+trcs, qui sunt tercenti; et in quarta duo, qui sunt duo milia.
+Post hec posuimus sub duobus milibus uu"; de inde in precedenti
+uersus sinistram unum, qui sunt .X.; postea in tercia
+duo, qui sunt ducenti: et hec est. figura eorum.
+
+| Post. hec incipias ab ultima differentia superiori; et multiplica
+eam in ultima differentia inferioris numeri, qui est sub
+eo, uel quod exierit de multiplicatione, scribes de super.Postea
+Scribes etiam in differentia que succeditur, redeundo uersus
+dexteram inferioris numeri. Deinde facies similiter , donec
+multiplices ultimam differentiam superioris numeri in uniuersis
+differentiis inferioris numeri: et cum hec perfeceris, mutabis
+numerum inferiorem una differentia uersus dexteram.
+Eritque prima differentia inferioris numeri sub differentia que
+succedit numerum quem multiplicasti uersus dexteram. De
+inde pones reliquas differentias pur successiones eorum: post
+hec multiplicabis etiam ipsum numerum, sub quo posuisti
+primam differentiam inferioris numeri ultima mansione inferioris
+numeri: de inde in ea que succedit, donec perficias omnes,
+quemadmodum fecisti in prima differentia: uel quicquid collectum
+fuerit ex multiplicatione unius cuiusque differentie,
+scribes eum in differentia que est super ipsum : uel cum
+hec feceris, mutabis etiam eum numerum, scilicet tuum, una
+differentia ; et facies de eo quemadmodum fecisti in differentis
+primis ; ct non cessabis ita facere, donec perficias
+omnes differentias. Sic que multiplicabis uniuersum numerum
+superiorem in uniuerso pumero inferiori. Cumque euenerit
+ut prima differentia inferioris numeri sit sub aliqua differentia,
+in qua nullus sit numerus, idest in qua fuerit circulus,
+faciamus eam transire ad succedentem differentiam ,
+in qua fuerit numerus uersus dexteram. Quia omnis circulus              (12)
+qui multiplicatur in aliquo numero, nichil est, idest nullus
+numerus surgit ex eo; et quicquid multiplicatur in circulo,
+similiter nichil. Cumque mutauerimus differentias uersus
+dexteram ; postea multiplicauerimus ipsum numerum superiorem
+in una quaque differentia ex numero inferiori, addemus
+quod exierit nobis de multiplicatione super differentiam
+que est super illam differentiam , in qua multiplicauimus :
+dumque crescente numero collecti fuerint nobis in
+aliqua differentia .X., faciemus ex eis unum : ponemusque
+eum in sequenti differentia uersus sinistram; et si aliquid
+remanserit, notabimus eum in loco suo: si uero nichil remanserit,
+ponemus in loco eius circulum, ne minuatur aliquid
+ex differentiis: et cum perduxerit multiplicatio ad primam
+differentiam numeri inferioris, debebimus quicquid fuerit
+in differentia, que est super eam; et notabimus id quod
+exierit nobis ex multiplicatione in loco eius. Sicque faciemus ,
+donec multiplicemus uniuersas differentias superioris
+numeri in uniuersis differentiis inferioris; et sic
+multiplicabimus | numerum ex eis secundum numerum unitatum
+alterius, et perficietur multiplicatio: et hec est figura numeri,
+qui exiuit nobis de multiplicatione duorum milium et tercentorum
+uiginti sex in ducentis .XIIII., que sunt quadringenta
+milia et nonaginta septem milia et septingenta .LXIIII.
+
+Cum uolueris scire utrum inuenisti uel errasti in duplatione
+tua uel multiplicatione, accipe numerum quem uolueris
+duplare, et diuide eum per ax. et ax. et quicquid remanserit
+minus .IX., duplica eum: in quo si fuerint .IX., proice eos,
+et quod remanserit serua. Post hoc duplica numerum tuum,
+idest ipsum. numerum quem uolugris duplare, ct diuide eun
+per .IX., et .IX.; et quod remanserit, si fuerit simile.illi qui
+prius remanserat dum duplicaueras eum, iam iruenisti: sin
+autem, errasti. Et cum multiplicare uolueris aliquem numerum
+in aliquo; et uolueris probare ut supra, diuide numerum quem            (13)
+duplicasti per .IX., et quod remanserit infra .IX., serua. [terum
+diuide alium numerum per .IX., ct quod remanserit infra
+ix. Serua. Deinde multiplica quod remanserit de primo in eo
+quod. remanserit tibi de secundo; et proinde ex eo quod collectum
+fucrit .IX., si fueritibi; et si non fuerint ibi .IX., quod
+remanserit, erunt nota. Si autem fuerint ibi .IX., proice .IX.
+et serua quod remanserit; et quare hec erunt nota, intellige.
+Post hec multiplica unam multiplicationem in aliam; et diuide
+quod collectum fuit per .IX.; et quod remanserit, si fuerit simile
+illi quod dixi tibi de nota, scito quare inuenisti. Si uero
+non fuerit simile, errasti: intellige.
+
+In diuisione autem pones numerum quem uolueris diuidere
+per differentias suas : postea pones ipsum numerum, supcr
+quem uis diuidere, sub eo. Sitque ultima differentia numeri
+super quem diuidis sub ultima differentia superioris numeri
+quem diuidis. Si autem fuerit numerus, qui est ultima differentia
+superioris numeri quem uis diuidere, minus illo qui est
+ultima differentia inferioris numeri super quem diuidis, retrahe
+ipsam differentiam uersus dexteram, donec sit numerus
+superioris differentie plus 1 : pone ultimam differentiam inferioris
+numeri, super quem diuidis, sub differentia secunda que
+succedit ultimam differentiam superioris numeri. Post hec
+aspice primam differentiam numeri super quem uis diuidere,
+ct pone in directo eius super numerum superioriorem(sic)quem
+diuidis, uel sub eo in directo eius aliquem [numerum quem inde
+multiplicaueris in ultima differentia inferioris numeri super
+quem diuidis, erit similis illius numeri qui fuerit in superiori
+differentia, ucl prope eum qui sit minus illo. Cumque sciucris
+eum, multiplica eum in ultima differentia inferioris numeri,
+et minue quod exierit tibi de multiplicatione de eo quod est
+supra eum ex inferiori numero qui diuiditur. Iterum multiplica
+eum in secunda differentia que succedit ultimam differentiam
+uersus dexteram; et minue eum de eo quod est super eum; et              (14)
+fac in diminutione quem admodum fecimus in inicio libri.
+Cum uolueris minuere aliquem numerum de aliquo numero, et
+similiter fac, donec multiplices eum in uniuersis differentiis inferioris
+numeri super quem diuidis. Post hec muta uniuersas
+differentias inferioris numeri, super quem diuidis, una differentia
+uersus dexteram, et pone in directo prime differentie
+illius ad similitudinem illius quod prius posuisti. Quod cum
+multiplicaueris in ultima differentia inferioris numeri super
+quem diuidis, consument id quod supra eum est, uel quod
+fuerit prope eum: et multiplica illud quod posuisti in directo
+eius in ultima differentia numeri inferioris; et minue quod
+exierit tibi de multiplicatione de eo quod supra eum est; et
+Sic facies in uniuersis differentiis : et si remanserit de differentiis
+numeri superioris quem diuidis aliquid quod debeat diuidi,
+semper muta differentias inferioris numeri una differentia,
+donec sit prima differentia eius in directo alicuius differentie
+superioris numeri : quod si fuerit in aliqua differentia, ex differentiis
+numeri quem diuidis, circulus, et peruenerit mutatio.
+ad eum, non transeas eum, quem ad modum fecisti in multiplicatione.
+Set pones in directo eius aliquid quod multiplicabis
+quem ad modum narrauimus. Cumque perfeceris hec
+omnia, quicquid exierit tibi ex differentiis in directo numeri
+quem diuidis, illud debetur uni: et si aliquid remanserit, erit
+pars unius ex eo numero quem diuidis,et numquam remancbit
+nisi quod crit minus illo quod diuidis. Si autem plus remanserit,
+scito quod errasti.
+
+Et scito quod diuisio sit similis multiplicationi; set hoc fit
+econuerso: quare in diuisione minuimus, et ibi addimus, idest
+in multiplicatione eius exemplar est. Quod cum uellemus diuidere
+quadraginta sex milia et quadrigentos sexaginta octo
+super tercentos .XXIIII., posuimus primum in dextera parte
+octo; postea posuimus sex uersus sinistram qui sunt sexaginta:
+de inde .IIII.or qui sunt quadringenti; postea sex que sunt .VI.        (15)
+milia ; postca mm." que sunt quadringinta milia. Eruntque
+ultima harum differentiarum uersus sinistram, et prima earum
+Octo uersus | dexteram: post hec scribes sub eis numcrum super
+quem diuidis; scribesque ultimam differentiam numeri ,
+super quem diuidis, que est figura trium, et sunt tercenti sub
+ultima differentia numeri superioris, que sunt im.*', eo quod
+sit minus illo quod est supra eum : et si esset plus illo, retrahemus
+eum una mansione, ponemusque eum sub sex: post
+hec ponemus in ea; que succedit tres, figuram duorum que sunt
+.xx. sub sex: postea ponemus in ea que succedit .IIII.or idem
+.IIII.or: et hec figura earum.
+
+Post hec insipientes scribamus in directo prime differentie
+numeri super quem diuidimus super numerum superiorem
+quem diuidimus qui sunt quater unum: et si posuissemus eum
+sub .IIII.or, esset conueniens. Multiplicemusque ipsum in tribus,
+et minuemus eum de eo quod supra ipsum est, et remanebit
+unum. De inde multiplicemus eum in duobus; minucmus
+eum de eo quod supra ipsum est, qui sunt .VI., et remanebunt
+.IIII.or Post hec multiplicemus eum iterum in
+.IIII.or, et minuemus eum de eo quod supra ipsum est, que
+sunt .IIII., et nichil remanebit : ponemusque in loco eius circulum.
+Postea mutabis inicium numeri super quem diuidis, uel
+mr.9 sub .VI., et erunt duo sub circulo, et III. sub .IIII. De
+inde scribes in directo inferioris numeri aliquid in ordine
+unius, idest .IIII., quos multiplicabis in tribus, et erunt xu;
+minuesque eos de eo quod est super tres qui sunt ximu., et
+remanebunt .II : post hec multiplicabis etiam ipsos .IIII.or in
+duobus qui succedunt tres, et erunt vit., quos minues de eo
+quod supra ipsum est qui sunt .XX., et remanebunt XII., duo
+scilicet supra 1^, et unum supra tres. Iterum multiplicabis
+.IIII., in .IIII. qui succedunt dexteram, et erunt XVI.; minuesque
+eos de co quod supra ipsos est qui sunt .CXXVI., et
+remanebunt supra .IIII. circulus , ct supra duos unum , et              (16)
+super tres unum. Iterum mutabis numerum super quem diuidis,
+idest IIII.or sub VIII., erunt duo sub circulo et tres sub
+uno: postea scribes in directo ur. super numerum superiorem
+quem diuidis in ordine .IIII., atque unius tres, quos multiplicabis
+in tribus, et erunt .IX.; minuesque eos de eo quod est
+supra tres, qui sunt xr., et remanebunt super tres duo. Multiplicabis
+quoque tres in duobus qui succedunt tres, et erunt
+vL, quo minues de eo quod est supra tres qui sunt .XX. ,
+remanebunt .XIIII. Íterum multiplicabis predictos tres in
+un," qui succedunt duos, et erunt xi. ; minuesque eos de
+eo quod super illos est, qui sunt cxxvin., et remanebunt supra
+.IIII. sex, et supra duos tres, et supra tres unum. Exibitque
+nobis quod debetur uni ex eis; et hoc erit .CXLIII. ,
+et CXXXVI. partes de .CCC.XXIIII. partibus unius: et hec figura
+eorum.
+
+| Et si uolueris diuidere differentias plures super unam, ut
+pote mille .DCCC. per .IX., scribes mille octingentos, quorum
+figura est, ut ponas uersus dexteram duos circulos: postea
+.vir.; deinde unum: post hec ponas .IX. sub .VIII., eo quod
+sint plus .VIII.: deinde scribes in directo eius super octo aliquid,
+quod cum multiplicaueris in .IX., consumet quod est super
+se, idest xviij. qui sunt super .IX.; inueniesque illud esse
+duo, quos multiplicabis .IX. IX. et erunt .XVIII.; minuesque
+eos de eo quod est desuper, et nichil remanebit : de inde
+muta .IX. una differentia uersus dexteram, et fient sub circulo.
+Ponesque aliquid de super, quod cum multiplicaueris
+in .IX., nichil erit: quare est circulus super .IX., ct nullus numerus
+est ibidem. Pones ergo circulum in directo .IX. in ordine
+duorum, et multiplicabis .IX. in circulo, eritque. circulus,
+idest nichil. Post hec muta etiam .IX. ad. differentiam que est
+ante eam, que est prima differentia; eruntque .IX. sub. circulo:
+et fac de eis quem admodum fecisti de circulo qui erat eos (sic).
+Eruntque ibidem duo circuli, post quos erunt duo qui sunt               (17)
+ducenti; et hoc est quod debetur uni, et non remanebit ex
+€o quod diuiditur quicquam: et quocienscumque diuiseris aliquem
+numerum supcr aliquem, et remanserint de eo quod diuiditur
+circuli, ante quos nullus sit numerus , accipe quod
+residuum fuit ex circulis ab inicio differentiarum diuisi numeri
+uersus dexteram , et addes eos super id quod exierit de diuisione;
+et quod fuerit, ipsum est quod debetur uni. Et hec est
+quedam abreuiacio propinqua. Ordo autem primus est ordo
+operis: cuius rei exemplar est, quod cum scriberemus mille
+.DCCC, fuerunt duo circuli et vir, et in tercia differentia ,
+atque unum in quarta: posuimus .IX. sub .VIII, co quod sint
+plus illo, quod est in ultima differentia; fuitque figura eorum
+ita. Cumque scriberemus in directo .IX. supra .VIII. duo, multiplicaremusque
+ea in .IX., fuerintque .XVIII., quos cum minucremus
+de eo quod est supra .IX., et remanserunt duo circuli,
+nullum habentes ante se numerum. Scripsimus ergo duos circulos
+in ordine duorum , qui sunt supra .IX., et fuerunt .CC.,
+quorum hec est figura.
+
+Hec sunt uniuersa que necessaria sunt. hominibus ex diuisione
+et multiplicatione in eo numero qui fuerit integer. Et
+nunc incipiemus tractare de multiplicatione fractionum, cet
+earum diuisione, et de extractione radicum, si Deus uoluerit.
+
+Scito quod fraciones appellentur multis nominibus in numerabilibus | atque
+infinitis, ut medietas, tercia, quarta, nona
+et decima, et una pars ex xin., et pars ex .X.VIII, et cetera.
+Set indi posuerunt exitum partium suarum ex sexaginta: diuiserunt
+enim unum in .LX. partes, quas nominauerunt minuta.
+Iterum unum quodque minutum in .LX. partes, quas uocauerunt
+secunda; eritque unum ex LX. minutum, et unum ex tribus
+milibus et sexcentis erit secundum; et unum quodque secundum
+iterum diuiditur in .LX., eritque unum ex ducentis
+milibus et XVI. milibus tercium; et unum quodque tercium
+diuiditur in LX. quarta, et ita usque ad infinitum erunt differentie:   (18)
+prima igitur est differentia graduum, in qua est numerus
+integer, ct in secunda mansione erunt minuta. In tercia
+quoque sunt secunda; et in quarta tercia, et ita usque in .IX.,
+et .X. mansione : et scito quod omnis numerus integer qui
+multiplicatur in numero integro, efficitur numerus integer; et
+omnis numerus integer multiplicatus in aliqua fractione, efficitur
+ex genere illius fractionis; eruntque duo gradus multiplicati
+in duobus minutis .IIII. minuta, et tres gradus in sex
+terciüis .XVIII. tercia. Minuta quoque in minutis erunt secunda;
+et secunda in secundis tercia; et tercia in terciis quarta ;
+et quarta in quartis quarta : quare coniunctis utrasque differentias
+quas multiplicas inuicem;et quod colligitur ex numero
+fractionum simile.ei quod exit de numero integro in inuicem
+multiplicato. Verbi gratia. Sex minuta multiplicata in vi.
+minuciis, erunt .XLII. secunda: quare minuta sunt partes ex
+LX. partibus unius integri : et cum multiplicaueris partes ex
+LX. in .LX., erit quod exierit de multiplicacione ex LX. in LX.,
+que sunt tria milia sexcenta: et similiter .VII. secunda in .IX.
+minutis erunt .LX. tria tercia ; eruntque omnia quoque LX.
+ex eis secundum unum, et remanebunt tria tercia : quare minuta
+sunt partes ex LX., et secunda partes ex tribus milibus
+et sexcentis. Multiplica ergo ea in inuicem , et efficientur
+partes ex ducentis milibus et XVI. milibus que sunt tercia ,
+et sunt .LX. ex tribus milibus et sexcentis.
+
+Et cum uolueris multiplicare unum et dimidium in duo et
+dimidio, fac unum et dimidium minuta, et erunt .XC. Iterum
+fac unum et dimidium quem uis multiplicare in eadem minuta,
+et erunt similiter .XC.: multiplica unum ex eis in alio, et
+erunt .VIII. milia et .C. secunda : diuide secunda per IX.,
+et erunt minuta: quare omnia queque | LX/ta II/da. faciunt unum
+minutum. Exibuntque tibi .C.XXX.ta Vque minuta : et. diuide
+ea per LX., et erunt gradus: quare omnia queque .LX.ta minuta
+faciunt unum gradum;et hoc erit unum integrum ex numero ;
+cxibuntque tibi duo et XVI. minuta, que sunt quarta unius.              (19)
+
+Et si uolueris multiplicare duo integra, idest duos gradus
+et xiv. minuta in tribus integris ct x. minutis , ac .XXX.
+secundis, pone duo integra minuta, idest multiplicabis ea in
+.LX., et erunt .C.XX., quibus addes predicta .XLV. minuta,
+et erunt .XLV. minuta: serva ea; quare iam reddidisti ea in ultimam
+differentiam. Post hec fac predictos tres gradus minuta,
+multiplicando ea in Lx. ut supra. Quibus addes .X. predicta
+minuta, et erunt .C.XC. minuta: de inde pone ipsa .C.XC. minuta
+secunda, multiplicando iterum ea in .LX., donec reddas
+ea in ultimam differentiam, idest in secunda. Erunt .XI. milia
+quadrigenta, quibus addes .XXX. secunda que sunt cum cis.
+Eruntque .XI. milia quadringenta secunda. Sicque reddes ea
+in ultimum genus fractionis eiusdem numeri. Multiplica hec
+omnia predicta in .C. LXV. minuta, et erunt mille milium, et
+octingenta octoginta quinque milia ac nongenta quinquaginta
+tercia: quare multiplicasti ea,idest in secundas in minutis, et
+facta sunt tercia. Quod diuides per Lx., ut reddantur secunda.
+Exibuntque tibi .XXXI. milia et quadringenta .XXX.ta II.o
+secunda, et remanebunt .XXX.ta tercia. Item diuides secunda
+per .IX.,ut reddantur minuta. Exibuntque tibi quingenta .XX.
+tria minuta , et super erunt Li. secunda. Rursum diuide
+minuta, ut reddantur gradus, idest numerus integer. Eruntque
+.VIII.to, et remanebunt. .XL/ta III/a. minuta. Extque omne quod
+exierit de multiplicacione octo gradus, et xiu. minuta, et
+Lu. secunda, ac .XXX. tercia: et similiter facies de uniuersis
+fractionibus; reddes scilicet unamquamque ex eis quam uolueris
+multiplicare in aliam. inferiorem differentiam que fuerit in
+unaquaque ex eis. Post hec multiplica unam earum in aliam;
+et serua quod exierit;et uide ex qua differentiarum sit: deinde
+diuide per .LX. quemadmodum dixi tibi , ut erigas eas ad
+gradus, uel ergo peruenerint ex differentiis que sunt infra gradus,
+et quod fuerit, ipsum erit quod exiuit tibi de multiplicacione
+unius earum in aliam : et est ei alius modus breuior:             (20)
+set hic ordo cst, quo usisunt indi, super quem figurare numcrum
+suum.
+
+Scito quare cum uolueris diuidere numerum cum fractione per
+aliquem numerum cum fractione; uel numerum cum fractione
+per numerum integrum; aut numerum integrum per numerum
+cum fractione, facies utrumque numerum unius generis, idest
+uertes utrosque numeros in inferiorem differentiam. Verbi gratia.
+Si fuerit inferior differentia ex secundis, pones utrumque
+numerum secunda: quod si fuerint in uno ex eis tercia,et cum
+alio secunda, uertes utrosque in tercia: et si fuerit cum aliquo
+ex quarta, uel sexta, uel aliud quod sit his differentiis inferius,
+alter uero fuerit numerus integer, uertes utrosque in eam differentiam
+que fuerit in utrisque inferior: deinde diuide quod
+uolueris super quod uolueris: post quam reddideris utrumque
+numerum unius generis, et quod exi | erit, erunt gradus, idest
+numerus integer: quare omnes duo numeri qui fuerint unius
+generis, si diuidatur unus eorum per alterum, erit quod exierit
+numerus integer. Verbi gratia : xv. tercie si diuidantur
+persex tercias, exibunt de equalitate diuisionis duo et dimidium:
+quare .XV. tercie faciunt .V. integros; quos cum diuiseris
+per .VI. tercias qui sunt duo integri, exibunt duo et dimidium :
+et similiter diuiduntur medietates per medietates,
+et quarte per quartas , minuta quoque per minuta per minuta,
+et secunda per secunda, ac tercia per tercia : et cum uolueris
+diuidere .X. secunda super .V. minuta, pone minuta
+secunda , ut sint unius generis , atque unius differentie ;
+eruntque tercenta secunda, super quem dum uolueris diuidere
+.X. secunda , non possunt diuidi .X. super tercenta.
+Scito itaque quod non exiuit unus integer: pone ergo circulum
+in loco unius, et multiplica .X. in .LX. , et erunt sexcenti;
+quos cum diuiseris super tercentos, exibunt duo, que
+sunt duo secunda; et hoc est quod debetur uni: quare cum
+multiplicasti ea in .LX. ; postea diuisisti , iam minuisti ea           (21)
+una differentia, que sunt secunda: et scito quare omnis numerus
+qui diuiditur super aliquem numerum, quod extrahitur de
+diuiso, si multiplicatur in eo super quem diuiditur, redibit
+numerus primus, idest numerus qui diuiditur. Cuius rei exemplar
+est : quare cum diuiseris .L. super .X. exibunt que debentur
+uni, idest quinque. Cumque multiplicaueris id quod
+exiuit tibi de diuiso, idest quinque, in co super quem diuidis
+que sunt .X., redibit numerus primus, idest .L. Cum ergo diuideremus
+.X. secunda super .V. minuta, exiuit quod debetur
+uni, idest duo secunda: et cum multiplicaremus duo secunda,
+hoc est quod exiuit nobis ex diuisione, in eo super quod
+diuisimus que sunt .V. minuta, facta sunt .X. secunda, et hec
+est probatio diuisionis. Item cum uolueris diuidere .X. minuta
+super .V. tercia, uerte minuta in tercia, eruntque .XXXVI.
+milia tercia; diuidesque super .V. tercia, et erunt .VII. milia
+ducenti gradus, et hoc est quod debetur uni.
+
+Cumque hoc uolueris probare, multiplica .VII. milia ducentos
+gradus in .V. tercia, et exibunt .XXXVI. milia, que cum diuiseris
+per .LX., exibunt .VI. centa secunda; et cum iterum
+diuiseris .VI. centa. secunda, exibunt decem minuta.
+
+Cum uolueris constituere numerum integrum et fractiones ,
+pone numerum integrum in altiori differentia : deinde pone
+quicquid fuerit ex differentia prima que sunt minuta sub numero
+integro, et secunda sub minutis; et similiter tercia sub
+secundis , et cetera que uolueris ex differentiis. Cuius rei
+exemplar est. Quod cum uellemus constituere .XII. gradus et
+.XXX. minuta, .XL. quoque .VI. secunda, et .L. quarta, constituimus
+.XII. Post hec posuimus sub eis .XXX. in differentia
+minutorum ; et sub .XXX. XLV. in differentia secundorum.
+Ín differentia uero terciorum posuimus circulos, quare
+carebat terciis, et ut sciremus quare adhuc restabant quarta.
+Deinde posuimus sub circulis quinquaginta in differentia
+quartorum; et hec est figura eorum.                                     (22)
+
+Et similiter uniuersas differentias fractionum sub se inuicem;
+et quotienscumque collecta fuerint in aliqua mansione
+-Lx., uel plus, ponemus in loco eorum, idest in eorum differentia
+quicquid residuum fuerit super .LX.; et faciemus de
+omni .LX. unum.|Ponemus eum in superiora (sic) differentia: et
+similiter si uoluerimus inuenire fractiones, incipiemus a superiori
+differentia; minuemusque unamquamque differentiam de
+ea que supra ipsa est. Quod si fuerit in eadem superiori differentia
+minus eo quod uolueris, minue ex ea : uel fuerit in ea
+circulus, minue unum de differentia que est super eam; fietque
+ipsum unum partes .LX. de fractione quam operaris; et
+minue ex eo quod operaris; et adde quod residuum fuerit super
+differentiam inperfectam: et sí fuerit supra ipsam differentiam
+circulus, minue de differentia que est supra eam, unum, et
+redde eum partes .LX. in differentia que est infra ipsam: deinde
+minue iterum ex ea etiam unum, et fac eum partes ut
+supra in differentia quam uolueris. Post hec minue ex ea quod
+uolueris; et quod residuum fuerit pone in ea differentia qua
+finitum est id quod minuitur ex ea.
+
+Et cum duplare aliquem numerum uel fractionem, incipe
+a differentia altiori : de inde ab ea que eam succedit. Cumque
+collectum fuerit in aliqua differentiarum aliud plus numero
+eius partium, pone superfluum in ea differentia, et subleua
+unum a differentia que est supra ipsam. In mediatione autem
+incipies ab inferiori differentia, mediabisque illam; deinde sequentem :
+et si inueneris ibi unum, fac de eo quemadmodum
+exposui tibi in inicio libri. Etsi uolueris multiplicare fractiones
+et numerum, ac fractiones extra minuta, uel secunda, ut sunt
+quarte et septime, ac cetere partes lis similes, et diuidere eas
+in inuicem, erit opus in eis sicut opus minutorum ct secundorum;
+et constituam tibi exemplar, si deus uoluerit. Et iam patefeci
+tibi in multiplicacione minutorum et secundorum ac
+terciorum de duobus numeris, quos uolueris multiplicare in              (23)
+inuicem, idest unum eorum in alio; qualiter constitues eos
+unius generis, ut uertas eos, scilicet in genus ultime differentie,
+idest si fuerit ultima ex secundis, uerte eos .II. secunda;
+et si fuerit ex terciis in tercia, et cetera. Similiter facies in
+partibus, idest si fuerit ultima differentia ex quintis uel ex septimis,
+reddes numerum tuum ex genere eiusdem partis. Post
+hec multiplicabis eum in inuicem; et quod exierit, subleuabis
+eum ad numerum integrum, idest diuides eum per similem
+eiusdem generis multiplicati in alio genere, quasi uelles multiplicare
+.III. septimas in .IIII.or nouenis, essentque ille septene
+et nouene in prima differentia fractionis quasi minuta;multiplicaresque
+eas in inuicem, et fierent in sua differentia ex
+genere secundorum. Curaque uolueris eas subleuare ad numerum
+integrum, diuides eas per utrasque differentias, que sunt
+septene in nouenis. Quod si aliud diuisum fuerit, et exierit
+de diuisione, numerus erit integer; et si non poterit diuidi,
+erunt partes unius eiusdem generis per quod diuisisti. Eruntque
+tres septene in .IIII.or nouenis .XII. partes et .LX. tribus
+partibus unius. Cum ergo uolueris multiplicare tres et dimidium,
+idest .VIII. et tribus partibus .XI, scribes tres, et pones
+Sub eis unum, et sub uno duo. lamque scripsisti tres et dimidium:
+quare dimidium est una pars duorum, quemadmodum
+unum minutum est una pars de Lx. partibus unius. Post hec
+scribes in alia parte .VIII., et sub eis tres, et sub tribus .XI.,
+Sicque constitues .VIII. (#23-1).
+
+(#23-1) Nel. margine inferiore della carta 109 verso del suddetto codice It. 6. 5.
+si legge: dicque constitues .VIII. Piü sotto nel margine stesso si legge: est quidem.
+Il recto della carta 110 del codice medesimo incomincia cosi (lin. 1—4):
+Est quidem guazal cora tabula ad celi rotunditatem conformata, cuius itemque
+superficies equali spatiorum intersticione quadrifidis ab ipso centro per diametrum,
+fusis lineationibus, partita est.

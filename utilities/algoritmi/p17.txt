@@ -1,0 +1,37 @@
+
+(14)
+
+fac in diminutione quem admodum fecimus in inicio libri.
+Cum uolueris minuere aliquem numerum de aliquo numero, et
+similiter fac, donec multiplices eum in uniuersis differentiis in-
+ferioris numeri super quem diuidis. Post hec muta uniuersas
+differentias inferioris numeri, super quem diuidis, una diffe-
+rentia uersus dexteram, et pone in directo prime differentie
+illius ad similitudinem illius quod prius posuisti. Quod cum
+multiplicaueris in ultima differentia inferioris numeri super
+quem diuidis, consument id quod supra eum est, uel quod
+fuerit prope eum: et multiplica illud quod posuisti in directo
+eius in ultima differentia numeri inferioris; et minue quod
+exierit tibi de multiplicatione de eo quod supra eum est; et
+Sic facies in uniuersis differentiis : et si remanserit de diffe-
+rentiis numeri superioris quem diuidis aliquid quod debeat di-
+uidi, semper muta differentias inferioris numeri una differentia,
+donec sit prima differentia eius in directo alicuius differentie
+superioris numeri : quod si fuerit in aliqua differentia, ex dif-
+ferentiis numeri quem diuidis, circulus, et peruenerit mutatio.
+ad eum, non transeas eum, quem ad modum fecisti in multi-
+plicatione. Set pones in directo eius aliquid quod multipli-
+cabis quem ad modum narrauimus. Cumque perfeceris hec
+omnia, quicquid exierit tibi ex differentiis in directo numeri
+quem diuidis, illud debetur uni: et si aliquid remanserit, erit
+pars unius ex eo numero quem diuidis,et numquam remancbit
+nisi quod crit minus illo quod diuidis. Si autem plus reman-
+serit, scito quod errasti.
+
+Et scito quod diuisio sit similis multiplicationi; set hoc fit
+econuerso: quare in diuisione minuimus, et ibi addimus, idest
+in multiplicatione eius exemplar est. Quod cum uellemus di-
+uidere quadraginta sex milia et quadrigentos sexaginta octo
+super tercentos .xxim., posuimus primum in dextera parte
+octo; postea posuimus sex uersus sinistram qui sunt sexaginta:
+de inde .i.*' qui sunt quadringenti; postea sex que sunt .vi.

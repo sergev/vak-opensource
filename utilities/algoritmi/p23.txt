@@ -1,0 +1,37 @@
+car. 109 recto.
+
+( 20)
+set hic ordo cst, quo usisunt indi, super quem figurare numc-
+rum suum.
+
+Scito quare cum uolueris diuidere numerum cum fractione per
+aliquem numerum cum fractione; uel numerum cum fractione
+per numerum integrum; aut numerum integrum per numerum
+cum fractione, facies utrumque numerum unius generis, idest
+uertes utrosque numeros in inferiorem differentiam. Verbi gra-
+tia. Si fuerit inferior differentia ex secundis, pones utrumque
+numerum secunda: quod si fuerint in uno ex eis tercia,et cum
+alio secunda, uertes utrosque in tercia: et si fuerit cum aliquo
+ex quarta, uel sexta, uel aliud quod sit his differentiis inferius,
+alter uero fuerit numerus integer, uertes utrosque in eam dif-
+ferentiam que fuerit in utrisque inferior: deinde diuide quod
+uolueris super quod uolueris: post quam reddideris utrumque
+numerum unius generis, et quod exi | erit, erunt gradus, idest
+numerus integer: quare omnes duo numeri qui fuerint unius
+generis, si diuidatur unus eorum per alterum, erit quod exie-
+rit numerus integer. Verbi gratia : xv. tercie si diuidantur
+persex tercias, exibunt de equalitate diuisionis duo et dimi-
+dium: quare .xv. tercie faciunt .v. integros; quos cum diui-
+seris per .vi. tercias qui sunt duo integri, exibunt duo et di-
+midium : et similiter diuiduntur medietates per medietates,
+et quarte per quartas , minuta quoque per minuta per minu-
+ta, et secunda per secunda, ac tercia per tercia : et cum uo-
+lueris diuidere .x. secunda super .v. minuta, pone minuta
+secunda , ut sint unius generis , atque unius differentie ;
+eruntque tercenta secunda, super quem dum uolueris diui-
+dere .x. secunda , non possunt diuidi .x. super tercenta.
+Scito itaque quod non exiuit unus integer: pone ergo circu-
+lum in loco unius, et multiplica .x. in .Lx. , et erunt sex-
+centi; quos cum diuiseris super tercentos, exibunt duo, que
+sunt duo secunda; et hoc est quod debetur uni: quare cum
+multiplicasti ea in .Lx. ; postea diuisisti , iam minuisti ea

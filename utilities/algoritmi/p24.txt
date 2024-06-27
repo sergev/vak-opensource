@@ -1,0 +1,37 @@
+(21)
+
+una differentia, que sunt secunda: et scito quare omnis nume-
+rus qui diuiditur super aliquem numerum, quod extrahitur de
+diuiso, si multiplicatur in eo super quem diuiditur, redibit
+numerus primus, idest numerus qui diuiditur. Cuius rei exem-
+plar est : quare cum diuiseris .L. super .x. exibunt que de-
+bentur uni, idest quinque. Cumque multiplicaueris id quod
+exiuit tibi de diuiso, idest quinque, in co super quem diuidis
+que sunt .x., redibit numerus primus, idest ... Cum ergo di-
+uideremus .x. secunda super .v. minuta, exiuit quod debetur
+uni, idest duo secunda: et cum multiplicaremus duo secun-
+da, hoc est quod exiuit nobis ex diuisione, in eo super quod
+diuisimus que sunt .v. minuta, facta sunt .x. secunda, et hec
+est probatio diuisionis. Item cum uolueris diuidere .x. mi-
+nuta super .v.tercia, uerte minuta in tercia, eruntque .Xxxvi.
+milia tercia; diuidesque super .v. tercia, et erunt .vm. milia
+ducenti gradus, et hoc est quod debetur uni.
+
+Cumque hoc uolueris probare, multiplica .vit. milia ducen-
+tos gradus in .v. tercia, et exibunt .xxxvi. milia, que cum di-
+uiseris per .Lx., exibunt .vi. centa secunda; et cum iterum
+diuiseris .vt. centa. secunda, exibunt decem minuta.
+
+Cum uolueris constituere numerum integrum et fractiones ,
+pone numerum integrum in altiori differentia : deinde pone
+quicquid fuerit ex differentia prima que sunt minuta sub nu-
+mero integro, et secunda sub minutis; et similiter tercia sub
+secundis , et cetera que uolueris ex differentiis. Cuius rei
+exemplar est. Quod cum uellemus constituere .xit. gradus et
+-XXX. minuta, .xL. quoque .vi. secunda, et .L. quarta, con-
+stituimus .xi. Post hec posuimus sub eis .xxx. in differen-
+tia minutorum ; et sub .xxx. xiv. in differentia secundo-
+rum. Ín differentia uero terciorum posuimus circulos, quare
+carebat terciis, et ut sciremus quare adhuc restabant quarta.
+Deinde posuimus sub circulis quinquaginta in differentia
+quartorum; et hec est figura eorum.
