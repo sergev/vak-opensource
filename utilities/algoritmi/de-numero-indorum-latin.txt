@@ -152,7 +152,8 @@ Si autem fuerint ibi 9, proice 9 et serua quod remanserit; et quare hec erunt no
 Post hec multiplica unam multiplicationem in aliam; et diuide quod collectum fuit per 9; et quod remanserit, si fuerit simile illi quod dixi tibi de nota, scito quare inuenisti.
 Si uero non fuerit simile, errasti: intellige.
 
-14. In diuisione autem pones numerum quem uolueris diuidere per differentias suas : postea pones ipsum numerum, super quem uis diuidere, sub eo.
+14.
+In diuisione autem pones numerum quem uolueris diuidere per differentias suas : postea pones ipsum numerum, super quem uis diuidere, sub eo.
 Sitque ultima differentia numeri super quem diuidis sub ultima differentia superioris numeri quem diuidis.
 Si autem fuerit numerus, qui est ultima differentia superioris numeri quem uis diuidere, minus illo qui est ultima differentia inferioris numeri super quem diuidis, retrahe ipsam differentiam uersus dexteram, donec sit numerus superioris differentie plus 1 : pone ultimam differentiam inferioris numeri, super quem diuidis, sub differentia secunda que succedit ultimam differentiam superioris numeri.
 Post hec aspice primam differentiam numeri super quem uis diuidere, et pone in directo eius super numerum superioriorem(sic)quem diuidis, uel sub eo in directo eius aliquem numerum quem inde multiplicaueris in ultima differentia inferioris numeri super quem diuidis, erit similis illius numeri qui fuerit in superiori differentia, ucl prope eum qui sit minus illo.
