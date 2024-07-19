@@ -1,0 +1,1 @@
+package main;import"fmt";func main(){s:="\"\\\"package main;import\"fmt\";func main(){s:=;fmt.Print(s[3:43]+s[:2]+s[:2]+s[1:2]+s[1:22]+s[1:3]+s[23:26]+s[1:3]+s[27:]+s[:1]+s[43:])}";fmt.Print(s[3:43]+s[:2]+s[:2]+s[1:2]+s[1:22]+s[1:3]+s[23:26]+s[1:3]+s[27:]+s[:1]+s[43:])}
