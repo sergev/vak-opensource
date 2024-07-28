@@ -1,0 +1,5 @@
+'begin'
+    NLCR;
+    print(''Hello, Algol!'');
+    NLCR;
+'end'
