@@ -1,25 +1,22 @@
-DC		= gdc -Wall -g
-#DC              = dmd
+#DC		= gdc -Wall -g
+DC              = dmd
 DFLAGS		= -O
 LDFLAGS		=
 INSTDIR		= /usr/local
 
-all:		decho sample mk_black
+all:		hello decho man_or_boy
 
-mk_black:	mk_black.o
-		$(DC) $(LDFLAGS) mk_black.o -of$@
+man_or_boy:	man_or_boy.o
+		$(DC) $(LDFLAGS) man_or_boy.o -of=$@
 
 decho:		decho.o
-		$(DC) $(LDFLAGS) decho.o -of$@
-
-sample:		sample.o getopt.o
-		$(DC) $(LDFLAGS) sample.o getopt.o -of$@
+		$(DC) $(LDFLAGS) decho.o -of=$@
 
 hello:		hello.o
-		$(DC) $(LDFLAGS) hello.o -o$@
+		$(DC) $(LDFLAGS) hello.o -of=$@
 
 clean:
-		rm -f decho sample *.o *~ a.out
+		rm -f hello decho man_or_boy *.o *~ a.out
 
 .SUFFIXES:	.d
 
