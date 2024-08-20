@@ -1,5 +1,5 @@
-#DC		= gdc -Wall -g
-DC              = dmd
+DC		= ldc2
+#DC              = dmd
 DFLAGS		= -O
 LDFLAGS		=
 INSTDIR		= /usr/local

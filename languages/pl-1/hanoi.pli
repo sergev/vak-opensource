@@ -1,0 +1,34 @@
+ /* hanoi                                                 */
+ /*********************************************************/
+ /*                                                       */
+ /* Module:   hanoi                                       */
+ /*           (author unknown)                            */
+ /*                                                       */
+ /* Function: 'Towers of Hanoi' problem.                  */
+ /*                                                       */
+ /* Usage:    hanoi                                       */
+ /*                                                       */
+ /* Dependencies:                                         */
+ /*           none                                        */
+ /*                                                       */
+ /*********************************************************/
+ hanoi:proc options(main);
+
+  call dohanoi(3, 1, 3, 2);
+
+  dohanoi:proc(n, f, t, u) recursive;
+    dcl(n, f, t, u) fixed bin(31);
+    if n > 0 then
+    do;
+      call dohanoi(n-1, f, u, t);
+      call movedisk(f, t);
+      call dohanoi(n-1, u, t, f);
+    end;
+  end dohanoi;
+
+  movedisk:proc(f, t);
+    dcl (f, t) fixed bin(31);
+    put skip list('move' || f, '->' || t);
+  end movedisk;
+
+ end hanoi;
