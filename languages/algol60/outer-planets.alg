@@ -208,17 +208,19 @@ next:   if b != x then begin
         array x;
     begin
         integer k;
-        outstring(1, "T = ");
-        outinteger(1, t+a);
+        outstring(1, "\nT = ");
+        outreal(1, t+a);
+        outstring(1, "\n\n");
         for k := 1 step 1 until 5 do begin
             if k=1 then outstring(1, "J ") else
             if k=2 then outstring(1, "S ") else
             if k=3 then outstring(1, "U ") else
             if k=4 then outstring(1, "N ") else
                 outstring(1, "P ");
-            outinteger(1, x[3*k-2]);
-            outinteger(1, x[3*k-1]);
-            outinteger(1, x[3*k])
+            outreal(1, x[3*k-2]);
+            outreal(1, x[3*k-1]);
+            outreal(1, x[3*k]);
+            outstring(1, "\n")
         end
     end TYP;
 
@@ -234,17 +236,22 @@ next:   if b != x then begin
 
     for k := 2 step 1 until 60 do
         e[k] := e[1];
-    outstring(1, "JAZ164, R743, Outer Planets");
+    outstring(1, "JAZ164, R743, Outer Planets\n\n");
     for k := 1 step 1 until 15 do begin
         outreal(1, ya[k]);
-        outreal(1, za[k])
+        outreal(1, za[k]);
+        outstring(1, "\n")
     end;
+    outstring(1, "\n");
     for k := 0 step 1 until 5 do begin
-        outreal(1, m[k])
+        outreal(1, m[k]);
+        outstring(1, "\n")
     end;
+    outstring(1, "\n");
     outreal(1, k2);
-    outstring(1, "eps = ");
+    outstring(1, "\n\neps = ");
     outreal(1, e[1]);
+    outstring(1, "\n");
     t := 0;
     TYP(ya);
     fi := true;
