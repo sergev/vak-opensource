@@ -94,7 +94,7 @@ begin
     i := n := n + 1;
   scan:
     if i > 1 then begin
-      j := i mod 2;
+      j := i % 2;
       if in < A[j] then begin
         A[i] := A[j];
         i := j;
@@ -131,10 +131,10 @@ begin
     if j < n then go to L
   end SETHEAP;
 
-  procedure HEAPSORT_TEST(n);
+  procedure HEAPSORT TEST(n);
     value n;
     integer n;
-    comment HEAPSORT_TEST tests the implementation on a random array
+    comment HEAPSORT TEST tests the implementation on a random array
       of n elements. This procedure is not part of the original
       algorithm definition, and is only provided for completeness;
   begin
@@ -169,15 +169,15 @@ begin
     end;
     outstring(1, "HEAPSORT implementation is correct!\n");
   exit:
-  end HEAPSORT_TEST;
+  end HEAPSORT TEST;
 
   real procedure random;
   begin
-    comment inline("my_dsa.retval.u.real_val = rand();");
+    comment inline("my_dsa.retval.u.real_val = rand()");
     random := 0.1
   end random;
 
   comment main program;
-  HEAPSORT_TEST(10)
+  HEAPSORT TEST(10)
 
 end

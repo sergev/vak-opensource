@@ -7,7 +7,7 @@ p2: j := j + 1; prime[j] := n;
 p3: if j = 500 then go to p9;
 p4: n := n + 2;
 p5: k := 2;
-p6: q := n mod prime[k]; r := n - q * prime[k];
+p6: q := n % prime[k]; r := n - q * prime[k];
     if r = 0 then go to p4;
 p7: if q <= prime[k] then go to p2;
 p8: k := k + 1; go to p6;
