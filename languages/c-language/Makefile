@@ -1,4 +1,4 @@
-PROG            = float
+PROG            = bulls-and-cows
 CFLAGS		= -O3 -Wall -Werror
 #CFLAGS		= -m32 -O -Wall -Werror
 #LDFLAGS		= -m32
