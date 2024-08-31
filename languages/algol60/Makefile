@@ -2,7 +2,7 @@ ALGC    = marst
 CC      = gcc
 CFLAGS  = -O
 LIBS    = -lalgol -lm
-PROG    = hello manorboy primes gps a232 loop
+PROG    = hello manorboy primes gps a232 loop bulls-and-cows
 
 all:    $(PROG)
 
