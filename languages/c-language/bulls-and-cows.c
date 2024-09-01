@@ -35,33 +35,43 @@ unsigned make_number()
     return num;
 }
 
+unsigned input()
+{
+    static char *line = NULL;
+    size_t linecap = 0;
+    if (getline(&line, &linecap, stdin) <= 0) {
+        exit(0);
+    }
+    return strtoul(line, NULL, 10);
+}
+
 int main()
 {
     srandom(time(NULL));
 
-    unsigned count = 0;
-    unsigned num   = make_number();
-    unsigned guess = 0;
+    unsigned secret = make_number();
+    unsigned count  = 0;
+    unsigned guess  = 0;
 
-    while (guess != num) {
+    printf("Welcome to bulls and cows!\n"
+           "\n"
+           "I choose a number made of 4 digits (from 0 to 9) without repetitions.\n"
+           "You enter a number of 4 digits, and I say you how many of them\n"
+           "are in my secret number but in wrong position (cows),\n"
+           "and how many are in the right position (bulls).\n"
+           "\n");
+    while (guess != secret) {
         count++;
         do {
             printf("Guess a number.\n");
-
-            static char *line = NULL;
-            size_t linecap = 0;
-            if (getline(&line, &linecap, stdin) <= 0) {
-                exit(0);
-            }
-            guess = strtoul(line, NULL, 10);
+            guess = input();
         } while (is_malformed(guess));
 
         unsigned cows = 0;
         unsigned bulls = 0;
-
         for (unsigned i = 0; i <= 3; i++) {
             for (unsigned j = 0; j <= 3; j++) {
-                if (get_digit(num, i) == get_digit(guess, j)) {
+                if (get_digit(secret, i) == get_digit(guess, j)) {
                     if (i == j) {
                         bulls++;
                     } else {
@@ -70,7 +80,7 @@ int main()
                 }
             }
         }
-        printf("You scored %u bulls and %u cows.\n", bulls, cows);
+        printf("You scored %u bulls and %u cows.\n\n", bulls, cows);
     }
     printf("Correct. That took you %u guesses.\n", count);
 }
