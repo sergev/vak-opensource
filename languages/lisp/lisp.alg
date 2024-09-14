@@ -136,7 +136,7 @@ old:        createnum := d24 + i
         end createnum;
 
         Boolean procedure atomf(x); value x; integer x; begin
-            atomf := x > d24
+            atomf := x >= d24
         end atomf;
 
         Boolean procedure numberpf(x); value x; integer x; begin
