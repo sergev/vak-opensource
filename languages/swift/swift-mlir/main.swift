@@ -1,0 +1,3 @@
+import MLIRSwift
+
+print(makeContext())
