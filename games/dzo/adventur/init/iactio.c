@@ -18,7 +18,7 @@ iactio() {
 	    p=4                                /* read list of words */;
 	    while(getwrd()) {
 		if( vocab(_word) >= 0 ) {
-		    printf("\n%s%.4s\n","дважды определено: ",_word);
+		    printf("\n%s%.4s\n","п╢п╡п╟п╤п╢я▀ п╬п©я─п╣п╢п╣п╩п╣п╫п╬: ",_word);
 		    fatal();
 		}
 		nvoc=nvoc+1;
@@ -30,7 +30,7 @@ iactio() {
 	    actkey(aw)=putcnd();
 
 	} else {
-	    printf("\n%s%.10s\n","ошибка: ",&line(p));  fatal();
+	    printf("\n%s%.10s\n","п╬я┬п╦п╠п╨п╟: ",&line(p));  fatal();
 	}
 
     }

@@ -51,7 +51,7 @@ int     resting;        /* set if attack while resting */
 	if (Ship.cond == DOCKED)
 	{
 		if (!resting)
-			printf("Защитное поле звезной базы прикрыло %s\n", Ship.shipname);
+			printf("п≈п╟я┴п╦я┌п╫п╬п╣ п©п╬п╩п╣ п╥п╡п╣п╥п╫п╬п╧ п╠п╟п╥я▀ п©я─п╦п╨я─я▀п╩п╬ %s\n", Ship.shipname);
 		return;
 	}
 	/* setup shield effectiveness */
@@ -69,7 +69,7 @@ int     resting;        /* set if attack while resting */
 			continue;
 		if (!hitflag)
 		{
-			printf("\nЗвездное время %.2f: атака клингов:\n",
+			printf("\nп≈п╡п╣п╥п╢п╫п╬п╣ п╡я─п╣п╪я▐ %.2f: п╟я┌п╟п╨п╟ п╨п╩п╦п╫пЁп╬п╡:\n",
 				Now.date);
 			hitflag++;
 		}
@@ -92,13 +92,13 @@ int     resting;        /* set if attack while resting */
 			Ship.shield -= shldabsb;
 		}
 		/* actually do the hit */
-		printf("\007АТАКА: %d единиц", hit);
+		printf("\007п░п╒п░п п░: %d п╣п╢п╦п╫п╦я├", hit);
 		if (!damaged(SRSCAN))
-			printf(" из %d,%d", Etc.klingon[i].x, Etc.klingon[i].y);
+			printf(" п╦п╥ %d,%d", Etc.klingon[i].x, Etc.klingon[i].y);
 		cas = (shldabsb * 100) / hit;
 		hit -= shldabsb;
 		if (shldabsb > 0)
-			printf(", защита поглотила %d%%, проникло %d единиц\n", cas, hit);
+			printf(", п╥п╟я┴п╦я┌п╟ п©п╬пЁп╩п╬я┌п╦п╩п╟ %d%%, п©я─п╬п╫п╦п╨п╩п╬ %d п╣п╢п╦п╫п╦я├\n", cas, hit);
 		else
 			printf("\n");
 		tothit += hit;
@@ -108,7 +108,7 @@ int     resting;        /* set if attack while resting */
 		/* see if damages occurred */
 		if (hit >= (15 - Game.skill) * (25 - ranf(12)))
 		{
-			printf("КРИТИЧЕСКАЯ МОЩНОСТЬ ЛУЧЕВОЙ АТАКИ !!!\n");
+			printf("п п═п≤п╒п≤п╖п∙п║п п░п╞ п°п·п╘п²п·п║п╒п╛ п⌡пёп╖п∙п▓п·п≥ п░п╒п░п п≤ !!!\n");
 			/* select a device from probability vector */
 			cas = ranf(1000);
 			for (l = 0; cas >= 0; l++)
@@ -121,7 +121,7 @@ int     resting;        /* set if attack while resting */
 			if (damaged(SHIELD))
 			{
 				if (Ship.shldup)
-					printf("Сулу: Защита повреждена, капитан.\n");
+					printf("п║я┐п╩я┐: п≈п╟я┴п╦я┌п╟ п©п╬п╡я─п╣п╤п╢п╣п╫п╟, п╨п╟п©п╦я┌п╟п╫.\n");
 				Ship.shldup = 0;
 				Move.shldchg = 0;
 			}
@@ -136,7 +136,7 @@ int     resting;        /* set if attack while resting */
 		cas = tothit * 0.015 * franf();
 		if (cas >= 2)
 		{
-			printf("МакКой: %d убитых в этой атаке, капитан.\n", cas);
+			printf("п°п╟п╨п п╬п╧: %d я┐п╠п╦я┌я▀я┘ п╡ я█я┌п╬п╧ п╟я┌п╟п╨п╣, п╨п╟п©п╦я┌п╟п╫.\n", cas);
 			Game.deaths += cas;
 			Ship.crew -= cas;
 		}

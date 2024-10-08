@@ -19,11 +19,11 @@ iobjec() {
     while(getlin()) {
 	mark=line(1);  p=4;
 
-	if( mark=='+' ) {                 /* ÉÍÅÎÁ ÏÂ"ektob */
+	if( mark=='+' ) {                 /* Ğ¸Ğ¼ĞµĞ½Ğ° Ğ¾Ğ±"ektob */
 	    object=object+1;
 	    while(getwrd()) {
 		if( vocab(_word) >= 0 ) {
-		    printf("\n%s%.4s\n","Ä×ÁÖÄÙ ÏĞÒÅÄÅÌÅÎÏ: ",_word);
+		    printf("\n%s%.4s\n","Ğ´Ğ²Ğ°Ğ¶Ğ´Ñ‹ Ğ¾Ğ¿Ñ€ĞµĞ´ĞµĞ»ĞµĞ½Ğ¾: ",_word);
 		    fatal();
 		}
 		nvoc=nvoc+1;
@@ -35,25 +35,25 @@ iobjec() {
 		tally=tally+1;
 	    }
 
-	} else if( mark=='=' ) {             /* ĞÏÛÌÉ ÏÂ"ÅËÔÙ-ÓÏËÒÏ×ÉİÁ */
+	} else if( mark=='=' ) {             /* Ğ¿Ğ¾ÑˆĞ»Ğ¸ Ğ¾Ğ±"ĞµĞºÑ‚Ñ‹-ÑĞ¾ĞºÑ€Ğ¾Ğ²Ğ¸Ñ‰Ğ° */
 	    treasr=object+1;
 
-	} else if( mark=='i' ) {             /* ÓÏÏÂİÅÎÉÑ o ÎÅÓÏÍÙÈ */
+	} else if( mark=='i' ) {             /* ÑĞ¾Ğ¾Ğ±Ñ‰ĞµĞ½Ğ¸Ñ o Ğ½ĞµÑĞ¾Ğ¼Ñ‹Ñ… */
 	    indstt=indstt+1;
 	    ptext(object)=indstt;
 	    pstat(indstt)=putmes();
 
-	} else if( mark>='0' && mark<='9' ) {     /* o ÓÏÓÔÏÑÎÉÑÈ */
+	} else if( mark>='0' && mark<='9' ) {     /* o ÑĞ¾ÑÑ‚Ğ¾ÑĞ½Ğ¸ÑÑ… */
 	    indstt=indstt+1;
 	    pstat(indstt)=putmes();
 
-	} else if( mark=='s' ) {                 /* ÎÁŞÁÌØÎÏÅ ÓÏÓÔÏÑÎÉÅ */
+	} else if( mark=='s' ) {                 /* Ğ½Ğ°Ñ‡Ğ°Ğ»ÑŒĞ½Ğ¾Ğµ ÑĞ¾ÑÑ‚Ğ¾ÑĞ½Ğ¸Ğµ */
 	    prop(object)=getobj();
 
-	} else if( mark=='l' ) {                 /* ÎÁŞÁÌØÎÁÑ ĞÏÚÉÃÉÑ: */
-	    place(object)=getobj()            /*   ĞÏÄ×ÉÖÎÏÇÏ ÏÂ"ekta */;
+	} else if( mark=='l' ) {                 /* Ğ½Ğ°Ñ‡Ğ°Ğ»ÑŒĞ½Ğ°Ñ Ğ¿Ğ¾Ğ·Ğ¸Ñ†Ğ¸Ñ: */
+	    place(object)=getobj()            /*   Ğ¿Ğ¾Ğ´Ğ²Ğ¸Ğ¶Ğ½Ğ¾Ğ³Ğ¾ Ğ¾Ğ±"ekta */;
 
-	} else if( mark=='f' ) {                 /*   ÆÉËÓÉÒÏ×ÁÎÎÏÇÏ */
+	} else if( mark=='f' ) {                 /*   Ñ„Ğ¸ĞºÑĞ¸Ñ€Ğ¾Ğ²Ğ°Ğ½Ğ½Ğ¾Ğ³Ğ¾ */
 	    place(object) = -(indfix+1);
 	    for(;;) {
 		posit=getobj();
@@ -65,7 +65,7 @@ iobjec() {
 	    fixed(indfix)=0;
 
 	} else {
-	    printf("\n%s%.10s\n","ÏÛÉÂËÁ: ",&line(p));  fatal();
+	    printf("\n%s%.10s\n","Ğ¾ÑˆĞ¸Ğ±ĞºĞ°: ",&line(p));  fatal();
 	}
     }
     printf("%8d  %s %6d  %s\n",object,"of",objt,"used");

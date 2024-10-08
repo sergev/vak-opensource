@@ -13,7 +13,7 @@ void shell()
 		setuid(getuid());
 		nice(0);
 		execl("/bin/csh", "-", 0);
-		tsyserr("не могу запустить /bin/csh");
+		tsyserr("п╫п╣ п╪п╬пЁя┐ п╥п╟п©я┐я│я┌п╦я┌я▄ /bin/csh");
 	}
 	sav2 = signal(2, 1);
 	sav3 = signal(3, 1);

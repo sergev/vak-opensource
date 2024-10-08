@@ -21,15 +21,15 @@ void rest()
 	register int            percent;
 
 	/* get the time to rest */
-	t = getfltpar("Как долго");
+	t = getfltpar("п п╟п╨ п╢п╬п╩пЁп╬");
 	if (t <= 0.0)
 		return;
 	percent = 100 * t / Now.time + 0.5;
 	if (percent >= 70)
 	{
-		printf("Спок: На это уйдет %d%% оставшегося времени.\n",
+		printf("п║п©п╬п╨: п²п╟ я█я┌п╬ я┐п╧п╢п╣я┌ %d%% п╬я│я┌п╟п╡я┬п╣пЁп╬я│я▐ п╡я─п╣п╪п╣п╫п╦.\n",
 			percent);
-		if (!getynpar("Будете ли Вы дрейфовать"))
+		if (!getynpar("п▒я┐п╢п╣я┌п╣ п╩п╦ п▓я▀ п╢я─п╣п╧я└п╬п╡п╟я┌я▄"))
 			return;
 	}
 	Move.time = t;

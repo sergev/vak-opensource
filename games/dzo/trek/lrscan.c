@@ -21,7 +21,7 @@ void lrscan()
 	{
 		return;
 	}
-	printf("Информация дальнего локатора для квадранта %d,%d\n\n", Ship.quadx, Ship.quady);
+	printf("п≤п╫я└п╬я─п╪п╟я├п╦я▐ п╢п╟п╩я▄п╫п╣пЁп╬ п╩п╬п╨п╟я┌п╬я─п╟ п╢п╩я▐ п╨п╡п╟п╢я─п╟п╫я┌п╟ %d,%d\n\n", Ship.quadx, Ship.quady);
 
 	/* print the header on top */
 	for (j = Ship.quady - 1; j <= Ship.quady + 1; j++)

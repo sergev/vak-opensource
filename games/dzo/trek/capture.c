@@ -24,7 +24,7 @@ void capture()
 	/* check for not cloaked */
 	if (Ship.cloaked)
 	{
-		printf("Межкорабельная связь невозможна пока корабль закрыт\n");
+		printf("п°п╣п╤п╨п╬я─п╟п╠п╣п╩я▄п╫п╟я▐ я│п╡я▐п╥я▄ п╫п╣п╡п╬п╥п╪п╬п╤п╫п╟ п©п╬п╨п╟ п╨п╬я─п╟п╠п╩я▄ п╥п╟п╨я─я▀я┌\n");
 		return;
 	}
 	if (damaged(SSRADIO)) {
@@ -34,7 +34,7 @@ void capture()
 	/* find out if there are any at all */
 	if (Etc.nkling <= 0)
 	{
-		printf("Ухура: Никто не отвечает, сэр\n");
+		printf("пёя┘я┐я─п╟: п²п╦п╨я┌п╬ п╫п╣ п╬я┌п╡п╣я┤п╟п╣я┌, я│я█я─\n");
 		return;
 	}
 
@@ -57,20 +57,20 @@ void capture()
 	if (i > ranf(100))
 	{
 		/* guess what, he surrendered!!! */
-		printf("Клинг в %d,%d сдался\n", k->x, k->y);
+		printf("п п╩п╦п╫пЁ п╡ %d,%d я│п╢п╟п╩я│я▐\n", k->x, k->y);
 		i = ranf(Param.klingcrew);
 		if ( i > 0 )
-			printf("%d членов команды клинга предпочли самоубийство\n", Param.klingcrew - i);
+			printf("%d я┤п╩п╣п╫п╬п╡ п╨п╬п╪п╟п╫п╢я▀ п╨п╩п╦п╫пЁп╟ п©я─п╣п╢п©п╬я┤п╩п╦ я│п╟п╪п╬я┐п╠п╦п╧я│я┌п╡п╬\n", Param.klingcrew - i);
 		if (i > Ship.brigfree)
 			i = Ship.brigfree;
 		Ship.brigfree -= i;
-		printf("Взято на борт %d сдавшихся\n", i);
+		printf("п▓п╥я▐я┌п╬ п╫п╟ п╠п╬я─я┌ %d я│п╢п╟п╡я┬п╦я┘я│я▐\n", i);
 		killk(k->x, k->y);
 		return;
 	}
 
 	/* big surprise, he refuses to surrender */
-	printf("Глухой номер, капитан, эти не сдаются\n");
+	printf("п⌠п╩я┐я┘п╬п╧ п╫п╬п╪п╣я─, п╨п╟п©п╦я┌п╟п╫, я█я┌п╦ п╫п╣ я│п╢п╟я▌я┌я│я▐\n");
 	return;
 }
 

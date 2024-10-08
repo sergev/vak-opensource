@@ -37,9 +37,9 @@
 struct cvntab   Matab[] =
 {
      {  "m",    "anual",                1,   0,  0 },
-     {  "р",    "учной",                1,   0,  0 },
+     {  "я─",    "я┐я┤п╫п╬п╧",                1,   0,  0 },
      {  "a",    "utomatic",             0,   0,  0 },
-     {  "а",    "втоматический",        0,   0,  0 },
+     {  "п╟",    "п╡я┌п╬п╪п╟я┌п╦я┤п╣я│п╨п╦п╧",        0,   0,  0 },
      {  0,      0,                      0,   0,  0 }
 };
 
@@ -69,7 +69,7 @@ void phaser()
 	struct cvntab           *ptr;
 
 	if (Ship.cond == DOCKED) {
-		printf("Фазер не может стрелять через защиту базы\n");
+		printf("п╓п╟п╥п╣я─ п╫п╣ п╪п╬п╤п╣я┌ я│я┌я─п╣п╩я▐я┌я▄ я┤п╣я─п╣п╥ п╥п╟я┴п╦я┌я┐ п╠п╟п╥я▀\n");
 		return;
 		}
 	if (damaged(PHASER)) {
@@ -77,13 +77,13 @@ void phaser()
 		return;
 		}
 	if (Ship.shldup) {
-		printf("Сулу: Капитан, мы не можем стрелять через защиту.\n");
+		printf("п║я┐п╩я┐: п п╟п©п╦я┌п╟п╫, п╪я▀ п╫п╣ п╪п╬п╤п╣п╪ я│я┌я─п╣п╩я▐я┌я▄ я┤п╣я─п╣п╥ п╥п╟я┴п╦я┌я┐.\n");
 		return;
 		}
 	if (Ship.cloaked)
 	{
-		printf("Сулу: Капитан, поймите, мы не можем стрелять\n");
-		printf("  из фазеров в закрытом состоянии.\n");
+		printf("п║я┐п╩я┐: п п╟п©п╦я┌п╟п╫, п©п╬п╧п╪п╦я┌п╣, п╪я▀ п╫п╣ п╪п╬п╤п╣п╪ я│я┌я─п╣п╩я▐я┌я▄\n");
+		printf("  п╦п╥ я└п╟п╥п╣я─п╬п╡ п╡ п╥п╟п╨я─я▀я┌п╬п╪ я│п╬я│я┌п╬я▐п╫п╦п╦.\n");
 		return;
 	}
 
@@ -103,17 +103,17 @@ void phaser()
 				manual++;
 			}
 		if (manual)
-			printf(" поврежден, только ручное управление\n");
+			printf(" п©п╬п╡я─п╣п╤п╢п╣п╫, я┌п╬п╩я▄п╨п╬ я─я┐я┤п╫п╬п╣ я┐п©я─п╟п╡п╩п╣п╫п╦п╣\n");
 	}
 
 	if (!manual)
 	{
-		ptr = getcodpar("Ручное или автоматическое управление", Matab);
+		ptr = getcodpar("п═я┐я┤п╫п╬п╣ п╦п╩п╦ п╟п╡я┌п╬п╪п╟я┌п╦я┤п╣я│п╨п╬п╣ я┐п©я─п╟п╡п╩п╣п╫п╦п╣", Matab);
 		manual = ptr->value;
 	}
 	if (!manual && damaged(COMPUTER))
 	{
-		printf("Компьютер поврежден, ручной режим\n");
+		printf("п п╬п╪п©я▄я▌я┌п╣я─ п©п╬п╡я─п╣п╤п╢п╣п╫, я─я┐я┤п╫п╬п╧ я─п╣п╤п╦п╪\n");
 		skiptonl(0);
 		manual++;
 	}
@@ -127,14 +127,14 @@ void phaser()
 		/* collect manual mode statistics */
 		while (flag)
 		{
-			printf("Есть %d единиц энергии.\n", Ship.energy);
+			printf("п∙я│я┌я▄ %d п╣п╢п╦п╫п╦я├ я█п╫п╣я─пЁп╦п╦.\n", Ship.energy);
 			extra = 0;
 			flag = 0;
 			for (i = 0; i < NBANKS; i++)
 			{
 				b = &bank[i];
-				printf("\nЗаряд %d:\n", i);
-				hit = getintpar("Единиц энергии");
+				printf("\nп≈п╟я─я▐п╢ %d:\n", i);
+				hit = getintpar("п∙п╢п╦п╫п╦я├ я█п╫п╣я─пЁп╦п╦");
 				if (hit < 0)
 					return;
 				if (hit == 0)
@@ -142,17 +142,17 @@ void phaser()
 				extra += hit;
 				if (extra > Ship.energy)
 				{
-					printf("Энергия кончилась.  ");
+					printf("п╜п╫п╣я─пЁп╦я▐ п╨п╬п╫я┤п╦п╩п╟я│я▄.  ");
 					skiptonl(0);
 					flag++;
 					break;
 				}
 				b->units = hit;
-				hit = getintpar("Курс");
+				hit = getintpar("п я┐я─я│");
 				if (hit < 0 || hit > 360)
 					return;
 				b->angle = hit * 0.0174532925;
-				b->spread = getfltpar("Рассеяние(0-1)");
+				b->spread = getfltpar("п═п╟я│я│п╣я▐п╫п╦п╣(0-1)");
 				if (b->spread < 0 || b->spread > 1)
 					return;
 			}
@@ -164,19 +164,19 @@ void phaser()
 	{
 		/* automatic distribution of power */
 		if (Etc.nkling <= 0) {
-			printf("Сулу: Нет клингов в этом квадранте\n");
+			printf("п║я┐п╩я┐: п²п╣я┌ п╨п╩п╦п╫пЁп╬п╡ п╡ я█я┌п╬п╪ п╨п╡п╟п╢я─п╟п╫я┌п╣\n");
 			return;
 			}
-		printf("Фазеры наведены на цель.  ");
+		printf("п╓п╟п╥п╣я─я▀ п╫п╟п╡п╣п╢п╣п╫я▀ п╫п╟ я├п╣п╩я▄.  ");
 		while (flag)
 		{
-			printf("Есть %d единиц энергии.\n", Ship.energy);
-			hit = getintpar("Энергия для залпа");
+			printf("п∙я│я┌я▄ %d п╣п╢п╦п╫п╦я├ я█п╫п╣я─пЁп╦п╦.\n", Ship.energy);
+			hit = getintpar("п╜п╫п╣я─пЁп╦я▐ п╢п╩я▐ п╥п╟п╩п©п╟");
 			if (hit <= 0)
 				return;
 			if (hit > Ship.energy)
 			{
-				printf("энергия кончилась.  ");
+				printf("я█п╫п╣я─пЁп╦я▐ п╨п╬п╫я┤п╦п╩п╟я│я▄.  ");
 				skiptonl(0);
 				continue;
 			}
@@ -238,7 +238,7 @@ void phaser()
 					extra -= hit;
 				}
 				if (extra > 0)
-					printf("%d единиц лишние\n", extra);
+					printf("%d п╣п╢п╦п╫п╦я├ п╩п╦я┬п╫п╦п╣\n", extra);
 			}
 		}
 	}
@@ -267,7 +267,7 @@ void phaser()
 		{
 			continue;
 		}
-		printf("\nФазер: заряд %d:\n", i);
+		printf("\nп╓п╟п╥п╣я─: п╥п╟я─я▐п╢ %d:\n", i);
 		n = Etc.nkling;
 		k = Etc.klingon;
 		for (j = 0; j < n; j++)
@@ -320,9 +320,9 @@ void phaser()
 			}
 			hit = anglefactor * distfactor + 0.5;
 			k->power -= hit;
-			printf("%d единиц досталось клингу", hit);
+			printf("%d п╣п╢п╦п╫п╦я├ п╢п╬я│я┌п╟п╩п╬я│я▄ п╨п╩п╦п╫пЁя┐", hit);
 			if (!damaged(SRSCAN))
-				printf(" в %d,%d", k->x, k->y);
+				printf(" п╡ %d,%d", k->x, k->y);
 			printf("\n");
 			b->units -= hit;
 			if (k->power <= 0)
@@ -338,5 +338,5 @@ void phaser()
 	for (i = 0; i < NBANKS; i++)
 		extra += bank[i].units;
 	if (extra > 0)
-		printf("\n%d единиц энергии рассеялось в пустое пространство\n", extra);
+		printf("\n%d п╣п╢п╦п╫п╦я├ я█п╫п╣я─пЁп╦п╦ я─п╟я│я│п╣я▐п╩п╬я│я▄ п╡ п©я┐я│я┌п╬п╣ п©я─п╬я│я┌я─п╟п╫я│я┌п╡п╬\n", extra);
 }

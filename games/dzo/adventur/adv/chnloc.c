@@ -1,5 +1,5 @@
 /*d* === chnloc ===        07.01.85   version    9 */
-/* изменение позиции ha позицию #newloc */
+/* п╦п╥п╪п╣п╫п╣п╫п╦п╣ п©п╬п╥п╦я├п╦п╦ ha п©п╬п╥п╦я├п╦я▌ #newloc */
 
 #include "../common/adv_common"
 
@@ -10,7 +10,7 @@ chnloc(newloc) {
     drkold=dark();
     loc=newloc;
     if( dark() && drkfla && drkold && pct(30) ) {
-	rspeak(23);                   /* свалился b колодец b temhote */
+	rspeak(23);                   /* я│п╡п╟п╩п╦п╩я│я▐ b п╨п╬п╩п╬п╢п╣я├ b temhote */
 	score();
 	exit(0);
     }

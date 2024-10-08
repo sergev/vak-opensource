@@ -31,7 +31,7 @@ void visual()
 	int                     co;
 	register struct xy      *v;
 
-	co = getintpar("Направление");
+	co = getintpar("п²п╟п©я─п╟п╡п╩п╣п╫п╦п╣");
 	if (co < 0 || co > 360)
 		return;
 	co = (co + 22) / 45;

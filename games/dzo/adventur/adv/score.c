@@ -1,4 +1,4 @@
-/*d* === score === выдача счета игры        07.01.85   version    9 */
+/*d* === score === п╡я▀п╢п╟я┤п╟ я│я┤п╣я┌п╟ п╦пЁя─я▀        07.01.85   version    9 */
 
 #include "../common/adv_common"
 
@@ -9,10 +9,10 @@ score() {
     for(obj=treasr; obj<=objt; ++obj) {
 	if( place(obj)>0 ) {
 	    maxsco=maxsco+20;
-	    if( prop(obj)==0                         /* сокровище в доме */
-	    && (place(obj)==3 || place(obj)==caried) ) { /* или несу его */
+	    if( prop(obj)==0                         /* я│п╬п╨я─п╬п╡п╦я┴п╣ п╡ п╢п╬п╪п╣ */
+	    && (place(obj)==3 || place(obj)==caried) ) { /* п╦п╩п╦ п╫п╣я│я┐ п╣пЁп╬ */
 		scor=scor+20;
-	    } else if( (prop(obj)&0377)!=inipro ) {  /* сокровище видел */
+	    } else if( (prop(obj)&0377)!=inipro ) {  /* я│п╬п╨я─п╬п╡п╦я┴п╣ п╡п╦п╢п╣п╩ */
 		scor=scor+5;
 	    }
 	}

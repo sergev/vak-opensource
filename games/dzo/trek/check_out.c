@@ -28,6 +28,6 @@ int     device;
 	/* but if we are docked, we can go ahead anyhow */
 	if (Ship.cond != DOCKED)
 		return (1);
-	printf("  Использованы %s звездной базы\n", Device[dev].name);
+	printf("  п≤я│п©п╬п╩я▄п╥п╬п╡п╟п╫я▀ %s п╥п╡п╣п╥п╢п╫п╬п╧ п╠п╟п╥я▀\n", Device[dev].name);
 	return (0);
 }

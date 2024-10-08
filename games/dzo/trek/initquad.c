@@ -39,7 +39,7 @@ int     f;
 	/* have we blundered into a battle zone w/ shields down? */
 	if (Etc.nkling > 0 && !f)
 	{
-		printf("Квадрат КРАСНЫЙ\n");
+		printf("п п╡п╟п╢я─п╟я┌ п п═п░п║п²п╚п≥\n");
 		Ship.cond = RED;
 		if (!damaged(COMPUTER))
 			shield(1);

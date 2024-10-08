@@ -18,7 +18,7 @@ ievent() {
 	    tevent=putcnd();
 	    eevent=dpoint;
 	} else {
-	    printf("\n%s%.10s\n","ÏÛÉÂËÁ: ",&line(p));  fatal();
+	    printf("\n%s%.10s\n","Ğ¾ÑˆĞ¸Ğ±ĞºĞ°: ",&line(p));  fatal();
 	}
     }
     printf("%8d   + %6d bytes\n", tevent-tiniti, dpoint-tevent);

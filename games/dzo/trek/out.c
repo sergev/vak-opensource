@@ -10,5 +10,5 @@ int     dev;
 	register struct device  *d;
 
 	d = &Device[dev];
-	printf("%s сообщает, что %s поврежден%s.\n", d->person, d->name, d->ending);
+	printf("%s я│п╬п╬п╠я┴п╟п╣я┌, я┤я┌п╬ %s п©п╬п╡я─п╣п╤п╢п╣п╫%s.\n", d->person, d->name, d->ending);
 }

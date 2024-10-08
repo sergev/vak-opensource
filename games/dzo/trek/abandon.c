@@ -41,7 +41,7 @@ void abandon()
 	register struct event   *e;
 
 	if (Ship.ship == QUEENE) {
-		printf("Вы не можете покинуть Faire Queene\n");
+		printf("п▓я▀ п╫п╣ п╪п╬п╤п╣я┌п╣ п©п╬п╨п╦п╫я┐я┌я▄ Faire Queene\n");
 		return;
 		}
 	if (Ship.cond != DOCKED)
@@ -50,26 +50,26 @@ void abandon()
 			out(SHUTTLE);
 			return;
 			}
-		printf("Офицеры сбежали в космоботе\n");
+		printf("п·я└п╦я├п╣я─я▀ я│п╠п╣п╤п╟п╩п╦ п╡ п╨п╬я│п╪п╬п╠п╬я┌п╣\n");
 		/* decide on fate of crew */
 		q = &Quad[Ship.quadx][Ship.quady];
 		if (q->qsystemname == 0 || damaged(XPORTER))
 		{
-			printf("%d человек из команды остались умирать в открытом космосе\n",
+			printf("%d я┤п╣п╩п╬п╡п╣п╨ п╦п╥ п╨п╬п╪п╟п╫п╢я▀ п╬я│я┌п╟п╩п╦я│я▄ я┐п╪п╦я─п╟я┌я▄ п╡ п╬я┌п╨я─я▀я┌п╬п╪ п╨п╬я│п╪п╬я│п╣\n",
 				Ship.crew);
 			Game.deaths += Ship.crew;
 		}
 		else
 		{
-			printf("Команда высадилась на планету %s\n", systemname(q));
+			printf("п п╬п╪п╟п╫п╢п╟ п╡я▀я│п╟п╢п╦п╩п╟я│я▄ п╫п╟ п©п╩п╟п╫п╣я┌я┐ %s\n", systemname(q));
 		}
 	}
 	/* see if you can be exchanged */
 	if (Now.bases == 0 || Game.captives < 20 * Game.skill)
 		lose(L_CAPTURED);
 	/* re-outfit new ship */
-	printf("Вы стали капитаном древней и разбитой, но все еще\n");
-	printf("  летающей космической калоши \"Fairie Queene\".\n");
+	printf("п▓я▀ я│я┌п╟п╩п╦ п╨п╟п©п╦я┌п╟п╫п╬п╪ п╢я─п╣п╡п╫п╣п╧ п╦ я─п╟п╥п╠п╦я┌п╬п╧, п╫п╬ п╡я│п╣ п╣я┴п╣\n");
+	printf("  п╩п╣я┌п╟я▌я┴п╣п╧ п╨п╬я│п╪п╦я┤п╣я│п╨п╬п╧ п╨п╟п╩п╬я┬п╦ \"Fairie Queene\".\n");
 	Ship.ship = QUEENE;
 	Ship.shipname = "Fairie Queene";
 	Param.energy = Ship.energy = 3000;

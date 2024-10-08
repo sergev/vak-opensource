@@ -21,7 +21,7 @@
 */
 
 char    *Cntvect[3] =
-{"первая", "вторая", "третья"};
+{"п©п╣я─п╡п╟я▐", "п╡я┌п╬я─п╟я▐", "я┌я─п╣я┌я▄я▐"};
 
 void help()
 {
@@ -32,7 +32,7 @@ void help()
 
 	/* check to see if calling for help is reasonable ... */
 	if (Ship.cond == DOCKED) {
-		printf("Ухура: Капитан, но мы уже у базы\n");
+		printf("пёя┘я┐я─п╟: п п╟п©п╦я┌п╟п╫, п╫п╬ п╪я▀ я┐п╤п╣ я┐ п╠п╟п╥я▀\n");
 		return;
 		}
 
@@ -42,7 +42,7 @@ void help()
 		return;
 		}
 	if (Now.bases <= 0) {
-		printf("Ухура: Я не получил никакого ответа от базы\n");
+		printf("пёя┘я┐я─п╟: п╞ п╫п╣ п©п╬п╩я┐я┤п╦п╩ п╫п╦п╨п╟п╨п╬пЁп╬ п╬я┌п╡п╣я┌п╟ п╬я┌ п╠п╟п╥я▀\n");
 		return;
 		}
 	/* tut tut, there goes the score */
@@ -81,7 +81,7 @@ void help()
 
 	/* dematerialize the Enterprise */
 	Sect[Ship.sectx][Ship.secty] = EMPTY;
-	printf("Звездная база в %d,%d ответила\n", Ship.quadx, Ship.quady);
+	printf("п≈п╡п╣п╥п╢п╫п╟я▐ п╠п╟п╥п╟ п╡ %d,%d п╬я┌п╡п╣я┌п╦п╩п╟\n", Ship.quadx, Ship.quady);
 
 	/* this next thing acts as a probability that it will work */
 	x = pow(1.0 - pow(0.94, dist), 0.3333333);
@@ -90,7 +90,7 @@ void help()
 	for (i = 0; i < 3; i++)
 	{
 		sleep(2);
-		printf("%s попытка рематериализации ", Cntvect[i]);
+		printf("%s п©п╬п©я▀я┌п╨п╟ я─п╣п╪п╟я┌п╣я─п╦п╟п╩п╦п╥п╟я├п╦п╦ ", Cntvect[i]);
 		if (franf() > x)
 		{
 			/* ok, that's good.  let's see if we can set her down */
@@ -107,7 +107,7 @@ void help()
 			if (j < 5)
 			{
 				/* found an empty spot */
-				printf(" прошла успешно\n");
+				printf(" п©я─п╬я┬п╩п╟ я┐я│п©п╣я┬п╫п╬\n");
 				Ship.sectx = dx;
 				Ship.secty = dy;
 				Sect[dx][dy] = Ship.ship;
@@ -117,7 +117,7 @@ void help()
 			}
 			/* the starbase must have been surrounded */
 		}
-		printf("-- неудача\n");
+		printf("-- п╫п╣я┐п╢п╟я┤п╟\n");
 	}
 
 	/* one, two, three strikes, you're out */

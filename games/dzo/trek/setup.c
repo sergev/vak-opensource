@@ -15,30 +15,30 @@
 struct cvntab   Lentab[] =
 {
      {  "s",            "hort",         1,      0,  0 },
-     {  "к",            "ороткая",      1,      0,  0 },
+     {  "п╨",            "п╬я─п╬я┌п╨п╟я▐",      1,      0,  0 },
      {  "m",            "edium",        2,      0,  0 },
-     {  "с",            "редняя",       2,      0,  0 },
+     {  "я│",            "я─п╣п╢п╫я▐я▐",       2,      0,  0 },
      {  "l",            "ong",          4,      0,  0 },
-     {  "д",            "линная",       4,      0,  0 },
+     {  "п╢",            "п╩п╦п╫п╫п╟я▐",       4,      0,  0 },
      {  "restart",      "",             0,      0,  0 },
-     {  "перезапуск",   "",             0,      0,  0 },
+     {  "п©п╣я─п╣п╥п╟п©я┐я│п╨",   "",             0,      0,  0 },
      {  0,              0,              0,      0,  0 }
 };
 
 struct cvntab   Skitab[] =
 {
      {  "n",    "ovice",        1,      0,  0 },
-     {  "н",    "овичок",       1,      0,  0 },
+     {  "п╫",    "п╬п╡п╦я┤п╬п╨",       1,      0,  0 },
      {  "f",    "air",          2,      0,  0 },
-     {  "с",    "редне",        2,      0,  0 },
+     {  "я│",    "я─п╣п╢п╫п╣",        2,      0,  0 },
      {  "g",    "ood",          3,      0,  0 },
-     {  "х",    "орошо",        3,      0,  0 },
+     {  "я┘",    "п╬я─п╬я┬п╬",        3,      0,  0 },
      {  "e",    "xpert",        4,      0,  0 },
-     {  "э",    "ксперт",       4,      0,  0 },
+     {  "я█",    "п╨я│п©п╣я─я┌",       4,      0,  0 },
      {  "c",    "ommodore",     5,      0,  0 },
-     {  "к",    "омандор",      5,      0,  0 },
+     {  "п╨",    "п╬п╪п╟п╫п╢п╬я─",      5,      0,  0 },
      {  "i",    "mpossible",    6,      0,  0 },
-     {  "не",   "возможно",     6,      0,  0 },
+     {  "п╫п╣",   "п╡п╬п╥п╪п╬п╤п╫п╬",     6,      0,  0 },
      {  0,      0,              0,      0,  0 }
 };
 
@@ -55,7 +55,7 @@ void setup()
 	struct event            *e;
 
 	for(;;) {
-		r = getcodpar("Какой длины игра", Lentab);
+		r = getcodpar("п п╟п╨п╬п╧ п╢п╩п╦п╫я▀ п╦пЁя─п╟", Lentab);
 		Game.length = r->value;
 		if (Game.length == 0)
 		{
@@ -65,13 +65,13 @@ void setup()
 		}
 		break;
 	}
-	r = getcodpar("Как хорошо Вы играете", Skitab);
+	r = getcodpar("п п╟п╨ я┘п╬я─п╬я┬п╬ п▓я▀ п╦пЁя─п╟п╣я┌п╣", Skitab);
 	Game.skill = r->value;
 	Game.tourn = 0;
-	getstrpar("Введите пароль", Game.passwd, 14, 0);
-	if (sequal(Game.passwd, "турнир"))
+	getstrpar("п▓п╡п╣п╢п╦я┌п╣ п©п╟я─п╬п╩я▄", Game.passwd, 14, 0);
+	if (sequal(Game.passwd, "я┌я┐я─п╫п╦я─"))
 	{
-		getstrpar("Введите турнирный код", Game.passwd, 14, 0);
+		getstrpar("п▓п╡п╣п╢п╦я┌п╣ я┌я┐я─п╫п╦я─п╫я▀п╧ п╨п╬п╢", Game.passwd, 14, 0);
 		Game.tourn = 1;
 		d = 0;
 		for (i = 0; Game.passwd[i]; i++)
@@ -261,21 +261,21 @@ void setup()
 
 	/* initialize this quadrant */
 	{
-		char   *s1 = "ых", *s2 = "";
+		char   *s1 = "я▀я┘", *s2 = "";
 
 		if( Param.bases < 5 ) {
 			if( Param.bases == 1 )
-				s1 = "ая", s2 = "а";
+				s1 = "п╟я▐", s2 = "п╟";
 			else
-				s1 = "ые", s2 = "ы";
+				s1 = "я▀п╣", s2 = "я▀";
 		}
-	       printf("%d клинг%s\n%d звездн%s баз%s", Param.klings,
+	       printf("%d п╨п╩п╦п╫пЁ%s\n%d п╥п╡п╣п╥п╢п╫%s п╠п╟п╥%s", Param.klings,
 		      mrok(Param.klings), Param.bases, s1, s2);
 	}
-	printf(" в %d,%d", Now.base[0].x, Now.base[0].y);
+	printf(" п╡ %d,%d", Now.base[0].x, Now.base[0].y);
 	for (i = 1; i < Param.bases; i++)
 		printf(", %d,%d", Now.base[i].x, Now.base[i].y);
-	printf("\nНужно %d единиц для того, чтобы убить клинга\n", Param.klingpwr);
+	printf("\nп²я┐п╤п╫п╬ %d п╣п╢п╦п╫п╦я├ п╢п╩я▐ я┌п╬пЁп╬, я┤я┌п╬п╠я▀ я┐п╠п╦я┌я▄ п╨п╩п╦п╫пЁп╟\n", Param.klingpwr);
 	Move.free = 0;
 	initquad(0);
 	srscan(1);

@@ -1,7 +1,7 @@
 /*d* === putmes ===   07.01.85   version   16 */
 /* store message into "adv:text" direct access file */
-/* первая строка уже загружена в 'line' */
-/* строки разделяются символом 'lf', на конце сообщения - 0. */
+/* п©п╣я─п╡п╟я▐ я│я┌я─п╬п╨п╟ я┐п╤п╣ п╥п╟пЁя─я┐п╤п╣п╫п╟ п╡ 'line' */
+/* я│я┌я─п╬п╨п╦ я─п╟п╥п╢п╣п╩я▐я▌я┌я│я▐ я│п╦п╪п╡п╬п╩п╬п╪ 'lf', п╫п╟ п╨п╬п╫я├п╣ я│п╬п╬п╠я┴п╣п╫п╦я▐ - 0. */
 /* return: address of first record of message */
 
 #include "adv_ini.h"
@@ -40,7 +40,7 @@ L9:     for(i=4; i<=en; ++i)  _outt(line(i));
 _outt(byte)
     char byte;
 {
-    if( F1==NULL ) {                   /* открыть файл */
+    if( F1==NULL ) {                   /* п╬я┌п╨я─я▀я┌я▄ я└п╟п╧п╩ */
 	if( (F1=fopen("adv.text","w")) == NULL )  fatal();
     }
     fwrite( &byte, 1, 1, F1 );

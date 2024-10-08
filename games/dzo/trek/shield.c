@@ -21,9 +21,9 @@
 struct cvntab Udtab[] =
 {
      {  "u",    "p",            1,  0,  0 },
-     {  "вкл",  "ючить",        1,  0,  0 },
+     {  "п╡п╨п╩",  "я▌я┤п╦я┌я▄",        1,  0,  0 },
      {  "d",    "own",          0,  0,  0 },
-     {  "выкл", "ючить",        0,  0,  0 },
+     {  "п╡я▀п╨п╩", "я▌я┤п╦я┌я▄",        0,  0,  0 },
      {  0,       0,             0,  0,  0 }
 };
 
@@ -44,17 +44,17 @@ int     f;
 	{
 		/* cloaking device */
 		if (Ship.ship == QUEENE) {
-			printf("Faire Queene не может быть закрыта полем.\n");
+			printf("Faire Queene п╫п╣ п╪п╬п╤п╣я┌ п╠я▀я┌я▄ п╥п╟п╨я─я▀я┌п╟ п©п╬п╩п╣п╪.\n");
 			return;
 			}
-		device = "Устройство закрытия";
+		device = "пёя│я┌я─п╬п╧я│я┌п╡п╬ п╥п╟п╨я─я▀я┌п╦я▐";
 		ind = CLOAK;
 		stat = &Ship.cloaked;
 	}
 	else
 	{
 		/* shields */
-		device = "Защитное поле";
+		device = "п≈п╟я┴п╦я┌п╫п╬п╣ п©п╬п╩п╣";
 		ind = SHIELD;
 		stat = &Ship.shldup;
 	}
@@ -66,31 +66,31 @@ int     f;
 	}
 	if (Ship.cond == DOCKED)
 	{
-		printf("%s должно быть выключено при стыковке\n", device);
+		printf("%s п╢п╬п╩п╤п╫п╬ п╠я▀я┌я▄ п╡я▀п╨п╩я▌я┤п╣п╫п╬ п©я─п╦ я│я┌я▀п╨п╬п╡п╨п╣\n", device);
 		return;
 	}
 	if (f <= 0 && !testnl())
 	{
-		r = getcodpar("Включить/выключить", Udtab);
+		r = getcodpar("п▓п╨п╩я▌я┤п╦я┌я▄/п╡я▀п╨п╩я▌я┤п╦я┌я▄", Udtab);
 		i = r->value;
 	}
 	else
 	{
 		if (*stat)
-			sprintf(s, "%s включено.  Выключить", device);
+			sprintf(s, "%s п╡п╨п╩я▌я┤п╣п╫п╬.  п▓я▀п╨п╩я▌я┤п╦я┌я▄", device);
 		else
-			sprintf(s, "%s выключено.  Включить", device);
+			sprintf(s, "%s п╡я▀п╨п╩я▌я┤п╣п╫п╬.  п▓п╨п╩я▌я┤п╦я┌я▄", device);
 		if (!getynpar(s))
 			return;
 		i = !*stat;
 	}
 	if (*stat == i)
 	{
-		printf("%s уже ", device);
+		printf("%s я┐п╤п╣ ", device);
 		if (i)
-			printf("включено\n");
+			printf("п╡п╨п╩я▌я┤п╣п╫п╬\n");
 		else
-			printf("выключено\n");
+			printf("п╡я▀п╨п╩я▌я┤п╣п╫п╬\n");
 		return;
 	}
 	if (i)

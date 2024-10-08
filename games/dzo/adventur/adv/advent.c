@@ -11,24 +11,24 @@ main() {
     ini();                                /* initiate data base */
 
     for(;;) {
-	events();                          /* случайные события */
+	events();                          /* я│п╩я┐я┤п╟п╧п╫я▀п╣ я│п╬п╠я▀я┌п╦я▐ */
 	getans(&word1,&word2,&type1,&type2);
 	++moves;
 	oldob=0;
 
-	if(        type1 == specwr ) {      /* спец-слово */
+	if(        type1 == specwr ) {      /* я│п©п╣я├-я│п╩п╬п╡п╬ */
 	    rspeak(word1);
 	} else if( type2 == specwr ) {
 	    rspeak(word2);
 
-	} else if( type1 == movewr ) {      /* передвижения */
+	} else if( type1 == movewr ) {      /* п©п╣я─п╣п╢п╡п╦п╤п╣п╫п╦я▐ */
 	    motion(word1);
 
 	} else if( type2 == movewr ) {
 	    motion(word2);
 	} else {
 
-	    if( type1 == objcwr ) {            /* об"ekta het рядом */
+	    if( type1 == objcwr ) {            /* п╬п╠"ekta het я─я▐п╢п╬п╪ */
 		if( !here(word1) )  goto L10;
 	    }
 	    if( type2 == objcwr ) {
@@ -38,19 +38,19 @@ L10   :             rspeak(203);
 		}
 	    }
 
-	    if( type1 == actnwr ) {           /* действие + */
-		if( type2 == objcwr ) {         /*     + об"ekt */
+	    if( type1 == actnwr ) {           /* п╢п╣п╧я│я┌п╡п╦п╣ + */
+		if( type2 == objcwr ) {         /*     + п╬п╠"ekt */
 		    action(word1,word2);
-		} else if( oldobj != 0 ) {        /*     + старый об"ekt */
+		} else if( oldobj != 0 ) {        /*     + я│я┌п╟я─я▀п╧ п╬п╠"ekt */
 		    action(word1,oldobj);
-		} else {                          /*     + het об"ekta */
+		} else {                          /*     + het п╬п╠"ekta */
 		    action(word1,255);
 		}
-	    } else if( type2 == actnwr ) {      /* об"ekt + действие */
+	    } else if( type2 == actnwr ) {      /* п╬п╠"ekt + п╢п╣п╧я│я┌п╡п╦п╣ */
 		action(word2,word1);
 
-	    } else if( type1 == objcwr ) {      /* об"ekt */
-		rspeak(90);                     /*    что делать c ? */
+	    } else if( type1 == objcwr ) {      /* п╬п╠"ekt */
+		rspeak(90);                     /*    я┤я┌п╬ п╢п╣п╩п╟я┌я▄ c ? */
 		oldob=word1;
 	    }
 L20:;

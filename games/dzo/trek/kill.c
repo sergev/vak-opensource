@@ -21,7 +21,7 @@ int     ix, iy;
 {
 	register int            i, j;
 
-	printf("   *** Клинг в %d,%d уничтожен ***\n", ix, iy);
+	printf("   *** п п╩п╦п╫пЁ п╡ %d,%d я┐п╫п╦я┤я┌п╬п╤п╣п╫ ***\n", ix, iy);
 
 	/* remove the scoundrel */
 	Now.klings -= 1;
@@ -84,14 +84,14 @@ int     qx, qy;
 		Sect[Etc.starbase.x][Etc.starbase.y] = EMPTY;
 		if (Ship.cond == DOCKED)
 			undock();
-		printf("Звездная база в %d,%d уничтожена\n", Etc.starbase.x, Etc.starbase.y);
+		printf("п≈п╡п╣п╥п╢п╫п╟я▐ п╠п╟п╥п╟ п╡ %d,%d я┐п╫п╦я┤я┌п╬п╤п╣п╫п╟\n", Etc.starbase.x, Etc.starbase.y);
 	}
 	else
 	{
 		if (!damaged(SSRADIO))
 		{
-			printf("Ухура: Командование звездного флота сообщило, что\n");
-			printf("  звездная база в квадранте %d,%d уничтожена\n", qx, qy);
+			printf("пёя┘я┐я─п╟: п п╬п╪п╟п╫п╢п╬п╡п╟п╫п╦п╣ п╥п╡п╣п╥п╢п╫п╬пЁп╬ я└п╩п╬я┌п╟ я│п╬п╬п╠я┴п╦п╩п╬, я┤я┌п╬\n");
+			printf("  п╥п╡п╣п╥п╢п╫п╟я▐ п╠п╟п╥п╟ п╡ п╨п╡п╟п╢я─п╟п╫я┌п╣ %d,%d я┐п╫п╦я┤я┌п╬п╤п╣п╫п╟\n", qx, qy);
 		}
 		else
 			schedule(E_KATSB | E_GHOST, 1e50, qx, qy, 0);
@@ -120,7 +120,7 @@ int     f;      /* f != 0 -- this quad;  f < 0 -- Enterprise's fault */
 		name = systemname(q);
 		if (name == 0)
 			return;
-		printf("Беззащитная звездная система %s в %d,%d разрушена\n",
+		printf("п▒п╣п╥п╥п╟я┴п╦я┌п╫п╟я▐ п╥п╡п╣п╥п╢п╫п╟я▐ я│п╦я│я┌п╣п╪п╟ %s п╡ %d,%d я─п╟п╥я─я┐я┬п╣п╫п╟\n",
 			name, x, y);
 		if (f < 0)
 			Game.killinhab += 1;
@@ -134,7 +134,7 @@ int     f;      /* f != 0 -- this quad;  f < 0 -- Enterprise's fault */
 	{
 		/* distressed starsystem */
 		e = &Event[q->qsystemname & Q_SYSTEM];
-		printf("Сигнал бедствия для %s уже не нужен\n",
+		printf("п║п╦пЁп╫п╟п╩ п╠п╣п╢я│я┌п╡п╦я▐ п╢п╩я▐ %s я┐п╤п╣ п╫п╣ п╫я┐п╤п╣п╫\n",
 			Systemname[e->systemname]);
 		unschedule(e);
 	}
@@ -166,7 +166,7 @@ int     f;              /* set if user is to be informed */
 		  case E_KDESB:
 			if (f)
 			{
-				printf("Сообщение о бедственном положении звездной базы в %d,%d аннулировано\n",
+				printf("п║п╬п╬п╠я┴п╣п╫п╦п╣ п╬ п╠п╣п╢я│я┌п╡п╣п╫п╫п╬п╪ п©п╬п╩п╬п╤п╣п╫п╦п╦ п╥п╡п╣п╥п╢п╫п╬п╧ п╠п╟п╥я▀ п╡ %d,%d п╟п╫п╫я┐п╩п╦я─п╬п╡п╟п╫п╬\n",
 					x, y);
 				unschedule(e);
 			}
@@ -176,7 +176,7 @@ int     f;              /* set if user is to be informed */
 		  case E_REPRO:
 			if (f)
 			{
-				printf("Сообщение о бедственном положении %s в квадранте %d,%d аннулировано\n",
+				printf("п║п╬п╬п╠я┴п╣п╫п╦п╣ п╬ п╠п╣п╢я│я┌п╡п╣п╫п╫п╬п╪ п©п╬п╩п╬п╤п╣п╫п╦п╦ %s п╡ п╨п╡п╟п╢я─п╟п╫я┌п╣ %d,%d п╟п╫п╫я┐п╩п╦я─п╬п╡п╟п╫п╬\n",
 					Systemname[e->systemname], x, y);
 				q->qsystemname = e->systemname;
 				unschedule(e);

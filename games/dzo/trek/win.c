@@ -22,7 +22,7 @@ void win()
 	register struct cvntab  *p;
 
 	sleep(1);
-	printf("\nПоздравляем, Вы спасли Федерацию\n");
+	printf("\nп÷п╬п╥п╢я─п╟п╡п╩я▐п╣п╪, п▓я▀ я│п©п╟я│п╩п╦ п╓п╣п╢п╣я─п╟я├п╦я▌\n");
 	Move.endgame = 1;
 
 	/* print and return the score */
@@ -32,15 +32,15 @@ void win()
 	if (Game.helps == 0 && Game.killb == 0 && Game.killinhab == 0 && 5 * Game.kills + Game.deaths < 100 &&
 			s >= 1000 && Ship.ship == ENTERPRISE)
 	{
-		printf("Вы явно подняли свой класс,\n");
+		printf("п▓я▀ я▐п╡п╫п╬ п©п╬п╢п╫я▐п╩п╦ я│п╡п╬п╧ п╨п╩п╟я│я│,\n");
 		if (Game.skill >= 6)
-			printf("  Вам присвоено звание \"Commodore Emeritus\".\n");
+			printf("  п▓п╟п╪ п©я─п╦я│п╡п╬п╣п╫п╬ п╥п╡п╟п╫п╦п╣ \"Commodore Emeritus\".\n");
 		else
 		{
 			p = &Skitab[2*Game.skill - 1];
-			printf("с %s%s ", p->abrev, p->full);
+			printf("я│ %s%s ", p->abrev, p->full);
 			p += 2;
-			printf("до %s%s.\n", p->abrev, p->full);
+			printf("п╢п╬ %s%s.\n", p->abrev, p->full);
 		}
 	}
 

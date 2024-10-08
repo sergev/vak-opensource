@@ -1,8 +1,8 @@
 /* === vocab === 08.08.84 version 2 */
 /*  look up 'word' in the vocabulary ('atab' real array) */
 /*  and return its "definition" (ktab), or -1 if not found */
-/* out: vocab=-1  - слово he найдено */
-/*      vocab     - код слова */
+/* out: vocab=-1  - я│п╩п╬п╡п╬ he п╫п╟п╧п╢п╣п╫п╬ */
+/*      vocab     - п╨п╬п╢ я│п╩п╬п╡п╟ */
 
 #include "adv_common"
 

@@ -22,7 +22,7 @@ void dock()
 	register struct event   *e;
 
 	if (Ship.cond == DOCKED) {
-		printf("Чеков: Капитан, но мы уже состыковлись\n");
+		printf("п╖п╣п╨п╬п╡: п п╟п©п╦я┌п╟п╫, п╫п╬ п╪я▀ я┐п╤п╣ я│п╬я│я┌я▀п╨п╬п╡п╩п╦я│я▄\n");
 		return;
 		}
 	/* check for ok to dock, i.e., adjacent to a starbase */
@@ -43,7 +43,7 @@ void dock()
 		}
 	}
 	if (!ok) {
-		printf("Чеков: Капитан, но мы не у звездной базы.\n");
+		printf("п╖п╣п╨п╬п╡: п п╟п©п╦я┌п╟п╫, п╫п╬ п╪я▀ п╫п╣ я┐ п╥п╡п╣п╥п╢п╫п╬п╧ п╠п╟п╥я▀.\n");
 		return;
 		}
 	/* restore resources */
@@ -92,7 +92,7 @@ void undock()
 
 	if (Ship.cond != DOCKED)
 	{
-		printf("Сулу: Извините меня, капитан, но мы не стыкованы с базой.\n");
+		printf("п║я┐п╩я┐: п≤п╥п╡п╦п╫п╦я┌п╣ п╪п╣п╫я▐, п╨п╟п©п╦я┌п╟п╫, п╫п╬ п╪я▀ п╫п╣ я│я┌я▀п╨п╬п╡п╟п╫я▀ я│ п╠п╟п╥п╬п╧.\n");
 		return;
 	}
 	Ship.cond = GREEN;

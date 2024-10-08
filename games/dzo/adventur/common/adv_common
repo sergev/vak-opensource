@@ -2,8 +2,8 @@
 
 /* - parameters --- current limits: */
 
-			/* === размеры массивов === */
-#define vocw 550        /* размер словаря */
+			/* === я─п╟п╥п╪п╣я─я▀ п╪п╟я│я│п╦п╡п╬п╡ === */
+#define vocw 550        /* я─п╟п╥п╪п╣я─ я│п╩п╬п╡п╟я─я▐ */
 #define loct 254        /* locations */
 #define objt 127        /* objects */
 #define fixt 200        /* locations for fixed objects */
@@ -12,11 +12,11 @@
 #define ranm 400        /* random messages */
 #define plcl 12         /* different player classifications. */
 
-			/* === типы слов === */
-#define movewr 0        /* направление движения */
-#define objcwr 1        /* об'ekt */
-#define actnwr 2        /* действие c об'ektom */
-#define specwr 3        /* спец-слово */
+			/* === я┌п╦п©я▀ я│п╩п╬п╡ === */
+#define movewr 0        /* п╫п╟п©я─п╟п╡п╩п╣п╫п╦п╣ п╢п╡п╦п╤п╣п╫п╦я▐ */
+#define objcwr 1        /* п╬п╠'ekt */
+#define actnwr 2        /* п╢п╣п╧я│я┌п╡п╦п╣ c п╬п╠'ektom */
+#define specwr 3        /* я│п©п╣я├-я│п╩п╬п╡п╬ */
 
 
 /* there are also limits which cannot be exceeded due to the structure */
@@ -29,55 +29,55 @@
 
 
 /* --- messages --- */
-int  abb;                      /* флаг: нужно ли полное описание */
-unsigned  _rtext[ranm];        /* адреса разных сообщений */
+int  abb;                      /* я└п╩п╟пЁ: п╫я┐п╤п╫п╬ п╩п╦ п©п╬п╩п╫п╬п╣ п╬п©п╦я│п╟п╫п╦п╣ */
+unsigned  _rtext[ranm];        /* п╟п╢я─п╣я│п╟ я─п╟п╥п╫я▀я┘ я│п╬п╬п╠я┴п╣п╫п╦п╧ */
 #define    rtext(x) _rtext[(x)-1]
-unsigned  _ltext[loct];        /* - " -  длинных описаний позиции */
+unsigned  _ltext[loct];        /* - " -  п╢п╩п╦п╫п╫я▀я┘ п╬п©п╦я│п╟п╫п╦п╧ п©п╬п╥п╦я├п╦п╦ */
 #define    ltext(x) _ltext[(x)-1]
-unsigned  _stext[loct];        /* - " -  коротких описаний позиции*/
+unsigned  _stext[loct];        /* - " -  п╨п╬я─п╬я┌п╨п╦я┘ п╬п©п╦я│п╟п╫п╦п╧ п©п╬п╥п╦я├п╦п╦*/
 #define    stext(x) _stext[(x)-1]
-unsigned  _ctext[plcl];        /* - " -  квалификаций игрока */
+unsigned  _ctext[plcl];        /* - " -  п╨п╡п╟п╩п╦я└п╦п╨п╟я├п╦п╧ п╦пЁя─п╬п╨п╟ */
 #define    ctext(x) _ctext[(x)-1]
-unsigned  _cval[plcl];         /* пороги квалификации игрока */
+unsigned  _cval[plcl];         /* п©п╬я─п╬пЁп╦ п╨п╡п╟п╩п╦я└п╦п╨п╟я├п╦п╦ п╦пЁя─п╬п╨п╟ */
 #define    cval(x) _cval[(x)-1]
-unsigned  _ptext[objt];        /* индексы сообщ. o свойст.об'ektob*/
+unsigned  _ptext[objt];        /* п╦п╫п╢п╣п╨я│я▀ я│п╬п╬п╠я┴. o я│п╡п╬п╧я│я┌.п╬п╠'ektob*/
 #define    ptext(x) _ptext[(x)-1]
-unsigned  _pstat[sttt];        /* индексы сообщ. o свойст.об'ektob*/
+unsigned  _pstat[sttt];        /* п╦п╫п╢п╣п╨я│я▀ я│п╬п╬п╠я┴. o я│п╡п╬п╧я│я┌.п╬п╠'ektob*/
 #define    pstat(x) _pstat[(x)-1]
-char _abrev[loct];             /* флаги: надо сокращенное описание*/
+char _abrev[loct];             /* я└п╩п╟пЁп╦: п╫п╟п╢п╬ я│п╬п╨я─п╟я┴п╣п╫п╫п╬п╣ п╬п©п╦я│п╟п╫п╦п╣*/
 #define    abrev(x) _abrev[(x)-1]
 
 
 /* --- travels + actions --- */
-unsigned  _trvkey[loct];       /* таблица начала графа данной поз. */
+unsigned  _trvkey[loct];       /* я┌п╟п╠п╩п╦я├п╟ п╫п╟я┤п╟п╩п╟ пЁя─п╟я└п╟ п╢п╟п╫п╫п╬п╧ п©п╬п╥. */
 #define    trvkey(x) _trvkey[(x)-1]
-unsigned  _actkey[actw];       /*  -"-    -"-  реакции ha действие */
+unsigned  _actkey[actw];       /*  -"-    -"-  я─п╣п╟п╨я├п╦п╦ ha п╢п╣п╧я│я┌п╡п╦п╣ */
 #define    actkey(x) _actkey[(x)-1]
 
 
 /* --- vocabulary --- */
-int  nvoc;                     /* число слов b словаре */
-int  _ktab[vocw];              /* числа - значения слов */
+int  nvoc;                     /* я┤п╦я│п╩п╬ я│п╩п╬п╡ b я│п╩п╬п╡п╟я─п╣ */
+int  _ktab[vocw];              /* я┤п╦я│п╩п╟ - п╥п╫п╟я┤п╣п╫п╦я▐ я│п╩п╬п╡ */
 #define    ktab(x) _ktab[(x)-1]
-long _atab[vocw];              /* слова - по 4 буквы */
+long _atab[vocw];              /* я│п╩п╬п╡п╟ - п©п╬ 4 п╠я┐п╨п╡я▀ */
 #define    atab(x) _atab[(x)-1]
 
 /* --- state --- */
-#define inipro  255           /* началь. состояние для сокровищ */
-#define nulobj  255           /* отсутствующий об"ekt */
-#define caried  1000          /* mapkep - об'ekt несут */
+#define inipro  255           /* п╫п╟я┤п╟п╩я▄. я│п╬я│я┌п╬я▐п╫п╦п╣ п╢п╩я▐ я│п╬п╨я─п╬п╡п╦я┴ */
+#define nulobj  255           /* п╬я┌я│я┐я┌я│я┌п╡я┐я▌я┴п╦п╧ п╬п╠"ekt */
+#define caried  1000          /* mapkep - п╬п╠'ekt п╫п╣я│я┐я┌ */
 
 int  rndini;
-int  loc;                      /* текущая позиция */
-int  tally;                    /* число еще не обнаруж. сокровищ */
-int  treasr;                   /* homep 1-ого об'ekta-сокровища */
-int  rndini;                   /* случ.число данной партии */
-unsigned  tevent;              /* указатель таблицы случ.событий */
-unsigned  eevent;              /* конец таблицы случайных событий */
-unsigned  tiniti;              /* -"-  -"- инициализации */
-int  _place[loct];             /* позиция об═екта или -[индекс] */
+int  loc;                      /* я┌п╣п╨я┐я┴п╟я▐ п©п╬п╥п╦я├п╦я▐ */
+int  tally;                    /* я┤п╦я│п╩п╬ п╣я┴п╣ п╫п╣ п╬п╠п╫п╟я─я┐п╤. я│п╬п╨я─п╬п╡п╦я┴ */
+int  treasr;                   /* homep 1-п╬пЁп╬ п╬п╠'ekta-я│п╬п╨я─п╬п╡п╦я┴п╟ */
+int  rndini;                   /* я│п╩я┐я┤.я┤п╦я│п╩п╬ п╢п╟п╫п╫п╬п╧ п©п╟я─я┌п╦п╦ */
+unsigned  tevent;              /* я┐п╨п╟п╥п╟я┌п╣п╩я▄ я┌п╟п╠п╩п╦я├я▀ я│п╩я┐я┤.я│п╬п╠я▀я┌п╦п╧ */
+unsigned  eevent;              /* п╨п╬п╫п╣я├ я┌п╟п╠п╩п╦я├я▀ я│п╩я┐я┤п╟п╧п╫я▀я┘ я│п╬п╠я▀я┌п╦п╧ */
+unsigned  tiniti;              /* -"-  -"- п╦п╫п╦я├п╦п╟п╩п╦п╥п╟я├п╦п╦ */
+int  _place[loct];             /* п©п╬п╥п╦я├п╦я▐ п╬п╠Б∙░п╣п╨я┌п╟ п╦п╩п╦ -[п╦п╫п╢п╣п╨я│] */
 #define    place(x) _place[(x)-1]
-char _fixed[fixt];             /*    для фиксированных об'ektob */
+char _fixed[fixt];             /*    п╢п╩я▐ я└п╦п╨я│п╦я─п╬п╡п╟п╫п╫я▀я┘ п╬п╠'ektob */
 #define    fixed(x) _fixed[(x)-1]
-char _prop[objt];              /* свойство об'ektа */
+char _prop[objt];              /* я│п╡п╬п╧я│я┌п╡п╬ п╬п╠'ektп╟ */
 #define    prop(x) _prop[(x)-1]

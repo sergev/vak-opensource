@@ -35,19 +35,19 @@ void torped()
 
 	if (Ship.cloaked)
 	{
-		printf("По законам Федерации в закрытом состоянии торпедные атаки запрещены.\n");
+		printf("п÷п╬ п╥п╟п╨п╬п╫п╟п╪ п╓п╣п╢п╣я─п╟я├п╦п╦ п╡ п╥п╟п╨я─я▀я┌п╬п╪ я│п╬я│я┌п╬я▐п╫п╦п╦ я┌п╬я─п©п╣п╢п╫я▀п╣ п╟я┌п╟п╨п╦ п╥п╟п©я─п╣я┴п╣п╫я▀.\n");
 		return;
 	}
 	if (check_out(TORPED))
 		return;
 	if (Ship.torped <= 0)
 	{
-		printf("Все фотонные торпеды израсходованы\n");
+		printf("п▓я│п╣ я└п╬я┌п╬п╫п╫я▀п╣ я┌п╬я─п©п╣п╢я▀ п╦п╥я─п╟я│я┘п╬п╢п╬п╡п╟п╫я▀\n");
 		return;
 	}
 
 	/* get the course */
-	course = getintpar("Курс торпеды");
+	course = getintpar("п я┐я─я│ я┌п╬я─п©п╣п╢я▀");
 	if (course < 0 || course > 360)
 		return;
 	burst = -1;
@@ -55,7 +55,7 @@ void torped()
 	/* need at least three torpedoes for a burst */
 	if (Ship.torped < 3)
 	{
-		printf("Для пактной стрельбы нет торпед\n");
+		printf("п■п╩я▐ п©п╟п╨я┌п╫п╬п╧ я│я┌я─п╣п╩я▄п╠я▀ п╫п╣я┌ я┌п╬я─п©п╣п╢\n");
 		burst = 0;
 	}
 	else
@@ -70,15 +70,15 @@ void torped()
 	}
 	if (burst < 0)
 	{
-		burst = getynpar("Стрелять пакетами");
+		burst = getynpar("п║я┌я─п╣п╩я▐я┌я▄ п©п╟п╨п╣я┌п╟п╪п╦");
 	}
 	if (burst)
 	{
-		burst = getintpar("Угол рассеяния");
+		burst = getintpar("пёпЁп╬п╩ я─п╟я│я│п╣я▐п╫п╦я▐");
 		if (burst <= 0)
 			return;
 		if (burst > 15) {
-			printf("Максимальный угол 15 градусов\n");
+			printf("п°п╟п╨я│п╦п╪п╟п╩я▄п╫я▀п╧ я┐пЁп╬п╩ 15 пЁя─п╟п╢я┐я│п╬п╡\n");
 			return ;
 			}
 	}
@@ -106,9 +106,9 @@ void torped()
 		y = Ship.secty + 0.5;
 		if (Ship.cond != DOCKED)
 			Ship.torped -= 1;
-		printf("Траектория торпеды");
+		printf("п╒я─п╟п╣п╨я┌п╬я─п╦я▐ я┌п╬я─п©п╣п╢я▀");
 		if (n > 0)
-			printf(", торпеда номер %d", n);
+			printf(", я┌п╬я─п©п╣п╢п╟ п╫п╬п╪п╣я─ %d", n);
 		printf(":\n%6.1f\t%4.1f\n", x, y);
 		while (1)
 		{
@@ -116,7 +116,7 @@ void torped()
 			iy = y += dy;
 			if (x < 0.0 || x >= sectsize || y < 0.0 || y >= sectsize)
 			{
-				printf("Промахнулись\n");
+				printf("п÷я─п╬п╪п╟я┘п╫я┐п╩п╦я│я▄\n");
 				break;
 			}
 			printf("%6.1f\t%4.1f\n", x, y);
@@ -126,7 +126,7 @@ void torped()
 				continue;
 
 			  case HOLE:
-				printf("Торпеда провалилась в черную дыру\n");
+				printf("п╒п╬я─п©п╣п╢п╟ п©я─п╬п╡п╟п╩п╦п╩п╟я│я▄ п╡ я┤п╣я─п╫я┐я▌ п╢я▀я─я┐\n");
 				break;
 
 			  case KLINGON:
@@ -137,7 +137,7 @@ void torped()
 					Etc.klingon[k].power -= 500 + ranf(501);
 					if (Etc.klingon[k].power > 0)
 					{
-						printf("*** Удар по клингу в %d,%d: сильно поврежден\n",
+						printf("*** пёп╢п╟я─ п©п╬ п╨п╩п╦п╫пЁя┐ п╡ %d,%d: я│п╦п╩я▄п╫п╬ п©п╬п╡я─п╣п╤п╢п╣п╫\n",
 							ix, iy);
 						break;
 					}
@@ -159,7 +159,7 @@ void torped()
 				Game.killb += 1;
 				break;
 			  default:
-				printf("Неопознанный обаект %c в %d,%d уничтожен\n",
+				printf("п²п╣п╬п©п╬п╥п╫п╟п╫п╫я▀п╧ п╬п╠п╟п╣п╨я┌ %c п╡ %d,%d я┐п╫п╦я┤я┌п╬п╤п╣п╫\n",
 					Sect[ix][iy], ix, iy);
 				Sect[ix][iy] = EMPTY;
 				break;
@@ -191,11 +191,11 @@ int     n;
 	d = ((franf() + franf()) - 1.0) * 20;
 	if (abs(d) > 12)
 	{
-		printf("Торпедная установка сломалась");
+		printf("п╒п╬я─п©п╣п╢п╫п╟я▐ я┐я│я┌п╟п╫п╬п╡п╨п╟ я│п╩п╬п╪п╟п╩п╟я│я▄");
 		if (n < 0)
 			printf("\n");
 		else
-			printf(" на торпеде %d\n", n);
+			printf(" п╫п╟ я┌п╬я─п©п╣п╢п╣ %d\n", n);
 		if (ranf(2))
 		{
 			damage(TORPED, 0.2 * abs(d) * (franf() + 1.0));

@@ -26,7 +26,7 @@ FLOAT   dam;            /* time to repair */
 		return;
 	dev = dev1;
 
-	printf("\t%s поврежден%s\n", Device[dev].name, Device[dev].ending);
+	printf("\t%s п©п╬п╡я─п╣п╤п╢п╣п╫%s\n", Device[dev].name, Device[dev].ending);
 
 	/* find actual length till it will be fixed */
 	if (Ship.cond == DOCKED)

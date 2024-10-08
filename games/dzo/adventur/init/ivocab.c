@@ -6,8 +6,8 @@
 /*     m         message */
 
 /*  vocabulary: */
-/*     common /vocab/ ktab(vocw),      % числа - значения слов */
-/*                    atab(vocw)       % слова - по 4 буквы */
+/*     common /vocab/ ktab(vocw),      % я┤п╦я│п╩п╟ - п╥п╫п╟я┤п╣п╫п╦я▐ я│п╩п╬п╡ */
+/*                    atab(vocw)       % я│п╩п╬п╡п╟ - п©п╬ 4 п╠я┐п╨п╡я▀ */
 
 #include "adv_ini.h"
 
@@ -30,12 +30,12 @@ ivocab() {
 		kword=mm+(specwr*1000);
 		mesimp=mesimp+1;
 	    } else {
-		printf("\n%s%.10s\n","неверный маркер: ",_line); fatal();
+		printf("\n%s%.10s\n","п╫п╣п╡п╣я─п╫я▀п╧ п╪п╟я─п╨п╣я─: ",_line); fatal();
 	    }
 	    p=4                                /* read list of words */;
 	    while(getwrd()) {
 		if( vocab(_word) >= 0 ) {
-		    printf("\n%s%.4s\n","дважды определено: ",_word);
+		    printf("\n%s%.4s\n","п╢п╡п╟п╤п╢я▀ п╬п©я─п╣п╢п╣п╩п╣п╫п╬: ",_word);
 		    fatal();
 		}
 		nvoc=nvoc+1;

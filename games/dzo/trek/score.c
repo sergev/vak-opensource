@@ -4,7 +4,7 @@
 char *mrok( n )
 {
 	char    *s;
-	s = "ов";
+	s = "п╬п╡";
 	if( 10>(n%100) || (n%100)>20 )
 		switch( n%10 ) {
 		    case 1:
@@ -13,7 +13,7 @@ char *mrok( n )
 		    case 2:
 		    case 3:
 		    case 4:
-			s = "а";
+			s = "п╟";
 		}
 	return( s );
 }
@@ -30,67 +30,67 @@ long score()
 	FLOAT                   r;
 	extern struct cvntab    Skitab[];
 	static char             *vrk1[] = {
-		"ых", "ую", "ые", "ые", "ые", "ых", "ых", "ых", "ых", "ых" };
+		"я▀я┘", "я┐я▌", "я▀п╣", "я▀п╣", "я▀п╣", "я▀я┘", "я▀я┘", "я▀я┘", "я▀я┘", "я▀я┘" };
 	static char             *vrk2[] = {
-		"",   "у",  "ы",  "ы",  "ы",  "",   "",   "",   "",   "" };
+		"",   "я┐",  "я▀",  "я▀",  "я▀",  "",   "",   "",   "",   "" };
 	static char             *vrk3[] = {
-		"ых", "ая", "ые", "ые", "ые", "ых", "ых", "ых", "ых", "ых" };
+		"я▀я┘", "п╟я▐", "я▀п╣", "я▀п╣", "я▀п╣", "я▀я┘", "я▀я┘", "я▀я┘", "я▀я┘", "я▀я┘" };
 	static char             *vrk4[] = {
-		"",   "а",  "ы",  "ы",  "ы",  "",   "",   "",   "",   "" };
+		"",   "п╟",  "я▀",  "я▀",  "я▀",  "",   "",   "",   "",   "" };
 
-	printf("\n*** Ваши результаты:\n");
+	printf("\n*** п▓п╟я┬п╦ я─п╣п╥я┐п╩я▄я┌п╟я┌я▀:\n");
 	s = t = Param.klingpwr / 4 * (u = Game.killk);
 	if (t != 0)
-		printf("%d клинг%s убит%s   \t\t\t%6d\n", u, mrok(u), u==1?"":"о", t);
+		printf("%d п╨п╩п╦п╫пЁ%s я┐п╠п╦я┌%s   \t\t\t%6d\n", u, mrok(u), u==1?"":"п╬", t);
 	r = Now.date - Param.date;
 	if (r < 1.0)
 		r = 1.0;
 	r = Game.killk / r;
 	s += (t = (int)(400 * r));
 	if (t != 0)
-		printf("со скоростью %.2f клинга/день  \t\t%6d\n", r, t);
+		printf("я│п╬ я│п╨п╬я─п╬я│я┌я▄я▌ %.2f п╨п╩п╦п╫пЁп╟/п╢п╣п╫я▄  \t\t%6d\n", r, t);
 	r = Now.klings;
 	r /= (FLOAT)(Game.killk + 1);
 	s += (t = (int)(-400 * r));
 	if (t != 0)
-		printf("%d клинг%s остал%s \t\t\t%6d\n", Now.klings, mrok(Now.klings), Now.klings==1?"ся":"ось", t);
+		printf("%d п╨п╩п╦п╫пЁ%s п╬я│я┌п╟п╩%s \t\t\t%6d\n", Now.klings, mrok(Now.klings), Now.klings==1?"я│я▐":"п╬я│я▄", t);
 	if (Move.endgame > 0)
 	{
 		s += (t = 100 * (u = Game.skill));
-		printf("приз за выигранную игру на '%s%s'\t\t%6d\n", Skitab[u+u - 1].abrev, Skitab[u+u - 1].full, t);
+		printf("п©я─п╦п╥ п╥п╟ п╡я▀п╦пЁя─п╟п╫п╫я┐я▌ п╦пЁя─я┐ п╫п╟ '%s%s'\t\t%6d\n", Skitab[u+u - 1].abrev, Skitab[u+u - 1].full, t);
 	}
 	if (Game.killed)
 	{
 		s -= 500;
-		printf("за самоубийство\t\t\t\t  -500\n");
+		printf("п╥п╟ я│п╟п╪п╬я┐п╠п╦п╧я│я┌п╡п╬\t\t\t\t  -500\n");
 	}
 	s += (t = -100 * (u = Game.killb));
 	if (t != 0)
-		printf("уничтожено %d звездн%s баз%s\t\t%6d\n", u, vrk1[u], vrk2[u], t);
+		printf("я┐п╫п╦я┤я┌п╬п╤п╣п╫п╬ %d п╥п╡п╣п╥п╢п╫%s п╠п╟п╥%s\t\t%6d\n", u, vrk1[u], vrk2[u], t);
 	s += (t = -100 * (u = Game.helps));
 	if (t != 0)
-		printf("%d просьб%s о помощи\t\t\t%6d\n", u, vrk2[u], t);
+		printf("%d п©я─п╬я│я▄п╠%s п╬ п©п╬п╪п╬я┴п╦\t\t\t%6d\n", u, vrk2[u], t);
 	s += (t = -5 * (u = Game.kills));
 	if (t != 0)
-		printf("%d звезд%s уничтожен%c\t\t\t%6d\n", u,
-		      (u<20&&u>10)?"":vrk2[u%10], u==1?'а':'о', t);
+		printf("%d п╥п╡п╣п╥п╢%s я┐п╫п╦я┤я┌п╬п╤п╣п╫%c\t\t\t%6d\n", u,
+		      (u<20&&u>10)?"":vrk2[u%10], u==1?'п╟':'п╬', t);
 	s += (t = -150 * (u = Game.killinhab));
 	if (t != 0)
-		printf("%d обитаем%s звездн%s систем%s уничтожен%c\t%6d\n", u,
+		printf("%d п╬п╠п╦я┌п╟п╣п╪%s п╥п╡п╣п╥п╢п╫%s я│п╦я│я┌п╣п╪%s я┐п╫п╦я┤я┌п╬п╤п╣п╫%c\t%6d\n", u,
 		      (u<20&&u>10)?"":vrk3[u%10],
 		      (u<20&&u>10)?"":vrk3[u%10],
-		      (u<20&&u>10)?"":vrk4[u%10], u==1?'а':'о', t);
+		      (u<20&&u>10)?"":vrk4[u%10], u==1?'п╟':'п╬', t);
 	if (Ship.ship != ENTERPRISE)
 	{
 		s -= 200;
-		printf("за разрушение корабля\t\t\t  -200\n");
+		printf("п╥п╟ я─п╟п╥я─я┐я┬п╣п╫п╦п╣ п╨п╬я─п╟п╠п╩я▐\t\t\t  -200\n");
 	}
 	s += (t = 3 * (u = Game.captives));
 	if (t != 0)
-		printf("%d клинг%s капитулировал%s\t\t\t%6d\n", u, mrok(u), u==1?"":"о", t);
+		printf("%d п╨п╩п╦п╫пЁ%s п╨п╟п©п╦я┌я┐п╩п╦я─п╬п╡п╟п╩%s\t\t\t%6d\n", u, mrok(u), u==1?"":"п╬", t);
 	s += (t = -(u = Game.deaths));
 	if (t != 0)
-		printf("%d убит%s    \t\t\t\t%6d\n", u, u==1?"  ":"ых", t);
-	printf("\n***  ВСЕГО\t\t\t%14ld\n", s);
+		printf("%d я┐п╠п╦я┌%s    \t\t\t\t%6d\n", u, u==1?"  ":"я▀я┘", t);
+	printf("\n***  п▓п║п∙п⌠п·\t\t\t%14ld\n", s);
 	return (s);
 }

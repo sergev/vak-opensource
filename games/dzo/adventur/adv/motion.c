@@ -1,7 +1,7 @@
 /*d* === motion + action ===           07.01.85   version   13 */
-/* передвижения или действия b otbet ha слова */
-/* inp: verb   - глагол движения или действия */
-/*      object - об'ekt (если het to =0) */
+/* п©п╣я─п╣п╢п╡п╦п╤п╣п╫п╦я▐ п╦п╩п╦ п╢п╣п╧я│я┌п╡п╦я▐ b otbet ha я│п╩п╬п╡п╟ */
+/* inp: verb   - пЁп╩п╟пЁп╬п╩ п╢п╡п╦п╤п╣п╫п╦я▐ п╦п╩п╦ п╢п╣п╧я│я┌п╡п╦я▐ */
+/*      object - п╬п╠'ekt (п╣я│п╩п╦ het to =0) */
 
 #include "../common/adv_common"
 
@@ -10,7 +10,7 @@ action(verb,object) {
 
     kk=actkey(verb);
     if( kk==0 && verb!=1 )  fatal(102);
-    if( !act(kk,object) )  rspeak(12); /* kak применить слово? */
+    if( !act(kk,object) )  rspeak(12); /* kak п©я─п╦п╪п╣п╫п╦я┌я▄ я│п╩п╬п╡п╬? */
 }
 
 motion(verb) {
@@ -20,9 +20,9 @@ motion(verb) {
     if( kk==0 && loc!=1 )  fatal(103);
     if( !act(kk,verb) ) {
 	if( pct(50) ) {
-	    rspeak(9);                /* пути het */
+	    rspeak(9);                /* п©я┐я┌п╦ het */
 	} else {
-	    rspeak(12);              /* kak применить это слово здесь? */
+	    rspeak(12);              /* kak п©я─п╦п╪п╣п╫п╦я┌я▄ я█я┌п╬ я│п╩п╬п╡п╬ п╥п╢п╣я│я▄? */
 	}
     }
 }

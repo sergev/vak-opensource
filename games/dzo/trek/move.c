@@ -158,7 +158,7 @@ FLOAT   speed;
 			{
 				ix = x - dx;
 				iy = y - dy;
-				printf("Компьютер сообщает об ошибке навигации; %s остановлен в %d,%d\n",
+				printf("п п╬п╪п©я▄я▌я┌п╣я─ я│п╬п╬п╠я┴п╟п╣я┌ п╬п╠ п╬я┬п╦п╠п╨п╣ п╫п╟п╡п╦пЁп╟я├п╦п╦; %s п╬я│я┌п╟п╫п╬п╡п╩п╣п╫ п╡ %d,%d\n",
 					Ship.shipname, ix, iy);
 				Ship.energy -= Param.stopengy * speed;
 				break;

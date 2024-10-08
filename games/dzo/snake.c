@@ -140,8 +140,10 @@ static void sigend(int sig)
 	_exit(0);
 }
 
-static void exit_game(int sig) __attribute__ ((alias("sigend"), noreturn));
-
+static void exit_game(int sig)
+{
+    sigend(0);
+}
 
 /* Input without stopind */
 static void get_and_delay(void)

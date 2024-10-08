@@ -30,7 +30,7 @@ void dcrept()
 		m1 = 1.0;
 		m2 = Param.dockfac;
 	}
-	printf("Информция о неиспраностях:\n");
+	printf("п≤п╫я└п╬я─п╪я├п╦я▐ п╬ п╫п╣п╦я│п©я─п╟п╫п╬я│я┌я▐я┘:\n");
 	f = 1;
 
 	/* scan for damages */
@@ -43,8 +43,8 @@ void dcrept()
 		/* output the title first time */
 		if (f)
 		{
-			printf("\t\t\t  время ремонта\n");
-			printf("устройство\t\tв полете   на базе\n");
+			printf("\t\t\t  п╡я─п╣п╪я▐ я─п╣п╪п╬п╫я┌п╟\n");
+			printf("я┐я│я┌я─п╬п╧я│я┌п╡п╬\t\tп╡ п©п╬п╩п╣я┌п╣   п╫п╟ п╠п╟п╥п╣\n");
 			f = 0;
 		}
 
@@ -58,5 +58,5 @@ void dcrept()
 
 	/* if everything was ok, reassure the nervous captain */
 	if (f)
-		printf("Все устройства исправны\n");
+		printf("п▓я│п╣ я┐я│я┌я─п╬п╧я│я┌п╡п╟ п╦я│п©я─п╟п╡п╫я▀\n");
 }

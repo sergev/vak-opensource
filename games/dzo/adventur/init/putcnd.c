@@ -1,6 +1,6 @@
 /*d* === putcnd ===   07.01.85   version   23 */
 /* store conditions into "adv:data" direct access file */
-/* первая строка уже загружена в 'line' */
+/* п©п╣я─п╡п╟я▐ я│я┌я─п╬п╨п╟ я┐п╤п╣ п╥п╟пЁя─я┐п╤п╣п╫п╟ п╡ 'line' */
 /* return: address of first record */
 
 #include "adv_ini.h"
@@ -73,8 +73,8 @@ condit() {
 #   define nact  (sizeof _actcod)
 
 #   define cndcod(x) _cndcod[(x)-1]
-    static char _cndcod[] = { /* === маркеры условий === */
-	'o',    /* об"ekt=заданному */
+    static char _cndcod[] = { /* === п╪п╟я─п╨п╣я─я▀ я┐я│п╩п╬п╡п╦п╧ === */
+	'o',    /* п╬п╠"ekt=п╥п╟п╢п╟п╫п╫п╬п╪я┐ */
 	'a',    /* we are at object */
 	'h',    /* here is object */
 	't',    /* is toting object */
@@ -86,11 +86,11 @@ condit() {
 	'l',    /* location = obj */
 	'>',    /* carry > obj objects */
 	'$',    /* initial probability = obj% */
-	'w'     /* one of next words - последний маркер !! */
+	'w'     /* one of next words - п©п╬я│п╩п╣п╢п╫п╦п╧ п╪п╟я─п╨п╣я─ !! */
     };
 
 #   define actcod(x) _actcod[(x)-1]
-    static char _actcod[] = { /* === маркеры действий === */
+    static char _actcod[] = { /* === п╪п╟я─п╨п╣я─я▀ п╢п╣п╧я│я┌п╡п╦п╧ === */
 	'd',    /* drop object */
 	'*',    /* destroy object */
 	'c',    /* carry object */
@@ -102,11 +102,11 @@ condit() {
 	't',    /* throw object to location #n */
 	'a',    /* add 1 to prop(obj) */
 	'i',    /* indicate objects at location */
-	'n',    /* смена об═екта и повторный анализ */
-	'"',    /* message with address - послендний маркер !! */
+	'n',    /* я│п╪п╣п╫п╟ п╬п╠Б∙░п╣п╨я┌п╟ п╦ п©п╬п╡я┌п╬я─п╫я▀п╧ п╟п╫п╟п╩п╦п╥ */
+	'"',    /* message with address - п©п╬я│п╩п╣п╫п╢п╫п╦п╧ п╪п╟я─п╨п╣я─ !! */
     };
 
-    while(scan() && line(p)!='=') {       /* анализ условий */
+    while(scan() && line(p)!='=') {       /* п╟п╫п╟п╩п╦п╥ я┐я│п╩п╬п╡п╦п╧ */
 	mark=line(p); p=p+1;              /* ... mapkep */
 	for(kod=1; kod<=ncnd; ++kod) {
 	    if( mark==cndcod(kod) )  goto L10;
@@ -118,7 +118,7 @@ L10:
 	if( lp=='-' ) {
 	    kod=kod+not;
 	} else if( lp!='+' ) {
-L999:       printf("\n%s%.10s\n","ошибка в условии: ",&line(p));
+L999:       printf("\n%s%.10s\n","п╬я┬п╦п╠п╨п╟ п╡ я┐я│п╩п╬п╡п╦п╦: ",&line(p));
 	    return;
 	}
 
@@ -134,13 +134,13 @@ L999:       printf("\n%s%.10s\n","ошибка в условии: ",&line(p));
 	    outd(kod+nwords);
 	    for(i=1; i<=nwords;  ++i) outd(words(i));
 
-	} else {                                  /* стандартное условие */
-	    obj=0                            /* ... об"ekt (если есть) */;
+	} else {                                  /* я│я┌п╟п╫п╢п╟я─я┌п╫п╬п╣ я┐я│п╩п╬п╡п╦п╣ */
+	    obj=0                            /* ... п╬п╠"ekt (п╣я│п╩п╦ п╣я│я┌я▄) */;
 	    if( line(p)!=' ' && line(p)!='=' ) {
 		obj=getobj();  kod=kod+isobj;
 	    }
 
-	    number=0                           /* ... число (если есть) */;
+	    number=0                           /* ... я┤п╦я│п╩п╬ (п╣я│п╩п╦ п╣я│я┌я▄) */;
 	    if( line(p)=='=' ) {
 		p=p+1;  number=getobj()+1;
 	    }
@@ -155,7 +155,7 @@ L999:       printf("\n%s%.10s\n","ошибка в условии: ",&line(p));
     outd(0);
 
     p=p+1;
-    while(scan()) {                           /* анализ действий */
+    while(scan()) {                           /* п╟п╫п╟п╩п╦п╥ п╢п╣п╧я│я┌п╡п╦п╧ */
 	mark=line(p); p=p+2                   /* ... mapkep */;
 	for(kod=1; kod<=nact; ++kod) {
 	    if( mark==actcod(kod) )  goto L20;
@@ -163,7 +163,7 @@ L999:       printf("\n%s%.10s\n","ошибка в условии: ",&line(p));
 	goto L999;
 L20:
 	obj=number=0;
-	if( mark=='"' ) {                 /* ... сообщение b след.ctp */
+	if( mark=='"' ) {                 /* ... я│п╬п╬п╠я┴п╣п╫п╦п╣ b я│п╩п╣п╢.ctp */
 	    if(!getlin())  goto L999;
 	    obj=ranm-mesimp;  kod=4+isobj;  mark='m';
 	    rtext(obj)=putmes();
@@ -171,11 +171,11 @@ L20:
 	    p=inplen+1;
 
 	} else {
-	    if( line(p)!=' ' && line(p)!='=' ) {    /* об"ekt */
+	    if( line(p)!=' ' && line(p)!='=' ) {    /* п╬п╠"ekt */
 		obj=getobj();  kod=kod+isobj;
 	    }
 
-	    if( line(p)=='=' ) {                        /* число */
+	    if( line(p)=='=' ) {                        /* я┤п╦я│п╩п╬ */
 		p=p+1;  number=getobj()+1;
 	    }
 	}
@@ -183,7 +183,7 @@ L20:
 	if( mark=='m' )  mesused[obj-1]  = 1;
 	if( mark=='l' )  locused[obj-1] |= locgo;
 
-	if( mark=='m'  &&  obj>=256 ) {            /* спецслучай */
+	if( mark=='m'  &&  obj>=256 ) {            /* я│п©п╣я├я│п╩я┐я┤п╟п╧ */
 	    ++kod;  obj -= 255;
 	}
 

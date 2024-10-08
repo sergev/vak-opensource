@@ -103,7 +103,7 @@ struct device
 {
 	char    *name;          /* device name */
 	char    *person;        /* the person who fixes it */
-	char    *ending;     /* для русских диагностик */
+	char    *ending;     /* п╢п╩я▐ я─я┐я│я│п╨п╦я┘ п╢п╦п╟пЁп╫п╬я│я┌п╦п╨ */
 };
 
 extern struct device   Device[NDEV];

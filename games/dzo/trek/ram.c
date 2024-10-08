@@ -17,25 +17,25 @@ int     ix, iy;
 	register int            i;
 	register char           c;
 
-	printf("ТРЕВОГА: сейчас столкнемся\n");
+	printf("п╒п═п∙п▓п·п⌠п░: я│п╣п╧я┤п╟я│ я│я┌п╬п╩п╨п╫п╣п╪я│я▐\n");
 	c = Sect[ix][iy];
 	switch (c)
 	{
 
 	  case KLINGON:
-		printf("%s протаранил клинга в %d,%d\n", Ship.shipname, ix, iy);
+		printf("%s п©я─п╬я┌п╟я─п╟п╫п╦п╩ п╨п╩п╦п╫пЁп╟ п╡ %d,%d\n", Ship.shipname, ix, iy);
 		killk(ix, iy);
 		break;
 
 	  case STAR:
 	  case INHABIT:
-		printf("Юман Ранд: Капитан, не правда ли, становится жарковато ?\n");
+		printf("п╝п╪п╟п╫ п═п╟п╫п╢: п п╟п©п╦я┌п╟п╫, п╫п╣ п©я─п╟п╡п╢п╟ п╩п╦, я│я┌п╟п╫п╬п╡п╦я┌я│я▐ п╤п╟я─п╨п╬п╡п╟я┌п╬ ?\n");
 		sleep(2);
-		printf("Спок: Температура корпуса около 550 по Кельвину.\n");
+		printf("п║п©п╬п╨: п╒п╣п╪п©п╣я─п╟я┌я┐я─п╟ п╨п╬я─п©я┐я│п╟ п╬п╨п╬п╩п╬ 550 п©п╬ п п╣п╩я▄п╡п╦п╫я┐.\n");
 		lose(L_STAR);
 
 	  case BASE:
-		printf("Вы протаранили звездную базу в %d,%d\n", ix, iy);
+		printf("п▓я▀ п©я─п╬я┌п╟я─п╟п╫п╦п╩п╦ п╥п╡п╣п╥п╢п╫я┐я▌ п╠п╟п╥я┐ п╡ %d,%d\n", ix, iy);
 		killb(Ship.quadx, Ship.quady);
 		/* don't penalize the captain if it wasn't his fault */
 		if (!damaged(SINS))
@@ -43,13 +43,13 @@ int     ix, iy;
 		break;
 	}
 	sleep(2);
-	printf("%s тяжело поврежден\n", Ship.shipname);
+	printf("%s я┌я▐п╤п╣п╩п╬ п©п╬п╡я─п╣п╤п╢п╣п╫\n", Ship.shipname);
 
 	/* select the number of deaths to occur */
 	i = 10 + ranf(20 * Game.skill);
 	Game.deaths += i;
 	Ship.crew -= i;
-	printf("МакКой: О, боже; у нас погибло %d человек.\n", i);
+	printf("п°п╟п╨п п╬п╧: п·, п╠п╬п╤п╣; я┐ п╫п╟я│ п©п╬пЁп╦п╠п╩п╬ %d я┤п╣п╩п╬п╡п╣п╨.\n", i);
 
 	/* damage devices with an 80% probability */
 	for (i = 0; i < NDEV; i++)

@@ -18,10 +18,10 @@
 
 char    *Color[4] =
 {
-	"ЗЕЛЕНЫЙ",
-	"СТЫКОВАН",
-	"ЖЕЛТЫЙ",
-	"КРАСНЫЙ"
+	"п≈п∙п⌡п∙п²п╚п≥",
+	"п║п╒п╚п п·п▓п░п²",
+	"п√п∙п⌡п╒п╚п≥",
+	"п п═п░п║п²п╚п≥"
 };
 
 void srscan(f)
@@ -45,7 +45,7 @@ int     f;
 	else
 	{
 		if (!testnl())
-			Etc.statreport = getynpar("Информация о состоянии");
+			Etc.statreport = getynpar("п≤п╫я└п╬я─п╪п╟я├п╦я▐ п╬ я│п╬я│я┌п╬я▐п╫п╦п╦");
 		statinfo = Etc.statreport;
 	}
 	if (f > 0)
@@ -56,7 +56,7 @@ int     f;
 	}
 	if (f >= 0)
 	{
-		printf("\nИнформация локатора ближнего обзора\n");
+		printf("\nп≤п╫я└п╬я─п╪п╟я├п╦я▐ п╩п╬п╨п╟я┌п╬я─п╟ п╠п╩п╦п╤п╫п╣пЁп╬ п╬п╠п╥п╬я─п╟\n");
 		q = &Quad[Ship.quadx][Ship.quady];
 		q->scanned = q->klings * 100 + q->bases * 10 + q->stars;
 		printf("  ");
@@ -82,61 +82,61 @@ int     f;
 			switch (i)
 			{
 			  case 0:
-				printf("звездн. время %.2f", Now.date);
+				printf("п╥п╡п╣п╥п╢п╫. п╡я─п╣п╪я▐ %.2f", Now.date);
 				break;
 			  case 1:
-				printf("состояние     %s", Color[Ship.cond]);
+				printf("я│п╬я│я┌п╬я▐п╫п╦п╣     %s", Color[Ship.cond]);
 				if (Ship.cloaked)
-					printf(", ЗАКРЫТ");
+					printf(", п≈п░п п═п╚п╒");
 				break;
 			  case 2:
-				printf("координаты    %d,%d/%d,%d",Ship.quadx, Ship.quady, Ship.sectx, Ship.secty);
+				printf("п╨п╬п╬я─п╢п╦п╫п╟я┌я▀    %d,%d/%d,%d",Ship.quadx, Ship.quady, Ship.sectx, Ship.secty);
 				break;
 			  case 3:
-				printf("скорость      %.1f", Ship.warp);
+				printf("я│п╨п╬я─п╬я│я┌я▄      %.1f", Ship.warp);
 				break;
 			  case 4:
-				printf("энергии       %d", Ship.energy);
+				printf("я█п╫п╣я─пЁп╦п╦       %d", Ship.energy);
 				break;
 			  case 5:
-				printf("торпед        %d", Ship.torped);
+				printf("я┌п╬я─п©п╣п╢        %d", Ship.torped);
 				break;
 			  case 6:
-				s = "выкл";
+				s = "п╡я▀п╨п╩";
 				if (Ship.shldup)
-					s = "вкл";
+					s = "п╡п╨п╩";
 				if (damaged(SHIELD))
-					s = "повреждена";
+					s = "п©п╬п╡я─п╣п╤п╢п╣п╫п╟";
 				percent = 100.0 * Ship.shield / Param.shield;
-				printf("защита        %s, %d%%", s, percent);
+				printf("п╥п╟я┴п╦я┌п╟        %s, %d%%", s, percent);
 				break;
 			  case 7:
-				printf("ост. клингов  %d", Now.klings);
+				printf("п╬я│я┌. п╨п╩п╦п╫пЁп╬п╡  %d", Now.klings);
 				break;
 			  case 8:
-				printf("ост. времени  %.2f", Now.time);
+				printf("п╬я│я┌. п╡я─п╣п╪п╣п╫п╦  %.2f", Now.time);
 				break;
 			  case 9:
-				printf("жизнеобесп.   ");
+				printf("п╤п╦п╥п╫п╣п╬п╠п╣я│п©.   ");
 				if (damaged(LIFESUP))
 				{
-					printf("повреждно, резерв = %.2f", Ship.reserves);
+					printf("п©п╬п╡я─п╣п╤п╢п╫п╬, я─п╣п╥п╣я─п╡ = %.2f", Ship.reserves);
 					break;
 				}
-				printf("активно");
+				printf("п╟п╨я┌п╦п╡п╫п╬");
 				break;
 			}
 		printf("\n");
 	}
 	if (f < 0)
 	{
-		printf("экипаж        %d\n", Ship.crew);
-		printf("мест для пленных %d\n", Ship.brigfree);
-		printf("мощность клингов %d\n", Param.klingpwr);
+		printf("я█п╨п╦п©п╟п╤        %d\n", Ship.crew);
+		printf("п╪п╣я│я┌ п╢п╩я▐ п©п╩п╣п╫п╫я▀я┘ %d\n", Ship.brigfree);
+		printf("п╪п╬я┴п╫п╬я│я┌я▄ п╨п╩п╦п╫пЁп╬п╡ %d\n", Param.klingpwr);
 		p = &Lentab[2*Game.length - 1];
 		if (Game.length > 2)
 			p -= 2;
-		printf("длина,сложность  %s%s,", p->abrev, p->full);
+		printf("п╢п╩п╦п╫п╟,я│п╩п╬п╤п╫п╬я│я┌я▄  %s%s,", p->abrev, p->full);
 		p = &Skitab[2*Game.skill - 1];
 		printf("%s%s\n", p->abrev, p->full);
 		return;
@@ -147,7 +147,7 @@ int     f;
 	printf("\n");
 
 	if (q->qsystemname & Q_DISTRESSED)
-		printf("Под угрозой ");
+		printf("п÷п╬п╢ я┐пЁя─п╬п╥п╬п╧ ");
 	if (q->qsystemname)
-		printf("звездная система %s\n", systemname(q));
+		printf("п╥п╡п╣п╥п╢п╫п╟я▐ я│п╦я│я┌п╣п╪п╟ %s\n", systemname(q));
 }

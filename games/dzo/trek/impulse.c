@@ -13,7 +13,7 @@ void impulse()
 	extern FLOAT            move();
 
 	if (Ship.cond == DOCKED) {
-		printf("Скотти: Сожалею, капитан, но мы стыкованы с базой.\n");
+		printf("п║п╨п╬я┌я┌п╦: п║п╬п╤п╟п╩п╣я▌, п╨п╟п©п╦я┌п╟п╫, п╫п╬ п╪я▀ я│я┌я▀п╨п╬п╡п╟п╫я▀ я│ п╠п╟п╥п╬п╧.\n");
 		return;
 		}
 	if (damaged(IMPULSE)) {
@@ -26,21 +26,21 @@ void impulse()
 	percent = 100 * power / Ship.energy + 0.5;
 	if (percent >= 85)
 	{
-		printf("Скотти: На это уйдет %d%% оставшейся энергии.\n",
+		printf("п║п╨п╬я┌я┌п╦: п²п╟ я█я┌п╬ я┐п╧п╢п╣я┌ %d%% п╬я│я┌п╟п╡я┬п╣п╧я│я▐ я█п╫п╣я─пЁп╦п╦.\n",
 			percent);
-		if (!getynpar("Делать это"))
+		if (!getynpar("п■п╣п╩п╟я┌я▄ я█я┌п╬"))
 			return;
-		printf("Ох, сэр\n");
+		printf("п·я┘, я│я█я─\n");
 	}
 	time = dist / 0.095;
 	percent = 100 * time / Now.time + 0.5;
 	if (percent >= 85)
 	{
-		printf("Спок: На это нужно %d%% оставшегося времени.\n",
+		printf("п║п©п╬п╨: п²п╟ я█я┌п╬ п╫я┐п╤п╫п╬ %d%% п╬я│я┌п╟п╡я┬п╣пЁп╬я│я▐ п╡я─п╣п╪п╣п╫п╦.\n",
 			percent);
-		if (!getynpar("Делать это"))
+		if (!getynpar("п■п╣п╩п╟я┌я▄ я█я┌п╬"))
 			return;
-		printf("(Он окончательно сошел с ума)\n");
+		printf("(п·п╫ п╬п╨п╬п╫я┤п╟я┌п╣п╩я▄п╫п╬ я│п╬я┬п╣п╩ я│ я┐п╪п╟)\n");
 	}
 	Move.time = move(0, course, time, 0.095);
 	Ship.energy -= 20 + 100 * Move.time * 0.095;

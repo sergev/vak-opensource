@@ -15,12 +15,12 @@ int     *co;
 FLOAT   *di;
 {
 
-	*co = getintpar("Î’“”");
+	*co = getintpar("–ö—É—Ä—Å");
 
 	/* course must be in the interval [0, 360] */
 	if (*co < 0 || *co > 360)
 		return (1);
-	*di = getfltpar("Ú¡””‘œ—Œ…≈");
+	*di = getfltpar("–†–∞—Å—Å—Ç–æ—è–Ω–∏–µ");
 
 	/* distance must be in the interval [0, 15] */
 	if (*di <= 0.0 || *di > 15.0)

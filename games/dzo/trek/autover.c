@@ -23,8 +23,8 @@ void autover()
 	FLOAT                   dist;
 	register int            course;
 
-	printf("ТРЕВОГА: %s в одном квадранте с сверхновой\n", Ship.shipname);
-	printf("***  Компьютер сделал попытку вышвырнуть %s в безопасное место\n", Ship.shipname);
+	printf("п╒п═п∙п▓п·п⌠п░: %s п╡ п╬п╢п╫п╬п╪ п╨п╡п╟п╢я─п╟п╫я┌п╣ я│ я│п╡п╣я─я┘п╫п╬п╡п╬п╧\n", Ship.shipname);
+	printf("***  п п╬п╪п©я▄я▌я┌п╣я─ я│п╢п╣п╩п╟п╩ п©п╬п©я▀я┌п╨я┐ п╡я▀я┬п╡я▀я─п╫я┐я┌я▄ %s п╡ п╠п╣п╥п╬п©п╟я│п╫п╬п╣ п╪п╣я│я┌п╬\n", Ship.shipname);
 	/* let's get our ass out of here */
 	Ship.warp = 6.0 + 2.0 * franf();
 	Ship.warp2 = Ship.warp * Ship.warp;

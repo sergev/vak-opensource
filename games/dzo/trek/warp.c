@@ -32,7 +32,7 @@ FLOAT   d;
 	char                   *px;
 
 	if (Ship.cond == DOCKED) {
-		printf("%s стыкован с базой\n", Ship.shipname);
+		printf("%s я│я┌я▀п╨п╬п╡п╟п╫ я│ п╠п╟п╥п╬п╧\n", Ship.shipname);
 		return;
 		}
 	if (damaged(WARP))
@@ -54,9 +54,9 @@ FLOAT   d;
 	percent = 100 * power / Ship.energy + 0.5;
 	if (percent >= 85)
 	{
-		printf("Скотти: Это потребует %d%% оставшейся энергии.\n",
+		printf("п║п╨п╬я┌я┌п╦: п╜я┌п╬ п©п╬я┌я─п╣п╠я┐п╣я┌ %d%% п╬я│я┌п╟п╡я┬п╣п╧я│я▐ я█п╫п╣я─пЁп╦п╦.\n",
 			percent);
-		if (!getynpar("Продолжать"))
+		if (!getynpar("п÷я─п╬п╢п╬п╩п╤п╟я┌я▄"))
 			return;
 	}
 
@@ -68,9 +68,9 @@ FLOAT   d;
 	percent = 100 * time / Now.time + 0.5;
 	if (percent >= 85)
 	{
-		printf("Спок: На это уйдет %d%% оставшегося времени.\n",
+		printf("п║п©п╬п╨: п²п╟ я█я┌п╬ я┐п╧п╢п╣я┌ %d%% п╬я│я┌п╟п╡я┬п╣пЁп╬я│я▐ п╡я─п╣п╪п╣п╫п╦.\n",
 			percent);
-		if (!getynpar("Делать это"))
+		if (!getynpar("п■п╣п╩п╟я┌я▄ я█я┌п╬"))
 			return;
 	}
 
@@ -93,15 +93,15 @@ FLOAT   d;
 	/* test for bizarre events */
 	if (Ship.warp <= 9.0)
 		return;
-	printf("\n\n  ___ Скорость выше 9.0 ___\n\n");
+	printf("\n\n  ___ п║п╨п╬я─п╬я│я┌я▄ п╡я▀я┬п╣ 9.0 ___\n\n");
 	sleep(2);
-	printf("Безопасность корабля весьма сомнительна\n");
+	printf("п▒п╣п╥п╬п©п╟я│п╫п╬я│я┌я▄ п╨п╬я─п╟п╠п╩я▐ п╡п╣я│я▄п╪п╟ я│п╬п╪п╫п╦я┌п╣п╩я▄п╫п╟\n");
 	sleep(2);
-	printf("Команда испытывает крайне неприятные ощущения...\n");
+	printf("п п╬п╪п╟п╫п╢п╟ п╦я│п©я▀я┌я▀п╡п╟п╣я┌ п╨я─п╟п╧п╫п╣ п╫п╣п©я─п╦я▐я┌п╫я▀п╣ п╬я┴я┐я┴п╣п╫п╦я▐...\n");
 	sleep(4);
 	if (ranf(100) >= 100 * dist)
 	{
-		printf("Равновесие восстановлено -- все системы в порядке\n");
+		printf("п═п╟п╡п╫п╬п╡п╣я│п╦п╣ п╡п╬я│я│я┌п╟п╫п╬п╡п╩п╣п╫п╬ -- п╡я│п╣ я│п╦я│я┌п╣п╪я▀ п╡ п©п╬я─я▐п╢п╨п╣\n");
 		return;
 	}
 
@@ -115,7 +115,7 @@ FLOAT   d;
 			/* positive time warp */
 			time = (Ship.warp - 8.0) * dist * (franf() + 1.0);
 			Now.date += time;
-			printf("Положительный скачок во времени -- сейчас звездное время %.2f\n",
+			printf("п÷п╬п╩п╬п╤п╦я┌п╣п╩я▄п╫я▀п╧ я│п╨п╟я┤п╬п╨ п╡п╬ п╡я─п╣п╪п╣п╫п╦ -- я│п╣п╧я┤п╟я│ п╥п╡п╣п╥п╢п╫п╬п╣ п╡я─п╣п╪я▐ %.2f\n",
 				Now.date);
 			for (i = 0; i < MAXEVENTS; i++)
 			{
@@ -132,7 +132,7 @@ FLOAT   d;
 		bmove(px, Quad, sizeof Quad);
 		bmove(px += sizeof Quad, Event, sizeof Event);
 		bmove(px += sizeof Event, &Now, sizeof Now);
-		printf("Негативный скачок во времени -- сейчас звездное время %.2f\n",
+		printf("п²п╣пЁп╟я┌п╦п╡п╫я▀п╧ я│п╨п╟я┤п╬п╨ п╡п╬ п╡я─п╣п╪п╣п╫п╦ -- я│п╣п╧я┤п╟я│ п╥п╡п╣п╥п╢п╫п╬п╣ п╡я─п╣п╪я▐ %.2f\n",
 			Now.date);
 		for (i = 0; i < MAXEVENTS; i++)
 			if (Event[i].evcode == E_FIXDV)
@@ -143,7 +143,7 @@ FLOAT   d;
 	/* test for just a lot of damage */
 	if (percent < 80)
 		lose(L_TOOFAST);
-	printf("Равновесие восстановлено -- системы корабля сильно повреждены\n");
+	printf("п═п╟п╡п╫п╬п╡п╣я│п╦п╣ п╡п╬я│я│я┌п╟п╫п╬п╡п╩п╣п╫п╬ -- я│п╦я│я┌п╣п╪я▀ п╨п╬я─п╟п╠п╩я▐ я│п╦п╩я▄п╫п╬ п©п╬п╡я─п╣п╤п╢п╣п╫я▀\n");
 	for (i = 0; i < NDEV; i++)
 		damage(i, (3.0 * (franf() + franf()) + 1.0) * Param.damfac[i]);
 	Ship.shldup = 0;

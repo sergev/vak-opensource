@@ -52,23 +52,23 @@
 struct cvntab   Cputab[] =
 {
      {  "ch",   "art",          1,   0,  0 },
-     {  "ка",   "рта",          1,   0,  0 },
+     {  "п╨п╟",   "я─я┌п╟",          1,   0,  0 },
      {  "t",    "rajectory",    2,   0,  0 },
-     {  "т",    "раектория",    2,   0,  0 },
+     {  "я┌",    "я─п╟п╣п╨я┌п╬я─п╦я▐",    2,   0,  0 },
      {  "c",    "ourse",        3,   0,  0 },
-     {  "ку",   "рс",           3,   0,  0 },
+     {  "п╨я┐",   "я─я│",           3,   0,  0 },
      {  "m",    "ove",          3,   1,  0 },
-     {  "п",    "ереместиться", 3,   1,  0 },
+     {  "п©",    "п╣я─п╣п╪п╣я│я┌п╦я┌я▄я│я▐", 3,   1,  0 },
      {  "s",    "core",         4,   0,  0 },
-     {  "сч",   "ет",           4,   0,  0 },
+     {  "я│я┤",   "п╣я┌",           4,   0,  0 },
      {  "p",    "heff",         5,   0,  0 },
-     {  "э",    "ффаз",         5,   0,  0 },
+     {  "я█",    "я└я└п╟п╥",         5,   0,  0 },
      {  "w",    "arpcost",      6,   0,  0 },
-     {  "рд",   "виг",          6,   0,  0 },
+     {  "я─п╢",   "п╡п╦пЁ",          6,   0,  0 },
      {  "i",    "mpcost",       7,   0,  0 },
-     {  "ри",   "мп",           7,   0,  0 },
+     {  "я─п╦",   "п╪п©",           7,   0,  0 },
      {  "d",    "istresslist",  8,   0,  0 },
-     {  "у",    "грозы",        8,   0,  0 },
+     {  "я┐",    "пЁя─п╬п╥я▀",        8,   0,  0 },
      {   0,      0,             0,   0,  0 }
 };
 
@@ -76,7 +76,7 @@ void prkalc(course, dist)
 int     course;
 FLOAT   dist;
 {
-	printf(": курс %d  расст. %.3f\n", course, dist);
+	printf(": п╨я┐я─я│ %d  я─п╟я│я│я┌. %.3f\n", course, dist);
 }
 
 void computer()
@@ -97,12 +97,12 @@ void computer()
 		return;
 	while (1)
 	{
-		r = getcodpar("\nЗапрос", Cputab);
+		r = getcodpar("\nп≈п╟п©я─п╬я│", Cputab);
 		switch (r->value)
 		{
 
 		  case 1:                       /* star chart */
-			printf("Компьютерная карта галактики\n\n");
+			printf("п п╬п╪п©я▄я▌я┌п╣я─п╫п╟я▐ п╨п╟я─я┌п╟ пЁп╟п╩п╟п╨я┌п╦п╨п╦\n\n");
 			printf("  ");
 			/* print top header */
 			for (i = 0; i < NQUADS; i++)
@@ -147,13 +147,13 @@ void computer()
 			}
 			if (Etc.nkling <= 0)
 			{
-				printf("В этом квадранте нет клингов\n");
+				printf("п▓ я█я┌п╬п╪ п╨п╡п╟п╢я─п╟п╫я┌п╣ п╫п╣я┌ п╨п╩п╦п╫пЁп╬п╡\n");
 				break;
 			}
 			/* for each Klingon, give the course & distance */
 			for (i = 0; i < Etc.nkling; i++)
 			{
-				printf("Клинг в %d,%d", Etc.klingon[i].x, Etc.klingon[i].y);
+				printf("п п╩п╦п╫пЁ п╡ %d,%d", Etc.klingon[i].x, Etc.klingon[i].y);
 				course = kalc(Ship.quadx, Ship.quady, Etc.klingon[i].x, Etc.klingon[i].y, &dist);
 				prkalc(course, dist);
 			}
@@ -167,19 +167,19 @@ void computer()
 			}
 			else
 			{
-				ix = getintpar("Квадрант");
+				ix = getintpar("п п╡п╟п╢я─п╟п╫я┌");
 				if (ix < 0 || ix >= NSECTS)
 					break;
-				iy = getintpar("К-y");
+				iy = getintpar("п -y");
 				if (iy < 0 || iy >= NSECTS)
 					break;
 				tqx = ix;
 				tqy = iy;
 			}
-			ix = getintpar("Сектор");
+			ix = getintpar("п║п╣п╨я┌п╬я─");
 			if (ix < 0 || ix >= NSECTS)
 				break;
-			iy = getintpar("С-y");
+			iy = getintpar("п║-y");
 			if (iy < 0 || iy >= NSECTS)
 				break;
 			course = kalc(tqx, tqy, ix, iy, &dist);
@@ -188,7 +188,7 @@ void computer()
 				warp(-1, course, dist);
 				break;
 			}
-			printf("%d,%d/%d,%d к %d,%d/%d,%d",
+			printf("%d,%d/%d,%d п╨ %d,%d/%d,%d",
 				Ship.quadx, Ship.quady, Ship.sectx, Ship.secty, tqx, tqy, ix, iy);
 			prkalc(course, dist);
 			break;
@@ -198,34 +198,34 @@ void computer()
 			break;
 
 		  case 5:                       /* phaser effectiveness */
-			dist = getfltpar("Диапазон");
+			dist = getfltpar("п■п╦п╟п©п╟п╥п╬п╫");
 			if (dist < 0.0)
 				break;
 			dist *= 10.0;
 			cost = pow(0.90, dist) * 98.0 + 0.5;
-			printf("Эффективность фазеров в этом диапазоне %d%%\n", cost);
+			printf("п╜я└я└п╣п╨я┌п╦п╡п╫п╬я│я┌я▄ я└п╟п╥п╣я─п╬п╡ п╡ я█я┌п╬п╪ п╢п╦п╟п©п╟п╥п╬п╫п╣ %d%%\n", cost);
 			break;
 
 		  case 6:                       /* warp cost (time/energy) */
-			dist = getfltpar("Расстояние");
+			dist = getfltpar("п═п╟я│я│я┌п╬я▐п╫п╦п╣");
 			if (dist < 0.0)
 				break;
-			warpfact = getfltpar("Скорость");
+			warpfact = getfltpar("п║п╨п╬я─п╬я│я┌я▄");
 			if (warpfact <= 0.0)
 				warpfact = Ship.warp;
 			cost = (dist + 0.05) * warpfact * warpfact * warpfact;
 			time = Param.warptime * dist / (warpfact * warpfact);
-			printf("Скорость %.2f  расстояние %.2f\nвремя %.2f  энергия %d (%d;защита вкл.) единиц\n",
+			printf("п║п╨п╬я─п╬я│я┌я▄ %.2f  я─п╟я│я│я┌п╬я▐п╫п╦п╣ %.2f\nп╡я─п╣п╪я▐ %.2f  я█п╫п╣я─пЁп╦я▐ %d (%d;п╥п╟я┴п╦я┌п╟ п╡п╨п╩.) п╣п╢п╦п╫п╦я├\n",
 				warpfact, dist, time, cost, cost + cost);
 			break;
 
 		  case 7:                       /* impulse cost */
-			dist = getfltpar("Расстояние");
+			dist = getfltpar("п═п╟я│я│я┌п╬я▐п╫п╦п╣");
 			if (dist < 0.0)
 				break;
 			cost = 20 + 100 * dist;
 			time = dist / 0.095;
-			printf("Расстояние %.2f  энергия %.2f  время %d  единиц\n",
+			printf("п═п╟я│я│я┌п╬я▐п╫п╦п╣ %.2f  я█п╫п╣я─пЁп╦я▐ %.2f  п╡я─п╣п╪я▐ %d  п╣п╢п╦п╫п╦я├\n",
 				dist, time, cost);
 			break;
 
@@ -243,21 +243,21 @@ void computer()
 				{
 
 				  case E_KDESB:
-					printf("Клинг атаковал звездную базу в квадранте %d,%d\n",
+					printf("п п╩п╦п╫пЁ п╟я┌п╟п╨п╬п╡п╟п╩ п╥п╡п╣п╥п╢п╫я┐я▌ п╠п╟п╥я┐ п╡ п╨п╡п╟п╢я─п╟п╫я┌п╣ %d,%d\n",
 						e->x, e->y);
 					j = 0;
 					break;
 
 				  case E_ENSLV:
 				  case E_REPRO:
-					printf("Атакована звездная система %s в квадранте %d,%d\n",
+					printf("п░я┌п╟п╨п╬п╡п╟п╫п╟ п╥п╡п╣п╥п╢п╫п╟я▐ я│п╦я│я┌п╣п╪п╟ %s п╡ п╨п╡п╟п╢я─п╟п╫я┌п╣ %d,%d\n",
 						systemname(e), e->x, e->y);
 					j = 0;
 					break;
 				}
 			}
 			if (j)
-				printf("Не было сообщений о различных бедствиях\n");
+				printf("п²п╣ п╠я▀п╩п╬ я│п╬п╬п╠я┴п╣п╫п╦п╧ п╬ я─п╟п╥п╩п╦я┤п╫я▀я┘ п╠п╣п╢я│я┌п╡п╦я▐я┘\n");
 			break;
 
 		}

@@ -5,7 +5,7 @@
 /* format: < (condition) 0 (action) 0 > 0 */
 /* */
 /* inp: indx   - start address for condition */
-/*      object - об'ekt для которого проверять условия */
+/*      object - п╬п╠'ekt п╢п╩я▐ п╨п╬я┌п╬я─п╬пЁп╬ п©я─п╬п╡п╣я─я▐я┌я▄ я┐я│п╩п╬п╡п╦я▐ */
 /* out: true if one of (condition) is satisfied */
 
 #include "../common/adv_common"
@@ -21,17 +21,17 @@ begin:
     iniget(indx);
 
 L2000:
-   for(;;) {                         /* проверка следующего условия */
+   for(;;) {                         /* п©я─п╬п╡п╣я─п╨п╟ я│п╩п╣п╢я┐я▌я┴п╣пЁп╬ я┐я│п╩п╬п╡п╦я▐ */
 	cmnd=get();
    if( cmnd==0 ) break;
 	obimpl=object;
 
-	for(;;) {                              /* проверка условий */
-	    if( cmnd==0 )  goto L5000;     /*     условая выполнены */
+	for(;;) {                              /* п©я─п╬п╡п╣я─п╨п╟ я┐я│п╩п╬п╡п╦п╧ */
+	    if( cmnd==0 )  goto L5000;     /*     я┐я│п╩п╬п╡п╟я▐ п╡я▀п©п╬п╩п╫п╣п╫я▀ */
 
-	    kod=((cmnd)%(isobj))              /*  загрузил код условия */;
-	    ntflag = (cmnd/not != 0)        /*  загрузил +/- флаг */;
-	    obj=obimpl                      /*  загрузил об"ekt */;
+	    kod=((cmnd)%(isobj))              /*  п╥п╟пЁя─я┐п╥п╦п╩ п╨п╬п╢ я┐я│п╩п╬п╡п╦я▐ */;
+	    ntflag = (cmnd/not != 0)        /*  п╥п╟пЁя─я┐п╥п╦п╩ +/- я└п╩п╟пЁ */;
+	    obj=obimpl                      /*  п╥п╟пЁя─я┐п╥п╦п╩ п╬п╠"ekt */;
 	    if( (cmnd%not)/isobj != 0 )  obj=get();
 
 	    switch(kod) {
@@ -50,7 +50,7 @@ L2000:
 	    }
 	    goto L13;
 
-L1:         obimpl=obj                           /* об"ekt=заданному? */;
+L1:         obimpl=obj                           /* п╬п╠"ekt=п╥п╟п╢п╟п╫п╫п╬п╪я┐? */;
 	    condit = obj==object;
 	    goto L100;
 
@@ -104,20 +104,20 @@ L100:
 	    cmnd=get();
 	}
 
-	do {                        /* условие he выполнено ==> */
-	} while( get()!=0 );          /*      сканировать условие */
+	do {                        /* я┐я│п╩п╬п╡п╦п╣ he п╡я▀п©п╬п╩п╫п╣п╫п╬ ==> */
+	} while( get()!=0 );          /*      я│п╨п╟п╫п╦я─п╬п╡п╟я┌я▄ я┐я│п╩п╬п╡п╦п╣ */
 	do {
-	} while( get()!=0 );             /*      сканировать действие */
+	} while( get()!=0 );             /*      я│п╨п╟п╫п╦я─п╬п╡п╟я┌я▄ п╢п╣п╧я│я┌п╡п╦п╣ */
 
     }
-    return( 0 );                           /* подх. условие he найдено */
+    return( 0 );                           /* п©п╬п╢я┘. я┐я│п╩п╬п╡п╦п╣ he п╫п╟п╧п╢п╣п╫п╬ */
 
 L5000:
     for(;;) {
 	cmnd=get();
     if( cmnd==0 ) break;
-	kod=cmnd%isobj                     /*  загрузил код условия */;
-	obj=obimpl                              /*  загрузил обьект */;
+	kod=cmnd%isobj                     /*  п╥п╟пЁя─я┐п╥п╦п╩ п╨п╬п╢ я┐я│п╩п╬п╡п╦я▐ */;
+	obj=obimpl                              /*  п╥п╟пЁя─я┐п╥п╦п╩ п╬п╠я▄п╣п╨я┌ */;
 	if( (cmnd%not)/isobj != 0 )  obj=get();
 
 	switch( kod) {
@@ -168,12 +168,12 @@ L110:   prop(obj)=prop(obj)+1                    /* add 1 to prop(obj) */;
 L111:   indobj();                              /* indicate objects */
 	goto L200;
 
-L112:   object = obj;                   /* указание об═екта по умолчанию */
+L112:   object = obj;                   /* я┐п╨п╟п╥п╟п╫п╦п╣ п╬п╠Б∙░п╣п╨я┌п╟ п©п╬ я┐п╪п╬п╩я┤п╟п╫п╦я▌ */
 	goto begin;
 
 L200:;
     }
-    if( actfla==1 )  goto L2000;              /* оценить след.условие */
+    if( actfla==1 )  goto L2000;              /* п╬я├п╣п╫п╦я┌я▄ я│п╩п╣п╢.я┐я│п╩п╬п╡п╦п╣ */
 
     return( 1 );                                 /* ok. all is ready */
 }

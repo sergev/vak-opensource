@@ -1,7 +1,7 @@
-/*d* === функции sostoяния ===        07.01.85   version   19 */
+/*d* === я└я┐п╫п╨я├п╦п╦ sostoя▐п╫п╦я▐ ===        07.01.85   version   19 */
 
-/* dark()       - b данной точке temho */
-/* at(object)   - здесь находится этот об'ekt */
+/* dark()       - b п╢п╟п╫п╫п╬п╧ я┌п╬я┤п╨п╣ temho */
+/* at(object)   - п╥п╢п╣я│я▄ п╫п╟я┘п╬п╢п╦я┌я│я▐ я█я┌п╬я┌ п╬п╠'ekt */
 
 #include "../common/adv_common"
 
@@ -10,7 +10,7 @@ int     darkflag1 = 0;
 dark() {
     static int lamp, light;
 
-    if( lamp== 0 ) {                       /* инициализация */
+    if( lamp== 0 ) {                       /* п╦п╫п╦я├п╦п╟п╩п╦п╥п╟я├п╦я▐ */
 	lamp= ( vocab("lamp")   % 1000 );
 	light=( vocab("!light") % 1000 );
     }

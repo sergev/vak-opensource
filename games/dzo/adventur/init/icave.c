@@ -22,11 +22,11 @@ icave() {
 	    p=3;
 	    lc=getobj();
 	    if( lc<0 ) {
-L999:           printf("\n%s%.10s\n","ÏÛÉÂËÁ: ",&line(p));  fatal();
+L999:           printf("\n%s%.10s\n","Ð¾ÑˆÐ¸Ð±ÐºÐ°: ",&line(p));  fatal();
 	    }
 	    screen(lc);
 	    if( locused[lc-1] & locdef ) {
-		printf("\nÐÏÚÉÃÉÑ %d ÕÖÅ ÏÐÒÅÄÅÌÅÎÁ\n", lc);
+		printf("\nÐ¿Ð¾Ð·Ð¸Ñ†Ð¸Ñ %d ÑƒÐ¶Ðµ Ð¾Ð¿Ñ€ÐµÐ´ÐµÐ»ÐµÐ½Ð°\n", lc);
 	    }
 	    locused[lc-1] |= locdef;
 	} else if( line(1)=='s' ) {

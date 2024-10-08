@@ -1,4 +1,4 @@
-/* INCLUDE-FILE δμρ ηεξεςατοςα βαϊω δαξξωθ "ADVENTURE" */
+/* INCLUDE-FILE Π”Π›Π― Π“Π•ΠΠ•Π ΠΠΆΠΠ Π Π‘ΠΠ—Π« Π”ΠΠΠΠ«Π¥ "ADVENTURE" */
 
 #include <stdio.h>
 #include "../common/adv_common"

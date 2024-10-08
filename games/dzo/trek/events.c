@@ -129,8 +129,8 @@ int     warp;           /* set if called in a time warp */
 				/* nope, dump him in the new quadrant */
 				Ship.quadx = ix;
 				Ship.quady = iy;
-				printf("\n%s попал в дальнодействующее силовое поле\n", Ship.shipname);
-				printf("*** Затянут в квадрант %d,%d\n", Ship.quadx, Ship.quady);
+				printf("\n%s п©п╬п©п╟п╩ п╡ п╢п╟п╩я▄п╫п╬п╢п╣п╧я│я┌п╡я┐я▌я┴п╣п╣ я│п╦п╩п╬п╡п╬п╣ п©п╬п╩п╣\n", Ship.shipname);
+				printf("*** п≈п╟я┌я▐п╫я┐я┌ п╡ п╨п╡п╟п╢я─п╟п╫я┌ %d,%d\n", Ship.quadx, Ship.quady);
 				Ship.sectx = ranf(NSECTS);
 				Ship.secty = ranf(NSECTS);
 				initquad(0);
@@ -186,8 +186,8 @@ int     warp;           /* set if called in a time warp */
 			/* report it if we can */
 			if (!damaged(SSRADIO))
 			{
-				printf("\nУхура: Капитан, мы получили сигнал бедствия\n");
-				printf("  от звездной базы в квадранте %d,%d.\n",
+				printf("\nпёя┘я┐я─п╟: п п╟п©п╦я┌п╟п╫, п╪я▀ п©п╬п╩я┐я┤п╦п╩п╦ я│п╦пЁп╫п╟п╩ п╠п╣п╢я│я┌п╡п╦я▐\n");
+				printf("  п╬я┌ п╥п╡п╣п╥п╢п╫п╬п╧ п╠п╟п╥я▀ п╡ п╨п╡п╟п╢я─п╟п╫я┌п╣ %d,%d.\n",
 					ix, iy);
 				restcancel++;
 			}
@@ -208,7 +208,7 @@ int     warp;           /* set if called in a time warp */
 			if (e->x == Ship.quadx && e->y == Ship.quady)
 			{
 				/* yep, kill one in this quadrant */
-				printf("\nСпок: ");
+				printf("\nп║п©п╬п╨: ");
 				killb(Ship.quadx, Ship.quady);
 			}
 			else
@@ -248,7 +248,7 @@ int     warp;           /* set if called in a time warp */
 			/* tell the captain about it if we can */
 			if (!damaged(SSRADIO))
 			{
-				printf("\nУхура: Капитан, звездная система %s в квадранте %d,%d\n  атакована клингами\n",
+				printf("\nпёя┘я┐я─п╟: п п╟п©п╦я┌п╟п╫, п╥п╡п╣п╥п╢п╫п╟я▐ я│п╦я│я┌п╣п╪п╟ %s п╡ п╨п╡п╟п╢я─п╟п╫я┌п╣ %d,%d\n  п╟я┌п╟п╨п╬п╡п╟п╫п╟ п╨п╩п╦п╫пЁп╟п╪п╦\n",
 					Systemname[e->systemname], ix, iy);
 				restcancel++;
 			}
@@ -275,9 +275,9 @@ int     warp;           /* set if called in a time warp */
 			/* report the disaster if we can */
 			if (!damaged(SSRADIO))
 			{
-				printf("\nУхура: Мы потеряли связь со звездной системой %s\n",
+				printf("\nпёя┘я┐я─п╟: п°я▀ п©п╬я┌п╣я─я▐п╩п╦ я│п╡я▐п╥я▄ я│п╬ п╥п╡п╣п╥п╢п╫п╬п╧ я│п╦я│я┌п╣п╪п╬п╧ %s\n",
 					Systemname[e->systemname]);
-				printf("   в квадранте %d,%d.\n",
+				printf("   п╡ п╨п╡п╟п╢я─п╟п╫я┌п╣ %d,%d.\n",
 					e->x, e->y);
 			}
 			else
@@ -368,7 +368,7 @@ int     warp;           /* set if called in a time warp */
 			unschedule(e);
 
 			/* de-damage the device */
-			printf("%s сообщил, что %s отремонтирован%s.\n",
+			printf("%s я│п╬п╬п╠я┴п╦п╩, я┤я┌п╬ %s п╬я┌я─п╣п╪п╬п╫я┌п╦я─п╬п╡п╟п╫%s.\n",
 				Device[i].person, Device[i].name, Device[i].ending);
 
 			/* handle special processing upon fix */
@@ -382,9 +382,9 @@ int     warp;           /* set if called in a time warp */
 			  case SINS:
 				if (Ship.cond == DOCKED)
 					break;
-				printf("Спок пытался перекалибровать вашу внутреннею систему навигации,\n");
-				printf("  но у него нет стандартной базы отсчета.  Необходимо срочно\n");
-				printf("  лететь к звездной базе.\n");
+				printf("п║п©п╬п╨ п©я▀я┌п╟п╩я│я▐ п©п╣я─п╣п╨п╟п╩п╦п╠я─п╬п╡п╟я┌я▄ п╡п╟я┬я┐ п╡п╫я┐я┌я─п╣п╫п╫п╣я▌ я│п╦я│я┌п╣п╪я┐ п╫п╟п╡п╦пЁп╟я├п╦п╦,\n");
+				printf("  п╫п╬ я┐ п╫п╣пЁп╬ п╫п╣я┌ я│я┌п╟п╫п╢п╟я─я┌п╫п╬п╧ п╠п╟п╥я▀ п╬я┌я│я┤п╣я┌п╟.  п²п╣п╬п╠я┘п╬п╢п╦п╪п╬ я│я─п╬я┤п╫п╬\n");
+				printf("  п╩п╣я┌п╣я┌я▄ п╨ п╥п╡п╣п╥п╢п╫п╬п╧ п╠п╟п╥п╣.\n");
 				Ship.sinsbad = 1;
 				break;
 
@@ -398,7 +398,7 @@ int     warp;           /* set if called in a time warp */
 			break;
 		}
 
-		if (restcancel && Move.resting && getynpar("Спок: Прервем срок для ремонта"))
+		if (restcancel && Move.resting && getynpar("п║п©п╬п╨: п÷я─п╣я─п╡п╣п╪ я│я─п╬п╨ п╢п╩я▐ я─п╣п╪п╬п╫я┌п╟"))
 			Move.time = xdate - idate;
 
 	}

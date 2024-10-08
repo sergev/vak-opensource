@@ -155,17 +155,17 @@ char    **argv;
 				goto badflag;
 			if (scanf(-1, &av[0][2], "%d", &prio) > 0)
 				break;
-		--------------------------              Óı Î·ÎÔÁÔ ?!!! */
+		--------------------------              –ù–£ –ö–ê–ö–û–ì–û ?!!! */
 		  default:
 		  badflag:
-			printf("Ãœ»œ  ÀÃ¿ﬁ: %s\n", av[0]);
+			printf("–ü–ª–æ—Ö–æ–π –∫–ª—é—á: %s\n", av[0]);
 
 		}
 		ac--;
 		av++;
 	}
 	if (ac > 2)
-		tsyserr("˛…”Ãœ ¡“«’Õ≈Œ‘œ◊ ?");
+		tsyserr("–ß–∏—Å–ª–æ –∞—Ä–≥—É–º–µ–Ω—Ç–æ–≤ ?");
 		/*
 	if (ac > 1)
 		f_log = fopen(av[0], opencode);
@@ -179,7 +179,7 @@ char    **argv;
 	setexit();
 	if ( been_here == 1 )
 	{
-		if ( !getynpar("Â›≈ …«“¡") )
+		if ( !getynpar("–ï—â–µ –∏–≥—Ä–∞") )
 			return 0;
 	}
 	been_here = 1;
@@ -187,7 +187,7 @@ char    **argv;
 	{
 		setup();
 		play();
-	} while (getynpar("Â›≈ …«“¡"));
+	} while (getynpar("–ï—â–µ –∏–≥—Ä–∞"));
 
 	fflush(stdout);
 	return 0;

@@ -42,7 +42,7 @@ void dumpgame()
 	register int            i;
 
 	if ((fd = creat("trek.dump", 0644)) < 0) {
-		printf("ÎÅ ÍÏÇÕ ÚÁĞÏÍÎÉÔØ\n");
+		printf("Ğ½Ğµ Ğ¼Ğ¾Ğ³Ñƒ Ğ·Ğ°Ğ¿Ğ¾Ğ¼Ğ½Ğ¸Ñ‚ÑŒ\n");
 		return;
 		}
 	version = VERSION;
@@ -81,7 +81,7 @@ restartgame()
 	    version != VERSION ||
 	    readdump(fd))
 	{
-		printf("ÎÅ ÍÏÇÕ ĞÅÒÅÚÁĞÕÓÔÉÔØ\n");
+		printf("Ğ½Ğµ Ğ¼Ğ¾Ğ³Ñƒ Ğ¿ĞµÑ€ĞµĞ·Ğ°Ğ¿ÑƒÑÑ‚Ğ¸Ñ‚ÑŒ\n");
 		close(fd);
 		return (1);
 	}

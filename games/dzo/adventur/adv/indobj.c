@@ -13,14 +13,14 @@ indobj() {
 		kk=pstat(ptext(obj)+kk+1);
 		p=place(obj);
 
-		if( p == loc ) {                 /* подвижный об"ekt */
-		    if( (prop(obj)&0377) == inipro ) { /* впервые увидел */
-			prop(obj)=0     /*        сокровище */;
+		if( p == loc ) {                 /* п©п╬п╢п╡п╦п╤п╫я▀п╧ п╬п╠"ekt */
+		    if( (prop(obj)&0377) == inipro ) { /* п╡п©п╣я─п╡я▀п╣ я┐п╡п╦п╢п╣п╩ */
+			prop(obj)=0     /*        я│п╬п╨я─п╬п╡п╦я┴п╣ */;
 			tally=tally-1;
 		    }
 		    mes(kk);
 
-		} else if( p < 0 ) {                      /* не -"- -"- */
+		} else if( p < 0 ) {                      /* п╫п╣ -"- -"- */
 		    p = -p;
 		    while(fixed(p)!=0) {
 			if((fixed(p)&0377)==loc)  mes(kk);

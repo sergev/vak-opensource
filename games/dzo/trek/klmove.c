@@ -96,7 +96,7 @@ int     fl;
 					break;
 				if (!damaged(SRSCAN))
 				{
-					printf("ëÌÉÎÇ ÉÚ %d,%d ÕÂÅÖÁÌ × Ë×ÁÄÒÁÎÔ %d,%d\n",
+					printf("ÐšÐ»Ð¸Ð½Ð³ Ð¸Ð· %d,%d ÑƒÐ±ÐµÐ¶Ð°Ð» Ð² ÐºÐ²Ð°Ð´Ñ€Ð°Ð½Ñ‚ %d,%d\n",
 						k->x, k->y, qx, qy);
 					motion = Quad[qx][qy].scanned;
 					if (motion >= 0 && motion < 1000)
@@ -135,7 +135,7 @@ int     fl;
 		if (k && (k->x != nextx || k->y != nexty))
 		{
 			if (!damaged(SRSCAN))
-				printf("ëÌÉÎÇ ÉÚ %d,%d ÐÅÒÅÍÅÓÔÉÌÓÑ × %d,%d\n",
+				printf("ÐšÐ»Ð¸Ð½Ð³ Ð¸Ð· %d,%d Ð¿ÐµÑ€ÐµÐ¼ÐµÑÑ‚Ð¸Ð»ÑÑ Ð² %d,%d\n",
 					k->x, k->y, nextx, nexty);
 			Sect[k->x][k->y] = EMPTY;
 			Sect[k->x = nextx][k->y = nexty] = KLINGON;

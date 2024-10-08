@@ -30,7 +30,7 @@ void destruct()
 		out(COMPUTER);
 		return;
 		}
-	printf("\n --- Ú·‚ÔÙ·ÂÙ ---\n");
+	printf("\n --- –†–ê–ë–û–¢–ê–ï–¢ ---\n");
 	sleep(3);
 	/* output the count 10 9 8 7 6 */
 	for (i = 10; i > 5; i--)
@@ -42,13 +42,13 @@ void destruct()
 	}
 	/* check for password on new line only */
 	skiptonl(0);
-	getstrpar("œƒ‘◊≈“ƒ…‘≈ –¡“œÃÿ ", checkpass, 14, 0);
+	getstrpar("–ü–æ–¥—Ç–≤–µ—Ä–¥–∏—Ç–µ –ø–∞—Ä–æ–ª—å ", checkpass, 14, 0);
 	sleep(2);
 	if (!sequal(checkpass, Game.passwd)) {
-		printf("œ”Ã≈ƒœ◊¡‘≈ÃÿŒœ”‘ÿ ÀœÕ¡Œƒ ƒÃ— ”¡Õœ’Œ…ﬁ‘œ÷≈Œ…— –“≈“◊¡Œ¡\n");
+		printf("–ü–æ—Å–ª–µ–¥–æ–≤–∞—Ç–µ–ª—å–Ω–æ—Å—Ç—å –∫–æ–º–∞–Ω–¥ –¥–ª—è —Å–∞–º–æ—É–Ω–∏—á—Ç–æ–∂–µ–Ω–∏—è –ø—Ä–µ—Ä–≤–∞–Ω–∞\n");
 		return;
 		}
-	printf("¡“œÃÿ –œƒ‘◊≈“÷ƒ≈Œ; ”¡Õœ’Œ…ﬁ‘œ÷≈Œ…≈ –“œƒœÃ÷¡≈‘”—:\n");
+	printf("–ü–∞—Ä–æ–ª—å –ø–æ–¥—Ç–≤–µ—Ä–∂–¥–µ–Ω; —Å–∞–º–æ—É–Ω–∏—á—Ç–æ–∂–µ–Ω–∏–µ –ø—Ä–æ–¥–æ–ª–∂–∞–µ—Ç—Å—è:\n");
 	sleep(2);
 	/* output count 5 4 3 2 1 0 */
 	for (i = 5; i >= 0; i--)
@@ -59,7 +59,7 @@ void destruct()
 		printf("%d\n", i);
 	}
 	sleep(2);
-	printf("\n\n\n***** %s ’Œ…ﬁ‘œ÷≈Œ *****\n", Ship.shipname);
+	printf("\n\n\n***** %s —É–Ω–∏—á—Ç–æ–∂–µ–Ω *****\n", Ship.shipname);
 	Game.killed = 1;
 	/* let's see what we can blow up!!!! */
 	zap = 20.0 * Ship.energy;
