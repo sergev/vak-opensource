@@ -7,10 +7,9 @@
 
 void shell(int _)
 {
-    int i;
+#ifdef M_XENIX
     register int pid;
     register int sav2, sav3;
-#ifdef M_XENIX
     if (!(pid = fork())) {
         setuid(getuid());
         nice(0);

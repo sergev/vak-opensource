@@ -52,7 +52,6 @@ void setup()
     register int i, j;
     FLOAT f;
     int d;
-    int fd;
     int klump;
     int ix, iy;
     register struct quad *q;

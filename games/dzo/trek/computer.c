@@ -78,7 +78,6 @@ void computer(int _)
 {
     int ix, iy;
     register int i, j;
-    int numout;
     int tqx, tqy;
     struct cvntab *r;
     int cost;

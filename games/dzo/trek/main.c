@@ -113,9 +113,6 @@ int Mother = 51 + (51 << 8);
 int main(int argc, char **argv)
 {
     long vect;
-    /* extern FILE          *f_log; */
-    register char opencode;
-    /*      int                     prio; */
     register int ac;
     register char **av;
     int been_here = 0;
@@ -125,13 +122,8 @@ int main(int argc, char **argv)
     av++;
     time(&vect);
     srand((int)vect);
-    opencode = 'w';
     while (ac > 1 && av[0][0] == '-') {
         switch (av[0][1]) {
-        case 'a': /* append to log file */
-            opencode = 'a';
-            break;
-
         case 'f': /* set fast mode */
             Etc.fast++;
             break;
@@ -146,9 +138,9 @@ int main(int argc, char **argv)
                 goto badflag;
             Trace++;
             break;
+        badflag:
 #endif
         default:
-        badflag:
             printf("Плохой ключ: %s\n", av[0]);
         }
         ac--;
@@ -156,10 +148,6 @@ int main(int argc, char **argv)
     }
     if (ac > 2)
         tsyserr("Число аргументов ?");
-    /*
-if (ac > 1)
-    f_log = fopen(av[0], opencode);
-    */
 
     printf("\n   * * *   S T A R   T R E K   * * *\n\n");
 

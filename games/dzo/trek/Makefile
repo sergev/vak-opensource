@@ -3,7 +3,7 @@
 # gcc "port" by vodz 6.2000 vodz@usa.net
 
 CC=     cc
-CFLAGS= -O -Werror
+CFLAGS= -O -Wall -Werror
 OBJS=   abandon.o attack.o autover.o capture.o check_out.o checkcond.o \
 	compkl.o computer.o damage.o damaged.o dcrept.o destruct.o \
 	dock.o dumpgame.o dumpme.o dumpssradio.o events.o externs.o \

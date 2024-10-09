@@ -24,7 +24,7 @@ void dumpme(int flag)
     Ship.quady = ranf(NQUADS);
     Ship.sectx = ranf(NSECTS);
     Ship.secty = ranf(NSECTS);
-    x += 1.5 * franf();
+    x = 1.5 * franf();
     Move.time += x;
     if (f) {
         printf("%s провалился в черную дыру.\n", Ship.shipname);

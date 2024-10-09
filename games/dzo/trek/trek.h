@@ -38,12 +38,12 @@ extern FLOAT franf(void); /* floating random number function */
 
 struct quad /* definition for each quadrant */
 {
-    char bases;       /* number of bases in this quadrant */
-    char klings;      /* number of Klingons in this quadrant */
-    char holes;       /* number of black holes in this quadrant */
-    int scanned;      /* star chart entry (see below) */
-    char stars;       /* number of stars in this quadrant */
-    char qsystemname; /* starsystem name (see below) */
+    int bases;       /* number of bases in this quadrant */
+    int klings;      /* number of Klingons in this quadrant */
+    int holes;       /* number of black holes in this quadrant */
+    int scanned;     /* star chart entry (see below) */
+    int stars;       /* number of stars in this quadrant */
+    int qsystemname; /* starsystem name (see below) */
 };
 
 #define Q_DISTRESSED 0200
@@ -130,11 +130,12 @@ extern struct device Device[NDEV];
 #define E_EVENT  077  /* mask to get event code */
 
 struct event {
-    char x, y;       /* coordinates */
-    FLOAT date;      /* trap stardate */
-    char evcode;     /* event type */
-    char systemname; /* starsystem name */
+    int x, y;       /* coordinates */
+    FLOAT date;     /* trap stardate */
+    int evcode;     /* event type */
+    int systemname; /* starsystem name */
 };
+
 /* systemname conventions:
  *      1 -> NINHAB     index into Systemname table for reported distress calls
  *
@@ -152,7 +153,7 @@ extern struct event Event[MAXEVENTS]; /* dynamic event list; one entry per pendi
 /*****************************  KLINGONS  *******************************/
 
 struct kling {
-    char x, y;     /* coordinates */
+    int x, y;      /* coordinates */
     int power;     /* power left */
     FLOAT dist;    /* distance to Enterprise */
     FLOAT avgdist; /* average over this move */
@@ -179,7 +180,7 @@ struct kling {
 #define NBANKS 6 /* number of phaser banks */
 
 struct xy {
-    char x, y; /* coordinates */
+    int x, y; /* coordinates */
 };
 
 /*
@@ -206,7 +207,7 @@ struct dzoShip {
     int quady;      /* quadrant y coord */
     int sectx;      /* sector x coord */
     int secty;      /* sector y coord */
-    char cond;      /* condition code */
+    int cond;       /* condition code */
     char sinsbad;   /* Space Inertial Navigation System condition */
     char *shipname; /* name of current starship */
     char ship;      /* current starship */
@@ -246,8 +247,8 @@ extern struct dzoMove Move;
 
 /* parametric information */
 struct dzoParam {
-    char bases;   /* number of starbases */
-    char klings;  /* number of klingons */
+    int bases;    /* number of starbases */
+    int klings;   /* number of klingons */
     FLOAT date;   /* stardate */
     FLOAT time;   /* time left */
     int brigfree; /* max possible number of captives */
@@ -284,10 +285,10 @@ extern struct dzoParam Param;
 
 /* other information kept in a snapshot */
 struct dzoNow {
-    char bases;  /* number of starbases */
-    char klings; /* number of klingons */
-    FLOAT date;  /* stardate */
-    FLOAT time;  /* time left */
+    int bases;  /* number of starbases */
+    int klings; /* number of klingons */
+    FLOAT date; /* stardate */
+    FLOAT time; /* time left */
     char Now_PAD1[10 + sizeof(FLOAT)];
     FLOAT resource;                  /* Federation resources */
     int distressed;                  /* number of currently distressed quadrants */
@@ -299,7 +300,7 @@ extern struct dzoNow Now;
 /* Other stuff, not dumped in a snapshot */
 struct dzoEtc {
     struct kling klingon[MAXKLQUAD];                        /* sorted Klingon list */
-    char nkling;                                            /* number of Klingons in this sector */
+    int nkling;                                             /* number of Klingons in this sector */
                                                             /* < 0 means automatic override mode */
     char fast;                                              /* set if speed > 300 baud */
     struct xy starbase;                                     /* starbase in current quadrant */

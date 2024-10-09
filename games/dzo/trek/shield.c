@@ -27,7 +27,6 @@ struct cvntab Udtab[] = { { "u", "p", 1, 0, 0 },
 void shield(int f)
 {
     register int i;
-    char c;
     struct cvntab *r;
     char s[100];
     char *device;

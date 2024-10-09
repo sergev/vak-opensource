@@ -18,7 +18,7 @@
 
 void killk(int ix, int iy)
 {
-    register int i, j;
+    int i;
 
     printf("   *** Клинг в %d,%d уничтожен ***\n", ix, iy);
 
