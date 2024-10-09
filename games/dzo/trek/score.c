@@ -1,7 +1,7 @@
 # include       "trek.h"
 # include       "getpar.h"
 
-char *mrok( n )
+char *mrok(int n)
 {
 	char    *s;
 	s = "ов";
@@ -72,14 +72,14 @@ long score()
 		printf("%d просьб%s о помощи\t\t\t%6d\n", u, vrk2[u], t);
 	s += (t = -5 * (u = Game.kills));
 	if (t != 0)
-		printf("%d звезд%s уничтожен%c\t\t\t%6d\n", u,
-		      (u<20&&u>10)?"":vrk2[u%10], u==1?'а':'о', t);
+		printf("%d звезд%s уничтожен%s\t\t\t%6d\n", u,
+		      (u<20&&u>10)?"":vrk2[u%10], u==1?"а":"о", t);
 	s += (t = -150 * (u = Game.killinhab));
 	if (t != 0)
-		printf("%d обитаем%s звездн%s систем%s уничтожен%c\t%6d\n", u,
+		printf("%d обитаем%s звездн%s систем%s уничтожен%s\t%6d\n", u,
 		      (u<20&&u>10)?"":vrk3[u%10],
 		      (u<20&&u>10)?"":vrk3[u%10],
-		      (u<20&&u>10)?"":vrk4[u%10], u==1?'а':'о', t);
+		      (u<20&&u>10)?"":vrk4[u%10], u==1?"а":"о", t);
 	if (Ship.ship != ENTERPRISE)
 	{
 		s -= 200;

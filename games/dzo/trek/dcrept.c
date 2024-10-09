@@ -12,7 +12,7 @@
 **      fix things if you are docked.
 */
 
-void dcrept()
+void dcrept(int _)
 {
 	register int            i, f;
 	FLOAT                   x;

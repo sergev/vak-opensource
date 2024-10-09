@@ -1,8 +1,10 @@
 /*
 **  CALL THE SHELL
 */
+# include       "trek.h"
+#include <stdlib.h>
 
-void shell()
+void shell(int _)
 {
 	int             i;
 	register int    pid;
@@ -21,6 +23,6 @@ void shell()
 	signal(2, sav2);
 	signal(3, sav3);
 #else
-system("");
+        system("");
 #endif
 }

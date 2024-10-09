@@ -1,5 +1,7 @@
 # include       <stdio.h>
+# include       <stdlib.h>
 # include       "trek.h"
+# include       "getpar.h"
 
 /*
 **  PHOTON TORPEDO CONTROL
@@ -21,7 +23,7 @@
 */
 
 
-void torped()
+void torped(int _)
 {
 	register int            ix, iy;
 	FLOAT                   x, y, dx, dy;
@@ -182,8 +184,7 @@ void torped()
 **      to the tubes, etc.
 */
 
-randcourse(n)
-int     n;
+int randcourse(int n)
 {
 	FLOAT                   r;
 	register int            d;

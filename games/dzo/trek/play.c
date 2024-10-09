@@ -11,15 +11,9 @@
 **      attack if the move was not free, and checkcond() to check up
 **      on how we are doing after the move.
 */
-extern void     abandon(), destruct(), dock(), shell(), dcrept(), torped();
-extern void     capture(), help(), dumpgame(), computer(), impulse(), shield();
-extern void     rest(), reset(), srscan(), warp(), visual(), lrscan();
-extern void     undock(), setwarp(), phaser();
 
-void reset() {
-# include       <setjmp.h>
-	extern jmp_buf jmpbuf ;
-
+void reset(int _)
+{
 	longjmp( jmpbuf, 0 ) ;
 }
 
@@ -43,14 +37,14 @@ struct cvntab   Comtab[] =
       { "помощь",               "",             0,  0,  help      },
       { "i",                    "mpulse",       0,  0,  impulse   },
       { "и",                    "мпульс",       0,  0,  impulse   },
-      { "m",                    "ove",          0,  0,  warp      },
-      { "дв",                   "ижение",       0,  0,  warp      },
+      { "m",                    "ove",          0,  0,  warp1     },
+      { "дв",                   "ижение",       0,  0,  warp1     },
       { "l",                    "rscan",        0,  0,  lrscan    },
       { "д",                    "лок",          0,  0,  lrscan    },
       { "p",                    "hasers",       0,  0,  phaser    },
       { "ф",                    "азер",         0,  0,  phaser    },
-      { "ram",                  "",             1,  0,  warp      },
-      { "таран",                "",             1,  0,  warp      },
+      { "ram",                  "",             1,  0,  warp1     },
+      { "таран",                "",             1,  0,  warp1     },
       { "dump",                 "",             0,  0,  dumpgame  },
       { "сох",                  "ранить",       0,  0,  dumpgame  },
       { "r",                    "est",          0,  0,  rest      },
@@ -76,7 +70,7 @@ struct cvntab   Comtab[] =
       {  0, 0, 0, 0, 0 }
 };
 
-play()
+void play(int _)
 {
 	struct cvntab           *r;
 

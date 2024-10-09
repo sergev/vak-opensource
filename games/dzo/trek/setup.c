@@ -1,5 +1,6 @@
 # include       "trek.h"
 # include       "getpar.h"
+#include <stdlib.h>
 
 /*
 **  INITIALIZE THE GAME

@@ -11,8 +11,7 @@
 **      starsystems, etc.
 */
 
-char *systemname(q1)
-struct quad     *q1;
+char *systemname(struct quad *q1)
 {
 	register struct quad    *q;
 	register int            i;

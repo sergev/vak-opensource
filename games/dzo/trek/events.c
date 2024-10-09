@@ -1,4 +1,5 @@
 # include       "trek.h"
+# include       "getpar.h"
 
 /*
 **  CAUSE TIME TO ELAPSE
@@ -9,8 +10,7 @@
 */
 
 
-events(warp)
-int     warp;           /* set if called in a time warp */
+int events(int warp)    /* set if called in a time warp */
 {
 	register int            i;
 	int                     j;
@@ -18,7 +18,7 @@ int     warp;           /* set if called in a time warp */
 	FLOAT                   rtime;
 	FLOAT                   xdate;
 	FLOAT                   idate;
-	struct event            *ev, *xsched(), *schedule();
+	struct event            *ev;
 	int                     ix, iy;
 	register struct quad    *q;
 	register struct event   *e;
@@ -96,7 +96,7 @@ int     warp;           /* set if called in a time warp */
 
 		  case E_SNOVA:                 /* supernova */
 			/* cause the supernova to happen */
-			snova(-1);
+			snova(-1, -1);
 			/* and schedule the next one */
 			xresched(e, E_SNOVA, 1);
 			break;
@@ -348,9 +348,9 @@ int     warp;           /* set if called in a time warp */
 		  case E_SNAP:          /* take a snapshot of the galaxy */
 			xresched(e, E_SNAP, 1);
 			px = Etc.snapshot;
-			px = bmove(Quad, px, sizeof (Quad));
-			px = bmove(Event, px, sizeof (Event));
-			px = bmove(&Now, px, sizeof (Now));
+			px = bmove((char*) Quad, px, sizeof (Quad));
+			px = bmove((char*) Event, px, sizeof (Event));
+			px = bmove((char*) &Now, px, sizeof (Now));
 			Game.snap = 1;
 			break;
 		  case E_ATTACK:        /* Klingons attack during rest period */

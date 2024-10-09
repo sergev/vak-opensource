@@ -1,8 +1,8 @@
-# include       <stdio.h>
-# define FLOAT  float
+#include <stdio.h>
+#include <stdlib.h>
+#include "trek.h"
 
-ranf(max)
-int     max;
+int ranf(int max)
 {
 	register int    t;
 
@@ -13,7 +13,7 @@ int     max;
 }
 
 
-FLOAT  franf()
+FLOAT franf()
 {
 	FLOAT           t;
 	t = rand() & 077777;

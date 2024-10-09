@@ -15,7 +15,7 @@
 **      are docked.
 */
 
-void dock()
+void dock(int _)
 {
 	register int            i, j;
 	int                     ok;
@@ -85,7 +85,7 @@ void dock()
 **      is to reschedule any damages so that they will take longer.
 */
 
-void undock()
+void undock(int _)
 {
 	register struct event   *e;
 	register int            i;

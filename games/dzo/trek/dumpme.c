@@ -12,8 +12,7 @@
 **      Repair of devices must be deferred.
 */
 
-void dumpme(flag)
-int     flag;
+void dumpme(int flag)
 {
 	register int            f;
 	FLOAT                   x;

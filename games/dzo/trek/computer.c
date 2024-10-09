@@ -3,6 +3,7 @@
 #include       "getpar.h"
 
 #include       <stdlib.h>
+
 /*
 **  On-Board Computer
 **
@@ -72,14 +73,12 @@ struct cvntab   Cputab[] =
      {   0,      0,             0,   0,  0 }
 };
 
-void prkalc(course, dist)
-int     course;
-FLOAT   dist;
+void prkalc(int course, FLOAT dist)
 {
 	printf(": курс %d  расст. %.3f\n", course, dist);
 }
 
-void computer()
+void computer(int _)
 {
 	int                     ix, iy;
 	register int            i, j;
@@ -251,7 +250,7 @@ void computer()
 				  case E_ENSLV:
 				  case E_REPRO:
 					printf("Атакована звездная система %s в квадранте %d,%d\n",
-						systemname(e), e->x, e->y);
+						Systemname[e->systemname], e->x, e->y);
 					j = 0;
 					break;
 				}
@@ -286,12 +285,7 @@ void computer()
 **      sqx,sqy/ssx,ssy to tqx,tqy/tsx,tsy.
 */
 
-kalc(tqx, tqy, tsx, tsy, dist)
-int     tqx;
-int     tqy;
-int     tsx;
-int     tsy;
-FLOAT   *dist;
+int kalc(int tqx, int tqy, int tsx, int tsy, FLOAT *dist)
 {
 	FLOAT                   dx, dy;
 	FLOAT                   quadsize;
@@ -314,5 +308,3 @@ FLOAT   *dist;
 	*dist = sqrt(dx);
 	return (course);
 }
-
-

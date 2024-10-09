@@ -14,12 +14,11 @@
 **      etc.
 */
 
-void capture()
+void capture(int _)
 {
 	register int            i;
 	register struct kling   *k;
 	FLOAT                   x;
-	extern struct kling     *selectklingon();
 
 	/* check for not cloaked */
 	if (Ship.cloaked)
@@ -81,7 +80,7 @@ void capture()
 **      Cruddy, just takes one at random.  Should ask the captain.
 */
 
-struct kling    *selectklingon()
+struct kling *selectklingon()
 {
 	register int            i;
 

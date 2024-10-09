@@ -1,4 +1,5 @@
 # include       "trek.h"
+#include <fcntl.h>
 
 /***  THIS CONSTANT MUST CHANGE AS THE DATA SPACES CHANGE ***/
 # define        VERSION         2
@@ -34,7 +35,7 @@ struct dump     Dump_template[] =
 **      output change.
 */
 
-void dumpgame()
+void dumpgame(int _)
 {
 	int                     version;
 	register int            fd;
@@ -71,7 +72,7 @@ void dumpgame()
 **      Return value is zero for success, one for failure.
 */
 
-restartgame()
+int restartgame()
 {
 	register int    fd;
 	int             version;
@@ -100,8 +101,7 @@ restartgame()
 **      Returns zero for success, one for failure.
 */
 
-readdump(fd1)
-int     fd1;
+int readdump(int fd1)
 {
 	register int            fd;
 	register struct dump    *d;

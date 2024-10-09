@@ -17,7 +17,6 @@
 void win()
 {
 	long                    s;
-	extern long             score();
 	extern struct cvntab    Skitab[];
 	register struct cvntab  *p;
 
@@ -46,5 +45,5 @@ void win()
 
 	/* clean out input, and request new game */
 	skiptonl(0);
-	reset();
+	reset(0);
 }

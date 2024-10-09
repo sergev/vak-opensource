@@ -27,8 +27,7 @@ struct cvntab Udtab[] =
      {  0,       0,             0,  0,  0 }
 };
 
-void shield(f)
-int     f;
+void shield(int f)
 {
 	register int            i;
 	char                    c;
@@ -93,11 +92,12 @@ int     f;
 			printf("выключено\n");
 		return;
 	}
-	if (i)
+	if (i) {
 		if (f >= 0)
 			Ship.energy -= Param.shupengy;
 		else
 			Ship.cloakgood = 0;
+        }
 	Move.free = 0;
 	if (f >= 0)
 		Move.shldchg = 1;

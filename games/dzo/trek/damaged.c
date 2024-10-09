@@ -7,8 +7,7 @@
 **      event list for a "device fix" action on that device.
 */
 
-damaged(dev)
-int     dev;
+int damaged(int dev)
 {
 	register int            d;
 	register struct event   *e;

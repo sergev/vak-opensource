@@ -1,5 +1,5 @@
 #ifndef FLOAT
-# define FLOAT float
+# define FLOAT double
 #endif
 
 struct cvntab           /* used for getcodpar() paramater list */
@@ -11,5 +11,12 @@ struct cvntab           /* used for getcodpar() paramater list */
 	void    (*fun)(int);
 };
 
-extern FLOAT            getfltpar();
-extern struct cvntab    *getcodpar();
+int getintpar(char *s);
+FLOAT getfltpar(char *);
+int getynpar(char *s);
+struct cvntab *getcodpar(char *s, struct cvntab tab[]);
+void getstrpar(char *s, char *r, int l, char *t);
+int testnl();
+void skiptonl(char c);
+int testterm();
+int readdelim(char d);

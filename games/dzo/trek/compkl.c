@@ -19,9 +19,9 @@ void sortkl()
 		for (i = 0; i < m; i++)
 			if (Etc.klingon[i].dist > Etc.klingon[i+1].dist)
 			{
-				bmove(&Etc.klingon[i], &t, sizeof t);
-				bmove(&Etc.klingon[i+1], &Etc.klingon[i], sizeof t);
-				bmove(&t, &Etc.klingon[i+1], sizeof t);
+				bmove((char*) &Etc.klingon[i], (char*) &t, sizeof t);
+				bmove((char*) &Etc.klingon[i+1], (char*) &Etc.klingon[i], sizeof t);
+				bmove((char*) &t, (char*) &Etc.klingon[i+1], sizeof t);
 				f = 1;
 			}
 	}
@@ -38,8 +38,7 @@ void sortkl()
 **      move.
 */
 
-void compkldist(f)
-int     f;              /* set if new quadrant */
+void compkldist(int f) /* set if new quadrant */
 {
 	register int            i, dx, dy;
 	FLOAT                   d;

@@ -25,7 +25,7 @@
 **      and battle conditions.
 */
 
-checkcond()
+void checkcond()
 {
 	register int            i, j;
 

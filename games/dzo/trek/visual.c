@@ -1,4 +1,5 @@
 # include       "trek.h"
+# include       "getpar.h"
 
 /*
 **  VISUAL SCAN
@@ -25,7 +26,7 @@ struct xy       Visdelta[11] =
 	-1,      1
 };
 
-void visual()
+void visual(int _)
 {
 	register int            ix, iy;
 	int                     co;

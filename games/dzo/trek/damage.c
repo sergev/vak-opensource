@@ -12,9 +12,8 @@
 **      that the dock() and undock() have to reschedule the event.
 */
 
-void damage(dev1, dam)
-int     dev1;           /*  device index */
-FLOAT   dam;            /* time to repair */
+void damage(int dev1,   /*  device index */
+            FLOAT dam)  /* time to repair */
 {
 	register int            i;
 	register struct event   *e;

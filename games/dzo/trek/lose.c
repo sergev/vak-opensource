@@ -1,4 +1,5 @@
 # include       "trek.h"
+# include       "getpar.h"
 
 /*
 **  PRINT OUT LOSER MESSAGES
@@ -25,8 +26,7 @@ char    *Losemsg[] =
 	"Последний член Вашей команды погиб",
 };
 
-void lose(why)
-int     why;
+void lose(int why)
 {
 	Game.killed = 1;
 	sleep(1);
@@ -41,5 +41,5 @@ int     why;
 	Move.endgame = -1;
 	score();
 	skiptonl(0);
-	reset();
+	reset(0);
 }

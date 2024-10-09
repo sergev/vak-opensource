@@ -18,11 +18,16 @@
 
 #include <stdio.h>
 #include <stdarg.h>
-extern void tsyserr(const char *s, ...);
-#define FLOAT   float
+#include <unistd.h>
+#include <setjmp.h>
+
+extern jmp_buf jmpbuf;
+
+#define FLOAT   double
 #include <math.h>
+
 /* external function definitions */
-extern FLOAT   franf();        /* floating random number function */
+extern FLOAT   franf(void);    /* floating random number function */
 
 /*********************  GALAXY  **************************/
 
@@ -316,6 +321,7 @@ struct  dzoEtc
 }       ;
 extern struct  dzoEtc Etc;
 
+
 /*
  *      eventptr is a pointer to the event[] entry of the last
  *      scheduled event of each type.  Zero if no such event scheduled.
@@ -349,5 +355,75 @@ extern struct  dzoEtc Etc;
 /* Trace info */
 /* # define        xTRACE          1 */
 /* int     Trace;                    */
-extern void dumpme(int);
-extern char *bmove();
+
+void dumpme(int);
+char *bmove(char *a, char *b, int l);
+int damaged(int dev);
+void out(int dev);
+char *systemname(struct quad *q1);
+void lose(int why);
+void unschedule(struct event *e1);
+int ranf(int max);
+void initquad(int f);
+void dock(int);
+void undock(int);
+void compkldist(int f);
+void klmove(int fl);
+void damage(int dev1, FLOAT dam);
+void attack(int resting);
+void warp(int fl, int c, FLOAT d);
+void warp1(int fl);
+void killk(int ix, int iy);
+void killb(int qx, int qy);
+void kills(int x, int y, int f);
+void killd(int x, int y, int f);
+void autover(void);
+int check_out(int device);
+int kalc(int tqx, int tqy, int tsx, int tsy, FLOAT *dist);
+void compkldist(int f);
+long score(void);
+char cgetc(void);
+struct event *schedule(int type, FLOAT offset, char x, char y, char z);
+void reschedule(struct event *e1, FLOAT offset);
+struct event *xsched(int ev1, int factor, int x, int y, int z);
+void xresched(struct event *e1, int ev1, int factor);
+int sequal(char *a, char *b);
+int dumpssradio(void);
+int readdump(int fd1);
+int events(int warp);
+void nova(int x, int y);
+void snova(int x, int y);
+void sector(int *x, int *y);
+char *concat(char *s1, char *s2, char *s3);
+int length(char *s);
+void tsyserr(const char *s, ...);
+int getcodi(int *co, FLOAT *di);
+void shield(int f);
+FLOAT move(int ramflag, int course, FLOAT time, FLOAT speed);
+struct kling *selectklingon(void);
+void win(void);
+void lose(int why);
+void reset(int);
+void setup(void);
+void play(int);
+void checkcond(void);
+void ram(int ix, int iy);
+void abandon(int);
+void capture(int);
+void computer(int);
+void dcrept(int);
+void destruct(int);
+void help(int);
+void impulse(int);
+void lrscan(int);
+void phaser(int);
+void dumpgame(int);
+void rest(int);
+void shell(int);
+void srscan(int f);
+void torped(int);
+void visual(int);
+void setwarp(int);
+int restartgame(void);
+char *mrok(int n);
+int randcourse(int n);

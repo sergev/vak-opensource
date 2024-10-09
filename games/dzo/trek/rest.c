@@ -15,7 +15,7 @@
 **      rest period if anything momentous happens.
 */
 
-void rest()
+void rest(int _)
 {
 	FLOAT                   t;
 	register int            percent;

@@ -1,9 +1,11 @@
-# include       "trek.h"
-# define        PRIO            00      /* default priority */
+#include "trek.h"
+#include "getpar.h"
+#include <stdlib.h>
+#include <time.h>
 
-# include       <setjmp.h>
 jmp_buf         jmpbuf ;
-# define        setexit()       setjmp( jmpbuf ) ;
+
+# define        setexit()       setjmp(jmpbuf)
 
 int     Mother  = 51 + (51 << 8);
 
@@ -107,9 +109,7 @@ int     Mother  = 51 + (51 << 8);
 ***********************************************************************
 */
 
-int main(argc, argv)
-int     argc;
-char    **argv;
+int main(int argc, char **argv)
 {
 	long                    vect;
 	/* extern FILE          *f_log; */
@@ -125,7 +125,6 @@ char    **argv;
 	time(&vect);
 	srand((int)vect);
 	opencode = 'w';
-/*      prio = PRIO; */
 	while (ac > 1 && av[0][0] == '-')
 	{
 		switch (av[0][1])
@@ -142,20 +141,13 @@ char    **argv;
 			Etc.fast = 0;
 			break;
 
-#               ifdef xTRACE
+#ifdef xTRACE
 		  case 't':     /* trace */
 			if (getuid() != Mother)
 				goto badflag;
 			Trace++;
 			break;
-#               endif
-
-/*                case 'p':     /* set priority
-			if (getuid() != Mother)
-				goto badflag;
-			if (scanf(-1, &av[0][2], "%d", &prio) > 0)
-				break;
-		--------------------------              НУ КАКОГО ?!!! */
+#endif
 		  default:
 		  badflag:
 			printf("Плохой ключ: %s\n", av[0]);
@@ -173,7 +165,6 @@ char    **argv;
 
 	printf("\n   * * *   S T A R   T R E K   * * *\n\n");
 
-	signal( 2, 1 );
 	/* play_with(stdin); */
 	ungetc('\n',stdin);
 	setexit();
@@ -186,10 +177,9 @@ char    **argv;
 	do
 	{
 		setup();
-		play();
+		play(0);
 	} while (getynpar("Еще игра"));
 
 	fflush(stdout);
 	return 0;
 }
-

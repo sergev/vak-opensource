@@ -8,7 +8,7 @@
 **      checked for consistancy.
 */
 
-void setwarp()
+void setwarp(int _)
 {
 	FLOAT   warpfac;
 

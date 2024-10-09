@@ -14,9 +14,7 @@
 #include "trek.h"
 #include <stdlib.h>
 
-char *bmove(a, b, l)
-char    *a, *b;
-int     l;
+char *bmove(char *a, char *b, int l)
 {
 	register int            n;
 	register char           *p, *q;
@@ -37,8 +35,7 @@ int     l;
 **      returns one if equal, zero otherwise.
 */
 
-sequal(a, b)
-char    *a, *b;
+int sequal(char *a, char *b)
 {
 	register char           *p, *q;
 
@@ -60,8 +57,7 @@ char    *a, *b;
 **      pointer to the end of `s3' field.
 */
 
-char *concat(s1, s2, s3)
-char    *s1, *s2, *s3;
+char *concat(char *s1, char *s2, char *s3)
 {
 	register char           *p;
 	register char           *q;
@@ -85,8 +81,7 @@ char    *s1, *s2, *s3;
 **              terminates the string) is returned.
 */
 
-length(s)
-char    *s;
+int length(char *s)
 {
 	register int    l;
 	register char   *p;

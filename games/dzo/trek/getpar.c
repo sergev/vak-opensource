@@ -1,13 +1,13 @@
 # include       <stdio.h>
 # include       <stdlib.h>
 # include       "getpar.h"
+# include       "trek.h"
 
 /**
  **     get integer parameter
  **/
 
-getintpar(s)
-char    *s;
+int getintpar(char *s)
 {
 	register int    i;
 	int             n;
@@ -30,8 +30,7 @@ char    *s;
  **     get floating parameter
  **/
 
-FLOAT  getfltpar(s)
-char    *s;
+FLOAT  getfltpar(char *s)
 {
 	register int            i;
 	FLOAT                   d;
@@ -63,8 +62,7 @@ struct cvntab   Yntab[] =
      {  0,       0,     0,   0,  0 }
 };
 
-getynpar(s)
-char    *s;
+int getynpar(char *s)
 {
 	struct cvntab           *r;
 
@@ -77,9 +75,7 @@ char    *s;
  **     get coded parameter
  **/
 
-struct cvntab *getcodpar(s, tab)
-char            *s;
-struct cvntab   tab[];
+struct cvntab *getcodpar(char *s, struct cvntab tab[])
 {
 	char                            input[60];
 	register struct cvntab          *r;
@@ -153,11 +149,7 @@ struct cvntab   tab[];
  **     get string parameter
  **/
 
-getstrpar(s, r, l, t)
-char    *s;
-char    *r;
-int     l;
-char    *t;
+void getstrpar(char *s, char *r, int l, char *t)
 {
 	register int    i;
 	char            format[20];
@@ -186,7 +178,7 @@ char    *t;
  **     test if newline is next valid character
  **/
 
-testnl()
+int testnl()
 {
 	register char           c;
 
@@ -207,8 +199,7 @@ testnl()
  **     scan for newline
  **/
 
-skiptonl(c)
-char    c;
+void skiptonl(char c)
 {
 	while (c != '\n')
 		if (!(c = cgetc()))
@@ -222,7 +213,7 @@ char    c;
  **     test for valid terminator
  **/
 
-testterm()
+int testterm()
 {
 	register char           c;
 
@@ -244,8 +235,7 @@ testterm()
 **      zero is returned.
 */
 
-readdelim(d)
-char    d;
+int readdelim(char d)
 {
 	register char   c;
 

@@ -35,11 +35,7 @@
 **      Uses trace flag 4.
 */
 
-FLOAT  move(ramflag, course, time, speed)
-int     ramflag;
-int     course;
-FLOAT   time;
-FLOAT   speed;
+FLOAT move(int ramflag, int course, FLOAT time, FLOAT speed)
 {
 	FLOAT                   angle;
 	FLOAT                   x, y, dx, dy;
@@ -140,13 +136,14 @@ FLOAT   speed;
 			Ship.quady = iy / NSECTS;
 			Ship.sectx = ix % NSECTS;
 			Ship.secty = iy % NSECTS;
-			if (ix < 0 || Ship.quadx >= NQUADS || iy < 0 || Ship.quady >= NQUADS)
+			if (ix < 0 || Ship.quadx >= NQUADS || iy < 0 || Ship.quady >= NQUADS) {
 				if (!damaged(COMPUTER))
 				{
 					dumpme(0);
 				}
 				else
 					lose(L_NEGENB);
+                        }
 			initquad(0);
 			n = 0;
 			break;

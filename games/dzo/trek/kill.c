@@ -16,8 +16,7 @@
 **      and the game is won if that was the last klingon.
 */
 
-killk(ix, iy)
-int     ix, iy;
+void killk(int ix, int iy)
 {
 	register int            i, j;
 
@@ -38,7 +37,7 @@ int     ix, iy;
 			/* purge him from the list */
 			Etc.nkling -= 1;
 			for (; i < Etc.nkling; i++)
-				bmove(&Etc.klingon[i+1], &Etc.klingon[i], sizeof Etc.klingon[i]);
+				bmove((char*) &Etc.klingon[i+1], (char*) &Etc.klingon[i], sizeof Etc.klingon[i]);
 			break;
 		}
 
@@ -56,8 +55,7 @@ int     ix, iy;
 **  handle a starbase's death
 */
 
-void killb(qx, qy)
-int     qx, qy;
+void killb(int qx, int qy)
 {
 	register struct quad    *q;
 	register struct xy      *b;
@@ -66,24 +64,26 @@ int     qx, qy;
 
 	if (q->bases <= 0)
 		return;
-	if (!damaged(SSRADIO))
+	if (!damaged(SSRADIO)) {
 		/* then update starchart */
-		if (q->scanned < 1000)
+		if (q->scanned < 1000) {
 			q->scanned -= 10;
-		else
+		} else {
 			if (q->scanned > 1000)
 				q->scanned = -1;
+                }
+        }
 	q->bases = 0;
 	Now.bases -= 1;
 	for (b = Now.base; ; b++)
 		if (qx == b->x && qy == b->y)
 			break;
-	bmove(&Now.base[Now.bases], b, sizeof *b);
+	bmove((char*) &Now.base[Now.bases], (char*) b, sizeof *b);
 	if (qx == Ship.quadx && qy == Ship.quady)
 	{
 		Sect[Etc.starbase.x][Etc.starbase.y] = EMPTY;
 		if (Ship.cond == DOCKED)
-			undock();
+			undock(0);
 		printf("Звездная база в %d,%d уничтожена\n", Etc.starbase.x, Etc.starbase.y);
 	}
 	else
@@ -103,14 +103,12 @@ int     qx, qy;
  **     kill an inhabited starsystem
  **/
 
-void kills(x, y, f)
-int     x, y;   /* quad coords if f == 0, else sector coords */
-int     f;      /* f != 0 -- this quad;  f < 0 -- Enterprise's fault */
+void kills(int x, int y,    /* quad coords if f == 0, else sector coords */
+           int f)           /* f != 0 -- this quad;  f < 0 -- Enterprise's fault */
 {
 	register struct quad    *q;
 	register struct event   *e;
 	register char           *name;
-	char                    *systemname();
 
 	if (f)
 	{
@@ -147,9 +145,8 @@ int     f;      /* f != 0 -- this quad;  f < 0 -- Enterprise's fault */
  **     "kill" a distress call
  **/
 
-void killd(x, y, f)
-int     x, y;           /* quadrant coordinates */
-int     f;              /* set if user is to be informed */
+void killd(int x, int y,    /* quadrant coordinates */
+           int f)           /* set if user is to be informed */
 {
 	register struct event   *e;
 	register int            i;

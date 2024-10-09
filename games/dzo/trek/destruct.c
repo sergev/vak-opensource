@@ -1,4 +1,5 @@
 # include       "trek.h"
+# include       "getpar.h"
 
 /*
 **  Self Destruct Sequence
@@ -20,7 +21,7 @@
 **      Uses trace flag 41
 */
 
-void destruct()
+void destruct(int _)
 {
 	char            checkpass[15];
 	register int    i, j;

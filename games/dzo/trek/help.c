@@ -23,7 +23,7 @@
 char    *Cntvect[3] =
 {"первая", "вторая", "третья"};
 
-void help()
+void help(int _)
 {
 	register int            i;
 	FLOAT                   dist, x;
@@ -111,7 +111,7 @@ void help()
 				Ship.sectx = dx;
 				Ship.secty = dy;
 				Sect[dx][dy] = Ship.ship;
-				dock();
+				dock(0);
 				compkldist(0);
 				return;
 			}

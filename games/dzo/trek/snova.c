@@ -21,8 +21,7 @@
 **      override mode.
 */
 
-snova(x, y)
-int     x, y;
+void snova(int x, int y)
 {
 	int                     qx, qy;
 	register int            ix, iy;
@@ -97,17 +96,16 @@ int     x, y;
 	dx = q->klings;
 	dy = q->stars;
 	Now.klings -= dx;
-	if (x >= 0)
-	{
+	if (x >= 0) {
 		/* Enterprise caused supernova */
 		Game.kills += dy;
 		if (q->bases)
-			killb(qx, qy, -1);
+			killb(qx, qy /*, -1*/);
 		Game.killk += dx;
-	}
-	else
+	} else {
 		if (q->bases)
-			killb(qx, qy, 0);
+			killb(qx, qy /*, 0*/);
+        }
 	killd(qx, qy, (x >= 0));
 	q->stars = -1;
 	q->klings = 0;

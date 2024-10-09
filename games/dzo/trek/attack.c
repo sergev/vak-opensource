@@ -30,8 +30,7 @@
 **      Casualties can also occur.
 */
 
-attack(resting)
-int     resting;        /* set if attack while resting */
+void attack(int resting) /* set if attack while resting */
 {
 	register int            hit, i, l;
 	int                     maxhit, tothit, shldabsb;

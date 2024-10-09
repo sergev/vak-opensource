@@ -23,8 +23,7 @@
 **      course around stars.
 */
 
-void klmove(fl)
-int     fl;
+void klmove(int fl)
 {
 	int                     n;
 	register struct kling   *k;
@@ -108,7 +107,7 @@ int     fl;
 				Sect[k->x][k->y] = EMPTY;
 				Quad[qx][qy].klings += 1;
 				Etc.nkling -= 1;
-				bmove(&Etc.klingon[Etc.nkling], k, sizeof *k);
+				bmove((char*) &Etc.klingon[Etc.nkling], (char*) k, sizeof *k);
 				Quad[Ship.quadx][Ship.quady].klings -= 1;
 				k = 0;
 				break;

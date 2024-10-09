@@ -1,4 +1,5 @@
 # include       "trek.h"
+# include       "getpar.h"
 
 /*
 **  MOVE UNDER WARP POWER
@@ -16,9 +17,12 @@
 **      case, there is code to handle time warps, etc.
 */
 
-void warp(fl, c, d)
-int     fl, c;
-FLOAT   d;
+void warp1(int fl)
+{
+    warp(fl, 0, 0.0);
+}
+
+void warp(int fl, int c, FLOAT d)
 {
 	int                     course;
 	FLOAT                   power;
@@ -28,7 +32,6 @@ FLOAT   d;
 	FLOAT                   frac;
 	register int            percent;
 	register int            i;
-	extern FLOAT            move();
 	char                   *px;
 
 	if (Ship.cond == DOCKED) {
@@ -129,9 +132,9 @@ FLOAT   d;
 		/* s/he got lucky: a negative time portal */
 		time = Now.date;
 		px = Etc.snapshot;
-		bmove(px, Quad, sizeof Quad);
-		bmove(px += sizeof Quad, Event, sizeof Event);
-		bmove(px += sizeof Event, &Now, sizeof Now);
+		bmove(px, (char*) Quad, sizeof Quad);
+		bmove(px += sizeof Quad, (char*) Event, sizeof Event);
+		bmove(px += sizeof Event, (char*) &Now, sizeof Now);
 		printf("Негативный скачок во времени -- сейчас звездное время %.2f\n",
 			Now.date);
 		for (i = 0; i < MAXEVENTS; i++)

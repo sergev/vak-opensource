@@ -14,8 +14,7 @@
 **      If the zap is too much, it gets destroyed.
 */
 
-void nova(x, y)
-int     x, y;
+void nova(int x, int y)
 {
 	register int            i, j;
 	register int            se;
@@ -78,7 +77,7 @@ int     x, y;
 			  case ENTERPRISE:
 			  case QUEENE:
 				se = 2000;
-				if (Ship.shldup)
+				if (Ship.shldup) {
 					if (Ship.shield >= se)
 					{
 						Ship.shield -= se;
@@ -89,6 +88,7 @@ int     x, y;
 						se -= Ship.shield;
 						Ship.shield = 0;
 					}
+                                }
 				Ship.energy -= se;
 				if (Ship.energy <= 0)
 					lose(L_SUICID);

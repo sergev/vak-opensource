@@ -12,7 +12,7 @@
 **      for future use by the "chart" option of the computer.
 */
 
-void lrscan()
+void lrscan(int _)
 {
 	register int                    i, j;
 	register struct quad            *q;

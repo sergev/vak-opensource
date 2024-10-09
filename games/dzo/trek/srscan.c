@@ -24,8 +24,7 @@ char    *Color[4] =
 	"КРАСНЫЙ"
 };
 
-void srscan(f)
-int     f;
+void srscan(int f)
 {
 	register int            i, j;
 	register int            statinfo;

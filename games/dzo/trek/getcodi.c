@@ -10,9 +10,7 @@
 **      (meaning to drop the request).
 */
 
-getcodi(co, di)
-int     *co;
-FLOAT   *di;
+int getcodi(int *co, FLOAT *di)
 {
 
 	*co = getintpar("Курс");

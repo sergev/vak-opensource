@@ -4,7 +4,7 @@
  **     output hidden distress calls
  **/
 
-dumpssradio()
+int dumpssradio()
 {
 	register struct event   *e;
 	register int            j;
@@ -21,7 +21,7 @@ dumpssradio()
 		{
 			unschedule(e);
 			printf("Звездная система %s в квадранте %d,%d уже в безопасности\n",
-				systemname(e), e->x, e->y);
+				Systemname[e->systemname], e->x, e->y);
 			continue;
 		}
 
@@ -37,7 +37,7 @@ dumpssradio()
 		  case E_ENSLV:
 		  case E_REPRO:
 			printf("Звездной системе %s в квадранте %d,%d угрожает опасность\n",
-				systemname(e), e->x, e->y);
+				Systemname[e->systemname], e->x, e->y);
 			chkrest++;
 			break;
 

@@ -1,4 +1,5 @@
 # include       "trek.h"
+
 struct quad     Quad[NQUADS][NQUADS];
 struct event    Event[MAXEVENTS];       /* dynamic event list; one entry per pending event */
 struct dzoShip Ship;
@@ -8,6 +9,7 @@ struct dzoParam Param;
 struct dzoNow Now;
 struct  dzoEtc Etc;
 char    Sect[NSECTS][NSECTS];
+
 /*
 **  Abandon Ship
 **
@@ -33,7 +35,7 @@ char    Sect[NSECTS][NSECTS];
 **      Uses trace flag 40
 */
 
-void abandon()
+void abandon(int _)
 {
 	register struct quad    *q;
 	register int            i;
@@ -123,7 +125,7 @@ void abandon()
 			if (Sect[Ship.sectx][Ship.secty] == EMPTY)
 			{
 				Sect[Ship.sectx][Ship.secty] = QUEENE;
-				dock();
+				dock(0);
 				compkldist(0);
 				return;
 			}

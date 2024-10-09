@@ -4,8 +4,7 @@
 **  Announce Device Out
 */
 
-void out(dev)
-int     dev;
+void out(int dev)
 {
 	register struct device  *d;
 

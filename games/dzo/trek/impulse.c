@@ -1,16 +1,16 @@
 # include       "trek.h"
+# include       "getpar.h"
 
 /**
  **     move under impulse power
  **/
 
-void impulse()
+void impulse(int _)
 {
 	int                     course;
 	register int            power;
 	FLOAT                   dist, time;
 	register int            percent;
-	extern FLOAT            move();
 
 	if (Ship.cond == DOCKED) {
 		printf("Скотти: Сожалею, капитан, но мы стыкованы с базой.\n");
