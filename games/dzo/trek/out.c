@@ -1,4 +1,4 @@
-# include       "trek.h"
+#include "trek.h"
 
 /*
 **  Announce Device Out
@@ -6,8 +6,8 @@
 
 void out(int dev)
 {
-	register struct device  *d;
+    register struct device *d;
 
-	d = &Device[dev];
-	printf("%s сообщает, что %s поврежден%s.\n", d->person, d->name, d->ending);
+    d = &Device[dev];
+    printf("%s сообщает, что %s поврежден%s.\n", d->person, d->name, d->ending);
 }

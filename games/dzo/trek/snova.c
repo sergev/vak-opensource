@@ -1,4 +1,4 @@
-# include       "trek.h"
+#include "trek.h"
 
 /*
 **  CAUSE SUPERNOVA TO OCCUR
@@ -23,96 +23,84 @@
 
 void snova(int x, int y)
 {
-	int                     qx, qy;
-	register int            ix, iy;
-	int                     f;
-	int                     dx, dy;
-	int                     n;
-	register struct quad    *q;
+    int qx, qy;
+    register int ix, iy;
+    int f;
+    int dx, dy;
+    int n;
+    register struct quad *q;
 
-	f = 0;
-	ix = x;
-	if (ix < 0)
-	{
-		/* choose a quadrant */
-		while (1)
-		{
-			qx = ranf(NQUADS);
-			qy = ranf(NQUADS);
-			q = &Quad[qx][qy];
-			if (q->stars > 0)
-				break;
-		}
-		if (Ship.quadx == qx && Ship.quady == qy)
-		{
-			/* select a particular star */
-			n = ranf(q->stars);
-			for (ix = 0; ix < NSECTS; ix++)
-			{
-				for (iy = 0; iy < NSECTS; iy++)
-					if (Sect[ix][iy] == STAR || Sect[ix][iy] == INHABIT)
-						if ((n -= 1) <= 0)
-							break;
-				if (n <= 0)
-					break;
-			}
-			f = 1;
-		}
-	}
-	else
-	{
-		/* current quadrant */
-		iy = y;
-		qx = Ship.quadx;
-		qy = Ship.quady;
-		q = &Quad[qx][qy];
-		f = 1;
-	}
-	if (f)
-	{
-		/* supernova is in same quadrant as Enterprise */
-		printf("\nТРЕВОГА: в %d,%d взорвалась сверхновая\n", ix, iy);
-		dx = ix - Ship.sectx;
-		dy = iy - Ship.secty;
-		if (dx * dx + dy * dy <= 2)
-		{
-			printf("***  Аварийные блоки пыта...");
-			sleep(1);
-			printf("\n");
-			lose(L_SNOVA);
-		}
-		q->scanned = 1000;
-	}
-	else
-	{
-		if (!damaged(SSRADIO))
-		{
-			q->scanned = 1000;
-			printf("\nУхура: Капитан, из штаба межзвездного флота сообщили:\n");
-			printf("  в квдаранте %d,%d взорвалась сверхновая. Надо быть поосторожней.\n", qx, qy);
-		}
-	}
-	/* clear out the supernova'ed quadrant */
-	dx = q->klings;
-	dy = q->stars;
-	Now.klings -= dx;
-	if (x >= 0) {
-		/* Enterprise caused supernova */
-		Game.kills += dy;
-		if (q->bases)
-			killb(qx, qy /*, -1*/);
-		Game.killk += dx;
-	} else {
-		if (q->bases)
-			killb(qx, qy /*, 0*/);
+    f  = 0;
+    ix = x;
+    if (ix < 0) {
+        /* choose a quadrant */
+        while (1) {
+            qx = ranf(NQUADS);
+            qy = ranf(NQUADS);
+            q  = &Quad[qx][qy];
+            if (q->stars > 0)
+                break;
         }
-	killd(qx, qy, (x >= 0));
-	q->stars = -1;
-	q->klings = 0;
-	if (Now.klings <= 0)
-	{
-		printf("Счастливый, дьявол, сверхновая уничтожила последнего клинга.\n");
-		win();
-	}
-	return;
+        if (Ship.quadx == qx && Ship.quady == qy) {
+            /* select a particular star */
+            n = ranf(q->stars);
+            for (ix = 0; ix < NSECTS; ix++) {
+                for (iy = 0; iy < NSECTS; iy++)
+                    if (Sect[ix][iy] == STAR || Sect[ix][iy] == INHABIT)
+                        if ((n -= 1) <= 0)
+                            break;
+                if (n <= 0)
+                    break;
+            }
+            f = 1;
+        }
+    } else {
+        /* current quadrant */
+        iy = y;
+        qx = Ship.quadx;
+        qy = Ship.quady;
+        q  = &Quad[qx][qy];
+        f  = 1;
+    }
+    if (f) {
+        /* supernova is in same quadrant as Enterprise */
+        printf("\nТРЕВОГА: в %d,%d взорвалась сверхновая\n", ix, iy);
+        dx = ix - Ship.sectx;
+        dy = iy - Ship.secty;
+        if (dx * dx + dy * dy <= 2) {
+            printf("***  Аварийные блоки пыта...");
+            sleep(1);
+            printf("\n");
+            lose(L_SNOVA);
+        }
+        q->scanned = 1000;
+    } else {
+        if (!damaged(SSRADIO)) {
+            q->scanned = 1000;
+            printf("\nУхура: Капитан, из штаба межзвездного флота сообщили:\n");
+            printf("  в квдаранте %d,%d взорвалась сверхновая. Надо быть поосторожней.\n", qx, qy);
+        }
+    }
+    /* clear out the supernova'ed quadrant */
+    dx = q->klings;
+    dy = q->stars;
+    Now.klings -= dx;
+    if (x >= 0) {
+        /* Enterprise caused supernova */
+        Game.kills += dy;
+        if (q->bases)
+            killb(qx, qy /*, -1*/);
+        Game.killk += dx;
+    } else {
+        if (q->bases)
+            killb(qx, qy /*, 0*/);
+    }
+    killd(qx, qy, (x >= 0));
+    q->stars  = -1;
+    q->klings = 0;
+    if (Now.klings <= 0) {
+        printf("Счастливый, дьявол, сверхновая уничтожила последнего клинга.\n");
+        win();
+    }
+    return;
 }

@@ -1,4 +1,4 @@
-# include       "getpar.h"
+#include "getpar.h"
 
 /*
 **  get course and distance
@@ -12,18 +12,17 @@
 
 int getcodi(int *co, FLOAT *di)
 {
+    *co = getintpar("Курс");
 
-	*co = getintpar("Курс");
+    /* course must be in the interval [0, 360] */
+    if (*co < 0 || *co > 360)
+        return (1);
+    *di = getfltpar("Расстояние");
 
-	/* course must be in the interval [0, 360] */
-	if (*co < 0 || *co > 360)
-		return (1);
-	*di = getfltpar("Расстояние");
+    /* distance must be in the interval [0, 15] */
+    if (*di <= 0.0 || *di > 15.0)
+        return (1);
 
-	/* distance must be in the interval [0, 15] */
-	if (*di <= 0.0 || *di > 15.0)
-		return (1);
-
-	/* good return */
-	return (0);
+    /* good return */
+    return (0);
 }

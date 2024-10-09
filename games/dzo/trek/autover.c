@@ -1,4 +1,4 @@
-# include       "trek.h"
+#include "trek.h"
 
 /*
 **  Automatic Override
@@ -20,21 +20,21 @@
 
 void autover()
 {
-	FLOAT                   dist;
-	register int            course;
+    FLOAT dist;
+    register int course;
 
-	printf("ТРЕВОГА: %s в одном квадранте с сверхновой\n", Ship.shipname);
-	printf("***  Компьютер сделал попытку вышвырнуть %s в безопасное место\n", Ship.shipname);
-	/* let's get our ass out of here */
-	Ship.warp = 6.0 + 2.0 * franf();
-	Ship.warp2 = Ship.warp * Ship.warp;
-	Ship.warp3 = Ship.warp2 * Ship.warp;
-	dist = 0.75 * Ship.energy / (Ship.warp3 * (Ship.shldup + 1));
-	if (dist > 1.4142)
-		dist = 1.4142;
-	course = ranf(360);
-	Etc.nkling = -1;
-	Ship.cond = RED;
-	warp(-1, course, dist);
-	attack(0);
+    printf("ТРЕВОГА: %s в одном квадранте с сверхновой\n", Ship.shipname);
+    printf("***  Компьютер сделал попытку вышвырнуть %s в безопасное место\n", Ship.shipname);
+    /* let's get our ass out of here */
+    Ship.warp  = 6.0 + 2.0 * franf();
+    Ship.warp2 = Ship.warp * Ship.warp;
+    Ship.warp3 = Ship.warp2 * Ship.warp;
+    dist       = 0.75 * Ship.energy / (Ship.warp3 * (Ship.shldup + 1));
+    if (dist > 1.4142)
+        dist = 1.4142;
+    course     = ranf(360);
+    Etc.nkling = -1;
+    Ship.cond  = RED;
+    warp(-1, course, dist);
+    attack(0);
 }

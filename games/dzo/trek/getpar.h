@@ -1,14 +1,14 @@
 #ifndef FLOAT
-# define FLOAT double
+#define FLOAT double
 #endif
 
-struct cvntab           /* used for getcodpar() paramater list */
+struct cvntab /* used for getcodpar() paramater list */
 {
-	char    *abrev;
-	char    *full;
-	int     value;
-	int     value2;
-	void    (*fun)(int);
+    char *abrev;
+    char *full;
+    int value;
+    int value2;
+    void (*fun)(int);
 };
 
 int getintpar(char *s);

@@ -1,4 +1,4 @@
-# include       "trek.h"
+#include "trek.h"
 
 /*
 **  Schedule Ship.damages to a Device
@@ -12,42 +12,40 @@
 **      that the dock() and undock() have to reschedule the event.
 */
 
-void damage(int dev1,   /*  device index */
-            FLOAT dam)  /* time to repair */
+void damage(int dev1,  /*  device index */
+            FLOAT dam) /* time to repair */
 {
-	register int            i;
-	register struct event   *e;
-	int                     f;
-	register int            dev;
+    register int i;
+    register struct event *e;
+    int f;
+    register int dev;
 
-	/* ignore zero damages */
-	if (dam <= 0.0)
-		return;
-	dev = dev1;
+    /* ignore zero damages */
+    if (dam <= 0.0)
+        return;
+    dev = dev1;
 
-	printf("\t%s поврежден%s\n", Device[dev].name, Device[dev].ending);
+    printf("\t%s поврежден%s\n", Device[dev].name, Device[dev].ending);
 
-	/* find actual length till it will be fixed */
-	if (Ship.cond == DOCKED)
-		dam *= Param.dockfac;
-	/* set the damage flag */
-	f = damaged(dev);
-	if (!f)
-	{
-		/* new damages -- schedule a fix */
-		schedule(E_FIXDV, dam, 0, 0, dev);
-		return;
-	}
-	/* device already damaged -- add to existing damages */
-	/* scan for old damages */
-	for (i = 0; i < MAXEVENTS; i++)
-	{
-		e = &Event[i];
-		if (e->evcode != E_FIXDV || e->systemname != dev)
-			continue;
-		/* got the right one; add on the new damages */
-		reschedule(e, e->date - Now.date + dam);
-		return;
-	}
-	tsyserr("Cannot find old damages %d", dev);
+    /* find actual length till it will be fixed */
+    if (Ship.cond == DOCKED)
+        dam *= Param.dockfac;
+    /* set the damage flag */
+    f = damaged(dev);
+    if (!f) {
+        /* new damages -- schedule a fix */
+        schedule(E_FIXDV, dam, 0, 0, dev);
+        return;
+    }
+    /* device already damaged -- add to existing damages */
+    /* scan for old damages */
+    for (i = 0; i < MAXEVENTS; i++) {
+        e = &Event[i];
+        if (e->evcode != E_FIXDV || e->systemname != dev)
+            continue;
+        /* got the right one; add on the new damages */
+        reschedule(e, e->date - Now.date + dam);
+        return;
+    }
+    tsyserr("Cannot find old damages %d", dev);
 }

@@ -1,4 +1,4 @@
-# include       "trek.h"
+#include "trek.h"
 
 /*
 **  SCHEDULE AN EVENT
@@ -12,34 +12,31 @@
 
 struct event *schedule(int type, FLOAT offset, char x, char y, char z)
 {
-	register struct event   *e;
-	register int            i;
-	FLOAT                   date;
+    register struct event *e;
+    register int i;
+    FLOAT date;
 
-	date = Now.date + offset;
-	for (i = 0; i < MAXEVENTS; i++)
-	{
-		e = &Event[i];
-		if (e->evcode)
-			continue;
-		/* got a slot */
-#               ifdef xTRACE
-		if (Trace)
-			printf("schedule: type %d @ %.2f slot %d parm %d %d %d\n",
-				type, date, i, x, y, z);
-#               endif
-		e->evcode = type;
-		e->date = date;
-		e->x = x;
-		e->y = y;
-		e->systemname = z;
-		Now.eventptr[type] = e;
-		return (e);
-	}
-	tsyserr("Cannot schedule event %d parm %d %d %d", type, x, y, z);
-	return((struct event *)0);
+    date = Now.date + offset;
+    for (i = 0; i < MAXEVENTS; i++) {
+        e = &Event[i];
+        if (e->evcode)
+            continue;
+        /* got a slot */
+#ifdef xTRACE
+        if (Trace)
+            printf("schedule: type %d @ %.2f slot %d parm %d %d %d\n", type, date, i, x, y, z);
+#endif
+        e->evcode          = type;
+        e->date            = date;
+        e->x               = x;
+        e->y               = y;
+        e->systemname      = z;
+        Now.eventptr[type] = e;
+        return (e);
+    }
+    tsyserr("Cannot schedule event %d parm %d %d %d", type, x, y, z);
+    return ((struct event *)0);
 }
-
 
 /*
 **  RESCHEDULE AN EVENT
@@ -50,21 +47,20 @@ struct event *schedule(int type, FLOAT offset, char x, char y, char z)
 
 void reschedule(struct event *e1, FLOAT offset)
 {
-	FLOAT                   date;
-	register struct event   *e;
+    FLOAT date;
+    register struct event *e;
 
-	e = e1;
+    e = e1;
 
-	date = Now.date + offset;
-	e->date = date;
-#       ifdef xTRACE
-	if (Trace)
-		printf("reschedule: type %d parm %d %d %d @ %.2f\n",
-			e->evcode, e->x, e->y, e->systemname, date);
-#       endif
-	return;
+    date    = Now.date + offset;
+    e->date = date;
+#ifdef xTRACE
+    if (Trace)
+        printf("reschedule: type %d parm %d %d %d @ %.2f\n", e->evcode, e->x, e->y, e->systemname,
+               date);
+#endif
+    return;
 }
-
 
 /*
 **  UNSCHEDULE AN EVENT
@@ -74,21 +70,20 @@ void reschedule(struct event *e1, FLOAT offset)
 
 void unschedule(struct event *e1)
 {
-	register struct event   *e;
+    register struct event *e;
 
-	e = e1;
+    e = e1;
 
-#       ifdef xTRACE
-	if (Trace)
-		printf("unschedule: type %d @ %.2f parm %d %d %d\n",
-			e->evcode, e->date, e->x, e->y, e->systemname);
-#       endif
-	Now.eventptr[e->evcode & E_EVENT] = 0;
-	e->date = 1e50;
-	e->evcode = 0;
-	return;
+#ifdef xTRACE
+    if (Trace)
+        printf("unschedule: type %d @ %.2f parm %d %d %d\n", e->evcode, e->date, e->x, e->y,
+               e->systemname);
+#endif
+    Now.eventptr[e->evcode & E_EVENT] = 0;
+    e->date                           = 1e50;
+    e->evcode                         = 0;
+    return;
 }
-
 
 /*
 **  Abreviated schedule routine
@@ -99,12 +94,11 @@ void unschedule(struct event *e1)
 
 struct event *xsched(int ev1, int factor, int x, int y, int z)
 {
-	register int    ev;
+    register int ev;
 
-	ev = ev1;
-	return (schedule(ev, -Param.eventdly[ev] * Param.time * log(franf()) / factor, x, y, z));
+    ev = ev1;
+    return (schedule(ev, -Param.eventdly[ev] * Param.time * log(franf()) / factor, x, y, z));
 }
-
 
 /*
 **  Simplified reschedule routine
@@ -115,10 +109,10 @@ struct event *xsched(int ev1, int factor, int x, int y, int z)
 
 void xresched(struct event *e1, int ev1, int factor)
 {
-	register int            ev;
-	register struct event   *e;
+    register int ev;
+    register struct event *e;
 
-	ev = ev1;
-	e = e1;
-	reschedule(e, -Param.eventdly[ev] * Param.time * log(franf()) / factor);
+    ev = ev1;
+    e  = e1;
+    reschedule(e, -Param.eventdly[ev] * Param.time * log(franf()) / factor);
 }

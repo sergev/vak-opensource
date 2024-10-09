@@ -1,4 +1,4 @@
-# include       "trek.h"
+#include "trek.h"
 
 /*  DAMAGED -- check for device damaged
 **
@@ -9,21 +9,20 @@
 
 int damaged(int dev)
 {
-	register int            d;
-	register struct event   *e;
-	register int            i;
+    register int d;
+    register struct event *e;
+    register int i;
 
-	d = dev;
+    d = dev;
 
-	for (i = 0; i < MAXEVENTS; i++)
-	{
-		e = &Event[i];
-		if (e->evcode != E_FIXDV)
-			continue;
-		if (e->systemname == d)
-			return (1);
-	}
+    for (i = 0; i < MAXEVENTS; i++) {
+        e = &Event[i];
+        if (e->evcode != E_FIXDV)
+            continue;
+        if (e->systemname == d)
+            return (1);
+    }
 
-	/* device fix not in event list -- device must not be broken */
-	return (0);
+    /* device fix not in event list -- device must not be broken */
+    return (0);
 }

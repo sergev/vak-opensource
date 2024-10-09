@@ -1,14 +1,14 @@
-# include       "trek.h"
+#include "trek.h"
 
-struct quad     Quad[NQUADS][NQUADS];
-struct event    Event[MAXEVENTS];       /* dynamic event list; one entry per pending event */
+struct quad Quad[NQUADS][NQUADS];
+struct event Event[MAXEVENTS]; /* dynamic event list; one entry per pending event */
 struct dzoShip Ship;
-struct dzoGame  Game;
-struct  dzoMove Move;
+struct dzoGame Game;
+struct dzoMove Move;
 struct dzoParam Param;
 struct dzoNow Now;
-struct  dzoEtc Etc;
-char    Sect[NSECTS][NSECTS];
+struct dzoEtc Etc;
+char Sect[NSECTS][NSECTS];
 
 /*
 **  Abandon Ship
@@ -37,98 +37,87 @@ char    Sect[NSECTS][NSECTS];
 
 void abandon(int _)
 {
-	register struct quad    *q;
-	register int            i;
-	int                     j;
-	register struct event   *e;
+    register struct quad *q;
+    register int i;
+    int j;
+    register struct event *e;
 
-	if (Ship.ship == QUEENE) {
-		printf("Вы не можете покинуть Faire Queene\n");
-		return;
-		}
-	if (Ship.cond != DOCKED)
-	{
-		if (damaged(SHUTTLE)) {
-			out(SHUTTLE);
-			return;
-			}
-		printf("Офицеры сбежали в космоботе\n");
-		/* decide on fate of crew */
-		q = &Quad[Ship.quadx][Ship.quady];
-		if (q->qsystemname == 0 || damaged(XPORTER))
-		{
-			printf("%d человек из команды остались умирать в открытом космосе\n",
-				Ship.crew);
-			Game.deaths += Ship.crew;
-		}
-		else
-		{
-			printf("Команда высадилась на планету %s\n", systemname(q));
-		}
-	}
-	/* see if you can be exchanged */
-	if (Now.bases == 0 || Game.captives < 20 * Game.skill)
-		lose(L_CAPTURED);
-	/* re-outfit new ship */
-	printf("Вы стали капитаном древней и разбитой, но все еще\n");
-	printf("  летающей космической калоши \"Fairie Queene\".\n");
-	Ship.ship = QUEENE;
-	Ship.shipname = "Fairie Queene";
-	Param.energy = Ship.energy = 3000;
-	Param.torped = Ship.torped = 6;
-	Param.shield = Ship.shield = 1250;
-	Ship.shldup = 0;
-	Ship.cloaked = 0;
-	Ship.warp = 5.0;
-	Ship.warp2 = 25.0;
-	Ship.warp3 = 125.0;
-	Ship.cond = GREEN;
-	/* clear out damages on old ship */
-	for (i = 0; i < MAXEVENTS; i++)
-	{
-		e = &Event[i];
-		if (e->evcode != E_FIXDV)
-			continue;
-		unschedule(e);
-	}
-	/* get rid of some devices and redistribute probabilities */
-	i = Param.damprob[SHUTTLE] + Param.damprob[CLOAK];
-	Param.damprob[SHUTTLE] = Param.damprob[CLOAK] = 0;
-	while (i > 0)
-		for (j = 0; j < NDEV; j++)
-		{
-			if (Param.damprob[j] != 0)
-			{
-				Param.damprob[j] += 1;
-				i--;
-				if (i <= 0)
-					break;
-			}
-		}
-	/* pick a starbase to restart at */
-	i = ranf(Now.bases);
-	Ship.quadx = Now.base[i].x;
-	Ship.quady = Now.base[i].y;
-	/* setup that quadrant */
-	while (1)
-	{
-		initquad(1);
-		Sect[Ship.sectx][Ship.secty] = EMPTY;
-		for (i = 0; i < 5; i++)
-		{
-			Ship.sectx = Etc.starbase.x + ranf(3) - 1;
-			if (Ship.sectx < 0 || Ship.sectx >= NSECTS)
-				continue;
-			Ship.secty = Etc.starbase.y + ranf(3) - 1;
-			if (Ship.secty < 0 || Ship.secty >= NSECTS)
-				continue;
-			if (Sect[Ship.sectx][Ship.secty] == EMPTY)
-			{
-				Sect[Ship.sectx][Ship.secty] = QUEENE;
-				dock(0);
-				compkldist(0);
-				return;
-			}
-		}
-	}
+    if (Ship.ship == QUEENE) {
+        printf("Вы не можете покинуть Faire Queene\n");
+        return;
+    }
+    if (Ship.cond != DOCKED) {
+        if (damaged(SHUTTLE)) {
+            out(SHUTTLE);
+            return;
+        }
+        printf("Офицеры сбежали в космоботе\n");
+        /* decide on fate of crew */
+        q = &Quad[Ship.quadx][Ship.quady];
+        if (q->qsystemname == 0 || damaged(XPORTER)) {
+            printf("%d человек из команды остались умирать в открытом космосе\n", Ship.crew);
+            Game.deaths += Ship.crew;
+        } else {
+            printf("Команда высадилась на планету %s\n", systemname(q));
+        }
+    }
+    /* see if you can be exchanged */
+    if (Now.bases == 0 || Game.captives < 20 * Game.skill)
+        lose(L_CAPTURED);
+    /* re-outfit new ship */
+    printf("Вы стали капитаном древней и разбитой, но все еще\n");
+    printf("  летающей космической калоши \"Fairie Queene\".\n");
+    Ship.ship     = QUEENE;
+    Ship.shipname = "Fairie Queene";
+    Param.energy = Ship.energy = 3000;
+    Param.torped = Ship.torped = 6;
+    Param.shield = Ship.shield = 1250;
+    Ship.shldup                = 0;
+    Ship.cloaked               = 0;
+    Ship.warp                  = 5.0;
+    Ship.warp2                 = 25.0;
+    Ship.warp3                 = 125.0;
+    Ship.cond                  = GREEN;
+    /* clear out damages on old ship */
+    for (i = 0; i < MAXEVENTS; i++) {
+        e = &Event[i];
+        if (e->evcode != E_FIXDV)
+            continue;
+        unschedule(e);
+    }
+    /* get rid of some devices and redistribute probabilities */
+    i                      = Param.damprob[SHUTTLE] + Param.damprob[CLOAK];
+    Param.damprob[SHUTTLE] = Param.damprob[CLOAK] = 0;
+    while (i > 0)
+        for (j = 0; j < NDEV; j++) {
+            if (Param.damprob[j] != 0) {
+                Param.damprob[j] += 1;
+                i--;
+                if (i <= 0)
+                    break;
+            }
+        }
+    /* pick a starbase to restart at */
+    i          = ranf(Now.bases);
+    Ship.quadx = Now.base[i].x;
+    Ship.quady = Now.base[i].y;
+    /* setup that quadrant */
+    while (1) {
+        initquad(1);
+        Sect[Ship.sectx][Ship.secty] = EMPTY;
+        for (i = 0; i < 5; i++) {
+            Ship.sectx = Etc.starbase.x + ranf(3) - 1;
+            if (Ship.sectx < 0 || Ship.sectx >= NSECTS)
+                continue;
+            Ship.secty = Etc.starbase.y + ranf(3) - 1;
+            if (Ship.secty < 0 || Ship.secty >= NSECTS)
+                continue;
+            if (Sect[Ship.sectx][Ship.secty] == EMPTY) {
+                Sect[Ship.sectx][Ship.secty] = QUEENE;
+                dock(0);
+                compkldist(0);
+                return;
+            }
+        }
+    }
 }

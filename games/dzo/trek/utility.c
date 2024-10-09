@@ -11,22 +11,22 @@
 **      Overflow of `b' is not tested.
 */
 
-#include "trek.h"
 #include <stdlib.h>
+
+#include "trek.h"
 
 char *bmove(char *a, char *b, int l)
 {
-	register int            n;
-	register char           *p, *q;
+    register int n;
+    register char *p, *q;
 
-	p = a;
-	q = b;
-	n = l;
-	while (n--)
-		*q++ = *p++;
-	return (q);
+    p = a;
+    q = b;
+    n = l;
+    while (n--)
+        *q++ = *p++;
+    return (q);
 }
-
 
 /*
 **  STRING EQUALITY TEST
@@ -37,16 +37,15 @@ char *bmove(char *a, char *b, int l)
 
 int sequal(char *a, char *b)
 {
-	register char           *p, *q;
+    register char *p, *q;
 
-	p = a;
-	q = b;
-	while (*p || *q)
-		if (*p++ != *q++)
-			return(0);
-	return(1);
+    p = a;
+    q = b;
+    while (*p || *q)
+        if (*p++ != *q++)
+            return (0);
+    return (1);
 }
-
 
 /*
 **  STRING CONCATENATE
@@ -59,20 +58,19 @@ int sequal(char *a, char *b)
 
 char *concat(char *s1, char *s2, char *s3)
 {
-	register char           *p;
-	register char           *q;
+    register char *p;
+    register char *q;
 
-	p = s3;
-	q = s1;
-	while (*q)
-		*p++ = *q++;
-	q = s2;
-	while (*q)
-		*p++ = *q++;
-	*p = 0;
-	return (p);
+    p = s3;
+    q = s1;
+    while (*q)
+        *p++ = *q++;
+    q = s2;
+    while (*q)
+        *p++ = *q++;
+    *p = 0;
+    return (p);
 }
-
 
 /*
 **  FIND STRING LENGTH
@@ -83,16 +81,15 @@ char *concat(char *s1, char *s2, char *s3)
 
 int length(char *s)
 {
-	register int    l;
-	register char   *p;
+    register int l;
+    register char *p;
 
-	l = 0;
-	p = s;
-	while (*p++)
-		l++;
-	return(l);
+    l = 0;
+    p = s;
+    while (*p++)
+        l++;
+    return (l);
 }
-
 
 /*
 **  SYSTEM ERROR
@@ -102,14 +99,14 @@ int length(char *s)
 
 void tsyserr(const char *s, ...)
 {
-	va_list p;
+    va_list p;
 
-	printf("\n\07TREK SYSERR: ");
-	va_start(p, s);
-	vprintf(s, p);
-	va_end(p);
-	printf("\n");
-	if (errno)
-		printf("\tsystem error %d\n", errno);
-	exit(-1);
+    printf("\n\07TREK SYSERR: ");
+    va_start(p, s);
+    vprintf(s, p);
+    va_end(p);
+    printf("\n");
+    if (errno)
+        printf("\tsystem error %d\n", errno);
+    exit(-1);
 }

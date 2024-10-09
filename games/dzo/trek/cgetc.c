@@ -1,6 +1,6 @@
-# include       <stdio.h>
+#include <stdio.h>
 
-char    cgetc()
+char cgetc()
 {
-	return ( getchar() );
+    return (getchar());
 }

@@ -1,4 +1,4 @@
-# include       "trek.h"
+#include "trek.h"
 
 /*
 **  damage control report
@@ -14,49 +14,43 @@
 
 void dcrept(int _)
 {
-	register int            i, f;
-	FLOAT                   x;
-	FLOAT                   m1, m2;
-	register struct event   *e;
+    register int i, f;
+    FLOAT x;
+    FLOAT m1, m2;
+    register struct event *e;
 
-	/* set up the magic factors to output the time till fixed */
-	if (Ship.cond == DOCKED)
-	{
-		m1 = 1.0 / Param.dockfac;
-		m2 = 1.0;
-	}
-	else
-	{
-		m1 = 1.0;
-		m2 = Param.dockfac;
-	}
-	printf("Информция о неиспраностях:\n");
-	f = 1;
+    /* set up the magic factors to output the time till fixed */
+    if (Ship.cond == DOCKED) {
+        m1 = 1.0 / Param.dockfac;
+        m2 = 1.0;
+    } else {
+        m1 = 1.0;
+        m2 = Param.dockfac;
+    }
+    printf("Информция о неиспраностях:\n");
+    f = 1;
 
-	/* scan for damages */
-	for (i = 0; i < MAXEVENTS; i++)
-	{
-		e = &Event[i];
-		if (e->evcode != E_FIXDV)
-			continue;
+    /* scan for damages */
+    for (i = 0; i < MAXEVENTS; i++) {
+        e = &Event[i];
+        if (e->evcode != E_FIXDV)
+            continue;
 
-		/* output the title first time */
-		if (f)
-		{
-			printf("\t\t\t  время ремонта\n");
-			printf("устройство\t\tв полете   на базе\n");
-			f = 0;
-		}
+        /* output the title first time */
+        if (f) {
+            printf("\t\t\t  время ремонта\n");
+            printf("устройство\t\tв полете   на базе\n");
+            f = 0;
+        }
 
-		/* compute time till fixed, then adjust by the magic factors */
-		x = e->date - Now.date;
-		printf("%-24s%7.2f  %7.2f\n",
-			Device[e->systemname].name, x * m1 + 0.005, x * m2 + 0.005);
+        /* compute time till fixed, then adjust by the magic factors */
+        x = e->date - Now.date;
+        printf("%-24s%7.2f  %7.2f\n", Device[e->systemname].name, x * m1 + 0.005, x * m2 + 0.005);
 
-		/* do a little consistancy checking */
-	}
+        /* do a little consistancy checking */
+    }
 
-	/* if everything was ok, reassure the nervous captain */
-	if (f)
-		printf("Все устройства исправны\n");
+    /* if everything was ok, reassure the nervous captain */
+    if (f)
+        printf("Все устройства исправны\n");
 }

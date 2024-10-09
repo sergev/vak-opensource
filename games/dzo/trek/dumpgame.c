@@ -1,28 +1,28 @@
-# include       "trek.h"
 #include <fcntl.h>
 
-/***  THIS CONSTANT MUST CHANGE AS THE DATA SPACES CHANGE ***/
-# define        VERSION         2
+#include "trek.h"
 
-struct dump
-{
-	void    *area;
-	int     count;
+/***  THIS CONSTANT MUST CHANGE AS THE DATA SPACES CHANGE ***/
+#define VERSION 2
+
+struct dump {
+    void *area;
+    int count;
 };
 
-
-struct dump     Dump_template[] =
-{
-     {  &Ship,          sizeof (Ship)   },
-     {  &Now,           sizeof (Now)    },
-     {  &Param,         sizeof (Param)  },
-     {  &Etc,           sizeof (Etc)    },
-     {  &Game,          sizeof (Game)   },
-     {  Sect,           sizeof (Sect)   },
-     {  Quad,           sizeof (Quad)   },
-     {  &Move,          sizeof (Move)   },
-     {  Event,          sizeof (Event)  },
-     {  0,              0 }
+struct dump Dump_template[] = {
+    // clang-format off
+    { &Ship, sizeof(Ship) },
+    { &Now, sizeof(Now) },
+    { &Param, sizeof(Param) },
+    { &Etc, sizeof(Etc) },
+    { &Game, sizeof(Game) },
+    { Sect, sizeof(Sect) },
+    { Quad, sizeof(Quad) },
+    { &Move, sizeof(Move) },
+    { Event, sizeof(Event) },
+    { 0, 0 },
+    // clang-format on
 };
 
 /*
@@ -37,29 +37,27 @@ struct dump     Dump_template[] =
 
 void dumpgame(int _)
 {
-	int                     version;
-	register int            fd;
-	register struct dump    *d;
-	register int            i;
+    int version;
+    register int fd;
+    register struct dump *d;
+    register int i;
 
-	if ((fd = creat("trek.dump", 0644)) < 0) {
-		printf("не могу запомнить\n");
-		return;
-		}
-	version = VERSION;
-	write(fd, &version, sizeof version);
+    if ((fd = creat("trek.dump", 0644)) < 0) {
+        printf("не могу запомнить\n");
+        return;
+    }
+    version = VERSION;
+    write(fd, &version, sizeof version);
 
-	/* output the main data areas */
-	for (d = Dump_template; d->area; d++)
-	{
-		write(fd, &d->area, sizeof d->area);
-		i = d->count;
-		write(fd, d->area, i);
-	}
+    /* output the main data areas */
+    for (d = Dump_template; d->area; d++) {
+        write(fd, &d->area, sizeof d->area);
+        i = d->count;
+        write(fd, d->area, i);
+    }
 
-	close(fd);
+    close(fd);
 }
-
 
 /*
 **  RESTORE GAME
@@ -74,23 +72,19 @@ void dumpgame(int _)
 
 int restartgame()
 {
-	register int    fd;
-	int             version;
+    register int fd;
+    int version;
 
-	if ((fd = open("trek.dump", 0)) < 0 ||
-	    read(fd, &version, sizeof version) != sizeof version ||
-	    version != VERSION ||
-	    readdump(fd))
-	{
-		printf("не могу перезапустить\n");
-		close(fd);
-		return (1);
-	}
+    if ((fd = open("trek.dump", 0)) < 0 || read(fd, &version, sizeof version) != sizeof version ||
+        version != VERSION || readdump(fd)) {
+        printf("не могу перезапустить\n");
+        close(fd);
+        return (1);
+    }
 
-	close(fd);
-	return (0);
+    close(fd);
+    return (0);
 }
-
 
 /*
 **  READ DUMP
@@ -103,24 +97,23 @@ int restartgame()
 
 int readdump(int fd1)
 {
-	register int            fd;
-	register struct dump    *d;
-	register int            i;
-	void                    *junk;
+    register int fd;
+    register struct dump *d;
+    register int i;
+    void *junk;
 
-	fd = fd1;
+    fd = fd1;
 
-	for (d = Dump_template; d->area; d++)
-	{
-		if (read(fd, &junk, sizeof junk) != (sizeof junk))
-			return (1);
-		if (junk != d->area)
-			return (1);
-		i = d->count;
-		if (read(fd, d->area, i) != i)
-			return (1);
-	}
+    for (d = Dump_template; d->area; d++) {
+        if (read(fd, &junk, sizeof junk) != (sizeof junk))
+            return (1);
+        if (junk != d->area)
+            return (1);
+        i = d->count;
+        if (read(fd, d->area, i) != i)
+            return (1);
+    }
 
-	/* make quite certain we are at EOF */
-	return (read(fd, &junk, 1));
+    /* make quite certain we are at EOF */
+    return (read(fd, &junk, 1));
 }

@@ -1,4 +1,4 @@
-# include       "trek.h"
+#include "trek.h"
 
 /*
 **  CHECK IF A DEVICE IS OUT
@@ -13,20 +13,20 @@
 
 int check_out(int device)
 {
-	register int    dev;
+    register int dev;
 
-	dev = device;
+    dev = device;
 
-	/* check for device ok */
-	if (!damaged(dev))
-		return (0);
+    /* check for device ok */
+    if (!damaged(dev))
+        return (0);
 
-	/* report it as being dead */
-	out(dev);
+    /* report it as being dead */
+    out(dev);
 
-	/* but if we are docked, we can go ahead anyhow */
-	if (Ship.cond != DOCKED)
-		return (1);
-	printf("  Использованы %s звездной базы\n", Device[dev].name);
-	return (0);
+    /* but if we are docked, we can go ahead anyhow */
+    if (Ship.cond != DOCKED)
+        return (1);
+    printf("  Использованы %s звездной базы\n", Device[dev].name);
+    return (0);
 }

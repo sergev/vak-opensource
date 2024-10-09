@@ -1,4 +1,4 @@
-# include       "trek.h"
+#include "trek.h"
 
 /*
 **  Check for Condition After a Move
@@ -27,41 +27,39 @@
 
 void checkcond()
 {
-	register int            i, j;
+    register int i, j;
 
-	/* see if we are still alive and well */
-	if (Ship.reserves < 0.0)
-		lose(L_NOLIFE);
-	if (Ship.energy <= 0)
-		lose(L_NOENGY);
-	if (Ship.crew <= 0)
-		lose(L_NOCREW);
-	/* if in auto override mode, ignore the rest */
-	if (Etc.nkling < 0)
-		return;
-	/* call in automatic override if appropriate */
-	if (Quad[Ship.quadx][Ship.quady].stars < 0)
-		autover();
-	if (Quad[Ship.quadx][Ship.quady].stars < 0)
-		lose(L_SNOVA);
-	/* nullify distress call if appropriate */
-	if (Etc.nkling <= 0)
-		killd(Ship.quadx, Ship.quady, 1);
+    /* see if we are still alive and well */
+    if (Ship.reserves < 0.0)
+        lose(L_NOLIFE);
+    if (Ship.energy <= 0)
+        lose(L_NOENGY);
+    if (Ship.crew <= 0)
+        lose(L_NOCREW);
+    /* if in auto override mode, ignore the rest */
+    if (Etc.nkling < 0)
+        return;
+    /* call in automatic override if appropriate */
+    if (Quad[Ship.quadx][Ship.quady].stars < 0)
+        autover();
+    if (Quad[Ship.quadx][Ship.quady].stars < 0)
+        lose(L_SNOVA);
+    /* nullify distress call if appropriate */
+    if (Etc.nkling <= 0)
+        killd(Ship.quadx, Ship.quady, 1);
 
-	/* set condition code */
-	if (Ship.cond == DOCKED)
-		return;
+    /* set condition code */
+    if (Ship.cond == DOCKED)
+        return;
 
-	if (Etc.nkling > 0)
-	{
-		Ship.cond = RED;
-		return;
-	}
-	if (Ship.energy < Param.energylow)
-	{
-		Ship.cond = YELLOW;
-		return;
-	}
-	Ship.cond = GREEN;
-	return;
+    if (Etc.nkling > 0) {
+        Ship.cond = RED;
+        return;
+    }
+    if (Ship.energy < Param.energylow) {
+        Ship.cond = YELLOW;
+        return;
+    }
+    Ship.cond = GREEN;
+    return;
 }

@@ -1,13 +1,14 @@
-#include "trek.h"
-#include "getpar.h"
 #include <stdlib.h>
 #include <time.h>
 
-jmp_buf         jmpbuf ;
+#include "getpar.h"
+#include "trek.h"
 
-# define        setexit()       setjmp(jmpbuf)
+jmp_buf jmpbuf;
 
-int     Mother  = 51 + (51 << 8);
+#define setexit() setjmp(jmpbuf)
+
+int Mother = 51 + (51 << 8);
 
 /*
 **       ####  #####    #    ####          #####  ####   #####  #   #
@@ -111,75 +112,70 @@ int     Mother  = 51 + (51 << 8);
 
 int main(int argc, char **argv)
 {
-	long                    vect;
-	/* extern FILE          *f_log; */
-	register char           opencode;
-/*      int                     prio; */
-	register int            ac;
-	register char           **av;
-	int                     been_here = 0;
+    long vect;
+    /* extern FILE          *f_log; */
+    register char opencode;
+    /*      int                     prio; */
+    register int ac;
+    register char **av;
+    int been_here = 0;
 
-	av = argv;
-	ac = argc;
-	av++;
-	time(&vect);
-	srand((int)vect);
-	opencode = 'w';
-	while (ac > 1 && av[0][0] == '-')
-	{
-		switch (av[0][1])
-		{
-		  case 'a':     /* append to log file */
-			opencode = 'a';
-			break;
+    av = argv;
+    ac = argc;
+    av++;
+    time(&vect);
+    srand((int)vect);
+    opencode = 'w';
+    while (ac > 1 && av[0][0] == '-') {
+        switch (av[0][1]) {
+        case 'a': /* append to log file */
+            opencode = 'a';
+            break;
 
-		  case 'f':     /* set fast mode */
-			Etc.fast++;
-			break;
+        case 'f': /* set fast mode */
+            Etc.fast++;
+            break;
 
-		  case 's':     /* set slow mode */
-			Etc.fast = 0;
-			break;
+        case 's': /* set slow mode */
+            Etc.fast = 0;
+            break;
 
 #ifdef xTRACE
-		  case 't':     /* trace */
-			if (getuid() != Mother)
-				goto badflag;
-			Trace++;
-			break;
+        case 't': /* trace */
+            if (getuid() != Mother)
+                goto badflag;
+            Trace++;
+            break;
 #endif
-		  default:
-		  badflag:
-			printf("Плохой ключ: %s\n", av[0]);
+        default:
+        badflag:
+            printf("Плохой ключ: %s\n", av[0]);
+        }
+        ac--;
+        av++;
+    }
+    if (ac > 2)
+        tsyserr("Число аргументов ?");
+    /*
+if (ac > 1)
+    f_log = fopen(av[0], opencode);
+    */
 
-		}
-		ac--;
-		av++;
-	}
-	if (ac > 2)
-		tsyserr("Число аргументов ?");
-		/*
-	if (ac > 1)
-		f_log = fopen(av[0], opencode);
-		*/
+    printf("\n   * * *   S T A R   T R E K   * * *\n\n");
 
-	printf("\n   * * *   S T A R   T R E K   * * *\n\n");
+    /* play_with(stdin); */
+    ungetc('\n', stdin);
+    setexit();
+    if (been_here == 1) {
+        if (!getynpar("Еще игра"))
+            return 0;
+    }
+    been_here = 1;
+    do {
+        setup();
+        play(0);
+    } while (getynpar("Еще игра"));
 
-	/* play_with(stdin); */
-	ungetc('\n',stdin);
-	setexit();
-	if ( been_here == 1 )
-	{
-		if ( !getynpar("Еще игра") )
-			return 0;
-	}
-	been_here = 1;
-	do
-	{
-		setup();
-		play(0);
-	} while (getynpar("Еще игра"));
-
-	fflush(stdout);
-	return 0;
+    fflush(stdout);
+    return 0;
 }

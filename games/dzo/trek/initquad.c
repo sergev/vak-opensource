@@ -1,4 +1,4 @@
-# include       "trek.h"
+#include "trek.h"
 
 /*
 **  Paramize Quadrant Upon Entering
@@ -19,95 +19,87 @@
 
 void initquad(int f)
 {
-	register int            i, j;
-	int                     rx, ry;
-	int                     nbases, nstars;
-	register struct quad    *q;
-	int                     nholes;
+    register int i, j;
+    int rx, ry;
+    int nbases, nstars;
+    register struct quad *q;
+    int nholes;
 
-	q = &Quad[Ship.quadx][Ship.quady];
+    q = &Quad[Ship.quadx][Ship.quady];
 
-	/* ignored supernova'ed quadrants (this is checked again later anyway */
-	if (q->stars < 0)
-		return;
-	Etc.nkling = q->klings;
-	nbases = q->bases;
-	nstars = q->stars;
-	nholes = q->holes;
+    /* ignored supernova'ed quadrants (this is checked again later anyway */
+    if (q->stars < 0)
+        return;
+    Etc.nkling = q->klings;
+    nbases     = q->bases;
+    nstars     = q->stars;
+    nholes     = q->holes;
 
-	/* have we blundered into a battle zone w/ shields down? */
-	if (Etc.nkling > 0 && !f)
-	{
-		printf("Квадрат КРАСНЫЙ\n");
-		Ship.cond = RED;
-		if (!damaged(COMPUTER))
-			shield(1);
-	}
+    /* have we blundered into a battle zone w/ shields down? */
+    if (Etc.nkling > 0 && !f) {
+        printf("Квадрат КРАСНЫЙ\n");
+        Ship.cond = RED;
+        if (!damaged(COMPUTER))
+            shield(1);
+    }
 
-	/* clear out the quadrant */
-	for (i = 0; i < NSECTS; i++)
-		for (j = 0; j < NSECTS; j++)
-			Sect[i][j] = EMPTY;
+    /* clear out the quadrant */
+    for (i = 0; i < NSECTS; i++)
+        for (j = 0; j < NSECTS; j++)
+            Sect[i][j] = EMPTY;
 
-	/* initialize Enterprise */
-	Sect[Ship.sectx][Ship.secty] = Ship.ship;
+    /* initialize Enterprise */
+    Sect[Ship.sectx][Ship.secty] = Ship.ship;
 
-	/* initialize Klingons */
-	for (i = 0; i < Etc.nkling; i++)
-	{
-		sector(&rx, &ry);
-		Sect[rx][ry] = KLINGON;
-		Etc.klingon[i].x = rx;
-		Etc.klingon[i].y = ry;
-		Etc.klingon[i].power = Param.klingpwr;
-		Etc.klingon[i].srndreq = 0;
-	}
-	compkldist(1);
+    /* initialize Klingons */
+    for (i = 0; i < Etc.nkling; i++) {
+        sector(&rx, &ry);
+        Sect[rx][ry]           = KLINGON;
+        Etc.klingon[i].x       = rx;
+        Etc.klingon[i].y       = ry;
+        Etc.klingon[i].power   = Param.klingpwr;
+        Etc.klingon[i].srndreq = 0;
+    }
+    compkldist(1);
 
-	/* initialize star base */
-	if (nbases > 0)
-	{
-		sector(&rx, &ry);
-		Sect[rx][ry] = BASE;
-		Etc.starbase.x = rx;
-		Etc.starbase.y = ry;
-	}
+    /* initialize star base */
+    if (nbases > 0) {
+        sector(&rx, &ry);
+        Sect[rx][ry]   = BASE;
+        Etc.starbase.x = rx;
+        Etc.starbase.y = ry;
+    }
 
-	/* initialize inhabited starsystem */
-	if (q->qsystemname != 0)
-	{
-		sector(&rx, &ry);
-		Sect[rx][ry] = INHABIT;
-		nstars -= 1;
-	}
+    /* initialize inhabited starsystem */
+    if (q->qsystemname != 0) {
+        sector(&rx, &ry);
+        Sect[rx][ry] = INHABIT;
+        nstars -= 1;
+    }
 
-	/* initialize black holes */
-	for (i = 0; i < nholes; i++)
-	{
-		sector(&rx, &ry);
-		Sect[rx][ry] = HOLE;
-	}
+    /* initialize black holes */
+    for (i = 0; i < nholes; i++) {
+        sector(&rx, &ry);
+        Sect[rx][ry] = HOLE;
+    }
 
-	/* initialize stars */
-	for (i = 0; i < nstars; i++)
-	{
-		sector(&rx, &ry);
-		Sect[rx][ry] = STAR;
-	}
-	Move.newquad = 1;
+    /* initialize stars */
+    for (i = 0; i < nstars; i++) {
+        sector(&rx, &ry);
+        Sect[rx][ry] = STAR;
+    }
+    Move.newquad = 1;
 }
-
 
 void sector(int *x, int *y)
 {
-	register int            i, j;
+    register int i, j;
 
-	do
-	{
-		i = ranf(NSECTS);
-		j = ranf(NSECTS);
-	} while (Sect[i][j] != EMPTY);
-	*x = i;
-	*y = j;
-	return;
+    do {
+        i = ranf(NSECTS);
+        j = ranf(NSECTS);
+    } while (Sect[i][j] != EMPTY);
+    *x = i;
+    *y = j;
+    return;
 }

@@ -1,4 +1,4 @@
-# include       "trek.h"
+#include "trek.h"
 
 /*
 **  Ask a Klingon To Surrender
@@ -16,63 +16,59 @@
 
 void capture(int _)
 {
-	register int            i;
-	register struct kling   *k;
-	FLOAT                   x;
+    register int i;
+    register struct kling *k;
+    FLOAT x;
 
-	/* check for not cloaked */
-	if (Ship.cloaked)
-	{
-		printf("Межкорабельная связь невозможна пока корабль закрыт\n");
-		return;
-	}
-	if (damaged(SSRADIO)) {
-		out(SSRADIO);
-		return;
-		}
-	/* find out if there are any at all */
-	if (Etc.nkling <= 0)
-	{
-		printf("Ухура: Никто не отвечает, сэр\n");
-		return;
-	}
+    /* check for not cloaked */
+    if (Ship.cloaked) {
+        printf("Межкорабельная связь невозможна пока корабль закрыт\n");
+        return;
+    }
+    if (damaged(SSRADIO)) {
+        out(SSRADIO);
+        return;
+    }
+    /* find out if there are any at all */
+    if (Etc.nkling <= 0) {
+        printf("Ухура: Никто не отвечает, сэр\n");
+        return;
+    }
 
-	/* if there is more than one Klingon, find out which one */
-	k = selectklingon();
-	Move.free = 0;
-	Move.time = 0.05;
+    /* if there is more than one Klingon, find out which one */
+    k         = selectklingon();
+    Move.free = 0;
+    Move.time = 0.05;
 
-	/* check out that Klingon */
-	k->srndreq++;
-	x = Param.klingpwr;
-	x *= Ship.energy;
-	x /= k->power * Etc.nkling;
-	x *= Param.srndrprob;
-	i = x;
-#       ifdef xTRACE
-	if (Trace)
-		printf("Prob = %d (%.4f)\n", i, x);
-#       endif
-	if (i > ranf(100))
-	{
-		/* guess what, he surrendered!!! */
-		printf("Клинг в %d,%d сдался\n", k->x, k->y);
-		i = ranf(Param.klingcrew);
-		if ( i > 0 )
-			printf("%d членов команды клинга предпочли самоубийство\n", Param.klingcrew - i);
-		if (i > Ship.brigfree)
-			i = Ship.brigfree;
-		Ship.brigfree -= i;
-		printf("Взято на борт %d сдавшихся\n", i);
-		killk(k->x, k->y);
-		return;
-	}
+    /* check out that Klingon */
+    k->srndreq++;
+    x = Param.klingpwr;
+    x *= Ship.energy;
+    x /= k->power * Etc.nkling;
+    x *= Param.srndrprob;
+    i = x;
+#ifdef xTRACE
+    if (Trace)
+        printf("Prob = %d (%.4f)\n", i, x);
+#endif
+    if (i > ranf(100)) {
+        /* guess what, he surrendered!!! */
+        printf("Клинг в %d,%d сдался\n", k->x, k->y);
+        i = ranf(Param.klingcrew);
+        if (i > 0)
+            printf("%d членов команды клинга предпочли самоубийство\n", Param.klingcrew - i);
+        if (i > Ship.brigfree)
+            i = Ship.brigfree;
+        Ship.brigfree -= i;
+        printf("Взято на борт %d сдавшихся\n", i);
+        killk(k->x, k->y);
+        return;
+    }
 
-	/* big surprise, he refuses to surrender */
-	printf("Глухой номер, капитан, эти не сдаются\n");
-	return;
+    /* big surprise, he refuses to surrender */
+    printf("Глухой номер, капитан, эти не сдаются\n");
+    return;
 }
-
 
 /*
 **  SELECT A KLINGON
@@ -82,11 +78,11 @@ void capture(int _)
 
 struct kling *selectklingon()
 {
-	register int            i;
+    register int i;
 
-	if (Etc.nkling < 2)
-		i = 0;
-	else
-		i = ranf(Etc.nkling);
-	return (&Etc.klingon[i]);
+    if (Etc.nkling < 2)
+        i = 0;
+    else
+        i = ranf(Etc.nkling);
+    return (&Etc.klingon[i]);
 }

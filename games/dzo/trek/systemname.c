@@ -1,4 +1,4 @@
-# include       "trek.h"
+#include "trek.h"
 
 /*
 **  RETRIEVE THE STARSYSTEM NAME
@@ -13,17 +13,17 @@
 
 char *systemname(struct quad *q1)
 {
-	register struct quad    *q;
-	register int            i;
+    register struct quad *q;
+    register int i;
 
-	q = q1;
+    q = q1;
 
-	i = q->qsystemname;
-	if (i & Q_DISTRESSED)
-		i = Event[i & Q_SYSTEM].systemname;
+    i = q->qsystemname;
+    if (i & Q_DISTRESSED)
+        i = Event[i & Q_SYSTEM].systemname;
 
-	i &= Q_SYSTEM;
-	if (i == 0)
-		return (0);
-	return (Systemname[i]);
+    i &= Q_SYSTEM;
+    if (i == 0)
+        return (0);
+    return (Systemname[i]);
 }

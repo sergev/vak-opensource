@@ -1,4 +1,4 @@
-# include       "trek.h"
+#include "trek.h"
 
 /*
 **  DOCK TO STARBASE
@@ -17,66 +17,61 @@
 
 void dock(int _)
 {
-	register int            i, j;
-	int                     ok;
-	register struct event   *e;
+    register int i, j;
+    int ok;
+    register struct event *e;
 
-	if (Ship.cond == DOCKED) {
-		printf("Чеков: Капитан, но мы уже состыковлись\n");
-		return;
-		}
-	/* check for ok to dock, i.e., adjacent to a starbase */
-	ok = 0;
-	for (i = Ship.sectx - 1; i <= Ship.sectx + 1 && !ok; i++)
-	{
-		if (i < 0 || i >= NSECTS)
-			continue;
-		for (j = Ship.secty - 1; j <= Ship.secty + 1; j++)
-		{
-			if (j  < 0 || j >= NSECTS)
-				continue;
-			if (Sect[i][j] == BASE)
-			{
-				ok++;
-				break;
-			}
-		}
-	}
-	if (!ok) {
-		printf("Чеков: Капитан, но мы не у звездной базы.\n");
-		return;
-		}
-	/* restore resources */
-	Ship.energy = Param.energy;
-	Ship.torped = Param.torped;
-	Ship.shield = Param.shield;
-	Ship.crew = Param.crew;
-	Game.captives += Param.brigfree - Ship.brigfree;
-	Ship.brigfree = Param.brigfree;
+    if (Ship.cond == DOCKED) {
+        printf("Чеков: Капитан, но мы уже состыковлись\n");
+        return;
+    }
+    /* check for ok to dock, i.e., adjacent to a starbase */
+    ok = 0;
+    for (i = Ship.sectx - 1; i <= Ship.sectx + 1 && !ok; i++) {
+        if (i < 0 || i >= NSECTS)
+            continue;
+        for (j = Ship.secty - 1; j <= Ship.secty + 1; j++) {
+            if (j < 0 || j >= NSECTS)
+                continue;
+            if (Sect[i][j] == BASE) {
+                ok++;
+                break;
+            }
+        }
+    }
+    if (!ok) {
+        printf("Чеков: Капитан, но мы не у звездной базы.\n");
+        return;
+    }
+    /* restore resources */
+    Ship.energy = Param.energy;
+    Ship.torped = Param.torped;
+    Ship.shield = Param.shield;
+    Ship.crew   = Param.crew;
+    Game.captives += Param.brigfree - Ship.brigfree;
+    Ship.brigfree = Param.brigfree;
 
-	/* reset ship's defenses */
-	Ship.shldup = 0;
-	Ship.cloaked = 0;
-	Ship.cond = DOCKED;
-	Ship.reserves = Param.reserves;
+    /* reset ship's defenses */
+    Ship.shldup   = 0;
+    Ship.cloaked  = 0;
+    Ship.cond     = DOCKED;
+    Ship.reserves = Param.reserves;
 
-	/* recalibrate space inertial navigation system */
-	Ship.sinsbad = 0;
+    /* recalibrate space inertial navigation system */
+    Ship.sinsbad = 0;
 
-	/* output any saved radio messages */
-	dumpssradio();
+    /* output any saved radio messages */
+    dumpssradio();
 
-	/* reschedule any device repairs */
-	for (i = 0; i < MAXEVENTS; i++)
-	{
-		e = &Event[i];
-		if (e->evcode != E_FIXDV)
-			continue;
-		reschedule(e, (e->date - Now.date) * Param.dockfac);
-	}
-	return;
+    /* reschedule any device repairs */
+    for (i = 0; i < MAXEVENTS; i++) {
+        e = &Event[i];
+        if (e->evcode != E_FIXDV)
+            continue;
+        reschedule(e, (e->date - Now.date) * Param.dockfac);
+    }
+    return;
 }
-
 
 /*
 **  LEAVE A STARBASE
@@ -87,24 +82,22 @@ void dock(int _)
 
 void undock(int _)
 {
-	register struct event   *e;
-	register int            i;
+    register struct event *e;
+    register int i;
 
-	if (Ship.cond != DOCKED)
-	{
-		printf("Сулу: Извините меня, капитан, но мы не стыкованы с базой.\n");
-		return;
-	}
-	Ship.cond = GREEN;
-	Move.free = 0;
+    if (Ship.cond != DOCKED) {
+        printf("Сулу: Извините меня, капитан, но мы не стыкованы с базой.\n");
+        return;
+    }
+    Ship.cond = GREEN;
+    Move.free = 0;
 
-	/* reschedule device repair times (again) */
-	for (i = 0; i < MAXEVENTS; i++)
-	{
-		e = &Event[i];
-		if (e->evcode != E_FIXDV)
-			continue;
-		reschedule(e, (e->date - Now.date) / Param.dockfac);
-	}
-	return;
+    /* reschedule device repair times (again) */
+    for (i = 0; i < MAXEVENTS; i++) {
+        e = &Event[i];
+        if (e->evcode != E_FIXDV)
+            continue;
+        reschedule(e, (e->date - Now.date) / Param.dockfac);
+    }
+    return;
 }
