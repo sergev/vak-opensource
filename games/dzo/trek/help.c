@@ -27,7 +27,7 @@ void help(int _)
     register int i;
     FLOAT dist, x;
     register int dx, dy;
-    int j, l;
+    int j, l = 0;
 
     /* check to see if calling for help is reasonable ... */
     if (Ship.cond == DOCKED) {

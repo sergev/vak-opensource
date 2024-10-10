@@ -87,7 +87,8 @@ struct cvntab *getcodpar(char *s, struct cvntab tab[])
             printf("%s: ", s);
         if (f)
             cgetc(); /* throw out the newline */
-        scanf("%*[ \t;]");
+        if (scanf("%*[ \t;]") < 0)
+            exit(1);
         if ((c = scanf("%[^ \t;\n]", input)) < 0)
             exit(1);
         if (c == 0)
@@ -152,7 +153,8 @@ void getstrpar(char *s, char *r, int l, char *t)
             printf("%s: ", s);
         if (f)
             cgetc();
-        scanf("%*[\t ;]");
+        if (scanf("%*[\t ;]") < 0)
+            exit(1);
         i = scanf(format, r);
         if (i < 0)
             exit(1);

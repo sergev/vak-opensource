@@ -40,16 +40,18 @@ void klmove(int fl)
     if (Trace)
         printf("klmove: fl = %d, Etc.nkling = %d\n", fl, Etc.nkling);
 #endif
-    for (n = 0; n < Etc.nkling; k && n++) {
+    for (n = 0; n < Etc.nkling; n++) {
         k = &Etc.klingon[n];
         i = 100;
         if (fl)
             i = 100.0 * k->power / Param.klingpwr;
         if (ranf(i) >= Param.moveprob[2 * Move.newquad + fl])
             continue;
+
         /* compute distance to move */
         motion = ranf(75) - 25;
         motion *= k->avgdist * Param.movefac[2 * Move.newquad + fl];
+
         /* compute direction */
         dx     = Ship.sectx - k->x + ranf(3) - 1;
         dy     = Ship.secty - k->y + ranf(3) - 1;

@@ -43,17 +43,23 @@ void dumpgame(int _)
     register int i;
 
     if ((fd = creat("trek.dump", 0644)) < 0) {
-        printf("не могу запомнить\n");
+failed: printf("не могу запомнить\n");
         return;
     }
     version = VERSION;
-    write(fd, &version, sizeof version);
+    if (write(fd, &version, sizeof version) != sizeof version) {
+        goto failed;
+    }
 
     /* output the main data areas */
     for (d = Dump_template; d->area; d++) {
-        write(fd, &d->area, sizeof d->area);
+        if (write(fd, &d->area, sizeof d->area) != sizeof d->area) {
+            goto failed;
+        }
         i = d->count;
-        write(fd, d->area, i);
+        if (write(fd, d->area, i) != i) {
+            goto failed;
+        }
     }
 
     close(fd);

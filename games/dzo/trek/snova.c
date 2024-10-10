@@ -78,7 +78,7 @@ void snova(int x, int y)
         if (!damaged(SSRADIO)) {
             q->scanned = 1000;
             printf("\nУхура: Капитан, из штаба межзвездного флота сообщили:\n");
-            printf("  в квдаранте %d,%d взорвалась сверхновая. Надо быть поосторожней.\n", qx, qy);
+            printf("  в квадранте %d,%d взорвалась сверхновая. Надо быть поосторожней.\n", qx, qy);
         }
     }
     /* clear out the supernova'ed quadrant */

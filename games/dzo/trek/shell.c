@@ -23,6 +23,8 @@ void shell(int _)
     signal(2, sav2);
     signal(3, sav3);
 #else
-    system("");
+    if (system("") < 0) {
+        printf("не могу запустить шелл\n");
+    }
 #endif
 }

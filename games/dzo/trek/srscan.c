@@ -24,7 +24,7 @@ void srscan(int f)
     register int statinfo;
     char *s;
     int percent;
-    struct quad *q;
+    struct quad *q = 0;
     extern struct cvntab Skitab[];
     extern struct cvntab Lentab[];
     struct cvntab *p;

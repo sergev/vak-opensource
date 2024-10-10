@@ -12,12 +12,12 @@
 int events(int warp) /* set if called in a time warp */
 {
     register int i;
-    int j;
+    int j = 0;
     struct kling *k;
     FLOAT rtime;
     FLOAT xdate;
     FLOAT idate;
-    struct event *ev;
+    struct event *ev = 0;
     int ix, iy;
     register struct quad *q;
     register struct event *e;
