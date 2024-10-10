@@ -100,7 +100,7 @@ struct cvntab *getcodpar(char *s, struct cvntab tab[])
             c = 4;
             for (r = tab; r->abrev; r++) {
                 concat(r->abrev, r->full, input);
-                printf("%-15.15s", input);
+                printf("%s", input);
                 if (--c > 0)
                     continue;
                 c = 4;

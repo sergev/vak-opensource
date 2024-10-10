@@ -27,7 +27,7 @@ void dcrept(int _)
         m1 = 1.0;
         m2 = Param.dockfac;
     }
-    printf("Информция о неиспраностях:\n");
+    printf("Информация о неисправностях:\n");
     f = 1;
 
     /* scan for damages */
@@ -39,13 +39,13 @@ void dcrept(int _)
         /* output the title first time */
         if (f) {
             printf("\t\t\t  время ремонта\n");
-            printf("устройство\t\tв полете   на базе\n");
+            printf("в полете   на базе    устройство\n");
             f = 0;
         }
 
         /* compute time till fixed, then adjust by the magic factors */
         x = e->date - Now.date;
-        printf("%-24s%7.2f  %7.2f\n", Device[e->systemname].name, x * m1 + 0.005, x * m2 + 0.005);
+        printf("%7.2f  %7.2f  %s\n", x * m1 + 0.005, x * m2 + 0.005, Device[e->systemname].name);
 
         /* do a little consistancy checking */
     }
