@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
 # Вычисление числа пи.
@@ -121,19 +121,19 @@ def brent_salamin():
 	b0 = 1 / math.sqrt (2)
 	t0 = 1./4
 	p0 = 1.
-	#print (a0 + b0)*(a0 + b0) / (4 * t0)
+	#print((a0 + b0)*(a0 + b0) / (4 * t0))
 
 	a1 = (a0 + b0) / 2
 	b1 = math.sqrt (a0 * b0)
 	t1 = t0 - p0 * (a0 - a1)*(a0 - a1)
 	p1 = p0 + p0
-	#print (a1 + b1)*(a1 + b1) / (4 * t1)
+	#print((a1 + b1)*(a1 + b1) / (4 * t1))
 
 	a2 = (a1 + b1) / 2
 	b2 = math.sqrt (a1 * b1)
 	t2 = t1 - p1 * (a1 - a2)*(a1 - a2)
 	p2 = p1 + p1
-	#print (a2 + b2)*(a2 + b2) / (4 * t2)
+	#print((a2 + b2)*(a2 + b2) / (4 * t2))
 
 	a3 = (a2 + b2) / 2
 	b3 = math.sqrt (a2 * b2)
@@ -145,4 +145,4 @@ pi_machin = machin()
 pi_gauss = gauss()
 pi_brent = brent_salamin()
 
-print pi_machin, pi_gauss, pi_brent
+print(pi_machin, pi_gauss, pi_brent)

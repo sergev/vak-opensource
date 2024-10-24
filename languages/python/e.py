@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
 # Вычисление числа e.
@@ -40,4 +40,4 @@ def e1():
 	return e
 
 e_fact = e1()
-print e_fact
+print(e_fact)
