@@ -16,7 +16,7 @@ int main()
             bigint x = n * (ten_pow_k - n);
             if (x % (10*n - 1) == 0) {
                 bigint v = 10 * x / (10*n - 1) + n;
-                std::cout << "For " << n << " solution = " << v << '\n';
+                std::cout << n << " * " << v << " = " << (n * v) << '\n';
                 break;
             }
         }
