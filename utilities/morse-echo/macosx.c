@@ -94,7 +94,7 @@ int audio_init ()
         AudioObjectPropertyAddress property_address = {
                 0,                                  // mSelector
                 kAudioObjectPropertyScopeGlobal,    // mScope
-                kAudioObjectPropertyElementMaster   // mElement
+                kAudioObjectPropertyElementMain     // mElement
         };
 
 	pthread_mutex_init (&buffer_mutex, 0);
