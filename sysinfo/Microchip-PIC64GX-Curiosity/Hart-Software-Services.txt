@@ -1,0 +1,111 @@
+HSS: decompressing from eNVM to L2 Scratch ... Passed
+[0.42849] wdog_service monitoring [u54_1] [u54_2] [u54_3] [u54_4]
+[0.50487] beu_service :: [init] -> [monitoring]
+[0.56694] Initializing Mi-V IHC
+[0.61086] u54 State Change:  [Idle] [Idle] [Idle] [Idle]
+[0.69202] loop 1 took 6360219 ticks (max 6360219 ticks)
+[0.76172] Initializing IPI Queues (3304 bytes @ a0274c0)...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1.402207] loop 3 took 791144312 ticks (max 791144312 ticks)
+[1.409654] Initializing PMPs
+[1.413760] PIC64GX(R) Hart Software Services (HSS) - version 0.99.41-unknown
+PIC64GX HAL version 2.3.102 / DDR Driver version 0.4.024 / IHC version 0.0.0 / BOARD=pic64gx-curiosity-kit
+(c) Copyright 2017-2024 Microchip Technology Inc.
+
+incorporating OpenSBI - version 1.2
+(c) Copyright 2019-2024 Western Digital Corporation.
+
+[1.446987] Build ID: 517d112b46276a3ac3a5b49dc2532d5c726118d1
+[1.454530] Serial Number:
+a14ae1f21083425959e97eebcf95dd3b00000000000000000000000000000000000000000000000000000000000000000000
+[1.468470] Segment Configuration:
+        Cached: SEG0_0: offset 0x0080000000, physical DDR 0x00000000
+        Cached: SEG0_1: offset 0x1000000000, physical DDR 0x00000000
+    Non-cached: SEG1_2: offset 0x00c0000000, physical DDR 0x00000000
+    Non-cached: SEG1_3: offset 0x1400000000, physical DDR 0x00000000
+Non-cached WCB: SEG1_4: offset 0x00d0000000, physical DDR 0x00000000
+Non-cached WCB: SEG1_5: offset 0x1800000000, physical DDR 0x00000000
+[1.513441] L2 Cache Configuration:
+    L2-Scratchpad:  4 ways (512 KiB)
+         L2-Cache:  8 ways (1024 KiB)
+           L2-LIM:  4 ways (512 KiB)
+[1.529386] startup_service :: [init] -> [boot]
+[1.535497] ipi_poll_service :: [Init] -> [Monitoring]
+Press a key to enter CLI, ESC to skip
+Timeout in 1 second
+..
+[5.474194] CLI boot interrupt timeout
+[5.479159] Initializing Boot Image ...
+[5.484220] Trying to get boot image via MMC ...
+[5.490139] Attempting to select SDCARD ... Passed
+[5.520814] Preparing to copy from MMC to DDR ...
+[5.527151] Validated GPT Header ...
+[5.562079] Validated GPT Partition Entries ...
+[5.570811] Boot Partition found at index 12
+[5.576462] Attempting to read image header (1632 bytes) ...
+[5.584352] Copying 756824 bytes to 0xbfc00000
+[5.622961] MMC: Boot Image registered ...
+[5.628377] Boot image set name: "PIC64GX::U-Boot"
+[5.634488] healthmon_service :: [init] -> [monitoring]
+[5.641362] boot_service(u54_1) :: [Init] -> [SetupPMP]
+[5.648237] boot_service(u54_2) :: [Init] -> [SetupPMP]
+[5.655111] boot_service(u54_3) :: [Init] -> [SetupPMP]
+[5.661986] boot_service(u54_4) :: [Init] -> [SetupPMP]
+>> [5.669147] SYSREG:MPU_VIOLATION_SR not equal to 0x0 (0x1)
+[5.677358] SYSREG:PLL_STATUS_SR not equal to 0x707 (0x727)
+[5.685665] boot_service(u54_1)::Registering domain "build_pic64gx/u-boot.bin" (hart mask 0x1e)
+[5.696072] boot_service(u54_1)::Using built-in DTB at 0xa021488
+[5.703806] boot_service(u54_1) :: [SetupPMP] -> [SetupPMPComplete]
+[5.711826] boot_service(u54_2) :: [SetupPMP] -> [SetupPMPComplete]
+[5.719847] boot_service(u54_3) :: [SetupPMP] -> [SetupPMPComplete]
+[5.727867] boot_service(u54_4) :: [SetupPMP] -> [SetupPMPComplete]
+[5.735887] SYSREG:MAINTENANCE_INT_SR changed since last read (0xf080)
+[5.745244] SYSREG:DLL_STATUS_SR changed since last read (0xf0017)
+[5.754220] IOSCB_PLL:pll_se_0:PLL_CTRL changed since last read (0x1)
+[5.763481] IOSCB_PLL:pll_sw_0:PLL_CTRL changed since last read (0x1)
+[5.772743] IOSCB_PLL:pll_sw_1:PLL_CTRL changed since last read (0x1)
+[5.782004] u54 State Change:  [Booting] [Booting] [Booting] [Booting]
+[5.791361] boot_service(u54_1) :: [SetupPMPComplete] -> [ZeroInit]
+[5.799382] boot_service(u54_2) :: [SetupPMPComplete] -> [ZeroInit]
+[5.807402] boot_service(u54_3) :: [SetupPMPComplete] -> [ZeroInit]
+[5.815422] boot_service(u54_4) :: [SetupPMPComplete] -> [ZeroInit]
+[5.823443] boot_service(u54_1) :: [ZeroInit] -> [Download]
+[5.830699] boot_service(u54_2) :: [ZeroInit] -> [Download]
+[5.837956] boot_service(u54_3) :: [ZeroInit] -> [Download]
+[5.845212] boot_service(u54_4) :: [ZeroInit] -> [Download]
+[5.852469] boot_service(u54_1)::Processing boot image: "build_pic64gx/u-boot.bin"
+[5.861635] boot_service(u54_2) :: [Download] -> [Complete]
+[5.868891] boot_service(u54_3) :: [Download] -> [Complete]
+[5.876148] boot_service(u54_4) :: [Download] -> [Complete]
+[5.954328] boot_service(u54_1) :: [Download] -> [OpenSBIInit]
+[5.961871] boot_service(u54_1)::Registering domain "build_pic64gx/u-boot.bin" (hart mask 0x1e)
+[5.972279] boot_service(u54_1)::Using built-in DTB at 0xa021488
+[5.980012] boot_service(u54_1) :: [OpenSBIInit] -> [Wait]
+[5.988502] boot_service(u54_1) :: [Wait] -> [Complete]
+[6.34306] u54 State Change:  [SBIHartInit] [Booting] [Booting] [Booting]
+[6.85961] boot_service(u54_1) :: [Complete] -> [Idle]
+[6.95222] boot_service(u54_2) :: [Complete] -> [Idle]
+[6.114379] boot_service(u54_3) :: [Complete] -> [Idle]
+[6.133648] boot_service(u54_4) :: [Complete] -> [Idle]
+[6.237305] u54 State Change:  [Running] [SBIWaitForColdboot] [SBIWaitForColdboot] [SBIWaitForColdboot]

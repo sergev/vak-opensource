@@ -1,0 +1,40 @@
+processor	: 0
+hart		: 1
+isa		: rv64imafdc_zicntr_zicsr_zifencei_zihpm_zca_zcd
+mmu		: sv39
+uarch		: sifive,u54-mc
+mvendorid	: 0x29
+marchid		: 0x1
+mimpid		: 0x0
+hart isa	: rv64imafdc_zicntr_zicsr_zifencei_zihpm_zca_zcd
+
+processor	: 1
+hart		: 2
+isa		: rv64imafdc_zicntr_zicsr_zifencei_zihpm_zca_zcd
+mmu		: sv39
+uarch		: sifive,u54-mc
+mvendorid	: 0x29
+marchid		: 0x1
+mimpid		: 0x0
+hart isa	: rv64imafdc_zicntr_zicsr_zifencei_zihpm_zca_zcd
+
+processor	: 2
+hart		: 3
+isa		: rv64imafdc_zicntr_zicsr_zifencei_zihpm_zca_zcd
+mmu		: sv39
+uarch		: sifive,u54-mc
+mvendorid	: 0x29
+marchid		: 0x1
+mimpid		: 0x0
+hart isa	: rv64imafdc_zicntr_zicsr_zifencei_zihpm_zca_zcd
+
+processor	: 3
+hart		: 4
+isa		: rv64imafdc_zicntr_zicsr_zifencei_zihpm_zca_zcd
+mmu		: sv39
+uarch		: sifive,u54-mc
+mvendorid	: 0x29
+marchid		: 0x1
+mimpid		: 0x0
+hart isa	: rv64imafdc_zicntr_zicsr_zifencei_zihpm_zca_zcd
+

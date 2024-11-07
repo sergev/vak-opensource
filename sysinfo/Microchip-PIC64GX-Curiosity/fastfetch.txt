@@ -1,0 +1,15 @@
+vak@pic64
+---------
+OS: Ubuntu oracular 24.10 riscv64
+Host: Unknown Product
+Kernel: Linux 6.11.0-8-generic
+Uptime: 39 mins
+Packages: 722 (dpkg)
+Shell: bash 5.2.32
+Terminal: /dev/pts/0
+CPU: sifive,u54-mc rv64gc (4)
+Memory: 259.02 MiB / 941.61 MiB (28%)
+Swap: Disabled
+Disk (/): 3.88 GiB / 28.63 GiB (14%) - ext4
+Local IP (end0): 192.168.11.21/24 *
+Locale: C.UTF-8

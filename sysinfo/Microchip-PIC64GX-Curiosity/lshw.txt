@@ -1,0 +1,147 @@
+ubuntu
+    description: Desktop Computer
+    product: Microchip PIC64GX Curiosity Kit
+    vendor: Unknown
+    width: 64 bits
+    capabilities: smbios-3.0.0 dmi-3.0.0 smp
+    configuration: boot=normal chassis=desktop
+  *-core
+       description: Motherboard
+       product: Unknown Product
+       vendor: Unknown
+       physical id: 0
+     *-firmware
+          description: BIOS
+          vendor: U-Boot
+          physical id: 0
+          version: 2023.07.02-pic64gx-2024.06-0ubuntu1
+          date: 07/01/2023
+          size: 1MiB
+          capabilities: pci upgrade bootselect uefi
+     *-cpu:0 DISABLED
+          description: CPU [empty]
+          vendor: Unknown
+          physical id: 4
+          version: rv64imafdc
+     *-cpu:1
+          description: CPU
+          product: cpu
+          physical id: 1
+          bus info: cpu@0
+          width: 32 bits
+     *-cpu:2
+          description: CPU
+          product: cpu
+          physical id: 2
+          bus info: cpu@1
+          width: 32 bits
+        *-cache
+             description: L1 Cache
+             physical id: 0
+             size: 32KiB
+     *-cpu:3
+          description: CPU
+          product: cpu
+          physical id: 3
+          bus info: cpu@2
+          width: 32 bits
+        *-cache
+             description: L1 Cache
+             physical id: 0
+             size: 32KiB
+     *-cpu:4
+          description: CPU
+          product: cpu
+          physical id: 5
+          bus info: cpu@3
+          width: 32 bits
+        *-cache
+             description: L1 Cache
+             physical id: 0
+             size: 32KiB
+     *-cpu:5 DISABLED
+          description: CPU
+          product: cpu
+          physical id: 6
+          bus info: cpu@4
+        *-cache
+             description: L1 Cache
+             physical id: 0
+             size: 32KiB
+     *-cpu:6 DISABLED
+          description: CPU
+          product: cpu-map
+          physical id: 7
+          bus info: cpu@5
+     *-memory
+          description: System memory
+          physical id: 8
+          size: 1152MiB
+  *-mmc0
+       description: MMC Host
+       physical id: 1
+       logical name: mmc0
+     *-device
+          description: SD Card
+          product: SK32G
+          vendor: SanDisk
+          physical id: aaaa
+          logical name: /dev/mmcblk0
+          version: 8.5
+          date: 02/2024
+          serial: 2078739207
+          size: 29GiB (31GB)
+          capabilities: sd gpt-1.00 partitioned partitioned:gpt
+          configuration: guid=28055a9d-0752-4b99-8a2c-12684d3e9489 logicalsectorsize=512 sectorsize=512
+        *-volume:0
+             description: EXT4 volume
+             vendor: Linux
+             physical id: 1
+             logical name: /dev/mmcblk0p1
+             logical name: /
+             version: 1.0
+             serial: 4bb6474c-49cb-4269-8c6f-fd2f17f20db6
+             size: 29GiB
+             capacity: 29GiB
+             capabilities: journaled extended_attributes large_files huge_files dir_nlink recover 64bit extents ext4 ext2 initialized
+             configuration: created=2024-10-06 21:27:27 filesystem=ext4 label=cloudimg-rootfs lastmountpoint=/ modified=2024-11-05 21:10:09 mount.fstype=ext4 mount.options=rw,relatime,discard,errors=remount-ro,commit=30 mounted=2024-10-04 08:37:44 state=mounted
+        *-volume:1
+             description: Windows FAT volume
+             vendor: mkfs.fat
+             physical id: c
+             logical name: /dev/mmcblk0p12
+             version: FAT32
+             serial: 66b4-8b45
+             size: 15EiB
+             capabilities: fat initialized
+             configuration: FATs=2 filesystem=fat label=CIDATA name=CIDATA
+        *-volume:2
+             description: BIOS Boot partition
+             vendor: EFI
+             physical id: d
+             logical name: /dev/mmcblk0p13
+             serial: ba0a53fc-18be-4b60-936a-51280ec6ce23
+             capacity: 12MiB
+             capabilities: nofs precious
+             configuration: name=loader
+        *-volume:3
+             description: Windows FAT volume
+             vendor: mkfs.fat
+             physical id: f
+             logical name: /dev/mmcblk0p15
+             logical name: /boot/efi
+             version: FAT32
+             serial: 4633-4aa0
+             size: 93MiB
+             capacity: 105MiB
+             capabilities: boot fat initialized
+             configuration: FATs=2 filesystem=fat label=UEFI mount.fstype=vfat mount.options=rw,relatime,fmask=0077,dmask=0077,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro name=ESP state=mounted
+  *-network
+       description: Ethernet interface
+       physical id: 2
+       logical name: end0
+       serial: 00:04:a3:e1:4a:a1
+       size: 1Gbit/s
+       capacity: 1Gbit/s
+       capabilities: ethernet physical tp mii 10bt 10bt-fd 100bt 100bt-fd 1000bt 1000bt-fd autonegotiation
+       configuration: autonegotiation=on broadcast=yes driver=macb driverversion=6.11.0-8-generic duplex=full ip=192.168.11.21 link=yes multicast=yes port=twisted pair speed=1Gbit/s

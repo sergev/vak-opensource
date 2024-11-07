@@ -1,0 +1,16 @@
+Packages:
+	0: 
+Microarchitectures:
+	4x unknown
+Cores:
+	0: 1 processor (0), unknown unknown
+	1: 1 processor (1), unknown unknown
+	2: 1 processor (2), unknown unknown
+	3: 1 processor (3), unknown unknown
+Clusters:
+	0: 4 processors (0-3),	0: 4 cores (0-3), unknown unknown
+Logical processors (System ID):
+	0 (0)
+	1 (1)
+	2 (2)
+	3 (3)

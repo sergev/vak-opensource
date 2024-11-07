@@ -1,0 +1,8 @@
+Instruction sets:
+	Base Integer: yes
+	Integer Multiply/Divide: yes
+	Atomics: yes
+	Single-Precision Floating-Point: yes
+	Double-Precision Floating-Point: yes
+	Compressed: yes
+	Vector: no
