@@ -1,0 +1,18 @@
+Architecture:           riscv64
+  Byte Order:           Little Endian
+CPU(s):                 4
+  On-line CPU(s) list:  0-3
+Vendor ID:              0x29
+  Model name:           sifive,u54-mc
+    CPU family:         0x1
+    Model:              0x0
+    Thread(s) per core: 1
+    Core(s) per socket: 4
+    Socket(s):          1
+Caches (sum of all):
+  L1d:                  128 KiB (4 instances)
+  L1i:                  128 KiB (4 instances)
+  L2:                   2 MiB (1 instance)
+NUMA:
+  NUMA node(s):         1
+  NUMA node0 CPU(s):    0-3
