@@ -4,7 +4,7 @@
 //
 // void demo(unsigned value)
 // {
-//      char buf[24];
+//      char buf[32];
 //      char *end = buf + sizeof(buf);
 //      char *ptr = end;
 //      unsigned base = 10;
@@ -22,7 +22,7 @@
         .type   print_uns, @function
 print_uns:
         mv      a2, sp          // end
-        addi    sp, sp, -24     // allocate buf
+        addi    sp, sp, -32     // allocate buf
         mv      a1, a2          // ptr
         li      a3, 10          // base
 1:
@@ -39,5 +39,5 @@ print_uns:
         li      a7, SYS_write   // write() system call
         ecall
 
-        addi    sp, sp, 24
+        addi    sp, sp, 32
         ret

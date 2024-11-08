@@ -2,6 +2,8 @@
 
         .section .text
         .align  2
+        .globl  strlen
+        .type   strlen, @function
 strlen:                         // a0 = const char *str
         li      t0, 0           // i = 0
 1:                              // Start loop
@@ -13,18 +15,3 @@ strlen:                         // a0 = const char *str
 2:                              // End loop
         mv      a0, t0          // Move t0 into a0 to return
         ret                     // Return back via the return address register
-
-        .globl  _start
-_start:
-        la      a0, text
-        call    strlen
-        call    print_uns
-        call    print_newline
-
-        li      a7, SYS_exit    // exit the program
-        li      a0, 0           // status code
-        ecall
-
-        .section .data
-        .align  3
-text:   .string "Hello, world\n"
