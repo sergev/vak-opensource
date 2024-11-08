@@ -2,6 +2,8 @@
 //
 // Print newline.
 //
+// void print_newline(void);
+//
         .text
         .align  2
         .globl  print_newline

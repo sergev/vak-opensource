@@ -2,7 +2,7 @@
 //
 // Print integer value as unsigned decimal number.
 //
-// void demo(unsigned value)
+// void print_uns(unsigned value)
 // {
 //      char buf[32];
 //      char *end = buf + sizeof(buf);

@@ -2,6 +2,8 @@
 //
 // Print given string.
 //
+// void print_string(const char *str);
+//
         .text
         .align  2
         .globl  print_string
@@ -19,5 +21,5 @@ print_string:
         ecall
 
         ld      ra, 0(sp)       // restore return address
-        addi    sp, sp, 16
+        addi    sp, sp, 16      // free space in stack
         ret

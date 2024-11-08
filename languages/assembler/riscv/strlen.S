@@ -1,17 +1,19 @@
 #include <sys/syscall.h>
-
+//
+// Calculate the length of a string.
+//
+// unsigned strlen(const char *str);
+//
         .section .text
         .align  2
         .globl  strlen
         .type   strlen, @function
 strlen:                         // a0 = const char *str
-        li      t0, 0           // i = 0
-1:                              // Start loop
-        add     t1, t0, a0      // Add the byte offset for str[i]
-        lb      t1, 0(t1)       // Dereference str[i]
-        beqz    t1, 2f          // if str[i] == 0, break for loop
-        addi    t0, t0, 1       // Add 1 to our iterator
-        j       1b              // Jump back to condition (1 backwards)
-2:                              // End loop
-        mv      a0, t0          // Move t0 into a0 to return
-        ret                     // Return back via the return address register
+        addi    t1, a0, 1       // ptr + 1
+1:
+        lb      t0, 0(a0)       // get byte from string
+        addi    a0, a0, 1       // increment pointer
+        bnez    t0, 1b          // continue if not end
+
+        sub     a0, a0, t1      // compute length - 1 for '\0' char
+        ret
