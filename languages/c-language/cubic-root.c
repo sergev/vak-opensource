@@ -5,14 +5,12 @@
 double cubic_root(double n)
 {
     double x = 1.0; // Initial guess
-    const double tolerance = n * DBL_EPSILON;
 
     for (;;) {
         double nx = ((n / x / x) + x + x) / 3.0;
-        if (fabs(nx - x) <= tolerance) {
+        if (nx == x) {
             return nx;
         }
-        //printf("%.0f\n", n / fabs(x - nx));
         x = nx;
     }
 }
