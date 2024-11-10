@@ -1,4 +1,4 @@
-PROG    = hello hello2 factorial
+PROG    = hello hello2 factorial cubic_root
 
 all:    $(PROG)
 
@@ -16,3 +16,6 @@ hello2: hello2.o print_string.o strlen.o
 
 factorial: factorial.o print_uns.o print_newline.o print_string.o strlen.o
 	ld -o $@ factorial.o print_uns.o print_newline.o print_string.o strlen.o
+
+cubic_root: cubic_root.s
+	cc -o $@ cubic_root.s
