@@ -24,13 +24,6 @@
  * SOFTWARE.
  */
 #include <boost/decimal.hpp>
-#include <errno.h>
-#include <math.h>
-#include <stdbool.h>
-#include <stdint.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 
 typedef enum {
     MODE_FLOAT,
@@ -134,8 +127,8 @@ void print_decimal64(const char *input)
         exit(-1);
     }
 
-    boost::decimal::printf("%Dg = <%04x %04x %04x %04x>\n", d.float64, d.uns16[3], d.uns16[2],
-           d.uns16[1], d.uns16[0]);
+    boost::decimal::printf("%.16Dg = ", d.float64);
+    printf("<%04x %04x %04x %04x>\n", d.uns16[3], d.uns16[2], d.uns16[1], d.uns16[0]);
 }
 
 void print_decimal128(const char *input)
@@ -166,9 +159,9 @@ void print_decimal128(const char *input)
         exit(-1);
     }
 
-    boost::decimal::printf("%DDg = <%04x %04x %04x %04x %04x %04x %04x %04x>\n", d.float128,
-           d.uns16[7], d.uns16[6], d.uns16[5], d.uns16[4], d.uns16[3], d.uns16[2], d.uns16[1],
-           d.uns16[0]);
+    boost::decimal::printf("%.34DDg = ", d.float128);
+    printf("<%04x %04x %04x %04x %04x %04x %04x %04x>\n", d.uns16[7], d.uns16[6],
+           d.uns16[5], d.uns16[4], d.uns16[3], d.uns16[2], d.uns16[1], d.uns16[0]);
 }
 
 void print_decimal32(const char *input)
@@ -199,7 +192,8 @@ void print_decimal32(const char *input)
         exit(-1);
     }
 
-    boost::decimal::printf("%Hg = <%04x %04x>\n", f.float32, f.uns16[1], f.uns16[0]);
+    boost::decimal::printf("%.7Hg = ", f.float32);
+    printf("<%04x %04x>\n", f.uns16[1], f.uns16[0]);
 }
 
 int main(int argc, char **argv)
