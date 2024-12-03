@@ -1,0 +1,12 @@
+vak@olinuxino 
+------------- 
+OS: Debian GNU/Linux 12 (bookworm) armv7l 
+Host: Olimex A20-OLinuXino-LIME2 
+Kernel: 6.1.0-28-armmp-lpae 
+Uptime: 11 hours, 56 mins 
+Packages: 655 (dpkg) 
+Shell: bash 5.2.15 
+Terminal: /dev/pts/1 
+CPU: Allwinner sun7i (A20) Family (2) @ 960MHz 
+Memory: 106MiB / 995MiB 
+

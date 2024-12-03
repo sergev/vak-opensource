@@ -1,0 +1,57 @@
+$ cpu-info
+
+Packages:
+    0: Unknown
+Microarchitectures:
+    2x Cortex-A7
+Cores:
+    0: 1 processor (0), ARM Cortex-A7
+    1: 1 processor (1), ARM Cortex-A7
+Logical processors (System ID):
+    0 (0)
+    1 (1)
+
+$ isa-info
+
+Instruction sets:
+    Thumb: yes
+    Thumb 2: yes
+    ARMv5E: yes
+    ARMv6: yes
+    ARMv6-K: yes
+    ARMv7: yes
+    ARMv7 MP: yes
+    ARMv8: no
+    IDIV: yes
+Floating-Point support:
+    VFPv2: no
+    VFPv3: yes
+    VFPv3+D32: yes
+    VFPv3+FP16: yes
+    VFPv3+FP16+D32: yes
+    VFPv4: yes
+    VFPv4+D32: yes
+    VJCVT: no
+SIMD extensions:
+    WMMX: no
+    WMMX 2: no
+    NEON: yes
+    NEON-FP16: yes
+    NEON-FMA: yes
+    NEON VQRDMLAH/VQRDMLSH: no
+    NEON FP16 arithmetics: no
+    NEON complex: no
+    NEON dot product: no
+Cryptography extensions:
+    AES: no
+    SHA1: no
+    SHA2: no
+    PMULL: no
+    CRC32: no
+
+$ cache-info
+
+Max cache size (upper bound): 1048576 bytes
+L1 instruction cache: 2 x 32 KB, 2-way set associative (512 sets), 32 byte lines, shared by 1 processors
+L1 data cache: 2 x 32 KB, 4-way set associative (128 sets), 64 byte lines, shared by 1 processors
+L2 data cache: 256 KB (exclusive), 8-way set associative (512 sets), 64 byte lines, shared by 2 processors

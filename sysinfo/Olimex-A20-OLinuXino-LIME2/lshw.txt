@@ -1,0 +1,151 @@
+olinuxino
+    description: ARMv7 Processor rev 4 (v7l)
+    product: Olimex A20-OLinuXino-LIME2
+    serial: 165166950ac225b6
+    width: 32 bits
+    capabilities: smp
+  *-core
+       description: Motherboard
+       physical id: 0
+     *-cpu:0
+          description: CPU
+          product: cpu
+          physical id: 0
+          bus info: cpu@0
+          size: 864MHz
+          capacity: 960MHz
+          capabilities: half thumb fastmult vfp edsp thumbee neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm cpufreq
+     *-cpu:1
+          description: CPU
+          product: cpu
+          physical id: 1
+          bus info: cpu@1
+          size: 864MHz
+          capacity: 960MHz
+          capabilities: half thumb fastmult vfp edsp thumbee neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm cpufreq
+     *-memory
+          description: System memory
+          physical id: 2
+          size: 995MiB
+  *-usbhost:0
+       product: EHCI Host Controller
+       vendor: Linux 6.1.0-28-armmp-lpae ehci_hcd
+       physical id: 2
+       bus info: usb@1
+       logical name: usb1
+       version: 6.01
+       capabilities: usb-2.00
+       configuration: driver=hub slots=1 speed=480Mbit/s
+  *-usbhost:1
+       product: EHCI Host Controller
+       vendor: Linux 6.1.0-28-armmp-lpae ehci_hcd
+       physical id: 3
+       bus info: usb@2
+       logical name: usb2
+       version: 6.01
+       capabilities: usb-2.00
+       configuration: driver=hub slots=1 speed=480Mbit/s
+  *-usbhost:2
+       product: Generic Platform OHCI controller
+       vendor: Linux 6.1.0-28-armmp-lpae ohci_hcd
+       physical id: 4
+       bus info: usb@3
+       logical name: usb3
+       version: 6.01
+       capabilities: usb-1.10
+       configuration: driver=hub slots=1 speed=12Mbit/s
+  *-usbhost:3
+       product: Generic Platform OHCI controller
+       vendor: Linux 6.1.0-28-armmp-lpae ohci_hcd
+       physical id: 5
+       bus info: usb@4
+       logical name: usb4
+       version: 6.01
+       capabilities: usb-1.10
+       configuration: driver=hub slots=1 speed=12Mbit/s
+  *-usbhost:4
+       product: MUSB HDRC host driver
+       vendor: Linux 6.1.0-28-armmp-lpae musb-hcd
+       physical id: 1
+       bus info: usb@5
+       logical name: usb5
+       version: 6.01
+       capabilities: usb-2.00
+       configuration: driver=hub slots=1 speed=480Mbit/s
+  *-mmc0
+       description: MMC Host
+       physical id: 6
+       logical name: mmc0
+     *-device
+          description: SD Card
+          product: SR128
+          vendor: SanDisk
+          physical id: aaaa
+          logical name: /dev/mmcblk0
+          version: 8.6
+          date: 10/2023
+          serial: 3396618437
+          size: 119GiB (127GB)
+          capabilities: sd partitioned partitioned:dos
+          configuration: logicalsectorsize=512 sectorsize=512 signature=a8e46d94
+        *-volume:0
+             description: Linux filesystem partition
+             vendor: Linux
+             physical id: 1
+             logical name: /dev/mmcblk0p1
+             logical name: /boot
+             version: 1.0
+             serial: 1cc10e0e-f624-40b0-a1d0-3bbf207d0d34
+             size: 487MiB
+             capacity: 487MiB
+             capabilities: primary bootable extended_attributes large_files ext2 initialized
+             configuration: filesystem=ext2 lastmountpoint=/boot modified=2024-12-03 01:29:59 mount.fstype=ext2 mount.options=rw,relatime mounted=2024-12-03 01:29:59 state=mounted
+        *-volume:1
+             description: EXT4 volume
+             vendor: Linux
+             physical id: 2
+             logical name: /dev/mmcblk0p2
+             logical name: /
+             version: 1.0
+             serial: d54ac10c-5473-4c62-9800-89d93964057a
+             size: 117GiB
+             capacity: 117GiB
+             capabilities: primary journaled extended_attributes large_files huge_files dir_nlink recover 64bit extents ext4 ext2 initialized
+             configuration: created=2024-12-03 00:42:58 filesystem=ext4 lastmountpoint=/ modified=2024-12-03 01:29:51 mount.fstype=ext4 mount.options=rw,relatime,errors=remount-ro mounted=2024-12-03 01:29:55 state=mounted
+        *-volume:2
+             description: Extended partition
+             physical id: 3
+             logical name: /dev/mmcblk0p3
+             size: 971MiB
+             capacity: 971MiB
+             capabilities: primary extended partitioned partitioned:extended
+           *-logicalvolume
+                description: Linux swap volume
+                physical id: 5
+                logical name: /dev/mmcblk0p5
+                version: 1
+                serial: f98ebd48-1890-44f8-9b8d-51ba6b3b9fa8
+                size: 971MiB
+                capacity: 971MiB
+                capabilities: nofs swap initialized
+                configuration: filesystem=swap pagesize=4096
+  *-input:0
+       product: sun4i
+       physical id: 7
+       logical name: input0
+       logical name: /dev/input/event0
+       capabilities: cec
+  *-input:1
+       product: axp20x-pek
+       physical id: 8
+       logical name: input1
+       logical name: /dev/input/event1
+  *-network
+       description: Ethernet interface
+       physical id: 9
+       logical name: end0
+       serial: 02:95:0a:c2:25:b6
+       size: 1Gbit/s
+       capacity: 1Gbit/s
+       capabilities: ethernet physical tp mii 10bt 10bt-fd 100bt 100bt-fd 1000bt 1000bt-fd autonegotiation
+       configuration: autonegotiation=on broadcast=yes driver=st_gmac driverversion=6.1.0-28-armmp-lpae duplex=full ip=192.168.11.23 link=yes multicast=yes port=twisted pair speed=1Gbit/s
