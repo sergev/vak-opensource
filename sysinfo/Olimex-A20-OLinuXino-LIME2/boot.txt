@@ -1,0 +1,358 @@
+(tundra) A20-olinuxino-lime2 $ kerm
+Connecting to /dev/tty.SLAB_USBtoUART, speed 115200
+ Escape character: Ctrl-^ (ASCII 30, RS): enabled
+Type the escape character followed by C to get back,
+or followed by ? to see other options.
+----------------------------------------------------
+
+U-Boot SPL 2021.04+olimex-1-20241121.171845 (Nov 21 2024 - 17:19:49 +0000)
+DRAM: 1024 MiB
+CPU: 912000000Hz, AXI/AHB/APB: 3/2/2
+Loading configuration from EEPROM: OK
+Verifying data: OK
+Trying to boot from MMC1
+
+
+U-Boot 2021.04+olimex-1-20241121.171845 (Nov 21 2024 - 17:19:49 +0000) Allwinner Technology
+
+CPU:   Allwinner A20 (SUN7I)
+ID:    A20-OLinuXino-LIME2-e16Gs16M Rev.L1
+SN:    00034AA4
+MAC:   30:1F:9A:D1:BB:E0
+I2C:   ready
+DRAM:  1 GiB
+SF: Detected w25q128 with page size 256 Bytes, erase size 4 KiB, total 16 MiB
+MMC:   mmc@1c0f000: 0, mmc@1c11000: 1
+Loading Environment from EXT4... *** Warning - bad CRC, using default environment
+
+Loading Environment from FAT... ** No device specified **
+In:    serial
+Out:   serial
+Err:   serial
+Allwinner mUSB OTG (Peripheral)
+Net:   eth0: ethernet@1c50000, eth1: usb_ether
+starting USB...
+Bus usb@1c14000: USB EHCI 1.00
+Bus usb@1c14400: USB OHCI 1.0
+Bus usb@1c1c000: USB EHCI 1.00
+Bus usb@1c1c400: USB OHCI 1.0
+scanning bus usb@1c14000 for devices... 1 USB Device(s) found
+scanning bus usb@1c14400 for devices... 1 USB Device(s) found
+scanning bus usb@1c1c000 for devices... 1 USB Device(s) found
+scanning bus usb@1c1c400 for devices... 1 USB Device(s) found
+       scanning usb for storage devices... 0 Storage Device(s) found
+Hit any key to stop autoboot:  0
+switch to partitions #0, OK
+mmc0 is current device
+Scanning mmc 0:1...
+Found U-Boot script /boot/boot.scr
+2274 bytes read in 2 ms (1.1 MiB/s)
+## Executing script at 43100000
+Boot script loaded from mmc
+Checking for /uEnv.txt...
+Checking for /boot/uEnv.txt...
+1156 bytes read in 2 ms (564.5 KiB/s)
+Loaded environment from /boot/uEnv.txt
+Loading FIT image...
+16235615 bytes read in 887 ms (17.5 MiB/s)
+## Loading kernel from FIT Image at 58000000 ...
+   Using 'config-9604' configuration
+   Trying 'kernel-1' kernel subimage
+     Description:  Linux kernel 5.10.180-olimex
+     Type:         Kernel Image
+     Compression:  uncompressed
+     Data Start:   0x580000d4
+     Data Size:    6571744 Bytes = 6.3 MiB
+     Architecture: ARM
+     OS:           Linux
+     Load Address: 0x40080000
+     Entry Point:  0x40080000
+     Hash algo:    crc32
+     Hash value:   e2d108f2
+     Hash algo:    sha1
+     Hash value:   4177e25007815188e46ac3d2bde2d80ffdde43c7
+   Verifying Hash Integrity ... crc32+ sha1+ OK
+## Loading ramdisk from FIT Image at 58000000 ...
+   Using 'config-9604' configuration
+   Trying 'ramdisk-1' ramdisk subimage
+     Description:  Ramdisk for kernel 5.10.180-olimex
+     Type:         RAMDisk Image
+     Compression:  Unknown Compression
+     Data Start:   0x586448e8
+     Data Size:    9207651 Bytes = 8.8 MiB
+     Architecture: ARM
+     OS:           Linux
+     Load Address: 0x4fe00000
+     Entry Point:  0x4fe00000
+     Hash algo:    crc32
+     Hash value:   1064823b
+     Hash algo:    sha1
+     Hash value:   523a2186663c91fff7485684850451f13e4a74a4
+   Verifying Hash Integrity ... crc32+ sha1+ OK
+   Loading ramdisk from 0x586448e8 to 0x4fe00000
+WARNING: 'compression' nodes for ramdisks are deprecated, please fix your .its file!
+## Loading fdt from FIT Image at 58000000 ...
+   Using 'config-9604' configuration
+   Trying 'fdt-4' fdt subimage
+     Description:  unavailable
+     Type:         Flat Device Tree
+     Compression:  uncompressed
+     Data Start:   0x58f2c604
+     Data Size:    43643 Bytes = 42.6 KiB
+     Architecture: ARM
+     Load Address: 0x4fa00000
+     Hash algo:    crc32
+     Hash value:   36a64574
+     Hash algo:    sha1
+     Hash value:   16c904b58520be6ecf47b5482c59376f4aba068f
+   Verifying Hash Integrity ... crc32+ sha1+ OK
+   Loading fdt from 0x58f2c604 to 0x4fa00000
+## Loading fdt from FIT Image at 58000000 ...
+   Trying 'overlay-1' fdt subimage
+     Description:  unavailable
+     Type:         Flat Device Tree
+     Compression:  uncompressed
+     Data Start:   0x58f78050
+     Data Size:    1001 Bytes = 1001 Bytes
+     Architecture: ARM
+     Load Address: 0x4fa10000
+     Hash algo:    crc32
+     Hash value:   d1d51f29
+     Hash algo:    sha1
+     Hash value:   fa0c14efb55dbe4bdf8aa7241a3e600b486e3ef6
+   Verifying Hash Integrity ... crc32+ sha1+ OK
+   Loading fdt from 0x58f78050 to 0x4fa10000
+## Loading fdt from FIT Image at 58000000 ...
+   Trying 'overlay-2' fdt subimage
+     Description:  unavailable
+     Type:         Flat Device Tree
+     Compression:  uncompressed
+     Data Start:   0x58f7851c
+     Data Size:    436 Bytes = 436 Bytes
+     Architecture: ARM
+     Load Address: 0x4fa20000
+     Hash algo:    crc32
+     Hash value:   00f3a93c
+     Hash algo:    sha1
+     Hash value:   efa518e1ffcc7c09a7d8010de6a7b363f1345b30
+   Verifying Hash Integrity ... crc32+ sha1+ OK
+   Loading fdt from 0x58f7851c to 0x4fa20000
+   Booting using the fdt blob at 0x4fa00000
+EHCI failed to shut down host controller.
+   Loading Kernel Image
+   Loading Ramdisk to 49738000, end 49ffff63 ... OK
+   Loading Device Tree to 4972a000, end 49737c59 ... OK
+Applying overlay: '/usr/lib/olinuxino-overlays/sun7i-a20/spi1-spidev.dtbo'...
+408 bytes read in 6 ms (66.4 KiB/s)
+Applying overlay: '/usr/lib/olinuxino-overlays/sun7i-a20/spi2-spidev.dtbo'...
+408 bytes read in 7 ms (56.6 KiB/s)
+Applying overlay: '/usr/lib/olinuxino-overlays/sun7i-a20/sun7i-a20-i2c2.dtbo'...
+726 bytes read in 7 ms (100.6 KiB/s)
+Applying overlay: '/usr/lib/olinuxino-overlays/sun7i-a20/sun7i-a20-spi1.dtbo'...
+1005 bytes read in 6 ms (163.1 KiB/s)
+Applying overlay: '/usr/lib/olinuxino-overlays/sun7i-a20/sun7i-a20-spi2.dtbo'...
+1005 bytes read in 7 ms (139.6 KiB/s)
+Applying overlay: '/usr/lib/olinuxino-overlays/sun7i-a20/sun7i-a20-uart3.dtbo'...
+863 bytes read in 6 ms (139.6 KiB/s)
+Applying overlay: '/usr/lib/olinuxino-overlays/sun7i-a20/sun7i-a20-uart4.dtbo'...
+867 bytes read in 6 ms (140.6 KiB/s)
+Applying overlay: '/usr/lib/olinuxino-overlays/sun7i-a20/sun7i-a20-uart5.dtbo'...
+867 bytes read in 6 ms (140.6 KiB/s)
+Applying overlay: '/usr/lib/olinuxino-overlays/sun7i-a20/sun7i-a20-uart6.dtbo'...
+867 bytes read in 7 ms (120.1 KiB/s)
+Applying overlay: '/usr/lib/olinuxino-overlays/sun7i-a20/sun7i-a20-uart7.dtbo'...
+867 bytes read in 6 ms (140.6 KiB/s)
+Applying overlay: '/usr/lib/olinuxino-overlays/sun7i-a20/sun7i-a20-spi0.dtbo'...
+1001 bytes read in 6 ms (162.1 KiB/s)
+Applying overlay: '/usr/lib/olinuxino-overlays/sun7i-a20/sun7i-a20-can.dtbo'...
+732 bytes read in 6 ms (119.1 KiB/s)
+Applying overlay: '/usr/lib/olinuxino-overlays/sun7i-a20/lime2-lcd-olinuxino.dtbo'...
+2256 bytes read in 5 ms (440.4 KiB/s)
+
+Starting kernel ...
+
+[    0.005811] /cpus/cpu@0 missing clock-frequency property
+[    0.005859] /cpus/cpu@1 missing clock-frequency property
+[    1.030021] sun4i-usb-phy 1c13400.phy: Couldn't request ID GPIO
+Loading, please wait...
+Starting version 247.3-7+deb11u6
+Begin: Loading essential drivers ... done.
+Begin: Running /scripts/init-premount ... done.
+Begin: Mounting root file system ... Begin: Running /scripts/local-top ... done.
+Begin: Running /scripts/local-premount ... done.
+Begin: Will now check root file system ... fsck from util-linux 2.36.1
+[/sbin/fsck.ext4 (1) -- /dev/mmcblk0p1] fsck.ext4 -a -C0 /dev/mmcblk0p1
+/dev/mmcblk0p1: clean, 136698/7806976 files, 1171485/31214592 blocks
+done.
+done.
+Begin: Running /scripts/local-bottom ... done.
+Begin: Running /scripts/init-bottom ... done.
+
+Welcome to Debian GNU/Linux 11 (bullseye)!
+
+[  OK  ] Created slice system-getty.slice.
+[  OK  ] Created slice system-modprobe.slice.
+[  OK  ] Created slice system-serial\x2dgetty.slice.
+[  OK  ] Created slice User and Session Slice.
+[  OK  ] Started Forward Password R…uests to Wall Directory Watch.
+[  OK  ] Set up automount Arbitrary…s File System Automount Point.
+[  OK  ] Reached target Remote File Systems.
+[  OK  ] Reached target Slices.
+[  OK  ] Reached target Swap.
+[  OK  ] Listening on Syslog Socket.
+[  OK  ] Listening on fsck to fsckd communication Socket.
+[  OK  ] Listening on initctl Compatibility Named Pipe.
+[  OK  ] Listening on Journal Audit Socket.
+[  OK  ] Listening on Journal Socket (/dev/log).
+[  OK  ] Listening on Journal Socket.
+[  OK  ] Listening on udev Control Socket.
+[  OK  ] Listening on udev Kernel Socket.
+         Mounting POSIX Message Queue File System...
+         Mounting Kernel Debug File System...
+         Mounting Kernel Trace File System...
+         Starting Restore / save the current clock...
+         Starting Set the console keyboard layout...
+         Starting Create list of st…odes for the current kernel...
+         Starting Load Kernel Module configfs...
+         Starting Load Kernel Module drm...
+         Starting Load Kernel Module fuse...
+[  OK  ] Started Nameserver information manager.
+[  OK  ] Reached target Network (Pre).
+         Starting Journal Service...
+         Starting Load Kernel Modules...
+         Starting Remount Root and Kernel File Systems...
+         Starting Coldplug All udev Devices...
+[  OK  ] Mounted POSIX Message Queue File System.
+[  OK  ] Mounted Kernel Debug File System.
+[  OK  ] Mounted Kernel Trace File System.
+[  OK  ] Finished Restore / save the current clock.
+[  OK  ] Finished Create list of st… nodes for the current kernel.
+[  OK  ] Finished Load Kernel Module configfs.
+[  OK  ] Finished Load Kernel Module drm.
+[  OK  ] Finished Load Kernel Module fuse.
+[  OK  ] Finished Remount Root and Kernel File Systems.
+[  OK  ] Finished Load Kernel Modules.
+         Mounting FUSE Control File System...
+         Mounting Kernel Configuration File System...
+         Starting Load/Save Random Seed...
+         Starting Apply Kernel Variables...
+         Starting Create System Users...
+[  OK  ] Mounted FUSE Control File System.
+[  OK  ] Mounted Kernel Configuration File System.
+[  OK  ] Finished Apply Kernel Variables.
+[  OK  ] Finished Create System Users.
+         Starting Create Static Device Nodes in /dev...
+[  OK  ] Finished Set the console keyboard layout.
+[  OK  ] Finished Create Static Device Nodes in /dev.
+[  OK  ] Reached target Local File Systems (Pre).
+[  OK  ] Reached target Local File Systems.
+         Starting Set console font and keymap...
+         Starting Tell Plymouth To Write Out Runtime Data...
+         Starting Rule-based Manage…for Device Events and Files...
+[  OK  ] Started Journal Service.
+[  OK  ] Finished Set console font and keymap.
+[  OK  ] Finished Tell Plymouth To Write Out Runtime Data.
+         Starting Flush Journal to Persistent Storage...
+[  OK  ] Finished Flush Journal to Persistent Storage.
+         Starting Create Volatile Files and Directories...
+[  OK  ] Finished Create Volatile Files and Directories.
+         Starting Update UTMP about System Boot/Shutdown...
+[  OK  ] Finished Update UTMP about System Boot/Shutdown.
+[  OK  ] Started Rule-based Manager for Device Events and Files.
+[  OK  ] Found device /dev/ttyGS0.
+[  OK  ] Finished Load/Save Random Seed.
+[  OK  ] Finished Coldplug All udev Devices.
+         Starting Helper to synchronize boot up for ifupdown...
+         Starting Show Plymouth Boot Screen...
+[  OK  ] Finished Helper to synchronize boot up for ifupdown.
+[  OK  ] Created slice system-systemd\x2dbacklight.slice.
+         Starting Raise network interfaces...
+         Starting Load/Save Screen …ness of backlight:backlight...
+[  OK  ] Started Show Plymouth Boot Screen.
+[  OK  ] Started Forward Password R…s to Plymouth Directory Watch.
+[  OK  ] Reached target Local Encrypted Volumes.
+[  OK  ] Reached target Hardware activated USB gadget.
+[  OK  ] Finished Load/Save Screen …htness of backlight:backlight.
+[  OK  ] Reached target System Initialization.
+[  OK  ] Started CUPS Scheduler.
+[  OK  ] Started Daily apt download activities.
+[  OK  ] Started Daily apt upgrade and clean activities.
+[  OK  ] Started Periodic ext4 Onli…ata Check for All Filesystems.
+[  OK  ] Started Discard unused blocks once a week.
+[  OK  ] Started Daily rotation of log files.
+[  OK  ] Started Daily man-db regeneration.
+[  OK  ] Started Run system activit…ounting tool every 10 minutes.
+[  OK  ] Started Generate summary o…esterday's process accounting.
+[  OK  ] Started Daily Cleanup of Temporary Directories.
+[  OK  ] Reached target Paths.
+[  OK  ] Reached target Timers.
+[  OK  ] Listening on Avahi mDNS/DNS-SD Stack Activation Socket.
+[  OK  ] Listening on CUPS Scheduler.
+[  OK  ] Listening on D-Bus System Message Bus Socket.
+[  OK  ] Listening on PC/SC Smart Card Daemon Activation Socket.
+[  OK  ] Reached target Sockets.
+[  OK  ] Reached target Basic System.
+         Starting Avahi mDNS/DNS-SD Stack...
+         Starting Bluetooth management mechanism...
+[   12.115183] debugfs: Directory '1c22c00.codec' with parent 'sun4i-codec' already present!
+[  OK  ] Started Regular background program processing daemon.
+[  OK  ] Started D-Bus System Message Bus.
+         Starting Network Manager...
+[   12.566323] lcd_olinuxino 2-0050: error reading from device at 00
+         Starting Remove Stale Onli…t4 Metadata Check Snapshots...
+         Starting Initialize hardware monitoring sensors...
+         Starting LSB: Load kernel …d to enable cpufreq scaling...
+[  OK  ] Started Realtek H5 bluetooth support.
+         Starting LCD-OLinuXino RTP calibrabion...
+         Starting Authorization Manager...
+         Starting System Logging Service...
+         Starting Resets System Activity Logs...
+         Starting User Login Management...
+         Starting Disk Manager...
+         Starting WPA supplicant...
+[  OK  ] Started System Logging Service.
+[  OK  ] Finished Resets System Activity Logs.
+[  OK  ] Finished Initialize hardware monitoring sensors.
+[  OK  ] Finished Raise network interfaces.
+[  OK  ] Finished LCD-OLinuXino RTP calibrabion.
+[  OK  ] Started WPA supplicant.
+[  OK  ] Found device /dev/ttyS0.
+[  OK  ] Started Authorization Manager.
+[  OK  ] Started Avahi mDNS/DNS-SD Stack.
+[  OK  ] Started Network Manager.
+[  OK  ] Started LSB: Load kernel m…ded to enable cpufreq scaling.
+[  OK  ] Finished Remove Stale Onli…ext4 Metadata Check Snapshots.
+[  OK  ] Started User Login Management.
+[  OK  ] Started Disk Manager.
+[  OK  ] Started Bluetooth management mechanism.
+         Starting Modem Manager...
+         Starting Network Manager Wait Online...
+         Starting Save/Restore Sound Card State...
+         Starting LSB: set CPUFreq kernel parameters...
+[  OK  ] Started ifup for eth0.
+[  OK  ] Reached target Network.
+         Starting CUPS Scheduler...
+         Starting Network Time Service...
+         Starting OpenVPN service...
+         Starting OpenBSD Secure Shell server...
+         Starting Hostname Service...
+         Starting Permit User Sessions...
+[  OK  ] Started Unattended Upgrades Shutdown.
+[  OK  ] Finished Save/Restore Sound Card State.
+[  OK  ] Finished OpenVPN service.
+[  OK  ] Started Network Time Service.
+[  OK  ] Finished Permit User Sessions.
+[  OK  ] Started CUPS Scheduler.
+[  OK  ] Reached target Sound Card.
+[  OK  ] Started Make remote CUPS printers available locally.
+         Starting Light Display Manager...
+         Starting Hold until boot process finishes up...
+[  OK  ] Started LSB: set CPUFreq kernel parameters.
+[  OK  ] Started OpenBSD Secure Shell server.
+[  OK  ] Started Modem Manager.
+         Starting LSB: Set sysfs variables from /etc/sysfs.conf...
+[  OK  ] Finished Hold until boot process finishes up.
+
+Debian GNU/Linux 11 a20-olinuxino ttyS0
+
+a20-olinuxino login:
