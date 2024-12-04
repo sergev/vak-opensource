@@ -40,7 +40,7 @@ int main()
         x = x_next;
         y = y_next;
         z = z_next;
-        printf("%d %g %g %g\n", i, x, y, z);
+        //printf("%d %g %g %g\n", i, x, y, z);
     }
     printf("%g %g %g\n", x, y, z);
 }

@@ -24,24 +24,25 @@
 int main()
 {
     const int N = 500000000;
+    const long long K = 100000000;
     const long long RH = 100;
     const long long A = 10;
     const long long B = 28;
     const long long CN = 8;
     const long long CD = 3;
 
-    long long x = 1000000000 / 10;
+    long long x = K / 10;
     long long y = 0;
     long long z = 0;
 
     for (int i = 0; i < N; i++) {
         long long x_next = x + A * (y - x) / RH;
-        long long y_next = y + (x * (B*1000000000 - z) - y*1000000000) / RH / 1000000000;
-        long long z_next = z + (x * y - CN * z * 1000000000 / CD) / RH / 1000000000;
+        long long y_next = y + (x * (B*K - z) - y*K) / RH / K;
+        long long z_next = z + (x * y - CN * z * K / CD) / RH / K;
         x = x_next;
         y = y_next;
         z = z_next;
-        //printf("%d %lld %lld %lld\n", i, x, y, z);
+        //printf("%d %g %g %g\n", i, (double)x/K, (double)y/K, (double)z/K);
     }
-    printf("%lld %lld %lld\n", x, y, z);
+    printf("%g %g %g\n", (double)x/K, (double)y/K, (double)z/K);
 }
