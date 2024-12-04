@@ -19,13 +19,11 @@
 //
 // https://paulbourke.net/fractals/lorenz/
 //
-#include "math.h"
 #include "stdio.h"
-#include "stdlib.h"
 
-int main(int argc, char **argv)
+int main()
 {
-    const int N = 10000;
+    const int N = 500000000;
     const double H = 0.01;
     const double A = 10.0;
     const double B = 28.0;
@@ -34,6 +32,7 @@ int main(int argc, char **argv)
     double x = 0.1;
     double y = 0;
     double z = 0;
+
     for (int i = 0; i < N; i++) {
         double x_next = x + H * A * (y - x);
         double y_next = y + H * (x * (B - z) - y);
@@ -41,8 +40,7 @@ int main(int argc, char **argv)
         x = x_next;
         y = y_next;
         z = z_next;
-        if (i > 100) {
-            printf("%d %g %g %g\n", i, x, y, z);
-        }
+        printf("%d %g %g %g\n", i, x, y, z);
     }
+    printf("%g %g %g\n", x, y, z);
 }

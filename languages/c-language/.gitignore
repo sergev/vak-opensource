@@ -6,4 +6,5 @@ double
 float
 ldouble
 bulls-and-cows
-lorenz
+lorenz-real
+lorenz-int
