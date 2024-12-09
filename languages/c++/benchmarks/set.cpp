@@ -5,9 +5,14 @@
 #include <sys/resource.h>
 
 //
+// Container type to test.
+//
+using Container = std::set<long>;
+
+//
 // Parameters of Lorenz attractor.
 //
-const long K = 100'000'000;
+const long long K = 100'000'000;
 const long RH = 100;
 const long A = 10;
 const long B = 28;
@@ -17,7 +22,7 @@ const long CD = 3;
 //
 // Compute N samples of data and store into container.
 //
-void fill_with_data(const int N, std::set<long> &bag)
+void fill_with_data(const int N, Container &bag)
 {
     // Compute sequence of Lorenz attractor.
     long long x = K / 10;
@@ -41,7 +46,7 @@ void fill_with_data(const int N, std::set<long> &bag)
 //
 // Extract data from container, one by one.
 //
-void extract_data(std::set<long> &bag)
+void extract_data(Container &bag)
 {
     long long sum = 0;
     while (!bag.empty()) {
@@ -51,12 +56,26 @@ void extract_data(std::set<long> &bag)
     std::cout << "Sum " << ((double) sum/K) << '\n';
 }
 
+//
+// Get resident memory size in Mbytes.
+//
+double get_memory_usage()
+{
+    struct rusage ru;
+    getrusage(RUSAGE_SELF, &ru);
+#ifdef __APPLE__
+    return ru.ru_maxrss / 1024.0 / 1024.0;
+#else
+    return ru.ru_maxrss / 1024.0;
+#endif
+}
+
 int main()
 {
     // Beginning timestamp.
     auto const t0 = std::chrono::steady_clock::now();
 
-    std::set<long> bag;
+    Container bag;
     fill_with_data(2'000'000, bag);
     extract_data(bag);
 
@@ -64,10 +83,5 @@ int main()
     auto const t1 = std::chrono::steady_clock::now();
     auto const sec = 0.000'001 * std::chrono::duration_cast<std::chrono::microseconds>(t1 - t0).count();
     std::cout << "Elapsed time: " << std::fixed << std::setprecision(3) << sec << " seconds" << std::endl;
-
-    // Get memory usage.
-    struct rusage ru;
-    getrusage(RUSAGE_SELF, &ru);
-    auto const mbytes = ru.ru_maxrss / 1024.0 / 1024.0;
-    std::cout << "Resident memory: " << std::setprecision(3) << mbytes << " Mbytes" << std::endl;
+    std::cout << "Resident memory: " << std::setprecision(3) << get_memory_usage() << " Mbytes" << std::endl;
 }
