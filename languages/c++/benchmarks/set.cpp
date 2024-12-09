@@ -7,7 +7,7 @@
 //
 // Container type to test.
 //
-using Container = std::set<long>;
+using Container = std::set<int32_t>;
 
 //
 // Parameters of Lorenz attractor.
