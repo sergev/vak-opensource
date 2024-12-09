@@ -11,7 +11,7 @@ Rate in records per millisecond:
 
     Processor, Computer                         std::set        std::map
     --------------------------------------------------------------------
-    Apple M2 Max,
+    Apple M2 Max,                               3856.1          2997.5
     Mac14,6
     --------------------------------------------------------------------
     Intel i9-9900K (16) @ 3.60GHz
@@ -24,7 +24,7 @@ Resident memory per record, in bytes:
 
     Processor, Computer                         std::set        std::map
     --------------------------------------------------------------------
-    Apple M2 Max                                32.653          48.710
+    Apple M2 Max                                32.7            48.7
     Mac14,6
     --------------------------------------------------------------------
     Intel i9-9900K (16) @ 3.60GHz               32.401          48.464
