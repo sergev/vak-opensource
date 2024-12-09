@@ -7,16 +7,28 @@ Measure efficiency of std::set and std::map containers.
 
 See results below.
 
-Time per record, in microseconds:
+Rate in records per millisecond:
 
-    Processor                       Computer    std::set        std::map
+    Processor, Computer                         std::set        std::map
     --------------------------------------------------------------------
-    Apple M2 Max                    Mac14,6     0.260           0.333
-    Intel i9-9900K (16) @ 3.60GHz   iMac19,1    0.437           0.517
+    Apple M2 Max,
+    Mac14,6
+    --------------------------------------------------------------------
+    Intel i9-9900K (16) @ 3.60GHz
+    iMac19,1
+    --------------------------------------------------------------------
+    Allwinner sun7i (A20) Family (2) @ 960MHz   149.7           141.3
+    Olimex A20-OLinuXino-LIME2
 
 Resident memory per record, in bytes:
 
-    Processor                       Computer    std::set        std::map
+    Processor, Computer                         std::set        std::map
     --------------------------------------------------------------------
-    Apple M2 Max                    Mac14,6     32.653          48.710
-    Intel i9-9900K (16) @ 3.60GHz   iMac19,1    32.401          48.464
+    Apple M2 Max                                32.653          48.710
+    Mac14,6
+    --------------------------------------------------------------------
+    Intel i9-9900K (16) @ 3.60GHz               32.401          48.464
+    iMac19,1
+    --------------------------------------------------------------------
+    Allwinner sun7i (A20) Family (2) @ 960MHz   25.2            33.1
+    Olimex A20-OLinuXino-LIME2

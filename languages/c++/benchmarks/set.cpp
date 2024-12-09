@@ -93,6 +93,6 @@ int main()
     std::cout << "Elapsed time: " << std::fixed << std::setprecision(3) << sec << " seconds" << std::endl;
     std::cout << "Resident memory: " << (bytes * 1e-6) << " Mbytes" << std::endl;
 
-    std::cout << "Time per record: " << (usec / N) << " microseconds" << std::endl;
-    std::cout << "Memory per record: " << (bytes / N) << " bytes" << std::endl;
+    std::cout << "Records per millisecond: " << std::setprecision(1) << (N * 1e3 / usec) << std::endl;
+    std::cout << "Bytes per record: " << std::setprecision(1) << (bytes / N) << std::endl;
 }
