@@ -1,4 +1,4 @@
-CXX         = g++ -g
+CXX         = c++ -g
 CXXFLAGS    = -std=c++17 -O -Wall -Werror
 PROG        = set map
 
