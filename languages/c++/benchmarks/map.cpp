@@ -10,6 +10,11 @@
 using Container = std::map<int32_t, int32_t>;
 
 //
+// How many records to create.
+//
+const long N = 2'000'000;
+
+//
 // Parameters of Lorenz attractor.
 //
 const long long K = 100'000'000;
@@ -22,7 +27,7 @@ const long CD = 3;
 //
 // Compute N samples of data and store into container.
 //
-void fill_with_data(const int N, Container &bag)
+void fill_with_data(Container &bag)
 {
     // Compute sequence of Lorenz attractor.
     long long x = K / 10;
@@ -57,16 +62,16 @@ void extract_data(Container &bag)
 }
 
 //
-// Get resident memory size in Mbytes.
+// Get resident memory size in bytes.
 //
 double get_memory_usage()
 {
     struct rusage ru;
     getrusage(RUSAGE_SELF, &ru);
 #ifdef __APPLE__
-    return ru.ru_maxrss / 1024.0 / 1024.0;
+    return ru.ru_maxrss;
 #else
-    return ru.ru_maxrss / 1024.0;
+    return ru.ru_maxrss * 1024.0;
 #endif
 }
 
@@ -76,13 +81,18 @@ int main()
     auto const t0 = std::chrono::steady_clock::now();
 
     Container bag;
-    fill_with_data(2'000'000, bag);
+    fill_with_data(bag);
     extract_data(bag);
 
     // Get duration in microseconds.
     auto const t1 = std::chrono::steady_clock::now();
-    auto const sec = 0.000'001 * std::chrono::duration_cast<std::chrono::microseconds>(t1 - t0).count();
+    auto const usec = 1e-3 * std::chrono::duration_cast<std::chrono::nanoseconds>(t1 - t0).count();
+    auto const sec = 1e-6 * usec;
+    auto const bytes = get_memory_usage();
 
     std::cout << "Elapsed time: " << std::fixed << std::setprecision(3) << sec << " seconds" << std::endl;
-    std::cout << "Resident memory: " << std::setprecision(3) << get_memory_usage() << " Mbytes" << std::endl;
+    std::cout << "Resident memory: " << (bytes * 1e-6) << " Mbytes" << std::endl;
+
+    std::cout << "Time per record: " << (usec / N) << " microseconds" << std::endl;
+    std::cout << "Memory per record: " << (bytes / N) << " bytes" << std::endl;
 }
