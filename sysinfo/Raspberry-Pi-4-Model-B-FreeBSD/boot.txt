@@ -1,0 +1,490 @@
+
+U-Boot 2023.07.02 (Nov 10 2023 - 06:10:53 +0000)
+
+DRAM:  948 MiB (effective 3.9 GiB)
+RPI 4 Model B (0xc03112)
+Core:  209 devices, 16 uclasses, devicetree: board
+MMC:   mmc@7e300000: 3, mmc@7e340000: 0
+Loading Environment from FAT... ** Bad device specification mmc 1 **
+In:    serial
+Out:   vidconsole
+Err:   vidconsole
+Net:   eth0: ethernet@7d580000
+PCIe BRCM: link up, 5.0 Gbps x1 (SSC)
+starting USB...
+Bus xhci_pci: Register 5000420 NbrPorts 5
+Starting the controller
+USB XHCI 1.00
+scanning bus xhci_pci for devices... 2 USB Device(s) found
+       scanning usb for storage devices... 0 Storage Device(s) found
+Hit any key to stop autoboot:  2  1  0
+switch to partitions #0, OK
+mmc0 is current device
+Scanning mmc 0:1...
+No EFI system partition
+No EFI system partition
+Failed to persist EFI variables
+BootOrder not defined
+EFI boot manager: Cannot load any image
+Found EFI removable media binary efi/boot/bootaa64.efi
+859556 bytes read in 56 ms (14.6 MiB/s)
+Booting /efi\boot\bootaa64.efi
+console comconsole failed to initialize
+Consoles: EFI console  serial port
+    Reading loader env vars from /efi/freebsd/loader.env
+Setting currdev to disk0p1:
+FreeBSD/arm64 EFI loader, Revision 1.1
+
+   Command line arguments: loader.efi
+   Image base: 0x39e27000
+   EFI version: 2.100
+   EFI Firmware: Das U-Boot (rev 8227.1792)
+   Console: efi,comconsole (0)
+   Load Path: /efi\boot\bootaa64.efi
+   Load Device: /VenHw(e61d73b9-a384-4acc-aeab-82e828f3628b)/SD(0)/SD(1)/HD(1,0x01,0,0x800,0x19000)
+Trying ESP: /VenHw(e61d73b9-a384-4acc-aeab-82e828f3628b)/SD(0)/SD(1)/HD(1,0x01,0,0x800,0x19000)
+Setting currdev to disk0p1:
+Trying: /VenHw(e61d73b9-a384-4acc-aeab-82e828f3628b)/SD(0)/SD(1)/HD(2,0x01,0,0x19800,0xeea6800)
+Setting currdev to disk0p2:
+Loading /boot/defaults/loader.conf
+Loading /boot/defaults/loader.conf
+Loading /boot/device.hints
+Loading /boot/loader.conf
+Loading /boot/loader.conf.local
+Loading kernel...
+/boot/kernel/kernel text=0x2a8 text=0x9b50c0 text=0x25ca5c data=0x14d1b8 data=0x0+0x2c5000 0x8+0x14ba70+0x8+0x174176
+Loading configured modules...
+/boot/entropy size=0x1000
+/etc/hostid size=0x25
+/boot/kernel/umodem.ko text=0x2040 text=0x1350 data=0x6f8+0x4 0x8+0xeb8+0x8+0xb2c
+loading required module 'ucom'
+/boot/kernel/ucom.ko text=0x249f text=0x3370 data=0x920+0x858 0x8+0x1170+0x8+0xb13
+
+Hit [Enter] to boot immediately, or any other key for command prompt.
+
+Booting [/boot/kernel/kernel] in 10 seconds...
+Booting [/boot/kernel/kernel] in 9 seconds...
+Booting [/boot/kernel/kernel] in 8 seconds...
+Booting [/boot/kernel/kernel] in 7 seconds...
+Booting [/boot/kernel/kernel] in 6 seconds...
+Booting [/boot/kernel/kernel] in 5 seconds...
+Booting [/boot/kernel/kernel] in 4 seconds...
+Booting [/boot/kernel/kernel] in 3 seconds...
+Booting [/boot/kernel/kernel] in 2 seconds...
+Booting [/boot/kernel/kernel] in 1 second...
+Booting [/boot/kernel/kernel]...
+Using DTB provided by EFI at 0x39efc000.
+EFI framebuffer information:
+addr, size     0x3eaf5000, 0x103000
+dimensions     592 x 448
+stride         592
+masks          0x00ff0000, 0x0000ff00, 0x000000ff, 0xff000000
+---<<BOOT>>---
+WARNING: Cannot find freebsd,dts-version property, cannot check DTB compliance
+Copyright (c) 1992-2023 The FreeBSD Project.
+Copyright (c) 1979, 1980, 1983, 1986, 1988, 1989, 1991, 1992, 1993, 1994
+	The Regents of the University of California. All rights reserved.
+FreeBSD is a registered trademark of The FreeBSD Foundation.
+FreeBSD 14.0-RELEASE #0 releng/14.0-n265380-f9716eee8ab4: Fri Nov 10 08:59:18 UTC 2023
+    root@releng1.nyi.freebsd.org:/usr/obj/usr/src/arm64.aarch64/sys/GENERIC arm64
+FreeBSD clang version 16.0.6 (https://github.com/llvm/llvm-project.git llvmorg-16.0.6-0-g7cbf1a259152)
+VT(efifb): resolution 592x448
+module scmi already present!
+real memory  = 4148158464 (3955 MB)
+avail memory = 4020895744 (3834 MB)
+Starting CPU 1 (1)
+Starting CPU 2 (2)
+Starting CPU 3 (3)
+FreeBSD/SMP: Multiprocessor System Detected: 4 CPUs
+random: unblocking device.
+random: entropy device external interface
+kbd0 at kbdmux0
+ofwbus0: <Open Firmware Device Tree>
+simplebus0: <Flattened device tree simple bus> on ofwbus0
+ofw_clkbus0: <OFW clocks bus> on ofwbus0
+clk_fixed0: <Fixed clock> on ofw_clkbus0
+clk_fixed1: <Fixed clock> on ofw_clkbus0
+clk_fixed2: <Fixed clock> on ofwbus0
+clk_fixed3: <Fixed clock> on ofwbus0
+simplebus1: <Flattened device tree simple bus> on ofwbus0
+simplebus2: <Flattened device tree simple bus> on ofwbus0
+regfix0: <Fixed Regulator> on ofwbus0
+clk_fixed4: clock-fixed has no clock-frequency
+clk_fixed4: clock-fixed has no clock-frequency
+regfix1: <Fixed Regulator> on ofwbus0
+regfix2: <Fixed Regulator> on ofwbus0
+regfix3: <Fixed Regulator> on ofwbus0
+regfix4: <Fixed Regulator> on ofwbus0
+simplebus3: <Flattened device tree simple bus> on ofwbus0
+simple_mfd0: <Simple MFD (Multi-Functions Device)> mem 0x7d5d2000-0x7d5d2eff on simplebus0
+bcm2835_firmware0: <BCM2835 Firmware> on simplebus0
+ofw_clkbus1: <OFW clocks bus> on bcm2835_firmware0
+clk_fixed4: clock-fixed has no clock-frequency
+clk_fixed4: clock-fixed has no clock-frequency
+psci0: <ARM Power State Co-ordination Interface Driver> on ofwbus0
+clk_fixed4: clock-fixed has no clock-frequency
+clk_fixed4: clock-fixed has no clock-frequency
+clk_fixed4: clock-fixed has no clock-frequency
+clk_fixed4: clock-fixed has no clock-frequency
+clk_fixed4: clock-fixed has no clock-frequency
+clk_fixed4: clock-fixed has no clock-frequency
+clk_fixed4: clock-fixed has no clock-frequency
+clk_fixed4: clock-fixed has no clock-frequency
+clk_fixed4: clock-fixed has no clock-frequency
+clk_fixed4: clock-fixed has no clock-frequency
+clk_fixed4: clock-fixed has no clock-frequency
+clk_fixed4: clock-fixed has no clock-frequency
+clk_fixed4: clock-fixed has no clock-frequency
+clk_fixed4: clock-fixed has no clock-frequency
+clk_fixed4: clock-fixed has no clock-frequency
+clk_fixed4: clock-fixed has no clock-frequency
+gic0: <ARM Generic Interrupt Controller> mem 0x40041000-0x40041fff,0x40042000-0x40043fff,0x40044000-0x40045fff,0x40046000-0x40047fff irq 30 on simplebus0
+gic0: pn 0x2, arch 0x2, rev 0x1, implementer 0x43b irqs 256
+clk_fixed4: clock-fixed has no clock-frequency
+clk_fixed4: clock-fixed has no clock-frequency
+clk_fixed4: clock-fixed has no clock-frequency
+clk_fixed4: clock-fixed has no clock-frequency
+gpio0: <BCM2708/2835 GPIO controller> mem 0x7e200000-0x7e2000b3 irq 14,15 on simplebus0
+gpiobus0: <OFW GPIO bus> on gpio0
+gpio1: <Raspberry Pi Firmware GPIO controller> on bcm2835_firmware0
+gpiobus1: <GPIO bus> on gpio1
+regfix0: Cannot configure GPIO pin: 5
+REGNODE_INIT failed: 6
+regfix0: Cannot register regulator.
+clk_fixed4: clock-fixed has no clock-frequency
+clk_fixed4: clock-fixed has no clock-frequency
+regfix2: Cannot set GPIO pin: 6
+REGNODE_INIT failed: 6
+regfix2: Cannot register regulator.
+mbox0: <BCM2835 VideoCore Mailbox> mem 0x7e00b880-0x7e00b8bf irq 13 on simplebus0
+clk_fixed4: clock-fixed has no clock-frequency
+clk_fixed4: clock-fixed has no clock-frequency
+gpioregulator0: <GPIO controlled regulator> on ofwbus0
+clk_fixed4: clock-fixed has no clock-frequency
+clk_fixed4: clock-fixed has no clock-frequency
+clk_fixed4: clock-fixed has no clock-frequency
+clk_fixed4: clock-fixed has no clock-frequency
+generic_timer0: <ARMv8 Generic Timer> irq 4,5,6,7 on ofwbus0
+Timecounter "ARM MPCore Timecounter" frequency 54000000 Hz quality 1000
+Event timer "ARM MPCore Eventtimer" frequency 54000000 Hz quality 1000
+clk_fixed4: clock-fixed has no clock-frequency
+clk_fixed4: clock-fixed has no clock-frequency
+clk_fixed4: clock-fixed has no clock-frequency
+clk_fixed4: clock-fixed has no clock-frequency
+clk_fixed4: clock-fixed has no clock-frequency
+clk_fixed4: clock-fixed has no clock-frequency
+clk_fixed4: clock-fixed has no clock-frequency
+clk_fixed4: clock-fixed has no clock-frequency
+clk_fixed4: clock-fixed has no clock-frequency
+clk_fixed4: clock-fixed has no clock-frequency
+clk_fixed4: clock-fixed has no clock-frequency
+clk_fixed4: clock-fixed has no clock-frequency
+clk_fixed4: clock-fixed has no clock-frequency
+clk_fixed4: clock-fixed has no clock-frequency
+clk_fixed4: clock-fixed has no clock-frequency
+clk_fixed4: clock-fixed has no clock-frequency
+clk_fixed4: clock-fixed has no clock-frequency
+clk_fixed4: clock-fixed has no clock-frequency
+clk_fixed4: clock-fixed has no clock-frequency
+clk_fixed4: clock-fixed has no clock-frequency
+bcm_dma0: <BCM2835 DMA Controller> mem 0x7e007000-0x7e007aff irq 31,32,33,34,35,36,37,38,39,40,41 on simplebus0
+usb_nop_xceiv0: <USB NOP PHY> on ofwbus0
+clk_fixed4: clock-fixed has no clock-frequency
+clk_fixed4: clock-fixed has no clock-frequency
+clk_fixed4: clock-fixed has no clock-frequency
+clk_fixed4: clock-fixed has no clock-frequency
+bcm2835_clkman0: <BCM283x Clock Manager> mem 0x7e101000-0x7e102fff on simplebus0
+gpioc0: <GPIO controller> on gpio0
+uart0: <PrimeCell UART (PL011)> mem 0x7e201000-0x7e2011ff irq 16 on simplebus0
+uart0: console (115200,n,8,1)
+spi0: <BCM2708/2835 SPI controller> mem 0x7e204000-0x7e2041ff irq 18 on simplebus0
+spibus0: <OFW SPI bus> on spi0
+spibus0: <unknown card> at cs 0 mode 0
+spibus0: <unknown card> at cs 1 mode 0
+sdhci_bcm0: <Broadcom 2708 SDHCI controller> mem 0x7e300000-0x7e3000ff irq 24 on simplebus0
+mmc0: <MMC/SD bus> on sdhci_bcm0
+iichb0: <BCM2708/2835 BSC controller> mem 0x7e804000-0x7e804fff irq 27 on simplebus0
+bcmwd0: <BCM2708/2835 Watchdog> mem 0x7e100000-0x7e100113,0x7e00a000-0x7e00a023,0x7ec11000-0x7ec1101f on simplebus0
+bcmrng0: <Broadcom BCM2835/BCM2838 RNG> mem 0x7e104000-0x7e104027 on simplebus0
+gpioc1: <GPIO controller> on gpio1
+fb0: <BCM2835 VT framebuffer driver> on simplebus0
+fb0: keeping existing fb bpp of 32
+fbd0 on fb0
+WARNING: Device "fb" is Giant locked and may be deleted before FreeBSD 15.0.
+VT: Replacing driver "efifb" with new "fb".
+fb0: 592x448(592x448@0,0) 32bpp
+fb0: fbswap: 1, pitch 2368, base 0x3eaf5000, screen_size 1060864
+sdhci_bcm1: <Broadcom 2708 SDHCI controller> mem 0x7e340000-0x7e3400ff irq 79 on simplebus1
+mmc1: <MMC/SD bus> on sdhci_bcm1
+pmu0: <Performance Monitoring Unit> irq 0,1,2,3 on ofwbus0
+cpulist0: <Open Firmware CPU Group> on ofwbus0
+cpu0: <Open Firmware CPU> on cpulist0
+bcm2835_cpufreq0: <CPU Frequency Control> on cpu0
+pcib0: <BCM2838-compatible PCI-express controller> mem 0x7d500000-0x7d50930f irq 80,81 on simplebus2
+pcib0: hardware identifies as revision 0x304.
+pci0: <OFW PCI bus> on pcib0
+pcib1: <PCI-PCI bridge> irq 91 at device 0.0 on pci0
+pci1: <OFW PCI bus> on pcib1
+bcm_xhci0: <VL805 USB 3.0 controller (on the Raspberry Pi 4b)> irq 92 at device 0.0 on pci1
+bcm_xhci0: 32 bytes context size, 64-bit DMA
+usbus0 on bcm_xhci0
+genet0: <RPi4 Gigabit Ethernet> mem 0x7d580000-0x7d58ffff irq 82,83 on simplebus2
+genet0: GENET version 5.0 phy 0x0000
+miibus0: <MII bus> on genet0
+brgphy0: <BCM54213PE 1000BASE-T media interface> PHY 1 on miibus0
+brgphy0:  10baseT, 10baseT-FDX, 100baseTX, 100baseTX-FDX, 1000baseT, 1000baseT-master, 1000baseT-FDX, 1000baseT-FDX-master, auto
+genet0: Ethernet address: dc:a6:32:a3:1e:52
+clk_fixed4: clock-fixed has no clock-frequency
+clk_fixed4: clock-fixed has no clock-frequency
+gpioled0: <GPIO LEDs> on ofwbus0
+armv8crypto0: CPU lacks AES instructions
+Timecounters tick every 1.000 msec
+usbus0: 5.0Gbps Super Speed USB v3.0
+sdhci_bcm0-slot0: Got command interrupt 0x00030000, but there is no active command.
+sdhci_bcm0-slot0: ============== REGISTER DUMP ==============
+sdhci_bcm0-slot0: Sys addr: 0x00000000 | Version:  0x00009902
+sdhci_bcm0-slot0: Blk size: 0x00000000 | Blk cnt:  0x00000000
+sdhci_bcm0-slot0: Argument: 0x000001aa | Trn mode: 0x00000000
+sdhci_bcm0-slot0: Present:  0x000f0000 | Host ctl: 0x00000001
+sdhci_bcm0-slot0: Power:    0x0000000f | Blk gap:  0x00000000
+sdhci_bcm0-slot0: Wake-up:  0x00000000 | Clock:    0x00003947
+sdhci_bcm0-slot0: Timeout:  0x00000000 | Int stat: 0x00000000
+sdhci_bcm0-slot0: Int enab: 0x01ff00bb | Sig enab: 0x01ff00bb
+sdhci_bcm0-slot0: AC12 err: 0x00000000 | Host ctl2:0x00000000
+sdhci_bcm0-slot0: Caps:     0x00000000 | Caps2:    0x00000000
+sdhci_bcm0-slot0: Max curr: 0x00000001 | ADMA err: 0x00000000
+sdhci_bcm0-slot0: ADMA addr:0x00000000 | Slot int: 0x00000000
+sdhci_bcm0-slot0: ===========================================
+ugen0.1: <(0x1106) XHCI root HUB> at usbus0
+uhub0 on usbus0
+uhub0: <(0x1106) XHCI root HUB, class 9/0, rev 3.00/1.00, addr 1> on usbus0
+sdhci_bcm0-slot0: Got command interrupt 0x00030000, but there is no active command.
+sdhci_bcm0-slot0: ============== REGISTER DUMP ==============
+sdhci_bcm0-slot0: Sys addr: 0x00000000 | Version:  0x00009902
+sdhci_bcm0-slot0: Blk size: 0x00000000 | Blk cnt:  0x00000000
+sdhci_bcm0-slot0: Argument: 0x000001aa | Trn mode: 0x00000000
+sdhci_bcm0-slot0: Present:  0x000f0000 | Host ctl: 0x00000001
+sdhci_bcm0-slot0: Power:    0x0000000f | Blk gap:  0x00000000
+sdhci_bcm0-slot0: Wake-up:  0x00000000 | Clock:    0x00003947
+sdhci_bcm0-slot0: Timeout:  0x00000000 | Int stat: 0x00000000
+sdhci_bcm0-slot0: Int enab: 0x01ff00bb | Sig enab: 0x01ff00bb
+sdhci_bcm0-slot0: AC12 err: 0x00000000 | Host ctl2:0x00000000
+sdhci_bcm0-slot0: Caps:     0x00000000 | Caps2:    0x00000000
+sdhci_bcm0-slot0: Max curr: 0x00000001 | ADMA err: 0x00000000
+sdhci_bcm0-slot0: ADMA addr:0x00000000 | Slot int: 0x00000000
+sdhci_bcm0-slot0: ===========================================
+sdhci_bcm0-slot0: Got command interrupt 0x00030000, but there is no active command.
+sdhci_bcm0-slot0: ============== REGISTER DUMP ==============
+sdhci_bcm0-slot0: Sys addr: 0x00000000 | Version:  0x00009902
+sdhci_bcm0-slot0: Blk size: 0x00000000 | Blk cnt:  0x00000000
+sdhci_bcm0-slot0: Argument: 0x00000000 | Trn mode: 0x00000000
+sdhci_bcm0-slot0: Present:  0x000f0000 | Host ctl: 0x00000001
+sdhci_bcm0-slot0: Power:    0x0000000f | Blk gap:  0x00000000
+sdhci_bcm0-slot0: Wake-up:  0x00000000 | Clock:    0x00003947
+sdhci_bcm0-slot0: Timeout:  0x00000000 | Int stat: 0x00000000
+sdhci_bcm0-slot0: Int enab: 0x01ff00bb | Sig enab: 0x01ff00bb
+sdhci_bcm0-slot0: AC12 err: 0x00000000 | Host ctl2:0x00000000
+sdhci_bcm0-slot0: Caps:     0x00000000 | Caps2:    0x00000000
+sdhci_bcm0-slot0: Max curr: 0x00000001 | ADMA err: 0x00000000
+sdhci_bcm0-slot0: ADMA addr:0x00000000 | Slot int: 0x00000000
+sdhci_bcm0-slot0: ===========================================
+sdhci_bcm0-slot0: Got command interrupt 0x00030000, but there is no active command.
+sdhci_bcm0-slot0: ============== REGISTER DUMP ==============
+sdhci_bcm0-slot0: Sys addr: 0x00000000 | Version:  0x00009902
+sdhci_bcm0-slot0: Blk size: 0x00000000 | Blk cnt:  0x00000000
+sdhci_bcm0-slot0: Argument: 0x00000000 | Trn mode: 0x00000000
+sdhci_bcm0-slot0: Present:  0x000f0000 | Host ctl: 0x00000001
+sdhci_bcm0-slot0: Power:    0x0000000f | Blk gap:  0x00000000
+sdhci_bcm0-slot0: Wake-up:  0x00000000 | Clock:    0x00003947
+sdhci_bcm0-slot0: Timeout:  0x00000000 | Int stat: 0x00000000
+sdhci_bcm0-slot0: Int enab: 0x01ff00bb | Sig enab: 0x01ff00bb
+sdhci_bcm0-slot0: AC12 err: 0x00000000 | Host ctl2:0x00000000
+sdhci_bcm0-slot0: Caps:     0x00000000 | Caps2:    0x00000000
+sdhci_bcm0-slot0: Max curr: 0x00000001 | ADMA err: 0x00000000
+sdhci_bcm0-slot0: ADMA addr:0x00000000 | Slot int: 0x00000000
+sdhci_bcm0-slot0: ===========================================
+sdhci_bcm0-slot0: Got command interrupt 0x00030000, but there is no active command.
+sdhci_bcm0-slot0: ============== REGISTER DUMP ==============
+sdhci_bcm0-slot0: Sys addr: 0x00000000 | Version:  0x00009902
+sdhci_bcm0-slot0: Blk size: 0x00000000 | Blk cnt:  0x00000000
+sdhci_bcm0-slot0: Argument: 0x00000000 | Trn mode: 0x00000000
+sdhci_bcm0-slot0: Present:  0x000f0000 | Host ctl: 0x00000001
+sdhci_bcm0-slot0: Power:    0x0000000f | Blk gap:  0x00000000
+sdhci_bcm0-slot0: Wake-up:  0x00000000 | Clock:    0x00003947
+sdhci_bcm0-slot0: Timeout:  0x00000000 | Int stat: 0x00000000
+sdhci_bcm0-slot0: Int enab: 0x01ff00bb | Sig enab: 0x01ff00bb
+sdhci_bcm0-slot0: AC12 err: 0x00000000 | Host ctl2:0x00000000
+sdhci_bcm0-slot0: Caps:     0x00000000 | Caps2:    0x00000000
+sdhci_bcm0-slot0: Max curr: 0x00000001 | ADMA err: 0x00000000
+sdhci_bcm0-slot0: ADMA addr:0x00000000 | Slot int: 0x00000000
+sdhci_bcm0-slot0: ===========================================
+sdhci_bcm0-slot0: Got command interrupt 0x00030000, but there is no active command.
+sdhci_bcm0-slot0: ============== REGISTER DUMP ==============
+sdhci_bcm0-slot0: Sys addr: 0x00000000 | Version:  0x00009902
+sdhci_bcm0-slot0: Blk size: 0x00000000 | Blk cnt:  0x00000000
+sdhci_bcm0-slot0: Argument: 0x00000000 | Trn mode: 0x00000000
+sdhci_bcm0-slot0: Present:  0x000f0000 | Host ctl: 0x00000001
+sdhci_bcm0-slot0: Power:    0x0000000f | Blk gap:  0x00000000
+sdhci_bcm0-slot0: Wake-up:  0x00000000 | Clock:    0x00003947
+sdhci_bcm0-slot0: Timeout:  0x00000000 | Int stat: 0x00000000
+sdhci_bcm0-slot0: Int enab: 0x01ff00bb | Sig enab: 0x01ff00bb
+sdhci_bcm0-slot0: AC12 err: 0x00000000 | Host ctl2:0x00000000
+sdhci_bcm0-slot0: Caps:     0x00000000 | Caps2:    0x00000000
+sdhci_bcm0-slot0: Max curr: 0x00000001 | ADMA err: 0x00000000
+sdhci_bcm0-slot0: ADMA addr:0x00000000 | Slot int: 0x00000000
+sdhci_bcm0-slot0: ===========================================
+mmc0: No compatible cards found on bus
+iicbus0: <OFW I2C bus> on iichb0
+iic0: <I2C generic I/O> on iicbus0
+mmcsd0: 128GB <SDHC GD2S5 3.0 SN CCCF5596 MFG 04/2021 by 27 SM> at mmc1 50.0MHz/4bit/65535-block
+bcm2835_cpufreq0: ARM 600MHz, Core 200MHz, SDRAM 400MHz, Turbo OFF
+CPU  0: ARM Cortex-A72 r0p3 affinity:  0
+                   Cache Type = <64 byte D-cacheline,64 byte I-cacheline,PIPT ICache,64 byte ERG,64 byte CWG>
+ Instruction Set Attributes 0 = <CRC32>
+ Instruction Set Attributes 1 = <>
+ Instruction Set Attributes 2 = <>
+         Processor Features 0 = <AdvSIMD,FP,EL3 32,EL2 32,EL1 32,EL0 32>
+         Processor Features 1 = <>
+      Memory Model Features 0 = <TGran4,TGran64,SNSMem,BigEnd,16bit ASID,16TB PA>
+      Memory Model Features 1 = <8bit VMID>
+      Memory Model Features 2 = <32bit CCIDX,48bit VA>
+             Debug Features 0 = <DoubleLock,2 CTX BKPTs,4 Watchpoints,6 Breakpoints,PMUv3,Debugv8>
+             Debug Features 1 = <>
+         Auxiliary Features 0 = <>
+         Auxiliary Features 1 = <>
+AArch32 Instruction Set Attributes 5 = <CRC32,SEVL>
+AArch32 Media and VFP Features 0 = <FPRound,FPSqrt,FPDivide,DP VFPv3+v4,SP VFPv3+v4,AdvSIMD>
+AArch32 Media and VFP Features 1 = <SIMDFMAC,FPHP DP Conv,SIMDHP SP Conv,SIMDSP,SIMDInt,SIMDLS,FPDNaN,FPFtZ>
+CPU  1: ARM Cortex-A72 r0p3 affinity:  1
+CPU  2: ARM Cortex-A72 r0p3 affinity:  2
+CPU  3: ARM Cortex-A72 r0p3 affinity:  3
+Release APs...done
+TCP_ratelimit: Is now initialized
+Trying to mount root from ufs:/dev/ufs/rootfs [rw,noatime]...
+uhub0: 5 ports with 4 removable, self powered
+Warning: no time-of-day clock registered, system time will not be set accurately
+Dual Console: Serial Primary, Video Secondary
+ugen0.2: <vendor 0x2109 USB2.0 Hub> at usbus0
+uhub1 on uhub0
+uhub1: <vendor 0x2109 USB2.0 Hub, class 9/0, rev 2.10/4.20, addr 1> on usbus0
+Waiting 30s for the root mount holders: usbus0uhub1: 4 ports with 4 removable, self powered
+Setting hostuuid: 30303031-3030-3030-3761-613665313464.
+Setting hostid: 0x5a5591cf.
+Starting file system checks:
+/dev/ufs/rootfs: FILE SYSTEM CLEAN; SKIPPING CHECKS
+/dev/ufs/rootfs: clean, 26190729 free (8137 frags, 3272824 blocks, 0.0% fragmentation)
+Mounting local filesystems:.
+ELF ldconfig path: /lib /usr/lib /usr/lib/compat /usr/local/lib /usr/local/lib/compat/pkg /usr/local/lib/compat/pkg /usr/local/lib/gcc13 /usr/local/lib/perl5/5.36/mach/CORE
+32-bit compatibility ldconfig path: /usr/lib32
+Setting hostname: zebub.
+Setting up harvesting: [CALLOUT],[UMA],[FS_ATIME],SWI,INTERRUPT,NET_NG,[NET_ETHER],NET_TUN,MOUSE,KEYBOARD,ATTACH,CACHED
+Feeding entropy: .
+genet0: link state changed to UP
+lo0: link state changed to UP
+genet0: link state changed to DOWN
+genet0: link state changed to UP
+Starting Network: lo0 genet0.
+lo0: flags=1008049<UP,LOOPBACK,RUNNING,MULTICAST,LOWER_UP> metric 0 mtu 16384
+	options=680003<RXCSUM,TXCSUM,LINKSTATE,RXCSUM_IPV6,TXCSUM_IPV6>
+	inet 127.0.0.1 netmask 0xff000000
+	inet6 ::1 prefixlen 128
+	inet6 fe80::1%lo0 prefixlen 64 scopeid 0x2
+	groups: lo
+	nd6 options=23<PERFORMNUD,ACCEPT_RTADV,AUTO_LINKLOCAL>
+genet0: flags=1008843<UP,BROADCAST,RUNNING,SIMPLEX,MULTICAST,LOWER_UP> metric 0 mtu 1500
+	options=68000b<RXCSUM,TXCSUM,VLAN_MTU,LINKSTATE,RXCSUM_IPV6,TXCSUM_IPV6>
+	ether dc:a6:32:a3:1e:52
+	inet6 fe80::dea6:32ff:fea3:1e52%genet0 prefixlen 64 scopeid 0x1
+	inet6 2601:646:8100:b7c0:dea6:32ff:fea3:1e52 prefixlen 64 autoconf pltime 3600 vltime 3600
+	media: Ethernet autoselect (1000baseT <full-duplex>)
+	status: active
+	nd6 options=23<PERFORMNUD,ACCEPT_RTADV,AUTO_LINKLOCAL>
+Starting devd.
+Starting dhclient.
+DHCPREQUEST on genet0 to 255.255.255.255 port 67
+DHCPACK from 192.168.11.1
+bound to 192.168.11.8 -- renewal in 1800 seconds.
+add host 127.0.0.1: gateway lo0 fib 0: route already in table
+add host ::1: gateway lo0 fib 0: route already in table
+add net fe80::: gateway ::1
+add net ff02::: gateway ::1
+add net ::ffff:0.0.0.0: gateway ::1
+add net ::0.0.0.0: gateway ::1
+Clearing /tmp (X related).
+Updating motd:.
+Creating and/or trimming log files.
+Updating /var/run/os-release done.
+Starting syslogd.
+Setting date via ntp.
+ 8 Dec 21:07:38 ntpdate[1321]: step time server 173.71.68.71 offset +351.470933 sec
+No core dumps found.
+Starting powerd.
+Security policy loaded: MAC/ntpd (mac_ntpd)
+Starting ntpd.
+Dec  8 21:07:38 zebub ntpd[1381]: leapsecond file ('/var/db/ntpd.leap-seconds.list'): expired 348 days ago
+Mounting late filesystems:.
+Performing sanity check on sshd configuration.
+Starting sshd.
+Starting cron.
+Starting background file system checks in 60 seconds.
+
+Sun Dec  8 21:07:38 PST
+FreeBSD/arm64 (zebub) (ttyu0)
+
+login: root
+Password:
+Dec  8 21:07:47 zebub login[1454]: ROOT LOGIN (root) ON ttyu0
+Last login: Wed Nov 15 01:14:40 from tundra
+FreeBSD 14.0-RELEASE (GENERIC) #0 releng/14.0-n265380-f9716eee8ab4: Fri Nov 10 08:59:18 UTC 2023
+
+Welcome to FreeBSD!
+
+Release Notes, Errata: https://www.FreeBSD.org/releases/
+Security Advisories:   https://www.FreeBSD.org/security/
+FreeBSD Handbook:      https://www.FreeBSD.org/handbook/
+FreeBSD FAQ:           https://www.FreeBSD.org/faq/
+Questions List:        https://www.FreeBSD.org/lists/questions/
+FreeBSD Forums:        https://forums.FreeBSD.org/
+
+Documents installed with the system are in the /usr/local/share/doc/freebsd/
+directory, or can be installed later with:  pkg install en-freebsd-doc
+For other languages, replace "en" with a language code like de or fr.
+
+Show the version of FreeBSD installed:  freebsd-version ; uname -a
+Please include that output and any error messages when posting questions.
+Introduction to manual pages:  man man
+FreeBSD directory layout:      man hier
+
+To change this login announcement, see motd(5).
+You have new mail.
+root@zebub:~ # df
+Filesystem       1K-blocks    Used    Avail Capacity  Mounted on
+/dev/ufs/rootfs  113386972 8624092 95691924     8%    /
+devfs                    1       0        1     0%    /dev
+/dev/msdosfs/EFI     51132   25500    25632    50%    /boot/efi
+tmpfs             11878392       4 11878388     0%    /tmp
+root@zebub:~ # sync
+root@zebub:~ # poweroff
+Shutdown NOW!
+poweroff: [pid 1461]
+root@zebub:~ #
+Stopping cron.
+Waiting for PIDS: 1432.
+Stopping sshd.
+Waiting for PIDS: 1428, 1428.
+Stopping powerd.
+Waiting for PIDS: 1357.
+Stopping ntpd.
+Waiting for PIDS: 1381.
+Stopping devd.
+Waiting for PIDS: 1112.
+Writing entropy file: .
+Writing early boot entropy file: .
+.
+Terminated
+Dec  8 21:08:12 zebub syslogd: exiting on signal 15
+Waiting (max 60 seconds) for system process `vnlru' to stop... done
+Waiting (max 60 seconds) for system process `syncer' to stop...
+Syncing disks, vnodes remaining... 0 0 done
+All buffers synced.
+Uptime: 1m4s
