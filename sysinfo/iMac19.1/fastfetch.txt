@@ -1,0 +1,24 @@
+vak@tundra
+----------
+OS: macOS Sequoia 15.1.1 x86_64
+Host: iMac (Retina 5K, 27-inch, 2019)
+Kernel: Darwin 24.1.0
+Uptime: 6 days, 17 hours, 12 mins
+Packages: 619 (brew), 32 (brew-cask), 1 (macports)
+Shell: bashc
+Display (iMac): 5120x2880 @ 60 Hz (as 2560x1440) in 27" [Built-in]
+DE: Aqua
+WM: Quartz Compositor
+WM Theme: Multicolor (Light)
+Font: .AppleSystemUIFont [System], Helvetica [User]
+Cursor: Fill - Black, Outline - White (97px)
+Terminal:
+CPU: Intel(R) Core(TM) i9-9900K (16) @ 3.60 GHz
+GPU 1: Intel HD Graphics CFL [Integrated]
+GPU 2: AMD Radeon Pro 575X [Integrated]
+Memory: 11.05 GiB / 16.00 GiB (69%)
+Swap: 312.50 MiB / 2.00 GiB (15%)
+Disk (/): 593.99 GiB / 956.98 GiB (62%) - apfs [Read-only]
+Disk (/Volumes/Vak2Tb): 1.74 TiB / 1.82 TiB (96%) - hfs [External]
+Local IP (en0): 192.168.11.2/24
+Locale: en_US.UTF-8
