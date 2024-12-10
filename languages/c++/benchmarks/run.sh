@@ -1,4 +1,5 @@
 neofetch --stdout
+fastfetch --logo none
 echo ====
 ./set
 echo ====
