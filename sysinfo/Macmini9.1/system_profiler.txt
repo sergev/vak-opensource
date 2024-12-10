@@ -1,0 +1,380 @@
+Apple Pay:
+
+      Apple Pay Information:  
+        Platform ID: N5B2M004C7ED0000
+        SEID: 040F305B636480021015133413308606BDD1D899F7E660AE
+        Device: 0xd2
+        Production Signed: Yes
+        Restricted Mode: No
+        Hardware: 0x00000007
+        Firmware: 0x0700
+        JCOP OS: 20.03
+
+      Controller Information:  
+        Hardware: b2.2 ()
+        Firmware: 1.ab rev 154465
+        Middleware: 5.1.3.10
+
+Audio:
+
+    Devices:
+
+        Mac mini Speakers:
+
+          Default Output Device: Yes
+          Default System Output Device: Yes
+          Manufacturer: Apple Inc.
+          Output Channels: 2
+          Current SampleRate: 48000
+          Transport: Built-in
+          Output Source: Mac mini Speakers
+
+Bluetooth:
+
+      Bluetooth Controller:
+          State: On
+          Chipset: BCM_4378
+          Discoverable: Off
+          Firmware Version: 22.1.536.3880
+          Product ID: 0x4A00
+          Supported services: 0x392039 < HFP AVRCP A2DP HID Braille LEA AACP GATT SerialPort >
+          Transport: PCIe
+          Vendor ID: 0x004C (Apple)
+      Not Connected:
+          iPad Sergey (9th generation):
+          Serge Vakulenko’s Trackpad:
+              Firmware Version: 1.9.2
+              Minor Type: Magic Trackpad
+          SergeV (3):
+              RSSI: -66
+          Sergey’s AirPods:
+              Case Version: 1.9.4
+              Firmware Version: 5B59
+              Minor Type: Headphones
+              Serial Number: H0RHXJJRLX2Y
+              Serial Number (Left): H16HXMFTJJNV
+              Serial Number (Right): H16HXGASJJNW
+          Serge’s MacBook Pro:
+              Firmware Version: 0.0.0
+              Minor Type: Laptop Computer
+          tundra (3):
+          WH-H900N (h.ear):
+              Firmware Version: 3.0.0
+              Minor Type: Headset
+
+Controller:
+
+      Model Identifier: Macmini9,1
+      Firmware Version: iBoot-11881.41.5
+      Boot UUID: DAD2CCA8-FE5A-4198-85D4-18BE87E8A61C
+      Boot Policy:  
+        Secure Boot: Reduced Security
+        System Integrity Protection: Enabled
+        Signed System Volume: Enabled
+        Kernel CTRR: Enabled
+        Boot Arguments Filtering: Enabled
+        Allow All Kernel Extensions: No
+        User Approved Privileged MDM Operations: No
+        DEP Approved Privileged MDM Operations: No
+
+Ethernet:
+
+    Broadcom 57762-A0:
+
+      Bus: PCI
+      Vendor ID: 0x14e4
+      Device ID: 0x1682
+      Subsystem Vendor ID: 0x14e4
+      Subsystem ID: 0x1682
+      Revision ID: 0x0000
+      PCIe Link Speed: 2.5 GT/s
+      PCIe Link Width: x1
+      Driver: com.apple.iokit.AppleBCM5701Ethernet
+      BSD Device Name: en0
+      MAC Address: 14:98:77:54:2c:7c
+      AVB Support: Yes
+      Maximum Link Speed: 1 Gb/s
+
+Graphics/Displays:
+
+    Apple M1:
+
+      Chipset Model: Apple M1
+      Type: GPU
+      Bus: Built-In
+      Total Number of Cores: 8
+      Vendor: Apple (0x106b)
+      Metal Support: Metal 3
+      Displays:
+        Display:
+          Resolution: 1920 x 1080 (1080p FHD - Full High Definition)
+          UI Looks like: 1920 x 1080 @ 60.00Hz
+          Main Display: Yes
+          Mirror: Off
+          Online: Yes
+          Rotation: Supported
+
+Hardware:
+
+    Hardware Overview:
+
+      Model Name: Mac mini
+      Model Identifier: Macmini9,1
+      Model Number: Z12N000G8LL/A
+      Chip: Apple M1
+      Total Number of Cores: 8 (4 performance and 4 efficiency)
+      Memory: 16 GB
+      System Firmware Version: 11881.41.5
+      OS Loader Version: 11881.41.5
+
+Memory:
+
+      Memory: 16 GB
+      Type: LPDDR4
+      Manufacturer: Hynix
+
+NVMExpress:
+
+    Apple SSD Controller:
+
+        APPLE SSD AP2048Q:
+
+          Capacity: 2 TB (2,001,111,162,880 bytes)
+          TRIM Support: Yes
+          Model: APPLE SSD AP2048Q
+          Revision: 499.0.9
+          Detachable Drive: No
+          BSD Name: disk0
+          Partition Map Type: GPT (GUID Partition Table)
+          Removable Media: No
+          S.M.A.R.T. status: Verified
+
+Network:
+
+    Ethernet:
+
+      Type: Ethernet
+      Hardware: Ethernet
+      BSD Device Name: en0
+      Service Order: 0
+
+    Ethernet Adapter (en5):
+
+      Type: Ethernet
+      Hardware: Ethernet
+      BSD Device Name: en5
+      Service Order: 1
+
+    USB 10/100/1000 LAN:
+
+      Type: Ethernet
+      Hardware: Ethernet
+      BSD Device Name: en6
+      Service Order: 2
+
+    Ethernet Adapter (en4):
+
+      Type: Ethernet
+      Hardware: Ethernet
+      BSD Device Name: en4
+      Service Order: 3
+
+    USB 10/100/1000 LAN 2:
+
+      Type: Ethernet
+      Hardware: Ethernet
+      BSD Device Name: en8
+      Service Order: 4
+
+    Thunderbolt Bridge:
+
+      Type: Ethernet
+      Hardware: Ethernet
+      BSD Device Name: bridge0
+      Service Order: 5
+
+    Wi-Fi:
+
+      Type: AirPort
+      Hardware: AirPort
+      BSD Device Name: en1
+      Service Order: 6
+
+    Cato Networks VPN:
+
+      Type: VPN (com.catonetworks.mac.CatoClient)
+      BSD Device Name: utun4
+      Service Order: 7
+
+Printer Software:
+
+    PPDs:
+
+      PPDs: 
+
+    Printers:
+
+      Printers: 
+
+    Image Capture Devices:
+
+      Image Capture Devices: 
+
+    Image Capture Support:
+
+      Image Capture Support:
+          Path: /Library/Image Capture/Support/LegacyDeviceDiscoveryHelpers/AirScanLegacyDiscovery.app/Contents/Info.plist
+          Version: 607
+
+Printers:
+
+    Maul: HP Color LaserJet Pro M478f:
+
+      Status: Idle
+      Print Server: Local
+      Driver Version: 3.0
+      Default: Yes
+      System Printer Sharing: Yes
+      Shared: No
+      URI: dnssd://Maul%3A%20HP%20Color%20LaserJet%20Pro%20M478f._ipps._tcp.local./?uuid=697bec5d-a2a8-583b-2d20-d1899ddcf6c4
+      PPD: HP Color LaserJet Pro M478f-9f-AirPrint
+      PPD File Version: 3.0
+      PostScript Version: (3010.000) 0
+      CUPS Version: CUPS/2.3.4 (macOS 15.1.1; arm64) IPP/2.0
+      Scanning support: No
+      Printer Commands: none 
+      AirPrint Version: 1.8
+      URF Version: 1.4
+      Printer Firmware Version: CLRWTRXXXN002.2230D.00:CLRWTRXXXN002.2230D.00
+      Added: Thursday, November 17, 2022 at 16:55:45 Pacific Standard Time
+      CUPS filters:
+          application/vnd.cups-pdf: processed in printer
+          image/jpeg: processed in printer
+          image/urf: processed in printer
+      Fax support: No
+      PDEs: 
+
+    Maul: HP Color LaserJet Pro M478f - Fax:
+
+      Status: Idle
+      Print Server: Local
+      Driver Version: 3.0
+      Default: No
+      System Printer Sharing: Yes
+      Shared: No
+      URI: dnssd://Maul%3A%20HP%20Color%20LaserJet%20Pro%20M478f._ipps._tcp.local./?uuid=697bec5d-a2a8-583b-2d20-d1899ddcf6c4
+      PPD: HP Color LaserJet Pro M478f-9f-AirPrint
+      PPD File Version: 3.0
+      PostScript Version: (3010.000) 0
+      CUPS Version: CUPS/2.3.4 (macOS 15.1.1; arm64) IPP/2.0
+      Scanning support: No
+      Printer Commands: none 
+      AirPrint Version: 1.8
+      URF Version: 1.4
+      Printer Firmware Version: CLRWTRXXXN002.2230D.00:CLRWTRXXXN002.2230D.00
+      Added: Thursday, November 17, 2022 at 16:55:48 Pacific Standard Time
+      CUPS filters:
+          image/urf: processed in printer
+      Fax support: Yes
+      PDEs: 
+
+    Vader:
+
+      Status: Idle
+      Print Server: Local
+      Driver Version: 10.4
+      Default: No
+      System Printer Sharing: Yes
+      Shared: No
+      URI: dnssd://Vader._ipps._tcp.local./?uuid=564e434b-4c44-5931-3231-e4e749a4149f
+      PPD: Generic PostScript Printer
+      PPD File Version: 2.3
+      PostScript Version: (2016.0) 0
+      CUPS Version: CUPS/2.3.4 (macOS 15.1.1; arm64) IPP/2.0
+      Scanning support: No
+      Printer Commands: AutoConfigure Clean PrintSelfTestPage 
+      Added: Wednesday, April 5, 2023 at 21:08:03 Pacific Daylight Time
+      Fax support: No
+      PDEs: 
+
+Software:
+
+    System Software Overview:
+
+      System Version: macOS 15.1.1 (24B91)
+      Kernel Version: Darwin 24.1.0
+      Time since boot: 3 days, 20 hours, 50 minutes
+
+Thunderbolt/USB4:
+
+    Thunderbolt/USB4 Bus 1:
+
+      Vendor Name: Apple Inc.
+      Device Name: Mac mini
+      UID: 0x05AC64D883702C91
+      Route String: 0
+      Domain UUID: FAD265CC-0E75-468D-80CF-E0AA9348D3B2
+      Port:
+          Status: No device connected
+          Link Status: 0x100
+          Speed: Up to 40 Gb/s
+          Receptacle: 2
+
+    Thunderbolt/USB4 Bus 0:
+
+      Vendor Name: Apple Inc.
+      Device Name: Mac mini
+      UID: 0x05AC64D883702C90
+      Route String: 0
+      Domain UUID: 82415333-58D1-4D64-9B9D-D59E1DE0AC9A
+      Port:
+          Status: No device connected
+          Link Status: 0x100
+          Speed: Up to 40 Gb/s
+          Receptacle: 1
+
+USB:
+
+    USB 3.1 Bus:
+
+      Host Controller Driver: AppleT8103USBXHCI
+
+    USB 3.1 Bus:
+
+      Host Controller Driver: AppleT8103USBXHCI
+
+    USB 3.0 Bus:
+
+      Host Controller Driver: AppleEmbeddedUSBXHCIFL1100
+      PCI Device ID: 0x1100 
+      PCI Revision ID: 0x0010 
+      PCI Vendor ID: 0x1b73 
+
+Wi-Fi:
+
+      Software Versions:
+          CoreWLAN: 16.0 (1657)
+          CoreWLANKit: 16.0 (1657)
+          Menu Extra: 17.0 (1728)
+          System Information: 15.0 (1502)
+          IO80211 Family: 12.0 (1200.13.1)
+          Diagnostics: 11.0 (1163)
+          AirPort Utility: 6.3.9 (639.26)
+      Interfaces:
+        en1:
+          Card Type: Wi-Fi  (0x14E4, 0x4378)
+          Firmware Version: wl0: Jul 26 2024 20:49:57 version 18.20.458.0.7.8.173 FWID 01-544d6458
+IO80211_driverkit-1315.7 "IO80211_driverkit-1315.7" Sep 28 2024 16:04:40
+          MAC Address: 14:98:77:48:60:c6
+          Locale: FCC
+          Country Code: US
+          Supported PHY Modes: 802.11 a/b/g/n/ac/ax
+          Supported Channels: 1 (2GHz), 2 (2GHz), 3 (2GHz), 4 (2GHz), 5 (2GHz), 6 (2GHz), 7 (2GHz), 8 (2GHz), 9 (2GHz), 10 (2GHz), 11 (2GHz), 12 (2GHz), 13 (2GHz), 36 (5GHz), 40 (5GHz), 44 (5GHz), 48 (5GHz), 52 (5GHz), 56 (5GHz), 60 (5GHz), 64 (5GHz), 100 (5GHz), 104 (5GHz), 108 (5GHz), 112 (5GHz), 116 (5GHz), 120 (5GHz), 124 (5GHz), 128 (5GHz), 132 (5GHz), 136 (5GHz), 140 (5GHz), 144 (5GHz), 149 (5GHz), 153 (5GHz), 157 (5GHz), 161 (5GHz), 165 (5GHz)
+          Wake On Wireless: Supported
+          AirDrop: Supported
+          Auto Unlock: Supported
+          Status: Connected
+        awdl0:
+          MAC Address: 06:8a:69:1e:a3:1c
+          Supported Channels: 1 (2GHz), 2 (2GHz), 3 (2GHz), 4 (2GHz), 5 (2GHz), 6 (2GHz), 7 (2GHz), 8 (2GHz), 9 (2GHz), 10 (2GHz), 11 (2GHz), 12 (2GHz), 13 (2GHz), 36 (5GHz), 40 (5GHz), 44 (5GHz), 48 (5GHz), 52 (5GHz), 56 (5GHz), 60 (5GHz), 64 (5GHz), 100 (5GHz), 104 (5GHz), 108 (5GHz), 112 (5GHz), 116 (5GHz), 120 (5GHz), 124 (5GHz), 128 (5GHz), 132 (5GHz), 136 (5GHz), 140 (5GHz), 144 (5GHz), 149 (5GHz), 153 (5GHz), 157 (5GHz), 161 (5GHz), 165 (5GHz)
+

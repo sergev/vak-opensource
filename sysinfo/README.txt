@@ -15,3 +15,11 @@ For FreeBSD:
     lspci -v
     sudo lsusb -v
     neofetch --stdout
+
+For MacOS:
+    sysctl -a
+    cpu-info
+    isa-info
+    cache-info
+    system_profiler -detailLevel mini
+    fastfetch --logo none

@@ -1,0 +1,22 @@
+vak@scd-vpn-172-16-1-93
+-----------------------
+OS: macOS Sequoia 15.1.1 arm64
+Host: Mac mini (M1, 2020)
+Kernel: Darwin 24.1.0
+Uptime: 3 days, 20 hours, 39 mins
+Packages: 283 (brew), 18 (brew-cask)
+Shell: bashc
+Display: 1920x1080 @ 60 Hz in 31" [External]
+DE: Aqua
+WM: Quartz Compositor
+WM Theme: Multicolor (Light)
+Font: .AppleSystemUIFont [System], Helvetica [User]
+Cursor: Fill - Black, Outline - White (80px)
+Terminal:
+CPU: Apple M1 (8) @ 3.20 GHz
+GPU: Apple M1 (8) [Integrated]
+Memory: 7.96 GiB / 16.00 GiB (50%)
+Swap: Disabled
+Disk (/): 332.10 GiB / 1.81 TiB (18%) - apfs [Read-only]
+Local IP (utun4): 172.16.1.93/32
+Locale: en_US.UTF-8
