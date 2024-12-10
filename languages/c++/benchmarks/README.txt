@@ -14,8 +14,11 @@ Processor, Computer                         std::set    std::map    std::set    
 Apple M2 Max (12) @ 3.70 GHz                3856.1      2997.5      32.7        48.7
 MacBook Pro (16-inch, 2023)
 ----------------------------------------------------------------------------------------
+Apple M2 Max (Virtual) (12)                 3568.1      2764.4      32.7        48.7
+Apple Virtual Machine, MacOS
+----------------------------------------------------------------------------------------
 Apple M2 Max (12)                           2706.7      2169.1      33.0        49.1
-Apple Virtualization Generic Platform
+Apple Virtualization Generic Platform, Chimera
 ----------------------------------------------------------------------------------------
 Apple M1 (8) @ 3.20 GHz                     2608.3      2091.6      32.7        48.7
 Mac mini (M1, 2020)
@@ -24,7 +27,7 @@ Intel Core i9-9900K (16) @ 3.60 GHz         2302.4      1953.3      32.4        
 iMac (Retina 5K, 27-inch, 2019)
 ----------------------------------------------------------------------------------------
 Apple M2 Max (12)                           2155.3      2149.8      49.5        49.5
-Apple Virtualization Generic Platform
+Apple Virtualization Generic Platform, Ubuntu
 ----------------------------------------------------------------------------------------
 Intel Core i7-8750H (12) @ 4.10 GHz         1656.6      1654.2      49.8        49.8
 Lenovo ThinkPad P1
