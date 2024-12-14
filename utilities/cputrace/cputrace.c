@@ -7,16 +7,24 @@
 #include <sys/wait.h>
 #include <unistd.h>
 #include <sys/syscall.h>
+//#include <sys/personality.h>
 
 void print_regs(int child)
 {
-    char data[1024]; // TODO
+    struct user_regs_struct regs;
+    struct user_fpregs_struct fpregs;
 
-    if (ptrace(PTRACE_GETREGS, child, NULL, data) < 0) {
+    if (ptrace(PTRACE_GETREGS, child, NULL, &regs) < 0) {
         perror("PTRACE_GETREGS");
         exit(-1);
     }
-    //TODO: PTRACE_GETFPREGS
+    printf("0x%016llx:\n", regs.rip);
+    fflush(stdout);
+
+    if (ptrace(PTRACE_GETFPREGS, child, NULL, &fpregs) < 0) {
+        perror("PTRACE_GETFPREGS");
+        exit(-1);
+    }
 }
 
 int main()
@@ -38,7 +46,9 @@ int main()
             perror("PTRACE_TRACEME");
             exit(-1);
         }
+        //personality(ADDR_NO_RANDOMIZE);
         char *const argv[] = { "./hello-amd64-linux", NULL };
+        printf("Starting program: %s\n", argv[0]);
         execv(argv[0], argv);
 
         // Failed to execute.
@@ -56,7 +66,7 @@ int main()
             perror("wait");
             exit(-1);
         }
-        printf("%zu: status %#x\n", instr_count, status);
+        //printf("%zu: status %#x\n", instr_count, status);
 
         // WIFEXITED(status) - True if the process terminated normally
         // by a call to _exit(2).
@@ -64,7 +74,11 @@ int main()
             // WEXITSTATUS(status) - If WIFEXITED(status) is true,
             // evaluates to the low-order 8 bits of the argument passed
             // to _exit(2) by the child.
-            printf("Child exited with status %#x\n", WEXITSTATUS(status));
+            if (WEXITSTATUS(status) == 0) {
+                printf("Process exited normally.\n");
+            } else {
+                printf("Process exited with status %d\n", WEXITSTATUS(status));
+            }
             break;
         }
 

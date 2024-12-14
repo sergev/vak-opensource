@@ -13,3 +13,4 @@ cputrace: cputrace.o
 
 hello-amd64-linux: hello-amd64-linux.o
 	ld -o $@ $<
+	objdump -D $@ > $@.dis

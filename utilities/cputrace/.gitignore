@@ -2,3 +2,5 @@ cputrace
 hello-amd64-macos
 hello-amd64-linux
 *.o
+*.dis
+*.trace
