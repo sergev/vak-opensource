@@ -1,4 +1,4 @@
-PROG = cputrace hello-amd64-linux
+PROG = bintrace hello-amd64-linux
 LIBS = -lcapstone
 
 all:    $(PROG)
@@ -9,7 +9,7 @@ clean:
 %.o:    %.S
 	cpp $< | as -o $@ -
 
-cputrace: cputrace.o
+bintrace: bintrace.o
 	$(CC) $(LDFLAGS) -o $@ $< $(LIBS)
 
 hello-amd64-linux: hello-amd64-linux.o
