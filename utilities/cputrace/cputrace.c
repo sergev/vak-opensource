@@ -7,6 +7,15 @@
 #include <unistd.h>
 #include <sys/syscall.h>
 
+void print_regs(int child)
+{
+    if (ptrace(PT_GETREGS, child, (caddr_t)1, 0) < 0) {
+        perror("PT_STEP");
+        exit(-1);
+    }
+    //TODO: PT_GETFPREGS
+}
+
 int main()
 {
     // Create child.
@@ -91,6 +100,8 @@ int main()
             printf("Child stopped by signal %d\n", WSTOPSIG(status));
             break;
         }
+
+        print_regs(child);
 
         // Execute next CPU instruction.
         instr_count += 1;
