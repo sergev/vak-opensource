@@ -1,4 +1,4 @@
-PROG = cputrace hello-amd64-macos
+PROG = cputrace hello-amd64-linux
 
 all:    $(PROG)
 
@@ -11,5 +11,5 @@ clean:
 cputrace: cputrace.o
 	$(CC) $(LDFLAGS) -o $@ $<
 
-hello-amd64-macos: hello-amd64-macos.o
+hello-amd64-linux: hello-amd64-linux.o
 	ld -o $@ $<

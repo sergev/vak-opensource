@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <errno.h>
 #include <sys/ptrace.h>
 #include <sys/types.h>
 #include <sys/user.h>
@@ -9,11 +10,13 @@
 
 void print_regs(int child)
 {
-    if (ptrace(PT_GETREGS, child, (caddr_t)1, 0) < 0) {
-        perror("PT_STEP");
+    char data[1024]; // TODO
+
+    if (ptrace(PTRACE_GETREGS, child, NULL, data) < 0) {
+        perror("PTRACE_GETREGS");
         exit(-1);
     }
-    //TODO: PT_GETFPREGS
+    //TODO: PTRACE_GETFPREGS
 }
 
 int main()
@@ -31,11 +34,11 @@ int main()
         // Child: start target program.
         //
         errno = 0;
-        if (ptrace(PT_TRACE_ME, 0, NULL, 0) < 0) {
-            perror("PT_TRACE_ME");
+        if (ptrace(PTRACE_TRACEME, 0, NULL, NULL) < 0) {
+            perror("PTRACE_TRACEME");
             exit(-1);
         }
-        char *const argv[] = { "./hello-amd64-macos", NULL };
+        char *const argv[] = { "./hello-amd64-linux", NULL };
         execv(argv[0], argv);
 
         // Failed to execute.
@@ -53,8 +56,7 @@ int main()
             perror("wait");
             exit(-1);
         }
-        //printf("status = %#x\n", status);
-        printf(" (%zu:%#x)", instr_count, status); fflush(stdout);
+        printf("%zu: status %#x\n", instr_count, status);
 
         // WIFEXITED(status) - True if the process terminated normally
         // by a call to _exit(2).
@@ -105,8 +107,8 @@ int main()
 
         // Execute next CPU instruction.
         instr_count += 1;
-        if (ptrace(PT_STEP, child, (caddr_t)1, 0) < 0) {
-            perror("PT_STEP");
+        if (ptrace(PTRACE_SINGLESTEP, child, NULL, NULL) < 0) {
+            perror("PTRACE_SINGLESTEP");
             exit(-1);
         }
     }
