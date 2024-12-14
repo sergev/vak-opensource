@@ -33,7 +33,14 @@ void print_cpu_instruction(int child, unsigned long long address)
     if (count == 0) {
         printf("(unknown)\n");
     } else {
-        printf("%s %s\n", insn[0].mnemonic, insn[0].op_str);
+        unsigned n;
+        for (n = 0; n < insn[0].size; n++) {
+            printf(" %02x", insn[0].bytes[n]);
+        }
+        while (n++ < 7) {
+            printf("   ");
+        }
+        printf("  %s %s\n", insn[0].mnemonic, insn[0].op_str);
         cs_free(insn, count);
     }
     fflush(stdout);
