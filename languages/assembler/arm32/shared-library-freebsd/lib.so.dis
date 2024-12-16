@@ -1,0 +1,71 @@
+
+lib.so:     file format elf32-littlearm
+
+
+Disassembly of section .hash:
+
+00000094 <.hash>:
+  94:	00000001 	andeq	r0, r0, r1
+  98:	00000002 	andeq	r0, r0, r2
+  9c:	00000001 	andeq	r0, r0, r1
+	...
+
+Disassembly of section .dynsym:
+
+000000a8 <.dynsym>:
+	...
+  b8:	00000001 	andeq	r0, r0, r1
+  bc:	000000d4 	ldrdeq	r0, [r0], -r4
+  c0:	00000000 	andeq	r0, r0, r0
+  c4:	00040010 	andeq	r0, r4, r0, lsl r0
+
+Disassembly of section .dynstr:
+
+000000c8 <.dynstr>:
+  c8:	79617300 	stmdbvc	r1!, {r8, r9, ip, sp, lr}^
+  cc:	45495000 	strbmi	r5, [r9, #-0]
+	...
+
+Disassembly of section .text:
+
+000000d4 <say>:
+  d4:	e92d4080 	push	{r7, lr}
+  d8:	e1a01000 	mov	r1, r0
+  dc:	e3a00001 	mov	r0, #1
+  e0:	e3a02004 	mov	r2, #4
+  e4:	e3a07004 	mov	r7, #4
+  e8:	ef000000 	svc	0x00000000
+  ec:	e8bd8080 	pop	{r7, pc}
+
+Disassembly of section .dynamic:
+
+000010f0 <.dynamic>:
+    10f0:	7ffffffd 	svcvc	0x00fffffd
+    10f4:	00000005 	andeq	r0, r0, r5
+    10f8:	00000004 	andeq	r0, r0, r4
+    10fc:	00000094 	muleq	r0, r4, r0
+    1100:	00000005 	andeq	r0, r0, r5
+    1104:	000000c8 	andeq	r0, r0, r8, asr #1
+    1108:	00000006 	andeq	r0, r0, r6
+    110c:	000000a8 	andeq	r0, r0, r8, lsr #1
+    1110:	0000000a 	andeq	r0, r0, sl
+    1114:	00000009 	andeq	r0, r0, r9
+    1118:	0000000b 	andeq	r0, r0, fp
+    111c:	00000010 	andeq	r0, r0, r0, lsl r0
+	...
+
+Disassembly of section .got:
+
+00001150 <.got>:
+    1150:	000010f0 	strdeq	r1, [r0], -r0
+	...
+
+Disassembly of section .ARM.attributes:
+
+00000000 <.ARM.attributes>:
+   0:	00001141 	andeq	r1, r0, r1, asr #2
+   4:	61656100 	cmnvs	r5, r0, lsl #2
+   8:	01006962 	tsteq	r0, r2, ror #18
+   c:	00000007 	andeq	r0, r0, r7
+  10:	Address 0x10 is out of bounds.
+
