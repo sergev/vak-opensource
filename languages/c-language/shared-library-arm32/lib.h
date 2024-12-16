@@ -1,0 +1,1 @@
+void say(const char *);

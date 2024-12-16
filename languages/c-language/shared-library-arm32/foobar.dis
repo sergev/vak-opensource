@@ -1,0 +1,141 @@
+
+foobar:     file format elf32-littlearm
+
+
+Disassembly of section .init:
+
+000103f0 <_init>:
+   103f0:	e1a0c00d 	mov	ip, sp
+   103f4:	e92dd800 	push	{fp, ip, lr, pc}
+   103f8:	e24cb004 	sub	fp, ip, #4
+   103fc:	e91ba800 	ldmdb	fp, {fp, sp, pc}
+   10400:	e1a0f00e 	mov	pc, lr
+
+Disassembly of section .plt:
+
+00010404 <.plt>:
+   10404:	e52de004 	push	{lr}		@ (str lr, [sp, #-4]!)
+   10408:	e59fe004 	ldr	lr, [pc, #4]	@ 10414 <.plt+0x10>
+   1040c:	e08fe00e 	add	lr, pc, lr
+   10410:	e5bef008 	ldr	pc, [lr, #8]!
+   10414:	000013f0 	.word	0x000013f0
+
+00010418 <__libc_start1@plt>:
+   10418:	e28fc600 	add	ip, pc, #0, 12
+   1041c:	e28cca01 	add	ip, ip, #4096	@ 0x1000
+   10420:	e5bcf3f0 	ldr	pc, [ip, #1008]!	@ 0x3f0
+
+00010424 <say@plt>:
+   10424:	e28fc600 	add	ip, pc, #0, 12
+   10428:	e28cca01 	add	ip, ip, #4096	@ 0x1000
+   1042c:	e5bcf3e8 	ldr	pc, [ip, #1000]!	@ 0x3e8
+
+Disassembly of section .text:
+
+00010430 <__start>:
+   10430:	e92d4800 	push	{fp, lr}
+   10434:	e1a0b00d 	mov	fp, sp
+   10438:	e24dd008 	sub	sp, sp, #8
+   1043c:	e1a0c003 	mov	ip, r3
+   10440:	e35c0000 	cmp	ip, #0
+   10444:	1301e828 	movwne	lr, #6184	@ 0x1828
+   10448:	e59b300c 	ldr	r3, [fp, #12]
+   1044c:	1340e001 	movtne	lr, #1
+   10450:	158ec000 	strne	ip, [lr]
+   10454:	e300c55c 	movw	ip, #1372	@ 0x55c
+   10458:	e340c001 	movt	ip, #1
+   1045c:	e58dc000 	str	ip, [sp]
+   10460:	e1a0e00f 	mov	lr, pc
+   10464:	eaffffeb 	b	10418 <__libc_start1@plt>
+
+00010468 <_start>:
+   10468:	e1a05002 	mov	r5, r2
+   1046c:	e1a04001 	mov	r4, r1
+   10470:	e1a03000 	mov	r3, r0
+   10474:	e59d0000 	ldr	r0, [sp]
+   10478:	e28d1004 	add	r1, sp, #4
+   1047c:	e0812100 	add	r2, r1, r0, lsl #2
+   10480:	e2822004 	add	r2, r2, #4
+   10484:	e3cdd007 	bic	sp, sp, #7
+   10488:	e24dd008 	sub	sp, sp, #8
+   1048c:	e58d5004 	str	r5, [sp, #4]
+   10490:	e58d4000 	str	r4, [sp]
+   10494:	eaffffe5 	b	10430 <__start>
+
+00010498 <deregister_tm_clones>:
+   10498:	e59f002c 	ldr	r0, [pc, #44]	@ 104cc <deregister_tm_clones+0x34>
+   1049c:	e59f302c 	ldr	r3, [pc, #44]	@ 104d0 <deregister_tm_clones+0x38>
+   104a0:	e59f202c 	ldr	r2, [pc, #44]	@ 104d4 <deregister_tm_clones+0x3c>
+   104a4:	e08f0000 	add	r0, pc, r0
+   104a8:	e08f3003 	add	r3, pc, r3
+   104ac:	e1530000 	cmp	r3, r0
+   104b0:	e08f2002 	add	r2, pc, r2
+   104b4:	012fff1e 	bxeq	lr
+   104b8:	e59f3018 	ldr	r3, [pc, #24]	@ 104d8 <deregister_tm_clones+0x40>
+   104bc:	e7923003 	ldr	r3, [r2, r3]
+   104c0:	e3530000 	cmp	r3, #0
+   104c4:	012fff1e 	bxeq	lr
+   104c8:	e12fff13 	bx	r3
+   104cc:	0000137c 	.word	0x0000137c
+   104d0:	00001378 	.word	0x00001378
+   104d4:	0000134c 	.word	0x0000134c
+   104d8:	00000014 	.word	0x00000014
+
+000104dc <register_tm_clones>:
+   104dc:	e59f0038 	ldr	r0, [pc, #56]	@ 1051c <register_tm_clones+0x40>
+   104e0:	e59f3038 	ldr	r3, [pc, #56]	@ 10520 <register_tm_clones+0x44>
+   104e4:	e08f0000 	add	r0, pc, r0
+   104e8:	e08f3003 	add	r3, pc, r3
+   104ec:	e0433000 	sub	r3, r3, r0
+   104f0:	e1a01fa3 	lsr	r1, r3, #31
+   104f4:	e59f2028 	ldr	r2, [pc, #40]	@ 10524 <register_tm_clones+0x48>
+   104f8:	e0811143 	add	r1, r1, r3, asr #2
+   104fc:	e1b010c1 	asrs	r1, r1, #1
+   10500:	e08f2002 	add	r2, pc, r2
+   10504:	012fff1e 	bxeq	lr
+   10508:	e59f3018 	ldr	r3, [pc, #24]	@ 10528 <register_tm_clones+0x4c>
+   1050c:	e7923003 	ldr	r3, [r2, r3]
+   10510:	e3530000 	cmp	r3, #0
+   10514:	012fff1e 	bxeq	lr
+   10518:	e12fff13 	bx	r3
+   1051c:	0000133c 	.word	0x0000133c
+   10520:	00001338 	.word	0x00001338
+   10524:	000012fc 	.word	0x000012fc
+   10528:	00000018 	.word	0x00000018
+
+0001052c <__do_global_dtors_aux>:
+   1052c:	e92d4010 	push	{r4, lr}
+   10530:	e59f401c 	ldr	r4, [pc, #28]	@ 10554 <__do_global_dtors_aux+0x28>
+   10534:	e08f4004 	add	r4, pc, r4
+   10538:	e5d43000 	ldrb	r3, [r4]
+   1053c:	e3530000 	cmp	r3, #0
+   10540:	18bd8010 	popne	{r4, pc}
+   10544:	ebffffd3 	bl	10498 <deregister_tm_clones>
+   10548:	e3a03001 	mov	r3, #1
+   1054c:	e5c43000 	strb	r3, [r4]
+   10550:	e8bd8010 	pop	{r4, pc}
+   10554:	000012f4 	.word	0x000012f4
+
+00010558 <frame_dummy>:
+   10558:	eaffffdf 	b	104dc <register_tm_clones>
+
+0001055c <main>:
+   1055c:	e92d4800 	push	{fp, lr}
+   10560:	e1a0b00d 	mov	fp, sp
+   10564:	e30005a4 	movw	r0, #1444	@ 0x5a4
+   10568:	e3400001 	movt	r0, #1
+   1056c:	ebffffac 	bl	10424 <say@plt>
+   10570:	e30005a9 	movw	r0, #1449	@ 0x5a9
+   10574:	e3400001 	movt	r0, #1
+   10578:	ebffffa9 	bl	10424 <say@plt>
+   1057c:	e3a00000 	mov	r0, #0
+   10580:	e8bd8800 	pop	{fp, pc}
+
+Disassembly of section .fini:
+
+00010590 <_fini>:
+   10590:	e1a0c00d 	mov	ip, sp
+   10594:	e92dd800 	push	{fp, ip, lr, pc}
+   10598:	e24cb004 	sub	fp, ip, #4
+   1059c:	e91ba800 	ldmdb	fp, {fp, sp, pc}
+   105a0:	e1a0f00e 	mov	pc, lr
