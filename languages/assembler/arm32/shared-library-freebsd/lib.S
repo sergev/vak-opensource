@@ -3,7 +3,7 @@
         .text
         .globl  say
 say:
-        stmfd   sp!, {r7, lr}
+        stmfd   sp!, {r7, lr}           // save registers
 
         mov     r1, r0                  // message
 	mov     r0, #1                  // file descriptor 1 - stdout

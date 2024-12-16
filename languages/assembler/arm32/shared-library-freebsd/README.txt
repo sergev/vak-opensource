@@ -1,10 +1,42 @@
-Unfortunately, this code cannot be traced on FreeBSD with bintrace,
-as it loops forever in a fragment:
+This demo shows how a dynamic library is linked at run time.
+All of this is for FreeBSD with arm32 processor.
 
-    0x2003202c:  e1923f9f   ldrex r3, [r2]      -- tag the physical address as exclusive access for the current processor
-            r3 = 0
-    0x20032030:  e0833001   add r3, r3, r1
-            r3 = 0x10
-    0x20032034:  e1820f93   strex r0, r3, [r2]  -- check for exclusive access, otherwize set r0=1
-    0x20032038:  e3500000   cmp r0, #0
-    0x2003203c:  1afffffa   bne #0x2003202c
+File foobar.S contains a program which calls a routine say()
+from dynamic library, twice:
+
+    _start:
+            movw    r0, #:lower16:foo
+            movt    r0, #:upper16:foo
+            bl      say                     // say("foo")
+
+            movw    r0, #:lower16:bar
+            movt    r0, #:upper16:bar
+            bl      say                     // say("bar")
+
+            mov     r7, #SYS_exit
+            mov     r0, #0
+            svc     #0                      // _exit(0)
+
+    foo:    .ascii  "foo\n"
+    bar:    .ascii  "bar\n"
+
+The library is created from file lib.S:
+
+    say:
+            stmfd   sp!, {r7, lr}           // save registers
+
+            mov     r1, r0                  // message
+            mov     r0, #1                  // file descriptor 1 - stdout
+            mov     r2, #4                  // character count
+            mov     r7, #SYS_write          // syscall 4 - write
+            svc     #0                      // do system call
+
+            ldmfd   sp!, {r7, pc}           // return
+
+Disassembled code is present in files:
+ *  foobar.dis
+ *  lib.so.dis
+
+Execution trace was obtained by bintrace utility.
+See it in file foobar-dynamic-lib.trace, with the startup code
+of dynamic loader removed.
