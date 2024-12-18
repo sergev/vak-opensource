@@ -1,0 +1,91 @@
+
+lib.so:     file format elf64-littleaarch64
+
+
+Disassembly of section .gnu.hash:
+
+0000000000000120 <.gnu.hash>:
+ 120:	00000002 	udf	#2
+ 124:	00000001 	udf	#1
+ 128:	00000001 	udf	#1
+ 12c:	00000006 	udf	#6
+ 130:	00040000 	.inst	0x00040000 ; undefined
+ 134:	00000010 	udf	#16
+ 138:	00000001 	udf	#1
+ 13c:	00000000 	udf	#0
+ 140:	0b88a913 	.inst	0x0b88a913 ; undefined
+
+Disassembly of section .dynsym:
+
+0000000000000148 <.dynsym>:
+	...
+ 160:	00000001 	udf	#1
+ 164:	00040010 	.inst	0x00040010 ; undefined
+ 168:	00000184 	udf	#388
+	...
+
+Disassembly of section .dynstr:
+
+0000000000000178 <.dynstr>:
+ 178:	79617300 	ldrh	w0, [x24, #4280]
+ 17c:	45495000 	ssubwb	z0.h, z0.h, z9.b
+	...
+
+Disassembly of section .text:
+
+0000000000000184 <say>:
+ 184:	aa0003e1 	mov	x1, x0
+ 188:	d2800020 	mov	x0, #0x1                   	// #1
+ 18c:	d2800062 	mov	x2, #0x3                   	// #3
+ 190:	d2800808 	mov	x8, #0x40                  	// #64
+ 194:	d4000001 	svc	#0x0
+ 198:	90000001 	adrp	x1, 0 <say-0x184>
+ 19c:	9106d021 	add	x1, x1, #0x1b4
+ 1a0:	d2800020 	mov	x0, #0x1                   	// #1
+ 1a4:	d2800022 	mov	x2, #0x1                   	// #1
+ 1a8:	d2800808 	mov	x8, #0x40                  	// #64
+ 1ac:	d4000001 	svc	#0x0
+ 1b0:	d65f03c0 	ret
+
+00000000000001b4 <newline>:
+ 1b4:	Address 0x1b4 is out of bounds.
+
+
+Disassembly of section .dynamic:
+
+000000000001ff20 <.dynamic>:
+   1ff20:	7ffffffd 	.inst	0x7ffffffd ; undefined
+   1ff24:	00000000 	udf	#0
+   1ff28:	00000005 	udf	#5
+   1ff2c:	00000000 	udf	#0
+   1ff30:	6ffffef5 	.inst	0x6ffffef5 ; undefined
+   1ff34:	00000000 	udf	#0
+   1ff38:	00000120 	udf	#288
+   1ff3c:	00000000 	udf	#0
+   1ff40:	00000005 	udf	#5
+   1ff44:	00000000 	udf	#0
+   1ff48:	00000178 	udf	#376
+   1ff4c:	00000000 	udf	#0
+   1ff50:	00000006 	udf	#6
+   1ff54:	00000000 	udf	#0
+   1ff58:	00000148 	udf	#328
+   1ff5c:	00000000 	udf	#0
+   1ff60:	0000000a 	udf	#10
+   1ff64:	00000000 	udf	#0
+   1ff68:	00000009 	udf	#9
+   1ff6c:	00000000 	udf	#0
+   1ff70:	0000000b 	udf	#11
+   1ff74:	00000000 	udf	#0
+   1ff78:	00000018 	udf	#24
+	...
+
+Disassembly of section .got:
+
+000000000001ffe0 <.got>:
+   1ffe0:	0001ff20 	.inst	0x0001ff20 ; undefined
+   1ffe4:	00000000 	udf	#0
+
+Disassembly of section .got.plt:
+
+000000000001ffe8 <.got.plt>:
+	...

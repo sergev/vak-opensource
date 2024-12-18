@@ -1,0 +1,143 @@
+
+foobar:     file format elf64-littleaarch64
+
+
+Disassembly of section .interp:
+
+0000000000400190 <.interp>:
+  400190:	62696c2f 	.inst	0x62696c2f ; undefined
+  400194:	2d646c2f 	ldp	s15, s27, [x1, #-224]
+  400198:	756e696c 	.inst	0x756e696c ; undefined
+  40019c:	61612d78 	.inst	0x61612d78 ; undefined
+  4001a0:	36686372 	tbz	w18, #13, 400e0c <bar+0xb84>
+  4001a4:	6f732e34 	.inst	0x6f732e34 ; undefined
+  4001a8:	Address 0x4001a8 is out of bounds.
+
+
+Disassembly of section .gnu.hash:
+
+00000000004001b0 <.gnu.hash>:
+  4001b0:	00000001 	udf	#1
+  4001b4:	00000001 	udf	#1
+  4001b8:	00000001 	udf	#1
+	...
+
+Disassembly of section .dynsym:
+
+00000000004001d0 <.dynsym>:
+	...
+  4001e8:	00000001 	udf	#1
+  4001ec:	00000010 	udf	#16
+	...
+
+Disassembly of section .dynstr:
+
+0000000000400200 <.dynstr>:
+  400200:	79617300 	ldrh	w0, [x24, #4280]
+  400204:	62696c00 	.inst	0x62696c00 ; undefined
+  400208:	006f732e 	.inst	0x006f732e ; undefined
+
+Disassembly of section .rela.plt:
+
+0000000000400210 <.rela.plt>:
+  400210:	00420000 	.inst	0x00420000 ; undefined
+  400214:	00000000 	udf	#0
+  400218:	00000402 	udf	#1026
+  40021c:	00000001 	udf	#1
+	...
+
+Disassembly of section .plt:
+
+0000000000400230 <.plt>:
+  400230:	a9bf7bf0 	stp	x16, x30, [sp, #-16]!
+  400234:	f00000f0 	adrp	x16, 41f000 <bar+0x1ed78>
+  400238:	f947fe11 	ldr	x17, [x16, #4088]
+  40023c:	913fe210 	add	x16, x16, #0xff8
+  400240:	d61f0220 	br	x17
+  400244:	d503201f 	nop
+  400248:	d503201f 	nop
+  40024c:	d503201f 	nop
+
+0000000000400250 <say@plt>:
+  400250:	90000110 	adrp	x16, 420000 <say>
+  400254:	f9400211 	ldr	x17, [x16]
+  400258:	91000210 	add	x16, x16, #0x0
+  40025c:	d61f0220 	br	x17
+
+Disassembly of section .text:
+
+0000000000400260 <_start>:
+  400260:	90000000 	adrp	x0, 400000 <.plt-0x230>
+  400264:	910a1000 	add	x0, x0, #0x284
+  400268:	97fffffa 	bl	400250 <say@plt>
+  40026c:	90000000 	adrp	x0, 400000 <.plt-0x230>
+  400270:	910a2000 	add	x0, x0, #0x288
+  400274:	97fffff7 	bl	400250 <say@plt>
+  400278:	d2800ba8 	mov	x8, #0x5d                  	// #93
+  40027c:	d2800000 	mov	x0, #0x0                   	// #0
+  400280:	d4000001 	svc	#0x0
+
+0000000000400284 <foo>:
+  400284:	006f6f66 	.inst	0x006f6f66 ; undefined
+
+0000000000400288 <bar>:
+  400288:	00726162 	.inst	0x00726162 ; undefined
+
+Disassembly of section .dynamic:
+
+000000000041fed0 <_DYNAMIC>:
+  41fed0:	00000001 	udf	#1
+  41fed4:	00000000 	udf	#0
+  41fed8:	00000005 	udf	#5
+  41fedc:	00000000 	udf	#0
+  41fee0:	6ffffef5 	.inst	0x6ffffef5 ; undefined
+  41fee4:	00000000 	udf	#0
+  41fee8:	004001b0 	.inst	0x004001b0 ; undefined
+  41feec:	00000000 	udf	#0
+  41fef0:	00000005 	udf	#5
+  41fef4:	00000000 	udf	#0
+  41fef8:	00400200 	.inst	0x00400200 ; undefined
+  41fefc:	00000000 	udf	#0
+  41ff00:	00000006 	udf	#6
+  41ff04:	00000000 	udf	#0
+  41ff08:	004001d0 	.inst	0x004001d0 ; undefined
+  41ff0c:	00000000 	udf	#0
+  41ff10:	0000000a 	udf	#10
+  41ff14:	00000000 	udf	#0
+  41ff18:	0000000c 	udf	#12
+  41ff1c:	00000000 	udf	#0
+  41ff20:	0000000b 	udf	#11
+  41ff24:	00000000 	udf	#0
+  41ff28:	00000018 	udf	#24
+  41ff2c:	00000000 	udf	#0
+  41ff30:	00000015 	udf	#21
+	...
+  41ff40:	00000003 	udf	#3
+  41ff44:	00000000 	udf	#0
+  41ff48:	0041ffe8 	.inst	0x0041ffe8 ; undefined
+  41ff4c:	00000000 	udf	#0
+  41ff50:	00000002 	udf	#2
+  41ff54:	00000000 	udf	#0
+  41ff58:	00000018 	udf	#24
+  41ff5c:	00000000 	udf	#0
+  41ff60:	00000014 	udf	#20
+  41ff64:	00000000 	udf	#0
+  41ff68:	00000007 	udf	#7
+  41ff6c:	00000000 	udf	#0
+  41ff70:	00000017 	udf	#23
+  41ff74:	00000000 	udf	#0
+  41ff78:	00400210 	.inst	0x00400210 ; undefined
+	...
+
+Disassembly of section .got:
+
+000000000041ffe0 <_GLOBAL_OFFSET_TABLE_>:
+  41ffe0:	0041fed0 	.inst	0x0041fed0 ; undefined
+  41ffe4:	00000000 	udf	#0
+
+Disassembly of section .got.plt:
+
+000000000041ffe8 <.got.plt>:
+	...
+  420000:	00400230 	.inst	0x00400230 ; undefined
+  420004:	00000000 	udf	#0
