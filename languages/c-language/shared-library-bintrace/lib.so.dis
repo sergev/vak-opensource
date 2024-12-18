@@ -1,0 +1,36 @@
+
+lib.so:	file format mach-o arm64
+
+Disassembly of section __TEXT,__text:
+
+0000000000003f90 <_say>:
+    3f90: aa0003e1     	mov	x1, x0
+    3f94: d2800020     	mov	x0, #0x1                ; =1
+    3f98: d2800082     	mov	x2, #0x4                ; =4
+    3f9c: d2800090     	mov	x16, #0x4               ; =4
+    3fa0: d4001001     	svc	#0x80
+    3fa4: d65f03c0     	ret
+
+Disassembly of section __TEXT,__unwind_info:
+
+0000000000003fa8 <__unwind_info>:
+    3fa8: 00000001     	udf	#0x1
+    3fac: 0000001c     	udf	#0x1c
+    3fb0: 00000000     	udf	#0x0
+    3fb4: 0000001c     	udf	#0x1c
+    3fb8: 00000000     	udf	#0x0
+    3fbc: 0000001c     	udf	#0x1c
+    3fc0: 00000002     	udf	#0x2
+    3fc4: 00003f90     	udf	#0x3f90
+    3fc8: 00000040     	udf	#0x40
+    3fcc: 00000040     	udf	#0x40
+    3fd0: 00003fa8     	udf	#0x3fa8
+    3fd4: 00000000     	udf	#0x0
+    3fd8: 00000040     	udf	#0x40
+		...
+    3fe8: 00000003     	udf	#0x3
+    3fec: 0001000c     	<unknown>
+    3ff0: 00010010     	<unknown>
+    3ff4: 00000000     	udf	#0x0
+    3ff8: 02000000     	<unknown>
+    3ffc: 00000000     	udf	#0x0

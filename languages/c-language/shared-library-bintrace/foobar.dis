@@ -1,0 +1,61 @@
+
+foobar:	file format mach-o arm64
+
+Disassembly of section __TEXT,__text:
+
+0000000100003f64 <_main>:
+100003f64: a9bf7bfd    	stp	x29, x30, [sp, #-0x10]!
+100003f68: 910003fd    	mov	x29, sp
+100003f6c: 90000000    	adrp	x0, 0x100003000 <_say+0x100003000>
+100003f70: 913e7000    	add	x0, x0, #0xf9c
+100003f74: 94000007    	bl	0x100003f90 <_say+0x100003f90>
+100003f78: 90000000    	adrp	x0, 0x100003000 <_say+0x100003000>
+100003f7c: 913e8400    	add	x0, x0, #0xfa1
+100003f80: 94000004    	bl	0x100003f90 <_say+0x100003f90>
+100003f84: 52800000    	mov	w0, #0x0                ; =0
+100003f88: a8c17bfd    	ldp	x29, x30, [sp], #0x10
+100003f8c: d65f03c0    	ret
+
+Disassembly of section __TEXT,__stubs:
+
+0000000100003f90 <__stubs>:
+100003f90: b0000010    	adrp	x16, 0x100004000 <_say+0x100004000>
+100003f94: f9400210    	ldr	x16, [x16]
+100003f98: d61f0200    	br	x16
+
+Disassembly of section __TEXT,__cstring:
+
+0000000100003f9c <__cstring>:
+100003f9c: 0a6f6f66    	bic	w6, w27, w15, lsr #27
+100003fa0: 72616200    	<unknown>
+100003fa4: 0a 00       	<unknown>
+
+Disassembly of section __TEXT,__unwind_info:
+
+0000000100003fa8 <__unwind_info>:
+100003fa8: 00000001    	udf	#0x1
+100003fac: 0000001c    	udf	#0x1c
+100003fb0: 00000000    	udf	#0x0
+100003fb4: 0000001c    	udf	#0x1c
+100003fb8: 00000000    	udf	#0x0
+100003fbc: 0000001c    	udf	#0x1c
+100003fc0: 00000002    	udf	#0x2
+100003fc4: 00003f64    	udf	#0x3f64
+100003fc8: 00000040    	udf	#0x40
+100003fcc: 00000040    	udf	#0x40
+100003fd0: 00003f90    	udf	#0x3f90
+100003fd4: 00000000    	udf	#0x0
+100003fd8: 00000040    	udf	#0x40
+		...
+100003fe8: 00000003    	udf	#0x3
+100003fec: 0001000c    	<unknown>
+100003ff0: 00010010    	<unknown>
+100003ff4: 00000000    	udf	#0x0
+100003ff8: 04000000    	add	z0.b, p0/m, z0.b, z0.b
+100003ffc: 00000000    	udf	#0x0
+
+Disassembly of section __DATA_CONST,__got:
+
+0000000100004000 <__got>:
+100004000: 00000000    	udf	#0x0
+100004004: 80000000    	<unknown>
