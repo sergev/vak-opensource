@@ -38,5 +38,5 @@ Disassembled code is present in files:
  *  lib.so.dis
 
 Execution trace was obtained by bintrace utility.
-See it in file foobar-dynamic-lib.trace, with the startup code
+See it in file foobar.bintrace, with the startup code
 of dynamic loader removed.
