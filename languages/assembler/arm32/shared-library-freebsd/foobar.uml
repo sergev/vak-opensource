@@ -1,0 +1,26 @@
+'
+' Process with plantuml
+'
+@startuml
+!theme vibrant
+skinparam ParticipantPadding 5
+skinparam BoxPadding 5
+skinparam dpi 100
+autonumber
+
+participant "main"   as main
+participant "lib.so" as library
+participant "kernel" as kernel
+
+main -> library: say("foo")
+
+library -> kernel: sys_write
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''
+main -> library: say("bar")
+
+library -> kernel: sys_write
+
+main -> kernel: sys_exit
+
+@enduml
