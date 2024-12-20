@@ -10,5 +10,5 @@ foobar: foobar.o lib.so
 
 lib.so: lib.S
 	cpp $< | as -o lib.o -
-	ld -fPIE -shared -o $@ lib.o
+	ld -shared -o $@ lib.o
 	objdump -D $@ > $@.dis
