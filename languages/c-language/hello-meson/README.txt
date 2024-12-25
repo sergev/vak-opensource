@@ -5,3 +5,12 @@ A test is also included.
     meson.build         -- build script for application
     tests/meson.build   -- build script for tests
     tests/simple        -- test example
+
+Build:
+
+    meson setup build
+    meson compile -C build
+
+Run tests:
+
+    meson test -C build
