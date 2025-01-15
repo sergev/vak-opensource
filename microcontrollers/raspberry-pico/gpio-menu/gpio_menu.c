@@ -4,14 +4,16 @@
 #include <stdio.h>
 #include <pico/stdlib.h>
 
+#define NUM_PINS 26
+
 static const int index_to_pin[] = {
     0,  1,  2,  3,  4,  5,  6,  7,  8,  9,  10, 11, 12, 13, 14, 15, // 0-15
     16, 17, 18, 19, 20, 21, 22, /*--gap--*/ 26, 27, 28,             // 16-25
 };
 
-static int is_output_pin[26];
+static int is_output_pin[NUM_PINS];
 
-static int pin_value[26];
+static int pin_value[NUM_PINS];
 
 //
 // Wait for console input.
@@ -34,52 +36,12 @@ int wait_input()
     }
 }
 
-void show_pins()
+void poll_pins()
 {
     // Update input values.
-    for (int i=0; i<21; i++)
+    for (int i=0; i<NUM_PINS; i++)
         if (! is_output_pin[0])
             pin_value[i] = gpio_get(index_to_pin[i]);
-
-    printf("\n");
-    printf("  Chip id: RP2040 rev.B%d, ROM v.%d\r\n", rp2040_chip_version(), rp2040_rom_version());
-    printf("  Pins GP: %02u %02u %02u %02u %02u %02u %02u %02u %02u %02u %02u %02u %02u\r\n",
-        index_to_pin[0], index_to_pin[1], index_to_pin[2], index_to_pin[3], index_to_pin[4],
-        index_to_pin[5], index_to_pin[6], index_to_pin[7], index_to_pin[8], index_to_pin[9],
-        index_to_pin[10], index_to_pin[11], index_to_pin[12]);
-
-    printf("Direction:  %c  %c  %c  %c  %c  %c  %c  %c  %c  %c  %c  %c  %c\r\n",
-        is_output_pin[0] ? 'o' : 'i', is_output_pin[1] ? 'o' : 'i',
-        is_output_pin[2] ? 'o' : 'i', is_output_pin[3] ? 'o' : 'i',
-        is_output_pin[4] ? 'o' : 'i', is_output_pin[5] ? 'o' : 'i',
-        is_output_pin[6] ? 'o' : 'i', is_output_pin[7] ? 'o' : 'i',
-        is_output_pin[8] ? 'o' : 'i', is_output_pin[9] ? 'o' : 'i',
-        is_output_pin[10] ? 'o' : 'i', is_output_pin[11] ? 'o' : 'i',
-        is_output_pin[12] ? 'o' : 'i');
-
-    printf("    Value:  %u  %u  %u  %u  %u  %u  %u  %u  %u  %u  %u  %u  %u\r\n",
-        pin_value[0], pin_value[1], pin_value[2], pin_value[3], pin_value[4],
-        pin_value[5], pin_value[6], pin_value[7], pin_value[8], pin_value[9],
-        pin_value[10], pin_value[11], pin_value[12]);
-
-    printf("  Pins GP: %02u %02u %02u %02u %02u %02u %02u %02u %02u %02u %02u %02u %02u\r\n",
-        index_to_pin[13], index_to_pin[14], index_to_pin[15], index_to_pin[16], index_to_pin[17],
-        index_to_pin[18], index_to_pin[19], index_to_pin[20], index_to_pin[21], index_to_pin[22],
-        index_to_pin[23], index_to_pin[24], index_to_pin[25]);
-
-    printf("Direction:  %c  %c  %c  %c  %c  %c  %c  %c  %c  %c  %c  %c  %c\r\n",
-        is_output_pin[13] ? 'o' : 'i', is_output_pin[14] ? 'o' : 'i',
-        is_output_pin[15] ? 'o' : 'i', is_output_pin[16] ? 'o' : 'i',
-        is_output_pin[17] ? 'o' : 'i', is_output_pin[18] ? 'o' : 'i',
-        is_output_pin[19] ? 'o' : 'i', is_output_pin[20] ? 'o' : 'i',
-        is_output_pin[21] ? 'o' : 'i', is_output_pin[22] ? 'o' : 'i',
-        is_output_pin[23] ? 'o' : 'i', is_output_pin[24] ? 'o' : 'i',
-        is_output_pin[25] ? 'o' : 'i');
-
-    printf("    Value:  %u  %u  %u  %u  %u  %u  %u  %u  %u  %u  %u  %u  %u\r\n",
-        pin_value[13], pin_value[14], pin_value[15], pin_value[16], pin_value[17],
-        pin_value[18], pin_value[19], pin_value[20], pin_value[21], pin_value[22],
-        pin_value[23], pin_value[24], pin_value[25]);
 }
 
 void menu_pin(int index)
@@ -87,13 +49,13 @@ void menu_pin(int index)
     int pin = index_to_pin[index];
 
 again:
-    show_pins();
+    poll_pins();
 
-    printf("\r\n  1. Pin %u direction: %s",
-        index, is_output_pin[index] ? "Output" : "Input");
+    printf("\r\n  1. Pin GP %u direction: %s",
+        pin, is_output_pin[index] ? "Output" : "Input");
 
     if (is_output_pin[index]) {
-        printf("\r\n  2. Pin %u output: %u", index, pin_value[index]);
+        printf("\r\n  2. Pin GP %u output: %u", pin, pin_value[index]);
     }
     printf("\r\n\n");
     for (;;) {
@@ -131,34 +93,55 @@ again:
 
 void loop()
 {
-    show_pins();
+    poll_pins();
+    printf("\r\n  Chip id: RP2040 rev.B%d, ROM v.%d\r\n", rp2040_chip_version(), rp2040_rom_version());
 
-    printf("\r\n  0. Select pin %u", index_to_pin[0]);
-    printf("\r\n  1. Select pin %u", index_to_pin[1]);
-    printf("\r\n  2. Select pin %u", index_to_pin[2]);
-    printf("\r\n  3. Select pin %u", index_to_pin[3]);
-    printf("\r\n  4. Select pin %u", index_to_pin[4]);
-    printf("\r\n  5. Select pin %u", index_to_pin[5]);
-    printf("\r\n  6. Select pin %u", index_to_pin[6]);
-    printf("\r\n  7. Select pin %u", index_to_pin[7]);
-    printf("\r\n  8. Select pin %u", index_to_pin[8]);
-    printf("\r\n  9. Select pin %u", index_to_pin[9]);
-    printf("\r\n  a. Select pin %u", index_to_pin[10]);
-    printf("\r\n  b. Select pin %u", index_to_pin[11]);
-    printf("\r\n  c. Select pin %u", index_to_pin[12]);
-    printf("\r\n  d. Select pin %u", index_to_pin[13]);
-    printf("\r\n  e. Select pin %u", index_to_pin[14]);
-    printf("\r\n  f. Select pin %u", index_to_pin[15]);
-    printf("\r\n  g. Select pin %u", index_to_pin[16]);
-    printf("\r\n  h. Select pin %u", index_to_pin[17]);
-    printf("\r\n  i. Select pin %u", index_to_pin[18]);
-    printf("\r\n  j. Select pin %u", index_to_pin[19]);
-    printf("\r\n  k. Select pin %u", index_to_pin[20]);
-    printf("\r\n  l. Select pin %u", index_to_pin[21]);
-    printf("\r\n  m. Select pin %u", index_to_pin[22]);
-    printf("\r\n  n. Select pin %u", index_to_pin[23]);
-    printf("\r\n  o. Select pin %u", index_to_pin[24]);
-    printf("\r\n  p. Select pin %u", index_to_pin[25]);
+    printf("\r\n  0. Select pin GP %2u: %s %u", index_to_pin[0], is_output_pin[0] ? "out" : " in", pin_value[0]);
+    printf("      g. Select pin GP %2u: %s %u", index_to_pin[16], is_output_pin[16] ? "out" : " in", pin_value[16]);
+
+    printf("\r\n  1. Select pin GP %2u: %s %u", index_to_pin[1], is_output_pin[1] ? "out" : " in", pin_value[1]);
+    printf("      h. Select pin GP %2u: %s %u", index_to_pin[17], is_output_pin[17] ? "out" : " in", pin_value[17]);
+
+    printf("\r\n  2. Select pin GP %2u: %s %u", index_to_pin[2], is_output_pin[2] ? "out" : " in", pin_value[2]);
+    printf("      i. Select pin GP %2u: %s %u", index_to_pin[18], is_output_pin[18] ? "out" : " in", pin_value[18]);
+
+    printf("\r\n  3. Select pin GP %2u: %s %u", index_to_pin[3], is_output_pin[3] ? "out" : " in", pin_value[3]);
+    printf("      j. Select pin GP %2u: %s %u", index_to_pin[19], is_output_pin[19] ? "out" : " in", pin_value[19]);
+
+    printf("\r\n  4. Select pin GP %2u: %s %u", index_to_pin[4], is_output_pin[4] ? "out" : " in", pin_value[4]);
+    printf("      k. Select pin GP %2u: %s %u", index_to_pin[20], is_output_pin[20] ? "out" : " in", pin_value[20]);
+
+    printf("\r\n  5. Select pin GP %2u: %s %u", index_to_pin[5], is_output_pin[5] ? "out" : " in", pin_value[5]);
+    printf("      l. Select pin GP %2u: %s %u", index_to_pin[21], is_output_pin[21] ? "out" : " in", pin_value[21]);
+
+    printf("\r\n  6. Select pin GP %2u: %s %u", index_to_pin[6], is_output_pin[6] ? "out" : " in", pin_value[6]);
+    printf("      m. Select pin GP %2u: %s %u", index_to_pin[22], is_output_pin[22] ? "out" : " in", pin_value[22]);
+
+    printf("\r\n  7. Select pin GP %2u: %s %u", index_to_pin[7], is_output_pin[7] ? "out" : " in", pin_value[7]);
+    printf("      n. Select pin GP %2u: %s %u", index_to_pin[23], is_output_pin[23] ? "out" : " in", pin_value[23]);
+
+    printf("\r\n  8. Select pin GP %2u: %s %u", index_to_pin[8], is_output_pin[8] ? "out" : " in", pin_value[8]);
+    printf("      o. Select pin GP %2u: %s %u", index_to_pin[24], is_output_pin[24] ? "out" : " in", pin_value[24]);
+
+    printf("\r\n  9. Select pin GP %2u: %s %u", index_to_pin[9], is_output_pin[9] ? "out" : " in", pin_value[9]);
+    printf("      p. Select pin GP %2u: %s %u", index_to_pin[25], is_output_pin[25] ? "out" : " in", pin_value[25]);
+
+    printf("\r\n  a. Select pin GP %2u: %s %u", index_to_pin[10], is_output_pin[10] ? "out" : " in", pin_value[10]);
+
+    printf("\r\n  b. Select pin GP %2u: %s %u", index_to_pin[11], is_output_pin[11] ? "out" : " in", pin_value[11]);
+    printf("      q. Switch all pins to Input");
+
+    printf("\r\n  c. Select pin GP %2u: %s %u", index_to_pin[12], is_output_pin[12] ? "out" : " in", pin_value[12]);
+    printf("      r. Switch all pins to Output");
+
+    printf("\r\n  d. Select pin GP %2u: %s %u", index_to_pin[13], is_output_pin[13] ? "out" : " in", pin_value[13]);
+    printf("      s. Set all outputs to 1");
+
+    printf("\r\n  e. Select pin GP %2u: %s %u", index_to_pin[14], is_output_pin[14] ? "out" : " in", pin_value[14]);
+    printf("      t. Set all outputs to 0");
+
+    printf("\r\n  f. Select pin GP %2u: %s %u", index_to_pin[15], is_output_pin[15] ? "out" : " in", pin_value[15]);
+
     printf("\r\n\n");
     for (;;) {
         printf("Command: ");
@@ -194,13 +177,45 @@ void loop()
         if (cmd == 'n') { menu_pin(23); break; }
         if (cmd == 'o') { menu_pin(24); break; }
         if (cmd == 'p') { menu_pin(25); break; }
+        if (cmd == 'q') {
+            // Switch all pins to Input.
+            for (int i=0; i<NUM_PINS; i++) {
+                gpio_set_dir(index_to_pin[i], GPIO_IN);
+                is_output_pin[i] = false;
+            }
+            break;
+        }
+        if (cmd == 'r') {
+            // Switch all pins to Output.
+            for (int i=0; i<NUM_PINS; i++) {
+                gpio_set_dir(index_to_pin[i], GPIO_OUT);
+                is_output_pin[i] = true;
+            }
+            break;
+        }
+        if (cmd == 's') {
+            // Set all outputs to 1.
+            for (int i=0; i<NUM_PINS; i++) {
+                gpio_put(index_to_pin[i], 1);
+                pin_value[i] = 1;
+            }
+            break;
+        }
+        if (cmd == 't') {
+            // Set all outputs to 0.
+            for (int i=0; i<NUM_PINS; i++) {
+                gpio_put(index_to_pin[i], 0);
+                pin_value[i] = 0;
+            }
+            break;
+        }
     }
 }
 
 void setup()
 {
     stdio_init_all();
-    for (int i=0; i<26; i++) {
+    for (int i=0; i<NUM_PINS; i++) {
         gpio_init(index_to_pin[i]);
     }
     sleep_ms(1);
