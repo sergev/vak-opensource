@@ -4,11 +4,12 @@
 #include <stdio.h>
 #include <pico/stdlib.h>
 
-#define NUM_PINS 26
+#define NUM_PINS 29
 
 static const int index_to_pin[] = {
     0,  1,  2,  3,  4,  5,  6,  7,  8,  9,  10, 11, 12, 13, 14, 15, // 0-15
-    16, 17, 18, 19, 20, 21, 22, /*--gap--*/ 26, 27, 28,             // 16-25
+    16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28,             // 16-28
+    // GPIO29 is disabled, as it's connected as VREF input.
 };
 
 static int is_output_pin[NUM_PINS];
@@ -118,29 +119,33 @@ void loop()
     printf("      m. Select pin GP %2u: %s %u", index_to_pin[22], is_output_pin[22] ? "out" : " in", pin_value[22]);
 
     printf("\r\n  7. Select pin GP %2u: %s %u", index_to_pin[7], is_output_pin[7] ? "out" : " in", pin_value[7]);
-    printf("      n. Select pin GP %2u: %s %u", index_to_pin[23], is_output_pin[23] ? "out" : " in", pin_value[23]);
+    printf("      n. Select     GP %2u: %s %u", index_to_pin[23], is_output_pin[23] ? "out" : " in", pin_value[23]);
 
     printf("\r\n  8. Select pin GP %2u: %s %u", index_to_pin[8], is_output_pin[8] ? "out" : " in", pin_value[8]);
-    printf("      o. Select pin GP %2u: %s %u", index_to_pin[24], is_output_pin[24] ? "out" : " in", pin_value[24]);
+    printf("      o. Select     GP %2u: %s %u", index_to_pin[24], is_output_pin[24] ? "out" : " in", pin_value[24]);
 
     printf("\r\n  9. Select pin GP %2u: %s %u", index_to_pin[9], is_output_pin[9] ? "out" : " in", pin_value[9]);
-    printf("      p. Select pin GP %2u: %s %u", index_to_pin[25], is_output_pin[25] ? "out" : " in", pin_value[25]);
+    printf("      p. Select LED GP %2u: %s %u", index_to_pin[25], is_output_pin[25] ? "out" : " in", pin_value[25]);
 
     printf("\r\n  a. Select pin GP %2u: %s %u", index_to_pin[10], is_output_pin[10] ? "out" : " in", pin_value[10]);
+    printf("      q. Select pin GP %2u: %s %u", index_to_pin[26], is_output_pin[26] ? "out" : " in", pin_value[26]);
 
     printf("\r\n  b. Select pin GP %2u: %s %u", index_to_pin[11], is_output_pin[11] ? "out" : " in", pin_value[11]);
-    printf("      q. Switch all pins to Input");
+    printf("      r. Select pin GP %2u: %s %u", index_to_pin[27], is_output_pin[27] ? "out" : " in", pin_value[27]);
 
     printf("\r\n  c. Select pin GP %2u: %s %u", index_to_pin[12], is_output_pin[12] ? "out" : " in", pin_value[12]);
-    printf("      r. Switch all pins to Output");
+    printf("      s. Select pin GP %2u: %s %u", index_to_pin[28], is_output_pin[28] ? "out" : " in", pin_value[28]);
 
     printf("\r\n  d. Select pin GP %2u: %s %u", index_to_pin[13], is_output_pin[13] ? "out" : " in", pin_value[13]);
-    printf("      s. Set all outputs to 1");
+    printf("      t. Switch all pins to Input");
 
     printf("\r\n  e. Select pin GP %2u: %s %u", index_to_pin[14], is_output_pin[14] ? "out" : " in", pin_value[14]);
-    printf("      t. Set all outputs to 0");
+    printf("      u. Switch all pins to Output");
 
     printf("\r\n  f. Select pin GP %2u: %s %u", index_to_pin[15], is_output_pin[15] ? "out" : " in", pin_value[15]);
+    printf("      v. Set all outputs to 1");
+
+    printf("\r\n                                  w. Set all outputs to 0");
 
     printf("\r\n\n");
     for (;;) {
@@ -177,7 +182,10 @@ void loop()
         if (cmd == 'n') { menu_pin(23); break; }
         if (cmd == 'o') { menu_pin(24); break; }
         if (cmd == 'p') { menu_pin(25); break; }
-        if (cmd == 'q') {
+        if (cmd == 'q') { menu_pin(26); break; }
+        if (cmd == 'r') { menu_pin(27); break; }
+        if (cmd == 's') { menu_pin(28); break; }
+        if (cmd == 't') {
             // Switch all pins to Input.
             for (int i=0; i<NUM_PINS; i++) {
                 gpio_set_dir(index_to_pin[i], GPIO_IN);
@@ -185,7 +193,7 @@ void loop()
             }
             break;
         }
-        if (cmd == 'r') {
+        if (cmd == 'u') {
             // Switch all pins to Output.
             for (int i=0; i<NUM_PINS; i++) {
                 gpio_set_dir(index_to_pin[i], GPIO_OUT);
@@ -193,7 +201,7 @@ void loop()
             }
             break;
         }
-        if (cmd == 's') {
+        if (cmd == 'v') {
             // Set all outputs to 1.
             for (int i=0; i<NUM_PINS; i++) {
                 gpio_put(index_to_pin[i], 1);
@@ -201,7 +209,7 @@ void loop()
             }
             break;
         }
-        if (cmd == 't') {
+        if (cmd == 'w') {
             // Set all outputs to 0.
             for (int i=0; i<NUM_PINS; i++) {
                 gpio_put(index_to_pin[i], 0);
