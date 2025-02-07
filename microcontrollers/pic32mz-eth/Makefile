@@ -1,4 +1,4 @@
-P              = /usr/local/mips-gcc-4.8.1/bin/mips-elf-
+P              = /usr/local/mips-elf/bin/mips-elf-
 #P               = /usr/local/mips-2013.11/bin/mips-sde-elf-
 CC              = $(P)gcc -mips32r2 -EL -g -nostdlib
 GDB             = mipsel-elf32-gdb

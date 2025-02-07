@@ -51,12 +51,27 @@ void spawn_with_in_out(char *argv[], int *fd_in, int *fd_out)
     *fd_in = pipe_out[0];
 }
 
+void print_binary_data(const char *str, unsigned nbytes)
+{
+    putchar('"');
+    for (; nbytes-- > 0; str++) {
+        if (*str >= ' ' && *str <= '~') {
+            putchar(*str);
+        } else {
+            printf("\\x%02X", (unsigned char)*str);
+        }
+    }
+    putchar('"');
+}
+
 void cross_connect(int receive_in, int receive_out, int transmit_in, int transmit_out)
 {
     fd_set readfds;
     struct timeval timeout;
     int retval;
 
+    printf("sz              rz\n");
+    printf("------------------------\n");
     while (receive_in >= 0 || transmit_in >= 0) {
         // Initialize the file descriptor set
         FD_ZERO(&readfds);
@@ -92,7 +107,9 @@ void cross_connect(int receive_in, int receive_out, int transmit_in, int transmi
                 }
 
                 // Send data to transmit_out.
-                printf("--- receive %zd bytes\n", bytes_read);
+                printf("                ");
+                print_binary_data(buffer, bytes_read);
+                printf(" [%zd bytes]\n", bytes_read);
                 ssize_t bytes_written = write(transmit_out, buffer, bytes_read);
                 if (bytes_written != bytes_read) {
                     printf("Bad write from rz to sz: %zd bytes instead of %zd\n", bytes_written, bytes_read);
@@ -113,7 +130,8 @@ void cross_connect(int receive_in, int receive_out, int transmit_in, int transmi
                 }
 
                 // Send data to receive_out.
-                printf("--- send %zd bytes\n", bytes_read);
+                print_binary_data(buffer, bytes_read);
+                printf(" [%zd bytes]\n", bytes_read);
                 ssize_t bytes_written = write(receive_out, buffer, bytes_read);
                 if (bytes_written != bytes_read) {
                     printf("Bad write from sz to rz: %zd bytes instead of %zd\n", bytes_written, bytes_read);
