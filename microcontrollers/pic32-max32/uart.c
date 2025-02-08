@@ -93,7 +93,7 @@ int main()
         putstr("\r\nHello, World!\r\n");
 
         /* Stop simulation. */
-        asm volatile ("sltiu $zero, $zero, -0x543e");
+        asm volatile ("di; wait; ei");
 
         putch('.'); udelay(1000000);
         putch('.'); udelay(1000000);

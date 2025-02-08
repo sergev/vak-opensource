@@ -6,7 +6,8 @@
 #OBJDUMP         = $(P)objdump -mmips:isa32r2
 
 # LLVM toolchain.
-P               = /usr/lib/llvm-12/bin
+# sudo apt install clang-18 lld-18
+P               = /usr/lib/llvm-18/bin
 CC              = $(P)/clang -target mipsel -mcpu=mips32r2 -mabi=o32 -mfloat-abi=soft
 LD              = $(P)/ld.lld -m elf32ltsmip
 OBJCOPY         = $(P)/llvm-objcopy
