@@ -89,21 +89,21 @@ int main()
     U1STASET = PIC32_USTA_URXEN |           /* Receiver Enable */
                PIC32_USTA_UTXEN;            /* Transmit Enable */
 
-    while (1) {
+    unsigned int count = 0;
+    while (count < 2) {
         putstr("\r\nHello, World!\r\n");
 
-        /* Stop simulation. */
-        asm volatile ("di; wait; ei");
-
         putch('.'); udelay(1000000);
         putch('.'); udelay(1000000);
         putch('.'); udelay(1000000);
-        putch('.'); udelay(1000000);
-        putch('.'); udelay(1000000);
-        putch('.'); udelay(1000000);
-        putch('.'); udelay(1000000);
-        putch('.'); udelay(1000000);
-        putch('.'); udelay(1000000);
-        putch('.'); udelay(1000000);
+        
+        count++;
     }
+    
+    /* Stop simulation. */
+    asm volatile ("di; wait; ei");
+
+    while (1) {};  // Loop forever. Bare metal code must not return from main().
+
+    return 0;
 }
