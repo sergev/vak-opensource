@@ -1,0 +1,24 @@
+vak@powerpc
+-----------
+OS: Debian GNU/Linux trixie/sid ppc
+Host: PowerBook6,7
+Kernel: Linux 6.12.13-powerpc
+Uptime: 8 mins
+Packages: 1253 (dpkg)
+Shell: bashc
+Display (Color LCD): 1024x768 @ 60 Hz in 14" [Built-in]
+DE: Xfce4 4.20
+WM: Xfwm4 (X11)
+WM Theme: Default
+Theme: Xfce [GTK2/3/4]
+Icons: Tango [GTK2/3/4]
+Font: Sans (10pt) [GTK2/3/4]
+Cursor: Adwaita
+Terminal:
+CPU: 7447A, altivec supported @ 1.42 GHz
+GPU: AMD Mobility Radeon 9550
+Memory: 195.35 MiB / 989.32 MiB (20%)
+Swap: 0 B / 966.65 MiB (0%)
+Disk (/): 5.39 GiB / 53.55 GiB (10%) - ext4
+Local IP (wlan0): 192.168.86.37/24
+Locale: en_US.UTF-8

@@ -1,0 +1,16 @@
+processor	: 0
+cpu		: 7447A, altivec supported
+clock		: 1420.000000MHz
+revision	: 1.5 (pvr 8003 0105)
+bogomips	: 73.72
+
+timebase	: 18432000
+platform	: PowerMac
+model		: PowerBook6,7
+machine		: PowerBook6,7
+motherboard	: PowerBook6,7 MacRISC3 Power Macintosh 
+detected as	: 287 (iBook G4)
+pmac flags	: 0000001a
+L2 cache	: 512K unified
+pmac-generation	: NewWorld
+Memory		: 1024 MB

@@ -1,0 +1,396 @@
+powerpc
+    description: Computer
+    product: iBook G4
+    vendor: Copyright 1983-2005 Apple Computer, Inc. All Rights Reserved
+    serial: SE6
+    width: 32 bits
+  *-core
+       description: Motherboard
+       physical id: 0
+       clock: 142MHz
+     *-firmware
+          product: OpenFirmware 3
+          physical id: 0
+          logical name: /proc/device-tree
+          capabilities: bootinfo
+     *-cpu
+          description: CPU
+          product: 7447A, altivec supported
+          physical id: 1
+          bus info: cpu@0
+          version: 1.5 (pvr 8003 0105)
+          size: 1420MHz
+          capacity: 1420MHz
+          clock: 142MHz
+          capabilities: altivec performance-monitor cpufreq
+        *-cache:0
+             description: L1 Cache
+             physical id: 0
+             size: 32KiB
+        *-cache:1
+             description: L2 Cache (unified)
+             physical id: 1
+             size: 512KiB
+             clock: 1420MHz (0.7ns)
+     *-memory
+          description: System memory
+          physical id: 2
+          size: 1GiB
+        *-bank:0
+             description: Memory bank
+             vendor: d1af
+             physical id: 0
+             version: 0000,58 00,64
+             serial: 0xaf
+             slot: DIMM0/BUILT-IN
+             size: 512MiB
+             clock: 307MHz (3.3ns)
+             capabilities: spd-0.0
+             configuration: errordetection=none rank=1
+        *-bank:1
+             description: Memory bank
+             vendor: d1af
+             physical id: 1
+             version: 0000,58 00,64
+             serial: 0xaf
+             slot: DIMM1/J7
+             size: 512MiB
+             clock: 307MHz (3.3ns)
+             capabilities: spd-0.0
+             configuration: errordetection=none rank=1
+     *-pci:0
+          description: Host bridge
+          product: UniNorth 2 AGP
+          vendor: Apple Inc.
+          physical id: 100
+          bus info: pci@0000:00:0b.0
+          version: 00
+          width: 32 bits
+          clock: 66MHz
+          configuration: driver=agpgart-uninorth latency=16
+          resources: irq:0
+        *-display
+             description: VGA compatible controller
+             product: RV360/M12 [Mobility Radeon 9550]
+             vendor: Advanced Micro Devices, Inc. [AMD/ATI]
+             physical id: 10
+             bus info: pci@0000:00:10.0
+             logical name: /dev/fb0
+             version: 80
+             width: 32 bits
+             clock: 66MHz
+             capabilities: agp agp-2.0 pm vga_controller bus_master cap_list rom fb
+             configuration: depth=32 driver=radeon latency=255 mingnt=8 resolution=1024,768
+             resources: irq:48 memory:98000000-9fffffff ioport:400(size=256) memory:90000000-9000ffff memory:90020000-9003ffff
+     *-pci:1
+          description: Host bridge
+          product: UniNorth 2 PCI
+          vendor: Apple Inc.
+          physical id: 101
+          bus info: pci@0001:00:0b.0
+          version: 00
+          width: 32 bits
+          clock: 66MHz
+          configuration: latency=16
+        *-network
+             description: Wireless interface
+             product: BCM4318 [AirForce One 54g] 802.11g Wireless LAN Controller
+             vendor: Broadcom Inc. and subsidiaries
+             physical id: 12
+             bus info: pci@0001:00:12.0
+             logical name: wlan0
+             version: 02
+             serial: 00:22:41:ff:c2:43
+             width: 32 bits
+             clock: 33MHz
+             capabilities: bus_master ethernet physical wireless
+             configuration: broadcast=yes driver=b43 driverversion=6.12.13-powerpc firmware=666.2 ip=192.168.86.37 latency=16 link=yes multicast=yes wireless=IEEE 802.11
+             resources: irq:52 memory:80084000-80085fff
+        *-generic
+             description: Unassigned class
+             product: KeyLargo/Intrepid Mac I/O
+             vendor: Apple Inc.
+             physical id: 17
+             bus info: pci@0001:00:17.0
+             version: 00
+             width: 32 bits
+             clock: 33MHz
+             capabilities: bus_master
+             configuration: driver=macio latency=16
+             resources: irq:0 memory:80000000-8007ffff
+        *-usb:0 UNCLAIMED
+             description: USB controller
+             product: KeyLargo/Intrepid USB
+             vendor: Apple Inc.
+             physical id: 18
+             bus info: pci@0001:00:18.0
+             version: 00
+             width: 32 bits
+             clock: 33MHz
+             capabilities: ohci
+             configuration: latency=0 maxlatency=86 mingnt=3
+        *-usb:1 UNCLAIMED
+             description: USB controller
+             product: KeyLargo/Intrepid USB
+             vendor: Apple Inc.
+             physical id: 19
+             bus info: pci@0001:00:19.0
+             version: 00
+             width: 32 bits
+             clock: 33MHz
+             capabilities: ohci
+             configuration: latency=0 maxlatency=86 mingnt=3
+        *-usb:2
+             description: USB controller
+             product: KeyLargo/Intrepid USB
+             vendor: Apple Inc.
+             physical id: 1a
+             bus info: pci@0001:00:1a.0
+             version: 00
+             width: 32 bits
+             clock: 33MHz
+             capabilities: ohci bus_master
+             configuration: driver=ohci-pci latency=16 maxlatency=86 mingnt=3
+             resources: irq:29 memory:80083000-80083fff
+           *-usbhost
+                product: OHCI PCI host controller
+                vendor: Linux 6.12.13-powerpc ohci_hcd
+                physical id: 1
+                bus info: usb@2
+                logical name: usb2
+                version: 6.12
+                capabilities: usb-1.10
+                configuration: driver=hub slots=2 speed=12Mbit/s
+              *-usb:0
+                   description: Bluetooth wireless interface
+                   product: Built-in Bluetooth
+                   vendor: Apple, Inc.
+                   physical id: 1
+                   bus info: usb@2:1
+                   version: 19.65
+                   capabilities: bluetooth usb-2.00
+                   configuration: driver=btusb speed=12Mbit/s
+              *-usb:1
+                   description: Mouse
+                   product: appletouch
+                   vendor: Apple Computer
+                   physical id: 2
+                   bus info: usb@2:2
+                   logical name: input5
+                   logical name: /dev/input/event3
+                   logical name: /dev/input/mouse0
+                   version: 0.80
+                   capabilities: usb-2.00 usb
+                   configuration: driver=appletouch maxpower=40mA speed=12Mbit/s
+        *-usb:3
+             description: USB controller
+             product: OHCI USB Controller
+             vendor: NEC Corporation
+             physical id: 1b
+             bus info: pci@0001:00:1b.0
+             version: 43
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pm ohci bus_master cap_list
+             configuration: driver=ohci-pci latency=16 maxlatency=42 mingnt=1
+             resources: irq:63 memory:80082000-80082fff
+           *-usbhost
+                product: OHCI PCI host controller
+                vendor: Linux 6.12.13-powerpc ohci_hcd
+                physical id: 1
+                bus info: usb@3
+                logical name: usb3
+                version: 6.12
+                capabilities: usb-1.10
+                configuration: driver=hub slots=3 speed=12Mbit/s
+        *-usb:4
+             description: USB controller
+             product: OHCI USB Controller
+             vendor: NEC Corporation
+             physical id: 1b.1
+             bus info: pci@0001:00:1b.1
+             version: 43
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pm ohci bus_master cap_list
+             configuration: driver=ohci-pci latency=16 maxlatency=42 mingnt=1
+             resources: irq:63 memory:80081000-80081fff
+           *-usbhost
+                product: OHCI PCI host controller
+                vendor: Linux 6.12.13-powerpc ohci_hcd
+                physical id: 1
+                bus info: usb@4
+                logical name: usb4
+                version: 6.12
+                capabilities: usb-1.10
+                configuration: driver=hub slots=2 speed=12Mbit/s
+        *-usb:5
+             description: USB controller
+             product: uPD72010x USB 2.0 Controller
+             vendor: NEC Corporation
+             physical id: 1b.2
+             bus info: pci@0001:00:1b.2
+             version: 04
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pm ehci bus_master cap_list
+             configuration: driver=ehci-pci latency=16 maxlatency=34 mingnt=16
+             resources: irq:63 memory:80080000-800800ff
+           *-usbhost
+                product: EHCI Host Controller
+                vendor: Linux 6.12.13-powerpc ehci_hcd
+                physical id: 1
+                bus info: usb@1
+                logical name: usb1
+                version: 6.12
+                capabilities: usb-2.00
+                configuration: driver=hub slots=5 speed=480Mbit/s
+     *-pci:2
+          description: Host bridge
+          product: UniNorth 2 Internal PCI
+          vendor: Apple Inc.
+          physical id: 102
+          bus info: pci@0002:00:0b.0
+          version: 00
+          width: 32 bits
+          clock: 66MHz
+          configuration: latency=16
+        *-generic:0
+             description: Unassigned class
+             product: UniNorth/Intrepid ATA/100
+             vendor: Apple Inc.
+             physical id: d
+             bus info: pci@0002:00:0d.0
+             logical name: scsi0
+             version: 00
+             width: 32 bits
+             clock: 33MHz
+             capabilities: bus_master emulated
+             configuration: driver=pata-pci-macio latency=32
+             resources: irq:39 memory:f5004000-f5007fff
+           *-disk
+                description: ATA Disk
+                product: TOSHIBA MK6025GA
+                vendor: Toshiba
+                physical id: 0.0.0
+                bus info: scsi@0:0.0.0
+                logical name: /dev/sda
+                version: 3B
+                serial: Y5AG3402S
+                size: 55GiB (60GB)
+                capabilities: partitioned partitioned:mac
+                configuration: ansiversion=5 logicalsectorsize=512 sectorsize=512
+              *-volume:0
+                   description: Apple partition map
+                   physical id: 1
+                   bus info: scsi@0:0.0.0,1
+                   logical name: /dev/sda1
+                   capacity: 31KiB
+              *-volume:1
+                   description: Apple HFS
+                   physical id: 2
+                   bus info: scsi@0:0.0.0,2
+                   logical name: /dev/sda2
+                   logical name: /boot/grub
+                   size: 244MiB
+                   capacity: 244MiB
+                   capabilities: bootable hfs initialized
+                   configuration: created=2025-02-14 19:50:10 filesystem=hfs label=untitled modified=2025-02-15 18:50:38 mount.fstype=hfs mount.options=rw,relatime,uid=0,gid=0 state=mounted
+              *-volume:2
+                   description: EXT4 volume
+                   vendor: Linux
+                   physical id: 3
+                   bus info: scsi@0:0.0.0,3
+                   logical name: /dev/sda3
+                   logical name: /
+                   version: 1.0
+                   serial: 0353dcf0-292d-4307-a091-0c9f8bef6b20
+                   size: 54GiB
+                   capacity: 54GiB
+                   capabilities: journaled extended_attributes large_files huge_files dir_nlink recover 64bit extents ext4 ext2 initialized
+                   configuration: created=2025-02-14 19:49:56 filesystem=ext4 lastmountpoint=/ modified=2025-02-15 19:50:55 mount.fstype=ext4 mount.options=rw,relatime,errors=remount-ro mounted=2025-02-15 18:50:18 state=mounted
+              *-volume:3
+                   description: Linux swap volume
+                   physical id: 4
+                   bus info: scsi@0:0.0.0,4
+                   logical name: /dev/sda4
+                   version: 1
+                   serial: 42d7dd11-9077-4323-9b19-bbe1127f69f5
+                   size: 966MiB
+                   capacity: 966MiB
+                   capabilities: swap initialized
+                   configuration: filesystem=swap pagesize=4096
+              *-volume:4
+                   description: Apple Free
+                   physical id: 5
+                   bus info: scsi@0:0.0.0,5
+                   logical name: /dev/sda5
+                   capacity: 512iB
+        *-firewire
+             description: FireWire (IEEE 1394)
+             product: UniNorth 2 FireWire
+             vendor: Apple Inc.
+             physical id: e
+             bus info: pci@0002:00:0e.0
+             version: 81
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pm ohci bus_master cap_list
+             configuration: driver=firewire_ohci latency=64 maxlatency=24 mingnt=12
+             resources: irq:40 memory:f5000000-f5000fff
+        *-generic:1 DISABLED
+             description: Ethernet interface
+             product: UniNorth 2 GMAC (Sun GEM)
+             vendor: Apple Inc.
+             physical id: f
+             bus info: pci@0002:00:0f.0
+             logical name: enP2p0s15f0
+             version: ff
+             serial: 00:14:51:1f:b1:54
+             capacity: 10Mbit/s
+             width: 32 bits
+             clock: 66MHz
+             capabilities: bus_master vga_palette cap_list rom ethernet physical 10bt 10bt-fd
+             configuration: autonegotiation=on broadcast=yes driver=sungem driverversion=1.0 duplex=half latency=255 link=no maxlatency=255 mingnt=255 multicast=yes port=MII
+             resources: irq:41 memory:f5200000-f53fffff memory:f5100000-f51fffff
+     *-scsi
+          physical id: 3
+          logical name: scsi1
+          capabilities: emulated
+        *-cdrom
+             description: DVD writer
+             product: DVD-R   UJ-845E
+             vendor: MATSHITA
+             physical id: 0.0.0
+             bus info: scsi@1:0.0.0
+             logical name: /dev/cdrom
+             logical name: /dev/sr0
+             version: DMP2
+             capabilities: removable audio cd-r cd-rw dvd dvd-r
+             configuration: ansiversion=5 status=open
+  *-sound
+       description: SoundByLayout
+       physical id: 1
+       logical name: card0
+       logical name: /dev/snd/controlC0
+  *-input:0
+       product: ADB keyboard
+       physical id: 2
+       logical name: input0
+       logical name: /dev/input/event0
+       logical name: input0::capslock
+       logical name: input0::numlock
+       logical name: input0::scrolllock
+       capabilities: adb
+  *-input:1
+       product: ADB Powerbook buttons
+       physical id: 3
+       logical name: input1
+       logical name: /dev/input/event1
+       capabilities: adb
+  *-input:2
+       product: PMU
+       physical id: 4
+       logical name: input2
+       logical name: /dev/input/event2
+       capabilities: platform
