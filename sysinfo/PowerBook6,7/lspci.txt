@@ -1,0 +1,106 @@
+0000:00:0b.0 Host bridge: Apple Inc. UniNorth 2 AGP
+	Device tree node: /sys/firmware/devicetree/base/pci@f0000000/uni-north-agp@b
+	Flags: bus master, 66MHz, medium devsel, latency 16
+	Capabilities: [80] AGP version 1.0
+	Kernel driver in use: agpgart-uninorth
+
+0000:00:10.0 VGA compatible controller: Advanced Micro Devices, Inc. [AMD/ATI] RV360/M12 [Mobility Radeon 9550] (rev 80) (prog-if 00 [VGA controller])
+	Subsystem: Advanced Micro Devices, Inc. [AMD/ATI] RV360/M12 [Mobility Radeon 9550]
+	Device tree node: /sys/firmware/devicetree/base/pci@f0000000/ATY,SnowyParent@10
+	Flags: bus master, 66MHz, medium devsel, latency 255, IRQ 48
+	Memory at 98000000 (32-bit, prefetchable) [size=128M]
+	I/O ports at 0400 [size=256]
+	Memory at 90000000 (32-bit, non-prefetchable) [size=64K]
+	Expansion ROM at 90020000 [disabled] [size=128K]
+	Capabilities: [58] AGP version 2.0
+	Capabilities: [50] Power Management version 2
+	Kernel driver in use: radeon
+	Kernel modules: radeonfb, radeon
+
+0001:00:0b.0 Host bridge: Apple Inc. UniNorth 2 PCI
+	Flags: bus master, 66MHz, medium devsel, latency 16
+
+0001:00:12.0 Network controller: Broadcom Inc. and subsidiaries BCM4318 [AirForce One 54g] 802.11g Wireless LAN Controller (rev 02)
+	Subsystem: Apple Inc. Device 4318
+	Device tree node: /sys/firmware/devicetree/base/pci@f2000000/pci106b,4318@12
+	Flags: bus master, fast devsel, latency 16, IRQ 52
+	Memory at 80084000 (32-bit, non-prefetchable) [size=8K]
+	Kernel driver in use: b43-pci-bridge
+	Kernel modules: ssb
+
+0001:00:17.0 Unassigned class [ff00]: Apple Inc. KeyLargo/Intrepid Mac I/O
+	Device tree node: /sys/firmware/devicetree/base/pci@f2000000/mac-io@17
+	Flags: bus master, medium devsel, latency 16
+	Memory at 80000000 (32-bit, non-prefetchable) [size=512K]
+	Kernel driver in use: macio
+
+0001:00:18.0 USB controller: Apple Inc. KeyLargo/Intrepid USB (prog-if 10 [OHCI])
+	Flags: medium devsel, IRQ 27
+	Memory at <unassigned> (32-bit, non-prefetchable) [disabled] [size=4K]
+	Kernel modules: ohci_pci
+
+0001:00:19.0 USB controller: Apple Inc. KeyLargo/Intrepid USB (prog-if 10 [OHCI])
+	Flags: medium devsel, IRQ 28
+	Memory at <unassigned> (32-bit, non-prefetchable) [disabled] [size=4K]
+	Kernel modules: ohci_pci
+
+0001:00:1a.0 USB controller: Apple Inc. KeyLargo/Intrepid USB (prog-if 10 [OHCI])
+	Device tree node: /sys/firmware/devicetree/base/pci@f2000000/usb@1a
+	Flags: bus master, medium devsel, latency 16, IRQ 29
+	Memory at 80083000 (32-bit, non-prefetchable) [size=4K]
+	Kernel driver in use: ohci-pci
+	Kernel modules: ohci_pci
+
+0001:00:1b.0 USB controller: NEC Corporation OHCI USB Controller (rev 43) (prog-if 10 [OHCI])
+	Subsystem: NEC Corporation USB Controller
+	Device tree node: /sys/firmware/devicetree/base/pci@f2000000/usb@1b
+	Flags: bus master, medium devsel, latency 16, IRQ 63
+	Memory at 80082000 (32-bit, non-prefetchable) [size=4K]
+	Capabilities: [40] Power Management version 2
+	Kernel driver in use: ohci-pci
+	Kernel modules: ohci_pci
+
+0001:00:1b.1 USB controller: NEC Corporation OHCI USB Controller (rev 43) (prog-if 10 [OHCI])
+	Subsystem: NEC Corporation USB Controller
+	Device tree node: /sys/firmware/devicetree/base/pci@f2000000/usb@1b,1
+	Flags: bus master, medium devsel, latency 16, IRQ 63
+	Memory at 80081000 (32-bit, non-prefetchable) [size=4K]
+	Capabilities: [40] Power Management version 2
+	Kernel driver in use: ohci-pci
+	Kernel modules: ohci_pci
+
+0001:00:1b.2 USB controller: NEC Corporation uPD72010x USB 2.0 Controller (rev 04) (prog-if 20 [EHCI])
+	Subsystem: NEC Corporation uPD72010x USB 2.0 Controller
+	Device tree node: /sys/firmware/devicetree/base/pci@f2000000/usb@1b,2
+	Flags: bus master, medium devsel, latency 16, IRQ 63
+	Memory at 80080000 (32-bit, non-prefetchable) [size=256]
+	Capabilities: [40] Power Management version 2
+	Kernel driver in use: ehci-pci
+	Kernel modules: ehci_pci
+
+0002:00:0b.0 Host bridge: Apple Inc. UniNorth 2 Internal PCI
+	Flags: bus master, 66MHz, medium devsel, latency 16
+
+0002:00:0d.0 Unassigned class [ff00]: Apple Inc. UniNorth/Intrepid ATA/100
+	Device tree node: /sys/firmware/devicetree/base/pci@f4000000/ata-6@d
+	Flags: bus master, medium devsel, latency 32, IRQ 39
+	Memory at f5004000 (32-bit, non-prefetchable) [size=16K]
+	Kernel driver in use: pata-pci-macio
+
+0002:00:0e.0 FireWire (IEEE 1394): Apple Inc. UniNorth 2 FireWire (rev 81) (prog-if 10 [OHCI])
+	Subsystem: Apple Inc. iBook G4 2004
+	Device tree node: /sys/firmware/devicetree/base/pci@f4000000/firewire@e
+	Flags: bus master, medium devsel, latency 64, IRQ 40
+	Memory at f5000000 (32-bit, non-prefetchable) [size=4K]
+	Capabilities: [44] Power Management version 2
+	Kernel driver in use: firewire_ohci
+	Kernel modules: firewire_ohci
+
+0002:00:0f.0 Ethernet controller: Apple Inc. UniNorth 2 GMAC (Sun GEM) (rev 80)
+	!!! Unknown header type 7f
+	Device tree node: /sys/firmware/devicetree/base/pci@f4000000/ethernet@f
+	Memory at f5200000 (32-bit, non-prefetchable) [size=2M]
+	Expansion ROM at f5100000 [disabled] [size=1M]
+	Kernel driver in use: gem
+	Kernel modules: sungem
+
