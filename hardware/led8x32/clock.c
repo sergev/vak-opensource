@@ -176,9 +176,6 @@ void slide_glyph_row(long data, int xoff)
 //
 int slide_glyph(int index, int digit, int column)
 {
-    const unsigned char *glyph = &digits[digit * HEIGHT];
-    int i;
-
     if (last_digit[index] == digit)
         return 0;
     last_digit[index] = digit;
@@ -186,8 +183,9 @@ int slide_glyph(int index, int digit, int column)
     clear_digit(column);
 
     // Slide by one row at a time.
-    for (i=0; i<HEIGHT; i++) {
-        slide_glyph_row(glyph[HEIGHT-1-i], column);
+    const unsigned char *glyph = &digits[digit * HEIGHT];
+    for (int h = HEIGHT - 1; h >= 0; h--) {
+        slide_glyph_row(glyph[h], column);
         if (write_bitmap() < 0)
             return -1;
         usleep(30000);
