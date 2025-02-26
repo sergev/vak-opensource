@@ -1,0 +1,9 @@
+[package]
+name = "xedit"
+version = "0.1.0"
+#authors = ["Serge Vakulenko <serge.vakulenko@gmail.com>"]
+edition = "2024"
+
+[dependencies]
+ratatui = "0.27"
+crossterm = "0.27"
