@@ -1,0 +1,113 @@
+Q. Now about Rust internals. Imagine I would need to re-implement Box<T> in C++. How would it look like?
+
+Re-implementing Rust’s Box<T> in C++ is a fun challenge that
+lets us peek into Rust’s memory management internals and
+translate them into C++’s world. In Rust, Box<T> is a smart
+pointer that provides heap-allocated ownership with automatic
+cleanup, backed by the global allocator (usually malloc/free
+via Rust’s alloc crate). It’s simple but powerful: it allocates
+memory for a T, moves the value onto the heap, and deallocates
+it when the Box goes out of scope via Drop. In C++, we don’t
+have Rust’s ownership model or Drop trait, so we’ll use RAII
+and a custom class to mimic it.
+
+Let’s design a C++ equivalent, breaking down the essentials of
+Box<T> and handling the nuances of C++’s memory model.
+
+What Box<T> Does in Rust
+~~~~~~~~~~~~~~~~~~~~~~~~
+ * Allocation: Allocates memory on the heap for a T using the global allocator.
+ * Ownership: Sole owner of the heap memory; no sharing or borrowing by default.
+ * Move Semantics: Transfers ownership when assigned or passed (no copying unless T: Clone).
+ * Deallocation: Automatically frees the memory when dropped, calling T’s destructor if it has one.
+ * Dereferencing: Provides access to T via * or . (through Deref).
+
+C++ Implementation
+~~~~~~~~~~~~~~~~~~
+We’ll create a Box class in C++ that:
+ * Uses new and delete for allocation/deallocation (mirroring malloc/free).
+ * Implements RAII for automatic cleanup.
+ * Supports move semantics (C++11 and later) to mimic Rust’s ownership transfer.
+ * Prevents copying to enforce single ownership (like Rust).
+ * Provides dereference operators (* and ->).
+
+Here’s the code:
+
+    box.cpp
+
+Output
+~~~~~~
+    Constructed: 42
+    Value: 42
+    Moved value: 42
+    Updated value: 100
+    Extracted value: 100
+    Destructed: 100
+
+Breaking It Down
+~~~~~~~~~~~~~~~~
+1. Allocation
+    Rust: Box::new(x) allocates via alloc::alloc (typically malloc) and moves x into the heap.
+    C++: Box(Args&&...) uses new T(std::forward<Args>(args)...) to allocate and construct T in-place with perfect forwarding for variadic arguments.
+    Why: C++’s new combines allocation and construction, mimicking Rust’s heap placement.
+2. Ownership
+    Rust: Single ownership, enforced by the borrow checker.
+    C++: We disable copying (= delete) and implement move semantics (&&) to transfer ownership. ptr is set to nullptr in the moved-from object, leaving it safe but empty.
+    Why: C++ doesn’t have a borrow checker, so we enforce ownership manually.
+3. Deallocation
+    Rust: Drop trait calls alloc::dealloc when the Box goes out of scope.
+    C++: RAII via ~Box() calls delete ptr, which runs T’s destructor and frees the memory.
+    Why: C++’s RAII is the closest analog to Rust’s Drop.
+4. Dereferencing
+    Rust: Implements Deref and DerefMut for *box and box.field.
+    C++: Overloads operator* and operator-> to access T.
+    Why: Provides ergonomic access similar to Rust.
+5. Extras
+    make_box: Like Box::new, simplifies creation with forwarding.
+    into_inner: Mimics Rust’s Box consuming itself to return the inner T.
+    as_raw: Exposes the raw pointer, like Box::into_raw.
+
+Differences from Rust’s Box<T>
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Allocator:
+    Rust uses a global allocator (customizable via #[global_allocator]).
+    C++ uses new/delete, which calls the default allocator (usually malloc/free). You could use std::allocator or a custom allocator, but that’s more complex.
+Safety:
+    Rust guarantees no use-after-free via the borrow checker.
+    C++ relies on the programmer not to dereference a moved-from Box (we set ptr to nullptr to help, but it’s not foolproof).
+Metadata:
+    Rust’s Box can handle fat pointers (e.g., trait objects with vtables).
+    This C++ version is simpler, assuming a single pointer. For trait-like behavior, you’d need virtual functions or std::unique_ptr with a custom deleter.
+Move Semantics:
+    Rust moves by default; C++ requires std::move explicitly.
+
+Rust Internals Peek
+~~~~~~~~~~~~~~~~~~~
+In Rust, Box<T> is roughly:
+
+    pub struct Box<T: ?Sized> {
+        ptr: *mut T,
+        // Allocator hidden in implementation
+    }
+
+    impl<T> Box<T> {
+        pub fn new(x: T) -> Box<T> {
+            let ptr = unsafe { alloc::alloc(Layout::new::<T>()) as *mut T };
+            unsafe { ptr.write(x); }
+            Box { ptr }
+        }
+    }
+
+    impl<T: ?Sized> Drop for Box<T> {
+        fn drop(&mut self) {
+            unsafe { alloc::dealloc(self.ptr as *mut u8, Layout::new::<T>()); }
+        }
+    }
+
+Our C++ version mirrors this but uses C++’s RAII and move semantics instead of raw pointers and Drop.
+
+Enhancements
+~~~~~~~~~~~~
+ * Custom Allocator: Add a template parameter for an allocator, like template <typename T, typename Alloc = std::allocator<T>>.
+ * Fat Pointers: Support Box<dyn Trait> by storing a vtable or using std::unique_ptr with a deleter.
+ * Debug Checks: Add assertions to catch misuse of moved-from objects.

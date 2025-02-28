@@ -1,0 +1,75 @@
+Hi Grok,
+Please show me how to implement Rust's type Result&lt;T, E> in Scala.
+
+Let's implement a simplified version of Rust's Result&lt;T, E> type in Scala. In Rust, Result is an enum used for error handling with two variants: Ok(T) for success and Err(E) for failure. In Scala, we can achieve similar functionality using a sealed trait and case classes. Here's how we can do it:
+<pre>
+// Define the Result type as a sealed trait
+sealed trait Result[+T, +E] {
+  // Basic methods similar to Rust's Result
+  def isOk: Boolean
+  def isErr: Boolean
+
+  // Map over the success value
+  def map[U](f: T => U): Result[U, E] = this match {
+    case Ok(value) => Ok(f(value))
+    case Err(error) => Err(error)
+  }
+
+  // Map over the error value
+  def mapErr[F](f: E => F): Result[T, F] = this match {
+    case Ok(value) => Ok(value)
+    case Err(error) => Err(f(error))
+  }
+
+  // Get the value or a default
+  def getOrElse[U >: T](default: => U): U = this match {
+    case Ok(value) => value
+    case Err(_) => default
+  }
+}
+
+// Success case
+final case class Ok[+T, +E](value: T) extends Result[T, E] {
+  def isOk: Boolean = true
+  def isErr: Boolean = false
+}
+
+// Error case
+final case class Err[+T, +E](error: E) extends Result[T, E] {
+  def isOk: Boolean = false
+  def isErr: Boolean = true
+}
+
+// Example usage
+object ResultExample {
+  def divide(a: Int, b: Int): Result[Int, String] = {
+    if (b == 0) {
+      Err("Division by zero")
+    } else {
+      Ok(a / b)
+    }
+  }
+
+  def main(args: Array[String]): Unit = {
+    val result1 = divide(10, 2)
+    val result2 = divide(10, 0)
+
+    // Pattern matching
+    result1 match {
+      case Ok(value) => println(s"Success: $value")  // Prints: Success: 5
+      case Err(error) => println(s"Error: $error")
+    }
+
+    result2 match {
+      case Ok(value) => println(s"Success: $value")
+      case Err(error) => println(s"Error: $error")  // Prints: Error: Division by zero
+    }
+
+    // Using map
+    val mapped = result1.map(_ * 2)
+    println(mapped.getOrElse(0))  // Prints: 10
+
+    // Using getOrElse
+    println(result2.getOrElse(-1))  // Prints: -1
+  }
+}</pre>
