@@ -1,0 +1,38 @@
+Q. Please implement type Option in C++, making it as close to Rust as possible, but still convenient for C++.
+
+Let's create a C++ implementation of Rust's Option type. In Rust, Option is an enum that represents either Some(value) or None, used for handling cases where a value might be absent. Here's a C++ version that mimics this behavior while adapting to C++ idioms:
+
+    option.cpp
+
+This implementation:
+
+1. Uses a template class to work with any type T, like Rust's generic Option<T>
+2. Uses a union to store the value efficiently, only constructing it when needed
+3. Provides Rust-like methods:
+ * is_some() and is_none() for checking state
+ * unwrap() for direct access (throws on None)
+ * unwrap_or() for providing a default
+ * unwrap_or_else() for computing a default
+4. Includes proper C++ memory management with constructors, destructor, and assignment operators
+5. Offers convenient some() and none() helper functions
+6. Handles both copy and move semantics
+
+Key differences from Rust's Option:
+
+1. Uses exceptions instead of panic for unwrap on None (more C++-idiomatic)
+2. No pattern matching (C++ doesn't have it natively)
+3. Requires explicit template parameters in some cases due to C++ syntax
+4. Memory management is explicit (Rust handles this automatically)
+
+The union approach saves space like Rust's implementation, but requires careful handling of construction and destruction. This version is reasonably safe and efficient while maintaining a Rust-like feel adapted to C++.
+
+You could use it like this:
+
+    Option<std::string> find_name(int id) {
+        if (id == 1) {
+            return some(std::string("Alice"));
+        }
+        return none<std::string>();
+    }
+
+It’s not a perfect replica of Rust’s Option due to language differences, but it captures the core concept while being practical in C++.
