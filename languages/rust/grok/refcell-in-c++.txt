@@ -35,8 +35,9 @@ Running the example gives:
 
     Immutable borrow: 42
     Second immutable borrow: 42
-    After mutable borrow: 100
-    Final value with multiple borrows: 100
+    After set: 100
+    After mutable borrow: 200
+    Final value with multiple borrows: 200
     Error: Already borrowed
 
 Comparison to Rust’s RefCell<T>

@@ -51,7 +51,17 @@ public:
     }
 };
 
-// Example usage
+//
+// Running this code will produce:
+//     Initial value: 42
+//     After set: 100
+//     Old value: 100
+//     New value: 200
+//     Const cell initial value: 300
+//     Const cell after set: 400
+//     Const cell old value: 400
+//     Const cell new value: 500
+//
 int main() {
     // Non-const Cell
     Cell<int> cell(42);

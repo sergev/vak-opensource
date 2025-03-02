@@ -67,10 +67,10 @@ public:
         friend class RefCell<T>;
 
         RefMut(RefCell<T>* c) : cell(c) {
-            if (cell->borrow_count > 0 || cell->borrowed_mut) {
+            if (c->borrow_count > 0 || c->borrowed_mut) {
                 throw std::runtime_error("Already borrowed");
             }
-            cell->borrowed_mut = true;
+            c->borrowed_mut = true;
         }
 
     public:
@@ -85,6 +85,10 @@ public:
         RefMut(RefMut&& other) noexcept : cell(other.cell) { other.cell = nullptr; }
 
         T& get() { return cell->value; }
+
+        void set(T new_value) {
+            cell->value = std::move(new_value);
+        }
     };
 
     Ref borrow() const { return Ref(this); }
@@ -96,8 +100,9 @@ public:
 //
 // Immutable borrow: 42
 // Second immutable borrow: 42
-// After mutable borrow: 100
-// Final value with multiple borrows: 100
+// After set: 100
+// After mutable borrow: 200
+// Final value with multiple borrows: 200
 // Error: Already borrowed
 //
 int main() {
@@ -112,10 +117,17 @@ int main() {
         std::cout << "Second immutable borrow: " << ref2.get() << "\n";
     }
 
-    // Mutable borrow
+    // Using set() via RefMut
     {
         auto mut_ref = cell.borrow_mut();
-        mut_ref.get() = 100;
+        mut_ref.set(100);
+        std::cout << "After set: " << mut_ref.get() << "\n";
+    }
+
+    // Mutable borrow with direct modification
+    {
+        auto mut_ref = cell.borrow_mut();
+        mut_ref.get() = 200;
     }
     std::cout << "After mutable borrow: " << cell.borrow().get() << "\n";
 
@@ -124,7 +136,7 @@ int main() {
     auto ref4 = cell.borrow();
     std::cout << "Final value with multiple borrows: " << ref3.get() << "\n";
 
-    // Demonstrate failure
+    // Demonstrate failure with borrow_mut() during active borrows
     try {
         auto mut_ref = cell.borrow_mut(); // Should fail
     } catch (const std::runtime_error& e) {
