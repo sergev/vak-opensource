@@ -1,0 +1,53 @@
+A. Please show a meaningful C++ implementation of type RwLock<T>.
+
+I'll create a C++ implementation of RwLock<T> similar to Rust's RwLock, which provides a reader-writer lock allowing multiple readers or one writer. We'll use C++'s std::shared_mutex (available since C++17) as the underlying synchronization primitive.
+
+Here's the implementation:
+
+    rwlock.cpp
+
+Key components and features:
+
+1. RwLock<T> Class:
+
+    Uses std::shared_mutex for reader-writer locking
+    Stores the data of type T
+    Marked as mutable to allow read locking in const methods
+
+2. ReadGuard Class:
+
+    Uses std::shared_lock for shared access
+    Provides read-only access to the data
+    Multiple ReadGuards can exist simultaneously
+
+3. WriteGuard Class:
+
+    Uses std::unique_lock for exclusive access
+    Provides read-write access to the data
+    Only one WriteGuard can exist at a time
+
+4. Interface:
+
+    read_lock(): Returns a ReadGuard for reading
+    write_lock(): Returns a WriteGuard for writing
+    Both guards automatically unlock when they go out of scope (RAII)
+
+5. Differences from Rust's RwLock:
+
+    C++ doesn't have Rust's poisoning mechanism
+    No Result/Option return types (Rust uses these for lock acquisition)
+    Relies on C++ RAII instead of Rust's ownership system
+
+The example demonstrates:
+
+    Multiple readers can access the data simultaneously
+    Writers get exclusive access
+    Automatic cleanup when guards go out of scope
+    Thread-safe concurrent access
+
+Possible extensions could include:
+
+    Try-lock variants (try_read_lock, try_write_lock)
+    Timeout-based locking
+    Upgradeable read locks
+    Condition variable support

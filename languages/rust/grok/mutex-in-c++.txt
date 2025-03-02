@@ -1,0 +1,48 @@
+Q. Please show me a possible implementation of type Mutex<T> in C++.
+
+I'll provide an implementation of a Mutex<T> type in C++ that mimics Rust's Mutex. Rust's Mutex provides mutual exclusion with a lock guard pattern, so we'll create a similar construct in C++ using the standard library's threading primitives.
+
+Here's a possible implementation:
+
+    mutex.cpp
+
+Let's break down the key components:
+
+1. Mutex<T> Class:
+
+    Stores the actual data (T data)
+    Contains a std::mutex for synchronization
+    Takes an initial value in constructor
+
+2. LockGuard Inner Class:
+
+    Similar to Rust's MutexGuard
+    Holds a reference to the data and a std::unique_lock
+    Provides access to the underlying data via operators * and ->
+    Automatically unlocks when it goes out of scope (RAII)
+
+3. Key Features:
+
+    lock() method returns a LockGuard object
+    Copy prevention to avoid race conditions
+    Move semantics supported
+    Thread-safe access to the contained data
+
+4. Differences from Rust's Mutex:
+
+    C++ doesn't have Rust's ownership system, so we rely on RAII
+    No poisoning mechanism (Rust's Mutex can poison on panic)
+    Manual lock() call instead of Rust's Option/Result pattern
+
+Usage Notes:
+
+    The LockGuard provides safe access to the data while holding the lock
+    The lock is automatically released when the guard goes out of scope
+    Multiple threads can safely access the mutex-protected data
+
+You could extend this implementation by:
+
+    Adding try_lock() functionality
+    Adding timeout-based locking
+    Adding condition variable support
+    Implementing poisoning for exception safety
