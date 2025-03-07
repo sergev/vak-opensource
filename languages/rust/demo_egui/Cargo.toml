@@ -1,0 +1,10 @@
+[package]
+name = "egui-demo"
+version = "0.0.1"
+edition = "2024"
+
+[dependencies]
+egui = "0.31"           # Latest as of now, check for updates
+eframe = "0.31"         # For windowing with egui
+rfd = "0.15"            # For native file dialogs
+native-dialog = "0.7"   # Optional, for message boxes

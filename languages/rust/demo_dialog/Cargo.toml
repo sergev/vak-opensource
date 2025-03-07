@@ -1,0 +1,8 @@
+[package]
+name = "rfd-demo"
+version = "0.0.1"
+edition = "2024"
+
+[dependencies]
+rfd = "0.15"           # For native file dialogs
+native-dialog = "0.7"  # For message boxes
