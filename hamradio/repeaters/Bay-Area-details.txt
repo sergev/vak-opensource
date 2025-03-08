@@ -301,8 +301,11 @@ San Francisco               San Francisco Ham Radio Club                        
 San Jose                    San Jose IBM Club Amateur Radio Club                                http://www.ibmarc.org/snj
     No repeaters or nets.
 
-San Jose                    San Jose State University Amateur Radio Club (SJSUARC)              http://www.w6yl.com/
-    No repeaters or nets.
+San Jose                    San Jose State Amateur Radio Club (SJSARC)                          http://www.w6yl.org/
+    Repeaters:
+        W6YL - 443.900 +5 MHz, PL 100 Hz - Voice
+    Nets:
+        Every Tuesday evening at 19:00 on the W6YL repeater.
 
 Felton                      San Lorenzo Valley Amateur Radio Club                               http://www.slvarc.org/
     Repeaters:
