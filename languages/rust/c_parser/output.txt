@@ -1,0 +1,91 @@
+TranslationUnit {
+    declarations: [
+        Variable(
+            Int,
+            "x",
+            Some(
+                Number(
+                    42,
+                ),
+            ),
+        ),
+        Function(
+            Int,
+            "main",
+            [
+                Parameter(
+                    Int,
+                    "argc",
+                ),
+            ],
+            CompoundStmt {
+                declarations: [
+                    Variable(
+                        Int,
+                        "y",
+                        Some(
+                            Binary(
+                                Number(
+                                    3,
+                                ),
+                                Add,
+                                Binary(
+                                    Number(
+                                        5,
+                                    ),
+                                    Mul,
+                                    Number(
+                                        2,
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ],
+                statements: [
+                    If(
+                        Binary(
+                            Identifier(
+                                "y",
+                            ),
+                            Greater,
+                            Identifier(
+                                "x",
+                            ),
+                        ),
+                        Compound(
+                            CompoundStmt {
+                                declarations: [],
+                                statements: [
+                                    Return(
+                                        Some(
+                                            Number(
+                                                1,
+                                            ),
+                                        ),
+                                    ),
+                                ],
+                            },
+                        ),
+                        Some(
+                            Compound(
+                                CompoundStmt {
+                                    declarations: [],
+                                    statements: [
+                                        Return(
+                                            Some(
+                                                Number(
+                                                    0,
+                                                ),
+                                            ),
+                                        ),
+                                    ],
+                                },
+                            ),
+                        ),
+                    ),
+                ],
+            },
+        ),
+    ],
+}
