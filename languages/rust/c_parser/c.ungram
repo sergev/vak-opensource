@@ -1,0 +1,46 @@
+// Top-level program structure
+TranslationUnit = Declaration*
+
+// Declarations
+Declaration = Type Identifier ';'
+            | Type Identifier '(' ParameterList ')' CompoundStmt
+ParameterList = (Type Identifier (',' Type Identifier)*)?
+
+// Types
+Type = 'int'
+     | 'float'
+     | 'char'
+     | 'void'
+
+// Statements
+Stmt = CompoundStmt
+     | ExprStmt
+     | IfStmt
+     | WhileStmt
+     | ReturnStmt
+
+CompoundStmt = '{' Declaration* Stmt* '}'
+ExprStmt = Expr ';'
+IfStmt = 'if' '(' Expr ')' Stmt ('else' Stmt)?
+WhileStmt = 'while' '(' Expr ')' Stmt
+ReturnStmt = 'return' Expr? ';'
+
+// Expressions
+Expr = AssignmentExpr
+AssignmentExpr = EqualityExpr ('=' EqualityExpr)?
+EqualityExpr = RelationalExpr (('==' | '!=') RelationalExpr)?
+RelationalExpr = AddExpr (('<' | '>' | '<=' | '>=') AddExpr)?
+AddExpr = MultExpr (('+' | '-') MultExpr)*
+MultExpr = UnaryExpr (('*' | '/') UnaryExpr)*
+UnaryExpr = PrimaryExpr
+          | '-' UnaryExpr
+          | '!' UnaryExpr
+PrimaryExpr = Identifier
+            | Number
+            | String
+            | '(' Expr ')'
+
+// Basic tokens
+Identifier = <token>
+Number = <token>
+String = <token>

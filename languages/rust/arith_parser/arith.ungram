@@ -1,0 +1,4 @@
+Expr = Number
+     | '(' Expr Op Expr ')'
+Op   = '+' | '-' | '*' | '/'
+Number = <token>
