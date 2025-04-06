@@ -1,0 +1,48 @@
+module B {
+    // Top-level program structure
+    program = Program(declaration* declarations)
+
+    // Declarations: variables, vectors, and functions (global scope only)
+    declaration = VarDecl(identifier name, expr? init)                      // Scalar variable declaration with optional initialization
+                | VectorDecl(identifier name, expr size, expr*? init)       // Vector declaration with size and optional initializers
+                | FuncDecl(identifier name, identifier* params, stmt body)  // Function declaration
+
+    // Statements
+    stmt = ExprStmt(expr expression)                                        // Expression as a statement
+         | AssignStmt(identifier name, expr value)                          // Simple assignment (e.g., x = 5)
+         | VectorAssignStmt(expr vector, expr index, expr value)            // Vector assignment (e.g., v[i] = 5)
+         | CompoundAssignStmt(identifier name, compoundop op, expr value)   // Compound assignment
+         | IfStmt(expr condition, stmt thenBody, stmt? elseBody)            // If statement with optional else
+         | WhileStmt(expr condition, stmt body)                             // While loop
+         | ReturnStmt(expr? value)                                          // Return statement (optional expression)
+         | BlockStmt(stmt* statements)                                      // Block with statements (including auto declarations)
+         | AutoStmt(identifier name, expr init)                             // Auto scalar variable declaration
+         | AutoVectorStmt(identifier name, expr size)                       // Auto vector declaration (local, no initializers)
+
+    // Expressions
+    expr = Literal(int value)                                       // Integer literal (B is typeless, so all literals are words)
+         | Ident(identifier name)                                   // Variable or function name
+         | BinaryOp(expr left, binop op, expr right)                // Binary operation (e.g., +, -, *, /, <, <<)
+         | UnaryOp(unaryop op, expr operand)                        // Unary operation (e.g., -, *, &, ~)
+         | Call(expr func, expr* args)                              // Function call
+         | Dereference(expr pointer)                                // Pointer dereference (e.g., *ptr)
+         | AddressOf(identifier name)                               // Address-of operator (e.g., &var)
+         | IncDec(identifier name, incdec op)                       // Increment or decrement (e.g., x++, x--)
+         | VectorAccess(expr vector, expr index)                    // Vector element access (e.g., v[i])
+         | Ternary(expr condition, expr thenExpr, expr elseExpr)    // Ternary operator (e.g., x ? y : z)
+
+    // Types for operators and identifiers
+    binop = Add | Subtract | Multiply | Divide | Modulo             // Arithmetic
+          | Less | LessEq | Greater | GreaterEq | Equal | NotEqual  // Comparison
+          | BitAnd | BitOr | BitXor | LShift | RShift               // Bitwise
+          | And | Or                                                // Logical (if distinct in B)
+
+    unaryop = Negate | Deref | Addr | BitNot                        // Unary operators (-, *, &, ~)
+
+    compoundop = Add | Subtract | Multiply | Divide | Modulo        // Compound assignment operators
+               | LShift | RShift | And | Xor | Or
+
+    incdec = Inc | Dec
+
+    identifier = string
+}
