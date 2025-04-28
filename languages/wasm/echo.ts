@@ -8,7 +8,7 @@ export declare function args_get(argv: i32, argv_buf: i32): i32;
 @external("wasi_snapshot_preview1", "fd_write")
 export declare function fd_write(fd: i32, iovs: i32, iovs_len: i32, nwritten: i32): i32;
 
-// Function to convert a null-terminated C-string (ASCII) to AssemblyScript string
+// Function to convert a null-terminated UTF-8 C-string to AssemblyScript string
 function cStringToString(ptr: i32): string
 {
     let result = "";
@@ -17,27 +17,71 @@ function cStringToString(ptr: i32): string
         let byte = load<u8>(ptr + offset);
         if (byte == 0)
             break;
-        result += String.fromCharCode(byte);
-        offset++;
+
+        // Handle UTF-8 decoding
+        if (byte < 0x80) {
+            // 1-byte (ASCII)
+            result += String.fromCharCode(byte);
+            offset += 1;
+        } else if ((byte & 0xE0) == 0xC0) {
+            // 2-byte
+            let byte2 = load<u8>(ptr + offset + 1);
+            let code = ((byte & 0x1F) << 6) | (byte2 & 0x3F);
+            result += String.fromCharCode(code);
+            offset += 2;
+        } else if ((byte & 0xF0) == 0xE0) {
+            // 3-byte
+            let byte2 = load<u8>(ptr + offset + 1);
+            let byte3 = load<u8>(ptr + offset + 2);
+            let code = ((byte & 0x0F) << 12) | ((byte2 & 0x3F) << 6) | (byte3 & 0x3F);
+            result += String.fromCharCode(code);
+            offset += 3;
+        }
+        // Ignore invalid UTF-8 for simplicity
     }
     return result;
 }
 
-// Function to write an ASCII string to stdout
+// Function to convert a UTF-16 code unit to UTF-8 bytes
+function utf8PutChar(ch: i32, buffer: ArrayBuffer, offset: i32): i32
+{
+    let ptr = changetype<i32>(buffer);
+    if (ch < 0x80) {
+        // 1-byte UTF-8 (ASCII)
+        store<u8>(ptr + offset, ch);
+        return 1;
+    }
+    if (ch < 0x800) {
+        // 2-byte UTF-8
+        store<u8>(ptr + offset, (ch >> 6) | 0xC0);
+        store<u8>(ptr + offset + 1, (ch & 0x3F) | 0x80);
+        return 2;
+    }
+    // 3-byte UTF-8
+    store<u8>(ptr + offset, (ch >> 12) | 0xE0);
+    store<u8>(ptr + offset + 1, ((ch >> 6) & 0x3F) | 0x80);
+    store<u8>(ptr + offset + 2, (ch & 0x3F) | 0x80);
+    return 3;
+}
+
+// Function to write a string to stdout
 function writeString(str: string): void
 {
-    // Create ASCII byte array from UTF-16 string
-    let asciiBuffer = new ArrayBuffer(str.length);
-    let asciiPtr = changetype<i32>(asciiBuffer);
+    // Estimate buffer size (up to 3 bytes per UTF-16 char)
+    let maxBytes = str.length * 3;
+    let buffer = new ArrayBuffer(maxBytes);
+    let offset = 0;
+
+    // Convert each UTF-16 char to UTF-8
     for (let i = 0; i < str.length; i++) {
-        // Extract ASCII byte (lower 8 bits of UTF-16 char)
-        store<u8>(asciiPtr + i, str.charCodeAt(i) & 0xFF);
+        let char = str.charCodeAt(i);
+        offset += utf8PutChar(char, buffer, offset);
     }
 
     // Allocate iovec structure (ptr, len)
     let iovec_ptr = changetype<i32>(new ArrayBuffer(8));
-    store<i32>(iovec_ptr, asciiPtr);
-    store<i32>(iovec_ptr + 4, str.length);
+    store<i32>(iovec_ptr, changetype<i32>(buffer));
+    store<i32>(iovec_ptr + 4, offset);
 
     // Write to stdout (fd=1)
     let nwritten_ptr = changetype<i32>(new ArrayBuffer(4));

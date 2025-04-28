@@ -7,4 +7,4 @@ clean:
 	asc $< --use abort= -O3 -o $@
 
 run:    echo.wasm
-	wasmtime $< foobar 12 3 456
+	wasmtime $< foobar йцукенг 12 3 456
