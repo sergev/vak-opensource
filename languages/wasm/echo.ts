@@ -8,57 +8,36 @@ export declare function args_get(argv: i32, argv_buf: i32): i32;
 @external("wasi_snapshot_preview1", "fd_write")
 export declare function fd_write(fd: i32, iovs: i32, iovs_len: i32, nwritten: i32): i32;
 
-// Function to convert a null-terminated C-string (UTF-8) to AssemblyScript string
+// Function to convert a null-terminated C-string (ASCII) to AssemblyScript string
 function cStringToString(ptr: i32): string
 {
     let result = "";
     let offset = 0;
-    // Read bytes until null terminator (0)
     while (true) {
         let byte = load<u8>(ptr + offset);
-        if (byte == 0) break;
-        // Assume single-byte UTF-8 (ASCII) for simplicity
+        if (byte == 0)
+            break;
         result += String.fromCharCode(byte);
         offset++;
     }
     return result;
 }
 
-// Function to convert an AssemblyScript string (UTF-16) to UTF-8 bytes
-function stringToUTF8(str: string): ArrayBuffer
-{
-    // Estimate buffer size (worst case: 1 byte per UTF-16 char for ASCII)
-    let buffer = new ArrayBuffer(str.length);
-    let ptr = changetype<i32>(buffer);
-    let offset = 0;
-
-    // Convert each UTF-16 char to UTF-8 (ASCII only for simplicity)
-    for (let i = 0; i < str.length; i++) {
-        let char = str.charCodeAt(i);
-
-        // For ASCII (char <= 127), use single byte
-        if (char <= 0x7F) {
-            store<u8>(ptr + offset, char);
-            offset++;
-        }
-        // Add handling for multi-byte UTF-8 if needed
-    }
-    // Return only the used portion of the buffer
-    return buffer.slice(0, offset);
-}
-
-// Function to write a string to stdout
+// Function to write an ASCII string to stdout
 function writeString(str: string): void
 {
-    // Convert string to UTF-8 bytes
-    let utf8Buffer = stringToUTF8(str);
-    let utf8Ptr = changetype<i32>(utf8Buffer);
-    let utf8Len = utf8Buffer.byteLength;
+    // Create ASCII byte array from UTF-16 string
+    let asciiBuffer = new ArrayBuffer(str.length);
+    let asciiPtr = changetype<i32>(asciiBuffer);
+    for (let i = 0; i < str.length; i++) {
+        // Extract ASCII byte (lower 8 bits of UTF-16 char)
+        store<u8>(asciiPtr + i, str.charCodeAt(i) & 0xFF);
+    }
 
-    // Allocate memory for iovec structure (ptr, len)
+    // Allocate iovec structure (ptr, len)
     let iovec_ptr = changetype<i32>(new ArrayBuffer(8));
-    store<i32>(iovec_ptr, utf8Ptr);
-    store<i32>(iovec_ptr + 4, utf8Len);
+    store<i32>(iovec_ptr, asciiPtr);
+    store<i32>(iovec_ptr + 4, str.length);
 
     // Write to stdout (fd=1)
     let nwritten_ptr = changetype<i32>(new ArrayBuffer(4));
