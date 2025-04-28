@@ -517,7 +517,7 @@ impl Parser {
     }
 
     fn parse_expr(&mut self, min_prec: u8) -> Expr {
-        let mut lhs = self.parse_atom();
+        let mut lhs = self.parse_term();
         while let Some((op, prec, assoc)) = self.peek_binop() {
             if prec < min_prec {
                 break;
@@ -536,7 +536,7 @@ impl Parser {
         lhs
     }
 
-    fn parse_atom(&mut self) -> Expr {
+    fn parse_term(&mut self) -> Expr {
         let token = self.next_token();
         match token {
             Token::Literal(val) => Expr::Literal(val),
@@ -571,8 +571,8 @@ impl Parser {
                     _ => Expr::Ident(name),
                 }
             }
-            Token::Minus => Expr::UnaryOp(UnaryOp::Negate, Box::new(self.parse_atom())),
-            Token::Star => Expr::UnaryOp(UnaryOp::Deref, Box::new(self.parse_atom())),
+            Token::Minus => Expr::UnaryOp(UnaryOp::Negate, Box::new(self.parse_term())),
+            Token::Star => Expr::UnaryOp(UnaryOp::Deref, Box::new(self.parse_term())),
             Token::Ampersand => {
                 if let Token::Ident(name) = self.next_token() {
                     Expr::AddressOf(name)
@@ -580,7 +580,7 @@ impl Parser {
                     panic!("Expected identifier after &");
                 }
             }
-            Token::Tilde => Expr::UnaryOp(UnaryOp::BitNot, Box::new(self.parse_atom())),
+            Token::Tilde => Expr::UnaryOp(UnaryOp::BitNot, Box::new(self.parse_term())),
             Token::LParen => {
                 let expr = self.parse_expr(0);
                 self.expect(Token::RParen);
