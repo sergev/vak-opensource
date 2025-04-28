@@ -4,7 +4,7 @@ clean:
 	rm -f *.wasm
 
 %.wasm: %.ts
-	asc $< --use abort= -O3 -o $@
+	asc $< --debug --use abort= -O -o $@
 
 run:    echo.wasm
 	wasmtime $< foobar йцукенг 12 3 456

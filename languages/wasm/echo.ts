@@ -8,80 +8,46 @@ export declare function args_get(argv: i32, argv_buf: i32): i32;
 @external("wasi_snapshot_preview1", "fd_write")
 export declare function fd_write(fd: i32, iovs: i32, iovs_len: i32, nwritten: i32): i32;
 
-// Function to convert a null-terminated UTF-8 C-string to AssemblyScript string
-function cStringToString(ptr: i32): string
+// Function to write an ASCII string to stdout
+function writeAscii(str: string): void
 {
-    let result = "";
-    let offset = 0;
-    while (true) {
-        let byte = load<u8>(ptr + offset);
-        if (byte == 0)
-            break;
-
-        // Handle UTF-8 decoding
-        if (byte < 0x80) {
-            // 1-byte (ASCII)
-            result += String.fromCharCode(byte);
-            offset += 1;
-        } else if ((byte & 0xE0) == 0xC0) {
-            // 2-byte
-            let byte2 = load<u8>(ptr + offset + 1);
-            let code = ((byte & 0x1F) << 6) | (byte2 & 0x3F);
-            result += String.fromCharCode(code);
-            offset += 2;
-        } else if ((byte & 0xF0) == 0xE0) {
-            // 3-byte
-            let byte2 = load<u8>(ptr + offset + 1);
-            let byte3 = load<u8>(ptr + offset + 2);
-            let code = ((byte & 0x0F) << 12) | ((byte2 & 0x3F) << 6) | (byte3 & 0x3F);
-            result += String.fromCharCode(code);
-            offset += 3;
-        }
-        // Ignore invalid UTF-8 for simplicity
-    }
-    return result;
-}
-
-// Function to convert a UTF-16 code unit to UTF-8 bytes
-function utf8PutChar(ch: i32, buffer: ArrayBuffer, offset: i32): i32
-{
+    let buffer = new ArrayBuffer(str.length);
     let ptr = changetype<i32>(buffer);
-    if (ch < 0x80) {
-        // 1-byte UTF-8 (ASCII)
-        store<u8>(ptr + offset, ch);
-        return 1;
-    }
-    if (ch < 0x800) {
-        // 2-byte UTF-8
-        store<u8>(ptr + offset, (ch >> 6) | 0xC0);
-        store<u8>(ptr + offset + 1, (ch & 0x3F) | 0x80);
-        return 2;
-    }
-    // 3-byte UTF-8
-    store<u8>(ptr + offset, (ch >> 12) | 0xE0);
-    store<u8>(ptr + offset + 1, ((ch >> 6) & 0x3F) | 0x80);
-    store<u8>(ptr + offset + 2, (ch & 0x3F) | 0x80);
-    return 3;
-}
-
-// Function to write a string to stdout
-function writeString(str: string): void
-{
-    // Estimate buffer size (up to 3 bytes per UTF-16 char)
-    let maxBytes = str.length * 3;
-    let buffer = new ArrayBuffer(maxBytes);
     let offset = 0;
 
-    // Convert each UTF-16 char to UTF-8
     for (let i = 0; i < str.length; i++) {
-        let char = str.charCodeAt(i);
-        offset += utf8PutChar(char, buffer, offset);
+        let ch = str.charCodeAt(i);
+
+        // Copy only ASCII characters.
+        if (ch <= 0x7F) {
+            store<u8>(ptr + offset, ch);
+            offset++;
+        }
     }
 
     // Allocate iovec structure (ptr, len)
     let iovec_ptr = changetype<i32>(new ArrayBuffer(8));
     store<i32>(iovec_ptr, changetype<i32>(buffer));
     store<i32>(iovec_ptr + 4, offset);
+
+    // Write to stdout (fd=1)
+    let nwritten_ptr = changetype<i32>(new ArrayBuffer(4));
+    fd_write(1, iovec_ptr, 1, nwritten_ptr);
+}
+
+// Function to write UTF-8 bytes directly to stdout
+function writeUtf8(arg_ptr: i32): void
+{
+    // Calculate length of null-terminated UTF-8 string
+    let length = 0;
+    while (load<u8>(arg_ptr + length) != 0) {
+        length++;
+    }
+
+    // Allocate iovec structure (ptr, len)
+    let iovec_ptr = changetype<i32>(new ArrayBuffer(8));
+    store<i32>(iovec_ptr, arg_ptr);
+    store<i32>(iovec_ptr + 4, length);
 
     // Write to stdout (fd=1)
     let nwritten_ptr = changetype<i32>(new ArrayBuffer(4));
@@ -112,7 +78,7 @@ export function _start(): void
 
     // If no arguments (besides program name), print newline and exit
     if (argc <= 1) {
-        writeString("\n");
+        writeAscii("\n");
         return;
     }
 
@@ -121,16 +87,15 @@ export function _start(): void
         // Get pointer to argument string
         let arg_ptr = load<i32>(argv + i * 4);
 
-        // Convert C-string to AssemblyScript string
-        let arg = cStringToString(arg_ptr);
-        writeString(arg);
+        // Write UTF-8 bytes directly
+        writeUtf8(arg_ptr);
 
         // Add space between arguments, but not after the last one
         if (i < argc - 1) {
-            writeString(" ");
+            writeAscii(" ");
         }
     }
 
     // Print final newline
-    writeString("\n");
+    writeAscii("\n");
 }
