@@ -59,6 +59,7 @@ void set_raw_terminal()
     struct termios term;
     tcgetattr(STDIN_FILENO, &term);
     term.c_lflag &= ~(ICANON | ECHO | ISIG); // Disable canonical mode, echo, and signal handling
+    term.c_iflag &= ~ICRNL;                  // Unmap CR to NL on input
     term.c_cc[VMIN]  = 1;
     term.c_cc[VTIME] = 0;
     tcsetattr(STDIN_FILENO, TCSANOW, &term);
