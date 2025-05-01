@@ -279,14 +279,36 @@ void render_text()
 }
 
 // Parse and process ANSI escape sequences
-void process_ansi_sequence(const std::string &seq)
+void process_ansi_sequence(const std::string &seq, char final_char)
 {
+    if (final_char == 'c') { // ESC c: Full reset and clear screen
+        std::cerr << "Processing ESC c: Resetting terminal state" << std::endl;
+        // Reset attributes
+        current_attr = CharAttr();
+        // Reset cursor
+        cursor.row = 0;
+        cursor.col = 0;
+        // Clear screen
+        for (int r = 0; r < term_rows; ++r) {
+            text_buffer[r] = std::vector<Char>(term_cols, { ' ', current_attr });
+            dirty_lines[r] = true;
+            // Clear texture cache for this line
+            for (auto &span : texture_cache[r]) {
+                if (span.texture)
+                    SDL_DestroyTexture(span.texture);
+            }
+            texture_cache[r].clear();
+        }
+        return;
+    }
+
     if (seq.empty() || seq[0] != '[')
         return;
 
+    std::cerr << "Processing CSI sequence: " << seq << final_char << std::endl;
+
     std::vector<int> params;
     std::string param_str;
-    char final_char = seq.back();
 
     // Extract parameters
     for (size_t i = 1; i < seq.size() - 1; ++i) {
@@ -691,6 +713,8 @@ int main()
                             if (c == '\033') {
                                 state = AnsiState::ESCAPE;
                                 ansi_seq.clear();
+                                std::cerr << "Received ESC, transitioning to ESCAPE state"
+                                          << std::endl;
                             } else if (c == '\n') {
                                 cursor.row++;
                                 cursor.col = 0;
@@ -755,7 +779,15 @@ int main()
                             if (c == '[') {
                                 state = AnsiState::CSI;
                                 ansi_seq += c;
+                                std::cerr << "Received [, transitioning to CSI state" << std::endl;
+                            } else if (c == 'c') {
+                                std::cerr << "Received ESC c, processing reset" << std::endl;
+                                process_ansi_sequence("", c); // Handle ESC c
+                                state = AnsiState::NORMAL;
+                                ansi_seq.clear();
                             } else {
+                                std::cerr << "Unknown ESC sequence char: " << c
+                                          << ", resetting to NORMAL" << std::endl;
                                 state = AnsiState::NORMAL;
                                 ansi_seq.clear();
                             }
@@ -764,13 +796,17 @@ int main()
                         case AnsiState::CSI:
                             ansi_seq += c;
                             if (std::isalpha(c)) {
-                                process_ansi_sequence(ansi_seq);
+                                std::cerr << "Received CSI final char: " << c << std::endl;
+                                process_ansi_sequence(ansi_seq, c);
                                 state = AnsiState::NORMAL;
                                 ansi_seq.clear();
                             }
                             break;
                         }
                     }
+                } else if (bytes < 0 && errno != EAGAIN && errno != EWOULDBLOCK) {
+                    std::cerr << "Error reading from master_fd: " << strerror(errno) << std::endl;
+                    running = false;
                 }
             }
         }
