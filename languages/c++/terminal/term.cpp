@@ -35,17 +35,14 @@ const Uint32 cursor_blink_interval = 500;  // Blink interval in ms
 
 // Structure for character attributes
 struct CharAttr {
-    SDL_Color fg   = { 255, 255, 255, 255 }; // Foreground color (default white)
-    SDL_Color bg   = { 0, 0, 0, 255 };       // Background color (default black)
-    bool bold      = false;
-    bool underline = false;
+    SDL_Color fg = { 255, 255, 255, 255 }; // Foreground color (default white)
+    SDL_Color bg = { 0, 0, 0, 255 };       // Background color (default black)
 
     bool operator==(const CharAttr &other) const
     {
         return fg.r == other.fg.r && fg.g == other.fg.g && fg.b == other.fg.b &&
                fg.a == other.fg.a && bg.r == other.bg.r && bg.g == other.bg.g &&
-               bg.b == other.bg.b && bg.a == other.bg.a && bold == other.bold &&
-               underline == other.underline;
+               bg.b == other.bg.b && bg.a == other.bg.a;
     }
 };
 
@@ -172,7 +169,7 @@ void handle_sigwinch(int sig)
     update_terminal_size();
 }
 
-// Render text buffer to SDL window with per-character colors
+// Render text buffer to SDL window with per-character colors and backgrounds
 void render_text()
 {
     // Update cursor blinking
@@ -214,17 +211,6 @@ void render_text()
                     SDL_Surface *surface =
                         TTF_RenderText_Blended(font, current_text.c_str(), current_span_attr.fg);
                     if (surface) {
-                        if (current_span_attr.bold || current_span_attr.underline) {
-                            int style = TTF_STYLE_NORMAL;
-                            if (current_span_attr.bold)
-                                style |= TTF_STYLE_BOLD;
-                            if (current_span_attr.underline)
-                                style |= TTF_STYLE_UNDERLINE;
-                            TTF_SetFontStyle(font, style);
-                            surface = TTF_RenderText_Blended(font, current_text.c_str(),
-                                                             current_span_attr.fg);
-                            TTF_SetFontStyle(font, TTF_STYLE_NORMAL);
-                        }
                         span.texture = SDL_CreateTextureFromSurface(renderer, surface);
                         SDL_FreeSurface(surface);
                     }
@@ -246,17 +232,6 @@ void render_text()
             SDL_Surface *surface =
                 TTF_RenderText_Blended(font, current_text.c_str(), current_span_attr.fg);
             if (surface) {
-                if (current_span_attr.bold || current_span_attr.underline) {
-                    int style = TTF_STYLE_NORMAL;
-                    if (current_span_attr.bold)
-                        style |= TTF_STYLE_BOLD;
-                    if (current_span_attr.underline)
-                        style |= TTF_STYLE_UNDERLINE;
-                    TTF_SetFontStyle(font, style);
-                    surface =
-                        TTF_RenderText_Blended(font, current_text.c_str(), current_span_attr.fg);
-                    TTF_SetFontStyle(font, TTF_STYLE_NORMAL);
-                }
                 span.texture = SDL_CreateTextureFromSurface(renderer, surface);
                 SDL_FreeSurface(surface);
             }
@@ -270,11 +245,20 @@ void render_text()
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255); // Black background
     SDL_RenderClear(renderer);
 
-    // Copy cached textures to back buffer
+    // Copy cached textures with background rectangles
     for (size_t i = 0; i < text_buffer.size() && i < static_cast<size_t>(term_rows); ++i) {
         for (const auto &span : texture_cache[i]) {
             if (!span.texture)
                 continue;
+
+            // Draw background rectangle
+            SDL_SetRenderDrawColor(renderer, span.attr.bg.r, span.attr.bg.g, span.attr.bg.b,
+                                   span.attr.bg.a);
+            SDL_Rect bg_rect = { span.start_col * char_width, static_cast<int>(i * char_height),
+                                 static_cast<int>(span.text.length() * char_width), char_height };
+            SDL_RenderFillRect(renderer, &bg_rect);
+
+            // Draw text texture
             int w, h;
             SDL_QueryTexture(span.texture, nullptr, nullptr, &w, &h);
             SDL_Rect dst = { span.start_col * char_width, static_cast<int>(i * char_height), w, h };
@@ -328,10 +312,6 @@ void process_ansi_sequence(const std::string &seq)
             int p = params[i];
             if (p == 0) { // Reset
                 current_attr = CharAttr();
-            } else if (p == 1) { // Bold
-                current_attr.bold = true;
-            } else if (p == 4) { // Underline
-                current_attr.underline = true;
             } else if (p >= 30 && p <= 37) { // Foreground color
                 current_attr.fg = ansi_colors[p - 30];
             } else if (p >= 40 && p <= 47) { // Background color
@@ -604,6 +584,9 @@ int main()
                     break;
                 case SDLK_BACKSPACE:
                     input = "\b";
+                    break;
+                case SDLK_TAB:
+                    input = "\t";
                     break;
                 case SDLK_UP:
                     input = "\033[A";
