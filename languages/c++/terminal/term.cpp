@@ -9,6 +9,8 @@
 #include <termios.h>
 #include <unistd.h>
 
+#include <algorithm>
+#include <cctype>
 #include <iostream>
 #include <string>
 #include <vector>
@@ -24,12 +26,56 @@ int master_fd          = -1; // Global for SIGWINCH handler
 SDL_Window *window     = nullptr;
 SDL_Renderer *renderer = nullptr;
 TTF_Font *font         = nullptr;
-std::vector<std::string> text_buffer;     // Stores terminal lines
+int char_width = 0, char_height = 0; // Font character dimensions
+int term_cols = 80;                  // Current terminal columns
+int term_rows = 24;                  // Current terminal rows
+
+// Structure for character attributes
+struct CharAttr {
+    SDL_Color fg   = { 255, 255, 255, 255 }; // Foreground color (default white)
+    SDL_Color bg   = { 0, 0, 0, 255 };       // Background color (default black)
+    bool bold      = false;
+    bool underline = false;
+};
+
+// Structure for a single character with attributes
+struct Char {
+    char ch = ' ';
+    CharAttr attr;
+};
+
+// Text buffer: vector of lines, each a vector of Char
+std::vector<std::vector<Char>> text_buffer;
 std::vector<SDL_Texture *> texture_cache; // Cached textures for each line
 std::vector<bool> dirty_lines;            // Flags for lines needing texture updates
-int char_width = 0, char_height = 0;      // Font character dimensions
-int term_cols = 80;                       // Current terminal columns
-int term_rows = 24;                       // Current terminal rows
+
+// Cursor position
+struct Cursor {
+    int row = 0;
+    int col = 0;
+} cursor;
+
+// Current text attributes
+CharAttr current_attr;
+
+// ANSI parsing states
+enum class AnsiState {
+    NORMAL,
+    ESCAPE,
+    CSI,
+};
+
+// ANSI colors
+const SDL_Color ansi_colors[] = {
+    { 0, 0, 0, 255 },       // Black
+    { 255, 0, 0, 255 },     // Red
+    { 0, 255, 0, 255 },     // Green
+    { 255, 255, 0, 255 },   // Yellow
+    { 0, 0, 255, 255 },     // Blue
+    { 255, 0, 255, 255 },   // Magenta
+    { 0, 255, 255, 255 },   // Cyan
+    { 255, 255, 255, 255 }, // White
+};
 
 // Signal handler to forward signals to child
 void forward_signal(int sig)
@@ -82,22 +128,16 @@ void update_terminal_size()
         }
 
         // Adjust text buffer and texture cache
+        text_buffer.resize(term_rows, std::vector<Char>(term_cols, { ' ', current_attr }));
         for (auto &line : text_buffer) {
-            if (line.size() > static_cast<size_t>(term_cols)) {
-                line.resize(term_cols);
-            }
+            line.resize(term_cols, { ' ', current_attr });
         }
-        while (text_buffer.size() > static_cast<size_t>(term_rows)) {
-            text_buffer.erase(text_buffer.begin());
-            if (!texture_cache.empty()) {
-                SDL_DestroyTexture(texture_cache.front());
-                texture_cache.erase(texture_cache.begin());
-                dirty_lines.erase(dirty_lines.begin());
-            }
-        }
-        // Resize texture cache and mark all lines dirty
-        texture_cache.resize(text_buffer.size(), nullptr);
-        dirty_lines.resize(text_buffer.size(), true);
+        texture_cache.resize(term_rows, nullptr);
+        dirty_lines.resize(term_rows, true);
+
+        // Clamp cursor position
+        cursor.row = std::min(cursor.row, term_rows - 1);
+        cursor.col = std::min(cursor.col, term_cols - 1);
     }
 }
 
@@ -111,7 +151,6 @@ void handle_sigwinch(int sig)
 void render_text()
 {
     // Update textures for dirty lines
-    SDL_Color white = { 255, 255, 255, 255 }; // White text
     for (size_t i = 0; i < text_buffer.size(); ++i) {
         if (!dirty_lines[i] && texture_cache[i])
             continue; // Skip unchanged lines
@@ -122,10 +161,30 @@ void render_text()
             texture_cache[i] = nullptr;
         }
 
+        // Build string and attributes for the line
+        std::string line_text;
+        std::vector<CharAttr> line_attrs;
+        for (const auto &c : text_buffer[i]) {
+            line_text += c.ch;
+            line_attrs.push_back(c.attr);
+        }
+
         // Render new texture for non-empty lines
-        if (!text_buffer[i].empty()) {
-            SDL_Surface *surface = TTF_RenderText_Blended(font, text_buffer[i].c_str(), white);
+        if (!line_text.empty() && line_text.find_first_not_of(' ') != std::string::npos) {
+            SDL_Surface *surface =
+                TTF_RenderText_Blended(font, line_text.c_str(), line_attrs[0].fg);
             if (surface) {
+                // Apply bold/underline if supported
+                if (line_attrs[0].bold || line_attrs[0].underline) {
+                    int style = TTF_STYLE_NORMAL;
+                    if (line_attrs[0].bold)
+                        style |= TTF_STYLE_BOLD;
+                    if (line_attrs[0].underline)
+                        style |= TTF_STYLE_UNDERLINE;
+                    TTF_SetFontStyle(font, style);
+                    surface = TTF_RenderText_Blended(font, line_text.c_str(), line_attrs[0].fg);
+                    TTF_SetFontStyle(font, TTF_STYLE_NORMAL); // Reset style
+                }
                 texture_cache[i] = SDL_CreateTextureFromSurface(renderer, surface);
                 SDL_FreeSurface(surface);
             }
@@ -149,6 +208,109 @@ void render_text()
 
     // Present back buffer (swap with front buffer)
     SDL_RenderPresent(renderer);
+}
+
+// Parse and process ANSI escape sequences
+void process_ansi_sequence(const std::string &seq)
+{
+    if (seq.empty() || seq[0] != '[')
+        return;
+
+    std::vector<int> params;
+    std::string param_str;
+    char final_char = seq.back();
+
+    // Extract parameters
+    for (size_t i = 1; i < seq.size() - 1; ++i) {
+        if (std::isdigit(seq[i])) {
+            param_str += seq[i];
+        } else if (seq[i] == ';' || i == seq.size() - 2) {
+            if (!param_str.empty()) {
+                params.push_back(std::stoi(param_str));
+                param_str.clear();
+            } else {
+                params.push_back(0);
+            }
+        }
+    }
+    if (!param_str.empty()) {
+        params.push_back(std::stoi(param_str));
+    }
+
+    // Handle CSI sequences
+    switch (final_char) {
+    case 'm': // SGR (Select Graphic Rendition)
+        for (size_t i = 0; i < params.size(); ++i) {
+            int p = params[i];
+            if (p == 0) { // Reset
+                current_attr = CharAttr();
+            } else if (p == 1) { // Bold
+                current_attr.bold = true;
+            } else if (p == 4) { // Underline
+                current_attr.underline = true;
+            } else if (p >= 30 && p <= 37) { // Foreground color
+                current_attr.fg = ansi_colors[p - 30];
+            } else if (p >= 40 && p <= 47) { // Background color
+                current_attr.bg = ansi_colors[p - 40];
+            } else if (p >= 90 && p <= 97) { // Bright foreground
+                current_attr.fg = ansi_colors[p - 90];
+            } else if (p >= 100 && p <= 107) { // Bright background
+                current_attr.bg = ansi_colors[p - 100];
+            }
+        }
+        break;
+
+    case 'H': // CUP (Cursor Position)
+    {
+        int row    = (params.size() > 0 ? params[0] : 1) - 1;
+        int col    = (params.size() > 1 ? params[1] : 1) - 1;
+        cursor.row = std::max(0, std::min(row, term_rows - 1));
+        cursor.col = std::max(0, std::min(col, term_cols - 1));
+        break;
+    }
+
+    case 'A': // CUU (Cursor Up)
+        cursor.row = std::max(0, cursor.row - (params.empty() ? 1 : params[0]));
+        break;
+
+    case 'B': // CUD (Cursor Down)
+        cursor.row = std::min(term_rows - 1, cursor.row + (params.empty() ? 1 : params[0]));
+        break;
+
+    case 'C': // CUF (Cursor Forward)
+        cursor.col = std::min(term_cols - 1, cursor.col + (params.empty() ? 1 : params[0]));
+        break;
+
+    case 'D': // CUB (Cursor Backward)
+        cursor.col = std::max(0, cursor.col - (params.empty() ? 1 : params[0]));
+        break;
+
+    case 'J': // ED (Erase in Display)
+    {
+        int mode = params.empty() ? 0 : params[0];
+        if (mode == 0 || mode == 2) { // Clear from cursor to end or entire screen
+            for (int r = cursor.row; r < term_rows; ++r) {
+                for (int c = (r == cursor.row ? cursor.col : 0); c < term_cols; ++c) {
+                    text_buffer[r][c] = { ' ', current_attr };
+                }
+                dirty_lines[r] = true;
+            }
+        }
+        break;
+    }
+
+    case 'K': // EL (Erase in Line)
+    {
+        int mode = params.empty() ? 0 : params[0];
+        if (mode == 0) { // Clear from cursor to end of line
+            for (int c = cursor.col; c < term_cols; ++c) {
+                text_buffer[cursor.row][c] = { ' ', current_attr };
+            }
+            dirty_lines[cursor.row] = true;
+        }
+        break;
+    }
+    }
 }
 
 int main()
@@ -210,9 +372,9 @@ int main()
     }
 
     // Initialize text buffer and texture cache
-    text_buffer.push_back(""); // Start with one empty line
-    texture_cache.push_back(nullptr);
-    dirty_lines.push_back(true);
+    text_buffer.resize(term_rows, std::vector<Char>(term_cols, { ' ', current_attr }));
+    texture_cache.resize(term_rows, nullptr);
+    dirty_lines.resize(term_rows, true);
 
     // Pseudo-terminal setup
     char *slave_name;
@@ -265,9 +427,6 @@ int main()
     ws.ws_row    = term_rows;
     ws.ws_xpixel = term_cols * char_width;
     ws.ws_ypixel = term_rows * char_height;
-    if (ioctl(master_fd, TIOCSWINSZ, &ws) == -1) {
-        std::cerr << "Error setting initial slave window size: " << strerror(errno) << std::endl;
-    }
 
     // Fork to create child process
     child_pid = fork();
@@ -342,6 +501,8 @@ int main()
     fd_set read_fds;
     char buffer[1024];
     int status;
+    AnsiState state = AnsiState::NORMAL;
+    std::string ansi_seq;
 
     while (running) {
         // Handle SDL events
@@ -371,7 +532,7 @@ int main()
                 }
             } else if (event.type == SDL_WINDOWEVENT &&
                        event.window.event == SDL_WINDOWEVENT_RESIZED) {
-                update_terminal_size(); // Update slave size on window resize
+                update_terminal_size();
             }
         }
 
@@ -386,39 +547,89 @@ int main()
                     buffer[bytes] = '\0';
                     for (ssize_t i = 0; i < bytes; ++i) {
                         char c = buffer[i];
-                        if (c == '\n') {
-                            text_buffer.push_back("");
-                            texture_cache.push_back(nullptr);
-                            dirty_lines.push_back(true);
-                        } else if (c == '\r') {
-                            if (i + 1 < bytes && buffer[i + 1] == '\n') {
-                                ++i; // Skip \n in \r\n
-                                text_buffer.push_back("");
-                                texture_cache.push_back(nullptr);
-                                dirty_lines.push_back(true);
+                        switch (state) {
+                        case AnsiState::NORMAL:
+                            if (c == '\033') {
+                                state = AnsiState::ESCAPE;
+                                ansi_seq.clear();
+                            } else if (c == '\n') {
+                                cursor.row++;
+                                cursor.col = 0;
+                                if (cursor.row >= term_rows) {
+                                    text_buffer.erase(text_buffer.begin());
+                                    text_buffer.push_back(
+                                        std::vector<Char>(term_cols, { ' ', current_attr }));
+                                    texture_cache.erase(texture_cache.begin());
+                                    texture_cache.push_back(nullptr);
+                                    dirty_lines.erase(dirty_lines.begin());
+                                    dirty_lines.push_back(true);
+                                    cursor.row--;
+                                }
+                                dirty_lines[cursor.row] = true;
+                            } else if (c == '\r') {
+                                cursor.col = 0;
+                                if (i + 1 < bytes && buffer[i + 1] == '\n') {
+                                    ++i; // Skip \n in \r\n
+                                    cursor.row++;
+                                    if (cursor.row >= term_rows) {
+                                        text_buffer.erase(text_buffer.begin());
+                                        text_buffer.push_back(
+                                            std::vector<Char>(term_cols, { ' ', current_attr }));
+                                        texture_cache.erase(texture_cache.begin());
+                                        texture_cache.push_back(nullptr);
+                                        dirty_lines.erase(dirty_lines.begin());
+                                        dirty_lines.push_back(true);
+                                        cursor.row--;
+                                    }
+                                }
+                                dirty_lines[cursor.row] = true;
+                            } else if (c == '\b') {
+                                if (cursor.col > 0) {
+                                    cursor.col--;
+                                    text_buffer[cursor.row][cursor.col] = { ' ', current_attr };
+                                    dirty_lines[cursor.row]             = true;
+                                }
+                            } else if (c >= 32 && c <= 126) {
+                                if (cursor.col < term_cols && cursor.row < term_rows) {
+                                    text_buffer[cursor.row][cursor.col] = { c, current_attr };
+                                    cursor.col++;
+                                    dirty_lines[cursor.row] = true;
+                                }
+                                if (cursor.col >= term_cols) {
+                                    cursor.col = 0;
+                                    cursor.row++;
+                                    if (cursor.row >= term_rows) {
+                                        text_buffer.erase(text_buffer.begin());
+                                        text_buffer.push_back(
+                                            std::vector<Char>(term_cols, { ' ', current_attr }));
+                                        texture_cache.erase(texture_cache.begin());
+                                        texture_cache.push_back(nullptr);
+                                        dirty_lines.erase(dirty_lines.begin());
+                                        dirty_lines.push_back(true);
+                                        cursor.row--;
+                                    }
+                                }
+                            }
+                            break;
+
+                        case AnsiState::ESCAPE:
+                            if (c == '[') {
+                                state = AnsiState::CSI;
+                                ansi_seq += c;
                             } else {
-                                text_buffer.back().clear();
-                                dirty_lines.back() = true;
+                                state = AnsiState::NORMAL;
+                                ansi_seq.clear();
                             }
-                        } else if (c == '\b') {
-                            if (!text_buffer.back().empty()) {
-                                text_buffer.back().pop_back();
-                                dirty_lines.back() = true;
+                            break;
+
+                        case AnsiState::CSI:
+                            ansi_seq += c;
+                            if (std::isalpha(c)) {
+                                process_ansi_sequence(ansi_seq);
+                                state = AnsiState::NORMAL;
+                                ansi_seq.clear();
                             }
-                        } else if (c >= 32 && c <= 126) {
-                            if (text_buffer.back().size() < static_cast<size_t>(term_cols)) {
-                                text_buffer.back() += c;
-                                dirty_lines.back() = true;
-                            }
-                        }
-                    }
-                    // Trim buffer to term_rows
-                    while (text_buffer.size() > static_cast<size_t>(term_rows)) {
-                        text_buffer.erase(text_buffer.begin());
-                        if (!texture_cache.empty()) {
-                            SDL_DestroyTexture(texture_cache.front());
-                            texture_cache.erase(texture_cache.begin());
-                            dirty_lines.erase(dirty_lines.begin());
+                            break;
                         }
                     }
                 }
