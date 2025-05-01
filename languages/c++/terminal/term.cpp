@@ -30,17 +30,27 @@ void forward_signal(int sig)
 // Signal handler for SIGWINCH to update slave window size
 void handle_sigwinch(int sig)
 {
-    if (master_fd == -1)
+    if (master_fd == -1) {
+        std::cerr << "SIGWINCH: master_fd invalid" << std::endl;
         return;
+    }
 
     struct winsize ws;
     if (ioctl(STDIN_FILENO, TIOCGWINSZ, &ws) == -1) {
-        std::cerr << "Error getting window size: " << strerror(errno) << std::endl;
+        std::cerr << "SIGWINCH: Error getting window size: " << strerror(errno) << std::endl;
         return;
     }
 
     if (ioctl(master_fd, TIOCSWINSZ, &ws) == -1) {
-        std::cerr << "Error setting slave window size: " << strerror(errno) << std::endl;
+        std::cerr << "SIGWINCH: Error setting slave window size: " << strerror(errno) << std::endl;
+        return;
+    }
+
+    std::cerr << "SIGWINCH: Updated slave size to " << ws.ws_col << "x" << ws.ws_row << std::endl;
+
+    // Notify child process of window size change
+    if (child_pid > 0) {
+        kill(child_pid, SIGWINCH);
     }
 }
 
@@ -66,10 +76,17 @@ int main()
 {
     char *slave_name;
     struct termios orig_termios, slave_termios;
+    struct winsize ws;
 
     // Save original terminal settings
     if (tcgetattr(STDIN_FILENO, &orig_termios) == -1) {
         std::cerr << "Error getting terminal attributes: " << strerror(errno) << std::endl;
+        return 1;
+    }
+
+    // Get parent terminal window size
+    if (ioctl(STDIN_FILENO, TIOCGWINSZ, &ws) == -1) {
+        std::cerr << "Error getting initial window size: " << strerror(errno) << std::endl;
         return 1;
     }
 
@@ -105,14 +122,6 @@ int main()
     slave_termios.c_lflag |= ISIG;          // Enable signal handling
     slave_termios.c_iflag |= ICRNL;         // Map CR to NL on input
     slave_termios.c_oflag |= OPOST | ONLCR; // Enable output processing, map NL to CR-NL
-
-    // Get parent terminal window size
-    struct winsize ws;
-    if (ioctl(STDIN_FILENO, TIOCGWINSZ, &ws) == -1) {
-        std::cerr << "Error getting initial window size: " << strerror(errno) << std::endl;
-        close(master_fd);
-        return 1;
-    }
 
     // Fork to create child process
     child_pid = fork();
@@ -171,11 +180,17 @@ int main()
         std::cerr << "Error executing shell: " << strerror(errno) << std::endl;
         _exit(1);
     } else { // Parent process
-        // Set up signal handlers
-        signal(SIGINT, forward_signal);  // Ctrl+C
-        signal(SIGTERM, forward_signal); // Termination
-        signal(SIGQUIT, forward_signal); // Ctrl+\
-        signal(SIGWINCH, handle_sigwinch); // Window resize
+        // Set up signal handlers using sigaction for reliability
+        struct sigaction sa;
+        sa.sa_handler = forward_signal;
+        sigemptyset(&sa.sa_mask);
+        sa.sa_flags = 0;
+        sigaction(SIGINT, &sa, nullptr);
+        sigaction(SIGTERM, &sa, nullptr);
+        sigaction(SIGQUIT, &sa, nullptr);
+
+        sa.sa_handler = handle_sigwinch;
+        sigaction(SIGWINCH, &sa, nullptr);
 
         set_raw_terminal(); // Set terminal to raw mode
 
