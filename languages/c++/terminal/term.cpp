@@ -514,18 +514,90 @@ int main()
             } else if (event.type == SDL_KEYDOWN) {
                 SDL_KeyboardEvent &key = event.key;
                 std::string input;
-                if (key.keysym.sym == SDLK_RETURN) {
+                switch (key.keysym.sym) {
+                case SDLK_RETURN:
                     input = "\n";
-                } else if (key.keysym.sym == SDLK_BACKSPACE) {
+                    break;
+                case SDLK_BACKSPACE:
                     input = "\b";
-                } else if (key.keysym.mod & KMOD_CTRL) {
-                    if (key.keysym.sym == SDLK_c) {
-                        kill(child_pid, SIGINT);
-                    } else if (key.keysym.sym == SDLK_d) {
-                        running = false;
+                    break;
+                case SDLK_UP:
+                    input = "\033[A";
+                    break;
+                case SDLK_DOWN:
+                    input = "\033[B";
+                    break;
+                case SDLK_RIGHT:
+                    input = "\033[C";
+                    break;
+                case SDLK_LEFT:
+                    input = "\033[D";
+                    break;
+                case SDLK_HOME:
+                    input = "\033[H";
+                    break;
+                case SDLK_END:
+                    input = "\033[F";
+                    break;
+                case SDLK_INSERT:
+                    input = "\033[2~";
+                    break;
+                case SDLK_DELETE:
+                    input = "\033[3~";
+                    break;
+                case SDLK_PAGEUP:
+                    input = "\033[5~";
+                    break;
+                case SDLK_PAGEDOWN:
+                    input = "\033[6~";
+                    break;
+                case SDLK_F1:
+                    input = "\033[11~";
+                    break;
+                case SDLK_F2:
+                    input = "\033[12~";
+                    break;
+                case SDLK_F3:
+                    input = "\033[13~";
+                    break;
+                case SDLK_F4:
+                    input = "\033[14~";
+                    break;
+                case SDLK_F5:
+                    input = "\033[15~";
+                    break;
+                case SDLK_F6:
+                    input = "\033[17~";
+                    break;
+                case SDLK_F7:
+                    input = "\033[18~";
+                    break;
+                case SDLK_F8:
+                    input = "\033[19~";
+                    break;
+                case SDLK_F9:
+                    input = "\033[20~";
+                    break;
+                case SDLK_F10:
+                    input = "\033[21~";
+                    break;
+                case SDLK_F11:
+                    input = "\033[23~";
+                    break;
+                case SDLK_F12:
+                    input = "\033[24~";
+                    break;
+                default:
+                    if (key.keysym.mod & KMOD_CTRL) {
+                        if (key.keysym.sym == SDLK_c) {
+                            kill(child_pid, SIGINT);
+                        } else if (key.keysym.sym == SDLK_d) {
+                            running = false;
+                        }
+                    } else if (key.keysym.sym >= 32 && key.keysym.sym <= 126) {
+                        input = static_cast<char>(key.keysym.sym);
                     }
-                } else if (key.keysym.sym >= 32 && key.keysym.sym <= 126) {
-                    input = static_cast<char>(key.keysym.sym);
+                    break;
                 }
                 if (!input.empty()) {
                     write(master_fd, input.c_str(), input.size());
