@@ -12,6 +12,7 @@
 #include <algorithm>
 #include <cctype>
 #include <iostream>
+#include <map>
 #include <string>
 #include <vector>
 
@@ -136,7 +137,7 @@ void update_terminal_size()
             return;
         }
 
-        std::cerr << "Updated slave size to " << ws.ws_col << "x" << ws.ws_row << std::endl;
+        //std::cerr << "Updated slave size to " << ws.ws_col << "x" << ws.ws_row << std::endl;
 
         // Notify child process
         if (child_pid > 0) {
@@ -282,7 +283,7 @@ void render_text()
 void process_ansi_sequence(const std::string &seq, char final_char)
 {
     if (final_char == 'c') { // ESC c: Full reset and clear screen
-        std::cerr << "Processing ESC c: Resetting terminal state" << std::endl;
+        //std::cerr << "Processing ESC c: Resetting terminal state" << std::endl;
         // Reset attributes
         current_attr = CharAttr();
         // Reset cursor
@@ -302,21 +303,29 @@ void process_ansi_sequence(const std::string &seq, char final_char)
         return;
     }
 
-    if (seq.empty() || seq[0] != '[')
+    if (seq.empty() || seq[0] != '[') {
+        std::cerr << "Invalid CSI sequence: " << seq << final_char << std::endl;
         return;
+    }
 
-    std::cerr << "Processing CSI sequence: " << seq << final_char << std::endl;
+    //std::cerr << "Processing CSI sequence: " << seq << final_char << std::endl;
 
     std::vector<int> params;
     std::string param_str;
 
-    // Extract parameters
+    // Extract parameters safely
     for (size_t i = 1; i < seq.size() - 1; ++i) {
         if (std::isdigit(seq[i])) {
             param_str += seq[i];
         } else if (seq[i] == ';' || i == seq.size() - 2) {
             if (!param_str.empty()) {
-                params.push_back(std::stoi(param_str));
+                try {
+                    params.push_back(std::stoi(param_str));
+                } catch (const std::exception &e) {
+                    std::cerr << "Error parsing parameter '" << param_str << "': " << e.what()
+                              << std::endl;
+                    params.push_back(0); // Default to 0 on error
+                }
                 param_str.clear();
             } else {
                 params.push_back(0);
@@ -324,7 +333,13 @@ void process_ansi_sequence(const std::string &seq, char final_char)
         }
     }
     if (!param_str.empty()) {
-        params.push_back(std::stoi(param_str));
+        try {
+            params.push_back(std::stoi(param_str));
+        } catch (const std::exception &e) {
+            std::cerr << "Error parsing final parameter '" << param_str << "': " << e.what()
+                      << std::endl;
+            params.push_back(0);
+        }
     }
 
     // Handle CSI sequences
@@ -388,12 +403,28 @@ void process_ansi_sequence(const std::string &seq, char final_char)
     case 'K': // EL (Erase in Line)
     {
         int mode = params.empty() ? 0 : params[0];
-        if (mode == 0) { // Clear from cursor to end of line
+        //std::cerr << "Processing ESC [ " << mode << "K" << std::endl;
+        switch (mode) {
+        case 0: // Clear from cursor to end of line
             for (int c = cursor.col; c < term_cols; ++c) {
                 text_buffer[cursor.row][c] = { ' ', current_attr };
             }
-            dirty_lines[cursor.row] = true;
+            break;
+        case 1: // Clear from start of line to cursor
+            for (int c = 0; c <= cursor.col; ++c) {
+                text_buffer[cursor.row][c] = { ' ', current_attr };
+            }
+            break;
+        case 2: // Clear entire line
+            for (int c = 0; c < term_cols; ++c) {
+                text_buffer[cursor.row][c] = { ' ', current_attr };
+            }
+            break;
+        default:
+            std::cerr << "Unknown EL mode: " << mode << std::endl;
+            break;
         }
+        dirty_lines[cursor.row] = true;
         break;
     }
     }
@@ -600,6 +631,11 @@ int main()
             } else if (event.type == SDL_KEYDOWN) {
                 SDL_KeyboardEvent &key = event.key;
                 std::string input;
+                Uint16 mod = key.keysym.mod;
+
+                // Log key event for debugging
+                //std::cerr << "Key pressed: SDLKey=" << key.keysym.sym << ", Modifiers=" << mod << std::endl;
+
                 switch (key.keysym.sym) {
                 case SDLK_RETURN:
                     input = "\n";
@@ -677,18 +713,56 @@ int main()
                     input = "\033[24~";
                     break;
                 default:
-                    if (key.keysym.mod & KMOD_CTRL) {
-                        if (key.keysym.sym == SDLK_c) {
-                            kill(child_pid, SIGINT);
+                    if (mod & KMOD_CTRL) {
+                        // Handle control characters for a-z
+                        if (key.keysym.sym >= SDLK_a && key.keysym.sym <= SDLK_z) {
+                            char ctrl_char =
+                                (key.keysym.sym - SDLK_a) + 1; // Ctrl+A = 0x01, Ctrl+B = 0x02, etc.
+                            input = std::string(1, ctrl_char);
+                        } else if (key.keysym.sym == SDLK_c) {
+                            kill(child_pid, SIGINT); // Ctrl+C sends SIGINT
                         } else if (key.keysym.sym == SDLK_d) {
-                            running = false;
+                            running = false; // Ctrl+D exits
                         }
+                    } else if (key.keysym.sym >= SDLK_a && key.keysym.sym <= SDLK_z) {
+                        // Handle Shift for a-z
+                        char base_char = key.keysym.sym - SDLK_a + 'a';
+                        if (mod & KMOD_SHIFT) {
+                            base_char = std::toupper(base_char); // Convert to uppercase
+                        }
+                        input = std::string(1, base_char);
                     } else if (key.keysym.sym >= 32 && key.keysym.sym <= 126) {
-                        input = static_cast<char>(key.keysym.sym);
+                        // Handle other printable characters with Shift
+                        char base_char = key.keysym.sym;
+                        if (mod & KMOD_SHIFT) {
+                            // Map lowercase to uppercase for letters, or use shifted symbols
+                            if (base_char >= 'a' && base_char <= 'z') {
+                                base_char = std::toupper(base_char);
+                            } else {
+                                // Handle common shifted symbols (simplified)
+                                static const std::map<char, char> shift_map = {
+                                    { '1', '!' }, { '2', '@' }, { '3', '#' }, { '4', '$' },
+                                    { '5', '%' }, { '6', '^' }, { '7', '&' }, { '8', '*' },
+                                    { '9', '(' }, { '0', ')' }, { '-', '_' }, { '=', '+' },
+                                    { '[', '{' }, { ']', '}' }, { ';', ':' }, { '\'', '"' },
+                                    { ',', '<' }, { '.', '>' }, { '/', '?' }, { '`', '~' }
+                                };
+                                auto it = shift_map.find(base_char);
+                                if (it != shift_map.end()) {
+                                    base_char = it->second;
+                                }
+                            }
+                        }
+                        input = std::string(1, base_char);
                     }
                     break;
                 }
                 if (!input.empty()) {
+                    //std::cerr << "Sending input: ";
+                    //for (char c : input) {
+                    //    std::cerr << (int)c << " ";
+                    //}
+                    //std::cerr << std::endl;
                     write(master_fd, input.c_str(), input.size());
                 }
             } else if (event.type == SDL_WINDOWEVENT &&
@@ -706,6 +780,11 @@ int main()
                 ssize_t bytes = read(master_fd, buffer, sizeof(buffer) - 1);
                 if (bytes > 0) {
                     buffer[bytes] = '\0';
+                    //std::cerr << "Read " << bytes << " bytes: ";
+                    //for (ssize_t j = 0; j < bytes; ++j) {
+                    //    std::cerr << (int)buffer[j] << " ";
+                    //}
+                    //std::cerr << std::endl;
                     for (ssize_t i = 0; i < bytes; ++i) {
                         char c = buffer[i];
                         switch (state) {
@@ -713,8 +792,7 @@ int main()
                             if (c == '\033') {
                                 state = AnsiState::ESCAPE;
                                 ansi_seq.clear();
-                                std::cerr << "Received ESC, transitioning to ESCAPE state"
-                                          << std::endl;
+                                //std::cerr << "Received ESC, transitioning to ESCAPE state" << std::endl;
                             } else if (c == '\n') {
                                 cursor.row++;
                                 cursor.col = 0;
@@ -778,16 +856,16 @@ int main()
                         case AnsiState::ESCAPE:
                             if (c == '[') {
                                 state = AnsiState::CSI;
+                                ansi_seq.clear(); // Clear to start fresh CSI sequence
                                 ansi_seq += c;
-                                std::cerr << "Received [, transitioning to CSI state" << std::endl;
+                                //std::cerr << "Received [, transitioning to CSI state" << std::endl;
                             } else if (c == 'c') {
-                                std::cerr << "Received ESC c, processing reset" << std::endl;
+                                //std::cerr << "Received ESC c, processing reset" << std::endl;
                                 process_ansi_sequence("", c); // Handle ESC c
                                 state = AnsiState::NORMAL;
                                 ansi_seq.clear();
                             } else {
-                                std::cerr << "Unknown ESC sequence char: " << c
-                                          << ", resetting to NORMAL" << std::endl;
+                                //std::cerr << "Unknown ESC sequence char: " << (int)c << ", resetting to NORMAL" << std::endl;
                                 state = AnsiState::NORMAL;
                                 ansi_seq.clear();
                             }
@@ -796,7 +874,7 @@ int main()
                         case AnsiState::CSI:
                             ansi_seq += c;
                             if (std::isalpha(c)) {
-                                std::cerr << "Received CSI final char: " << c << std::endl;
+                                //std::cerr << "Received CSI final char: " << c << std::endl;
                                 process_ansi_sequence(ansi_seq, c);
                                 state = AnsiState::NORMAL;
                                 ansi_seq.clear();
