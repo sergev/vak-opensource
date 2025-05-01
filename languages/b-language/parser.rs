@@ -130,7 +130,7 @@ impl<'a> Lexer<'a> {
                 Some('-') => { self.pos += 1; Token::MinusMinus },
                 _ => Token::Minus,
             },
-                        '*' => Token::Star,
+            '*' => Token::Star,
             '/' => {
                 if self.peek() == Some('*') {
                     self.skip_comment();
