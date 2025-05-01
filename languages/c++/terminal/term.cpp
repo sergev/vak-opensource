@@ -97,7 +97,7 @@ void handle_sigwinch(int sig)
     update_terminal_size();
 }
 
-// Render text buffer to SDL window
+// Render text buffer to SDL window with antialiasing
 void render_text()
 {
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255); // Black background
@@ -107,7 +107,7 @@ void render_text()
     for (size_t i = 0; i < text_buffer.size() && i < static_cast<size_t>(term_rows); ++i) {
         if (text_buffer[i].empty())
             continue;
-        SDL_Surface *surface = TTF_RenderText_Solid(font, text_buffer[i].c_str(), white);
+        SDL_Surface *surface = TTF_RenderText_Blended(font, text_buffer[i].c_str(), white);
         if (!surface)
             continue;
         SDL_Texture *texture = SDL_CreateTextureFromSurface(renderer, surface);
