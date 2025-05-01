@@ -39,6 +39,14 @@ struct CharAttr {
     SDL_Color bg   = { 0, 0, 0, 255 };       // Background color (default black)
     bool bold      = false;
     bool underline = false;
+
+    bool operator==(const CharAttr &other) const
+    {
+        return fg.r == other.fg.r && fg.g == other.fg.g && fg.b == other.fg.b &&
+               fg.a == other.fg.a && bg.r == other.bg.r && bg.g == other.bg.g &&
+               bg.b == other.bg.b && bg.a == other.bg.a && bold == other.bold &&
+               underline == other.underline;
+    }
 };
 
 // Structure for a single character with attributes
@@ -47,10 +55,18 @@ struct Char {
     CharAttr attr;
 };
 
+// Structure for a span of characters with the same attributes
+struct TextSpan {
+    std::string text;
+    CharAttr attr;
+    int start_col;
+    SDL_Texture *texture = nullptr;
+};
+
 // Text buffer: vector of lines, each a vector of Char
 std::vector<std::vector<Char>> text_buffer;
-std::vector<SDL_Texture *> texture_cache; // Cached textures for each line
-std::vector<bool> dirty_lines;            // Flags for lines needing texture updates
+std::vector<std::vector<TextSpan>> texture_cache; // Cached textures for each line (spans)
+std::vector<bool> dirty_lines;                    // Flags for lines needing texture updates
 
 // Cursor position
 struct Cursor {
@@ -135,7 +151,13 @@ void update_terminal_size()
         for (auto &line : text_buffer) {
             line.resize(term_cols, { ' ', current_attr });
         }
-        texture_cache.resize(term_rows, nullptr);
+        for (auto &line_spans : texture_cache) {
+            for (auto &span : line_spans) {
+                if (span.texture)
+                    SDL_DestroyTexture(span.texture);
+            }
+        }
+        texture_cache.resize(term_rows);
         dirty_lines.resize(term_rows, true);
 
         // Clamp cursor position
@@ -150,7 +172,7 @@ void handle_sigwinch(int sig)
     update_terminal_size();
 }
 
-// Render text buffer to SDL window with double buffering and cursor
+// Render text buffer to SDL window with per-character colors
 void render_text()
 {
     // Update cursor blinking
@@ -162,43 +184,85 @@ void render_text()
 
     // Update textures for dirty lines
     for (size_t i = 0; i < text_buffer.size(); ++i) {
-        if (!dirty_lines[i] && texture_cache[i])
+        if (!dirty_lines[i])
             continue; // Skip unchanged lines
 
-        // Destroy old texture if it exists
-        if (texture_cache[i]) {
-            SDL_DestroyTexture(texture_cache[i]);
-            texture_cache[i] = nullptr;
+        // Destroy old textures for this line
+        for (auto &span : texture_cache[i]) {
+            if (span.texture)
+                SDL_DestroyTexture(span.texture);
         }
+        texture_cache[i].clear();
 
-        // Build string and attributes for the line
-        std::string line_text;
-        std::vector<CharAttr> line_attrs;
-        for (const auto &c : text_buffer[i]) {
-            line_text += c.ch;
-            line_attrs.push_back(c.attr);
-        }
+        // Build spans of characters with the same attributes
+        std::string current_text;
+        CharAttr current_span_attr = text_buffer[i][0].attr;
+        int start_col              = 0;
 
-        // Render new texture for non-empty lines
-        if (!line_text.empty() && line_text.find_first_not_of(' ') != std::string::npos) {
-            SDL_Surface *surface =
-                TTF_RenderText_Blended(font, line_text.c_str(), line_attrs[0].fg);
-            if (surface) {
-                // Apply bold/underline if supported
-                if (line_attrs[0].bold || line_attrs[0].underline) {
-                    int style = TTF_STYLE_NORMAL;
-                    if (line_attrs[0].bold)
-                        style |= TTF_STYLE_BOLD;
-                    if (line_attrs[0].underline)
-                        style |= TTF_STYLE_UNDERLINE;
-                    TTF_SetFontStyle(font, style);
-                    surface = TTF_RenderText_Blended(font, line_text.c_str(), line_attrs[0].fg);
-                    TTF_SetFontStyle(font, TTF_STYLE_NORMAL); // Reset style
+        for (int j = 0; j < term_cols; ++j) {
+            const auto &c = text_buffer[i][j];
+            if (c.attr == current_span_attr && j < term_cols - 1) {
+                current_text += c.ch;
+            } else {
+                if (!current_text.empty()) {
+                    TextSpan span;
+                    span.text      = current_text;
+                    span.attr      = current_span_attr;
+                    span.start_col = start_col;
+
+                    // Render texture for the span
+                    SDL_Surface *surface =
+                        TTF_RenderText_Blended(font, current_text.c_str(), current_span_attr.fg);
+                    if (surface) {
+                        if (current_span_attr.bold || current_span_attr.underline) {
+                            int style = TTF_STYLE_NORMAL;
+                            if (current_span_attr.bold)
+                                style |= TTF_STYLE_BOLD;
+                            if (current_span_attr.underline)
+                                style |= TTF_STYLE_UNDERLINE;
+                            TTF_SetFontStyle(font, style);
+                            surface = TTF_RenderText_Blended(font, current_text.c_str(),
+                                                             current_span_attr.fg);
+                            TTF_SetFontStyle(font, TTF_STYLE_NORMAL);
+                        }
+                        span.texture = SDL_CreateTextureFromSurface(renderer, surface);
+                        SDL_FreeSurface(surface);
+                    }
+                    texture_cache[i].push_back(span);
                 }
-                texture_cache[i] = SDL_CreateTextureFromSurface(renderer, surface);
-                SDL_FreeSurface(surface);
+                current_text      = c.ch;
+                current_span_attr = c.attr;
+                start_col         = j;
             }
         }
+
+        // Handle the last span
+        if (!current_text.empty()) {
+            TextSpan span;
+            span.text      = current_text;
+            span.attr      = current_span_attr;
+            span.start_col = start_col;
+
+            SDL_Surface *surface =
+                TTF_RenderText_Blended(font, current_text.c_str(), current_span_attr.fg);
+            if (surface) {
+                if (current_span_attr.bold || current_span_attr.underline) {
+                    int style = TTF_STYLE_NORMAL;
+                    if (current_span_attr.bold)
+                        style |= TTF_STYLE_BOLD;
+                    if (current_span_attr.underline)
+                        style |= TTF_STYLE_UNDERLINE;
+                    TTF_SetFontStyle(font, style);
+                    surface =
+                        TTF_RenderText_Blended(font, current_text.c_str(), current_span_attr.fg);
+                    TTF_SetFontStyle(font, TTF_STYLE_NORMAL);
+                }
+                span.texture = SDL_CreateTextureFromSurface(renderer, surface);
+                SDL_FreeSurface(surface);
+            }
+            texture_cache[i].push_back(span);
+        }
+
         dirty_lines[i] = false; // Mark as clean
     }
 
@@ -208,12 +272,14 @@ void render_text()
 
     // Copy cached textures to back buffer
     for (size_t i = 0; i < text_buffer.size() && i < static_cast<size_t>(term_rows); ++i) {
-        if (!texture_cache[i])
-            continue; // Skip empty or invalid textures
-        int w, h;
-        SDL_QueryTexture(texture_cache[i], nullptr, nullptr, &w, &h);
-        SDL_Rect dst = { 0, static_cast<int>(i * char_height), w, h };
-        SDL_RenderCopy(renderer, texture_cache[i], nullptr, &dst);
+        for (const auto &span : texture_cache[i]) {
+            if (!span.texture)
+                continue;
+            int w, h;
+            SDL_QueryTexture(span.texture, nullptr, nullptr, &w, &h);
+            SDL_Rect dst = { span.start_col * char_width, static_cast<int>(i * char_height), w, h };
+            SDL_RenderCopy(renderer, span.texture, nullptr, &dst);
+        }
     }
 
     // Draw blinking cursor if visible
@@ -391,7 +457,7 @@ int main()
 
     // Initialize text buffer and texture cache
     text_buffer.resize(term_rows, std::vector<Char>(term_cols, { ' ', current_attr }));
-    texture_cache.resize(term_rows, nullptr);
+    texture_cache.resize(term_rows);
     dirty_lines.resize(term_rows, true);
 
     // Pseudo-terminal setup
@@ -650,7 +716,7 @@ int main()
                                     text_buffer.push_back(
                                         std::vector<Char>(term_cols, { ' ', current_attr }));
                                     texture_cache.erase(texture_cache.begin());
-                                    texture_cache.push_back(nullptr);
+                                    texture_cache.push_back({});
                                     dirty_lines.erase(dirty_lines.begin());
                                     dirty_lines.push_back(true);
                                     cursor.row--;
@@ -666,7 +732,7 @@ int main()
                                         text_buffer.push_back(
                                             std::vector<Char>(term_cols, { ' ', current_attr }));
                                         texture_cache.erase(texture_cache.begin());
-                                        texture_cache.push_back(nullptr);
+                                        texture_cache.push_back({});
                                         dirty_lines.erase(dirty_lines.begin());
                                         dirty_lines.push_back(true);
                                         cursor.row--;
@@ -693,7 +759,7 @@ int main()
                                         text_buffer.push_back(
                                             std::vector<Char>(term_cols, { ' ', current_attr }));
                                         texture_cache.erase(texture_cache.begin());
-                                        texture_cache.push_back(nullptr);
+                                        texture_cache.push_back({});
                                         dirty_lines.erase(dirty_lines.begin());
                                         dirty_lines.push_back(true);
                                         cursor.row--;
@@ -739,9 +805,11 @@ int main()
     kill(child_pid, SIGTERM);
     waitpid(child_pid, &status, 0);
     close(master_fd);
-    for (auto texture : texture_cache) {
-        if (texture)
-            SDL_DestroyTexture(texture);
+    for (auto &line_spans : texture_cache) {
+        for (auto &span : line_spans) {
+            if (span.texture)
+                SDL_DestroyTexture(span.texture);
+        }
     }
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
