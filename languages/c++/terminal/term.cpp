@@ -26,9 +26,12 @@ int master_fd          = -1; // Global for SIGWINCH handler
 SDL_Window *window     = nullptr;
 SDL_Renderer *renderer = nullptr;
 TTF_Font *font         = nullptr;
-int char_width = 0, char_height = 0; // Font character dimensions
-int term_cols = 80;                  // Current terminal columns
-int term_rows = 24;                  // Current terminal rows
+int char_width = 0, char_height = 0;       // Font character dimensions
+int term_cols                      = 80;   // Current terminal columns
+int term_rows                      = 24;   // Current terminal rows
+bool cursor_visible                = true; // Cursor visibility for blinking
+Uint32 last_cursor_toggle          = 0;    // Time of last cursor toggle
+const Uint32 cursor_blink_interval = 500;  // Blink interval in ms
 
 // Structure for character attributes
 struct CharAttr {
@@ -147,9 +150,16 @@ void handle_sigwinch(int sig)
     update_terminal_size();
 }
 
-// Render text buffer to SDL window with double buffering and texture caching
+// Render text buffer to SDL window with double buffering and cursor
 void render_text()
 {
+    // Update cursor blinking
+    Uint32 current_time = SDL_GetTicks();
+    if (current_time - last_cursor_toggle >= cursor_blink_interval) {
+        cursor_visible     = !cursor_visible;
+        last_cursor_toggle = current_time;
+    }
+
     // Update textures for dirty lines
     for (size_t i = 0; i < text_buffer.size(); ++i) {
         if (!dirty_lines[i] && texture_cache[i])
@@ -204,6 +214,14 @@ void render_text()
         SDL_QueryTexture(texture_cache[i], nullptr, nullptr, &w, &h);
         SDL_Rect dst = { 0, static_cast<int>(i * char_height), w, h };
         SDL_RenderCopy(renderer, texture_cache[i], nullptr, &dst);
+    }
+
+    // Draw blinking cursor if visible
+    if (cursor_visible && cursor.row < term_rows && cursor.col < term_cols) {
+        SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255); // White cursor
+        SDL_Rect cursor_rect = { cursor.col * char_width, cursor.row * char_height, char_width,
+                                 char_height };
+        SDL_RenderFillRect(renderer, &cursor_rect);
     }
 
     // Present back buffer (swap with front buffer)
