@@ -24,10 +24,12 @@ int master_fd          = -1; // Global for SIGWINCH handler
 SDL_Window *window     = nullptr;
 SDL_Renderer *renderer = nullptr;
 TTF_Font *font         = nullptr;
-std::vector<std::string> text_buffer; // Stores terminal lines
-int char_width = 0, char_height = 0;  // Font character dimensions
-int term_cols = 80;                   // Current terminal columns
-int term_rows = 24;                   // Current terminal rows
+std::vector<std::string> text_buffer;     // Stores terminal lines
+std::vector<SDL_Texture *> texture_cache; // Cached textures for each line
+std::vector<bool> dirty_lines;            // Flags for lines needing texture updates
+int char_width = 0, char_height = 0;      // Font character dimensions
+int term_cols = 80;                       // Current terminal columns
+int term_rows = 24;                       // Current terminal rows
 
 // Signal handler to forward signals to child
 void forward_signal(int sig)
@@ -79,7 +81,7 @@ void update_terminal_size()
             kill(child_pid, SIGWINCH);
         }
 
-        // Adjust text buffer
+        // Adjust text buffer and texture cache
         for (auto &line : text_buffer) {
             if (line.size() > static_cast<size_t>(term_cols)) {
                 line.resize(term_cols);
@@ -87,7 +89,15 @@ void update_terminal_size()
         }
         while (text_buffer.size() > static_cast<size_t>(term_rows)) {
             text_buffer.erase(text_buffer.begin());
+            if (!texture_cache.empty()) {
+                SDL_DestroyTexture(texture_cache.front());
+                texture_cache.erase(texture_cache.begin());
+                dirty_lines.erase(dirty_lines.begin());
+            }
         }
+        // Resize texture cache and mark all lines dirty
+        texture_cache.resize(text_buffer.size(), nullptr);
+        dirty_lines.resize(text_buffer.size(), true);
     }
 }
 
@@ -97,30 +107,47 @@ void handle_sigwinch(int sig)
     update_terminal_size();
 }
 
-// Render text buffer to SDL window with antialiasing
+// Render text buffer to SDL window with double buffering and texture caching
 void render_text()
 {
+    // Update textures for dirty lines
+    SDL_Color white = { 255, 255, 255, 255 }; // White text
+    for (size_t i = 0; i < text_buffer.size(); ++i) {
+        if (!dirty_lines[i] && texture_cache[i])
+            continue; // Skip unchanged lines
+
+        // Destroy old texture if it exists
+        if (texture_cache[i]) {
+            SDL_DestroyTexture(texture_cache[i]);
+            texture_cache[i] = nullptr;
+        }
+
+        // Render new texture for non-empty lines
+        if (!text_buffer[i].empty()) {
+            SDL_Surface *surface = TTF_RenderText_Blended(font, text_buffer[i].c_str(), white);
+            if (surface) {
+                texture_cache[i] = SDL_CreateTextureFromSurface(renderer, surface);
+                SDL_FreeSurface(surface);
+            }
+        }
+        dirty_lines[i] = false; // Mark as clean
+    }
+
+    // Render to back buffer
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255); // Black background
     SDL_RenderClear(renderer);
 
-    SDL_Color white = { 255, 255, 255, 255 }; // White text
+    // Copy cached textures to back buffer
     for (size_t i = 0; i < text_buffer.size() && i < static_cast<size_t>(term_rows); ++i) {
-        if (text_buffer[i].empty())
-            continue;
-        SDL_Surface *surface = TTF_RenderText_Blended(font, text_buffer[i].c_str(), white);
-        if (!surface)
-            continue;
-        SDL_Texture *texture = SDL_CreateTextureFromSurface(renderer, surface);
-        if (!texture) {
-            SDL_FreeSurface(surface);
-            continue;
-        }
-        SDL_Rect dst = { 0, static_cast<int>(i * char_height), surface->w, surface->h };
-        SDL_RenderCopy(renderer, texture, nullptr, &dst);
-        SDL_DestroyTexture(texture);
-        SDL_FreeSurface(surface);
+        if (!texture_cache[i])
+            continue; // Skip empty or invalid textures
+        int w, h;
+        SDL_QueryTexture(texture_cache[i], nullptr, nullptr, &w, &h);
+        SDL_Rect dst = { 0, static_cast<int>(i * char_height), w, h };
+        SDL_RenderCopy(renderer, texture_cache[i], nullptr, &dst);
     }
 
+    // Present back buffer (swap with front buffer)
     SDL_RenderPresent(renderer);
 }
 
@@ -182,8 +209,10 @@ int main()
         return 1;
     }
 
-    // Initialize text buffer
+    // Initialize text buffer and texture cache
     text_buffer.push_back(""); // Start with one empty line
+    texture_cache.push_back(nullptr);
+    dirty_lines.push_back(true);
 
     // Pseudo-terminal setup
     char *slave_name;
@@ -359,26 +388,38 @@ int main()
                         char c = buffer[i];
                         if (c == '\n') {
                             text_buffer.push_back("");
+                            texture_cache.push_back(nullptr);
+                            dirty_lines.push_back(true);
                         } else if (c == '\r') {
                             if (i + 1 < bytes && buffer[i + 1] == '\n') {
                                 ++i; // Skip \n in \r\n
                                 text_buffer.push_back("");
+                                texture_cache.push_back(nullptr);
+                                dirty_lines.push_back(true);
                             } else {
                                 text_buffer.back().clear();
+                                dirty_lines.back() = true;
                             }
                         } else if (c == '\b') {
                             if (!text_buffer.back().empty()) {
                                 text_buffer.back().pop_back();
+                                dirty_lines.back() = true;
                             }
                         } else if (c >= 32 && c <= 126) {
                             if (text_buffer.back().size() < static_cast<size_t>(term_cols)) {
                                 text_buffer.back() += c;
+                                dirty_lines.back() = true;
                             }
                         }
                     }
                     // Trim buffer to term_rows
                     while (text_buffer.size() > static_cast<size_t>(term_rows)) {
                         text_buffer.erase(text_buffer.begin());
+                        if (!texture_cache.empty()) {
+                            SDL_DestroyTexture(texture_cache.front());
+                            texture_cache.erase(texture_cache.begin());
+                            dirty_lines.erase(dirty_lines.begin());
+                        }
                     }
                 }
             }
@@ -397,6 +438,10 @@ int main()
     kill(child_pid, SIGTERM);
     waitpid(child_pid, &status, 0);
     close(master_fd);
+    for (auto texture : texture_cache) {
+        if (texture)
+            SDL_DestroyTexture(texture);
+    }
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
     TTF_CloseFont(font);
