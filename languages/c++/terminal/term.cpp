@@ -1,6 +1,5 @@
 #include <errno.h>
 #include <fcntl.h>
-#include <pty.h>
 #include <signal.h>
 #include <string.h>
 #include <sys/ioctl.h>
@@ -10,6 +9,12 @@
 #include <unistd.h>
 
 #include <iostream>
+
+#ifdef __linux__
+#include <pty.h>
+#else // Assume macOS or other POSIX systems
+#include <util.h>
+#endif
 
 pid_t child_pid = 0;  // Global to handle signals
 int master_fd   = -1; // Global for SIGWINCH handler
