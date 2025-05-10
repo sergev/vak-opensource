@@ -220,7 +220,7 @@ TEST_F(ScannerTest, HandlesEndOfInput)
 {
     SetInput("int");
     EXPECT_EQ(GetNextToken(), TOKEN_INT);
-    EXPECT_EQ(GetNextToken(), 0); // EOF
+    EXPECT_EQ(GetNextToken(), TOKEN_EOF);
 }
 
 // Main function for running tests

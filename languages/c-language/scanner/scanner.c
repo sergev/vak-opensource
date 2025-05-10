@@ -37,13 +37,13 @@ void init_scanner(FILE *input)
 int yylex(void)
 {
     if (next_char == EOF) {
-        return 0; // End of input
+        return TOKEN_EOF; // End of input
     }
 
     skip_whitespace();
 
     if (next_char == EOF) {
-        return 0;
+        return TOKEN_EOF;
     }
 
     yyleng    = 0;
@@ -524,7 +524,7 @@ static int scan_operator(void)
     case '?':
         return TOKEN_QUESTION;
     default:
-        return 0; // Unknown character
+        return TOKEN_UNKNOWN; // Unknown character
     }
 }
 
