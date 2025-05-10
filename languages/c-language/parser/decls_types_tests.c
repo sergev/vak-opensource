@@ -10,7 +10,8 @@
 #include "c-scanner.h"
 
 // Mock lexer
-class MockScanner {
+class MockScanner
+{
 public:
     MOCK_METHOD0(yylex, int());
     MOCK_METHOD0(get_yytext, char *());
@@ -52,45 +53,43 @@ char *get_yytext()
 }
 
 // Test fixture
-class ParserTest : public ::testing::Test {
-protected:
-    void SetUp() override
-    {
-        mock_scanner = new MockScanner();
-        token_sequence.clear();
-        token_index = 0;
-    }
+class ParserTest : public ::testing::
+                   Test{ protected : void SetUp() override{ mock_scanner = new MockScanner();
+token_sequence.clear();
+token_index = 0;
+}
 
-    void TearDown() override
-    {
-        delete mock_scanner;
-        mock_scanner = nullptr;
-    }
+void TearDown() override
+{
+    delete mock_scanner;
+    mock_scanner = nullptr;
+}
 
-    // Helper to set token sequence
-    void SetTokenSequence(const std::vector<std::pair<int, std::string>> &tokens)
-    {
-        token_sequence = tokens;
-        token_index    = 0;
-    }
+// Helper to set token sequence
+void SetTokenSequence(const std::vector<std::pair<int, std::string>> &tokens)
+{
+    token_sequence = tokens;
+    token_index    = 0;
+}
 
-    // Helper to create a temporary file with content
-    FILE *CreateTempFile(const char *content)
-    {
-        FILE *f = tmpfile();
-        fwrite(content, 1, strlen(content), f);
-        rewind(f);
-        return f;
-    }
+// Helper to create a temporary file with content
+FILE *CreateTempFile(const char *content)
+{
+    FILE *f = tmpfile();
+    fwrite(content, 1, strlen(content), f);
+    rewind(f);
+    return f;
+}
 
-    // Helper to get external declaration from program
-    ExternalDecl *GetExternalDecl(Program *program)
-    {
-        EXPECT_NE(nullptr, program);
-        EXPECT_NE(nullptr, program->decls);
-        return program->decls;
-    }
-};
+// Helper to get external declaration from program
+ExternalDecl *GetExternalDecl(Program *program)
+{
+    EXPECT_NE(nullptr, program);
+    EXPECT_NE(nullptr, program->decls);
+    return program->decls;
+}
+}
+;
 
 // Test declaration: int x;
 TEST_F(ParserTest, ParseSimpleDeclaration)
@@ -1081,6 +1080,30 @@ TEST_F(ParserTest, ParseTypeNameQualified)
     EXPECT_NE(nullptr,
               decl->u.var.declarators->init->u.expr->u.cast.type->qualifiers->next); // Pointer
     EXPECT_STREQ("x", decl->u.var.declarators->init->u.expr->u.cast.expr->u.var);
+}
+
+TEST_F(ParserTest, ParseFunctionDeclaration)
+{
+    SetTokenSequence({ { TOKEN_INT, "int" },
+                       { TOKEN_IDENTIFIER, "f" },
+                       { TOKEN_LPAREN, "(" },
+                       { TOKEN_RPAREN, ")" },
+                       { TOKEN_SEMICOLON, ";" },
+                       { TOKEN_EOF, "" } });
+
+    FILE *f          = CreateTempFile("int f();");
+    Program *program = parse(f);
+    fclose(f);
+
+    ExternalDecl *ext = GetExternalDecl(program);
+    EXPECT_EQ(EXTERNAL_DECL_DECLARATION, ext->kind);
+    Declaration *decl = ext->u.declaration;
+    EXPECT_EQ(DECL_VAR, decl->kind);
+    EXPECT_EQ(TYPE_INT, decl->u.var.specifiers->type_specs->u.basic->kind);
+    EXPECT_STREQ("f", decl->u.var.declarators->declarator->u.named.name);
+    EXPECT_NE(nullptr, decl->u.var.declarators->declarator->u.named.suffixes);
+    EXPECT_EQ(SUFFIX_FUNCTION, decl->u.var.declarators->declarator->u.named.suffixes->kind);
+    EXPECT_TRUE(decl->u.var.declarators->declarator->u.named.suffixes->u.function.params->is_empty);
 }
 
 // Main for running tests
