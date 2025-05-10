@@ -1,67 +1,50 @@
 #include <gtest/gtest.h>
-#include <string>
-#include <sstream>
 
-// Assuming the Flex scanner generates these functions
-extern "C" {
-    extern FILE* yyin;
-    extern int yylex();
-    extern char* yytext;
-    // Token types from y.tab.h
-    #define AUTO 258
-    #define BREAK 259
-    #define CASE 260
-    #define CHAR 261
-    // ... (other token definitions)
-    #define IDENTIFIER 300
-    #define I_CONSTANT 301
-    #define F_CONSTANT 302
-    #define STRING_LITERAL 303
-    #define ELLIPSIS 304
-    #define RIGHT_ASSIGN 305
-    // ... (other operator tokens)
-}
+#include <sstream>
+#include <string>
+
+#include "scanner.h"
 
 // Test fixture for scanner tests
 class ScannerTest : public ::testing::Test {
 protected:
-    void SetUp() override {
+    void SetUp() override
+    {
         // Reset scanner state
-        yyin = nullptr;
+        init_scanner(nullptr);
     }
 
     // Helper function to set scanner input from a string
-    void SetInput(const std::string& input) {
+    void SetInput(const std::string &input)
+    {
         // Create a temporary file with the input
         temp_file = tmpfile();
         fwrite(input.c_str(), 1, input.size(), temp_file);
         rewind(temp_file);
-        yyin = temp_file;
+        init_scanner(temp_file);
     }
 
     // Helper function to get next token
-    int GetNextToken() {
-        return yylex();
-    }
+    int GetNextToken() { return yylex(); }
 
     // Helper function to get current lexeme
-    std::string GetLexeme() {
-        return std::string(yytext);
-    }
+    std::string GetLexeme() { return std::string(get_yytext()); }
 
-    void TearDown() override {
+    void TearDown() override
+    {
         if (temp_file) {
             fclose(temp_file);
         }
-        yyin = nullptr;
+        init_scanner(nullptr);
     }
 
 private:
-    FILE* temp_file = nullptr;
+    FILE *temp_file = nullptr;
 };
 
 // Test keywords
-TEST_F(ScannerTest, HandlesKeywords) {
+TEST_F(ScannerTest, HandlesKeywords)
+{
     SetInput("int char double if else while for");
     EXPECT_EQ(GetNextToken(), INT);
     EXPECT_EQ(GetLexeme(), "int");
@@ -80,7 +63,8 @@ TEST_F(ScannerTest, HandlesKeywords) {
 }
 
 // Test identifiers
-TEST_F(ScannerTest, HandlesIdentifiers) {
+TEST_F(ScannerTest, HandlesIdentifiers)
+{
     SetInput("variable my_function _hidden123");
     EXPECT_EQ(GetNextToken(), IDENTIFIER);
     EXPECT_EQ(GetLexeme(), "variable");
@@ -91,7 +75,8 @@ TEST_F(ScannerTest, HandlesIdentifiers) {
 }
 
 // Test integer constants
-TEST_F(ScannerTest, HandlesIntegerConstants) {
+TEST_F(ScannerTest, HandlesIntegerConstants)
+{
     SetInput("123 0x1a 0777 42u");
     EXPECT_EQ(GetNextToken(), I_CONSTANT);
     EXPECT_EQ(GetLexeme(), "123");
@@ -104,7 +89,8 @@ TEST_F(ScannerTest, HandlesIntegerConstants) {
 }
 
 // Test floating-point constants
-TEST_F(ScannerTest, HandlesFloatingPointConstants) {
+TEST_F(ScannerTest, HandlesFloatingPointConstants)
+{
     SetInput("3.14 1e-10 0x1.2p3");
     EXPECT_EQ(GetNextToken(), F_CONSTANT);
     EXPECT_EQ(GetLexeme(), "3.14");
@@ -115,7 +101,8 @@ TEST_F(ScannerTest, HandlesFloatingPointConstants) {
 }
 
 // Test string literals
-TEST_F(ScannerTest, HandlesStringLiterals) {
+TEST_F(ScannerTest, HandlesStringLiterals)
+{
     SetInput("\"hello\" L\"world\" \"escaped\\nchar\"");
     EXPECT_EQ(GetNextToken(), STRING_LITERAL);
     EXPECT_EQ(GetLexeme(), "\"hello\"");
@@ -126,7 +113,8 @@ TEST_F(ScannerTest, HandlesStringLiterals) {
 }
 
 // Test operators
-TEST_F(ScannerTest, HandlesOperators) {
+TEST_F(ScannerTest, HandlesOperators)
+{
     SetInput("+= -= *= /= %= >>= <<= && || == != <= >=");
     EXPECT_EQ(GetNextToken(), ADD_ASSIGN);
     EXPECT_EQ(GetLexeme(), "+=");
@@ -157,7 +145,8 @@ TEST_F(ScannerTest, HandlesOperators) {
 }
 
 // Test single-character tokens
-TEST_F(ScannerTest, HandlesSingleCharacterTokens) {
+TEST_F(ScannerTest, HandlesSingleCharacterTokens)
+{
     SetInput("; , ( ) { } [ ] . & * + -");
     EXPECT_EQ(GetNextToken(), ';');
     EXPECT_EQ(GetLexeme(), ";");
@@ -188,7 +177,8 @@ TEST_F(ScannerTest, HandlesSingleCharacterTokens) {
 }
 
 // Test comments
-TEST_F(ScannerTest, HandlesComments) {
+TEST_F(ScannerTest, HandlesComments)
+{
     SetInput("/* comment */ // line comment\n int");
     // Comments are consumed, so we should get the next token
     EXPECT_EQ(GetNextToken(), INT);
@@ -196,7 +186,8 @@ TEST_F(ScannerTest, HandlesComments) {
 }
 
 // Test whitespace
-TEST_F(ScannerTest, HandlesWhitespace) {
+TEST_F(ScannerTest, HandlesWhitespace)
+{
     SetInput("  \t\n int \t var");
     EXPECT_EQ(GetNextToken(), INT);
     EXPECT_EQ(GetLexeme(), "int");
@@ -205,14 +196,16 @@ TEST_F(ScannerTest, HandlesWhitespace) {
 }
 
 // Test end of input
-TEST_F(ScannerTest, HandlesEndOfInput) {
+TEST_F(ScannerTest, HandlesEndOfInput)
+{
     SetInput("int");
     EXPECT_EQ(GetNextToken(), INT);
     EXPECT_EQ(GetNextToken(), 0); // EOF
 }
 
 // Main function for running tests
-int main(int argc, char **argv) {
+int main(int argc, char **argv)
+{
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }
