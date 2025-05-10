@@ -236,8 +236,11 @@ static int scan_number(void)
     int is_float = 0;
 
     // Handle hexadecimal prefix
-    if (next_char == '0' && tolower(next_char) == 'x') {
+    if (next_char == '0') {
         consume_char(); // '0'
+        if (tolower(next_char) != 'x') {
+            goto decimal;
+        }
         consume_char(); // 'x' or 'X'
         while (isxdigit(next_char)) {
             consume_char();
@@ -261,6 +264,7 @@ static int scan_number(void)
         }
     } else {
         // Decimal or octal
+decimal:
         while (isdigit(next_char)) {
             consume_char();
         }
