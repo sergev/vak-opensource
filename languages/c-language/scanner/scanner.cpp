@@ -21,6 +21,7 @@ static void skip_comment(void);
 static int scan_identifier(void);
 static int scan_number(void);
 static int scan_string(void);
+static int scan_char(void);
 static int scan_operator(void);
 
 // Initialize scanner with input file
@@ -68,10 +69,13 @@ int yylex(void)
     // Scan tokens
     if (isalpha(next_char) || next_char == '_') {
         return scan_identifier();
-    } else if (isdigit(next_char) || (next_char == '0' && (next_char == 'x' || next_char == 'X'))) {
+    } else if (isdigit(next_char)) {
+        // TODO: in scan_number() when next_char == '0' && (next_char == 'x' || next_char == 'X')
         return scan_number();
-    } else if (next_char == '"' || next_char == 'L' || next_char == 'u' || next_char == 'U') {
+    } else if (next_char == '"') {
         return scan_string();
+    } else if (next_char == '\'') {
+        return scan_char();
     } else {
         return scan_operator();
     }
@@ -197,6 +201,28 @@ static void skip_comment(void)
 // Scan identifier or keyword
 static int scan_identifier(void)
 {
+    if (next_char == 'L' || next_char == 'u' || next_char == 'U') {
+        consume_char();
+        if (next_char == '"') {
+            // String with L/u/U prefix.
+            return scan_string();
+        }
+        if (next_char == '\'') {
+            // Character with L/u/U prefix.
+            return scan_char();
+        }
+        if (yytext[0] == 'u' && next_char == '8') {
+            consume_char();
+            if (next_char == '"') {
+                // String with u8 prefix.
+                return scan_string();
+            }
+            if (next_char == '\'') {
+                // Character with u8 prefix.
+                return scan_char();
+            }
+        }
+    }
     while (isalnum(next_char) || next_char == '_') {
         consume_char();
     }
@@ -293,6 +319,60 @@ static int scan_string(void)
         exit(1);
     }
     return STRING_LITERAL;
+}
+
+// Scan character literal
+static int scan_char(void)
+{
+    if (next_char == 'L' || next_char == 'u' || next_char == 'U') {
+        consume_char(); // Consume optional prefix
+    }
+    if (next_char != '\'') {
+        fprintf(stderr, "Error: expected character literal\n");
+        exit(1);
+    }
+    consume_char(); // Consume opening quote
+    int has_content = 0;
+    while (next_char != '\'' && next_char != '\n' && next_char != EOF) {
+        has_content = 1;
+        if (next_char == '\\') {
+            consume_char();
+            // Handle escape sequences
+            if (next_char == '\'' || next_char == '"' || next_char == '?' || next_char == '\\' ||
+                next_char == 'a' || next_char == 'b' || next_char == 'f' || next_char == 'n' ||
+                next_char == 'r' || next_char == 't' || next_char == 'v') {
+                consume_char();
+            } else if (next_char >= '0' && next_char <= '7') {
+                consume_char();
+                if (next_char >= '0' && next_char <= '7') {
+                    consume_char();
+                    if (next_char >= '0' && next_char <= '7') {
+                        consume_char();
+                    }
+                }
+            } else if (next_char == 'x') {
+                consume_char();
+                while (isxdigit(next_char)) {
+                    consume_char();
+                }
+            } else {
+                consume_char(); // Consume invalid escape
+            }
+        } else {
+            consume_char();
+        }
+    }
+    if (next_char == '\'') {
+        consume_char(); // Consume closing quote
+        if (!has_content) {
+            fprintf(stderr, "Error: empty character literal\n");
+            exit(1);
+        }
+    } else {
+        fprintf(stderr, "Error: unterminated character literal\n");
+        exit(1);
+    }
+    return I_CONSTANT;
 }
 
 // Scan operators and punctuation

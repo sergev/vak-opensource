@@ -103,13 +103,29 @@ TEST_F(ScannerTest, HandlesFloatingPointConstants)
 // Test string literals
 TEST_F(ScannerTest, HandlesStringLiterals)
 {
-    SetInput("\"hello\" L\"world\" \"escaped\\nchar\"");
+    SetInput("\"hello\" L\"world\" u8\"utf8\" \"escaped\\nchar\"");
     EXPECT_EQ(GetNextToken(), STRING_LITERAL);
     EXPECT_EQ(GetLexeme(), "\"hello\"");
     EXPECT_EQ(GetNextToken(), STRING_LITERAL);
     EXPECT_EQ(GetLexeme(), "L\"world\"");
     EXPECT_EQ(GetNextToken(), STRING_LITERAL);
+    EXPECT_EQ(GetLexeme(), "u8\"utf8\"");
+    EXPECT_EQ(GetNextToken(), STRING_LITERAL);
     EXPECT_EQ(GetLexeme(), "\"escaped\\nchar\"");
+}
+
+// Test char literals
+TEST_F(ScannerTest, HandlesCharLiterals)
+{
+    SetInput("'h' L'w' u8'u' '\\n'");
+    EXPECT_EQ(GetNextToken(), I_CONSTANT);
+    EXPECT_EQ(GetLexeme(), "'h'");
+    EXPECT_EQ(GetNextToken(), I_CONSTANT);
+    EXPECT_EQ(GetLexeme(), "L'w'");
+    EXPECT_EQ(GetNextToken(), I_CONSTANT);
+    EXPECT_EQ(GetLexeme(), "u8'u'");
+    EXPECT_EQ(GetNextToken(), I_CONSTANT);
+    EXPECT_EQ(GetLexeme(), "'\\n'");
 }
 
 // Test operators
