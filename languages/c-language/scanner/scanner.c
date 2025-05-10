@@ -164,10 +164,26 @@ static int is_keyword(const char *str)
     return 0;
 }
 
-// Check identifier type (mocked, as in Flex)
+// Check identifier type
 static int check_type(void)
 {
-    // Assume no symbol table; always return TOKEN_IDENTIFIER
+#if 0
+    // TODO: Get type from symbol table.
+    switch (sym_type(yytext)) {
+    case TOKEN_TYPEDEF_NAME:
+        // Previously defined typedef
+        return TOKEN_TYPEDEF_NAME;
+
+    case TOKEN_ENUMERATION_CONSTANT:
+        // Previously defined enum
+        return TOKEN_ENUMERATION_CONSTANT;
+
+    default:
+        // Includes undefined names
+        return TOKEN_IDENTIFIER;
+    }
+#endif
+    // No symbol table for now
     return TOKEN_IDENTIFIER;
 }
 
@@ -528,7 +544,8 @@ static int scan_operator(void)
     case '?':
         return TOKEN_QUESTION;
     default:
-        return TOKEN_UNKNOWN; // Unknown character
+        // Unknown character.
+        return TOKEN_UNKNOWN;
     }
 }
 
