@@ -1,0 +1,230 @@
+--
+-- This ASDL definition provides a complete, abstract representation
+-- of the C language as defined in the provided YACC grammar c11.y.
+-- It captures all syntactic constructs while abstracting away
+-- concrete syntax, making it suitable for compiler frontends,
+-- static analysis, or program transformation tools.
+--
+-- Notes and Simplifications:
+--  * Preprocessor: The YACC grammar omits preprocessor directives
+--    (#define, #include), which are typically handled before parsing.
+--    The ASDL assumes preprocessed code, as is standard in AST definitions.
+--  * Abstract Declarators: AbstractDeclarator handles type names without
+--    identifiers (e.g., int (*)[5]).
+--  * K&R Support: IdentList in ParamList supports old-style function
+--    declarations (e.g., int f(a, b) int a, b; {}).
+--  * Bitfields: Field includes an optional Expr? bitfield for bitfield
+--    declarations (e.g., int x:4).
+--  * C11 Features: _Generic, _Static_assert, _Alignas, _Atomic,
+--    _Thread_local are fully supported.
+--  * Simplification: Some YACC details (e.g., trailing commas in initializer
+--    lists, specific array syntax variants) are abstracted into unified
+--    constructors to keep the ASDL concise.
+--
+module C
+
+-- Identifiers and basic types
+type Ident = string
+
+-- Types
+type Type
+  = Void
+  | Bool
+  | Char(Signedness signed)
+  | Short(Signedness signed)
+  | Int(Signedness signed)
+  | Long(Signedness signed)
+  | Float
+  | Double
+  | Complex(Type base)                              -- _Complex float, _Complex double
+  | Imaginary(Type base)                            -- _Imaginary (non-mandated extension)
+  | Pointer(Type target, TypeQualifier* qualifiers)
+  | Array(Type element, Expr? size, TypeQualifier* qualifiers)
+  | Function(Type returnType, ParamList params, bool variadic)
+  | Struct(Ident? name, Field* fields)
+  | Union(Ident? name, Field* fields)
+  | Enum(Ident? name, Enumerator* enumerators)
+  | TypedefName(Ident name)
+  | Atomic(Type base)                               -- _Atomic(type_name)
+  attributes(TypeQualifier* qualifiers)
+
+type Signedness = Signed | Unsigned
+
+type TypeQualifier
+  = Const
+  | Restrict
+  | Volatile
+  | Atomic
+
+type Field
+  = Field(Ident? name, Type type, Expr? bitfield)   -- bitfield is optional for bitfields
+  | Anonymous(Type type)                            -- anonymous struct/union
+
+type Enumerator
+  = Enumerator(Ident name, Expr? value)
+
+type ParamList
+  = ParamList(Param* params)
+  | Empty
+  | IdentList(Ident* idents)                        -- old-style K&R parameter list
+
+type Param
+  = Param(Ident? name, Type type)
+
+-- Declarations
+type Declaration
+  = VarDecl(DeclSpec specifiers, InitDeclarator* declarators)
+  | StaticAssert(Expr condition, string message)
+  | EmptyDecl                                       -- declaration_specifiers ;
+
+type DeclSpec
+  = DeclSpec(StorageClass? storage, TypeQualifier* qualifiers,
+             TypeSpec* typeSpecs, FunctionSpec* funcSpecs,
+             AlignmentSpec? alignSpec)
+
+type StorageClass
+  = Typedef
+  | Extern
+  | Static
+  | ThreadLocal
+  | Auto
+  | Register
+
+type TypeSpec
+  = BasicType(Type type)
+  | StructSpec(Ident? name, Field* fields)
+  | UnionSpec(Ident? name, Field* fields)
+  | EnumSpec(Ident? name, Enumerator* enumerators)
+  | TypedefNameSpec(Ident name)
+  | AtomicSpec(Type type)
+
+type FunctionSpec
+  = Inline
+  | NoReturn
+
+type AlignmentSpec
+  = AlignAsType(Type type)
+  | AlignAsExpr(Expr expr)
+
+type InitDeclarator
+  = InitDeclarator(Declarator declarator, Initializer? init)
+
+type Declarator
+  = Declarator(Ident name, Pointer* pointers, DeclaratorSuffix* suffixes)
+  | AbstractDeclarator(Pointer* pointers, DeclaratorSuffix* suffixes)
+
+type Pointer
+  = Pointer(TypeQualifier* qualifiers)
+
+type DeclaratorSuffix
+  = ArraySuffix(Expr? size, TypeQualifier* qualifiers, bool static)
+  | FunctionSuffix(ParamList params, bool variadic)
+
+type Initializer
+  = Single(Expr expr)
+  | Compound(InitItem* items)
+
+type InitItem
+  = InitItem(Designator* designators, Initializer init)
+
+type Designator
+  = ArrayIndex(Expr expr)
+  | FieldName(Ident name)
+
+-- Expressions
+type Expr
+  = Literal(Literal value)
+  | Var(Ident name)
+  | UnaryOp(UnaryOp op, Expr expr)
+  | BinaryOp(BinaryOp op, Expr left, Expr right)
+  | Assign(Expr target, AssignOp op, Expr value)
+  | Cond(Expr condition, Expr thenExpr, Expr elseExpr)
+  | Cast(Type type, Expr expr)
+  | Call(Expr func, Expr* args)
+  | CompoundLiteral(Type type, Initializer init)
+  | FieldAccess(Expr expr, Ident field)
+  | PtrAccess(Expr expr, Ident field)
+  | PostInc(Expr expr)
+  | PostDec(Expr expr)
+  | SizeOfExpr(Expr expr)
+  | SizeOfType(Type type)
+  | AlignOf(Type type)
+  | Generic(Expr controllingExpr, GenericAssoc* associations)
+  attributes(Type type)
+
+type Literal
+  = IntLit(int value)
+  | FloatLit(float value)
+  | CharLit(char value)
+  | StringLit(string value)
+  | EnumConst(Ident name)
+
+type UnaryOp
+  = Address         -- &
+  | Deref           -- *
+  | Plus            -- +
+  | Neg             -- -
+  | BitNot          -- ~
+  | LogNot          -- !
+  | PreInc          -- ++
+  | PreDec          -- --
+
+type BinaryOp
+  = Mul | Div | Mod
+  | Add | Sub
+  | LeftShift | RightShift
+  | Lt | Gt | Le | Ge
+  | Eq | Ne
+  | BitAnd | BitXor | BitOr
+  | LogAnd | LogOr
+
+type AssignOp
+  = Simple          -- =
+  | MulAssign       -- *=
+  | DivAssign       -- /=
+  | ModAssign       -- %=
+  | AddAssign       -- +=
+  | SubAssign       -- -=
+  | LeftAssign      -- <<=
+  | RightAssign     -- >>=
+  | AndAssign       -- &=
+  | XorAssign       -- ^=
+  | OrAssign        -- |=
+
+type GenericAssoc
+  = TypeAssoc(Type type, Expr expr)
+  | DefaultAssoc(Expr expr)
+
+-- Statements
+type Stmt
+  = ExprStmt(Expr? expr)
+  | Compound(DeclOrStmt* items)
+  | If(Expr condition, Stmt thenStmt, Stmt? elseStmt)
+  | Switch(Expr expr, Stmt body)
+  | While(Expr condition, Stmt body)
+  | DoWhile(Stmt body, Expr condition)
+  | For(ForInit? init, Expr? condition, Expr? update, Stmt body)
+  | Goto(Ident label)
+  | Continue
+  | Break
+  | Return(Expr? expr)
+  | Labeled(Ident label, Stmt stmt)
+  | Case(Expr expr, Stmt stmt)
+  | Default(Stmt stmt)
+
+type DeclOrStmt
+  = Decl(Declaration decl)
+  | Stmt(Stmt stmt)
+
+type ForInit
+  = ExprInit(Expr expr)
+  | DeclInit(Declaration decl)
+
+-- Program structure
+type Program
+  = Program(ExternalDecl* decls)
+
+type ExternalDecl
+  = FunctionDef(DeclSpec specifiers, Declarator declarator,
+                Declaration* decls, Stmt body)
+  | Declaration(Declaration decl)
