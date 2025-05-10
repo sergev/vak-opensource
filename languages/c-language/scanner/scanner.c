@@ -109,51 +109,51 @@ static int is_keyword(const char *str)
     static const struct {
         const char *name;
         int token;
-    } keywords[] = { { "auto", AUTO },
-                     { "break", BREAK },
-                     { "case", CASE },
-                     { "char", CHAR },
-                     { "const", CONST },
-                     { "continue", CONTINUE },
-                     { "default", DEFAULT },
-                     { "do", DO },
-                     { "double", DOUBLE },
-                     { "else", ELSE },
-                     { "enum", ENUM },
-                     { "extern", EXTERN },
-                     { "float", FLOAT },
-                     { "for", FOR },
-                     { "goto", GOTO },
-                     { "if", IF },
-                     { "inline", INLINE },
-                     { "int", INT },
-                     { "long", LONG },
-                     { "register", REGISTER },
-                     { "restrict", RESTRICT },
-                     { "return", RETURN },
-                     { "short", SHORT },
-                     { "signed", SIGNED },
-                     { "sizeof", SIZEOF },
-                     { "static", STATIC },
-                     { "struct", STRUCT },
-                     { "switch", SWITCH },
-                     { "typedef", TYPEDEF },
-                     { "union", UNION },
-                     { "unsigned", UNSIGNED },
-                     { "void", VOID },
-                     { "volatile", VOLATILE },
-                     { "while", WHILE },
-                     { "_Alignas", ALIGNAS },
-                     { "_Alignof", ALIGNOF },
-                     { "_Atomic", ATOMIC },
-                     { "_Bool", BOOL },
-                     { "_Complex", COMPLEX },
-                     { "_Generic", GENERIC },
-                     { "_Imaginary", IMAGINARY },
-                     { "_Noreturn", NORETURN },
-                     { "_Static_assert", STATIC_ASSERT },
-                     { "_Thread_local", THREAD_LOCAL },
-                     { "__func__", FUNC_NAME },
+    } keywords[] = { { "auto", TOKEN_AUTO },
+                     { "break", TOKEN_BREAK },
+                     { "case", TOKEN_CASE },
+                     { "char", TOKEN_CHAR },
+                     { "const", TOKEN_CONST },
+                     { "continue", TOKEN_CONTINUE },
+                     { "default", TOKEN_DEFAULT },
+                     { "do", TOKEN_DO },
+                     { "double", TOKEN_DOUBLE },
+                     { "else", TOKEN_ELSE },
+                     { "enum", TOKEN_ENUM },
+                     { "extern", TOKEN_EXTERN },
+                     { "float", TOKEN_FLOAT },
+                     { "for", TOKEN_FOR },
+                     { "goto", TOKEN_GOTO },
+                     { "if", TOKEN_IF },
+                     { "inline", TOKEN_INLINE },
+                     { "int", TOKEN_INT },
+                     { "long", TOKEN_LONG },
+                     { "register", TOKEN_REGISTER },
+                     { "restrict", TOKEN_RESTRICT },
+                     { "return", TOKEN_RETURN },
+                     { "short", TOKEN_SHORT },
+                     { "signed", TOKEN_SIGNED },
+                     { "sizeof", TOKEN_SIZEOF },
+                     { "static", TOKEN_STATIC },
+                     { "struct", TOKEN_STRUCT },
+                     { "switch", TOKEN_SWITCH },
+                     { "typedef", TOKEN_TYPEDEF },
+                     { "union", TOKEN_UNION },
+                     { "unsigned", TOKEN_UNSIGNED },
+                     { "void", TOKEN_VOID },
+                     { "volatile", TOKEN_VOLATILE },
+                     { "while", TOKEN_WHILE },
+                     { "_Alignas", TOKEN_ALIGNAS },
+                     { "_Alignof", TOKEN_ALIGNOF },
+                     { "_Atomic", TOKEN_ATOMIC },
+                     { "_Bool", TOKEN_BOOL },
+                     { "_Complex", TOKEN_COMPLEX },
+                     { "_Generic", TOKEN_GENERIC },
+                     { "_Imaginary", TOKEN_IMAGINARY },
+                     { "_Noreturn", TOKEN_NORETURN },
+                     { "_Static_assert", TOKEN_STATIC_ASSERT },
+                     { "_Thread_local", TOKEN_THREAD_LOCAL },
+                     { "__func__", TOKEN_FUNC_NAME },
                      { NULL, 0 } };
 
     for (int i = 0; keywords[i].name != NULL; i++) {
@@ -167,8 +167,8 @@ static int is_keyword(const char *str)
 // Check identifier type (mocked, as in Flex)
 static int check_type(void)
 {
-    // Assume no symbol table; always return IDENTIFIER
-    return IDENTIFIER;
+    // Assume no symbol table; always return TOKEN_IDENTIFIER
+    return TOKEN_IDENTIFIER;
 }
 
 // Skip whitespace
@@ -236,7 +236,7 @@ static int scan_number(void)
     int is_float = 0;
 
     // Handle hexadecimal prefix
-    if (next_char == '0' && (tolower(next_char) == 'x')) {
+    if (next_char == '0' && tolower(next_char) == 'x') {
         consume_char(); // '0'
         consume_char(); // 'x' or 'X'
         while (isxdigit(next_char)) {
@@ -288,7 +288,7 @@ static int scan_number(void)
         consume_char();
     }
 
-    return is_float ? F_CONSTANT : I_CONSTANT;
+    return is_float ? TOKEN_F_CONSTANT : TOKEN_I_CONSTANT;
 }
 
 // Scan string literal
@@ -318,7 +318,7 @@ static int scan_string(void)
         fprintf(stderr, "Error: unterminated string\n");
         exit(1);
     }
-    return STRING_LITERAL;
+    return TOKEN_STRING_LITERAL;
 }
 
 // Scan character literal
@@ -372,7 +372,7 @@ static int scan_char(void)
         fprintf(stderr, "Error: unterminated character literal\n");
         exit(1);
     }
-    return I_CONSTANT;
+    return TOKEN_I_CONSTANT;
 }
 
 // Scan operators and punctuation
@@ -386,143 +386,143 @@ static int scan_operator(void)
     if (c == '.' && c2 == '.' && fgetc(input_file) == '.') {
         consume_char();
         consume_char();
-        return ELLIPSIS;
+        return TOKEN_ELLIPSIS;
     }
     if (c == '>' && c2 == '>') {
         consume_char();
         if (next_char == '=') {
             consume_char();
-            return RIGHT_ASSIGN;
+            return TOKEN_RIGHT_ASSIGN;
         }
-        return RIGHT_OP;
+        return TOKEN_RIGHT_OP;
     }
     if (c == '<' && c2 == '<') {
         consume_char();
         if (next_char == '=') {
             consume_char();
-            return LEFT_ASSIGN;
+            return TOKEN_LEFT_ASSIGN;
         }
-        return LEFT_OP;
+        return TOKEN_LEFT_OP;
     }
     if (c == '+' && c2 == '=') {
         consume_char();
-        return ADD_ASSIGN;
+        return TOKEN_ADD_ASSIGN;
     }
     if (c == '-' && c2 == '=') {
         consume_char();
-        return SUB_ASSIGN;
+        return TOKEN_SUB_ASSIGN;
     }
     if (c == '*' && c2 == '=') {
         consume_char();
-        return MUL_ASSIGN;
+        return TOKEN_MUL_ASSIGN;
     }
     if (c == '/' && c2 == '=') {
         consume_char();
-        return DIV_ASSIGN;
+        return TOKEN_DIV_ASSIGN;
     }
     if (c == '%' && c2 == '=') {
         consume_char();
-        return MOD_ASSIGN;
+        return TOKEN_MOD_ASSIGN;
     }
     if (c == '&' && c2 == '=') {
         consume_char();
-        return AND_ASSIGN;
+        return TOKEN_AND_ASSIGN;
     }
     if (c == '^' && c2 == '=') {
         consume_char();
-        return XOR_ASSIGN;
+        return TOKEN_XOR_ASSIGN;
     }
     if (c == '|' && c2 == '=') {
         consume_char();
-        return OR_ASSIGN;
+        return TOKEN_OR_ASSIGN;
     }
     if (c == '+' && c2 == '+') {
         consume_char();
-        return INC_OP;
+        return TOKEN_INC_OP;
     }
     if (c == '-' && c2 == '-') {
         consume_char();
-        return DEC_OP;
+        return TOKEN_DEC_OP;
     }
     if (c == '-' && c2 == '>') {
         consume_char();
-        return PTR_OP;
+        return TOKEN_PTR_OP;
     }
     if (c == '&' && c2 == '&') {
         consume_char();
-        return AND_OP;
+        return TOKEN_AND_OP;
     }
     if (c == '|' && c2 == '|') {
         consume_char();
-        return OR_OP;
+        return TOKEN_OR_OP;
     }
     if (c == '<' && c2 == '=') {
         consume_char();
-        return LE_OP;
+        return TOKEN_LE_OP;
     }
     if (c == '>' && c2 == '=') {
         consume_char();
-        return GE_OP;
+        return TOKEN_GE_OP;
     }
     if (c == '=' && c2 == '=') {
         consume_char();
-        return EQ_OP;
+        return TOKEN_EQ_OP;
     }
     if (c == '!' && c2 == '=') {
         consume_char();
-        return NE_OP;
+        return TOKEN_NE_OP;
     }
 
     // Single-character tokens
     switch (c) {
     case ';':
-        return ';';
+        return TOKEN_SEMICOLON;
     case '{':
-        return '{';
+        return TOKEN_LBRACE;
     case '}':
-        return '}';
+        return TOKEN_RBRACE;
     case ',':
-        return ',';
+        return TOKEN_COMMA;
     case ':':
-        return ':';
+        return TOKEN_COLON;
     case '=':
-        return '=';
+        return TOKEN_ASSIGN;
     case '(':
-        return '(';
+        return TOKEN_LPAREN;
     case ')':
-        return ')';
+        return TOKEN_RPAREN;
     case '[':
-        return '[';
+        return TOKEN_LBRACKET;
     case ']':
-        return ']';
+        return TOKEN_RBRACKET;
     case '.':
-        return '.';
+        return TOKEN_DOT;
     case '&':
-        return '&';
+        return TOKEN_AMPERSAND;
     case '!':
-        return '!';
+        return TOKEN_NOT;
     case '~':
-        return '~';
+        return TOKEN_TILDE;
     case '-':
-        return '-';
+        return TOKEN_MINUS;
     case '+':
-        return '+';
+        return TOKEN_PLUS;
     case '*':
-        return '*';
+        return TOKEN_STAR;
     case '/':
-        return '/';
+        return TOKEN_SLASH;
     case '%':
-        return '%';
+        return TOKEN_PERCENT;
     case '<':
-        return '<';
+        return TOKEN_LT;
     case '>':
-        return '>';
+        return TOKEN_GT;
     case '^':
-        return '^';
+        return TOKEN_CARET;
     case '|':
-        return '|';
+        return TOKEN_PIPE;
     case '?':
-        return '?';
+        return TOKEN_QUESTION;
     default:
         return 0; // Unknown character
     }

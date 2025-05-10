@@ -21,7 +21,7 @@ enable_testing()
 
 # Build tests
 add_executable(c-scanner
-    scanner.cpp
+    scanner.c
     tests.cpp
 )
 target_link_libraries(c-scanner GTest::gtest_main)
