@@ -17,11 +17,11 @@
 
 // Structure for each node in the AVL tree
 typedef struct StringNode {
-    char *key;
-    int value;
     struct StringNode *left;
     struct StringNode *right;
     int height;
+    int value;
+    char key[1]; // Dynamically sized
 } StringNode;
 
 typedef struct StringMap {

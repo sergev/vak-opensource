@@ -101,14 +101,10 @@ void map_init(StringMap *map)
 // Create a new node
 static StringNode *create_node(const char *key, int value)
 {
-    StringNode *node = (StringNode *)malloc(sizeof(StringNode));
+    StringNode *node = (StringNode *)malloc(sizeof(StringNode) + strlen(key));
     if (!node)
         return NULL;
-    node->key = strdup(key);
-    if (!node->key) {
-        free(node);
-        return NULL;
-    }
+    strcpy(node->key, key);
     node->value  = value;
     node->left   = NULL;
     node->right  = NULL;
@@ -189,20 +185,14 @@ static StringNode *remove_node(StringNode *node, const char *key)
         // Node found
         if (!node->left || !node->right) {
             StringNode *temp = node->left ? node->left : node->right;
-            free(node->key);
             free(node);
             return temp;
         }
 
         // Node with two children
         StringNode *successor = find_min(node->right);
-        node->key             = strdup(successor->key);
         node->value           = successor->value;
-        if (!node->key) {
-            free(node->key);
-            free(node);
-            return NULL;
-        }
+        strcpy(node->key, successor->key);
         node->right = remove_node(node->right, successor->key);
     }
 
@@ -226,7 +216,6 @@ static void free_nodes(StringNode *node)
         return;
     free_nodes(node->left);
     free_nodes(node->right);
-    free(node->key);
     free(node);
 }
 
