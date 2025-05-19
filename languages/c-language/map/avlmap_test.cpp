@@ -1,145 +1,129 @@
 #include <gtest/gtest.h>
 extern "C" {
-#include "avlmap.h"
+#include "string_map.h"
 }
 
-// Test fixture for AVL map tests
-class AVLMapTest : public ::testing::Test {
+// Test fixture for string-to-int map tests
+class StringMapTest : public ::testing::Test {
 protected:
-    void SetUp() override { map = create_avlmap(); }
+    void SetUp() override { map_init(&map); }
 
-    void TearDown() override { free_avlmap(map); }
+    void TearDown() override { map_free(&map); }
 
-    AVLMap *map;
+    StringMap map;
+
+    // Helper to check if tree is balanced
+    static bool is_balanced(StringNode *node)
+    {
+        if (!node)
+            return true;
+        int bf = abs(map_node_height(node->left) - map_node_height(node->right));
+        if (bf > 1)
+            return false;
+        return is_balanced(node->left) && is_balanced(node->right);
+    };
 };
 
-// Test AVL map creation
-TEST_F(AVLMapTest, CreateAVLMap)
+// Test map creation
+TEST_F(StringMapTest, CreateStringMap)
 {
-    ASSERT_NE(map, nullptr);
-    EXPECT_EQ(map->root, nullptr);
+    EXPECT_EQ(map.root, nullptr);
 }
 
 // Test inserting a new key-value pair
-TEST_F(AVLMapTest, InsertNewKey)
+TEST_F(StringMapTest, InsertNewKey)
 {
-    EXPECT_TRUE(insert(map, "key1", 42));
+    EXPECT_TRUE(map_insert(&map, "key1", 42));
     int value;
-    EXPECT_TRUE(get(map, "key1", &value));
+    EXPECT_TRUE(map_get(&map, "key1", &value));
     EXPECT_EQ(value, 42);
 }
 
 // Test updating an existing key
-TEST_F(AVLMapTest, UpdateExistingKey)
+TEST_F(StringMapTest, UpdateExistingKey)
 {
-    EXPECT_TRUE(insert(map, "key1", 42));
-    EXPECT_TRUE(insert(map, "key1", 100));
+    EXPECT_TRUE(map_insert(&map, "key1", 42));
+    EXPECT_TRUE(map_insert(&map, "key1", 100));
     int value;
-    EXPECT_TRUE(get(map, "key1", &value));
+    EXPECT_TRUE(map_get(&map, "key1", &value));
     EXPECT_EQ(value, 100);
 }
 
 // Test inserting multiple keys
-TEST_F(AVLMapTest, InsertMultipleKeys)
+TEST_F(StringMapTest, InsertMultipleKeys)
 {
-    EXPECT_TRUE(insert(map, "apple", 5));
-    EXPECT_TRUE(insert(map, "banana", 10));
-    EXPECT_TRUE(insert(map, "orange", 15));
+    EXPECT_TRUE(map_insert(&map, "apple", 5));
+    EXPECT_TRUE(map_insert(&map, "banana", 10));
+    EXPECT_TRUE(map_insert(&map, "orange", 15));
 
     int value;
-    EXPECT_TRUE(get(map, "apple", &value));
+    EXPECT_TRUE(map_get(&map, "apple", &value));
     EXPECT_EQ(value, 5);
-    EXPECT_TRUE(get(map, "banana", &value));
+    EXPECT_TRUE(map_get(&map, "banana", &value));
     EXPECT_EQ(value, 10);
-    EXPECT_TRUE(get(map, "orange", &value));
+    EXPECT_TRUE(map_get(&map, "orange", &value));
     EXPECT_EQ(value, 15);
 }
 
 // Test getting non-existent key
-TEST_F(AVLMapTest, GetNonExistentKey)
+TEST_F(StringMapTest, GetNonExistentKey)
 {
     int value;
-    EXPECT_FALSE(get(map, "nonexistent", &value));
+    EXPECT_FALSE(map_get(&map, "nonexistent", &value));
 }
 
 // Test removing a key
-TEST_F(AVLMapTest, RemoveKey)
+TEST_F(StringMapTest, RemoveKey)
 {
-    EXPECT_TRUE(insert(map, "key1", 42));
-    EXPECT_TRUE(remove_key(map, "key1"));
+    EXPECT_TRUE(map_insert(&map, "key1", 42));
+    EXPECT_TRUE(map_remove_key(&map, "key1"));
     int value;
-    EXPECT_FALSE(get(map, "key1", &value));
+    EXPECT_FALSE(map_get(&map, "key1", &value));
 }
 
 // Test removing non-existent key
-TEST_F(AVLMapTest, RemoveNonExistentKey)
+TEST_F(StringMapTest, RemoveNonExistentKey)
 {
-    EXPECT_FALSE(remove_key(map, "nonexistent"));
+    EXPECT_FALSE(map_remove_key(&map, "nonexistent"));
 }
 
 // Test null inputs
-TEST_F(AVLMapTest, NullInputs)
+TEST_F(StringMapTest, NullInputs)
 {
-    EXPECT_FALSE(insert(nullptr, "key1", 42));
-    EXPECT_FALSE(insert(map, nullptr, 42));
+    EXPECT_FALSE(map_insert(nullptr, "key1", 42));
+    EXPECT_FALSE(map_insert(&map, nullptr, 42));
     int value;
-    EXPECT_FALSE(get(nullptr, "key1", &value));
-    EXPECT_FALSE(get(map, nullptr, &value));
-    EXPECT_FALSE(get(map, "key1", nullptr));
-    EXPECT_FALSE(remove_key(nullptr, "key1"));
-    EXPECT_FALSE(remove_key(map, nullptr));
+    EXPECT_FALSE(map_get(nullptr, "key1", &value));
+    EXPECT_FALSE(map_get(&map, nullptr, &value));
+    EXPECT_FALSE(map_get(&map, "key1", nullptr));
+    EXPECT_FALSE(map_remove_key(nullptr, "key1"));
+    EXPECT_FALSE(map_remove_key(&map, nullptr));
 }
 
-// Test AVL balance after multiple insertions
-TEST_F(AVLMapTest, BalanceAfterInsertions)
+// Test balance after multiple insertions
+TEST_F(StringMapTest, BalanceAfterInsertions)
 {
     // Insert keys in a way that may cause imbalance
     const char *keys[] = { "a", "b", "c", "d", "e" };
     for (int i = 0; i < 5; i++) {
-        EXPECT_TRUE(insert(map, keys[i], i));
+        EXPECT_TRUE(map_insert(&map, keys[i], i));
     }
 
-    // Helper to check if tree is balanced
-    auto is_balanced = [](AVLNode *node) -> bool {
-        if (!node)
-            return true;
-        int bf = abs(height(node->left) - height(node->right));
-        if (bf > 1)
-            return false;
-        return is_balanced(node->left) && is_balanced(node->right);
-    };
-
-    EXPECT_TRUE(is_balanced(map->root));
+    EXPECT_TRUE(is_balanced(map.root));
 }
 
-// Test AVL balance after deletions
-TEST_F(AVLMapTest, BalanceAfterDeletions)
+// Test balance after deletions
+TEST_F(StringMapTest, BalanceAfterDeletions)
 {
     // Insert multiple keys
-    EXPECT_TRUE(insert(map, "apple", 5));
-    EXPECT_TRUE(insert(map, "banana", 10));
-    EXPECT_TRUE(insert(map, "orange", 15));
-    EXPECT_TRUE(insert(map, "grape", 20));
+    EXPECT_TRUE(map_insert(&map, "apple", 5));
+    EXPECT_TRUE(map_insert(&map, "banana", 10));
+    EXPECT_TRUE(map_insert(&map, "orange", 15));
+    EXPECT_TRUE(map_insert(&map, "grape", 20));
 
     // Remove some keys
-    EXPECT_TRUE(remove_key(map, "banana"));
-    EXPECT_TRUE(remove_key(map, "orange"));
+    EXPECT_TRUE(map_remove_key(&map, "banana"));
+    EXPECT_TRUE(map_remove_key(&map, "orange"));
 
-    // Helper to check if tree is balanced
-    auto is_balanced = [](AVLNode *node) -> bool {
-        if (!node)
-            return true;
-        int bf = abs(height(node->left) - height(node->right));
-        if (bf > 1)
-            return false;
-        return is_balanced(node->left) && is_balanced(node->right);
-    };
-
-    EXPECT_TRUE(is_balanced(map->root));
-}
-
-int main(int argc, char **argv)
-{
-    ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
+    EXPECT_TRUE(is_balanced(map.root));
 }

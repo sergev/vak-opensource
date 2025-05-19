@@ -1,47 +1,47 @@
+//
+// Implementation of string-to-int map using an AVL tree, with self-balancing.
+//
+// Each `StringNode` includes a `height` field to track subtree height,
+// used to compute balance factors.
+//
+// Balancing:
+//  - The `balance_factor` is calculated as `height(left) - height(right)`.
+//  - After insertions and deletions, the `balance` function checks if the balance factor is outside [-1, 1].
+//  - Four cases are handled: Left-Left, Left-Right, Right-Right, Right-Left, using left and right rotations.
+//  - Rotations (`rotate_left`, `rotate_right`) adjust the tree structure while preserving BST properties.
+//
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-// Structure for each node in the AVL tree
-typedef struct AVLNode {
-    char *key;
-    int value;
-    struct AVLNode *left;
-    struct AVLNode *right;
-    int height;
-} AVLNode;
-
-// Structure for the AVL map
-typedef struct AVLMap {
-    AVLNode *root;
-} AVLMap;
+#include "string_map.h"
 
 // Get the height of a node (0 for NULL)
-int height(AVLNode *node)
+int map_node_height(StringNode *node)
 {
     return node ? node->height : 0;
 }
 
 // Update the height of a node
-void update_height(AVLNode *node)
+static void update_height(StringNode *node)
 {
     if (node) {
-        node->height = 1 + (height(node->left) > height(node->right) ? height(node->left)
-                                                                     : height(node->right));
+        node->height = 1 + (map_node_height(node->left) > map_node_height(node->right) ? map_node_height(node->left)
+                                                                     : map_node_height(node->right));
     }
 }
 
 // Get the balance factor of a node
-int balance_factor(AVLNode *node)
+static int balance_factor(StringNode *node)
 {
-    return node ? height(node->left) - height(node->right) : 0;
+    return node ? map_node_height(node->left) - map_node_height(node->right) : 0;
 }
 
 // Right rotation
-AVLNode *rotate_right(AVLNode *y)
+static StringNode *rotate_right(StringNode *y)
 {
-    AVLNode *x  = y->left;
-    AVLNode *T2 = x->right;
+    StringNode *x  = y->left;
+    StringNode *T2 = x->right;
     x->right    = y;
     y->left     = T2;
     update_height(y);
@@ -50,10 +50,10 @@ AVLNode *rotate_right(AVLNode *y)
 }
 
 // Left rotation
-AVLNode *rotate_left(AVLNode *x)
+static StringNode *rotate_left(StringNode *x)
 {
-    AVLNode *y  = x->right;
-    AVLNode *T2 = y->left;
+    StringNode *y  = x->right;
+    StringNode *T2 = y->left;
     y->left     = x;
     x->right    = T2;
     update_height(x);
@@ -62,7 +62,7 @@ AVLNode *rotate_left(AVLNode *x)
 }
 
 // Balance a node
-AVLNode *balance(AVLNode *node)
+static StringNode *balance(StringNode *node)
 {
     if (!node)
         return node;
@@ -88,19 +88,15 @@ AVLNode *balance(AVLNode *node)
 }
 
 // Initialize the AVL map
-AVLMap *create_avlmap()
+void map_init(StringMap *map)
 {
-    AVLMap *map = (AVLMap *)malloc(sizeof(AVLMap));
-    if (!map)
-        return NULL;
     map->root = NULL;
-    return map;
 }
 
 // Create a new node
-AVLNode *create_node(const char *key, int value)
+static StringNode *create_node(const char *key, int value)
 {
-    AVLNode *node = (AVLNode *)malloc(sizeof(AVLNode));
+    StringNode *node = (StringNode *)malloc(sizeof(StringNode));
     if (!node)
         return NULL;
     node->key = strdup(key);
@@ -116,7 +112,7 @@ AVLNode *create_node(const char *key, int value)
 }
 
 // Insert or update a key-value pair
-AVLNode *insert_node(AVLNode *node, const char *key, int value)
+static StringNode *insert_node(StringNode *node, const char *key, int value)
 {
     if (!node) {
         return create_node(key, value);
@@ -135,7 +131,7 @@ AVLNode *insert_node(AVLNode *node, const char *key, int value)
     return balance(node);
 }
 
-int insert(AVLMap *map, const char *key, int value)
+int map_insert(StringMap *map, const char *key, int value)
 {
     if (!map || !key)
         return 0;
@@ -144,12 +140,12 @@ int insert(AVLMap *map, const char *key, int value)
 }
 
 // Get value by key, returns 1 if found, 0 if not
-int get(AVLMap *map, const char *key, int *value)
+int map_get(StringMap *map, const char *key, int *value)
 {
     if (!map || !key || !value)
         return 0;
 
-    AVLNode *current = map->root;
+    StringNode *current = map->root;
     while (current) {
         int cmp = strcmp(key, current->key);
         if (cmp == 0) {
@@ -165,7 +161,7 @@ int get(AVLMap *map, const char *key, int *value)
 }
 
 // Find the node with the minimum key in a subtree
-AVLNode *find_min(AVLNode *node)
+static StringNode *find_min(StringNode *node)
 {
     while (node && node->left) {
         node = node->left;
@@ -174,7 +170,7 @@ AVLNode *find_min(AVLNode *node)
 }
 
 // Remove a node, returns the new root of the subtree
-AVLNode *remove_node(AVLNode *node, const char *key)
+static StringNode *remove_node(StringNode *node, const char *key)
 {
     if (!node)
         return NULL;
@@ -187,14 +183,14 @@ AVLNode *remove_node(AVLNode *node, const char *key)
     } else {
         // Node found
         if (!node->left || !node->right) {
-            AVLNode *temp = node->left ? node->left : node->right;
+            StringNode *temp = node->left ? node->left : node->right;
             free(node->key);
             free(node);
             return temp;
         }
 
         // Node with two children
-        AVLNode *successor = find_min(node->right);
+        StringNode *successor = find_min(node->right);
         node->key          = strdup(successor->key);
         node->value        = successor->value;
         if (!node->key) {
@@ -208,72 +204,67 @@ AVLNode *remove_node(AVLNode *node, const char *key)
     return balance(node);
 }
 
-int remove_key(AVLMap *map, const char *key)
+int map_remove_key(StringMap *map, const char *key)
 {
     if (!map || !key)
         return 0;
-    AVLNode *new_root = remove_node(map->root, key);
+    StringNode *new_root = remove_node(map->root, key);
     if (map->root == new_root)
         return 0; // Key not found
     map->root = new_root;
     return 1;
 }
 
-// Free the AVL map and all its nodes
-void free_avlmap(AVLMap *map)
+static void free_nodes(StringNode * node)
 {
-    if (!map)
+    if (!node)
         return;
-
-    void free_nodes(AVLNode * node)
-    {
-        if (!node)
-            return;
-        free_nodes(node->left);
-        free_nodes(node->right);
-        free(node->key);
-        free(node);
-    }
-
-    free_nodes(map->root);
-    free(map);
+    free_nodes(node->left);
+    free_nodes(node->right);
+    free(node->key);
+    free(node);
 }
 
+// Free the AVL map and all its nodes
+void map_free(StringMap *map)
+{
+    free_nodes(map->root);
+}
+
+#if 0
 // Example usage
 int main()
 {
-    AVLMap *map = create_avlmap();
-    if (!map) {
-        printf("Failed to create avlmap\n");
-        return 1;
-    }
+    StringMap map;
+    map_init(&map);
 
     // Insert some key-value pairs
-    insert(map, "apple", 5);
-    insert(map, "banana", 10);
-    insert(map, "orange", 15);
-    insert(map, "apple", 20); // Update apple's value
+    map_insert(&map, "apple", 5);
+    map_insert(&map, "banana", 10);
+    map_insert(&map, "orange", 15);
+    map_insert(&map, "apple", 20); // Update apple's value
 
     // Retrieve values
     int value;
-    if (get(map, "apple", &value)) {
+    if (map_get(&map, "apple", &value)) {
         printf("apple: %d\n", value); // Should print 20
     }
-    if (get(map, "banana", &value)) {
+    if (map_get(&map, "banana", &value)) {
         printf("banana: %d\n", value); // Should print 10
     }
-    if (!get(map, "grape", &value)) {
+    if (!map_get(&map, "grape", &value)) {
         printf("grape: not found\n");
     }
 
     // Remove a key
-    if (remove_key(map, "banana")) {
+    if (map_remove_key(&map, "banana")) {
         printf("banana removed\n");
     }
-    if (!get(map, "banana", &value)) {
+    if (!map_get(&map, "banana", &value)) {
         printf("banana: not found\n");
     }
 
-    free_avlmap(map);
+    map_free(&map);
     return 0;
 }
+#endif
