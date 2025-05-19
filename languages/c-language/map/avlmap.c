@@ -66,8 +66,8 @@ static StringNode *rotate_left(StringNode *x)
     return y;
 }
 
-// Balance a node
-static StringNode *balance(StringNode *node)
+// Re-balance a node
+static StringNode *rebalance(StringNode *node)
 {
     if (!node)
         return node;
@@ -89,6 +89,21 @@ static StringNode *balance(StringNode *node)
         }
         return rotate_left(node); // Right-Right case
     }
+    return node;
+}
+
+// Helper function to rebalance the tree
+static StringNode *rebalance_tree(StringNode *node)
+{
+    if (!node) {
+        return NULL;
+    }
+
+    // Post-order: rebalance children first
+    node->left  = rebalance_tree(node->left);
+    node->right = rebalance_tree(node->right);
+
+    rebalance(node);
     return node;
 }
 
@@ -129,7 +144,7 @@ static StringNode *insert_node(StringNode *node, const char *key, int value)
         node->right = insert_node(node->right, key, value);
     }
 
-    return balance(node);
+    return rebalance(node);
 }
 
 int map_insert(StringMap *map, const char *key, int value)
@@ -173,6 +188,42 @@ static StringNode *min_node_with_parent(StringNode *node, StringNode **parent)
     return current;
 }
 
+// Helper function to remove a single node without balancing
+static StringNode *remove_single_node(StringNode *node)
+{
+    // Node with only one child or no child
+    if (!node->left) {
+        StringNode *temp = node->right;
+        free(node);
+        return temp;
+    } else if (!node->right) {
+        StringNode *temp = node->left;
+        free(node);
+        return temp;
+    }
+
+    // Node with two children
+    StringNode *parent_of_successor;
+    StringNode *successor = min_node_with_parent(node->right, &parent_of_successor);
+
+    // Unlink successor from its current position
+    if (parent_of_successor) {
+        parent_of_successor->left = successor->right;
+    } else {
+        // Successor is the right child of node
+        node->right = successor->right;
+    }
+
+    // Replace node with successor
+    successor->left  = node->left;
+    successor->right = node->right;
+    update_height(successor);
+
+    // Free the node
+    free(node);
+    return successor;
+}
+
 // Remove a node, returns the new root of the subtree
 static StringNode *remove_node(StringNode *node, const char *key)
 {
@@ -184,38 +235,35 @@ static StringNode *remove_node(StringNode *node, const char *key)
         node->left = remove_node(node->left, key);
     } else if (cmp > 0) {
         node->right = remove_node(node->right, key);
-    } else if (!node->left) {
-        // Node with only one child (right) or no child
-        StringNode *temp = node->right;
-        free(node);
-        return temp;
-    } else if (!node->right) {
-        // Node with only one child (left)
-        StringNode *temp = node->left;
-        free(node);
-        return temp;
     } else {
-        // Node with two children
-        StringNode *parent_of_successor = NULL;
-        StringNode *successor = min_node_with_parent(node->right, &parent_of_successor);
-
-        // Unlink successor from its current position
-        if (parent_of_successor) {
-            parent_of_successor->left = successor->right;
-        } else {
-            // Successor is the right child of node
-            node->right = successor->right;
-        }
-
-        // Replace node with successor
-        successor->left  = node->left;
-        successor->right = node->right;
-        update_height(successor);
-        free(node);
-        node = successor;
+        node = remove_single_node(node);
     }
 
-    return balance(node);
+    return rebalance(node);
+}
+
+// Helper function for conditional node removal
+static StringNode *remove_node_cond(StringNode *node, bool (*cond)(const char *))
+{
+    if (!node) {
+        return NULL;
+    }
+
+    // Post-order traversal: process left and right subtrees first
+    node->left  = remove_node_cond(node->left, cond);
+    node->right = remove_node_cond(node->right, cond);
+
+    // Check condition for current node
+    if (cond(node->key)) {
+        node = remove_single_node(node);
+        if (!node) {
+            return NULL; // Node was removed and had no children
+        }
+    }
+
+    // Update height but defer balancing
+    update_height(node);
+    return node;
 }
 
 void map_remove_key(StringMap *map, const char *key)
@@ -223,6 +271,18 @@ void map_remove_key(StringMap *map, const char *key)
     if (map && key) {
         map->root = remove_node(map->root, key);
     }
+}
+
+void map_remove_cond(StringMap *map, bool (*cond)(const char *))
+{
+    if (!map || !cond) {
+        return;
+    }
+    // Phase 1: Remove nodes without balancing
+    map->root = remove_node_cond(map->root, cond);
+
+    // Phase 2: Rebalance the entire tree
+    map->root = rebalance_tree(map->root);
 }
 
 static void free_nodes(StringNode *node)

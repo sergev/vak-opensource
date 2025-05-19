@@ -14,6 +14,7 @@
 //  4. Remove entries with `map_remove_key(&map, key)`.
 //  5. Free the map with `map_free(&map)`.
 //
+#include <stdbool.h>
 
 // Structure for each node in the AVL tree
 typedef struct StringNode {
@@ -51,6 +52,11 @@ int map_get(StringMap *map, const char *key, int *value);
 // subtree as the successor), and balances the tree after deletion.
 //
 void map_remove_key(StringMap *map, const char *key);
+
+//
+// Remove by condition: Remove nodes where cond(key) returns true.
+//
+void map_remove_cond(StringMap *map, bool (*cond)(const char *));
 
 //
 // Free: Recursively frees all nodes and their keys.
