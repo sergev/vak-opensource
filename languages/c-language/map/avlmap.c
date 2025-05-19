@@ -13,6 +13,26 @@
 //  - Rotations (`rotate_left`, `rotate_right`) adjust the tree structure
 //    while preserving BST properties.
 //
+// Copyright (c) 2025 Serge Vakulenko
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
+//
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -107,7 +127,7 @@ static StringNode *rebalance_tree(StringNode *node)
     return node;
 }
 
-// Initialize the AVL map
+// Initialize the map
 void map_init(StringMap *map)
 {
     map->root = NULL;
@@ -294,7 +314,7 @@ static void free_nodes(StringNode *node)
     free(node);
 }
 
-// Free the AVL map and all its nodes
+// Free the map and all its nodes
 void map_free(StringMap *map)
 {
     free_nodes(map->root);
