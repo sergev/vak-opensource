@@ -6,9 +6,12 @@
 //
 // Balancing:
 //  - The `balance_factor` is calculated as `height(left) - height(right)`.
-//  - After insertions and deletions, the `balance` function checks if the balance factor is outside [-1, 1].
-//  - Four cases are handled: Left-Left, Left-Right, Right-Right, Right-Left, using left and right rotations.
-//  - Rotations (`rotate_left`, `rotate_right`) adjust the tree structure while preserving BST properties.
+//  - After insertions and deletions, the `balance` function checks
+//    if the balance factor is outside [-1, 1].
+//  - Four cases are handled: Left-Left, Left-Right, Right-Right,
+//    Right-Left, using left and right rotations.
+//  - Rotations (`rotate_left`, `rotate_right`) adjust the tree structure
+//    while preserving BST properties.
 //
 #include <stdio.h>
 #include <stdlib.h>
@@ -26,8 +29,10 @@ int map_node_height(StringNode *node)
 static void update_height(StringNode *node)
 {
     if (node) {
-        node->height = 1 + (map_node_height(node->left) > map_node_height(node->right) ? map_node_height(node->left)
-                                                                     : map_node_height(node->right));
+        int left_height  = map_node_height(node->left);
+        int right_height = map_node_height(node->right);
+
+        node->height = 1 + (left_height > right_height ? left_height : right_height);
     }
 }
 
@@ -42,8 +47,8 @@ static StringNode *rotate_right(StringNode *y)
 {
     StringNode *x  = y->left;
     StringNode *T2 = x->right;
-    x->right    = y;
-    y->left     = T2;
+    x->right       = y;
+    y->left        = T2;
     update_height(y);
     update_height(x);
     return x;
@@ -54,8 +59,8 @@ static StringNode *rotate_left(StringNode *x)
 {
     StringNode *y  = x->right;
     StringNode *T2 = y->left;
-    y->left     = x;
-    x->right    = T2;
+    y->left        = x;
+    x->right       = T2;
     update_height(x);
     update_height(y);
     return y;
@@ -191,8 +196,8 @@ static StringNode *remove_node(StringNode *node, const char *key)
 
         // Node with two children
         StringNode *successor = find_min(node->right);
-        node->key          = strdup(successor->key);
-        node->value        = successor->value;
+        node->key             = strdup(successor->key);
+        node->value           = successor->value;
         if (!node->key) {
             free(node->key);
             free(node);
@@ -215,7 +220,7 @@ int map_remove_key(StringMap *map, const char *key)
     return 1;
 }
 
-static void free_nodes(StringNode * node)
+static void free_nodes(StringNode *node)
 {
     if (!node)
         return;
