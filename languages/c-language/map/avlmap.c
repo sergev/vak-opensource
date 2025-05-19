@@ -181,14 +181,12 @@ static StringNode *remove_node(StringNode *node, const char *key)
         node->left = remove_node(node->left, key);
     } else if (cmp > 0) {
         node->right = remove_node(node->right, key);
+    } else if (!node->left || !node->right) {
+        // Node with one children
+        StringNode *temp = node->left ? node->left : node->right;
+        free(node);
+        return temp;
     } else {
-        // Node found
-        if (!node->left || !node->right) {
-            StringNode *temp = node->left ? node->left : node->right;
-            free(node);
-            return temp;
-        }
-
         // Node with two children
         StringNode *successor = find_min(node->right);
         node->value           = successor->value;
@@ -199,15 +197,11 @@ static StringNode *remove_node(StringNode *node, const char *key)
     return balance(node);
 }
 
-int map_remove_key(StringMap *map, const char *key)
+void map_remove_key(StringMap *map, const char *key)
 {
-    if (!map || !key)
-        return 0;
-    StringNode *new_root = remove_node(map->root, key);
-    if (map->root == new_root)
-        return 0; // Key not found
-    map->root = new_root;
-    return 1;
+    if (map && key) {
+        map->root = remove_node(map->root, key);
+    }
 }
 
 static void free_nodes(StringNode *node)

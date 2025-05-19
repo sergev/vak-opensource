@@ -76,7 +76,7 @@ TEST_F(StringMapTest, GetNonExistentKey)
 TEST_F(StringMapTest, RemoveKey)
 {
     EXPECT_TRUE(map_insert(&map, "key1", 42));
-    EXPECT_TRUE(map_remove_key(&map, "key1"));
+    map_remove_key(&map, "key1");
     int value;
     EXPECT_FALSE(map_get(&map, "key1", &value));
 }
@@ -84,7 +84,7 @@ TEST_F(StringMapTest, RemoveKey)
 // Test removing non-existent key
 TEST_F(StringMapTest, RemoveNonExistentKey)
 {
-    EXPECT_FALSE(map_remove_key(&map, "nonexistent"));
+    map_remove_key(&map, "nonexistent");
 }
 
 // Test null inputs
@@ -96,8 +96,8 @@ TEST_F(StringMapTest, NullInputs)
     EXPECT_FALSE(map_get(nullptr, "key1", &value));
     EXPECT_FALSE(map_get(&map, nullptr, &value));
     EXPECT_FALSE(map_get(&map, "key1", nullptr));
-    EXPECT_FALSE(map_remove_key(nullptr, "key1"));
-    EXPECT_FALSE(map_remove_key(&map, nullptr));
+    map_remove_key(nullptr, "key1");
+    map_remove_key(&map, nullptr);
 }
 
 // Test balance after multiple insertions
@@ -122,8 +122,11 @@ TEST_F(StringMapTest, BalanceAfterDeletions)
     EXPECT_TRUE(map_insert(&map, "grape", 20));
 
     // Remove some keys
-    EXPECT_TRUE(map_remove_key(&map, "banana"));
-    EXPECT_TRUE(map_remove_key(&map, "orange"));
+    map_remove_key(&map, "banana");
+    int value;
+    EXPECT_FALSE(map_get(&map, "banana", &value));
+    map_remove_key(&map, "orange");
+    EXPECT_FALSE(map_get(&map, "orange", &value));
 
     EXPECT_TRUE(is_balanced(map.root));
 }

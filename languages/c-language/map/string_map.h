@@ -50,7 +50,7 @@ int map_get(StringMap *map, const char *key, int *value);
 // and node with two children (using the minimum key in the right
 // subtree as the successor), and balances the tree after deletion.
 //
-int map_remove_key(StringMap *map, const char *key);
+void map_remove_key(StringMap *map, const char *key);
 
 //
 // Free: Recursively frees all nodes and their keys.
