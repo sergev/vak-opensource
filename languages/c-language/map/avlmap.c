@@ -161,13 +161,16 @@ int map_get(StringMap *map, const char *key, int *value)
     return 0;
 }
 
-// Find the node with the minimum key in a subtree
-static StringNode *find_min(StringNode *node)
+// Helper function to find node with minimum key and its parent
+static StringNode *min_node_with_parent(StringNode *node, StringNode **parent)
 {
-    while (node && node->left) {
-        node = node->left;
+    *parent             = NULL;
+    StringNode *current = node;
+    while (current->left) {
+        *parent = current;
+        current = current->left;
     }
-    return node;
+    return current;
 }
 
 // Remove a node, returns the new root of the subtree
@@ -181,17 +184,35 @@ static StringNode *remove_node(StringNode *node, const char *key)
         node->left = remove_node(node->left, key);
     } else if (cmp > 0) {
         node->right = remove_node(node->right, key);
-    } else if (!node->left || !node->right) {
-        // Node with one children
-        StringNode *temp = node->left ? node->left : node->right;
+    } else if (!node->left) {
+        // Node with only one child (right) or no child
+        StringNode *temp = node->right;
+        free(node);
+        return temp;
+    } else if (!node->right) {
+        // Node with only one child (left)
+        StringNode *temp = node->left;
         free(node);
         return temp;
     } else {
         // Node with two children
-        StringNode *successor = find_min(node->right);
-        node->value           = successor->value;
-        strcpy(node->key, successor->key);
-        node->right = remove_node(node->right, successor->key);
+        StringNode *parent_of_successor = NULL;
+        StringNode *successor = min_node_with_parent(node->right, &parent_of_successor);
+
+        // Unlink successor from its current position
+        if (parent_of_successor) {
+            parent_of_successor->left = successor->right;
+        } else {
+            // Successor is the right child of node
+            node->right = successor->right;
+        }
+
+        // Replace node with successor
+        successor->left  = node->left;
+        successor->right = node->right;
+        update_height(successor);
+        free(node);
+        node = successor;
     }
 
     return balance(node);
