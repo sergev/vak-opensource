@@ -5,8 +5,8 @@
 module Main where
 
 primes = sieve [2..]
-	 where
-		sieve (x:xs) = x : sieve (filter ((/= 0).(`mod` x)) xs)
+         where
+                sieve (x:xs) = x : sieve (filter ((/= 0).(`mod` x)) xs)
 
 main = do
-	print (take 200 primes)
+        print (take 200 primes)

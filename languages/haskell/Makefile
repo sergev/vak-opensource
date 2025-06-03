@@ -12,4 +12,4 @@ sieve:		sieve.hs
 		ghc $@.hs -o $@
 
 clean:
-		rm -f *~ *.o *.hi $(PROGS)
+		rm -f *~ *.o *.hi $(PROGS) queens

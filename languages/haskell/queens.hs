@@ -35,12 +35,12 @@ board b =
         map line ["o o o", " \\|/ ", " === "]
       where
         line crown_slice =
-	    concat (zipWith square (from 1) b)
+            concat (zipWith square (from 1) b)
           where
-	    square scol _ =
-		if scol == qcol then crown_slice
-	 	else if (scol `rem` (2::Int)) == (r `rem` (2::Int)) then "....."
-		else "     "
+            square scol _ =
+                if scol == qcol then crown_slice
+                else if (scol `rem` (2::Int)) == (r `rem` (2::Int)) then "....."
+                else "     "
 
 -- in place of ..
 
