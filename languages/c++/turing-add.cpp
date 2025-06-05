@@ -11,7 +11,7 @@ enum class Direction { Left, Right };
 using State           = std::string;
 using TransitionKey   = std::tuple<State, Symbol>;
 using TransitionValue = std::tuple<State, Symbol, Direction>;
-using Transitions = std::unordered_map<TransitionKey, TransitionValue, std::hash<TransitionKey>>;
+using Transitions     = std::unordered_map<TransitionKey, TransitionValue, std::hash<TransitionKey>>;
 
 struct Tape {
     std::deque<Symbol> data;
@@ -54,7 +54,7 @@ void print_tape(const Tape &tape, const State &state)
 }
 
 // Move the tape head
-Tape move_head(Tape tape, Direction dir)
+void move_head(Tape &tape, Direction dir)
 {
     if (dir == Direction::Right) {
         if (tape.head_pos + 1 >= tape.data.size()) {
@@ -68,12 +68,10 @@ Tape move_head(Tape tape, Direction dir)
             --tape.head_pos;
         }
     }
-    return tape;
 }
 
 // Step the Turing machine
-std::optional<std::pair<Tape, State>> step(Tape tape, const State &state,
-                                           const Transitions &transitions)
+std::optional<State> step(Tape &tape, const State &state, const Transitions &transitions)
 {
     TransitionKey current = { state, tape.data[tape.head_pos] };
     auto it               = transitions.find(current);
@@ -82,7 +80,8 @@ std::optional<std::pair<Tape, State>> step(Tape tape, const State &state,
     }
     const auto &[new_state, new_symbol, dir] = it->second;
     tape.data[tape.head_pos]                 = new_symbol;
-    return std::make_pair(move_head(tape, dir), new_state);
+    move_head(tape, dir);
+    return new_state;
 }
 
 // Run the Turing machine
@@ -100,12 +99,12 @@ void run_turing_machine(Tape tape, const State &start_state, const Transitions &
             std::cout << "Rejected\n";
             break;
         }
-        auto next = step(tape, current_state, transitions);
-        if (!next) {
+        auto next_state = step(tape, current_state, transitions);
+        if (!next_state) {
             std::cout << "Halted (no transition)\n";
             break;
         }
-        std::tie(tape, current_state) = *next;
+        current_state = *next_state;
     }
 }
 
