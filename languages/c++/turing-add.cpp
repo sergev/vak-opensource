@@ -1,9 +1,9 @@
+#include <deque>
 #include <iostream>
-#include <map>
 #include <optional>
 #include <string>
 #include <tuple>
-#include <vector>
+#include <unordered_map>
 
 // Types for Turing machine
 enum class Symbol { One, Blank };
@@ -11,13 +11,24 @@ enum class Direction { Left, Right };
 using State           = std::string;
 using TransitionKey   = std::tuple<State, Symbol>;
 using TransitionValue = std::tuple<State, Symbol, Direction>;
-using Transitions     = std::map<TransitionKey, TransitionValue>;
+using Transitions = std::unordered_map<TransitionKey, TransitionValue, std::hash<TransitionKey>>;
 
 struct Tape {
-    std::vector<Symbol> left;
-    Symbol head;
-    std::vector<Symbol> right;
+    std::deque<Symbol> data;
+    size_t head_pos;
 };
+
+// Hash function for TransitionKey
+namespace std {
+template <>
+struct hash<TransitionKey> {
+    size_t operator()(const TransitionKey &key) const
+    {
+        auto [state, sym] = key;
+        return hash<string>()(state) ^ (hash<size_t>()(static_cast<size_t>(sym)) << 1);
+    }
+};
+} // namespace std
 
 // Convert symbol to string for printing
 std::string symbol_to_string(Symbol sym)
@@ -28,55 +39,50 @@ std::string symbol_to_string(Symbol sym)
 // Print the current tape and head position
 void print_tape(const Tape &tape, const State &state)
 {
-    std::string left_str;
-    for (const auto &sym : tape.left) {
-        left_str += symbol_to_string(sym);
+    std::string left_str, right_str;
+    size_t i = 0;
+    for (const auto &sym : tape.data) {
+        if (i < tape.head_pos) {
+            left_str += symbol_to_string(sym);
+        } else if (i > tape.head_pos) {
+            right_str += symbol_to_string(sym);
+        }
+        ++i;
     }
-    std::string right_str;
-    for (const auto &sym : tape.right) {
-        right_str += symbol_to_string(sym);
-    }
-    std::cout << "[" << left_str << "] " << symbol_to_string(tape.head) << " (" << state << ") "
-              << right_str << "\n";
+    std::cout << "[" << left_str << "] " << symbol_to_string(tape.data[tape.head_pos]) << " ("
+              << state << ") " << right_str << "\n";
 }
 
 // Move the tape head
 Tape move_head(Tape tape, Direction dir)
 {
     if (dir == Direction::Right) {
-        std::vector<Symbol> new_right;
-        Symbol new_head = Symbol::Blank;
-        if (!tape.right.empty()) {
-            new_head  = tape.right.front();
-            new_right = std::vector<Symbol>(tape.right.begin() + 1, tape.right.end());
+        if (tape.head_pos + 1 >= tape.data.size()) {
+            tape.data.push_back(Symbol::Blank);
         }
-        tape.left.push_back(tape.head);
-        return { std::move(tape.left), new_head, std::move(new_right) };
+        ++tape.head_pos;
     } else { // Left
-        std::vector<Symbol> new_left;
-        Symbol new_head = Symbol::Blank;
-        if (!tape.left.empty()) {
-            new_head = tape.left.back();
-            new_left = std::vector<Symbol>(tape.left.begin(), tape.left.end() - 1);
+        if (tape.head_pos == 0) {
+            tape.data.push_front(Symbol::Blank);
+        } else {
+            --tape.head_pos;
         }
-        tape.right.insert(tape.right.begin(), tape.head);
-        return { std::move(new_left), new_head, std::move(tape.right) };
     }
+    return tape;
 }
 
 // Step the Turing machine
-std::optional<std::pair<Tape, State>> step(const Tape &tape, const State &state,
+std::optional<std::pair<Tape, State>> step(Tape tape, const State &state,
                                            const Transitions &transitions)
 {
-    TransitionKey current = { state, tape.head };
+    TransitionKey current = { state, tape.data[tape.head_pos] };
     auto it               = transitions.find(current);
     if (it == transitions.end()) {
         return std::nullopt; // No transition: halt
     }
     const auto &[new_state, new_symbol, dir] = it->second;
-    Tape new_tape                            = tape;
-    new_tape.head                            = new_symbol;
-    return std::make_pair(move_head(new_tape, dir), new_state);
+    tape.data[tape.head_pos]                 = new_symbol;
+    return std::make_pair(move_head(tape, dir), new_state);
 }
 
 // Run the Turing machine
@@ -115,9 +121,9 @@ void example_add()
         { { "q1", Symbol::Blank }, { "qaccept", Symbol::Blank, Direction::Right } }
     };
     // Tape represents 2 + 3: 11_111
-    Tape tape = { {},
-                  Symbol::One,
-                  { Symbol::One, Symbol::Blank, Symbol::One, Symbol::One, Symbol::One } };
+    Tape tape = {
+        { Symbol::One, Symbol::One, Symbol::Blank, Symbol::One, Symbol::One, Symbol::One }, 0
+    };
     run_turing_machine(tape, "q0", transitions, "qaccept", "qreject");
 }
 
