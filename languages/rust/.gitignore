@@ -5,3 +5,4 @@ arc
 format
 *.rs-
 target/
+minimize-boolean-function
