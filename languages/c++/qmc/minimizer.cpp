@@ -2,181 +2,168 @@
 #include <cmath>
 #include <iostream>
 #include <mutex>
-#include <numeric>
-#include <optional>
-#include <stdexcept>
+#include <set>
 #include <thread>
+#include <vector>
 
 #include "utils.h"
 
-static bool should_print_truth_table = false;
-static bool should_print_implicant_table = false;
-static bool debug = false;
-size_t thread_threshold = 4;
+namespace {
+//bool print_truth_table            = false;
+//bool print_implicant_table        = false;
+bool debug                        = false;
+constexpr size_t thread_threshold = 4;
+constexpr char vars[]             = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+} // namespace
+
+struct Implicant {
+    uint64_t term;                  // Binary representation
+    uint64_t mask;                  // Bits that matter (1 = relevant)
+
+    // Comparison operator for std::set
+    bool operator<(const Implicant &other) const
+    {
+        if (term != other.term)
+            return term < other.term;
+        return mask < other.mask;
+    }
+};
 
 std::string minimize_boolean_function(const std::string &truth_table)
 {
-    size_t n_vars = static_cast<size_t>(std::log2(truth_table.size()));
+    // Validate input
+    size_t n_vars = std::log2(truth_table.size());
     if (truth_table.size() != (1ull << n_vars)) {
         throw std::runtime_error("Truth table length must be a power of 2");
     }
     if (n_vars > 64) {
-        throw std::runtime_error("Number of variables exceeds uint64_t capacity (64)");
+        throw std::runtime_error("Too many variables (max 64)");
     }
 
-    // Print truth table
-    print_truth_table(truth_table, n_vars, should_print_truth_table);
+    //if (print_truth_table) {
+    //    print_truth_table(truth_table, n_vars);
+    //}
 
-    // Extract minterms and don't cares
-    std::vector<size_t> minterms;
-    std::vector<size_t> dont_cares;
+    // Collect minterms and don't-cares
+    std::vector<size_t> minterms, dont_cares;
     for (size_t i = 0; i < truth_table.size(); ++i) {
-        if (truth_table[i] == '1') {
+        switch (truth_table[i]) {
+        case '1':
             minterms.push_back(i);
-        } else if (truth_table[i] == 'X') {
+            break;
+        case 'X':
             dont_cares.push_back(i);
-        } else if (truth_table[i] != '0') {
-            throw std::runtime_error("Truth table must contain only '0', '1', or 'X'");
+            break;
+        case '0':
+            break;
+        default:
+            throw std::runtime_error("Invalid truth table character");
         }
     }
     if (minterms.empty()) {
         return "0";
     }
 
-    // Generate implicants
-    std::vector<size_t> implicants;
-    implicants.reserve(minterms.size() + dont_cares.size());
-    implicants.insert(implicants.end(), minterms.begin(), minterms.end());
-    implicants.insert(implicants.end(), dont_cares.begin(), dont_cares.end());
-    if (implicants.empty()) {
-        return "0";
-    }
-
     if (debug) {
-        std::cout << "Minterms: " << minterms.size() << ", Don't cares: " << dont_cares.size()
+        std::cout << "Minterms: " << minterms.size() << ", Don't-cares: " << dont_cares.size()
                   << std::endl;
     }
 
-    // Group implicants by number of 1s
-    std::vector<std::vector<std::tuple<std::optional<size_t>, uint64_t, uint64_t>>> groups(n_vars +
-                                                                                           1);
-    for (const auto &m : implicants) {
-        uint64_t term = static_cast<uint64_t>(m);
-        uint64_t mask = (1ull << n_vars) - 1; // All bits initially relevant
-        size_t ones   = std::popcount(term);
-        groups[ones].emplace_back(std::make_optional(m), term, mask);
+    // Initialize implicants
+    std::vector<Implicant> implicants;
+    implicants.reserve(minterms.size() + dont_cares.size());
+    uint64_t full_mask = (1ull << n_vars) - 1;
+    for (size_t term : minterms) {
+        implicants.push_back({ term, full_mask });
+    }
+    for (size_t term : dont_cares) {
+        implicants.push_back({ term, full_mask });
     }
 
-    // Quine-McCluskey: Combine implicants
+    // Group by number of 1s
+    std::vector<std::vector<Implicant>> groups(n_vars + 1);
+    for (const auto &imp : implicants) {
+        groups[std::popcount(imp.term)].push_back(imp);
+    }
+
+    // Quine-McCluskey algorithm
     std::set<std::pair<uint64_t, uint64_t>> prime_implicants;
     size_t max_iterations = n_vars * 3;
-    size_t iteration      = 0;
-
-    while (true) {
-        ++iteration;
-        if (iteration > max_iterations) {
-            std::cerr << "Warning: Reached max iterations (" << max_iterations
-                      << ") in Quine-McCluskey loop" << std::endl;
-            break;
-        }
-
+    for (size_t iter = 0; iter < max_iterations; ++iter) {
         if (debug) {
-            size_t total_implicants = 0;
-            size_t non_empty_groups = 0;
-            for (const auto &g : groups) {
-                total_implicants += g.size();
-                if (!g.empty())
-                    ++non_empty_groups;
-            }
-            std::cout << "Iteration " << iteration << ": " << non_empty_groups << " groups with "
-                      << total_implicants << " implicants" << std::endl;
+            size_t count = 0;
+            for (const auto &g : groups)
+                count += g.size();
+            std::cout << "Iteration " << iter + 1 << ": " << count << " implicants" << std::endl;
         }
 
-        std::vector<std::vector<std::tuple<std::optional<size_t>, uint64_t, uint64_t>>> new_groups(
-            n_vars + 1);
-        std::set<std::tuple<std::optional<size_t>, uint64_t, uint64_t>> combined;
+        std::vector<std::vector<Implicant>> new_groups(n_vars + 1);
+        std::set<Implicant> combined;
+
+        auto combine_groups = [&](size_t i) {
+            std::vector<Implicant> local_new;
+            std::vector<Implicant> local_combined;
+            for (const auto &imp1 : groups[i]) {
+                for (const auto &imp2 : groups[i + 1]) {
+                    uint64_t diff = imp1.term ^ imp2.term;
+                    if (std::popcount(diff) == 1 && imp1.mask == imp2.mask) {
+                        Implicant new_imp = { imp1.term & ~diff, imp1.mask & ~diff };
+                        local_new.push_back(new_imp);
+                        local_combined.push_back(imp1);
+                        local_combined.push_back(imp2);
+                    }
+                }
+            }
+            return std::make_pair(local_new, local_combined);
+        };
 
         if (n_vars < thread_threshold) {
             // Sequential processing
             for (size_t i = 0; i < n_vars; ++i) {
-                const auto &group_i = groups[i];
-                const auto &group_i1 = groups[i + 1];
-                for (const auto &[m1, t1, mask1] : group_i) {
-                    for (const auto &[m2, t2, mask2] : group_i1) {
-                        uint64_t xor_val = t1 ^ t2;
-                        if (std::popcount(xor_val) == 1 && mask1 == mask2) {
-                            uint64_t new_term = t1 & ~xor_val;
-                            uint64_t new_mask = mask1 & ~xor_val;
-                            size_t ones       = std::popcount(new_term);
-                            new_groups[ones].emplace_back(std::nullopt, new_term, new_mask);
-                            combined.emplace(m1, t1, mask1);
-                            combined.emplace(m2, t2, mask2);
-                        }
-                    }
+                auto [new_imps, comb] = combine_groups(i);
+                if (!new_imps.empty()) {
+                    new_groups[std::popcount(new_imps.front().term)] = std::move(new_imps);
                 }
+                combined.insert(comb.begin(), comb.end());
             }
         } else {
-            // Parallel processing with native threads
-            std::vector<std::mutex> new_groups_mutex(n_vars + 1);
+            // Parallel processing
+            std::vector<std::mutex> group_mutex(n_vars + 1);
             std::mutex combined_mutex;
             std::vector<std::thread> threads;
 
             for (size_t i = 0; i < n_vars; ++i) {
-                threads.emplace_back([i, &groups, &new_groups, &new_groups_mutex, &combined,
-                                      &combined_mutex]() {
-                    std::vector<std::tuple<size_t, std::optional<size_t>, uint64_t, uint64_t>>
-                        local_new;
-                    std::vector<std::tuple<std::optional<size_t>, uint64_t, uint64_t>>
-                        local_combined;
-                    const auto &group_i = groups[i];
-                    const auto &group_i1 = groups[i + 1];
-
-                    for (const auto &[m1, t1, mask1] : group_i) {
-                        for (const auto &[m2, t2, mask2] : group_i1) {
-                            uint64_t xor_val = t1 ^ t2;
-                            if (std::popcount(xor_val) == 1 && mask1 == mask2) {
-                                uint64_t new_term = t1 & ~xor_val;
-                                uint64_t new_mask = mask1 & ~xor_val;
-                                size_t ones       = std::popcount(new_term);
-                                local_new.emplace_back(ones, std::nullopt, new_term, new_mask);
-                                local_combined.emplace_back(m1, t1, mask1);
-                                local_combined.emplace_back(m2, t2, mask2);
-                            }
+                threads.emplace_back(
+                    [&](size_t idx) {
+                        auto [new_imps, comb] = combine_groups(idx);
+                        if (!new_imps.empty()) {
+                            std::lock_guard lock(group_mutex[std::popcount(new_imps.front().term)]);
+                            new_groups[std::popcount(new_imps.front().term)] = std::move(new_imps);
                         }
-                    }
-
-                    for (const auto &[ones, m, t, mask] : local_new) {
-                        std::lock_guard<std::mutex> lock(new_groups_mutex[ones]);
-                        new_groups[ones].emplace_back(m, t, mask);
-                    }
-                    {
-                        std::lock_guard<std::mutex> lock(combined_mutex);
-                        combined.insert(local_combined.begin(), local_combined.end());
-                    }
-                });
+                        {
+                            std::lock_guard lock(combined_mutex);
+                            combined.insert(comb.begin(), comb.end());
+                        }
+                    },
+                    i);
             }
-
-            for (auto &t : threads) {
+            for (auto &t : threads)
                 t.join();
-            }
         }
 
-        // Add uncombined terms as prime implicants
+        // Collect prime implicants
         for (const auto &group : groups) {
-            for (const auto &[m, t, mask] : group) {
-                if (combined.find(std::make_tuple(m, t, mask)) == combined.end()) {
-                    prime_implicants.emplace(t, mask);
+            for (const auto &imp : group) {
+                if (!combined.contains(imp)) {
+                    prime_implicants.emplace(imp.term, imp.mask);
                 }
             }
         }
 
         groups = std::move(new_groups);
-        bool all_empty =
-            std::all_of(groups.begin(), groups.end(), [](const auto &g) { return g.empty(); });
-        if (all_empty) {
+        if (std::all_of(groups.begin(), groups.end(), [](const auto &g) { return g.empty(); })) {
             if (debug) {
-                std::cout << "Quine-McCluskey loop terminated after " << iteration << " iterations"
-                          << std::endl;
+                std::cout << "Terminated after " << iter + 1 << " iterations" << std::endl;
             }
             break;
         }
@@ -185,29 +172,23 @@ std::string minimize_boolean_function(const std::string &truth_table)
     // Select essential prime implicants
     std::vector<std::pair<uint64_t, uint64_t>> essential;
     std::set<size_t> covered;
-    for (const auto &m : minterms) {
+
+    for (size_t m : minterms) {
         if (std::find(dont_cares.begin(), dont_cares.end(), m) != dont_cares.end()) {
             continue;
         }
         std::vector<std::pair<uint64_t, uint64_t>> covering;
-        for (const auto &[t, mask] : prime_implicants) {
-            if ((static_cast<uint64_t>(m) & mask) == (t & mask)) {
-                covering.emplace_back(t, mask);
+        for (const auto &pi : prime_implicants) {
+            if ((m & pi.second) == (pi.first & pi.second)) {
+                covering.push_back(pi);
             }
-        }
-        if (covering.empty()) {
-            if (debug) {
-                std::cerr << "No covering implicant for minterm " << m << std::endl;
-            }
-            continue;
         }
         if (covering.size() == 1) {
             auto pi = covering[0];
             if (std::find(essential.begin(), essential.end(), pi) == essential.end()) {
                 essential.push_back(pi);
-                auto [t, mask] = pi;
-                for (const auto &m2 : minterms) {
-                    if ((static_cast<uint64_t>(m2) & mask) == (t & mask)) {
+                for (size_t m2 : minterms) {
+                    if ((m2 & pi.second) == (pi.first & pi.second)) {
                         covered.insert(m2);
                     }
                 }
@@ -216,55 +197,51 @@ std::string minimize_boolean_function(const std::string &truth_table)
     }
 
     // Cover remaining minterms
-    for (const auto &m : minterms) {
-        if (covered.find(m) == covered.end() &&
+    for (size_t m : minterms) {
+        if (!covered.contains(m) &&
             std::find(dont_cares.begin(), dont_cares.end(), m) == dont_cares.end()) {
-            std::vector<std::pair<uint64_t, uint64_t>> covering;
-            for (const auto &[t, mask] : prime_implicants) {
-                if ((static_cast<uint64_t>(m) & mask) == (t & mask)) {
-                    covering.emplace_back(t, mask);
-                }
-            }
-            if (!covering.empty()) {
-                auto pi = covering[0];
-                if (std::find(essential.begin(), essential.end(), pi) == essential.end()) {
-                    essential.push_back(pi);
-                    auto [t, mask] = pi;
-                    for (const auto &m2 : minterms) {
-                        if ((static_cast<uint64_t>(m2) & mask) == (t & mask)) {
-                            covered.insert(m2);
+            for (const auto &pi : prime_implicants) {
+                if ((m & pi.second) == (pi.first & pi.second)) {
+                    if (std::find(essential.begin(), essential.end(), pi) == essential.end()) {
+                        essential.push_back(pi);
+                        for (size_t m2 : minterms) {
+                            if ((m2 & pi.second) == (pi.first & pi.second)) {
+                                covered.insert(m2);
+                            }
                         }
+                        break;
                     }
                 }
             }
         }
     }
 
-    // Print implicant table
-    print_implicant_table(prime_implicants, essential, minterms, n_vars,
-                          should_print_implicant_table);
+    //if (print_implicant_table) {
+    //    print_implicant_table(prime_implicants, essential, minterms, n_vars);
+    //}
 
-    // Convert to Boolean expression
-    static const char VARS[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    // Generate boolean expression
     std::vector<std::string> terms;
     for (const auto &[term, mask] : essential) {
         std::vector<std::string> literals;
         for (size_t i = 0; i < n_vars; ++i) {
             if (mask & (1ull << (n_vars - 1 - i))) {
-                char var = VARS[i];
-                if (term & (1ull << (n_vars - 1 - i))) {
-                    literals.emplace_back(1, var);
-                } else {
-                    literals.emplace_back("~" + std::string(1, var));
-                }
+                char var = vars[i];
+                literals.push_back((term & (1ull << (n_vars - 1 - i))) ? std::string(1, var)
+                                                                       : "~" + std::string(1, var));
             }
         }
-        terms.push_back(literals.empty()
-                            ? "1"
-                            : std::accumulate(literals.begin(), literals.end(), std::string()));
+        terms.push_back(literals.empty() ? "1" : literals[0]);
+        for (size_t i = 1; i < literals.size(); ++i) {
+            terms.back() += literals[i];
+        }
     }
-    std::string expression = terms.empty() ? "0"
-                                           : terms[0] + (terms.size() > 1 ? " + " + terms[1] : "") +
-                                                 (terms.size() > 2 ? " + " + terms[2] : "");
-    return expression;
+
+    if (terms.empty())
+        return "0";
+    std::string result = terms[0];
+    for (size_t i = 1; i < std::min<size_t>(terms.size(), 3); ++i) {
+        result += " + " + terms[i];
+    }
+    return result;
 }
