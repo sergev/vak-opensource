@@ -114,14 +114,18 @@ int can_merge(Implicant a, Implicant b, Implicant *result)
             print_binary(result->mask, num_vars);
             printf("\n");
 
-            // Validate minterm consistency
+            // Validate minterm consistency using result->mask
+            uint64_t check_mask = result->mask; // Check defined bits
+            printf("[DEBUG] Check mask=");
+            print_binary(check_mask, num_vars);
+            printf("\n");
             int valid = 1;
             for (int j = 0; j < a.num_minterms; j++) {
                 for (int k = 0; k < b.num_minterms; k++) {
                     uint64_t minterm_a = minterms[a.minterms[j]].value;
                     uint64_t minterm_b = minterms[b.minterms[k]].value;
-                    uint64_t masked_a  = minterm_a & result->mask;
-                    uint64_t masked_b  = minterm_b & result->mask;
+                    uint64_t masked_a  = minterm_a & check_mask;
+                    uint64_t masked_b  = minterm_b & check_mask;
                     printf("[DEBUG] Minterm check: minterm_a=");
                     print_binary(minterm_a, num_vars);
                     printf(", minterm_b=");
@@ -132,7 +136,11 @@ int can_merge(Implicant a, Implicant b, Implicant *result)
                     print_binary(masked_b, num_vars);
                     printf("\n");
                     if (masked_a != masked_b) {
-                        printf("[DEBUG] Minterm consistency failed for bit %d\n", i);
+                        printf("[DEBUG] Minterm consistency failed for bit %d: masked_a=", i);
+                        print_binary(masked_a, num_vars);
+                        printf(", masked_b=");
+                        print_binary(masked_b, num_vars);
+                        printf("\n");
                         valid = 0;
                         break;
                     }
