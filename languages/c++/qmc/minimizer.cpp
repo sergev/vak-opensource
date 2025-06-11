@@ -100,10 +100,7 @@ std::string minimize_boolean_function(const std::string &truth_table)
             // Sequential processing
             for (size_t i = 0; i < n_vars; ++i) {
                 const auto &group_i = groups[i];
-                const auto &group_i1 =
-                    (i + 1 < groups.size())
-                        ? groups[i + 1]
-                        : std::vector<std::tuple<std::optional<size_t>, uint64_t, uint64_t>>();
+                const auto &group_i1 = groups[i + 1];
                 for (const auto &[m1, t1, mask1] : group_i) {
                     for (const auto &[m2, t2, mask2] : group_i1) {
                         uint64_t xor_val = t1 ^ t2;
@@ -132,10 +129,7 @@ std::string minimize_boolean_function(const std::string &truth_table)
                     std::vector<std::tuple<std::optional<size_t>, uint64_t, uint64_t>>
                         local_combined;
                     const auto &group_i = groups[i];
-                    const auto &group_i1 =
-                        (i + 1 < groups.size())
-                            ? groups[i + 1]
-                            : std::vector<std::tuple<std::optional<size_t>, uint64_t, uint64_t>>();
+                    const auto &group_i1 = groups[i + 1];
 
                     for (const auto &[m1, t1, mask1] : group_i) {
                         for (const auto &[m2, t2, mask2] : group_i1) {
