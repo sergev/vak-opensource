@@ -9,9 +9,9 @@
 
 #include "utils.h"
 
-static bool should_print_truth_table = true;
-static bool should_print_implicant_table = true;
-static bool debug = true;
+static bool should_print_truth_table = false;
+static bool should_print_implicant_table = false;
+static bool debug = false;
 size_t thread_threshold = 99;
 
 std::string minimize_boolean_function(const std::string &truth_table)
