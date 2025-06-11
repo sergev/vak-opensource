@@ -5,10 +5,11 @@
 #include <vector>
 
 // Function from minimizer.cpp
-std::string minimize_boolean_function(const std::string &truth_table_str,
-                                      bool should_print_truth_table,
-                                      bool should_print_implicant_table, bool debug,
-                                      size_t thread_threshold);
+std::string minimize_boolean_function(const std::string &truth_table_str);
+
+//                                      bool should_print_truth_table,
+//                                      bool should_print_implicant_table, bool debug,
+//                                      size_t thread_threshold);
 
 // Test fixture for setting common parameters
 class MinimizerTest : public ::testing::Test {
@@ -23,9 +24,7 @@ protected:
 TEST_F(MinimizerTest, TwoVariables)
 {
     std::string truth_table = "0101";
-    std::string result =
-        minimize_boolean_function(truth_table, should_print_truth_table,
-                                  should_print_implicant_table, debug, thread_threshold);
+    std::string result      = minimize_boolean_function(truth_table);
     EXPECT_EQ(result, "B");
 }
 
@@ -36,9 +35,7 @@ TEST_F(MinimizerTest, ThreeVariables)
     // ABC: 000 001 010 011 100 101 110 111
     //      0   1   0   1   X   1   X   0
     std::string truth_table = "0101X1X0";
-    std::string result =
-        minimize_boolean_function(truth_table, should_print_truth_table,
-                                  should_print_implicant_table, debug, thread_threshold);
+    std::string result      = minimize_boolean_function(truth_table);
     // Expected: ~AC + BC (covers minterms 1,3,5; don't cares 4,6 help simplify)
     EXPECT_EQ(result, "~AC + BC");
 }
@@ -52,9 +49,7 @@ TEST_F(MinimizerTest, FourVariables)
     //       1000 1001 1010 1011 1100 1101 1110 1111
     //       0    0    1    0    X    0    0    1
     std::string truth_table = "10X0010X0010X001";
-    std::string result =
-        minimize_boolean_function(truth_table, should_print_truth_table,
-                                  should_print_implicant_table, debug, thread_threshold);
+    std::string result      = minimize_boolean_function(truth_table);
     // Expected: ~A~B~C + AB~C + ABCD (covers 0,5,10,15; don't cares simplify)
     EXPECT_EQ(result, "~A~B~C + AB~C + ABCD");
 }
@@ -66,9 +61,7 @@ TEST_F(MinimizerTest, FiveVariables)
     // ABCDE: 00000 00001 00010 00011 ... 11111
     //        X     0     0     1    ... 1
     std::string truth_table = "X001000001X0000001000000100000X1";
-    std::string result =
-        minimize_boolean_function(truth_table, should_print_truth_table,
-                                  should_print_implicant_table, debug, thread_threshold);
+    std::string result      = minimize_boolean_function(truth_table);
     // Expected: ~A~BCD + A~BCD + ABC~D + ABCD (covers 3,9,17,25,31)
     EXPECT_EQ(result, "~A~BCD + A~BCD + ABC~D + ABCD");
 }
@@ -81,9 +74,7 @@ TEST_F(MinimizerTest, SixVariables)
     // ABCDEF: 000000 000001 000010 ... 111111
     //         X      1      X     ... 1
     std::string truth_table = "X1X0X0X0X0000000X0000000000000000X0000000000000000000000000000001";
-    std::string result =
-        minimize_boolean_function(truth_table, should_print_truth_table,
-                                  should_print_implicant_table, debug, thread_threshold);
+    std::string result      = minimize_boolean_function(truth_table);
     // Expected: ~A~B~C~D~EF + ABCDEF (covers 1,63; don't cares simplify greatly)
     EXPECT_EQ(result, "~A~B~C~D~EF + ABCDEF");
 }
@@ -97,9 +88,7 @@ TEST_F(MinimizerTest, SevenVariables)
     std::string truth_table =
         "0X0X1000000000000000010000000000000000000000000000000000000000000XX10000000000000000000000"
         "00000000000000000000000000000000000001";
-    std::string result =
-        minimize_boolean_function(truth_table, should_print_truth_table,
-                                  should_print_implicant_table, debug, thread_threshold);
+    std::string result = minimize_boolean_function(truth_table);
     // Expected: ~A~B~C~D~FG + A~B~C~FG + ABC~D~FG + ABCDEFG
     EXPECT_EQ(result, "~A~B~C~D~FG + A~B~C~FG + ABC~D~FG + ABCDEFG");
 }
@@ -111,17 +100,15 @@ TEST_F(MinimizerTest, EightVariables)
     // ABCDEFGH: 00000000 00000001 00000010 ... 00001010 ... 01100100 ... 11111111
     //           X        X        X       ... 1       ... 1       ... 1
     std::string truth_table(256, '0'); // Initialize with zeros
-    truth_table[0]   = 'X';
-    truth_table[1]   = 'X';
-    truth_table[2]   = 'X';
-    truth_table[3]   = 'X';
-    truth_table[4]   = 'X';
-    truth_table[10]  = '1'; // Minterm 10
-    truth_table[100] = '1'; // Minterm 100
-    truth_table[255] = '1'; // Minterm 255
-    std::string result =
-        minimize_boolean_function(truth_table, should_print_truth_table,
-                                  should_print_implicant_table, debug, thread_threshold);
+    truth_table[0]     = 'X';
+    truth_table[1]     = 'X';
+    truth_table[2]     = 'X';
+    truth_table[3]     = 'X';
+    truth_table[4]     = 'X';
+    truth_table[10]    = '1'; // Minterm 10
+    truth_table[100]   = '1'; // Minterm 100
+    truth_table[255]   = '1'; // Minterm 255
+    std::string result = minimize_boolean_function(truth_table);
     // Expected: ~A~BC~D~E~FGH + A~B~C~D~EFGH + ABCDEFGH
     // Covers minterms 10 (00001010), 100 (01100100), 255 (11111111) using don't cares
     EXPECT_EQ(result, "~A~BC~D~E~FGH + A~B~C~D~EFGH + ABCDEFGH");
