@@ -98,13 +98,36 @@ static void parse_truth_table(const char *truth_table)
 static int can_merge(Implicant a, Implicant b, Implicant *result)
 {
     uint64_t diff          = a.value ^ b.value;
-    uint64_t relevant_bits = a.mask | b.mask;
+    uint64_t relevant_bits = a.mask & b.mask;
     diff &= relevant_bits;
-    if (count_ones(diff) != 1)
+    if (count_ones(diff) != 1) {
+        // Allow merge if one is a don't care
+        if (a.mask == 0 || b.mask == 0) {
+            diff                = a.value ^ b.value;
+            uint64_t check_bits = a.mask | b.mask;
+            diff &= check_bits;
+            if (count_ones(diff) != 1)
+                return 0;
+        } else {
+            return 0;
+        }
+    }
+
+    // Determine the differing bit position
+    uint64_t diff_bit = diff;
+    result->mask      = (a.mask & b.mask) & ~diff;
+    if (a.mask == 0) {
+        result->value = b.value;
+        result->mask  = b.mask & ~diff;
+    } else if (b.mask == 0) {
+        result->value = a.value;
+        result->mask  = a.mask & ~diff;
+    } else {
+        result->value = a.value & ~diff_bit; // Clear differing bit
+    }
+    if (result->mask == 0 && (a.mask != 0 || b.mask != 0))
         return 0;
 
-    result->value        = a.value & b.value;
-    result->mask         = (a.mask & b.mask) & ~diff;
     result->num_minterms = 0;
     for (int i = 0; i < a.num_minterms; i++) {
         result->minterms[result->num_minterms++] = a.minterms[i];
@@ -176,7 +199,7 @@ static int reduce_implicants(Implicant *src, int src_count, Implicant *dest)
 
     // Copy unused implicants (prime implicants)
     for (int i = 0; i < src_count; i++) {
-        if (!used[i]) {
+        if (!used[i] && src[i].mask != 0) {
             temp[dest_count++] = src[i];
         }
     }
@@ -388,6 +411,22 @@ static void print_implicant(Implicant imp)
     if (first)
         printf("1");
     printf("\n");
+
+    // Print actual expression to stdout
+    first = 1;
+    for (int i = 0; i < num_vars; i++) {
+        uint64_t bit = 1ULL << (num_vars - 1 - i);
+        if (imp.mask & bit) {
+            if (!first)
+                printf("");
+            if (!(imp.value & bit))
+                printf("~");
+            printf("%c", 'A' + i);
+            first = 0;
+        }
+    }
+    if (first)
+        printf("1");
 }
 
 // Main minimization function
