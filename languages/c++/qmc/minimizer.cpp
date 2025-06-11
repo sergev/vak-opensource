@@ -3,18 +3,15 @@
 #include <iostream>
 #include <mutex>
 #include <optional>
-#include <set>
 #include <stdexcept>
-#include <string>
 #include <thread>
-#include <vector>
 
 #include "utils.h"
 
-std::string minimize_boolean_function(
-    const std::string &truth_table, // must contain only '0', '1', or 'X'
-    bool should_print_truth_table, bool should_print_implicant_table, bool debug,
-    size_t thread_threshold)
+std::string minimize_boolean_function(const std::string &truth_table,
+                                      bool should_print_truth_table,
+                                      bool should_print_implicant_table, bool debug,
+                                      size_t thread_threshold)
 {
     size_t n_vars = static_cast<size_t>(std::log2(truth_table.size()));
     if (truth_table.size() != (1ull << n_vars)) {
@@ -35,6 +32,8 @@ std::string minimize_boolean_function(
             minterms.push_back(i);
         } else if (truth_table[i] == 'X') {
             dont_cares.push_back(i);
+        } else if (truth_table[i] != '0') {
+            throw std::runtime_error("Truth table must contain only '0', '1', or 'X'");
         }
     }
     if (minterms.empty()) {
@@ -143,8 +142,8 @@ std::string minimize_boolean_function(
                                 uint64_t new_mask = mask1 & ~xor_val;
                                 size_t ones       = std::popcount(new_term);
                                 local_new.emplace_back(ones, std::nullopt, new_term, new_mask);
-                                local_combined.emplace(m1, t1, mask1);
-                                local_combined.emplace(m2, t2, mask2);
+                                local_combined.emplace_back(m1, t1, mask1);
+                                local_combined.emplace_back(m2, t2, mask2);
                             }
                         }
                     }

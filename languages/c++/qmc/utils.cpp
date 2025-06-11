@@ -1,11 +1,8 @@
+#include "utils.h"
+
 #include <iomanip>
 #include <iostream>
-#include <set>
 #include <sstream>
-#include <string>
-#include <vector>
-
-#include "utils.h"
 
 void print_truth_table(const std::string &truth_table, size_t n_vars, bool should_print)
 {
