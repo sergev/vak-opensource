@@ -1,4 +1,3 @@
-use bitvec::vec::BitVec;
 use itertools::Itertools;
 use rayon::prelude::*;
 use std::collections::HashSet;
@@ -29,7 +28,7 @@ fn print_truth_table(truth_table: &[TruthValue], n_vars: usize) {
     let width = header.len() + (n_vars + 2) * 3;
     println!("{:-<width$}", "");
     println!("| {} |", header);
-    println!("{:-<width$}", "");
+        println!("{:-<width$}", "");
 
     let max_rows = if n_vars >= 5 { 5 } else { truth_table.len() };
     let total_rows = truth_table.len();
@@ -68,8 +67,8 @@ fn print_truth_table(truth_table: &[TruthValue], n_vars: usize) {
 
 // Pretty-print implicant table
 fn print_implicant_table(
-    prime_implicants: &HashSet<(BitVec, BitVec)>,
-    essential: &[(BitVec, BitVec)],
+    prime_implicants: &HashSet<(u64, u64)>,
+    essential: &[(u64, u64)],
     minterms: &[usize],
     n_vars: usize,
 ) {
@@ -83,12 +82,12 @@ fn print_implicant_table(
     );
     println!("{:-<80}", "");
 
-    let to_term = |term: &BitVec, mask: &BitVec| -> String {
-        let result = term.iter().zip(mask.iter()).enumerate()
-            .filter(|(_, (_, mask_bit))| **mask_bit)
-            .map(|(i, (term_bit, _))| {
+    let to_term = |term: u64, mask: u64| -> String {
+        let result = (0..n_vars)
+            .filter(|&i| mask & (1 << i) != 0)
+            .map(|i| {
                 let var = VARS[i];
-                if **term_bit {
+                if term & (1 << i) != 0 {
                     var.to_string()
                 } else {
                     format!("~{}", var)
@@ -98,32 +97,32 @@ fn print_implicant_table(
         if result.is_empty() { "1".to_string() } else { result.join("") }
     };
 
-    let to_binary = |term: &BitVec, mask: &BitVec| -> String {
-        term.iter().zip(mask.iter())
-            .map(|(t, m)| if !**m { '-' } else if **t { '1' } else { '0' })
+    let to_binary = |term: u64, mask: u64| -> String {
+        (0..n_vars)
+            .rev()
+            .map(|i| {
+                if mask & (1 << i) == 0 {
+                    '-'
+                } else if term & (1 << i) != 0 {
+                    '1'
+                } else {
+                    '0'
+                }
+            })
             .collect::<String>()
     };
 
-    let covers_minterm = |term: &BitVec, mask: &BitVec, m: usize| -> bool {
-        let m_bv = {
-            let mut bv = BitVec::new();
-            bv.resize(n_vars, false);
-            for i in 0..n_vars {
-                bv.set(i, (m & (1 << (n_vars - 1 - i))) != 0);
-            }
-            bv
-        };
-        m_bv.iter().zip(term.iter().zip(mask.iter()))
-            .all(|(m_bit, (t_bit, mask_bit))| !**mask_bit || (**m_bit == **t_bit))
+    let covers_minterm = |term: u64, mask: u64, m: usize| -> bool {
+        (m as u64 & mask) == (term & mask)
     };
 
-    for (term, mask) in prime_implicants {
+    for &(term, mask) in prime_implicants {
         let covered = minterms.iter()
             .filter(|&&m| covers_minterm(term, mask, m))
             .map(|m| m.to_string())
             .collect_vec()
             .join(", ");
-        let is_essential = essential.contains(&(term.clone(), mask.clone()));
+        let is_essential = essential.contains(&(term, mask));
         println!(
             "| {:<20} | {:<15} | {:<40} | {:<5} |",
             to_term(term, mask),
@@ -142,6 +141,9 @@ fn minimize_boolean_function(truth_table_str: &str) -> Result<String, String> {
     let n_vars = (truth_table.len() as f64).log2() as usize;
     if truth_table.len() != 1 << n_vars {
         return Err("Truth table length must be a power of 2".to_string());
+    }
+    if n_vars > 64 {
+        return Err("Number of variables exceeds u64 capacity (64)".to_string());
     }
 
     // Print truth table
@@ -166,29 +168,19 @@ fn minimize_boolean_function(truth_table_str: &str) -> Result<String, String> {
         return Ok("0".to_string());
     }
 
-    // Convert minterms to BitVec
-    let to_bitvec = |m: usize| -> BitVec {
-        let mut bv = BitVec::new();
-        bv.resize(n_vars, false);
-        for i in 0..n_vars {
-            bv.set(i, (m & (1 << (n_vars - 1 - i))) != 0);
-        }
-        bv
-    };
-
     // Group implicants by number of 1s
-    let mut groups: Vec<Vec<(Option<usize>, BitVec)>> = vec![vec![]; n_vars + 1];
+    let mut groups: Vec<Vec<(Option<usize>, u64)>> = vec![vec![]; n_vars + 1];
     for &m in &implicants {
-        let bv = to_bitvec(m);
-        let ones = bv.count_ones();
-        groups[ones].push((Some(m), bv));
+        let term = m as u64;
+        let ones = term.count_ones() as usize;
+        groups[ones].push((Some(m), term));
     }
 
     // Quine-McCluskey: Combine implicants
-    let mut prime_implicants: HashSet<(BitVec, BitVec)> = HashSet::new();
+    let mut prime_implicants: HashSet<(u64, u64)> = HashSet::new(); // (term, mask)
     loop {
-        let mut new_groups: Vec<Vec<(Option<usize>, BitVec)>> = vec![vec![]; n_vars + 1];
-        let mut combined: HashSet<(Option<usize>, BitVec)> = HashSet::new();
+        let mut new_groups: Vec<Vec<(Option<usize>, u64)>> = vec![vec![]; n_vars + 1];
+        let mut combined: HashSet<(Option<usize>, u64)> = HashSet::new();
 
         // Choose sequential or parallel based on n_vars
         if n_vars < 5 {
@@ -198,41 +190,37 @@ fn minimize_boolean_function(truth_table_str: &str) -> Result<String, String> {
                 let group_i1 = &groups[i + 1];
                 for (m1, t1) in group_i {
                     for (m2, t2) in group_i1 {
-                        let xor = t1.clone() ^ t2.clone();
+                        let xor = t1 ^ t2;
                         if xor.count_ones() == 1 {
-                            let mut new_term = t1.clone();
-                            let diff_idx = xor.iter_ones().next().unwrap();
-                            new_term.set(diff_idx, false);
-                            let ones = new_term.count_ones();
-                            new_groups[ones].push((None, new_term.clone()));
-                            combined.insert((*m1, t1.clone()));
-                            combined.insert((*m2, t2.clone()));
+                            let new_term = t1 & !xor; // Clear differing bit
+                            let ones = new_term.count_ones() as usize;
+                            new_groups[ones].push((None, new_term));
+                            combined.insert((*m1, *t1));
+                            combined.insert((*m2, *t2));
                         }
                     }
                 }
             }
         } else {
             // Parallel processing
-            let new_groups_mutex: Vec<Mutex<Vec<(Option<usize>, BitVec)>>> = (0..=n_vars)
+            let new_groups_mutex: Vec<Mutex<Vec<(Option<usize>, u64)>>> = (0..=n_vars)
                 .map(|_| Mutex::new(vec![]))
                 .collect();
-            let combined_mutex: Mutex<HashSet<(Option<usize>, BitVec)>> = Mutex::new(HashSet::new());
+            let combined_mutex: Mutex<HashSet<(Option<usize>, u64)>> = Mutex::new(HashSet::new());
 
             (0..n_vars).par_iter().for_each(|&i| {
                 let group_i = &groups[i];
                 let group_i1 = &groups[i + 1];
                 for (m1, t1) in group_i {
                     for (m2, t2) in group_i1 {
-                        let xor = t1.clone() ^ t2.clone();
+                        let xor = t1 ^ t2;
                         if xor.count_ones() == 1 {
-                            let mut new_term = t1.clone();
-                            let diff_idx = xor.iter_ones().next().unwrap();
-                            new_term.set(diff_idx, false);
-                            let ones = new_term.count_ones();
-                            new_groups_mutex[ones].lock().unwrap().push((None, new_term.clone()));
+                            let new_term = t1 & !xor;
+                            let ones = new_term.count_ones() as usize;
+                            new_groups_mutex[ones].lock().unwrap().push((None, new_term));
                             let mut combined_lock = combined_mutex.lock().unwrap();
-                            combined_lock.insert((*m1, t1.clone()));
-                            combined_lock.insert((*m2, t2.clone()));
+                            combined_lock.insert((*m1, *t1));
+                            combined_lock.insert((*m2, *t2));
                         }
                     }
                 }
@@ -247,9 +235,9 @@ fn minimize_boolean_function(truth_table_str: &str) -> Result<String, String> {
         // Add uncombined terms as prime implicants
         for group in &groups {
             for (m, t) in group {
-                if !combined.contains(&(*m, t.clone())) {
-                    let mask = BitVec::repeat(true, n_vars);
-                    prime_implicants.insert((t.clone(), mask));
+                if !combined.contains(&(*m, *t)) {
+                    let mask = (1u64 << n_vars) - 1; // All bits relevant
+                    prime_implicants.insert((*t, mask));
                 }
             }
         }
@@ -261,29 +249,23 @@ fn minimize_boolean_function(truth_table_str: &str) -> Result<String, String> {
     }
 
     // Select essential prime implicants
-    let mut essential: Vec<(BitVec, BitVec)> = vec![];
+    let mut essential: Vec<(u64, u64)> = vec![];
     let mut covered: HashSet<usize> = HashSet::new();
     for &m in &minterms {
         if dont_cares.contains(&m) {
             continue;
         }
-        let m_bv = to_bitvec(m);
         let covering = prime_implicants.iter()
-            .filter(|(t, mask)| {
-                m_bv.iter().zip(t.iter().zip(mask.iter()))
-                    .all(|(m_bit, (t_bit, mask_bit))| !**mask_bit || (**m_bit == **t_bit))
-            })
-            .cloned()
+            .filter(|&&(t, mask)| (m as u64 & mask) == (t & mask))
+            .copied()
             .collect_vec();
         if covering.len() == 1 {
-            let pi = covering[0].clone();
+            let pi = covering[0];
             if !essential.contains(&pi) {
-                essential.push(pi.clone());
-                let (t, mask) = &pi;
+                essential.push(pi);
+                let (t, mask) = pi;
                 for &m2 in &minterms {
-                    let m2_bv = to_bitvec(m2);
-                    if m2_bv.iter().zip(t.iter().zip(mask.iter()))
-                        .all(|(m_bit, (t_bit, mask_bit))| !**mask_bit || (**m_bit == **t_bit)) {
+                    if (m2 as u64 & mask) == (t & mask) {
                         covered.insert(m2);
                     }
                 }
@@ -293,16 +275,11 @@ fn minimize_boolean_function(truth_table_str: &str) -> Result<String, String> {
     // Cover remaining minterms
     for &m in &minterms {
         if !covered.contains(&m) && !dont_cares.contains(&m) {
-            let m_bv = to_bitvec(m);
-            for pi in &prime_implicants {
-                let (t, mask) = pi;
-                if !essential.contains(pi) && m_bv.iter().zip(t.iter().zip(mask.iter()))
-                    .all(|(m_bit, (t_bit, mask_bit))| !**mask_bit || (**m_bit == **t_bit)) {
-                    essential.push(pi.clone());
+            for &(t, mask) in &prime_implicants {
+                if !essential.contains(&(t, mask)) && (m as u64 & mask) == (t & mask) {
+                    essential.push((t, mask));
                     for &m2 in &minterms {
-                        let m2_bv = to_bitvec(m2);
-                        if m2_bv.iter().zip(t.iter().zip(mask.iter()))
-                            .all(|(m_bit, (t_bit, mask_bit))| !**mask_bit || (**m_bit == **t_bit)) {
+                        if (m2 as u64 & mask) == (t & mask) {
                             covered.insert(m2);
                         }
                     }
@@ -317,12 +294,12 @@ fn minimize_boolean_function(truth_table_str: &str) -> Result<String, String> {
 
     // Convert to Boolean expression
     static VARS: [char; 26] = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-    let expression = essential.iter().map(|(term, mask)| {
-        let result = term.iter().zip(mask.iter()).enumerate()
-            .filter(|(_, (_, mask_bit))| **mask_bit)
-            .map(|(i, (term_bit, _))| {
+    let expression = essential.iter().map(|&(term, mask)| {
+        let result = (0..n_vars)
+            .filter(|&i| mask & (1 << i) != 0)
+            .map(|i| {
                 let var = VARS[i];
-                if **term_bit {
+                if term & (1 << i) != 0 {
                     var.to_string()
                 } else {
                     format!("~{}", var)

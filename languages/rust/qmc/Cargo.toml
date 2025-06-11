@@ -4,6 +4,5 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-bitvec = "1.0"
-itertools = "0.13"
+itertools = "0.14"
 rayon = "1.10"
