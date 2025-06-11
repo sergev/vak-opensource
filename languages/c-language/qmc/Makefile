@@ -1,4 +1,4 @@
 CFLAGS = -Wall -g
 LDFLAGS = -g
 
-all:    qmc
+all:    can_merge

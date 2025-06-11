@@ -98,56 +98,74 @@ static void parse_truth_table(const char *truth_table)
 // Compare two implicants for merging
 static int can_merge(Implicant a, Implicant b, Implicant *result)
 {
-    uint64_t diff          = a.value ^ b.value;
-    uint64_t relevant_bits = a.mask & b.mask; // Regular merge: both defined
-    uint64_t diff_regular  = diff & relevant_bits;
+    uint64_t diff = a.value ^ b.value; // Bits that differ
+    uint64_t relevant_bits;
+    uint64_t diff_bits;
 
-    // Regular merge: one-bit difference in defined bits
-    if (count_ones(diff_regular) == 1 && a.mask != 0 && b.mask != 0) {
-        result->value = a.value & b.value;
-        result->mask  = a.mask & b.mask & ~diff;
+    // Regular merge: both implicants have defined masks
+    if (a.mask != 0 && b.mask != 0) {
+        relevant_bits = a.mask & b.mask; // Bits defined in both
+        diff_bits     = diff & relevant_bits;
+        if (count_ones(diff_bits) != 1)
+            return 0; // Must differ in exactly one bit
+
+        result->value = a.value & b.value;            // Common bits
+        result->mask  = a.mask & b.mask & ~diff_bits; // Clear differing bit
     }
-    // Don't-care merge: select one differing bit to clear
-    else if (a.mask == 0 || b.mask == 0) {
-        relevant_bits = a.mask | b.mask;
-        diff &= relevant_bits;
-        if (diff == 0)
+    // Don't-care merge: one or both implicants are don't cares
+    else {
+        relevant_bits = a.mask | b.mask; // Bits defined in either
+        diff_bits     = diff & relevant_bits;
+        if (diff_bits == 0)
             return 0; // Identical in defined bits
 
-        // Select the highest differing bit (prioritize higher-order variables)
-        uint64_t diff_bit = 1ULL << (num_vars - 1);
-        while (diff_bit && !(diff & diff_bit))
-            diff_bit >>= 1;
-        if (!diff_bit)
-            return 0; // No valid differing bit
+        // Try each differing bit to find a valid merge
+        for (int i = num_vars - 1; i >= 0; i--) {
+            uint64_t diff_bit = 1ULL << i;
+            if (!(diff_bits & diff_bit))
+                continue;
 
-        if (a.mask == 0) {
-            result->value = b.value;
-            result->mask  = b.mask & ~diff_bit;
-        } else {
-            result->value = a.value;
-            result->mask  = a.mask & ~diff_bit;
+            // Test merge with this bit cleared
+            if (a.mask == 0 && b.mask == 0) {
+                result->value = a.value & b.value;
+                result->mask  = 0;
+            } else if (a.mask == 0) {
+                result->value = b.value;
+                result->mask  = b.mask & ~diff_bit;
+            } else {
+                result->value = a.value;
+                result->mask  = a.mask & ~diff_bit;
+            }
+
+            // Validate minterm consistency for this mask
+            int valid = 1;
+            for (int j = 0; j < a.num_minterms; j++) {
+                for (int k = 0; k < b.num_minterms; k++) {
+                    uint64_t minterm_a = minterms[a.minterms[j]].value;
+                    uint64_t minterm_b = minterms[b.minterms[k]].value;
+                    if ((minterm_a & result->mask) != (minterm_b & result->mask)) {
+                        valid = 0;
+                        break;
+                    }
+                }
+                if (!valid)
+                    break;
+            }
+
+            if (valid) {
+                // Merge is valid, proceed
+                break;
+            } else if (i == 0) {
+                return 0; // No valid merge found
+            }
         }
-    } else {
-        return 0; // Invalid merge
     }
 
     // Prevent invalid implicants
     if (result->mask == 0 && (a.mask != 0 || b.mask != 0))
         return 0;
 
-    // Validate minterm consistency
-    for (int i = 0; i < a.num_minterms; i++) {
-        for (int j = 0; j < b.num_minterms; j++) {
-            uint64_t minterm_a  = minterms[a.minterms[i]].value;
-            uint64_t minterm_b  = minterms[b.minterms[j]].value;
-            uint64_t check_bits = result->mask;
-            if ((minterm_a & check_bits) != (minterm_b & check_bits)) {
-                return 0; // Inconsistent minterms
-            }
-        }
-    }
-
+    // Populate minterms
     result->num_minterms = 0;
     for (int i = 0; i < a.num_minterms; i++) {
         result->minterms[result->num_minterms++] = a.minterms[i];
