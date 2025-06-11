@@ -204,6 +204,8 @@ pub fn minimize_boolean_function(
             }
         }
     }
+    essential.sort();
+    essential.reverse();
 
     // Print implicant table
     print_implicant_table(&prime_implicants, &essential, &minterms, n_vars, should_print_implicant_table);
@@ -212,9 +214,10 @@ pub fn minimize_boolean_function(
     static VARS: [char; 26] = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
     let expression = essential.iter().map(|&(term, mask)| {
         let result = (0..n_vars)
+            .rev()
             .filter(|&i| mask & (1 << i) != 0)
             .map(|i| {
-                let var = VARS[i];
+                let var = VARS[n_vars - i - 1];
                 if term & (1 << i) != 0 {
                     var.to_string()
                 } else {

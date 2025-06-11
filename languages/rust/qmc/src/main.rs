@@ -127,9 +127,10 @@ pub fn print_implicant_table(
 
     let to_term = |term: u64, mask: u64| -> String {
         let result = (0..n_vars)
+            .rev()
             .filter(|&i| mask & (1 << i) != 0)
             .map(|i| {
-                let var = VARS[i];
+                let var = VARS[n_vars - i - 1];
                 if term & (1 << i) != 0 {
                     var.to_string()
                 } else {

@@ -3,117 +3,6 @@ mod tests {
 
     use super::super::minimizer::minimize_boolean_function;
 
-    // 4-variable truth table: A~B + C~D
-    pub fn generate_4var_truth_table() -> String {
-        let mut table = vec!['0'; 1 << 4];
-        // A~B (10xx)
-        for cd in 0..4 {
-            let m = (1 << 3) | cd;
-            table[m] = '1';
-        }
-        // C~D (xx10)
-        for ab in 0..4 {
-            let m = (ab << 2) | 2;
-            table[m] = '1';
-        }
-        table.into_iter().collect()
-    }
-
-    // 5-variable truth table: I~J + K~LM
-    pub fn generate_5var_truth_table() -> String {
-        let mut table = vec!['0'; 1 << 5];
-        // I~J (10xxx)
-        for klm in 0..8 {
-            let m = (1 << 4) | (0 << 3) | klm;
-            table[m] = '1';
-        }
-        // K~LM (xx101)
-        for ij in 0..4 {
-            let m = (ij << 3) | (1 << 2) | (0 << 1) | 1;
-            table[m] = '1';
-        }
-        table.into_iter().collect()
-    }
-
-    // 6-variable truth table: ~IJK + LM~N
-    pub fn generate_6var_truth_table() -> String {
-        let mut table = vec!['0'; 1 << 6];
-        // ~IJK (000xxx)
-        for lmn in 0..8 {
-            let m = lmn;
-            table[m] = '1';
-        }
-        // LM~N (xxx110)
-        for ijk in 0..8 {
-            let m = (ijk << 3) | 6;
-            table[m] = '1';
-        }
-        table.into_iter().collect()
-    }
-
-    // 7-variable truth table: ~FG + H~IJ + KLM
-    pub fn generate_7var_truth_table() -> String {
-        let mut table = vec!['0'; 1 << 7];
-        // ~FG (0x0xxxx)
-        for ahijk in 0..32 {
-            let m = (ahijk & 0x1E) << 1 | (ahijk & 1);
-            table[m] = '1';
-        }
-        // H~IJ (x1x00xx)
-        for afgklm in 0..32 {
-            let m = (afgklm >> 2) << 5 | (1 << 3) | (afgklm & 3);
-            table[m] = '1';
-        }
-        // KLM (xxx111x)
-        for afghij in 0..64 {
-            let m = (afghij << 3) | 7;
-            table[m] = '1';
-        }
-        table.into_iter().collect()
-    }
-
-    // 8-variable truth table: ~AB + CDE + ~FGH
-    pub fn generate_8var_truth_table() -> String {
-        let mut table = vec!['0'; 1 << 8];
-        // ~AB (00xxxxxx)
-        for cdefgh in 0..64 {
-            let m = cdefgh;
-            table[m] = '1';
-        }
-        // CDE (xx111xxx)
-        for abfgh in 0..32 {
-            let m = (abfgh >> 3) << 6 | (7 << 3) | (abfgh & 7);
-            table[m] = '1';
-        }
-        // ~FGH (xxxx000x)
-        for abcde in 0..32 {
-            let m = abcde << 3;
-            table[m] = '1';
-        }
-        table.into_iter().collect()
-    }
-
-    // 9-variable truth table: I~J + KLM + ~NOP
-    pub fn generate_9var_truth_table() -> String {
-        let mut table = vec!['0'; 1 << 9];
-        // I~J (10xxxxxxx)
-        for klmnop in 0..128 {
-            let m = (1 << 8) | (0 << 7) | klmnop;
-            table[m] = '1';
-        }
-        // KLM (xxx111xxx)
-        for ijnoq in 0..64 {
-            let m = (ijnoq >> 3) << 6 | (7 << 3) | (ijnoq & 7);
-            table[m] = '1';
-        }
-        // ~NOP (xxxxxx000)
-        for ijklm in 0..32 {
-            let m = ijklm << 3;
-            table[m] = '1';
-        }
-        table.into_iter().collect()
-    }
-
     // 10-variable truth table: ~IJK + LM~N + OP
     pub fn generate_10var_truth_table() -> String {
         let mut table = vec!['0'; 1 << 10];
@@ -282,58 +171,62 @@ mod tests {
     }
 
     #[test]
+    fn test_2_variables() {
+        let result = minimize_boolean_function("0101", true, true, false, 5).unwrap();
+        println!("2-variable result: {}", result);
+        assert!(result == "B");
+    }
+
+    #[test]
     fn test_3_variables() {
         let result = minimize_boolean_function("01X010X1", true, true, false, 5).unwrap();
-        assert!(!result.is_empty());
         println!("3-variable result: {}", result);
+        assert!(result == "AB + A~C + ~A~BC");
     }
 
     #[test]
     fn test_4_variables() {
-        let truth_table = generate_4var_truth_table();
-        let result = minimize_boolean_function(&truth_table, true, true, false, 5).unwrap();
-        assert!(!result.is_empty());
+        let result = minimize_boolean_function("10X0010X0010X001", true, true, false, 5).unwrap();
         println!("4-variable result: {}", result);
+        assert!(result == "BCD + ~ABD + ~BC~D + ~A~B~D");
     }
 
     #[test]
     fn test_5_variables() {
-        let truth_table = generate_5var_truth_table();
-        let result = minimize_boolean_function(&truth_table, true, true, false, 5).unwrap();
-        assert!(!result.is_empty());
+        let result = minimize_boolean_function("X001000001X000000100X000010000X1", true, true, false, 5).unwrap();
         println!("5-variable result: {}", result);
+        assert!(result == "ABCD + A~C~DE + B~C~DE + ~A~B~CDE");
     }
 
     #[test]
     fn test_6_variables() {
-        let truth_table = generate_6var_truth_table();
-        let result = minimize_boolean_function(&truth_table, true, true, false, 5).unwrap();
-        assert!(!result.is_empty());
+        let result = minimize_boolean_function("X001000001X000000100X000010000X000000000000000000000000000000001", true, true, false, 5).unwrap();
         println!("6-variable result: {}", result);
+        assert!(result == "ABCDEF + ~AB~D~EF + ~AC~D~EF + ~A~B~C~DEF");
     }
 
     #[test]
     fn test_7_variables() {
-        let truth_table = generate_7var_truth_table();
-        let result = minimize_boolean_function(&truth_table, true, true, false, 5).unwrap();
-        assert!(!result.is_empty());
+        let result = minimize_boolean_function("X001000001X000000100X000010000X0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001", true, true, false, 5).unwrap();
         println!("7-variable result: {}", result);
+        assert!(result == "ABCDEFG + ~A~BC~E~FG + ~A~BD~E~FG + ~A~B~C~D~EFG");
     }
 
     #[test]
-        fn test_8_variables() {
-        let truth_table = generate_8var_truth_table();
+    fn test_8_variables() {
+        let truth_table = "XXXXX00000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001";
         let result = minimize_boolean_function(&truth_table, true, true, false, 5).unwrap();
-        assert!(!result.is_empty());
         println!("8-variable result: {}", result);
+        assert!(result == "ABCDEFGH + ~ABC~D~EF~G~H + ~A~B~C~D~FG~H");
     }
 
     #[test]
     fn test_9_variables() {
-        let truth_table = generate_9var_truth_table();
+        let truth_table = "XXXXX000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001";
+        println!("9-variable truth_table: {}", truth_table);
         let result = minimize_boolean_function(&truth_table, true, true, false, 5).unwrap();
-        assert!(!result.is_empty());
         println!("9-variable result: {}", result);
+        assert!(result == "ABCDEFGHI + ~A~BCD~E~FG~H~I + ~A~B~C~D~E~GH~I");
     }
 
     #[test]

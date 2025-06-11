@@ -4,5 +4,6 @@ hello
 arc
 format
 *.rs-
+*.py-
 target/
 minimize-boolean-function
