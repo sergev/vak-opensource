@@ -56,12 +56,11 @@ TEST_F(MinimizerTest, FourVariables)
 TEST_F(MinimizerTest, FiveVariables)
 {
     // Truth table for f(A,B,C,D,E) = Σ(3,9,17,25,31) + d(0,10,20,30)
-    // ABCDE: 00000 00001 00010 00011 ... 11111
-    //        X     0     0     1    ... 1
-    std::string truth_table = "X001000001X0000001000000100000X1";
+    //                                   1         2         3
+    //                         01234567890123456789012345678901
+    std::string truth_table = "X001000001X000000100X000010000X1";
     std::string result      = minimize_boolean_function(truth_table);
-    // Expected: ~A~BCD + A~BCD + ABC~D + ABCD (covers 3,9,17,25,31)
-    EXPECT_EQ(result, "~A~B~CDE + A~C~DE + ABCD + B~C~DE");
+    EXPECT_EQ(result, "~A~B~CDE + B~C~DE + A~C~DE + ABCD");
 }
 
 // 6-variable function test

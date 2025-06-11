@@ -19,6 +19,7 @@ def minimize_boolean_function(truth_table):
         return "0"  # No 1s in truth table
 
     # Step 3: Generate implicants (minterms + don't cares)
+    #print("Step 3: minterms =", minterms, ", dont_cares =", dont_cares)
     implicants = minterms + dont_cares
     if not implicants:
         return "0"
@@ -67,32 +68,38 @@ def minimize_boolean_function(truth_table):
         groups = new_groups
         if not any(groups[i] for i in range(n_vars + 1)):
             break
+    # Convert to list for repeatability
+    prime_implicants = sorted(prime_implicants)
 
     # Step 6: Select essential prime implicants
+    #print("Step 6: prime_implicants =", prime_implicants)
     def covers_implicant(term, minterm):
         term_bits = term
         minterm_bits = bin(minterm)[2:].zfill(n_vars)
         return all(t == '-' or t == m for t, m in zip(term_bits, minterm_bits))
 
-    essential = []
+    essential = set()
     covered = set()
     for m in minterms:
         if m in dont_cares:
             continue
         covering = [pi for pi in prime_implicants if covers_implicant(pi, m)]
         if len(covering) == 1:
-            essential.append(covering[0])
+            essential.add(covering[0])
             covered.update([m for m in minterms if covers_implicant(covering[0], m)])
     # Add additional implicants if needed
     for m in minterms:
         if m not in covered and m not in dont_cares:
             for pi in prime_implicants:
                 if pi not in essential and covers_implicant(pi, m):
-                    essential.append(pi)
+                    essential.add(pi)
                     covered.update([m for m in minterms if covers_implicant(pi, m)])
                     break
+    # Convert to list for repeatability
+    essential = sorted(essential, reverse=True)
 
     # Step 7: Convert prime implicants to Boolean expression
+    #print("Step 7: essential =", essential)
     def term_to_expression(term):
         vars = [chr(65 + i) for i in range(n_vars)]  # A, B, C, ...
         result = []
@@ -110,10 +117,68 @@ def minimize_boolean_function(truth_table):
 
 # Example usage
 if __name__ == "__main__":
-    # Example: 3-variable truth table (8 entries)
-    truth_table_3 = [0, 1, 'X', 0, 1, 0, 'X', 1]
-    print("3-variable result:", minimize_boolean_function(truth_table_3))
+    #
+    # Example: 2-variable truth table (4 entries)
+    #
+    input = [0, 1, 0, 1]
+    result = minimize_boolean_function(input)
+    print("2-variable input:", input)
+    print("          result:", result)
+    assert result == "B"
 
+    #
+    # Example: 3-variable truth table (8 entries)
+    #
+    input = [0, 1, 'X', 0, 1, 0, 'X', 1]
+    result = minimize_boolean_function(input)
+    print("3-variable input:", input)
+    print("          result:", result)
+    assert result == "AB + A~C + ~A~BC"
+
+    input = [0, 1, 0, 1, 'X', 1, 'X', 0]
+    result = minimize_boolean_function(input)
+    print("3-variable input:", input)
+    print("          result:", result)
+    assert result == "~AC + ~BC"
+
+    #
     # Example: 4-variable truth table (16 entries)
-    truth_table_4 = [0, 1, 'X', 0, 1, 0, 0, 1, 'X', 0, 0, 1, 0, 1, 'X', 1]
-    print("4-variable result:", minimize_boolean_function(truth_table_4))
+    #
+    input = [0, 1, 'X', 0, 1, 0, 0, 1, 'X', 0, 0, 1, 0, 1, 'X', 1]
+    result = minimize_boolean_function(input)
+    print("4-variable input:", input)
+    print("          result:", result)
+    assert result == "ABD + ACD + ~AB~C~D + ~A~B~CD + BCD"
+
+    # Truth table for f(A,B,C,D) = Σ(0,5,10,15) + d(2,7,12)
+    #        0  1   2   3  4  5  6   7   8  9 10 11  12  13 14 15
+    input = [1, 0, 'X', 0, 0, 1, 0, 'X', 0, 0, 1, 0, 'X', 0, 0, 1]
+    result = minimize_boolean_function(input)
+    print("4-variable input:", input)
+    print("          result:", result)
+    assert result == "~ABD + ~A~B~D + BCD + ~BC~D"
+
+    #
+    # Example: 5-variable truth table (32 entries)
+    #
+    # Truth table for f(A,B,C,D,E) = Σ(3,9,17,25,31) + d(0,10,20,30)
+    #         0   1  2  3  4  5  6  7  8  9  10  11 12 13 14 15 16 17 18 19  20  21 22 23 24 25 26 27 28 29  30  31
+    input = ['X', 0, 0, 1, 0, 0, 0, 0, 0, 1, 'X', 0, 0, 0, 0, 0, 0, 1, 0, 0, 'X', 0, 0, 0, 0, 1, 0, 0, 0, 0, 'X', 1]
+    result = minimize_boolean_function(input)
+    print("5-variable input:", input)
+    print("          result:", result)
+    assert result == "ABCD + A~C~DE + ~A~B~CDE + B~C~DE"
+
+    #
+    # Example: 8-variable truth table (256 entries)
+    #
+    input = [
+        'X' if i in [0, 1, 2, 3, 4] else
+        1 if i in [10, 100, 255] else
+        0
+        for i in range(256)
+    ]
+    result = minimize_boolean_function(input)
+    print("8-variable input:", input)
+    print("          result:", result)
+    assert result == "ABCDEFGH + ~ABC~D~EF~G~H + ~A~B~C~D~FG~H"
