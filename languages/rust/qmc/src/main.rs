@@ -169,18 +169,30 @@ fn minimize_boolean_function(truth_table_str: &str) -> Result<String, String> {
     }
 
     // Group implicants by number of 1s
-    let mut groups: Vec<Vec<(Option<usize>, u64)>> = vec![vec![]; n_vars + 1];
+    let mut groups: Vec<Vec<(Option<usize>, u64, u64)>> = vec![vec![]; n_vars + 1];
     for &m in &implicants {
         let term = m as u64;
+        let mask = (1u64 << n_vars) - 1; // All bits initially relevant
         let ones = term.count_ones() as usize;
-        groups[ones].push((Some(m), term));
+        groups[ones].push((Some(m), term, mask));
     }
 
     // Quine-McCluskey: Combine implicants
-    let mut prime_implicants: HashSet<(u64, u64)> = HashSet::new(); // (term, mask)
+    let mut prime_implicants: HashSet<(u64, u64)> = HashSet::new();
+    let max_iterations = n_vars * 2; // Prevent infinite loops
+    let mut iteration = 0;
+
     loop {
-        let mut new_groups: Vec<Vec<(Option<usize>, u64)>> = vec![vec![]; n_vars + 1];
-        let mut combined: HashSet<(Option<usize>, u64)> = HashSet::new();
+        iteration += 1;
+        if iteration > max_iterations {
+            eprintln!("Warning: Reached max iterations ({}) in Quine-McCluskey loop", max_iterations);
+            break;
+        }
+
+        println!("Iteration {}: {} groups with implicants", iteration, groups.iter().filter(|g| !g.is_empty()).count());
+
+        let mut new_groups: Vec<Vec<(Option<usize>, u64, u64)>> = vec![vec![]; n_vars + 1];
+        let mut combined: HashSet<(Option<usize>, u64, u64)> = HashSet::new();
 
         // Choose sequential or parallel based on n_vars
         if n_vars < 5 {
@@ -188,39 +200,41 @@ fn minimize_boolean_function(truth_table_str: &str) -> Result<String, String> {
             for i in 0..n_vars {
                 let group_i = &groups[i];
                 let group_i1 = &groups[i + 1];
-                for (m1, t1) in group_i {
-                    for (m2, t2) in group_i1 {
+                for (m1, t1, mask1) in group_i {
+                    for (m2, t2, mask2) in group_i1 {
                         let xor = t1 ^ t2;
-                        if xor.count_ones() == 1 {
-                            let new_term = t1 & !xor; // Clear differing bit
+                        if xor.count_ones() == 1 && mask1 == mask2 {
+                            let new_term = t1 & !xor;
+                            let new_mask = *mask1 & !xor; // Update mask for differing bit
                             let ones = new_term.count_ones() as usize;
-                            new_groups[ones].push((None, new_term));
-                            combined.insert((*m1, *t1));
-                            combined.insert((*m2, *t2));
+                            new_groups[ones].push((None, new_term, new_mask));
+                            combined.insert((*m1, *t1, *mask1));
+                            combined.insert((*m2, *t2, *mask2));
                         }
                     }
                 }
             }
         } else {
             // Parallel processing
-            let new_groups_mutex: Vec<Mutex<Vec<(Option<usize>, u64)>>> = (0..=n_vars)
+            let new_groups_mutex: Vec<Mutex<Vec<(Option<usize>, u64, u64)>>> = (0..=n_vars)
                 .map(|_| Mutex::new(vec![]))
                 .collect();
-            let combined_mutex: Mutex<HashSet<(Option<usize>, u64)>> = Mutex::new(HashSet::new());
+            let combined_mutex: Mutex<HashSet<(Option<usize>, u64, u64)>> = Mutex::new(HashSet::new());
 
             (0..n_vars).into_par_iter().for_each(|i| {
                 let group_i = &groups[i];
                 let group_i1 = &groups[i + 1];
-                for (m1, t1) in group_i {
-                    for (m2, t2) in group_i1 {
+                for (m1, t1, mask1) in group_i {
+                    for (m2, t2, mask2) in group_i1 {
                         let xor = t1 ^ t2;
-                        if xor.count_ones() == 1 {
+                        if xor.count_ones() == 1 && mask1 == mask2 {
                             let new_term = t1 & !xor;
+                            let new_mask = *mask1 & !xor;
                             let ones = new_term.count_ones() as usize;
-                            new_groups_mutex[ones].lock().unwrap().push((None, new_term));
+                            new_groups_mutex[ones].lock().unwrap().push((None, new_term, new_mask));
                             let mut combined_lock = combined_mutex.lock().unwrap();
-                            combined_lock.insert((*m1, *t1));
-                            combined_lock.insert((*m2, *t2));
+                            combined_lock.insert((*m1, *t1, *mask1));
+                            combined_lock.insert((*m2, *t2, *mask2));
                         }
                     }
                 }
@@ -234,16 +248,16 @@ fn minimize_boolean_function(truth_table_str: &str) -> Result<String, String> {
 
         // Add uncombined terms as prime implicants
         for group in &groups {
-            for (m, t) in group {
-                if !combined.contains(&(*m, *t)) {
-                    let mask = (1u64 << n_vars) - 1; // All bits relevant
-                    prime_implicants.insert((*t, mask));
+            for (m, t, mask) in group {
+                if !combined.contains(&(*m, *t, *mask)) {
+                    prime_implicants.insert((*t, *mask));
                 }
             }
         }
 
         groups = new_groups;
         if groups.iter().all(|g| g.is_empty()) {
+            println!("Quine-McCluskey loop terminated after {} iterations", iteration);
             break;
         }
     }
@@ -314,20 +328,20 @@ fn minimize_boolean_function(truth_table_str: &str) -> Result<String, String> {
 // 8-variable truth table: A~BCD + E~FG + ~ABH
 fn generate_8var_truth_table() -> String {
     let mut table = vec!['0'; 256];
-    // A=1, B=0, C=1, D=1 (1011xxxx)
-    for efgh in 0..16 {
+    // A=1, B=0, C=1, D=1 (1011xxxx): only 1s, no Xs
+    for efgh in [0, 2, 4, 6, 8, 10, 12, 14] { // Even for 1s
         let m = (1 << 7) | (0 << 6) | (1 << 5) | (1 << 4) | efgh;
-        table[m] = if efgh % 2 == 0 { '1' } else { 'X' };
+        table[m] = '1';
     }
-    // E=1, F=0, G=1 (xxxx101x)
-    for abcdh in 0..32 {
+    // E=1, F=0, G=1 (xxxx101x): only 1s, no Xs
+    for abcdh in [0, 3, 6, 9, 12, 15, 18, 21, 24, 27, 30] { // Divisible by 3
         let m = (abcdh >> 4) << 7 | (1 << 3) | (0 << 2) | (1 << 1) | (abcdh & 1);
-        table[m] = if abcdh % 3 == 0 { '1' } else { 'X' };
+        table[m] = '1';
     }
-    // A=0, B=1, H=1 (01xxxxx1)
-    for cdefg in 0..32 {
+    // A=0, B=1, H=1 (01xxxxx1): only 1s, no Xs
+    for cdefg in [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30] { // Even
         let m = (0 << 7) | (1 << 6) | (cdefg << 1) | 1;
-        table[m] = if cdefg % 2 == 0 { '1' } else { 'X' };
+        table[m] = '1';
     }
     table.into_iter().collect()
 }
