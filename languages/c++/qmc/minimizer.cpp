@@ -1,5 +1,7 @@
 #include <algorithm>
 #include <cstdint>
+#include <iostream>
+#include <map>
 #include <set>
 #include <sstream>
 #include <string>
@@ -38,7 +40,9 @@ struct Implicant {
     Implicant combine(const Implicant &other) const
     {
         Implicant result(*this);
-        result.mask &= ~(bits ^ other.bits); // Remove differing bit from mask
+        result.mask &= ~(bits ^ other.bits);
+        // Use bits from one implicant, adjust for defined bits
+        result.bits = bits & result.mask;
         result.covered_minterms.insert(other.covered_minterms.begin(),
                                        other.covered_minterms.end());
         return result;
@@ -49,12 +53,21 @@ struct Implicant {
         return std::tie(bits, mask) < std::tie(other.bits, other.mask);
     }
 
+    // Added equality operator
+    bool operator==(const Implicant &other) const
+    {
+        return bits == other.bits && mask == other.mask &&
+               covered_minterms == other.covered_minterms;
+    }
+
     bool covers(uint64_t minterm) const { return (minterm & mask) == (bits & mask); }
 };
 
 // Convert implicant to string (e.g., "~AC" for 3 variables where A=0, C=1, B=X)
 std::string implicant_to_string(const Implicant &imp, int var_count)
 {
+    std::cout << "-- mask, bits = 0x" << std::hex << imp.mask << " 0x" << imp.bits << std::dec
+              << "\n";
     std::string result;
     for (int i = 0; i < var_count; ++i) {
         if (imp.mask & (1ULL << i)) {
@@ -75,7 +88,6 @@ std::string minimize_boolean_function(const std::string &truth_table)
     if (truth_table.empty())
         return "";
 
-    // Determine number of variables (log2 of truth table length)
     int var_count = 0;
     uint64_t len  = truth_table.size();
     while (len > 1) {
@@ -83,22 +95,18 @@ std::string minimize_boolean_function(const std::string &truth_table)
         ++var_count;
     }
     if ((1ULL << var_count) != truth_table.size()) {
-        return ""; // Invalid truth table length
+        return "";
     }
     if (var_count > 64)
-        return ""; // Too many variables
+        return "";
 
-    // Collect minterms and don't cares
     std::vector<Implicant> implicants;
     for (uint64_t i = 0; i < truth_table.size(); ++i) {
-        if (truth_table[i] == '1') {
-            implicants.emplace_back(i);
-        } else if (truth_table[i] == 'X') {
+        if (truth_table[i] == '1' || truth_table[i] == 'X') {
             implicants.emplace_back(i);
         }
     }
 
-    // Quine-McCluskey: Generate prime implicants
     std::set<Implicant> prime_implicants;
     std::vector<Implicant> current = implicants;
     while (!current.empty()) {
@@ -107,7 +115,6 @@ std::string minimize_boolean_function(const std::string &truth_table)
         bool combined = false;
 
         for (size_t i = 0; i < current.size(); ++i) {
-            // bool was_combined = false;
             for (size_t j = i + 1; j < current.size(); ++j) {
                 if (current[i].can_combine(current[j])) {
                     next.push_back(current[i].combine(current[j]));
@@ -116,8 +123,10 @@ std::string minimize_boolean_function(const std::string &truth_table)
                     combined = true;
                 }
             }
-            if (!used.count(current[i])) {
-                prime_implicants.insert(current[i]);
+        }
+        for (const auto &imp : current) {
+            if (!used.count(imp)) {
+                prime_implicants.insert(imp);
             }
         }
 
@@ -126,7 +135,6 @@ std::string minimize_boolean_function(const std::string &truth_table)
         current = std::move(next);
     }
 
-    // Select essential prime implicants
     std::set<uint64_t> minterms;
     for (const auto &imp : implicants) {
         if (truth_table[imp.bits] == '1') {
@@ -135,60 +143,56 @@ std::string minimize_boolean_function(const std::string &truth_table)
     }
 
     std::vector<Implicant> essential;
-    std::set<uint64_t> covered_minterms;
-#if 0
     while (!minterms.empty()) {
-        // Find implicant that covers the most uncovered minterms
+        // Find essential implicants first
+        std::map<uint64_t, std::vector<Implicant *>> minterm_coverage;
+        for (uint64_t m : minterms) {
+            for (auto &imp : prime_implicants) {
+                if (imp.covers(m)) {
+                    minterm_coverage[m].push_back(const_cast<Implicant *>(&imp));
+                }
+            }
+        }
+
+        // Add essential implicants (minterms covered by only one implicant)
+        for (const auto &[m, imps] : minterm_coverage) {
+            if (imps.size() == 1) {
+                if (std::find(essential.begin(), essential.end(), *imps[0]) == essential.end()) {
+                    essential.push_back(*imps[0]);
+                }
+            }
+        }
+
+        // Greedy selection for remaining minterms
         Implicant *best    = nullptr;
         size_t max_covered = 0;
         for (const auto &imp : prime_implicants) {
+            if (std::find(essential.begin(), essential.end(), imp) != essential.end()) {
+                continue;
+            }
             size_t count = 0;
             for (uint64_t m : minterms) {
                 if (imp.covers(m))
                     count++;
             }
-            if (count > max_covered) {
+            uint64_t defined_bits = __builtin_popcountll(imp.mask);
+            if (count > 0 && (count > max_covered ||
+                              (count == max_covered &&
+                               defined_bits < (best ? __builtin_popcountll(best->mask) : 64)))) {
                 max_covered = count;
                 best        = const_cast<Implicant *>(&imp);
             }
         }
-
-        if (!best)
-            break; // No more coverage possible
-        essential.push_back(*best);
+        if (best) {
+            essential.push_back(*best);
+        } else {
+            break;
+        }
         for (uint64_t m : best->covered_minterms) {
             minterms.erase(m);
-            covered_minterms.insert(m);
         }
     }
-#else
-    while (!minterms.empty()) {
-        Implicant *best    = nullptr;
-        size_t max_covered = 0;
-        for (const auto &imp : prime_implicants) {
-            size_t count = 0;
-            for (uint64_t m : minterms) {
-                if (imp.covers(m))
-                    count++;
-            }
-            if (count > max_covered && count > 0) {
-                max_covered = count;
-                best        = const_cast<Implicant *>(&imp);
-            }
-        }
-        if (!best)
-            break;
-        essential.push_back(*best);
-        for (uint64_t m : best->covered_minterms) {
-            if (minterms.count(m)) {
-                minterms.erase(m);
-                covered_minterms.insert(m);
-            }
-        }
-    }
-#endif
 
-    // Format result
     std::stringstream result;
     for (size_t i = 0; i < essential.size(); ++i) {
         if (i > 0)
