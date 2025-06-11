@@ -51,8 +51,8 @@ fn print_truth_table(truth_table: &[TruthValue], n_vars: usize) {
         for i in (total_rows - max_rows)..total_rows {
             let bits = (0..n_vars).rev()
                 .map(|j| if (i & (1 << j)) != 0 { "1" } else { "0" })
-                .collect_vec()
-                .join(" | ");
+            .collect_vec()
+            .join(" | ");
             let output = match &truth_table[i] {
                 TruthValue::Zero => "0",
                 TruthValue::One => "1",
@@ -208,7 +208,7 @@ fn minimize_boolean_function(truth_table_str: &str) -> Result<String, String> {
                 .collect();
             let combined_mutex: Mutex<HashSet<(Option<usize>, u64)>> = Mutex::new(HashSet::new());
 
-            (0..n_vars).par_iter().for_each(|&i| {
+            (0..n_vars).into_par_iter().for_each(|i| {
                 let group_i = &groups[i];
                 let group_i1 = &groups[i + 1];
                 for (m1, t1) in group_i {
