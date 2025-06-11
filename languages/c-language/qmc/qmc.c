@@ -1,3 +1,4 @@
+#include <assert.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -66,18 +67,18 @@ static void parse_truth_table(const char *truth_table)
     size_t len   = strlen(truth_table);
     num_vars     = compute_log2(len);
     if (num_vars < 0 || len != (1ULL << num_vars)) {
-        printf("Error: Truth table length %zu is not a power of 2\n", len);
+        printf("[ERROR] Truth table length %zu is not a power of 2\n", len);
         exit(1);
     }
     if (num_vars > 64) {
-        printf("Error: Too many variables (%d, max 64)\n", num_vars);
+        printf("[ERROR] Too many variables (%d, max 64)\n", num_vars);
         exit(1);
     }
 
     printf("[DEBUG] Parsing truth table with %d variables, length %zu\n", num_vars, len);
     for (uint64_t i = 0; i < len; i++) {
         if (truth_table[i] != '0' && truth_table[i] != '1' && truth_table[i] != 'X') {
-            printf("Error: Invalid character '%c' in truth table\n", truth_table[i]);
+            printf("[ERROR] Invalid character '%c' in truth table\n", truth_table[i]);
             exit(1);
         }
         if (truth_table[i] == '1' || truth_table[i] == 'X') {
@@ -98,35 +99,54 @@ static void parse_truth_table(const char *truth_table)
 static int can_merge(Implicant a, Implicant b, Implicant *result)
 {
     uint64_t diff          = a.value ^ b.value;
-    uint64_t relevant_bits = a.mask & b.mask;
-    diff &= relevant_bits;
-    if (count_ones(diff) != 1) {
-        // Allow merge if one is a don't care
-        if (a.mask == 0 || b.mask == 0) {
-            diff                = a.value ^ b.value;
-            uint64_t check_bits = a.mask | b.mask;
-            diff &= check_bits;
-            if (count_ones(diff) != 1)
-                return 0;
+    uint64_t relevant_bits = a.mask & b.mask; // Regular merge: both defined
+    uint64_t diff_regular  = diff & relevant_bits;
+
+    // Regular merge: one-bit difference in defined bits
+    if (count_ones(diff_regular) == 1 && a.mask != 0 && b.mask != 0) {
+        result->value = a.value & b.value;
+        result->mask  = a.mask & b.mask & ~diff;
+    }
+    // Don't-care merge: select one differing bit to clear
+    else if (a.mask == 0 || b.mask == 0) {
+        relevant_bits = a.mask | b.mask;
+        diff &= relevant_bits;
+        if (diff == 0)
+            return 0; // Identical in defined bits
+
+        // Select the highest differing bit (prioritize higher-order variables)
+        uint64_t diff_bit = 1ULL << (num_vars - 1);
+        while (diff_bit && !(diff & diff_bit))
+            diff_bit >>= 1;
+        if (!diff_bit)
+            return 0; // No valid differing bit
+
+        if (a.mask == 0) {
+            result->value = b.value;
+            result->mask  = b.mask & ~diff_bit;
         } else {
-            return 0;
+            result->value = a.value;
+            result->mask  = a.mask & ~diff_bit;
         }
+    } else {
+        return 0; // Invalid merge
     }
 
-    // Determine the differing bit position
-    uint64_t diff_bit = diff;
-    result->mask      = (a.mask & b.mask) & ~diff;
-    if (a.mask == 0) {
-        result->value = b.value;
-        result->mask  = b.mask & ~diff;
-    } else if (b.mask == 0) {
-        result->value = a.value;
-        result->mask  = a.mask & ~diff;
-    } else {
-        result->value = a.value & ~diff_bit; // Clear differing bit
-    }
+    // Prevent invalid implicants
     if (result->mask == 0 && (a.mask != 0 || b.mask != 0))
         return 0;
+
+    // Validate minterm consistency
+    for (int i = 0; i < a.num_minterms; i++) {
+        for (int j = 0; j < b.num_minterms; j++) {
+            uint64_t minterm_a  = minterms[a.minterms[i]].value;
+            uint64_t minterm_b  = minterms[b.minterms[j]].value;
+            uint64_t check_bits = result->mask;
+            if ((minterm_a & check_bits) != (minterm_b & check_bits)) {
+                return 0; // Inconsistent minterms
+            }
+        }
+    }
 
     result->num_minterms = 0;
     for (int i = 0; i < a.num_minterms; i++) {
@@ -163,14 +183,14 @@ static int reduce_implicants(Implicant *src, int src_count, Implicant *dest)
     int dest_count = 0;
     int *used      = calloc(src_count, sizeof(int));
     if (!used) {
-        printf("Error: Memory allocation failed\n");
+        printf("[ERROR] Memory allocation failed\n");
         exit(1);
     }
 
     Implicant *temp = malloc(src_count * sizeof(Implicant));
     if (!temp) {
         free(used);
-        printf("Error: Memory allocation failed\n");
+        printf("[ERROR] Memory allocation failed\n");
         exit(1);
     }
 
@@ -245,7 +265,7 @@ static void quine_mccluskey(void)
         printf("[DEBUG] Reduction iteration %d\n", iteration++);
         Implicant *temp = malloc(num_implicants * sizeof(Implicant));
         if (!temp) {
-            printf("Error: Memory allocation failed\n");
+            printf("[ERROR] Memory allocation failed\n");
             exit(1);
         }
 
@@ -275,7 +295,7 @@ static void select_essential_implicants(void)
 {
     Implicant *result = malloc(num_implicants * sizeof(Implicant));
     if (!result) {
-        printf("Error: Memory allocation failed\n");
+        printf("[ERROR] Memory allocation failed\n");
         exit(1);
     }
     int result_count = 0;
@@ -289,7 +309,7 @@ static void select_essential_implicants(void)
     int *coverage = calloc(num_minterms, sizeof(int));
     if (!coverage) {
         free(result);
-        printf("Error: Memory allocation failed\n");
+        printf("[ERROR] Memory allocation failed\n");
         exit(1);
     }
     for (int i = 0; i < num_implicants; i++) {
@@ -346,7 +366,7 @@ static void select_essential_implicants(void)
         }
     }
 
-    // Cover remaining uncovered minterms
+    // Cover remaining uncovered minterms with minimal implicants
     for (int i = 0; i < num_implicants; i++) {
         if (implicants[i].mask == 0)
             continue;
@@ -457,7 +477,138 @@ void minimize_boolean_function(const char *truth_table)
         printf("\n");
 }
 
-// Test main function
+// Unit tests for can_merge
+#if 1
+static void run_can_merge_tests(void)
+{
+    printf("Running can_merge unit tests...\n");
+    num_vars = 3; // Set for 3 variables (A, B, C)
+
+    // Test 1: Regular merge (001 and 011 -> ~BC)
+    printf("Test 1: Regular merge (001 and 011 -> ~BC)\n");
+    minterms[0].value = 0b001;
+    minterms[0].mask  = 0b111;
+    minterms[1].value = 0b011;
+    minterms[1].mask  = 0b111;
+    Implicant a1      = { .value = 0b001, .mask = 0b111, .minterms = { 0 }, .num_minterms = 1 };
+    Implicant b1      = { .value = 0b011, .mask = 0b111, .minterms = { 1 }, .num_minterms = 1 };
+    Implicant r1;
+    assert(can_merge(a1, b1, &r1) == 1);
+    assert(r1.value == 0b001);
+    assert(r1.mask == 0b101);
+    assert(r1.num_minterms == 2);
+    assert(r1.minterms[0] == 0 && r1.minterms[1] == 1);
+    printf("Test 1 passed\n");
+
+    // Test 2: Regular merge (001 and 101 -> ~AC)
+    printf("Test 2: Regular merge (001 and 101 -> ~AC)\n");
+    minterms[2].value = 0b101;
+    minterms[2].mask  = 0b111;
+    Implicant a2      = { .value = 0b001, .mask = 0b111, .minterms = { 0 }, .num_minterms = 1 };
+    Implicant b2      = { .value = 0b101, .mask = 0b111, .minterms = { 2 }, .num_minterms = 1 };
+    Implicant r2;
+    assert(can_merge(a2, b2, &r2) == 1);
+    assert(r2.value == 0b001);
+    assert(r2.mask == 0b011);
+    assert(r2.num_minterms == 2);
+    assert(r2.minterms[0] == 0 && r2.minterms[1] == 2);
+    printf("Test 2 passed\n");
+
+    // Test 3: Don't-care merge (011 and 110 -> BC)
+    printf("Test 3: Don't-care merge (011 and 110 -> BC)\n");
+    minterms[3].value = 0b110;
+    minterms[3].mask  = 0b000;
+    Implicant a3      = { .value = 0b011, .mask = 0b111, .minterms = { 1 }, .num_minterms = 1 };
+    Implicant b3      = { .value = 0b110, .mask = 0b000, .minterms = { 3 }, .num_minterms = 1 };
+    Implicant r3;
+    assert(can_merge(a3, b3, &r3) == 1);
+    assert(r3.value == 0b011);
+    assert(r3.mask == 0b110);
+    assert(r3.num_minterms == 2);
+    assert(r3.minterms[0] == 1 && r3.minterms[1] == 3);
+    printf("Test 3 passed\n");
+
+    // Test 4: Don't-care merge (100 and 101 -> ~B~C)
+    printf("Test 4: Don't-care merge (100 and 101 -> ~B~C)\n");
+    minterms[4].value = 0b100;
+    minterms[4].mask  = 0b000;
+    Implicant a4      = { .value = 0b100, .mask = 0b000, .minterms = { 4 }, .num_minterms = 1 };
+    Implicant b4      = { .value = 0b101, .mask = 0b111, .minterms = { 2 }, .num_minterms = 1 };
+    Implicant r4;
+    assert(can_merge(a4, b4, &r4) == 1);
+    assert(r4.value == 0b101);
+    assert(r4.mask == 0b110);
+    assert(r4.num_minterms == 2);
+    assert(r4.minterms[0] == 4 && r4.minterms[1] == 2);
+    printf("Test 4 passed\n");
+
+    // Test 5: Invalid merge (multiple bit differences)
+    printf("Test 5: Invalid merge (001 and 110)\n");
+    Implicant a5 = { .value = 0b001, .mask = 0b111, .minterms = { 0 }, .num_minterms = 1 };
+    Implicant b5 = { .value = 0b110, .mask = 0b111, .minterms = { 3 }, .num_minterms = 1 };
+    Implicant r5;
+    assert(can_merge(a5, b5, &r5) == 0);
+    printf("Test 5 passed\n");
+
+    // Test 6: Invalid merge (inconsistent minterms)
+    printf("Test 6: Invalid merge (~AC and ~B~C)\n");
+    minterms[5].value = 0b001;
+    minterms[5].mask  = 0b011;
+    minterms[6].value = 0b101;
+    minterms[6].mask  = 0b110;
+    Implicant a6      = { .value = 0b001, .mask = 0b011, .minterms = { 5 }, .num_minterms = 1 };
+    Implicant b6      = { .value = 0b101, .mask = 0b110, .minterms = { 6 }, .num_minterms = 1 };
+    Implicant r6;
+    assert(can_merge(a6, b6, &r6) == 0);
+    printf("Test 6 passed\n");
+
+    // Test 7: Both don't cares
+    printf("Test 7: Both don't cares (100 and 110)\n");
+    minterms[7].value = 0b110;
+    minterms[7].mask  = 0b000;
+    Implicant a7      = { .value = 0b100, .mask = 0b000, .minterms = { 4 }, .num_minterms = 1 };
+    Implicant b7      = { .value = 0b110, .mask = 0b000, .minterms = { 7 }, .num_minterms = 1 };
+    Implicant r7;
+    assert(can_merge(a7, b7, &r7) == 1);
+    assert(r7.value == 0b100);
+    assert(r7.mask == 0b000);
+    assert(r7.num_minterms == 2);
+    assert(r7.minterms[0] == 4 && r7.minterms[1] == 7);
+    printf("Test 7 passed\n");
+
+    // Test 8: Identical implicants
+    printf("Test 8: Identical implicants (001 and 001)\n");
+    Implicant a8 = { .value = 0b001, .mask = 0b111, .minterms = { 0 }, .num_minterms = 1 };
+    Implicant b8 = { .value = 0b001, .mask = 0b111, .minterms = { 0 }, .num_minterms = 1 };
+    Implicant r8;
+    assert(can_merge(a8, b8, &r8) == 0);
+    printf("Test 8 passed\n");
+
+    // Test 9: Invalid mask result
+    printf("Test 9: Invalid mask result (001 and 000 with single-bit mask)\n");
+    minterms[8].value = 0b001;
+    minterms[8].mask  = 0b001;
+    minterms[9].value = 0b000;
+    minterms[9].mask  = 0b001;
+    Implicant a9      = { .value = 0b001, .mask = 0b001, .minterms = { 8 }, .num_minterms = 1 };
+    Implicant b9      = { .value = 0b000, .mask = 0b001, .minterms = { 9 }, .num_minterms = 1 };
+    Implicant r9;
+    assert(can_merge(a9, b9, &r9) == 1);
+    assert(r9.value == 0b000);
+    assert(r9.mask == 0b000);
+    assert(r9.num_minterms == 2);
+    assert(r9.minterms[0] == 8 && r9.minterms[1] == 9);
+    printf("Test 9 passed\n");
+
+    printf("All can_merge tests passed!\n");
+}
+
+int main(void)
+{
+    run_can_merge_tests();
+    return 0;
+}
+#else
 int main(void)
 {
     // Test case 1: "0101" -> "B"
@@ -470,3 +621,4 @@ int main(void)
 
     return 0;
 }
+#endif
