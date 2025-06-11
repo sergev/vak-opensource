@@ -19,6 +19,16 @@ protected:
     size_t thread_threshold           = 10;
 };
 
+// 2-variable function test
+TEST_F(MinimizerTest, TwoVariables)
+{
+    std::string truth_table = "0101";
+    std::string result =
+        minimize_boolean_function(truth_table, should_print_truth_table,
+                                  should_print_implicant_table, debug, thread_threshold);
+    EXPECT_EQ(result, "B");
+}
+
 // 3-variable function test
 TEST_F(MinimizerTest, ThreeVariables)
 {

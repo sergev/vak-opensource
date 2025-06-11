@@ -2,14 +2,14 @@
 #include <cmath>
 #include <iostream>
 #include <mutex>
+#include <numeric>
 #include <optional>
 #include <stdexcept>
 #include <thread>
 
 #include "utils.h"
 
-std::string minimize_boolean_function(const std::string &truth_table,
-                                      bool should_print_truth_table,
+std::string minimize_boolean_function(const std::string &truth_table, bool should_print_truth_table,
                                       bool should_print_implicant_table, bool debug,
                                       size_t thread_threshold)
 {
@@ -253,9 +253,9 @@ std::string minimize_boolean_function(const std::string &truth_table,
     for (const auto &[term, mask] : essential) {
         std::vector<std::string> literals;
         for (size_t i = 0; i < n_vars; ++i) {
-            if (mask & (1ull << i)) {
+            if (mask & (1ull << (n_vars - 1 - i))) {
                 char var = VARS[i];
-                if (term & (1ull << i)) {
+                if (term & (1ull << (n_vars - 1 - i))) {
                     literals.emplace_back(1, var);
                 } else {
                     literals.emplace_back("~" + std::string(1, var));
@@ -264,8 +264,7 @@ std::string minimize_boolean_function(const std::string &truth_table,
         }
         terms.push_back(literals.empty()
                             ? "1"
-                            : literals[0] + literals[1] +
-                                  (literals.size() > 2 ? literals[2] + literals[3] : ""));
+                            : std::accumulate(literals.begin(), literals.end(), std::string()));
     }
     std::string expression = terms.empty() ? "0"
                                            : terms[0] + (terms.size() > 1 ? " + " + terms[1] : "") +
