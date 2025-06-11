@@ -1,23 +1,7 @@
 #[cfg(test)]
 mod tests {
-    use super::super::*;
-    use super::super::minimizer::minimize_boolean_function;
 
-    // 3-variable truth table: ~AB + BC
-    pub fn generate_3var_truth_table() -> String {
-        let mut table = vec!['0'; 1 << 3];
-        // ~AB (00x)
-        for c in 0..2 {
-            let m = c;
-            table[m] = '1';
-        }
-        // BC (x11)
-        for a in 0..2 {
-            let m = (a << 2) | 3;
-            table[m] = '1';
-        }
-        table.into_iter().collect()
-    }
+    use super::super::minimizer::minimize_boolean_function;
 
     // 4-variable truth table: A~B + C~D
     pub fn generate_4var_truth_table() -> String {
@@ -103,7 +87,7 @@ mod tests {
         }
         // ~FGH (xxxx000x)
         for abcde in 0..32 {
-            let m = (abcde << 3);
+            let m = abcde << 3;
             table[m] = '1';
         }
         table.into_iter().collect()
@@ -161,7 +145,7 @@ mod tests {
         }
         // ~IJKL (xxxx0000xxx)
         for abcdef in 0..64 {
-            let m = (abcdef << 4);
+            let m = abcdef << 4;
             table[m] = '1';
         }
         // MNO~P (xxxxxxxx110)
@@ -187,7 +171,7 @@ mod tests {
         }
         // ~JKL (xxxxxxx000xx)
         for abcdefg in 0..128 {
-            let m = (abcdefg << 4);
+            let m = abcdefg << 4;
             table[m] = '1';
         }
         // MNOP (xxxxxxxx1111)
@@ -208,7 +192,7 @@ mod tests {
         }
         // ~GHIJ (xxxxxx0000xxx)
         for abcdef in 0..64 {
-            let m = (abcdef << 7);
+            let m = abcdef << 7;
             table[m] = '1';
         }
         // K~LMN (xxxxxxxxx1000)
@@ -234,7 +218,7 @@ mod tests {
         }
         // ~IJK (xxxxxxxx000xxx)
         for abcdefg in 0..128 {
-            let m = (abcdefg << 7);
+            let m = abcdefg << 7;
             table[m] = '1';
         }
         // LM~NO (xxxxxxxxxx1100)
@@ -265,7 +249,7 @@ mod tests {
         }
         // ~KLMNO (xxxxxxxxxxx0000)
         for abcdefghij in 0..1024 {
-            let m = (abcdefghij << 5);
+            let m = abcdefghij << 5;
             table[m] = '1';
         }
         table.into_iter().collect()
@@ -286,7 +270,7 @@ mod tests {
         }
         // ~FGHI (xxxxxx0000xxxxxx)
         for abcdejk in 0..128 {
-            let m = (abcdejk << 9);
+            let m = abcdejk << 9;
             table[m] = '1';
         }
         // JK~LMNOP (xxxxxxxx11x00000)
