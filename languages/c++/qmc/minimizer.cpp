@@ -12,7 +12,7 @@
 static bool should_print_truth_table = false;
 static bool should_print_implicant_table = false;
 static bool debug = false;
-size_t thread_threshold = 99;
+size_t thread_threshold = 4;
 
 std::string minimize_boolean_function(const std::string &truth_table)
 {

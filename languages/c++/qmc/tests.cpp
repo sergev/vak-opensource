@@ -49,7 +49,7 @@ TEST_F(MinimizerTest, FourVariables)
     //       0    0    1    0    X    0    0    1
     std::string truth_table = "10X0010X0010X001";
     std::string result      = minimize_boolean_function(truth_table);
-    EXPECT_EQ(result, "BCD + ~BC~D + ~ABD + ~A~B~D");
+    EXPECT_EQ(result, "~A~B~D + ~ABD + ~BC~D + BCD");
 }
 
 // 5-variable function test
@@ -61,7 +61,7 @@ TEST_F(MinimizerTest, FiveVariables)
     std::string truth_table = "X001000001X0000001000000100000X1";
     std::string result      = minimize_boolean_function(truth_table);
     // Expected: ~A~BCD + A~BCD + ABC~D + ABCD (covers 3,9,17,25,31)
-    EXPECT_EQ(result, "A~C~DE + ~A~B~CDE + ABCD + B~C~DE");
+    EXPECT_EQ(result, "~A~B~CDE + A~C~DE + ABCD + B~C~DE");
 }
 
 // 6-variable function test
