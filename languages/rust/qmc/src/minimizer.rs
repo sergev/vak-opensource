@@ -43,6 +43,10 @@ pub fn minimize_boolean_function(
         return Ok("0".to_string());
     }
 
+    if debug {
+        println!("Minterms: {}, Don't cares: {}", minterms.len(), dont_cares.len());
+    }
+
     // Group implicants by number of 1s
     let mut groups: Vec<Vec<(Option<usize>, u64, u64)>> = vec![vec![]; n_vars + 1];
     for &m in &implicants {
@@ -54,7 +58,7 @@ pub fn minimize_boolean_function(
 
     // Quine-McCluskey: Combine implicants
     let mut prime_implicants: HashSet<(u64, u64)> = HashSet::new();
-    let max_iterations = n_vars * 2; // Prevent infinite loops
+    let max_iterations = n_vars * 3;
     let mut iteration = 0;
 
     loop {
@@ -65,7 +69,7 @@ pub fn minimize_boolean_function(
         }
 
         if debug {
-            println!("Iteration {}: {} groups with implicants", iteration, groups.iter().filter(|g| !g.is_empty()).count());
+            println!("Iteration {}: {} groups with {} implicants", iteration, groups.iter().filter(|g| !g.is_empty()).count(), groups.iter().map(|g| g.len()).sum::<usize>());
         }
 
         let mut new_groups: Vec<Vec<(Option<usize>, u64, u64)>> = vec![vec![]; n_vars + 1];
@@ -76,17 +80,18 @@ pub fn minimize_boolean_function(
             // Sequential processing
             for i in 0..n_vars {
                 let group_i = &groups[i];
-                let group_i1 = &groups[i + 1];
+                let binding = vec![];
+                let group_i1 = groups.get(i + 1).unwrap_or(&binding);
                 for (m1, t1, mask1) in group_i {
-                    for (m2, t2, mask2) in group_i1 {
+                    for (m2, t2, mask2) in group_i1.clone() {
                         let xor = t1 ^ t2;
-                        if xor.count_ones() == 1 && mask1 == mask2 {
+                        if xor.count_ones() == 1 && *mask1 == mask2 {
                             let new_term = t1 & !xor;
                             let new_mask = *mask1 & !xor;
                             let ones = new_term.count_ones() as usize;
                             new_groups[ones].push((None, new_term, new_mask));
                             combined.insert((*m1, *t1, *mask1));
-                            combined.insert((*m2, *t2, *mask2));
+                            combined.insert((m2, t2, mask2)); // Remove dereferences
                         }
                     }
                 }
@@ -100,21 +105,29 @@ pub fn minimize_boolean_function(
 
             (0..n_vars).into_par_iter().for_each(|i| {
                 let group_i = &groups[i];
-                let group_i1 = &groups[i + 1];
+                let binding = vec![];
+                let group_i1 = groups.get(i + 1).unwrap_or(&binding);
+                let mut local_new: Vec<(usize, Option<usize>, u64, u64)> = vec![];
+                let mut local_combined: Vec<(Option<usize>, u64, u64)> = vec![];
+
                 for (m1, t1, mask1) in group_i {
-                    for (m2, t2, mask2) in group_i1 {
+                    for (m2, t2, mask2) in group_i1.clone() {
                         let xor = t1 ^ t2;
-                        if xor.count_ones() == 1 && mask1 == mask2 {
+                        if xor.count_ones() == 1 && *mask1 == mask2 {
                             let new_term = t1 & !xor;
                             let new_mask = *mask1 & !xor;
                             let ones = new_term.count_ones() as usize;
-                            new_groups_mutex[ones].lock().unwrap().push((None, new_term, new_mask));
-                            let mut combined_lock = combined_mutex.lock().unwrap();
-                            combined_lock.insert((*m1, *t1, *mask1));
-                            combined_lock.insert((*m2, *t2, *mask2));
+                            local_new.push((ones, None, new_term, new_mask));
+                            local_combined.push((*m1, *t1, *mask1));
+                            local_combined.push((m2, t2, mask2)); // Remove dereferences
                         }
                     }
                 }
+
+                for (ones, m, t, mask) in local_new {
+                    new_groups_mutex[ones].lock().unwrap().push((m, t, mask));
+                }
+                combined_mutex.lock().unwrap().extend(local_combined);
             });
 
             new_groups = new_groups_mutex.into_iter()
@@ -152,6 +165,12 @@ pub fn minimize_boolean_function(
             .filter(|&&(t, mask)| (m as u64 & mask) == (t & mask))
             .copied()
             .collect_vec();
+        if covering.is_empty() {
+            if debug {
+                eprintln!("No covering implicant for minterm {}", m);
+            }
+            continue;
+        }
         if covering.len() == 1 {
             let pi = covering[0];
             if !essential.contains(&pi) {
@@ -168,15 +187,19 @@ pub fn minimize_boolean_function(
     // Cover remaining minterms
     for &m in &minterms {
         if !covered.contains(&m) && !dont_cares.contains(&m) {
-            for &(t, mask) in &prime_implicants {
-                if !essential.contains(&(t, mask)) && (m as u64 & mask) == (t & mask) {
-                    essential.push((t, mask));
+            let covering = prime_implicants.iter()
+                .filter(|&&(t, mask)| (m as u64 & mask) == (t & mask))
+                .copied()
+                .collect_vec();
+            if let Some(pi) = covering.first() {
+                if !essential.contains(pi) {
+                    essential.push(*pi);
+                    let (t, mask) = *pi;
                     for &m2 in &minterms {
                         if (m2 as u64 & mask) == (t & mask) {
                             covered.insert(m2);
                         }
                     }
-                    break;
                 }
             }
         }
@@ -201,5 +224,5 @@ pub fn minimize_boolean_function(
             .collect_vec();
         if result.is_empty() { "1".to_string() } else { result.join("") }
     }).collect_vec().join(" + ");
-    Ok(if expression.is_empty() { "1".to_string() } else { expression })
+    Ok(if expression.is_empty() { "0".to_string() } else { expression })
 }
