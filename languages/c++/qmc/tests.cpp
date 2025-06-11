@@ -37,7 +37,7 @@ TEST_F(MinimizerTest, ThreeVariables)
     std::string truth_table = "0101X1X0";
     std::string result      = minimize_boolean_function(truth_table);
     // Expected: ~AC + BC (covers minterms 1,3,5; don't cares 4,6 help simplify)
-    EXPECT_EQ(result, "~AC + BC");
+    EXPECT_EQ(result, "~AC + ~BC");
 }
 
 // 4-variable function test
