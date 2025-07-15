@@ -32,7 +32,7 @@ def encode_russian_text(text):
     1. Basic letter mapping
     2. Soft sign (ь) makes previous consonant acute
     3. Special vowels (е/ё/ю/я) with consonant context rules
-    4. Acuted consonants lose acute when followed by i/j/ë/ö/ü/ä
+    4. Acuted consonants lose acute when followed by i/j/ë/ö/ü/ä/e/e
     """
 
     # Rule 1: Basic letter mapping (lowercase)
@@ -42,7 +42,7 @@ def encode_russian_text(text):
         'л': 'l', 'м': 'm', 'н': 'n', 'о': 'o', 'п': 'p',
         'р': 'r', 'с': 's', 'т': 't', 'у': 'u', 'ф': 'f',
         'х': 'h', 'ц': 'c', 'ч': 'č', 'ш': 'š', 'щ': 'ş',
-        'ъ': "'", 'ы': 'y', 'э': 'e'
+        'ъ': "'", 'ы': 'y', 'э': 'ə'
     }
 
     # Rule 1: Basic letter mapping (uppercase)
@@ -52,7 +52,7 @@ def encode_russian_text(text):
         'Л': 'L', 'М': 'M', 'Н': 'N', 'О': 'O', 'П': 'P',
         'Р': 'R', 'С': 'S', 'Т': 'T', 'У': 'U', 'Ф': 'F',
         'Х': 'H', 'Ц': 'C', 'Ч': 'Č', 'Ш': 'Š', 'Щ': 'Ş',
-        'Ъ': "'", 'Ы': 'Y', 'Э': 'E'
+        'Ъ': "'", 'Ы': 'Y', 'Э': 'Ə'
     }
 
     # Rule 2: Consonants that can be made acute with soft sign (lowercase)
@@ -147,9 +147,9 @@ def encode_russian_text(text):
 
         i += 1
 
-    # Rule 4: Remove acute from consonants when followed by i/j/ë/ö/ü/ä
+    # Rule 4: Remove acute from consonants when followed by i/j/ë/ö/ü/ä/e
     final_result = []
-    losing_acute_chars = {'i', 'j', 'ë', 'ö', 'ü', 'ä', 'I', 'J', 'Ë', 'Ö', 'Ü', 'Ä'}
+    losing_acute_chars = {'i', 'j', 'ë', 'ö', 'ü', 'ä', 'e', 'I', 'J', 'Ë', 'Ö', 'Ü', 'Ä', 'E'}
 
     # Create reverse mapping from acute to non-acute consonants
     acute_to_normal = {}
@@ -315,6 +315,11 @@ if __name__ == "__main__":
             "дядя",        # Rule 4: acute loss (дя → da, not d́ä)
             "нить",        # Rule 4: acute loss (ни → ni, not ńi)
             "кий",         # Rule 4: acute loss (кий → kij, not ḱij)
+            "ведёт",       # Bug fix test: should be "v́ed́ot"
+            "этот",        # э → ə mapping
+            "ЭТОТ",        # Э → Ə mapping
+            "лес",         # Rule 4: acute loss before e (лес → les, not ĺes)
+            "вес",         # Rule 4: acute loss before e (вес → ves, not v́es)
         ]
 
         print("Test cases:")
