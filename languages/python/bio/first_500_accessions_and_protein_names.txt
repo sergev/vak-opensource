@@ -1,0 +1,503 @@
+Total records found: 29126402
+Accession: NG_029858.3, Protein Name: Homo sapiens LETM1 domain containing 1 (LETMD1), RefSeqGene on chromosome 12
+Accession: NG_054634.1, Protein Name: Homo sapiens guanosine monophosphate reductase 2 (GMPR2), RefSeqGene on chromosome 14
+Accession: NG_051059.1, Protein Name: Homo sapiens NEDD8-MDP1 readthrough (NEDD8-MDP1), RefSeqGene on chromosome 14
+Accession: NG_016650.1, Protein Name: Homo sapiens TERF1 interacting nuclear factor 2 (TINF2), RefSeqGene (LRG_342) on chromosome 14
+Accession: NG_013303.1, Protein Name: Homo sapiens guanosine monophosphate reductase (GMPR), RefSeqGene on chromosome 6
+Accession: PX113526.1, Protein Name: HLA class I antigen
+Accession: PX112052.1, Protein Name: Homo sapiens isolate 250806DPB1e4 HLA-class II antigen (HLA-DPB1) gene, partial cds
+Accession: PX060997.1, Protein Name: kell blood group glycoprotein
+Accession: PX060994.1, Protein Name: MHC class I protein
+Accession: PX114822.1, Protein Name: Homo sapiens haplogroup K1a1b1a-A5984G mitochondrion, complete genome
+Accession: PQ963792.1, Protein Name: Homo sapiens isolate COQTHSP.160 cytochrome b (CYTB) gene, partial cds; mitochondrial
+Accession: PX099145.1, Protein Name: MHC class I antigen
+Accession: PX097510.1, Protein Name: Homo sapiens MHC class I antigen (HLA-B) gene, HLA-B*44var allele, exons 1 through 4 and partial cds
+Accession: PX101765.1, Protein Name: MHC class II DQ alpha chain
+Accession: PX101764.1, Protein Name: MHC class II DQ alpha chain
+Accession: PX097643.1, Protein Name: MHC class I antigen
+Accession: PX092136.1, Protein Name: Homo sapiens MHC class II antigen (HLA-DRB3) gene, HLA-DRB3*01 allele, partial cds
+Accession: PX060890.1, Protein Name: MHC class I antigen
+Accession: PX060889.1, Protein Name: MHC class I antigen
+Accession: PX060888.1, Protein Name: MHC class I antigen
+Accession: PX060887.1, Protein Name: MHC class I antigen
+Accession: PX060886.1, Protein Name: MHC class I antigen
+Accession: PX060885.1, Protein Name: MHC class I antigen
+Accession: PX060884.1, Protein Name: MHC class I antigen
+Accession: PX060883.1, Protein Name: MHC class I antigen
+Accession: PX063924.1, Protein Name: MHC class I antigen
+Accession: NM_001005376.3, Protein Name: Homo sapiens plasminogen activator, urokinase receptor (PLAUR), transcript variant 2, mRNA
+Accession: NM_001005377.3, Protein Name: Homo sapiens plasminogen activator, urokinase receptor (PLAUR), transcript variant 3, mRNA
+Accession: NM_032822.3, Protein Name: Homo sapiens family with sequence similarity 136 member A (FAM136A), transcript variant 1, mRNA
+Accession: NM_001329758.2, Protein Name: Homo sapiens family with sequence similarity 136 member A (FAM136A), transcript variant 6, mRNA
+Accession: NM_001329753.2, Protein Name: Homo sapiens family with sequence similarity 136 member A (FAM136A), transcript variant 3, mRNA
+Accession: NM_001329755.2, Protein Name: Homo sapiens family with sequence similarity 136 member A (FAM136A), transcript variant 4, mRNA
+Accession: NM_001329757.2, Protein Name: Homo sapiens family with sequence similarity 136 member A (FAM136A), transcript variant 5, mRNA
+Accession: NM_024605.4, Protein Name: Homo sapiens Rho GTPase activating protein 10 (ARHGAP10), mRNA
+Accession: NM_002659.4, Protein Name: Homo sapiens plasminogen activator, urokinase receptor (PLAUR), transcript variant 1, mRNA
+Accession: NM_018945.4, Protein Name: Homo sapiens phosphodiesterase 7B (PDE7B), mRNA
+Accession: NM_001329752.2, Protein Name: Homo sapiens family with sequence similarity 136 member A (FAM136A), transcript variant 2, mRNA
+Accession: NR_038927.2, Protein Name: Homo sapiens DDX11 antisense RNA 1 (DDX11-AS1), long non-coding RNA
+Accession: NG_017090.1, Protein Name: Homo sapiens transient receptor potential cation channel subfamily V member 4 (TRPV4), RefSeqGene (LRG_372) on chromosome 12
+Accession: NR_189158.1, Protein Name: Homo sapiens coiled-coil and HOOK domain protein 88C (CCDC88C), transcript variant 2, non-coding RNA
+Accession: NR_189159.1, Protein Name: Homo sapiens coiled-coil and HOOK domain protein 88C (CCDC88C), transcript variant 3, non-coding RNA
+Accession: NM_012227.4, Protein Name: Homo sapiens GTP binding protein 6 (GTPBP6), mRNA
+Accession: NM_001286070.2, Protein Name: Homo sapiens beta-keto-L-gulonate decarboxylase (BKGD), transcript variant 5, mRNA
+Accession: NM_001017916.2, Protein Name: Homo sapiens cytochrome b561 (CYB561), transcript variant 2, mRNA
+Accession: NM_001271187.2, Protein Name: Homo sapiens RAP2C, member of RAS oncogene family (RAP2C), transcript variant 3, mRNA
+Accession: NM_001286071.2, Protein Name: Homo sapiens beta-keto-L-gulonate decarboxylase (BKGD), transcript variant 6, mRNA
+Accession: NM_007293.3, Protein Name: Homo sapiens complement C4A (Chido/Rodgers blood group) (C4A), transcript variant 1, mRNA
+Accession: NR_073150.2, Protein Name: Homo sapiens RAP2C, member of RAS oncogene family (RAP2C), transcript variant 4, non-coding RNA
+Accession: NR_034039.2, Protein Name: Homo sapiens sorbitol dehydrogenase (SORD), transcript variant 2, non-coding RNA
+Accession: NR_045072.2, Protein Name: Homo sapiens cysteine and serine rich nuclear protein 2 (CSRNP2), transcript variant 2, non-coding RNA
+Accession: NM_001351989.2, Protein Name: Homo sapiens beta-keto-L-gulonate decarboxylase (BKGD), transcript variant 11, mRNA
+Accession: NM_001286069.2, Protein Name: Homo sapiens beta-keto-L-gulonate decarboxylase (BKGD), transcript variant 3, mRNA
+Accession: NM_001286067.2, Protein Name: Homo sapiens beta-keto-L-gulonate decarboxylase (BKGD), transcript variant 1, mRNA
+Accession: NM_014039.4, Protein Name: Homo sapiens beta-keto-L-gulonate decarboxylase (BKGD), transcript variant 4, mRNA
+Accession: NM_001351993.2, Protein Name: Homo sapiens beta-keto-L-gulonate decarboxylase (BKGD), transcript variant 15, mRNA
+Accession: NM_001351991.2, Protein Name: Homo sapiens beta-keto-L-gulonate decarboxylase (BKGD), transcript variant 13, mRNA
+Accession: NM_001369406.2, Protein Name: Homo sapiens beta-keto-L-gulonate decarboxylase (BKGD), transcript variant 16, mRNA
+Accession: NM_001351986.2, Protein Name: Homo sapiens beta-keto-L-gulonate decarboxylase (BKGD), transcript variant 8, mRNA
+Accession: NM_001042717.3, Protein Name: Homo sapiens GTP binding protein 10 (GTPBP10), transcript variant 1, mRNA
+Accession: NM_001351985.2, Protein Name: Homo sapiens beta-keto-L-gulonate decarboxylase (BKGD), transcript variant 7, mRNA
+Accession: NM_001351990.2, Protein Name: Homo sapiens beta-keto-L-gulonate decarboxylase (BKGD), transcript variant 12, mRNA
+Accession: NM_001351992.2, Protein Name: Homo sapiens beta-keto-L-gulonate decarboxylase (BKGD), transcript variant 14, mRNA
+Accession: NM_001351988.2, Protein Name: Homo sapiens beta-keto-L-gulonate decarboxylase (BKGD), transcript variant 10, mRNA
+Accession: NM_001351987.2, Protein Name: Homo sapiens beta-keto-L-gulonate decarboxylase (BKGD), transcript variant 9, mRNA
+Accession: NM_001144877.3, Protein Name: Homo sapiens suppressor of cancer cell invasion (SCAI), transcript variant 2, mRNA
+Accession: NM_001286068.2, Protein Name: Homo sapiens beta-keto-L-gulonate decarboxylase (BKGD), transcript variant 2, mRNA
+Accession: NM_173690.5, Protein Name: Homo sapiens suppressor of cancer cell invasion (SCAI), transcript variant 1, mRNA
+Accession: NM_033107.4, Protein Name: Homo sapiens GTP binding protein 10 (GTPBP10), transcript variant 2, mRNA
+Accession: NM_001024946.2, Protein Name: Homo sapiens argininosuccinate lyase (ASL), transcript variant 4, mRNA
+Accession: NM_001024943.2, Protein Name: Homo sapiens argininosuccinate lyase (ASL), transcript variant 1, mRNA
+Accession: NM_001330421.2, Protein Name: Homo sapiens cytochrome b561 (CYB561), transcript variant 4, mRNA
+Accession: NM_018084.5, Protein Name: Homo sapiens coiled-coil and HOOK domain protein 88A (CCDC88A), transcript variant 2, mRNA
+Accession: NM_001254943.2, Protein Name: Homo sapiens coiled-coil and HOOK domain protein 88A (CCDC88A), transcript variant 3, mRNA
+Accession: NM_001135597.2, Protein Name: Homo sapiens coiled-coil and HOOK domain protein 88A (CCDC88A), transcript variant 1, mRNA
+Accession: NM_001017917.2, Protein Name: Homo sapiens cytochrome b561 (CYB561), transcript variant 3, mRNA
+Accession: NM_021183.5, Protein Name: Homo sapiens RAP2C, member of RAS oncogene family (RAP2C), transcript variant 2, mRNA
+Accession: NM_001024944.2, Protein Name: Homo sapiens argininosuccinate lyase (ASL), transcript variant 3, mRNA
+Accession: NM_000048.4, Protein Name: Homo sapiens argininosuccinate lyase (ASL), transcript variant 2, mRNA
+Accession: NM_030809.3, Protein Name: Homo sapiens cysteine and serine rich nuclear protein 2 (CSRNP2), transcript variant 1, mRNA
+Accession: NM_001271186.2, Protein Name: Homo sapiens RAP2C, member of RAS oncogene family (RAP2C), transcript variant 1, mRNA
+Accession: NM_001915.4, Protein Name: Homo sapiens cytochrome b561 (CYB561), transcript variant 1, mRNA
+Accession: NM_003104.6, Protein Name: Homo sapiens sorbitol dehydrogenase (SORD), transcript variant 1, mRNA
+Accession: NM_001008739.2, Protein Name: Homo sapiens peroxisomal biogenesis factor 39 (PEX39), mRNA
+Accession: NM_001080414.4, Protein Name: Homo sapiens coiled-coil and HOOK domain protein 88C (CCDC88C), transcript variant 1, mRNA
+Accession: NM_032251.6, Protein Name: Homo sapiens coiled-coil and HOOK domain protein 88B (CCDC88B), mRNA
+Accession: NM_001365480.1, Protein Name: Homo sapiens coiled-coil and HOOK domain protein 88A (CCDC88A), transcript variant 4, mRNA
+Accession: NG_033079.1, Protein Name: Homo sapiens killin, p53 regulated DNA replication inhibitor (KLLN), RefSeqGene (LRG_1087) on chromosome 10
+Accession: NR_029512.1, Protein Name: Homo sapiens microRNA 96 (MIR96), microRNA
+Accession: NR_029476.1, Protein Name: Homo sapiens microRNA let-7a-1 (MIRLET7A1), microRNA
+Accession: NR_029712.1, Protein Name: Homo sapiens microRNA 195 (MIR195), microRNA
+Accession: NR_030413.1, Protein Name: Homo sapiens microRNA 766 (MIR766), microRNA
+Accession: NG_012521.1, Protein Name: Homo sapiens proteasome 26S subunit, non-ATPase 10 (PSMD10), RefSeqGene on chromosome X
+Accession: PX097495.1, Protein Name: MHC class I antigen
+Accession: PX097494.1, Protein Name: MHC class I antigen
+Accession: PX103099.1, Protein Name: MHC class I antigen
+Accession: PX103098.1, Protein Name: MHC class I antigen
+Accession: PX094873.1, Protein Name: Homo sapiens Rh-associated glycoprotein (RHAG) gene, partial cds
+Accession: PX095163.1, Protein Name: Homo sapiens MHC class I antigen (HLA-C) gene, HLA-C*Ag allele, partial cds
+Accession: PX093733.1, Protein Name: MHC class I antigen
+Accession: PX093719.1, Protein Name: Homo sapiens MHC class I antigen (HLA-C) gene, HLA-C*07var allele, exons 1 through 6 and partial cds
+Accession: PX056119.1, Protein Name: MHC class II antigen
+Accession: PX056118.1, Protein Name: MHC class I antigen
+Accession: PX056117.1, Protein Name: Homo sapiens MHC class II antigen (HLA-DRB345) gene, HLA-DRB345-HLA-DRB3*02NEW allele, exons 2 through 6 and partial cds
+Accession: PX097604.1, Protein Name: Homo sapiens voucher BARELA256 D-loop, partial sequence; mitochondrial
+Accession: PX097603.1, Protein Name: Homo sapiens voucher BARELA255 D-loop, partial sequence; mitochondrial
+Accession: PX097602.1, Protein Name: Homo sapiens voucher BARELA253 D-loop, partial sequence; mitochondrial
+Accession: PX097601.1, Protein Name: Homo sapiens voucher BARELA251 D-loop, partial sequence; mitochondrial
+Accession: PX097600.1, Protein Name: Homo sapiens voucher BARELA250 D-loop, partial sequence; mitochondrial
+Accession: 9GD7_j, Protein Name: Chain j, DNA
+Accession: 9GD7_i, Protein Name: Chain i, DNA
+Accession: 9F0O_J, Protein Name: Chain J, wisdom DNA
+Accession: 9F0O_I, Protein Name: Chain I, wisdom DNA
+Accession: 8XXK_G, Protein Name: Chain G, Crystal structure of human 8-oxoguanine glycosylase K249H mutant bound to the reaction intermediate derived from the crystal soaked into the solution at pH 4.0 under 298 K for 3 weeks
+Accession: 8XXK_D, Protein Name: Chain D, Crystal structure of human 8-oxoguanine glycosylase K249H mutant bound to the reaction intermediate derived from the crystal soaked into the solution at pH 4.0 under 298 K for 3 weeks
+Accession: 8XXK_C, Protein Name: Chain C, Crystal structure of human 8-oxoguanine glycosylase K249H mutant bound to the reaction intermediate derived from the crystal soaked into the solution at pH 4.0 under 298 K for 3 weeks
+Accession: 8XXG_G, Protein Name: Chain G, Crystal structure of human 8-oxoguanine glycosylase K249H mutant bound to the reaction intermediate derived from the crystal soaked into the solution at pH 4.0 under 277 K for 2.5 hours
+Accession: 8XXG_D, Protein Name: Chain D, Crystal structure of human 8-oxoguanine glycosylase K249H mutant bound to the reaction intermediate derived from the crystal soaked into the solution at pH 4.0 under 277 K for 2.5 hours
+Accession: 8XXG_C, Protein Name: Chain C, Crystal structure of human 8-oxoguanine glycosylase K249H mutant bound to the reaction intermediate derived from the crystal soaked into the solution at pH 4.0 under 277 K for 2.5 hours
+Accession: 8XWU_B, Protein Name: Chain B, Crystal structure of human 8-oxoguanine glycosylase K249H mutant bound to the reaction intermediate derived from the crystal soaked into the solution at pH 4.0 under 277 K for 24 hourss
+Accession: 8XWU_D, Protein Name: Chain D, Crystal structure of human 8-oxoguanine glycosylase K249H mutant bound to the reaction intermediate derived from the crystal soaked into the solution at pH 4.0 under 277 K for 24 hourss
+Accession: 8XWU_C, Protein Name: Chain C, Crystal structure of human 8-oxoguanine glycosylase K249H mutant bound to the reaction intermediate derived from the crystal soaked into the solution at pH 4.0 under 277 K for 24 hourss
+Accession: 8XWC_D, Protein Name: Chain D, Crystal structure of human 8-oxoguanine glycosylase K249H mutant bound to the substrate 8-oxoguanine DNA at pH 8.0 under 277 K
+Accession: 8XWC_C, Protein Name: Chain C, Crystal structure of human 8-oxoguanine glycosylase K249H mutant bound to the substrate 8-oxoguanine DNA at pH 8.0 under 277 K
+Accession: PV983314.1, Protein Name: Homo sapiens clone 24-147 RhCE/RhD (RHCE) gene, RHCE-RHD(2-9)-CE allele, exons 1, 2, 10, and partial cds
+Accession: PV081751.1, Protein Name: Homo sapiens isolate AN226 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081750.1, Protein Name: Homo sapiens isolate AN105 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081749.1, Protein Name: Homo sapiens isolate AN103 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081748.1, Protein Name: Homo sapiens isolate AN015 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081747.1, Protein Name: Homo sapiens isolate AN194 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081746.1, Protein Name: Homo sapiens isolate AN181 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081745.1, Protein Name: Homo sapiens isolate AN189 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081744.1, Protein Name: Homo sapiens isolate AN066 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081743.1, Protein Name: Homo sapiens isolate AN197 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081742.1, Protein Name: Homo sapiens isolate AN155 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081741.1, Protein Name: Homo sapiens isolate AN092 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081740.1, Protein Name: Homo sapiens isolate AN158 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081739.1, Protein Name: Homo sapiens isolate AN223 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081738.1, Protein Name: Homo sapiens isolate CA132 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081737.1, Protein Name: Homo sapiens isolate CA160 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081736.1, Protein Name: Homo sapiens isolate AN068 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081735.1, Protein Name: Homo sapiens isolate AN262 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081734.1, Protein Name: Homo sapiens isolate AN110 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081733.1, Protein Name: Homo sapiens isolate AN106 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081732.1, Protein Name: Homo sapiens isolate AN067 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081731.1, Protein Name: Homo sapiens isolate AN171 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081730.1, Protein Name: Homo sapiens isolate AN026 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081729.1, Protein Name: Homo sapiens isolate AN130 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081728.1, Protein Name: Homo sapiens isolate AN164 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081727.1, Protein Name: Homo sapiens isolate AN086 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081726.1, Protein Name: Homo sapiens isolate AN102 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081725.1, Protein Name: Homo sapiens isolate AN029 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081724.1, Protein Name: Homo sapiens isolate CA046 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081723.1, Protein Name: Homo sapiens isolate AN159 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081722.1, Protein Name: Homo sapiens isolate CA152 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081721.1, Protein Name: Homo sapiens isolate AN041 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081720.1, Protein Name: Homo sapiens isolate AN052 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081719.1, Protein Name: Homo sapiens isolate AN218 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081718.1, Protein Name: Homo sapiens isolate AN228 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081717.1, Protein Name: Homo sapiens isolate AN033 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081716.1, Protein Name: Homo sapiens isolate AN192 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081715.1, Protein Name: Homo sapiens isolate AN253 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081714.1, Protein Name: Homo sapiens isolate AN093 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081713.1, Protein Name: Homo sapiens isolate AN114 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081712.1, Protein Name: Homo sapiens isolate AN112 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081711.1, Protein Name: Homo sapiens isolate AN070 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081710.1, Protein Name: Homo sapiens isolate CA014 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081709.1, Protein Name: Homo sapiens isolate AN116 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081708.1, Protein Name: Homo sapiens isolate AN118 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081707.1, Protein Name: Homo sapiens isolate AN044 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081706.1, Protein Name: Homo sapiens isolate AN080 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081705.1, Protein Name: Homo sapiens isolate AN061 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081704.1, Protein Name: Homo sapiens isolate AN088 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081703.1, Protein Name: Homo sapiens isolate AN245 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081702.1, Protein Name: Homo sapiens isolate AN256 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081701.1, Protein Name: Homo sapiens isolate AN161 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081700.1, Protein Name: Homo sapiens isolate AN022 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081699.1, Protein Name: Homo sapiens isolate AN010 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081698.1, Protein Name: Homo sapiens isolate AN054 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081697.1, Protein Name: Homo sapiens isolate AN132 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081696.1, Protein Name: Homo sapiens isolate CA074 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081695.1, Protein Name: Homo sapiens isolate AN234 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081694.1, Protein Name: Homo sapiens isolate AN179 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081693.1, Protein Name: Homo sapiens isolate AN185 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081692.1, Protein Name: Homo sapiens isolate AN128 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081691.1, Protein Name: Homo sapiens isolate AN101 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081690.1, Protein Name: Homo sapiens isolate AN168 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081689.1, Protein Name: Homo sapiens isolate AN113 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081688.1, Protein Name: Homo sapiens isolate CA056 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081687.1, Protein Name: Homo sapiens isolate AN096 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081686.1, Protein Name: Homo sapiens isolate AN203 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081685.1, Protein Name: Homo sapiens isolate AN142 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081684.1, Protein Name: Homo sapiens isolate AN051 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081683.1, Protein Name: Homo sapiens isolate AN016 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081682.1, Protein Name: Homo sapiens isolate AN038 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081681.1, Protein Name: Homo sapiens isolate AN180 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081680.1, Protein Name: Homo sapiens isolate AN172A D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081679.1, Protein Name: Homo sapiens isolate CA027 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081678.1, Protein Name: Homo sapiens isolate AN248 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081677.1, Protein Name: Homo sapiens isolate AN104 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081676.1, Protein Name: Homo sapiens isolate CA050 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081675.1, Protein Name: Homo sapiens isolate AN025 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081674.1, Protein Name: Homo sapiens isolate AN047 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081673.1, Protein Name: Homo sapiens isolate AN057 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081672.1, Protein Name: Homo sapiens isolate AN085 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081671.1, Protein Name: Homo sapiens isolate AN098 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081670.1, Protein Name: Homo sapiens isolate AN125 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV081669.1, Protein Name: Homo sapiens isolate AN126 D-loop and tRNA-Phe gene, complete sequence; mitochondrial
+Accession: PV619031.3, Protein Name: Homo sapiens isolate 531_controle D-loop, partial sequence; mitochondrial
+Accession: PV619030.3, Protein Name: Homo sapiens isolate 530_controle D-loop, partial sequence; mitochondrial
+Accession: PV619029.3, Protein Name: Homo sapiens isolate 529_controle D-loop, partial sequence; mitochondrial
+Accession: PV619028.3, Protein Name: Homo sapiens isolate 528_caso D-loop, partial sequence; mitochondrial
+Accession: PV619027.3, Protein Name: Homo sapiens isolate 527_caso D-loop, partial sequence; mitochondrial
+Accession: PV619026.3, Protein Name: Homo sapiens isolate 524_caso D-loop, partial sequence; mitochondrial
+Accession: PV619025.3, Protein Name: Homo sapiens isolate 523_caso D-loop, partial sequence; mitochondrial
+Accession: PV619024.3, Protein Name: Homo sapiens isolate 522_caso D-loop, partial sequence; mitochondrial
+Accession: PV619023.3, Protein Name: Homo sapiens isolate 521_caso D-loop, partial sequence; mitochondrial
+Accession: PV619022.3, Protein Name: Homo sapiens isolate 520_caso D-loop, partial sequence; mitochondrial
+Accession: PV619021.3, Protein Name: Homo sapiens isolate 519_caso D-loop, partial sequence; mitochondrial
+Accession: PV619020.3, Protein Name: Homo sapiens isolate 518_caso D-loop, partial sequence; mitochondrial
+Accession: PV619019.3, Protein Name: Homo sapiens isolate 517_caso D-loop, partial sequence; mitochondrial
+Accession: PV619018.3, Protein Name: Homo sapiens isolate 515_caso D-loop, partial sequence; mitochondrial
+Accession: PV619017.3, Protein Name: Homo sapiens isolate 514_caso D-loop, partial sequence; mitochondrial
+Accession: PV619016.3, Protein Name: Homo sapiens isolate 513_caso D-loop, partial sequence; mitochondrial
+Accession: PV619015.3, Protein Name: Homo sapiens isolate 512_caso D-loop, partial sequence; mitochondrial
+Accession: PV619014.3, Protein Name: Homo sapiens isolate 511_caso D-loop, partial sequence; mitochondrial
+Accession: PV619013.3, Protein Name: Homo sapiens isolate 510_caso D-loop, partial sequence; mitochondrial
+Accession: PV619012.3, Protein Name: Homo sapiens isolate 509_caso D-loop, partial sequence; mitochondrial
+Accession: PV619011.3, Protein Name: Homo sapiens isolate 508_caso D-loop, partial sequence; mitochondrial
+Accession: PV619010.3, Protein Name: Homo sapiens isolate 506_Caso D-loop, partial sequence; mitochondrial
+Accession: PV619008.3, Protein Name: Homo sapiens isolate 505_caso D-loop, partial sequence; mitochondrial
+Accession: PV619007.3, Protein Name: Homo sapiens isolate 503_caso D-loop, partial sequence; mitochondrial
+Accession: PV619006.3, Protein Name: Homo sapiens isolate 502_caso D-loop, partial sequence; mitochondrial
+Accession: PV619005.3, Protein Name: Homo sapiens isolate 501_caso D-loop, partial sequence; mitochondrial
+Accession: PV619004.3, Protein Name: Homo sapiens isolate 500_Controle D-loop, partial sequence; mitochondrial
+Accession: PV619003.3, Protein Name: Homo sapiens isolate 499_Controle D-loop, partial sequence; mitochondrial
+Accession: PV619002.3, Protein Name: Homo sapiens isolate 498_Controle D-loop, partial sequence; mitochondrial
+Accession: PV619001.3, Protein Name: Homo sapiens isolate 497_Controle D-loop, partial sequence; mitochondrial
+Accession: PV619000.3, Protein Name: Homo sapiens isolate 496_controle D-loop, partial sequence; mitochondrial
+Accession: PV618999.3, Protein Name: Homo sapiens isolate 495_controle D-loop, partial sequence; mitochondrial
+Accession: PV618998.3, Protein Name: Homo sapiens isolate 494_controle D-loop, partial sequence; mitochondrial
+Accession: PV618997.3, Protein Name: Homo sapiens isolate 493_controle D-loop, partial sequence; mitochondrial
+Accession: PV618996.3, Protein Name: Homo sapiens isolate 492_Controle D-loop, partial sequence; mitochondrial
+Accession: PV618995.3, Protein Name: Homo sapiens isolate 491_controle D-loop, partial sequence; mitochondrial
+Accession: PV618994.3, Protein Name: Homo sapiens isolate 490_controle D-loop, partial sequence; mitochondrial
+Accession: PV618993.3, Protein Name: Homo sapiens isolate 489_controle D-loop, partial sequence; mitochondrial
+Accession: PV618992.3, Protein Name: Homo sapiens isolate 488_controle D-loop, partial sequence; mitochondrial
+Accession: PV618991.3, Protein Name: Homo sapiens isolate 487_controle D-loop, partial sequence; mitochondrial
+Accession: PV618990.3, Protein Name: Homo sapiens isolate 486_controle D-loop, partial sequence; mitochondrial
+Accession: PV618989.3, Protein Name: Homo sapiens isolate 485_controle D-loop, partial sequence; mitochondrial
+Accession: PV618988.3, Protein Name: Homo sapiens isolate 484_controle D-loop, partial sequence; mitochondrial
+Accession: PV618987.3, Protein Name: Homo sapiens isolate 483_controle D-loop, partial sequence; mitochondrial
+Accession: PV618986.3, Protein Name: Homo sapiens isolate 482_controle D-loop, partial sequence; mitochondrial
+Accession: PV618985.3, Protein Name: Homo sapiens isolate 481_controle D-loop, partial sequence; mitochondrial
+Accession: PV618984.3, Protein Name: Homo sapiens isolate 480_controle D-loop, partial sequence; mitochondrial
+Accession: PV618983.3, Protein Name: Homo sapiens isolate 479_controle D-loop, partial sequence; mitochondrial
+Accession: PV618982.3, Protein Name: Homo sapiens isolate 478_controle D-loop, partial sequence; mitochondrial
+Accession: PV618981.3, Protein Name: Homo sapiens isolate 477_controle D-loop, partial sequence; mitochondrial
+Accession: PV618980.3, Protein Name: Homo sapiens isolate 476_controle D-loop, partial sequence; mitochondrial
+Accession: PV618979.3, Protein Name: Homo sapiens isolate 475_controle D-loop, partial sequence; mitochondrial
+Accession: PV618978.3, Protein Name: Homo sapiens isolate 474_controle D-loop, partial sequence; mitochondrial
+Accession: PV618977.3, Protein Name: Homo sapiens isolate 473_controle D-loop, partial sequence; mitochondrial
+Accession: PV618976.3, Protein Name: Homo sapiens isolate 472_controle D-loop, partial sequence; mitochondrial
+Accession: PV618975.3, Protein Name: Homo sapiens isolate 471_controle D-loop, partial sequence; mitochondrial
+Accession: PV618974.3, Protein Name: Homo sapiens isolate 470_controle D-loop, partial sequence; mitochondrial
+Accession: PV618973.3, Protein Name: Homo sapiens isolate 469_controle D-loop, partial sequence; mitochondrial
+Accession: PV618972.3, Protein Name: Homo sapiens isolate 468_controle D-loop, partial sequence; mitochondrial
+Accession: PV618971.3, Protein Name: Homo sapiens isolate 467_controle D-loop, partial sequence; mitochondrial
+Accession: PV618970.3, Protein Name: Homo sapiens isolate 466_controle D-loop, partial sequence; mitochondrial
+Accession: PV618969.3, Protein Name: Homo sapiens isolate 465_controle D-loop, partial sequence; mitochondrial
+Accession: PV618968.3, Protein Name: Homo sapiens isolate 464_controle D-loop, partial sequence; mitochondrial
+Accession: PV618967.3, Protein Name: Homo sapiens isolate 463_controle D-loop, partial sequence; mitochondrial
+Accession: PV618966.3, Protein Name: Homo sapiens isolate 462_controle D-loop, partial sequence; mitochondrial
+Accession: PV618965.3, Protein Name: Homo sapiens isolate 460_controle D-loop, partial sequence; mitochondrial
+Accession: PV618964.3, Protein Name: Homo sapiens isolate 459_controle D-loop, partial sequence; mitochondrial
+Accession: PV618963.3, Protein Name: Homo sapiens isolate 458_controle D-loop, partial sequence; mitochondrial
+Accession: PV618962.3, Protein Name: Homo sapiens isolate 457_controle D-loop, partial sequence; mitochondrial
+Accession: PV618961.3, Protein Name: Homo sapiens isolate 456_controle D-loop, partial sequence; mitochondrial
+Accession: PV618960.3, Protein Name: Homo sapiens isolate 455_controle D-loop, partial sequence; mitochondrial
+Accession: PV618959.3, Protein Name: Homo sapiens isolate 454_controle D-loop, partial sequence; mitochondrial
+Accession: PV618958.3, Protein Name: Homo sapiens isolate 453_controle D-loop, partial sequence; mitochondrial
+Accession: PV618957.3, Protein Name: Homo sapiens isolate 452_controle D-loop, partial sequence; mitochondrial
+Accession: PV618956.3, Protein Name: Homo sapiens isolate 451_controle D-loop, partial sequence; mitochondrial
+Accession: PV618955.3, Protein Name: Homo sapiens isolate 450_controle D-loop, partial sequence; mitochondrial
+Accession: PV618954.3, Protein Name: Homo sapiens isolate 449_controle D-loop, partial sequence; mitochondrial
+Accession: PV618953.3, Protein Name: Homo sapiens isolate 448_controle D-loop, partial sequence; mitochondrial
+Accession: PV618952.3, Protein Name: Homo sapiens isolate 447_controle D-loop, partial sequence; mitochondrial
+Accession: PV618951.3, Protein Name: Homo sapiens isolate 446_controle D-loop, partial sequence; mitochondrial
+Accession: PV618950.3, Protein Name: Homo sapiens isolate 445_controle D-loop, partial sequence; mitochondrial
+Accession: PV618949.3, Protein Name: Homo sapiens isolate 444_controle D-loop, partial sequence; mitochondrial
+Accession: PV618948.3, Protein Name: Homo sapiens isolate 442_controle D-loop, partial sequence; mitochondrial
+Accession: PV618947.3, Protein Name: Homo sapiens isolate 441_controle D-loop, partial sequence; mitochondrial
+Accession: PV618946.3, Protein Name: Homo sapiens isolate 440_Controle D-loop, partial sequence; mitochondrial
+Accession: PV618945.3, Protein Name: Homo sapiens isolate 439_controle D-loop, partial sequence; mitochondrial
+Accession: PV618944.3, Protein Name: Homo sapiens isolate 438_controle D-loop, partial sequence; mitochondrial
+Accession: PV618943.3, Protein Name: Homo sapiens isolate 437_controle D-loop, partial sequence; mitochondrial
+Accession: PV618942.3, Protein Name: Homo sapiens isolate 435_controle D-loop, partial sequence; mitochondrial
+Accession: PV618941.3, Protein Name: Homo sapiens isolate 434_controle D-loop, partial sequence; mitochondrial
+Accession: PV618940.3, Protein Name: Homo sapiens isolate 433_controle D-loop, partial sequence; mitochondrial
+Accession: PV618939.3, Protein Name: Homo sapiens isolate 432_controle D-loop, partial sequence; mitochondrial
+Accession: PV618938.3, Protein Name: Homo sapiens isolate 431_controle D-loop, partial sequence; mitochondrial
+Accession: PV618937.3, Protein Name: Homo sapiens isolate 430_controle D-loop, partial sequence; mitochondrial
+Accession: PV618936.3, Protein Name: Homo sapiens isolate 429_controle D-loop, partial sequence; mitochondrial
+Accession: PV618935.3, Protein Name: Homo sapiens isolate 428_controle D-loop, partial sequence; mitochondrial
+Accession: PV618934.3, Protein Name: Homo sapiens isolate 427_controle D-loop, partial sequence; mitochondrial
+Accession: PV618933.3, Protein Name: Homo sapiens isolate 426_controle D-loop, partial sequence; mitochondrial
+Accession: PV618932.3, Protein Name: Homo sapiens isolate 425_Controle D-loop, partial sequence; mitochondrial
+Accession: PV618931.3, Protein Name: Homo sapiens isolate 424_controle D-loop, partial sequence; mitochondrial
+Accession: PV618930.3, Protein Name: Homo sapiens isolate 423_controle D-loop, partial sequence; mitochondrial
+Accession: PV618929.3, Protein Name: Homo sapiens isolate 422_controle D-loop, partial sequence; mitochondrial
+Accession: PV618928.3, Protein Name: Homo sapiens isolate 421_controle D-loop, partial sequence; mitochondrial
+Accession: PV618927.3, Protein Name: Homo sapiens isolate 420_controle D-loop, partial sequence; mitochondrial
+Accession: PV618926.3, Protein Name: Homo sapiens isolate 419_controle D-loop, partial sequence; mitochondrial
+Accession: PV618925.3, Protein Name: Homo sapiens isolate 418_controle D-loop, partial sequence; mitochondrial
+Accession: PV618924.3, Protein Name: Homo sapiens isolate 417_controle D-loop, partial sequence; mitochondrial
+Accession: PV618923.3, Protein Name: Homo sapiens isolate 416_controle D-loop, partial sequence; mitochondrial
+Accession: PV618922.3, Protein Name: Homo sapiens isolate 415_controle D-loop, partial sequence; mitochondrial
+Accession: PV618921.3, Protein Name: Homo sapiens isolate 414_controle D-loop, partial sequence; mitochondrial
+Accession: PV618920.3, Protein Name: Homo sapiens isolate 413_controle D-loop, partial sequence; mitochondrial
+Accession: PV618919.3, Protein Name: Homo sapiens isolate 412_controle D-loop, partial sequence; mitochondrial
+Accession: PV618918.3, Protein Name: Homo sapiens isolate 411_controle D-loop, partial sequence; mitochondrial
+Accession: PV618917.3, Protein Name: Homo sapiens isolate 410_Controle D-loop, partial sequence; mitochondrial
+Accession: PV618916.3, Protein Name: Homo sapiens isolate 409_controle D-loop, partial sequence; mitochondrial
+Accession: PV618915.3, Protein Name: Homo sapiens isolate 408_controle D-loop, partial sequence; mitochondrial
+Accession: PV618914.3, Protein Name: Homo sapiens isolate 407_controle D-loop, partial sequence; mitochondrial
+Accession: PV618913.3, Protein Name: Homo sapiens isolate 406_controle D-loop, partial sequence; mitochondrial
+Accession: PV618912.3, Protein Name: Homo sapiens isolate 405_controle D-loop, partial sequence; mitochondrial
+Accession: PV618911.3, Protein Name: Homo sapiens isolate 404_controle D-loop, partial sequence; mitochondrial
+Accession: PV618910.3, Protein Name: Homo sapiens isolate 403_controle D-loop, partial sequence; mitochondrial
+Accession: PV618909.3, Protein Name: Homo sapiens isolate 402_controle D-loop, partial sequence; mitochondrial
+Accession: PV618908.3, Protein Name: Homo sapiens isolate 401_controle D-loop, partial sequence; mitochondrial
+Accession: PV618907.3, Protein Name: Homo sapiens isolate 400_controle D-loop, partial sequence; mitochondrial
+Accession: PV618906.3, Protein Name: Homo sapiens isolate 340_caso D-loop, partial sequence; mitochondrial
+Accession: PV618905.3, Protein Name: Homo sapiens isolate 337_caso D-loop, partial sequence; mitochondrial
+Accession: PV618904.3, Protein Name: Homo sapiens isolate 336_caso D-loop, partial sequence; mitochondrial
+Accession: PV618903.3, Protein Name: Homo sapiens isolate 335_Caso D-loop, partial sequence; mitochondrial
+Accession: PV618902.3, Protein Name: Homo sapiens isolate 334_caso D-loop, partial sequence; mitochondrial
+Accession: PV618901.3, Protein Name: Homo sapiens isolate 333_caso D-loop, partial sequence; mitochondrial
+Accession: PV618900.3, Protein Name: Homo sapiens isolate 331_caso D-loop, partial sequence; mitochondrial
+Accession: PV618899.3, Protein Name: Homo sapiens isolate 330_caso D-loop, partial sequence; mitochondrial
+Accession: PV618898.3, Protein Name: Homo sapiens isolate 329_caso D-loop, partial sequence; mitochondrial
+Accession: PV618897.3, Protein Name: Homo sapiens isolate 327_caso D-loop, partial sequence; mitochondrial
+Accession: PV618896.3, Protein Name: Homo sapiens isolate 326_caso D-loop, partial sequence; mitochondrial
+Accession: PV618895.3, Protein Name: Homo sapiens isolate 325_caso D-loop, partial sequence; mitochondrial
+Accession: PV618894.3, Protein Name: Homo sapiens isolate 323_caso D-loop, partial sequence; mitochondrial
+Accession: PV618893.3, Protein Name: Homo sapiens isolate 322_caso D-loop, partial sequence; mitochondrial
+Accession: PV618892.3, Protein Name: Homo sapiens isolate 321_caso D-loop, partial sequence; mitochondrial
+Accession: PV618891.3, Protein Name: Homo sapiens isolate 320_caso D-loop, partial sequence; mitochondrial
+Accession: PV618890.3, Protein Name: Homo sapiens isolate 319_caso D-loop, partial sequence; mitochondrial
+Accession: PV618889.3, Protein Name: Homo sapiens isolate 317_caso D-loop, partial sequence; mitochondrial
+Accession: PV618888.3, Protein Name: Homo sapiens isolate 316_caso D-loop, partial sequence; mitochondrial
+Accession: PV618887.3, Protein Name: Homo sapiens isolate 315_caso D-loop, partial sequence; mitochondrial
+Accession: PV618886.3, Protein Name: Homo sapiens isolate 314_caso D-loop, partial sequence; mitochondrial
+Accession: PV618885.3, Protein Name: Homo sapiens isolate 313_caso D-loop, partial sequence; mitochondrial
+Accession: PV618884.3, Protein Name: Homo sapiens isolate 312_caso D-loop, partial sequence; mitochondrial
+Accession: PV618883.3, Protein Name: Homo sapiens isolate 311_caso D-loop, partial sequence; mitochondrial
+Accession: PV618882.3, Protein Name: Homo sapiens isolate 310_caso D-loop, partial sequence; mitochondrial
+Accession: PV618881.3, Protein Name: Homo sapiens isolate 309_caso D-loop, partial sequence; mitochondrial
+Accession: PV618880.3, Protein Name: Homo sapiens isolate 307_caso D-loop, partial sequence; mitochondrial
+Accession: PV618879.3, Protein Name: Homo sapiens isolate 306_caso D-loop, partial sequence; mitochondrial
+Accession: PV618878.3, Protein Name: Homo sapiens isolate 305_caso D-loop, partial sequence; mitochondrial
+Accession: PV618877.3, Protein Name: Homo sapiens isolate 304_caso D-loop, partial sequence; mitochondrial
+Accession: PV618876.3, Protein Name: Homo sapiens isolate 303_caso D-loop, partial sequence; mitochondrial
+Accession: PV618875.3, Protein Name: Homo sapiens isolate 301_caso D-loop, partial sequence; mitochondrial
+Accession: PV618874.3, Protein Name: Homo sapiens isolate 299_controle D-loop, partial sequence; mitochondrial
+Accession: PV618873.3, Protein Name: Homo sapiens isolate 298_controle D-loop, partial sequence; mitochondrial
+Accession: PV618872.3, Protein Name: Homo sapiens isolate 297_controle D-loop, partial sequence; mitochondrial
+Accession: PV618871.3, Protein Name: Homo sapiens isolate 296_controle D-loop, partial sequence; mitochondrial
+Accession: PV618870.3, Protein Name: Homo sapiens isolate 295_controle D-loop, partial sequence; mitochondrial
+Accession: PV618869.3, Protein Name: Homo sapiens isolate 294_controle D-loop, partial sequence; mitochondrial
+Accession: PV618868.3, Protein Name: Homo sapiens isolate 293_controle D-loop, partial sequence; mitochondrial
+Accession: PV618867.3, Protein Name: Homo sapiens isolate 292_controle D-loop, partial sequence; mitochondrial
+Accession: PV618866.3, Protein Name: Homo sapiens isolate 291_controle D-loop, partial sequence; mitochondrial
+Accession: PV618865.3, Protein Name: Homo sapiens isolate 289_controle D-loop, partial sequence; mitochondrial
+Accession: PV618864.3, Protein Name: Homo sapiens isolate 286_controle D-loop, partial sequence; mitochondrial
+Accession: PV618863.3, Protein Name: Homo sapiens isolate 285_Controle D-loop, partial sequence; mitochondrial
+Accession: PV618862.3, Protein Name: Homo sapiens isolate 284_Controle D-loop, partial sequence; mitochondrial
+Accession: PV618861.3, Protein Name: Homo sapiens isolate 283_controle D-loop, partial sequence; mitochondrial
+Accession: PV618860.3, Protein Name: Homo sapiens isolate 282_controle D-loop, partial sequence; mitochondrial
+Accession: PV618859.3, Protein Name: Homo sapiens isolate 281_controle D-loop, partial sequence; mitochondrial
+Accession: PV618858.3, Protein Name: Homo sapiens isolate 280_controle D-loop, partial sequence; mitochondrial
+Accession: PV618857.3, Protein Name: Homo sapiens isolate 279_controle D-loop, partial sequence; mitochondrial
+Accession: PV618856.3, Protein Name: Homo sapiens isolate 278_controle D-loop, partial sequence; mitochondrial
+Accession: PV618855.3, Protein Name: Homo sapiens isolate 277_controle D-loop, partial sequence; mitochondrial
+Accession: PV618854.3, Protein Name: Homo sapiens isolate 276_controle D-loop, partial sequence; mitochondrial
+Accession: PV618853.3, Protein Name: Homo sapiens isolate 275_controle D-loop, partial sequence; mitochondrial
+Accession: PV618852.3, Protein Name: Homo sapiens isolate 274_controle D-loop, partial sequence; mitochondrial
+Accession: PV618851.3, Protein Name: Homo sapiens isolate 272_controle D-loop, partial sequence; mitochondrial
+Accession: PV618850.3, Protein Name: Homo sapiens isolate 271_controle D-loop, partial sequence; mitochondrial
+Accession: PV618849.3, Protein Name: Homo sapiens isolate 270_controle D-loop, partial sequence; mitochondrial
+Accession: PV618848.3, Protein Name: Homo sapiens isolate 269_controle D-loop, partial sequence; mitochondrial
+Accession: PV618847.3, Protein Name: Homo sapiens isolate 268_controle D-loop, partial sequence; mitochondrial
+Accession: PV618846.3, Protein Name: Homo sapiens isolate 267_controle D-loop, partial sequence; mitochondrial
+Accession: PV618845.3, Protein Name: Homo sapiens isolate 266_controle D-loop, partial sequence; mitochondrial
+Accession: PV618844.3, Protein Name: Homo sapiens isolate 263_controle D-loop, partial sequence; mitochondrial
+Accession: PV618843.3, Protein Name: Homo sapiens isolate 262_controle D-loop, partial sequence; mitochondrial
+Accession: PV618842.3, Protein Name: Homo sapiens isolate 261_controle D-loop, partial sequence; mitochondrial
+Accession: PV618841.3, Protein Name: Homo sapiens isolate 260_controle D-loop, partial sequence; mitochondrial
+Accession: PV618840.3, Protein Name: Homo sapiens isolate 259_controle D-loop, partial sequence; mitochondrial
+Accession: PV618839.3, Protein Name: Homo sapiens isolate 258_controle D-loop, partial sequence; mitochondrial
+Accession: PV618838.3, Protein Name: Homo sapiens isolate 257_controle D-loop, partial sequence; mitochondrial
+Accession: PV618837.3, Protein Name: Homo sapiens isolate 255_controle D-loop, partial sequence; mitochondrial
+Accession: PV618836.3, Protein Name: Homo sapiens isolate 254_controle D-loop, partial sequence; mitochondrial
+Accession: PV618835.3, Protein Name: Homo sapiens isolate 253_controle D-loop, partial sequence; mitochondrial
+Accession: PV618834.3, Protein Name: Homo sapiens isolate 252_controle D-loop, partial sequence; mitochondrial
+Accession: PV618833.3, Protein Name: Homo sapiens isolate 250_controle D-loop, partial sequence; mitochondrial
+Accession: PV618832.3, Protein Name: Homo sapiens isolate 249_Controle D-loop, partial sequence; mitochondrial
+Accession: PV618831.3, Protein Name: Homo sapiens isolate 248_controle D-loop, partial sequence; mitochondrial
+Accession: PV618830.3, Protein Name: Homo sapiens isolate 246_controle D-loop, partial sequence; mitochondrial
+Accession: PV618829.3, Protein Name: Homo sapiens isolate 245_controle D-loop, partial sequence; mitochondrial
+Accession: PV618828.3, Protein Name: Homo sapiens isolate 244_Controle D-loop, partial sequence; mitochondrial
+Accession: PV618827.3, Protein Name: Homo sapiens isolate 243_Controle D-loop, partial sequence; mitochondrial
+Accession: PV618826.3, Protein Name: Homo sapiens isolate 242_controle D-loop, partial sequence; mitochondrial
+Accession: PV618825.3, Protein Name: Homo sapiens isolate 241_Controle D-loop, partial sequence; mitochondrial
+Accession: PV618824.3, Protein Name: Homo sapiens isolate 240_controle D-loop, partial sequence; mitochondrial
+Accession: PV618823.3, Protein Name: Homo sapiens isolate 239_controle D-loop, partial sequence; mitochondrial
+Accession: PV618822.3, Protein Name: Homo sapiens isolate 238_controle D-loop, partial sequence; mitochondrial
+Accession: PV618821.3, Protein Name: Homo sapiens isolate 237_Controle D-loop, partial sequence; mitochondrial
+Accession: PV618820.3, Protein Name: Homo sapiens isolate 236_Controle D-loop, partial sequence; mitochondrial
+Accession: PV618819.3, Protein Name: Homo sapiens isolate 235_controle D-loop, partial sequence; mitochondrial
+Accession: PV618818.3, Protein Name: Homo sapiens isolate 234_controle D-loop, partial sequence; mitochondrial
+Accession: PV618817.3, Protein Name: Homo sapiens isolate 233_controle D-loop, partial sequence; mitochondrial
+Accession: PV618816.3, Protein Name: Homo sapiens isolate 232_Controle D-loop, partial sequence; mitochondrial
+Accession: PV618815.3, Protein Name: Homo sapiens isolate 231_controle D-loop, partial sequence; mitochondrial
+Accession: PV618814.3, Protein Name: Homo sapiens isolate 230_Controle D-loop, partial sequence; mitochondrial
+Accession: PV618813.3, Protein Name: Homo sapiens isolate 229_controle D-loop, partial sequence; mitochondrial
+Accession: PV618812.3, Protein Name: Homo sapiens isolate 228_controle D-loop, partial sequence; mitochondrial
+Accession: PV618811.3, Protein Name: Homo sapiens isolate 227_controle D-loop, partial sequence; mitochondrial
+Accession: PV618810.3, Protein Name: Homo sapiens isolate 226_controle D-loop, partial sequence; mitochondrial
+Accession: PV618809.3, Protein Name: Homo sapiens isolate 224_Controle D-loop, partial sequence; mitochondrial
+Accession: PV618808.3, Protein Name: Homo sapiens isolate 223_controle D-loop, partial sequence; mitochondrial
+Accession: PV618807.3, Protein Name: Homo sapiens isolate 222_controle D-loop, partial sequence; mitochondrial
+Accession: PV618806.3, Protein Name: Homo sapiens isolate 221_controle D-loop, partial sequence; mitochondrial
+Accession: PV618805.3, Protein Name: Homo sapiens isolate 220_controle D-loop, partial sequence; mitochondrial
+Accession: PV618804.3, Protein Name: Homo sapiens isolate 219_Controle D-loop, partial sequence; mitochondrial
+Accession: PV618803.3, Protein Name: Homo sapiens isolate 218_Controle D-loop, partial sequence; mitochondrial
+Accession: PV618802.3, Protein Name: Homo sapiens isolate 217_Controle D-loop, partial sequence; mitochondrial
+Accession: PV618801.3, Protein Name: Homo sapiens isolate 216_Controle D-loop, partial sequence; mitochondrial
+Accession: PV618800.3, Protein Name: Homo sapiens isolate 215_controle D-loop, partial sequence; mitochondrial
+Accession: PV618799.3, Protein Name: Homo sapiens isolate 214_controle D-loop, partial sequence; mitochondrial
+Accession: PV618798.3, Protein Name: Homo sapiens isolate 213_controle D-loop, partial sequence; mitochondrial
+Accession: PV618797.3, Protein Name: Homo sapiens isolate 212_controle D-loop, partial sequence; mitochondrial
+Accession: PV618796.3, Protein Name: Homo sapiens isolate 211_controle D-loop, partial sequence; mitochondrial
+Accession: PV618795.3, Protein Name: Homo sapiens isolate 210_controle D-loop, partial sequence; mitochondrial
+Accession: PV618794.3, Protein Name: Homo sapiens isolate 209_controle D-loop, partial sequence; mitochondrial
+Accession: PV618793.3, Protein Name: Homo sapiens isolate 207_controle D-loop, partial sequence; mitochondrial
+Accession: PV618792.3, Protein Name: Homo sapiens isolate 206_controle D-loop, partial sequence; mitochondrial
+Accession: PV618791.3, Protein Name: Homo sapiens isolate 205_controle D-loop, partial sequence; mitochondrial
+Accession: PV618790.3, Protein Name: Homo sapiens isolate 204_controle D-loop, partial sequence; mitochondrial
+Accession: PV618789.3, Protein Name: Homo sapiens isolate 203_Controle D-loop, partial sequence; mitochondrial
+Accession: PV618788.3, Protein Name: Homo sapiens isolate 202_controle D-loop, partial sequence; mitochondrial
+Accession: PV618787.3, Protein Name: Homo sapiens isolate 201_controle D-loop, partial sequence; mitochondrial
+Accession: PV618786.3, Protein Name: Homo sapiens isolate 200_controle D-loop, partial sequence; mitochondrial
+Accession: PV618785.3, Protein Name: Homo sapiens isolate 199_controle D-loop, partial sequence; mitochondrial
+Accession: PV618784.3, Protein Name: Homo sapiens isolate 198_controle D-loop, partial sequence; mitochondrial
+Accession: PV618783.3, Protein Name: Homo sapiens isolate 197_CONtrole D-loop, partial sequence; mitochondrial
+Accession: PV618782.3, Protein Name: Homo sapiens isolate 196_controle D-loop, partial sequence; mitochondrial
+Accession: PV618781.3, Protein Name: Homo sapiens isolate 195_controle D-loop, partial sequence; mitochondrial
+Accession: PV618780.3, Protein Name: Homo sapiens isolate 194_controle D-loop, partial sequence; mitochondrial
+Accession: PV618779.3, Protein Name: Homo sapiens isolate 193_controle D-loop, partial sequence; mitochondrial
+Accession: PV618778.3, Protein Name: Homo sapiens isolate 192_controle D-loop, partial sequence; mitochondrial
+Accession: PV618777.3, Protein Name: Homo sapiens isolate 191_controle D-loop, partial sequence; mitochondrial
+Accession: PV618776.3, Protein Name: Homo sapiens isolate 190_controle D-loop, partial sequence; mitochondrial
+Accession: PV618775.3, Protein Name: Homo sapiens isolate 189_controle D-loop, partial sequence; mitochondrial
+Accession: PV618774.3, Protein Name: Homo sapiens isolate 188_controle D-loop, partial sequence; mitochondrial
+Accession: PV618773.3, Protein Name: Homo sapiens isolate 187_controle D-loop, partial sequence; mitochondrial
+Accession: PV618772.3, Protein Name: Homo sapiens isolate 186_controle D-loop, partial sequence; mitochondrial
+Accession: PV618771.3, Protein Name: Homo sapiens isolate 185_controle D-loop, partial sequence; mitochondrial
+Accession: PV618770.3, Protein Name: Homo sapiens isolate 184_controle D-loop, partial sequence; mitochondrial
+Accession: PV618769.3, Protein Name: Homo sapiens isolate 183_controle D-loop, partial sequence; mitochondrial
+Accession: PV618768.3, Protein Name: Homo sapiens isolate 182_controle D-loop, partial sequence; mitochondrial
+Accession: PV618767.3, Protein Name: Homo sapiens isolate 181_controle D-loop, partial sequence; mitochondrial
+Accession: PV618766.3, Protein Name: Homo sapiens isolate 180_controle D-loop, partial sequence; mitochondrial
+Accession: PV618765.3, Protein Name: Homo sapiens isolate 179_controle D-loop, partial sequence; mitochondrial
+Accession: PV618764.3, Protein Name: Homo sapiens isolate 178_controle D-loop, partial sequence; mitochondrial
+Accession: PV618763.3, Protein Name: Homo sapiens isolate 177_controle D-loop, partial sequence; mitochondrial
+Accession: PV618762.3, Protein Name: Homo sapiens isolate 176_controle D-loop, partial sequence; mitochondrial
+Accession: PV618761.3, Protein Name: Homo sapiens isolate 175_controle D-loop, partial sequence; mitochondrial
+Accession: PV618760.3, Protein Name: Homo sapiens isolate 174_controle D-loop, partial sequence; mitochondrial
+Accession: PV618759.3, Protein Name: Homo sapiens isolate 173_controle D-loop, partial sequence; mitochondrial
+Accession: PV618758.3, Protein Name: Homo sapiens isolate 172_controle D-loop, partial sequence; mitochondrial
+Accession: PV618757.3, Protein Name: Homo sapiens isolate 171_controle D-loop, partial sequence; mitochondrial
+Accession: PV618756.3, Protein Name: Homo sapiens isolate 170_controle D-loop, partial sequence; mitochondrial
+Accession: PV618755.3, Protein Name: Homo sapiens isolate 169_controle D-loop, partial sequence; mitochondrial
+Accession: PV618754.3, Protein Name: Homo sapiens isolate 168_controle D-loop, partial sequence; mitochondrial
+Accession: PV618753.3, Protein Name: Homo sapiens isolate 167_controle D-loop, partial sequence; mitochondrial
+Accession: PV618752.3, Protein Name: Homo sapiens isolate 166_controle D-loop, partial sequence; mitochondrial
+Accession: PV618751.3, Protein Name: Homo sapiens isolate 165_Controle D-loop, partial sequence; mitochondrial
+Accession: PV618750.3, Protein Name: Homo sapiens isolate 164_Controle D-loop, partial sequence; mitochondrial
+Accession: PV618749.3, Protein Name: Homo sapiens isolate 163_Controle D-loop, partial sequence; mitochondrial
+Accession: PV618748.3, Protein Name: Homo sapiens isolate 162_Controle D-loop, partial sequence; mitochondrial
+Accession: PV618747.3, Protein Name: Homo sapiens isolate 161_Controle D-loop, partial sequence; mitochondrial
+Accession: PV618746.3, Protein Name: Homo sapiens isolate 160_Controle D-loop, partial sequence; mitochondrial
+Accession: PV618745.3, Protein Name: Homo sapiens isolate 159_controle D-loop, partial sequence; mitochondrial
+Accession: PV618744.3, Protein Name: Homo sapiens isolate 158_controle D-loop, partial sequence; mitochondrial
+Accession: PV618743.3, Protein Name: Homo sapiens isolate 157_controle D-loop, partial sequence; mitochondrial
+Accession: PV618742.3, Protein Name: Homo sapiens isolate 155_controle D-loop, partial sequence; mitochondrial
+Accession: PV618741.3, Protein Name: Homo sapiens isolate 154_controle D-loop, partial sequence; mitochondrial
+Accession: PV618740.3, Protein Name: Homo sapiens isolate 153_controle D-loop, partial sequence; mitochondrial
+Accession: PV618739.3, Protein Name: Homo sapiens isolate 151_controle D-loop, partial sequence; mitochondrial
+Accession: PV618738.3, Protein Name: Homo sapiens isolate 150_controle D-loop, partial sequence; mitochondrial
+
+Total records retrieved: 500
