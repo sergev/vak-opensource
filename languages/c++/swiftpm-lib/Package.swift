@@ -12,14 +12,14 @@ let package = Package(
             path: "Sources/MyCppLib",
             publicHeadersPath: "include",
             cxxSettings: [
-                .headerSearchPath("include"),
                 .define("USE_FEATURE_X", to: "1"),
-                .unsafeFlags(["-std=c++20"]) // enable C++20
+                .unsafeFlags(["-std=c++20"])
             ]
         ),
         .testTarget(
             name: "MyCppLibTests",
-            dependencies: ["MyCppLib"]
+            dependencies: ["MyCppLib"],
+            path: "Tests"
         ),
     ]
 )

@@ -17,13 +17,12 @@ This example shows an executable in C++:
     ├── Sources/
     │   └── MyCppLib/
     │       ├── include/
-    │       │   └── mycpplib.hpp
+    │       │   └── mycpplib.h
     │       └── mycpplib.cpp
     └── Tests/
-        └── MyCppLibTests/
-            └── test.cpp
+        └── test.cpp
 
 Build and run:
 
     swift build
-    swift run
+    swift test
