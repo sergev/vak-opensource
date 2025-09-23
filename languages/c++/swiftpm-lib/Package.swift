@@ -9,7 +9,7 @@ let package = Package(
     targets: [
         .target(
             name: "MyCppLib",
-            path: "Sources/MyCppLib",
+            path: "Sources",
             publicHeadersPath: "include",
             cxxSettings: [
                 .define("USE_FEATURE_X", to: "1"),

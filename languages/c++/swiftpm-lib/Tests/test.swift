@@ -18,8 +18,7 @@ final class MyCppLibTests: XCTestCase {
     }
 
     func testNegativeInput() {
-        // In C++ throws, but for simplicity we catch in C++ as -1
-        // If you want, you can leave it throwing and catch in Swift using try/catch wrappers
+        // Catch invalid input in C++ as -1.
         XCTAssertEqual(fibonacci(-1), -1)
     }
 }

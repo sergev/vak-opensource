@@ -15,12 +15,11 @@ This example shows an executable in C++:
     swiftpm-lib/
     ├── Package.swift
     ├── Sources/
-    │   └── MyCppLib/
-    │       ├── include/
-    │       │   └── mycpplib.h
-    │       └── mycpplib.cpp
+    │   ├── include/
+    │   │   └── mycpplib.h
+    │   └── mycpplib.cpp
     └── Tests/
-        └── test.cpp
+        └── test.swift
 
 Build and run:
 
