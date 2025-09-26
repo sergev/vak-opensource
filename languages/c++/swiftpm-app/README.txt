@@ -15,8 +15,7 @@ This example shows an executable in C++:
     swiftpm-app/
     ├── Package.swift
     └── Sources/
-        └── Hello/
-            └── main.cpp
+        └── main.cpp
 
 Build and run:
 

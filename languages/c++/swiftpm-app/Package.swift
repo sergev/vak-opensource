@@ -9,7 +9,7 @@ let package = Package(
     targets: [
         .executableTarget(
             name: "Hello",
-            path: "Sources/Hello",
+            path: "Sources",
             cxxSettings: [
                 .unsafeFlags(["-std=c++20"])
             ]
