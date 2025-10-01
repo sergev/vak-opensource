@@ -1,0 +1,97 @@
+\documentclass[$if(fontsize)$ $fontsize$,$endif$]{book}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{mathpazo} % Modern Palatino clone with better character support
+\usepackage{geometry}
+\geometry{a4paper, margin=1in} % Clean margins
+\usepackage{fancyhdr} % For headers and footers
+\usepackage{xcolor} % For colored text and frames
+\usepackage{framed} % For Shaded environment
+\usepackage{fancyvrb} % Dependency for fvextra
+\usepackage{fvextra} % For Pandoc's syntax highlighting commands
+\usepackage{amsmath} % For math equations
+\usepackage{mdframed} % For boxed notes/footnotes
+\usepackage{tocloft} % For table of contents styling
+\usepackage{longtable} % For tables that may span pages
+\usepackage{booktabs} % For table formatting (toprule, midrule, bottomrule)
+\usepackage{fontspec}
+
+% Define Shaded environment for code blocks
+\definecolor{shadecolor}{gray}{0.95} % Light gray background
+\newenvironment{Shaded}{%
+  \begin{snugshade}\small\ttfamily
+}{%
+  \end{snugshade}
+}
+
+% Define Highlighting environment for Pandoc's syntax highlighting
+\newenvironment{Highlighting}{\ttfamily\small}{\relax} % Minimal definition to avoid altering Shaded styling
+
+% Define Pandoc's syntax highlighting commands
+% Requires: \usepackage{xcolor}
+% Keywords – bold and blue
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.0,0.2,0.7}{\textbf{#1}}}
+
+% Strings – dark green, monospace
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.0,0.5,0.0}{\texttt{#1}}}
+
+% Comments – italic gray
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.4,0.4,0.4}{\textit{#1}}}
+
+% Functions – teal
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.0,0.4,0.4}{#1}}
+
+% Normal text – keep black
+\newcommand{\NormalTok}[1]{#1}
+
+% Control flow (if, else, return…) – bold purple
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.6,0.0,0.6}{\textbf{#1}}}
+
+% Operators – orange
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.8,0.3,0.0}{#1}}
+
+% Decimal values – dark cyan
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.0,0.5,0.5}{#1}}
+
+% Built-ins / library functions – dark red
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.6,0.0,0.0}{#1}}
+
+% Configure fvextra for Pandoc's highlighting
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{fontsize=\small,commandchars=\\\{\}}
+
+% Define CSLReferences environment for Pandoc's bibliography
+\newenvironment{CSLReferences}[2]
+  {\begin{thebibliography}{#1}}
+  {\end{thebibliography}}
+
+% Define citeproctext to handle Pandoc's citation labels
+\newcommand{\citeproctext}{}
+
+% Header and footer
+\pagestyle{fancy}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[RE,LO]{\leftmark}
+
+% Chapter and section styling
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+
+% Boxed footnotes/notes
+\surroundwithmdframed[backgroundcolor=gray!10, linecolor=black, linewidth=1pt]{footnote}
+
+\begin{document}
+\frontmatter
+$if(title)$
+  \title{$title$}
+$endif$
+$if(author)$
+  \author{$author$}
+$endif$
+$if(date)$
+  \date{$date$}
+$endif$
+\maketitle
+\tableofcontents
+\mainmatter
+$body$
+\backmatter
+\end{document}

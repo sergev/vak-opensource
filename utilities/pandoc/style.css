@@ -1,0 +1,32 @@
+body {
+    font-family: Palatino, "Times New Roman", serif;
+    margin: 1in;
+    max-width: 800px;
+    line-height: 1.5;
+}
+h1, h2, h3 {
+    font-weight: bold;
+    color: #2e2e2e;
+}
+code {
+    font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+    font-size: 85%;
+}
+pre {
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f5f5f5;
+}
+blockquote {
+    border-left: 4px solid #ccc;
+    padding-left: 10px;
+    background-color: #f9f9f9;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+}
