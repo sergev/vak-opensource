@@ -1,0 +1,15 @@
+u0_a226@localhost
+-----------------
+OS: Android REL 9 armv8l
+Host: Amazon KFMAWI
+Kernel: Linux 4.4.146+
+Uptime: 19 hours, 7 mins
+Packages: 139 (dpkg)
+Shell: bashc
+WM: WindowManager (SurfaceFlinger)
+Terminal: /dev/pts/1
+CPU: 2 x MT8183 (8) @ 1.99 GHz
+GPU: Mali-G72 MP3 [Integrated]
+Memory: 1.15 GiB / 1.75 GiB (66%)
+Swap: 230.35 MiB / 512.00 MiB (45%)
+Bad system call
