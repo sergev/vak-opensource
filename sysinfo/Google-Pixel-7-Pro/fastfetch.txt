@@ -1,0 +1,19 @@
+u0_a382@localhost
+-----------------
+OS: Android REL 16 aarch64
+Host: Google Pixel 7 Pro
+Kernel: Linux 6.1.134-android14-11-g66e758f7d0c0-ab13748739
+Uptime: 23 hours, 32 mins
+Packages: 126 (dpkg)
+Shell: bashc
+WM: WindowManager (SurfaceFlinger)
+Terminal:
+CPU: GS201 (8) @ 2.85 GHz
+GPU: Mali-G710 [Integrated]
+Memory: 8.50 GiB / 11.17 GiB (76%)
+Swap: 3.00 GiB / 3.00 GiB (100%)
+Disk (/): 1021.93 MiB / 1.00 GiB (100%) - ext4 [Read-only]
+Disk (/storage/emulated): 89.67 GiB / 109.91 GiB (82%) - fuse
+Local IP (rmnet16): 100.65.111.18/32
+Local IP (wlan0): 192.168.86.29/24
+Locale: en_US.UTF-8

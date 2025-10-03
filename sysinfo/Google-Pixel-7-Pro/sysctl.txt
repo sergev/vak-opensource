@@ -1,0 +1,10 @@
+kernel.perf_cpu_time_max_percent = 25
+kernel.perf_event_max_sample_rate = 79500
+kernel.perf_event_mlock_kb = 516
+kernel.perf_event_paranoid = -1
+kernel.random.boot_id = add440b5-445c-40ba-840f-b433d48ee357
+kernel.random.entropy_avail = 256
+kernel.random.poolsize = 256
+kernel.random.urandom_min_reseed_secs = 60
+kernel.random.uuid = 12244a27-afbd-4946-ae16-c939465c95cc
+kernel.random.write_wakeup_threshold = 256

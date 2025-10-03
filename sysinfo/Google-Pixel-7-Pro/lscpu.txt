@@ -1,0 +1,53 @@
+Architecture:                         aarch64
+CPU op-mode(s):                       32-bit, 64-bit
+Byte Order:                           Little Endian
+CPU(s):                               8
+On-line CPU(s) list:                  0-7
+Vendor ID:                            ARM
+Model name:                           Cortex-A55
+Model:                                0
+Thread(s) per core:                   1
+Core(s) per socket:                   4
+Socket(s):                            1
+Stepping:                             r2p0
+CPU(s) scaling MHz:                   70%
+CPU max MHz:                          1803.0000
+CPU min MHz:                          300.0000
+BogoMIPS:                             49.15
+Flags:                                fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp
+Model name:                           Cortex-A78
+Model:                                1
+Thread(s) per core:                   1
+Core(s) per socket:                   2
+Socket(s):                            1
+Stepping:                             r1p1
+CPU(s) scaling MHz:                   17%
+CPU max MHz:                          2348.0000
+CPU min MHz:                          400.0000
+BogoMIPS:                             49.15
+Flags:                                fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp
+Model name:                           Cortex-X1
+Model:                                0
+Thread(s) per core:                   1
+Core(s) per socket:                   2
+Socket(s):                            1
+Stepping:                             r1p0
+CPU(s) scaling MHz:                   77%
+CPU max MHz:                          2850.0000
+CPU min MHz:                          500.0000
+BogoMIPS:                             49.15
+Flags:                                fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp
+Vulnerability Gather data sampling:   Not affected
+Vulnerability Itlb multihit:          Not affected
+Vulnerability L1tf:                   Not affected
+Vulnerability Mds:                    Not affected
+Vulnerability Meltdown:               Not affected
+Vulnerability Mmio stale data:        Not affected
+Vulnerability Reg file data sampling: Not affected
+Vulnerability Retbleed:               Not affected
+Vulnerability Spec rstack overflow:   Not affected
+Vulnerability Spec store bypass:      Mitigation; Speculative Store Bypass disabled via prctl
+Vulnerability Spectre v1:             Mitigation; __user pointer sanitization
+Vulnerability Spectre v2:             Vulnerable: Unprivileged eBPF enabled
+Vulnerability Srbds:                  Not affected
+Vulnerability Tsx async abort:        Not affected
