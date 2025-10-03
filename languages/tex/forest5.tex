@@ -1,0 +1,14 @@
+\documentclass[tikz]{standalone}
+\usepackage{forest}
+
+\begin{document}
+\begin{forest}
+  Stern Brocot/.style n args={5}{%
+    content=$\frac{\number\numexpr#1+#3\relax}{\number\numexpr#2+#4\relax}$,
+    if={#5>0}{% true
+      append={[,Stern Brocot={#1}{#2}{#1+#3}{#2+#4}{#5-1}]},
+      append={[,Stern Brocot={#1+#3}{#2+#4}{#3}{#4}{#5-1}]}
+    }{}}% false (empty)
+[,Stern Brocot={0}{1}{1}{0}{5}]
+\end{forest}
+\end{document}
