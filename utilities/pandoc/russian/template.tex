@@ -18,6 +18,8 @@
 \usepackage{parskip}    % nicer paragraph spacing
 \usepackage{longtable,booktabs}
 \usepackage{array}      % for better column formatting
+\usepackage{svg}
+\usepackage{graphicx}
 \usepackage{geometry}
 \geometry{margin=2.5cm}
 
@@ -27,6 +29,9 @@
 % Tables: Left align
 \setlength\LTleft{0pt}
 \setlength\LTright{\fill}
+
+% For included SVG images.
+\newcommand{\pandocbounded}[1]{#1}
 
 % Hyperref options (keeps unicode anchors)
 \hypersetup{unicode=true,
