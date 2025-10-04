@@ -1,0 +1,38 @@
+\documentclass[$if(fontsize)$$fontsize$$else$12pt$endif$,$if(papersize)$$papersize$$else$a4paper$endif$]{article}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{bookmark}
+\usepackage{microtype}
+
+% Language.
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setmainlanguage{russian}
+
+% Fonts
+\setmainfont{Noto Serif}[Scale=MatchLowercase]
+\setsansfont{Noto Sans}[Scale=MatchLowercase]
+\setmonofont{DejaVu Sans Mono}[Scale=MatchLowercase]
+
+% Other setup
+\usepackage{parskip}    % nicer paragraph spacing
+\usepackage{longtable,booktabs}
+\usepackage{array}      % for better column formatting
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+
+% Disable section numbering
+\setcounter{secnumdepth}{0}
+
+% Tables: Left align
+\setlength\LTleft{0pt}
+\setlength\LTright{\fill}
+
+% Hyperref options (keeps unicode anchors)
+\hypersetup{unicode=true,
+            pdftitle={\@title},
+            pdfauthor={\@author},
+            pdfencoding=auto}
+\begin{document}
+$body$
+\end{document}
