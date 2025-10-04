@@ -3,7 +3,7 @@
 all:    pdf html
 
 pdf:
-	pandoc example.md -o example.pdf --pdf-engine=tectonic --citeproc --template=template.tex
+	pandoc example.md -o example.pdf --pdf-engine=tectonic --template=template.tex
 
 html:
 	pandoc example.md -o example.html --standalone --mathjax
