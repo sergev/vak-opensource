@@ -1,0 +1,5 @@
+NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+zram0  253:0    0 981.8M  0 disk [SWAP]
+vda    254:0    0 218.4G  0 disk 
+├─vda1 254:1    0 218.2G  0 part /
+└─vda2 254:2    0 190.7M  0 part /opt/kernel_extras

@@ -1,0 +1,150 @@
+00:00.0 Host bridge: Intel Corporation 440FX - 82441FX PMC [Natoma]
+	Flags: fast devsel
+
+00:01.0 Display controller: Red Hat, Inc. Virtio 1.0 GPU (rev 01)
+	Subsystem: Red Hat, Inc. Virtio 1.0 GPU
+	Flags: bus master, fast devsel, latency 0, IRQ 15
+	Memory at 2c000000 (32-bit, non-prefetchable) [size=32K]
+	Memory at 200000000 (64-bit, prefetchable) [size=8G]
+	Capabilities: [40] Vendor Specific Information: VirtIO: CommonCfg
+	Capabilities: [50] Vendor Specific Information: VirtIO: ISR
+	Capabilities: [60] Vendor Specific Information: VirtIO: DeviceCfg
+	Capabilities: [70] Vendor Specific Information: VirtIO: Notify
+	Capabilities: [84] Vendor Specific Information: VirtIO: <unknown>
+	Capabilities: [94] MSI-X: Enable- Count=3 Masked-
+	Capabilities: [a0] Power Management version 2
+	Capabilities: [a8] Vendor Specific Information: VirtIO: <unknown>
+	Kernel driver in use: virtio-pci
+	Kernel modules: virtio_pci
+
+00:02.0 Communication controller: Red Hat, Inc. Virtio 1.0 console (rev 01)
+	Subsystem: Red Hat, Inc. Virtio 1.0 console
+	Flags: bus master, fast devsel, latency 0, IRQ 16
+	Memory at 2c008000 (32-bit, non-prefetchable) [size=32K]
+	Capabilities: [40] Vendor Specific Information: VirtIO: CommonCfg
+	Capabilities: [50] Vendor Specific Information: VirtIO: ISR
+	Capabilities: [60] Vendor Specific Information: VirtIO: DeviceCfg
+	Capabilities: [70] Vendor Specific Information: VirtIO: Notify
+	Capabilities: [84] Vendor Specific Information: VirtIO: <unknown>
+	Capabilities: [94] MSI-X: Enable- Count=3 Masked-
+	Capabilities: [a0] Power Management version 2
+	Kernel driver in use: virtio-pci
+	Kernel modules: virtio_pci
+
+00:03.0 Communication controller: Red Hat, Inc. Virtio 1.0 console (rev 01)
+	Subsystem: Red Hat, Inc. Virtio 1.0 console
+	Flags: bus master, fast devsel, latency 0, IRQ 17
+	Memory at 2c010000 (32-bit, non-prefetchable) [size=32K]
+	Capabilities: [40] Vendor Specific Information: VirtIO: CommonCfg
+	Capabilities: [50] Vendor Specific Information: VirtIO: ISR
+	Capabilities: [60] Vendor Specific Information: VirtIO: DeviceCfg
+	Capabilities: [70] Vendor Specific Information: VirtIO: Notify
+	Capabilities: [84] Vendor Specific Information: VirtIO: <unknown>
+	Capabilities: [94] MSI-X: Enable- Count=3 Masked-
+	Capabilities: [a0] Power Management version 2
+	Kernel driver in use: virtio-pci
+	Kernel modules: virtio_pci
+
+00:04.0 Communication controller: Red Hat, Inc. Virtio 1.0 console (rev 01)
+	Subsystem: Red Hat, Inc. Virtio 1.0 console
+	Flags: bus master, fast devsel, latency 0, IRQ 18
+	Memory at 2c018000 (32-bit, non-prefetchable) [size=32K]
+	Capabilities: [40] Vendor Specific Information: VirtIO: CommonCfg
+	Capabilities: [50] Vendor Specific Information: VirtIO: ISR
+	Capabilities: [60] Vendor Specific Information: VirtIO: DeviceCfg
+	Capabilities: [70] Vendor Specific Information: VirtIO: Notify
+	Capabilities: [84] Vendor Specific Information: VirtIO: <unknown>
+	Capabilities: [94] MSI-X: Enable- Count=3 Masked-
+	Capabilities: [a0] Power Management version 2
+	Kernel driver in use: virtio-pci
+	Kernel modules: virtio_pci
+
+00:05.0 Mass storage controller: Red Hat, Inc. Virtio 1.0 block device (rev 01)
+	Subsystem: Red Hat, Inc. Virtio 1.0 block device
+	Flags: bus master, fast devsel, latency 0, IRQ 19
+	Memory at 2c020000 (32-bit, non-prefetchable) [size=32K]
+	Capabilities: [40] Vendor Specific Information: VirtIO: CommonCfg
+	Capabilities: [50] Vendor Specific Information: VirtIO: ISR
+	Capabilities: [60] Vendor Specific Information: VirtIO: DeviceCfg
+	Capabilities: [70] Vendor Specific Information: VirtIO: Notify
+	Capabilities: [84] Vendor Specific Information: VirtIO: <unknown>
+	Capabilities: [94] MSI-X: Enable- Count=17 Masked-
+	Capabilities: [a0] Power Management version 2
+	Kernel driver in use: virtio-pci
+	Kernel modules: virtio_pci
+
+00:06.0 System peripheral: Red Hat, Inc. Virtio 1.0 RNG (rev 01)
+	Subsystem: Red Hat, Inc. Virtio 1.0 RNG
+	Flags: bus master, fast devsel, latency 0, IRQ 20
+	Memory at 2c028000 (32-bit, non-prefetchable) [size=32K]
+	Capabilities: [40] Vendor Specific Information: VirtIO: CommonCfg
+	Capabilities: [50] Vendor Specific Information: VirtIO: ISR
+	Capabilities: [60] Vendor Specific Information: VirtIO: DeviceCfg
+	Capabilities: [70] Vendor Specific Information: VirtIO: Notify
+	Capabilities: [84] Vendor Specific Information: VirtIO: <unknown>
+	Capabilities: [94] MSI-X: Enable- Count=2 Masked-
+	Capabilities: [a0] Power Management version 2
+	Kernel driver in use: virtio-pci
+	Kernel modules: virtio_pci
+
+00:07.0 Network controller: Red Hat, Inc. Virtio 1.0 network device (rev 01)
+	Subsystem: Red Hat, Inc. Virtio 1.0 network device
+	Flags: bus master, fast devsel, latency 0, IRQ 21
+	Memory at 2c030000 (32-bit, non-prefetchable) [size=32K]
+	Capabilities: [40] Vendor Specific Information: VirtIO: CommonCfg
+	Capabilities: [50] Vendor Specific Information: VirtIO: ISR
+	Capabilities: [60] Vendor Specific Information: VirtIO: DeviceCfg
+	Capabilities: [70] Vendor Specific Information: VirtIO: Notify
+	Capabilities: [84] Vendor Specific Information: VirtIO: <unknown>
+	Capabilities: [94] MSI-X: Enable- Count=4 Masked-
+	Capabilities: [a0] Power Management version 2
+	Kernel driver in use: virtio-pci
+	Kernel modules: virtio_pci
+
+00:08.0 Network controller: Red Hat, Inc. Virtio 1.0 socket (rev 01)
+	Subsystem: Red Hat, Inc. Virtio 1.0 socket
+	Flags: bus master, fast devsel, latency 0, IRQ 22
+	Memory at 2c038000 (32-bit, non-prefetchable) [size=32K]
+	Capabilities: [40] Vendor Specific Information: VirtIO: CommonCfg
+	Capabilities: [50] Vendor Specific Information: VirtIO: ISR
+	Capabilities: [60] Vendor Specific Information: VirtIO: DeviceCfg
+	Capabilities: [70] Vendor Specific Information: VirtIO: Notify
+	Capabilities: [84] Vendor Specific Information: VirtIO: <unknown>
+	Capabilities: [94] MSI-X: Enable- Count=4 Masked-
+	Capabilities: [a0] Power Management version 2
+	Kernel driver in use: virtio-pci
+	Kernel modules: virtio_pci
+
+00:09.0 Mass storage controller: Red Hat, Inc. Virtio file system (rev 01)
+	Subsystem: Red Hat, Inc. Virtio file system
+	Flags: bus master, fast devsel, latency 0, IRQ 23
+	Memory at 2c040000 (32-bit, non-prefetchable) [size=32K]
+	Capabilities: [40] Vendor Specific Information: VirtIO: CommonCfg
+	Capabilities: [50] Vendor Specific Information: VirtIO: ISR
+	Capabilities: [60] Vendor Specific Information: VirtIO: DeviceCfg
+	Capabilities: [70] Vendor Specific Information: VirtIO: Notify
+	Capabilities: [84] Vendor Specific Information: VirtIO: <unknown>
+	Capabilities: [94] MSI-X: Enable- Count=3 Masked-
+	Capabilities: [a0] Power Management version 2
+	Kernel driver in use: virtio-pci
+	Kernel modules: virtio_pci
+
+00:0a.0 Mass storage controller: Red Hat, Inc. Virtio file system (rev 01)
+	Subsystem: Red Hat, Inc. Virtio file system
+	Flags: bus master, fast devsel, latency 0, IRQ 24
+	Memory at 2c048000 (32-bit, non-prefetchable) [size=32K]
+	Capabilities: [40] Vendor Specific Information: VirtIO: CommonCfg
+	Capabilities: [50] Vendor Specific Information: VirtIO: ISR
+	Capabilities: [60] Vendor Specific Information: VirtIO: DeviceCfg
+	Capabilities: [70] Vendor Specific Information: VirtIO: Notify
+	Capabilities: [84] Vendor Specific Information: VirtIO: <unknown>
+	Capabilities: [94] MSI-X: Enable- Count=3 Masked-
+	Capabilities: [a0] Power Management version 2
+	Kernel driver in use: virtio-pci
+	Kernel modules: virtio_pci
+
+00:0b.0 Unassigned class [ffff]: Red Hat, Inc. QEMU PVPanic device (rev 01)
+	Subsystem: Device 00ff:00ff
+	Flags: fast devsel
+	Memory at 2c050000 (32-bit, non-prefetchable) [size=16]
+

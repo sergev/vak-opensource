@@ -1,0 +1,282 @@
+droid
+    description: Computer
+    width: 64 bits
+    capabilities: smp cp15_barrier setend swp tagged_addr_disabled
+  *-core
+       description: Motherboard
+       physical id: 0
+     *-cpu:0
+          description: CPU
+          product: cpu
+          physical id: 0
+          bus info: cpu@0
+          capabilities: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp
+     *-cpu:1
+          description: CPU
+          product: cpu
+          physical id: 1
+          bus info: cpu@1
+          capabilities: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp
+     *-cpu:2
+          description: CPU
+          product: cpu
+          physical id: 2
+          bus info: cpu@2
+          capabilities: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp
+     *-cpu:3
+          description: CPU
+          product: cpu
+          physical id: 3
+          bus info: cpu@3
+          capabilities: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp
+     *-cpu:4
+          description: CPU
+          product: cpu
+          physical id: 4
+          bus info: cpu@4
+          capabilities: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp
+     *-cpu:5
+          description: CPU
+          product: cpu
+          physical id: 5
+          bus info: cpu@5
+          capabilities: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp
+     *-cpu:6
+          description: CPU
+          product: cpu
+          physical id: 6
+          bus info: cpu@6
+          capabilities: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp
+     *-cpu:7
+          description: CPU
+          product: cpu
+          physical id: 7
+          bus info: cpu@7
+          capabilities: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp
+     *-cpu:8 DISABLED
+          description: CPU
+          product: cpu-map
+          physical id: 8
+          bus info: cpu@8
+     *-memory
+          description: System memory
+          physical id: 9
+          size: 4GiB
+     *-pci
+          description: Host bridge
+          product: 440FX - 82441FX PMC [Natoma]
+          vendor: Intel Corporation
+          physical id: 100
+          bus info: pci@0000:00:00.0
+          version: 00
+          width: 32 bits
+          clock: 33MHz
+        *-display
+             description: Display controller
+             product: Virtio 1.0 GPU
+             vendor: Red Hat, Inc.
+             physical id: 1
+             bus info: pci@0000:00:01.0
+             logical name: /dev/fb0
+             version: 01
+             width: 64 bits
+             clock: 33MHz
+             capabilities: msix pm bus_master cap_list fb
+             configuration: depth=32 driver=virtio-pci latency=0 mode=1280x1024 resolution=1280,1024 visual=truecolor xres=1280 yres=1024
+             resources: iomemory:20-1f irq:15 memory:2c000000-2c007fff memory:200000000-3ffffffff
+           *-virtio0 UNCLAIMED
+                description: Virtual I/O device
+                physical id: 0
+                bus info: virtio@0
+                configuration: driver=virtio_gpu
+        *-communication:0
+             description: Communication controller
+             product: Virtio 1.0 console
+             vendor: Red Hat, Inc.
+             physical id: 2
+             bus info: pci@0000:00:02.0
+             version: 01
+             width: 32 bits
+             clock: 33MHz
+             capabilities: msix pm bus_master cap_list
+             configuration: driver=virtio-pci latency=0
+             resources: irq:16 memory:2c008000-2c00ffff
+           *-virtio1 UNCLAIMED
+                description: Virtual I/O device
+                physical id: 0
+                bus info: virtio@1
+                configuration: driver=virtio_console
+        *-communication:1
+             description: Communication controller
+             product: Virtio 1.0 console
+             vendor: Red Hat, Inc.
+             physical id: 3
+             bus info: pci@0000:00:03.0
+             version: 01
+             width: 32 bits
+             clock: 33MHz
+             capabilities: msix pm bus_master cap_list
+             configuration: driver=virtio-pci latency=0
+             resources: irq:17 memory:2c010000-2c017fff
+           *-virtio2 UNCLAIMED
+                description: Virtual I/O device
+                physical id: 0
+                bus info: virtio@2
+                configuration: driver=virtio_console
+        *-communication:2
+             description: Communication controller
+             product: Virtio 1.0 console
+             vendor: Red Hat, Inc.
+             physical id: 4
+             bus info: pci@0000:00:04.0
+             version: 01
+             width: 32 bits
+             clock: 33MHz
+             capabilities: msix pm bus_master cap_list
+             configuration: driver=virtio-pci latency=0
+             resources: irq:18 memory:2c018000-2c01ffff
+           *-virtio3 UNCLAIMED
+                description: Virtual I/O device
+                physical id: 0
+                bus info: virtio@3
+                configuration: driver=virtio_console
+        *-storage:0
+             description: Mass storage controller
+             product: Virtio 1.0 block device
+             vendor: Red Hat, Inc.
+             physical id: 5
+             bus info: pci@0000:00:05.0
+             version: 01
+             width: 32 bits
+             clock: 33MHz
+             capabilities: storage msix pm bus_master cap_list
+             configuration: driver=virtio-pci latency=0
+             resources: irq:19 memory:2c020000-2c027fff
+           *-virtio4
+                description: Virtual I/O device
+                physical id: 0
+                bus info: virtio@4
+                logical name: /dev/vda
+                size: 218GiB (234GB)
+                capabilities: gpt-1.00 partitioned partitioned:gpt
+                configuration: driver=virtio_blk guid=f7e64ace-244a-4331-821b-d4d41df20447 logicalsectorsize=512 sectorsize=512
+              *-volume:0
+                   description: EXT4 volume
+                   vendor: Linux
+                   physical id: 1
+                   bus info: virtio@4,1
+                   logical name: /dev/vda1
+                   logical name: /
+                   version: 1.0
+                   serial: 18ac9258-0148-4baf-b625-cd10163e4e64
+                   size: 218GiB
+                   capabilities: journaled extended_attributes large_files huge_files dir_nlink recover 64bit extents ext4 ext2 initialized
+                   configuration: created=2025-07-14 07:20:28 filesystem=ext4 lastmountpoint=/ modified=1970-01-01 00:00:01 mount.fstype=ext4 mount.options=rw,relatime,discard,errors=remount-ro mounted=1970-01-01 00:00:01 name=ROOT state=mounted
+              *-volume:1
+                   description: EFI partition
+                   physical id: 2
+                   bus info: virtio@4,2
+                   logical name: /dev/vda2
+                   logical name: /opt/kernel_extras
+                   serial: 5f256c7f-01ea-4ba6-8c91-11af481369e5
+                   capacity: 190MiB
+                   configuration: mount.fstype=erofs mount.options=ro,relatime,user_xattr,acl,cache_strategy=readaround name=KERNEL_EXTRAS state=mounted
+        *-generic:0
+             description: System peripheral
+             product: Virtio 1.0 RNG
+             vendor: Red Hat, Inc.
+             physical id: 6
+             bus info: pci@0000:00:06.0
+             version: 01
+             width: 32 bits
+             clock: 33MHz
+             capabilities: msix pm bus_master cap_list
+             configuration: driver=virtio-pci latency=0
+             resources: irq:20 memory:2c028000-2c02ffff
+           *-virtio5 UNCLAIMED
+                description: Virtual I/O device
+                physical id: 0
+                bus info: virtio@5
+                configuration: driver=virtio_rng
+        *-network:0
+             description: Network controller
+             product: Virtio 1.0 network device
+             vendor: Red Hat, Inc.
+             physical id: 7
+             bus info: pci@0000:00:07.0
+             version: 01
+             width: 32 bits
+             clock: 33MHz
+             capabilities: msix pm bus_master cap_list
+             configuration: driver=virtio-pci latency=0
+             resources: irq:21 memory:2c030000-2c037fff
+           *-virtio6
+                description: Ethernet interface
+                physical id: 0
+                bus info: virtio@6
+                logical name: enp0s7
+                serial: 3a:14:01:a9:dc:93
+                capabilities: ethernet physical
+                configuration: autonegotiation=off broadcast=yes driver=virtio_net driverversion=1.0.0 ip=10.36.53.103 link=yes multicast=yes
+        *-network:1
+             description: Network controller
+             product: Virtio 1.0 socket
+             vendor: Red Hat, Inc.
+             physical id: 8
+             bus info: pci@0000:00:08.0
+             version: 01
+             width: 32 bits
+             clock: 33MHz
+             capabilities: msix pm bus_master cap_list
+             configuration: driver=virtio-pci latency=0
+             resources: irq:22 memory:2c038000-2c03ffff
+           *-virtio7 UNCLAIMED
+                description: Virtual I/O device
+                physical id: 0
+                bus info: virtio@7
+                configuration: driver=vmw_vsock_virtio_transport
+        *-storage:1
+             description: Mass storage controller
+             product: Virtio file system
+             vendor: Red Hat, Inc.
+             physical id: 9
+             bus info: pci@0000:00:09.0
+             version: 01
+             width: 32 bits
+             clock: 33MHz
+             capabilities: storage msix pm bus_master cap_list
+             configuration: driver=virtio-pci latency=0
+             resources: irq:23 memory:2c040000-2c047fff
+           *-virtio8 UNCLAIMED
+                description: Virtual I/O device
+                physical id: 0
+                bus info: virtio@8
+                configuration: driver=virtiofs
+        *-storage:2
+             description: Mass storage controller
+             product: Virtio file system
+             vendor: Red Hat, Inc.
+             physical id: a
+             bus info: pci@0000:00:0a.0
+             version: 01
+             width: 32 bits
+             clock: 33MHz
+             capabilities: storage msix pm bus_master cap_list
+             configuration: driver=virtio-pci latency=0
+             resources: irq:24 memory:2c048000-2c04ffff
+           *-virtio9 UNCLAIMED
+                description: Virtual I/O device
+                physical id: 0
+                bus info: virtio@9
+                configuration: driver=virtiofs
+        *-generic:1 UNCLAIMED
+             description: Unassigned class
+             product: Red Hat, Inc.
+             vendor: Red Hat, Inc.
+             physical id: b
+             bus info: pci@0000:00:0b.0
+             version: 01
+             width: 32 bits
+             clock: 33MHz
+             configuration: latency=0
+             resources: memory:2c050000-2c05000f

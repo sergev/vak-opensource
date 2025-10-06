@@ -1,0 +1,1 @@
+Linux droid 6.1.0-34-avf-arm64 #1 SMP Debian 6.1.135-1 (2025-04-25) aarch64 GNU/Linux

@@ -1,0 +1,17 @@
+droid@droid
+-----------
+OS: Debian GNU/Linux 12 (bookworm) aarch64
+Kernel: Linux 6.1.0-34-avf-arm64
+Uptime: 20 mins
+Packages: 641 (dpkg)
+Shell: bashc
+Display (GGL0001): 1280x1024 in 5", 60 Hz
+Terminal:
+CPU: dummy-virt (8)
+GPU: RedHat Virtio 1.0 GPU
+Memory: 423.38 MiB / 3.84 GiB (11%)
+Swap: 0 B / 981.75 MiB (0%)
+Disk (/): 2.33 GiB / 214.65 GiB (1%) - ext4
+Disk (/opt/kernel_extras): 190.67 MiB / 190.67 MiB (100%) - erofs [Read-only]
+Local IP (enp0s7): 10.36.53.103/24
+Locale: en_US.UTF-8
