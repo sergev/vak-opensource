@@ -19,7 +19,7 @@ Arr_1_Glob[8]:       7
 Arr_2_Glob[8][7]:    1000000010
         should be:   Number_Of_Runs + 10
 Ptr_Glob->
-  Ptr_Comp:          0xb400007b29c491f0
+  Ptr_Comp:          0xb400006effc492e0
         should be:   (implementation-dependent)
   Discr:             0
         should be:   0
@@ -30,7 +30,7 @@ Ptr_Glob->
   Str_Comp:          DHRYSTONE PROGRAM, SOME STRING
         should be:   DHRYSTONE PROGRAM, SOME STRING
 Next_Ptr_Glob->
-  Ptr_Comp:          0xb400007b29c491f0
+  Ptr_Comp:          0xb400006effc492e0
         should be:   (implementation-dependent), same as above
   Discr:             0
         should be:   0
@@ -53,7 +53,7 @@ Str_1_Loc:           DHRYSTONE PROGRAM, 1'ST STRING
 Str_2_Loc:           DHRYSTONE PROGRAM, 2'ND STRING
         should be:   DHRYSTONE PROGRAM, 2'ND STRING
 
-Nanoseconds for one run through Dhrystone: 15.5    
-            Million Dhrystones per Second: 64.447  
-                                    DMIPS: 36680.0 
+Nanoseconds for one run through Dhrystone: 15.9    
+            Million Dhrystones per Second: 62.780  
+                                    DMIPS: 35731.5 
 
