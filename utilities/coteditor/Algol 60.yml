@@ -1,0 +1,72 @@
+attributes: []
+characters: []
+commands: []
+commentDelimiters:
+  beginDelimiter: c̲o̲m̲m̲e̲n̲t̲
+  endDelimiter: ;
+comments: []
+completions: []
+extensions:
+- keyString: alg
+- keyString: a60
+filenames: []
+interpreters: []
+keywords:
+- beginString: a̲r̲r̲a̲y̲
+- beginString: b̲e̲g̲i̲n̲
+- beginString: d̲o̲
+- beginString: e̲l̲s̲e̲
+- beginString: e̲n̲d̲
+- beginString: f̲o̲r̲
+- beginString: g̲o̲ t̲o̲
+- beginString: i̲f̲
+- beginString: l̲a̲b̲e̲l̲
+- beginString: o̲w̲n̲
+- beginString: p̲r̲o̲c̲e̲d̲u̲r̲e̲
+- beginString: s̲t̲e̲p̲
+- beginString: s̲w̲i̲t̲c̲h̲
+- beginString: t̲h̲e̲n̲
+- beginString: u̲n̲t̲i̲l̲
+- beginString: v̲a̲l̲u̲e̲
+- beginString: w̲h̲i̲l̲e̲
+kind: code
+metadata:
+  author: Grok by xAI
+  distributionURL: https://x.ai
+  lastModified: '2025-10-07'
+  license: Same as CotEditor
+  version: 1.1.0
+numbers:
+- beginString: \b[+-]?\d+\b
+  description: integer
+  ignoreCase: true
+  regularExpression: true
+- beginString: \b[+-]?\d+\.\d+(e[+-]?\d+)?\b
+  description: float
+  ignoreCase: true
+  regularExpression: true
+- beginString: \b[+-]?\.\d+(e[+-]?\d+)?\b
+  description: float without integer part
+  ignoreCase: true
+  regularExpression: true
+- beginString: \b[+-]?\d+(e[+-]?\d+)?\b
+  description: scientific notation without decimal
+  ignoreCase: true
+  regularExpression: true
+outlineMenu:
+- beginString: ^p̲r̲o̲c̲e̲d̲u̲r̲e̲\s+(\w+)\s*;
+  description: procedure
+  keyString: p̲r̲o̲c̲e̲d̲u̲r̲e̲ $1
+  regularExpression: true
+strings:
+- beginString: "'"
+  endString: "'"
+types:
+- beginString: b̲o̲o̲l̲e̲a̲n̲
+- beginString: i̲n̲t̲e̲g̲e̲r̲
+- beginString: r̲e̲a̲l̲
+- beginString: s̲t̲r̲i̲n̲g̲
+values:
+- beginString: f̲a̲l̲s̲e̲
+- beginString: t̲r̲u̲e̲
+variables: []
