@@ -1,8 +1,8 @@
 module bulls_and_cows;
 import std::io;
-import std::os;
 import std::math::random;
-import libc;
+
+const MAXNUM = 9877;
 
 fn uint get_digit(uint num, uint ps)
 {
@@ -14,7 +14,7 @@ fn uint get_digit(uint num, uint ps)
 
 fn bool is_malformed(uint num)
 {
-    if (num > 9876u) {
+    if (num >= MAXNUM) {
         return true;
     }
     for (uint i = 0; i <= 2; i++) {
@@ -29,9 +29,9 @@ fn bool is_malformed(uint num)
 
 fn uint make_number()
 {
-    uint num = 0;
+    uint num;
     while (is_malformed(num)) {
-        num = (uint) (random::rand(9877));
+        num = random::rand(MAXNUM);
     }
     return num;
 }
@@ -39,14 +39,21 @@ fn uint make_number()
 fn uint? input()
 {
     String line = io::treadline()!;
-    return (uint) libc::strtoul(line, null, 10);
+    uint num = 0;
+    foreach (ch : line) {
+        if (!ch.is_digit()) {
+            break;
+        }
+        num *= 10;
+        num += ch - '0';
+    }
+    return num;
 }
 
 fn void main()
 {
     uint secret = make_number();
-    uint count  = 0;
-    uint guess  = 0;
+    uint count, guess;
 
     io::printn("Welcome to bulls and cows!\n"
            "\n"
@@ -65,8 +72,7 @@ fn void main()
             }
         } while (is_malformed(guess));
 
-        uint cows = 0;
-        uint bulls = 0;
+        uint cows, bulls;
         for (uint i = 0; i <= 3; i++) {
             for (uint j = 0; j <= 3; j++) {
                 if (get_digit(secret, i) == get_digit(guess, j)) {
