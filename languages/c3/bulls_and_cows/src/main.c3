@@ -30,16 +30,16 @@ fn bool is_malformed(uint num)
 fn uint make_number()
 {
     uint num;
-    while (is_malformed(num)) {
+    do {
         num = random::rand(MAXNUM);
-    }
+    } while (is_malformed(num));
     return num;
 }
 
 fn uint? input()
 {
     String line = io::treadline()!;
-    uint num = 0;
+    uint num;
     foreach (ch : line) {
         if (!ch.is_digit()) {
             break;
@@ -52,15 +52,15 @@ fn uint? input()
 
 fn void main()
 {
-    uint secret = make_number();
-    uint count, guess;
-
     io::printn("Welcome to bulls and cows!\n"
            "\n"
            "I choose a number made of 4 digits (from 0 to 9) without repetitions.\n"
            "You enter a number of 4 digits, and I say you how many of them\n"
            "are in my secret number but in wrong position (cows),\n"
            "and how many are in the right position (bulls).\n");
+
+    uint secret = make_number();
+    uint count, guess;
     while (guess != secret) {
         count++;
         do {
