@@ -37,18 +37,19 @@ fn uint make_number()
 
 fn uint input()
 {
-    static char* line = null;
-    static usz linecap = 0;
-    if (libc::getline(&line, &linecap, libc::stdin()) <= 0) {
+    String? line = io::treadline();
+    if (catch line) {
         libc::exit(0);
     }
-    return (uint) libc::strtoul(line, null, 10);
+    CULong? result = libc::strtoul(line, null, 10);
+    if (catch result) {
+        libc::exit(0);
+    }
+    return (uint) result!!;
 }
 
 fn void main()
 {
-    random::srand((uint) libc::time(null));
-
     uint secret = make_number();
     uint count  = 0;
     uint guess  = 0;
