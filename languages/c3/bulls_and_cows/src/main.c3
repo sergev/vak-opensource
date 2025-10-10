@@ -1,5 +1,6 @@
 module bulls_and_cows;
 import std::io;
+import std::os;
 import libc;
 import std::math::random;
 
@@ -39,13 +40,15 @@ fn uint input()
 {
     String? line = io::treadline();
     if (catch line) {
-        libc::exit(0);
+        // Cannot read line from stdin.
+        os::exit(0);
     }
     CULong? result = libc::strtoul(line, null, 10);
     if (catch result) {
-        libc::exit(0);
+        // Cannot convert line to number.
+        os::exit(0);
     }
-    return (uint) result!!;
+    return (uint) result;
 }
 
 fn void main()
