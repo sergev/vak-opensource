@@ -1,8 +1,8 @@
 module bulls_and_cows;
 import std::io;
 import std::os;
-import libc;
 import std::math::random;
+import libc;
 
 fn uint get_digit(uint num, uint ps)
 {
@@ -36,19 +36,10 @@ fn uint make_number()
     return num;
 }
 
-fn uint input()
+fn uint? input()
 {
-    String? line = io::treadline();
-    if (catch line) {
-        // Cannot read line from stdin.
-        os::exit(0);
-    }
-    CULong? result = libc::strtoul(line, null, 10);
-    if (catch result) {
-        // Cannot convert line to number.
-        os::exit(0);
-    }
-    return (uint) result;
+    String line = io::treadline()!;
+    return (uint) libc::strtoul(line, null, 10);
 }
 
 fn void main()
@@ -67,7 +58,11 @@ fn void main()
         count++;
         do {
             io::printn("Guess a number.");
-            guess = input();
+            if (try reply = input()) {
+                guess = reply;
+            } else {
+                return;
+            }
         } while (is_malformed(guess));
 
         uint cows = 0;
