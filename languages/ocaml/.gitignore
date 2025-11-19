@@ -3,3 +3,4 @@
 *.cmx
 *.o
 echo
+unify
