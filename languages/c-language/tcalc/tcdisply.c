@@ -8,7 +8,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "spreadsheet.h"
 #include "tcalc.h"
 
 static int colortable[256];

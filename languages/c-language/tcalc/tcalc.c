@@ -12,20 +12,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "spreadsheet.h"
-
-// Spreadsheet instance - core data structure
-static Spreadsheet sheet;
-
-// TUI state (view/cursor position)
-static TUIState tui_state = { .stop = false, .nocursor = 0x2000 };
-
-// Get spreadsheet instance (for other modules)
-Spreadsheet *get_spreadsheet(void)
-{
-    return &sheet;
-}
-
 // Print help information and exit
 static void print_help(const char *progname)
 {
@@ -221,6 +207,9 @@ int main(int argc, char *argv[])
     noecho();
     cbreak();
 
+    // TUI state (view/cursor position)
+    TUIState tui_state = { .stop = false, .nocursor = 0x2000 };
+
     initcursor(&tui_state);
     initcolortable();
     setcursor(tui_state.nocursor);
@@ -236,7 +225,8 @@ int main(int argc, char *argv[])
     clear();
     refresh();
 
-    // Initialize spreadsheet
+    // Spreadsheet instance - core data structure
+    Spreadsheet sheet;
     spreadsheet_init(&sheet);
 
     redrawscreen(&tui_state);

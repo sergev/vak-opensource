@@ -18,6 +18,15 @@ extern double parse(char *s, int *att);
 extern double cellvalue(int col, int row);
 extern void set_parser_error_callback(void (*callback)(const char *));
 
+// Spreadsheet instance - core data structure
+static Spreadsheet *sheet;
+
+// Get spreadsheet instance (for other modules)
+Spreadsheet *get_spreadsheet(void)
+{
+    return sheet;
+}
+
 //
 // Utility functions (moved from tcutil.c)
 //
@@ -87,9 +96,11 @@ static void parser_error_handler(const char *msg)
 }
 
 // Initialize spreadsheet
-void spreadsheet_init(Spreadsheet *sheet)
+void spreadsheet_init(Spreadsheet *init_sheet)
 {
     int col, row;
+
+    sheet              = init_sheet;
     sheet->lastcol     = 0;
     sheet->lastrow     = 0;
     sheet->memleft     = memsize;

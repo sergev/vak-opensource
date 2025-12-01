@@ -10,7 +10,6 @@
 #include <sys/stat.h>
 #include <unistd.h>
 
-#include "spreadsheet.h"
 #include "tcalc.h"
 
 //
@@ -46,8 +45,6 @@ void checkforsave(TUIState *tui)
     if (spreadsheet_is_changed(sheet) && getyesno(tui, &save, MSGSAVESHEET) && (save == 'Y'))
         savesheet(tui);
 }
-
-char *name = MSGNAME;
 
 //
 // Moves up 1 row
@@ -222,8 +219,6 @@ void clearsheet(TUIState *tui)
     displayscreen(tui, NOUPDATE);
     printfreemem();
 }
-
-// struct CELLREC rec; // No longer needed - spreadsheet handles file I/O
 
 //
 // Loads a new spreadsheet
