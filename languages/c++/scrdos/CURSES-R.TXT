@@ -1,0 +1,104 @@
+Файл curses.cc обеспечивает curses-совместимый интерфейс
+к экранной библиотеке SCR.
+
+Реализованы следующие функции:
+     addch(ch)                  вывод символа на экран
+     addstr(str)                вывод строки символов
+     attrset(attr)              установка атрибутов по маске (A_BOLD, A_DIM,
+				A_REVERSE)
+     attroff(attr)              отмена аррибутов по маске
+     clear()                    стирание экрана
+     clrtobot()                 стирание от курсора до конца экрана
+     clrtoeol()                 стирание от курсора до конца строки
+     deleteln()                 удаление строки
+     endwin()                   выключение экранного режима
+     erase()                    заполнение экрана пробелами
+     getch()                    ввод символа с клавиатуры (с распознаванием
+				функциональных клавиш)
+     getyx(win,y,x)             определение положения курсора (y,x)
+     inch()                     выдача символа под курсором
+     initscr()                  инициализация экранного режима
+     insertln()                 вставка строки
+     move(y,x)                  передвижение курсора в точку (y,x)
+     printw(fmt,arg1,arg2,...)  форматный вывод на экран
+     refresh()                  обновление экрана (сброс отложенной выдачи)
+     standend()                 отмена выделения, аналогично attroff(A_REVERSE)
+     standout()                 включение выделения, аналогично 
+				attrset(A_REVERSE)
+     clearok(scr,boolf)         установка флага стирания
+     getstr(str)                ввод строки до \n
+
+Функции перемещения:
+     mvaddch(y,x,c)             перемещение курсора в точку (y,x) и вывод 
+				символа
+     mvaddstr(y,x,str)          перемещение курсора в точку (y,x) и вывод 
+				строки
+     mvgetch(y,x)               перемещение курсора в точку (y,x) и ввод 
+				символа с клавиатуры
+     mvinch(y,x)                перемещение курсора в точку (y,x) и выдача 
+				символа под курсором
+     mvgetstr(y,x,str)          перемещение курсора в точку (y,x) и ввод
+				строки до \n
+
+Следующие функции выполняют "холостые" действия:
+     cbreak()                   установка режима побайтного ввода (действует по
+				умолчанию)
+     echo()                     установка режима эхо-ввода (всегда выключено)
+     nl()                       установка режима перевода NL в CR-NL (всегда
+				выключено)
+     nocbreak()                 отмена режима побайтного ввода
+     noecho()                   отмена режима эхо-ввода
+     nonl()                     отмена режима перевода NL в CR-NL
+     noraw()                    отмена "сырого" режима
+     raw()                      "сырой" режим (всегда выключен)
+     scrollok(win,boolf)        установка режима прокрутки
+     setterm(name)              переинициализация для работы на указанном
+				терминале
+
+Нереализованные функции:
+     delch()                            delete a character
+     flusok(win,boolf)                  set flush-on-refresh flag for win
+     getcap(name)                       get terminal capability name
+     gettmode()                         get tty modes
+     insch(c)                           insert a char
+     leaveok(win,boolf)                 set leave flag for stdscr
+     longname(termbuf,name)             get long name from termbuf
+     mvcur(lasty,lastx,newy,newx)       actually move cursor
+     resetty()                          reset tty flags to stored value
+     savetty()                          stored current tty flags
+     scanw(fmt,arg1,arg2,...)           scanf through stdscr
+     unctrl(ch)                         printable version of ch
+
+Нереализованные оконные функции:
+     box(win,vert,hor)                  draw a box around a window
+     delwin(win)                        delete stdscr
+     newwin(lines,cols,begy,begx)       create a new window
+     overlay(win1,win2)                 overlay win1 on win2
+     overwrite(win1,win2)               overwrite win1 on top of win2
+     scroll(win)                        scroll win one line
+     subwin(win,lines,cols,begy,begx)   create a subwindow
+     touchline(win,y,sx,ex)             mark line y sx through sy as changed
+     touchoverlap(win1,win2)            mark overlap of win1 on win2 as changed
+     touchwin(win)                      change all of win
+     waddch(win,ch)                     add char to win
+     waddstr(win,str)                   add string to win
+     wclear(win)                        clear win
+     wclrtobot(win)                     clear to bottom of win
+     wclrtoeol(win)                     clear to end of line on win
+     wdelch(win,c)                      delete char from win
+     wdeleteln(win)                     delete line from win
+     werase(win)                        erase win
+     wgetch(win)                        get a char through win
+     wgetstr(win,str)                   get a string through win
+     winch(win)                         get char at current (y,x) in win
+     winsch(win,c)                      insert char into win
+     winsertln(win)                     insert line into win
+     wmove(win,y,x)                     set current (y,x) coordinates on win
+     wprintw(win,fmt,arg1,arg2,...)     printf on win
+     wrefresh(win)                      make screen look like win
+     wscanw(win,fmt,arg1,arg2,...)      scanf through win
+     wstandend(win)                     end standout mode on win
+     wstandout(win)                     start standout mode on win
+_______________________________
+Copyright (C) 1993-1994 Кроникс
+$Id: curses-r.txt,v 1.1 2002/07/30 13:37:01 rik Exp $

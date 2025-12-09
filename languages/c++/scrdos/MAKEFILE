@@ -1,0 +1,51 @@
+# For Borland Turbo C++ 1.0
+#--------------------------
+#
+# $Id: makefile.dos,v 1.1 2002/07/30 13:37:01 rik Exp $
+#
+
+CC              = tcc -I\tc\include -w-inl -w-eff -w-par
+CPLUS           = $(CC) -P
+CFLAGS		= -ml -G -O -d -Z
+
+SCRLIB          = libscr.lib
+OBJS            = Scrdos.obj Popup.obj Box.obj Menu.obj Dialog.obj curses.obj
+
+$(SCRLIB): $(OBJS)
+	if exist $(SCRLIB) del $(SCRLIB)
+	tlib $(SCRLIB)/C +Scrdos+Popup+Box+Menu+Dialog+curses, screen.lst
+
+tests:	hello.exe hv.exe hellcurs.exe
+
+clean:
+	if exist *.obj del *.obj
+	if exist *.exe del *.exe
+	if exist *.bak del *.bak
+	if exist *.lib del *.lib
+	if exist *.lst del *.lst
+	if exist *.map del *.map
+
+.cpp.obj:
+	$(CPLUS) $(CFLAGS) -c $<
+
+.c.obj:
+	$(CC) $(CFLAGS) -c $<
+
+hv.exe: hv.obj $(SCRLIB)
+	$(CPLUS) $(CFLAGS) hv.obj $(SCRLIB)
+
+hello.exe: hello.obj $(SCRLIB)
+	$(CPLUS) $(CFLAGS) hello.obj $(SCRLIB)
+
+hellcurs.exe: hellcurs.obj $(SCRLIB)
+	$(CPLUS) $(CFLAGS) hellcurs.obj $(SCRLIB)
+
+Box.obj: Box.cpp Screen.h
+Menu.obj: Menu.cpp Screen.h Menu.h
+Popup.obj: Popup.cpp Screen.h
+Screen.obj: Screen.cpp Screen.h
+Dialog.obj: Dialog.cpp Dialog.h Screen.h
+hv.obj: hv.cpp Screen.h
+hello.obj: hello.cpp Screen.h
+curses.obj: Screen.h curses.h
+hellcurs.obj: hellcurs.c curses.h
