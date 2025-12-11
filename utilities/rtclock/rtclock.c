@@ -33,29 +33,41 @@
 #include <string.h>
 
 /*
- * Register addresses (A4-A0 bits) - these form lower 5 bits of I/O port
+ * Register addresses of MM58167 chip on PC XT bus
  */
-#define MM58167_MSEC   0x2c0 /* Milliseconds (port 0x2C0) */
-#define MM58167_CSEC   0x2c1 /* Hundredths/Tenths of Seconds (port 0x2C1) */
-#define MM58167_SEC    0x2c2 /* Seconds (port 0x2C2) */
-#define MM58167_MIN    0x2c3 /* Minutes (port 0x2C3) */
-#define MM58167_HOUR   0x2c4 /* Hours (port 0x2C4) */
-#define MM58167_WDAY   0x2c5 /* Day of Week (port 0x2C5) */
-#define MM58167_DAY    0x2c6 /* Day of Month (port 0x2C6) */
-#define MM58167_MON    0x2c7 /* Month (port 0x2C7) */
-#define MM58167_STATUS 0x2d4 /* Status Bit (port 0x2D4) */
-#define MM58167_GO     0x2d5 /* GO Command (port 0x2D5) */
+#define MM58167_MSEC   0x2c0 /* Milliseconds */
+#define MM58167_CSEC   0x2c1 /* Hundredths/Tenths of Seconds */
+#define MM58167_SEC    0x2c2 /* Seconds */
+#define MM58167_MIN    0x2c3 /* Minutes */
+#define MM58167_HOUR   0x2c4 /* Hours */
+#define MM58167_WDAY   0x2c5 /* Day of Week */
+#define MM58167_DAY    0x2c6 /* Day of Month */
+#define MM58167_MON    0x2c7 /* Month */
+#define MM58167_STATUS 0x2d4 /* Status Bit */
+#define MM58167_GO     0x2d5 /* GO Command */
 
 /*
- * BCD conversion macros
+ * Read byte from port and convert from BCD to decimal.
  */
-#define FROMBCD(x) (((x) & 0x0F) + ((((x) >> 4) & 0x0F) * 10))
-#define TOBCD(x)   ((((x) / 10) << 4) | ((x) % 10))
+static int inbyte_bcd(int port)
+{
+    unsigned char byte = inportb(port);
+
+    return (byte & 0x0F) + 10 * ((byte >> 4) & 0x0F);
+}
+
+/*
+ * Convert value from decimal to BCD and write byte to port.
+ */
+static void outbyte_bcd(int port, unsigned char val)
+{
+    outportb(port, ((val / 10) << 4) | (val % 10));
+}
 
 /*
  * Get time from RTC chip
  */
-static int mm58167_gettime(int *month, int *day, int *hour, int *min, int *sec)
+static int rtc_gettime(int *month, int *day, int *hour, int *min, int *sec, int *hund)
 {
     unsigned char status;
     int retries = 100;
@@ -72,13 +84,14 @@ static int mm58167_gettime(int *month, int *day, int *hour, int *min, int *sec)
         (void)inportb(MM58167_STATUS);
 
         /* Read registers in order */
-        *month = FROMBCD(inportb(MM58167_MON) & 0x1F); /* bits D4-D0, max 1 */
-        *day   = FROMBCD(inportb(MM58167_DAY) & 0x3F); /* bits D5-D0, max 3 */
-        *hour  = FROMBCD(inportb(MM58167_HOUR) & 0x3F); /* bits D5-D0, max 2 */
-        *min   = FROMBCD(inportb(MM58167_MIN) & 0x7F); /* bits D6-D0, max 5 */
-        *sec   = FROMBCD(inportb(MM58167_SEC) & 0x7F); /* bits D6-D0, max 5 */
+        *month = inbyte_bcd(MM58167_MON);
+        *day   = inbyte_bcd(MM58167_DAY);
+        *hour  = inbyte_bcd(MM58167_HOUR);
+        *min   = inbyte_bcd(MM58167_MIN);
+        *sec   = inbyte_bcd(MM58167_SEC);
+        *hund  = inbyte_bcd(MM58167_CSEC);
 
-        /* Check status bit - NetBSD code loops while status & 1 == 0 */
+        /* Check status bit */
         status = inportb(MM58167_STATUS);
 
         /* Limit retries to avoid infinite loop */
@@ -89,17 +102,16 @@ static int mm58167_gettime(int *month, int *day, int *hour, int *min, int *sec)
 
     /* Validate ranges */
     if (*month < 1 || *month > 12 || *day < 1 || *day > 31 || *hour > 23 ||
-        *min > 59 || *sec > 59) {
+        *min > 59 || *sec > 59 || *hund > 99) {
         return -1;
     }
-
     return 0;
 }
 
 /*
  * Set time to RTC chip
  */
-static void mm58167_settime(int month, int day, int hour, int min, int sec)
+static void rtc_settime(int month, int day, int hour, int min, int sec, int hund)
 {
     /*
      * Issue a GO command to reset everything less significant
@@ -108,11 +120,13 @@ static void mm58167_settime(int month, int day, int hour, int min, int sec)
     outportb(MM58167_GO, 0xFF);
 
     /* Load everything. Values are in BCD format. */
-    outportb(MM58167_MON, TOBCD(month) & 0x1F);
-    outportb(MM58167_DAY, TOBCD(day) & 0x3F);
-    outportb(MM58167_HOUR, TOBCD(hour) & 0x3F);
-    outportb(MM58167_MIN, TOBCD(min) & 0x7F);
-    outportb(MM58167_SEC, TOBCD(sec) & 0x7F);
+    outbyte_bcd(MM58167_MON, month);
+    outbyte_bcd(MM58167_DAY, day);
+    //TODO: WDAY
+    outbyte_bcd(MM58167_HOUR, hour);
+    outbyte_bcd(MM58167_MIN, min);
+    outbyte_bcd(MM58167_SEC, sec);
+    outbyte_bcd(MM58167_CSEC, hund);
 }
 
 /*
@@ -123,18 +137,20 @@ static void usage()
     printf("Usage:\n");
     printf("    rtclock get YYYY\n");
     printf("    rtclock set\n");
+    printf("    rtclock show\n");
     printf("Options:\n");
     printf("    get YYYY  - Read time from RTC and set DOS date/time\n");
     printf("                Here YYYY is the current year\n");
     printf("                (required, not stored in RTC)\n");
     printf("    set       - Write current DOS date/time to RTC\n");
+    printf("    show      - Compare time from RTC and from DOS\n");
 }
 
 int main(int argc, char **argv)
 {
     struct date dos_date;
     struct time dos_time;
-    int month, day, hour, min, sec;
+    int month, day, hour, min, sec, hund;
     int year;
 
     if (argc < 2) {
@@ -157,7 +173,7 @@ int main(int argc, char **argv)
         }
 
         /* Read time from RTC */
-        if (mm58167_gettime(&month, &day, &hour, &min, &sec) != 0) {
+        if (rtc_gettime(&month, &day, &hour, &min, &sec, &hund) != 0) {
             fprintf(stderr, "Error: Failed to read time from RTC\n");
             return 1;
         }
@@ -171,14 +187,14 @@ int main(int argc, char **argv)
         dos_time.ti_hour = hour;
         dos_time.ti_min  = min;
         dos_time.ti_sec  = sec;
-        dos_time.ti_hund = 0; /* Hundredths not available from RTC */
+        dos_time.ti_hund = hund;
 
         /* Set DOS date and time */
         setdate(&dos_date);
         settime(&dos_time);
 
-        printf("Get time from RTC: %04d-%02d-%02d %02d:%02d:%02d\n",
-               year, month, day, hour, min, sec);
+        printf("Get time from RTC: %04d-%02d-%02d %02d:%02d:%02d.%02d\n",
+               year, month, day, hour, min, sec, hund);
 
     } else if (strcmp(argv[1], "set") == 0) {
         /* Set command: write date/time to RTC */
@@ -192,12 +208,35 @@ int main(int argc, char **argv)
         gettime(&dos_time);
 
         /* Write to RTC */
-        mm58167_settime(dos_date.da_mon, dos_date.da_day, dos_time.ti_hour,
-                        dos_time.ti_min, dos_time.ti_sec);
+        rtc_settime(dos_date.da_mon, dos_date.da_day, dos_time.ti_hour,
+                        dos_time.ti_min, dos_time.ti_sec, dos_time.ti_hund);
 
-        printf("Set RTC time from DOS: %04d-%02d-%02d %02d:%02d:%02d\n",
+        printf("Set RTC time from DOS: %04d-%02d-%02d %02d:%02d:%02d.%02d\n",
                dos_date.da_year, dos_date.da_mon, dos_date.da_day,
-               dos_time.ti_hour, dos_time.ti_min, dos_time.ti_sec);
+               dos_time.ti_hour, dos_time.ti_min, dos_time.ti_sec, dos_time.ti_hund);
+
+    } else if (strcmp(argv[1], "show") == 0) {
+        /* Show command: print RTC time versus DOS time */
+        if (argc != 2) {
+            usage();
+            return 1;
+        }
+
+        /* Read time from RTC */
+        if (rtc_gettime(&month, &day, &hour, &min, &sec, &hund) != 0) {
+            fprintf(stderr, "Error: Failed to read time from RTC\n");
+            return 1;
+        }
+
+        /* Get current DOS date and time */
+        getdate(&dos_date);
+        gettime(&dos_time);
+
+        printf("Time from RTC: ????-%02d-%02d %02d:%02d:%02d.%02d\n",
+               month, day, hour, min, sec, hund);
+        printf("Time from DOS: %04d-%02d-%02d %02d:%02d:%02d.%02d\n",
+               dos_date.da_year, dos_date.da_mon, dos_date.da_day,
+               dos_time.ti_hour, dos_time.ti_min, dos_time.ti_sec, dos_time.ti_hund);
     } else {
         fprintf(stderr, "Error: Unknown command '%s'\n", argv[1]);
         usage();
