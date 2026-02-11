@@ -34,17 +34,17 @@ unicoder:	unimain.o libuni.a
 		$(CXX) $(CFLAGS) -c $<
 
 .txt.o:
-		python mkcode.py $* < $< > $*.cpp
+		python3 mkcode.py $* < $< > $*.cpp
 		$(CXX) $(CFLAGS) -c $*.cpp
 
 .txt.h:
-		python mkheader.py $* > $*.h
+		python3 mkheader.py $* > $*.h
 
 table.h:	mktableh.py
-		python mktableh.py $(SRCS) > $*.h
+		python3 mktableh.py $(SRCS) > $*.h
 
 table.cpp:	mktable.py
-		python mktable.py $(SRCS) > $*.cpp
+		python3 mktable.py $(SRCS) > $*.cpp
 
 clean:
 		rm -f *.o *.a *~ unicoder

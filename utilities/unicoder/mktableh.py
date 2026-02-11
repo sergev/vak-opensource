@@ -5,8 +5,8 @@
 # under the terms of the GNU General Public License (GPL).
 # See the accompanying file "COPYING" for more details.
 #
-import sys, string
+import sys
 
-for id in sys.argv[1:]:
-	id = string.lower (id[:-4])
-	print "#include <" +id + ".h>"
+for source in sys.argv[1:]:
+	encoding_name = source[:-4].lower()
+	print(f"#include <{encoding_name}.h>")

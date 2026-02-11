@@ -5,13 +5,13 @@
 # under the terms of the GNU General Public License (GPL).
 # See the accompanying file "COPYING" for more details.
 #
-import sys, string
+import sys
 
-for id in sys.argv[1:]:
-	id = string.lower (id[:-4])
-	print "\tif (strcasecmp (fmt, \"" + id + "\") == 0) {"
+for source in sys.argv[1:]:
+	encoding_name = source[:-4].lower()
+	print(f"\tif (strcasecmp (fmt, \"{encoding_name}\") == 0) {{")
 
-	id = string.translate (id, string.maketrans ("-", "_"))
-	if id[0] in string.digits:
-		id = "iso" + id
-	print "\t\tengine = new", id + "_engine;\n\t\treturn 1;\n\t}"
+	engine_id = encoding_name.translate(str.maketrans("-", "_"))
+	if engine_id[0].isdigit():
+		engine_id = "iso" + engine_id
+	print(f"\t\tengine = new {engine_id}_engine;\n\t\treturn 1;\n\t}}")

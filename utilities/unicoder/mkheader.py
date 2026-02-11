@@ -5,14 +5,14 @@
 # under the terms of the GNU General Public License (GPL).
 # See the accompanying file "COPYING" for more details.
 #
-import sys, string
+import sys
 
-id = string.lower (string.translate (sys.argv[1], string.maketrans ("-", "_")))
-if id[0] in string.digits:
-	id = "iso" + id
+encoding_id = sys.argv[1].translate(str.maketrans("-", "_")).lower()
+if encoding_id[0].isdigit():
+	encoding_id = "iso" + encoding_id
 
-print "class", id+"_engine : public Unicode_engine {"
-print "\tint get_char (FILE *fd);"
-print "\tvoid put_char (unsigned short c, FILE *fd);"
-print "\tconst char *name (void) { return \"" + id + "\"; }"
-print "\n\tfriend class Unicoder;\n};"
+print(f"class {encoding_id}_engine : public Unicode_engine {{")
+print("\tint get_char (FILE *fd);")
+print("\tvoid put_char (unsigned short c, FILE *fd);")
+print(f"\tconst char *name (void) {{ return \"{encoding_id}\"; }}")
+print("\n\tfriend class Unicoder;\n};")
