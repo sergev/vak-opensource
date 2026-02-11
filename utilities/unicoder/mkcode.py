@@ -59,8 +59,8 @@ for i in range(256):
 		print("0x%04x," % map_from[i], end="")
 print("\n};\n")
 
-print(f"static char unicode_to_{encoding_id} (unsigned short val)\n{{")
-print("\tstatic char tab0 [256] = {", end=" ")
+print(f"static unsigned char unicode_to_{encoding_id} (unsigned short val)\n{{")
+print("\tstatic unsigned char tab0 [256] = {", end=" ")
 m = map_to[0]
 for i in range(256):
 	if i % 8 == 0:

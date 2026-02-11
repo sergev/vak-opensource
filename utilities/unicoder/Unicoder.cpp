@@ -48,13 +48,13 @@ static inline void utf8_putc (unsigned short c, FILE *fd)
 		return;
 	}
 	if (c < 0x800) {
-		putc (c >> 6 | 0xc0, fd);
-		putc (c & 0x3f | 0x80, fd);
+		putc ((c >> 6) | 0xc0, fd);
+		putc ((c & 0x3f) | 0x80, fd);
 		return;
 	}
-	putc (c >> 12 | 0xe0, fd);
-	putc ((c >> 6) & 0x3f | 0x80, fd);
-	putc (c & 0x3f | 0x80, fd);
+	putc ((c >> 12) | 0xe0, fd);
+	putc (((c >> 6) & 0x3f) | 0x80, fd);
+	putc ((c & 0x3f) | 0x80, fd);
 }
 
 class utf8_engine : public Unicode_engine {
