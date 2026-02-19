@@ -6,6 +6,9 @@ else
 all: usb-floppy-info
 endif
 
+clean:
+	rm -f *.o usb-floppy-info usb-floppy-format
+
 usb-floppy-info: usb-floppy-info.o
 	$(CC) $(LDFLAGS) $< -o $@
 

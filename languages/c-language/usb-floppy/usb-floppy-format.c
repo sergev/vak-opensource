@@ -18,6 +18,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <sys/ioctl.h>
 
 #define SENSE_LEN 32
 #define UFI_CDB_LEN 12
