@@ -191,7 +191,8 @@ int main() {
             uint32_t last_lba = be32_to_cpu(cap_data);
             uint32_t block_len = be32_to_cpu(cap_data + 4);
             uint64_t capacity_kb = ((uint64_t)(last_lba + 1) * block_len) / 1024;
-            printf("Current Capacity: %u blocks of %u bytes each (%llu KB)\n", last_lba + 1, block_len, capacity_kb);
+            printf("Current Capacity: %u blocks of %u bytes each (%llu KB)\n",
+                   last_lba + 1, block_len, (long long unsigned)capacity_kb);
         } else {
             printf("READ CAPACITY failed\n");
         }
