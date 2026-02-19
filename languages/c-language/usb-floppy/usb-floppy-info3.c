@@ -107,22 +107,22 @@ void print_mode_sense_data(unsigned char *data, int len) {
     while (offset < len) {
         int page_code = data[offset] & 0x3F;
         int page_len = data[offset + 1];
+        if (page_len != 0) {
+            printf("Mode Page 0x%02x (Length: %d):\n", page_code, page_len);
+            for (int i = 0; i < page_len; i++) {
+                printf("%02x ", data[offset + 2 + i]);
+                if ((i + 1) % 16 == 0) printf("\n");
+            }
+            printf("\n");
 
-        printf("Mode Page 0x%02x (Length: %d):\n", page_code, page_len);
-        for (int i = 0; i < page_len; i++) {
-            printf("%02x ", data[offset + 2 + i]);
-            if ((i + 1) % 16 == 0) printf("\n");
+            if (page_code == 0x05) {  // Flexible Disk Page
+                printf("  Density Code: 0x%02x\n", data[offset + 2]);
+                printf("  Number of Tracks: %u\n", (data[offset + 3] << 8) | data[offset + 4]);
+                printf("  Sectors per Track: %u\n", (data[offset + 5] << 8) | data[offset + 6]);
+                printf("  Data Bytes per Sector: %u\n", (data[offset + 7] << 8) | data[offset + 8]);
+                // More fields can be added
+            }
         }
-        printf("\n");
-
-        if (page_code == 0x05) {  // Flexible Disk Page
-            printf("  Density Code: 0x%02x\n", data[offset + 2]);
-            printf("  Number of Tracks: %u\n", (data[offset + 3] << 8) | data[offset + 4]);
-            printf("  Sectors per Track: %u\n", (data[offset + 5] << 8) | data[offset + 6]);
-            printf("  Data Bytes per Sector: %u\n", (data[offset + 7] << 8) | data[offset + 8]);
-            // More fields can be added
-        }
-
         offset += page_len + 2;
     }
 }
