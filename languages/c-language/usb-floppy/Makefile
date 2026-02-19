@@ -6,7 +6,7 @@ else
 all: usb-floppy-info
 endif
 
-usb-floppy-info: usb-floppy-info4.o
+usb-floppy-info: usb-floppy-info.o
 	$(CC) $(LDFLAGS) $< -o $@
 
 usb-floppy-format: usb-floppy-format.c
