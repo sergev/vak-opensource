@@ -1,21 +1,13 @@
-#LIBS = -lusb-1.0
+UNAME_S := $(shell uname -s 2>/dev/null || echo Unknown)
 
-all: usb-floppy-info usb-floppy-format mode-select simple-floppy-format probe-vendor-commands ufifmt
+ifeq ($(UNAME_S),Linux)
+all: usb-floppy-info usb-floppy-format
+else
+all: usb-floppy-info
+endif
 
 usb-floppy-info: usb-floppy-info4.o
-	$(CC) $(LDFLAGS) $< $(LIBS) -o $@
+	$(CC) $(LDFLAGS) $< -o $@
 
-usb-floppy-format: usb-floppy-format.o
-	$(CC) $(LDFLAGS) $< $(LIBS) -o $@
-
-simple-floppy-format: simple-floppy-format.o
-	$(CC) $(LDFLAGS) $< $(LIBS) -o $@
-
-mode-select: mode-select.o
-	$(CC) $(LDFLAGS) $< $(LIBS) -o $@
-
-probe-vendor-commands: probe-vendor-commands.o
-	$(CC) $(LDFLAGS) $< $(LIBS) -o $@
-
-ufifmt: ufifmt.o
-	$(CC) $(LDFLAGS) $< $(LIBS) -o $@
+usb-floppy-format: usb-floppy-format.c
+	$(CC) $(CFLAGS) -Wall -Wextra -o $@ $<

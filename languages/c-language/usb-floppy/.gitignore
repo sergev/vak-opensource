@@ -1,6 +1,2 @@
 usb-floppy-info
 usb-floppy-format
-mode-select
-probe-vendor-commands
-simple-floppy-format
-ufifmt

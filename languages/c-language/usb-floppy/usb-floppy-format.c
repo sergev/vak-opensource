@@ -1,358 +1,398 @@
-#define _GNU_SOURCE
+/*
+ * usb-floppy-format - Low-level format USB floppy disks on Linux (ufiformat-like)
+ *
+ * Uses SCSI generic (/dev/sgX) and SG_IO with UFI command set.
+ * Requires: modprobe sg; device e.g. /dev/sg0.
+ * Does not create filesystems; use mkfs.msdos (or mkfs.vfat) after formatting.
+ *
+ * Build: cc -Wall -Wextra -o usb-floppy-format usb-floppy-format.c
+ */
+
+#define _DEFAULT_SOURCE
+#include <errno.h>
+#include <fcntl.h>
+#include <getopt.h>
+#include <scsi/sg.h>
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdint.h>
 #include <string.h>
-#include <fcntl.h>
 #include <unistd.h>
-#include <sys/ioctl.h>
-#include <scsi/sg.h>
-#include <errno.h>
 
-#define SENSE_LEN 64
-#define DEF_TIMEOUT 5000
+#define SENSE_LEN 32
+#define UFI_CDB_LEN 12
+#define FORMAT_TIMEOUT_MS 120000
 
-static int send_scsi_cmd(int fd,
-                         uint8_t *cdb, int cdb_len,
-                         void *data, int data_len,
-                         int dxfer_dir)
+static const char *progname;
+
+static uint32_t be32_from(const uint8_t *p)
 {
-    sg_io_hdr_t io;
-    uint8_t sense[SENSE_LEN];
-
-    memset(&io, 0, sizeof(io));
-    memset(sense, 0, sizeof(sense));
-
-    io.interface_id = 'S';
-    io.cmdp = cdb;
-    io.cmd_len = cdb_len;
-    io.dxferp = data;
-    io.dxfer_len = data_len;
-    io.dxfer_direction = dxfer_dir;
-    io.mx_sb_len = sizeof(sense);
-    io.sbp = sense;
-    io.timeout = DEF_TIMEOUT;
-
-    if (ioctl(fd, SG_IO, &io) < 0) {
-        perror("SG_IO");
-        return -1;
-    }
-
-    if ((io.info & SG_INFO_OK_MASK) != SG_INFO_OK) {
-        printf("SCSI command failed. Sense data:\n");
-        for (int i = 0; i < io.sb_len_wr; i++)
-            printf("%02x ", sense[i]);
-        printf("\n");
-        return -1;
-    }
-
-    return 0;
+	return (uint32_t)p[0] << 24 | (uint32_t)p[1] << 16 |
+	       (uint32_t)p[2] << 8 | p[3];
 }
 
-static void print_inquiry(int fd)
+static void be32_to(uint8_t *p, uint32_t v)
 {
-    uint8_t cdb[6] = {0x12, 0, 0, 0, 96, 0};
-    uint8_t data[96];
-
-    if (send_scsi_cmd(fd, cdb, 6, data, sizeof(data),
-                      SG_DXFER_FROM_DEV) < 0)
-        return;
-
-    char vendor[9] = {0};
-    char product[17] = {0};
-    char revision[5] = {0};
-
-    memcpy(vendor,  &data[8],  8);
-    memcpy(product, &data[16], 16);
-    memcpy(revision,&data[32], 4);
-
-    printf("=== INQUIRY ===\n");
-    printf("Vendor:   %s\n", vendor);
-    printf("Product:  %s\n", product);
-    printf("Revision: %s\n", revision);
-    printf("Peripheral Device Type: 0x%02x\n", data[0] & 0x1f);
-    printf("\n");
+	p[0] = (v >> 24) & 0xff;
+	p[1] = (v >> 16) & 0xff;
+	p[2] = (v >> 8) & 0xff;
+	p[3] = v & 0xff;
 }
 
-static void test_unit_ready(int fd)
+static int sg_io(int fd, uint8_t *cdb, int cdb_len,
+                 void *dxferp, unsigned int dxfer_len, int direction,
+                 uint8_t *sense, unsigned int timeout_ms)
 {
-    uint8_t cdb[6] = {0x00,0,0,0,0,0};
+	struct sg_io_hdr hdr;
+	memset(&hdr, 0, sizeof(hdr));
+	hdr.interface_id = 'S';
+	hdr.dxfer_direction = direction;
+	hdr.cmd_len = cdb_len;
+	hdr.cmdp = cdb;
+	hdr.mx_sb_len = SENSE_LEN;
+	hdr.sbp = sense;
+	hdr.dxfer_len = dxfer_len;
+	hdr.dxferp = dxferp;
+	hdr.timeout = timeout_ms;
 
-    printf("=== TEST UNIT READY ===\n");
-    if (send_scsi_cmd(fd, cdb, 6, NULL, 0, SG_DXFER_NONE) == 0)
-        printf("Device is ready.\n\n");
-    else
-        printf("Device not ready.\n\n");
+	int r = ioctl(fd, SG_IO, &hdr);
+	if (r < 0)
+		return -1;
+	if (hdr.host_status || hdr.driver_status)
+		return -1;
+	if (hdr.status == 0)
+		return 0;
+	if (hdr.status == 2) /* CHECK CONDITION */
+		return -2;
+	return -1;
 }
 
-static void read_capacity(int fd)
+static int do_inquiry(int fd, uint8_t *out, size_t len)
 {
-    uint8_t cdb[10] = {0x25,0,0,0,0,0,0,0,0,0};
-    uint8_t data[8];
-
-    if (send_scsi_cmd(fd, cdb, 10, data, sizeof(data),
-                      SG_DXFER_FROM_DEV) < 0)
-        return;
-
-    uint32_t last_lba =
-        (data[0]<<24)|(data[1]<<16)|(data[2]<<8)|data[3];
-    uint32_t block_size =
-        (data[4]<<24)|(data[5]<<16)|(data[6]<<8)|data[7];
-
-    uint64_t total_blocks = (uint64_t)last_lba + 1;
-    uint64_t total_bytes = total_blocks * block_size;
-
-    printf("=== READ CAPACITY (10) ===\n");
-    printf("Last LBA: %u\n", last_lba);
-    printf("Block size: %u bytes\n", block_size);
-    printf("Total blocks: %llu\n", (unsigned long long)total_blocks);
-    printf("Total size: %.2f MB\n",
-           total_bytes / (1024.0*1024.0));
-    printf("\n");
+	uint8_t cdb[UFI_CDB_LEN] = { 0 };
+	cdb[0] = 0x12; /* INQUIRY */
+	cdb[8] = (len >> 8) & 0xff;
+	cdb[9] = len & 0xff;
+	return sg_io(fd, cdb, UFI_CDB_LEN, out, len, SG_DXFER_FROM_DEV, NULL, 5000);
 }
 
-static void read_format_capacities(int fd)
+static int do_test_unit_ready(int fd)
 {
-    uint8_t cdb[10] = {0x23,0,0,0,0,0,0,0,0,0};
-    uint8_t data[252];
-
-    cdb[7] = sizeof(data) >> 8;
-    cdb[8] = sizeof(data) & 0xff;
-
-    if (send_scsi_cmd(fd, cdb, 10, data, sizeof(data),
-                      SG_DXFER_FROM_DEV) < 0)
-        return;
-
-    uint32_t list_len =
-        (data[0]<<24)|(data[1]<<16)|(data[2]<<8)|data[3];
-
-    printf("=== READ FORMAT CAPACITIES ===\n");
-    printf("Capacity List Length: %u bytes\n", list_len);
-
-    int offset = 4;
-    while (offset < list_len + 4) {
-        uint32_t blocks =
-            (data[offset]<<24)|(data[offset+1]<<16)|
-            (data[offset+2]<<8)|data[offset+3];
-        uint32_t block_size =
-            (data[offset+5]<<16)|
-            (data[offset+6]<<8)|data[offset+7];
-
-        uint8_t desc_code = data[offset+4] >> 2;
-
-        printf("  Blocks: %u\n", blocks);
-        printf("  Block size: %u\n", block_size);
-        printf("  Descriptor code: %u\n", desc_code);
-        printf("  Capacity: %.2f MB\n",
-               (blocks * block_size) / (1024.0*1024.0));
-        printf("\n");
-
-        offset += 8;
-    }
+	uint8_t cdb[UFI_CDB_LEN] = { 0 };
+	cdb[0] = 0x00; /* TEST UNIT READY */
+	return sg_io(fd, cdb, UFI_CDB_LEN, NULL, 0, SG_DXFER_NONE, NULL, 5000);
 }
 
-static void mode_sense_10(int fd)
+static int do_request_sense(int fd, uint8_t *out, size_t len)
 {
-    uint8_t cdb[10] = {0};
-    uint8_t data[512];
-
-    memset(cdb, 0, sizeof(cdb));
-    memset(data, 0, sizeof(data));
-
-    cdb[0] = 0x5A;        // MODE SENSE(10)
-    cdb[1] = 0x08;        // DBD=1 (Disable Block Descriptors)
-    cdb[2] = 0x3F;        // Request all pages
-    cdb[7] = sizeof(data) >> 8;
-    cdb[8] = sizeof(data) & 0xFF;
-
-    if (send_scsi_cmd(fd, cdb, 10, data, sizeof(data),
-                      SG_DXFER_FROM_DEV) < 0) {
-        printf("MODE SENSE(10) failed.\n\n");
-        return;
-    }
-
-    printf("=== MODE SENSE (10) ===\n");
-
-    uint16_t mode_data_len =
-        (data[0] << 8) | data[1];
-
-    printf("Mode Data Length: %u\n", mode_data_len);
-
-    printf("Medium Type: 0x%02x\n", data[2]);
-    printf("Device-Specific Parameter: 0x%02x\n", data[3]);
-
-    uint16_t block_desc_len =
-        (data[6] << 8) | data[7];
-
-    printf("Block Descriptor Length: %u\n", block_desc_len);
-
-    int total_len = mode_data_len + 2;
-    int offset = 8 + block_desc_len;
-
-    while (offset + 1 < total_len) {
-
-        uint8_t page_code = data[offset] & 0x3F;
-        uint8_t page_len  = data[offset + 1];
-
-        if (page_len == 0)
-            break;
-
-        printf("\nPage 0x%02X (length %u)\n",
-               page_code, page_len);
-
-        for (int i = 0; i < page_len; i++)
-            printf("%02x ", data[offset + 2 + i]);
-
-        printf("\n");
-
-        offset += 2 + page_len;
-    }
+	uint8_t cdb[UFI_CDB_LEN] = { 0 };
+	cdb[0] = 0x03; /* REQUEST SENSE */
+	cdb[8] = len & 0xff;
+	return sg_io(fd, cdb, UFI_CDB_LEN, out, len, SG_DXFER_FROM_DEV, NULL, 5000);
 }
 
-static void mode_sense(int fd)
+static int do_read_format_capacities(int fd, uint8_t *out, size_t len)
 {
-    uint8_t cdb[6] = {0x1A,0,0x3F,0,192,0};
-    uint8_t data[192];
-
-    if (send_scsi_cmd(fd, cdb, 6, data, sizeof(data),
-                      SG_DXFER_FROM_DEV) < 0)
-        return;
-
-    printf("=== MODE SENSE (6) ===\n");
-    printf("Mode Data Length: %u\n", data[0]);
-    printf("Medium Type: 0x%02x\n", data[1]);
-    printf("Device-Specific Parameter: 0x%02x\n", data[2]);
-    printf("\n");
+	uint8_t cdb[UFI_CDB_LEN] = { 0 };
+	cdb[0] = 0x23; /* READ FORMAT CAPACITIES */
+	cdb[8] = (len >> 8) & 0xff;
+	cdb[9] = len & 0xff;
+	return sg_io(fd, cdb, UFI_CDB_LEN, out, len, SG_DXFER_FROM_DEV, NULL, 10000);
 }
 
-#if 0
-static void flexible_disk_page(int fd)
+static int do_mode_sense(int fd, uint8_t page, uint8_t *out, size_t len)
 {
-    uint8_t cdb[6] = {0x1A, 0, 0x05, 0, 192, 0};
-    uint8_t data[192];
-
-    if (send_scsi_cmd(fd, cdb, 6, data, sizeof(data),
-                      SG_DXFER_FROM_DEV) < 0)
-        return;
-
-    int header_len = 4;  // MODE SENSE(6) header
-    uint8_t *page = &data[header_len];
-
-    if ((page[0] & 0x3F) != 0x05) {
-        printf("Flexible Disk Page not returned.\n\n");
-        return;
-    }
-
-    printf("=== Flexible Disk Mode Page (0x05) ===\n");
-
-    uint16_t transfer_rate =
-        (page[2] << 8) | page[3];
-
-    uint8_t heads = page[4];
-    uint8_t sectors = page[5];
-
-    uint16_t bytes_per_sector =
-        (page[6] << 8) | page[7];
-
-    uint16_t cylinders =
-        (page[8] << 8) | page[9];
-
-    printf("Transfer rate: %u kbit/s\n", transfer_rate);
-    printf("Heads: %u\n", heads);
-    printf("Sectors/track: %u\n", sectors);
-    printf("Bytes/sector: %u\n", bytes_per_sector);
-    printf("Cylinders: %u\n", cylinders);
-
-    printf("Approx capacity: %.2f MB\n",
-        (double)heads * sectors * cylinders *
-        bytes_per_sector / (1024.0*1024.0));
-
-    printf("\n");
-}
-#endif
-
-static int format_unit(int fd, uint32_t blocks, uint32_t block_size)
-{
-    uint8_t cdb[6] = {0};
-    uint8_t param[12];
-
-    memset(cdb, 0, sizeof(cdb));
-    memset(param, 0, sizeof(param));
-
-    cdb[0] = 0x04;     // FORMAT UNIT
-#if 0
-    cdb[1] = 0x10;     // FmtData = 1
-    cdb[4] = sizeof(param);
-#else
-    cdb[1] = 0;
-    cdb[4] = 0;
-#endif
-    /*
-       Format parameter list (short format header)
-
-       Byte 0-1: Reserved
-       Byte 2-3: Format descriptor length (8)
-       Byte 4-7: Number of blocks
-       Byte 8-11: Block length
-    */
-
-    param[2] = 0;
-    param[3] = 0; // 8
-
-    param[4] = (blocks >> 24) & 0xFF;
-    param[5] = (blocks >> 16) & 0xFF;
-    param[6] = (blocks >> 8) & 0xFF;
-    param[7] = blocks & 0xFF;
-
-    param[8] = (block_size >> 24) & 0xFF;
-    param[9] = (block_size >> 16) & 0xFF;
-    param[10] = (block_size >> 8) & 0xFF;
-    param[11] = block_size & 0xFF;
-
-    printf("Issuing FORMAT UNIT: %u blocks, %u bytes/sector...\n",
-           blocks, block_size);
-
-    return send_scsi_cmd(fd, cdb, 6,
-                         param,
-//                       sizeof(param), SG_DXFER_TO_DEV);
-                         0, SG_DXFER_NONE);
+	uint8_t cdb[UFI_CDB_LEN] = { 0 };
+	cdb[0] = 0x5a; /* MODE SENSE(6) */
+	cdb[2] = page;
+	cdb[8] = len & 0xff;
+	return sg_io(fd, cdb, UFI_CDB_LEN, out, len, SG_DXFER_FROM_DEV, NULL, 5000);
 }
 
-int main(int argc, char *argv[])
+static int do_format_unit(int fd, uint32_t num_blocks, uint32_t block_len)
 {
-    if (argc != 2) {
-        printf("Usage: %s /dev/sdX\n", argv[0]);
-        return 1;
-    }
+	uint8_t cdb[UFI_CDB_LEN] = { 0 };
+	/* FORMAT UNIT: FmtData=1, CmpList=0, Defect List Format=7 */
+	cdb[0] = 0x04;
+	cdb[1] = 0x10 | 7; /* FmtData bit, Defect List Format 7 */
+	cdb[2] = 0;       /* Track 0 (full disk) */
+	cdb[3] = 0;
+	cdb[4] = 0;       /* Interleave 0 = default */
+	cdb[7] = 0;
+	cdb[8] = 12;      /* Parameter list length */
 
-    int fd = open(argv[1], O_RDONLY);
-    if (fd < 0) {
-        perror("open");
-        return 1;
-    }
+	uint8_t param[12];
+	memset(param, 0, sizeof(param));
+	param[1] = 0x08;  /* DCRT = 1 (disable certification) */
+	param[2] = 0;
+	param[3] = 8;     /* Defect list length = 8 (Format Descriptor size) */
+	be32_to(param + 4, num_blocks);
+	/* param[8] reserved */
+	param[9] = (block_len >> 16) & 0xff;
+	param[10] = (block_len >> 8) & 0xff;
+	param[11] = block_len & 0xff;
 
-    printf("Opening device: %s\n\n", argv[1]);
+	return sg_io(fd, cdb, UFI_CDB_LEN, param, 12, SG_DXFER_TO_DEV, NULL, FORMAT_TIMEOUT_MS);
+}
 
-//    print_inquiry(fd);
-//    test_unit_ready(fd);
-//    read_capacity(fd);
-//    read_format_capacities(fd);
-//    mode_sense_10(fd);
+static int do_verify(int fd, uint32_t lba, uint32_t num_blocks)
+{
+	uint8_t cdb[UFI_CDB_LEN] = { 0 };
+	cdb[0] = 0x2f; /* VERIFY */
+	cdb[2] = (lba >> 24) & 0xff;
+	cdb[3] = (lba >> 16) & 0xff;
+	cdb[4] = (lba >> 8) & 0xff;
+	cdb[5] = lba & 0xff;
+	cdb[7] = (num_blocks >> 8) & 0xff;
+	cdb[8] = num_blocks & 0xff;
+	return sg_io(fd, cdb, UFI_CDB_LEN, NULL, 0, SG_DXFER_NONE, NULL, 60000);
+}
 
-    printf("Before format:\n");
-    read_capacity(fd);
+static void sense_message(uint8_t *sense, size_t len, char *buf, size_t bufsiz)
+{
+	if (len < 14) {
+		snprintf(buf, bufsiz, "Sense key 0x%02X", len >= 2 ? sense[2] & 0x0f : 0);
+		return;
+	}
+	uint8_t sk = sense[2] & 0x0f;
+	uint8_t asc = sense[12];
+	uint8_t ascq = sense[13];
+	const char *sk_str = "Unknown";
+	const char *asc_str = "";
+	if (sk == 0x02) sk_str = "Not Ready";
+	else if (sk == 0x05) sk_str = "Illegal Request";
+	else if (sk == 0x07) sk_str = "Data Protect";
+	else if (sk == 0x03) sk_str = "Medium Error";
+	if (asc == 0x3a) asc_str = " (no medium)";
+	else if (asc == 0x24 && ascq == 0) asc_str = " (invalid format)";
+	else if (asc == 0x27 && ascq == 0) asc_str = " (write protected)";
+	snprintf(buf, bufsiz, "%s ASC 0x%02X ASCQ 0x%02X%s", sk_str, asc, ascq, asc_str);
+}
 
-    if (format_unit(fd, 2880, 512) == 0) {
-        printf("Format successful.\n");
-    } else {
-        printf("Format failed.\n");
-    }
+static int run_format(int fd, unsigned int capacity_kb, int force, int verify,
+                      uint8_t *fmt_buf, size_t fmt_len)
+{
+	uint8_t sense[SENSE_LEN];
+	int r;
 
-    sleep(3);
+	r = do_test_unit_ready(fd);
+	if (r != 0) {
+		if (r == -2) {
+			do_request_sense(fd, sense, SENSE_LEN);
+			char msg[128];
+			sense_message(sense, SENSE_LEN, msg, sizeof(msg));
+			fprintf(stderr, "%s: Media not ready: %s\n", progname, msg);
+		} else
+			fprintf(stderr, "%s: TEST UNIT READY failed: %s\n", progname, strerror(errno));
+		return 2;
+	}
 
-    printf("After format:\n");
-    read_capacity(fd);
+	uint8_t mode_buf[64];
+	r = do_mode_sense(fd, 0x05, mode_buf, sizeof(mode_buf));
+	if (r == 0 && sizeof(mode_buf) >= 8) {
+		/* Mode Parameter Header (Table 16) byte 3 = WP */
+		int wp = (mode_buf[7] & 0x80) ? 1 : 0;
+		if (wp) {
+			fprintf(stderr, "%s: Medium is write-protected.\n", progname);
+			return 3;
+		}
+	}
 
-    close(fd);
-    return 0;
+	if (!force) {
+		printf("Format will erase all data. Continue? [y/N] ");
+		fflush(stdout);
+		char line[32];
+		if (!fgets(line, sizeof(line), stdin) || (line[0] != 'y' && line[0] != 'Y')) {
+			printf("Aborted.\n");
+			return 1;
+		}
+	}
+
+	uint8_t list_len = fmt_len > 3 ? fmt_buf[3] : 0;
+	int num_fmt = list_len >= 8 ? (list_len - 8) / 8 : 0;
+	uint32_t num_blocks = 0, block_len = 0;
+	for (int i = 0; i < num_fmt; i++) {
+		uint8_t *d = fmt_buf + 12 + i * 8;
+		uint32_t nb = be32_from(d);
+		uint32_t bl = (d[5] << 16) | (d[6] << 8) | d[7];
+		unsigned int cap_kb = (unsigned int)((uint64_t)nb * bl / 1024);
+		if (cap_kb == capacity_kb) {
+			num_blocks = nb;
+			block_len = bl;
+			break;
+		}
+	}
+	if (num_blocks == 0 || block_len == 0) {
+		fprintf(stderr, "%s: Capacity %u KB is not supported by the drive/media.\n",
+			progname, capacity_kb);
+		return 1;
+	}
+
+	memset(sense, 0, SENSE_LEN);
+	r = do_format_unit(fd, num_blocks, block_len);
+	if (r != 0) {
+		do_request_sense(fd, sense, SENSE_LEN);
+		char msg[128];
+		sense_message(sense, SENSE_LEN, msg, sizeof(msg));
+		fprintf(stderr, "%s: FORMAT UNIT failed: %s\n", progname, msg);
+		return 1;
+	}
+	printf("Format completed successfully.\n");
+
+	if (verify) {
+		r = do_verify(fd, 0, num_blocks);
+		if (r != 0) {
+			do_request_sense(fd, sense, SENSE_LEN);
+			char msg[128];
+			sense_message(sense, SENSE_LEN, msg, sizeof(msg));
+			fprintf(stderr, "%s: VERIFY failed: %s\n", progname, msg);
+			return 1;
+		}
+		printf("Verify completed successfully.\n");
+	}
+	return 0;
+}
+
+static void print_info(int fd, uint8_t *inq, size_t inq_len,
+                      uint8_t *fmt_buf, size_t fmt_len)
+{
+	if (inq_len >= 36) {
+		printf("Vendor:   %.8s\n", inq + 8);
+		printf("Product:  %.16s\n", inq + 16);
+		printf("Revision: %.4s\n", inq + 32);
+		printf("Removable: %s\n", (inq[1] & 0x80) ? "Yes" : "No");
+	}
+
+	printf("\nMedia: ");
+	if (do_test_unit_ready(fd) != 0) {
+		uint8_t sense[SENSE_LEN];
+		do_request_sense(fd, sense, SENSE_LEN);
+		char msg[128];
+		sense_message(sense, SENSE_LEN, msg, sizeof(msg));
+		printf("Not ready (%s)\n", msg);
+	} else {
+		printf("Ready\n");
+		uint8_t mode_buf[64];
+		if (do_mode_sense(fd, 0x05, mode_buf, sizeof(mode_buf)) == 0 && sizeof(mode_buf) >= 22) {
+			int wp = (mode_buf[7] & 0x80) ? 1 : 0;
+			/* Flexible Disk Page (0x05) at byte 12: 2=TransferRate, 4=Heads, 5=SecTrk, 6-7=BytesPerSec, 8-9=Cylinders */
+			uint8_t heads = mode_buf[16];
+			uint8_t sec_per_track = mode_buf[17];
+			uint16_t bytes_per_sec = (mode_buf[18] << 8) | mode_buf[19];
+			uint16_t cylinders = (mode_buf[20] << 8) | mode_buf[21];
+			printf("Write protect: %s\n", wp ? "Yes" : "No");
+			printf("Geometry: %u cylinders, %u heads, %u sectors/track, %u bytes/sector\n",
+			       (unsigned)cylinders, (unsigned)heads, (unsigned)sec_per_track, (unsigned)bytes_per_sec);
+		}
+	}
+
+	if (fmt_len < 4) return;
+	uint8_t list_len = fmt_buf[3];
+	uint32_t num_blocks = be32_from(fmt_buf + 4);
+	uint8_t desc_code = fmt_buf[8] & 0x03;
+	uint32_t block_len = (fmt_buf[9] << 16) | (fmt_buf[10] << 8) | fmt_buf[11];
+	const char *desc_type = "Reserved";
+	switch (desc_code) {
+	case 0x01: desc_type = "Unformatted (max)"; break;
+	case 0x02: desc_type = "Formatted (current)"; break;
+	case 0x03: desc_type = "No media (max)"; break;
+	}
+	printf("\nCapacity: %s - %u blocks x %u bytes\n", desc_type, (unsigned)num_blocks, (unsigned)block_len);
+	int num_fmt = list_len >= 8 ? (list_len - 8) / 8 : 0;
+	printf("Supported formats:\n");
+	for (int i = 0; i < num_fmt; i++) {
+		uint8_t *d = fmt_buf + 12 + i * 8;
+		uint32_t nb = be32_from(d);
+		uint32_t bl = (d[5] << 16) | (d[6] << 8) | d[7];
+		unsigned int cap_kb = (unsigned int)((uint64_t)nb * bl / 1024);
+		const char *name = "Unknown";
+		if (nb == 1440 && bl == 512) name = "720 KB (DD)";
+		else if (nb == 2880 && bl == 512) name = "1.44 MB (HD)";
+		else if (nb == 1232 && bl == 1024) name = "1.25 MB";
+		else if (nb == 1200 && bl == 512) name = "1.2 MB (5.25\")";
+		else if (nb == 640 && bl == 512) name = "640 KB";
+		printf("  - %u KB: %u blocks x %u bytes (%s)\n", cap_kb, (unsigned)nb, (unsigned)bl, name);
+	}
+}
+
+static void usage(void)
+{
+	printf("Usage: %s [options] <device>\n", progname);
+	printf("Low-level format USB floppy disks (UFI over SCSI generic).\n");
+	printf("\n");
+	printf("Options:\n");
+	printf("  -i              Info only: show device and supported formats (no format)\n");
+	printf("  -f <capacity>   Format to capacity in KB (e.g. 1440, 720)\n");
+	printf("  -F              Force: skip confirmation prompt\n");
+	printf("  -V              Verify medium after format\n");
+	printf("  -h, --help      Show this help\n");
+	printf("\n");
+	printf("Device: /dev/sgN (e.g. /dev/sg0). Load sg module: modprobe sg\n");
+	printf("After low-level format, create a filesystem: mkfs.msdos /dev/fd0\n");
+}
+
+int main(int argc, char **argv)
+{
+	int opt;
+	int info_only = 0;
+	int force = 0;
+	int verify = 0;
+	unsigned int capacity_kb = 0;
+	const char *device = NULL;
+
+	progname = argv[0] ? argv[0] : "usb-floppy-format";
+
+	static struct option longopts[] = {
+		{ "help", no_argument, NULL, 'h' },
+		{ NULL, 0, NULL, 0 }
+	};
+	while ((opt = getopt_long(argc, argv, "if:FVh", longopts, NULL)) != -1) {
+		switch (opt) {
+		case 'i': info_only = 1; break;
+		case 'f': capacity_kb = (unsigned int)atoi(optarg); break;
+		case 'F': force = 1; break;
+		case 'V': verify = 1; break;
+		case 'h':
+		default:
+			usage();
+			return opt == 'h' ? 0 : 1;
+		}
+	}
+	if (optind >= argc) {
+		fprintf(stderr, "%s: missing device\n", progname);
+		usage();
+		return 1;
+	}
+	device = argv[optind];
+
+	int fd = open(device, O_RDWR);
+	if (fd < 0) {
+		fprintf(stderr, "%s: open %s: %s\n", progname, device, strerror(errno));
+		return 1;
+	}
+
+	uint8_t inq[36];
+	uint8_t fmt_buf[256];
+	int r = do_inquiry(fd, inq, sizeof(inq));
+	if (r != 0) {
+		fprintf(stderr, "%s: INQUIRY failed: %s\n", progname, strerror(errno));
+		close(fd);
+		return 1;
+	}
+	r = do_read_format_capacities(fd, fmt_buf, sizeof(fmt_buf));
+	if (r != 0) {
+		fprintf(stderr, "%s: READ FORMAT CAPACITIES failed\n", progname);
+		close(fd);
+		return 1;
+	}
+
+	if (info_only || capacity_kb == 0) {
+		print_info(fd, inq, sizeof(inq), fmt_buf, sizeof(fmt_buf));
+		close(fd);
+		return 0;
+	}
+
+	r = run_format(fd, capacity_kb, force, verify, fmt_buf, sizeof(fmt_buf));
+	close(fd);
+	return r;
 }
