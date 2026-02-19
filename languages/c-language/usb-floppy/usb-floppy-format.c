@@ -50,8 +50,13 @@ static int sg_io(int fd, uint8_t *cdb, int cdb_len,
 	hdr.dxfer_direction = direction;
 	hdr.cmd_len = cdb_len;
 	hdr.cmdp = cdb;
-	hdr.mx_sb_len = SENSE_LEN;
-	hdr.sbp = sense;
+	if (sense) {
+		hdr.mx_sb_len = SENSE_LEN;
+		hdr.sbp = sense;
+	} else {
+		hdr.mx_sb_len = 0;
+		hdr.sbp = NULL;
+	}
 	hdr.dxfer_len = dxfer_len;
 	hdr.dxferp = dxferp;
 	hdr.timeout = timeout_ms;
@@ -72,8 +77,8 @@ static int do_inquiry(int fd, uint8_t *out, size_t len)
 {
 	uint8_t cdb[UFI_CDB_LEN] = { 0 };
 	cdb[0] = 0x12; /* INQUIRY */
-	cdb[8] = (len >> 8) & 0xff;
-	cdb[9] = len & 0xff;
+	/* UFI INQUIRY: Allocation Length is byte 4 (1 byte) */
+	cdb[4] = (len > 0xff) ? 0xff : (uint8_t)len;
 	return sg_io(fd, cdb, UFI_CDB_LEN, out, len, SG_DXFER_FROM_DEV, NULL, 5000);
 }
 
@@ -88,7 +93,8 @@ static int do_request_sense(int fd, uint8_t *out, size_t len)
 {
 	uint8_t cdb[UFI_CDB_LEN] = { 0 };
 	cdb[0] = 0x03; /* REQUEST SENSE */
-	cdb[8] = len & 0xff;
+	/* UFI REQUEST SENSE: Allocation Length is byte 4 (1 byte) */
+	cdb[4] = (len > 0xff) ? 0xff : (uint8_t)len;
 	return sg_io(fd, cdb, UFI_CDB_LEN, out, len, SG_DXFER_FROM_DEV, NULL, 5000);
 }
 
@@ -96,16 +102,19 @@ static int do_read_format_capacities(int fd, uint8_t *out, size_t len)
 {
 	uint8_t cdb[UFI_CDB_LEN] = { 0 };
 	cdb[0] = 0x23; /* READ FORMAT CAPACITIES */
-	cdb[8] = (len >> 8) & 0xff;
-	cdb[9] = len & 0xff;
+	/* UFI READ FORMAT CAPACITIES: Allocation Length is bytes 7-8 */
+	cdb[7] = (len >> 8) & 0xff;
+	cdb[8] = len & 0xff;
 	return sg_io(fd, cdb, UFI_CDB_LEN, out, len, SG_DXFER_FROM_DEV, NULL, 10000);
 }
 
 static int do_mode_sense(int fd, uint8_t page, uint8_t *out, size_t len)
 {
 	uint8_t cdb[UFI_CDB_LEN] = { 0 };
-	cdb[0] = 0x5a; /* MODE SENSE(6) */
+	cdb[0] = 0x5a; /* MODE SENSE (UFI 12-byte command block) */
 	cdb[2] = page;
+	/* UFI MODE SENSE: Parameter List Length is bytes 7-8 */
+	cdb[7] = (len >> 8) & 0xff;
 	cdb[8] = len & 0xff;
 	return sg_io(fd, cdb, UFI_CDB_LEN, out, len, SG_DXFER_FROM_DEV, NULL, 5000);
 }
@@ -170,6 +179,30 @@ static void sense_message(uint8_t *sense, size_t len, char *buf, size_t bufsiz)
 	snprintf(buf, bufsiz, "%s ASC 0x%02X ASCQ 0x%02X%s", sk_str, asc, ascq, asc_str);
 }
 
+static int infer_geometry(uint8_t medium_type, uint32_t num_blocks, uint32_t block_len,
+                          uint16_t *cylinders, uint8_t *heads, uint8_t *sec_per_track, uint16_t *bytes_per_sec)
+{
+	/* Prefer medium type codes when available (UFI Table 17 / Table 35). */
+	switch (medium_type) {
+	case 0x1e: /* 720 KB (DD) */
+		*cylinders = 80; *heads = 2; *sec_per_track = 9; *bytes_per_sec = 512; return 1;
+	case 0x93: /* 1.25 MB (HD) */
+		*cylinders = 77; *heads = 2; *sec_per_track = 8; *bytes_per_sec = 1024; return 1;
+	case 0x94: /* 1.44 MB (HD) */
+		*cylinders = 80; *heads = 2; *sec_per_track = 18; *bytes_per_sec = 512; return 1;
+	default:
+		break;
+	}
+
+	/* Fallback to common floppy geometries inferred from current capacity. */
+	if (num_blocks == 1440 && block_len == 512) { *cylinders = 80; *heads = 2; *sec_per_track = 9;  *bytes_per_sec = 512;  return 1; }
+	if (num_blocks == 2880 && block_len == 512) { *cylinders = 80; *heads = 2; *sec_per_track = 18; *bytes_per_sec = 512;  return 1; }
+	if (num_blocks == 1232 && block_len == 1024){ *cylinders = 77; *heads = 2; *sec_per_track = 8;  *bytes_per_sec = 1024; return 1; }
+	if (num_blocks == 2400 && block_len == 512) { *cylinders = 80; *heads = 2; *sec_per_track = 15; *bytes_per_sec = 512;  return 1; }
+
+	return 0;
+}
+
 static int run_format(int fd, unsigned int capacity_kb, int force, int verify,
                       uint8_t *fmt_buf, size_t fmt_len)
 {
@@ -189,10 +222,11 @@ static int run_format(int fd, unsigned int capacity_kb, int force, int verify,
 	}
 
 	uint8_t mode_buf[64];
+	memset(mode_buf, 0, sizeof(mode_buf));
 	r = do_mode_sense(fd, 0x05, mode_buf, sizeof(mode_buf));
 	if (r == 0 && sizeof(mode_buf) >= 8) {
 		/* Mode Parameter Header (Table 16) byte 3 = WP */
-		int wp = (mode_buf[7] & 0x80) ? 1 : 0;
+		int wp = (mode_buf[3] & 0x80) ? 1 : 0;
 		if (wp) {
 			fprintf(stderr, "%s: Medium is write-protected.\n", progname);
 			return 3;
@@ -273,17 +307,66 @@ static void print_info(int fd, uint8_t *inq, size_t inq_len,
 		printf("Not ready (%s)\n", msg);
 	} else {
 		printf("Ready\n");
+
+		/* Use current capacity as a fallback for geometry if MODE SENSE doesn't include page 0x05. */
+		uint32_t cur_blocks = 0;
+		uint32_t cur_block_len = 0;
+		if (fmt_len >= 12) {
+			cur_blocks = be32_from(fmt_buf + 4);
+			cur_block_len = (fmt_buf[9] << 16) | (fmt_buf[10] << 8) | fmt_buf[11];
+		}
+
 		uint8_t mode_buf[64];
-		if (do_mode_sense(fd, 0x05, mode_buf, sizeof(mode_buf)) == 0 && sizeof(mode_buf) >= 22) {
-			int wp = (mode_buf[7] & 0x80) ? 1 : 0;
-			/* Flexible Disk Page (0x05) at byte 12: 2=TransferRate, 4=Heads, 5=SecTrk, 6-7=BytesPerSec, 8-9=Cylinders */
-			uint8_t heads = mode_buf[16];
-			uint8_t sec_per_track = mode_buf[17];
-			uint16_t bytes_per_sec = (mode_buf[18] << 8) | mode_buf[19];
-			uint16_t cylinders = (mode_buf[20] << 8) | mode_buf[21];
-			printf("Write protect: %s\n", wp ? "Yes" : "No");
-			printf("Geometry: %u cylinders, %u heads, %u sectors/track, %u bytes/sector\n",
-			       (unsigned)cylinders, (unsigned)heads, (unsigned)sec_per_track, (unsigned)bytes_per_sec);
+		memset(mode_buf, 0, sizeof(mode_buf));
+		if (do_mode_sense(fd, 0x05, mode_buf, sizeof(mode_buf)) == 0) {
+			/* UFI MODE SENSE header is 8 bytes (Mode Data Length at bytes 0-1). */
+			size_t avail = sizeof(mode_buf);
+			if (avail >= 2) {
+				size_t mdl = ((size_t)mode_buf[0] << 8) | (size_t)mode_buf[1];
+				size_t total = mdl + 2; /* not including itself */
+				if (total < avail)
+					avail = total;
+			}
+
+			if (avail >= 8) {
+				uint8_t medium_type = mode_buf[2];
+				int wp = (mode_buf[3] & 0x80) ? 1 : 0;
+				printf("Write protect: %s\n", wp ? "Yes" : "No");
+
+				/* Parse mode pages starting immediately after the 8-byte header. */
+				int printed_geom = 0;
+				size_t off = 8;
+				while (off + 2 <= avail) {
+					uint8_t page_code = mode_buf[off] & 0x3f;
+					uint8_t page_len = mode_buf[off + 1];
+					size_t page_total = (size_t)page_len + 2;
+					if (off + page_total > avail)
+						break;
+
+					if (page_code == 0x05 && page_len >= 10) {
+						/* Flexible Disk Page (UFI Table 19): heads@4, sec/trk@5, bytes/sec@6-7, cyl@8-9 */
+						uint8_t heads = mode_buf[off + 4];
+						uint8_t sec_per_track = mode_buf[off + 5];
+						uint16_t bytes_per_sec = ((uint16_t)mode_buf[off + 6] << 8) | mode_buf[off + 7];
+						uint16_t cylinders = ((uint16_t)mode_buf[off + 8] << 8) | mode_buf[off + 9];
+						printf("Geometry: %u cylinders, %u heads, %u sectors/track, %u bytes/sector\n",
+						       (unsigned)cylinders, (unsigned)heads, (unsigned)sec_per_track, (unsigned)bytes_per_sec);
+						printed_geom = 1;
+						break;
+					}
+					off += page_total;
+				}
+
+				if (!printed_geom) {
+					uint16_t cylinders = 0, bytes_per_sec = 0;
+					uint8_t heads = 0, sec_per_track = 0;
+					if (infer_geometry(medium_type, cur_blocks, cur_block_len,
+					                   &cylinders, &heads, &sec_per_track, &bytes_per_sec)) {
+						printf("Geometry: %u cylinders, %u heads, %u sectors/track, %u bytes/sector\n",
+						       (unsigned)cylinders, (unsigned)heads, (unsigned)sec_per_track, (unsigned)bytes_per_sec);
+					}
+				}
+			}
 		}
 	}
 
@@ -307,10 +390,10 @@ static void print_info(int fd, uint8_t *inq, size_t inq_len,
 		uint32_t bl = (d[5] << 16) | (d[6] << 8) | d[7];
 		unsigned int cap_kb = (unsigned int)((uint64_t)nb * bl / 1024);
 		const char *name = "Unknown";
-		if (nb == 1440 && bl == 512) name = "720 KB (DD)";
-		else if (nb == 2880 && bl == 512) name = "1.44 MB (HD)";
+		if (nb == 1440 && bl == 512) name = "720 KB";
+		else if (nb == 2880 && bl == 512) name = "1.44 MB";
 		else if (nb == 1232 && bl == 1024) name = "1.25 MB";
-		else if (nb == 1200 && bl == 512) name = "1.2 MB (5.25\")";
+		else if (nb == 2400 && bl == 512) name = "1.2 MB";
 		else if (nb == 640 && bl == 512) name = "640 KB";
 		printf("  - %u KB: %u blocks x %u bytes (%s)\n", cap_kb, (unsigned)nb, (unsigned)bl, name);
 	}
@@ -374,6 +457,8 @@ int main(int argc, char **argv)
 
 	uint8_t inq[36];
 	uint8_t fmt_buf[256];
+	memset(inq, 0, sizeof(inq));
+	memset(fmt_buf, 0, sizeof(fmt_buf));
 	int r = do_inquiry(fd, inq, sizeof(inq));
 	if (r != 0) {
 		fprintf(stderr, "%s: INQUIRY failed: %s\n", progname, strerror(errno));
