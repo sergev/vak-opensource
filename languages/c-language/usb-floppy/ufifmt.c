@@ -8,46 +8,44 @@
 #include <sys/ioctl.h>
 
 #define SENSE_BUFF_LEN 32
-#define MAX_CDB_LEN 12
+#define MAX_CDB_LEN 6
+#define FORMAT_PARAM_LEN 12
 
-// TEAC allowed formats
 typedef struct {
     const char *name;
-    int tracks;
-    int heads;
-    int sectors;
-    int block_size;
+    unsigned char param[FORMAT_PARAM_LEN]; // UFI FORMAT UNIT parameter list
 } teac_format_t;
 
+// TEAC FD-05PUB allowed formats
 teac_format_t teac_formats[] = {
-    {"1.44M", 80, 2, 18, 512},
-    {"1.20M", 80, 2, 15, 512},
-    {"1.232M", 77, 2, 8, 1024},
-    {NULL, 0, 0, 0, 0}
+    {"1.44M", {0x00,0x00,0x50,0x00,0x12,0x00,0x02,0x00,0x18,0x00,0x02,0x00}}, // 80x2x18x512
+    {"1.20M", {0x00,0x00,0x50,0x00,0x0F,0x00,0x02,0x00,0x15,0x00,0x02,0x00}}, // 80x2x15x512
+    {"1.232M",{0x00,0x00,0x31,0x00,0x08,0x00,0x02,0x00,0x08,0x00,0x02,0x00}}, // 77x2x8x1024
+    {NULL, {0}}
 };
 
-// Send FORMAT UNIT command via SG_IO
+// Send FORMAT UNIT with parameter list
 int format_floppy(int fd, teac_format_t *fmt) {
-    unsigned char cdb[6];
+    unsigned char cdb[MAX_CDB_LEN] = {0};
     unsigned char sense[SENSE_BUFF_LEN];
-    memset(cdb, 0, sizeof(cdb));
     memset(sense, 0, sizeof(sense));
 
-    // FORMAT UNIT (6-byte) opcode = 0x04
-    cdb[0] = 0x04;   // FORMAT UNIT
-    cdb[1] = 0x10;   // Densities = default, FmtData = 1
-    // cdb[2..4] = parameter list length (UFI often ignores)
-    cdb[4] = 0;      // No parameter list for safe UFI
-    cdb[5] = 0;      // Control
+    // FORMAT UNIT opcode = 0x04
+    cdb[0] = 0x04;
+    cdb[1] = 0x10; // FMTDATA = 1
+    // Parameter list length in CDB[4]
+    cdb[4] = FORMAT_PARAM_LEN;
 
     struct sg_io_hdr io;
     memset(&io, 0, sizeof(io));
     io.interface_id = 'S';
     io.cmd_len = sizeof(cdb);
     io.mx_sb_len = SENSE_BUFF_LEN;
+    io.dxfer_direction = SG_DXFER_TO_DEV;
+    io.dxfer_len = FORMAT_PARAM_LEN;
     io.cmdp = cdb;
     io.sbp = sense;
-    io.dxfer_direction = SG_DXFER_NONE;
+    io.dxferp = fmt->param;
     io.timeout = 20000; // 20 seconds for format
 
     if (ioctl(fd, SG_IO, &io) < 0) {
@@ -94,8 +92,7 @@ int main(int argc, char **argv) {
         return 1;
     }
 
-    printf("Formatting %s as %s (%d tracks, %d heads, %d sectors, %d bytes/sector)\n",
-           dev, fmt->name, fmt->tracks, fmt->heads, fmt->sectors, fmt->block_size);
+    printf("Formatting %s as %s...\n", dev, fmt->name);
 
     if (format_floppy(fd, fmt) == 0) {
         printf("Format succeeded.\n");
