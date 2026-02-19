@@ -3,6 +3,7 @@
 #include <string.h>
 #include <stdint.h>
 #include <stdlib.h>
+#include <time.h>
 
 // USB Mass Storage BOT structures
 typedef struct {
@@ -69,6 +70,26 @@ int send_scsi_command(libusb_device_handle *handle, uint8_t ep_out, uint8_t ep_i
     return 0;
 }
 
+// USB Mass Storage BOT Reset Recovery (spec 5.3.4)
+// Some devices (e.g. TEAC floppy) stall the 0xFF request (LIBUSB_ERROR_PIPE -9); skip it and only clear halt.
+static int ms_reset_recovery(libusb_device_handle *handle, uint8_t ep_in, uint8_t ep_out) {
+    // (a) Bulk-Only Mass Storage Reset: bmRequestType=0x21, bRequest=0xFF (optional; device may stall)
+    int r = libusb_control_transfer(handle,
+        LIBUSB_ENDPOINT_OUT | LIBUSB_REQUEST_TYPE_CLASS | LIBUSB_RECIPIENT_INTERFACE,
+        0xFF, 0, 0, NULL, 0, 5000);
+    if (r < 0 && r != LIBUSB_ERROR_PIPE) return r;  /* device may stall 0xFF (not supported) */
+
+    // (b) Clear HALT on Bulk-In
+    r = libusb_clear_halt(handle, ep_in);
+    if (r < 0) return r;
+
+    // (c) Clear HALT on Bulk-Out
+    r = libusb_clear_halt(handle, ep_out);
+    if (r < 0) return r;
+
+    return 0;
+}
+
 // Helper to get big-endian uint32
 uint32_t be32_to_cpu(uint8_t *buf) {
     return (buf[0] << 24) | (buf[1] << 16) | (buf[2] << 8) | buf[3];
@@ -123,6 +144,9 @@ int main() {
     // Claim interface 0
     r = libusb_claim_interface(handle, 0);
     if (r < 0) { printf("Claim error: %d\n", r); goto cleanup; }
+
+    r = ms_reset_recovery(handle, ep_in, ep_out);
+    if (r < 0) { printf("Reset recovery error: %d\n", r); goto cleanup; }
 
     printf("=== TEAC USB Floppy Drive Information ===\n");
 
