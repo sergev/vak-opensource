@@ -2,7 +2,7 @@
 
 all: usb-floppy-info usb-floppy-format mode-select simple-floppy-format probe-vendor-commands ufifmt
 
-usb-floppy-info: usb-floppy-info3.o
+usb-floppy-info: usb-floppy-info4.o
 	$(CC) $(LDFLAGS) $< $(LIBS) -o $@
 
 usb-floppy-format: usb-floppy-format.o
