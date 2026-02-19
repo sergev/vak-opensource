@@ -12,5 +12,5 @@ clean:
 usb-floppy-info: usb-floppy-info.o
 	$(CC) $(LDFLAGS) $< -o $@
 
-usb-floppy-format: usb-floppy-format.c
+usb-floppy-format: usb-floppy-format.o
 	$(CC) $(CFLAGS) -Wall -Wextra -o $@ $<
