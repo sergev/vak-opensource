@@ -280,9 +280,13 @@ static int format_unit(int fd, uint32_t blocks, uint32_t block_size)
     memset(param, 0, sizeof(param));
 
     cdb[0] = 0x04;     // FORMAT UNIT
+#if 0
     cdb[1] = 0x10;     // FmtData = 1
     cdb[4] = sizeof(param);
-
+#else
+    cdb[1] = 0;
+    cdb[4] = 0;
+#endif
     /*
        Format parameter list (short format header)
 
@@ -293,7 +297,7 @@ static int format_unit(int fd, uint32_t blocks, uint32_t block_size)
     */
 
     param[2] = 0;
-    param[3] = 8;
+    param[3] = 0; // 8
 
     param[4] = (blocks >> 24) & 0xFF;
     param[5] = (blocks >> 16) & 0xFF;
@@ -309,8 +313,9 @@ static int format_unit(int fd, uint32_t blocks, uint32_t block_size)
            blocks, block_size);
 
     return send_scsi_cmd(fd, cdb, 6,
-                         param, sizeof(param),
-                         SG_DXFER_TO_DEV);
+                         param,
+//                       sizeof(param), SG_DXFER_TO_DEV);
+                         0, SG_DXFER_NONE);
 }
 
 int main(int argc, char *argv[])
@@ -337,7 +342,7 @@ int main(int argc, char *argv[])
     printf("Before format:\n");
     read_capacity(fd);
 
-    if (format_unit(fd, 2400, 512) == 0) {
+    if (format_unit(fd, 2880, 512) == 0) {
         printf("Format successful.\n");
     } else {
         printf("Format failed.\n");
