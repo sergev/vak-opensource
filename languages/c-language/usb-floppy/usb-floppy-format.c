@@ -24,6 +24,10 @@
 #define UFI_CDB_LEN 12
 #define FORMAT_TIMEOUT_MS 120000
 
+#ifndef SG_SCSI_RESET_TARGET
+#define SG_SCSI_RESET_TARGET 4
+#endif
+
 static const char *progname;
 
 static uint32_t be32_from(const uint8_t *p)
@@ -119,13 +123,54 @@ static int do_mode_sense(int fd, uint8_t page, uint8_t *out, size_t len)
 	return sg_io(fd, cdb, UFI_CDB_LEN, out, len, SG_DXFER_FROM_DEV, NULL, 5000);
 }
 
-static int do_format_unit(int fd, uint32_t num_blocks, uint32_t block_len)
+static int do_scsi_reset_target(int fd)
+{
+	int mode = SG_SCSI_RESET_TARGET;
+	if (ioctl(fd, SG_SCSI_RESET, &mode) < 0) {
+		mode = SG_SCSI_RESET_BUS;
+		if (ioctl(fd, SG_SCSI_RESET, &mode) < 0)
+			return -1;
+	}
+	return 0;
+}
+
+static const struct {
+	unsigned int kb;
+	uint16_t cylinders;
+	uint8_t heads;
+	uint8_t sectors_per_track;
+	uint16_t bytes_per_sector;
+} geometry_table[] = {
+	{ 1440, 80, 2, 18, 512 },
+	{ 1232, 77, 2, 8, 1024 },
+	{ 1200, 80, 2, 15, 512 },
+	{ 720, 80, 2, 9, 512 },
+	{ 640, 80, 2, 8, 512 },
+	{ 0, 0, 0, 0, 0 }
+};
+
+static int size_to_geometry(unsigned int kb,
+                            uint16_t *cylinders, uint8_t *heads, uint8_t *sec_per_track, uint16_t *bytes_per_sec)
+{
+	for (size_t i = 0; geometry_table[i].kb != 0; i++) {
+		if (geometry_table[i].kb == kb) {
+			*cylinders = geometry_table[i].cylinders;
+			*heads = geometry_table[i].heads;
+			*sec_per_track = geometry_table[i].sectors_per_track;
+			*bytes_per_sec = geometry_table[i].bytes_per_sector;
+			return 0;
+		}
+	}
+	return -1;
+}
+
+static int do_format_unit(int fd, uint32_t num_blocks, uint32_t block_len, uint8_t track, uint8_t head)
 {
 	uint8_t cdb[UFI_CDB_LEN] = { 0 };
 	/* FORMAT UNIT: FmtData=1, CmpList=0, Defect List Format=7 */
 	cdb[0] = 0x04;
 	cdb[1] = 0x10 | 7; /* FmtData bit, Defect List Format 7 */
-	cdb[2] = 0;       /* Track 0 (full disk) */
+	cdb[2] = track;   /* Track Number (single-track mode) */
 	cdb[3] = 0;
 	cdb[4] = 0;       /* Interleave 0 = default */
 	cdb[7] = 0;
@@ -133,7 +178,12 @@ static int do_format_unit(int fd, uint32_t num_blocks, uint32_t block_len)
 
 	uint8_t param[12];
 	memset(param, 0, sizeof(param));
-	param[1] = 0x08;  /* DCRT = 1 (disable certification) */
+	/*
+	 * Defect List Header (UFI Table 7), single-track formatting like ufiformat:
+	 * - FOV=1, DCRT=1, SingleTrack=1  => 0xB0
+	 * - Side bit (bit0) set to head number (0/1)
+	 */
+	param[1] = 0xB0 | (head & 0x01);
 	param[2] = 0;
 	param[3] = 8;     /* Defect list length = 8 (Format Descriptor size) */
 	be32_to(param + 4, num_blocks);
@@ -263,16 +313,50 @@ static int run_format(int fd, unsigned int capacity_kb, int force, int verify,
 		return 1;
 	}
 
-	memset(sense, 0, SENSE_LEN);
-	r = do_format_unit(fd, num_blocks, block_len);
-	if (r != 0) {
-		do_request_sense(fd, sense, SENSE_LEN);
-		char msg[128];
-		sense_message(sense, SENSE_LEN, msg, sizeof(msg));
-		fprintf(stderr, "%s: FORMAT UNIT failed: %s\n", progname, msg);
+	uint16_t cylinders = 0, bytes_per_sec = 0;
+	uint8_t heads = 0, sec_per_track = 0;
+	if (size_to_geometry(capacity_kb, &cylinders, &heads, &sec_per_track, &bytes_per_sec) != 0) {
+		fprintf(stderr, "%s: Unable to determine geometry for %u KB.\n", progname, capacity_kb);
 		return 1;
 	}
+	if (bytes_per_sec != block_len) {
+		fprintf(stderr,
+		        "%s: Geometry table block size mismatch for %u KB (table %u vs device %u).\n",
+		        progname, capacity_kb, (unsigned)bytes_per_sec, (unsigned)block_len);
+		return 1;
+	}
+
+	memset(sense, 0, SENSE_LEN);
+	for (uint16_t t = 0; t < cylinders; t++) {
+		for (uint8_t h = 0; h < heads; h++) {
+			memset(sense, 0, SENSE_LEN);
+			r = do_format_unit(fd, num_blocks, block_len, (uint8_t)t, h);
+			if (r != 0) {
+				memset(sense, 0, SENSE_LEN);
+				int rs = do_request_sense(fd, sense, SENSE_LEN);
+				if (rs != 0) {
+					fprintf(stderr,
+					        "%s: FORMAT UNIT failed at track=%u head=%u; REQUEST SENSE also failed (rc=%d)\n",
+					        progname, (unsigned)t, (unsigned)h, rs);
+				} else {
+					char msg[128];
+					sense_message(sense, SENSE_LEN, msg, sizeof(msg));
+					fprintf(stderr,
+					        "%s: FORMAT UNIT failed at track=%u head=%u: %s\n",
+					        progname, (unsigned)t, (unsigned)h, msg);
+				}
+				return 1;
+			}
+		}
+	}
 	printf("Format completed successfully.\n");
+
+	/*
+	 * Some devices (and the kernel block layer) need a reset after a format
+	 * (especially when changing capacity) before /dev/sdX reflects the new media.
+	 */
+	if (do_scsi_reset_target(fd) != 0)
+		fprintf(stderr, "%s: warning: SCSI reset failed: %s\n", progname, strerror(errno));
 
 	if (verify) {
 		r = do_verify(fd, 0, num_blocks);
