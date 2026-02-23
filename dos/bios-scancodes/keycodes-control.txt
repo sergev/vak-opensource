@@ -1,0 +1,103 @@
+Control keys: LCtrl or RCtrl modifiers pressed.
+
+Key             ASCII   Scancode    Modifiers
+-----------------------------------------------------
+ESCAPE          1B ^[   01
+F1              -       5E
+F2              -       5F
+F3              -       60
+F4              -       61
+F5              -       62
+F6              -       63
+F7              -       64
+F8              -       65
+F9              -       66
+F10             -       67
+F11             -       -           Ignored
+F12             -       -           Ignored
+
+GRAVE           -       -           Ignored
+1               -       -           Ignored
+2               00 ^@   03
+3               -       -           Ignored
+4               -       -           Ignored
+5               -       -           Ignored
+6               1E ^^   07
+7               -       -           Ignored
+8               -       -           Ignored
+9               -       -           Ignored
+0               -       -           Ignored
+MINUS           1F ^_   0C
+EQUALS          -       -           Ignored
+BACKSPACE       -       -           Ignored
+
+TAB             -       -           Ignored
+Q               11 ^Q   10
+W               17 ^W   11
+E               05 ^E   12
+R               12 ^R   13
+T               14 ^T   14
+Y               19 ^Y   15
+U               15 ^U   16
+I               09 ^I   17
+O               0F ^O   18
+P               10 ^P   19
+LEFTBRACKET     1B ^[   1A
+RIGHTBRACKET    1D ^]   1B
+BACKSLASH       1C ^\   2B
+
+A               01 ^A   1E
+S               13 ^S   1F
+D               04 ^D   20
+F               06 ^F   21
+G               07 ^G   22
+H               08 ^H   23
+J               0A ^J   24
+K               0B ^K   25
+L               0C ^L   26
+SEMICOLON       -       -           Ignored
+APOSTROPHE      -       -           Ignored
+RETURN          0A ^J   1C
+
+NONUSBACKSLASH  1C ^\   2B
+Z               1A ^Z   2C
+X               18 ^X   2D
+C               03 ^C   2E
+V               16 ^V   2F
+B               02 ^B   30
+N               0E ^N   31
+M               0D ^M   32
+COMMA           -       -           Ignored
+PERIOD          -       -           Ignored
+SLASH           -       -           Ignored
+
+SPACE           20      39
+
+INSERT          -       -           Ignored
+HOME            -       77
+PAGEUP          -       84
+DELETE          -       -           Ignored
+END             -       75
+PAGEDOWN        -       76
+
+UP              -       -           Ignored
+LEFT            -       73
+DOWN            -       -           Ignored
+RIGHT           -       74
+
+KP_DIVIDE       -       -           Ignored
+KP_MULTIPLY     -       -           Ignored
+KP_MINUS        -       -           Ignored
+KP_7            -       77
+KP_8            -       -           Ignored
+KP_9            -       84
+KP_PLUS         -       -           Ignored
+KP_4            -       73
+KP_5            -       -           Ignored
+KP_6            -       74
+KP_1            -       75
+KP_2            -       -           Ignored
+KP_3            -       76
+KP_ENTER        0A ^J   1C
+KP_0            -       -           Ignored
+KP_PERIOD       -       -           Ignored

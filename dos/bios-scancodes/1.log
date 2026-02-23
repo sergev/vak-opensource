@@ -1,0 +1,25 @@
+Keyboard logger: press keys (Esc 3x in a row to exit).
+ 1 ascii=31 scancode=02 shift: NumLock
+                        ext:
+ ! ascii=21 scancode=02 shift: LShift NumLock
+                        ext:
+   ascii=00 scancode=78 shift: Alt NumLock
+                        ext: LAlt
+   ascii=00 scancode=78 shift: Alt NumLock
+                        ext: RAlt
+ ! ascii=21 scancode=02 shift: RShift NumLock
+                        ext:
+ 1 ascii=31 scancode=02 shift:
+                        ext:
+ 1 ascii=31 scancode=02 shift: CapsLock
+                        ext:
+ 1 ascii=31 scancode=02 shift:
+                        ext:
+   ascii=00 scancode=52 shift: Insert
+                        ext:
+ 1 ascii=31 scancode=02 shift: Insert
+                        ext:
+   ascii=00 scancode=52 shift:
+                        ext:
+ 1 ascii=31 scancode=02 shift:
+                        ext:

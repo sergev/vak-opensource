@@ -1,0 +1,179 @@
+Keyboard logger: press keys (Esc 3x in a row to exit).
+^[ ascii=1B scancode=01 shift: LShift
+                        ext:
+   ascii=00 scancode=54 shift: LShift
+                        ext:
+   ascii=00 scancode=55 shift: LShift
+                        ext:
+   ascii=00 scancode=56 shift: LShift
+                        ext:
+   ascii=00 scancode=57 shift: LShift
+                        ext:
+   ascii=00 scancode=58 shift: LShift
+                        ext:
+   ascii=00 scancode=59 shift: LShift
+                        ext:
+   ascii=00 scancode=5A shift: LShift
+                        ext:
+   ascii=00 scancode=5B shift: LShift
+                        ext:
+   ascii=00 scancode=5C shift: LShift
+                        ext:
+   ascii=00 scancode=5D shift: LShift
+                        ext:
+ ~ ascii=7E scancode=29 shift: LShift
+                        ext:
+ ! ascii=21 scancode=02 shift: LShift
+                        ext:
+ @ ascii=40 scancode=03 shift: LShift
+                        ext:
+ # ascii=23 scancode=04 shift: LShift
+                        ext:
+ $ ascii=24 scancode=05 shift: LShift
+                        ext:
+ % ascii=25 scancode=06 shift: LShift
+                        ext:
+ ^ ascii=5E scancode=07 shift: LShift
+                        ext:
+ & ascii=26 scancode=08 shift: LShift
+                        ext:
+ * ascii=2A scancode=09 shift: LShift
+                        ext:
+ ( ascii=28 scancode=0A shift: LShift
+                        ext:
+ ) ascii=29 scancode=0B shift: LShift
+                        ext:
+ _ ascii=5F scancode=0C shift: LShift
+                        ext:
+ + ascii=2B scancode=0D shift: LShift
+                        ext:
+^H ascii=08 scancode=0E shift: LShift
+                        ext:
+   ascii=00 scancode=0F shift: LShift
+                        ext:
+ Q ascii=51 scancode=10 shift: LShift
+                        ext:
+ W ascii=57 scancode=11 shift: LShift
+                        ext:
+ E ascii=45 scancode=12 shift: LShift
+                        ext:
+ R ascii=52 scancode=13 shift: LShift
+                        ext:
+ T ascii=54 scancode=14 shift: LShift
+                        ext:
+ Y ascii=59 scancode=15 shift: LShift
+                        ext:
+ U ascii=55 scancode=16 shift: LShift
+                        ext:
+ I ascii=49 scancode=17 shift: LShift
+                        ext:
+ O ascii=4F scancode=18 shift: LShift
+                        ext:
+ P ascii=50 scancode=19 shift: LShift
+                        ext:
+ { ascii=7B scancode=1A shift: LShift
+                        ext:
+ } ascii=7D scancode=1B shift: LShift
+                        ext:
+ | ascii=7C scancode=2B shift: LShift
+                        ext:
+ A ascii=41 scancode=1E shift: LShift
+                        ext:
+ S ascii=53 scancode=1F shift: LShift
+                        ext:
+ D ascii=44 scancode=20 shift: LShift
+                        ext:
+ F ascii=46 scancode=21 shift: LShift
+                        ext:
+ G ascii=47 scancode=22 shift: LShift
+                        ext:
+ H ascii=48 scancode=23 shift: LShift
+                        ext:
+ J ascii=4A scancode=24 shift: LShift
+                        ext:
+ K ascii=4B scancode=25 shift: LShift
+                        ext:
+ L ascii=4C scancode=26 shift: LShift
+                        ext:
+ : ascii=3A scancode=27 shift: LShift
+                        ext:
+ " ascii=22 scancode=28 shift: LShift
+                        ext:
+^M ascii=0D scancode=1C shift: LShift
+                        ext:
+ Z ascii=5A scancode=2C shift: LShift
+                        ext:
+ X ascii=58 scancode=2D shift: LShift
+                        ext:
+ C ascii=43 scancode=2E shift: LShift
+                        ext:
+ V ascii=56 scancode=2F shift: LShift
+                        ext:
+ B ascii=42 scancode=30 shift: LShift
+                        ext:
+ N ascii=4E scancode=31 shift: LShift
+                        ext:
+ M ascii=4D scancode=32 shift: LShift
+                        ext:
+ < ascii=3C scancode=33 shift: LShift
+                        ext:
+ > ascii=3E scancode=34 shift: LShift
+                        ext:
+ ? ascii=3F scancode=35 shift: LShift
+                        ext:
+   ascii=20 scancode=39 shift: LShift
+                        ext:
+   ascii=00 scancode=52 shift: LShift Insert
+                        ext:
+   ascii=00 scancode=52 shift: LShift
+                        ext:
+   ascii=00 scancode=47 shift: LShift
+                        ext:
+   ascii=00 scancode=49 shift: LShift
+                        ext:
+   ascii=00 scancode=53 shift: LShift
+                        ext:
+   ascii=00 scancode=4F shift: LShift
+                        ext:
+   ascii=00 scancode=51 shift: LShift
+                        ext:
+   ascii=00 scancode=48 shift: LShift
+                        ext:
+   ascii=00 scancode=4B shift: LShift
+                        ext:
+   ascii=00 scancode=50 shift: LShift
+                        ext:
+   ascii=00 scancode=4D shift: LShift
+                        ext:
+ / ascii=2F scancode=35 shift: LShift
+                        ext:
+ * ascii=2A scancode=37 shift: LShift
+                        ext:
+ - ascii=2D scancode=4A shift: LShift
+                        ext:
+ 7 ascii=37 scancode=47 shift: LShift
+                        ext:
+ 8 ascii=38 scancode=48 shift: LShift
+                        ext:
+ 9 ascii=39 scancode=49 shift: LShift
+                        ext:
+ + ascii=2B scancode=4E shift: LShift
+                        ext:
+ 4 ascii=34 scancode=4B shift: LShift
+                        ext:
+ 5 ascii=35 scancode=4C shift: LShift
+                        ext:
+ 6 ascii=36 scancode=4D shift: LShift
+                        ext:
+ 1 ascii=31 scancode=4F shift: LShift
+                        ext:
+ 2 ascii=32 scancode=50 shift: LShift
+                        ext:
+ 3 ascii=33 scancode=51 shift: LShift
+                        ext:
+^M ascii=0D scancode=1C shift: LShift
+                        ext:
+ 0 ascii=30 scancode=52 shift: LShift
+                        ext:
+ . ascii=2E scancode=53 shift: LShift
+                        ext:

@@ -1,0 +1,179 @@
+Keyboard logger: press keys (Esc 3x in a row to exit).
+^[ ascii=1B scancode=01 shift: NumLock
+                        ext:
+   ascii=00 scancode=3B shift: NumLock
+                        ext:
+   ascii=00 scancode=3C shift: NumLock
+                        ext:
+   ascii=00 scancode=3D shift: NumLock
+                        ext:
+   ascii=00 scancode=3E shift: NumLock
+                        ext:
+   ascii=00 scancode=3F shift: NumLock
+                        ext:
+   ascii=00 scancode=40 shift: NumLock
+                        ext:
+   ascii=00 scancode=41 shift: NumLock
+                        ext:
+   ascii=00 scancode=42 shift: NumLock
+                        ext:
+   ascii=00 scancode=43 shift: NumLock
+                        ext:
+   ascii=00 scancode=44 shift: NumLock
+                        ext:
+ ` ascii=60 scancode=29 shift: NumLock
+                        ext:
+ 1 ascii=31 scancode=02 shift: NumLock
+                        ext:
+ 2 ascii=32 scancode=03 shift: NumLock
+                        ext:
+ 3 ascii=33 scancode=04 shift: NumLock
+                        ext:
+ 4 ascii=34 scancode=05 shift: NumLock
+                        ext:
+ 5 ascii=35 scancode=06 shift: NumLock
+                        ext:
+ 6 ascii=36 scancode=07 shift: NumLock
+                        ext:
+ 7 ascii=37 scancode=08 shift: NumLock
+                        ext:
+ 8 ascii=38 scancode=09 shift: NumLock
+                        ext:
+ 9 ascii=39 scancode=0A shift: NumLock
+                        ext:
+ 0 ascii=30 scancode=0B shift: NumLock
+                        ext:
+ - ascii=2D scancode=0C shift: NumLock
+                        ext:
+ = ascii=3D scancode=0D shift: NumLock
+                        ext:
+^H ascii=08 scancode=0E shift: NumLock
+                        ext:
+^I ascii=09 scancode=0F shift: NumLock
+                        ext:
+ q ascii=71 scancode=10 shift: NumLock
+                        ext:
+ w ascii=77 scancode=11 shift: NumLock
+                        ext:
+ e ascii=65 scancode=12 shift: NumLock
+                        ext:
+ r ascii=72 scancode=13 shift: NumLock
+                        ext:
+ t ascii=74 scancode=14 shift: NumLock
+                        ext:
+ y ascii=79 scancode=15 shift: NumLock
+                        ext:
+ u ascii=75 scancode=16 shift: NumLock
+                        ext:
+ i ascii=69 scancode=17 shift: NumLock
+                        ext:
+ o ascii=6F scancode=18 shift: NumLock
+                        ext:
+ p ascii=70 scancode=19 shift: NumLock
+                        ext:
+ [ ascii=5B scancode=1A shift: NumLock
+                        ext:
+ ] ascii=5D scancode=1B shift: NumLock
+                        ext:
+ \ ascii=5C scancode=2B shift: NumLock
+                        ext:
+ a ascii=61 scancode=1E shift: NumLock
+                        ext:
+ s ascii=73 scancode=1F shift: NumLock
+                        ext:
+ d ascii=64 scancode=20 shift: NumLock
+                        ext:
+ f ascii=66 scancode=21 shift: NumLock
+                        ext:
+ g ascii=67 scancode=22 shift: NumLock
+                        ext:
+ h ascii=68 scancode=23 shift: NumLock
+                        ext:
+ j ascii=6A scancode=24 shift: NumLock
+                        ext:
+ k ascii=6B scancode=25 shift: NumLock
+                        ext:
+ l ascii=6C scancode=26 shift: NumLock
+                        ext:
+ ; ascii=3B scancode=27 shift: NumLock
+                        ext:
+ ' ascii=27 scancode=28 shift: NumLock
+                        ext:
+^M ascii=0D scancode=1C shift: NumLock
+                        ext:
+ z ascii=7A scancode=2C shift: NumLock
+                        ext:
+ x ascii=78 scancode=2D shift: NumLock
+                        ext:
+ c ascii=63 scancode=2E shift: NumLock
+                        ext:
+ v ascii=76 scancode=2F shift: NumLock
+                        ext:
+ b ascii=62 scancode=30 shift: NumLock
+                        ext:
+ n ascii=6E scancode=31 shift: NumLock
+                        ext:
+ m ascii=6D scancode=32 shift: NumLock
+                        ext:
+ , ascii=2C scancode=33 shift: NumLock
+                        ext:
+ . ascii=2E scancode=34 shift: NumLock
+                        ext:
+ / ascii=2F scancode=35 shift: NumLock
+                        ext:
+   ascii=20 scancode=39 shift: NumLock
+                        ext:
+   ascii=00 scancode=52 shift: NumLock Insert
+                        ext:
+   ascii=00 scancode=52 shift: NumLock
+                        ext:
+   ascii=00 scancode=47 shift: NumLock
+                        ext:
+   ascii=00 scancode=49 shift: NumLock
+                        ext:
+   ascii=00 scancode=53 shift: NumLock
+                        ext:
+   ascii=00 scancode=4F shift: NumLock
+                        ext:
+   ascii=00 scancode=51 shift: NumLock
+                        ext:
+   ascii=00 scancode=48 shift: NumLock
+                        ext:
+   ascii=00 scancode=4B shift: NumLock
+                        ext:
+   ascii=00 scancode=50 shift: NumLock
+                        ext:
+   ascii=00 scancode=4D shift: NumLock
+                        ext:
+ / ascii=2F scancode=35 shift: NumLock
+                        ext:
+ * ascii=2A scancode=37 shift: NumLock
+                        ext:
+ - ascii=2D scancode=4A shift: NumLock
+                        ext:
+ 7 ascii=37 scancode=47 shift: NumLock
+                        ext:
+ 8 ascii=38 scancode=48 shift: NumLock
+                        ext:
+ 9 ascii=39 scancode=49 shift: NumLock
+                        ext:
+ + ascii=2B scancode=4E shift: NumLock
+                        ext:
+ 4 ascii=34 scancode=4B shift: NumLock
+                        ext:
+ 5 ascii=35 scancode=4C shift: NumLock
+                        ext:
+ 6 ascii=36 scancode=4D shift: NumLock
+                        ext:
+ 1 ascii=31 scancode=4F shift: NumLock
+                        ext:
+ 2 ascii=32 scancode=50 shift: NumLock
+                        ext:
+ 3 ascii=33 scancode=51 shift: NumLock
+                        ext:
+^M ascii=0D scancode=1C shift: NumLock
+                        ext:
+ 0 ascii=30 scancode=52 shift: NumLock
+                        ext:
+ . ascii=2E scancode=53 shift: NumLock
+                        ext:

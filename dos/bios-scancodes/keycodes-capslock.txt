@@ -1,0 +1,103 @@
+CapsLock modifier active.
+
+Key             ASCII   Scancode    Modifiers
+-----------------------------------------------------
+ESCAPE          1B ^[   01
+F1              -       3B
+F2              -       3C
+F3              -       3D
+F4              -       3E
+F5              -       3F
+F6              -       40
+F7              -       41
+F8              -       42
+F9              -       43
+F10             -       44
+F11             -       -           Ignored
+F12             -       -           Ignored
+
+GRAVE           60 `    29
+1               31 1    02
+2               32 2    03
+3               33 3    04
+4               34 4    05
+5               35 5    06
+6               36 6    07
+7               37 7    08
+8               38 8    09
+9               39 9    0A
+0               30 0    0B
+MINUS           2D -    0C
+EQUALS          3D =    0D
+BACKSPACE       08 ^H   0E
+
+TAB             09 ^I   0F
+Q               51 Q    10
+W               57 W    11
+E               45 E    12
+R               52 R    13
+T               54 T    14
+Y               59 Y    15
+U               55 U    16
+I               49 I    17
+O               4F O    18
+P               50 P    19
+LEFTBRACKET     5B [    1A
+RIGHTBRACKET    5D ]    1B
+BACKSLASH       5C \    2B
+
+A               41 A    1E
+S               53 S    1F
+D               44 D    20
+F               46 F    21
+G               47 G    22
+H               48 H    23
+J               4A J    24
+K               4B K    25
+L               4C L    26
+SEMICOLON       3B ;    27
+APOSTROPHE      27 '    28
+RETURN          0D ^M   1C
+
+NONUSBACKSLASH  5C \    2B
+Z               5A Z    2C
+X               58 X    2D
+C               43 C    2E
+V               56 V    2F
+B               42 B    30
+N               4E N    31
+M               4D M    32
+COMMA           2C ,    33
+PERIOD          2E .    34
+SLASH           2F /    35
+
+SPACE           20      39
+
+INSERT          -       52          Sets/clears 'Insert' modifier
+HOME            -       47
+PAGEUP          -       49
+DELETE          -       53
+END             -       4F
+PAGEDOWN        -       51
+
+UP              -       48
+LEFT            -       4B
+DOWN            -       50
+RIGHT           -       4D
+
+KP_DIVIDE       2F /    35
+KP_MULTIPLY     2A *    37
+KP_MINUS        2D -    4A
+KP_7            -       47
+KP_8            -       48
+KP_9            -       49
+KP_PLUS         2B +    4E
+KP_4            -       4B
+KP_5            -       -           Ignored
+KP_6            -       4D
+KP_1            -       4F
+KP_2            -       50
+KP_3            -       51
+KP_ENTER        0D ^M   1C
+KP_0            -       52          Sets/clears 'Insert' modifier
+KP_PERIOD       -       53

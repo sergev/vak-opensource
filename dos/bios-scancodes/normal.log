@@ -1,0 +1,177 @@
+Keyboard logger: press keys (Esc 3x in a row to exit).
+^[ ascii=1B scancode=01 shift:
+                        ext:
+   ascii=00 scancode=3B shift:
+                        ext:
+   ascii=00 scancode=3C shift:
+                        ext:
+   ascii=00 scancode=3D shift:
+                        ext:
+   ascii=00 scancode=3E shift:
+                        ext:
+   ascii=00 scancode=3F shift:
+                        ext:
+   ascii=00 scancode=40 shift:
+                        ext:
+   ascii=00 scancode=41 shift:
+                        ext:
+   ascii=00 scancode=42 shift:
+                        ext:
+   ascii=00 scancode=43 shift:
+                        ext:
+   ascii=00 scancode=44 shift:
+                        ext:
+ ` ascii=60 scancode=29 shift:
+                        ext:
+ 1 ascii=31 scancode=02 shift:
+                        ext:
+ 2 ascii=32 scancode=03 shift:
+                        ext:
+ 3 ascii=33 scancode=04 shift:
+                        ext:
+ 4 ascii=34 scancode=05 shift:
+                        ext:
+ 5 ascii=35 scancode=06 shift:
+                        ext:
+ 6 ascii=36 scancode=07 shift:
+                        ext:
+ 7 ascii=37 scancode=08 shift:
+                        ext:
+ 8 ascii=38 scancode=09 shift:
+                        ext:
+ 9 ascii=39 scancode=0A shift:
+                        ext:
+ 0 ascii=30 scancode=0B shift:
+                        ext:
+ - ascii=2D scancode=0C shift:
+                        ext:
+ = ascii=3D scancode=0D shift:
+                        ext:
+^H ascii=08 scancode=0E shift:
+                        ext:
+^I ascii=09 scancode=0F shift:
+                        ext:
+ q ascii=71 scancode=10 shift:
+                        ext:
+ w ascii=77 scancode=11 shift:
+                        ext:
+ e ascii=65 scancode=12 shift:
+                        ext:
+ r ascii=72 scancode=13 shift:
+                        ext:
+ t ascii=74 scancode=14 shift:
+                        ext:
+ y ascii=79 scancode=15 shift:
+                        ext:
+ u ascii=75 scancode=16 shift:
+                        ext:
+ i ascii=69 scancode=17 shift:
+                        ext:
+ o ascii=6F scancode=18 shift:
+                        ext:
+ p ascii=70 scancode=19 shift:
+                        ext:
+ [ ascii=5B scancode=1A shift:
+                        ext:
+ ] ascii=5D scancode=1B shift:
+                        ext:
+ \ ascii=5C scancode=2B shift:
+                        ext:
+ a ascii=61 scancode=1E shift:
+                        ext:
+ s ascii=73 scancode=1F shift:
+                        ext:
+ d ascii=64 scancode=20 shift:
+                        ext:
+ f ascii=66 scancode=21 shift:
+                        ext:
+ g ascii=67 scancode=22 shift:
+                        ext:
+ h ascii=68 scancode=23 shift:
+                        ext:
+ j ascii=6A scancode=24 shift:
+                        ext:
+ k ascii=6B scancode=25 shift:
+                        ext:
+ l ascii=6C scancode=26 shift:
+                        ext:
+ ; ascii=3B scancode=27 shift:
+                        ext:
+ ' ascii=27 scancode=28 shift:
+                        ext:
+^M ascii=0D scancode=1C shift:
+                        ext:
+ z ascii=7A scancode=2C shift:
+                        ext:
+ x ascii=78 scancode=2D shift:
+                        ext:
+ c ascii=63 scancode=2E shift:
+                        ext:
+ v ascii=76 scancode=2F shift:
+                        ext:
+ b ascii=62 scancode=30 shift:
+                        ext:
+ n ascii=6E scancode=31 shift:
+                        ext:
+ m ascii=6D scancode=32 shift:
+                        ext:
+ , ascii=2C scancode=33 shift:
+                        ext:
+ . ascii=2E scancode=34 shift:
+                        ext:
+ / ascii=2F scancode=35 shift:
+                        ext:
+   ascii=20 scancode=39 shift:
+                        ext:
+   ascii=00 scancode=52 shift: Insert
+                        ext:
+   ascii=00 scancode=47 shift: Insert
+                        ext:
+   ascii=00 scancode=49 shift: Insert
+                        ext:
+   ascii=00 scancode=52 shift:
+                        ext:
+   ascii=00 scancode=53 shift:
+                        ext:
+   ascii=00 scancode=4F shift:
+                        ext:
+   ascii=00 scancode=51 shift:
+                        ext:
+   ascii=00 scancode=48 shift:
+                        ext:
+   ascii=00 scancode=4B shift:
+                        ext:
+   ascii=00 scancode=50 shift:
+                        ext:
+   ascii=00 scancode=4D shift:
+                        ext:
+ / ascii=2F scancode=35 shift:
+                        ext:
+ * ascii=2A scancode=37 shift:
+                        ext:
+ - ascii=2D scancode=4A shift:
+                        ext:
+   ascii=00 scancode=47 shift:
+                        ext:
+   ascii=00 scancode=48 shift:
+                        ext:
+   ascii=00 scancode=49 shift:
+                        ext:
+ + ascii=2B scancode=4E shift:
+                        ext:
+   ascii=00 scancode=4B shift:
+                        ext:
+   ascii=00 scancode=4D shift:
+                        ext:
+   ascii=00 scancode=4F shift:
+                        ext:
+   ascii=00 scancode=50 shift:
+                        ext:
+   ascii=00 scancode=51 shift:
+                        ext:
+^M ascii=0D scancode=1C shift:
+                        ext:
+   ascii=00 scancode=52 shift: Insert
+                        ext:
+   ascii=00 scancode=53 shift: Insert
+                        ext:

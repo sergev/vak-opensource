@@ -1,0 +1,103 @@
+Alt keys: LAlt or RAlt modifiers pressed.
+
+Key             ASCII   Scancode    Modifiers
+-----------------------------------------------------
+ESCAPE          -       -           Ignored
+F1              -       68
+F2              -       69
+F3              -       6A
+F4              -       6B
+F5              -       6C
+F6              -       6D
+F7              -       6E
+F8              -       6F
+F9              -       70
+F10             -       71
+F11             -       -           Ignored
+F12             -       -           Ignored
+
+GRAVE           -       -           Ignored
+1               -       78
+2               -       79
+3               -       7A
+4               -       7B
+5               -       7C
+6               -       7D
+7               -       7E
+8               -       7F
+9               -       80
+0               -       81
+MINUS           -       82
+EQUALS          -       83
+BACKSPACE       -       -           Ignored
+
+TAB             -       -           Ignored
+Q               -       10
+W               -       11
+E               -       12
+R               -       13
+T               -       14
+Y               -       15
+U               -       16
+I               -       17
+O               -       18
+P               -       19
+LEFTBRACKET     -       -           Ignored
+RIGHTBRACKET    -       -           Ignored
+BACKSLASH       -       -           Ignored
+
+A               -       1E
+S               -       1F
+D               -       20
+F               -       21
+G               -       22
+H               -       23
+J               -       24
+K               -       25
+L               -       26
+SEMICOLON       -       -           Ignored
+APOSTROPHE      -       -           Ignored
+RETURN          -       -           Ignored
+
+NONUSBACKSLASH  -       -           Ignored
+Z               -       2C
+X               -       2D
+C               -       2E
+V               -       2F
+B               -       30
+N               -       31
+M               -       32
+COMMA           -       -           Ignored
+PERIOD          -       -           Ignored
+SLASH           -       -           Ignored
+
+SPACE           20      39
+
+INSERT          -       -           Ignored
+HOME            -       -           Ignored
+PAGEUP          -       -           Ignored
+DELETE          -       -           Ignored
+END             -       -           Ignored
+PAGEDOWN        -       -           Ignored
+
+UP              -       -           Ignored
+LEFT            -       -           Ignored
+DOWN            -       -           Ignored
+RIGHT           -       -           Ignored
+
+KP_DIVIDE       -       -           Ignored
+KP_MULTIPLY     -       -           Ignored
+KP_MINUS        -       -           Ignored
+KP_7            -       -           Ignored
+KP_8            -       -           Ignored
+KP_9            -       -           Ignored
+KP_PLUS         -       -           Ignored
+KP_4            -       -           Ignored
+KP_5            -       -           Ignored
+KP_6            -       -           Ignored
+KP_1            -       -           Ignored
+KP_2            -       -           Ignored
+KP_3            -       -           Ignored
+KP_ENTER        -       -           Ignored
+KP_0            -       -           Ignored
+KP_PERIOD       -       -           Ignored

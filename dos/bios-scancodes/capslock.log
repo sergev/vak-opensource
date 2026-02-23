@@ -1,0 +1,177 @@
+Keyboard logger: press keys (Esc 3x in a row to exit).
+^[ ascii=1B scancode=01 shift: CapsLock
+                        ext:
+   ascii=00 scancode=3B shift: CapsLock
+                        ext:
+   ascii=00 scancode=3C shift: CapsLock
+                        ext:
+   ascii=00 scancode=3D shift: CapsLock
+                        ext:
+   ascii=00 scancode=3E shift: CapsLock
+                        ext:
+   ascii=00 scancode=3F shift: CapsLock
+                        ext:
+   ascii=00 scancode=40 shift: CapsLock
+                        ext:
+   ascii=00 scancode=41 shift: CapsLock
+                        ext:
+   ascii=00 scancode=42 shift: CapsLock
+                        ext:
+   ascii=00 scancode=43 shift: CapsLock
+                        ext:
+   ascii=00 scancode=44 shift: CapsLock
+                        ext:
+ ` ascii=60 scancode=29 shift: CapsLock
+                        ext:
+ 1 ascii=31 scancode=02 shift: CapsLock
+                        ext:
+ 2 ascii=32 scancode=03 shift: CapsLock
+                        ext:
+ 3 ascii=33 scancode=04 shift: CapsLock
+                        ext:
+ 4 ascii=34 scancode=05 shift: CapsLock
+                        ext:
+ 5 ascii=35 scancode=06 shift: CapsLock
+                        ext:
+ 6 ascii=36 scancode=07 shift: CapsLock
+                        ext:
+ 7 ascii=37 scancode=08 shift: CapsLock
+                        ext:
+ 8 ascii=38 scancode=09 shift: CapsLock
+                        ext:
+ 9 ascii=39 scancode=0A shift: CapsLock
+                        ext:
+ 0 ascii=30 scancode=0B shift: CapsLock
+                        ext:
+ - ascii=2D scancode=0C shift: CapsLock
+                        ext:
+ = ascii=3D scancode=0D shift: CapsLock
+                        ext:
+^H ascii=08 scancode=0E shift: CapsLock
+                        ext:
+^I ascii=09 scancode=0F shift: CapsLock
+                        ext:
+ Q ascii=51 scancode=10 shift: CapsLock
+                        ext:
+ W ascii=57 scancode=11 shift: CapsLock
+                        ext:
+ E ascii=45 scancode=12 shift: CapsLock
+                        ext:
+ R ascii=52 scancode=13 shift: CapsLock
+                        ext:
+ T ascii=54 scancode=14 shift: CapsLock
+                        ext:
+ Y ascii=59 scancode=15 shift: CapsLock
+                        ext:
+ U ascii=55 scancode=16 shift: CapsLock
+                        ext:
+ I ascii=49 scancode=17 shift: CapsLock
+                        ext:
+ O ascii=4F scancode=18 shift: CapsLock
+                        ext:
+ P ascii=50 scancode=19 shift: CapsLock
+                        ext:
+ [ ascii=5B scancode=1A shift: CapsLock
+                        ext:
+ ] ascii=5D scancode=1B shift: CapsLock
+                        ext:
+ \ ascii=5C scancode=2B shift: CapsLock
+                        ext:
+ A ascii=41 scancode=1E shift: CapsLock
+                        ext:
+ S ascii=53 scancode=1F shift: CapsLock
+                        ext:
+ D ascii=44 scancode=20 shift: CapsLock
+                        ext:
+ F ascii=46 scancode=21 shift: CapsLock
+                        ext:
+ G ascii=47 scancode=22 shift: CapsLock
+                        ext:
+ H ascii=48 scancode=23 shift: CapsLock
+                        ext:
+ J ascii=4A scancode=24 shift: CapsLock
+                        ext:
+ K ascii=4B scancode=25 shift: CapsLock
+                        ext:
+ L ascii=4C scancode=26 shift: CapsLock
+                        ext:
+ ; ascii=3B scancode=27 shift: CapsLock
+                        ext:
+ ' ascii=27 scancode=28 shift: CapsLock
+                        ext:
+^M ascii=0D scancode=1C shift: CapsLock
+                        ext:
+ Z ascii=5A scancode=2C shift: CapsLock
+                        ext:
+ X ascii=58 scancode=2D shift: CapsLock
+                        ext:
+ C ascii=43 scancode=2E shift: CapsLock
+                        ext:
+ V ascii=56 scancode=2F shift: CapsLock
+                        ext:
+ B ascii=42 scancode=30 shift: CapsLock
+                        ext:
+ N ascii=4E scancode=31 shift: CapsLock
+                        ext:
+ M ascii=4D scancode=32 shift: CapsLock
+                        ext:
+ , ascii=2C scancode=33 shift: CapsLock
+                        ext:
+ . ascii=2E scancode=34 shift: CapsLock
+                        ext:
+ / ascii=2F scancode=35 shift: CapsLock
+                        ext:
+   ascii=20 scancode=39 shift: CapsLock
+                        ext:
+   ascii=00 scancode=52 shift: CapsLock Insert
+                        ext:
+   ascii=00 scancode=52 shift: CapsLock
+                        ext:
+   ascii=00 scancode=47 shift: CapsLock
+                        ext:
+   ascii=00 scancode=49 shift: CapsLock
+                        ext:
+   ascii=00 scancode=53 shift: CapsLock
+                        ext:
+   ascii=00 scancode=4F shift: CapsLock
+                        ext:
+   ascii=00 scancode=51 shift: CapsLock
+                        ext:
+   ascii=00 scancode=48 shift: CapsLock
+                        ext:
+   ascii=00 scancode=4B shift: CapsLock
+                        ext:
+   ascii=00 scancode=50 shift: CapsLock
+                        ext:
+   ascii=00 scancode=4D shift: CapsLock
+                        ext:
+ / ascii=2F scancode=35 shift: CapsLock
+                        ext:
+ * ascii=2A scancode=37 shift: CapsLock
+                        ext:
+ - ascii=2D scancode=4A shift: CapsLock
+                        ext:
+   ascii=00 scancode=47 shift: CapsLock
+                        ext:
+   ascii=00 scancode=48 shift: CapsLock
+                        ext:
+   ascii=00 scancode=49 shift: CapsLock
+                        ext:
+ + ascii=2B scancode=4E shift: CapsLock
+                        ext:
+   ascii=00 scancode=4B shift: CapsLock
+                        ext:
+   ascii=00 scancode=4D shift: CapsLock
+                        ext:
+   ascii=00 scancode=4F shift: CapsLock
+                        ext:
+   ascii=00 scancode=50 shift: CapsLock
+                        ext:
+   ascii=00 scancode=51 shift: CapsLock
+                        ext:
+^M ascii=0D scancode=1C shift: CapsLock
+                        ext:
+   ascii=00 scancode=52 shift: CapsLock Insert
+                        ext:
+   ascii=00 scancode=53 shift: CapsLock Insert
+                        ext:

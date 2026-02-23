@@ -1,0 +1,11 @@
+
+Key             Action
+-----------------------------------------------------
+CAPSLOCK        Sets/clears 'CapsLock' modifier
+LALT            Sets 'Alt' modifier and extended 'LAlt' modifier while pressed
+LCTRL           Sets 'Ctrl' modifier and extended 'LCtrl' modifier while pressed
+LSHIFT          Sets 'LShift' modifier while pressed
+NUMLOCKCLEAR    Sets/clears 'NumLock' modifier
+RALT            Sets 'Alt' modifier and extended 'RAlt' modifier while pressed
+RCTRL           Sets 'Ctrl' modifier and extended 'RCtrl' modifier while pressed
+RSHIFT          Sets 'RShift' modifier while pressed

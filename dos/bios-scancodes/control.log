@@ -1,0 +1,117 @@
+Keyboard logger: press keys (Esc 3x in a row to exit).
+^[ ascii=1B scancode=01 shift: Ctrl
+                        ext: LCtrl
+   ascii=00 scancode=5E shift: Ctrl
+                        ext: LCtrl
+   ascii=00 scancode=5F shift: Ctrl
+                        ext: LCtrl
+   ascii=00 scancode=60 shift: Ctrl
+                        ext: LCtrl
+   ascii=00 scancode=61 shift: Ctrl
+                        ext: LCtrl
+   ascii=00 scancode=62 shift: Ctrl
+                        ext: LCtrl
+   ascii=00 scancode=63 shift: Ctrl
+                        ext: LCtrl
+   ascii=00 scancode=64 shift: Ctrl
+                        ext: LCtrl
+   ascii=00 scancode=65 shift: Ctrl
+                        ext: LCtrl
+   ascii=00 scancode=66 shift: Ctrl
+                        ext: LCtrl
+   ascii=00 scancode=67 shift: Ctrl
+                        ext: LCtrl
+   ascii=00 scancode=03 shift: Ctrl
+                        ext: LCtrl
+^^ ascii=1E scancode=07 shift: Ctrl
+                        ext: LCtrl
+^_ ascii=1F scancode=0C shift: Ctrl
+                        ext: LCtrl
+^Q ascii=11 scancode=10 shift: Ctrl
+                        ext: LCtrl
+^W ascii=17 scancode=11 shift: Ctrl
+                        ext: LCtrl
+^E ascii=05 scancode=12 shift: Ctrl
+                        ext: LCtrl
+^R ascii=12 scancode=13 shift: Ctrl
+                        ext: LCtrl
+^T ascii=14 scancode=14 shift: Ctrl
+                        ext: LCtrl
+^Y ascii=19 scancode=15 shift: Ctrl
+                        ext: LCtrl
+^U ascii=15 scancode=16 shift: Ctrl
+                        ext: LCtrl
+^I ascii=09 scancode=17 shift: Ctrl
+                        ext: LCtrl
+^O ascii=0F scancode=18 shift: Ctrl
+                        ext: LCtrl
+^P ascii=10 scancode=19 shift: Ctrl
+                        ext: LCtrl
+^[ ascii=1B scancode=1A shift: Ctrl
+                        ext: LCtrl
+^] ascii=1D scancode=1B shift: Ctrl
+                        ext: LCtrl
+^\ ascii=1C scancode=2B shift: Ctrl
+                        ext: LCtrl
+^A ascii=01 scancode=1E shift: Ctrl
+                        ext: LCtrl
+^S ascii=13 scancode=1F shift: Ctrl
+                        ext: LCtrl
+^D ascii=04 scancode=20 shift: Ctrl
+                        ext: LCtrl
+^F ascii=06 scancode=21 shift: Ctrl
+                        ext: LCtrl
+^G ascii=07 scancode=22 shift: Ctrl
+                        ext: LCtrl
+^H ascii=08 scancode=23 shift: Ctrl
+                        ext: LCtrl
+^J ascii=0A scancode=24 shift: Ctrl
+                        ext: LCtrl
+^K ascii=0B scancode=25 shift: Ctrl
+                        ext: LCtrl
+^L ascii=0C scancode=26 shift: Ctrl
+                        ext: LCtrl
+^J ascii=0A scancode=1C shift: Ctrl
+                        ext: LCtrl
+^Z ascii=1A scancode=2C shift: Ctrl
+                        ext: LCtrl
+^X ascii=18 scancode=2D shift: Ctrl
+                        ext: LCtrl
+^C ascii=03 scancode=2E shift: Ctrl
+                        ext: LCtrl
+^V ascii=16 scancode=2F shift: Ctrl
+                        ext: LCtrl
+^B ascii=02 scancode=30 shift: Ctrl
+                        ext: LCtrl
+^N ascii=0E scancode=31 shift: Ctrl
+                        ext: LCtrl
+^M ascii=0D scancode=32 shift: Ctrl
+                        ext: LCtrl
+   ascii=20 scancode=39 shift: Ctrl
+                        ext: LCtrl
+   ascii=00 scancode=77 shift: Ctrl
+                        ext: LCtrl
+   ascii=00 scancode=84 shift: Ctrl
+                        ext: LCtrl
+   ascii=00 scancode=75 shift: Ctrl
+                        ext: LCtrl
+   ascii=00 scancode=76 shift: Ctrl
+                        ext: LCtrl
+   ascii=00 scancode=73 shift: Ctrl
+                        ext: LCtrl
+   ascii=00 scancode=74 shift: Ctrl
+                        ext: LCtrl
+   ascii=00 scancode=77 shift: Ctrl
+                        ext: LCtrl
+   ascii=00 scancode=84 shift: Ctrl
+                        ext: LCtrl
+   ascii=00 scancode=73 shift: Ctrl
+                        ext: LCtrl
+   ascii=00 scancode=74 shift: Ctrl
+                        ext: LCtrl
+   ascii=00 scancode=75 shift: Ctrl
+                        ext: LCtrl
+   ascii=00 scancode=76 shift: Ctrl
+                        ext: LCtrl
+^J ascii=0A scancode=1C shift: Ctrl
+                        ext: LCtrl
