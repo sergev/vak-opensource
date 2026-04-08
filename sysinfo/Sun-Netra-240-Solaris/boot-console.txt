@@ -1,0 +1,95 @@
+Executing Power On Self Test
+0>
+0>@(#) Sun Fire[TM] V210/V240, Netra[TM] 210/240 POST 4.18.10 2006/03/03 14:19
+       /export/delivery/delivery/4.18/4.18.10/post4.18.0/Fiesta/enxs/integrated  (root)
+0>Copyright � 2006 Sun Microsystems, Inc. All rights reserved
+  SUN PROPRIETARY/CONFIDENTIAL.
+  Use is subject to license terms.
+0>OBP->POST Call with %o0=00000800.01014000.
+0>Diag level set to MAX.
+0>Verbosity level set to NORMAL.
+0>Start Selftest.....
+0>CPUs present in system: 0 1
+0>Test CPU(s)....Done
+0>Interrupt Crosscall....Done
+0>Init Memory....Done
+0>PLL Reset....Done
+0>Init Memory....Done
+0>Test Memory....Done
+0>Test CPU Caches....Done
+0>Functional CPU Tests....Done
+0>IO-Bridge Tests....Done
+0>INFO:
+0>      POST Passed all devices.
+0>
+0>POST: Return to OBP.
+
+SC Alert: Host System has Reset
+
+SC Alert: CRITICAL ALARM is set
+
+Configuring system memory & CPU(s)
+
+Probing system devices
+
+Starting RTC ..
+Probing memory
+Probing I/O buses
+
+Netra 240, No Keyboard
+Copyright 2005 Sun Microsystems, Inc.  All rights reserved.
+OpenBoot 4.18.10, 8192 MB memory installed, Serial #72236533.
+Ethernet address 0:14:4f:4e:3d:f5, Host ID: 844e3df5.
+
+
+
+
+Running diagnostic script obdiag/normal
+
+Testing /pci@1e,600000/ide@d
+Testing /pci@1e,600000/isa@7/rtc@0,70
+Testing /pci@1c,600000/scsi@2
+Testing /pci@1c,600000/scsi@2,1
+Testing /pci@1e,600000/isa@7/serial@0,2e8
+Testing /pci@1e,600000/isa@7/serial@0,3f8
+
+
+Probing system devices
+Probing memory
+Probing I/O buses
+
+Netra 240, No Keyboard
+Copyright 2005 Sun Microsystems, Inc.  All rights reserved.
+OpenBoot 4.18.10, 8192 MB memory installed, Serial #72236533.
+Ethernet address 0:14:4f:4e:3d:f5, Host ID: 844e3df5.
+
+
+
+Rebooting with command: boot
+Boot device: /pci@1c,600000/scsi@2/disk@0,0:a  File and args:
+SunOS Release 5.10 Version Generic_118833-33 64-bit
+Copyright 1983-2006 Sun Microsystems, Inc.  All rights reserved.
+Use is subject to license terms.
+WARNING: Last shutdown is later than time on time-of-day chip; check date.
+Hardware watchdog enabled
+Hostname: sun4u-sol10-3
+checking ufs filesystems
+/dev/rdsk/c0t0d0s7: is logging.
+
+Dec 31 16:16:24 sun4u-sol10-3 sendmail[361]: My unqualified host name (sun4u-sol10-3) unknown; sleeping for rey
+Dec 31 16:16:24 sun4u-sol10-3 sendmail[362]: My unqualified host name (sun4u-sol10-3) unknown; sleeping for retry
+Dec 31 16:16:26 sun4u-sol10-3 scsi: WARNING: /pci@1c,600000/scsi@2/sd@1,0 (sd0):
+Dec 31 16:16:26 sun4u-sol10-3   Corrupt label; wrong magic number
+Dec 31 16:16:48 sun4u-sol10-3 java[542]: pkcs11_softtoken: Keystore version failure.
+Dec 31 16:17:24 sun4u-sol10-3 sendmail[361]: unable to qualify my own domain name (sun4u-sol10-3) -- using short name
+Dec 31 16:17:24 sun4u-sol10-3 sendmail[362]: unable to qualify my own domain name (sun4u-sol10-3) -- using short name
+
+sun4u-sol10-3 console login: root
+Last login: Fri Dec 31 16:39:05 on console
+Dec 31 16:21:37 sun4u-sol10-3 login: ROOT LOGIN /dev/console
+Sun Microsystems Inc.   SunOS 5.10      Generic January 2005
+
+# uname -i
+SUNW,Netra-240
+
+# _

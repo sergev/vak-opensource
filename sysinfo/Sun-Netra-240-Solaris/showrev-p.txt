@@ -1,0 +1,384 @@
+# showrev -p
+Patch: 118367-04 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcsu
+Patch: 118371-07 Obsoletes: 119265-02 Requires:  Incompatibles:  Packages: SUNWcsu, SUNWcsl, SUNWtoo
+Patch: 118373-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcsu
+Patch: 118872-04 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcsu
+Patch: 118918-22 Obsoletes: 116781-02, 121473-01, 121476-01, 121478-01, 121282-02, 121284-02, 121292-01, 121786-01, 119012-03, 123444-01 Rer
+Patch: 119042-10 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcsu, SUNWcsr, SUNWcsd, SUNWtnamr, SUNWkrbr, SUNWtnetr, SUNWocfr, SUNWr
+Patch: 119573-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcsu
+Patch: 119574-02 Obsoletes: 119267-01 Requires:  Incompatibles:  Packages: SUNWcsu
+Patch: 119578-30 Obsoletes: 119330-01, 119331-01, 119559-01, 119576-01, 120635-02, 122396-01 Requires:  Incompatibles:  Packages: SUNWcsu, c
+Patch: 119824-02 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcsu
+Patch: 120044-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcsu
+Patch: 120050-04 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcsu
+Patch: 120062-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcsu, SUNWloc
+Patch: 120128-02 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcsu, SUNWxcu6
+Patch: 120618-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcsu
+Patch: 120737-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcsu
+Patch: 120816-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcsu, SUNWesu, SUNWxcu4
+Patch: 120830-05 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcsu, SUNWtoo, SUNWxcu4, SUNWxcu6
+Patch: 120845-03 Obsoletes: 121905-01, 123354-03 Requires:  Incompatibles:  Packages: SUNWcsu, SUNWcsl, SUNWhea
+Patch: 120988-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcsu
+Patch: 121002-03 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcsu
+Patch: 121012-02 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcsu
+Patch: 121132-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcsu
+Patch: 121215-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcsu
+Patch: 121288-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcsu
+Patch: 121296-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcsu
+Patch: 121406-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcsu
+Patch: 121901-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcsu
+Patch: 122032-02 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcsu
+Patch: 122183-02 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcsu
+Patch: 122412-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcsu
+Patch: 122513-02 Obsoletes: 122328-01 Requires:  Incompatibles:  Packages: SUNWcsu
+Patch: 123015-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcsu
+Patch: 123017-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcsu
+Patch: 123194-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcsu
+Patch: 123319-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcsu
+Patch: 123322-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcsu
+Patch: 123326-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcsu, SUNWxcu4
+Patch: 123328-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcsu, SUNWxcu4, SUNWxcu6
+Patch: 123520-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcsu, SUNWxcu4
+Patch: 124325-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcsu
+Patch: 121453-02 Obsoletes: 120776-03, 121086-02, 119107-07 Requires: 119574-02, 119254-06 Incompatibles:  Packages: SUNWcsu, SUNWcsr, SUNWe
+Patch: 118833-33 Obsoletes: 118822-30, 118348-01, 118868-01, 120996-02, 121298-01, 119712-04, 119852-03, 119943-01, 119984-03, 120052-03, 1u
+Patch: 119986-03 Obsoletes:  Requires: 122176-01, 118833-12 Incompatibles:  Packages: SUNWcsu
+Patch: 120986-08 Obsoletes: 121008-02, 121274-01, 121414-01, 123932-02 Requires: 118822-24, 118833-25, 119374-09 Incompatibles:  Packages: u
+Patch: 122172-06 Obsoletes:  Requires: 118833-12 Incompatibles:  Packages: SUNWcsu, SUNWcsr
+Patch: 122174-03 Obsoletes:  Requires: 118833-12 Incompatibles:  Packages: SUNWcsu
+Patch: 122521-01 Obsoletes: 121856-01 Requires: 118833-04 Incompatibles:  Packages: SUNWcsu
+Patch: 123334-04 Obsoletes:  Requires: 118833-18 Incompatibles:  Packages: SUNWcsu
+Patch: 122660-07 Obsoletes: 122658-04, 122662-05, 123418-02, 123420-02, 123422-03 Requires: 124204-01, 122640-02, 121133-02, 118833-33, 120u
+Patch: 119593-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcsr
+Patch: 119685-09 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcsr, SUNWmdb
+Patch: 120900-04 Obsoletes: 121266-01 Requires:  Incompatibles:  Packages: SUNWcsr, SUNWzoneu, SUNWdtrc
+Patch: 120990-02 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcsr
+Patch: 121004-03 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcsr
+Patch: 121133-02 Obsoletes: 121333-03 Requires: 120900-04 Incompatibles:  Packages: SUNWcsr, SUNWzoneu
+Patch: 121561-04 Obsoletes:  Requires: 119042-02 Incompatibles:  Packages: SUNWcsr
+Patch: 122637-01 Obsoletes:  Requires: 120900-04 Incompatibles:  Packages: SUNWcsr
+Patch: 123910-01 Obsoletes: 123954-01 Requires:  Incompatibles:  Packages: SUNWcsr
+Patch: 123911-01 Obsoletes: 123356-02 Requires:  Incompatibles:  Packages: SUNWcsr, SUNWcsl, SUNWhea, SUNWcslr
+Patch: 123916-03 Obsoletes: 123441-05 Requires:  Incompatibles:  Packages: SUNWcsr, SUNWcar, SUNWcakr, SUNWcsd
+Patch: 121474-01 Obsoletes:  Requires: 118822-29 Incompatibles:  Packages: SUNWcsr
+Patch: 122640-05 Obsoletes:  Requires: 118833-12 Incompatibles:  Packages: SUNWcsr, SUNWzfskr, SUNWzfsr, SUNWzfsu
+Patch: 123912-02 Obsoletes: 123424-02 Requires: 118833-25 Incompatibles:  Packages: SUNWcsr, SUNWesu
+Patch: 122646-01 Obsoletes:  Requires: 122662-01, 121133-01 Incompatibles:  Packages: SUNWcsr, SUNWzoneu
+Patch: 119077-10 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcsr, SUNWcnetr, SUNWckr, SUNWcsd, SUNWib
+Patch: 119079-13 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcsr, SUNWcsd, SUNWtnamr, SUNWkrbr, SUNWtnetr, SUNWtavor, SUNWusb, SUNr
+Patch: 121061-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcsr
+Patch: 121778-12 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcsr, SUNWcnetr, SUNWckr, SUNWcsd, SUNWib, SUNWaudd, SUNWusb, SUNWugend
+Patch: 121780-11 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcsr, SUNWcnetr, SUNWckr, SUNWcsd, SUNWib, SUNWusb, SUNWvolr, SUNWssadr
+Patch: 123258-11 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcsr, SUNWcnetr, SUNWckr, SUNWcsd, SUNWib, SUNWusb, SUNWssad, SUNWintgr
+Patch: 123259-12 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcsr, SUNWcnetr, SUNWckr, SUNWcar, SUNWcsd, SUNWtnamr, SUNWkrbr, SUNWtr
+Patch: 117463-03 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcsl
+Patch: 118564-03 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcsl, SUNWcslr
+Patch: 120889-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcsl, SUNWapct
+Patch: 120984-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcsl
+Patch: 121130-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcsl
+Patch: 121921-02 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcsl, SUNWcslr
+Patch: 122408-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcsl
+Patch: 123330-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcsl
+Patch: 123362-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcsl
+Patch: 123915-01 Obsoletes: 123712-01 Requires:  Incompatibles:  Packages: SUNWcsl, SUNWkvm
+Patch: 118870-02 Obsoletes: 123348-04 Requires: 118833-25 Incompatibles:  Packages: SUNWcsl, SUNWnisu
+Patch: 122754-01 Obsoletes:  Requires: 118833-09 Incompatibles:  Packages: SUNWcsl, SUNWpl5u, SUNWperl584core, SUNWhea
+Patch: 118842-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWckr
+Patch: 120048-03 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWckr, SUNWhea, SUNWfss
+Patch: 120311-02 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWckr, SUNWusb
+Patch: 123249-02 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWckr
+Patch: 123271-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWckr, SUNWhea
+Patch: 121337-01 Obsoletes:  Requires: 118822-23 Incompatibles:  Packages: SUNWckr
+Patch: 119070-04 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWkvm, SUNWhea, SUNWfruip
+Patch: 121557-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWkvm, SUNWpiclu, SUNWfruip
+Patch: 121558-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWkvm, SUNWfruip
+Patch: 121559-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWkvm
+Patch: 122515-01 Obsoletes: 122390-01 Requires:  Incompatibles:  Packages: SUNWkvm, SUNWfruip
+Patch: 119981-09 Obsoletes:  Requires: 118822-23 Incompatibles:  Packages: SUNWkvm, SUNWcar, SUNWcakr, SUNWhea, SUNWpiclu, SUNWfruip
+Patch: 121556-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcar, SUNWcakr
+Patch: 122255-03 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcar
+Patch: 122517-03 Obsoletes: 122356-01 Requires: 118833-04 Incompatibles:  Packages: SUNWcar, SUNWcakr, SUNWhea
+Patch: 118557-07 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcakr
+Patch: 118814-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcakr
+Patch: 119570-01 Obsoletes: 119217-02 Requires:  Incompatibles:  Packages: SUNWcakr
+Patch: 120056-02 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcakr
+Patch: 120195-02 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcakr
+Patch: 120815-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcakr
+Patch: 123301-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcakr
+Patch: 122525-03 Obsoletes: 122358-01 Requires: 118833-04 Incompatibles:  Packages: SUNWcakr, SUNWhea
+Patch: 118929-05 Obsoletes:  Requires: 118822-15 Incompatibles:  Packages: SUNWcsd
+Patch: 119985-02 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWpl5u, SUNWperl584core, SUNWperl584usr
+Patch: 123332-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWtftp
+Patch: 119213-10 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWpr, SUNWtls, SUNWprd, SUNWtlsd, SUNWtlsu, SUNWjss
+Patch: 124393-02 Obsoletes: 123507-05 Requires: 119042-09, 121901-01, 122539-04 Incompatibles:  Packages: SUNWdtdmr, SUNWdtbas, SUNWtltkm, g
+Patch: 124141-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWdtdmr, SUNWdtlog
+Patch: 119955-03 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWtltk
+Patch: 122064-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWtltk
+Patch: 122239-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWperl584usr
+Patch: 118815-04 Obsoletes: 122034-01 Requires:  Incompatibles:  Packages: SUNWesu, SUNWxcu4
+Patch: 118824-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWesu, SUNWxcu4
+Patch: 118959-03 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWesu, SUNWaccu
+Patch: 119963-07 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWlibC
+Patch: 120753-02 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWlibmsr, SUNWlibm
+Patch: 119059-20 Obsoletes: 121868-04 Requires:  Incompatibles:  Packages: SUNWxwfnt, SUNWxwplt, SUNWxwopt, SUNWxwacx, SUNWxwman, SUNWxwinct
+Patch: 123611-02 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWxwrtl, SUNWxwplt, SUNWxwinc
+Patch: 119063-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWxwplt
+Patch: 119280-08 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWmfrun, SUNWdtbas
+Patch: 121870-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWxwopt
+Patch: 124457-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWxwopt
+Patch: 119286-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWdtbas
+Patch: 124395-01 Obsoletes:  Requires: 119280-08 Incompatibles:  Packages: SUNWdtbas
+Patch: 120469-05 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWkrbu, SUNWkdcu
+Patch: 121006-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWkrbu, SUNWkdcu
+Patch: 118560-02 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWtnetc
+Patch: 120068-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWtnetd
+Patch: 122376-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWtnfc
+Patch: 123358-02 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWugen
+Patch: 121734-05 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWuiu8, SUNWlccom, SUNWeuluf
+Patch: 121081-06 Obsoletes:  Requires: 121453-02 Incompatibles:  Packages: SUNWccccrr, SUNWccccr, SUNWccfw, SUNWccsign, SUNWcctpx, SUNWccinl
+Patch: 120934-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWccccrr
+Patch: 122231-01 Obsoletes:  Requires: 121453-02 Incompatibles:  Packages: SUNWcctpx
+Patch: 120932-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcctpx
+Patch: 123123-02 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWccinv
+Patch: 121118-09 Obsoletes:  Requires: 121453-02 Incompatibles:  Packages: SUNWppror, SUNWpprou, SUNWupdatemgru, SUNWupdatemgrr, SUNWppro-pe
+Patch: 121575-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWppror
+Patch: 123872-02 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWppror
+Patch: 120335-04 Obsoletes:  Requires: 121453-01 Incompatibles:  Packages: SUNWpprou
+Patch: 120837-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWpprou, SUNWppro-plugin-sunos-base
+Patch: 121229-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWopenssl-libraries, SUNWopenssl-include
+Patch: 122535-01 Obsoletes: 121294-01 Requires:  Incompatibles:  Packages: SUNWopenssl-libraries
+Patch: 119254-32 Obsoletes: 119015-03 Requires: 121133-02 Incompatibles:  Packages: SUNWswmt, SUNWpkgcmdsu
+Patch: 120746-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWswmt
+Patch: 122225-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWupdatemgru
+Patch: 120732-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWlibusb, SUNWlibusbugen, SUNWsfwhea
+Patch: 118666-06 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWj5rt, SUNWj5dev, SUNWj5cfg, SUNWj5dmo, SUNWj5man
+Patch: 120410-17 Obsoletes:  Requires: 119254-13, 121975-01 Incompatibles:  Packages: SUNWxi18n, SUNWxim, SUNWiiimu, SUNWiiimr
+Patch: 119648-03 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWvld
+Patch: 120046-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWnfscu
+Patch: 120101-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWvolu
+Patch: 119313-10 Obsoletes: 123883-04 Requires: 121308-08, 124188-01 Incompatibles:  Packages: SUNWwbapi, SUNWwbcor, SUNWwbcou, SUNWwbdev, r
+Patch: 120452-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWwbcor
+Patch: 124093-02 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWwbcor
+Patch: 124188-02 Obsoletes: 123881-01 Requires:  Incompatibles:  Packages: SUNWmccom
+Patch: 121308-08 Obsoletes: 123887-02 Requires: 124188-01 Incompatibles:  Packages: SUNWmccom, SUNWmcc, SUNWmc, SUNWwbmc
+Patch: 119115-20 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWmoznspr, SUNWmozilla, SUNWmozmail, SUNWmozpsm, SUNWmozilla-devel
+Patch: 120201-02 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWxorg-clientlibs, SUNWxorg-headers
+Patch: 119812-02 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWfreetype2
+Patch: 119065-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWfontconfig-root
+Patch: 123494-03 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWfontconfig-root, SUNWfontconfig
+Patch: 119900-03 Obsoletes: 121097-01 Requires:  Incompatibles:  Packages: SUNWTiff, SUNWTiff-devel
+Patch: 120460-10 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWgnome-base-libs-root, SUNWgnome-base-libs-share, SUNWgnome-base-libs,l
+Patch: 122700-02 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWgnome-base-libs-root
+Patch: 119315-07 Obsoletes: 123885-01 Requires: 124188-01 Incompatibles:  Packages: SUNWmga
+Patch: 120719-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWgzip
+Patch: 121975-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWdtdte
+Patch: 121977-02 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWdtdte
+Patch: 119278-12 Obsoletes: 120339-01, 123854-03 Requires: 119059-10, 119280-08 Incompatibles:  Packages: SUNWdtdte, SUNWdtwm, SUNWdtezt
+Patch: 121239-02 Obsoletes: 121233-01 Requires:  Incompatibles:  Packages: SUNWgss, SUNWhea
+Patch: 118566-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWbip
+Patch: 124237-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWbip
+Patch: 120329-02 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWrcmds
+Patch: 119282-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWdtdst, SUNWscgui, SUNWpdas
+Patch: 121487-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWdtdst
+Patch: 124399-01 Obsoletes:  Requires: 119280-08 Incompatibles:  Packages: SUNWdtdst
+Patch: 124401-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWdtdst
+Patch: 124403-01 Obsoletes:  Requires: 119280-08 Incompatibles:  Packages: SUNWdtdst
+Patch: 124405-01 Obsoletes:  Requires: 119280-08 Incompatibles:  Packages: SUNWdtdst
+Patch: 123121-02 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWwsr2
+Patch: 123140-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWwsr2
+Patch: 119988-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWxcu4
+Patch: 123132-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWxcu4
+Patch: 118676-02 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWsprot, SUNWxcu4t
+Patch: 118683-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWsprot
+Patch: 122735-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWdtwm
+Patch: 120706-02 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWxildh
+Patch: 120094-10 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWxwsvr
+Patch: 120284-03 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWgnome-component-root, SUNWgnome-component
+Patch: 120458-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWgnome-config
+Patch: 122204-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWgnome-config
+Patch: 119757-04 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWsmbar, SUNWsmbau, SUNWsmbac
+Patch: 119906-07 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWgnome-vfs-share, SUNWgnome-vfs, SUNWgnome-vfs-devel
+Patch: 121095-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWlibexif
+Patch: 121036-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWgnome-a11y-base-libs
+Patch: 122212-14 Obsoletes: 119412-08, 119542-06, 119908-02, 119370-10, 120133-04, 119366-05, 120135-03, 120296-01, 119892-01 Requires:  Ine
+Patch: 122761-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWswupcl, SUNWswupclr
+Patch: 118965-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWxorg-client-programs
+Patch: 124204-03 Obsoletes:  Requires: 123839-01, 122640-05, 118833-25 Incompatibles:  Packages: SUNWzfskr, SUNWzfsr, SUNWzfsu, SUNWfmd
+Patch: 120812-12 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWglrt
+Patch: 120560-02 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWxwpl
+Patch: 119810-02 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWicu, SUNWicud
+Patch: 118735-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWnisu
+Patch: 119073-03 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWnisu
+Patch: 122029-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWnisu
+Patch: 122085-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWnisu
+Patch: 122410-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWnisu
+Patch: 123186-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWnisu, SUNWypu
+Patch: 124286-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWnisu
+Patch: 120807-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWmdu
+Patch: 120809-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWmdu
+Patch: 121010-02 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWmdu
+Patch: 122083-02 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWmdu
+Patch: 119081-25 Obsoletes: 119145-07, 119250-04 Requires: 119254-11, 120900-03 Incompatibles:  Packages: SUNWadmc, SUNWadmlib-sysid, SUNWit
+Patch: 124630-03 Obsoletes: 124071-03 Requires: 119081-25 Incompatibles:  Packages: SUNWadmc, SUNWadmap, SUNWinst
+Patch: 120199-07 Obsoletes: 124073-01 Requires:  Incompatibles:  Packages: SUNWadmr, SUNWadmap
+Patch: 119252-15 Obsoletes: 124069-02 Requires:  Incompatibles:  Packages: SUNWadmap
+Patch: 121430-13 Obsoletes: 121435-04, 121437-02 Requires:  Incompatibles:  Packages: SUNWlur, SUNWluu
+Patch: 121306-02 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWlur
+Patch: 120235-01 Obsoletes:  Requires: 119254-03 Incompatibles:  Packages: SUNWluzone
+Patch: 121428-03 Obsoletes:  Requires: 120235-01 Incompatibles:  Packages: SUNWluzone
+Patch: 120629-05 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWpoolr, SUNWpool
+Patch: 118731-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWzoneu
+Patch: 119538-10 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWgnome-wm-root, SUNWgnome-wm
+Patch: 122669-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWlibgcrypt
+Patch: 118777-08 Obsoletes: 121189-04 Requires:  Incompatibles:  Packages: SUNWced, SUNWcedu
+Patch: 122259-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWgscr
+Patch: 118884-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWhea
+Patch: 120064-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWhea
+Patch: 120741-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWhea
+Patch: 120994-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWhea
+Patch: 121580-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWhea
+Patch: 121721-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWhea
+Patch: 123839-04 Obsoletes: 123426-05 Requires: 119578-30 Incompatibles:  Packages: SUNWhea, SUNWfmd
+Patch: 124208-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWhea
+Patch: 124444-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWhea, SUNWcslr
+Patch: 118925-04 Obsoletes: 120023-01, 120998-02 Requires: 119374-06, 119689-04 Incompatibles:  Packages: SUNWhea
+Patch: 119583-01 Obsoletes:  Requires: 118822-16 Incompatibles:  Packages: SUNWhea
+Patch: 120992-02 Obsoletes:  Requires: 118833-06 Incompatibles:  Packages: SUNWhea
+Patch: 121128-01 Obsoletes:  Requires: 118833-10 Incompatibles:  Packages: SUNWhea
+Patch: 121394-01 Obsoletes:  Requires: 118822-24 Incompatibles:  Packages: SUNWhea
+Patch: 118830-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWhmd
+Patch: 121944-02 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWpiclu
+Patch: 122087-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWpiclu
+Patch: 122537-02 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWpiclu
+Patch: 121286-04 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWfruid
+Patch: 121946-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWfruid
+Patch: 123360-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWfruid
+Patch: 122363-02 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWfruip
+Patch: 118708-13 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWjfb, SUNWjfbcf, SUNWjfbw
+Patch: 124463-02 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcacaort
+Patch: 123003-02 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWsam, SUNWsamr
+Patch: 124171-03 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWscn-base-r, SUNWscn-base
+Patch: 124614-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWscn-base
+Patch: 119143-02 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcslr
+Patch: 119826-02 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcslr
+Patch: 120032-02 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcslr
+Patch: 120473-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcslr
+Patch: 122251-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcslr
+Patch: 123526-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcslr
+Patch: 124235-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcslr
+Patch: 122752-04 Obsoletes:  Requires: 118833-09, 119578-21, 120272-03 Incompatibles:  Packages: SUNWcslr, SUNWfmd
+Patch: 123630-01 Obsoletes:  Requires: 123003-02 Incompatibles:  Packages: SUNWscnprmr, SUNWscnprm, SUNWscnsom
+Patch: 123005-05 Obsoletes:  Requires: 123003-02, 123630-01 Incompatibles:  Packages: SUNWbrg
+Patch: 118712-10 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWpfb, SUNWpfbcf, SUNWpfbw
+Patch: 119284-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWdtezt
+Patch: 119470-09 Obsoletes: 123498-02 Requires:  Incompatibles:  Packages: SUNWluxop, SUNWluxopr
+Patch: 118879-02 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWdhcsu
+Patch: 118707-04 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWifbw
+Patch: 120416-05 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWiiimu, SUNWiiimr
+Patch: 119534-09 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWinst
+Patch: 119764-05 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWipmi
+Patch: 122911-02 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWapchr, SUNWapchu, SUNWapchd
+Patch: 119246-21 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWman
+Patch: 119586-02 Obsoletes: 119336-01 Requires:  Incompatibles:  Packages: SUNWcpcu
+Patch: 119580-04 Obsoletes: 119332-01 Requires: 118822-03 Incompatibles:  Packages: SUNWcpcu
+Patch: 119703-07 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWladm
+Patch: 119090-22 Obsoletes: 121980-03, 123500-02 Requires: 118833-25 Incompatibles:  Packages: SUNWiscsir, SUNWiscsiu
+Patch: 119092-10 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWiscsir
+Patch: 120780-03 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWixgb
+Patch: 120256-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNW1394
+Patch: 119903-02 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWolrte
+Patch: 121606-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWPython, SUNWPython-devel
+Patch: 121671-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWPython
+Patch: 117465-02 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWaccu
+Patch: 120038-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWaccu
+Patch: 121104-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWacroread
+Patch: 118667-06 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWj5rtx, SUNWj5dmx, SUNWj5dvx
+Patch: 121136-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWacroread-plugin
+Patch: 120099-07 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWapbas
+Patch: 120543-06 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWapch2r, SUNWapch2u, SUNWapch2d
+Patch: 119546-07 Obsoletes:  Requires: 120099-04 Incompatibles:  Packages: SUNWapmsc, SUNWapoc, SUNWapdc
+Patch: 123535-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWapoc
+Patch: 123908-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWbtool
+Patch: 119130-31 Obsoletes: 119086-05, 120342-04, 123496-04 Requires: 118833-25 Incompatibles:  Packages: SUNWjfca, SUNWjfcau, SUNWfctl, SUu
+Patch: 120454-02 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWapoc-adapter-gconf
+Patch: 118890-03 Obsoletes: 121278-01, 123350-01 Requires:  Incompatibles:  Packages: SUNWarcr
+Patch: 122119-05 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWarrf
+Patch: 122180-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWarrf
+Patch: 123162-02 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWjre-config
+Patch: 124280-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWkdcu
+Patch: 121947-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWkey
+Patch: 120338-05 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWkiu8
+Patch: 120690-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWlibusbugen
+Patch: 118711-02 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWm64w
+Patch: 119783-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWbind
+Patch: 123647-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWgccruntime
+Patch: 123011-01 Obsoletes:  Requires: 123003-02, 123630-01, 123005-02 Incompatibles:  Packages: SUNWbrgr
+Patch: 120887-06 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcdrw
+Patch: 120346-05 Obsoletes: 123498-02 Requires:  Incompatibles:  Packages: SUNWcfcl, SUNWcfclr
+Patch: 120344-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcfclr
+Patch: 119974-06 Obsoletes: 123498-02 Requires:  Incompatibles:  Packages: SUNWcfpl
+Patch: 122263-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWcfpl
+Patch: 118733-03 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWmibii, SUNWsasnm
+Patch: 122009-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWmkcd
+Patch: 122021-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWmkcd
+Patch: 121620-02 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWmlib, SUNWmlibe, SUNWmlibh, SUNWmlibk, SUNWmlibl, SUNWmlibt
+Patch: 120292-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWmysqlr, SUNWmysqlu, SUNWmysqlt
+Patch: 117447-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWntpu
+Patch: 122404-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWntpu
+Patch: 123628-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWfctl
+Patch: 120222-13 Obsoletes: 120220-01 Requires:  Incompatibles:  Packages: SUNWemlxs, SUNWemlxu
+Patch: 120224-04 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWemlxs
+Patch: 123256-02 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWerid
+Patch: 120061-02 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWpd
+Patch: 119368-05 Obsoletes:  Requires: 120460-06 Incompatibles:  Packages: SUNWgnome-print-share, SUNWgnome-print, SUNWgnome-print-devel, Se
+Patch: 119117-24 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWevolution-libs, SUNWevolution-share, SUNWevolution, SUNWevolution-exct
+Patch: 120182-04 Obsoletes: 123498-02 Requires:  Incompatibles:  Packages: SUNWfchba
+Patch: 119317-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWpkgcmdsu
+Patch: 120348-01 Obsoletes: 123498-02 Requires:  Incompatibles:  Packages: SUNWfcprt
+Patch: 122130-02 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWlocaledefsrc
+Patch: 119397-05 Obsoletes:  Requires: 121734-01 Incompatibles:  Packages: SUNWnamos, SUNWnamdt, SUNWnamow
+Patch: 123590-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWpostgr-libs, SUNWpostgr, SUNWpostgr-contrib, SUNWpostgr-devel, SUNWpol
+Patch: 120085-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWftpu
+Patch: 122958-02 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWrealplayer
+Patch: 123144-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWrealplayer
+Patch: 118945-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWged
+Patch: 118981-03 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWqfed
+Patch: 119088-09 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWqlc
+Patch: 119555-04 Obsoletes: 120341-01 Requires:  Incompatibles:  Packages: SUNWqus
+Patch: 121235-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWrcapu
+Patch: 123809-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWrsgk
+Patch: 119418-03 Obsoletes: 122206-02 Requires:  Incompatibles:  Packages: SUNWgnome-a11y-gok-share, SUNWgnome-a11y-gok, SUNWgnome-a11y-gokt
+Patch: 119414-12 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWgnome-a11y-libs, SUNWgnome-a11y-libs-share, SUNWgnome-a11y-libs-devell
+Patch: 121463-06 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWgnome-a11y-libs-share
+Patch: 119416-01 Obsoletes:  Requires: 119414-01 Incompatibles:  Packages: SUNWgnome-a11y-speech
+Patch: 122763-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWrtvc
+Patch: 119598-08 Obsoletes:  Requires: 119414-12 Incompatibles:  Packages: SUNWgnome-a11y-reader, SUNWgnome-a11y-reader-devel, SUNWgnome-a1e
+Patch: 119766-02 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWsfman
+Patch: 120294-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWsfman
+Patch: 120704-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWsfman
+Patch: 121669-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWsfman
+Patch: 122005-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWsfman
+Patch: 122011-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWsfman
+Patch: 122261-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWsfman
+Patch: 122675-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWsfman
+Patch: 121667-02 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWsfwhea
+Patch: 120272-06 Obsoletes:  Requires: 119042-09, 121901-01, 122539-05 Incompatibles:  Packages: SUNWsmagt, SUNWsmcmd, SUNWsmmgr
+Patch: 120282-02 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWgnome-cd
+Patch: 121923-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWgnome-cd-burner
+Patch: 119372-02 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWgnome-common-devel, SUNWgnome-common-devel-share
+Patch: 120274-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWsmmgr
+Patch: 124166-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWsmmgr
+Patch: 119410-05 Obsoletes:  Requires: 122212-04 Incompatibles:  Packages: SUNWgnome-dictionary, SUNWgnome-fun-applets, SUNWgnome-internet-s
+Patch: 119540-04 Obsoletes:  Requires: 119282-01 Incompatibles:  Packages: SUNWgnome-dtlogin-integration
+Patch: 119548-07 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWgnome-im-client, SUNWgnome-im-client-share
+Patch: 120456-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWgnome-img-viewer
+Patch: 122470-02 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWgnome-jdshelp-share
+Patch: 119544-03 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWgnome-media-root, SUNWgnome-media
+Patch: 122210-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWgnome-media-player
+Patch: 120739-03 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWgnome-pdf-viewer
+Patch: 123324-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWsshdu
+Patch: 124442-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWsshu
+Patch: 122208-01 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWgnome-removable-media
+Patch: 119890-03 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWgnome-search-tool
+Patch: 120288-03 Obsoletes:  Requires:  Incompatibles:  Packages: SUNWgnome-terminal, SUNWgnome-terminal-root
+Patch: 120286-02 Obsoletes:  Requires: 119368-04 Incompatibles:  Packages: SUNWgnome-text-editor-root, SUNWgnome-text-editor, SUNWgnome-texl

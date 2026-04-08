@@ -1,0 +1,88 @@
+# prtconf
+System Configuration:  Sun Microsystems  sun4u
+Memory size: 8192 Megabytes
+System Peripherals (Software Nodes):
+
+SUNW,Netra-240
+    scsi_vhci, instance #0
+    packages (driver not attached)
+        SUNW,builtin-drivers (driver not attached)
+        deblocker (driver not attached)
+        disk-label (driver not attached)
+        terminal-emulator (driver not attached)
+        dropins (driver not attached)
+        kbd-translator (driver not attached)
+        obp-tftp (driver not attached)
+        SUNW,i2c-ram-device (driver not attached)
+        SUNW,fru-device (driver not attached)
+        SUNW,asr (driver not attached)
+        ufs-file-system (driver not attached)
+    chosen (driver not attached)
+    openprom (driver not attached)
+        client-services (driver not attached)
+    options, instance #0
+    aliases (driver not attached)
+    memory (driver not attached)
+    virtual-memory (driver not attached)
+    SUNW,UltraSPARC-IIIi (driver not attached)
+    memory-controller, instance #0
+    SUNW,UltraSPARC-IIIi (driver not attached)
+    memory-controller, instance #1
+    pci, instance #0
+        network, instance #0
+        network, instance #1 (driver not attached)
+    pci, instance #1
+        isa, instance #0
+            flashprom (driver not attached)
+            rtc (driver not attached)
+            i2c, instance #0
+                i2c-bridge (driver not attached)
+                i2c-bridge (driver not attached)
+                motherboard-fru-prom, instance #0 (driver not attached)
+                chassis-fru-prom, instance #1 (driver not attached)
+                alarm-fru-prom, instance #2 (driver not attached)
+                power-supply-fru-prom, instance #3 (driver not attached)
+                power-supply-fru-prom, instance #4 (driver not attached)
+                dimm-spd, instance #5 (driver not attached)
+                dimm-spd, instance #6 (driver not attached)
+                dimm-spd, instance #7 (driver not attached)
+                dimm-spd, instance #8 (driver not attached)
+                dimm-spd, instance #9 (driver not attached)
+                dimm-spd, instance #10 (driver not attached)
+                dimm-spd, instance #11 (driver not attached)
+                dimm-spd, instance #12 (driver not attached)
+                rscrtc (driver not attached)
+                nvram, instance #13 (driver not attached)
+                idprom (driver not attached)
+                gpio, instance #0 (driver not attached)
+                gpio, instance #1 (driver not attached)
+                gpio, instance #2 (driver not attached)
+                gpio, instance #3 (driver not attached)
+                gpio, instance #4 (driver not attached)
+                gpio, instance #5 (driver not attached)
+            power, instance #0
+            serial, instance #0
+            serial, instance #1 (driver not attached)
+            rmc-comm, instance #0
+        pmu, instance #0
+            i2c, instance #0
+            gpio, instance #0
+        usb, instance #0
+        ide, instance #0
+            disk (driver not attached)
+            cdrom (driver not attached)
+            sd, instance #30 (driver not attached)
+    pci, instance #2
+        scsi, instance #0
+            disk (driver not attached)
+            tape (driver not attached)
+            sd, instance #3
+            sd, instance #0 (driver not attached)
+        scsi, instance #1
+            disk (driver not attached)
+            tape (driver not attached)
+    pci, instance #3
+        network, instance #2 (driver not attached)
+        network, instance #3 (driver not attached)
+    iscsi, instance #0
+    pseudo, instance #0

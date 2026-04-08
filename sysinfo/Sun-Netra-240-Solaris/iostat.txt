@@ -1,0 +1,16 @@
+# iostat -En
+c0t1d0           Soft Errors: 0 Hard Errors: 0 Transport Errors: 0
+Vendor: FUJITSU  Product: MAW3147NC        Revision: 0104 Serial No:
+Size: 147.09GB <147086327808 bytes>
+Media Error: 0 Device Not Ready: 0 No Device: 0 Recoverable: 0
+Illegal Request: 0 Predictive Failure Analysis: 0
+c0t0d0           Soft Errors: 0 Hard Errors: 0 Transport Errors: 0
+Vendor: FUJITSU  Product: MAW3147NC        Revision: 0104 Serial No:
+Size: 146.96GB <146963927040 bytes>
+Media Error: 0 Device Not Ready: 0 No Device: 0 Recoverable: 0
+Illegal Request: 0 Predictive Failure Analysis: 0
+sd30             Soft Errors: 6 Hard Errors: 0 Transport Errors: 0
+Vendor: TEAC     Product: DV-28E-C         Revision: 1.4B Serial No:
+Size: 0.52GB <524947456 bytes>
+Media Error: 0 Device Not Ready: 0 No Device: 0 Recoverable: 0
+Illegal Request: 6 Predictive Failure Analysis: 0

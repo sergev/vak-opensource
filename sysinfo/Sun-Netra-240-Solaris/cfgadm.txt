@@ -1,0 +1,10 @@
+# cfgadm -al
+Ap_Id                          Type         Receptacle   Occupant     Condition
+c0                             scsi-bus     connected    configured   unknown
+c0::dsk/c0t0d0                 disk         connected    configured   unknown
+c0::dsk/c0t1d0                 disk         connected    configured   unknown
+c1                             scsi-bus     connected    unconfigured unknown
+uata0:scsi                     scsi-bus     connected    configured   unknown
+uata0:scsi::sd30               CD-ROM       connected    configured   unknown
+usb0/1                         unknown      empty        unconfigured ok
+usb0/2                         unknown      empty        unconfigured ok

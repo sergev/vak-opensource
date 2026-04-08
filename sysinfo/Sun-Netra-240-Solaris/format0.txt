@@ -1,0 +1,58 @@
+# format
+Searching for disks...done
+
+
+AVAILABLE DISK SELECTIONS:
+       0. c0t0d0 <FUJITSU-MAW3147NC-0104 cyl 65533 alt 2 hd 5 sec 876>
+          /pci@1c,600000/scsi@2/sd@0,0
+       1. c0t1d0 <FUJITSU-MAW3147NC-0104 cyl 65533 alt 2 hd 5 sec 876>
+          /pci@1c,600000/scsi@2/sd@1,0
+Specify disk (enter its number): 0
+selecting c0t0d0
+[disk formatted]
+Warning: Current Disk has mounted partitions.
+
+/dev/dsk/c0t0d0s0 is currently mounted on /. Please see umount(1M).
+/dev/dsk/c0t0d0s1 is currently used by swap. Please see swap(1M).
+/dev/dsk/c0t0d0s7 is currently mounted on /export/home. Please see umount(1M).
+
+
+FORMAT MENU:
+        disk       - select a disk
+        type       - select (define) a disk type
+        partition  - select (define) a partition table
+        current    - describe the current disk
+        format     - format and analyze the disk
+        repair     - repair a defective sector
+        label      - write label to the disk
+        analyze    - surface analysis
+        defect     - defect list management
+        backup     - search for backup labels
+        verify     - read and display labels
+        save       - save new disk/partition definitions
+        inquiry    - show vendor, product and revision
+        volname    - set 8-character volume name
+        !<cmd>     - execute <cmd>, then return
+        quit
+format> verify
+
+Primary label contents:
+
+Volume name = <        >
+ascii name  = <FUJITSU-MAW3147NC-0104 cyl 65533 alt 2 hd 5 sec 876>
+pcyl        = 65535
+ncyl        = 65533
+acyl        =    2
+nhead       =    5
+nsect       =  876
+Part      Tag    Flag     Cylinders         Size            Blocks
+  0       root    wm     240 -  2636        5.01GB    (2397/0/0)   10498860
+  1       swap    wu       0 -   239      513.28MB    (240/0/0)     1051200
+  2     backup    wm       0 - 65532      136.87GB    (65533/0/0) 287034540
+  3 unassigned    wm       0                0         (0/0/0)             0
+  4 unassigned    wm       0                0         (0/0/0)             0
+  5 unassigned    wm       0                0         (0/0/0)             0
+  6 unassigned    wm       0                0         (0/0/0)             0
+  7       home    wm    2637 - 65532      131.36GB    (62896/0/0) 275484480
+
+format> ^D

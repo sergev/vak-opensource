@@ -1,0 +1,14 @@
+# mount
+/ on /dev/dsk/c0t0d0s0 read/write/setuid/devices/intr/largefiles/logging/xattr/onerror=panic/dev=800018 on Fri Dec 31 16:16:16 1999
+/devices on /devices read/write/setuid/devices/dev=4b40000 on Fri Dec 31 16:16:10 1999
+/system/contract on ctfs read/write/setuid/devices/dev=4b80001 on Fri Dec 31 16:16:10 1999
+/proc on proc read/write/setuid/devices/dev=4bc0000 on Fri Dec 31 16:16:10 1999
+/etc/mnttab on mnttab read/write/setuid/devices/dev=4c00001 on Fri Dec 31 16:16:10 1999
+/etc/svc/volatile on swap read/write/setuid/devices/xattr/dev=4c40001 on Fri Dec 31 16:16:10 1999
+/system/object on objfs read/write/setuid/devices/dev=4c80001 on Fri Dec 31 16:16:10 1999
+/platform/sun4u-us3/lib/libc_psr.so.1 on /platform/sun4u-us3/lib/libc_psr/libc_psr_hwcap1.so.1 read/write/setuid/devices/dev=800018 on Fri 9
+/platform/sun4u-us3/lib/sparcv9/libc_psr.so.1 on /platform/sun4u-us3/lib/sparcv9/libc_psr/libc_psr_hwcap1.so.1 read/write/setuid/devices/de9
+/dev/fd on fd read/write/setuid/devices/dev=4e40001 on Fri Dec 31 16:16:16 1999
+/tmp on swap read/write/setuid/devices/xattr/dev=4c40002 on Fri Dec 31 16:16:18 1999
+/var/run on swap read/write/setuid/devices/xattr/dev=4c40003 on Fri Dec 31 16:16:18 1999
+/export/home on /dev/dsk/c0t0d0s7 read/write/setuid/devices/intr/largefiles/logging/xattr/onerror=panic/dev=80001f on Fri Dec 31 16:16:20 19

@@ -1,0 +1,76 @@
+# prtfru -l
+/frutree
+/frutree/chassis (fru)
+/frutree/chassis/MB?Label=MB
+/frutree/chassis/MB?Label=MB/system-board (container)
+/frutree/chassis/MB?Label=MB/system-board/SC?Label=SC
+/frutree/chassis/MB?Label=MB/system-board/SC?Label=SC/sc (fru)
+/frutree/chassis/MB?Label=MB/system-board/BAT?Label=BAT
+/frutree/chassis/MB?Label=MB/system-board/BAT?Label=BAT/battery (fru)
+/frutree/chassis/MB?Label=MB/system-board/P0?Label=P0
+/frutree/chassis/MB?Label=MB/system-board/P0?Label=P0/cpu (fru)
+/frutree/chassis/MB?Label=MB/system-board/P0?Label=P0/cpu/F0?Label=F0
+/frutree/chassis/MB?Label=MB/system-board/P0?Label=P0/cpu/F0?Label=F0/fan-unit (fru)
+/frutree/chassis/MB?Label=MB/system-board/P0?Label=P0/cpu/F1?Label=F1
+/frutree/chassis/MB?Label=MB/system-board/P0?Label=P0/cpu/F1?Label=F1/fan-unit (fru)
+/frutree/chassis/MB?Label=MB/system-board/P0?Label=P0/cpu/B0?Label=B0
+/frutree/chassis/MB?Label=MB/system-board/P0?Label=P0/cpu/B0?Label=B0/bank (fru)
+/frutree/chassis/MB?Label=MB/system-board/P0?Label=P0/cpu/B0?Label=B0/bank/D0?Label=D0
+/frutree/chassis/MB?Label=MB/system-board/P0?Label=P0/cpu/B0?Label=B0/bank/D0?Label=D0/mem-module (container)
+/frutree/chassis/MB?Label=MB/system-board/P0?Label=P0/cpu/B0?Label=B0/bank/D1?Label=D1
+/frutree/chassis/MB?Label=MB/system-board/P0?Label=P0/cpu/B0?Label=B0/bank/D1?Label=D1/mem-module (container)
+/frutree/chassis/MB?Label=MB/system-board/P0?Label=P0/cpu/B1?Label=B1
+/frutree/chassis/MB?Label=MB/system-board/P0?Label=P0/cpu/B1?Label=B1/bank (fru)
+/frutree/chassis/MB?Label=MB/system-board/P0?Label=P0/cpu/B1?Label=B1/bank/D0?Label=D0
+/frutree/chassis/MB?Label=MB/system-board/P0?Label=P0/cpu/B1?Label=B1/bank/D0?Label=D0/mem-module (container)
+/frutree/chassis/MB?Label=MB/system-board/P0?Label=P0/cpu/B1?Label=B1/bank/D1?Label=D1
+/frutree/chassis/MB?Label=MB/system-board/P0?Label=P0/cpu/B1?Label=B1/bank/D1?Label=D1/mem-module (container)
+/frutree/chassis/MB?Label=MB/system-board/P1?Label=P1
+/frutree/chassis/MB?Label=MB/system-board/P1?Label=P1/cpu (fru)
+/frutree/chassis/MB?Label=MB/system-board/P1?Label=P1/cpu/F0?Label=F0
+/frutree/chassis/MB?Label=MB/system-board/P1?Label=P1/cpu/F1?Label=F1
+/frutree/chassis/MB?Label=MB/system-board/P1?Label=P1/cpu/B0?Label=B0
+/frutree/chassis/MB?Label=MB/system-board/P1?Label=P1/cpu/B0?Label=B0/bank (fru)
+/frutree/chassis/MB?Label=MB/system-board/P1?Label=P1/cpu/B0?Label=B0/bank/D0?Label=D0
+/frutree/chassis/MB?Label=MB/system-board/P1?Label=P1/cpu/B0?Label=B0/bank/D0?Label=D0/mem-module (container)
+/frutree/chassis/MB?Label=MB/system-board/P1?Label=P1/cpu/B0?Label=B0/bank/D1?Label=D1
+/frutree/chassis/MB?Label=MB/system-board/P1?Label=P1/cpu/B0?Label=B0/bank/D1?Label=D1/mem-module (container)
+/frutree/chassis/MB?Label=MB/system-board/P1?Label=P1/cpu/B1?Label=B1
+/frutree/chassis/MB?Label=MB/system-board/P1?Label=P1/cpu/B1?Label=B1/bank (fru)
+/frutree/chassis/MB?Label=MB/system-board/P1?Label=P1/cpu/B1?Label=B1/bank/D0?Label=D0
+/frutree/chassis/MB?Label=MB/system-board/P1?Label=P1/cpu/B1?Label=B1/bank/D0?Label=D0/mem-module (container)
+/frutree/chassis/MB?Label=MB/system-board/P1?Label=P1/cpu/B1?Label=B1/bank/D1?Label=D1
+/frutree/chassis/MB?Label=MB/system-board/P1?Label=P1/cpu/B1?Label=B1/bank/D1?Label=D1/mem-module (container)
+/frutree/chassis/F0?Label=F0
+/frutree/chassis/F1?Label=F1
+/frutree/chassis/F2?Label=F2
+/frutree/chassis/F2?Label=F2/fan-unit (fru)
+/frutree/chassis/PS0?Label=PS0
+/frutree/chassis/PS0?Label=PS0/power-supply (container)
+/frutree/chassis/HDD0?Label=HDD0
+/frutree/chassis/HDD0?Label=HDD0/disk (fru)
+/frutree/chassis/HDD1?Label=HDD1
+/frutree/chassis/RMD0?Label=RMD0
+/frutree/chassis/IFB?Label=IFB
+/frutree/chassis/IFB?Label=IFB/ifb (container)
+/frutree/chassis/BB?Label=BB
+/frutree/chassis/BB?Label=BB/bb (fru)
+/frutree/chassis/HCM?Label=HCM
+/frutree/chassis/SCC?Label=SCC
+/frutree/chassis/SCC?Label=SCC/scc (fru)
+/frutree/chassis/PCI0?Label=PCI0
+/frutree/chassis/USB0?Label=USB0
+/frutree/chassis/USB1?Label=USB1
+/frutree/chassis/F3?Label=F3
+/frutree/chassis/F3?Label=F3/fan-unit (fru)
+/frutree/chassis/PS1?Label=PS1
+/frutree/chassis/PS1?Label=PS1/power-supply (container)
+/frutree/chassis/PRB?Label=PRB
+/frutree/chassis/PRB?Label=PRB/prb (fru)
+/frutree/chassis/PDB?Label=PDB
+/frutree/chassis/PDB?Label=PDB/pdb (fru)
+/frutree/chassis/PCI1?Label=PCI1
+/frutree/chassis/PCI2?Label=PCI2
+/frutree/chassis/SYSCTRL?Label=SYSCTRL
+/frutree/chassis/ALARM?Label=ALARM
+/frutree/chassis/ALARM?Label=ALARM/alarm (container)

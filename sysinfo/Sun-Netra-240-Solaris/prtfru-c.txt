@@ -1,0 +1,274 @@
+# prtfru -c
+/frutree/chassis/MB?Label=MB/system-board (container)
+   SEGMENT: SD
+      /ManR
+      /ManR/UNIX_Timestamp32: Fri Jul 14 22:55:03 PDT 2006
+      /ManR/Fru_Description: FRUID,INSTR,M'BD,2X1.5GHZ,CPU,ROHS
+      /ManR/Manufacture_Loc: Shunde,China
+      /ManR/Sun_Part_No: 3753360
+      /ManR/Sun_Serial_No: S601PP
+      /ManR/Vendor_Name: Mitac International
+      /ManR/Initial_HW_Dash_Level: 02
+      /ManR/Initial_HW_Rev_Level: 50
+      /ManR/Fru_Shortname: MOTHERBOARD
+      /SpecPartNo: 885-0489-02
+/frutree/chassis/MB?Label=MB/system-board/P0?Label=P0/cpu/B0?Label=B0/bank/D0?Label=D0/mem-module (container)
+   SEGMENT: SP
+      /DIMM_Capacity: 1 GB
+      /SPD_R
+      /SPD_R/SPD_Bytes_Written_SPDMemory: 80
+      /SPD_R/SPD_TotBytes_SPDMemory: 08
+      /SPD_R/SPD_Fundamental_Memory_Type: SDRAM DDR
+      /SPD_R/SPD_Row_Address_Bits: 0D
+      /SPD_R/SPD_Column_Address_Bits: 0B
+      /SPD_R/SPD_No_Banks_Assembly: 02
+      /SPD_R/SPD_Module_Data_Width: 0048
+      /SPD_R/SPD_Mod_Voltage_Interface: 04
+      /SPD_R/SPD_Cycle_Time: 60
+      /SPD_R/SPD_Access_Time: 70
+      /SPD_R/SPD_DIMM_Config_Type: ECC
+      /SPD_R/SPD_Type_Specific: 820404010E040C010226C1757000004830482A807575454500000000003C4830285000000000000000000000000000000000
+      /SPD_R/SPD_Data_Revision_Code: 00
+      /SPD_R/Checksum_8: 49
+      /SPD_R/Vendor_Name: Infineon (formerly Siemens)
+      /SPD_R/SPD_Man_Loc: 86
+      /SPD_R/SPD_Manufacturer_Part_No: 72D128320GBR6C
+      /SPD_R/SPD_Module_Rev_Code: 042C
+      /SPD_R/SPD_Manufacture_Year: 2006
+      /SPD_R/SPD_Manufacture_Week: 33
+      /SPD_R/SPD_Assembly_Serial_No: 06023611
+      /SPD_R/SPD_Man_Specific: 0000000000000000000000000000000000000000000000000000000000
+/frutree/chassis/MB?Label=MB/system-board/P0?Label=P0/cpu/B0?Label=B0/bank/D1?Label=D1/mem-module (container)
+   SEGMENT: SP
+      /DIMM_Capacity: 1 GB
+      /SPD_R
+      /SPD_R/SPD_Bytes_Written_SPDMemory: 80
+      /SPD_R/SPD_TotBytes_SPDMemory: 08
+      /SPD_R/SPD_Fundamental_Memory_Type: SDRAM DDR
+      /SPD_R/SPD_Row_Address_Bits: 0D
+      /SPD_R/SPD_Column_Address_Bits: 0B
+      /SPD_R/SPD_No_Banks_Assembly: 02
+      /SPD_R/SPD_Module_Data_Width: 0048
+      /SPD_R/SPD_Mod_Voltage_Interface: 04
+      /SPD_R/SPD_Cycle_Time: 60
+      /SPD_R/SPD_Access_Time: 70
+      /SPD_R/SPD_DIMM_Config_Type: ECC
+      /SPD_R/SPD_Type_Specific: 820404010E040C010226C1757000004830482A807575454500000000003C4830285000000000000000000000000000000000
+      /SPD_R/SPD_Data_Revision_Code: 00
+      /SPD_R/Checksum_8: 49
+      /SPD_R/Vendor_Name: Infineon (formerly Siemens)
+      /SPD_R/SPD_Man_Loc: 86
+      /SPD_R/SPD_Manufacturer_Part_No: 72D128320GBR6C
+      /SPD_R/SPD_Module_Rev_Code: 042C
+      /SPD_R/SPD_Manufacture_Year: 2006
+      /SPD_R/SPD_Manufacture_Week: 33
+      /SPD_R/SPD_Assembly_Serial_No: 06024112
+      /SPD_R/SPD_Man_Specific: 0000000000000000000000000000000000000000000000000000000000
+/frutree/chassis/MB?Label=MB/system-board/P0?Label=P0/cpu/B1?Label=B1/bank/D0?Label=D0/mem-module (container)
+   SEGMENT: SP
+      /DIMM_Capacity: 1 GB
+      /SPD_R
+      /SPD_R/SPD_Bytes_Written_SPDMemory: 80
+      /SPD_R/SPD_TotBytes_SPDMemory: 08
+      /SPD_R/SPD_Fundamental_Memory_Type: SDRAM DDR
+      /SPD_R/SPD_Row_Address_Bits: 0D
+      /SPD_R/SPD_Column_Address_Bits: 0B
+      /SPD_R/SPD_No_Banks_Assembly: 02
+      /SPD_R/SPD_Module_Data_Width: 0048
+      /SPD_R/SPD_Mod_Voltage_Interface: 04
+      /SPD_R/SPD_Cycle_Time: 60
+      /SPD_R/SPD_Access_Time: 70
+      /SPD_R/SPD_DIMM_Config_Type: ECC
+      /SPD_R/SPD_Type_Specific: 820404010E040C010226C1757000004830482A807575454500000000003C4830285000000000000000000000000000000000
+      /SPD_R/SPD_Data_Revision_Code: 00
+      /SPD_R/Checksum_8: 49
+      /SPD_R/Vendor_Name: Infineon (formerly Siemens)
+      /SPD_R/SPD_Man_Loc: 86
+      /SPD_R/SPD_Manufacturer_Part_No: 72D128320GBR6C
+      /SPD_R/SPD_Module_Rev_Code: 046D
+      /SPD_R/SPD_Manufacture_Year: 2006
+      /SPD_R/SPD_Manufacture_Week: 36
+      /SPD_R/SPD_Assembly_Serial_No: 0404BD26
+      /SPD_R/SPD_Man_Specific: 5032000000000000000000000000000000000000000000000000000000
+/frutree/chassis/MB?Label=MB/system-board/P0?Label=P0/cpu/B1?Label=B1/bank/D1?Label=D1/mem-module (container)
+   SEGMENT: SP
+      /DIMM_Capacity: 1 GB
+      /SPD_R
+      /SPD_R/SPD_Bytes_Written_SPDMemory: 80
+      /SPD_R/SPD_TotBytes_SPDMemory: 08
+      /SPD_R/SPD_Fundamental_Memory_Type: SDRAM DDR
+      /SPD_R/SPD_Row_Address_Bits: 0D
+      /SPD_R/SPD_Column_Address_Bits: 0B
+      /SPD_R/SPD_No_Banks_Assembly: 02
+      /SPD_R/SPD_Module_Data_Width: 0048
+      /SPD_R/SPD_Mod_Voltage_Interface: 04
+      /SPD_R/SPD_Cycle_Time: 60
+      /SPD_R/SPD_Access_Time: 70
+      /SPD_R/SPD_DIMM_Config_Type: ECC
+      /SPD_R/SPD_Type_Specific: 820404010E040C010226C1757000004830482A807575454500000000003C4830285000000000000000000000000000000000
+      /SPD_R/SPD_Data_Revision_Code: 00
+      /SPD_R/Checksum_8: 49
+      /SPD_R/Vendor_Name: Infineon (formerly Siemens)
+      /SPD_R/SPD_Man_Loc: 86
+      /SPD_R/SPD_Manufacturer_Part_No: 72D128320GBR6C
+      /SPD_R/SPD_Module_Rev_Code: 046D
+      /SPD_R/SPD_Manufacture_Year: 2006
+      /SPD_R/SPD_Manufacture_Week: 36
+      /SPD_R/SPD_Assembly_Serial_No: 0404BD25
+      /SPD_R/SPD_Man_Specific: 5032000000000000000000000000000000000000000000000000000000
+/frutree/chassis/MB?Label=MB/system-board/P1?Label=P1/cpu/B0?Label=B0/bank/D0?Label=D0/mem-module (container)
+   SEGMENT: SP
+      /DIMM_Capacity: 1 GB
+      /SPD_R
+      /SPD_R/SPD_Bytes_Written_SPDMemory: 80
+      /SPD_R/SPD_TotBytes_SPDMemory: 08
+      /SPD_R/SPD_Fundamental_Memory_Type: SDRAM DDR
+      /SPD_R/SPD_Row_Address_Bits: 0D
+      /SPD_R/SPD_Column_Address_Bits: 0B
+      /SPD_R/SPD_No_Banks_Assembly: 02
+      /SPD_R/SPD_Module_Data_Width: 0048
+      /SPD_R/SPD_Mod_Voltage_Interface: 04
+      /SPD_R/SPD_Cycle_Time: 60
+      /SPD_R/SPD_Access_Time: 70
+      /SPD_R/SPD_DIMM_Config_Type: ECC
+      /SPD_R/SPD_Type_Specific: 820404010E040C010226C1757000004830482A807575454500000000003C4830285000000000000000000000000000000000
+      /SPD_R/SPD_Data_Revision_Code: 00
+      /SPD_R/Checksum_8: 49
+      /SPD_R/Vendor_Name: Infineon (formerly Siemens)
+      /SPD_R/SPD_Man_Loc: 86
+      /SPD_R/SPD_Manufacturer_Part_No: 72D128320GBR6C
+      /SPD_R/SPD_Module_Rev_Code: 046D
+      /SPD_R/SPD_Manufacture_Year: 2006
+      /SPD_R/SPD_Manufacture_Week: 36
+      /SPD_R/SPD_Assembly_Serial_No: 04054026
+      /SPD_R/SPD_Man_Specific: 5032000000000000000000000000000000000000000000000000000000
+/frutree/chassis/MB?Label=MB/system-board/P1?Label=P1/cpu/B0?Label=B0/bank/D1?Label=D1/mem-module (container)
+   SEGMENT: SP
+      /DIMM_Capacity: 1 GB
+      /SPD_R
+      /SPD_R/SPD_Bytes_Written_SPDMemory: 80
+      /SPD_R/SPD_TotBytes_SPDMemory: 08
+      /SPD_R/SPD_Fundamental_Memory_Type: SDRAM DDR
+      /SPD_R/SPD_Row_Address_Bits: 0D
+      /SPD_R/SPD_Column_Address_Bits: 0B
+      /SPD_R/SPD_No_Banks_Assembly: 02
+      /SPD_R/SPD_Module_Data_Width: 0048
+      /SPD_R/SPD_Mod_Voltage_Interface: 04
+      /SPD_R/SPD_Cycle_Time: 60
+      /SPD_R/SPD_Access_Time: 70
+      /SPD_R/SPD_DIMM_Config_Type: ECC
+      /SPD_R/SPD_Type_Specific: 820404010E040C010226C1757000004830482A807575454500000000003C4830285000000000000000000000000000000000
+      /SPD_R/SPD_Data_Revision_Code: 00
+      /SPD_R/Checksum_8: 49
+      /SPD_R/Vendor_Name: Infineon (formerly Siemens)
+      /SPD_R/SPD_Man_Loc: 86
+      /SPD_R/SPD_Manufacturer_Part_No: 72D128320GBR6C
+      /SPD_R/SPD_Module_Rev_Code: 046D
+      /SPD_R/SPD_Manufacture_Year: 2006
+      /SPD_R/SPD_Manufacture_Week: 36
+      /SPD_R/SPD_Assembly_Serial_No: 04055521
+      /SPD_R/SPD_Man_Specific: 5032000000000000000000000000000000000000000000000000000000
+/frutree/chassis/MB?Label=MB/system-board/P1?Label=P1/cpu/B1?Label=B1/bank/D0?Label=D0/mem-module (container)
+   SEGMENT: SP
+      /DIMM_Capacity: 1 GB
+      /SPD_R
+      /SPD_R/SPD_Bytes_Written_SPDMemory: 80
+      /SPD_R/SPD_TotBytes_SPDMemory: 08
+      /SPD_R/SPD_Fundamental_Memory_Type: SDRAM DDR
+      /SPD_R/SPD_Row_Address_Bits: 0D
+      /SPD_R/SPD_Column_Address_Bits: 0B
+      /SPD_R/SPD_No_Banks_Assembly: 02
+      /SPD_R/SPD_Module_Data_Width: 0048
+      /SPD_R/SPD_Mod_Voltage_Interface: 04
+      /SPD_R/SPD_Cycle_Time: 60
+      /SPD_R/SPD_Access_Time: 70
+      /SPD_R/SPD_DIMM_Config_Type: ECC
+      /SPD_R/SPD_Type_Specific: 820404010E040C010226C1757000004830482A807575454500000000003C4830285000000000000000000000000000000000
+      /SPD_R/SPD_Data_Revision_Code: 00
+      /SPD_R/Checksum_8: 49
+      /SPD_R/Vendor_Name: Infineon (formerly Siemens)
+      /SPD_R/SPD_Man_Loc: 86
+      /SPD_R/SPD_Manufacturer_Part_No: 72D128320GBR6C
+      /SPD_R/SPD_Module_Rev_Code: 046D
+      /SPD_R/SPD_Manufacture_Year: 2006
+      /SPD_R/SPD_Manufacture_Week: 36
+      /SPD_R/SPD_Assembly_Serial_No: 0404F925
+      /SPD_R/SPD_Man_Specific: 5032000000000000000000000000000000000000000000000000000000
+/frutree/chassis/MB?Label=MB/system-board/P1?Label=P1/cpu/B1?Label=B1/bank/D1?Label=D1/mem-module (container)
+   SEGMENT: SP
+      /DIMM_Capacity: 1 GB
+      /SPD_R
+      /SPD_R/SPD_Bytes_Written_SPDMemory: 80
+      /SPD_R/SPD_TotBytes_SPDMemory: 08
+      /SPD_R/SPD_Fundamental_Memory_Type: SDRAM DDR
+      /SPD_R/SPD_Row_Address_Bits: 0D
+      /SPD_R/SPD_Column_Address_Bits: 0B
+      /SPD_R/SPD_No_Banks_Assembly: 02
+      /SPD_R/SPD_Module_Data_Width: 0048
+      /SPD_R/SPD_Mod_Voltage_Interface: 04
+      /SPD_R/SPD_Cycle_Time: 60
+      /SPD_R/SPD_Access_Time: 70
+      /SPD_R/SPD_DIMM_Config_Type: ECC
+      /SPD_R/SPD_Type_Specific: 820404010E040C010226C1757000004830482A807575454500000000003C4830285000000000000000000000000000000000
+      /SPD_R/SPD_Data_Revision_Code: 00
+      /SPD_R/Checksum_8: 49
+      /SPD_R/Vendor_Name: Infineon (formerly Siemens)
+      /SPD_R/SPD_Man_Loc: 86
+      /SPD_R/SPD_Manufacturer_Part_No: 72D128320GBR6C
+      /SPD_R/SPD_Module_Rev_Code: 046D
+      /SPD_R/SPD_Manufacture_Year: 2006
+      /SPD_R/SPD_Manufacture_Week: 36
+      /SPD_R/SPD_Assembly_Serial_No: 04055611
+      /SPD_R/SPD_Man_Specific: 5032000000000000000000000000000000000000000000000000000000
+/frutree/chassis/PS0?Label=PS0/power-supply (container)
+   SEGMENT: SD
+      /ManR
+      /ManR/UNIX_Timestamp32: Sun Sep 14 08:02:58 PDT 2003
+      /ManR/Fru_Description: FRUID,PRGM,INSTR,PSU,2U,AC
+      /ManR/Manufacture_Loc: BAO'AN, CHINA
+      /ManR/Sun_Part_No: 3001568
+      /ManR/Sun_Serial_No: 043944
+      /ManR/Vendor_Name: Astec Intl
+      /ManR/Initial_HW_Dash_Level: 01
+      /ManR/Initial_HW_Rev_Level: 50
+      /ManR/Fru_Shortname: PSU
+      /SpecPartNo: 885-0078-01
+/frutree/chassis/IFB?Label=IFB/ifb (container)
+   SEGMENT: SD
+      /ManR
+      /ManR/UNIX_Timestamp32: Thu Mar 30 23:19:31 PST 2006
+      /ManR/Fru_Description: FRUID,PRGM,INSTR,2U,IN/FACE,LOW
+      /ManR/Manufacture_Loc: Hsinchu,Taiwan
+      /ManR/Sun_Part_No: 3706004
+      /ManR/Sun_Serial_No: H01KAI
+      /ManR/Vendor_Name: Mitac International
+      /ManR/Initial_HW_Dash_Level: 03
+      /ManR/Initial_HW_Rev_Level: 0E
+      /ManR/Fru_Shortname: SCSI
+      /SpecPartNo: 885-0149-03
+/frutree/chassis/PS1?Label=PS1/power-supply (container)
+   SEGMENT: SD
+      /ManR
+      /ManR/UNIX_Timestamp32: Sat Dec  6 11:31:05 PST 2003
+      /ManR/Fru_Description: FRUID,PRGM,INSTR,PSU,2U,AC
+      /ManR/Manufacture_Loc: BAO'AN, CHINA
+      /ManR/Sun_Part_No: 3001568
+      /ManR/Sun_Serial_No: 079299
+      /ManR/Vendor_Name: Astec Intl
+      /ManR/Initial_HW_Dash_Level: 01
+      /ManR/Initial_HW_Rev_Level: 50
+      /ManR/Fru_Shortname: PSU
+      /SpecPartNo: 885-0078-01
+/frutree/chassis/ALARM?Label=ALARM/alarm (container)
+   SEGMENT: SD
+      /ManR
+      /ManR/UNIX_Timestamp32: Wed Apr  5 20:32:03 PDT 2006
+      /ManR/Fru_Description: FRUID,PRGM INSTR,ALRMBRD,ROHS
+      /ManR/Manufacture_Loc: Hsinchu,Taiwan
+      /ManR/Sun_Part_No: 3753154
+      /ManR/Sun_Serial_No: H01FGR
+      /ManR/Vendor_Name: Mitac International
+      /ManR/Initial_HW_Dash_Level: 04
+      /ManR/Initial_HW_Rev_Level: 0F
+      /ManR/Fru_Shortname: ALARM
+      /SpecPartNo: 885-0150-04

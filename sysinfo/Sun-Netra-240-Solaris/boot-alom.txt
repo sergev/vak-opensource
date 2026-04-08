@@ -1,0 +1,313 @@
+ALOM BOOTMON v1.5.4
+ALOM Build Release: 008
+Reset register: e0000000 EHRS ESRS LLRS
+
+
+ALOM POST 1.0
+
+
+Dual Port Memory Test, PASSED.
+
+TTY External - Internal Loopback Test
+TTY External - Internal Loopback Test, PASSED.
+
+TTYC - Internal Loopback Test
+TTYC - Internal Loopback Test, PASSED.
+
+TTYD - Internal Loopback Test
+TTYD - Internal Loopback Test, PASSED.
+
+Memory Data Lines Test
+Memory Data Lines Test, PASSED.
+
+Memory Address Lines Test
+  Slide address bits to test open address lines
+  Test for shorted address lines
+Memory Address Lines Test, PASSED.
+
+Memory Parity Test
+Memory Parity Test, PASSED.
+
+Boot Sector FLASH CRC Test
+Boot Sector FLASH CRC Test, PASSED.
+
+
+
+Return to Boot Monitor for Handshake
+ALOM POST 1.0
+   Status = 00007fff
+
+Returned from Boot Monitor and Handshake
+
+
+
+Clearing Memory Cells
+Memory Clean Complete
+
+
+Loading the runtime image...
+SC Alert: CRITICAL ALARM is set
+
+SC Alert: SC System booted.
+
+SC Alert: Input power unavailable for PSU @ PS0.
+
+
+Sun(tm) Advanced Lights Out Manager 1.5.4 (sun4u-sol10-3)
+
+
+
+Full VxDiag Tests
+
+BASIC TOD TEST
+  Read the TOD Clock:        SAT JAN 01 00:00:14 2000
+  Wait, 1 - 3 seconds
+  Read the TOD Clock:        SAT JAN 01 00:00:16 2000
+BASIC TOD TEST, PASSED
+
+ETHERNET CPU LOOPBACK TEST
+  50 BYTE PACKET   - a 0 in field of 1's.
+  50 BYTE PACKET   - a 1 in field of 0's.
+  900 BYTE PACKET  - pseudo-random data.
+ETHERNET CPU LOOPBACK TEST, PASSED
+
+Full VxDiag Tests - PASSED
+
+
+
+    Status summary  -  Status = 7FFF
+
+       VxDiag    -          -  PASSED
+       POST      -          -  PASSED
+       LOOPBACK  -          -  PASSED
+
+       I2C       -          -  PASSED
+       EPROM     -          -  PASSED
+       FRU PROM  -          -  PASSED
+
+       ETHERNET  -          -  PASSED
+       MAIN CRC  -          -  PASSED
+       BOOT CRC  -          -  PASSED
+
+       TTYD      -          -  PASSED
+       TTYC      -          -  PASSED
+       MEMORY    -          -  PASSED
+       MPC850    -          -  PASSED
+
+
+Please login: admin
+Please Enter password: *********
+
+
+SAM014-NVMSS971_sam_1_6_1-al> showenvironment
+
+
+=============== Environmental Status ===============
+
+
+--------------------------------------------------------------------------------
+System Temperatures (Temperatures in Celsius):
+--------------------------------------------------------------------------------
+Sensor         Status    Temp LowHard LowSoft LowWarn HighWarn HighSoft HighHard
+--------------------------------------------------------------------------------
+MB.P0.T_CORE    OK         55     --      --      --     115      125      127
+MB.P1.T_CORE    OK         59     --      --      --     115      125      127
+MB.T_ENC        OK         28    -11      -9      -7      57       60       63
+
+--------------------------------------
+Front Status Panel:
+--------------------------------------
+Keyswitch position: NORMAL
+
+--------------------------------------------------------
+System Indicator Status:
+--------------------------------------------------------
+MB.LOCATE            MB.SERVICE           MB.ACT
+--------------------------------------------------------
+OFF                  ON                   ON
+
+--------------------------------------------
+System Disks:
+--------------------------------------------
+Disk   Status            Service  OK2RM
+--------------------------------------------
+HDD0   OK                OFF      OFF
+HDD1   OK                OFF      OFF
+
+----------------------------------------------------------
+Fans (Speeds Revolution Per Minute):
+----------------------------------------------------------
+Sensor           Status           Speed   Warn    Low
+----------------------------------------------------------
+F2.RS            OK                4470   2000   2000
+F3.RS            OK                4041   2000   2000
+MB.P0.F0.RS      OK                4166   2000   2000
+MB.P0.F1.RS      OK                4218   2000   2000
+
+--------------------------------------------------------------------------------
+Voltage sensors (in Volts):
+--------------------------------------------------------------------------------
+Sensor         Status       Voltage LowSoft LowWarn HighWarn HighSoft
+--------------------------------------------------------------------------------
+MB.P0.V_CORE   OK             1.48      --    1.05    1.75       --
+MB.P1.V_CORE   OK             1.48      --    1.05    1.75       --
+MB.V_VTT       OK             1.25      --    1.17    1.43       --
+MB.V_GBE_+2V5  OK             2.50      --    2.25    2.75       --
+MB.V_GBE_CORE  OK             1.20      --    1.08    1.32       --
+MB.V_VCCTM     OK             2.51      --    2.25    2.75       --
+MB.V_+2V5      OK             2.51      --    2.34    2.86       --
+MB.V_+1V5      OK             1.49      --    1.35    1.65       --
+MB.BAT.V_BAT   WARNING        0.56      --    2.70      --       --
+
+--------------------------------------------
+Power Supply Indicators:
+--------------------------------------------
+Supply    Active  Service  OK-to-Remove
+--------------------------------------------
+PS0       OFF     OFF      OFF
+PS1       ON      OFF      OFF
+
+------------------------------------------------------------------------------
+Power Supplies:
+------------------------------------------------------------------------------
+Supply  Status          Underspeed  Overtemp  Overvolt  Undervolt  Overcurrent
+------------------------------------------------------------------------------
+PS0     No Input Power  OFF         OFF       OFF       OFF        OFF
+PS1     OK              OFF         OFF       OFF       OFF        OFF
+
+----------------------
+Current sensors:
+----------------------
+Sensor          Status
+----------------------
+MB.FF_SCSI       OK
+
+--------------------------------------------
+System Alarms:
+--------------------------------------------
+Alarm                   Relay           LED
+--------------------------------------------
+ALARM.CRITICAL          OFF             OFF
+ALARM.MAJOR             OFF             OFF
+ALARM.MINOR             OFF             OFF
+ALARM.USER              OFF             OFF
+
+SAM014-NVMSS971_sam_1_6_1-al> showfru
+FRU_PROM at MB.SEEPROM
+  Manufacturer Record
+  Timestamp: SAT JUL 15 05:55:03 UTC 2006
+  Description: FRUID,INSTR,M'BD,2X1.5GHZ,CPU,ROHS
+  Manufacture Location: Shunde,China
+  Sun Part No: 3753360
+  Sun Serial No: S601PP
+  Vendor JEDEC code: 3E5
+  Initial HW Dash Level: 02
+  Initial HW Rev Level: 50
+  Shortname: MOTHERBOARD
+
+FRU_PROM at ENC.SEEPROM
+  Manufacturer Record
+  Timestamp: FRI MAR 31 07:19:31 UTC 2006
+  Description: FRUID,PRGM,INSTR,2U,IN/FACE,LOW
+  Manufacture Location: Hsinchu,Taiwan
+  Sun Part No: 3706004
+  Sun Serial No: H01KAI
+  Vendor JEDEC code: 3E5
+  Initial HW Dash Level: 03
+  Initial HW Rev Level: 0E
+  Shortname: SCSI
+
+FRU_PROM at HCM.SEEPROM is not present
+
+FRU_PROM at PS0.SEEPROM
+  Manufacturer Record
+  Timestamp: SUN SEP 14 15:02:58 UTC 2003
+  Description: FRUID,PRGM,INSTR,PSU,2U,AC
+  Manufacture Location: BAO'AN, CHINA
+  Sun Part No: 3001568
+  Sun Serial No: 043944
+  Vendor JEDEC code: 37A
+  Initial HW Dash Level: 01
+  Initial HW Rev Level: 50
+  Shortname: PSU
+
+FRU_PROM at PS1.SEEPROM
+  Manufacturer Record
+  Timestamp: SAT DEC 06 19:31:05 UTC 2003
+  Description: FRUID,PRGM,INSTR,PSU,2U,AC
+  Manufacture Location: BAO'AN, CHINA
+  Sun Part No: 3001568
+  Sun Serial No: 079299
+  Vendor JEDEC code: 37A
+  Initial HW Dash Level: 01
+  Initial HW Rev Level: 50
+  Shortname: PSU
+
+FRU_PROM at ALARM.SEEPROM is not present
+
+FRU_PROM at MB.P0.B0.D0.SEEPROM
+  Timestamp: MON AUG 14 12:00:00 UTC 2006
+  Description: SDRAM DDR, 1024 MB
+  Manufacture Location:
+  Vendor: Infineon (formerly Siemens)
+  Vendor Part No: 72D128320GBR6C
+
+FRU_PROM at MB.P0.B0.D1.SEEPROM
+  Timestamp: MON AUG 14 12:00:00 UTC 2006
+  Description: SDRAM DDR, 1024 MB
+  Manufacture Location:
+  Vendor: Infineon (formerly Siemens)
+  Vendor Part No: 72D128320GBR6C
+
+FRU_PROM at MB.P0.B1.D0.SEEPROM
+  Timestamp: MON SEP 04 12:00:00 UTC 2006
+  Description: SDRAM DDR, 1024 MB
+  Manufacture Location:
+  Vendor: Infineon (formerly Siemens)
+  Vendor Part No: 72D128320GBR6C
+
+FRU_PROM at MB.P0.B1.D1.SEEPROM
+  Timestamp: MON SEP 04 12:00:00 UTC 2006
+  Description: SDRAM DDR, 1024 MB
+  Manufacture Location:
+  Vendor: Infineon (formerly Siemens)
+  Vendor Part No: 72D128320GBR6C
+
+FRU_PROM at MB.P1.B0.D0.SEEPROM
+  Timestamp: MON SEP 04 12:00:00 UTC 2006
+  Description: SDRAM DDR, 1024 MB
+  Manufacture Location:
+  Vendor: Infineon (formerly Siemens)
+  Vendor Part No: 72D128320GBR6C
+
+FRU_PROM at MB.P1.B0.D1.SEEPROM
+  Timestamp: MON SEP 04 12:00:00 UTC 2006
+  Description: SDRAM DDR, 1024 MB
+  Manufacture Location:
+  Vendor: Infineon (formerly Siemens)
+  Vendor Part No: 72D128320GBR6C
+
+FRU_PROM at MB.P1.B1.D0.SEEPROM
+  Timestamp: MON SEP 04 12:00:00 UTC 2006
+  Description: SDRAM DDR, 1024 MB
+  Manufacture Location:
+  Vendor: Infineon (formerly Siemens)
+  Vendor Part No: 72D128320GBR6C
+
+FRU_PROM at MB.P1.B1.D1.SEEPROM
+  Timestamp: MON SEP 04 12:00:00 UTC 2006
+  Description: SDRAM DDR, 1024 MB
+  Manufacture Location:
+  Vendor: Infineon (formerly Siemens)
+  Vendor Part No: 72D128320GBR6C
+
+SAM014-NVMSS971_sam_1_6_1-al> showplatform -v
+SUNW,Netra-240
+
+Domain        Status
+------        ------
+sun4u-sol10-3 OS Running
+SAM014-NVMSS971_sam_1_6_1-al>
+SAM014-NVMSS971_sam_1_6_1-al> #.
+Invalid command.  Type 'help' for list of commands.
+SAM014-NVMSS971_sam_1_6_1-al> _

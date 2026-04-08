@@ -1,0 +1,17 @@
+# df -k
+Filesystem            kbytes    used   avail capacity  Mounted on
+/dev/dsk/c0t0d0s0    5169804 3602900 1515206    71%    /
+/devices                   0       0       0     0%    /devices
+ctfs                       0       0       0     0%    /system/contract
+proc                       0       0       0     0%    /proc
+mnttab                     0       0       0     0%    /etc/mnttab
+swap                 7387696    1136 7386560     1%    /etc/svc/volatile
+objfs                      0       0       0     0%    /system/object
+/platform/sun4u-us3/lib/libc_psr/libc_psr_hwcap1.so.1
+                     5169804 3602900 1515206    71%    /platform/sun4u-us3/lib/libc_psr.so.1
+/platform/sun4u-us3/lib/sparcv9/libc_psr/libc_psr_hwcap1.so.1
+                     5169804 3602900 1515206    71%    /platform/sun4u-us3/lib/sparcv9/libc_psr.so.1
+fd                         0       0       0     0%    /dev/fd
+swap                 7386592      32 7386560     1%    /tmp
+swap                 7386616      56 7386560     1%    /var/run
+/dev/dsk/c0t0d0s7    135656748   65553 134234628     1%    /export/home

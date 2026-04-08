@@ -1,0 +1,17 @@
+# df -h
+Filesystem             size   used  avail capacity  Mounted on
+/dev/dsk/c0t0d0s0      4.9G   3.4G   1.4G    71%    /
+/devices                 0K     0K     0K     0%    /devices
+ctfs                     0K     0K     0K     0%    /system/contract
+proc                     0K     0K     0K     0%    /proc
+mnttab                   0K     0K     0K     0%    /etc/mnttab
+swap                   7.0G   1.1M   7.0G     1%    /etc/svc/volatile
+objfs                    0K     0K     0K     0%    /system/object
+/platform/sun4u-us3/lib/libc_psr/libc_psr_hwcap1.so.1
+                       4.9G   3.4G   1.4G    71%    /platform/sun4u-us3/lib/libc_psr.so.1
+/platform/sun4u-us3/lib/sparcv9/libc_psr/libc_psr_hwcap1.so.1
+                       4.9G   3.4G   1.4G    71%    /platform/sun4u-us3/lib/sparcv9/libc_psr.so.1
+fd                       0K     0K     0K     0%    /dev/fd
+swap                   7.0G    32K   7.0G     1%    /tmp
+swap                   7.0G    56K   7.0G     1%    /var/run
+/dev/dsk/c0t0d0s7      129G    64M   128G     1%    /export/home

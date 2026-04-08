@@ -1,0 +1,3 @@
+# psrinfo
+0       on-line   since 12/31/1999 16:16:11
+1       on-line   since 12/31/1999 16:16:10

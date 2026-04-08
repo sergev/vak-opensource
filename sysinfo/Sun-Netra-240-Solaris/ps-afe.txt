@@ -1,0 +1,43 @@
+# ps -afe
+     UID   PID  PPID   C    STIME TTY         TIME CMD
+    root     0     0   0 16:16:11 ?           0:10 sched
+    root     1     0   0 16:16:11 ?           0:00 /sbin/init
+    root     2     0   0 16:16:11 ?           0:00 pageout
+    root     3     0   0 16:16:11 ?           0:02 fsflush
+    root   182     1   0 16:16:20 ?           0:00 /usr/sbin/in.routed
+    root     7     1   0 16:16:12 ?           0:03 /lib/svc/bin/svc.startd
+    root     9     1   0 16:16:12 ?           0:08 /lib/svc/bin/svc.configd
+    root   241     1   0 16:16:22 ?           0:00 /usr/lib/inet/inetd start
+  daemon   220     1   0 16:16:21 ?           0:00 /usr/lib/nfs/statd
+    root   108     1   0 16:16:18 ?           0:00 /usr/lib/sysevent/syseventd
+    root   212     1   0 16:16:21 ?           0:00 /usr/sbin/cron
+    root   102     1   0 16:16:18 ?           0:00 /usr/lib/snmp/snmpdx -y -c /etc/snmp/conf
+  daemon   130     1   0 16:16:19 ?           0:00 /usr/lib/crypto/kcfd
+  daemon   216     1   0 16:16:21 ?           0:00 /usr/sbin/rpcbind
+    root   245   233   0 16:16:22 ?           0:00 /usr/lib/saf/ttymon
+    root   158     1   0 16:16:20 ?           0:00 /usr/lib/power/powerd
+    root   141     1   0 16:16:19 ?           0:00 /usr/sfw/sbin/snmpd
+    root   359     1   0 16:16:24 ?           0:00 /usr/sbin/syslogd
+    root   135     1   0 16:16:19 ?           0:00 /usr/sbin/nscd
+    root   129     1   0 16:16:19 ?           0:01 /usr/lib/picl/picld
+  daemon   224     1   0 16:16:21 ?           0:00 /usr/lib/nfs/nfsmapid
+  daemon   227     1   0 16:16:22 ?           0:00 /usr/lib/nfs/nfs4cbd
+  daemon   231     1   0 16:16:22 ?           0:00 /usr/lib/nfs/lockd
+    root   233     7   0 16:16:22 ?           0:00 /usr/lib/saf/sac -t 300
+    root   242     7   0 16:16:22 console     0:00 -sh
+    root   282     1   0 16:16:22 ?           0:00 /usr/lib/dmi/snmpXdmid -s sun4u-sol10-3
+    root   244     1   0 16:16:22 ?           0:00 /usr/lib/utmpd
+    root   278     1   0 16:16:22 ?           0:00 /usr/sadm/lib/smc/bin/smcboot
+    root   337     1   0 16:16:24 ?           0:00 /usr/lib/autofs/automountd
+    root   281   278   0 16:16:22 ?           0:00 /usr/sadm/lib/smc/bin/smcboot
+    root   280   278   0 16:16:22 ?           0:00 /usr/sadm/lib/smc/bin/smcboot
+    root   338   337   0 16:16:24 ?           0:00 /usr/lib/autofs/automountd
+    root   275     1   0 16:16:22 ?           0:00 /usr/lib/dmi/dmispd
+    root   416     1   0 16:16:38 ?           0:00 /usr/sbin/vold -f /etc/vold.conf
+    root   653     1   0 16:17:25 ?           0:00 /usr/lib/sendmail -bd -q15m
+noaccess   542     1   0 16:16:45 ?           0:20 /usr/java/bin/java -server -Xmx128m -XX:+BackgroundCompilation -XX:PermSize=32m
+    root   494     1   0 16:16:38 ?           0:00 /usr/dt/bin/dtlogin -daemon
+    root   372     1   0 16:16:24 ?           0:01 /usr/lib/fm/fmd/fmd
+    root   373     1   0 16:16:24 ?           0:00 /usr/lib/ssh/sshd
+    root   693   242   0 16:37:21 console     0:00 ps -afe
+   smmsp   654     1   0 16:17:25 ?           0:00 /usr/lib/sendmail -Ac -q15m

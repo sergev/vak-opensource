@@ -1,0 +1,56 @@
+# format
+Searching for disks...done
+
+c0t1d0: configured with capacity of 136.87GB
+
+
+AVAILABLE DISK SELECTIONS:
+       0. c0t0d0 <FUJITSU-MAW3147NC-0104 cyl 65533 alt 2 hd 5 sec 876>
+          /pci@1c,600000/scsi@2/sd@0,0
+       1. c0t1d0 <FUJITSU-MAW3147NC-0104 cyl 65533 alt 2 hd 5 sec 876>
+          /pci@1c,600000/scsi@2/sd@1,0
+Specify disk (enter its number): 1
+selecting c0t1d0
+[disk formatted]
+Disk not labeled.  Label it now? y
+
+
+FORMAT MENU:
+        disk       - select a disk
+        type       - select (define) a disk type
+        partition  - select (define) a partition table
+        current    - describe the current disk
+        format     - format and analyze the disk
+        repair     - repair a defective sector
+        label      - write label to the disk
+        analyze    - surface analysis
+        defect     - defect list management
+        backup     - search for backup labels
+        verify     - read and display labels
+        save       - save new disk/partition definitions
+        inquiry    - show vendor, product and revision
+        volname    - set 8-character volume name
+        !<cmd>     - execute <cmd>, then return
+        quit
+format> verify
+
+Primary label contents:
+
+Volume name = <        >
+ascii name  = <FUJITSU-MAW3147NC-0104 cyl 65533 alt 2 hd 5 sec 876>
+pcyl        = 65535
+ncyl        = 65533
+acyl        =    2
+nhead       =    5
+nsect       =  876
+Part      Tag    Flag     Cylinders         Size            Blocks
+  0       root    wm       0 -    59      128.32MB    (60/0/0)       262800
+  1       swap    wu      60 -   119      128.32MB    (60/0/0)       262800
+  2     backup    wu       0 - 65532      136.87GB    (65533/0/0) 287034540
+  3 unassigned    wm       0                0         (0/0/0)             0
+  4 unassigned    wm       0                0         (0/0/0)             0
+  5 unassigned    wm       0                0         (0/0/0)             0
+  6        usr    wm     120 - 65532      136.62GB    (65413/0/0) 286508940
+  7 unassigned    wm       0                0         (0/0/0)             0
+
+format> ^D

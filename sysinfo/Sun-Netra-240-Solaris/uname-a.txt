@@ -1,0 +1,2 @@
+# uname -a
+SunOS sun4u-sol10-3 5.10 Generic_118833-33 sun4u sparc SUNW,Netra-240

@@ -1,0 +1,9 @@
+# psrinfo -v
+Status of virtual processor 0 as of: 12/31/1999 16:31:00
+  on-line since 12/31/1999 16:16:11.
+  The sparcv9 processor operates at 1503 MHz,
+        and has a sparcv9 floating point processor.
+Status of virtual processor 1 as of: 12/31/1999 16:31:00
+  on-line since 12/31/1999 16:16:10.
+  The sparcv9 processor operates at 1503 MHz,
+        and has a sparcv9 floating point processor.
