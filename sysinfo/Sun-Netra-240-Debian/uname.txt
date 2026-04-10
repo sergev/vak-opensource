@@ -1,0 +1,1 @@
+Linux sun 4.16.0-1-sparc64-smp #1 SMP Debian 4.16.5-1 (2018-04-29) sparc64 GNU/Linux

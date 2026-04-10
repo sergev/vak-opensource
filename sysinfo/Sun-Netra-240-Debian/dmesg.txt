@@ -1,0 +1,357 @@
+[    0.000027] PROMLIB: Sun IEEE Boot Prom 'OBP 4.18.10 2006/03/03 13:59'
+[    0.000034] PROMLIB: Root node compatible: 
+[    0.000104] Linux version 4.16.0-1-sparc64-smp (debian-kernel@lists.debian.org) (gcc version 7.3.0 (Debian 7.3.0-17)) #1 SMP Debian 4.16.5-1 (2018-04-29)
+[    0.000204] bootconsole [earlyprom0] enabled
+[    0.000206] ARCH: SUN4U
+[    0.000237] Ethernet address: 00:14:4f:4e:3d:f5
+[    0.000246] MM: PAGE_OFFSET is 0xfff0000000000000 (max_phys_bits == 42)
+[    0.000249] MM: VMALLOC [0x0000000100000000 --> 0x000c000000000000]
+[    0.000251] MM: VMEMMAP [0x000c000000000000 --> 0x0018000000000000]
+[    0.019887] Kernel: Using 3 locked TLB entries for main kernel image.
+[    0.019901] Remapping the kernel... 
+[    0.020226] done.
+[    0.271172] OF stdout device is: /pci@1e,600000/isa@7/serial@0,3f8
+[    0.271177] PROM: Built device tree with 124612 bytes of memory.
+[    0.271217] Top of RAM: 0x133fdc0000, Total RAM: 0x1ffdb4000
+[    0.271220] Memory hole size: 70656MB
+[    0.407018] Allocated 40960 bytes for kernel page tables.
+[    0.407211] Zone ranges:
+[    0.407215]   Normal   [mem 0x0000000000000000-0x000000133fdbffff]
+[    0.407221] Movable zone start for each node
+[    0.407223] Early memory node ranges
+[    0.407227]   node   0: [mem 0x0000000000000000-0x000000003fffffff]
+[    0.407229]   node   0: [mem 0x0000000100000000-0x000000013fffffff]
+[    0.407232]   node   0: [mem 0x0000000200000000-0x000000023fffffff]
+[    0.407235]   node   0: [mem 0x0000000300000000-0x000000033fffffff]
+[    0.407237]   node   0: [mem 0x0000001000000000-0x000000103fffffff]
+[    0.407240]   node   0: [mem 0x0000001100000000-0x000000113fffffff]
+[    0.407242]   node   0: [mem 0x0000001200000000-0x000000123fffffff]
+[    0.407245]   node   0: [mem 0x0000001300000000-0x000000133effdfff]
+[    0.407247]   node   0: [mem 0x000000133f000000-0x000000133fd9bfff]
+[    0.407250]   node   0: [mem 0x000000133fda6000-0x000000133fdbffff]
+[    0.407255] Initmem setup node 0 [mem 0x0000000000000000-0x000000133fdbffff]
+[    0.407261] On node 0 totalpages: 1048282
+[    0.407266]   Normal zone: 9214 pages used for memmap
+[    0.407268]   Normal zone: 0 pages reserved
+[    0.407272]   Normal zone: 1048282 pages, LIFO batch:15
+[    0.686027] Booting Linux...
+[    0.686033] CPU CAPS: [flush,stbar,swap,muldiv,v9,ultra3,mul32,div32]
+[    0.686052] CPU CAPS: [v8plus,vis,vis2]
+[    0.694252] percpu: Embedded 12 pages/cpu @        (ptrval) s54680 r8192 d35432 u2097152
+[    0.695375] pcpu-alloc: s54680 r8192 d35432 u2097152 alloc=1*4194304
+[    0.695380] pcpu-alloc: [0] 0 1 
+[    0.698656] Built 1 zonelists, mobility grouping on.  Total pages: 1039068
+[    0.698663] Kernel command line: BOOT_IMAGE=/vmlinuz-4.16.0-1-sparc64-smp root=UUID=9f065739-f5b2-43db-a7ea-03e11d476a14 ro quiet
+[    0.709881] Dentry cache hash table entries: 1048576 (order: 10, 8388608 bytes)
+[    0.714421] Inode-cache hash table entries: 524288 (order: 9, 4194304 bytes)
+[    0.714425] Sorting __ex_table...
+[    0.880343] Memory: 8213528K/8386256K available (6534K kernel code, 796K rwdata, 1744K rodata, 560K init, 512K bss, 172728K reserved, 0K cma-reserved)
+[    0.880540] random: get_random_u64 called from __kmem_cache_create+0x24/0x560 with crng_init=0
+[    0.881005] SLUB: HWalign=32, Order=0-3, MinObjects=0, CPUs=2, Nodes=1
+[    0.881108] ftrace: allocating 22280 entries in 44 pages
+[    0.903002] Hierarchical RCU implementation.
+[    0.903009] 	RCU restricting CPUs from NR_CPUS=256 to nr_cpu_ids=2.
+[    0.903014] RCU: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=2
+[    0.908094] NR_IRQS: 2048, nr_irqs: 2048, preallocated irqs: 1
+[    0.908223] clocksource: stick: mask: 0xffffffffffffffff max_cycles: 0x2c47f4ee7, max_idle_ns: 440795202497 ns
+[    0.908228] clocksource: mult[53555555] shift[24]
+[    0.908231] clockevent: mult[3126e98] shift[32]
+[    0.908328] Console: colour dummy device 80x25
+[    0.908334] console [tty0] enabled
+[    0.908337] bootconsole [earlyprom0] disabled
+[    0.988306] Calibrating delay using timer specific routine.. 24.02 BogoMIPS (lpj=48045)
+[    0.988315] pid_max: default: 32768 minimum: 301
+[    0.988481] Security Framework initialized
+[    0.988489] Yama: disabled by default; enable with sysctl kernel.yama.*
+[    0.988539] AppArmor: AppArmor initialized
+[    0.988695] Mount-cache hash table entries: 16384 (order: 4, 131072 bytes)
+[    0.988788] Mountpoint-cache hash table entries: 16384 (order: 4, 131072 bytes)
+[    0.989895] Hierarchical SRCU implementation.
+[    0.990777] smp: Bringing up secondary CPUs ...
+[    0.991775] CPU 0: synchronized TICK with master CPU (last diff 0 cycles, maxerr 6 cycles)
+[    0.991930] smp: Brought up 1 node, 2 CPUs
+[    0.992633] devtmpfs: initialized
+[    0.995492] Performance events: 
+[    0.995512] Testing NMI watchdog ... 
+[    1.075519] OK.
+[    1.075526] Supported PMU type is 'ultra3i'
+[    1.076043] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns
+[    1.076054] futex hash table entries: 512 (order: 2, 32768 bytes)
+[    1.076595] NET: Registered protocol family 16
+[    1.077993] IRQ pre handler NOT supported.
+[    1.078001] IRQ pre handler NOT supported.
+[    1.078008] IRQ pre handler NOT supported.
+[    1.078014] IRQ pre handler NOT supported.
+[    1.078020] IRQ pre handler NOT supported.
+[    1.078097] IRQ pre handler NOT supported.
+[    1.078175] IRQ pre handler NOT supported.
+[    1.078263] IRQ pre handler NOT supported.
+[    1.078270] IRQ pre handler NOT supported.
+[    1.078280] IRQ pre handler NOT supported.
+[    1.078286] IRQ pre handler NOT supported.
+[    1.078292] IRQ pre handler NOT supported.
+[    1.078569] IRQ pre handler NOT supported.
+[    1.080061] IRQ pre handler NOT supported.
+[    1.080135] IRQ pre handler NOT supported.
+[    1.080213] IRQ pre handler NOT supported.
+[    1.080281] IRQ pre handler NOT supported.
+[    1.080426] IRQ pre handler NOT supported.
+[    1.080574] IRQ pre handler NOT supported.
+[    1.080661] IRQ pre handler NOT supported.
+[    1.080852] IRQ pre handler NOT supported.
+[    1.080859] IRQ pre handler NOT supported.
+[    1.080865] IRQ pre handler NOT supported.
+[    1.080871] IRQ pre handler NOT supported.
+[    1.080877] IRQ pre handler NOT supported.
+[    1.080958] IRQ pre handler NOT supported.
+[    1.081166] IRQ pre handler NOT supported.
+[    1.081377] IRQ pre handler NOT supported.
+[    1.081384] IRQ pre handler NOT supported.
+[    1.081389] IRQ pre handler NOT supported.
+[    1.081396] IRQ pre handler NOT supported.
+[    1.081401] IRQ pre handler NOT supported.
+[    1.081476] IRQ pre handler NOT supported.
+[    1.081567] IRQ pre handler NOT supported.
+[    1.082146] audit: initializing netlink subsys (disabled)
+[    1.082365] audit: type=2000 audit(0.092:1): state=initialized audit_enabled=0 res=1
+[    1.083451] /pci@1f,700000: TOMATILLO PCI Bus Module ver[4:0]
+[    1.083461] /pci@1f,700000: PCI IO[7f601000000] MEM[7f700000000]
+[    1.083464]  MEM64[7f700000000]
+
+[    1.085274] PCI: Scanning PBM /pci@1f,700000
+[    1.085422] schizo f0068bd0: PCI host bridge to bus 0000:00
+[    1.085437] pci_bus 0000:00: root bus resource [io  0x7f601000000-0x7f601ffffff] (bus address [0x0000-0xffffff])
+[    1.085443] pci_bus 0000:00: root bus resource [mem 0x7f700000000-0x7f7ffffffff] (bus address [0x00000000-0xffffffff])
+[    1.085449] pci_bus 0000:00: root bus resource [mem 0x7f700000000-0x7f7ffffffff] (bus address [0x00000000-0xffffffff])
+[    1.085457] pci_bus 0000:00: root bus resource [bus 00]
+[    1.085563] pci 0000:00:02.0: PME# supported from D3hot
+[    1.085788] pci 0000:00:02.1: PME# supported from D3hot
+[    1.086092] /pci@1e,600000: TOMATILLO PCI Bus Module ver[4:0]
+[    1.086099] /pci@1e,600000: PCI IO[7fe01000000] MEM[7ff00000000]
+[    1.086101]  MEM64[7ff00000000]
+
+[    1.087928] PCI: Scanning PBM /pci@1e,600000
+[    1.088088] schizo f007167c: PCI host bridge to bus 0001:00
+[    1.088098] pci_bus 0001:00: root bus resource [io  0x7fe01000000-0x7fe01ffffff] (bus address [0x0000-0xffffff])
+[    1.088105] pci_bus 0001:00: root bus resource [mem 0x7ff00000000-0x7ffffffffff] (bus address [0x00000000-0xffffffff])
+[    1.088111] pci_bus 0001:00: root bus resource [mem 0x7ff00000000-0x7ffffffffff] (bus address [0x00000000-0xffffffff])
+[    1.088118] pci_bus 0001:00: root bus resource [bus 00]
+[    1.088371] pci 0001:00:06.0: quirk: [io  0x7fe01000800-0x7fe0100083f] claimed by ali7101 ACPI
+[    1.088378] pci 0001:00:06.0: quirk: [io  0x7fe01000600-0x7fe0100061f] claimed by ali7101 SMB
+[    1.088547] pci 0001:00:0a.0: PME# supported from D3cold
+[    1.088822] pci 0001:00:07.0: can't claim BAR 0 [io  0x7fe01000000-0x7fe0100ffff]: address conflict with 0001:00:06.0 [io  0x7fe01000600-0x7fe0100061f]
+[    1.088832] pci 0001:00:07.0: can't claim BAR 1 [mem 0x7ff00000000-0x7ff000fffff]: address conflict with Video RAM area [??? 0x7ff000a0000-0x7ff000bffff flags 0x80000000]
+[    1.088839] pci 0001:00:07.0: can't claim BAR 2 [mem 0x7ff00000000-0x7ff000fffff]: address conflict with Video RAM area [??? 0x7ff000a0000-0x7ff000bffff flags 0x80000000]
+[    1.089076] /pci@1c,600000: TOMATILLO PCI Bus Module ver[4:0]
+[    1.089083] /pci@1c,600000: PCI IO[7ce01000000] MEM[7cf00000000]
+[    1.089086]  MEM64[7cf00000000]
+
+[    1.090914] PCI: Scanning PBM /pci@1c,600000
+[    1.091077] schizo f0079e34: PCI host bridge to bus 0002:00
+[    1.091089] pci_bus 0002:00: root bus resource [io  0x7ce01000000-0x7ce01ffffff] (bus address [0x0000-0xffffff])
+[    1.091095] pci_bus 0002:00: root bus resource [mem 0x7cf00000000-0x7cfffffffff] (bus address [0x00000000-0xffffffff])
+[    1.091101] pci_bus 0002:00: root bus resource [mem 0x7cf00000000-0x7cfffffffff] (bus address [0x00000000-0xffffffff])
+[    1.091108] pci_bus 0002:00: root bus resource [bus 00]
+[    1.091206] pci 0002:00:02.0: supports D1 D2
+[    1.091376] pci 0002:00:02.1: supports D1 D2
+[    1.091672] /pci@1d,700000: TOMATILLO PCI Bus Module ver[4:0]
+[    1.091680] /pci@1d,700000: PCI IO[7c601000000] MEM[7c700000000]
+[    1.091682]  MEM64[7c700000000]
+
+[    1.093510] PCI: Scanning PBM /pci@1d,700000
+[    1.093656] schizo f0082538: PCI host bridge to bus 0003:00
+[    1.093666] pci_bus 0003:00: root bus resource [io  0x7c601000000-0x7c601ffffff] (bus address [0x0000-0xffffff])
+[    1.093673] pci_bus 0003:00: root bus resource [mem 0x7c700000000-0x7c7ffffffff] (bus address [0x00000000-0xffffffff])
+[    1.093679] pci_bus 0003:00: root bus resource [mem 0x7c700000000-0x7c7ffffffff] (bus address [0x00000000-0xffffffff])
+[    1.093685] pci_bus 0003:00: root bus resource [bus 00]
+[    1.093805] pci 0003:00:02.0: PME# supported from D3hot
+[    1.094049] pci 0003:00:02.1: PME# supported from D3hot
+[    1.097471] HugeTLB registered 64.0 KiB page size, pre-allocated 0 pages
+[    1.097477] HugeTLB registered 8.00 MiB page size, pre-allocated 0 pages
+[    1.097480] HugeTLB registered 256 MiB page size, pre-allocated 0 pages
+[    1.097483] HugeTLB registered 2.00 GiB page size, pre-allocated 0 pages
+[    1.098783] vgaarb: loaded
+[    1.098889] pps_core: LinuxPPS API ver. 1 registered
+[    1.098892] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[    1.098903] PTP clock support registered
+[    1.099916] /pci@1e,600000/isa@7/rtc@0,70: RTC regs at 0x7fe01000070
+[    1.100680] clocksource: Switched to clocksource stick
+[    1.144923] VFS: Disk quotas dquot_6.6.0
+[    1.145014] VFS: Dquot-cache hash table entries: 1024 (order 0, 8192 bytes)
+[    1.145560] AppArmor: AppArmor Filesystem Enabled
+[    1.151907] NET: Registered protocol family 2
+[    1.152483] tcp_listen_portaddr_hash hash table entries: 4096 (order: 3, 65536 bytes)
+[    1.152768] TCP established hash table entries: 65536 (order: 6, 524288 bytes)
+[    1.154388] TCP bind hash table entries: 65536 (order: 7, 1048576 bytes)
+[    1.157639] TCP: Hash tables configured (established 65536 bind 65536)
+[    1.157880] UDP hash table entries: 4096 (order: 4, 131072 bytes)
+[    1.158291] UDP-Lite hash table entries: 4096 (order: 4, 131072 bytes)
+[    1.158980] NET: Registered protocol family 1
+[    1.159060] pci 0001:00:07.0: Activating ISA DMA hang workarounds
+[    1.159091] PCI: Enabling device: (0001:00:0a.0), cmd 2
+[    1.216745] PCI: CLS 64 bytes, default 64
+[    1.216971] Unpacking initramfs...
+[    1.949800] Freeing initrd memory: 18288K
+[    1.950087] power: Control reg at 7fe01000800
+[    1.950504] chmc: UltraSPARC-IIIi memory controller at /memory-controller@0,0
+[    1.950540] chmc: UltraSPARC-IIIi memory controller at /memory-controller@1,0
+[    1.951499] Initialise system trusted keyrings
+[    1.951693] workingset: timestamp_bits=46 max_order=20 bucket_order=0
+[    1.956556] zbud: loaded
+[    3.390921] Key type asymmetric registered
+[    3.390928] Asymmetric key parser 'x509' registered
+[    3.391187] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 250)
+[    3.391320] io scheduler noop registered
+[    3.391324] io scheduler deadline registered
+[    3.391524] io scheduler cfq registered (default)
+[    3.391528] io scheduler mq-deadline registered
+[    3.393085] f00a805c: ttyS0 at MMIO 0x7fe010003f8 (irq = 15, base_baud = 115387) is a 16550A
+[    3.393092] Console: ttyS0 (SU)
+[    3.393158] console [ttyS0] enabled
+[    3.393433] f00a9bdc: ttyS1 at MMIO 0x7fe010002e8 (irq = 15, base_baud = 115387) is a 16550A
+[    3.395921] mousedev: PS/2 mouse device common for all mice
+[    3.396437] rtc_cmos rtc_cmos: rtc core: registered rtc_cmos as rtc0
+[    3.396454] rtc_cmos rtc_cmos: no alarms, 114 bytes nvram
+[    3.396692] ledtrig-cpu: registered to indicate activity on CPUs
+[    3.397380] NET: Registered protocol family 10
+[    3.413396] Segment Routing with IPv6
+[    3.413449] mip6: Mobile IPv6
+[    3.413457] NET: Registered protocol family 17
+[    3.413470] mpls_gso: MPLS GSO support
+[    3.413997] registered taskstats version 1
+[    3.414000] Loading compiled-in X.509 certificates
+[    3.596501] Loaded X.509 cert 'secure-boot-test-key-lfaraone: 97c1b25cddf9873ca78a58f3d73bf727d2cf78ff'
+[    3.597618] Loaded X.509 cert 'Debian Project: Ben Hutchings: 008a018dca80932630'
+[    3.597714] zswap: loaded using pool lzo/zbud
+[    3.597822] AppArmor: AppArmor sha1 policy hashing enabled
+[    3.598162] rtc_cmos rtc_cmos: setting system clock to 2026-04-10 05:41:31 UTC (1775799691)
+[    3.602173] This architecture does not have kernel memory protection.
+[    3.823299] tg3.c:v3.137 (May 11, 2014)
+[    3.846800] usbcore: registered new interface driver usbfs
+[    3.846842] usbcore: registered new interface driver hub
+[    3.846954] usbcore: registered new device driver usb
+[    3.848452] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    3.849733] ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+[    3.850228] ehci-pci: EHCI PCI platform driver
+[    3.850623] ohci-pci: OHCI PCI platform driver
+[    3.850699] ohci-pci 0001:00:0a.0: OHCI PCI host controller
+[    3.850717] ohci-pci 0001:00:0a.0: new USB bus registered, assigned bus number 1
+[    3.850826] ohci-pci 0001:00:0a.0: irq 17, io mem 0x7ff01000000
+[    3.860068] SCSI subsystem initialized
+[    3.862960] PCI: Enabling device: (0002:00:02.0), cmd 147
+[    3.863535] sym0: <1010-66> rev 0x1 at pci 0002:00:02.0 irq 24
+[    3.867439] libata version 3.00 loaded.
+[    3.872166] sym0: No NVRAM, ID 7, Fast-80, LVD, parity checking
+[    3.912617] sym0: SCSI BUS has been reset.
+[    3.912663] scsi host0: sym-2.2.3
+[    3.916829] usb usb1: New USB device found, idVendor=1d6b, idProduct=0001
+[    3.916834] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    3.916838] usb usb1: Product: OHCI PCI host controller
+[    3.916842] usb usb1: Manufacturer: Linux 4.16.0-1-sparc64-smp ohci_hcd
+[    3.916845] usb usb1: SerialNumber: 0001:00:0a.0
+[    3.917304] hub 1-0:1.0: USB hub found
+[    3.917330] hub 1-0:1.0: 2 ports detected
+[    3.918149] PCI: Enabling device: (0001:00:0d.0), cmd 5
+[    3.918908] PCI: Enabling device: (0002:00:02.1), cmd 147
+[    3.919483] sym1: <1010-66> rev 0x1 at pci 0002:00:02.1 irq 25
+[    3.921746] sym1: No NVRAM, ID 7, Fast-80, LVD, parity checking
+[    3.939415] scsi host1: pata_ali
+[    3.955587] scsi host3: pata_ali
+[    3.955787] ata1: PATA max UDMA/100 cmd 0x7fe01000900 ctl 0x7fe01000918 bmdma 0x7fe01000920 irq 18
+[    3.955792] ata2: PATA max UDMA/100 cmd 0x7fe01000910 ctl 0x7fe01000908 bmdma 0x7fe01000928 irq 18
+[    3.962102] sym1: SCSI BUS has been reset.
+[    3.962141] scsi host2: sym-2.2.3
+[    3.962156] tg3 0000:00:02.0: VPD access failed.  This is likely a firmware bug on this device.  Contact the card vendor for a firmware update
+[    4.140933] ata1.00: ATAPI: DV-28E-C, 1.4B, max UDMA/33
+[    4.140945] ata1.00: WARNING: ATAPI DMA disabled for reliability issues.  It can be enabled
+[    4.140948] ata1.00: WARNING: via pata_ali.atapi_dma modparam or corresponding sysfs node.
+[    4.164820] ata1.00: configured for UDMA/33
+[    5.240535] tg3 0000:00:02.0 (unnamed net_device) (uninitialized): No firmware running
+[    5.241557] tg3 0000:00:02.0 eth0: Tigon3 [partno(none) rev 2100] (PCI:66MHz:64-bit) MAC address 00:14:4f:4e:3d:f5
+[    5.241564] tg3 0000:00:02.0 eth0: attached PHY is 5704 (10/100/1000Base-T Ethernet) (WireSpeed[1], EEE[0])
+[    5.241569] tg3 0000:00:02.0 eth0: RXcsums[1] LinkChgREG[0] MIirq[0] ASF[0] TSOcap[1]
+[    5.241574] tg3 0000:00:02.0 eth0: dma_rwctrl[763f0000] dma_mask[32-bit]
+[    5.241662] PCI: Enabling device: (0000:00:02.1), cmd 2
+[    5.388812] tg3 0000:00:02.1: VPD access failed.  This is likely a firmware bug on this device.  Contact the card vendor for a firmware update
+[    5.389969] tg3 0000:00:02.1 eth1: Tigon3 [partno(none) rev 2100] (PCI:66MHz:64-bit) MAC address 00:14:4f:4e:3d:f6
+[    5.389977] tg3 0000:00:02.1 eth1: attached PHY is 5704 (10/100/1000Base-T Ethernet) (WireSpeed[1], EEE[0])
+[    5.389983] tg3 0000:00:02.1 eth1: RXcsums[1] LinkChgREG[0] MIirq[0] ASF[0] TSOcap[1]
+[    5.389988] tg3 0000:00:02.1 eth1: dma_rwctrl[763f0000] dma_mask[32-bit]
+[    5.390155] PCI: Enabling device: (0003:00:02.0), cmd 2
+[    5.536676] tg3 0003:00:02.0: VPD access failed.  This is likely a firmware bug on this device.  Contact the card vendor for a firmware update
+[    5.537660] tg3 0003:00:02.0 eth2: Tigon3 [partno(none) rev 2100] (PCI:66MHz:64-bit) MAC address 00:14:4f:4e:3d:f7
+[    5.537666] tg3 0003:00:02.0 eth2: attached PHY is 5704 (10/100/1000Base-T Ethernet) (WireSpeed[1], EEE[0])
+[    5.537671] tg3 0003:00:02.0 eth2: RXcsums[1] LinkChgREG[0] MIirq[0] ASF[0] TSOcap[1]
+[    5.537676] tg3 0003:00:02.0 eth2: dma_rwctrl[763f0000] dma_mask[32-bit]
+[    5.537774] PCI: Enabling device: (0003:00:02.1), cmd 2
+[    5.684806] tg3 0003:00:02.1: VPD access failed.  This is likely a firmware bug on this device.  Contact the card vendor for a firmware update
+[    5.685716] tg3 0003:00:02.1 eth3: Tigon3 [partno(none) rev 2100] (PCI:66MHz:64-bit) MAC address 00:14:4f:4e:3d:f8
+[    5.685722] tg3 0003:00:02.1 eth3: attached PHY is 5704 (10/100/1000Base-T Ethernet) (WireSpeed[1], EEE[0])
+[    5.685727] tg3 0003:00:02.1 eth3: RXcsums[1] LinkChgREG[0] MIirq[0] ASF[0] TSOcap[1]
+[    5.685732] tg3 0003:00:02.1 eth3: dma_rwctrl[763f0000] dma_mask[32-bit]
+[    5.690223] tg3 0000:00:02.0 enp0s2f0: renamed from eth0
+[    5.705061] tg3 0003:00:02.0 enP3p0s2f0: renamed from eth2
+[    5.718406] tg3 0003:00:02.1 enP3p0s2f1: renamed from eth3
+[    5.733267] tg3 0000:00:02.1 enp0s2f1: renamed from eth1
+[    7.633229] scsi 0:0:1:0: Direct-Access     FUJITSU  MAW3147NC        0104 PQ: 0 ANSI: 3
+[    7.633243] scsi target0:0:1: tagged command queuing enabled, command queue depth 16.
+[    7.672658] scsi target0:0:1: Beginning Domain Validation
+[    7.678616] scsi target0:0:1: FAST-80 WIDE SCSI 160.0 MB/s DT (12.5 ns, offset 31)
+[    7.683154] scsi 0:0:1:0: Power-on or device reset occurred
+[    7.686473] scsi target0:0:1: Ending Domain Validation
+[   11.539861] scsi: waiting for bus probes to complete ...
+[   11.544735] sd 0:0:1:0: [sda] 287277984 512-byte logical blocks: (147 GB/137 GiB)
+[   11.547042] sd 0:0:1:0: [sda] Write Protect is off
+[   11.547047] sd 0:0:1:0: [sda] Mode Sense: b3 00 00 08
+[   11.548201] sd 0:0:1:0: [sda] Write cache: disabled, read cache: enabled, doesn't support DPO or FUA
+[   11.561348]  sda: sda1 sda2 sda3 sda4
+[   11.566695] sd 0:0:1:0: [sda] Attached SCSI disk
+[   11.741386] scsi 1:0:0:0: CD-ROM            TEAC     DV-28E-C         1.4B PQ: 0 ANSI: 5
+[   11.974206] sr 1:0:0:0: [sr0] scsi3-mmc drive: 24x/24x cd/rw xa/form2 cdda tray
+[   11.974214] cdrom: Uniform CD-ROM driver Revision: 3.20
+[   11.974755] sr 1:0:0:0: Attached scsi CD-ROM sr0
+[   12.211269] ata_id[128]: unable to open '/dev/sr0'
+[   12.440917] random: fast init done
+[   12.663208] ata_id[131]: unable to open '/dev/sr0'
+[   12.992303] PM: Starting manual resume from disk
+[   12.992678] PM: Image not found (code -22)
+[   13.042591] aes_sparc64: sparc64 aes opcodes not available.
+[   13.078747] crc32c_sparc64: sparc64 crc32c opcode not available.
+[   13.271331] EXT4-fs (sda2): mounted filesystem with ordered data mode. Opts: (null)
+[   14.288076] systemd[1]: systemd 238 running in system mode. (+PAM +AUDIT +SELINUX +IMA +APPARMOR +SMACK +SYSVINIT +UTMP +LIBCRYPTSETUP +GCRYPT +GNUTLS +ACL +XZ +LZ4 -SECCOMP +BLKID +ELFUTILS +KMOD -IDN2 +IDN -PCRE2 default-hierarchy=hybrid)
+[   14.288195] systemd[1]: Detected architecture sparc64.
+[   14.305239] systemd[1]: Set hostname to <sun>.
+[   14.855175] random: systemd: uninitialized urandom read (16 bytes read)
+[   14.855368] systemd[1]: Listening on Journal Audit Socket.
+[   14.855617] random: systemd: uninitialized urandom read (16 bytes read)
+[   14.855775] systemd[1]: Started Dispatch Password Requests to Console Directory Watch.
+[   14.856037] random: systemd: uninitialized urandom read (16 bytes read)
+[   14.856389] systemd[1]: Set up automount Arbitrary Executable File Formats File System Automount Point.
+[   14.856448] random: systemd: uninitialized urandom read (16 bytes read)
+[   14.858237] systemd[1]: Created slice system-serial\x2dgetty.slice.
+[   14.858296] random: systemd: uninitialized urandom read (16 bytes read)
+[   14.858454] systemd[1]: Started Forward Password Requests to Wall Directory Watch.
+[   14.858502] random: systemd: uninitialized urandom read (16 bytes read)
+[   14.858759] systemd[1]: Listening on Journal Socket (/dev/log).
+[   14.858808] random: systemd: uninitialized urandom read (16 bytes read)
+[   14.858977] systemd[1]: Listening on initctl Compatibility Named Pipe.
+[   14.859034] random: systemd: uninitialized urandom read (16 bytes read)
+[   14.859512] random: systemd: uninitialized urandom read (16 bytes read)
+[   14.862651] random: systemd: uninitialized urandom read (16 bytes read)
+[   15.104729] EXT4-fs (sda2): re-mounted. Opts: errors=remount-ro
+[   15.530699] systemd-journald[205]: Received request to flush runtime journal from PID 1
+[   15.988817] sd 0:0:1:0: Attached scsi generic sg0 type 0
+[   15.988952] sr 1:0:0:0: Attached scsi generic sg1 type 5
+[   16.533944] random: crng init done
+[   16.599687] Adding 8040520k swap on /dev/sda4.  Priority:-2 extents:1 across:8040520k FS
+[   16.726404] EXT4-fs (sda1): mounting ext2 file system using the ext4 subsystem
+[   16.737592] EXT4-fs (sda1): mounted filesystem without journal. Opts: (null)
+[   17.375361] tg3 0000:00:02.0: firmware: failed to load tigon/tg3_tso.bin (-2)
+[   17.469222] firmware_class: See https://wiki.debian.org/Firmware for information about missing firmware
+[   17.469228] tg3 0000:00:02.0: Direct firmware load for tigon/tg3_tso.bin failed with error -2
+[   17.469236] tg3 0000:00:02.0 enp0s2f0: TSO capability disabled
+[   17.642139] IPv6: ADDRCONF(NETDEV_UP): enp0s2f0: link is not ready
+[   21.327843] tg3 0000:00:02.0 enp0s2f0: Link is up at 1000 Mbps, full duplex
+[   21.327894] tg3 0000:00:02.0 enp0s2f0: Flow control is on for TX and on for RX
+[   21.327947] IPv6: ADDRCONF(NETDEV_CHANGE): enp0s2f0: link becomes ready
+[  381.711205] ISO 9660 Extensions: RRIP_1991A
