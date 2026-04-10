@@ -1,0 +1,5 @@
+NAME   DUID               SIZE USED FREE TYPE   COMMENT          
+sd0    7223eeba52a2cd85   136G 136G 0.0B SCSI   MAW3147NC        
+├─sd0a 7223eeba52a2cd85.a 130G 2.9G 125G 4.2BSD /                
+├─sd0b 7223eeba52a2cd85.b 6.8G  N/A  N/A swap                    
+└─sd0c 7223eeba52a2cd85.c 136G  N/A  N/A unused                  

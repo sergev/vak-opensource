@@ -1,0 +1,92 @@
+console is /pci@1e,600000/isa@7/serial@0,3f8
+Copyright (c) 1982, 1986, 1989, 1991, 1993
+	The Regents of the University of California.  All rights reserved.
+Copyright (c) 1995-2025 OpenBSD. All rights reserved.  https://www.OpenBSD.org
+
+OpenBSD 7.8 (GENERIC.MP) #83: Mon Oct 13 02:26:40 MDT 2025
+    deraadt@sparc64.openbsd.org:/usr/src/sys/arch/sparc64/compile/GENERIC.MP
+real mem = 8589934592 (8192MB)
+avail mem = 8421466112 (8031MB)
+random: good seed from bootblocks
+mpath0 at root
+scsibus0 at mpath0: 256 targets
+mainbus0 at root: Netra 240
+cpu0 at mainbus0: SUNW,UltraSPARC-IIIi (rev 3.4) @ 1503 MHz
+cpu0: physical 32K instruction (32 b/l), 64K data (32 b/l), 1024K external (64 b/l)
+cpu1 at mainbus0: SUNW,UltraSPARC-IIIi (rev 3.4) @ 1503 MHz
+cpu1: physical 32K instruction (32 b/l), 64K data (32 b/l), 1024K external (64 b/l)
+"memory-controller" at mainbus0 not configured
+"memory-controller" at mainbus0 not configured
+schizo0 at mainbus0: "Tomatillo", version 4, ign 7c0, bus B 0 to 0
+schizo0: dvma map c0000000-dfffffff
+pci0 at schizo0
+bge0 at pci0 dev 2 function 0 "Broadcom BCM5704C" rev 0x00, BCM5704 B0 (0x2100): ivec 0x7c8, address 00:14:4f:4e:3d:f5
+brgphy0 at bge0 phy 1: BCM5704, rev. 0
+bge1 at pci0 dev 2 function 1 "Broadcom BCM5704C" rev 0x00, BCM5704 B0 (0x2100): ivec 0x7c9, address 00:14:4f:4e:3d:f6
+brgphy1 at bge1 phy 1: BCM5704, rev. 0
+schizo1 at mainbus0: "Tomatillo", version 4, ign 780, bus A 0 to 0
+schizo1: dvma map c0000000-dfffffff
+pci1 at schizo1
+ebus0 at pci1 dev 7 function 0 "Acer Labs M1533 ISA" rev 0x00
+"flashprom" at ebus0 addr 0-fffff, 290-290 not configured
+rtc0 at ebus0 addr 70-71: m5819p
+pcfiic0 at ebus0 addr 320-321 ivec 0x2e
+iic0 at pcfiic0
+"SUNW,i2c-imax" at iic0 addr 0xb not configured
+"SUNW,i2c-imax" at iic0 addr 0xc not configured
+spdmem0 at iic0 addr 0x5b: 1GB DDR SDRAM registered ECC PC2700CL2.5
+spdmem1 at iic0 addr 0x5c: 1GB DDR SDRAM registered ECC PC2700CL2.5
+spdmem2 at iic0 addr 0x5d: 1GB DDR SDRAM registered ECC PC2700CL2.5
+spdmem3 at iic0 addr 0x5e: 1GB DDR SDRAM registered ECC PC2700CL2.5
+spdmem4 at iic0 addr 0x63: 1GB DDR SDRAM registered ECC PC2700CL2.5
+spdmem5 at iic0 addr 0x64: 1GB DDR SDRAM registered ECC PC2700CL2.5
+spdmem6 at iic0 addr 0x65: 1GB DDR SDRAM registered ECC PC2700CL2.5
+spdmem7 at iic0 addr 0x66: 1GB DDR SDRAM registered ECC PC2700CL2.5
+"ds1307" at iic0 addr 0x68 not configured
+"pca9555" at iic0 addr 0x22 not configured
+"pca9555" at iic0 addr 0x23 not configured
+"pca9555" at iic0 addr 0x25 not configured
+"pca9555" at iic0 addr 0x34 not configured
+"pca9555" at iic0 addr 0x44 not configured
+"pca9556" at iic0 addr 0x38 not configured
+power0 at ebus0 addr 800-82f ivec 0x20
+com0 at ebus0 addr 3f8-3ff ivec 0x2c: ns16550a, 16 byte fifo
+com0: console
+com1 at ebus0 addr 2e8-2ef ivec 0x2c: ns16550a, 16 byte fifo
+"rmc-comm" at ebus0 addr 3e8-3ef ivec 0x2c not configured
+alipm0 at pci1 dev 6 function 0 "Acer Labs M7101 Power" rev 0x00: 223KHz clock
+iic1 at alipm0
+ohci0 at pci1 dev 10 function 0 "Acer Labs M5237 USB" rev 0x03: ivec 0x7a7, version 1.0, legacy support
+pciide0 at pci1 dev 13 function 0 "Acer Labs M5229 IDE" rev 0xc4: DMA, channel 0 configured to native-PCI, channel 1 configured to native-PCI
+pciide0: using ivec 0x798 for native-PCI interrupt
+atapiscsi0 at pciide0 channel 0 drive 0
+scsibus1 at atapiscsi0: 2 targets
+cd0 at scsibus1 targ 0 lun 0: <TEAC, DV-28E-C, 1.4B> removable
+cd0(pciide0:0:0): using PIO mode 4, Ultra-DMA mode 2
+pciide0: channel 1 disabled (no drives)
+usb0 at ohci0: USB revision 1.0
+uhub0 at usb0 configuration 1 interface 0 "Acer Labs OHCI root hub" rev 1.00/1.00 addr 1
+schizo2 at mainbus0: "Tomatillo", version 4, ign 700, bus A 0 to 0
+schizo2: dvma map c0000000-dfffffff
+pci2 at schizo2
+siop0 at pci2 dev 2 function 0 "Symbios Logic 53c1010-66" rev 0x01: ivec 0x729, using 8K of on-board RAM
+scsibus2 at siop0: 16 targets, initiator 7
+sym0 at scsibus2 targ 0 lun 0: <FUJITSU, MAW3147NC, 0104> serial.FUJITSU_MAW3147NC_DAA0P9207M1F
+sd0 at scsibus0 targ 0 lun 0: <FUJITSU, MAW3147NC, 0104> serial.FUJITSU_MAW3147NC_DAA0P9207M1F
+sd0: 140272MB, 512 bytes/sector, 287277984 sectors
+siop1 at pci2 dev 2 function 1 "Symbios Logic 53c1010-66" rev 0x01: ivec 0x728, using 8K of on-board RAM
+scsibus3 at siop1: 16 targets, initiator 7
+schizo3 at mainbus0: "Tomatillo", version 4, ign 740, bus B 0 to 0
+schizo3: dvma map c0000000-dfffffff
+pci3 at schizo3
+bge2 at pci3 dev 2 function 0 "Broadcom BCM5704C" rev 0x00, BCM5704 B0 (0x2100): ivec 0x75c, address 00:14:4f:4e:3d:f7
+brgphy2 at bge2 phy 1: BCM5704, rev. 0
+bge3 at pci3 dev 2 function 1 "Broadcom BCM5704C" rev 0x00, BCM5704 B0 (0x2100): ivec 0x75d, address 00:14:4f:4e:3d:f8
+brgphy3 at bge3 phy 1: BCM5704, rev. 0
+siop0: target 0 now using tagged DT 16 bit 80.0 MHz 62 REQ/ACK offset xfers
+vscsi0 at root
+scsibus4 at vscsi0: 256 targets
+softraid0 at root
+scsibus5 at softraid0: 256 targets
+bootpath: /pci@1c,600000/scsi@2,0/disk@0,0
+root on sd0a (7223eeba52a2cd85.a) swap on sd0b dump on sd0b

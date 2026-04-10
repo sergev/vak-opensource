@@ -1,0 +1,317 @@
+Running diagnostic script obdiag/normal
+
+Testing /pci@1e,600000/ide@d
+Testing /pci@1e,600000/isa@7/rtc@0,70
+Testing /pci@1c,600000/scsi@2
+Testing /pci@1c,600000/scsi@2,1
+Testing /pci@1e,600000/isa@7/serial@0,2e8
+Testing /pci@1e,600000/isa@7/serial@0,3f8
+
+
+Probing system devices
+Probing memory
+Probing I/O buses
+
+Netra 240, No Keyboard
+Copyright 2005 Sun Microsystems, Inc.  All rights reserved.
+OpenBoot 4.18.10, 8192 MB memory installed, Serial #72236533.
+Ethernet address 0:14:4f:4e:3d:f5, Host ID: 844e3df5.
+
+
+
+Rebooting with command: boot
+Boot device: /pci@1c,600000/scsi@2/disk@0,0:a  File and args:
+OpenBSD IEEE 1275 Bootblock 2.1
+..>> OpenBSD BOOT 1.29
+Can't read disk label.
+Can't open disk label package
+Trying bsd...
+Booting /pci@1c,600000/scsi@2/disk@0,0:a/bsd
+10309240@0x1000000+4488@0x19d4e78+149220@0x1c00000+4045084@0x1c246e4
+symbols @ 0xfebb2400 513757+165+678696+474168 start=0x1000000
+[ using 1667816 bytes of bsd ELF symbol table ]
+console is /pci@1e,600000/isa@7/serial@0,3f8
+Copyright (c) 1982, 1986, 1989, 1991, 1993
+        The Regents of the University of California.  All rights reserved.
+Copyright (c) 1995-2025 OpenBSD. All rights reserved.  https://www.OpenBSD.org
+
+OpenBSD 7.8 (GENERIC.MP) #83: Mon Oct 13 02:26:40 MDT 2025
+    deraadt@sparc64.openbsd.org:/usr/src/sys/arch/sparc64/compile/GENERIC.MP
+real mem = 8589934592 (8192MB)
+avail mem = 8421466112 (8031MB)
+random: good seed from bootblocks
+mpath0 at root
+scsibus0 at mpath0: 256 targets
+mainbus0 at root: Netra 240
+cpu0 at mainbus0: SUNW,UltraSPARC-IIIi (rev 3.4) @ 1503 MHz
+cpu0: physical 32K instruction (32 b/l), 64K data (32 b/l), 1024K external (64 b/l)
+cpu1 at mainbus0: SUNW,UltraSPARC-IIIi (rev 3.4) @ 1503 MHz
+cpu1: physical 32K instruction (32 b/l), 64K data (32 b/l), 1024K external (64 b/l)
+"memory-controller" at mainbus0 not configured
+"memory-controller" at mainbus0 not configured
+schizo0 at mainbus0: "Tomatillo", version 4, ign 7c0, bus B 0 to 0
+schizo0: dvma map c0000000-dfffffff
+pci0 at schizo0
+bge0 at pci0 dev 2 function 0 "Broadcom BCM5704C" rev 0x00, BCM5704 B0 (0x2100): ivec 0x7c8, address 00:14:4f:4e:3d:f5
+brgphy0 at bge0 phy 1: BCM5704, rev. 0
+bge1 at pci0 dev 2 function 1 "Broadcom BCM5704C" rev 0x00, BCM5704 B0 (0x2100): ivec 0x7c9, address 00:14:4f:4e:3d:f6
+brgphy1 at bge1 phy 1: BCM5704, rev. 0
+schizo1 at mainbus0: "Tomatillo", version 4, ign 780, bus A 0 to 0
+schizo1: dvma map c0000000-dfffffff
+pci1 at schizo1
+ebus0 at pci1 dev 7 function 0 "Acer Labs M1533 ISA" rev 0x00
+"flashprom" at ebus0 addr 0-fffff, 290-290 not configured
+rtc0 at ebus0 addr 70-71: m5819p
+pcfiic0 at ebus0 addr 320-321 ivec 0x2e
+iic0 at pcfiic0
+"SUNW,i2c-imax" at iic0 addr 0xb not configured
+"SUNW,i2c-imax" at iic0 addr 0xc not configured
+spdmem0 at iic0 addr 0x5b: 1GB DDR SDRAM registered ECC PC2700CL2.5
+spdmem1 at iic0 addr 0x5c: 1GB DDR SDRAM registered ECC PC2700CL2.5
+spdmem2 at iic0 addr 0x5d: 1GB DDR SDRAM registered ECC PC2700CL2.5
+spdmem3 at iic0 addr 0x5e: 1GB DDR SDRAM registered ECC PC2700CL2.5
+spdmem4 at iic0 addr 0x63: 1GB DDR SDRAM registered ECC PC2700CL2.5
+spdmem5 at iic0 addr 0x64: 1GB DDR SDRAM registered ECC PC2700CL2.5
+spdmem6 at iic0 addr 0x65: 1GB DDR SDRAM registered ECC PC2700CL2.5
+spdmem7 at iic0 addr 0x66: 1GB DDR SDRAM registered ECC PC2700CL2.5
+"ds1307" at iic0 addr 0x68 not configured
+"pca9555" at iic0 addr 0x22 not configured
+"pca9555" at iic0 addr 0x23 not configured
+"pca9555" at iic0 addr 0x25 not configured
+"pca9555" at iic0 addr 0x34 not configured
+"pca9555" at iic0 addr 0x44 not configured
+"pca9556" at iic0 addr 0x38 not configured
+power0 at ebus0 addr 800-82f ivec 0x20
+com0 at ebus0 addr 3f8-3ff ivec 0x2c: ns16550a, 16 byte fifo
+com0: console
+com1 at ebus0 addr 2e8-2ef ivec 0x2c: ns16550a, 16 byte fifo
+"rmc-comm" at ebus0 addr 3e8-3ef ivec 0x2c not configured
+alipm0 at pci1 dev 6 function 0 "Acer Labs M7101 Power" rev 0x00: 223KHz clock
+iic1 at alipm0
+ohci0 at pci1 dev 10 function 0 "Acer Labs M5237 USB" rev 0x03: ivec 0x7a7, version 1.0, legacy support
+pciide0 at pci1 dev 13 function 0 "Acer Labs M5229 IDE" rev 0xc4: DMA, channel 0 configured to native-PCI, channel 1 configured to nI
+pciide0: using ivec 0x798 for native-PCI interrupt
+atapiscsi0 at pciide0 channel 0 drive 0
+scsibus1 at atapiscsi0: 2 targets
+cd0 at scsibus1 targ 0 lun 0: <TEAC, DV-28E-C, 1.4B> removable
+cd0(pciide0:0:0): using PIO mode 4, Ultra-DMA mode 2
+pciide0: channel 1 disabled (no drives)
+usb0 at ohci0: USB revision 1.0
+uhub0 at usb0 configuration 1 interface 0 "Acer Labs OHCI root hub" rev 1.00/1.00 addr 1
+schizo2 at mainbus0: "Tomatillo", version 4, ign 700, bus A 0 to 0
+schizo2: dvma map c0000000-dfffffff
+pci2 at schizo2
+siop0 at pci2 dev 2 function 0 "Symbios Logic 53c1010-66" rev 0x01: ivec 0x729, using 8K of on-board RAM
+scsibus2 at siop0: 16 targets, initiator 7
+sym0 at scsibus2 targ 0 lun 0: <FUJITSU, MAW3147NC, 0104> serial.FUJITSU_MAW3147NC_DAA0P9207M1F
+sd0 at scsibus0 targ 0 lun 0: <FUJITSU, MAW3147NC, 0104> serial.FUJITSU_MAW3147NC_DAA0P9207M1F
+sd0: 140272MB, 512 bytes/sector, 287277984 sectors
+siop1 at pci2 dev 2 function 1 "Symbios Logic 53c1010-66" rev 0x01: ivec 0x728, using 8K of on-board RAM
+scsibus3 at siop1: 16 targets, initiator 7
+schizo3 at mainbus0: "Tomatillo", version 4, ign 740, bus B 0 to 0
+schizo3: dvma map c0000000-dfffffff
+pci3 at schizo3
+bge2 at pci3 dev 2 function 0 "Broadcom BCM5704C" rev 0x00, BCM5704 B0 (0x2100): ivec 0x75c, address 00:14:4f:4e:3d:f7
+brgphy2 at bge2 phy 1: BCM5704, rev. 0
+bge3 at pci3 dev 2 function 1 "Broadcom BCM5704C" rev 0x00, BCM5704 B0 (0x2100): ivec 0x75d, address 00:14:4f:4e:3d:f8
+brgphy3 at bge3 phy 1: BCM5704, rev. 0
+siop0: target 0 now using tagged DT 16 bit 80.0 MHz 62 REQ/ACK offset xfers
+vscsi0 at root
+scsibus4 at vscsi0: 256 targets
+softraid0 at root
+scsibus5 at softraid0: 256 targets
+bootpath: /pci@1c,600000/scsi@2,0/disk@0,0
+root on sd0a (7223eeba52a2cd85.a) swap on sd0b dump on sd0b
+Automatic boot in progress: starting file system checks.
+/dev/sd0a (7223eeba52a2cd85.a): file system is clean; not checking
+pf enabled
+starting network
+reordering: ld.so libc libcrypto sshd sshd-session sshd-auth ssh-agent.
+openssl: generating isakmpd RSA keys... done.
+openssl: generating iked ECDSA keys... done.
+ssh-keygen: generating new host keys: RSA ECDSA ED25519
+sshd: (ED25519) SHA256:IOekF4gAIB3XFh9wflVRq012kbozJI2XoSzbSxxwkQc
+starting early daemons: syslogd pflogd ntpd.
+starting RPC daemons:.
+savecore: no core dump
+checking quotas: done.
+clearing /tmp
+kern.securelevel: 0 -> 1
+creating runtime link editor directory cache.
+preserving editor files.
+starting network daemons: sshd smtpd sndiod.
+running rc.firsttime
+fw_update: add none; update none
+starting local daemons: cron.
+Fri Apr 10 00:35:01 PDT 2026
+
+OpenBSD/sparc64 (sun.lan) (console)
+
+login: root
+Password:
+OpenBSD 7.8 (GENERIC.MP) #83: Mon Oct 13 02:26:40 MDT 2025
+
+Welcome to OpenBSD: The proactively secure Unix-like operating system.
+
+Please use the sendbug(1) utility to report bugs in the system.
+Before reporting a bug, please try to reproduce it with the latest
+version of the code.  With bug reports, please try to ensure that
+enough information to reproduce the problem is enclosed, and if a
+known fix for it exists, include that as well.
+
+You have mail.
+sun# mail
+Mail version 8.1.2 01/15/2001.  Type ? for help.
+"/var/mail/root": 1 message 1 new
+>N  1 deraadt@do-not-re  Fri Oct 24 07:08   71/3841  Welcome to OpenBSD 7.8!
+& p
+Message 1:
+From deraadt@do-not-reply.openbsd.org Fri Oct 24 07:08:00 MDT 2025
+Date: Oct 24 07:08:00 MDT 2025
+From: deraadt@do-not-reply.openbsd.org (Theo de Raadt)
+To: root
+Subject: Welcome to OpenBSD 7.8!
+
+This message attempts to describe the most basic initial questions that a
+system administrator of an OpenBSD box might have.  You are urged to save
+this message for later reference.
+
+For more information on how to set up your OpenBSD system, refer to the
+"afterboot" man page (i.e. after you exit the mail subsystem, type
+"man afterboot").  If you are not familiar with how to read man pages, type
+"man man" at a shell prompt and read the entire thing.  Pay specific
+attention to the "man -k keyword" option, which will permit you to find the
+man page you are looking for more easily; for instance, "man -k ethernet".
+The GNU "info" subsystem is also installed with further documentation
+resources: to read info pages type "info".  (The info subsystem behaves like
+the popular emacs editor.)
+
+Again, PLEASE READ THE MANUAL PAGES.  Our developers have spent countless
+hours improving them so that they are clear and precise.
+
+Several popular binary packages (pre-compiled applications) are
+available from mirror sites.  Mirror selection is usually automatic
+during install/upgrade -- a mirror URL from https://www.openbsd.org/ftp.html
+is stored into the file /etc/installurl.  Installation of packages is
+as simple as:
+
+ # pkg_add -v rsync chromium emacs--no_x11
+
+Significant efforts were made to centralize all system configuration in the
+/etc directory.  You should be able to find each of the configuration files
+you seek there, lightly documented.  In particular, much of the configuration
+has been centralized in the file /etc/rc.conf.  You should not need to ever
+edit the file /etc/rc.   The files /etc/rc.securelevel and /etc/rc.local exist
+for this purpose; the first is run before the system has gone into secure
+mode; the second is run afterwards (if in doubt, add your tools to rc.local).
+
+Please refer to our web pages for any other questions you might have.
+        https://www.OpenBSD.org
+Please pay special attention to the Frequently Asked Questions section at
+        https://www.OpenBSD.org/faq/
+
+OpenBSD is free software.  You can do with it as you like, subject to very few
+conditions (described at www.OpenBSD.org/policy.html).  But free software isn't
+written without money.  Network links, hardware costs, release engineering and
+testing work all take money and significant effort on the part of those who
+have made this OpenBSD release what it is.  Please reward the developers who
+have made OpenBSD what it is, and thus make it possible for this wonderful
+process to continue.  For more information on how you can help, please see
+www.OpenBSD.org/goals.html and visit www.OpenBSD.org/donations.html to see a
+list of those who have donated money, equipment, or other resources to ensure
+OpenBSD continues.
+
+If you wish to ensure that OpenBSD runs better on your machines, please do us
+a favor (after you have your mail system configured!) and type something like:
+ # (dmesg; sysctl hw.sensors) | \
+        mail -s "Sony VAIO 505R laptop, suspend works OK" dmesg@openbsd.org
+so that we can see what kinds of configurations people are running.  As shown,
+including a bit of information about your machine in the subject or the body
+can help us even further.  We will use this information to improve device driver
+support in future releases.  (Please do this using the supplied GENERIC kernel,
+not for a custom compiled kernel, unless you're unable to boot the GENERIC
+kernel.  If you have a multi-processor machine, dmesg results of both GENERIC.MP
+and GENERIC kernels are appreciated.)  The device driver information we get from
+this helps us fix existing drivers. Thank you!
+
+(If you wish to save it, use the "x" command.)
+
+& d
+& q
+
+sun# df
+Filesystem  512-blocks      Used     Avail Capacity  Mounted on
+/dev/sd0a    268612168   2112560 253069000     1%    /
+
+sun# ps alxww
+  UID   PID  PPID CPU PRI  NI   VSZ   RSS WCHAN   STAT   TT       TIME COMMAND
+    0     1     0  23  10   0  1536   480 wait    S      ??    0:00.01 /sbin/init
+    0 27597     1  18   2   0  1784  1464 kqread  Ip     ??    0:00.01 /sbin/slaacd
+  115 47038 27597   0   2   0  1816  1976 kqread  Ip     ??    0:00.02 slaacd: engine (slaacd)
+  115 90819 27597   0   2   0  1824  2104 kqread  IpU    ??    0:00.03 slaacd: frontend (slaacd)
+    0 22982     1   0   2   0  1840  1760 kqread  IU     ??    0:00.02 /sbin/dhcpleased
+   77 57674 22982   0   2   0  1832  2048 kqread  Ip     ??    0:00.04 dhcpleased: engine (dhcpleased)
+   77  6277 22982   0   2   0  1840  2096 kqread  IpU    ??    0:00.03 dhcpleased: frontend (dhcpleased)
+    0 34498     1   0   2   0  1520  1184 kqread  IpU    ??    0:00.01 /sbin/resolvd
+    0 95761     1  17   2   0  1728  2696 sbwait  IpU    ??    0:00.02 syslogd: [priv] (syslogd)
+   73 58736 95761   0   2   0  2064  1976 kqread  Spc    ??    0:00.03 /usr/sbin/syslogd
+    0 58976     1  25   2   0  1688  1584 sbwait  IU     ??    0:00.01 pflogd: [priv] (pflogd)
+   74 91377 58976  25   4   0  1728  1680 bpf     Ipc    ??    0:00.02 pflogd: [running] -s 160 -i pflog0 -f /var/log/pflog (pflogd)
+   83 67365     1   0   2 -20  1856  3328 kqread  S<pc   ??    0:00.05 ntpd: ntp engine (ntpd)
+   83 31117 67365  17   2   0  1824  3304 kqread  Ip     ??    0:00.05 ntpd: dns engine (ntpd)
+    0 89859     1  17   2 -20  2400  1296 kqread  I<pU   ??    0:00.01 /usr/sbin/ntpd
+    0 71612     1  25   2   0  1640  1744 kqread  I      ??    0:00.01 sshd: /usr/sbin/sshd [listener] 0 of 10-100 startups (sshd)
+    0 66977     1  25   2   0  2608  2464 kqread  Ip     ??    0:00.05 /usr/sbin/smtpd
+   95 54127 66977  25   2   0  2296  3736 kqread  Ipc    ??    0:00.04 smtpd: crypto (smtpd)
+   95 51692 66977  11   2   0  2616  3912 kqread  Ipc    ??    0:00.04 smtpd: control (smtpd)
+   95 50121 66977  11   2   0  2440  4072 kqread  Ip     ??    0:00.05 smtpd: lookup (smtpd)
+   95   790 66977  11   2   0  3032  5680 kqread  Ipc    ??    0:00.07 smtpd: dispatcher (smtpd)
+  103 33587 66977  12   2   0  2592  4024 kqread  Ipc    ??    0:00.06 smtpd: queue (smtpd)
+   95 16784 66977  11   2   0  2304  3928 kqread  Ipc    ??    0:00.04 smtpd: scheduler (smtpd)
+  110 17432     1  25   2   0  9728   952 kqread  IpU    ??    0:00.00 sndiod: helper (sndiod)
+   99  1431     1  25   2 -20  9728   832 kqread  I<pc   ??    0:00.00 /usr/bin/sndiod
+    0 17030     1  25   2   0  1856  1528 kqread  Ip     ??    0:00.01 /usr/sbin/cron
+    0 40768     1   0  18   0  1952  1512 sigsusp Sp     00    0:00.04 -ksh (ksh)
+    0 28132 40768   0  28   0  1536   488 -       R+pU/1 00    0:00.00 ps -alxww
+
+sun# uname -a
+OpenBSD sun.lan 7.8 GENERIC.MP#83 sparc64
+
+sun# ifconfig -a
+lo0: flags=2008049<UP,LOOPBACK,RUNNING,MULTICAST,LRO> mtu 32768
+        index 6 priority 0 llprio 3
+        groups: lo
+        inet6 ::1 prefixlen 128
+        inet6 fe80::1%lo0 prefixlen 64 scopeid 0x6
+        inet 127.0.0.1 netmask 0xff000000
+bge0: flags=808843<UP,BROADCAST,RUNNING,SIMPLEX,MULTICAST,AUTOCONF4> mtu 1500
+        lladdr 00:14:4f:4e:3d:f5
+        index 1 priority 0 llprio 3
+        groups: egress
+        media: Ethernet autoselect (100baseTX full-duplex,rxpause,txpause)
+        status: active
+        inet 192.168.86.43 netmask 0xffffff00 broadcast 192.168.86.255
+bge1: flags=8802<BROADCAST,SIMPLEX,MULTICAST> mtu 1500
+        lladdr 00:14:4f:4e:3d:f6
+        index 2 priority 0 llprio 3
+        media: Ethernet autoselect (none)
+        status: no carrier
+bge2: flags=8802<BROADCAST,SIMPLEX,MULTICAST> mtu 1500
+        lladdr 00:14:4f:4e:3d:f7
+        index 3 priority 0 llprio 3
+        media: Ethernet autoselect (none)
+        status: no carrier
+bge3: flags=8802<BROADCAST,SIMPLEX,MULTICAST> mtu 1500
+        lladdr 00:14:4f:4e:3d:f8
+        index 4 priority 0 llprio 3
+        media: Ethernet autoselect (none)
+        status: no carrier
+enc0: flags=0<>
+        index 5 priority 0 llprio 3
+        groups: enc
+        status: active
+pflog0: flags=141<UP,RUNNING,PROMISC> mtu 33136
+        index 7 priority 0 llprio 3
+        groups: pflog
+
+sun#

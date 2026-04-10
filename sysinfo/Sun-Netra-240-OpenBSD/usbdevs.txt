@@ -1,0 +1,4 @@
+Controller /dev/usb0:
+addr 01: 10b9:0000 Acer Labs, OHCI root hub
+	 full speed, self powered, config 1, rev 1.00
+	 driver: uhub0

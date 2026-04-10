@@ -1,0 +1,210 @@
+Domain /dev/pci0:
+ 0:2:0: Broadcom BCM5704C
+	0x0000: Vendor ID: 14e4, Product ID: 1648
+	0x0004: Command: 0046, Status: 02b0
+	0x0008:	Class: 02 Network, Subclass: 00 Ethernet,
+		Interface: 00, Revision: 00
+	0x000c: BIST: 00, Header Type: 80, Latency Timer: f8,
+		Cache Line Size: 10
+	0x0010: BAR mem 64bit addr: 0x0000000000200000/0x00010000
+	0x0018: BAR empty (00000000)
+	0x001c: BAR empty (00000000)
+	0x0020: BAR empty (00000000)
+	0x0024: BAR empty (00000000)
+	0x0028: Cardbus CIS: 00000000
+	0x002c: Subsystem Vendor ID: 14e4 Product ID: 1648
+	0x0030: Expansion ROM Base Address: daff0000
+	0x0038: 00000000
+	0x003c: Interrupt Pin: 01 Line: fd Min Gnt: 40 Max Lat: 00
+	0x0040: Capability 0x07: PCI-X
+	0x0048: Capability 0x01: Power Management
+		State: D0
+	0x0050: Capability 0x03: Vital Product Data (VPD)
+	0x0058: Capability 0x05: Message Signalled Interrupts (MSI)
+		Enabled: no; 8 vectors (1 enabled)
+ 0:2:1: Broadcom BCM5704C
+	0x0000: Vendor ID: 14e4, Product ID: 1648
+	0x0004: Command: 0046, Status: 02b0
+	0x0008:	Class: 02 Network, Subclass: 00 Ethernet,
+		Interface: 00, Revision: 00
+	0x000c: BIST: 00, Header Type: 80, Latency Timer: f8,
+		Cache Line Size: 10
+	0x0010: BAR mem 64bit addr: 0x0000000000400000/0x00010000
+	0x0018: BAR empty (00000000)
+	0x001c: BAR empty (00000000)
+	0x0020: BAR empty (00000000)
+	0x0024: BAR empty (00000000)
+	0x0028: Cardbus CIS: 00000000
+	0x002c: Subsystem Vendor ID: 14e4 Product ID: 1648
+	0x0030: Expansion ROM Base Address: ff6e0000
+	0x0038: 00000000
+	0x003c: Interrupt Pin: 02 Line: ce Min Gnt: 40 Max Lat: 00
+	0x0040: Capability 0x07: PCI-X
+	0x0048: Capability 0x01: Power Management
+		State: D0
+	0x0050: Capability 0x03: Vital Product Data (VPD)
+	0x0058: Capability 0x05: Message Signalled Interrupts (MSI)
+		Enabled: no; 8 vectors (1 enabled)
+Domain /dev/pci1:
+ 0:6:0: Acer Labs M7101 Power
+	0x0000: Vendor ID: 10b9, Product ID: 7101
+	0x0004: Command: 0000, Status: 0200
+	0x0008:	Class: 00 Prehistoric, Subclass: 00 Miscellaneous,
+		Interface: 00, Revision: 00
+	0x000c: BIST: 00, Header Type: 00, Latency Timer: 00,
+		Cache Line Size: 00
+	0x0010: BAR empty (00000000)
+	0x0014: BAR empty (00000000)
+	0x0018: BAR empty (00000000)
+	0x001c: BAR empty (00000000)
+	0x0020: BAR empty (00000000)
+	0x0024: BAR empty (00000000)
+	0x0028: Cardbus CIS: 00000000
+	0x002c: Subsystem Vendor ID: 0000 Product ID: 0000
+	0x0030: Expansion ROM Base Address: 00000000
+	0x0038: 00000000
+	0x003c: Interrupt Pin: 00 Line: 00 Min Gnt: 00 Max Lat: 00
+ 0:7:0: Acer Labs M1533 ISA
+	0x0000: Vendor ID: 10b9, Product ID: 1533
+	0x0004: Command: 004f, Status: 0210
+	0x0008:	Class: 06 Bridge, Subclass: 01 ISA,
+		Interface: 00, Revision: 00
+	0x000c: BIST: 00, Header Type: 00, Latency Timer: 00,
+		Cache Line Size: 00
+	0x0010: BAR empty (00000000)
+	0x0014: BAR empty (00000000)
+	0x0018: BAR empty (00000000)
+	0x001c: BAR empty (00000000)
+	0x0020: BAR empty (00000000)
+	0x0024: BAR empty (00000000)
+	0x0028: Cardbus CIS: 00000000
+	0x002c: Subsystem Vendor ID: 0000 Product ID: 0000
+	0x0030: Expansion ROM Base Address: 00000000
+	0x0038: 00000000
+	0x003c: Interrupt Pin: 00 Line: 00 Min Gnt: 00 Max Lat: 00
+	0x00a0: Capability 0x01: Power Management
+		State: D0
+ 0:10:0: Acer Labs M5237 USB
+	0x0000: Vendor ID: 10b9, Product ID: 5237
+	0x0004: Command: 0046, Status: 0290
+	0x0008:	Class: 0c Serial Bus, Subclass: 03 USB,
+		Interface: 10, Revision: 03
+	0x000c: BIST: 00, Header Type: 00, Latency Timer: 40,
+		Cache Line Size: 00
+	0x0010: BAR mem 32bit addr: 0x01000000/0x00001000
+	0x0014: BAR empty (00000000)
+	0x0018: BAR empty (00000000)
+	0x001c: BAR empty (00000000)
+	0x0020: BAR empty (00000000)
+	0x0024: BAR empty (00000000)
+	0x0028: Cardbus CIS: 00000000
+	0x002c: Subsystem Vendor ID: 0000 Product ID: 0000
+	0x0030: Expansion ROM Base Address: 00000000
+	0x0038: 00000000
+	0x003c: Interrupt Pin: 01 Line: 00 Min Gnt: 00 Max Lat: 50
+	0x0060: Capability 0x01: Power Management
+		State: D0
+ 0:13:0: Acer Labs M5229 IDE
+	0x0000: Vendor ID: 10b9, Product ID: 5229
+	0x0004: Command: 0045, Status: 0290
+	0x0008:	Class: 01 Mass Storage, Subclass: 01 IDE,
+		Interface: ef, Revision: c4
+	0x000c: BIST: 00, Header Type: 00, Latency Timer: 40,
+		Cache Line Size: 00
+	0x0010: BAR io addr: 0x00000900/0x0008
+	0x0014: BAR io addr: 0x00000918/0x0004
+	0x0018: BAR io addr: 0x00000910/0x0008
+	0x001c: BAR io addr: 0x00000908/0x0004
+	0x0020: BAR io addr: 0x00000920/0x0010
+	0x0024: BAR empty (00000000)
+	0x0028: Cardbus CIS: 00000000
+	0x002c: Subsystem Vendor ID: 0000 Product ID: 0000
+	0x0030: Expansion ROM Base Address: 00000000
+	0x0038: 00000000
+	0x003c: Interrupt Pin: 01 Line: 00 Min Gnt: 02 Max Lat: 04
+	0x0060: Capability 0x01: Power Management
+		State: D0
+Domain /dev/pci2:
+ 0:2:0: Symbios Logic 53c1010-66
+	0x0000: Vendor ID: 1000, Product ID: 0021
+	0x0004: Command: 0147, Status: 0230
+	0x0008:	Class: 01 Mass Storage, Subclass: 00 SCSI,
+		Interface: 00, Revision: 01
+	0x000c: BIST: 00, Header Type: 80, Latency Timer: ff,
+		Cache Line Size: 10
+	0x0010: BAR io addr: 0x00000900/0x0100
+	0x0014: BAR mem 64bit addr: 0x0000000000100000/0x00000400
+	0x001c: BAR mem 64bit addr: 0x0000000000102000/0x00002000
+	0x0024: BAR empty (00000000)
+	0x0028: Cardbus CIS: 00000000
+	0x002c: Subsystem Vendor ID: 1000 Product ID: 1000
+	0x0030: Expansion ROM Base Address: 00000000
+	0x0038: 00000000
+	0x003c: Interrupt Pin: 01 Line: 00 Min Gnt: 11 Max Lat: 12
+	0x0040: Capability 0x01: Power Management
+		State: D0
+ 0:2:1: Symbios Logic 53c1010-66
+	0x0000: Vendor ID: 1000, Product ID: 0021
+	0x0004: Command: 0147, Status: 0230
+	0x0008:	Class: 01 Mass Storage, Subclass: 00 SCSI,
+		Interface: 00, Revision: 01
+	0x000c: BIST: 00, Header Type: 80, Latency Timer: ff,
+		Cache Line Size: 10
+	0x0010: BAR io addr: 0x00000a00/0x0100
+	0x0014: BAR mem 64bit addr: 0x0000000000104000/0x00000400
+	0x001c: BAR mem 64bit addr: 0x0000000000106000/0x00002000
+	0x0024: BAR empty (00000000)
+	0x0028: Cardbus CIS: 00000000
+	0x002c: Subsystem Vendor ID: 1000 Product ID: 1000
+	0x0030: Expansion ROM Base Address: 00000000
+	0x0038: 00000000
+	0x003c: Interrupt Pin: 02 Line: 00 Min Gnt: 11 Max Lat: 12
+	0x0040: Capability 0x01: Power Management
+		State: D0
+Domain /dev/pci3:
+ 0:2:0: Broadcom BCM5704C
+	0x0000: Vendor ID: 14e4, Product ID: 1648
+	0x0004: Command: 0046, Status: 02b0
+	0x0008:	Class: 02 Network, Subclass: 00 Ethernet,
+		Interface: 00, Revision: 00
+	0x000c: BIST: 00, Header Type: 80, Latency Timer: f8,
+		Cache Line Size: 10
+	0x0010: BAR mem 64bit addr: 0x0000000000200000/0x00010000
+	0x0018: BAR empty (00000000)
+	0x001c: BAR empty (00000000)
+	0x0020: BAR empty (00000000)
+	0x0024: BAR empty (00000000)
+	0x0028: Cardbus CIS: 00000000
+	0x002c: Subsystem Vendor ID: 14e4 Product ID: 1648
+	0x0030: Expansion ROM Base Address: 7f620000
+	0x0038: 00000000
+	0x003c: Interrupt Pin: 01 Line: f4 Min Gnt: 40 Max Lat: 00
+	0x0040: Capability 0x07: PCI-X
+	0x0048: Capability 0x01: Power Management
+		State: D0
+	0x0050: Capability 0x03: Vital Product Data (VPD)
+	0x0058: Capability 0x05: Message Signalled Interrupts (MSI)
+		Enabled: no; 8 vectors (1 enabled)
+ 0:2:1: Broadcom BCM5704C
+	0x0000: Vendor ID: 14e4, Product ID: 1648
+	0x0004: Command: 0046, Status: 02b0
+	0x0008:	Class: 02 Network, Subclass: 00 Ethernet,
+		Interface: 00, Revision: 00
+	0x000c: BIST: 00, Header Type: 80, Latency Timer: f8,
+		Cache Line Size: 10
+	0x0010: BAR mem 64bit addr: 0x0000000000400000/0x00010000
+	0x0018: BAR empty (00000000)
+	0x001c: BAR empty (00000000)
+	0x0020: BAR empty (00000000)
+	0x0024: BAR empty (00000000)
+	0x0028: Cardbus CIS: 00000000
+	0x002c: Subsystem Vendor ID: 14e4 Product ID: 1648
+	0x0030: Expansion ROM Base Address: efe10000
+	0x0038: 00000000
+	0x003c: Interrupt Pin: 02 Line: 7e Min Gnt: 40 Max Lat: 00
+	0x0040: Capability 0x07: PCI-X
+	0x0048: Capability 0x01: Power Management
+		State: D0
+	0x0050: Capability 0x03: Vital Product Data (VPD)
+	0x0058: Capability 0x05: Message Signalled Interrupts (MSI)
+		Enabled: no; 8 vectors (1 enabled)

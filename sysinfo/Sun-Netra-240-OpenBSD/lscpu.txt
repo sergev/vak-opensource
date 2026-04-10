@@ -1,0 +1,6 @@
+Architecture:            sparc64
+Byte Order:              Big Endian
+Active CPU(s):           2
+Total CPU(s):            2
+Model name:              SUNW,UltraSPARC-IIIi (rev 3.4) @ 1503 MHz
+CPU MHz:                 1503

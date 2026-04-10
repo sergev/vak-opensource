@@ -1,0 +1,20 @@
+00:02.0 Ethernet controller: Broadcom Inc. and subsidiaries NetXtreme BCM5704 Gigabit Ethernet
+	Subsystem: Broadcom Inc. and subsidiaries NetXtreme BCM5704 Gigabit Ethernet
+	Flags: bus master, 66MHz, medium devsel, latency 248, IRQ 000000fd
+	Memory at 00200000 (64-bit, non-prefetchable)
+	Expansion ROM at daff0000 [disabled]
+	Capabilities: [40] PCI-X non-bridge device
+	Capabilities: [48] Power Management version 2
+	Capabilities: [50] Vital Product Data
+	Capabilities: [58] MSI: Enable- Count=1/8 Maskable- 64bit+
+
+00:02.1 Ethernet controller: Broadcom Inc. and subsidiaries NetXtreme BCM5704 Gigabit Ethernet
+	Subsystem: Broadcom Inc. and subsidiaries NetXtreme BCM5704 Gigabit Ethernet
+	Flags: bus master, 66MHz, medium devsel, latency 248, IRQ 000000ce
+	Memory at 00400000 (64-bit, non-prefetchable)
+	Expansion ROM at ff6e0000 [disabled]
+	Capabilities: [40] PCI-X non-bridge device
+	Capabilities: [48] Power Management version 2
+	Capabilities: [50] Vital Product Data
+	Capabilities: [58] MSI: Enable- Count=1/8 Maskable- 64bit+
+
