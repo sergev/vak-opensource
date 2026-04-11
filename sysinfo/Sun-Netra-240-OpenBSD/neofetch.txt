@@ -1,0 +1,11 @@
+vak@sun.lan 
+----------- 
+OS: OpenBSD 7.8 sparc64 
+Host: Sun SUNW,Netra-240 
+Uptime: 3 hours, 24 mins 
+Packages: 56 (pkg_info) 
+Shell: bash 5.3.3 
+Terminal: /dev/ttyp0 
+CPU: SUNW,UltraSPARC-IIIi (rev (2) @ 1.503GHz 
+Memory: 53MiB / 8192MiB 
+
