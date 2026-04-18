@@ -1,9 +1,10 @@
-# Spigot π on x86_64
+# Spigot π (x86_64 and OpenBSD sparc64)
 
-This repository contains small **position-by-position** (spigot-style) programs that print decimal digits of π. They implement the same core recurrence as the classic C exposition in Ben Lynn’s notes ([Computing Pi in C](https://crypto.stanford.edu/pbc/notes/pi/code.html)), itself based on Dik T. Winter’s tiny program. Two executables are provided:
+This repository contains small **position-by-position** (spigot-style) programs that print decimal digits of π. They implement the same core recurrence as the classic C exposition in Ben Lynn’s notes ([Computing Pi in C](https://crypto.stanford.edu/pbc/notes/pi/code.html)), itself based on Dik T. Winter’s tiny program. Three executables are provided:
 
 - **`pi-linux64`** — [FASM](https://flatassembler.net/) source [pi-linux64.asm](pi-linux64.asm), Linux x86_64 ELF64, uses Linux system calls.
 - **`pi-macos64`** — [NASM](https://www.nasm.us/) source [pi-macos64.asm](pi-macos64.asm), macOS x86_64 Mach-O, built via [Makefile](Makefile); uses BSD-style system call numbers on macOS.
+- **`pi-sparc64-openbsd`** — GNU assembler source [pi-sparc64-openbsd.S](pi-sparc64-openbsd.S), OpenBSD **sparc64** static ELF, OpenBSD system calls via `ta 0`; build on an OpenBSD/sparc64 host with **`make sparc64-openbsd`** (see [Building and running](#building-and-running)).
 
 Full background on the π-spigot benchmark rules and historical results is on litwr’s page: [π spigot benchmark](https://litwr2.github.io/pi/pi-spigot-benchmark.html).
 
@@ -133,7 +134,7 @@ adjusts **`edi`** (the running **`d`**) so that the narrow **multiply/divide** p
 
 ### Output: `PR0000` and `write`
 
-**`PR0000`** converts the 16-bit value in **`cx`** (the four-digit group to print) into **four ASCII digits** at **`wb`** via repeated subtraction (thousands, hundreds, tens, ones). The program then issues a **`write`** of **4** bytes to **standard output** — Linux: syscall **1** (`write`) with `rdi = 1`; macOS: **`0x2000004`** in `rax` with the same argument registers.
+**`PR0000`** converts the 16-bit value in **`cx`** (the four-digit group to print) into **four ASCII digits** at **`wb`** via repeated subtraction (thousands, hundreds, tens, ones). The program then issues a **`write`** of **4** bytes to **standard output** — Linux: syscall **1** (`write`) with `rdi = 1`; macOS: **`0x2000004`** in `rax` with the same argument registers; OpenBSD sparc64: **`SYS_write`** with **`%o0 = 1`**, **`%o1`** pointing at **`wb`**, **`%o2 = 4`**, then **`ta 0`**.
 
 ### Linux vs macOS
 
@@ -144,6 +145,15 @@ adjusts **`edi`** (the running **`d`**) so that the narrow **multiply/divide** p
 | `ra` addressing | `movzx` / `mov` with `[rsi+ra]` | **`lea r8, [rel ra]`** then `[r8+rsi]` (Mach-O disallows the Linux-style absolute index encoding) |
 | `write` | `rax = 1`, `syscall` | `rax = 0x2000004`, `syscall` |
 | `exit` | `rax = 60`, `syscall` | `rax = 0x2000001`, `syscall` |
+
+### OpenBSD sparc64 ([pi-sparc64-openbsd.S](pi-sparc64-openbsd.S))
+
+| Topic | Notes |
+|-------|--------|
+| Toolchain | **GNU `as`** (OpenBSD): preprocess with **`cc -E`**, then assemble from stdin; link with **`ld -static -nopie`** (see [Makefile](Makefile) target **`sparc64-openbsd`**). |
+| Syscalls | OpenBSD: load **`SYS_write`** / **`SYS_exit`** into **`%g1`**, arguments in **`%o0`–`%o5`**, trap **`ta 0`**. The object includes **`.note.openbsd.ident`** and **`.openbsd.syscalls`** so the static linker records syscall sites (same pattern as [demo-sparc64-openbsd.S](demo-sparc64-openbsd.S)). |
+| Arithmetic | 16-bit residues use **`lduh`** / **`sth`**; **64×32** division uses **`umul`**, **`Y`**, **`udiv`**, and subtract-with-borrow for the remainder. After each multiply-add into the running `d`, the code updates **`%l1`** like x86 **`mov edi, eax`** before the divide so the **`.l4`** correction matches the narrow fixed-width path. |
+| Addresses | 64-bit absolute addresses use **`setx sym, temp, reg`** (do not use **`%g0`** as the `setx` scratch register). |
 
 ---
 
@@ -177,6 +187,22 @@ On **Apple Silicon**, build an **x86_64** binary under Rosetta:
 ```bash
 make ARCH_PREFIX='arch -x86_64'
 arch -x86_64 time ./pi-macos64
+```
+
+### OpenBSD (sparc64)
+
+Build and run **on OpenBSD/sparc64** (cross-assembling from another OS is not covered here):
+
+```bash
+make sparc64-openbsd
+time ./pi-sparc64-openbsd
+```
+
+Equivalent steps without `make`:
+
+```bash
+cc -E pi-sparc64-openbsd.S | as -o pi-sparc64-openbsd.o -
+ld -static -nopie pi-sparc64-openbsd.o -o pi-sparc64-openbsd
 ```
 
 ---

@@ -15,7 +15,12 @@ CLANG    := $(ARCH_PREFIX) clang
 NASMFLAGS := -f macho64
 LDFLAGS   := -nostdlib -static -Wl,-e,_start
 
-.PHONY: all clean run
+# OpenBSD sparc64 (build only on that host; see pi-sparc64-openbsd.S).
+SPARC_ASM  := pi-sparc64-openbsd.S
+SPARC_OBJ  := pi-sparc64-openbsd.o
+SPARC_BIN  := pi-sparc64-openbsd
+
+.PHONY: all clean run sparc64-openbsd
 
 all: $(BIN)
 
@@ -26,7 +31,15 @@ $(BIN): $(OBJ)
 	$(CLANG) $(LDFLAGS) -o $(BIN) $(OBJ)
 
 clean:
-	rm -f $(OBJ) $(BIN)
+	rm -f $(OBJ) $(BIN) $(SPARC_OBJ) $(SPARC_BIN)
 
 run: $(BIN)
 	time ./$(BIN)
+
+sparc64-openbsd: $(SPARC_BIN)
+
+$(SPARC_OBJ): $(SPARC_ASM)
+	cc -E $(SPARC_ASM) | as -o $(SPARC_OBJ) -
+
+$(SPARC_BIN): $(SPARC_OBJ)
+	ld -static -nopie $(SPARC_OBJ) -o $(SPARC_BIN)
