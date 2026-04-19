@@ -21,4 +21,4 @@ _start:
 
 section .rodata
 message:
-	db "Hello world!", 0xa
+	db "Hello world!", 10
