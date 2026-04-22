@@ -1,0 +1,66 @@
+#!/usr/bin/env expect -f
+# Coordinated feed/plant matching scripts/hamurabi_sim.py (impeachment-aware).
+set timeout -1
+#cd [file dirname [info script]]/..
+spawn hamurabi
+
+proc would_impeach {p q} {
+    set fed [expr {$q / 20}]
+    if {$p < $fed} { return 0 }
+    set d [expr {$p - $fed}]
+    return [expr {$d > 0.45 * $p}]
+}
+
+proc min_feed_avoid {p} {
+    for {set q 0} {$q < 20 * $p + 300} {incr q} {
+        if {![would_impeach $p $q]} { return $q }
+    }
+    return [expr {20 * $p}]
+}
+
+proc plan_year {acres p store} {
+    set need [min_feed_avoid $p]
+    set capl [expr {min($acres, 10 * $p - 1, 2 * $store)}]
+    for {set dt $capl} {$dt >= 0} {incr dt -1} {
+        set sd [expr {$dt / 2}]
+        set cap [expr {$store - $sd}]
+        set fd [expr {min(20 * $p, $cap)}]
+        if {$fd < $need} { set fd $cap }
+        if {[would_impeach $p $fd]} { continue }
+        if {$sd + $fd <= $store} { return [list $fd $dt] }
+    }
+    set fd [expr {min($store, 20 * $p)}]
+    return [list $fd 0]
+}
+
+for {set year 1} {$year <= 10} {incr year} {
+    expect {
+        "national fink" { exit 1 }
+        -re {Population is now (\d+)}
+    }
+    set p $expect_out(1,string)
+    expect -re {The city now owns (\d+) acres}
+    set acres $expect_out(1,string)
+    expect -re {You now have (\d+) bushels in store}
+    set s $expect_out(1,string)
+    expect -re {Land is trading at (\d+) bushels per acre}
+    expect "buy"
+    send "0\r"
+    expect "sell"
+    send "0\r"
+    expect "feed"
+    foreach {feed maxp} [plan_year $acres $p $s] break
+    send "$feed\r"
+    expect "plant"
+    send "$maxp\r"
+    if {$year == 10} {
+        expect {
+            "So long for now" {}
+            "In your 10-year term" {}
+            "national fink" { exit 1 }
+        }
+        expect eof
+        exit 0
+    }
+}
+exit 1
