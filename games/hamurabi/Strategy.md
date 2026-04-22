@@ -1,6 +1,6 @@
 # Hamurabi strategy guide
 
-This document summarizes the rules implemented in [`hamurabi.c`]([hamurabi.c](https://gitlab.com/esr/hamurabi/-/blob/master/hamurabi.c)) (Eric S. Raymond’s interlinear port of the 1973 BASIC game), explains how randomness affects play, and recommends a practical policy supported by Monte Carlo simulation.
+This document summarizes the rules implemented in [hamurabi.c](https://gitlab.com/esr/hamurabi/-/blob/master/hamurabi.c) (Eric S. Raymond’s interlinear port of the 1973 BASIC game), explains how randomness affects play, and recommends a practical policy supported by Monte Carlo simulation.
 
 The game is heavily random: there is **no** sequence of inputs that guarantees the best ending every time. The goal is to **maximize the chance** of surviving ten years without impeachment and to land in the top scoring tier when luck cooperates.
 
@@ -10,7 +10,7 @@ The game is heavily random: there is **no** sequence of inputs that guarantees t
 
 Each turn the adviser prints a report, then you choose **land trade**, **feeding**, and **planting**, then the game resolves **harvest**, **rats**, **immigration**, and sets the **plague flag** for the *next* report.
 
-Initial values are set at lines 157–167 in [`hamurabi.c`]([hamurabi.c](https://gitlab.com/esr/hamurabi/-/blob/master/hamurabi.c)): population `p = 95`, grain `s = 2800`, last harvest display uses `y = 3` bushels per acre, acres `a = h / y` with `h = 3000`, immigrants `i = 5`, plague gate `q = 1` (so the first year does not start with a plague halving).
+Initial values are set at lines 157–167 in [hamurabi.c](https://gitlab.com/esr/hamurabi/-/blob/master/hamurabi.c): population `p = 95`, grain `s = 2800`, last harvest display uses `y = 3` bushels per acre, acres `a = h / y` with `h = 3000`, immigrants `i = 5`, plague gate `q = 1` (so the first year does not start with a plague halving).
 
 ### 1. Land price and trading
 
