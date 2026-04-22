@@ -1,6 +1,6 @@
 # Hamurabi strategy guide
 
-This document summarizes the rules implemented in [`hamurabi.c`](hamurabi.c) (Eric S. Raymond’s interlinear port of the 1973 BASIC game), explains how randomness affects play, and recommends a practical policy supported by Monte Carlo simulation.
+This document summarizes the rules implemented in [`hamurabi.c`]([hamurabi.c](https://gitlab.com/esr/hamurabi/-/blob/master/hamurabi.c)) (Eric S. Raymond’s interlinear port of the 1973 BASIC game), explains how randomness affects play, and recommends a practical policy supported by Monte Carlo simulation.
 
 The game is heavily random: there is **no** sequence of inputs that guarantees the best ending every time. The goal is to **maximize the chance** of surviving ten years without impeachment and to land in the top scoring tier when luck cooperates.
 
@@ -10,7 +10,7 @@ The game is heavily random: there is **no** sequence of inputs that guarantees t
 
 Each turn the adviser prints a report, then you choose **land trade**, **feeding**, and **planting**, then the game resolves **harvest**, **rats**, **immigration**, and sets the **plague flag** for the *next* report.
 
-Initial values are set at lines 157–167 in [`hamurabi.c`](hamurabi.c): population `p = 95`, grain `s = 2800`, last harvest display uses `y = 3` bushels per acre, acres `a = h / y` with `h = 3000`, immigrants `i = 5`, plague gate `q = 1` (so the first year does not start with a plague halving).
+Initial values are set at lines 157–167 in [`hamurabi.c`]([hamurabi.c](https://gitlab.com/esr/hamurabi/-/blob/master/hamurabi.c)): population `p = 95`, grain `s = 2800`, last harvest display uses `y = 3` bushels per acre, acres `a = h / y` with `h = 3000`, immigrants `i = 5`, plague gate `q = 1` (so the first year does not start with a plague halving).
 
 ### 1. Land price and trading
 
@@ -90,8 +90,6 @@ The game always asks for **feeding before planting**. A naive approach is “fee
 3. **Survival:** whenever possible, choose `q` high enough that `fed = INT(q / 20)` avoids impeachment (`d_starve <= 0.45 * p`). When grain is insufficient to feed everyone, prioritize **minimum safe feeding** before spending on seed.
 4. **Objective:** among feasible pairs `(q, d)`, prefer **larger `d`** when it still allows safe feeding—planted acres drive expected harvest (`d` times mean yield 3).
 
-The reference implementation of this idea is `feed_and_plant_coordinated()` in [`scripts/hamurabi_sim.py`](scripts/hamurabi_sim.py): it binary-searches the **largest** plantable acreage such that feeding can be set (up to `20 * p` per person if affordable) without triggering the impeachment inequality, when possible.
-
 ### B. Land trading
 
 Monte Carlo over **80 000** distinct `srand(seed)` runs (same `rand()` model as the C binary on this platform) compared:
@@ -118,9 +116,7 @@ If you trade manually, keep a **large cushion**: never buy so much that the next
 
 | Script | Purpose |
 |--------|---------|
-| [`scripts/hamurabi_sim.py`](scripts/hamurabi_sim.py) | Monte Carlo / exact-formula simulator using libc `rand` / `srand`. |
-| [`scripts/play_binary_pexpect.py`](scripts/play_binary_pexpect.py) | Drives the real `./hamurabi` binary using **pexpect** and the coordinated plan. If expect stalls, raise `child.maxread` (large status lines can fill the default buffer). |
-| [`scripts/one_game.expect`](scripts/one_game.expect) | Expect-based driver (same style of policy in Tcl). |
+| [`one_game.expect`](one_game.expect) | Drives the `hamurabi` binary using **pexpect** and the coordinated plan. |
 
 ---
 
