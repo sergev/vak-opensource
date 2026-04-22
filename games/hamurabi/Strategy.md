@@ -1,129 +1,130 @@
-# Hamurabi strategy guide (current bot)
+# Hamurabi strategy guide (scenario-search policy)
 
-This guide documents the strategy currently implemented in `one_game.py`.
-It focuses on practical decision rules used by the bot, not source-level
-internals of the original game implementation.
+This document describes the strategy implemented in `one_game.py`. The game is
+stochastic, so no policy can guarantee a fixed outcome on every seed. The bot is
+tuned for a **balanced** objective:
 
-The game is stochastic, so there is no guaranteed perfect sequence. The goal
-is to maximize survival reliability (avoid impeachment), while still planting
-enough to keep long-term grain and land-per-person healthy.
+1. **Land quality:** keep a credible path to finishing at **`>= 10 acres/person`**
+   (and avoid selling below that baseline except where the rules force trade-offs).
+2. **Human cost:** keep starvation low and heavily penalize **large** death counts
+   relative to population.
 
-## Strategy goals
+Stated goals in the intro are ordered that way; the rank tuple below encodes the
+same priorities (land signals first, then death severity, then finer risk metrics).
 
-Each year the bot optimizes three priorities, in order:
+## Rule timing that drives strategy
 
-1. Avoid immediate impeachment risk from starvation.
-2. Maintain strong food coverage (close to full rations when possible).
-3. Plant as much as possible without creating dangerous food shortfalls.
+The order in `hamurabi.c` matters for planning:
 
-## Core constraints the bot always respects
+- You choose **buy / sell**, then **feed**, then **plant** from the state shown at
+  the start of the year.
+- **Harvest** and **rats** then change grain in store.
+- **Immigration** depends on the new `(acres, store, population)` after that.
+- **Plague** may halve population before the next year’s report.
 
-- Feeding effectiveness is `feed // 20` people.
-- Impeachment happens if more than `45%` of population starves in one year.
-- Planting must satisfy:
-  - `plant <= acres`
-  - `plant < 10 * population`
-  - `plant // 2 <= grain_after_trade`
+Because randomness happens **after** your inputs, the planner scores each candidate
+across many synthetic next-year outcomes instead of trusting a single point estimate.
 
-## Decision pipeline per year
+## Core constants (per year)
 
-The improved policy computes one coordinated decision:
+These mirror the bot’s internal targets (see `plan_year` in `one_game.py`):
 
-`Decision(buy, sell, feed, plant, reserve, note)`
+- `need` — minimum bushels to feed so impeachment is avoided (`>45%` starvation rule).
+- `full_feed = 20 * population` — feed everyone (no starvation that year).
+- `reserve_target = max(220, 4 * population)` — desired grain left after seed and
+  feed as a buffer against rats and bad harvests.
+- `acres_target` — land level the policy steers toward, usually `10 * next_pop_est`
+  where `next_pop_est` uses mid-range immigration; from **year 8 onward** the
+  target is at least `10 * population` so late-game does not undershoot the final
+  acres/person bar.
 
-based on the observed state:
+## Trade candidate generation
 
-`(acres, population, grain_store, land_price)`.
+The bot never buys and sells land in the same year (same as the game).
 
-### 1) Compute safety targets
+### Buys
 
-- `need = min_feed_avoid(population)`:
-  minimum feed that avoids impeachment if feasible.
-- `max_feed = 20 * population`:
-  full rationing.
-- `reserve_floor = max(100, 2 * population)`:
-  conservative grain cushion target.
-- `feed_target = min(max_feed, 19 * population)`:
-  high-feeding objective used during optimization.
+- Several bounded buy sizes (including fractions of `land_gap` toward
+  `acres_target`, plus population-scaled steps).
+- A buy is only added if post-purchase store remains at least
+  `full_feed + reserve_target // 2`
+  so purchases do not immediately risk impeachment.
 
-Interpretation:
-- `need` is the hard safety floor.
-- `feed_target` is the soft quality target.
-- `reserve_floor` prevents all-in behavior that causes next-year collapse.
+### Sells
 
-### 2) Conservative land trading
+Land floors (all in **acres** after the sell):
 
-The bot trades only when strongly justified:
+- **Hard floor:** `acres > population // 2` (never sell down to half an acre per
+  person in the worst case).
+- **Soft floor:** `acres > 2 * population` for some “gentler” sell candidates.
+- **Strategic floor:** `acres > 10 * population` — the policy treats **10 acres per
+  person** as the normal minimum land bank.
 
-- **Sell for food security**  
-  If `store < need + reserve_floor`, sell land to close the grain deficit:
-  `sell = min(acres // 2, ceil(deficit / price))`.
-- **Buy only with strong surplus at cheap prices**  
-  If not selling, and `price <= 17`, and grain is well above
-  `max_feed + reserve_floor + 400`, buy a bounded amount:
-  `buy = min(surplus // price, population // 2)`.
+**Emergency** means `store < full_feed`. The default sell cap is
+`acres - 10 * population` (only surplus above the strategic line). In an emergency,
+if land is **already** at or below `10 * population`, the bot **does not** try to
+sell enough for full feeding; it caps required selling toward **impeachment-safe**
+grain (`need`) instead, to avoid digging a deeper hole in acres/person.
 
-This keeps trading rare and utility-driven, rather than speculative.
+## Plant sampling
 
-### 3) Joint feed/plant optimization
+For each `(buy, sell)` option, planting levels are a **bounded sample**: zero,
+maximum legal plant, points near the boundary where seed still allows `full_feed`,
+and a coarse grid. That keeps runtime reasonable while still exploring meaningful
+feed vs plant trade-offs.
 
-After trade effects are applied, the bot evaluates all feasible planting values
-from high to low and computes corresponding feed/reserve values.
+## Scenario grid (next-year stress test)
 
-For each candidate `plant`:
+For each feasible `(buy, sell, plant, feed)` the bot aggregates over a small grid:
 
-- `seed = plant // 2`
-- `remaining = store_after_trade - seed`
-- `feed = min(feed_target, remaining)` but must satisfy `feed >= need`
-- `reserve = remaining - feed`
+- Harvest yield `1..5`
+- Rats: none, or loss `reserve // d` for `d` in `{1, 3, 5}` (odd divisors)
+- Immigration multiplier `1..5` (same formula as the game, `project_immigration`)
+- Plague on/off (halve next population or not)
 
-Candidates are scored by:
+From each scenario it tracks gaps for next-year feeding, grain vs full feed, and
+land vs `10 * next_population`, plus acres/person shortfall from 10.
 
-- favoring larger `plant` (future production),
-- favoring larger `reserve` (stability),
-- penalizing shortfall from `feed_target` and from `max_feed`.
+## Lexicographic ranking (exact tie-break order)
 
-The highest-scoring feasible candidate is chosen.
+Candidates that fail `need` or would impeach are discarded. Among survivors the
+**lower tuple wins** in this order:
 
-### 4) Safety fallback
+1. `miss_land_goal` — 1 if current post-trade acres are below `10 * population`, else 0.
+2. `projected_land_gap` — `max(0, acres_target - acres_after_trade)`.
+3. `severe_death` — 1 if deaths exceed `population // 20`, else 0.
+4. `deaths` — current-year starvation deaths.
+5. `current_land_gap` — `max(0, 10 * population - acres_after_trade)`.
+6. `short_full` — bushels short of `full_feed` if not everyone is fed.
+7. `reserve_gap` — shortfall vs `reserve_target` after seed and feed.
+8. `avg_acres_per_person_gap` — mean next-scenario gap from 10 acres/person (scaled).
+9. `worst_acres_gap` — worst-case next-scenario land shortfall vs `10 * next_pop`.
+10. `avg_death_gap` / `worst_death_gap` — next-year feedability stress.
+11. `avg_store_deficit` / `worst_store_deficit` — grain stress vs full feed.
+12. `-acres_after_trade` — prefer **more** land when earlier terms tie.
+13. `-plant` — prefer **more** planting when still tied.
 
-If no planting candidate can satisfy minimum feeding:
+So: **fix land vs the 10 line first**, then **avoid mass starvation**, then smooth
+next-year risk, then push productivity.
 
-- set `plant = 0`
-- feed as much as possible (`min(max_feed, store_after_trade)`)
+## Fallback path
 
-This fallback reduces catastrophic starvation risk in bad years.
+If no candidate from the search survives the filters, the bot uses a last-resort
+branch: sell only up to keeping at least **`10 * population` acres** when possible;
+if already at or below that line, it only sells toward **`need`** when store is
+below `need`, then feeds as much as grain allows.
 
-## Why this policy performs better
+## Endgame scoring note
 
-Compared to the previous greedy approach, the new strategy avoids two common
-failure modes:
+The C port prints term summary numbers with **one decimal** (`hamurabi.c`), which
+keeps regex parsing of “acres per person” stable for `one_game.py`.
 
-- **Over-planting with zero buffer**: old behavior often consumed nearly all
-  grain for seed/feeding, then collapsed after a bad harvest or rats.
-- **Myopic no-trade behavior**: old behavior could not convert land to food in
-  emergency years.
+## Practical expectations
 
-The current policy explicitly protects a minimum food safety level, still
-pushes planting when safe, and allows targeted land sales when survival is at
-risk.
-
-## Prompt-flow robustness note
-
-The runtime interaction now correctly handles the game’s two valid prompt paths:
-
-- if `buy == 0`: game asks `sell` then `feed`
-- if `buy > 0`: game may skip `sell` and ask `feed` directly
-
-The bot detects either prompt sequence and stays synchronized.
-
-## Practical checklist (manual play)
-
-If playing by hand with this strategy style:
-
-1. First secure anti-impeachment feeding (`need`).
-2. Keep a grain cushion (`reserve_floor`) before aggressive planting.
-3. Plant heavily only when food safety remains strong.
-4. Sell land when grain is insufficient for safe feeding; buy only when price is
-   low and grain surplus is clearly large.
-5. Never use all grain on one dimension (all food or all seed) unless forced.
+- You should see **fewer** finishes below `10 acres/person` than under a naive or
+  purely greedy policy, because land deficit and projected gap are at the top of
+  the rank tuple and selling below `10 * population` is constrained.
+- **Some** starvation may still occur in exchange for land safety; the `severe_death`
+  and `deaths` terms limit how far the bot goes in that direction.
+- Rare total failures remain possible under hostile random sequences; the doc above
+  describes intent and mechanics, not a proof of optimality.
