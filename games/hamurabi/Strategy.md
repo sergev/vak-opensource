@@ -1,130 +1,129 @@
-# Hamurabi strategy guide
+# Hamurabi strategy guide (current bot)
 
-This document summarizes the rules implemented in [hamurabi.c](https://gitlab.com/esr/hamurabi/-/blob/master/hamurabi.c) (Eric S. Raymond’s interlinear port of the 1973 BASIC game), explains how randomness affects play, and recommends a practical policy supported by Monte Carlo simulation.
+This guide documents the strategy currently implemented in `one_game.py`.
+It focuses on practical decision rules used by the bot, not source-level
+internals of the original game implementation.
 
-The game is heavily random: there is **no** sequence of inputs that guarantees the best ending every time. The goal is to **maximize the chance** of surviving ten years without impeachment and to land in the top scoring tier when luck cooperates.
+The game is stochastic, so there is no guaranteed perfect sequence. The goal
+is to maximize survival reliability (avoid impeachment), while still planting
+enough to keep long-term grain and land-per-person healthy.
 
----
+## Strategy goals
 
-## Year loop (what happens each year)
+Each year the bot optimizes three priorities, in order:
 
-Each turn the adviser prints a report, then you choose **land trade**, **feeding**, and **planting**, then the game resolves **harvest**, **rats**, **immigration**, and sets the **plague flag** for the *next* report.
+1. Avoid immediate impeachment risk from starvation.
+2. Maintain strong food coverage (close to full rations when possible).
+3. Plant as much as possible without creating dangerous food shortfalls.
 
-Initial values are set at lines 157–167 in [hamurabi.c](https://gitlab.com/esr/hamurabi/-/blob/master/hamurabi.c): population `p = 95`, grain `s = 2800`, last harvest display uses `y = 3` bushels per acre, acres `a = h / y` with `h = 3000`, immigrants `i = 5`, plague gate `q = 1` (so the first year does not start with a plague halving).
+## Core constraints the bot always respects
 
-### 1. Land price and trading
+- Feeding effectiveness is `feed // 20` people.
+- Impeachment happens if more than `45%` of population starves in one year.
+- Planting must satisfy:
+  - `plant <= acres`
+  - `plant < 10 * population`
+  - `plant // 2 <= grain_after_trade`
 
-- Each year (after the report, before questions), the price per acre is `Y = INT(10 * RND()) + 17`, so **17–26** bushels per acre (lines 203–207).
-- You are asked how many acres to **buy**. If that number is positive and affordable (`Y * buy <= s`), those acres are purchased and the game skips the sell prompt (lines 225–234).
-- If you buy **zero** acres, you are asked how many acres to **sell**. You must sell **strictly fewer** than you own (`sell < a`) (lines 235–255).
+## Decision pipeline per year
 
-### 2. Feeding
+The improved policy computes one coordinated decision:
 
-- You feed `q` bushels. The number of people who receive full rations is `fed = INT(q / 20)` (lines 360–361, starvation block uses the fed count).
-- One bushel does not partially feed a person; only whole groups of **20 bushels** count toward full rations.
+`Decision(buy, sell, feed, plant, reserve, note)`
 
-### 3. Planting
+based on the observed state:
 
-- Plant `d` acres only if `d <= a`, seed `INT(d / 2) <= s` (after paying for feeding), and **`d < 10 * p`** (strict inequality: `10 * p` acres is rejected) (lines 296–326).
-- Seed is removed before harvest: `s -= INT(d / 2)` (lines 328–329).
+`(acres, population, grain_store, land_price)`.
 
-### 4. Harvest
+### 1) Compute safety targets
 
-- Yield per acre is the first `L800()` roll: **1–5** bushels per acre (lines 331–337). Revenue `h = d * yield`.
+- `need = min_feed_avoid(population)`:
+  minimum feed that avoids impeachment if feasible.
+- `max_feed = 20 * population`:
+  full rationing.
+- `reserve_floor = max(100, 2 * population)`:
+  conservative grain cushion target.
+- `feed_target = min(max_feed, 19 * population)`:
+  high-feeding objective used during optimization.
 
-### 5. Rats
+Interpretation:
+- `need` is the hard safety floor.
+- `feed_target` is the soft quality target.
+- `reserve_floor` prevents all-in behavior that causes next-year collapse.
 
-- A second `L800()` roll `c` is drawn (lines 339–340).
-- In C, `if (INT(c / 2.0) != c / 2.0) goto L530` **skips** assigning rat loss (lines 341–344).
-- For integer `c`, that inequality holds when **`c` is odd**, so **no rats** then. When **`c` is even**, execution does **not** branch away: `E = INT(s / c)` (lines 347–348), where `s` is grain **after paying for seed**, before harvest income is added (lines 345–351).
-- Then `s = s - E + h` (line 351).
+### 2) Conservative land trading
 
-### 6. Immigration
+The bot trades only when strongly justified:
 
-- Third `L800()` roll `c` (lines 352–357):
-  `i = INT(c * (20 * a + s) / p / 100 + 1)`.
-  More land and more grain in store increase immigration.
+- **Sell for food security**  
+  If `store < need + reserve_floor`, sell land to close the grain deficit:
+  `sell = min(acres // 2, ceil(deficit / price))`.
+- **Buy only with strong surplus at cheap prices**  
+  If not selling, and `price <= 17`, and grain is well above
+  `max_feed + reserve_floor + 400`, buy a bounded amount:
+  `buy = min(surplus // price, population // 2)`.
 
-### 7. Starvation, population update, plague gate
+This keeps trading rare and utility-driven, rather than speculative.
 
-- `fed = INT(q_feed / 20)` uses the **same** `q` as feeding input for this year (lines 360–361).
-- If `p < fed`, everyone who exists can be counted as fed in the famine logic; the code jumps to `L210` (lines 366–368) without the usual `p = fed` assignment—so excess grain does not shrink population.
-- Otherwise starvers `d_starve = p - fed`. If `d_starve > 0.45 * p`, you are **impeached** immediately (lines 372–375).
-- Rolling average starvation rate `p1` is updated (lines 377–378), then `p = fed` (survivors).
-- Plague draws `q = INT(10 * (2 * RND() - 0.3))` (lines 364–365). **Next year’s** report applies halving when `q <= 0` (lines 180–187).
+### 3) Joint feed/plant optimization
 
----
+After trade effects are applied, the bot evaluates all feasible planting values
+from high to low and computes corresponding feed/reserve values.
 
-## Endgame scoring (after the year-11 report)
+For each candidate `plant`:
 
-When `z == 11`, the game prints totals and evaluates `p1` (average percent starved per year), `d1` (total deaths), and `l = a / p` (acres per person) (lines 399–410), then branches (lines 411–434):
+- `seed = plant // 2`
+- `remaining = store_after_trade - seed`
+- `feed = min(feed_target, remaining)` but must satisfy `feed >= need`
+- `reserve = remaining - feed`
 
-| Message tier | Conditions (from source) |
-|--------------|---------------------------|
-| Disaster / “national fink” text path | `p1 > 33` **or** `l < 7` (then falls into harsh wording at 565) |
-| “Heavy-handed” (Nero / Ivan) | else `p1 > 10` **or** `l < 9` |
-| “Somewhat better” | else `p1 > 3` **or** `l < 10` |
-| **“Fantastic performance”** | else (`p1 <= 3` **and** `l >= 10`) |
+Candidates are scored by:
 
-So the **best** ending needs **low average starvation** and **at least ~10 acres per person** at the end. Starting conditions imply about **10 acres per person** initially; maintaining or improving that ratio while keeping `p1` tiny is the scoring core.
+- favoring larger `plant` (future production),
+- favoring larger `reserve` (stability),
+- penalizing shortfall from `feed_target` and from `max_feed`.
 
----
+The highest-scoring feasible candidate is chosen.
 
-## Hard constraints (instant loss)
+### 4) Safety fallback
 
-- **Impeachment**: more than **45%** of the population starves in a single year (`d_starve > 0.45 * p`).
-- **Invalid commands**: negative purchases or impossible land sales are rejected with game over (labels 850 / 990).
+If no planting candidate can satisfy minimum feeding:
 
----
+- set `plant = 0`
+- feed as much as possible (`min(max_feed, store_after_trade)`)
 
-## Recommended policy
+This fallback reduces catastrophic starvation risk in bad years.
 
-### A. Feed and plant together (most important)
+## Why this policy performs better
 
-The game always asks for **feeding before planting**. A naive approach is “feed `min(s, 20 * p)` then plant with what is left.” That **starves the treasury of seed** and can force `0` planted acres after a thin year; the next year’s harvest collapses and you spiral.
+Compared to the previous greedy approach, the new strategy avoids two common
+failure modes:
 
-**Better:** decide planted acres `d` and feeding `q` jointly so that:
+- **Over-planting with zero buffer**: old behavior often consumed nearly all
+  grain for seed/feeding, then collapsed after a bad harvest or rats.
+- **Myopic no-trade behavior**: old behavior could not convert land to food in
+  emergency years.
 
-1. **Grain balance:** `INT(d / 2) + q <= s` after trading (seed plus feed cannot exceed stores).
-2. **Labor:** `d < 10 * p` and `d <= a`.
-3. **Survival:** whenever possible, choose `q` high enough that `fed = INT(q / 20)` avoids impeachment (`d_starve <= 0.45 * p`). When grain is insufficient to feed everyone, prioritize **minimum safe feeding** before spending on seed.
-4. **Objective:** among feasible pairs `(q, d)`, prefer **larger `d`** when it still allows safe feeding—planted acres drive expected harvest (`d` times mean yield 3).
+The current policy explicitly protects a minimum food safety level, still
+pushes planting when safe, and allows targeted land sales when survival is at
+risk.
 
-### B. Land trading
+## Prompt-flow robustness note
 
-Monte Carlo over **80 000** distinct `srand(seed)` runs (same `rand()` model as the C binary on this platform) compared:
+The runtime interaction now correctly handles the game’s two valid prompt paths:
 
-| Policy (planting + trading) | Impeachment rate | “Fantastic” tier (share of all trials) |
-|------------------------------|------------------|----------------------------------------|
-| Naive feed-then-plant, no trade | ~67.5% | ~21.4% |
-| Coordinated feed/plant, **no trade** | ~31.5% | ~30.0% |
-| Coordinated + buy/sell bands (cheap buy / dear sell) | ~31–46% depending on bands | **Lower** than coordinated no-trade in tested bands |
+- if `buy == 0`: game asks `sell` then `feed`
+- if `buy > 0`: game may skip `sell` and ask `feed` directly
 
-**Conclusion:** simple **band trading** (buy when price is low, sell when high) **hurt** the top-tier rate in this simulation because purchases spent grain that was needed for safe feeding and seed, and sales trimmed acres needed for `l >= 10`. The best *tested* default is **coordinated feeding and planting with no land trading**.
+The bot detects either prompt sequence and stays synchronized.
 
-If you trade manually, keep a **large cushion**: never buy so much that the next year cannot both **hit minimum safe feeding** and **fund seed** for enough acres to recover.
+## Practical checklist (manual play)
 
-### C. What you cannot control
+If playing by hand with this strategy style:
 
-- **Plague** halves population when the prior year’s plague draw `q <= 0`. You cannot prevent it; you can only keep **grain and acreage** from collapsing so badly that the next year becomes an impeachment roll.
-- **Rats** remove up to `INT(s / c)` when the second harvest-phase die `c` is **even**, with `s` measured after seeding.
-- **Yield 1–5** is uniform in expectation (mean 3). Long-run growth favors **keeping people alive and acres planted**, not betting on one lucky harvest.
-
----
-
-## Tools in this repository
-
-| Script | Purpose |
-|--------|---------|
-| [`one_game.expect`](one_game.expect) | Drives the `hamurabi` binary using **pexpect** and the coordinated plan. |
-
----
-
-## Brief “checklist” per year
-
-1. Read `p`, `a`, `s`, and land price `Y`.
-2. **Trading:** skip or be very conservative; default **no trade** scored best in simulation.
-3. **Feed + plant:** use a coordinated plan—**do not** spend all grain on food if that forces **zero** seed unless you have no alternative.
-4. Verify mentally: `INT(feed / 20)` leaves you short of impeachment; `INT(plant / 2) + feed <= s`; `plant < 10 * p`.
-
-Following that pattern maximizes your **chance** of finishing with both **low `p1`** and **healthy `l`**, which is what the code rewards as a “fantastic performance.”
+1. First secure anti-impeachment feeding (`need`).
+2. Keep a grain cushion (`reserve_floor`) before aggressive planting.
+3. Plant heavily only when food safety remains strong.
+4. Sell land when grain is insufficient for safe feeding; buy only when price is
+   low and grain surplus is clearly large.
+5. Never use all grain on one dimension (all food or all seed) unless forced.
