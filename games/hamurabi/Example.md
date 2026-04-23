@@ -21,211 +21,183 @@ You harvested 3 bushels per acre.
 The rats ate 200 bushels.
 You now have 2800 bushels in store.
 
-Land is trading at 22 bushels per acre.
-How many acres do you wish to buy? 20
-20
+Land is trading at 24 bushels per acre.
+How many acres do you wish to buy? 0
+How many acres do you wish to sell? 0
 
 How many bushels do you wish to feed your people? 2000
-2000
 
-How many acres do you wish to plant with seed? 0
-0
+How many acres do you wish to plant with seed? 800
 
 
 Hamurabi:  I beg to report to you,
-In year 2, 0 people starved, 3 came to the city,
-A horrible plague struck!  Half the people died.
-Population is now 51
-The city now owns 1020 acres.
-You harvested 4 bushels per acre.
-The rats ate 90 bushels.
-You now have 270 bushels in store.
+In year 2, 0 people starved, 9 came to the city,
+Population is now 109
+The city now owns 1000 acres.
+You harvested 2 bushels per acre.
+The rats ate 0 bushels.
+You now have 2000 bushels in store.
+
+Land is trading at 20 bushels per acre.
+How many acres do you wish to buy? 0
+How many acres do you wish to sell? 9
+
+How many bushels do you wish to feed your people? 2180
+
+How many acres do you wish to plant with seed? 0
+
+
+Hamurabi:  I beg to report to you,
+In year 3, 0 people starved, 2 came to the city,
+Population is now 111
+The city now owns 991 acres.
+You harvested 2 bushels per acre.
+The rats ate 0 bushels.
+You now have 0 bushels in store.
 
 Land is trading at 17 bushels per acre.
 How many acres do you wish to buy? 0
-0
-How many acres do you wish to sell? 255
-255
+How many acres do you wish to sell? 103
 
-How many bushels do you wish to feed your people? 1020
-1020
+How many bushels do you wish to feed your people? 1751
 
-How many acres do you wish to plant with seed? 509
-509
+How many acres do you wish to plant with seed? 0
 
 
 Hamurabi:  I beg to report to you,
-In year 3, 0 people starved, 4 came to the city,
-A horrible plague struck!  Half the people died.
-Population is now 27
-The city now owns 765 acres.
-You harvested 3 bushels per acre.
+In year 4, 24 people starved, 2 came to the city,
+Population is now 89
+The city now owns 888 acres.
+You harvested 1 bushels per acre.
 The rats ate 0 bushels.
-You now have 4858 bushels in store.
-
-Land is trading at 25 bushels per acre.
-How many acres do you wish to buy? 2
-2
-
-How many bushels do you wish to feed your people? 540
-540
-
-How many acres do you wish to plant with seed? 269
-269
-
-
-Hamurabi:  I beg to report to you,
-In year 4, 0 people starved, 39 came to the city,
-Population is now 66
-The city now owns 767 acres.
-You harvested 4 bushels per acre.
-The rats ate 0 bushels.
-You now have 5210 bushels in store.
-
-Land is trading at 17 bushels per acre.
-How many acres do you wish to buy? 33
-33
-
-How many bushels do you wish to feed your people? 1320
-1320
-
-How many acres do you wish to plant with seed? 54
-54
-
-
-Hamurabi:  I beg to report to you,
-In year 5, 0 people starved, 12 came to the city,
-A horrible plague struck!  Half the people died.
-Population is now 39
-The city now owns 800 acres.
-You harvested 4 bushels per acre.
-The rats ate 0 bushels.
-You now have 3518 bushels in store.
+You now have 0 bushels in store.
 
 Land is trading at 24 bushels per acre.
 How many acres do you wish to buy? 0
-0
-How many acres do you wish to sell? 4
-4
+How many acres do you wish to sell? 75
 
-How many bushels do you wish to feed your people? 780
-780
+How many bushels do you wish to feed your people? 1780
 
-How many acres do you wish to plant with seed? 389
-389
+How many acres do you wish to plant with seed? 0
 
 
 Hamurabi:  I beg to report to you,
-In year 6, 0 people starved, 5 came to the city,
-Population is now 44
-The city now owns 796 acres.
-You harvested 5 bushels per acre.
-The rats ate 1320 bushels.
-You now have 3265 bushels in store.
-
-Land is trading at 18 bushels per acre.
-How many acres do you wish to buy? 14
-14
-
-How many bushels do you wish to feed your people? 880
-880
-
-How many acres do you wish to plant with seed? 439
-439
-
-
-Hamurabi:  I beg to report to you,
-In year 7, 0 people starved, 13 came to the city,
-Population is now 57
-The city now owns 810 acres.
-You harvested 2 bushels per acre.
+In year 5, 0 people starved, 6 came to the city,
+A horrible plague struck!  Half the people died.
+Population is now 47
+The city now owns 813 acres.
+You harvested 1 bushels per acre.
 The rats ate 0 bushels.
-You now have 2792 bushels in store.
+You now have 20 bushels in store.
 
-Land is trading at 18 bushels per acre.
-How many acres do you wish to buy? 1
-1
+Land is trading at 20 bushels per acre.
+How many acres do you wish to buy? 0
+How many acres do you wish to sell? 66
 
-How many bushels do you wish to feed your people? 1140
-1140
+How many bushels do you wish to feed your people? 940
 
-How many acres do you wish to plant with seed? 569
-569
+How many acres do you wish to plant with seed? 0
 
 
 Hamurabi:  I beg to report to you,
-In year 8, 0 people starved, 7 came to the city,
-Population is now 64
-The city now owns 811 acres.
-You harvested 4 bushels per acre.
-The rats ate 337 bushels.
-You now have 3289 bushels in store.
+In year 6, 0 people starved, 14 came to the city,
+Population is now 61
+The city now owns 747 acres.
+You harvested 1 bushels per acre.
+The rats ate 0 bushels.
+You now have 400 bushels in store.
+
+Land is trading at 26 bushels per acre.
+How many acres do you wish to buy? 0
+How many acres do you wish to sell? 32
+
+How many bushels do you wish to feed your people? 1220
+
+How many acres do you wish to plant with seed? 0
+
+
+Hamurabi:  I beg to report to you,
+In year 7, 0 people starved, 5 came to the city,
+Population is now 66
+The city now owns 715 acres.
+You harvested 2 bushels per acre.
+The rats ate 6 bushels.
+You now have 6 bushels in store.
+
+Land is trading at 18 bushels per acre.
+How many acres do you wish to buy? 0
+How many acres do you wish to sell? 73
+
+How many bushels do you wish to feed your people? 1320
+
+How many acres do you wish to plant with seed? 0
+
+
+Hamurabi:  I beg to report to you,
+In year 8, 0 people starved, 6 came to the city,
+A horrible plague struck!  Half the people died.
+Population is now 36
+The city now owns 642 acres.
+You harvested 5 bushels per acre.
+The rats ate 0 bushels.
+You now have 0 bushels in store.
 
 Land is trading at 22 bushels per acre.
-How many acres do you wish to buy? 12
-12
+How many acres do you wish to buy? 0
+How many acres do you wish to sell? 33
 
-How many bushels do you wish to feed your people? 1280
-1280
+How many bushels do you wish to feed your people? 720
 
-How many acres do you wish to plant with seed? 639
-639
+How many acres do you wish to plant with seed? 0
 
 
 Hamurabi:  I beg to report to you,
-In year 9, 0 people starved, 7 came to the city,
-A horrible plague struck!  Half the people died.
-Population is now 35
-The city now owns 823 acres.
-You harvested 4 bushels per acre.
-The rats ate 0 bushels.
-You now have 3982 bushels in store.
+In year 9, 0 people starved, 4 came to the city,
+Population is now 40
+The city now owns 609 acres.
+You harvested 1 bushels per acre.
+The rats ate 1 bushels.
+You now have 5 bushels in store.
 
-Land is trading at 21 bushels per acre.
+Land is trading at 23 bushels per acre.
 How many acres do you wish to buy? 0
-0
-How many acres do you wish to sell? 4
-4
+How many acres do you wish to sell? 35
 
-How many bushels do you wish to feed your people? 700
-700
+How many bushels do you wish to feed your people? 800
 
-How many acres do you wish to plant with seed? 349
-349
+How many acres do you wish to plant with seed? 0
 
 
 Hamurabi:  I beg to report to you,
 In year 10, 0 people starved, 6 came to the city,
-Population is now 41
-The city now owns 819 acres.
-You harvested 3 bushels per acre.
+Population is now 46
+The city now owns 574 acres.
+You harvested 1 bushels per acre.
 The rats ate 0 bushels.
-You now have 4239 bushels in store.
+You now have 10 bushels in store.
 
-Land is trading at 20 bushels per acre.
-How many acres do you wish to buy? 20
-20
+Land is trading at 17 bushels per acre.
+How many acres do you wish to buy? 0
+How many acres do you wish to sell? 54
 
-How many bushels do you wish to feed your people? 820
-820
+How many bushels do you wish to feed your people? 920
 
-How many acres do you wish to plant with seed? 409
-409
+How many acres do you wish to plant with seed? 0
 
 
 Hamurabi:  I beg to report to you,
-In year 11, 0 people starved, 5 came to the city,
-Population is now 46
-The city now owns 839 acres.
-You harvested 3 bushels per acre.
-The rats ate 703 bushels.
-You now have 3339 bushels in store.
+In year 11, 0 people starved, 3 came to the city,
+Population is now 49
+The city now owns 520 acres.
+You harvested 1 bushels per acre.
+The rats ate 0 bushels.
+You now have 8 bushels in store.
 
-In your 10-year term of office, 0.0 percent of the
-Population starved per year on the average, i.e. a total of
-0 people died!!
+In your 10-year term of office, 2.2 percent of the
+population starved per year on the average, i.e. a total of
+24 people died!!
 You started with 10 acres per person and ended with
-18.2 acres per person.
+10.6 acres per person.
 
 A fantastic performance!!!  Charlemange, Disraeli, and
 Jefferson combined could not have done better!
