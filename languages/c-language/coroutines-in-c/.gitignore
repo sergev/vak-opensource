@@ -1,0 +1,14 @@
+# Build artifacts
+*.o
+*.obj
+*.d
+
+# The demo binaries
+/fib
+/task
+/taskc
+/taskcc
+
+# Debug symbols / macOS
+*.dSYM/
+.DS_Store
