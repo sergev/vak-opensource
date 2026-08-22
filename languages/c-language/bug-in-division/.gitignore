@@ -1,0 +1,18 @@
+# build output
+divbug
+*.o
+*.d
+*.a
+*.out
+*.dSYM/
+core
+core.*
+
+# macOS
+.DS_Store
+
+# editors
+*.swp
+*~
+.vscode/
+.idea/
