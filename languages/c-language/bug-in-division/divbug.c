@@ -3,9 +3,13 @@
  * Computer Programming", Vol. 2, section 4.3.1 (3rd edition, printings 1..52).
  *
  * Step D3 corrects the trial quotient q^ at most twice, then D4 multiplies it
- * back in as "a one-place number", i.e. uses only q^ mod b.  Theorem B allows
- * q^ = q+3, so q^ can reach b+2; two decrements leave b, still two limbs, whose
- * low limb is 0.  D4 then subtracts nothing and the quotient digit comes out 0.
+ * back in as "a one-place number", i.e. uses only q^ mod b.  Two corrections fit
+ * the book's Theorem B (q^ <= q+2), but that is proved for the saturating
+ * q^_s = min(b-1, floor((u_n*b + u_{n-1}) / v_{n-1})) of editions 1-2, as x86
+ * and MIX div compute it.  The 1995 rewrite switched D3 to the unsaturated q^
+ * and left the theorems alone; there the bound is q^ <= q+3 (Theorem B,
+ * N. Kaluderovic, 2026).  So q^ can reach b+2; two decrements leave b, still
+ * two limbs, low limb 0.  D4 subtracts nothing and the quotient digit is 0.
  *
  * Build:  cc -O2 -std=c99 -Wall -Wextra -o divbug divbug.c
  * Run:    ./divbug [odd base b, default 3]
@@ -218,8 +222,9 @@ static void ref_div(const limb *u, int ulen, const limb *v, int n, uint64_t b,
 /* Algorithm 4.3.1D                                                   */
 /* ------------------------------------------------------------------ */
 
-#define AS_PRINTED 0    /* D3's test runs at most twice, as the book words it */
-#define AS_CODED   1    /* D3's test is a while loop, as everyone implements it */
+#define AS_PRINTED   0  /* D3's test runs at most twice, as the book words it */
+#define AS_CODED     1  /* D3's test is a while loop, as everyone implements it */
+#define AS_SATURATED 2  /* editions 1-2: q^ clamped to b-1, as x86 and MIX div do */
 
 static void algo_d(const limb *u_in, int ulen, const limb *v_in, int n, uint64_t b,
                    int variant, limb *q, limb *r, int trace)
@@ -246,6 +251,17 @@ static void algo_d(const limb *u_in, int ulen, const limb *v_in, int n, uint64_t
         uint64_t rhat = num % v[n - 1];
         int corr = 0;
 
+        /* Editions 1-2: q^ = min(b-1, ...), same as the old D3's "if u_n =
+           v_{n-1}, set q^ <- b-1".  The q^ Theorem B is proved for. */
+        if (variant == AS_SATURATED && qhat >= b) {
+            if (trace)
+                printf("    D3: unsaturated q^ = %llu; the saturating div clamps"
+                       " it to b-1 = %llu\n",
+                       (unsigned long long)qhat, (unsigned long long)(b - 1));
+            qhat = b - 1;
+            rhat = num - qhat * v[n - 1];
+        }
+
         if (trace)
             printf("    D3: q^ = %llu, r^ = %llu\n",
                    (unsigned long long)qhat, (unsigned long long)rhat);
@@ -260,7 +276,7 @@ static void algo_d(const limb *u_in, int ulen, const limb *v_in, int n, uint64_t
                        corr, (unsigned long long)qhat, (unsigned long long)rhat);
             if (rhat >= b)
                 break;
-            if (variant == AS_PRINTED && corr == 2) {
+            if (variant != AS_CODED && corr == 2) {
                 if (trace)
                     printf("        (as printed: the test is not repeated a third time)\n");
                 break;
@@ -307,7 +323,8 @@ static void algo_d(const limb *u_in, int ulen, const limb *v_in, int n, uint64_t
  *
  * v is already normalised (v_{n-1} = t = floor(b/2)) and the top three limbs of
  * u are exactly v-1, so the quotient is a single limb.  The trial quotient is
- * q^ = floor((t*b + b-1)/t) = b+2, the largest Theorem B allows.
+ * q^ = floor((t*b + b-1)/t) = b+2 = q+3: the largest the corrected bound allows,
+ * and out of reach for the saturating q^_s.
  */
 static void counterexample(uint64_t b, limb *u, limb *v)
 {
@@ -356,7 +373,7 @@ static void exhaustive(uint64_t b)
 {
     const int n = 3, ulen = 4;
     limb u[8], v[8], q[8], r[8];
-    long bad_printed = 0, bad_coded = 0, cases = 0;
+    long bad_printed = 0, bad_coded = 0, bad_sat = 0, cases = 0;
 
     for (v[2] = b / 2; v[2] < b; v[2]++)            /* normalised divisor */
      for (v[1] = 0; v[1] < b; v[1]++)
@@ -374,12 +391,15 @@ static void exhaustive(uint64_t b)
                 algo_d(u, ulen, v, n, b, AS_CODED, q, r, 0);
                 if (!check(u, ulen, v, n, q, ulen, r, b))
                     bad_coded++;
+                algo_d(u, ulen, v, n, b, AS_SATURATED, q, r, 0);
+                if (!check(u, ulen, v, n, q, ulen, r, b))
+                    bad_sat++;
             }
          }
     printf("  b = %-3llu %-7s %9ld divisions   as printed: %5ld wrong   "
-           "while loop: %ld wrong\n",
+           "while loop: %ld wrong   saturating: %ld wrong\n",
            (unsigned long long)b, (b & 1) ? "(odd)" : "(even)",
-           cases, bad_printed, bad_coded);
+           cases, bad_printed, bad_coded, bad_sat);
 }
 
 /* ------------------------------------------------------------------ */
@@ -422,13 +442,20 @@ int main(int argc, char **argv)
     report(u, ulen, v, n, q, r, b);
     printf("\n");
 
+    printf("  Algorithm D with the saturating q^ = min(b-1, ...) of editions 1-2,\n"
+           "  the one Theorem B (q^ <= q+2) is proved for:\n");
+    algo_d(u, ulen, v, n, b, AS_SATURATED, q, r, 1);
+    report(u, ulen, v, n, q, r, b);
+    printf("\n");
+
     printf("The same counterexample in other odd bases:\n");
     static const uint64_t bases[] = { 3, 5, 7, 65, 2147483647 };
     for (size_t i = 0; i < sizeof bases / sizeof *bases; i++)
-        printf("  b = %-12llu as printed: %-9s while loop: %s\n",
+        printf("  b = %-12llu as printed: %-9s while loop: %-9s saturating: %s\n",
                (unsigned long long)bases[i],
                fails(bases[i], AS_PRINTED) ? "WRONG" : "correct",
-               fails(bases[i], AS_CODED) ? "WRONG" : "correct");
+               fails(bases[i], AS_CODED) ? "WRONG" : "correct",
+               fails(bases[i], AS_SATURATED) ? "WRONG" : "correct");
     printf("\n");
 
     printf("Every legal 4-by-3-limb division, exhaustively:\n");
@@ -440,6 +467,8 @@ int main(int argc, char **argv)
     exhaustive(9);
     printf("\nThe failure needs q^ = q+3 = b+2, which requires an odd base:\n"
            "v_{n-1} = u_n = (b-1)/2 and u_{n-1} = b-1.  Real machines use\n"
-           "b = 2^32 or 2^64, so the bug cannot be reached there.\n");
+           "b = 2^32 or 2^64, so the bug cannot be reached there.  Saturating q^\n"
+           "at b-1 also removes it, in any base: q^_s <= q+2, which is what the\n"
+           "two corrections of D3 handle.\n");
     return 0;
 }
